@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teklif Al | ALO YÖNETİM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f8f9ff",
+                      "surface-tint": "#0053db",
+                      "on-tertiary-container": "#ffeedd",
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#dbe1ff",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "secondary-fixed-dim": "#b8c4ff",
+                      "secondary-fixed": "#dde1ff",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#ffddb8",
+                      "primary": "#004ac6",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#d3e4fe",
+                      "on-tertiary-fixed": "#2a1700",
+                      "on-background": "#0b1c30",
+                      "outline-variant": "#c3c6d7",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-secondary-fixed-variant": "#173bab",
+                      "inverse-on-surface": "#eaf1ff",
+                      "success-green": "#24BB44",
+                      "surface-container-highest": "#d3e4fe",
+                      "tertiary": "#784b00",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "subtle-blue": "#DBEAFE",
+                      "on-secondary-container": "#00217a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#001453",
+                      "outline": "#737686",
+                      "background": "#F8FAFC",
+                      "border-light": "#E2E8F0",
+                      "secondary-container": "#708cfd",
+                      "tertiary-container": "#996100",
+                      "on-surface": "#0b1c30",
+                      "secondary": "#3755c3",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "surface-container-low": "#eff4ff",
+                      "primary-container": "#2563eb",
+                      "surface": "#FFFFFF",
+                      "inverse-surface": "#213145",
+                      "surface-dim": "#cbdbf5",
+                      "on-error-container": "#93000a",
+                      "heading-text": "#1E293B",
+                      "inverse-primary": "#b4c5ff",
+                      "surface-container-high": "#dce9ff",
+                      "surface-container": "#e5eeff",
+                      "on-surface-variant": "#434655",
+                      "on-primary-container": "#eeefff",
+                      "on-primary-fixed": "#00174b",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap-lg": "120px",
+                      "section-gap-sm": "80px",
+                      "container-max": "1280px",
+                      "stack-gap": "12px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "section-h1": [
+                              "Inter"
+                      ],
+                      "hero-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "hero-lg-mobile": [
+                              "Inter"
+                      ],
+                      "section-h2": [
+                              "Inter"
+                      ],
+                      "button-text": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.7",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.7",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "section-h1": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "hero-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "hero-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "section-h2": [
+                              "30px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button-text": [
+                              "15px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-light">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<!-- Brand -->
+<a class="text-section-h2 font-section-h2 font-bold text-primary" href="#">ALO YÖNETİM</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Hizmetler</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Hakkımızda</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Blog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Referanslar</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">İletişim</a>
+</nav>
+<!-- Trailing Action -->
+<a class="hidden md:inline-flex items-center justify-center bg-primary-container text-on-primary font-button-text text-button-text rounded-lg px-6 py-3 hover:brightness-110 transition-all duration-200 shadow-sm hover:shadow-md" href="#">
+                Teklif Alın
+            </a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow max-w-container-max mx-auto px-margin-mobile md:px-gutter w-full py-section-gap-sm">
+<!-- Header Section -->
+<div class="mb-12 text-center md:text-left">
+<h1 class="font-section-h1 text-section-h1 text-heading-text mb-4">Profesyonel Yönetim İçin Teklif Alın</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Tesisinizin veya sitenizin ihtiyaçlarına özel, şeffaf ve güvenilir yönetim çözümleri için formu doldurun. Uzman ekibimiz en kısa sürede size dönüş yapacaktır.</p>
+</div>
+<!-- Two Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+<!-- Left Column: Form (Takes up 2/3 on large screens) -->
+<div class="lg:col-span-2">
+<div class="bg-surface rounded-xl border border-border-light p-6 md:p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-300">
+<form action="#" class="space-y-6" method="POST">
+<!-- Grid for inputs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Ad Soyad -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="fullName">Ad Soyad</label>
+<input class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none" id="fullName" name="fullName" placeholder="Örn: Ahmet Yılmaz" required="" type="text"/>
+</div>
+<!-- Şirket / Site Adı -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="companyName">Şirket / Site Adı</label>
+<input class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none" id="companyName" name="companyName" placeholder="Örn: Akasya Evleri" required="" type="text"/>
+</div>
+<!-- Telefon -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="phone">Telefon Numarası</label>
+<input class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none" id="phone" name="phone" placeholder="05XX XXX XX XX" required="" type="tel"/>
+</div>
+<!-- E-posta -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="email">E-posta Adresi</label>
+<input class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none" id="email" name="email" placeholder="ornek@email.com" required="" type="email"/>
+</div>
+<!-- Hizmet Türü -->
+<div class="space-y-2 md:col-span-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="serviceType">İlgilendiğiniz Hizmet Türü</label>
+<div class="relative">
+<select class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 appearance-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none cursor-pointer" id="serviceType" name="serviceType">
+<option disabled="" selected="" value="">Lütfen bir hizmet seçin</option>
+<option value="site">Site ve Apartman Yönetimi</option>
+<option value="tesis">Tesis Yönetimi</option>
+<option value="temizlik">Profesyonel Temizlik</option>
+<option value="guvenlik">Güvenlik Hizmetleri</option>
+<option value="teknik">Teknik Bakım ve Onarım</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Site Büyüklüğü -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="size">Bağımsız Bölüm Sayısı</label>
+<div class="relative">
+<select class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 appearance-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none cursor-pointer" id="size" name="size">
+<option disabled="" selected="" value="">Seçiniz</option>
+<option value="1-50">1 - 50</option>
+<option value="51-150">51 - 150</option>
+<option value="151-500">151 - 500</option>
+<option value="500+">500+</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- İlçe -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="district">İlçe (İstanbul)</label>
+<div class="relative">
+<select class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 appearance-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none cursor-pointer" id="district" name="district">
+<option disabled="" selected="" value="">İlçe Seçiniz</option>
+<option value="kadikoy">Kadıköy</option>
+<option value="besiktas">Beşiktaş</option>
+<option value="sisli">Şişli</option>
+<option value="atasehir">Ataşehir</option>
+<option value="umraniye">Ümraniye</option>
+<option value="other">Diğer</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Mesaj -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="message">Eklemek İstedikleriniz (Opsiyonel)</label>
+<textarea class="w-full bg-surface border border-border-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none resize-none" id="message" name="message" placeholder="İhtiyaçlarınızı veya özel taleplerinizi belirtebilirsiniz..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-button-text text-button-text rounded-lg px-6 py-4 flex items-center justify-center gap-2 transition-colors duration-200 shadow-sm" type="submit">
+<span class="material-symbols-outlined">send</span>
+                            Teklif Talebini Gönder
+                        </button>
+<p class="text-sm text-outline text-center mt-4">
+                            Göndererek <a class="text-primary hover:underline" href="#">KVKK Aydınlatma Metni</a>'ni okuduğumu ve onayladığımı kabul ediyorum.
+                        </p>
+</form>
+</div>
+</div>
+<!-- Right Column: Info Cards (Takes up 1/3) -->
+<div class="space-y-6 lg:col-span-1">
+<!-- Why Choose Us Bento Card -->
+<div class="bg-surface rounded-xl border border-border-light p-6 md:p-8">
+<h3 class="font-section-h2 text-xl font-semibold text-heading-text mb-6">Neden Alo Yönetim?</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-4 pb-4 border-b border-border-light last:border-0 last:pb-0">
+<div class="bg-subtle-blue p-2 rounded-lg text-primary shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">verified_user</span>
+</div>
+<div>
+<h4 class="font-semibold text-on-surface mb-1">Şeffaf Yönetim</h4>
+<p class="text-sm text-on-surface-variant">Tüm mali tablolar ve harcamalar dijital olarak düzenli raporlanır.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 pb-4 border-b border-border-light last:border-0 last:pb-0">
+<div class="bg-subtle-blue p-2 rounded-lg text-primary shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">support_agent</span>
+</div>
+<div>
+<h4 class="font-semibold text-on-surface mb-1">7/24 Destek</h4>
+<p class="text-sm text-on-surface-variant">Acil durumlar için her an ulaşılabilir teknik ve idari destek hattı.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 pb-4 border-b border-border-light last:border-0 last:pb-0">
+<div class="bg-subtle-blue p-2 rounded-lg text-primary shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">history</span>
+</div>
+<div>
+<h4 class="font-semibold text-on-surface mb-1">Köklü Tecrübe</h4>
+<p class="text-sm text-on-surface-variant">2009'dan beri yüzlerce başarılı proje ve mutlu müşteri deneyimi.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Contact & Hours Card -->
+<div class="bg-primary-container text-on-primary rounded-xl p-6 md:p-8 shadow-lg relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+<h3 class="font-section-h2 text-xl font-semibold mb-6">Hızlı İletişim</h3>
+<div class="space-y-4 relative z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined opacity-80">call</span>
+<div>
+<p class="text-sm opacity-80 mb-1">Müşteri Hizmetleri</p>
+<p class="font-semibold text-lg">0850 555 00 00</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined opacity-80">mail</span>
+<div>
+<p class="text-sm opacity-80 mb-1">E-posta</p>
+<p class="font-semibold text-lg">info@aloyonetim.com</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/20 relative z-10">
+<h4 class="font-semibold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            Çalışma Saatleri
+                        </h4>
+<div class="space-y-2 text-sm opacity-90">
+<div class="flex justify-between">
+<span>Pazartesi - Cuma</span>
+<span>09:00 - 18:00</span>
+</div>
+<div class="flex justify-between">
+<span>Cumartesi</span>
+<span>09:00 - 13:00</span>
+</div>
+<div class="flex justify-between text-white/60">
+<span>Pazar</span>
+<span>Kapalı</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-on-background dark:bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter py-section-gap-sm grid grid-cols-1 md:grid-cols-4 gap-stack-gap">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1">
+<a class="text-section-h2 font-section-h2 font-bold text-white block mb-4" href="#">ALO YÖNETİM</a>
+<p class="text-outline-variant text-sm mb-6">Modern tesis ve site yönetimi çözümleriyle yanınızdayız.</p>
+<p class="text-outline-variant text-xs">© 2009-2024 Alo Yönetim. Tüm Hakları Saklıdır.</p>
+</div>
+<!-- Quick Links -->
+<div class="col-span-1">
+<h4 class="text-white font-semibold mb-4">Kurumsal</h4>
+<ul class="space-y-2">
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">Hakkımızda</a></li>
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">Hizmetler</a></li>
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">Referanslar</a></li>
+</ul>
+</div>
+<!-- Resources -->
+<div class="col-span-1">
+<h4 class="text-white font-semibold mb-4">Kaynaklar</h4>
+<ul class="space-y-2">
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">Blog</a></li>
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">Gizlilik Politikası</a></li>
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">KVKK</a></li>
+</ul>
+</div>
+<!-- Contact Summary -->
+<div class="col-span-1">
+<h4 class="text-white font-semibold mb-4">İletişim</h4>
+<ul class="space-y-2">
+<li><a class="text-outline-variant hover:text-white transition-colors text-sm hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary outline-none" href="#">İletişim</a></li>
+<li class="text-outline-variant text-sm mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        İstanbul, Türkiye
+                    </li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

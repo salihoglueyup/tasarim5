@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alo Yönetim - Profesyonel Site ve Tesis Yönetimi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#eeefff",
+                      "primary-fixed": "#dbe1ff",
+                      "on-error": "#ffffff",
+                      "success-green": "#24BB44",
+                      "outline-variant": "#c3c6d7",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "surface-container-high": "#dce9ff",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "on-primary-fixed": "#00174b",
+                      "outline": "#737686",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-secondary-fixed-variant": "#173bab",
+                      "surface": "#FFFFFF",
+                      "on-surface-variant": "#434655",
+                      "surface-dim": "#cbdbf5",
+                      "surface-container-highest": "#d3e4fe",
+                      "background": "#F8FAFC",
+                      "on-tertiary-fixed": "#2a1700",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#ffeedd",
+                      "inverse-primary": "#b4c5ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "subtle-blue": "#DBEAFE",
+                      "on-secondary-container": "#00217a",
+                      "secondary-container": "#708cfd",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "inverse-surface": "#213145",
+                      "secondary-fixed-dim": "#b8c4ff",
+                      "secondary": "#3755c3",
+                      "surface-container": "#e5eeff",
+                      "surface-container-low": "#eff4ff",
+                      "error": "#ba1a1a",
+                      "tertiary": "#784b00",
+                      "surface-variant": "#d3e4fe",
+                      "secondary-fixed": "#dde1ff",
+                      "error-container": "#ffdad6",
+                      "heading-text": "#1E293B",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-tint": "#0053db",
+                      "primary": "#004ac6",
+                      "primary-container": "#2563eb",
+                      "tertiary-container": "#996100",
+                      "on-error-container": "#93000a",
+                      "border-light": "#E2E8F0",
+                      "on-secondary-fixed": "#001453",
+                      "on-surface": "#0b1c30"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "stack-gap": "12px",
+                      "section-gap-sm": "80px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "section-gap-lg": "120px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "body-md": ["Inter"],
+                      "hero-lg": ["Inter"],
+                      "hero-lg-mobile": ["Inter"],
+                      "section-h1": ["Inter"],
+                      "section-h2": ["Inter"],
+                      "button-text": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                      "hero-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "hero-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "section-h1": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "section-h2": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "button-text": ["15px", {"lineHeight": "1.0", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-md dark:bg-on-background/80 sticky top-0 w-full z-50 border-b border-border-light dark:border-outline-variant flat no shadows">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<div class="text-section-h2 font-section-h2 font-bold text-primary dark:text-primary-fixed">ALO YÖNETİM</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 font-button-text text-button-text" href="#">Hizmetler</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 font-button-text text-button-text" href="#">Hakkımızda</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 font-button-text text-button-text" href="#">Blog</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 font-button-text text-button-text" href="#">Referanslar</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary-fixed transition-all duration-200 font-button-text text-button-text" href="#">İletişim</a>
+</nav>
+<a class="font-button-text text-button-text bg-primary-container text-white px-6 py-3 rounded-lg hover:brightness-110 transition-all duration-200 Active: scale-95 transition-transform hidden md:inline-block" href="#">Teklif Alın</a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-sm md:py-section-gap-lg grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps w-max">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    2009'dan beri profesyonel hizmet
+                </div>
+<h1 class="font-hero-lg-mobile text-hero-lg-mobile md:font-hero-lg md:text-hero-lg text-heading-text">Sitenizin Yönetimi Güvenli Ellerde</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Profesyonel site yönetimi, 7/24 güvenlik ve temizlik hizmetleri. Kadıköy merkezli, İstanbul genelinde hizmet veriyoruz.</p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<a class="bg-primary-container text-white font-button-text text-button-text px-8 py-4 rounded-lg text-center hover:brightness-110 transition-all" href="#">Ücretsiz Teklif Alın</a>
+<a class="bg-surface text-heading-text border border-border-light font-button-text text-button-text px-8 py-4 rounded-lg text-center hover:bg-background transition-all" href="#">Hizmetlerimizi İnceleyin</a>
+</div>
+</div>
+<div class="relative h-[400px] md:h-[600px] rounded-xl overflow-hidden shadow-sm border border-border-light">
+<img class="object-cover w-full h-full" data-alt="A striking high-end architectural photograph of a modern residential complex in Istanbul during golden hour. The building features sleek glass facades and clean geometric lines, reflecting the warm sunlight. The composition is clean and minimalistic, emphasizing trust, stability, and premium real estate management. The sky is clear, creating a bright, modern corporate aesthetic suitable for a high-end facility management brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsUr9TVPpIi3sUtYGDQqI6Ypmy13H91oHWaLU6-Y-QGJURBO3x2H502hF7pmrzH7EEcc5_O_llDNSpZDz3HllsZnvkuoKvJk8l7TAtB88AX6mKXkTFwhMGmmt5bqnfSMs0hJ5F8lplxePEllEAZTUGGmrjY5i3PkWwc2JhSXZbH28Ku_wDFKL5S6FYVMBygvLiEjWVEltb82PYNCq0EiepNhD4kcRYxzy2tk1JHXUEjBL50EgDbAqVJA"/>
+</div>
+</section>
+<!-- Trust Indicators (Stat Bar) -->
+<section class="bg-surface-variant border-y border-border-light py-12">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div class="flex flex-col gap-2">
+<span class="font-section-h2 text-section-h2 text-primary">15+</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Yıllık Deneyim</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-section-h2 text-section-h2 text-primary">50+</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Yönetilen Site</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-section-h2 text-section-h2 text-primary">7/24</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Kesintisiz Hizmet</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-section-h2 text-section-h2 text-primary">500+</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Güvenlik Personeli</span>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-sm md:py-section-gap-lg">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-section-h1 text-section-h1 text-heading-text mb-4">Kapsamlı Tesis Yönetimi</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Tek noktadan tüm yönetim ihtiyaçlarınızı karşılıyoruz.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface p-8 rounded-xl border border-border-light hover:shadow-[0_8px_30px_rgb(219,234,254,0.5)] transition-all duration-300">
+<div class="w-12 h-12 bg-subtle-blue rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">apartment</span>
+</div>
+<h3 class="font-section-h2 text-section-h2 text-heading-text mb-4">Site/Apartman Yönetimi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Hukuki, mali ve idari tüm süreçlerin profesyonel yönetimi ve şeffaf raporlanması.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface p-8 rounded-xl border border-border-light hover:shadow-[0_8px_30px_rgb(219,234,254,0.5)] transition-all duration-300">
+<div class="w-12 h-12 bg-subtle-blue rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<h3 class="font-section-h2 text-section-h2 text-heading-text mb-4">7/24 Güvenlik Hizmetleri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Özel eğitimli personel ve teknolojik altyapı ile sitenizin tam güvenliği.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface p-8 rounded-xl border border-border-light hover:shadow-[0_8px_30px_rgb(219,234,254,0.5)] transition-all duration-300">
+<div class="w-12 h-12 bg-subtle-blue rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cleaning_services</span>
+</div>
+<h3 class="font-section-h2 text-section-h2 text-heading-text mb-4">Temizlik Hizmetleri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ortak alanların düzenli ve hijyenik tutulması için profesyonel temizlik çözümleri.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary text-white py-20 px-gutter">
+<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+<h2 class="font-section-h1 text-section-h1">Siteniz İçin Ücretsiz Keşif Raporu Alın</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl">Uzman ekibimiz sitenizi ziyaret etsin, ihtiyaçlarınızı analiz edip size özel bir yönetim planı sunsun.</p>
+<a class="bg-white text-primary font-button-text text-button-text px-8 py-4 rounded-lg hover:bg-surface-container transition-all" href="#">Hemen İletişime Geçin</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-container-lowest w-full bg-on-background flat no shadows">
+<div class="max-w-container-max mx-auto px-gutter py-section-gap-sm grid grid-cols-1 md:grid-cols-4 gap-stack-gap text-on-primary dark:text-on-surface">
+<div class="flex flex-col gap-6 col-span-1 md:col-span-1">
+<div class="text-section-h2 font-section-h2 font-bold text-white">ALO YÖNETİM</div>
+<p class="font-body-md text-body-md text-outline-variant">Kadıköy merkezli, profesyonel tesis ve site yönetim hizmetleri.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-semibold font-body-lg text-body-lg">Hızlı Linkler</h4>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">Hizmetler</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">Hakkımızda</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">Blog</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-semibold font-body-lg text-body-lg">Kurumsal</h4>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">Referanslar</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">Gizlilik Politikası</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">KVKK</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-semibold font-body-lg text-body-lg">İletişim</h4>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white transition-colors hover:underline decoration-primary underline-offset-4 focus:ring-2 focus:ring-primary w-fit" href="#">İletişim</a>
+<p class="font-body-md text-body-md text-outline-variant mt-4">© 2009-2024 Alo Yönetim. Tüm Hakları Saklıdır.</p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alo Yönetim - Blog</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#0053db",
+                        "on-tertiary-container": "#ffeedd",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dbe1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "secondary-fixed-dim": "#b8c4ff",
+                        "secondary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffddb8",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-background": "#0b1c30",
+                        "outline-variant": "#c3c6d7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-secondary-fixed-variant": "#173bab",
+                        "inverse-on-surface": "#eaf1ff",
+                        "success-green": "#24BB44",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary": "#784b00",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "subtle-blue": "#DBEAFE",
+                        "on-secondary-container": "#00217a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001453",
+                        "outline": "#737686",
+                        "background": "#F8FAFC",
+                        "border-light": "#E2E8F0",
+                        "secondary-container": "#708cfd",
+                        "tertiary-container": "#996100",
+                        "on-surface": "#0b1c30",
+                        "secondary": "#3755c3",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-low": "#eff4ff",
+                        "primary-container": "#2563eb",
+                        "surface": "#FFFFFF",
+                        "inverse-surface": "#213145",
+                        "surface-dim": "#cbdbf5",
+                        "on-error-container": "#93000a",
+                        "heading-text": "#1E293B",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "on-surface-variant": "#434655",
+                        "on-primary-container": "#eeefff",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap-lg": "120px",
+                        "section-gap-sm": "80px",
+                        "container-max": "1280px",
+                        "stack-gap": "12px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "section-h1": ["Inter"],
+                        "hero-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "hero-lg-mobile": ["Inter"],
+                        "section-h2": ["Inter"],
+                        "button-text": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                        "section-h1": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "hero-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "hero-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "section-h2": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "button-text": ["15px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- Header (Shared Component) -->
+<header class="bg-surface/80 backdrop-blur-md sticky top-0 w-full z-50 border-b border-border-light flat no shadows">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<!-- Brand Logo -->
+<a class="text-section-h2 font-section-h2 font-bold text-primary" href="#">ALO YÖNETİM</a>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Hizmetler</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Hakkımızda</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-button-text text-button-text" href="#">Blog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">Referanslar</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button-text text-button-text" href="#">İletişim</a>
+</nav>
+<!-- Action Button -->
+<div class="hidden md:flex">
+<button class="bg-primary-container text-on-primary px-6 py-3 rounded-lg font-button-text text-button-text hover:brightness-110 transition-all Active: scale-95 transition-transform">
+                    Teklif Alın
+                </button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Blog Header Section -->
+<section class="py-section-gap-sm bg-surface border-b border-border-light">
+<div class="max-w-container-max mx-auto px-gutter md:px-margin-mobile text-center">
+<h1 class="font-hero-lg-mobile md:font-hero-lg text-hero-lg-mobile md:text-hero-lg text-heading-text mb-6">Blog</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Tesis yönetimi, profesyonel temizlik, güvenlik ve modern teknoloji entegrasyonu konularında sektördeki en güncel gelişmeleri, ipuçlarını ve kurumsal makaleleri keşfedin.
+                </p>
+</div>
+</section>
+<!-- Blog Content Section -->
+<section class="py-section-gap-sm max-w-container-max mx-auto px-gutter md:px-margin-mobile">
+<!-- Category Filters -->
+<div class="flex flex-wrap justify-center gap-4 mb-16">
+<button class="bg-surface-tint text-on-primary px-6 py-2 rounded-full font-button-text text-button-text shadow-sm hover:shadow-md transition-shadow border border-surface-tint">Tümü</button>
+<button class="bg-surface text-on-surface-variant px-6 py-2 rounded-full font-button-text text-button-text border border-border-light hover:bg-surface-bright hover:text-primary transition-colors">Tesis Yönetimi</button>
+<button class="bg-surface text-on-surface-variant px-6 py-2 rounded-full font-button-text text-button-text border border-border-light hover:bg-surface-bright hover:text-primary transition-colors">Güvenlik</button>
+<button class="bg-surface text-on-surface-variant px-6 py-2 rounded-full font-button-text text-button-text border border-border-light hover:bg-surface-bright hover:text-primary transition-colors">Temizlik</button>
+<button class="bg-surface text-on-surface-variant px-6 py-2 rounded-full font-button-text text-button-text border border-border-light hover:bg-surface-bright hover:text-primary transition-colors">Teknoloji</button>
+</div>
+<!-- Blog Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Blog Card 1 -->
+<article class="bg-surface border border-border-light rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern office building exterior with sleek glass facades reflecting the bright blue sky. The image has a clean, corporate, high-end commercial real estate aesthetic, suitable for a professional B2B service platform. Lighting is natural, emphasizing modern architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEOzOjgv1ykPXOiDMqTkY-ncUrnFy_WfYa5_xWxQwPKVliI7DCGMg05jC93dQ_ZKniVjjtylZQf1PSkeD3GxdUscEJgzhRze6zMuX16f_mGDXUTgQiO-XhsEuqVNQynvMREbocuNHRAGlgd35r9GwCsJHwQrhxo3KlJ8Rz5JB8bDh9sJn0ALO3CirLfyMzZpyhDgMVYDrvUWUrrl5Vl4-CI7lC5JvjbFq0gpoCtgLszwNPjpSi1fSFAg"/>
+<div class="absolute top-4 left-4 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps">Tesis Yönetimi</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex items-center text-outline font-label-caps text-label-caps mb-4 space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> 15 Ekim 2024</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span> 5 dk okuma</span>
+</div>
+<h2 class="font-section-h2 text-section-h2 text-heading-text mb-4 group-hover:text-primary transition-colors">Modern Tesis Yönetiminde Akıllı Bina Teknolojilerinin Rolü</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Nesnelerin İnterneti (IoT) ve yapay zeka ile entegre edilen akıllı bina sistemleri, enerji verimliliğini nasıl artırıyor ve bakım maliyetlerini nasıl düşürüyor?</p>
+<a class="inline-flex items-center font-button-text text-button-text text-primary hover:text-surface-tint mt-auto" href="#">
+                            Devamını Oku <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog Card 2 -->
+<article class="bg-surface border border-border-light rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional security guard in a neat, dark blue uniform monitoring multiple high-definition surveillance screens in a modern control room. The setting is high-tech, clean, and organized, conveying safety and trust. The lighting is cool and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzN19JknePUYeIOqn-IP36pvgetFACjrTkUIFo_AzheKHxAMDy_sqC6B2QBoU-Ci0hk98Vz02bBbiwAOdLJOszVtEw-r-XcqyhvdlZwbW96vWNCgANydk-jWVbInDm4SO8RsdlS94y7Z-7-2mmlWj00RUmMkXGaMlcV4thDB3LMqAMI3q7vQU5_surPgsI3tTy2GtGgmy0OaAng6JEzZtWPU2GvUUlwH3eTxWo-10KRcACzsK-2pH_Qw"/>
+<div class="absolute top-4 left-4 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps">Güvenlik</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex items-center text-outline font-label-caps text-label-caps mb-4 space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> 02 Ekim 2024</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span> 4 dk okuma</span>
+</div>
+<h2 class="font-section-h2 text-section-h2 text-heading-text mb-4 group-hover:text-primary transition-colors">Kurumsal Fiziksel Güvenlik: Risk Değerlendirmesi Nasıl Yapılır?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Plazalar ve büyük ölçekli tesisler için kapsamlı bir güvenlik açığı analizi oluşturmanın temel adımları ve dikkat edilmesi gereken kritik noktalar.</p>
+<a class="inline-flex items-center font-button-text text-button-text text-primary hover:text-surface-tint mt-auto" href="#">
+                            Devamını Oku <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog Card 3 -->
+<article class="bg-surface border border-border-light rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A brightly lit, pristine commercial lobby space. Professional cleaning staff using modern, quiet equipment are visible in the background. The floor is highly polished, reflecting the ambient light. The aesthetic emphasizes hygiene, organization, and professional facility maintenance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjucOh31HPRMvSEfbrmTLIdKFaqQoXfBhoPGDqgC-UzgtFfnUyz0MfCxt0HJfkEdgBwAKi0jfqzo1F7QzcexM4R3sZ8ngzaeWBODbpkwbkE1wj_9PwnRbORdWK6cyMDRWGlexxwT6zDZpSb0TZ8UVWXe1LN_aCnprcCUrxh_MECdLchbJlV-dESenUJQKBLegdzmwsCpiGa3L80jtEZjZGNAx01P77JEt9lFTA2s5nZ-LjyHaRz8AcQQ"/>
+<div class="absolute top-4 left-4 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps">Temizlik</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex items-center text-outline font-label-caps text-label-caps mb-4 space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> 28 Eylül 2024</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span> 6 dk okuma</span>
+</div>
+<h2 class="font-section-h2 text-section-h2 text-heading-text mb-4 group-hover:text-primary transition-colors">Sürdürülebilir ve Ekolojik Endüstriyel Temizlik Yöntemleri</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Çevre dostu temizlik kimyasallarının kullanımı ve yeşil bina sertifikasyon süreçlerinde temizlik operasyonlarının önemi üzerine derinlemesine bir bakış.</p>
+<a class="inline-flex items-center font-button-text text-button-text text-primary hover:text-surface-tint mt-auto" href="#">
+                            Devamını Oku <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog Card 4 -->
+<article class="bg-surface border border-border-light rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A group of corporate executives and facility managers gathered around a sleek conference table, reviewing digital blueprints and operational data on a large screen. The environment is modern, professional, and well-lit with natural light streaming through large windows. The mood is collaborative and forward-thinking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnVrpLNFU4WfJg5fJslDat-WbfdXfVYz2I9V54U6ED0xT4SV42hlqGTjiC2PGGmtW6aGDnZ9PupOd6vfjA0evdEKKotOjaRpPlKtfBJnOpERIGsXxghB5R1hsFpVSdbDDDtMRoKbxtftmVvmJkqTknetXYRCQsjA0lQgwHn_OT2z3KzWI_dQgjDaXeQatpkfB_duH-81sciffxYXWbqiq6bF6bxKMoOunsuOwmmTC3lvKUmHcGYlDliw"/>
+<div class="absolute top-4 left-4 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps">Tesis Yönetimi</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex items-center text-outline font-label-caps text-label-caps mb-4 space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> 15 Eylül 2024</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span> 7 dk okuma</span>
+</div>
+<h2 class="font-section-h2 text-section-h2 text-heading-text mb-4 group-hover:text-primary transition-colors">Büyük Ölçekli Yaşam Alanlarında Aidat Optimizasyonu</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Site ve residans yönetiminde şeffaf bütçeleme yöntemleri ile hizmet kalitesinden ödün vermeden aidat maliyetlerinin nasıl optimize edilebileceğine dair stratejiler.</p>
+<a class="inline-flex items-center font-button-text text-button-text text-primary hover:text-surface-tint mt-auto" href="#">
+                            Devamını Oku <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog Card 5 -->
+<article class="bg-surface border border-border-light rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a smart thermostat and digital access control panel mounted on a crisp white wall in a modern corporate hallway. The device displays energy usage statistics in a clean, minimalist UI. The lighting is soft and architectural, emphasizing the integration of technology into the physical space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMmfoS7lVJa971fLiU1Z8NkHd4BPTQ-zaE79v-HKi7A6YRFQkY81PzabgNaRSWcX5kkXzvlP2wHQwORmYKYBnvXOJ3R-suGCeLjB9fi9BLXsCfQfkUruoDjEFoiduIkq2b_UyF8IBdr3yyEYTE4DRVpu72eUKmxUXTdo3AC_zcyO3QFWWPNW8wPI8P2Wlu05Oc3hb24Res28338jZ_RMkFxj0_6cjid_sQwHoPJCyoTZCAav6wVZRMbg"/>
+<div class="absolute top-4 left-4 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps">Teknoloji</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex items-center text-outline font-label-caps text-label-caps mb-4 space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> 05 Eylül 2024</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span> 5 dk okuma</span>
+</div>
+<h2 class="font-section-h2 text-section-h2 text-heading-text mb-4 group-hover:text-primary transition-colors">HVAC Sistemlerinde Kestirimci Bakım Teknolojileri</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Isıtma, havalandırma ve iklimlendirme sistemlerinde arızalar oluşmadan önce sensör verileriyle tespit yapmayı sağlayan yeni nesil yazılımlar.</p>
+<a class="inline-flex items-center font-button-text text-button-text text-primary hover:text-surface-tint mt-auto" href="#">
+                            Devamını Oku <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog Card 6 -->
+<article class="bg-surface border border-border-light rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A neatly organized janitorial cart in focus, with a blurred background showing a spacious, empty commercial atrium. The cart holds high-quality cleaning supplies, color-coded microfiber cloths, and modern ergonomic tools. The image conveys order, readiness, and professional operational standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV78VQ_lAlBLEqne-x_5dZof6tnuwws8yk8gda1_JAa3hkkqYs-thpOKPe2kKXFH9KY3rsLP5XxFc95-YnRO6ed82ky5kC6X05ZXRsNcFZt29DMb5w8JgMTnB6_9dX6PBhNfrT516Lw3IEk44RLjymGBKX9X35EUSNqhlTlT37z9dhmoYkb9g_G66oWB0ioImtnGyUuWcFDI3OjtBuxAtq4n4h0YJA6c2D537r2haH-5EOYO9HN4eWiQ"/>
+<div class="absolute top-4 left-4 bg-subtle-blue text-primary px-3 py-1 rounded-full font-label-caps text-label-caps">Temizlik</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="flex items-center text-outline font-label-caps text-label-caps mb-4 space-x-4">
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> 22 Ağustos 2024</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span> 4 dk okuma</span>
+</div>
+<h2 class="font-section-h2 text-section-h2 text-heading-text mb-4 group-hover:text-primary transition-colors">Pandemi Sonrası Ofis Hijyen Standartları</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Açık ofis ortamlarında çalışan sağlığını korumak için güncellenen temizlik protokolleri, hava filtrasyonu ve yüzey dezenfeksiyon standartları.</p>
+<a class="inline-flex items-center font-button-text text-button-text text-primary hover:text-surface-tint mt-auto" href="#">
+                            Devamını Oku <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center space-x-2 mt-16">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-border-light text-on-surface-variant hover:border-primary hover:text-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-tint text-on-primary font-button-text text-button-text">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface border border-border-light text-on-surface-variant hover:border-primary hover:text-primary font-button-text text-button-text transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface border border-border-light text-on-surface-variant hover:border-primary hover:text-primary font-button-text text-button-text transition-colors">3</button>
+<span class="text-on-surface-variant font-button-text text-button-text px-2">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface border border-border-light text-on-surface-variant hover:border-primary hover:text-primary font-button-text text-button-text transition-colors">8</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-border-light text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full bg-on-background">
+<div class="max-w-container-max mx-auto px-gutter py-section-gap-sm grid grid-cols-1 md:grid-cols-4 gap-stack-gap">
+<!-- Brand Column -->
+<div class="flex flex-col space-y-4">
+<span class="text-section-h2 font-section-h2 font-bold text-white">ALO YÖNETİM</span>
+<p class="font-body-md text-body-md text-outline-variant">Profesyonel tesis yönetimi, güvenlik ve temizlik hizmetlerinde güvenilir çözüm ortağınız.</p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col space-y-3">
+<span class="font-body-lg text-body-lg text-white font-semibold mb-2">Hızlı Menü</span>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white hover:underline decoration-primary underline-offset-4 transition-colors" href="#">Hizmetler</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white hover:underline decoration-primary underline-offset-4 transition-colors" href="#">Hakkımızda</a>
+<a class="font-body-md text-body-md text-white font-semibold" href="#">Blog</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white hover:underline decoration-primary underline-offset-4 transition-colors" href="#">Referanslar</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white hover:underline decoration-primary underline-offset-4 transition-colors" href="#">İletişim</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col space-y-3">
+<span class="font-body-lg text-body-lg text-white font-semibold mb-2">Yasal</span>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white hover:underline decoration-primary underline-offset-4 transition-colors" href="#">Gizlilik Politikası</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-white hover:underline decoration-primary underline-offset-4 transition-colors" href="#">KVKK</a>
+</div>
+<!-- Contact/Social Column -->
+<div class="flex flex-col space-y-3">
+<span class="font-body-lg text-body-lg text-white font-semibold mb-2">Bize Ulaşın</span>
+<span class="font-body-md text-body-md text-outline-variant">info@aloyonetim.com</span>
+<span class="font-body-md text-body-md text-outline-variant">+90 (212) 555 00 00</span>
+</div>
+</div>
+<!-- Copyright -->
+<div class="border-t border-surface-variant/20">
+<div class="max-w-container-max mx-auto px-gutter py-6 text-center">
+<span class="font-body-md text-body-md text-outline-variant">© 2009-2024 Alo Yönetim. Tüm Hakları Saklıdır.</span>
+</div>
+</div>
+</footer>
+</body></html>

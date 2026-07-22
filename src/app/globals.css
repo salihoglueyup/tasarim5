@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Ultra-Premium Slate & Titanium Palette (User Selected) */
+  --color-background: #F5F5F7; /* Accent: Beyazımsı */
+  --color-on-background: #2D2D3A; /* Primary: Slate Grey */
+  --color-surface: #FFFFFF;
+  --color-on-surface: #2D2D3A; /* Primary */
+  --color-surface-variant: #EBEBEF;
+  --color-outline: #D2D2D7; 
+  
+  --color-primary: #2D2D3A; /* Primary: Slate Grey (Koyu) */
+  --color-on-primary: #FFFFFF;
+  
+  --color-secondary: #5A5A6A; /* Secondary: Açık Gri */
+  --color-tertiary: #86869B; /* Daha açık gri vurgu */
+  
+  /* Text */
+  --color-heading-text: #2D2D3A;
+  --color-body-text: #5A5A6A;
+
+  /* Spacing & Typography */
+  --spacing-margin-mobile: 16px;
+  --spacing-stack-gap: 12px;
+  --spacing-section-gap-sm: 80px;
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1280px;
+  --spacing-section-gap-lg: 120px;
+
+  --font-sans: var(--font-plus-jakarta), 'Plus Jakarta Sans', Inter, sans-serif;
+  --font-heading: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+  --font-body-lg: Inter, sans-serif;
+  --font-label-caps: Inter, sans-serif;
+  --font-body-md: Inter, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
   }
 }
 
+/* Global Reset & Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Hide scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F5F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #D2D2D7;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #86869B;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(45, 45, 58, 0.15); /* Primary slate with opacity */
+  color: #2D2D3A;
 }
