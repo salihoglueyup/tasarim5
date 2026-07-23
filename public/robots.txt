@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /test/
+Disallow: /private/
 
 Sitemap: https://aloyonetim.com/sitemap.xml
