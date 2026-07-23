@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
+import { useQuote } from '@/context/QuoteContext';
 import { translations } from '@/i18n/translations';
 import LoginModal from './LoginModal';
 
@@ -66,8 +67,8 @@ const MENU_ITEMS: MenuItem[] = [
 export default function Header() {
   const pathname = usePathname();
   const { language, setLanguage, t } = useLanguage();
+  const { openQuoteModal } = useQuote();
 
-  
   // Scroll & UI States
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -364,8 +365,8 @@ export default function Header() {
 
             {/* Primary CTA (Teklif Alın) */}
             <Magnetic strength={0.2}>
-              <Link 
-                href="/teklif-al" 
+              <button 
+                onClick={openQuoteModal}
                 className="relative overflow-hidden text-xs font-extrabold bg-gradient-to-r from-[#2D2D3A] via-[#3a3a4b] to-[#1f1f2a] text-white px-5.5 py-2.5 rounded-xl transition-all duration-300 active:scale-95 hidden sm:inline-flex group shadow-md shadow-slate-900/15 hover:shadow-xl hover:shadow-slate-900/25 hover:-translate-y-0.5 border border-white/10"
               >
                 <span className="relative z-10 flex items-center gap-1.5">
@@ -373,7 +374,7 @@ export default function Header() {
                   <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12"></span>
-              </Link>
+              </button>
             </Magnetic>
             
             {/* Mobile Hamburger Menu Button */}
@@ -469,14 +470,13 @@ export default function Header() {
               transition={{ delay: 0.4 }}
               className="mt-12 flex flex-col gap-3"
             >
-              <Link 
-                href="/teklif-al" 
-                onClick={closeMenus}
+              <button 
+                onClick={() => { closeMenus(); openQuoteModal(); }}
                 className="flex items-center justify-center gap-2 w-full bg-[#2D2D3A] text-white text-lg font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform"
               >
                 {t('btn_get_quote')}
                 <span className="material-symbols-outlined">arrow_forward</span>
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         )}

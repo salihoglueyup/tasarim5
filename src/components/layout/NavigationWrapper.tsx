@@ -1,17 +1,33 @@
 "use client";
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { useQuote } from '@/context/QuoteContext';
 
 export default function NavigationWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const { openQuoteModal } = useQuote();
   
-  // Cinematic routes where header and footer should be hidden
-  const isCinematicRoute = pathname === '/teklif-al';
+  useEffect(() => {
+    if (pathname === '/teklif-al') {
+      // Modalı aç
+      openQuoteModal();
+      
+      // Kullanıcıyı geldiği sayfaya geri gönder veya ana sayfaya at (URL'yi temizle)
+      if (window.history.length > 2) {
+        router.back();
+      } else {
+        router.replace('/');
+      }
+    }
+  }, [pathname, router, openQuoteModal]);
 
-  if (isCinematicRoute) {
-    return <main className="flex-grow">{children}</main>;
+  // Teklif al sayfasındayken arayüzü renderlama (redirect beklerken)
+  if (pathname === '/teklif-al') {
+    return null;
   }
 
   return (
