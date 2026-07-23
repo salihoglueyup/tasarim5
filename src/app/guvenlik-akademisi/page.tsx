@@ -3,46 +3,49 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const academyFeatures = [
-  {
-    title: "5188 Sayılı Kanun & Mevzuat Eğitimi",
-    desc: "Tüm özel güvenlik personelimiz T.C. İçişleri Bakanlığı standartlarında kanuni yetkiler ve sorumluluklar konusunda eğitilir. Güç kullanma yetkisinden, arama ve el koyma prosedürlerine kadar kapsamlı hukuk eğitimi.",
-    icon: "gavel",
-    duration: "40 Saat",
-    color: "from-blue-500 to-indigo-600"
-  },
-  {
-    title: "Kriz Yönetimi & Yangın Müdahale Simülasyonu",
-    desc: "Acil durumlarda panik yönetimi, tahliye protokolleri ve ilk yardım simülasyonları periyodik olarak uygulanır. Yangın tüpü kullanımı, yangın dolabı eğitimi ve gerçek ateşli yangın söndürme tatbikatları.",
-    icon: "local_fire_department",
-    duration: "24 Saat + 3 Tatbikat",
-    color: "from-red-500 to-rose-600"
-  },
-  {
-    title: "Yapay Zeka Destekli Güvenlik Sistemleri Eğitimi",
-    desc: "Plaka tanıma, hırsızlık tespiti ve nesne analizi yapan akıllı kameraların kullanımı öğretilir. Kontrol merkezi yazılımları, erken uyarı sistemleri raporlaması ve CCTV ekran okuma teknikleri.",
-    icon: "psychology",
-    duration: "16 Saat",
-    color: "from-emerald-500 to-teal-600"
-  },
-  {
-    title: "İletişim & Halkla İlişkiler Standartları",
-    desc: "Site sakinlerine ve ziyaretçilere karşı nezaket, yüksek iletişim dili ve protokol karşılama prensipleri aşılanır. Öfke kontrolü, stres yönetimi ve zor insanlarla başa çıkma sanatları.",
-    icon: "forum",
-    duration: "12 Saat",
-    color: "from-amber-500 to-orange-600"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function GuvenlikAkademisi() {
+  const { t } = useLanguage();
+
+  const academyFeatures = [
+    {
+      title: t('aca_feat_1_title'),
+      desc: t('aca_feat_1_desc'),
+      icon: "gavel",
+      duration: t('aca_feat_1_dur'),
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      title: t('aca_feat_2_title'),
+      desc: t('aca_feat_2_desc'),
+      icon: "local_fire_department",
+      duration: t('aca_feat_2_dur'),
+      color: "from-red-500 to-rose-600"
+    },
+    {
+      title: t('aca_feat_3_title'),
+      desc: t('aca_feat_3_desc'),
+      icon: "psychology",
+      duration: t('aca_feat_3_dur'),
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      title: t('aca_feat_4_title'),
+      desc: t('aca_feat_4_desc'),
+      icon: "forum",
+      duration: t('aca_feat_4_dur'),
+      color: "from-amber-500 to-orange-600"
+    }
+  ];
+
   const [activeStep, setActiveStep] = useState<number | null>(0);
 
   return (
     <>
       <PageHeader 
-        title="Güvenlik Akademisi & Personel Eğitimi" 
-        description="5188 sayılı kanuna uygun, teorik ve pratik simülasyonlarla eğitilen özel güvenlik kadromuz." 
+        title={t('aca_page_title')} 
+        description={t('aca_page_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
@@ -52,24 +55,24 @@ export default function GuvenlikAkademisi() {
            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/20 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
            <div className="flex flex-col gap-5 max-w-2xl relative z-10">
              <span className="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full w-fit border border-blue-500/20">
-               Özel Güvenlik Akademisi
+               {t('aca_intro_tag')}
              </span>
-             <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">Yüksek Disiplin, <br/> Sürekli Eğitim.</h2>
+             <h2 className="text-3xl md:text-5xl font-extrabold leading-tight" dangerouslySetInnerHTML={{ __html: t('aca_intro_title') }} />
              <p className="text-blue-100 font-light leading-relaxed max-w-xl">
-               Alo Yönetim Güvenlik Akademisi, sahada görev yapan personelin fiziki, psikolojik ve mevzuat açısından her zaman güncel ve formda kalmasını sağlar.
+               {t('aca_intro_desc')}
              </p>
            </div>
            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl text-center shrink-0 w-48 relative z-10">
-             <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">92+</div>
-             <div className="text-xs text-blue-200 mt-2 font-medium">Saat Zorunlu Yıllık İçi Eğitim</div>
+             <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">{t('aca_intro_badge_val')}</div>
+             <div className="text-xs text-blue-200 mt-2 font-medium">{t('aca_intro_badge_text')}</div>
            </div>
         </div>
 
         {/* Curriculum Timeline Accordion */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-             <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">Akademi Müfredatı</h2>
-             <p className="text-sm text-[var(--color-secondary)] font-light mt-4">Personelimizin sahaya inmeden önce ve saha görevleri boyunca aldığı periyodik eğitim modülleri.</p>
+             <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{t('aca_cur_title')}</h2>
+             <p className="text-sm text-[var(--color-secondary)] font-light mt-4">{t('aca_cur_desc')}</p>
           </div>
 
           <div className="relative border-l-2 border-gray-200 dark:border-white/10 pl-6 md:pl-10 space-y-8 ml-4 md:ml-0">
@@ -97,7 +100,7 @@ export default function GuvenlikAkademisi() {
                           <span className="material-symbols-outlined">{f.icon}</span>
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400 mb-1">Modül 0{i + 1}</div>
+                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400 mb-1">{t('aca_cur_mod')} 0{i + 1}</div>
                           <h3 className="text-xl font-bold text-[var(--color-primary)] pr-8">{f.title}</h3>
                         </div>
                       </div>

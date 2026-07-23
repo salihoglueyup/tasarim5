@@ -2,8 +2,10 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function VizyonMisyon() {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -20,8 +22,8 @@ export default function VizyonMisyon() {
   return (
     <>
       <PageHeader 
-        title="Vizyon & Misyon" 
-        description="Sektöre yön veren teknolojik vizyonumuz ve kat maliklerine sunduğumuz temel değerlerimiz." 
+        title={t('vision_title')} 
+        description={t('vision_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto overflow-hidden">
@@ -42,11 +44,15 @@ export default function VizyonMisyon() {
                 <div className="text-[8rem] md:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-blue-100 to-transparent dark:from-white/10 dark:to-transparent leading-none select-none">
                   01
                 </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] -mt-16 relative z-10 pl-2">Vizyon.</h2>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] -mt-16 relative z-10 pl-2">{t('vision_head')}</h2>
               </div>
               <div className="lg:w-2/3">
                 <p className="text-xl md:text-3xl text-[var(--color-secondary)] font-light leading-relaxed">
-                  Türkiye genelindeki tüm toplu yaşam alanlarında ve rezidanslarda, <span className="font-semibold text-blue-600 dark:text-blue-400">geleneksel ve kapalı</span> yönetim sistemlerini tamamen ortadan kaldırarak; <span className="font-semibold text-[var(--color-primary)]">%100 şeffaf, yapay zeka destekli ve dijital</span> bir mülk yönetimi standardı inşa etmek.
+                  {t('vision_content_1')}
+                  <span className="font-semibold text-blue-600 dark:text-blue-400">{t('vision_highlight_1')}</span>
+                  {t('vision_content_2')}
+                  <span className="font-semibold text-[var(--color-primary)]">{t('vision_highlight_2')}</span>
+                  {t('vision_content_3')}
                 </p>
               </div>
             </div>
@@ -63,11 +69,15 @@ export default function VizyonMisyon() {
                 <div className="text-[8rem] md:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-emerald-100 to-transparent dark:from-white/10 dark:to-transparent leading-none select-none">
                   02
                 </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] -mt-16 relative z-10 pr-2">Misyon.</h2>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] -mt-16 relative z-10 pr-2">{t('mission_head')}</h2>
               </div>
               <div className="lg:w-2/3 order-2 lg:order-1 text-left lg:text-right">
                 <p className="text-xl md:text-3xl text-[var(--color-secondary)] font-light leading-relaxed">
-                  Kat maliklerinin aidat kaygılarını ortadan kaldıran <span className="font-semibold text-emerald-600 dark:text-emerald-400">şeffaf bütçe yönetimi</span> sunmak, 7/24 kesintisiz güvenlik ve teknolojik bakımla yaşam kalitesini en üst düzeye çıkarmak ve <span className="font-semibold text-[var(--color-primary)]">binaların gayrimenkul değerini artırmak</span>.
+                  {t('mission_content_1')}
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">{t('mission_highlight_1')}</span>
+                  {t('mission_content_2')}
+                  <span className="font-semibold text-[var(--color-primary)]">{t('mission_highlight_2')}</span>
+                  {t('mission_content_3')}
                 </p>
               </div>
             </div>

@@ -2,34 +2,36 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
-
-const cases = [
-  {
-    title: "Lalezar Konakları (240 Daire)",
-    tag: "%24 Bütçe Tasarrufu",
-    desc: "Eski amatör yönetimden devralınan 240 dairelik projede, toplu satın alma ve enerji optimizasyonu ile ilk yılda 1.2 Milyon ₺ net tasarruf sağlandı.",
-    stats: ["240 Bağımsız Bölüm", "%24 Tasarruf Oranı", "48 Saat Devir Süresi"]
-  },
-  {
-    title: "Sapphire Residence & Plaza",
-    tag: "Kesintisiz 7/24 Teknik Güvence",
-    desc: "Asansör ve iklimlendirme sistemlerinde önleyici bakım protokolüne geçilerek 3 yıl boyunca sıfır arıza ve sıfır duruş başarısı elde edildi.",
-    stats: ["180 Lüks Rezidans", "%99.9 Uptime", "20 Dk Müdahale"]
-  },
-  {
-    title: "Marina Towers & Alışveriş Merkezi",
-    tag: "%100 Tahsilat Başarısı",
-    desc: "Mobil aidat ödeme sistemi ve avukat kadromuzun şeffaf yasal süreçleri ile aidat alacakları %100 oranında tahsil edildi.",
-    stats: ["320 Daire + 40 Mağaza", "%100 Tahsilat", "7/24 Güvenlik"]
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BasariHikayeleri() {
+  const { t } = useLanguage();
+
+  const cases = [
+    {
+      title: t('case_1_title'),
+      tag: t('case_1_tag'),
+      desc: t('case_1_desc'),
+      stats: [t('case_1_stat_1'), t('case_1_stat_2'), t('case_1_stat_3')]
+    },
+    {
+      title: t('case_2_title'),
+      tag: t('case_2_tag'),
+      desc: t('case_2_desc'),
+      stats: [t('case_2_stat_1'), t('case_2_stat_2'), t('case_2_stat_3')]
+    },
+    {
+      title: t('case_3_title'),
+      tag: t('case_3_tag'),
+      desc: t('case_3_desc'),
+      stats: [t('case_3_stat_1'), t('case_3_stat_2'), t('case_3_stat_3')]
+    }
+  ];
   return (
     <>
       <PageHeader 
-        title="Başarı Hikayeleri & Vaka Analizleri" 
-        description="Yönettiğimiz prestijli projelerde sağladığımız bütçe tasarrufları ve dönüşüm başarıları." 
+        title={t('case_page_title')} 
+        description={t('case_page_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">

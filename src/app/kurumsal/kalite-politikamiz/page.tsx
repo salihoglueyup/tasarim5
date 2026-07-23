@@ -3,46 +3,49 @@
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-
-const qualityCards = [
-  {
-    title: "ISO 9001:2015",
-    subtitle: "Hizmet Standartları Yönetimi",
-    desc: "Tüm operasyonlarımız yılda iki kez bağımsız uluslararası denetçiler tarafından denetlenir ve belgelendirilir.",
-    icon: "verified",
-    color: "from-blue-600 to-indigo-600"
-  },
-  {
-    title: "ISO 27001",
-    subtitle: "Bilgi Güvenliği Yönetimi",
-    desc: "Kat maliklerinin kişisel ve finansal verileri 256-bit şifrelemeyle yüksek güvenlikli bulut sunucularında, KVKK ve GDPR'a tam uyumlu olarak korunur.",
-    icon: "security",
-    color: "from-emerald-500 to-teal-600"
-  },
-  {
-    title: "ISO 45001",
-    subtitle: "İş Sağlığı ve Güvenliği",
-    desc: "Tüm saha çalışanlarımızın İSG eğitimleri, periyodik sağlık taramaları ve koruyucu donanım kullanımları 'Sıfır Kaza' vizyonuyla denetlenir.",
-    icon: "health_and_safety",
-    color: "from-amber-500 to-orange-600"
-  },
-  {
-    title: "ISO 14001",
-    subtitle: "Çevre Yönetim Sistemi",
-    desc: "Ekolojik temizlik ürünleri kullanımı ve atık yönetimi süreçlerimizle, yaşadığımız çevreye duyarlı sürdürülebilir operasyonlar yürütüyoruz.",
-    icon: "eco",
-    color: "from-green-500 to-emerald-700"
-  },
-  {
-    title: "Gizli Denetim",
-    subtitle: "Saha Hizmetleri Testi",
-    desc: "Bağımsız kalite departmanımız tarafından ayda 4 kez habersiz olarak yapılan gizli müşteri ve saha denetimleriyle hizmet kesintisizliği sağlanır.",
-    icon: "fact_check",
-    color: "from-purple-500 to-indigo-600"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function KalitePolitikamiz() {
+  const { t } = useLanguage();
+
+  const qualityCards = [
+    {
+      title: t('quality_card_1_title'),
+      subtitle: t('quality_card_1_sub'),
+      desc: t('quality_card_1_desc'),
+      icon: "verified",
+      color: "from-blue-600 to-indigo-600"
+    },
+    {
+      title: t('quality_card_2_title'),
+      subtitle: t('quality_card_2_sub'),
+      desc: t('quality_card_2_desc'),
+      icon: "security",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      title: t('quality_card_3_title'),
+      subtitle: t('quality_card_3_sub'),
+      desc: t('quality_card_3_desc'),
+      icon: "health_and_safety",
+      color: "from-amber-500 to-orange-600"
+    },
+    {
+      title: t('quality_card_4_title'),
+      subtitle: t('quality_card_4_sub'),
+      desc: t('quality_card_4_desc'),
+      icon: "eco",
+      color: "from-green-500 to-emerald-700"
+    },
+    {
+      title: t('quality_card_5_title'),
+      subtitle: t('quality_card_5_sub'),
+      desc: t('quality_card_5_desc'),
+      icon: "fact_check",
+      color: "from-purple-500 to-indigo-600"
+    }
+  ];
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -54,8 +57,8 @@ export default function KalitePolitikamiz() {
   return (
     <>
       <PageHeader 
-        title="Kalite Politikamız" 
-        description="ISO standartlarında şeffaf, ölçülebilir ve bağımsız denetlenen yüksek hizmet kalitesi." 
+        title={t('quality_title')} 
+        description={t('quality_desc')} 
       />
 
       <section ref={containerRef} className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto relative">
@@ -65,31 +68,30 @@ export default function KalitePolitikamiz() {
           <div className="lg:col-span-5 relative">
             <div className="lg:sticky lg:top-32 flex flex-col gap-8">
               <span className="text-xs font-bold text-blue-600 bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
-                Kalite Manifestomuz
+                {t('quality_manifest_badge')}
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] leading-tight tracking-tight">
-                Mükemmellik <br />Bir Seçim Değil, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Sözümüzdür.</span>
+                {t('quality_manifest_title_1')} <br />{t('quality_manifest_title_2')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t('quality_manifest_title_3')}</span>
               </h2>
               <div className="space-y-6 text-[var(--color-secondary)] font-light leading-relaxed">
                 <p>
-                  Alo Yönetim olarak, sadece binaları değil, yaşam kalitesini yönetiyoruz. Bu bilinçle, her operasyon adımımızı uluslararası sertifikalarla güvence altına alıyoruz.
+                  {t('quality_manifest_p1')}
                 </p>
                 <p>
-                  Güvenlikten temizliğe, finanstan hukuka kadar tüm departmanlarımız, bağımsız denetim kuruluşları tarafından düzenli olarak test edilmekte ve belgelenmektedir. 
-                  Çünkü şeffaflık ve denetlenebilirlik, kurumsal yönetim anlayışımızın temel taşıdır.
+                  {t('quality_manifest_p2')}
                 </p>
               </div>
 
               {/* Stats Box */}
               <div className="mt-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 shadow-lg flex items-center justify-between">
                 <div>
-                  <div className="text-4xl font-black text-blue-600">5+</div>
-                  <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">Uluslararası Sertifika</div>
+                  <div className="text-4xl font-black text-blue-600">{t('quality_stat_1_val')}</div>
+                  <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">{t('quality_stat_1_label')}</div>
                 </div>
                 <div className="w-px h-12 bg-[var(--color-outline)]/50"></div>
                 <div>
-                  <div className="text-4xl font-black text-emerald-500">48</div>
-                  <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">Yıllık İç Denetim</div>
+                  <div className="text-4xl font-black text-emerald-500">{t('quality_stat_2_val')}</div>
+                  <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">{t('quality_stat_2_label')}</div>
                 </div>
               </div>
             </div>

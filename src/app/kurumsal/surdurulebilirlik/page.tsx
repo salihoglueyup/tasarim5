@@ -1,32 +1,34 @@
 "use client";
 
 import PageHeader from '@/components/layout/PageHeader';
-
-const ecoPoints = [
-  {
-    title: "Güneş Enerjisi (GES) ve Yeşil Enerji Sistemleri",
-    desc: "Ortak alan elektrik giderlerini düşürmek için sitelerde çatı ve otopark üstü GES projeleri planlıyoruz."
-  },
-  {
-    title: "Yağmur Suyu Hasadı & Otomatik Peyzaj Sulama",
-    desc: "Bahçe sulamalarında şebeke suyu yerine yağmur suyu depolama ve sensörlü otomatik damlama sistemleri kullanıyoruz."
-  },
-  {
-    title: "Ekolojik Kimyasallar & %100 Doğa Dostu Hijyen",
-    desc: "Temizlik süreçlerinde biyolojik olarak ayrışabilen, çocuklara ve evcil hayvanlara zarar vermeyen ürünler tercih edilir."
-  },
-  {
-    title: "Sıfır Atık & Dönüştürülebilir Atık Takibi",
-    desc: "Sitede cam, plastik, kağıt ve bayat ekmek atıklarının geri dönüşümünü organize ederek belediyelerle ortak hareket ediyoruz."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Surdurulebilirlik() {
+  const { t } = useLanguage();
+
+  const ecoPoints = [
+    {
+      title: t('eco_point_1_title'),
+      desc: t('eco_point_1_desc')
+    },
+    {
+      title: t('eco_point_2_title'),
+      desc: t('eco_point_2_desc')
+    },
+    {
+      title: t('eco_point_3_title'),
+      desc: t('eco_point_3_desc')
+    },
+    {
+      title: t('eco_point_4_title'),
+      desc: t('eco_point_4_desc')
+    }
+  ];
   return (
     <>
       <PageHeader 
-        title="Sürdürülebilirlik & Çevre Politikamız" 
-        description="Gelecek nesillere daha yaşanabilir alanlar bırakmak için ekolojik ve enerji dostu tesis yönetimi." 
+        title={t('sustainability_title')} 
+        description={t('sustainability_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">

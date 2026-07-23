@@ -4,66 +4,40 @@ import { useState, useEffect } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-
-const techIntervals = [
-  { equipment: "Asansör Sistemleri", interval: "Aylık Periyodik Bakım & Yeşil Etiket Takibi", status: "20 Dk Müdahale" },
-  { equipment: "Jeneratör & Trafo", interval: "Haftalık Yük Testi & Yakıt Seviye Denetimi", status: "Sıfır Kesinti" },
-  { equipment: "Hidrofor & Su Depoları", interval: "6 Aylık Dezenfeksiyon & Basınç Testi", status: "Kesintisiz Su" },
-  { equipment: "Yangın Pompa Hatları", interval: "Aylık Basınç & Sprinkler Vana Testi", status: "İtfaiye Onaylı" }
-];
-
-const faqs = [
-  {
-    q: "Acil bir arıza durumunda (asansör mahsur kalma vb.) ortalama varış süreniz nedir?",
-    a: "Nöbetçi teknik gezici ekibimiz lokasyona bağlı olarak ortalama 20 dakikada adrese ulaşır. Asansör içi 7/24 acil butonumuz doğrudan çağrı merkezimize bağlanır."
-  },
-  {
-    q: "Asansör yeşil etiket sorumluluğu kimdedir?",
-    a: "A Tipi akredite muayene kuruluşlarının yıllık denetimlerini Alo Yönetim teknik departmanı organize eder. Eksikler giderilerek %100 Yeşil Etiket sürekliliği sağlanır."
-  },
-  {
-    q: "Jeneratör ve jeneratör yakıt takibi nasıl yapılıyor?",
-    a: "Haftalık periyodik yük testleri yapılır, yakıt seviyesi kritik eşiğe düşmeden toplu yakıt ikmaliyle indirimli fiyattan tamamlanır."
-  }
-];
-
-// Number Counter Component
-const AnimatedCounter = ({ from, to }: { from: number; to: number }) => {
-  const [count, setCount] = useState(from);
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
-
-  useEffect(() => {
-    if (inView) {
-      let start = from;
-      const duration = 1500; // 1.5 seconds
-      const increment = (to - from) / (duration / 16); // 60fps
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= to) {
-          setCount(to);
-          clearInterval(timer);
-        } else {
-          setCount(Math.ceil(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }
-  }, [inView, from, to]);
-
-  return <span ref={ref}>{count}</span>;
-};
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TeknikBakim() {
+  const { t } = useLanguage();
+
+  const techIntervals = [
+    { equipment: t('tech_grid_1_eq'), interval: t('tech_grid_1_int'), status: t('tech_grid_1_status') },
+    { equipment: t('tech_grid_2_eq'), interval: t('tech_grid_2_int'), status: t('tech_grid_2_status') },
+    { equipment: t('tech_grid_3_eq'), interval: t('tech_grid_3_int'), status: t('tech_grid_3_status') },
+    { equipment: t('tech_grid_4_eq'), interval: t('tech_grid_4_int'), status: t('tech_grid_4_status') }
+  ];
+
+  const faqs = [
+    {
+      q: t('tech_faq_1_q'),
+      a: t('tech_faq_1_a')
+    },
+    {
+      q: t('tech_faq_2_q'),
+      a: t('tech_faq_2_a')
+    },
+    {
+      q: t('tech_faq_3_q'),
+      a: t('tech_faq_3_a')
+    }
+  ];
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
       <PageHeader 
-        title="7/24 Teknik Bakım & Onarım" 
-        description="Asansör, jeneratör, hidrofor ve havuz bakımlarında 20 dakikada nöbetçi müdahale SLA garantisi." 
+        title={t('tech_title')} 
+        description={t('tech_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
@@ -79,16 +53,16 @@ export default function TeknikBakim() {
               viewport={{ once: true }}
               className="text-xs font-bold text-blue-300 uppercase tracking-widest bg-white/10 border border-white/20 px-4 py-1.5 rounded-full w-fit"
             >
-              SLA Müdahale Garantisi
+              {t('tech_banner_badge')}
             </motion.span>
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">20 Dakikada Nöbetçi <br/>Ekip Adreste</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight" dangerouslySetInnerHTML={{ __html: t('tech_banner_title') }} />
             <p className="text-base text-blue-100 font-light max-w-xl leading-relaxed">
-              Asansörde mahsur kalma, ana boru patlaması ve jeneratör arızalarında nöbetçi teknik personelimiz en geç 20 dakikada sahaya ulaşır.
+              {t('tech_banner_desc')}
             </p>
             <div className="pt-4">
               <Link href="/teklif-al" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-2xl inline-flex items-center gap-2 text-sm shadow-xl transition-all hover:scale-105 hover:shadow-blue-500/25">
                 <span className="material-symbols-outlined text-lg">build</span>
-                Teknik Bakım Anlaşması Alın
+                {t('tech_banner_btn')}
               </Link>
             </div>
           </div>
@@ -104,13 +78,13 @@ export default function TeknikBakim() {
               <AnimatedCounter from={0} to={20} />
               <span className="text-2xl ml-1">DK</span>
             </div>
-            <div className="text-xs text-blue-200 mt-2 font-medium uppercase tracking-wider">Ortalama Süre</div>
+            <div className="text-xs text-blue-200 mt-2 font-medium uppercase tracking-wider">{t('tech_banner_box_label')}</div>
           </motion.div>
         </div>
 
         {/* Maintenance Intervals Table */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">Önleyici Periyodik Bakım Matrisi</h2>
+          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">{t('tech_grid_title')}</h2>
           <div className="flex flex-col gap-4">
             {techIntervals.map((item, idx) => (
               <motion.div 
@@ -140,7 +114,7 @@ export default function TeknikBakim() {
 
         {/* FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">Teknik Bakım SSS</h2>
+          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">{t('tech_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
@@ -177,3 +151,24 @@ export default function TeknikBakim() {
   );
 }
 
+function AnimatedCounter({ from, to }: { from: number, to: number }) {
+  const [count, setCount] = useState(from);
+
+  useEffect(() => {
+    let startTimestamp: number | null = null;
+    const duration = 2000;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // easeOutExpo
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(easeProgress * (to - from) + from));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [from, to]);
+
+  return <>{count}</>;
+}

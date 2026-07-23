@@ -4,49 +4,52 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
-
-const poolPoints = [
-  {
-    title: "Günlük Klor-pH & Bakteri Analizleri",
-    desc: "Açık ve kapalı yüzme havuzlarında günün 3 farklı saatinde dijital ölçümlerle su dengesi ve hijyen takibi.",
-    icon: "science"
-  },
-  {
-    title: "Kum Filtresi Değişimi & Backwash",
-    desc: "Havuz makine dairesinde yer alan kum filtrelerinin periyodik ters yıkanması ve kuvars kum yenilemesi.",
-    icon: "filter_alt"
-  },
-  {
-    title: "Sezonluk Havuz Açılış & Kışlık Kapama",
-    desc: "Yaz sezonu öncesi seramik derz yenileme, şok klorlama ve kış aylarında koruyucu havuz brandası uygulaması.",
-    icon: "pool"
-  },
-  {
-    title: "Sağlık Bakanlığı Numune Denetimi",
-    desc: "İl Sağlık Müdürlüğü yetkili laboratuvarlarınca alınan su numunelerinin %100 hijyen uygunluk raporlanması.",
-    icon: "verified"
-  }
-];
-
-const faqs = [
-  {
-    q: "Havuz suyunun klor ve pH test sonuçları sakinlerle paylaşılıyor mu?",
-    a: "Evet, günlük yapılan dijital klor-pH ölçüm değerleri hem sosyal tesis bilgi panosunda fiziki olarak ilan edilir hem de Alo Yönetim mobil uygulamasında güncellenir."
-  },
-  {
-    q: "Sağlık Bakanlığı denetimleri nasıl yürütülüyor?",
-    a: "Halk Sağlığı Kurumu tarafından alınan aylık numuneler akredite laboratuvarlarda incelenir ve uygunluk belgeleri yönetim panosunda yayınlanır."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function HavuzBakimiVeHijyen() {
+  const { t } = useLanguage();
+
+  const poolPoints = [
+    {
+      title: t('pool_feat_1_title'),
+      desc: t('pool_feat_1_desc'),
+      icon: "science"
+    },
+    {
+      title: t('pool_feat_2_title'),
+      desc: t('pool_feat_2_desc'),
+      icon: "filter_alt"
+    },
+    {
+      title: t('pool_feat_3_title'),
+      desc: t('pool_feat_3_desc'),
+      icon: "pool"
+    },
+    {
+      title: t('pool_feat_4_title'),
+      desc: t('pool_feat_4_desc'),
+      icon: "verified"
+    }
+  ];
+
+  const faqs = [
+    {
+      q: t('pool_faq_1_q'),
+      a: t('pool_faq_1_a')
+    },
+    {
+      q: t('pool_faq_2_q'),
+      a: t('pool_faq_2_a')
+    }
+  ];
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
       <PageHeader 
-        title="Yüzme Havuzu Bakımı & Hijyeni" 
-        description="Sağlık Bakanlığı standartlarında günlük su analizleri, kimyasal denge ve sezonluk bakımlar." 
+        title={t('pool_title')} 
+        description={t('pool_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
@@ -54,17 +57,17 @@ export default function HavuzBakimiVeHijyen() {
         {/* Banner */}
         <div className="bg-gradient-to-br from-cyan-950 via-[#0c2838] to-[#071724] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-6 max-w-2xl">
-            <Badge status="info">%100 Sağlık Bakanlığı Onaylı</Badge>
+            <Badge status="info">{t('pool_banner_badge')}</Badge>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Sitenizde Berrak, Hijyenik ve Güvenli Yüzme Havuzları
+              {t('pool_banner_title')}
             </h2>
             <p className="text-lg text-cyan-100 font-light leading-relaxed">
-              Sertifikalı havuz operatörlerimizin denetiminde çocuklarınız ve aileniz için mikroptan arındırılmış havuz suyu sağlıyoruz.
+              {t('pool_banner_desc')}
             </p>
           </div>
           <Link href="/teklif-al">
             <Button variant="primary" size="lg" className="bg-cyan-600 hover:bg-cyan-500 text-white shrink-0">
-              Havuz Bakım Teklifi Alın 🏊‍♂️
+              {t('pool_banner_btn')}
             </Button>
           </Link>
         </div>
@@ -84,7 +87,7 @@ export default function HavuzBakimiVeHijyen() {
 
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">Havuz Bakımı SSS</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('pool_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">

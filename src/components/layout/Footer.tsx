@@ -204,7 +204,7 @@ export default function Footer() {
               <span className="material-symbols-outlined text-lg text-emerald-600 dark:text-emerald-400">verified</span>
               <div>
                 <div className="font-bold text-gray-900 dark:text-white leading-none">ISO 9001:2015</div>
-                <div className="text-[10px] text-gray-500">Kalite Yönetimi</div>
+                <div className="text-[10px] text-gray-500">{t('footer_badge_quality')}</div>
               </div>
             </div>
 
@@ -212,15 +212,15 @@ export default function Footer() {
               <span className="material-symbols-outlined text-lg text-blue-600 dark:text-blue-400">health_and_safety</span>
               <div>
                 <div className="font-bold text-gray-900 dark:text-white leading-none">ISO 45001</div>
-                <div className="text-[10px] text-gray-500">İSG Yönetimi</div>
+                <div className="text-[10px] text-gray-500">{t('footer_badge_ohs')}</div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 font-medium">
               <span className="material-symbols-outlined text-lg text-purple-600 dark:text-purple-400">admin_panel_settings</span>
               <div>
-                <div className="font-bold text-gray-900 dark:text-white leading-none">ÖGG Belgeli</div>
-                <div className="text-[10px] text-gray-500">T.C. İçişleri Bak.</div>
+                <div className="font-bold text-gray-900 dark:text-white leading-none">{t('footer_badge_sec')}</div>
+                <div className="text-[10px] text-gray-500">{t('footer_badge_sec_desc')}</div>
               </div>
             </div>
           </div>

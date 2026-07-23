@@ -4,89 +4,92 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const cleaningHighlights = [
-  {
-    title: "Ekolojik & Çocuk Dostu Deterjanlar",
-    desc: "Ağır kimyasallar yerine insan ve evcil hayvan sağlığına zarar vermeyen %100 doğa dostu ürünler.",
-    icon: "eco",
-    color: "from-emerald-500 to-green-600"
-  },
-  {
-    title: "Endüstriyel Binicili Zemin Otomatları",
-    desc: "Kapalı otopark ve geniş mermer hollerde iz bırakmayan yüksek devirli endüstriyel yıkama ekipmanları.",
-    icon: "cleaning_services",
-    color: "from-blue-500 to-indigo-600"
-  },
-  {
-    title: "Sezonluk Periyodik Hijyen Takvimi",
-    desc: "Bahar aylarında dış cephe cam temizliği, yazın havuz çevresi dezenfeksiyonu ve kışın kar küreme.",
-    icon: "calendar_month",
-    color: "from-amber-500 to-orange-600"
-  },
-  {
-    title: "Asansör & Ortak Alan Sterilizasyonu",
-    desc: "Virüs ve bakterilere karşı nano gümüş teknolojisiyle 24 saat etkili ortak alan hijyen kaplaması.",
-    icon: "sanitizer",
-    color: "from-purple-500 to-fuchsia-600"
-  }
-];
-
-const seasonalMatrix = [
-  { 
-    id: "ilkbahar",
-    season: "İlkbahar", 
-    task: "Dış cephe cam temizliği, bahçe peyzaj canlandırması ve çöp konteynerleri yıkanması.",
-    icon: "local_florist",
-    color: "text-green-500",
-    bg: "bg-green-500/10"
-  },
-  { 
-    id: "yaz",
-    season: "Yaz", 
-    task: "Açık yüzme havuzu çevresi hijyen bakımı, haşere ve sinek ilaçlaması.",
-    icon: "light_mode",
-    color: "text-amber-500",
-    bg: "bg-amber-500/10"
-  },
-  { 
-    id: "sonbahar",
-    season: "Sonbahar", 
-    task: "Yağmur giderleri ve mazgalların temizliği, yaprak toplama ve çatı oluk kontrolü.",
-    icon: "air",
-    color: "text-orange-500",
-    bg: "bg-orange-500/10"
-  },
-  { 
-    id: "kis",
-    season: "Kış", 
-    task: "Kapalı otopark zemin otomatı uygulaması, tuzlama ve kar küreme nöbetleri.",
-    icon: "ac_unit",
-    color: "text-blue-400",
-    bg: "bg-blue-400/10"
-  }
-];
-
-const faqs = [
-  {
-    q: "Temizlik ürünleriniz çocuk ve evcil hayvan sağlığı için güvenli mi?",
-    a: "Evet, kullandığımız tüm temizlik ve dezenfeksiyon ürünleri Sağlık Bakanlığı onaylı, biyolojik olarak doğada çözünen ve hipoalerjenik içeriğe sahiptir."
-  },
-  {
-    q: "Temizlik periyotları nasıl belirleniyor?",
-    a: "Sitenizin ihtiyaçlarına göre günlük blok içi merdiven paspaslama, haftalık asansör ve cam silimi, aylık kapalı otopark zemin otomatı yıkaması şeklinde özelleştirilmiş takvim hazırlanır."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TemizlikVeHijyen() {
+  const { t } = useLanguage();
+
+  const cleaningHighlights = [
+    {
+      title: t('clean_feat_1_title'),
+      desc: t('clean_feat_1_desc'),
+      icon: "eco",
+      color: "from-emerald-500 to-green-600"
+    },
+    {
+      title: t('clean_feat_2_title'),
+      desc: t('clean_feat_2_desc'),
+      icon: "cleaning_services",
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      title: t('clean_feat_3_title'),
+      desc: t('clean_feat_3_desc'),
+      icon: "calendar_month",
+      color: "from-amber-500 to-orange-600"
+    },
+    {
+      title: t('clean_feat_4_title'),
+      desc: t('clean_feat_4_desc'),
+      icon: "sanitizer",
+      color: "from-purple-500 to-fuchsia-600"
+    }
+  ];
+
+  const seasonalMatrix = [
+    { 
+      id: "ilkbahar",
+      season: t('clean_matrix_season_1'), 
+      task: t('clean_matrix_task_1'),
+      icon: "local_florist",
+      color: "text-green-500",
+      bg: "bg-green-500/10"
+    },
+    { 
+      id: "yaz",
+      season: t('clean_matrix_season_2'), 
+      task: t('clean_matrix_task_2'),
+      icon: "light_mode",
+      color: "text-amber-500",
+      bg: "bg-amber-500/10"
+    },
+    { 
+      id: "sonbahar",
+      season: t('clean_matrix_season_3'), 
+      task: t('clean_matrix_task_3'),
+      icon: "air",
+      color: "text-orange-500",
+      bg: "bg-orange-500/10"
+    },
+    { 
+      id: "kis",
+      season: t('clean_matrix_season_4'), 
+      task: t('clean_matrix_task_4'),
+      icon: "ac_unit",
+      color: "text-blue-400",
+      bg: "bg-blue-400/10"
+    }
+  ];
+
+  const faqs = [
+    {
+      q: t('clean_faq_1_q'),
+      a: t('clean_faq_1_a')
+    },
+    {
+      q: t('clean_faq_2_q'),
+      a: t('clean_faq_2_a')
+    }
+  ];
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeSeason, setActiveSeason] = useState(seasonalMatrix[0]);
 
   return (
     <>
       <PageHeader 
-        title="Temizlik & Hijyen Yönetimi" 
-        description="Ekolojik deterjanlar, endüstriyel otomatlar ve periyodik denetimlerle ortak alanlarda otel konforu." 
+        title={t('clean_title')} 
+        description={t('clean_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
@@ -96,17 +99,17 @@ export default function TemizlikVeHijyen() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
           <div className="flex flex-col gap-6 max-w-2xl relative z-10">
             <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full w-fit">
-              %100 Ekolojik Hijyen Garantisi
+              {t('clean_banner_badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-              Sitenizde Otel Konforunda Temizlik ve Hijyen Standardı
+              {t('clean_banner_title')}
             </h2>
             <p className="text-lg text-emerald-100/80 font-light leading-relaxed">
-              Uzman kat hizmetleri ekibimiz ve sanayi tipi zemin otomatlarımızla ortak alanları her gün ilk günkü parlaklığına kavuşturuyoruz.
+              {t('clean_banner_desc')}
             </p>
           </div>
           <Link href="/teklif-al" className="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-4 px-8 rounded-2xl shrink-0 text-sm shadow-xl transition-all hover:scale-105 hover:shadow-emerald-500/25 relative z-10 flex items-center gap-2">
-            Temizlik Teklifi Alın 🌿
+            {t('clean_banner_btn')}
             <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </Link>
         </div>
@@ -137,9 +140,9 @@ export default function TemizlikVeHijyen() {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-10">
             <div className="max-w-lg">
               <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">
-                İnteraktif Döngü
+                {t('clean_matrix_badge')}
               </span>
-              <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">Dört Mevsim Periyodik Temizlik Takvimi</h2>
+              <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{t('clean_matrix_title')}</h2>
             </div>
             <div className="flex flex-wrap gap-2 bg-gray-100 dark:bg-white/5 p-2 rounded-2xl">
               {seasonalMatrix.map(season => (
@@ -175,7 +178,7 @@ export default function TemizlikVeHijyen() {
                   <span className={`w-12 h-12 rounded-full ${activeSeason.bg} ${activeSeason.color} flex items-center justify-center`}>
                     <span className="material-symbols-outlined">{activeSeason.icon}</span>
                   </span>
-                  <h3 className="text-2xl font-bold text-[var(--color-primary)]">{activeSeason.season} Dönemi Rutinleri</h3>
+                  <h3 className="text-2xl font-bold text-[var(--color-primary)]">{activeSeason.season} {t('clean_matrix_period')}</h3>
                 </div>
                 <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed max-w-3xl">
                   {activeSeason.task}
@@ -187,7 +190,7 @@ export default function TemizlikVeHijyen() {
 
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">Temizlik Hizmeti SSS</h2>
+          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">{t('clean_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">

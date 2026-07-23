@@ -4,60 +4,69 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const ALL_POSTS = [
-  { 
-    slug: "2024-aidat-artis-oranlari", 
-    title: "2024 Yılı Aidat Artış Oranları ve Yasal Haklarınız", 
-    date: "15 Ekim 2023", 
-    category: "Hukuk",
-    image: "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?q=80&w=2070&auto=format&fit=crop"
-  },
-  { 
-    slug: "deprem-risk-analizi", 
-    title: "Sitenizde Deprem Risk Analizi Nasıl Yapılmalı?", 
-    date: "02 Eylül 2023", 
-    category: "Güvenlik",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=2070&auto=format&fit=crop"
-  },
-  { 
-    slug: "2024-aidat-artis-oranlari", 
-    title: "Enerji Verimliliği Sağlayan Akıllı Aydınlatma Sistemleri", 
-    date: "18 Ağustos 2023", 
-    category: "Teknoloji",
-    image: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2070&auto=format&fit=crop"
-  },
-  { 
-    slug: "deprem-risk-analizi", 
-    title: "Site Yönetimlerinde Şeffaflık Neden Önemli?", 
-    date: "05 Temmuz 2023", 
-    category: "Yönetim",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
-  },
-  { 
-    slug: "kentsel-donusum-surecleri", 
-    title: "Sitelerde Kentsel Dönüşüm Süreci Nasıl İlerler?", 
-    date: "12 Haziran 2023", 
-    category: "Hukuk",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-  },
-  { 
-    slug: "yuzme-havuzu-bakim-kimyasallari", 
-    title: "Yaz Öncesi Yüzme Havuzu Hazırlığı ve Kimyasal Kullanımı", 
-    date: "24 Mayıs 2023", 
-    category: "Yönetim",
-    image: "https://images.unsplash.com/photo-1537565266751-341a94bc7d6f?q=80&w=2000&auto=format&fit=crop"
-  }
-];
-
-const CATEGORIES = ["Tümü", "Hukuk", "Güvenlik", "Teknoloji", "Yönetim"];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Blog() {
-  const [activeCategory, setActiveCategory] = useState("Tümü");
+  const { t } = useLanguage();
+
+  const ALL_POSTS = [
+    { 
+      slug: "2024-aidat-artis-oranlari", 
+      title: t('blog_post_1_title'), 
+      date: t('blog_post_1_date'), 
+      category: t('blog_cat_law'),
+      image: "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?q=80&w=2070&auto=format&fit=crop"
+    },
+    { 
+      slug: "deprem-risk-analizi", 
+      title: t('blog_post_2_title'), 
+      date: t('blog_post_2_date'), 
+      category: t('blog_cat_security'),
+      image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=2070&auto=format&fit=crop"
+    },
+    { 
+      slug: "2024-aidat-artis-oranlari", // reusing slug for demo
+      title: t('blog_post_3_title'), 
+      date: t('blog_post_3_date'), 
+      category: t('blog_cat_tech'),
+      image: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2070&auto=format&fit=crop"
+    },
+    { 
+      slug: "deprem-risk-analizi", // reusing slug for demo
+      title: t('blog_post_4_title'), 
+      date: t('blog_post_4_date'), 
+      category: t('blog_cat_mgmt'),
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+    },
+    { 
+      slug: "kentsel-donusum-surecleri", 
+      title: t('blog_post_5_title'), 
+      date: t('blog_post_5_date'), 
+      category: t('blog_cat_law'),
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+    },
+    { 
+      slug: "yuzme-havuzu-bakim-kimyasallari", 
+      title: t('blog_post_6_title'), 
+      date: t('blog_post_6_date'), 
+      category: t('blog_cat_mgmt'),
+      image: "https://images.unsplash.com/photo-1537565266751-341a94bc7d6f?q=80&w=2000&auto=format&fit=crop"
+    }
+  ];
+
+  const CATEGORIES = [
+    t('blog_cat_all'), 
+    t('blog_cat_law'), 
+    t('blog_cat_security'), 
+    t('blog_cat_tech'), 
+    t('blog_cat_mgmt')
+  ];
+
+  const [activeCategory, setActiveCategory] = useState(t('blog_cat_all'));
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  const filteredPosts = activeCategory === "Tümü" 
+  const filteredPosts = activeCategory === t('blog_cat_all') 
     ? ALL_POSTS 
     : ALL_POSTS.filter(post => post.category === activeCategory);
 
@@ -73,8 +82,8 @@ export default function Blog() {
   return (
     <>
       <PageHeader 
-        title="Blog & Haberler" 
-        description="Tesis yönetimi sektörüyle ilgili güncel gelişmeler, yasal değişiklikler ve uzman makalelerimiz." 
+        title={t('blog_page_title')} 
+        description={t('blog_page_desc')} 
       />
 
       {/* Newsletter Banner */}
@@ -84,15 +93,15 @@ export default function Blog() {
           <div className="relative z-10 flex-1">
             <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-widest bg-emerald-500/10 px-4 py-1.5 rounded-full w-fit mb-4">
               <span className="material-symbols-outlined text-sm">mail</span>
-              Tesis Yönetimi E-Bülten
+              {t('blog_nl_tag')}
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Sektördeki Gelişmeleri Kaçırmayın</h3>
-            <p className="text-gray-300 font-light">KMK değişiklikleri, asgari ücret / aidat zam oranları ve yönetim ipuçları ayda bir kez e-posta kutunuzda.</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{t('blog_nl_title')}</h3>
+            <p className="text-gray-300 font-light">{t('blog_nl_desc')}</p>
           </div>
           <form onSubmit={handleSubscribe} className="relative z-10 w-full md:w-auto flex flex-col sm:flex-row gap-3">
             <input 
               type="email" 
-              placeholder="E-posta adresiniz" 
+              placeholder={t('blog_nl_ph')} 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="bg-white/10 border border-white/20 text-white placeholder-gray-400 px-6 py-4 rounded-xl focus:outline-none focus:border-blue-400 w-full md:w-80 transition-colors backdrop-blur-sm"
@@ -105,9 +114,9 @@ export default function Blog() {
               }`}
             >
               {subscribed ? (
-                <><span className="material-symbols-outlined">check_circle</span> Abone Olundu</>
+                <><span className="material-symbols-outlined">check_circle</span> {t('blog_nl_success')}</>
               ) : (
-                'Ücretsiz Kaydol'
+                t('blog_nl_btn')
               )}
             </button>
           </form>
@@ -165,7 +174,7 @@ export default function Blog() {
                     <span>•</span>
                     <span className="flex items-center gap-1.5">
                       <span className="material-symbols-outlined text-[16px]">schedule</span>
-                      3 dk okuma
+                      {t('blog_read_time')}
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
@@ -180,7 +189,7 @@ export default function Blog() {
         {filteredPosts.length === 0 && (
           <div className="text-center py-20 text-gray-500">
             <span className="material-symbols-outlined text-4xl mb-3">inbox</span>
-            <p>Bu kategoride henüz yazı bulunmamaktadır.</p>
+            <p>{t('blog_empty')}</p>
           </div>
         )}
 

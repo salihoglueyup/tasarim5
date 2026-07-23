@@ -4,42 +4,45 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
-
-const gesPoints = [
-  {
-    title: "%70 Ortak Alan Elektrik Tasarrufu",
-    desc: "Çatı ve otopark üstlerine kurulan güneş panelleri ile asansör, koridor aydınlatmaları ve hidrofor elektriğinde devasa tasarruf.",
-    icon: "solar_power"
-  },
-  {
-    title: "Sitelerde Elektrikli Araç Şarj İstasyonları (EV)",
-    desc: "GES santrallerinden üretilen temiz enerji ile kat maliklerinin elektrikli araçları için ortak şarj üniteleri kurulumu.",
-    icon: "ev_station"
-  },
-  {
-    title: "Mahsuplaşma & Şebekeye Enerji Satışı",
-    desc: "Üretilen fazla elektriğin dağıtım şirketine satılarak site bütçesine ek gelir kaynağı sağlanması.",
-    icon: "account_balance"
-  },
-  {
-    title: "Karbon Ayak İzi & Yeşil Bina Sertifikası",
-    desc: "Binalarınızın gayrimenkul değerini %15 artıran LEED ve BREEAM uyumlu yeşil enerji dönüşümü.",
-    icon: "eco"
-  }
-];
-
-const faqs = [
-  {
-    q: "Güneş Paneli (GES) yatırımı kendisini kaç yılda amorti eder?",
-    a: "Sitelerin çatı alanı ve ortak elektrik faturasına bağlı olarak ortalama amortisman süresi 3.2 ile 4 yıl arasındadır. Kalan 20+ yıl üretilen enerji %100 kar kalır."
-  },
-  {
-    q: "Çatıya güneş paneli kurmak için kat malikleri kurulunda kaç oy gerekir?",
-    a: "Kat Mülkiyeti Kanunu uyarınca ortak alanlarda yenilenebilir enerji tesisatı kurulumu için kat maliklerinin sayı ve arsa payı çoğunluğu yeterlidir."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function GesProjeleri() {
+  const { t } = useLanguage();
+
+  const gesPoints = [
+    {
+      title: t('ges_point_1_title'),
+      desc: t('ges_point_1_desc'),
+      icon: "solar_power"
+    },
+    {
+      title: t('ges_point_2_title'),
+      desc: t('ges_point_2_desc'),
+      icon: "ev_station"
+    },
+    {
+      title: t('ges_point_3_title'),
+      desc: t('ges_point_3_desc'),
+      icon: "account_balance"
+    },
+    {
+      title: t('ges_point_4_title'),
+      desc: t('ges_point_4_desc'),
+      icon: "eco"
+    }
+  ];
+
+  const faqs = [
+    {
+      q: t('ges_faq_1_q'),
+      a: t('ges_faq_1_a')
+    },
+    {
+      q: t('ges_faq_2_q'),
+      a: t('ges_faq_2_a')
+    }
+  ];
+
   const [monthlyBill, setMonthlyBill] = useState<number>(45000);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -51,8 +54,8 @@ export default function GesProjeleri() {
   return (
     <>
       <PageHeader 
-        title="Sitelerde Güneş Enerjisi (GES) Projeleri" 
-        description="Çatı ve otopark üstü güneş santralleri ile ortak alan elektrik faturalarında %70 net tasarruf." 
+        title={t('ges_title')} 
+        description={t('ges_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
@@ -60,17 +63,17 @@ export default function GesProjeleri() {
         {/* Banner */}
         <div className="bg-gradient-to-br from-amber-950 via-[#2e1d05] to-[#170e02] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-6 max-w-2xl">
-            <Badge status="warning">%70 Elektrik Faturası Düşüşü</Badge>
+            <Badge status="warning">{t('ges_banner_badge')}</Badge>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Güneşten Üretin, Sitenizin Ortak Elektrik Giderini Sıfırlayın
+              {t('ges_banner_title')}
             </h2>
             <p className="text-lg text-amber-100 font-light leading-relaxed">
-              Mühendislerimiz sitenizde ücretsiz fizibilite yaparak yatırım amortisman süresini hesaplar.
+              {t('ges_banner_desc')}
             </p>
           </div>
           <Link href="/teklif-al">
             <Button variant="primary" size="lg" className="bg-amber-600 hover:bg-amber-500 text-white shrink-0 shadow-lg transition-transform hover:scale-105">
-              Ücretsiz GES Fizibilitesi Alın ☀️
+              {t('ges_banner_btn')}
             </Button>
           </Link>
         </div>
@@ -79,17 +82,17 @@ export default function GesProjeleri() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
             <span className="text-xs font-bold text-amber-600 bg-amber-500/10 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
-              GES Amortisman Simülatörü
+              {t('ges_calc_badge')}
             </span>
-            <h2 className="text-3xl font-bold text-[var(--color-primary)]">Sitenizin Güneş Enerjisi Potansiyelini Hesaplayın</h2>
+            <h2 className="text-3xl font-bold text-[var(--color-primary)]">{t('ges_calc_title')}</h2>
             <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
-              Sitenizin aylık ortalama ortak alan elektrik faturasını girin; yıllık tasarruf miktarını ve amortisman süresini görün.
+              {t('ges_calc_desc')}
             </p>
             
             <div className="flex flex-col gap-3 pt-4">
               <div className="flex justify-between items-center">
-                <label className="font-semibold text-[var(--color-primary)]">Aylık Ortak Elektrik Faturası</label>
-                <span className="text-xl font-bold text-amber-600">₺{monthlyBill.toLocaleString()} / ay</span>
+                <label className="font-semibold text-[var(--color-primary)]">{t('ges_calc_label')}</label>
+                <span className="text-xl font-bold text-amber-600">₺{monthlyBill.toLocaleString()}{t('ges_calc_val_suffix')}</span>
               </div>
               <input 
                 type="range"
@@ -105,7 +108,7 @@ export default function GesProjeleri() {
 
           <div className="lg:col-span-6 bg-gradient-to-br from-amber-900 to-slate-900 text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
             <div className="flex flex-col gap-1">
-              <span className="text-xs text-amber-300 font-semibold uppercase">Tahmini Yıllık GES Tasarrufu</span>
+              <span className="text-xs text-amber-300 font-semibold uppercase">{t('ges_calc_save_yearly_label')}</span>
               <div className="text-4xl md:text-5xl font-extrabold text-amber-400">₺{estimatedSavingsYearly.toLocaleString()}</div>
             </div>
             
@@ -113,17 +116,17 @@ export default function GesProjeleri() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <div className="text-xs text-gray-300">Aylık Net Fatura İndirimi</div>
+                <div className="text-xs text-gray-300">{t('ges_calc_save_monthly_label')}</div>
                 <div className="text-xl font-bold text-white">~₺{estimatedSavingsMonthly.toLocaleString()}</div>
               </div>
               <div>
-                <div className="text-xs text-gray-300">Ort. Amortisman Süresi</div>
-                <div className="text-xl font-bold text-emerald-400">{estimatedPaybackYears} Yıl</div>
+                <div className="text-xs text-gray-300">{t('ges_calc_payback_label')}</div>
+                <div className="text-xl font-bold text-emerald-400">{estimatedPaybackYears}{t('ges_calc_payback_val_suffix')}</div>
               </div>
             </div>
 
             <Link href="/teklif-al" className="w-full bg-white text-slate-900 font-bold py-3.5 px-6 rounded-xl text-center text-sm hover:bg-gray-100 transition-colors mt-2">
-              Resmi Çatı Fizibilite Raporu İste
+              {t('ges_calc_btn')}
             </Link>
           </div>
         </div>
@@ -143,7 +146,7 @@ export default function GesProjeleri() {
 
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">GES Projeleri SSS</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('ges_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">

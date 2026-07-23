@@ -3,37 +3,40 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
-
-const legalSteps = [
-  { step: "01", title: "Hatırlatma & SMS Bildirimi", desc: "Vadesi geçen aidat için otomatik nazik SMS ve e-posta bilgilendirmesi gönderilir." },
-  { step: "02", title: "Kat Malikleri Danışmanlığı", desc: "Gecikmeye düşen malik aranarak komşuluk ilişkilerini zedelemeden ödeme kolaylığı sunulur." },
-  { step: "03", title: "Hukuk Müşavirliği İhtarı", desc: "Ödenmeyen aidat için resmi avukatımız tarafından Kat Mülkiyeti Kanunu uyarınca ihtar çekilir." },
-  { step: "04", title: "Şeffaf İcra Takibi", desc: "Projenin mali dengesini korumak adına icra takibi başlatılarak tahsilat %100 tamamlanır." }
-];
-
-const faqs = [
-  {
-    q: "Banka hesaplarımızı ve aidat harcamalarını nasıl takip edebiliriz?",
-    a: "Alo Yönetim mobil uygulaması ve web sakin portalı üzerinden binanıza ait banka hesabının tüm girdi ve çıktı hareketlerini, fatura görsellerini ve aylık bilançoları 7/24 şeffaf şekilde inceleyebilirsiniz."
-  },
-  {
-    q: "Mevcut bina yönetimi devri nasıl gerçekleşir?",
-    a: "Eski yönetimden devir teslim süreci uzman avukatımız ve mali müşavirimiz eşliğinde gerçekleşir. Karar defteri tescilinden banka yetkilerinin devrine kadar tüm bürokratik adımları biz yürütüyoruz."
-  },
-  {
-    q: "Aidat ödemeyen kat maliklerine karşı yasal süreç nasıl işler?",
-    a: "Kat Mülkiyeti Kanunu uyarınca, gecikmeye düşen aidatlara aylık %5 yasal gecikme tazminatı uygulanır. 4 adımlı uzlaşmacı ve hukuki sürecimiz sayesinde aidat tahsilat oranımız %99.2 seviyesindedir."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TesisYonetimi() {
+  const { t } = useLanguage();
+
+  const legalSteps = [
+    { step: "01", title: t('fac_step_1_title'), desc: t('fac_step_1_desc') },
+    { step: "02", title: t('fac_step_2_title'), desc: t('fac_step_2_desc') },
+    { step: "03", title: t('fac_step_3_title'), desc: t('fac_step_3_desc') },
+    { step: "04", title: t('fac_step_4_title'), desc: t('fac_step_4_desc') }
+  ];
+
+  const faqs = [
+    {
+      q: t('fac_faq_1_q'),
+      a: t('fac_faq_1_a')
+    },
+    {
+      q: t('fac_faq_2_q'),
+      a: t('fac_faq_2_a')
+    },
+    {
+      q: t('fac_faq_3_q'),
+      a: t('fac_faq_3_a')
+    }
+  ];
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
       <PageHeader 
-        title="Şeffaf Mülk & Tesis Yönetimi" 
-        description="%100 şeffaf bilanço yazılımı, online aidat tahsilatı ve profesyonel hukuk desteği." 
+        title={t('fac_title')} 
+        description={t('fac_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
@@ -42,36 +45,36 @@ export default function TesisYonetimi() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-16 rounded-[3rem] shadow-sm flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-6 max-w-2xl">
             <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-4 py-1.5 rounded-full w-fit">
-              Canlı Şeffaf Portal
+              {t('fac_banner_badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)]">
-              Her Kuruşun Hesabı Sakinlerin Cebinde
+              {t('fac_banner_title')}
             </h2>
             <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">
-              Alo Yönetim mobil uygulaması ile binanızın elektrik faturasından güvenlik maaşına kadar tüm harcamaları canlı olarak görüntüleyebilir, banka ekstrelerini dilediğiniz an inceleyebilirsiniz.
+              {t('fac_banner_desc')}
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link href="/hesaplayici" className="bg-[var(--color-primary)] text-white font-bold py-4 px-8 rounded-xl w-fit shadow-md hover:opacity-95 transition-opacity text-sm">
-                Aidat Tasarrufunuzu Hesaplayın ⚡
+                {t('fac_banner_btn_calc')}
               </Link>
               <Link href="/teklif-al" className="border border-[var(--color-outline)] text-[var(--color-primary)] font-bold py-4 px-8 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-sm">
-                Yönetim Teklifi Al
+                {t('fac_banner_btn_offer')}
               </Link>
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-blue-900 to-[#122338] text-white p-10 rounded-[2.5rem] flex flex-col gap-6 w-full lg:w-80 shrink-0 shadow-xl">
-            <div className="text-4xl font-extrabold text-blue-400">%100</div>
-            <div className="text-lg font-semibold">Canlı Şeffaf Bilanço</div>
+            <div className="text-4xl font-extrabold text-blue-400">{t('fac_box_title')}</div>
+            <div className="text-lg font-semibold">{t('fac_box_subtitle')}</div>
             <p className="text-xs text-gray-300 font-light leading-relaxed border-t border-white/10 pt-4">
-              Gizli masraf yok, sürpriz ek bütçe yok. Tüm finansal kararlar kat malikleri onayından geçer.
+              {t('fac_box_desc')}
             </p>
           </div>
         </div>
 
         {/* Legal Debt Collection 4-Step Flow */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">4 Adımda Aidat Tahsilat & Hukuk Akışı</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('fac_steps_title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {legalSteps.map((s, idx) => (
               <div key={idx} className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 flex flex-col gap-3">
@@ -85,7 +88,7 @@ export default function TesisYonetimi() {
 
         {/* Service Specific FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">Sıkça Sorulan Sorular</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('fac_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">

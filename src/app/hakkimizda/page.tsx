@@ -3,36 +3,39 @@
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-
-const leaders = [
-  {
-    name: "Oğuzhan Kaya",
-    title: "Kurucu & Genel Müdür",
-    bio: "17 yılı aşkın gayrimenkul ve entegre tesis yönetimi tecrübesiyle Alo Yönetim'in vizyonuna liderlik etmektedir.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    name: "Selin Yılmaz",
-    title: "Operasyon Direktörü",
-    bio: "45.000+ bağımsız bölümün saha güvenlik, temizlik ve teknik süreçlerinin koordinasyonunu yürütmektedir.",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    name: "Av. Mehmet Demir",
-    title: "Hukuk Müşaviri",
-    bio: "Kat Mülkiyeti Kanunu ve icra hukuku alanında uzman kadrosuyla komşuluk ilişkilerini koruyan çözümler sunar.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
-  }
-];
-
-const timeline = [
-  { year: "2009", title: "Kuruluş", desc: "Kadıköy'de profesyonel site yönetimi ve danışmanlık hizmetleri ile faaliyetlerimize başladık." },
-  { year: "2015", title: "50+ Proje Barajı", desc: "İstanbul Anadolu yakasının önde gelen lüks konut sitelerinin yönetimini üstlendik." },
-  { year: "2020", title: "Dijital Portal Dönüşümü", desc: "Kendi yazılımımız olan Sakin & Yönetici mobil uygulamasını hayata geçirdik." },
-  { year: "2026", title: "45.000+ Daire & Liderlik", desc: "100+ prestijli proje ve 1.200+ eğitimli saha personelimizle sektörün güven adresi olduk." }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hakkimizda() {
+  const { t } = useLanguage();
+
+  const leaders = [
+    {
+      name: t('about_team_1_name'),
+      title: t('about_team_1_title'),
+      bio: t('about_team_1_bio'),
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      name: t('about_team_2_name'),
+      title: t('about_team_2_title'),
+      bio: t('about_team_2_bio'),
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      name: t('about_team_3_name'),
+      title: t('about_team_3_title'),
+      bio: t('about_team_3_bio'),
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+    }
+  ];
+
+  const timeline = [
+    { year: t('about_timeline_1_year'), title: t('about_timeline_1_title'), desc: t('about_timeline_1_desc') },
+    { year: t('about_timeline_2_year'), title: t('about_timeline_2_title'), desc: t('about_timeline_2_desc') },
+    { year: t('about_timeline_3_year'), title: t('about_timeline_3_title'), desc: t('about_timeline_3_desc') },
+    { year: t('about_timeline_4_year'), title: t('about_timeline_4_title'), desc: t('about_timeline_4_desc') }
+  ];
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,8 +47,8 @@ export default function Hakkimizda() {
   return (
     <>
       <PageHeader 
-        title="Hakkımızda" 
-        description="2009'dan bugüne şeffaf, güvenilir ve teknoloji odaklı profesyonel mülk yönetimi." 
+        title={t('about_title')} 
+        description={t('about_desc')} 
       />
 
       {/* Manifest & Story */}
@@ -53,21 +56,21 @@ export default function Hakkimizda() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-16 rounded-[3rem] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-6">
             <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full w-fit">
-              15+ Yıllık Kurumsal Tecrübe
+              {t('about_manifest_badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] leading-tight">
-              Türkiye'nin En Prestijli Tesis Yönetim Standartlarını Oluşturuyoruz
+              {t('about_manifest_title')}
             </h2>
             <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">
-              Alo Yönetim olarak, toplu yaşam alanlarında karşılaşılan aidat belirsizlikleri, yetersiz güvenlik ve aksayan teknik bakımlara son vermek amacıyla yola çıktık. %100 şeffaf bilanço anlayışımız, güçlü hukuk desteğimiz ve 7/24 sahada olan uzman kadromuzla yaşam alanlarınıza değer katıyoruz.
+              {t('about_manifest_desc')}
             </p>
           </div>
 
           <div className="lg:col-span-5 bg-gradient-to-br from-blue-900 to-[#122338] text-white p-10 rounded-[2.5rem] flex flex-col gap-6">
-            <div className="text-4xl font-extrabold text-blue-400">45.000+</div>
-            <div className="text-lg font-semibold">Bağımsız Bölüm Güvencemizde</div>
+            <div className="text-4xl font-extrabold text-blue-400">{t('about_manifest_stat')}</div>
+            <div className="text-lg font-semibold">{t('about_manifest_stat_title')}</div>
             <p className="text-xs text-gray-300 font-light leading-relaxed border-t border-white/10 pt-4">
-              Toplu satın alma gücümüz sayesinde sitelerin yıllık bütçelerinde ortalama %22 tasarruf sağlıyoruz.
+              {t('about_manifest_stat_desc')}
             </p>
           </div>
         </div>
@@ -77,10 +80,10 @@ export default function Hakkimizda() {
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
-            Yönetim Kadromuz
+            {t('about_team_badge')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mt-4">
-            Deneyimli ve Uzman Liderler
+            {t('about_team_title')}
           </h2>
         </div>
 
@@ -102,10 +105,10 @@ export default function Hakkimizda() {
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
-            Zaman Tüneli
+            {t('about_timeline_badge')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mt-4">
-            Büyüme Yolculuğumuz (2009 - 2026)
+            {t('about_timeline_title')}
           </h2>
         </div>
 

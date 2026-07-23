@@ -3,76 +3,85 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const categories = ["Tümü", "Rezidans & Loft", "Toplu Konut", "AVM & Ticari", "Sanayi Siteleri"];
-
-const partnerLogos = [
-  "Acıbadem", "Rönesans", "Ağaoğlu", "Sur Yapı", "Sinpaş", "DAP Yapı", "Ege Yapı", "Tahincioğlu"
-];
-
-const projects = [
-  {
-    name: "Lalezar Konakları",
-    category: "Toplu Konut",
-    units: "240 Daire",
-    location: "Kadıköy, İstanbul",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "Sapphire Residence",
-    category: "Rezidans & Loft",
-    units: "180 Daire",
-    location: "Ataşehir, İstanbul",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "Horizon Plaza & Loft",
-    category: "AVM & Ticari",
-    units: "210 Ofis + 40 Mağaza",
-    location: "Şişli, İstanbul",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "Marina Towers",
-    category: "Rezidans & Loft",
-    units: "320 Daire",
-    location: "Kartal, İstanbul",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "Koru Park Evleri",
-    category: "Toplu Konut",
-    units: "95 Daire",
-    location: "Ümraniye, İstanbul",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "Vadi Panorama Projesi",
-    category: "Toplu Konut",
-    units: "410 Daire",
-    location: "Sarıyer, İstanbul",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1000&auto=format&fit=crop"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Referanslar() {
-  const [activeCategory, setActiveCategory] = useState("Tümü");
+  const { t } = useLanguage();
 
-  const filteredProjects = activeCategory === "Tümü" 
+  const categories = [
+    t('ref_cat_all'), 
+    t('ref_cat_residence'), 
+    t('ref_cat_housing'), 
+    t('ref_cat_commercial'), 
+    t('ref_cat_industrial')
+  ];
+
+  const partnerLogos = [
+    "Acıbadem", "Rönesans", "Ağaoğlu", "Sur Yapı", "Sinpaş", "DAP Yapı", "Ege Yapı", "Tahincioğlu"
+  ];
+
+  const projects = [
+    {
+      name: "Lalezar Konakları",
+      category: t('ref_cat_housing'),
+      units: `240 ${t('ref_unit_flat')}`,
+      location: "Kadıköy, İstanbul",
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "Sapphire Residence",
+      category: t('ref_cat_residence'),
+      units: `180 ${t('ref_unit_flat')}`,
+      location: "Ataşehir, İstanbul",
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "Horizon Plaza & Loft",
+      category: t('ref_cat_commercial'),
+      units: `210 ${t('ref_unit_office')} + 40 ${t('ref_unit_store')}`,
+      location: "Şişli, İstanbul",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "Marina Towers",
+      category: t('ref_cat_residence'),
+      units: `320 ${t('ref_unit_flat')}`,
+      location: "Kartal, İstanbul",
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "Koru Park Evleri",
+      category: t('ref_cat_housing'),
+      units: `95 ${t('ref_unit_flat')}`,
+      location: "Ümraniye, İstanbul",
+      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "Vadi Panorama Projesi",
+      category: t('ref_cat_housing'),
+      units: `410 ${t('ref_unit_flat')}`,
+      location: "Sarıyer, İstanbul",
+      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1000&auto=format&fit=crop"
+    }
+  ];
+
+  const [activeCategory, setActiveCategory] = useState(t('ref_cat_all'));
+
+  const filteredProjects = activeCategory === t('ref_cat_all') 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
 
   return (
     <>
       <PageHeader 
-        title="Referanslarımız" 
-        description="İstanbul genelinde 45.000'den fazla bağımsız bölüme hizmet verdiğimiz prestijli projeler." 
+        title={t('ref_page_title')} 
+        description={t('ref_page_desc')} 
       />
 
       {/* Infinite Marquee Section */}
       <section className="py-12 border-b border-[var(--color-outline)]/40 overflow-hidden bg-[var(--color-surface)]">
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] mb-6 text-center">
-          <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest">Çözüm Ortaklarımız & Markalar</span>
+          <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest">{t('ref_partners')}</span>
         </div>
         <div className="relative flex overflow-x-hidden group">
           <div className="absolute top-0 bottom-0 left-0 w-32 z-10 bg-gradient-to-r from-[var(--color-surface)] to-transparent pointer-events-none" />

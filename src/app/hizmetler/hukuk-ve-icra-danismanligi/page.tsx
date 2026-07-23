@@ -4,49 +4,52 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
-
-const legalPoints = [
-  {
-    title: "Kat Mülkiyeti Kanunu (KMK) Danışmanlığı",
-    desc: "Ortak alan işgalleri, bağımsız bölüm tadilat anlaşmazlıkları ve komşuluk hukuku ihtilaflarında uzman avukat kadrosu.",
-    icon: "gavel"
-  },
-  {
-    title: "Aidat Alacak İcra Takibi",
-    desc: "Gecikmeye düşen kat malikleri için komşuluk ilişkilerini koruyan 4 adımlı uzlaşmacı ve yasal tahsilat akışı.",
-    icon: "balance"
-  },
-  {
-    title: "Kat Malikleri Genel Kurul Yönetimi",
-    desc: "Bina genel kurullarının yasal usullere (çağrı, divan, karar defteri tescili) uygun eksiksiz organizasyonu.",
-    icon: "groups"
-  },
-  {
-    title: "Tedarikçi ve Hizmet Sözleşmeleri",
-    desc: "Güvenlik, temizlik ve asansör firmalarıyla yapılan tüm sözleşmelerin binayı koruyacak cezai şartlarla hazırlanması.",
-    icon: "history_edu"
-  }
-];
-
-const faqs = [
-  {
-    q: "Hukuk danışmanlığı hizmeti için ekstra avukatlık ücreti ödenir mi?",
-    a: "Alo Yönetim ile çalışan sitelerimizde genel hukuki danışmanlık, ihtarname hazırlığı ve genel kurul yönetimi paket sözleşmemize dahildir. Yasal icra takiplerinde baro asgari ücret tarifesi uygulanır."
-  },
-  {
-    q: "Kat malikleri genel kurulu iptal davasına karşı önlemleriniz nelerdir?",
-    a: "Çağrı mektuplarının taahhütlü postayla yollanması, vekaletnamelerin doğrulanması ve karar defterinin yasal süresinde notere tesciliyle %100 hukuki geçerlilik sağlıyoruz."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function HukukVeIcraDanismanligi() {
+  const { t } = useLanguage();
+
+  const legalPoints = [
+    {
+      title: t('legal_feat_1_title'),
+      desc: t('legal_feat_1_desc'),
+      icon: "gavel"
+    },
+    {
+      title: t('legal_feat_2_title'),
+      desc: t('legal_feat_2_desc'),
+      icon: "balance"
+    },
+    {
+      title: t('legal_feat_3_title'),
+      desc: t('legal_feat_3_desc'),
+      icon: "groups"
+    },
+    {
+      title: t('legal_feat_4_title'),
+      desc: t('legal_feat_4_desc'),
+      icon: "history_edu"
+    }
+  ];
+
+  const faqs = [
+    {
+      q: t('legal_faq_1_q'),
+      a: t('legal_faq_1_a')
+    },
+    {
+      q: t('legal_faq_2_q'),
+      a: t('legal_faq_2_a')
+    }
+  ];
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
       <PageHeader 
-        title="Hukuk & İcra Danışmanlığı" 
-        description="Kat Mülkiyeti Kanunu uyarınca şeffaf aidat tahsilatı ve yasal genel kurul süreçleri." 
+        title={t('legal_title')} 
+        description={t('legal_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
@@ -54,17 +57,17 @@ export default function HukukVeIcraDanismanligi() {
         {/* Banner */}
         <div className="bg-gradient-to-br from-slate-900 via-[#1e293b] to-[#0f172a] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-6 max-w-2xl">
-            <Badge status="neutral">%100 Hukuki Güvence</Badge>
+            <Badge status="neutral">{t('legal_banner_badge')}</Badge>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Sitenizin Tüm Hakları Kat Mülkiyeti Kanununa Tam Uyumlu
+              {t('legal_banner_title')}
             </h2>
             <p className="text-lg text-slate-300 font-light leading-relaxed">
-              Uzman baro üyesi avukatlarımızla komşuluk huzurunu bozmadan aidat alacaklarını %100 tahsil ediyor, hukuki riskleri sıfırlıyoruz.
+              {t('legal_banner_desc')}
             </p>
           </div>
           <Link href="/teklif-al">
             <Button variant="primary" size="lg" className="bg-slate-700 hover:bg-slate-600 text-white shrink-0">
-              Hukuk Danışmanlığı İsteyin ⚖️
+              {t('legal_banner_btn')}
             </Button>
           </Link>
         </div>
@@ -84,7 +87,7 @@ export default function HukukVeIcraDanismanligi() {
 
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">Hukuk & İcra SSS</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('legal_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">

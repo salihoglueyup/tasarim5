@@ -4,78 +4,80 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const sectors = [
-  {
-    id: "rezidans",
-    title: "Rezidans & Karma Projeler",
-    desc: "Vale hizmetinden resepsiyona, akıllı ev otomasyon entegrasyonundan concierge çözümlerine kadar üst segment yönetim.",
-    icon: "apartment",
-    kpi: "%99.8 Sakin Memnuniyeti",
-    features: [
-      "7/24 Resepsiyon & Concierge Karşılama",
-      "VVIP Özel Güvenlik Protokolleri",
-      "Akıllı Ev & Mobil Sakin Portalı Entegrasyonu",
-      "Vale & Kapalı Otopark Yönlendirme Servisi"
-    ]
-  },
-  {
-    id: "avm",
-    title: "Alışveriş Merkezi & Ticari Alanlar",
-    desc: "Yoğun insan trafiği yönetimi, havalandırma santralleri bakımı, 7/24 özel güvenlik ve şeffaf mağaza ortak gider paylaştırımı.",
-    icon: "storefront",
-    kpi: "7/24 Kesintisiz HVAC & İklimlendirme",
-    features: [
-      "Şeffaf Mağaza Ortak Gider Paylaşım Bütçesi",
-      "Endüstriyel Havalandırma (HVAC) Periyodik Bakımları",
-      "X-Ray ve Plaka Tanıma Entegre AVM Güvenliği",
-      "Gece Vardiyası Derin Hijyen & Zemin Parlatma"
-    ]
-  },
-  {
-    id: "sanayi",
-    title: "Sanayi Siteleri & Organize Sanayi (OSB)",
-    desc: "Ağır vasıta giriş güvenliği, altyapı trafo ve jeneratör işletimi, yangın koruma hatları denetimi ve hukuki idare.",
-    icon: "factory",
-    kpi: "Sıfır Güvenlik Zafiyeti & Trafo Sürekliliği",
-    features: [
-      "Ağır Vasıta ve Kamyon Otomatik Plaka Okuma",
-      "Yüksek Gerilim Trafo & Jeneratör Saha İşletimi",
-      "İtfaiye Onaylı Yangın Hidrant Hatları Denetimi",
-      "Çevre Sağlığı & Sanayi Atık Yönetimi Danışmanlığı"
-    ]
-  },
-  {
-    id: "toplukonut",
-    title: "Toplu Konut & Uydukent Projeleri",
-    desc: "Binlerce dairelik geniş peyzaj alanları, merkezi ısınma sistemleri faturalandırması ve kesintisiz mobil sakin portalı.",
-    icon: "location_city",
-    kpi: "%22 Net Aidat Tasarrufu",
-    features: [
-      "Geniş Peyzaj & Sensörlü Otomatik Sulama",
-      "Isı Pay Ölçer & Merkezi Isınma Bütçelemesi",
-      "%100 Canlı Mobil Aidat Tahsilat ve İcra Takibi",
-      "Çocuk Oyun Parkları & Sosyal Tesis Bakımı"
-    ]
-  }
-];
-
-const faqs = [
-  {
-    q: "Projemize özel sektör ihtiyaç analizi nasıl yapılıyor?",
-    a: "Uzman saha mühendislerimiz ve operasyon müdürlerimiz projenizi yerinde inceler. Trafik yoğunluğu, güvenlik risk noktaları ve teknik ekipman envanteri çıkarılarak 24 saat içinde sektöre özel yönetim modeli sunulur."
-  },
-  {
-    q: "AVM ve rezidanslarda ortak gider paylaşımı nasıl hesaplanır?",
-    a: "Kat Mülkiyeti Kanunu ve yönetim planına tam uyumlu olarak; bağımsız bölüm arsa payı, m² alanı ve süzme sayaç ölçümleri şeffaf yazılımımızla otomatik hesaplanıp raporlanır."
-  },
-  {
-    q: "Sanayi sitelerinde yüksek gerilim trafo sorumluluğu Alo Yönetim'de midir?",
-    a: "Evet, yetkili elektrik mühendislerimiz ve EMO belgeli teknik personelimiz ile trafo periyodik bakımları ve jeneratör senkronizasyon testleri aksatılmadan yürütülür."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function SektorelCozumler() {
+  const { t } = useLanguage();
+
+  const sectors = [
+    {
+      id: "rezidans",
+      title: t('sector_residence_title'),
+      desc: t('sector_residence_desc'),
+      icon: "apartment",
+      kpi: t('sector_residence_kpi'),
+      features: [
+        t('sector_residence_feat_1'),
+        t('sector_residence_feat_2'),
+        t('sector_residence_feat_3'),
+        t('sector_residence_feat_4')
+      ]
+    },
+    {
+      id: "avm",
+      title: t('sector_mall_title'),
+      desc: t('sector_mall_desc'),
+      icon: "storefront",
+      kpi: t('sector_mall_kpi'),
+      features: [
+        t('sector_mall_feat_1'),
+        t('sector_mall_feat_2'),
+        t('sector_mall_feat_3'),
+        t('sector_mall_feat_4')
+      ]
+    },
+    {
+      id: "sanayi",
+      title: t('sector_industrial_title'),
+      desc: t('sector_industrial_desc'),
+      icon: "factory",
+      kpi: t('sector_industrial_kpi'),
+      features: [
+        t('sector_industrial_feat_1'),
+        t('sector_industrial_feat_2'),
+        t('sector_industrial_feat_3'),
+        t('sector_industrial_feat_4')
+      ]
+    },
+    {
+      id: "toplukonut",
+      title: t('sector_housing_title'),
+      desc: t('sector_housing_desc'),
+      icon: "location_city",
+      kpi: t('sector_housing_kpi'),
+      features: [
+        t('sector_housing_feat_1'),
+        t('sector_housing_feat_2'),
+        t('sector_housing_feat_3'),
+        t('sector_housing_feat_4')
+      ]
+    }
+  ];
+
+  const faqs = [
+    {
+      q: t('sector_faq_q1'),
+      a: t('sector_faq_a1')
+    },
+    {
+      q: t('sector_faq_q2'),
+      a: t('sector_faq_a2')
+    },
+    {
+      q: t('sector_faq_q3'),
+      a: t('sector_faq_a3')
+    }
+  ];
   const [activeTab, setActiveTab] = useState<string>("rezidans");
   const [unitCount, setUnitCount] = useState<number>(150);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -91,8 +93,8 @@ export default function SektorelCozumler() {
   return (
     <>
       <PageHeader 
-        title="Sektörel Çözümlerimiz" 
-        description="Rezidans, AVM, Sanayi ve Toplu Konut projelerine özel terzi usulü profesyonel yönetim modelleri." 
+        title={t('sector_page_title')} 
+        description={t('sector_page_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
@@ -152,19 +154,19 @@ export default function SektorelCozumler() {
               <div className="lg:col-span-5 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
                 <div className="flex items-center gap-2 text-blue-300 text-xs font-bold uppercase tracking-widest">
                   <span className="material-symbols-outlined text-sm">stars</span>
-                  Özel Uzmanlık Güvencesi
+                  {t('sector_specialty_tag')}
                 </div>
 
-                <h3 className="text-2xl font-bold">Projenize Tam Uyumlu Hizmet Standardı</h3>
+                <h3 className="text-2xl font-bold">{t('sector_specialty_title')}</h3>
                 <p className="text-xs text-gray-300 font-light leading-relaxed">
-                  Sektörünüzün dinamiklerine özel geliştirilmiş standart operasyon prosedürlerimiz (SOP) ve 7/24 denetçi kadromuzla yönetim risklerini sıfırlıyoruz.
+                  {t('sector_specialty_desc')}
                 </p>
 
                 <Link 
                   href="/teklif-al" 
                   className="w-full bg-white text-blue-900 font-bold py-4 px-6 rounded-2xl text-center text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md flex items-center justify-center gap-2 mt-2"
                 >
-                  {currentSector.title} İçin Teklif Al
+                  {currentSector.title} {t('sector_quote_for_sector')}
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </div>
@@ -176,17 +178,17 @@ export default function SektorelCozumler() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
             <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
-              İnteraktif Kadro Planlama Simülatörü
+              {t('sector_est_tag')}
             </span>
-            <h2 className="text-3xl font-bold text-[var(--color-primary)]">Projeniz İçin Gerekli Personel İhtiyacını Tahmin Edin</h2>
+            <h2 className="text-3xl font-bold text-[var(--color-primary)]">{t('sector_est_title')}</h2>
             <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
-              Projenizdeki bağımsız bölüm / daire veya dükkan sayısını seçin; ideal güvenlik, temizlik ve teknik personel kadrosunu görün.
+              {t('sector_est_desc')}
             </p>
 
             <div className="flex flex-col gap-3 pt-4">
               <div className="flex justify-between items-center">
-                <label className="font-semibold text-[var(--color-primary)]">Bağımsız Bölüm / Daire Sayısı</label>
-                <span className="text-xl font-bold text-blue-600 bg-blue-500/10 px-4 py-1 rounded-full">{unitCount} Birim</span>
+                <label className="font-semibold text-[var(--color-primary)]">{t('sector_est_label')}</label>
+                <span className="text-xl font-bold text-blue-600 bg-blue-500/10 px-4 py-1 rounded-full">{unitCount} {t('sector_est_unit')}</span>
               </div>
               <input 
                 type="range" 
@@ -201,48 +203,48 @@ export default function SektorelCozumler() {
           </div>
 
           <div className="lg:col-span-6 bg-gradient-to-br from-slate-900 to-[#122338] text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
-            <span className="text-xs text-blue-300 font-semibold uppercase tracking-wider">Önerilen İdeal Personel Kadrosu</span>
+            <span className="text-xs text-blue-300 font-semibold uppercase tracking-wider">{t('sector_est_rec_title')}</span>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
                   <span className="material-symbols-outlined text-sm text-blue-400">shield</span>
-                  Özel Güvenlik
+                  {t('sector_est_sec')}
                 </span>
-                <span className="text-2xl font-bold text-blue-400">{estimatedSecurity} Personel</span>
-                <span className="text-[10px] text-gray-400">7/24 Vardiyalı Nöbet</span>
+                <span className="text-2xl font-bold text-blue-400">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
+                <span className="text-[10px] text-gray-400">{t('sector_est_sec_desc')}</span>
               </div>
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
                   <span className="material-symbols-outlined text-sm text-emerald-400">cleaning_services</span>
-                  Kat Hizmetleri
+                  {t('sector_est_clean')}
                 </span>
-                <span className="text-2xl font-bold text-emerald-400">{estimatedCleaning} Personel</span>
-                <span className="text-[10px] text-gray-400">Günlük Blok Temizliği</span>
+                <span className="text-2xl font-bold text-emerald-400">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
+                <span className="text-[10px] text-gray-400">{t('sector_est_clean_desc')}</span>
               </div>
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
                   <span className="material-symbols-outlined text-sm text-amber-400">build</span>
-                  Teknik Personel
+                  {t('sector_est_tech')}
                 </span>
-                <span className="text-2xl font-bold text-amber-400">{estimatedTechnical} Personel</span>
-                <span className="text-[10px] text-gray-400">Nöbetçi Bakım Ekibi</span>
+                <span className="text-2xl font-bold text-amber-400">{estimatedTechnical} {t('sector_est_tech_val').replace('Personel', '').trim() || t('sector_est_tech_val')}</span>
+                <span className="text-[10px] text-gray-400">{t('sector_est_tech_desc')}</span>
               </div>
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
                   <span className="material-symbols-outlined text-sm text-purple-400">badge</span>
-                  Site Müdürü
+                  {t('sector_est_mgr')}
                 </span>
-                <span className="text-2xl font-bold text-purple-400">{estimatedManager} Müdür</span>
-                <span className="text-[10px] text-gray-400">Tam Zamanlı İdare</span>
+                <span className="text-2xl font-bold text-purple-400">{estimatedManager} {t('sector_est_mgr_val').replace('Müdür', '').trim() || t('sector_est_mgr_val')}</span>
+                <span className="text-[10px] text-gray-400">{t('sector_est_mgr_desc')}</span>
               </div>
             </div>
 
             <Link href="/teklif-al" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-105 shadow-lg">
-              Bu Kadro Planı İle Özel Fiyat İste 🚀
+              {t('sector_est_btn')}
             </Link>
           </div>
         </div>
@@ -274,7 +276,7 @@ export default function SektorelCozumler() {
               </div>
 
               <Link href="/teklif-al" className="w-fit bg-[var(--color-primary)] text-white font-bold py-3 px-6 rounded-xl text-xs hover:opacity-95 transition-opacity flex items-center gap-2">
-                Teklif Al
+                {t('sector_get_quote')}
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
@@ -283,7 +285,7 @@ export default function SektorelCozumler() {
 
         {/* FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">Sektörel Yönetim SSS</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('sector_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
@@ -309,13 +311,13 @@ export default function SektorelCozumler() {
         {/* Bottom Call To Action Banner */}
         <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Projenize Özel Yönetim Modeli Oluşturalım</h2>
+            <h2 className="text-3xl font-bold mb-2">{t('sector_cta_title')}</h2>
             <p className="text-sm text-gray-300 font-light max-w-xl">
-              Projenizin ölçeği ne olursa olsun, ücretsiz keşif yapıp size özel personel, bütçe ve risk analiz raporu hazırlıyoruz.
+              {t('sector_cta_desc')}
             </p>
           </div>
           <Link href="/teklif-al" className="bg-white text-blue-900 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md">
-            Ücretsiz Sektörel Keşif İste 🚀
+            {t('sector_cta_btn')}
           </Link>
         </div>
 

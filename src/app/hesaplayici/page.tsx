@@ -4,8 +4,10 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hesaplayici() {
+  const { t } = useLanguage();
   const [units, setUnits] = useState<number>(45);
   const [blocks, setBlocks] = useState<number>(3);
   const [elevators, setElevators] = useState<number>(6);
@@ -30,8 +32,8 @@ export default function Hesaplayici() {
   return (
     <>
       <PageHeader 
-        title="Aidat & Yönetim Maliyeti Hesaplayıcı" 
-        description="Sitenizin parametrelerini girin, tahmini yönetim bütçesini ve Alo Yönetim ile elde edeceğiniz tasarruf oranını anında görün." 
+        title={t('calc_page_title')} 
+        description={t('calc_page_desc')} 
       />
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
@@ -42,14 +44,14 @@ export default function Hesaplayici() {
             
             <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center gap-3">
               <span className="material-symbols-outlined text-blue-600 text-3xl">tune</span>
-              Site Parametrelerinizi Seçin
+              {t('calc_params_title')}
             </h2>
 
             {/* Slider: Daire Sayısı */}
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center">
-                <label className="font-semibold text-[var(--color-primary)] text-lg">Daire / Bağımsız Bölüm Sayısı</label>
-                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{units} Daire</span>
+                <label className="font-semibold text-[var(--color-primary)] text-lg">{t('calc_unit_label')}</label>
+                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{units} {t('calc_unit_val')}</span>
               </div>
               <input 
                 type="range" 
@@ -65,8 +67,8 @@ export default function Hesaplayici() {
             {/* Slider: Blok Sayısı */}
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center">
-                <label className="font-semibold text-[var(--color-primary)] text-lg">Blok Sayısı</label>
-                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{blocks} Blok</span>
+                <label className="font-semibold text-[var(--color-primary)] text-lg">{t('calc_block_label')}</label>
+                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{blocks} {t('calc_block_val')}</span>
               </div>
               <input 
                 type="range" 
@@ -82,8 +84,8 @@ export default function Hesaplayici() {
             {/* Slider: Asansör Sayısı */}
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center">
-                <label className="font-semibold text-[var(--color-primary)] text-lg">Toplam Asansör Sayısı</label>
-                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{elevators} Asansör</span>
+                <label className="font-semibold text-[var(--color-primary)] text-lg">{t('calc_elev_label')}</label>
+                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{elevators} {t('calc_elev_val')}</span>
               </div>
               <input 
                 type="range" 
@@ -100,14 +102,14 @@ export default function Hesaplayici() {
 
             {/* Feature Toggles */}
             <div className="flex flex-col gap-6">
-              <h3 className="font-bold text-lg text-[var(--color-primary)]">Tesis Olanakları</h3>
+              <h3 className="font-bold text-lg text-[var(--color-primary)]">{t('calc_feat_title')}</h3>
               
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-2xl text-blue-600">shield</span>
                   <div>
-                    <div className="font-semibold text-[var(--color-primary)]">7/24 Fiziki Güvenlik</div>
-                    <div className="text-xs text-[var(--color-secondary)]">Vardiyalı özel güvenlik personeli</div>
+                    <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_sec')}</div>
+                    <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_sec_desc')}</div>
                   </div>
                 </div>
                 <input 
@@ -122,8 +124,8 @@ export default function Hesaplayici() {
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-2xl text-blue-600">pool</span>
                   <div>
-                    <div className="font-semibold text-[var(--color-primary)]">Yüzme Havuzu / Sosyal Tesis</div>
-                    <div className="text-xs text-[var(--color-secondary)]">Açık/Kapalı havuz kimyasal ve motor bakımı</div>
+                    <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_pool')}</div>
+                    <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_pool_desc')}</div>
                   </div>
                 </div>
                 <input 
@@ -138,8 +140,8 @@ export default function Hesaplayici() {
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-2xl text-blue-600">park</span>
                   <div>
-                    <div className="font-semibold text-[var(--color-primary)]">Geniş Peyzaj & Bahçe Alanı</div>
-                    <div className="text-xs text-[var(--color-secondary)]">Otomatik sulama ve bahçıvanlık hizmeti</div>
+                    <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_green')}</div>
+                    <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_green_desc')}</div>
                   </div>
                 </div>
                 <input 
@@ -166,15 +168,15 @@ export default function Hesaplayici() {
 
               <div className="flex items-center gap-3">
                 <span className="bg-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
-                  Tahmini Analiz Raporu
+                  {t('calc_report_tag')}
                 </span>
               </div>
 
               <div className="flex flex-col gap-2">
-                <span className="text-gray-300 text-sm font-light">Daire Başı Tahmini Ortalama Aidat</span>
+                <span className="text-gray-300 text-sm font-light">{t('calc_report_dues_label')}</span>
                 <div className="flex items-baseline gap-2">
                   <span className="text-5xl md:text-6xl font-bold tracking-tight">₺{estimatedDuesPerUnit.toLocaleString()}</span>
-                  <span className="text-gray-300 text-lg">/ ay</span>
+                  <span className="text-gray-300 text-lg">{t('calc_report_per_month')}</span>
                 </div>
               </div>
 
@@ -182,11 +184,11 @@ export default function Hesaplayici() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs text-gray-400">Toplam Aylık Bütçe</span>
+                  <span className="text-xs text-gray-400">{t('calc_report_budget_label')}</span>
                   <span className="text-2xl font-bold">₺{totalMonthlyBudget.toLocaleString()}</span>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs text-emerald-400 font-semibold">Alo Yönetim ile Tasarruf</span>
+                  <span className="text-xs text-emerald-400 font-semibold">{t('calc_report_savings_label')}</span>
                   <span className="text-2xl font-bold text-emerald-400">~₺{estimatedSavings.toLocaleString()}</span>
                 </div>
               </div>
@@ -194,7 +196,7 @@ export default function Hesaplayici() {
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex items-start gap-3">
                 <span className="material-symbols-outlined text-emerald-400 shrink-0 mt-0.5">verified</span>
                 <p className="text-xs text-gray-200 leading-relaxed">
-                  Alo Yönetim şeffaf satın alma ve toplu tedarik gücü sayesinde sitelerde ortalama %20'nin üzerinde gider tasarrufu sağlar.
+                  {t('calc_report_info')}
                 </p>
               </div>
 
@@ -203,17 +205,17 @@ export default function Hesaplayici() {
                   href="/teklif-al"
                   className="flex-1 bg-white text-[var(--color-primary)] hover:bg-gray-100 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-lg text-sm"
                 >
-                  Resmi Teklif Al
+                  {t('calc_btn_quote')}
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </Link>
 
                 <button 
                   onClick={() => window.print()}
                   className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
-                  title="Hesaplama Özetini PDF / Yazıcıya Aktar"
+                  title={t('calc_btn_print_title')}
                 >
                   <span className="material-symbols-outlined text-base">print</span>
-                  <span>Raporu Yazdır</span>
+                  <span>{t('calc_btn_print')}</span>
                 </button>
               </div>
 

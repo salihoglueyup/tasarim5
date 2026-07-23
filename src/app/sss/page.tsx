@@ -4,50 +4,59 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-
-const categories = ["Tümü", "Aidat & Finans", "Güvenlik", "Devir Teslim", "Teknoloji"];
-
-const faqs = [
-  {
-    category: "Aidat & Finans",
-    question: "Aidatlar nasıl toplanır ve gecikme takibi nasıl yapılır?",
-    answer: "Tüm kat malikleri özel mobil uygulamamız üzerinden kredi kartı veya havale/EFT ile aidatlarını güvenle ödeyebilir. Ödemesini geciktiren daireler için otomatik SMS/E-posta hatırlatmaları ve yasal süre sonunda avukatlarımızca şeffaf icra takibi başlatılır."
-  },
-  {
-    category: "Devir Teslim",
-    question: "Mevcut yönetimden Alo Yönetim'e geçiş süreci nasıl işler?",
-    answer: "Devir teslim sürecinde kat maliklerinin hiçbir yükü olmaz. Uzman ekibimiz eski yönetimden kararlar defterini, banka hesaplarını ve teknik evrakları resmi tutanakla teslim alır. Tüm süreç 48 saat içinde tamamlanır."
-  },
-  {
-    category: "Güvenlik",
-    question: "Güvenlik personeliniz özlük hakları ve eğitimleri nasıl sağlanır?",
-    answer: "Tüm güvenlik ekibimiz 5188 sayılı kanuna uygun özel güvenlik kimlik kartına sahiptir. SGK, maaş ve kıdem tazminatı sorumlulukları tamamen Alo Yönetim güvencesindedir. Düzenli kriz yönetimi eğitimleri verilir."
-  },
-  {
-    category: "Teknoloji",
-    question: "Mobil uygulamada hangi işlemleri yapabilirim?",
-    answer: "Aidat ödeme, detaylı gelir/gider bilançolarını inceleme, tesis (tenis kortu, havuz) rezervasyonu yapma, arıza bildirimi oluşturma ve yönetici kararlarını oylama gibi tüm işlemleri saniyeler içinde yapabilirsiniz."
-  },
-  {
-    category: "Aidat & Finans",
-    question: "Sitenin banka hesapları kimin adına açılır?",
-    answer: "Banka hesapları kesinlikle şahıs adına değil, sitenizin VKN (Vergi Kimlik Numarası) adına resmi olarak açılır. Yönetici ve Alo Yönetim çift imza / yetki yetkisi ile hareket eder, her kuruş harcama sistemde kayıt altına alınır."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function SSS() {
-  const [activeCategory, setActiveCategory] = useState("Tümü");
+  const { t } = useLanguage();
+
+  const categories = [
+    t('faq_cat_all'), 
+    t('faq_cat_finance'), 
+    t('faq_cat_security'), 
+    t('faq_cat_transfer'), 
+    t('faq_cat_tech')
+  ];
+
+  const faqs = [
+    {
+      category: t('faq_cat_finance'),
+      question: t('faq_1_q'),
+      answer: t('faq_1_a')
+    },
+    {
+      category: t('faq_cat_transfer'),
+      question: t('faq_2_q'),
+      answer: t('faq_2_a')
+    },
+    {
+      category: t('faq_cat_security'),
+      question: t('faq_3_q'),
+      answer: t('faq_3_a')
+    },
+    {
+      category: t('faq_cat_tech'),
+      question: t('faq_4_q'),
+      answer: t('faq_4_a')
+    },
+    {
+      category: t('faq_cat_finance'),
+      question: t('faq_5_q'),
+      answer: t('faq_5_a')
+    }
+  ];
+
+  const [activeCategory, setActiveCategory] = useState(t('faq_cat_all'));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const filteredFaqs = activeCategory === "Tümü" 
+  const filteredFaqs = activeCategory === t('faq_cat_all') 
     ? faqs 
     : faqs.filter(f => f.category === activeCategory);
 
   return (
     <>
       <PageHeader 
-        title="Sıkça Sorulan Sorular" 
-        description="Site ve tesis yönetimiyle ilgili merak ettiğiniz tüm soruların şeffaf yanıtları." 
+        title={t('faq_page_title')} 
+        description={t('faq_page_desc')} 
       />
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-4xl mx-auto">
@@ -111,14 +120,14 @@ export default function SSS() {
         {/* CTA Banner */}
         <div className="mt-20 bg-gradient-to-r from-blue-900 to-[#122338] text-white p-10 md:p-14 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-2">Başka bir sorunuz mu var?</h3>
-            <p className="text-gray-300 font-light">Uzman ekibimiz 7/24 sorularınızı yanıtlamaktan memnuniyet duyar.</p>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">{t('faq_cta_title')}</h3>
+            <p className="text-gray-300 font-light">{t('faq_cta_desc')}</p>
           </div>
           <Link 
             href="/iletisim" 
             className="bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shrink-0"
           >
-            Bize Ulaşın
+            {t('faq_cta_btn')}
           </Link>
         </div>
 

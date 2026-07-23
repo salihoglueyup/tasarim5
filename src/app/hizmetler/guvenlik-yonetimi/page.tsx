@@ -4,62 +4,65 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const securityFeatures = [
-  {
-    title: "5188 Sayılı Kanun Ruhsatı",
-    desc: "T.C. İçişleri Bakanlığı tarafından denetlenen, silahlı ve silahsız özel güvenlik sertifikalı profesyonel personel.",
-    icon: "verified_user",
-    color: "from-blue-500 to-indigo-600"
-  },
-  {
-    title: "Yapay Zeka Plaka Tanıma",
-    desc: "Sakin araçlarını otomatik tanıyan, misafir girişlerinde sms ile onay alan akıllı erişim otomasyonu.",
-    icon: "center_focus_strong",
-    color: "from-emerald-500 to-teal-600"
-  },
-  {
-    title: "NFC Devriye Takibi",
-    desc: "Güvenlik personelinin 15 dakikada bir kontrol noktalarını okuttuğu canlı GPS ve NFC devriye sistemi.",
-    icon: "qr_code_scanner",
-    color: "from-amber-500 to-orange-600"
-  },
-  {
-    title: "VVIP Protokol & Resepsiyon",
-    desc: "Rezidans ve iş merkezlerinde yüksek nezaket, kargo teslimatı ve misafir karşılama standartları.",
-    icon: "shield_person",
-    color: "from-purple-500 to-fuchsia-600"
-  },
-  {
-    title: "Gece Görüşlü Termal Ağ",
-    desc: "Kör nokta bırakmayan, hareket algıladığı an merkeze alarm yollayan 4K gece görüş kamerası ağı.",
-    icon: "videocam",
-    color: "from-red-500 to-rose-600"
-  },
-  {
-    title: "Acil Tahliye Planlaması",
-    desc: "Deprem, yangın ve su baskını senaryolarında bina tahliye ve ilk yardım sertifikalı nöbetçi personel.",
-    icon: "emergency",
-    color: "from-cyan-500 to-blue-600"
-  }
-];
-
-const faqs = [
-  {
-    q: "Güvenlik personeliniz 5188 sayılı kanun kapsamında mı çalışıyor?",
-    a: "Evet, tüm personelimiz T.C. İçişleri Bakanlığı Özel Güvenlik Daire Başkanlığı onaylı kimlik kartına sahiptir. Şirketimiz 5188 sayılı kanun uyarınca özel güvenlik faaliyet izin belgelidir."
-  },
-  {
-    q: "NFC / QR Kodlu devriye takibi sakinler tarafından izlenebilir mi?",
-    a: "Evet, yönetim kuruluna tanımlanan panellerden güvenlik görevlilerinin anlık devriye turları, saat kaçta hangi noktayı kontrol ettikleri canlı olarak haritada görünür."
-  },
-  {
-    q: "Kargo ve misafir kabul protokolü nasıl işletiliyor?",
-    a: "Misafir geldiğinde sakinlerimize mobil uygulama uyarısı yollanır veya dahili telefondan onay alınır. Kargo ve kuryeler kayıt altına alınarak güvenle yönlendirilir."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function GuvenlikYonetimi() {
+  const { t } = useLanguage();
+
+  const securityFeatures = [
+    {
+      title: t('sec_feat_1_title'),
+      desc: t('sec_feat_1_desc'),
+      icon: "verified_user",
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      title: t('sec_feat_2_title'),
+      desc: t('sec_feat_2_desc'),
+      icon: "center_focus_strong",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      title: t('sec_feat_3_title'),
+      desc: t('sec_feat_3_desc'),
+      icon: "qr_code_scanner",
+      color: "from-amber-500 to-orange-600"
+    },
+    {
+      title: t('sec_feat_4_title'),
+      desc: t('sec_feat_4_desc'),
+      icon: "shield_person",
+      color: "from-purple-500 to-fuchsia-600"
+    },
+    {
+      title: t('sec_feat_5_title'),
+      desc: t('sec_feat_5_desc'),
+      icon: "videocam",
+      color: "from-red-500 to-rose-600"
+    },
+    {
+      title: t('sec_feat_6_title'),
+      desc: t('sec_feat_6_desc'),
+      icon: "emergency",
+      color: "from-cyan-500 to-blue-600"
+    }
+  ];
+
+  const faqs = [
+    {
+      q: t('sec_faq_1_q'),
+      a: t('sec_faq_1_a')
+    },
+    {
+      q: t('sec_faq_2_q'),
+      a: t('sec_faq_2_a')
+    },
+    {
+      q: t('sec_faq_3_q'),
+      a: t('sec_faq_3_a')
+    }
+  ];
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const containerVariants = {
@@ -78,8 +81,8 @@ export default function GuvenlikYonetimi() {
   return (
     <>
       <PageHeader 
-        title="Özel Güvenlik Yönetimi" 
-        description="7/24 fiziki nöbet, AI kamerayla devriye takibi ve 5188 kanuni güvencesiyle huzurlu yaşam alanları." 
+        title={t('sec_title')} 
+        description={t('sec_desc')} 
       />
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
@@ -102,14 +105,11 @@ export default function GuvenlikYonetimi() {
               viewport={{ once: true }}
               className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full w-fit"
             >
-              T.C. İçişleri Bakanlığı 5188 Belgeli
+              {t('sec_banner_badge')}
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-              Sitenizde 7/24 Kesintisiz <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Sıfır Toleranslı</span> Güvenlik Ağı
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1')} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">${t('sec_banner_title_highlight')}</span> ${t('sec_banner_title_2')}` }} />
             <p className="text-lg text-gray-300 font-light leading-relaxed max-w-xl">
-              Tek bir kör nokta bırakmaksızın, yapay zeka kameralar ve yüksek disiplinli özel güvenlik kadromuzla ailenizin ve mülkünüzün güvenliğini üstleniyoruz.
+              {t('sec_banner_desc')}
             </p>
           </div>
 
@@ -118,10 +118,10 @@ export default function GuvenlikYonetimi() {
                <span className="absolute inset-0 border-2 border-blue-400 rounded-full animate-ping opacity-20"></span>
                <span className="material-symbols-outlined text-4xl text-blue-400 relative z-10">radar</span>
             </div>
-            <div className="text-4xl font-black text-white mt-2">7/24</div>
-            <div className="text-sm font-semibold text-blue-200">Canlı Devriye & Kamera Takibi</div>
+            <div className="text-4xl font-black text-white mt-2">{t('sec_banner_box_title')}</div>
+            <div className="text-sm font-semibold text-blue-200">{t('sec_banner_box_subtitle')}</div>
             <Link href="/teklif-al" className="mt-4 bg-blue-600 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-blue-500 transition-transform hover:scale-105 text-sm flex items-center justify-center gap-2">
-              Güvenlik Keşfi İsteyin
+              {t('sec_banner_box_btn')}
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
@@ -130,8 +130,8 @@ export default function GuvenlikYonetimi() {
         {/* 6 Bento Grid Cards with Staggered Animation */}
         <div className="space-y-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">Entegre Güvenlik Teknolojileri</h2>
-            <p className="text-sm text-[var(--color-secondary)] font-light mt-4">Fiziki güvenlik gücümüzü, ileri nesil elektronik takip sistemleriyle entegre ederek riskleri önceden saptıyoruz.</p>
+            <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{t('sec_grid_title')}</h2>
+            <p className="text-sm text-[var(--color-secondary)] font-light mt-4">{t('sec_grid_desc')}</p>
           </div>
           
           <motion.div 
@@ -160,7 +160,7 @@ export default function GuvenlikYonetimi() {
 
         {/* FAQ Section */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">Güvenlik Hizmeti SSS</h2>
+          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">{t('sec_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
