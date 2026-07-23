@@ -184,7 +184,7 @@ export default function Hizmetler() {
                   {service.category}
                 </span>
                 <h3 className="text-xl font-bold text-[var(--color-primary)] leading-snug">{service.title}</h3>
-                <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{service.desc}</p>
+                <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed prose prose-sm dark:prose-invert" dangerouslySetInnerHTML={{ __html: service.desc }} />
               </div>
 
               <div className="pt-6 mt-6 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">

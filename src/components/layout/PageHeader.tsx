@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useState, useRef, MouseEvent } from 'react';
+import { useState, useRef, MouseEvent, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface PageHeaderProps {
   title: string;
@@ -24,8 +25,34 @@ export default function PageHeader({ title, description, category = "Alo Yöneti
     });
   };
 
+  const pathname = usePathname() || '';
+  
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Anasayfa',
+        item: 'https://aloyonetim.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: title,
+        item: `https://aloyonetim.com${pathname}`
+      }
+    ]
+  };
+
   return (
-    <section 
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <section 
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
@@ -84,5 +111,6 @@ export default function PageHeader({ title, description, category = "Alo Yöneti
       </div>
 
     </section>
+    </>
   );
 }
