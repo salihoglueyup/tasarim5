@@ -30,16 +30,35 @@ export const translations = {
 
     // Services Menu Items
     nav_all_services: "Tüm Hizmetler",
+    nav_all_services_desc: "Hizmet ağımıza genel bakış",
     nav_security: "Güvenlik Yönetimi",
+    nav_security_desc: "7/24 AI destekli güvenlik",
     nav_cleaning: "Temizlik & Hijyen",
+    nav_cleaning_desc: "Ortak alan endüstriyel temizliği",
     nav_tech_maintenance: "Teknik Bakım",
+    nav_tech_maintenance_desc: "Asansör, havuz ve kazan dairesi",
     nav_property_mgmt: "Mülk Yönetimi",
+    nav_property_mgmt_desc: "Aidat, muhasebe ve yasal süreçler",
     nav_landscaping: "Peyzaj & Bahçe Bakımı",
+    nav_landscaping_desc: "Otomatik sulama ve bahçe mimarisi",
     nav_pool_care: "Havuz Bakımı & Hijyen",
+    nav_pool_care_desc: "Günlük klor-pH ölçümü ve bakım",
     nav_pest_control: "Haşere & Dezenfeksiyon",
+    nav_pest_control_desc: "Sağlık Bakanlığı ruhsatlı ilaçlama",
     nav_legal_consulting: "Hukuk & İcra Takibi",
+    nav_legal_consulting_desc: "Kat Mülkiyeti Kanunu ve alacak takibi",
     nav_sectoral_solutions: "Sektörel Çözümler",
+    nav_sectoral_solutions_desc: "Rezidans, AVM ve Sanayi siteleri",
     nav_employment_bridge: "İstihdam Köprüsü",
+    nav_employment_bridge_desc: "İnsan kaynakları ve kadro garantisi",
+
+    // Contact Sub Menu
+    nav_contact: "İletişim",
+    nav_contact_desc: "Bize ulaşın ve adres bilgilerimiz",
+    nav_blog: "Blog & Haberler",
+    nav_blog_desc: "Sektörel haberler ve makaleler",
+    nav_faq: "Sıkça Sorulan Sorular",
+    nav_faq_desc: "Merak edilen tüm yanıtlar",
 
     // Common Buttons & Labels
     btn_get_quote: "Teklif Alın 🚀",
@@ -48,12 +67,40 @@ export const translations = {
     btn_details: "Detaylar",
     btn_submit: "Gönder",
     btn_back: "Geri Dön",
+    btn_login: "Sisteme Giriş",
+    
+    // Header Promos
+    lbl_live_module: "Canlı Modül",
+    calc_promo_title: "Aidat Hesaplayıcı ⚡",
+    calc_promo_desc: "Sitenizin aidat ve tasarruf potansiyelini anında simüle edin.",
+    calc_start_btn: "Hesaplamaya Başla",
     
     // Hero & Generic Titles
+    hero_badge: "Türkiye'nin En Prestijli Tesis Yönetimi",
     hero_title: "Profesyonel Site & Tesis Yönetimi",
-    hero_subtitle: "%100 Şeffaf Bilanço, 7/24 Özel Güvenlik ve Kesintisiz Teknik Bakım Çözümleri",
+    hero_subtitle: "Aidat takibinden 7/24 özel güvenliğe, endüstriyel temizlikten nöbetçi teknik bakıma kadar tüm süreçleri dijital, şeffaf ve profesyonel bir şekilde yönetiyoruz.",
+    btn_free_discovery: "Ücretsiz Keşif İste",
+    btn_unmute: "Filmin Sesini Aç",
+    btn_mute: "Sesi Kapat",
     
     // Footer
+    footer_about_text: "2009 yılından bugüne, sektördeki bilgi birikimi ve deneyimimizle; profesyonel site yönetimi, özel güvenlik ve entegre tesis yönetimi hizmetlerinde güvenin adresi olmaya devam ediyoruz.",
+    footer_col_corporate: "KURUMSAL",
+    footer_col_solutions: "ÇÖZÜMLERİMİZ",
+    footer_col_contact: "İLETİŞİM BİLGİLERİ",
+    footer_istanbul_center: "İstanbul Merkez:",
+    footer_headquarters: "Genel Müdürlük",
+    footer_customer_service: "Müşteri Hizmetleri",
+    footer_whatsapp_title: "WhatsApp Destek Hattı",
+    footer_whatsapp_desc: "Hemen mesaj gönderin",
+    footer_newsletter_title: "E-Bültene Kayıt Olun:",
+    footer_newsletter_placeholder: "E-posta adresiniz...",
+    footer_newsletter_success: "Kayıt Alındı!",
+    footer_all_systems_online: "TÜM SİSTEMLER ÇEVRİMİÇİ",
+    footer_terms: "Kullanım Koşulları",
+    footer_privacy: "Gizlilik Politikası",
+    footer_kvkk: "KVKK",
+    footer_lang_label: "Türkiye / Türkçe",
     footer_rights: "Tüm Hakları Saklıdır.",
     footer_tagline: "İstanbul Merkezli Profesyonel Tesis Yönetim Platformu"
   },
@@ -86,16 +133,35 @@ export const translations = {
 
     // Services Menu Items
     nav_all_services: "All Services",
+    nav_all_services_desc: "Overview of our service network",
     nav_security: "Security Management",
+    nav_security_desc: "24/7 AI-supported security",
     nav_cleaning: "Cleaning & Hygiene",
+    nav_cleaning_desc: "Industrial cleaning for common areas",
     nav_tech_maintenance: "Technical Maintenance",
+    nav_tech_maintenance_desc: "Elevator, pool & boiler room",
     nav_property_mgmt: "Property Management",
+    nav_property_mgmt_desc: "Dues, accounting & legal processes",
     nav_landscaping: "Landscaping & Gardening",
+    nav_landscaping_desc: "Auto-irrigation & garden architecture",
     nav_pool_care: "Pool Care & Hygiene",
+    nav_pool_care_desc: "Daily chlorine-pH tracking",
     nav_pest_control: "Pest Control & Disinfection",
+    nav_pest_control_desc: "Health Ministry licensed pest control",
     nav_legal_consulting: "Legal & Debt Collection",
+    nav_legal_consulting_desc: "Property law & debt collection",
     nav_sectoral_solutions: "Sectoral Solutions",
+    nav_sectoral_solutions_desc: "Residences, malls & industry",
     nav_employment_bridge: "Employment Bridge",
+    nav_employment_bridge_desc: "HR and guaranteed staff",
+
+    // Contact Sub Menu
+    nav_contact: "Contact",
+    nav_contact_desc: "Reach us and our address info",
+    nav_blog: "Blog & News",
+    nav_blog_desc: "Sectoral news and articles",
+    nav_faq: "FAQ",
+    nav_faq_desc: "All the answers you wonder about",
 
     // Common Buttons & Labels
     btn_get_quote: "Get a Quote 🚀",
@@ -104,12 +170,40 @@ export const translations = {
     btn_details: "Details",
     btn_submit: "Submit",
     btn_back: "Go Back",
+    btn_login: "Login",
+    
+    // Header Promos
+    lbl_live_module: "Live Module",
+    calc_promo_title: "Dues Calculator ⚡",
+    calc_promo_desc: "Simulate your complex's dues and savings potential instantly.",
+    calc_start_btn: "Start Calculating",
     
     // Hero & Generic Titles
+    hero_badge: "Turkey's Most Prestigious Facility Management",
     hero_title: "Professional Complex & Facility Management",
-    hero_subtitle: "100% Transparent Financials, 24/7 Security & Uninterrupted Technical Maintenance",
+    hero_subtitle: "From dues tracking to 24/7 private security, from industrial cleaning to on-call technical maintenance, we manage all processes digitally, transparently and professionally.",
+    btn_free_discovery: "Request Free Discovery",
+    btn_unmute: "Unmute Film",
+    btn_mute: "Mute Sound",
     
     // Footer
+    footer_about_text: "Since 2009, with our sectoral knowledge and experience, we continue to be the address of trust in professional property management, private security, and integrated facility management services.",
+    footer_col_corporate: "CORPORATE",
+    footer_col_solutions: "OUR SOLUTIONS",
+    footer_col_contact: "CONTACT INFO",
+    footer_istanbul_center: "Istanbul HQ:",
+    footer_headquarters: "Headquarters",
+    footer_customer_service: "Customer Service",
+    footer_whatsapp_title: "WhatsApp Support",
+    footer_whatsapp_desc: "Send a message now",
+    footer_newsletter_title: "Subscribe to Newsletter:",
+    footer_newsletter_placeholder: "Your email address...",
+    footer_newsletter_success: "Subscribed!",
+    footer_all_systems_online: "ALL SYSTEMS ONLINE",
+    footer_terms: "Terms of Use",
+    footer_privacy: "Privacy Policy",
+    footer_kvkk: "Data Protection",
+    footer_lang_label: "Global / English",
     footer_rights: "All Rights Reserved.",
     footer_tagline: "Istanbul-Based Professional Facility Management Platform"
   }

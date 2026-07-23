@@ -7,57 +7,58 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
 import LoginModal from './LoginModal';
 
 type SubItem = {
-  name: string;
+  nameKey: keyof typeof translations['tr'];
   path: string;
-  desc?: string;
+  descKey?: keyof typeof translations['tr'];
   icon?: string;
 };
 
 type MenuItem = {
-  name: string;
+  nameKey: keyof typeof translations['tr'];
   path?: string;
   subItems?: SubItem[];
 };
 
 const MENU_ITEMS: MenuItem[] = [
   {
-    name: 'Kurumsal',
+    nameKey: 'nav_corporate',
     subItems: [
-      { name: 'Biz Kimiz?', path: '/hakkimizda', desc: 'Hikayemiz ve yönetim vizyonumuz', icon: 'corporate_fare' },
-      { name: 'Başarı Hikayeleri', path: '/basari-hikayeleri', desc: 'Sitelere sağladığımız bütçe dönüşümleri', icon: 'emoji_events' },
-      { name: 'Güvenlik Akademisi', path: '/guvenlik-akademisi', desc: '5188 kanun personel eğitimleri', icon: 'school' },
-      { name: 'Kalite Politikamız', path: '/kurumsal/kalite-politikamiz', desc: 'ISO 9001 ve hizmet standartlarımız', icon: 'verified' },
-      { name: 'Sürdürülebilirlik', path: '/kurumsal/surdurulebilirlik', desc: 'Yeşil enerji ve çevre politikamız', icon: 'eco' },
-      { name: 'Sitelerde GES Projeleri', path: '/surdurulebilirlik/ges-projeleri', desc: 'Güneş santrali ile %70 tasarruf', icon: 'solar_power' },
-      { name: 'Vizyon & Misyon', path: '/kurumsal/vizyon-misyon', desc: 'Gelecek hedeflerimiz', icon: 'visibility' },
+      { nameKey: 'nav_about', path: '/hakkimizda', descKey: 'nav_about_desc', icon: 'corporate_fare' },
+      { nameKey: 'nav_success_stories', path: '/basari-hikayeleri', descKey: 'nav_success_desc', icon: 'emoji_events' },
+      { nameKey: 'nav_academy', path: '/guvenlik-akademisi', descKey: 'nav_academy_desc', icon: 'school' },
+      { nameKey: 'nav_quality', path: '/kurumsal/kalite-politikamiz', descKey: 'nav_quality_desc', icon: 'verified' },
+      { nameKey: 'nav_sustainability', path: '/kurumsal/surdurulebilirlik', descKey: 'nav_sustainability_desc', icon: 'eco' },
+      { nameKey: 'nav_ges', path: '/surdurulebilirlik/ges-projeleri', descKey: 'nav_ges_desc', icon: 'solar_power' },
+      { nameKey: 'nav_vision', path: '/kurumsal/vizyon-misyon', descKey: 'nav_vision_desc', icon: 'visibility' },
     ]
   },
   {
-    name: 'Hizmetlerimiz',
+    nameKey: 'nav_services',
     subItems: [
-      { name: 'Tüm Hizmetler', path: '/hizmetler', desc: 'Hizmet ağımıza genel bakış', icon: 'grid_view' },
-      { name: 'Güvenlik Yönetimi', path: '/hizmetler/guvenlik-yonetimi', desc: '7/24 AI destekli güvenlik', icon: 'security' },
-      { name: 'Temizlik & Hijyen', path: '/hizmetler/temizlik-ve-hijyen', desc: 'Ortak alan endüstriyel temizliği', icon: 'cleaning_services' },
-      { name: 'Teknik Bakım', path: '/hizmetler/teknik-bakim', desc: 'Asansör, havuz ve kazan dairesi', icon: 'engineering' },
-      { name: 'Mülk Yönetimi', path: '/hizmetler/tesis-yonetimi', desc: 'Aidat, muhasebe ve yasal süreçler', icon: 'account_balance_wallet' },
-      { name: 'Peyzaj & Bahçe Bakımı', path: '/hizmetler/peyzaj-ve-bahce-bakimi', desc: 'Otomatik sulama ve bahçe mimarisi', icon: 'park' },
-      { name: 'Havuz Bakımı & Hijyen', path: '/hizmetler/havuz-bakimi-ve-hijyen', desc: 'Günlük klor-pH ölçümü ve bakım', icon: 'pool' },
-      { name: 'Haşere & Dezenfeksiyon', path: '/hizmetler/hasere-ve-dezenfeksiyon', desc: 'Sağlık Bakanlığı ruhsatlı ilaçlama', icon: 'bug_report' },
-      { name: 'Hukuk & İcra Takibi', path: '/hizmetler/hukuk-ve-icra-danismanligi', desc: 'Kat Mülkiyeti Kanunu ve alacak takibi', icon: 'gavel' },
-      { name: 'Sektörel Çözümler', path: '/sektorel-cozumler', desc: 'Rezidans, AVM ve Sanayi siteleri', icon: 'domain' },
-      { name: 'İstihdam Köprüsü', path: '/istihdam-koprusu', desc: 'İnsan kaynakları ve kadro garantisi', icon: 'handshake' },
+      { nameKey: 'nav_all_services', path: '/hizmetler', descKey: 'nav_all_services_desc', icon: 'grid_view' },
+      { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi', descKey: 'nav_security_desc', icon: 'security' },
+      { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen', descKey: 'nav_cleaning_desc', icon: 'cleaning_services' },
+      { nameKey: 'nav_tech_maintenance', path: '/hizmetler/teknik-bakim', descKey: 'nav_tech_maintenance_desc', icon: 'engineering' },
+      { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi', descKey: 'nav_property_mgmt_desc', icon: 'account_balance_wallet' },
+      { nameKey: 'nav_landscaping', path: '/hizmetler/peyzaj-ve-bahce-bakimi', descKey: 'nav_landscaping_desc', icon: 'park' },
+      { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen', descKey: 'nav_pool_care_desc', icon: 'pool' },
+      { nameKey: 'nav_pest_control', path: '/hizmetler/hasere-ve-dezenfeksiyon', descKey: 'nav_pest_control_desc', icon: 'bug_report' },
+      { nameKey: 'nav_legal_consulting', path: '/hizmetler/hukuk-ve-icra-danismanligi', descKey: 'nav_legal_consulting_desc', icon: 'gavel' },
+      { nameKey: 'nav_sectoral_solutions', path: '/sektorel-cozumler', descKey: 'nav_sectoral_solutions_desc', icon: 'domain' },
+      { nameKey: 'nav_employment_bridge', path: '/istihdam-koprusu', descKey: 'nav_employment_bridge_desc', icon: 'handshake' },
     ]
   },
-  { name: 'Referanslar', path: '/referanslar' },
+  { nameKey: 'nav_references', path: '/referanslar' },
   {
-    name: 'İletişim & Medya',
+    nameKey: 'nav_contact_media',
     subItems: [
-      { name: 'İletişim', path: '/iletisim', desc: 'Bize ulaşın ve adres bilgilerimiz', icon: 'call' },
-      { name: 'Blog & Haberler', path: '/blog', desc: 'Sektörel haberler ve makaleler', icon: 'article' },
-      { name: 'Sıkça Sorulan Sorular', path: '/sss', desc: 'Merak edilen tüm yanıtlar', icon: 'help_outline' },
+      { nameKey: 'nav_contact', path: '/iletisim', descKey: 'nav_contact_desc', icon: 'call' },
+      { nameKey: 'nav_blog', path: '/blog', descKey: 'nav_blog_desc', icon: 'article' },
+      { nameKey: 'nav_faq', path: '/sss', descKey: 'nav_faq_desc', icon: 'help_outline' },
     ]
   }
 ];
@@ -172,12 +173,12 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1" onMouseLeave={() => setHoveredMenu(null)}>
             {MENU_ITEMS.map((item) => (
               <div 
-                key={item.name} 
+                key={item.nameKey} 
                 className="relative px-3.5 py-2"
-                onMouseEnter={() => setHoveredMenu(item.name)}
+                onMouseEnter={() => setHoveredMenu(item.nameKey)}
               >
                 {/* Hover/Active Animated Pill */}
-                {hoveredMenu === item.name && (
+                {hoveredMenu === item.nameKey && (
                   <motion.div
                     layoutId="nav-pill"
                     className="absolute inset-0 bg-slate-100/90 dark:bg-white/10 rounded-xl border border-slate-200/50 dark:border-white/10 -z-10"
@@ -189,14 +190,14 @@ export default function Header() {
                   <div className={`cursor-pointer relative z-10 text-[13.5px] font-semibold tracking-[-0.01em] transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap ${
                     isTopOnHomePage 
                       ? 'text-white/95 hover:text-white' 
-                      : hoveredMenu === item.name || item.subItems.some(sub => pathname.startsWith(sub.path))
+                      : hoveredMenu === item.nameKey || item.subItems.some(sub => pathname.startsWith(sub.path))
                         ? 'text-[var(--color-primary)] dark:text-white' 
                         : 'text-slate-800 dark:text-white/90 hover:text-[var(--color-primary)] dark:hover:text-white'
                   }`}>
-                    {item.name}
+                    {t(item.nameKey)}
                     <span className={`material-symbols-outlined text-[16px] transition-transform duration-300 ${
                       isTopOnHomePage ? 'text-white/80' : 'text-slate-400 dark:text-slate-400'
-                    } ${hoveredMenu === item.name ? 'rotate-180 text-[var(--color-primary)] dark:text-white' : ''}`}>
+                    } ${hoveredMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)] dark:text-white' : ''}`}>
                       expand_more
                     </span>
                   </div>
@@ -211,14 +212,14 @@ export default function Header() {
                           : 'text-slate-800 dark:text-white/90 hover:text-[var(--color-primary)] dark:hover:text-white'
                     }`}
                   >
-                    {item.name}
+                    {t(item.nameKey)}
                   </Link>
                 )}
 
                 {/* Dropdown Mega Menu */}
                 {item.subItems && (
                   <AnimatePresence>
-                    {hoveredMenu === item.name && (
+                    {hoveredMenu === item.nameKey && (
                       <motion.div 
                         initial={{ opacity: 0, y: 12, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -232,7 +233,7 @@ export default function Header() {
                           <div className="col-span-8 grid grid-cols-2 gap-2 max-h-[380px] overflow-y-auto pr-1">
                             {item.subItems.map((subItem) => (
                               <Link 
-                                key={subItem.name} 
+                                key={subItem.nameKey} 
                                 href={subItem.path}
                                 onClick={closeMenus}
                                 className="group/item flex items-start gap-3 p-2 rounded-xl hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors relative"
@@ -244,11 +245,11 @@ export default function Header() {
                                 )}
                                 <div>
                                   <div className="font-bold text-[12.5px] text-slate-900 dark:text-white mb-0.5 transition-colors group-hover/item:text-[var(--color-primary)]">
-                                    {subItem.name}
+                                    {t(subItem.nameKey)}
                                   </div>
-                                  {subItem.desc && (
+                                  {subItem.descKey && (
                                     <p className="text-[10px] font-normal text-slate-500/90 dark:text-gray-400 leading-snug line-clamp-1">
-                                      {subItem.desc}
+                                      {t(subItem.descKey)}
                                     </p>
                                   )}
                                 </div>
@@ -260,11 +261,11 @@ export default function Header() {
                           <div className="col-span-4 bg-gradient-to-br from-[#2D2D3A] via-[#1f1f2a] to-[#14141d] text-white p-5 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-md">
                             <div className="relative z-10 flex flex-col gap-2">
                               <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-300 bg-white/10 px-2.5 py-1 rounded-full w-fit border border-white/10">
-                                Canlı Modül
+                                {t('lbl_live_module')}
                               </span>
-                              <div className="font-extrabold text-sm leading-snug mt-1">Aidat Hesaplayıcı ⚡</div>
+                              <div className="font-extrabold text-sm leading-snug mt-1">{t('calc_promo_title')}</div>
                               <p className="text-[11px] text-gray-300 font-light leading-relaxed">
-                                Sitenizin aidat ve tasarruf potansiyelini anında simüle edin.
+                                {t('calc_promo_desc')}
                               </p>
                             </div>
 
@@ -273,7 +274,7 @@ export default function Header() {
                               onClick={closeMenus}
                               className="relative z-10 mt-4 text-xs font-bold text-slate-200 hover:text-white flex items-center gap-1 group/btn"
                             >
-                              Hesaplamaya Başla
+                              {t('calc_start_btn')}
                               <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                             </Link>
                           </div>
@@ -356,7 +357,7 @@ export default function Header() {
               >
                 <span className="relative z-10 flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[16px]">lock_open</span>
-                  Sisteme Giriş
+                  {t('btn_login')}
                 </span>
               </button>
             </Magnetic>
@@ -407,7 +408,7 @@ export default function Header() {
             <nav className="flex flex-col gap-2 mt-8">
               {MENU_ITEMS.map((item, i) => (
                 <motion.div 
-                  key={item.name}
+                  key={item.nameKey}
                   initial={{ opacity: 0, y: 20 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ delay: 0.1 + ((i + 1) * 0.05) }}
@@ -416,16 +417,16 @@ export default function Header() {
                   {item.subItems ? (
                     <div className="flex flex-col">
                       <button 
-                        onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.name ? null : item.name)}
+                        onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.nameKey ? null : item.nameKey)}
                         className="flex items-center justify-between py-4 text-xl font-bold text-slate-900 dark:text-white"
                       >
-                        {item.name}
-                        <span className={`material-symbols-outlined transition-transform duration-300 ${expandedMobileMenu === item.name ? 'rotate-180' : ''}`}>
+                        {t(item.nameKey)}
+                        <span className={`material-symbols-outlined transition-transform duration-300 ${expandedMobileMenu === item.nameKey ? 'rotate-180' : ''}`}>
                           expand_more
                         </span>
                       </button>
                       <AnimatePresence>
-                        {expandedMobileMenu === item.name && (
+                        {expandedMobileMenu === item.nameKey && (
                           <motion.div 
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
@@ -435,13 +436,13 @@ export default function Header() {
                             <div className="flex flex-col gap-4 pb-6 pl-4 border-l-2 border-slate-200 dark:border-white/10 ml-2">
                               {item.subItems.map((sub) => (
                                 <Link 
-                                  key={sub.name} 
+                                  key={sub.nameKey} 
                                   href={sub.path} 
                                   onClick={closeMenus}
                                   className="text-lg text-slate-600 dark:text-gray-300 hover:text-[var(--color-primary)] dark:hover:text-white flex items-center gap-3 font-medium"
                                 >
                                   {sub.icon && <span className="material-symbols-outlined text-[18px] opacity-50">{sub.icon}</span>}
-                                  {sub.name}
+                                  {t(sub.nameKey)}
                                 </Link>
                               ))}
                             </div>
@@ -455,7 +456,7 @@ export default function Header() {
                       onClick={closeMenus}
                       className="block py-4 text-xl font-bold text-slate-900 dark:text-white"
                     >
-                      {item.name}
+                      {t(item.nameKey)}
                     </Link>
                   )}
                 </motion.div>
@@ -473,7 +474,7 @@ export default function Header() {
                 onClick={closeMenus}
                 className="flex items-center justify-center gap-2 w-full bg-[#2D2D3A] text-white text-lg font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform"
               >
-                Hemen Teklif Alın
+                {t('btn_get_quote')}
                 <span className="material-symbols-outlined">arrow_forward</span>
               </Link>
             </motion.div>

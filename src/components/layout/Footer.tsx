@@ -4,8 +4,10 @@ import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 import { useState, useEffect } from 'react';
 import Magnetic from '@/components/ui/Magnetic';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const [istanbulTime, setIstanbulTime] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -53,7 +55,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm font-light text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm">
-              2009 yılından bugüne, sektördeki bilgi birikimi ve deneyimimizle; profesyonel site yönetimi, özel güvenlik ve entegre tesis yönetimi hizmetlerinde güvenin adresi olmaya devam ediyoruz.
+              {t('footer_about_text')}
             </p>
 
             {/* App Store & Google Play Pills */}
@@ -98,21 +100,21 @@ export default function Footer() {
 
           {/* Column 2: KURUMSAL (2.5 Cols) */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">KURUMSAL</h4>
+            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_corporate')}</h4>
             <div className="flex flex-col gap-3">
               {[
-                { name: 'Hakkımızda', path: '/hakkimizda' },
-                { name: 'Referanslarımız', path: '/referanslar' },
-                { name: 'Başarı Hikayeleri', path: '/basari-hikayeleri' },
-                { name: 'Güvenlik Akademisi', path: '/guvenlik-akademisi' }
+                { nameKey: 'nav_about', path: '/hakkimizda' },
+                { nameKey: 'nav_references', path: '/referanslar' },
+                { nameKey: 'nav_success_stories', path: '/basari-hikayeleri' },
+                { nameKey: 'nav_academy', path: '/guvenlik-akademisi' }
               ].map((item) => (
                 <Link 
-                  key={item.name} 
+                  key={item.nameKey} 
                   href={item.path} 
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600">arrow_forward</span>
-                  {item.name}
+                  {t(item.nameKey as any)}
                 </Link>
               ))}
             </div>
@@ -120,22 +122,22 @@ export default function Footer() {
 
           {/* Column 3: ÇÖZÜMLERİMİZ (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">ÇÖZÜMLERİMİZ</h4>
+            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_solutions')}</h4>
             <div className="flex flex-col gap-3">
               {[
-                { name: 'Özel Güvenlik Hizmetleri', path: '/hizmetler/guvenlik-yonetimi' },
-                { name: 'Entegre Tesis Yönetimi', path: '/hizmetler/tesis-yonetimi' },
-                { name: 'Profesyonel Temizlik', path: '/hizmetler/temizlik-ve-hijyen' },
-                { name: 'Sektörel Çözümler', path: '/sektorel-cozumler' },
-                { name: 'İstihdam Köprüsü Modelimiz', path: '/istihdam-koprusu' }
+                { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi' },
+                { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi' },
+                { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen' },
+                { nameKey: 'nav_sectoral_solutions', path: '/sektorel-cozumler' },
+                { nameKey: 'nav_employment_bridge', path: '/istihdam-koprusu' }
               ].map((item) => (
                 <Link 
-                  key={item.name} 
+                  key={item.nameKey} 
                   href={item.path} 
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600">arrow_forward</span>
-                  {item.name}
+                  {t(item.nameKey as any)}
                 </Link>
               ))}
             </div>
@@ -143,12 +145,12 @@ export default function Footer() {
 
           {/* Column 4: İLETİŞİM BİLGİLERİ (2.5 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">İLETİŞİM BİLGİLERİ</h4>
+            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_contact')}</h4>
             
             {/* Live Weather & Time Pill */}
             <div className="inline-flex items-center gap-2 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-700 dark:text-gray-300 w-fit">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>İstanbul Merkez: {istanbulTime || '10:42'}</span>
+              <span>{t('footer_istanbul_center')} {istanbulTime || '10:42'}</span>
               <span className="material-symbols-outlined text-sm text-amber-500">partly_cloudy_day</span>
             </div>
 
@@ -158,7 +160,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-lg">location_on</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-gray-900 dark:text-white text-xs">Genel Müdürlük</span>
+                <span className="font-bold text-gray-900 dark:text-white text-xs">{t('footer_headquarters')}</span>
                 <span className="text-xs text-gray-600 dark:text-gray-400 font-light leading-snug">Örnek Mah. İstiklal Cad. No:123 Şişli / İstanbul</span>
               </div>
             </div>
@@ -169,7 +171,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-lg">call</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-gray-900 dark:text-white text-xs">Müşteri Hizmetleri</span>
+                <span className="font-bold text-gray-900 dark:text-white text-xs">{t('footer_customer_service')}</span>
                 <a href="tel:4440000" className="text-xs font-bold text-[var(--color-primary)] dark:text-blue-400 hover:underline">444 0 000</a>
               </div>
             </div>
@@ -185,8 +187,8 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-xl">chat</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-xs font-bold text-emerald-950 dark:text-emerald-300">WhatsApp Destek Hattı</span>
-                <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-light">Hemen mesaj gönderin</span>
+                <span className="text-xs font-bold text-emerald-950 dark:text-emerald-300">{t('footer_whatsapp_title')}</span>
+                <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-light">{t('footer_whatsapp_desc')}</span>
               </div>
             </a>
           </div>
@@ -225,14 +227,14 @@ export default function Footer() {
 
           {/* Newsletter Form */}
           <form onSubmit={handleSubscribe} className="flex items-center gap-3 w-full lg:w-auto">
-            <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 shrink-0 hidden sm:inline-block">E-Bültene Kayıt Olun:</span>
+            <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 shrink-0 hidden sm:inline-block">{t('footer_newsletter_title')}</span>
             <div className="relative flex-grow sm:w-72">
               <input 
                 type="email" 
                 required
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="E-posta adresiniz..."
+                placeholder={t('footer_newsletter_placeholder')}
                 className="w-full bg-gray-200/70 dark:bg-white/10 text-gray-900 dark:text-white text-xs px-4 py-3 rounded-full border border-gray-300/80 dark:border-white/15 focus:outline-none focus:border-blue-600 pr-12 transition-colors placeholder-gray-500 dark:placeholder-gray-400"
               />
               <button 
@@ -244,7 +246,7 @@ export default function Footer() {
               </button>
             </div>
             {isSubscribed && (
-              <span className="text-xs font-bold text-emerald-600 shrink-0">Kayıt Alındı!</span>
+              <span className="text-xs font-bold text-emerald-600 shrink-0">{t('footer_newsletter_success')}</span>
             )}
           </form>
 
@@ -255,16 +257,16 @@ export default function Footer() {
           
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold px-3 py-1 rounded-full text-[11px]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            TÜM SİSTEMLER ÇEVRİMİÇİ
+            {t('footer_all_systems_online')}
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. Tüm Hakları Saklıdır. | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">Kullanım Koşulları</Link> | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">Gizlilik Politikası</Link> | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">KVKK</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">{t('footer_terms')}</Link> | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">{t('footer_privacy')}</Link> | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">{t('footer_kvkk')}</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-gray-700 dark:text-gray-300">
             <span className="material-symbols-outlined text-sm">language</span>
-            <span>Türkiye / Türkçe</span>
+            <span>{t('footer_lang_label')}</span>
           </div>
 
         </div>

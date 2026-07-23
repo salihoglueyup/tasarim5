@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Magnetic from '@/components/ui/Magnetic';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -53,7 +55,7 @@ export default function Hero() {
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full font-semibold text-xs text-white shadow-lg tracking-tight">
               <span className="material-symbols-outlined text-sm text-emerald-400">verified</span>
-              <span>Türkiye'nin En Prestijli Tesis Yönetimi</span>
+              <span>{t('hero_badge')}</span>
             </div>
           </motion.div>
 
@@ -64,10 +66,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-[var(--font-plus-jakarta)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-extrabold tracking-[-0.03em] leading-[1.05] text-white mb-4 drop-shadow-xl"
           >
-            Yaşam alanlarınıza <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-blue-200">
-              değer katıyoruz.
-            </span>
+            {t('hero_title')}
           </motion.h1>
 
           {/* Far-Left Subtitle */}
@@ -77,7 +76,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm sm:text-base md:text-lg text-slate-200 font-light leading-relaxed max-w-xl mb-7 drop-shadow-sm tracking-[-0.01em]"
           >
-            Aidat takibinden 7/24 özel güvenliğe, endüstriyel temizlikten nöbetçi teknik bakıma kadar tüm süreçleri dijital, şeffaf ve profesyonel bir şekilde yönetiyoruz.
+            {t('hero_subtitle')}
           </motion.p>
 
           {/* Action Buttons */}
@@ -92,7 +91,7 @@ export default function Hero() {
                 href="/teklif-al"
                 className="bg-white hover:bg-slate-100 text-slate-950 font-extrabold px-7 py-3.5 text-sm sm:text-base shadow-2xl rounded-xl border border-white/20 inline-flex items-center gap-2 transition-all hover:scale-105 active:scale-95 tracking-tight"
               >
-                <span>Ücretsiz Keşif İste</span>
+                <span>{t('btn_free_discovery')}</span>
                 <span className="material-symbols-outlined text-base text-slate-950">arrow_forward</span>
               </Link>
             </Magnetic>
@@ -105,7 +104,7 @@ export default function Hero() {
                 <span className="material-symbols-outlined text-lg text-blue-400">
                   {isMuted ? 'volume_off' : 'volume_up'}
                 </span>
-                <span>{isMuted ? 'Filmin Sesini Aç' : 'Sesi Kapat'}</span>
+                <span>{isMuted ? t('btn_unmute') : t('btn_mute')}</span>
               </button>
             </Magnetic>
           </motion.div>
