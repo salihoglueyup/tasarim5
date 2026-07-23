@@ -2,9 +2,13 @@
 
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const categories = ["Tümü", "Rezidans & Loft", "Toplu Konut", "AVM & Ticari", "Sanayi Siteleri"];
+
+const partnerLogos = [
+  "Acıbadem", "Rönesans", "Ağaoğlu", "Sur Yapı", "Sinpaş", "DAP Yapı", "Ege Yapı", "Tahincioğlu"
+];
 
 const projects = [
   {
@@ -22,6 +26,13 @@ const projects = [
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
   },
   {
+    name: "Horizon Plaza & Loft",
+    category: "AVM & Ticari",
+    units: "210 Ofis + 40 Mağaza",
+    location: "Şişli, İstanbul",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
     name: "Marina Towers",
     category: "Rezidans & Loft",
     units: "320 Daire",
@@ -34,13 +45,6 @@ const projects = [
     units: "95 Daire",
     location: "Ümraniye, İstanbul",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "Horizon Plaza & Loft",
-    category: "AVM & Ticari",
-    units: "210 Ofis + 40 Mağaza",
-    location: "Şişli, İstanbul",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
   },
   {
     name: "Vadi Panorama Projesi",
@@ -65,6 +69,30 @@ export default function Referanslar() {
         description="İstanbul genelinde 45.000'den fazla bağımsız bölüme hizmet verdiğimiz prestijli projeler." 
       />
 
+      {/* Infinite Marquee Section */}
+      <section className="py-12 border-b border-[var(--color-outline)]/40 overflow-hidden bg-[var(--color-surface)]">
+        <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] mb-6 text-center">
+          <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest">Çözüm Ortaklarımız & Markalar</span>
+        </div>
+        <div className="relative flex overflow-x-hidden group">
+          <div className="absolute top-0 bottom-0 left-0 w-32 z-10 bg-gradient-to-r from-[var(--color-surface)] to-transparent pointer-events-none" />
+          <div className="absolute top-0 bottom-0 right-0 w-32 z-10 bg-gradient-to-l from-[var(--color-surface)] to-transparent pointer-events-none" />
+          
+          <motion.div
+            className="flex whitespace-nowrap items-center gap-16 py-4 px-8"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 25, ease: "linear", repeat: Infinity }}
+          >
+            {/* Double the array for seamless looping */}
+            {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
+              <div key={idx} className="text-2xl md:text-3xl font-black text-[var(--color-primary)] opacity-40 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 cursor-default">
+                {logo}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         
         {/* Category Filter Pills */}
@@ -75,8 +103,8 @@ export default function Referanslar() {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md'
-                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-blue-400 hover:text-blue-600'
               }`}
             >
               {cat}
@@ -84,34 +112,42 @@ export default function Referanslar() {
           ))}
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, i) => (
-            <motion.div
-              layout
-              key={i}
-              className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
-            >
-              <div className="w-full aspect-[4/3] overflow-hidden relative">
-                <img 
-                  src={project.image} 
-                  alt={project.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                  {project.units}
-                </span>
-              </div>
-              <div className="p-8 flex flex-col gap-2">
-                <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">{project.category}</span>
-                <h3 className="text-2xl font-bold text-[var(--color-primary)]">{project.name}</h3>
-                <div className="flex items-center gap-1.5 text-xs text-[var(--color-secondary)] font-medium mt-1">
-                  <span className="material-symbols-outlined text-base text-gray-400">location_on</span>
-                  {project.location}
+        {/* Project Cards - Masonry Layout using CSS Columns */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+          <AnimatePresence>
+            {filteredProjects.map((project, i) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                key={project.name + i} // using name + index to force re-animation when filtered
+                className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group break-inside-avoid inline-block w-full"
+              >
+                {/* Randomize aspect ratio slightly for masonry effect if possible, or just use natural image height. We'll set height to auto and let image dictate. */}
+                <div className="w-full overflow-hidden relative" style={{ aspectRatio: i % 2 === 0 ? '4/3' : '3/4' }}>
+                  <img 
+                    src={project.image} 
+                    alt={project.name} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#081524]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold px-4 py-2 rounded-full shadow-xl">
+                    {project.units}
+                  </span>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-8 flex flex-col gap-3 relative bg-[var(--color-surface)] z-10 rounded-b-[2.5rem]">
+                  <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-3 py-1.5 rounded-full w-fit">{project.category}</span>
+                  <h3 className="text-2xl font-extrabold text-[var(--color-primary)]">{project.name}</h3>
+                  <div className="flex items-center gap-2 text-sm text-[var(--color-secondary)] font-medium mt-1">
+                    <span className="material-symbols-outlined text-lg text-gray-400">location_on</span>
+                    {project.location}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
       </section>

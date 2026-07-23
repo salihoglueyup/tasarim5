@@ -1,27 +1,43 @@
 "use client";
 
+import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const academyFeatures = [
   {
     title: "5188 Sayılı Kanun & Mevzuat Eğitimi",
-    desc: "Tüm özel güvenlik personelimiz T.C. İçişleri Bakanlığı standartlarında kanuni yetkiler ve sorumluluklar konusunda eğitilir."
+    desc: "Tüm özel güvenlik personelimiz T.C. İçişleri Bakanlığı standartlarında kanuni yetkiler ve sorumluluklar konusunda eğitilir. Güç kullanma yetkisinden, arama ve el koyma prosedürlerine kadar kapsamlı hukuk eğitimi.",
+    icon: "gavel",
+    duration: "40 Saat",
+    color: "from-blue-500 to-indigo-600"
   },
   {
     title: "Kriz Yönetimi & Yangın Müdahale Simülasyonu",
-    desc: "Acil durumlarda panik yönetimi, tahliye protokolleri ve ilk yardım simülasyonları periyodik olarak uygulanır."
+    desc: "Acil durumlarda panik yönetimi, tahliye protokolleri ve ilk yardım simülasyonları periyodik olarak uygulanır. Yangın tüpü kullanımı, yangın dolabı eğitimi ve gerçek ateşli yangın söndürme tatbikatları.",
+    icon: "local_fire_department",
+    duration: "24 Saat + 3 Tatbikat",
+    color: "from-red-500 to-rose-600"
   },
   {
     title: "Yapay Zeka Destekli Güvenlik Sistemleri Eğitimi",
-    desc: "Plaka tanıma, hırsızlık tespiti ve nesne analizi yapan akıllı kameraların kullanımı öğretilir."
+    desc: "Plaka tanıma, hırsızlık tespiti ve nesne analizi yapan akıllı kameraların kullanımı öğretilir. Kontrol merkezi yazılımları, erken uyarı sistemleri raporlaması ve CCTV ekran okuma teknikleri.",
+    icon: "psychology",
+    duration: "16 Saat",
+    color: "from-emerald-500 to-teal-600"
   },
   {
     title: "İletişim & Halkla İlişkiler Standartları",
-    desc: "Site sakinlerine ve ziyaretçilere karşı nezaket, yüksek iletişim dili ve protokol karşılama prensipleri aşılanır."
+    desc: "Site sakinlerine ve ziyaretçilere karşı nezaket, yüksek iletişim dili ve protokol karşılama prensipleri aşılanır. Öfke kontrolü, stres yönetimi ve zor insanlarla başa çıkma sanatları.",
+    icon: "forum",
+    duration: "12 Saat",
+    color: "from-amber-500 to-orange-600"
   }
 ];
 
 export default function GuvenlikAkademisi() {
+  const [activeStep, setActiveStep] = useState<number | null>(0);
+
   return (
     <>
       <PageHeader 
@@ -29,18 +45,95 @@ export default function GuvenlikAkademisi() {
         description="5188 sayılı kanuna uygun, teorik ve pratik simülasyonlarla eğitilen özel güvenlik kadromuz." 
       />
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {academyFeatures.map((f, i) => (
-            <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center font-bold">
-                0{i + 1}
-              </div>
-              <h3 className="text-2xl font-bold text-[var(--color-primary)]">{f.title}</h3>
-              <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
+      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+        
+        {/* Intro Teaser */}
+        <div className="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white p-10 md:p-14 rounded-[3rem] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/20 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
+           <div className="flex flex-col gap-5 max-w-2xl relative z-10">
+             <span className="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full w-fit border border-blue-500/20">
+               Özel Güvenlik Akademisi
+             </span>
+             <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">Yüksek Disiplin, <br/> Sürekli Eğitim.</h2>
+             <p className="text-blue-100 font-light leading-relaxed max-w-xl">
+               Alo Yönetim Güvenlik Akademisi, sahada görev yapan personelin fiziki, psikolojik ve mevzuat açısından her zaman güncel ve formda kalmasını sağlar.
+             </p>
+           </div>
+           <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl text-center shrink-0 w-48 relative z-10">
+             <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">92+</div>
+             <div className="text-xs text-blue-200 mt-2 font-medium">Saat Zorunlu Yıllık İçi Eğitim</div>
+           </div>
         </div>
+
+        {/* Curriculum Timeline Accordion */}
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+             <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">Akademi Müfredatı</h2>
+             <p className="text-sm text-[var(--color-secondary)] font-light mt-4">Personelimizin sahaya inmeden önce ve saha görevleri boyunca aldığı periyodik eğitim modülleri.</p>
+          </div>
+
+          <div className="relative border-l-2 border-gray-200 dark:border-white/10 pl-6 md:pl-10 space-y-8 ml-4 md:ml-0">
+            {academyFeatures.map((f, i) => {
+              const isActive = activeStep === i;
+              
+              return (
+                <div key={i} className="relative">
+                  {/* Timeline Node */}
+                  <div className={`absolute -left-[35px] md:-left-[51px] top-4 w-6 h-6 rounded-full border-4 ${isActive ? 'bg-blue-600 border-blue-200 dark:border-blue-900/50 scale-125' : 'bg-white dark:bg-zinc-800 border-gray-300 dark:border-white/20'} transition-all duration-300 z-10 flex items-center justify-center`}>
+                    {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
+                  </div>
+
+                  {/* Accordion Card */}
+                  <motion.div 
+                    layout
+                    onClick={() => setActiveStep(isActive ? null : i)}
+                    className={`bg-[var(--color-surface)] border ${isActive ? 'border-blue-500/50 shadow-xl' : 'border-[var(--color-outline)]/60 shadow-sm'} p-6 md:p-8 rounded-[2rem] cursor-pointer transition-all duration-300 group overflow-hidden relative`}
+                  >
+                    {isActive && <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${f.color} opacity-10 blur-2xl rounded-full`} />}
+
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+                      <div className="flex items-center gap-4">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${f.color} shadow-lg ${isActive ? 'scale-110' : ''} transition-transform`}>
+                          <span className="material-symbols-outlined">{f.icon}</span>
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400 mb-1">Modül 0{i + 1}</div>
+                          <h3 className="text-xl font-bold text-[var(--color-primary)] pr-8">{f.title}</h3>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between md:justify-end gap-4 shrink-0">
+                        <span className="text-xs font-bold text-[var(--color-secondary)] bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full whitespace-nowrap">
+                          {f.duration}
+                        </span>
+                        <span className={`material-symbols-outlined text-gray-400 transition-transform duration-300 ${isActive ? 'rotate-180 text-blue-500' : ''}`}>
+                          expand_more
+                        </span>
+                      </div>
+                    </div>
+
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                          animate={{ height: "auto", opacity: 1, marginTop: "1.5rem" }}
+                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                          className="relative z-10"
+                        >
+                          <div className="w-full h-px bg-gray-100 dark:bg-white/5 mb-6" />
+                          <p className="text-sm md:text-base text-[var(--color-secondary)] font-light leading-relaxed pl-2 border-l-2 border-blue-500/30">
+                            {f.desc}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
       </section>
     </>
   );
