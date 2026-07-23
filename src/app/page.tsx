@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import {
   Hero,
   LogoTicker,
@@ -6,11 +7,13 @@ import {
   ComparisonTable,
   InteractiveProcessSteps,
   AppShowcase,
-  TestimonialSlider,
-  CertificateBadgeGrid,
-  Faq,
   PreFooterCta
 } from '@/components';
+
+// Heavy components loaded dynamically (Faz 3)
+const TestimonialSlider = dynamic(() => import('@/components').then(mod => mod.TestimonialSlider), { ssr: true });
+const CertificateBadgeGrid = dynamic(() => import('@/components').then(mod => mod.CertificateBadgeGrid), { ssr: true });
+const Faq = dynamic(() => import('@/components').then(mod => mod.Faq), { ssr: true });
 
 export default function Home() {
   const jsonLd = {

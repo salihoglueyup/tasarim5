@@ -41,7 +41,12 @@ export const metadata: Metadata = {
     description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
   },
   alternates: {
-    canonical: "https://aloyonetim.com"
+    canonical: "https://aloyonetim.com",
+    languages: {
+      "tr-TR": "https://aloyonetim.com",
+      "en-US": "https://aloyonetim.com/en",
+      "de-DE": "https://aloyonetim.com/de"
+    }
   },
   robots: {
     index: true,
