@@ -300,6 +300,7 @@ export default function Header() {
             }`}>
               <button
                 onClick={() => setLanguage('tr')}
+                aria-label="Türkçe Dil Seçeneği"
                 className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
                   language === 'tr'
                     ? 'bg-blue-600 text-white shadow-sm'
@@ -312,6 +313,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setLanguage('en')}
+                aria-label="English Language Option"
                 className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
                   language === 'en'
                     ? 'bg-blue-600 text-white shadow-sm'
@@ -380,6 +382,8 @@ export default function Header() {
             {/* Mobile Hamburger Menu Button */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
+              aria-expanded={isMobileMenuOpen}
               className={`lg:hidden p-2 -mr-2 rounded-lg transition-colors ${
                 isTopOnHomePage ? 'text-white hover:bg-white/10' : 'text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10'
               }`}

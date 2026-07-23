@@ -22,6 +22,7 @@ export { default as Tooltip } from './ui/Tooltip';
 export { default as Accordion } from './ui/Accordion';
 export { default as StatCard } from './ui/StatCard';
 export { default as Input } from './ui/Input';
+export { default as CookieConsent } from './ui/CookieConsent';
 
 // Modal Components
 export { default as PortalModal } from './modals/PortalModal';
