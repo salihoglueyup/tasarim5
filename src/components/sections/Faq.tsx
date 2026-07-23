@@ -2,32 +2,34 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-
-const faqs = [
-  {
-    question: "Eski yönetimden size geçiş süreci nasıl işliyor?",
-    answer: "Geçiş süreci ortalama 7-14 gün sürer. Tüm hukuki, mali ve idari evrakları uzman ekibimiz devralır. Sakinler hiçbir kesinti hissetmeden, sadece yeni ve şeffaf sisteme dahil olurlar."
-  },
-  {
-    question: "Personel seçimi ve denetimi kime ait?",
-    answer: "Tüm güvenlik, temizlik ve teknik personel bizim bordromuzdadır (veya site talebine göre ayarlanır). İşe alım, güvenlik soruşturması, SGK takibi ve günlük performans denetimleri tamamen bizim sorumluluğumuzdadır."
-  },
-  {
-    question: "Aidatları nasıl takip ediyorsunuz?",
-    answer: "Özel mobil uygulamamız sayesinde sakinler kredi kartı veya havale ile tek tuşla aidat ödeyebilir. Ödemeyenler sistem tarafından otomatik SMS ile uyarılır, yasal süreç gerekirse hukuk departmanımızca başlatılır."
-  },
-  {
-    question: "Acil durumlarda (gece su patlaması, asansör arızası) ne yapıyoruz?",
-    answer: "7/24 hizmet veren Acil Destek Hattımız mevcuttur. Gece saat kaç olursa olsun, mobil ekiplerimiz en geç 1 saat içinde duruma müdahale eder."
-  },
-  {
-    question: "Yönetim şeffaflığını nasıl sağlıyorsunuz?",
-    answer: "Uygulamamız üzerinden her ay düzenli gelir-gider tabloları, banka ekstreleri ve yapılan harcamaların faturaları tüm sakinlerin erişimine açılır. %100 şeffaflık temel prensibimizdir."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Faq() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
+
+  const faqs = [
+    {
+      question: t('home_faq_1_q'),
+      answer: t('home_faq_1_a')
+    },
+    {
+      question: t('home_faq_2_q'),
+      answer: t('home_faq_2_a')
+    },
+    {
+      question: t('home_faq_3_q'),
+      answer: t('home_faq_3_a')
+    },
+    {
+      question: t('home_faq_4_q'),
+      answer: t('home_faq_4_a')
+    },
+    {
+      question: t('home_faq_5_q'),
+      answer: t('home_faq_5_a')
+    }
+  ];
 
   const toggleFaq = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -39,10 +41,10 @@ export default function Faq() {
         
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-primary)] mb-4">
-            Aklınıza takılanlar.
+            {t('home_faq_title')}
           </h2>
           <p className="text-xl text-[var(--color-secondary)] font-light">
-            Sürecimizle ilgili en çok merak edilen soruları şeffaflıkla yanıtladık.
+            {t('home_faq_desc')}
           </p>
         </div>
 

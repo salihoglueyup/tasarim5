@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 const brands = [
   "Emaar Square",
@@ -14,11 +15,13 @@ const brands = [
 ];
 
 export default function LogoTicker() {
+  const { t } = useLanguage();
+
   return (
     <section className="w-full py-16 bg-[var(--color-background)] overflow-hidden border-b border-[var(--color-outline)]/30">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] mb-8 text-center">
         <p className="text-sm font-medium text-[var(--color-tertiary)] uppercase tracking-widest">
-          Türkiye'nin En Prestijli Projeleri Tarafından Tercih Ediliyoruz
+          {t('home_logoticker_title')}
         </p>
       </div>
 

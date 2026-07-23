@@ -1,41 +1,44 @@
 "use client";
 
 import { motion } from 'framer-motion';
-
-const appFeatures = [
-  {
-    icon: "credit_card",
-    title: "Kredi Kartı ile Taksitli Aidat Ödeme",
-    desc: "Banka sırası beklemeden 3D Secure güvencesiyle tek tıkla aidatınızı ödeyin."
-  },
-  {
-    icon: "receipt_long",
-    title: "Şeffaf Canlı Gelir/Gider Bilanço",
-    desc: "Sitenin topladığı her kuruşun ve yapılan her harcamanın faturasını anında görün."
-  },
-  {
-    icon: "event_seat",
-    title: "Tesis & Sosyal Alan Rezervasyonu",
-    desc: "Tenis kortu, açık havuz veya toplantı salonu rezervasyonlarınızı cebinizden yönetin."
-  },
-  {
-    icon: "engineering",
-    title: "Fotoğraflı Anlık Arıza Bildirimi",
-    desc: "Patlayan ampulü veya asansör arızasını fotoğraflayıp bildirin, teknik ekibin gelişini canlı izleyin."
-  },
-  {
-    icon: "how_to_vote",
-    title: "Dijital Karar & Anket Oylaması",
-    desc: "Genel kurul kararlarına veya renk seçim anketlerine oturduğunuz yerden katılın."
-  },
-  {
-    icon: "sensor_door",
-    title: "Mobil Otomatik Kapı & Bariyer Açma",
-    desc: "Site ana kapısını veya plaka tanımayı akıllı telefonunuz üzerinden kontrol edin."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function AppShowcase() {
+  const { t } = useLanguage();
+
+  const appFeatures = [
+    {
+      icon: "credit_card",
+      title: t('home_app_feature_1_title'),
+      desc: t('home_app_feature_1_desc')
+    },
+    {
+      icon: "receipt_long",
+      title: t('home_app_feature_2_title'),
+      desc: t('home_app_feature_2_desc')
+    },
+    {
+      icon: "event_seat",
+      title: t('home_app_feature_3_title'),
+      desc: t('home_app_feature_3_desc')
+    },
+    {
+      icon: "engineering",
+      title: t('home_app_feature_4_title'),
+      desc: t('home_app_feature_4_desc')
+    },
+    {
+      icon: "how_to_vote",
+      title: t('home_app_feature_5_title'),
+      desc: t('home_app_feature_5_desc')
+    },
+    {
+      icon: "sensor_door",
+      title: t('home_app_feature_6_title'),
+      desc: t('home_app_feature_6_desc')
+    }
+  ];
+
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
@@ -43,20 +46,20 @@ export default function AppShowcase() {
         
         <div className="lg:col-span-6 flex flex-col gap-8">
           <span className="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full w-fit">
-            Tüm Site Cebinizde
+            {t('home_app_badge')}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-            Alo Yönetim Sakin & Yönetici Portalı
+            {t('home_app_title')}
           </h2>
           <p className="text-xl text-gray-300 font-light leading-relaxed">
-            Karmaşık belgelere, kayıp dekontlara ve ulaşılamayan yöneticilere son. İos ve Android uygulamamızla siteniz tamamen dijitalleşiyor.
+            {t('home_app_desc')}
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">
             <div className="bg-white/10 px-6 py-3 rounded-2xl flex items-center gap-3 border border-white/10">
               <span className="material-symbols-outlined text-2xl text-blue-400">phone_iphone</span>
               <div className="flex flex-col text-left">
-                <span className="text-[10px] text-gray-400">İndir</span>
+                <span className="text-[10px] text-gray-400">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">App Store</span>
               </div>
             </div>
@@ -64,7 +67,7 @@ export default function AppShowcase() {
             <div className="bg-white/10 px-6 py-3 rounded-2xl flex items-center gap-3 border border-white/10">
               <span className="material-symbols-outlined text-2xl text-emerald-400">android</span>
               <div className="flex flex-col text-left">
-                <span className="text-[10px] text-gray-400">İndir</span>
+                <span className="text-[10px] text-gray-400">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">Google Play</span>
               </div>
             </div>

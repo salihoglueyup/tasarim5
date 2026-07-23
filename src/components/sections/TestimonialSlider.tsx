@@ -2,92 +2,94 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Ahmet Yılmaz",
-    title: "Yönetim Kurulu Başkanı",
-    site: "Lalezar Konakları (240 Daire)",
-    location: "Kadıköy, İstanbul",
-    rating: 5,
-    comment: "Eski yönetimde aidatların nereye gittiğini takip edemiyorduk. Alo Yönetim'e geçtikten sonra ilk yıl bütçemizde %24 net tasarruf sağladık. Tüm harcamalar şeffaf bir şekilde cebimizde.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 2,
-    name: "Ayşe Kaya",
-    title: "Denetim Kurulu Üyesi",
-    site: "Sapphire Residence (180 Daire)",
-    location: "Ataşehir, İstanbul",
-    rating: 5,
-    comment: "Asansör ve jeneratör bakımlarında 7/24 teknik müdahale garantisi veriyorlar. Gece yarısı su patlaması olduğunda bile 15 dakikada ekipler sahadaydı.",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 3,
-    name: "Mehmet Demir",
-    title: "Site Yöneticisi",
-    site: "Marina Towers (320 Daire)",
-    location: "Kartal, İstanbul",
-    rating: 5,
-    comment: "Geciken aidatların icra takibinde ve hukuk süreçlerinde o kadar profesyoneller ki komşular arasında husumet çıkmadan tüm alacaklar tahsil edildi.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 4,
-    name: "Selin Öztürk",
-    title: "Kat Maliki",
-    site: "Koru Park Evleri (95 Daire)",
-    location: "Ümraniye, İstanbul",
-    rating: 5,
-    comment: "Mobil uygulama üzerinden aidatımı kredi kartıyla taksitle ödeyebilmek harika bir rahatlık. Havuz rezervasyonlarımı bile telefondan yapıyorum.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 5,
-    name: "Mustafa Çelik",
-    title: "Site Müdürü",
-    site: "Vadi Panorama Projesi (410 Daire)",
-    location: "Sarıyer, İstanbul",
-    rating: 5,
-    comment: "Peyzaj ve ekolojik temizlik kimyasalları konusunda ISO standartlarına tam uyuyorlar. Çocuklarımız ortak alanlarda gönül rahatlığıyla oynuyor.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 6,
-    name: "Zeynep Arslan",
-    title: "Yönetim Kurulu Üyesi",
-    site: "Akasya Evleri (150 Daire)",
-    location: "Bakırköy, İstanbul",
-    rating: 5,
-    comment: "48 saatlik devir teslim sürecinde eski yönetimden tüm evrakları sıfır sorunla teslim aldılar. Profesyonellik tam olarak bu.",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 7,
-    name: "Burak Şahin",
-    title: "Rezidans Yöneticisi",
-    site: "Horizon Plaza & Loft (210 Daire)",
-    location: "Şişli, İstanbul",
-    rating: 5,
-    comment: "Güvenlik personelinin 5188 kanun eğitimi ve kriz anındaki tavrı mükemmel. Güvenlik odamız 7/24 yapay zeka kameralarıyla izleniyor.",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    id: 8,
-    name: "Canan Erdem",
-    title: "Kat Maliki",
-    site: "Yeşiltepe Sitesi (130 Daire)",
-    location: "Maltepe, İstanbul",
-    rating: 5,
-    comment: "Aylık gelir-gider raporları her ayın 1'inde e-posta ve mobil uygulama üzerinden şeffafça gönderiliyor. Güvenimiz tam.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Ahmet Yılmaz",
+      title: t('home_testimonial_1_title'),
+      site: "Lalezar Konakları (240 Daire)",
+      location: "Kadıköy, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_1_comment'),
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 2,
+      name: "Ayşe Kaya",
+      title: t('home_testimonial_2_title'),
+      site: "Sapphire Residence (180 Daire)",
+      location: "Ataşehir, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_2_comment'),
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 3,
+      name: "Mehmet Demir",
+      title: t('home_testimonial_3_title'),
+      site: "Marina Towers (320 Daire)",
+      location: "Kartal, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_3_comment'),
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 4,
+      name: "Selin Öztürk",
+      title: t('home_testimonial_4_title'),
+      site: "Koru Park Evleri (95 Daire)",
+      location: "Ümraniye, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_4_comment'),
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 5,
+      name: "Mustafa Çelik",
+      title: t('home_testimonial_5_title'),
+      site: "Vadi Panorama Projesi (410 Daire)",
+      location: "Sarıyer, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_5_comment'),
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 6,
+      name: "Zeynep Arslan",
+      title: t('home_testimonial_6_title'),
+      site: "Akasya Evleri (150 Daire)",
+      location: "Bakırköy, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_6_comment'),
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 7,
+      name: "Burak Şahin",
+      title: t('home_testimonial_7_title'),
+      site: "Horizon Plaza & Loft (210 Daire)",
+      location: "Şişli, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_7_comment'),
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: 8,
+      name: "Canan Erdem",
+      title: t('home_testimonial_8_title'),
+      site: "Yeşiltepe Sitesi (130 Daire)",
+      location: "Maltepe, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_8_comment'),
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+    }
+  ];
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -105,10 +107,10 @@ export default function TestimonialSlider() {
       <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
         <div>
           <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
-            Gerçek Müşteri Deneyimleri
+            {t('home_testimonial_badge')}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
-            Yöneticilerimiz Ne Diyor?
+            {t('home_testimonial_title')}
           </h2>
         </div>
 
@@ -173,10 +175,10 @@ export default function TestimonialSlider() {
           <div className="lg:col-span-4 bg-gradient-to-br from-blue-900 to-[#122338] text-white p-8 rounded-[2rem] flex flex-col gap-4">
             <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
               <span className="material-symbols-outlined">verified</span>
-              Onaylı Kullanıcı Yorumu
+              {t('home_testimonial_verified')}
             </div>
             <div className="text-xs text-gray-300 leading-relaxed">
-              Bu değerlendirme Alo Yönetim tarafından hizmet verilen {current.site} yönetim kurulundan alınmıştır.
+              {t('home_testimonial_verified_desc_1')}{current.site}{t('home_testimonial_verified_desc_2')}
             </div>
           </div>
 

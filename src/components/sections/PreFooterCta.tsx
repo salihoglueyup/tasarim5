@@ -4,9 +4,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Magnetic from '@/components/ui/Magnetic';
 import { useState, useRef, MouseEvent } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function PreFooterCta() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -48,10 +50,10 @@ export default function PreFooterCta() {
 
           <div className="relative z-10 max-w-4xl flex flex-col items-center">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-              Yönetimde Yeni Bir Dönem.
+              {t('home_cta_title')}
             </h2>
             <p className="text-xl text-white/70 max-w-2xl mb-12 font-light">
-              Gelin sitenizi yerinde inceleyelim, eksikleri tespit edelim ve size özel, şeffaf bir yönetim planı sunalım. Tamamen ücretsiz.
+              {t('home_cta_desc')}
             </p>
             
             <Magnetic strength={0.3}>
@@ -59,7 +61,7 @@ export default function PreFooterCta() {
                 href="/teklif-al" 
                 className="bg-white text-[var(--color-primary)] px-10 py-5 rounded-full font-bold text-lg hover:bg-opacity-90 hover:scale-105 transition-all shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] flex items-center gap-3 group"
               >
-                Ücretsiz Keşif Raporu Alın
+                {t('home_cta_btn')}
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
             </Magnetic>

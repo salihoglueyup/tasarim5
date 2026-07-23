@@ -1,59 +1,62 @@
 "use client";
 
 import { motion } from 'framer-motion';
-
-const certs = [
-  {
-    code: "ISO 9001:2015",
-    title: "Kalite Yönetim Sistemi",
-    desc: "Tüm tesis ve site yönetimi operasyonlarımız uluslararası standartlara göre denetlenir.",
-    icon: "verified"
-  },
-  {
-    code: "ISO 27001",
-    title: "Bilgi Güvenliği Yönetimi",
-    desc: "Kat maliklerinin kişisel verileri ve finansal bilgileri yüksek güvenlikli sunucularda saklanır.",
-    icon: "security"
-  },
-  {
-    code: "KVKK Uyumlu",
-    title: "Kişisel Verilerin Korunması",
-    desc: "CCTV kamera kayıtları ve ziyaretçi defterleri 6698 sayılı kanuna %100 uygun işlenir.",
-    icon: "gavel"
-  },
-  {
-    code: "OHSAS 18001 / ISO 45001",
-    title: "İş Sağlığı ve Güvenliği",
-    desc: "Temizlik, güvenlik ve teknik personelimizin İSG eğitimleri eksiksiz olarak güncellenir.",
-    icon: "health_and_safety"
-  },
-  {
-    code: "ISO 14001",
-    title: "Çevre Yönetim Sistemi",
-    desc: "Sitemizde kullanılan tüm kimyasallar ekolojik ve doğaya saygılı ürünlerden seçilir.",
-    icon: "eco"
-  },
-  {
-    code: "5188 Özel Güvenlik",
-    title: "Yetkili Güvenlik Şirketi",
-    desc: "İçişleri Bakanlığı Emniyet Genel Müdürlüğü ruhsatlı özel güvenlik hizmeti altyapısı.",
-    icon: "shield"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function CertificateBadgeGrid() {
+  const { t } = useLanguage();
+
+  const certs = [
+    {
+      code: "ISO 9001:2015",
+      title: t('home_cert_1_title'),
+      desc: t('home_cert_1_desc'),
+      icon: "verified"
+    },
+    {
+      code: "ISO 27001",
+      title: t('home_cert_2_title'),
+      desc: t('home_cert_2_desc'),
+      icon: "security"
+    },
+    {
+      code: "KVKK",
+      title: t('home_cert_3_title'),
+      desc: t('home_cert_3_desc'),
+      icon: "gavel"
+    },
+    {
+      code: "ISO 45001",
+      title: t('home_cert_4_title'),
+      desc: t('home_cert_4_desc'),
+      icon: "health_and_safety"
+    },
+    {
+      code: "ISO 14001",
+      title: t('home_cert_5_title'),
+      desc: t('home_cert_5_desc'),
+      icon: "eco"
+    },
+    {
+      code: "5188",
+      title: t('home_cert_6_title'),
+      desc: t('home_cert_6_desc'),
+      icon: "shield"
+    }
+  ];
+
   return (
     <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
-          Resmi Standartlarımız
+          {t('home_cert_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
-          Kalite Sertifikalarımız & Güvencelerimiz
+          {t('home_cert_title')}
         </h2>
         <p className="text-lg text-[var(--color-secondary)] font-light mt-4">
-          Rastgele değil, uluslararası akredite kurumlar tarafından onaylanmış resmi protokollerle hizmet veriyoruz.
+          {t('home_cert_desc')}
         </p>
       </div>
 

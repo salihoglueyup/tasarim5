@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, Variants } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BentoServices() {
+  const { t } = useLanguage();
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -23,10 +25,10 @@ export default function BentoServices() {
       
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[var(--color-primary)] mb-6">
-          Kusursuz işleyen bir sistem.
+          {t('home_bento_title')}
         </h2>
         <p className="text-xl text-[var(--color-secondary)] max-w-2xl mx-auto font-light">
-          Klasik yönetim anlayışını unutun. Sitenizin her hücresini teknoloji ve insan odaklı yeni nesil bir mimariyle yönetiyoruz.
+          {t('home_bento_desc')}
         </p>
       </div>
 
@@ -45,9 +47,9 @@ export default function BentoServices() {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-blue-500/10 transition-colors"></div>
           <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] mb-6">shield_person</span>
-          <h3 className="text-3xl font-bold text-[var(--color-primary)] mb-4">7/24 Kesintisiz Güvenlik</h3>
+          <h3 className="text-3xl font-bold text-[var(--color-primary)] mb-4">{t('home_bento_card1_title')}</h3>
           <p className="text-[var(--color-secondary)] text-lg leading-relaxed max-w-md">
-            Özel eğitimli personelimiz ve son teknoloji kamera/plaka tanıma sistemlerimizle sitenizin sınırlarından içeri sadece huzur girebilir.
+            {t('home_bento_card1_desc')}
           </p>
           <div className="absolute bottom-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
             <span className="material-symbols-outlined text-3xl text-[var(--color-secondary)]">arrow_forward</span>
@@ -60,9 +62,9 @@ export default function BentoServices() {
           className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group"
         >
           <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4">cleaning_services</span>
-          <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">Premium Temizlik</h3>
+          <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card2_title')}</h3>
           <p className="text-[var(--color-secondary)] leading-relaxed">
-            Ortak alanlar, otoparklar ve peyzaj alanları her sabah ilk günkü parlaklığına kavuşur. Endüstriyel değil, butik temizlik anlayışı.
+            {t('home_bento_card2_desc')}
           </p>
         </motion.div>
 
@@ -73,9 +75,9 @@ export default function BentoServices() {
         >
           <div>
             <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4">account_balance_wallet</span>
-            <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">Şeffaf Finans</h3>
+            <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card3_title')}</h3>
             <p className="text-[var(--color-secondary)] text-sm leading-relaxed">
-              Tek tuşla aidat ödeme, anlık gelir-gider takibi ve %100 şeffaf bilanço paylaşımı.
+              {t('home_bento_card3_desc')}
             </p>
           </div>
         </motion.div>
@@ -87,9 +89,9 @@ export default function BentoServices() {
         >
           <div>
             <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4">gavel</span>
-            <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">Hukuki Koruma</h3>
+            <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card4_title')}</h3>
             <p className="text-[var(--color-secondary)] text-sm leading-relaxed">
-              Geçiken aidatlar ve komşu anlaşmazlıkları için anında avukat desteği.
+              {t('home_bento_card4_desc')}
             </p>
           </div>
         </motion.div>
@@ -100,9 +102,9 @@ export default function BentoServices() {
           className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex items-center gap-8"
         >
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">Periyodik Teknik Bakım</h3>
+            <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card5_title')}</h3>
             <p className="text-[var(--color-secondary)] leading-relaxed">
-              Asansör, jeneratör, havuz dairesi ve yangın sistemleri arızalanmadan önce düzenli bakımla korunur. Sürpriz masraflara son.
+              {t('home_bento_card5_desc')}
             </p>
           </div>
           <div className="w-20 h-20 bg-[var(--color-background)] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -117,9 +119,9 @@ export default function BentoServices() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--color-surface-variant)] opacity-0 group-hover:opacity-50 transition-opacity"></div>
           <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4 relative z-10">pool</span>
-          <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3 relative z-10">Sosyal Alan & Havuz Yönetimi</h3>
+          <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3 relative z-10">{t('home_bento_card6_title')}</h3>
           <p className="text-[var(--color-secondary)] leading-relaxed relative z-10">
-            Sağlık Bakanlığı standartlarında havuz kimyasalları ölçümü, spor salonu bakımı ve peyzajın 4 mevsim yeşil kalması.
+            {t('home_bento_card6_desc')}
           </p>
         </motion.div>
 

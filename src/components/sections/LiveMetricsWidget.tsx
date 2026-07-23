@@ -1,17 +1,20 @@
 "use client";
 
 import { motion } from 'framer-motion';
-
-const metrics = [
-  { value: "45.000+", label: "Yönetilen Bağımsız Bölüm (Daire)", icon: "domain", sub: "İstanbul genelinde prestijli projeler" },
-  { value: "%22.4", label: "Ortalama Bütçe Tasarrufu", icon: "trending_down", sub: "Toplu satın alma gücüyle sağlanan tasarruf" },
-  { value: "%99.4", label: "Müşteri Memnuniyet Oranı", icon: "sentiment_very_satisfied", sub: "Bağımsız anket sonuçları" },
-  { value: "₺12M+", label: "Yıllık Sağlanan Toplam Tasarruf", icon: "savings", sub: "Kat maliklerinin cebinde kalan tutar" },
-  { value: "48 Saat", label: "Hızlı Devir Teslim Süresi", icon: "bolt", sub: "Eski yönetimden eksiksiz devir alma" },
-  { value: "7/24", label: "Kesintisiz Nöbetçi Teknik Destek", icon: "support_agent", sub: "Ortalama 20 dakikada adrese ulaşım" }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function LiveMetricsWidget() {
+  const { t } = useLanguage();
+
+  const metrics = [
+    { value: "45.000+", label: t('home_metric_1_label'), icon: "domain", sub: t('home_metric_1_sub') },
+    { value: "%22.4", label: t('home_metric_2_label'), icon: "trending_down", sub: t('home_metric_2_sub') },
+    { value: "%99.4", label: t('home_metric_3_label'), icon: "sentiment_very_satisfied", sub: t('home_metric_3_sub') },
+    { value: "₺12M+", label: t('home_metric_4_label'), icon: "savings", sub: t('home_metric_4_sub') },
+    { value: "48 Saat", label: t('home_metric_5_label'), icon: "bolt", sub: t('home_metric_5_sub') },
+    { value: "7/24", label: t('home_metric_6_label'), icon: "support_agent", sub: t('home_metric_6_sub') }
+  ];
+
   return (
     <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
@@ -24,11 +27,11 @@ export default function LiveMetricsWidget() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              Canlı Metrikler & Operasyon Gücü
+              {t('home_metrics_badge')}
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Rakamlarla Alo Yönetim</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('home_metrics_title')}</h2>
           </div>
-          <span className="text-sm text-gray-300 font-light">Veriler her gün otomatik güncellenmektedir.</span>
+          <span className="text-sm text-gray-300 font-light">{t('home_metrics_desc')}</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,65 +1,68 @@
 "use client";
 
 import { motion } from 'framer-motion';
-
-const bentoItems = [
-  {
-    span: "lg:col-span-8",
-    title: "Yapay Zeka Destekli Kameralar & PTS Entegrasyonu",
-    desc: "Sitenize giren çıkan yabancı araçlar ve şüpheli hareketler yapay zeka ile anında tespit edilip güvenlik odasına uyarı düşer.",
-    icon: "videocam",
-    tag: "Güvenlik Teknolojisi"
-  },
-  {
-    span: "lg:col-span-4",
-    title: "Şeffaf Satın Alma Gücü",
-    desc: "100+ projeden gelen toplu tedarik alımımızla siteniz sigorta ve malzemede %20+ tasarruf eder.",
-    icon: "savings",
-    tag: "Tasarruf"
-  },
-  {
-    span: "lg:col-span-4",
-    title: "7/24 Nöbetçi Teknik Ekip",
-    desc: "Gece yarısı meydana gelen jeneratör ve kazan dairesi arızalarına ortalama 20 dakikada müdahale edilir.",
-    icon: "engineering",
-    tag: "Teknik Servis"
-  },
-  {
-    span: "lg:col-span-8",
-    title: "Mobil Uygulamadan Canlı Aidat ve Bilanço Takibi",
-    desc: "Kat malikleri toplanan aidatların hangi faturalara harcandığını fotoğraflı dekontlarıyla anlık olarak cebinden izler.",
-    icon: "phone_iphone",
-    tag: "Mobil Portal"
-  },
-  {
-    span: "lg:col-span-6",
-    title: "Hukuk Kadromuzla Husumetsiz İcra Takibi",
-    desc: "Aidatını ödemeyen dairelerin yasal süreçleri avukatlarımızca komşuluk ilişkileri bozulmadan şeffafça yürütülür.",
-    icon: "gavel",
-    tag: "Hukuki Destek"
-  },
-  {
-    span: "lg:col-span-6",
-    title: "ISO 9001 ve Ekolojik Yeşil Temizlik",
-    desc: "Ortak alanlarda kullanılan tüm kimyasallar doğa ve çocuk dostudur, bitkilere ve evcil hayvanlara zarar vermez.",
-    icon: "eco",
-    tag: "Ekolojik Temizlik"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function WhyUsBentoGrid() {
+  const { t } = useLanguage();
+
+  const bentoItems = [
+    {
+      span: "lg:col-span-8",
+      title: t('home_why_1_title'),
+      desc: t('home_why_1_desc'),
+      icon: "videocam",
+      tag: t('home_why_1_tag')
+    },
+    {
+      span: "lg:col-span-4",
+      title: t('home_why_2_title'),
+      desc: t('home_why_2_desc'),
+      icon: "savings",
+      tag: t('home_why_2_tag')
+    },
+    {
+      span: "lg:col-span-4",
+      title: t('home_why_3_title'),
+      desc: t('home_why_3_desc'),
+      icon: "engineering",
+      tag: t('home_why_3_tag')
+    },
+    {
+      span: "lg:col-span-8",
+      title: t('home_why_4_title'),
+      desc: t('home_why_4_desc'),
+      icon: "phone_iphone",
+      tag: t('home_why_4_tag')
+    },
+    {
+      span: "lg:col-span-6",
+      title: t('home_why_5_title'),
+      desc: t('home_why_5_desc'),
+      icon: "gavel",
+      tag: t('home_why_5_tag')
+    },
+    {
+      span: "lg:col-span-6",
+      title: t('home_why_6_title'),
+      desc: t('home_why_6_desc'),
+      icon: "eco",
+      tag: t('home_why_6_tag')
+    }
+  ];
+
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
-          Teknolojik Üstünlüğümüz
+          {t('home_why_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
-          Neden Alo Yönetim?
+          {t('home_why_title')}
         </h2>
         <p className="text-lg text-[var(--color-secondary)] font-light mt-4">
-          Sitenize değer katan modern bento teknolojilerimiz ve şeffaf yönetim modelimiz.
+          {t('home_why_desc')}
         </p>
       </div>
 

@@ -19,7 +19,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full h-[100vh] min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-16 sm:pb-24">
+    <section className="relative w-full h-[100vh] min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-8 sm:pb-12">
       
       {/* 8K Fullscreen Background Video & Fallback */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">

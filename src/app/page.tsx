@@ -1,7 +1,6 @@
 import {
   Hero,
   LogoTicker,
-  LiveMetricsWidget,
   BentoServices,
   WhyUsBentoGrid,
   ComparisonTable,
@@ -18,7 +17,6 @@ export default function Home() {
     <>
       <Hero />
       <LogoTicker />
-      <LiveMetricsWidget />
       <BentoServices />
       <WhyUsBentoGrid />
       <ComparisonTable />

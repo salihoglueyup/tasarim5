@@ -2,67 +2,69 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const steps = [
-  {
-    step: 1,
-    title: "Ücretsiz Keşif & Detaylı Analiz",
-    desc: "Mühendislerimiz ve mali danışmanlarımız sitenize gelerek tesisin fiziki durumu, asansörler, jeneratör ve geçmiş harcama bütçelerini inceler.",
-    icon: "search_insights",
-    tag: "Aşama 1: Analiz"
-  },
-  {
-    step: 2,
-    title: "Şeffaf Tasarruf Bütçesi Sunumu",
-    desc: "Toplu satın alma gücümüzle sigorta, güvenlik ve malzeme masraflarında elde edilecek %20+ tasarruf kalemlerini içeren resmi teklif raporu sunulur.",
-    icon: "request_quote",
-    tag: "Aşama 2: Bütçe"
-  },
-  {
-    step: 3,
-    title: "Genel Kurul & Karar Alımı",
-    desc: "Kat malikleri kurulunda veya yönetim kurulu kararıyla Alo Yönetim ile çalışma kararı resmi deftere işlenir.",
-    icon: "gavel",
-    tag: "Aşama 3: Karar"
-  },
-  {
-    step: 4,
-    title: "48 Saatlik Hızlı Devir Teslim",
-    desc: "Eski yönetimden kararlar defteri, banka hesapları ve resmi evraklar avukatlarımız nezaretinde resmi tutanakla eksiksiz teslim alınır.",
-    icon: "assignment_turned_in",
-    tag: "Aşama 4: Devir"
-  },
-  {
-    step: 5,
-    title: "Dijital Kurulum & Mobil Uygulama",
-    desc: "Tüm kat maliklerine SMS ile özel giriş şifreleri tanımlanır. Şeffaf bilanço ve mobil aidat ödeme sistemi anında aktif edilir.",
-    icon: "phone_android",
-    tag: "Aşama 5: Kurulum"
-  },
-  {
-    step: 6,
-    title: "Kesintisiz 7/24 Profesyonel Yönetim",
-    desc: "Özel güvenlik, periyodik temizlik, nöbetçi teknik ekip ve şeffaf hukuk desteği ile siteniz kusursuzca yönetilmeye başlar.",
-    icon: "verified_user",
-    tag: "Aşama 6: Başlangıç"
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function InteractiveProcessSteps() {
   const [activeStep, setActiveStep] = useState(0);
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      step: 1,
+      title: t('home_process_1_title'),
+      desc: t('home_process_1_desc'),
+      icon: "search_insights",
+      tag: t('home_process_1_tag')
+    },
+    {
+      step: 2,
+      title: t('home_process_2_title'),
+      desc: t('home_process_2_desc'),
+      icon: "request_quote",
+      tag: t('home_process_2_tag')
+    },
+    {
+      step: 3,
+      title: t('home_process_3_title'),
+      desc: t('home_process_3_desc'),
+      icon: "gavel",
+      tag: t('home_process_3_tag')
+    },
+    {
+      step: 4,
+      title: t('home_process_4_title'),
+      desc: t('home_process_4_desc'),
+      icon: "assignment_turned_in",
+      tag: t('home_process_4_tag')
+    },
+    {
+      step: 5,
+      title: t('home_process_5_title'),
+      desc: t('home_process_5_desc'),
+      icon: "phone_android",
+      tag: t('home_process_5_tag')
+    },
+    {
+      step: 6,
+      title: t('home_process_6_title'),
+      desc: t('home_process_6_desc'),
+      icon: "verified_user",
+      tag: t('home_process_6_tag')
+    }
+  ];
 
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
-          Süreç Nasıl İşler?
+          {t('home_process_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
-          6 Adımda Alo Yönetim'e Geçiş
+          {t('home_process_title')}
         </h2>
         <p className="text-lg text-[var(--color-secondary)] font-light mt-4">
-          Eski yönetimden ayrılmak gözünüzü korkutmasın. 48 saatlik resmi devir teslim süreciyle tüm işlemleri biz yürütüyoruz.
+          {t('home_process_desc')}
         </p>
       </div>
 
@@ -112,8 +114,8 @@ export default function InteractiveProcessSteps() {
             <span className="material-symbols-outlined text-6xl text-blue-400">
               {steps[activeStep].icon}
             </span>
-            <div className="font-bold text-lg">Adım {steps[activeStep].step} / 6</div>
-            <div className="text-xs text-gray-300 font-light">%100 Alo Yönetim Güvencesi</div>
+            <div className="font-bold text-lg">{t('home_process_step_label')} {steps[activeStep].step} / 6</div>
+            <div className="text-xs text-gray-300 font-light">{t('home_process_guarantee')}</div>
           </div>
         </motion.div>
       </AnimatePresence>
