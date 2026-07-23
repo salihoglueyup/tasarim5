@@ -32,6 +32,7 @@ export default function Hero() {
           loop 
           muted 
           playsInline 
+          preload="auto"
           src="/video/brand-film.mp4" 
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
         />

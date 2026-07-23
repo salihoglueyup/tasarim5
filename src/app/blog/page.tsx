@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
 export default function Blog() {
   const { t } = useLanguage();
@@ -157,9 +158,11 @@ export default function Blog() {
               >
                 <Link href={`/blog/${post.slug}`} className="group cursor-pointer block">
                   <div className="w-full aspect-[16/9] bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative border border-gray-200/50 shadow-sm">
-                    <img 
+                    <Image 
                       src={post.image} 
-                      alt={post.title} 
+                      alt={post.title}
+                      width={800}
+                      height={450}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-blue-700 font-bold px-4 py-1.5 rounded-full text-xs shadow-sm">

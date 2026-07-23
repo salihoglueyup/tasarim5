@@ -4,6 +4,7 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
 export default function Referanslar() {
   const { t } = useLanguage();
@@ -136,9 +137,11 @@ export default function Referanslar() {
               >
                 {/* Randomize aspect ratio slightly for masonry effect if possible, or just use natural image height. We'll set height to auto and let image dictate. */}
                 <div className="w-full overflow-hidden relative" style={{ aspectRatio: i % 2 === 0 ? '4/3' : '3/4' }}>
-                  <img 
+                  <Image 
                     src={project.image} 
-                    alt={project.name} 
+                    alt={project.name}
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#081524]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

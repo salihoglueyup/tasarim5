@@ -14,9 +14,11 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
         Pure Transparent Background Eagle Emblem Logo (new-icon-Photoroom.png)
       */}
       <div className="relative w-[40px] h-[40px] md:w-[44px] md:h-[44px] flex-shrink-0">
-        <img 
+        <Image 
           src="/images/logos/new-icon-Photoroom.png" 
           alt="Alo Yönetim Icon" 
+          width={44}
+          height={44}
           className={`w-full h-full object-contain transition-all duration-300 ${
             isWhite 
               ? 'filter brightness-0 invert drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]' 

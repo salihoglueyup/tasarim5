@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -159,9 +160,11 @@ export default function TestimonialSlider() {
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <img 
+              <Image 
                 src={current.avatar} 
-                alt={current.name} 
+                alt={current.name}
+                width={64}
+                height={64}
                 className="w-16 h-16 rounded-full object-cover border-2 border-blue-600"
               />
               <div>

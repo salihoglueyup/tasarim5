@@ -4,6 +4,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
 export default function Hakkimizda() {
   const { t } = useLanguage();
@@ -90,7 +91,7 @@ export default function Hakkimizda() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {leaders.map((l, i) => (
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 text-center items-center shadow-sm hover:-translate-y-2 transition-transform duration-300">
-              <img src={l.avatar} alt={l.name} className="w-24 h-24 rounded-full object-cover border-2 border-blue-600" />
+              <Image src={l.avatar} alt={l.name} width={96} height={96} className="w-24 h-24 rounded-full object-cover border-2 border-blue-600" />
               <div>
                 <h3 className="text-xl font-bold text-[var(--color-primary)]">{l.name}</h3>
                 <p className="text-xs font-semibold text-blue-600 mt-0.5">{l.title}</p>
