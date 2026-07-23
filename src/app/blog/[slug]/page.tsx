@@ -57,8 +57,48 @@ export default function BlogDetail({ params }: BlogDetailProps) {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-4">3. Dijital Aidat Takibi ve Sıfır Gecikme</h2>
           <p>
             Sakinlerin mobil uygulama üzerinden kredi kartıyla 7/24 aidat ödeyebilmesi, nakit akışını düzenler ve icra takip maliyetlerini ortadan kaldırır.
+
+            {/* Internal Linking CTA - Faz 37 */}
+            <div className="mt-12 bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-2xl p-6 md:p-8 text-center flex flex-col items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-2">
+                <span className="material-symbols-outlined text-2xl">apartment</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">Binanızın Yönetimini Profesyonellere Bırakın</h3>
+              <p className="text-slate-600 dark:text-slate-400 font-light text-sm max-w-md">
+                Aidat takibinden hukuki süreçlere, peyzajdan güvenliğe kadar tüm hizmetlerimizle tanışın.
+              </p>
+              <Link href="/hizmetler/tesis-yonetimi" className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300">
+                Tesis Yönetimi Hizmetimizi İnceleyin
+              </Link>
+            </div>
           </p>
         </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": slug.replace(/-/g, ' ').toUpperCase(),
+              "image": "https://aloyonetim.com/og-image.jpg",
+              "author": {
+                "@type": "Organization",
+                "name": "Alo Yönetim Editör Ekibi"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Alo Yönetim",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://aloyonetim.com/icon.png"
+                }
+              },
+              "datePublished": "2026-07-22T08:00:00+03:00",
+              "dateModified": "2026-07-22T08:00:00+03:00"
+            })
+          }}
+        />
 
         {/* Share & Newsletter Callout */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-3xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 mt-6">

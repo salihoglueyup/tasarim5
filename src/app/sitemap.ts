@@ -35,7 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hizmetler/hukuk-ve-icra-danismanligi',
   ]
 
-  const sitemapEntries = routes.map((route) => ({
+  const blogSlugs = [
+    '/blog/2024-aidat-artis-oranlari',
+    '/blog/elektrik-faturasini-dusurmenin-yollari',
+    '/blog/hirsizlik-olaylarina-karsi-alinacak-onlemler'
+  ]
+
+  const sitemapEntries = [...routes, ...blogSlugs].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,

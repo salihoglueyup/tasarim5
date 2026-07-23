@@ -54,11 +54,10 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://aloyonetim.com",
     languages: {
-      "tr-TR": "https://aloyonetim.com",
-      "en-US": "https://aloyonetim.com/en",
-      "de-DE": "https://aloyonetim.com/de"
+      "tr-TR": "/",
+      "en-US": "/en",
+      "de-DE": "/de"
     }
   },
   robots: {
@@ -89,6 +88,29 @@ export default function RootLayout({
         <noscript>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
         </noscript>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Alo Yönetim",
+              "url": "https://aloyonetim.com",
+              "logo": "https://aloyonetim.com/icon.png",
+              "sameAs": [
+                "https://twitter.com/aloyonetim",
+                "https://www.linkedin.com/company/aloyonetim"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+90-216-550-4848",
+                "contactType": "Customer Service",
+                "areaServed": "TR",
+                "availableLanguage": "Turkish"
+              }
+            })
+          }}
+        />
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] transition-colors duration-500 cursor-none selection:bg-blue-500/30 selection:text-white`}>
         {/* Google Tag Manager (Lazy Onload) - Faz 23 */}
