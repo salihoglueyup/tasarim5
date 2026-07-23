@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget } from "@/components";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,15 +34,18 @@ export default function RootLayout({
         />
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] transition-colors duration-500 cursor-none selection:bg-blue-500/30 selection:text-white`}>
-        <NoiseOverlay />
-        <CustomCursor />
-        <QuickCallWidget />
-        <SmoothScroll>
-          <NavigationWrapper>
-            {children}
-          </NavigationWrapper>
-        </SmoothScroll>
+        <LanguageProvider>
+          <NoiseOverlay />
+          <CustomCursor />
+          <QuickCallWidget />
+          <SmoothScroll>
+            <NavigationWrapper>
+              {children}
+            </NavigationWrapper>
+          </SmoothScroll>
+        </LanguageProvider>
       </body>
     </html>
   );
 }
+

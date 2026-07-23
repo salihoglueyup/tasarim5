@@ -198,13 +198,24 @@ export default function Hesaplayici() {
                 </p>
               </div>
 
-              <Link 
-                href="/teklif-al"
-                className="w-full bg-white text-[var(--color-primary)] hover:bg-gray-100 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-95 shadow-lg mt-2"
-              >
-                Bu Hesaplamayla Resmi Teklif Al
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                <Link 
+                  href="/teklif-al"
+                  className="flex-1 bg-white text-[var(--color-primary)] hover:bg-gray-100 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-lg text-sm"
+                >
+                  Resmi Teklif Al
+                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                </Link>
+
+                <button 
+                  onClick={() => window.print()}
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
+                  title="Hesaplama Özetini PDF / Yazıcıya Aktar"
+                >
+                  <span className="material-symbols-outlined text-base">print</span>
+                  <span>Raporu Yazdır</span>
+                </button>
+              </div>
 
             </motion.div>
           </div>
@@ -214,3 +225,4 @@ export default function Hesaplayici() {
     </>
   );
 }
+

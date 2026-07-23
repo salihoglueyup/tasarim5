@@ -104,7 +104,6 @@ export default function Footer() {
                 { name: 'Hakkımızda', path: '/hakkimizda' },
                 { name: 'Referanslarımız', path: '/referanslar' },
                 { name: 'Başarı Hikayeleri', path: '/basari-hikayeleri' },
-                { name: 'Kariyer', path: '/kariyer' },
                 { name: 'Güvenlik Akademisi', path: '/guvenlik-akademisi' }
               ].map((item) => (
                 <Link 

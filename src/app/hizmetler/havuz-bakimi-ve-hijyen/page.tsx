@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
@@ -27,7 +28,20 @@ const poolPoints = [
   }
 ];
 
+const faqs = [
+  {
+    q: "Havuz suyunun klor ve pH test sonuçları sakinlerle paylaşılıyor mu?",
+    a: "Evet, günlük yapılan dijital klor-pH ölçüm değerleri hem sosyal tesis bilgi panosunda fiziki olarak ilan edilir hem de Alo Yönetim mobil uygulamasında güncellenir."
+  },
+  {
+    q: "Sağlık Bakanlığı denetimleri nasıl yürütülüyor?",
+    a: "Halk Sağlığı Kurumu tarafından alınan aylık numuneler akredite laboratuvarlarda incelenir ve uygunluk belgeleri yönetim panosunda yayınlanır."
+  }
+];
+
 export default function HavuzBakimiVeHijyen() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
       <PageHeader 
@@ -35,10 +49,10 @@ export default function HavuzBakimiVeHijyen() {
         description="Sağlık Bakanlığı standartlarında günlük su analizleri, kimyasal denge ve sezonluk bakımlar." 
       />
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
         {/* Banner */}
-        <div className="bg-gradient-to-br from-cyan-950 via-[#0c2838] to-[#071724] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl mb-20 flex flex-col lg:flex-row justify-between items-center gap-10">
+        <div className="bg-gradient-to-br from-cyan-950 via-[#0c2838] to-[#071724] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-6 max-w-2xl">
             <Badge status="info">%100 Sağlık Bakanlığı Onaylı</Badge>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
@@ -50,7 +64,7 @@ export default function HavuzBakimiVeHijyen() {
           </div>
           <Link href="/teklif-al">
             <Button variant="primary" size="lg" className="bg-cyan-600 hover:bg-cyan-500 text-white shrink-0">
-              Havuz Bakım Teklifi Alın
+              Havuz Bakım Teklifi Alın 🏊‍♂️
             </Button>
           </Link>
         </div>
@@ -68,7 +82,33 @@ export default function HavuzBakimiVeHijyen() {
           ))}
         </div>
 
+        {/* SSS Accordion */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">Havuz Bakımı SSS</h2>
+          <div className="flex flex-col gap-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
+                >
+                  <span>{faq.q}</span>
+                  <span className="material-symbols-outlined text-cyan-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                    expand_more
+                  </span>
+                </button>
+                {openFaq === i && (
+                  <div className="p-6 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-white/10 text-sm text-[var(--color-secondary)] leading-relaxed">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
       </section>
     </>
   );
 }
+

@@ -1,7 +1,8 @@
 "use client";
 
 import PageHeader from '@/components/layout/PageHeader';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const leaders = [
   {
@@ -32,6 +33,14 @@ const timeline = [
 ];
 
 export default function Hakkimizda() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <>
       <PageHeader 
@@ -77,7 +86,7 @@ export default function Hakkimizda() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {leaders.map((l, i) => (
-            <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 text-center items-center shadow-sm">
+            <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 text-center items-center shadow-sm hover:-translate-y-2 transition-transform duration-300">
               <img src={l.avatar} alt={l.name} className="w-24 h-24 rounded-full object-cover border-2 border-blue-600" />
               <div>
                 <h3 className="text-xl font-bold text-[var(--color-primary)]">{l.name}</h3>
@@ -91,7 +100,7 @@ export default function Hakkimizda() {
 
       {/* Company Timeline */}
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
             Zaman Tüneli
           </span>
@@ -100,14 +109,46 @@ export default function Hakkimizda() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {timeline.map((t, i) => (
-            <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-3xl flex flex-col gap-3 relative overflow-hidden">
-              <span className="text-4xl font-extrabold text-blue-600/30">{t.year}</span>
-              <h3 className="text-xl font-bold text-[var(--color-primary)]">{t.title}</h3>
-              <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{t.desc}</p>
-            </div>
-          ))}
+        <div className="relative max-w-4xl mx-auto" ref={containerRef}>
+          {/* Animated Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 dark:bg-slate-800 -translate-x-1/2 rounded-full hidden md:block">
+            <motion.div 
+              className="w-full bg-blue-600 rounded-full"
+              style={{ height: lineHeight }}
+            />
+          </div>
+
+          <div className="flex flex-col gap-12">
+            {timeline.map((t, i) => (
+              <div key={i} className={`flex flex-col md:flex-row items-center justify-between gap-8 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                <div className="flex-1 w-full text-left md:text-right">
+                  {i % 2 === 0 && (
+                    <div className="hidden md:block">
+                      <div className="text-5xl font-extrabold text-blue-600/10">{t.year}</div>
+                      <h3 className="text-2xl font-bold text-[var(--color-primary)] mt-1 mb-3">{t.title}</h3>
+                      <p className="text-slate-500 dark:text-gray-400 font-light">{t.desc}</p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Node */}
+                <div className="w-16 h-16 rounded-full bg-[var(--color-surface)] border-4 border-[var(--color-outline)] shadow-xl flex items-center justify-center z-10 hidden md:flex shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-blue-600 animate-pulse"></div>
+                </div>
+
+                <div className="flex-1 w-full text-left md:text-left bg-[var(--color-surface)] p-8 rounded-3xl border border-[var(--color-outline)] shadow-sm relative overflow-hidden group hover:border-blue-600/50 transition-colors duration-300">
+                  <div className="absolute -top-10 -right-10 text-8xl font-black text-slate-100 dark:text-slate-800/50 z-0 select-none pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                    {t.year}
+                  </div>
+                  <div className="relative z-10">
+                    <span className="inline-block md:hidden text-2xl font-black text-blue-600 mb-2">{t.year}</span>
+                    <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-3">{t.title}</h3>
+                    <p className="text-slate-500 dark:text-gray-400 font-light leading-relaxed">{t.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

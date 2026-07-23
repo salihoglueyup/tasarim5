@@ -44,7 +44,7 @@ const allServices = [
     title: "Peyzaj & Bahçe Mimarisi Bakımı",
     category: "Temizlik",
     desc: "Mevsimlik bitki dikimi, otomatik çim sulama sistemleri bakımı ve periyodik ağaç budama hizmetleri.",
-    link: "/hizmetler/temizlik-ve-hijyen",
+    link: "/hizmetler/peyzaj-ve-bahce-bakimi",
     icon: "park",
     stats: "Otomatik Sensörlü Sulama"
   },
@@ -52,7 +52,7 @@ const allServices = [
     title: "Havuz Kimyası & Hijyen Bakımı",
     category: "Teknik Bakım",
     desc: "Açık ve kapalı yüzme havuzlarının günlük klor-pH ölçümleri, filtre değişimi ve bakteri analizleri.",
-    link: "/hizmetler/teknik-bakim",
+    link: "/hizmetler/havuz-bakimi-ve-hijyen",
     icon: "pool",
     stats: "Sağlık Bakanlığı Onaylı"
   },
@@ -60,7 +60,7 @@ const allServices = [
     title: "Bütçe Optimasyon & Hukuk Danışmanlığı",
     category: "Mülk Yönetimi",
     desc: "Toplu satın alma gücümüzle bütçede %22 net tasarruf ve kat mülkiyeti kanununda uzman avukat desteği.",
-    link: "/hizmetler/tesis-yonetimi",
+    link: "/hizmetler/hukuk-ve-icra-danismanligi",
     icon: "gavel",
     stats: "%22 Bütçe Tasarrufu"
   },
@@ -68,7 +68,7 @@ const allServices = [
     title: "Haşere Mücadelesi & İlaçlama",
     category: "Temizlik",
     desc: "Sağlık Bakanlığı ruhsatlı, insan sağlığına zararsız kokusuz ve periyodik ortak alan haşere dezenfeksiyonu.",
-    link: "/hizmetler/temizlik-ve-hijyen",
+    link: "/hizmetler/hasere-ve-dezenfeksiyon",
     icon: "bug_report",
     stats: "Periyodik Ruhsatlı İlaçlama"
   }
@@ -119,7 +119,7 @@ export default function Hizmetler() {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md'
+                  ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
                   : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
               }`}
             >
@@ -129,7 +129,7 @@ export default function Hizmetler() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {filteredServices.map((service, i) => (
             <motion.div
               layout
@@ -158,7 +158,27 @@ export default function Hizmetler() {
           ))}
         </div>
 
+        {/* Bottom Call To Action Banner */}
+        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+          <div className="flex flex-col gap-4 max-w-xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-white/10 px-4 py-1.5 rounded-full w-fit">Özel Yönetim Teklifi</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold">Sitenize Özel Ücretsiz Yönetim Keşfi İster Mısınız?</h2>
+            <p className="text-sm text-gray-300 font-light leading-relaxed">
+              Uzman kadromuz sitenizi ziyaret etsin; bütçe, teknik ve güvenlik analizini ücretsiz gerçekleştirip 24 saat içinde teklif sunalım.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+            <Link href="/teklif-al" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transition-transform hover:scale-105 text-sm text-center">
+              Ücretsiz Teklif Al 🚀
+            </Link>
+            <Link href="/hesaplayici" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold py-4 px-8 rounded-2xl transition-all text-sm text-center">
+              Aidat Hesapla 📊
+            </Link>
+          </div>
+        </div>
+
       </section>
     </>
   );
 }
+

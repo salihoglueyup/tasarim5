@@ -3,6 +3,7 @@ export { default as Header } from './layout/Header';
 export { default as Footer } from './layout/Footer';
 export { default as NavigationWrapper } from './layout/NavigationWrapper';
 export { default as PageHeader } from './layout/PageHeader';
+export { default as LoginModal } from './layout/LoginModal';
 
 // UI & Utility Components
 export { default as Logo } from './ui/Logo';
