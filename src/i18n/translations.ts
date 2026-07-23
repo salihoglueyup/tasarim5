@@ -684,7 +684,7 @@ export const translations = {
 
     // SSS (Sıkça Sorulan Sorular)
     faq_page_title: "Sıkça Sorulan Sorular",
-    faq_page_desc: "Site ve tesis yönetimiyle ilgili merak ettiğiniz tüm soruların şeffaf yanıtları.",
+    faq_page_desc: "Mülk ve tesis yönetimiyle ilgili merak ettiğiniz tüm soruların şeffaf yanıtları.",
     faq_cat_all: "Tümü",
     faq_cat_finance: "Aidat & Finans",
     faq_cat_security: "Güvenlik",

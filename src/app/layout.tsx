@@ -19,11 +19,11 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aloyonetim.com"),
   title: {
-    default: "Alo Yönetim - Profesyonel Site ve Tesis Yönetimi",
+    default: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
     template: "%s | Alo Yönetim"
   },
-  description: "Profesyonel site yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.",
-  keywords: ["site yönetimi", "tesis yönetimi", "güvenlik hizmetleri", "temizlik şirketi", "profesyonel site yönetimi", "apartman yönetimi", "İstanbul", "Kadıköy"],
+  description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.",
+  keywords: ["mülk yönetimi", "tesis yönetimi", "güvenlik hizmetleri", "temizlik şirketi", "profesyonel mülk yönetimi", "apartman yönetimi", "İstanbul", "Kadıköy"],
   authors: [{ name: "Alo Yönetim" }],
   creator: "Alo Yönetim",
   publisher: "Alo Yönetim",
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://aloyonetim.com",
-    title: "Alo Yönetim - Profesyonel Site ve Tesis Yönetimi",
-    description: "Profesyonel site yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
+    title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
+    description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
     siteName: "Alo Yönetim"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alo Yönetim - Profesyonel Site ve Tesis Yönetimi",
-    description: "Profesyonel site yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
+    title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
+    description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
   },
   alternates: {
     canonical: "https://aloyonetim.com"

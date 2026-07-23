@@ -90,8 +90,39 @@ export default function Hizmetler() {
     ? allServices 
     : allServices.filter(s => s.category === activeCategory);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Tesis Yönetimi',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Alo Yönetim'
+    },
+    areaServed: {
+      '@type': 'State',
+      name: 'İstanbul'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Tesis Yönetimi Hizmetleri',
+      itemListElement: allServices.map((s, idx) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.title,
+          description: s.desc
+        },
+        position: idx + 1
+      }))
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHeader 
         title={t('services_title')} 
         description={t('services_desc')} 

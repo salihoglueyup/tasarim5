@@ -13,8 +13,49 @@ import {
 } from '@/components';
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Alo Yönetim',
+    image: 'https://aloyonetim.com/icon.png',
+    description: 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
+    '@id': 'https://aloyonetim.com',
+    url: 'https://aloyonetim.com',
+    telephone: '+902165504848',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19',
+      addressLocality: 'Kadıköy',
+      addressRegion: 'İstanbul',
+      postalCode: '34722',
+      addressCountry: 'TR'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 40.990,
+      longitude: 29.030
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+      ],
+      opens: '09:00',
+      closes: '18:00'
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
       <LogoTicker />
       <BentoServices />
