@@ -36,12 +36,21 @@ export const metadata: Metadata = {
     url: "https://aloyonetim.com",
     title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
     description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
-    siteName: "Alo Yönetim"
+    siteName: "Alo Yönetim",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Alo Yönetim Profesyonel Mülk Yönetimi"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
     description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
+    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://aloyonetim.com",
