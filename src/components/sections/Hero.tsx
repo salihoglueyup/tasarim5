@@ -5,13 +5,6 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Magnetic from '@/components/ui/Magnetic';
 
-const trustBadges = [
-  { icon: "verified_user", text: "%100 Şeffaf Bilanço" },
-  { icon: "timer", text: "20 Dk Acil Ekip SLA" },
-  { icon: "domain", text: "45.000+ Bağımsız Bölüm" },
-  { icon: "gavel", text: "5188 & KMK Güvencesi" }
-];
-
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -24,7 +17,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full h-[100vh] min-h-[680px] flex flex-col justify-between overflow-hidden bg-slate-950 font-sans">
+    <section className="relative w-full h-[100vh] min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-16 sm:pb-24">
       
       {/* 8K Fullscreen Background Video & Fallback */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -46,11 +39,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none" />
       </div>
 
-      {/* Top Empty Space Spacer */}
-      <div className="h-20" />
-
       {/* Flush Far-Left Bottom Aligned Content Container */}
-      <div className="relative z-20 w-full px-6 sm:px-10 md:px-14 lg:px-20 pb-8 sm:pb-10">
+      <div className="relative z-20 w-full px-6 sm:px-10 md:px-14 lg:px-20">
         
         <div className="max-w-3xl flex flex-col items-start text-left">
           
@@ -122,18 +112,6 @@ export default function Hero() {
 
         </div>
 
-      </div>
-
-      {/* Live Trust Badges Ticker Bar */}
-      <div className="relative z-20 w-full border-t border-white/10 bg-slate-950/60 backdrop-blur-md py-3 px-6 sm:px-10">
-        <div className="max-w-[var(--spacing-container-max)] mx-auto flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300 font-semibold">
-          {trustBadges.map((b, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm text-blue-400">{b.icon}</span>
-              <span>{b.text}</span>
-            </div>
-          ))}
-        </div>
       </div>
 
     </section>
