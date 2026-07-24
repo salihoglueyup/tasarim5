@@ -35,11 +35,7 @@ export default function Hero() {
           preload="metadata"
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
         >
-          {/* Masaüstü için 4K/1080p yüksek kalite */}
-          <source src="/video/brand-film.mp4" type="video/mp4" media="(min-width: 768px)" />
-          {/* Mobil için düşük kalite/boyutlu video (LCP Optimizasyonu) */}
-          <source src="/video/brand-film-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
-          {/* Fallback */}
+          {/* Tüm cihazlar için tek kaynak (brand-film-mobile.mp4 henüz mevcut değil) */}
           <source src="/video/brand-film.mp4" type="video/mp4" />
         </video>
 
