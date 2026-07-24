@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
-import { localizedUrl } from '@/lib/seo';
+import { localizedUrl, BASE_URL } from '@/lib/seo';
+import { BLOG_SLUGS } from '@/data/blog';
 
 // Sitenin son kapsamlı güncelleme tarihi. Request-time `new Date()` yerine
 // stabil bir tarih kullanılır (her istekte "bugün" sinyali vermez).
@@ -46,18 +47,13 @@ const staticRoutes: RouteDef[] = [
   { path: '/kullanim-sartlari', changeFrequency: 'yearly', priority: 0.2 },
 ];
 
-// Dinamik blog yazıları (gerçek projede CMS/veritabanından çekilecek — Bölüm G).
-const blogSlugs = [
-  '2024-aidat-artis-oranlari',
-  'deprem-risk-analizi',
-  'kentsel-donusum-surecleri',
-  'yuzme-havuzu-bakim-kimyasallari',
-];
+type Extra = Pick<MetadataRoute.Sitemap[number], 'images' | 'videos'>;
 
 function withAlternates(
   path: string,
   changeFrequency: RouteDef['changeFrequency'],
   priority: number,
+  extra?: Extra,
 ): MetadataRoute.Sitemap[number] {
   return {
     url: localizedUrl(path, 'tr'),
@@ -71,15 +67,31 @@ function withAlternates(
         'x-default': localizedUrl(path, 'tr'),
       },
     },
+    ...extra,
   };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticEntries = staticRoutes.map((r) =>
-    withAlternates(r.path, r.changeFrequency, r.priority),
-  );
+  const staticEntries = staticRoutes.map((r) => {
+    // Ana sayfa: image sitemap (Faz 22) + video sitemap (Faz 23) — VideoObject ile hizalı.
+    if (r.path === '/') {
+      return withAlternates(r.path, r.changeFrequency, r.priority, {
+        images: [`${BASE_URL}/images/hero-poster.webp`],
+        videos: [
+          {
+            title: 'Alo Yönetim Tanıtım Filmi',
+            thumbnail_loc: `${BASE_URL}/images/hero-poster.webp`,
+            description:
+              'Profesyonel mülk ve tesis yönetimi hizmetlerimizi tanıtan kurumsal filmimiz.',
+            content_loc: `${BASE_URL}/video/brand-film.mp4`,
+          },
+        ],
+      });
+    }
+    return withAlternates(r.path, r.changeFrequency, r.priority);
+  });
 
-  const blogEntries = blogSlugs.map((slug) =>
+  const blogEntries = BLOG_SLUGS.map((slug) =>
     withAlternates(`/blog/${slug}`, 'monthly', 0.6),
   );
 

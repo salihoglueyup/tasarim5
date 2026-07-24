@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Tek biçim URL: sondaki slash yok (canonical/proxy ile tutarlı — Faz 26).
+  trailingSlash: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -34,6 +36,8 @@ const nextConfig: NextConfig = {
           { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          // HSTS (Faz 36): HTTPS zorunluluğu, 2 yıl + alt alan adları + preload.
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
         ],
       },
       {

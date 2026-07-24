@@ -35,9 +35,18 @@ export const metadata: Metadata = {
   authors: [{ name: "Alo Yönetim" }],
   creator: "Alo Yönetim",
   publisher: "Alo Yönetim",
-  // Google Search Console doğrulaması yalnız env tanımlıysa eklenir (mock yayına çıkmaz).
-  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
-    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+  // Arama motoru doğrulamaları yalnız env tanımlıysa eklenir (mock yayına çıkmaz — Faz 10/30).
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION || process.env.NEXT_PUBLIC_BING_VERIFICATION
+    ? {
+        verification: {
+          ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+            ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+            : {}),
+          ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+            ? { other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION } }
+            : {}),
+        },
+      }
     : {}),
   openGraph: {
     type: "website",
