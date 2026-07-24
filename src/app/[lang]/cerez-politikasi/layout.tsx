@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Çerez Politikası",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Alo Yönetim web sitesinde kullanılan çerezler, çerez türleri ve çerez tercihlerinizi nasıl yönetebileceğinize dair bilgilendirme.",
+    path: "/cerez-politikasi",
     lang,
   });
 }

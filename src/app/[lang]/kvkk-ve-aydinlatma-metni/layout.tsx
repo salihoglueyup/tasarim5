@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "KVKK ve Aydınlatma Metni",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında Alo Yönetim aydınlatma metni ve veri işleme esasları.",
+    path: "/kvkk-ve-aydinlatma-metni",
     lang,
   });
 }

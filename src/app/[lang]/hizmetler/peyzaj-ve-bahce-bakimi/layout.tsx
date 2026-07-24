@@ -1,21 +1,20 @@
 import { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Peyzaj ve Bahçe Bakımı",
-  description: "Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.",
-  openGraph: {
-    title: "Peyzaj ve Bahçe Bakımı | Alo Yönetim",
-    description: "Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.",
-    url: "https://aloyonetim.com/hizmetler/peyzaj-ve-bahce-bakimi",
-    images: ["/og-image.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Peyzaj ve Bahçe Bakımı | Alo Yönetim",
-    description: "Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.",
-    images: ["/og-image.jpg"],
-  }
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return buildMetadata({
+    title: "Peyzaj ve Bahçe Bakımı",
+    description:
+      "Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.",
+    path: "/hizmetler/peyzaj-ve-bahce-bakimi",
+    lang,
+  });
+}
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

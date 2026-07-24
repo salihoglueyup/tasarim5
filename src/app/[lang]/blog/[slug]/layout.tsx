@@ -1,33 +1,26 @@
 import { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo';
 
 interface BlogDetailLayoutProps {
   children: React.ReactNode;
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
-export async function generateMetadata({ params }: Omit<BlogDetailLayoutProps, 'children'>): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({
+  params,
+}: Omit<BlogDetailLayoutProps, 'children'>): Promise<Metadata> {
+  const { lang, slug } = await params;
   const titleFormatted = slug
-    ? slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-    : "Blog Yazısı";
+    ? slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+    : 'Blog Yazısı';
 
-  return {
+  return buildMetadata({
     title: `${titleFormatted} | Alo Yönetim Blog`,
     description: `${titleFormatted} hakkında detaylı bilgi, sektörel rehberler ve ipuçları.`,
-    openGraph: {
-      title: `${titleFormatted} | Alo Yönetim Blog`,
-      description: `${titleFormatted} hakkında detaylı bilgi, sektörel rehberler ve ipuçları.`,
-      type: 'article',
-      url: `https://aloyonetim.com/blog/${slug}`,
-      images: ['/og-image.jpg'],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${titleFormatted} | Alo Yönetim Blog`,
-      description: `${titleFormatted} hakkında detaylı bilgi, sektörel rehberler ve ipuçları.`,
-      images: ['/og-image.jpg'],
-    },
-  };
+    path: `/blog/${slug}`,
+    lang,
+    ogType: 'article',
+  });
 }
 
 export default function BlogDetailLayout({ children }: BlogDetailLayoutProps) {

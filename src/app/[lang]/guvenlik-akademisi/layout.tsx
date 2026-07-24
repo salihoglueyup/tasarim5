@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Güvenlik Akademisi",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "5188 sayılı kanun kapsamında özel güvenlik eğitimleri, sertifika programları ve profesyonel gelişim fırsatları Alo Yönetim Güvenlik Akademisi'nde.",
+    path: "/guvenlik-akademisi",
     lang,
   });
 }

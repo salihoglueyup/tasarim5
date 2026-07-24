@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Aidat ve Yönetim Ücreti Hesaplayıcı",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Sitenizin veya binanızın büyüklüğüne göre profesyonel tesis yönetimi ve aidat maliyetini hızlıca hesaplayın, size özel teklif alın.",
+    path: "/hesaplayici",
     lang,
   });
 }

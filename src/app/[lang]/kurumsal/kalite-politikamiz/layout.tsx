@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Kalite Politikamız",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "ISO standartları ve sürekli iyileştirme ilkesiyle şekillenen Alo Yönetim kalite politikası ve hizmet standartlarımız.",
+    path: "/kurumsal/kalite-politikamiz",
     lang,
   });
 }

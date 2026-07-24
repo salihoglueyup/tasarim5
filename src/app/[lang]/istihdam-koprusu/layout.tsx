@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "İstihdam Köprüsü",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Güvenlik, temizlik ve teknik bakım alanlarında kariyer fırsatları. Alo Yönetim İstihdam Köprüsü ile profesyonel ekibimize katılın.",
+    path: "/istihdam-koprusu",
     lang,
   });
 }

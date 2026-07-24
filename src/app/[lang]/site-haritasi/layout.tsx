@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Site Haritası",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Alo Yönetim web sitesindeki tüm sayfalara ve hizmetlere kolayca ulaşabileceğiniz site haritası.",
+    path: "/site-haritasi",
     lang,
   });
 }

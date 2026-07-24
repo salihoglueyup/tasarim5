@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Gizlilik Politikası",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Alo Yönetim olarak kişisel verilerinizi nasıl topladığımız, işlediğimiz ve koruduğumuza dair gizlilik politikamız.",
+    path: "/gizlilik-politikasi",
     lang,
   });
 }

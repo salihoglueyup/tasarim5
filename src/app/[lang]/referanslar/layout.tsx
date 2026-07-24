@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Referanslarımız",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "İstanbul genelinde yönettiğimiz siteler, plazalar ve rezidanslar. Alo Yönetim'in güvenilir referansları ve iş ortaklarıyla tanışın.",
+    path: "/referanslar",
     lang,
   });
 }

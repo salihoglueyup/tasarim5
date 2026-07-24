@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Hero, LogoTicker, SeoTextSection } from '@/components';
+import { buildMetadata } from '@/lib/seo';
 
 // Heavy components loaded dynamically for performance (Code Splitting - Faz 47)
 const BentoServices = dynamic(() => import('@/components').then(mod => mod.BentoServices), { ssr: true });
@@ -13,11 +14,21 @@ const TestimonialSlider = dynamic(() => import('@/components').then(mod => mod.T
 const CertificateBadgeGrid = dynamic(() => import('@/components').then(mod => mod.CertificateBadgeGrid), { ssr: true });
 const Faq = dynamic(() => import('@/components').then(mod => mod.Faq), { ssr: true });
 
-export const metadata: Metadata = {
-  title: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
-  description: 'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi. Aidat takibi, temizlik ve güvenlik hizmetleri.',
-  keywords: ['tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı']
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return buildMetadata({
+    title: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
+    description:
+      'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi. Aidat takibi, temizlik ve güvenlik hizmetleri.',
+    path: '/',
+    lang,
+    keywords: ['tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],
+  });
+}
 
 export default function Home() {
   const jsonLd = {

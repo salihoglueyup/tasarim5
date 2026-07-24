@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "Sektörel Çözümler",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Rezidans, AVM, plaza, iş merkezi, hastane ve fabrikalar için sektöre özel tesis yönetimi çözümleri. İhtiyacınıza uygun profesyonel hizmet paketleri.",
+    path: "/sektorel-cozumler",
     lang,
   });
 }

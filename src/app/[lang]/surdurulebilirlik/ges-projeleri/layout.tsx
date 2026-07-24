@@ -8,10 +8,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Temizlik ve Hijyen Yönetimi",
+    title: "GES Projeleri (Güneş Enerji Santrali)",
     description:
-      "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
-    path: "/hizmetler/temizlik-ve-hijyen",
+      "Siteler ve tesisler için güneş enerji santrali (GES) kurulumu ile enerji maliyetlerini düşürün. Alo Yönetim GES projeleri ve danışmanlığı.",
+    path: "/surdurulebilirlik/ges-projeleri",
     lang,
   });
 }

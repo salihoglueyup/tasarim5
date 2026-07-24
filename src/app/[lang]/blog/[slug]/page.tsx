@@ -116,7 +116,7 @@ export default function BlogDetail({ params }: BlogDetailProps) {
               "@context": "https://schema.org",
               "@type": "Article",
               "headline": slug.replace(/-/g, ' ').toUpperCase(),
-              "image": "https://aloyonetim.com/og-image.jpg",
+              "image": "https://aloyonetim.com/images/hero-poster.webp",
               "author": {
                 "@type": "Person",
                 "name": "Av. Ahmet Yılmaz",
