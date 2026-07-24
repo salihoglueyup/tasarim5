@@ -15,6 +15,9 @@ import type { Metadata } from 'next';
 
 export const BASE_URL = 'https://aloyonetim.com';
 
+/** Varsayılan (marka) OG görselinin alt metni. */
+export const DEFAULT_OG_ALT = 'Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi';
+
 export const LOCALES = ['tr', 'en'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'tr';
@@ -79,6 +82,20 @@ export function buildMetadata({
   const locale = normalizeLocale(lang);
   const canonical = localizedUrl(path, locale);
 
+  // Görsel verilmezse dinamik marka OG görseline (src/app/[lang]/og) düşülür.
+  // Dosya-konvansiyonu yerine açık referans: iç sayfalarda da güvenilir çalışır.
+  const resolvedImages =
+    images && images.length
+      ? images
+      : [
+          {
+            url: localizedUrl('/og', locale),
+            width: 1200,
+            height: 630,
+            alt: DEFAULT_OG_ALT,
+          },
+        ];
+
   return {
     title,
     description,
@@ -94,13 +111,13 @@ export function buildMetadata({
       siteName: SITE_NAME,
       title,
       description,
-      ...(images && images.length ? { images } : {}),
+      images: resolvedImages,
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      ...(images && images.length ? { images } : {}),
+      images: resolvedImages,
     },
     robots: noindex
       ? { index: false, follow: true }
