@@ -33,7 +33,6 @@ export default function Hero() {
           muted 
           playsInline 
           preload="metadata"
-          poster="/images/hero-poster.webp"
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
         >
           {/* Masaüstü için 4K/1080p yüksek kalite */}
