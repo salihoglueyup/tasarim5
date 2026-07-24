@@ -117,13 +117,13 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
           
           <div className="relative z-10 flex flex-col gap-6">
             <div className="mt-8">
-              <motion.h1 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight mb-6"
               >
                 {t('quote_hero_title')}
-              </motion.h1>
+              </motion.h2>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -454,9 +454,9 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                 <div className="w-20 h-20 bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white rounded-full flex items-center justify-center mb-6 shadow-xl shadow-slate-200/50 dark:shadow-none">
                   <span className="material-symbols-outlined text-4xl">task_alt</span>
                 </div>
-                <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
+                <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
                   {t('quote_success_title')}
-                </h1>
+                </h2>
                 <p className="text-base text-slate-600 dark:text-gray-400 font-light leading-relaxed mb-10">
                   {t('quote_success_desc')}
                 </p>
