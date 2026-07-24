@@ -35,9 +35,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Alo Yönetim" }],
   creator: "Alo Yönetim",
   publisher: "Alo Yönetim",
-  verification: {
-    google: "G-MOCK-GOOGLE-VERIFICATION-CODE", // TODO: Gerçek ID ile değiştirilecek
-  },
+  // Google Search Console doğrulaması yalnız env tanımlıysa eklenir (mock yayına çıkmaz).
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -68,6 +69,11 @@ export default async function RootLayout({
   // Await params to ensure compatibility with Next.js 15
   const resolvedParams = await Promise.resolve(params);
   const lang = resolvedParams?.lang || 'tr';
+
+  // Analytics ID'leri env'den okunur; tanımlı değilse ilgili script render edilmez
+  // (SEO V4 Faz 10 — mock ID'ler yayına çıkmaz, gerçek değerler .env ile girilir).
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
 
   return (
     <html lang={lang} className={`${inter.variable} ${plusJakarta.variable}`}>
@@ -133,19 +139,21 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] transition-colors duration-500 cursor-none selection:bg-blue-500/30 selection:text-white`}>
-        {/* Microsoft Clarity - Heatmap (Faz 85) */}
-        <Script id="ms-clarity" strategy="afterInteractive">
-          {`
+        {/* Microsoft Clarity - Heatmap (yalnız env tanımlıysa) */}
+        {clarityId && (
+          <Script id="ms-clarity" strategy="afterInteractive">
+            {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "MOCK-CLARITY-ID");
+            })(window, document, "clarity", "script", "${clarityId}");
           `}
-        </Script>
-        
-        {/* Google Analytics via @next/third-parties */}
-        <GoogleAnalytics gaId="G-MOCKGA12345" />
+          </Script>
+        )}
+
+        {/* Google Analytics via @next/third-parties (yalnız env tanımlıysa) */}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
         <WebVitals />
         <LanguageProvider initialLang={lang}>
           <QuoteProvider>
