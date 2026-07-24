@@ -102,22 +102,34 @@ export default function TestimonialSlider() {
 
   const current = testimonials[currentIndex];
 
+  const reviewJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Alo Yönetim",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": testimonials.length.toString()
+    },
+    "review": testimonials.map(testimonial => ({
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": testimonial.rating.toString()
+      },
+      "author": {
+        "@type": "Person",
+        "name": testimonial.name
+      },
+      "reviewBody": testimonial.comment
+    }))
+  };
+
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto overflow-hidden">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Alo Yönetim",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "128"
-            }
-          })
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
       />
       <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
         <div>
@@ -136,7 +148,7 @@ export default function TestimonialSlider() {
             className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
             aria-label="Önceki Yorum"
           >
-            <span className="material-symbols-outlined">arrow_back</span>
+            <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
           </button>
           <span className="text-sm font-bold text-[var(--color-secondary)] px-2">
             {currentIndex + 1} / {testimonials.length}
@@ -146,7 +158,7 @@ export default function TestimonialSlider() {
             className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
             aria-label="Sonraki Yorum"
           >
-            <span className="material-symbols-outlined">arrow_forward</span>
+            <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
           </button>
         </div>
       </div>

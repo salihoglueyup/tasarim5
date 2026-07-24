@@ -1,9 +1,15 @@
-User-agent: *
+User-Agent: *
 Allow: /
+Disallow: /admin
 Disallow: /api/
 Disallow: /_next/
-Disallow: /admin/
-Disallow: /test/
-Disallow: /private/
 
+# AI Crawler Engelleme
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: CCBot
+Disallow: /
+
+# Sitemap adresi
 Sitemap: https://aloyonetim.com/sitemap.xml

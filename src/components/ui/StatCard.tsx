@@ -22,7 +22,7 @@ export const StatCard: React.FC<StatCardProps> = ({
       <div className="flex items-center justify-between">
         {icon && (
           <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white flex items-center justify-center">
-            <span className="material-symbols-outlined text-2xl">{icon}</span>
+            <span className="material-symbols-outlined text-2xl" aria-hidden="true">{icon}</span>
           </div>
         )}
         {trend && (

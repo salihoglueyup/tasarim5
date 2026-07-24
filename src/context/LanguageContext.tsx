@@ -11,17 +11,22 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>('tr');
+export const LanguageProvider = ({ children, initialLang }: { children: React.ReactNode, initialLang?: string }) => {
+  const [language, setLanguageState] = useState<Language>((initialLang as Language) || 'tr');
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (initialLang && (initialLang === 'tr' || initialLang === 'en')) {
+      setLanguageState(initialLang as Language);
+      if (typeof window !== 'undefined') {
+        document.documentElement.lang = initialLang;
+      }
+    } else if (typeof window !== 'undefined') {
       const savedLang = localStorage.getItem('app_language') as Language;
       if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
         setLanguageState(savedLang);
       }
     }
-  }, []);
+  }, [initialLang]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

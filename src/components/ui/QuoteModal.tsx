@@ -86,11 +86,15 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
+        aria-hidden="true"
         className="absolute inset-0 bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm cursor-pointer"
       />
 
       {/* Modal Container */}
       <motion.div 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}

@@ -32,10 +32,17 @@ export default function Hero() {
           loop 
           muted 
           playsInline 
-          preload="auto"
-          src="/video/brand-film.mp4" 
+          preload="metadata"
+          poster="/images/hero-poster.webp"
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
-        />
+        >
+          {/* Masaüstü için 4K/1080p yüksek kalite */}
+          <source src="/video/brand-film.mp4" type="video/mp4" media="(min-width: 768px)" />
+          {/* Mobil için düşük kalite/boyutlu video (LCP Optimizasyonu) */}
+          <source src="/video/brand-film-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
+          {/* Fallback */}
+          <source src="/video/brand-film.mp4" type="video/mp4" />
+        </video>
 
         {/* Deep Vignette Overlay for Maximum Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60 z-10 pointer-events-none" />
@@ -91,9 +98,11 @@ export default function Hero() {
               <Link 
                 href="/teklif-al"
                 className="bg-white hover:bg-slate-100 text-slate-950 font-extrabold px-7 py-3.5 text-sm sm:text-base shadow-2xl rounded-xl border border-white/20 inline-flex items-center gap-2 transition-all hover:scale-105 active:scale-95 tracking-tight"
+                aria-label="Ücretsiz keşif isteyin"
+                title="Ücretsiz keşif formu"
               >
                 <span>{t('btn_free_discovery')}</span>
-                <span className="material-symbols-outlined text-base text-slate-950">arrow_forward</span>
+                <span className="material-symbols-outlined text-base text-slate-950" aria-hidden="true">arrow_forward</span>
               </Link>
             </Magnetic>
 
@@ -101,8 +110,10 @@ export default function Hero() {
               <button 
                 onClick={toggleMute}
                 className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-xl border border-white/20 px-5.5 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white hover:bg-slate-800 transition-all shadow-xl tracking-tight"
+                aria-label={isMuted ? "Filmin sesini aç" : "Filmin sesini kapat"}
+                title={isMuted ? "Sesi aç" : "Sesi kapat"}
               >
-                <span className="material-symbols-outlined text-lg text-blue-400">
+                <span className="material-symbols-outlined text-lg text-blue-400" aria-hidden="true">
                   {isMuted ? 'volume_off' : 'volume_up'}
                 </span>
                 <span>{isMuted ? t('btn_unmute') : t('btn_mute')}</span>

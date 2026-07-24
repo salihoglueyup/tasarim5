@@ -37,11 +37,15 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
+            aria-hidden="true"
             className="absolute inset-0 bg-slate-900/60 backdrop-blur-md cursor-pointer"
           />
 
           {/* Modal Container */}
           <motion.div 
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="login-modal-title"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -63,7 +67,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   {activeTab === 'sakin' ? 'vpn_key' : 'admin_panel_settings'}
                 </span>
               </div>
-              <h2 className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight">Sisteme Giriş</h2>
+              <h2 id="login-modal-title" className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight">Sisteme Giriş</h2>
               <p className="text-sm text-slate-500 dark:text-gray-400 mt-2 font-light">
                 {activeTab === 'sakin' ? 'Aidat ve borç sorgulama portalı' : 'Sistem yöneticileri için operasyon portalı'}
               </p>

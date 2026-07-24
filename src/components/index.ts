@@ -4,6 +4,7 @@ export { default as Footer } from './layout/Footer';
 export { default as NavigationWrapper } from './layout/NavigationWrapper';
 export { default as PageHeader } from './layout/PageHeader';
 export { default as LoginModal } from './layout/LoginModal';
+export { WebVitals } from './layout/WebVitals';
 
 // UI & Utility Components
 export { default as Logo } from './ui/Logo';
@@ -41,3 +42,5 @@ export { default as Statistics } from './sections/Statistics';
 export { default as Timeline } from './sections/Timeline';
 export { default as Faq } from './sections/Faq';
 export { default as PreFooterCta } from './sections/PreFooterCta';
+export { default as SeoTextSection } from './sections/SeoTextSection';
+export { default as RelatedServices } from './sections/RelatedServices';

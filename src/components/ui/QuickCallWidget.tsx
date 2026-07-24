@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { sendGAEvent } from '@next/third-parties/google';
 
 export default function QuickCallWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,7 @@ export default function QuickCallWidget() {
 
             <a 
               href="tel:08500000000" 
+              onClick={() => sendGAEvent('event', 'phone_call_click', { category: 'contact', value: 1 })}
               className="flex items-center gap-3 p-3 rounded-2xl bg-blue-50 dark:bg-white/5 hover:bg-blue-100 dark:hover:bg-white/10 transition-colors"
             >
               <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center">
@@ -39,6 +41,7 @@ export default function QuickCallWidget() {
               href="https://wa.me/905550000000" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={() => sendGAEvent('event', 'whatsapp_click', { category: 'contact', value: 1 })}
               className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-50 dark:bg-white/5 hover:bg-emerald-100 dark:hover:bg-white/10 transition-colors"
             >
               <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
@@ -52,7 +55,10 @@ export default function QuickCallWidget() {
 
             <Link 
               href="/teklif-al"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                sendGAEvent('event', 'quote_click', { category: 'conversion', value: 1 });
+              }}
               className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-[var(--color-primary)] text-white text-xs font-bold shadow-md hover:opacity-95 transition-opacity"
             >
               <span className="material-symbols-outlined text-sm">request_quote</span>

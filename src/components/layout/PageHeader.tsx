@@ -9,9 +9,10 @@ interface PageHeaderProps {
   title: string;
   description: string;
   category?: string;
+  breadcrumbs?: { name: string; url?: string }[];
 }
 
-export default function PageHeader({ title, description, category = "Alo Yönetim" }: PageHeaderProps) {
+export default function PageHeader({ title, description, category = "Alo Yönetim", breadcrumbs }: PageHeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -27,31 +28,32 @@ export default function PageHeader({ title, description, category = "Alo Yöneti
 
   const pathname = usePathname() || '';
   
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Anasayfa',
-        item: 'https://aloyonetim.com'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: title,
-        item: `https://aloyonetim.com${pathname}`
+  const generateAutoBreadcrumbs = () => {
+    if (breadcrumbs) return breadcrumbs;
+    if (!pathname || pathname === '/') return null;
+    
+    const paths = pathname.split('/').filter(p => p);
+    const autoBreadcrumbs = [];
+    
+    let currentUrl = '';
+    for (let i = 0; i < paths.length; i++) {
+      currentUrl += `/${paths[i]}`;
+      if (i === paths.length - 1) {
+        autoBreadcrumbs.push({ name: title });
+      } else {
+        let name = paths[i].charAt(0).toUpperCase() + paths[i].slice(1).replace(/-/g, ' ');
+        if (paths[i] === 'hizmetler') name = 'Hizmetlerimiz';
+        else if (paths[i] === 'kurumsal') name = 'Kurumsal';
+        autoBreadcrumbs.push({ name, url: currentUrl });
       }
-    ]
+    }
+    return autoBreadcrumbs;
   };
 
+  const finalBreadcrumbs = generateAutoBreadcrumbs();
+  
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <section 
       ref={containerRef}
       onMouseMove={handleMouseMove}
@@ -82,11 +84,29 @@ export default function PageHeader({ title, description, category = "Alo Yöneti
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-slate-200 dark:border-white/15 shadow-sm text-xs font-semibold text-slate-600 dark:text-gray-300 mb-6"
+          className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-slate-200 dark:border-white/15 shadow-sm text-xs font-semibold text-slate-600 dark:text-gray-300 mb-6 flex-wrap justify-center"
         >
           <Link href="/" className="hover:text-[var(--color-primary)] dark:hover:text-white transition-colors">Anasayfa</Link>
-          <span className="text-slate-400">/</span>
-          <span className="text-[var(--color-primary)] dark:text-white font-bold">{title}</span>
+          
+          {finalBreadcrumbs ? (
+            finalBreadcrumbs.map((crumb, i) => (
+              <span key={i} className="flex items-center gap-2">
+                <span className="text-slate-400">/</span>
+                {crumb.url ? (
+                  <Link href={crumb.url} className="hover:text-[var(--color-primary)] dark:hover:text-white transition-colors">
+                    {crumb.name}
+                  </Link>
+                ) : (
+                  <span className="text-[var(--color-primary)] dark:text-white font-bold">{crumb.name}</span>
+                )}
+              </span>
+            ))
+          ) : (
+            <>
+              <span className="text-slate-400">/</span>
+              <span className="text-[var(--color-primary)] dark:text-white font-bold">{title}</span>
+            </>
+          )}
         </motion.div>
 
         {/* Title */}

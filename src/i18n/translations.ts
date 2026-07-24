@@ -2,6 +2,46 @@ export type Language = 'tr' | 'en';
 
 export const translations = {
   tr: {
+    // Error Pages
+    err_404_title: "Sayfa Bulunamadı",
+    err_404_desc: "Aradığınız sayfa taşınmış, silinmiş veya geçici olarak kullanılamıyor olabilir. En iyi hizmete ulaşmak için ana sayfaya dönebilir veya hizmetlerimize göz atabilirsiniz.",
+    err_404_back_home: "Ana Sayfaya Dön",
+    err_404_services: "Hizmetlerimiz",
+    err_500_title: "Bir Sorun Oluştu",
+    err_500_desc: "İşleminizi gerçekleştirirken sunucu tarafında bir hata meydana geldi. Lütfen tekrar deneyin.",
+    err_500_retry: "Tekrar Dene",
+
+    // Services Page SEO
+    services_seo_title: "Profesyonel Tesis Yönetimi ve Apartman Hizmetleri",
+    services_seo_p1: "Alo Yönetim olarak, tesis yönetimi hizmetleri alanında ihtiyaç duyduğunuz tüm çözümleri profesyonel ve yenilikçi bir yaklaşımla sunuyoruz. Sadece aidat toplayan geleneksel bir yönetim firması değil, sitenizin değerini artıran, yaşam kalitesini yükselten stratejik bir iş ortağıyız. 7/24 özel güvenlik, uçtan uca temizlik ve teknik bakım, şeffaf hukuki ve finansal yönetim süreçleriyle tam kapsamlı bir hizmet yelpazesi sağlıyoruz.",
+    services_seo_p2: "Sitenizin ihtiyaçlarına göre şekillendirdiğimiz esnek hizmet paketlerimizle, ister butik bir apartman olun ister binlerce konutluk devasa bir proje, Alo Yönetim farkını ilk günden hissedersiniz. Hedefimiz; komşuluk ilişkilerini zedelemeden, %100 yasalara uygun, huzurlu ve sorunsuz yaşam alanı inşa etmektir.",
+
+    // Faz 23-30 SEO Metinleri
+    guvenlik_seo_title: "İstanbul Özel Güvenlik ve Site Güvenlik Yönetimi",
+    guvenlik_seo_p1: "Alo Yönetim olarak, İstanbul site yönetimi hizmetlerimizin merkezine 7/24 kesintisiz ve profesyonel özel güvenlik hizmetini koyuyoruz. Site ve tesislerinizin güvenliği yapay zeka destekli kamera sistemleri, otomatik plaka tanıma, ziyaretçi takip modülleri ve 5188 sayılı kanuna tam uyumlu profesyonel güvenlik kadromuzla garanti altına alınır.",
+    guvenlik_seo_p2: "Taşeron güvenlik firmalarıyla yaşanan karmaşaya son veriyor, tüm güvenlik personelinin yasal sorumluluklarını bizzat üstleniyoruz. Risk analizini yaparak tamamen size özel bir güvenlik altyapısı kuruyoruz.",
+    tesis_seo_title: "Profesyonel Bina ve Tesis Yönetimi İstanbul",
+    tesis_seo_p1: "Profesyonel bina yönetimi, bir yaşam alanının tüm fonksiyonlarının uyum içinde, kesintisiz ve minimum maliyetle çalışmasını sağlamaktır. Alışveriş merkezlerinden lüks rezidanslara kadar her ölçekteki yapının teknik, idari ve finansal süreçlerini uçtan uca dijitalleştiriyoruz.",
+    tesis_seo_p2: "Toplu satın alma gücü (elektrik, sigorta, malzeme) sayesinde site bütçenizi optimize ediyor, hem zaman hem de nakit tasarrufu sağlıyoruz.",
+    temizlik_seo_title: "Site ve Ortak Alan Temizlik Hizmetleri",
+    temizlik_seo_p1: "Endüstriyel temizlik firması standartlarını butik hizmet anlayışıyla birleştiren Alo Yönetim, sitenizin her metrekaresinde üst düzey hijyen sağlar. Otoparklar, asansörler ve ortak alanlar ekolojik ürünlerle temizlenir.",
+    temizlik_seo_p2: "Mermer zeminlerin cilalanması, dış cephe cam temizliği gibi süreçler profesyonellerce yürütülür. Temizlik personelinin tüm yasal yükümlülükleri tarafımızca karşılanır.",
+    teknik_seo_title: "Asansör ve Teknik Bakım Hizmetleri",
+    teknik_seo_p1: "Asansör bakım firması İstanbul ihtiyaçlarınızda ve tüm mekanik/elektrik altyapı sorunlarında önleyici bakım (preventive maintenance) stratejisi uyguluyoruz. Jeneratör, hidrofor, yangın ve havuz dairesi sistemleri düzenli olarak kontrol edilir.",
+    teknik_seo_p2: "Beklenmedik arızalara ve sürpriz maliyetlere son veriyoruz. 7/24 hazır bekleyen mobil teknik ekibimiz acil durumlarda ortalama 20 dakikada müdahale eder.",
+    peyzaj_seo_title: "Site Peyzaj Bakımı ve Bahçe Düzenleme",
+    peyzaj_seo_p1: "Site peyzaj bakımı, yaşam alanlarınızın nefes almasını ve görsel değerini korumasını sağlar. Mevsimsel budama, çim havalandırma, gübreleme ve otomatik sulama sistemleri bakımları ziraat mühendisleri kontrolünde yapılır.",
+    peyzaj_seo_p2: "Sitenizin yeşil alanları 4 mevsim canlı ve estetik kalır. Dış mekan bitkilerinin hastalık ve zararlılardan korunması için periyodik zirai ilaçlama (bitki koruma) uygulanır.",
+    havuz_seo_title: "Havuz Bakımı ve Hijyen Yönetimi İstanbul",
+    havuz_seo_p1: "Havuz bakımı İstanbul genelinde en çok özen gerektiren konudur. Sağlık Bakanlığı standartlarında periyodik havuz kimyasalları ölçümü, filtre temizliği ve ph/klor dengelemesi sertifikalı havuz operatörlerimizce yapılır.",
+    havuz_seo_p2: "Sakinlerimizin ve çocukların sağlığı için havuz sularının mikrobiyolojik analizleri düzenli olarak akredite laboratuvarlara gönderilir, şeffaf raporlama ile site sakinlerine duyurulur.",
+    hasere_seo_title: "Profesyonel İlaçlama Firması ve Dezenfeksiyon",
+    hasere_seo_p1: "İlaçlama firması İstanbul ihtiyaçlarınızda, Sağlık Bakanlığı onaylı biyosidal ürünlerle kemirgen, haşere ve böceklere karşı kesin çözüm sunuyoruz. Kapalı otoparklar, sığınaklar ve ortak alanlarda periyodik dezenfeksiyon işlemleri yürütülür.",
+    hasere_seo_p2: "İnsan ve evcil hayvan sağlığına zarar vermeyen, ekosisteme duyarlı ilaçlama yöntemlerimizle sitenizde hijyenik ve güvenli bir ortam sağlıyoruz.",
+    hukuk_seo_title: "Aidat Borcu İcra Takibi ve Hukuki Danışmanlık",
+    hukuk_seo_p1: "Aidat borcu hukuki takip süreçleri, komşuluk ilişkilerini zedelemeden tamamen profesyonel ve yasal çerçevede (Kat Mülkiyeti Kanunu) yürütülür. Geciken ödemeler için otomatik ihtarnameler ve uzman avukat kadromuzla icra süreçleri başlatılır.",
+    hukuk_seo_p2: "Sitenin taraf olduğu sözleşmeler, personel iş davaları ve taşeron firma uyuşmazlıklarında yönetimi yasal güvence altına alıyoruz. Sıfır hukuki risk ile huzurlu yönetim.",
+
     // Navigation & Header
     nav_corporate: "Kurumsal",
     nav_services: "Hizmetlerimiz",
@@ -125,8 +165,13 @@ export const translations = {
     home_metric_6_sub: "Ortalama 20 dakikada adrese ulaşım",
 
     // Bento Services
-    home_bento_title: "Kusursuz işleyen bir sistem.",
-    home_bento_desc: "Klasik yönetim anlayışını unutun. Sitenizin her hücresini teknoloji ve insan odaklı yeni nesil bir mimariyle yönetiyoruz.",
+    home_bento_title: "Kusursuz işleyen bir tesis yönetim sistemi.",
+    home_bento_desc: "Klasik yönetim anlayışını unutun. İstanbul site yönetimi ve profesyonel apartman yönetimi alanında sitenizin her hücresini teknoloji ve insan odaklı yeni nesil bir mimariyle yönetiyoruz.",
+    
+    // SEO Content Block
+    home_seo_title: "İstanbul Site Yönetimi ve Profesyonel Apartman Yönetiminde Lider Tesis Yönetim Firması",
+    home_seo_p1: "İstanbul site yönetimi alanında uzmanlaşmış olan Alo Yönetim, profesyonel apartman yönetimi ve entegre tesis yönetim firması olarak 15 yılı aşkın süredir sektörde güvenin adresidir. Geleneksel ve şeffaf olmayan yönetim anlayışını tamamen dijitalleştiriyor; aidat tahsilatından hukuki süreçlere, asansör bakımından 7/24 özel güvenliğe kadar tüm ihtiyaçlarınızı tek bir çatı altında, profesyonel bir ekiple karşılıyoruz. Amacımız sadece binaları yönetmek değil, yaşam alanlarınıza değer katmak ve sürdürülebilir bir huzur ortamı inşa etmektir.",
+    home_seo_p2: "Büyük ölçekli rezidanslardan butik sitelere, alışveriş merkezlerinden sanayi tesislerine kadar geniş bir portföyde hizmet veren tesis yönetim firması olarak, bütçenizi optimize ediyoruz. Profesyonel apartman yönetimi hizmetimiz, komşuluk ilişkilerini zedelemeden, yasal mevzuatlara tam uyumlu ve %100 şeffaf bir modelle yürütülür. Ortak alanların periyodik bakımı, endüstriyel temizlik standartları ve anında müdahale gerektiren teknik arızalar için kurduğumuz yapay zeka destekli operasyon merkezi sayesinde sorunlar büyümeden çözüme kavuşturulur.",
     home_bento_card1_title: "7/24 Kesintisiz Güvenlik",
     home_bento_card1_desc: "Özel eğitimli personelimiz ve son teknoloji kamera/plaka tanıma sistemlerimizle sitenizin sınırlarından içeri sadece huzur girebilir.",
     home_bento_card2_title: "Premium Temizlik",
@@ -166,7 +211,7 @@ export const translations = {
     // Comparison Table
     home_comparison_badge: "Farkımızı Görün",
     home_comparison_title: "Alo Yönetim vs Geleneksel Yönetim",
-    home_comparison_desc: "Neden İstanbul'un en prestijli projeleri geleneksel yöntemleri terk edip Alo Yönetim'e geçiyor?",
+    home_comparison_desc: "Neden İstanbul'un en prestijli projeleri geleneksel yöntemleri terk edip profesyonel apartman yönetimi ve tesis yönetim firması olan Alo Yönetim'e geçiyor?",
     home_comparison_left_title: "Alo Yönetim Modeli",
     home_comparison_left_sub: "%100 Kurumsal & Şeffaf Dijital Yönetim",
     home_comparison_btn: "Hemen Şeffaf Yönetime Geçin",
@@ -985,6 +1030,46 @@ export const translations = {
     footer_badge_sec_desc: "T.C. İçişleri Bak.",
   },
   en: {
+    // Error Pages
+    err_404_title: "Page Not Found",
+    err_404_desc: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. You can return to the home page or browse our services.",
+    err_404_back_home: "Back to Home",
+    err_404_services: "Our Services",
+    err_500_title: "Something Went Wrong",
+    err_500_desc: "An error occurred on the server while processing your request. Please try again.",
+    err_500_retry: "Try Again",
+
+    // Services Page SEO
+    services_seo_title: "Professional Facility Management and Apartment Services",
+    services_seo_p1: "At Alo Yönetim, we provide all the solutions you need in the field of facility management services with a professional and innovative approach. We are not just a traditional management company that collects dues, but a strategic business partner that increases the value of your property and improves your quality of life. We provide a full range of services with 24/7 private security, end-to-end cleaning and technical maintenance, transparent legal and financial management processes.",
+    services_seo_p2: "With our flexible service packages tailored to the needs of your complex, whether you are a boutique apartment or a massive project with thousands of residences, you will feel the Alo Yönetim difference from day one. Our goal is to build a peaceful and trouble-free living space, 100% compliant with the law, without damaging neighborly relations.",
+
+    // Phase 23-30 SEO Texts
+    guvenlik_seo_title: "Istanbul Private Security and Property Security Management",
+    guvenlik_seo_p1: "At Alo Yönetim, we place 24/7 uninterrupted and professional private security at the center of our property management services. AI-supported camera systems, license plate recognition, and a highly trained security staff guarantee your peace of mind.",
+    guvenlik_seo_p2: "We take full legal responsibility for all security personnel, eliminating the chaos of subcontracted firms. We build a fully customized security infrastructure based on your project's risk analysis.",
+    tesis_seo_title: "Professional Building and Facility Management Istanbul",
+    tesis_seo_p1: "Professional building management digitizes technical, administrative, and financial processes from end to end. From shopping malls to luxury residences, we ensure all functions work in harmony.",
+    tesis_seo_p2: "With our bulk purchasing power, we optimize your budget up to 20%, saving both time and money.",
+    temizlik_seo_title: "Complex and Common Area Cleaning Services",
+    temizlik_seo_p1: "Combining industrial cleaning standards with a boutique service approach, we ensure top-level hygiene in every square meter. Common areas are cleaned daily with eco-friendly products.",
+    temizlik_seo_p2: "Processes like marble polishing and facade cleaning are carried out by certified professionals, and all legal obligations of the cleaning staff are handled by us.",
+    teknik_seo_title: "Elevator and Technical Maintenance Services",
+    teknik_seo_p1: "We apply a preventive maintenance strategy for elevators, generators, fire systems, and all mechanical/electrical infrastructure.",
+    teknik_seo_p2: "Say goodbye to unexpected breakdowns and surprise costs. Our 24/7 mobile technical team responds to emergencies in an average of 20 minutes.",
+    peyzaj_seo_title: "Landscape Maintenance and Gardening",
+    peyzaj_seo_p1: "Seasonal pruning, lawn aeration, fertilization, and irrigation maintenance are performed under the supervision of agricultural engineers.",
+    peyzaj_seo_p2: "Your green areas stay vibrant for 4 seasons. Periodic agricultural spraying protects plants from diseases and pests.",
+    havuz_seo_title: "Pool Maintenance and Hygiene Management Istanbul",
+    havuz_seo_p1: "Periodic pool chemical measurements, filter cleaning, and pH balancing are done by certified pool operators according to Ministry of Health standards.",
+    havuz_seo_p2: "Microbiological analysis of pool water is regularly sent to accredited laboratories to ensure the health of residents.",
+    hasere_seo_title: "Professional Pest Control and Disinfection",
+    hasere_seo_p1: "We provide definitive solutions against rodents and pests with Ministry of Health approved biocidal products.",
+    hasere_seo_p2: "Our eco-friendly and pet-safe pest control methods ensure a hygienic environment in your property.",
+    hukuk_seo_title: "Dues Debt Execution Tracking and Legal Consulting",
+    hukuk_seo_p1: "Dues debt legal tracking is carried out entirely professionally without damaging neighborly relations. Automatic warnings and execution processes are initiated by our expert lawyers.",
+    hukuk_seo_p2: "We legally secure the management in contracts, personnel labor disputes, and subcontractor conflicts. Peaceful management with zero legal risk.",
+
     // Navigation & Header
     nav_corporate: "Corporate",
     nav_services: "Services",
@@ -1108,8 +1193,13 @@ export const translations = {
     home_metric_6_sub: "Average 20 minutes response time",
 
     // Bento Services
-    home_bento_title: "A flawlessly operating system.",
-    home_bento_desc: "Forget classic management approaches. We manage every cell of your property with a technology and human-oriented new generation architecture.",
+    home_bento_title: "A flawlessly operating facility management system.",
+    home_bento_desc: "Forget classic management approaches. In the field of Istanbul property management and professional apartment management, we manage every cell of your property with a technology and human-oriented new generation architecture.",
+    
+    // SEO Content Block
+    home_seo_title: "Leading Facility Management Company in Istanbul Property and Professional Apartment Management",
+    home_seo_p1: "Alo Yönetim, specialized in Istanbul property management, has been the trusted address in the sector for over 15 years as a professional apartment management and integrated facility management company. We completely digitize the traditional and non-transparent management approach; from dues collection to legal processes, elevator maintenance to 24/7 private security, we meet all your needs under one roof with a professional team. Our goal is not just to manage buildings, but to add value to your living spaces and build a sustainable peaceful environment.",
+    home_seo_p2: "As a facility management company serving a wide portfolio from large-scale residences to boutique complexes, shopping malls to industrial facilities, we optimize your budget. Our professional apartment management service is carried out with a 100% transparent model, fully compliant with legal regulations (Property Ownership Law), without damaging neighborly relations. Problems are resolved before they escalate thanks to our AI-supported operations center established for periodic maintenance of common areas, industrial cleaning standards, and technical malfunctions requiring immediate intervention.",
     home_bento_card1_title: "24/7 Uninterrupted Security",
     home_bento_card1_desc: "With our specially trained staff and state-of-the-art camera/license plate recognition systems, only peace can enter your premises.",
     home_bento_card2_title: "Premium Cleaning",
@@ -1149,7 +1239,7 @@ export const translations = {
     // Comparison Table
     home_comparison_badge: "See the Difference",
     home_comparison_title: "Alo Yönetim vs Traditional Management",
-    home_comparison_desc: "Why are Istanbul's most prestigious projects abandoning traditional methods for Alo Yönetim?",
+    home_comparison_desc: "Why are Istanbul's most prestigious projects abandoning traditional methods for the professional apartment and facility management company, Alo Yönetim?",
     home_comparison_left_title: "Alo Yönetim Model",
     home_comparison_left_sub: "100% Corporate & Transparent Digital Management",
     home_comparison_btn: "Switch to Transparent Management Now",

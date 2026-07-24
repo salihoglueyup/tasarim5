@@ -7,7 +7,7 @@ import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [istanbulTime, setIstanbulTime] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -89,7 +89,7 @@ export default function Footer() {
           {/* Column 2: KURUMSAL (2.5 Cols) */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_corporate')}</h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3" role="navigation" aria-label="Alt menü - Kurumsal">
               {[
                 { nameKey: 'nav_about', path: '/hakkimizda' },
                 { nameKey: 'nav_vision', path: '/kurumsal/vizyon-misyon' },
@@ -106,7 +106,7 @@ export default function Footer() {
                   href={item.path} 
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600">arrow_forward</span>
+                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600" aria-hidden="true">arrow_forward</span>
                   {t(item.nameKey as any)}
                 </Link>
               ))}
@@ -116,13 +116,17 @@ export default function Footer() {
           {/* Column 3: ÇÖZÜMLERİMİZ (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
             <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_solutions')}</h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3" role="navigation" aria-label="Alt menü - Çözümler">
               {[
                 { nameKey: 'nav_all_services', path: '/hizmetler' },
                 { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi' },
                 { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi' },
                 { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen' },
                 { nameKey: 'nav_tech_maintenance', path: '/hizmetler/teknik-bakim' },
+                { nameKey: 'nav_landscaping', path: '/hizmetler/peyzaj-ve-bahce-bakimi' },
+                { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen' },
+                { nameKey: 'nav_pest_control', path: '/hizmetler/hasere-ve-dezenfeksiyon' },
+                { nameKey: 'nav_legal_consulting', path: '/hizmetler/hukuk-ve-icra-danismanligi' },
                 { nameKey: 'nav_sectoral_solutions', path: '/sektorel-cozumler' },
                 { nameKey: 'nav_employment_bridge', path: '/istihdam-koprusu' },
                 { nameKey: 'nav_academy', path: '/guvenlik-akademisi' }
@@ -132,7 +136,7 @@ export default function Footer() {
                   href={item.path} 
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600">arrow_forward</span>
+                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600" aria-hidden="true">arrow_forward</span>
                   {t(item.nameKey as any)}
                 </Link>
               ))}
@@ -286,7 +290,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">{t('footer_terms')}</Link> | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">{t('footer_privacy')}</Link> | <Link href="/kvkk-ve-aydinlatma-metni" className="hover:underline">{t('footer_kvkk')}</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">Çerez Politikası</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-blue-500">Site Haritası</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-gray-700 dark:text-gray-300">
