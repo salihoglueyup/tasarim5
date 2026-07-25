@@ -316,6 +316,10 @@ export function reviewsWithRating(opts: {
     '@id': LOCALBUSINESS_ID,
     name: ORG_NAME,
     image: ORG_LOGO,
+    url: BASE_URL,
+    // Zorunlu LocalBusiness alanları — node kendi başına geçerli olmalı (Rich Results).
+    telephone: ORG_PHONE,
+    address: ORG_ADDRESS,
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: opts.ratingValue,
