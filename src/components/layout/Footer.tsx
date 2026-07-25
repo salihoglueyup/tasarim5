@@ -5,6 +5,7 @@ import Logo from '@/components/ui/Logo';
 import { useState, useEffect } from 'react';
 import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
+import { DISTRICTS } from '@/data/districts';
 
 export default function Footer() {
   const { t, language } = useLanguage();
@@ -279,6 +280,30 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Bölge Dizini (yerel SEO — programatik ilçe linkleri) */}
+        <div className="pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col gap-4">
+          <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
+            {language === 'en' ? 'Service Areas' : 'Hizmet Bölgelerimiz'}
+          </h4>
+          <div className="flex flex-wrap gap-x-4 gap-y-2" role="navigation" aria-label={language === 'en' ? 'Districts' : 'Bölgeler'}>
+            {DISTRICTS.map((d) => (
+              <Link
+                key={d.slug}
+                href={`/bolgeler/${d.slug}`}
+                className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors"
+              >
+                {d.name} {language === 'en' ? 'Facility Management' : 'Tesis Yönetimi'}
+              </Link>
+            ))}
+            <Link
+              href="/bolgeler"
+              className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              {language === 'en' ? 'All regions →' : 'Tüm bölgeler →'}
+            </Link>
+          </div>
         </div>
 
         {/* Sub-footer Bottom Bar */}

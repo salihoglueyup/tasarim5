@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { localizedUrl, BASE_URL } from '@/lib/seo';
 import { BLOG_SLUGS } from '@/data/blog';
+import { DISTRICTS } from '@/data/districts';
+import { SERVICES } from '@/data/services';
 
 // Sitenin son kapsamlı güncelleme tarihi. Request-time `new Date()` yerine
 // stabil bir tarih kullanılır (her istekte "bugün" sinyali vermez).
@@ -37,6 +39,7 @@ const staticRoutes: RouteDef[] = [
   { path: '/surdurulebilirlik/ges-projeleri', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/hesaplayici', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/bolgeler', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/sozluk', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/sss', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/iletisim', changeFrequency: 'yearly', priority: 0.7 },
@@ -96,5 +99,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     withAlternates(`/blog/${slug}`, 'monthly', 0.6),
   );
 
-  return [...staticEntries, ...blogEntries];
+  // Yerel (programatik) sayfalar — Faz 112. Öncelik ilçe priority'sine göre.
+  const districtEntries = DISTRICTS.map((d) =>
+    withAlternates(
+      `/bolgeler/${d.slug}`,
+      'monthly',
+      d.priority === 1 ? 0.7 : d.priority === 2 ? 0.6 : 0.5,
+    ),
+  );
+
+  const serviceDistrictEntries = DISTRICTS.flatMap((d) =>
+    SERVICES.map((s) =>
+      withAlternates(
+        `/bolgeler/${d.slug}/${s.slug}`,
+        'monthly',
+        d.priority === 1 ? 0.6 : 0.5,
+      ),
+    ),
+  );
+
+  return [
+    ...staticEntries,
+    ...blogEntries,
+    ...districtEntries,
+    ...serviceDistrictEntries,
+  ];
 }

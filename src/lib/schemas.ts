@@ -507,6 +507,53 @@ export function webPageSchema(opts: {
 }
 
 // ---------------------------------------------------------------------------
+// Faz 108/109 — Yerel LocalBusiness (ilçe-özel geo + areaServed)
+// ---------------------------------------------------------------------------
+export function localBusinessAreaSchema(opts: {
+  areaName: string;
+  geo: { lat: number; lng: number };
+  description?: string;
+  url: string;
+}): JsonLdObject {
+  return {
+    '@type': 'ProfessionalService',
+    name: `${ORG_NAME} — ${opts.areaName}`,
+    image: ORG_LOGO,
+    url: abs(opts.url),
+    telephone: ORG_PHONE,
+    email: ORG_EMAIL,
+    priceRange: ORG_PRICE_RANGE,
+    ...(opts.description ? { description: opts.description } : {}),
+    address: ORG_ADDRESS,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: opts.geo.lat,
+      longitude: opts.geo.lng,
+    },
+    areaServed: { '@type': 'AdministrativeArea', name: `${opts.areaName}, İstanbul` },
+    parentOrganization: { '@id': ORG_ID },
+  };
+}
+
+/** Yerel Service node'u (ilçe hedefli) — Faz 108. */
+export function localServiceSchema(opts: {
+  serviceType: string;
+  areaName: string;
+  path: string;
+  description?: string;
+}): JsonLdObject {
+  return {
+    '@type': 'Service',
+    serviceType: opts.serviceType,
+    name: `${opts.serviceType} — ${opts.areaName}`,
+    url: abs(opts.path),
+    ...(opts.description ? { description: opts.description } : {}),
+    provider: { '@id': ORG_ID },
+    areaServed: { '@type': 'AdministrativeArea', name: `${opts.areaName}, İstanbul` },
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Faz 84 — DefinedTermSet (Sözlük)
 // ---------------------------------------------------------------------------
 export function definedTermSetSchema(opts: {
