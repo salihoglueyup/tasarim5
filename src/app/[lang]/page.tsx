@@ -24,7 +24,7 @@ export async function generateMetadata({
   const base = buildMetadata({
     title: 'Alo Yönetim',
     description:
-      'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi. Aidat takibi, temizlik ve güvenlik hizmetleri.',
+      'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi. Şeffaf aidat takibi, 7/24 güvenlik, temizlik ve teknik bakımla binanızı güvenle yönetiyoruz. Ücretsiz keşif için hemen ulaşın.',
     path: '/',
     lang,
     keywords: ['tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],

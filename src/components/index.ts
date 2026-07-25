@@ -24,6 +24,7 @@ export { default as Accordion } from './ui/Accordion';
 export { default as StatCard } from './ui/StatCard';
 export { default as Input } from './ui/Input';
 export { default as CookieConsent } from './ui/CookieConsent';
+export { default as IconFontLoader } from './ui/IconFontLoader';
 export { default as QuoteCtaButton } from './ui/QuoteCtaButton';
 export { default as TldrBlock } from './ui/TldrBlock';
 

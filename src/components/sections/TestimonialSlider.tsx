@@ -171,11 +171,12 @@ export default function TestimonialSlider() {
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <Image 
-                src={current.avatar} 
+              <Image
+                src={current.avatar}
                 alt={current.name}
                 width={64}
                 height={64}
+                sizes="64px"
                 className="w-16 h-16 rounded-full object-cover border-2 border-blue-600"
               />
               <div>

@@ -14,10 +14,11 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
         Pure Transparent Background Eagle Emblem Logo (new-icon-Photoroom.webp)
       */}
       <div className="relative h-12 w-12 flex-shrink-0">
-        <Image 
-          src="/images/logos/new-icon-Photoroom.webp" 
-          alt="Alo Yönetim Logo" 
+        <Image
+          src="/images/logos/new-icon-Photoroom.webp"
+          alt="Alo Yönetim Logo"
           fill
+          sizes="48px"
           priority={true}
           className={`object-contain transition-all duration-300 ${
             isWhite 

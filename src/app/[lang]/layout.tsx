@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
-import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget, WebVitals } from "@/components";
+import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget, WebVitals, IconFontLoader } from "@/components";
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -97,10 +97,14 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Uzak görsel origin'i (blog/testimonial görselleri) — Faz 197 */}
         <link rel="preconnect" href="https://images.unsplash.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
+        {/* Material Symbols: render-blocking olmasın diye hydration sonrası
+            yüklenir (IconFontLoader — Faz 186). No-JS için fallback: */}
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
         {/* Blog RSS beslemesi (SEO V4 Faz 162) */}
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Blog" href="/feed.xml" />
         {/* Kurumsal varlık grafiği: Organization + WebSite (SEO V4 Faz 42/58) */}
@@ -141,6 +145,7 @@ export default async function RootLayout({
           </Script>
         )}
         <WebVitals />
+        <IconFontLoader />
         <LanguageProvider initialLang={lang}>
           <QuoteProvider>
             <NoiseOverlay />
