@@ -1,0 +1,26 @@
+name: Lighthouse CI
+
+# Core Web Vitals eşik denetimi (SEO Master Plan V4 — Faz 208).
+# PR'larda ve main'e push'ta çalışır; eşik altı skorlarda uyarır.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun || echo "Lighthouse assertions produced warnings"

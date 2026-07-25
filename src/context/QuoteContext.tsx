@@ -1,7 +1,10 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import QuoteModal from '@/components/ui/QuoteModal';
+import dynamic from 'next/dynamic';
+
+// QuoteModal yalnız açıldığında yüklenir; ilk bundle'a girmez (SEO V4 Faz 192).
+const QuoteModal = dynamic(() => import('@/components/ui/QuoteModal'), { ssr: false });
 
 interface QuoteContextType {
   isQuoteModalOpen: boolean;

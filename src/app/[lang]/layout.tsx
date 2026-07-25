@@ -11,14 +11,16 @@ import { organizationSchema, webSiteSchema } from "@/lib/schemas";
 
 const CookieConsent = dynamic(() => import('@/components').then(mod => mod.CookieConsent));
 
+// Türkçe glyph'ler (ç, ğ, ş, ı, İ, ö, ü) için latin-ext subset (SEO V4 Faz 185).
+// display:swap ile font kaynaklı CLS önlenir.
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
   display: 'swap'
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
   display: 'swap'
@@ -92,6 +94,8 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Uzak görsel origin'i (blog/testimonial görselleri) — Faz 197 */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
@@ -104,7 +108,7 @@ export default async function RootLayout({
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] transition-colors duration-500 cursor-none selection:bg-blue-500/30 selection:text-white`}>
         {/* Microsoft Clarity - Heatmap (yalnız env tanımlıysa) */}
         {clarityId && (
-          <Script id="ms-clarity" strategy="afterInteractive">
+          <Script id="ms-clarity" strategy="lazyOnload">
             {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

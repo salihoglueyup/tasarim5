@@ -126,6 +126,7 @@ export default async function BlogDetail({
             alt={post.title}
             width={1200}
             height={675}
+            sizes="(max-width: 768px) 100vw, 768px"
             className="w-full h-full object-cover"
             priority
           />
@@ -183,7 +184,7 @@ export default async function BlogDetail({
               {related.map((r) => (
                 <Link key={r.slug} href={`/blog/${r.slug}`} className="group flex flex-col gap-3">
                   <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/50 dark:border-white/10">
-                    <Image src={r.image} alt={r.title} width={400} height={250} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={r.image} alt={r.title} width={400} height={250} sizes="(max-width: 640px) 100vw, 250px" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors leading-snug">
                     {r.title}

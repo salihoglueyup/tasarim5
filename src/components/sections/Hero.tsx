@@ -26,13 +26,18 @@ export default function Hero() {
         {/* Animated Fallback Gradient (Visible if video is loading or unsupported) */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/40 to-slate-900 z-0 animate-pulse" />
         
-        <video 
+        {/*
+          Poster ilk boyamada anında görünür (LCP hızlanır — Faz 181/182);
+          video preload="none" ile ana yükü geciktirmeden, boşta yüklenir.
+        */}
+        <video
           ref={videoRef}
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          preload="metadata"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          poster="/images/hero-poster.webp"
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
         >
           {/* Tüm cihazlar için tek kaynak (brand-film-mobile.mp4 henüz mevcut değil) */}
