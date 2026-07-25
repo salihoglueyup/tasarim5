@@ -87,6 +87,7 @@ export default async function RootLayout({
   // (SEO V4 Faz 10 — mock ID'ler yayına çıkmaz, gerçek değerler .env ile girilir).
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+  const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
   return (
     <html lang={lang} className={`${inter.variable} ${plusJakarta.variable}`}>
@@ -121,6 +122,24 @@ export default async function RootLayout({
 
         {/* Google Analytics via @next/third-parties (yalnız env tanımlıysa) */}
         {gaId && <GoogleAnalytics gaId={gaId} />}
+
+        {/* Meta (Facebook) Pixel — yalnız env tanımlıysa, lazyOnload (Faz 240 / reklam retargeting) */}
+        {fbPixelId && (
+          <Script id="fb-pixel" strategy="lazyOnload">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${fbPixelId}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
         <WebVitals />
         <LanguageProvider initialLang={lang}>
           <QuoteProvider>

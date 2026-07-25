@@ -44,6 +44,14 @@ export const ORG_ADDRESS = {
   addressCountry: 'TR',
 } as const;
 
+/**
+ * Görünür (tek satır) adres — Footer/iletişim gibi UI'da kullanılır.
+ * NAP tutarlılığı için ORG_ADDRESS ile BİREBİR aynı olmalıdır (Faz 117/225).
+ * Gerçek adres farklıysa yalnızca burada ve ORG_ADDRESS'te güncellenir.
+ */
+export const ORG_ADDRESS_DISPLAY =
+  'Eğitim Mah. Kasap İsmail Sk. No: 15/19, Kadıköy - İstanbul';
+
 /** Coğrafi konum (merkez ofis). */
 export const ORG_GEO = {
   '@type': 'GeoCoordinates',
