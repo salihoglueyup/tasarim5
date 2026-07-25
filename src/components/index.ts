@@ -25,6 +25,7 @@ export { default as StatCard } from './ui/StatCard';
 export { default as Input } from './ui/Input';
 export { default as CookieConsent } from './ui/CookieConsent';
 export { default as QuoteCtaButton } from './ui/QuoteCtaButton';
+export { default as TldrBlock } from './ui/TldrBlock';
 
 // Modal Components
 export { default as PortalModal } from './modals/PortalModal';

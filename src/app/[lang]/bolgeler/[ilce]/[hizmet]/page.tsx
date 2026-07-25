@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd, QuoteCtaButton } from '@/components';
+import { JsonLd, QuoteCtaButton, TldrBlock } from '@/components';
 import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,
@@ -109,6 +109,7 @@ export default async function ServiceDistrictPage({
     name: `${service.name} ${district.name}`,
     description: service.summary,
     path,
+    speakableSelectors: ['h1', '.tldr'],
   });
 
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
@@ -122,6 +123,11 @@ export default async function ServiceDistrictPage({
       />
 
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-14">
+        {/* TL;DR (AI/snippet için) */}
+        <TldrBlock>
+          {district.name}'de {service.name.toLowerCase()} için Alo Yönetim; {service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.
+        </TldrBlock>
+
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">

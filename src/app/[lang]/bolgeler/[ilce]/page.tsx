@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd, QuoteCtaButton } from '@/components';
+import { JsonLd, QuoteCtaButton, TldrBlock } from '@/components';
 import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,
@@ -103,6 +103,7 @@ export default async function DistrictPage({
     name: `${district.name} Tesis ve Site Yönetimi`,
     description: district.intro,
     path,
+    speakableSelectors: ['h1', '.tldr'],
   });
 
   const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${district.geo.lng - 0.03}%2C${district.geo.lat - 0.02}%2C${district.geo.lng + 0.03}%2C${district.geo.lat + 0.02}&marker=${district.geo.lat}%2C${district.geo.lng}`;
@@ -116,6 +117,11 @@ export default async function DistrictPage({
       />
 
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
+        {/* TL;DR (AI/snippet için) */}
+        <TldrBlock>
+          {district.name}'de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat yönetimi dahil tüm hizmetleri tek çatı altında sunar. {district.name}'de {district.managedProjects}+ proje yönetilmektedir. Ücretsiz keşif için: 0216 550 48 48.
+        </TldrBlock>
+
         {/* Giriş + yerel kanıt */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-8 flex flex-col gap-5">
