@@ -21,14 +21,19 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  return buildMetadata({
-    title: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
+  const base = buildMetadata({
+    title: 'Alo Yönetim',
     description:
       'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi. Aidat takibi, temizlik ve güvenlik hizmetleri.',
     path: '/',
     lang,
     keywords: ['tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],
   });
+  // Ana sayfada başlık template'ini (%s | Alo Yönetim) baypas et; marka tekrarını önle.
+  return {
+    ...base,
+    title: { absolute: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri' },
+  };
 }
 
 export default function Home() {

@@ -507,6 +507,31 @@ export function webPageSchema(opts: {
 }
 
 // ---------------------------------------------------------------------------
+// Faz 84 — DefinedTermSet (Sözlük)
+// ---------------------------------------------------------------------------
+export function definedTermSetSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  terms: { term: string; definition: string }[];
+}): JsonLdObject {
+  const url = abs(opts.path);
+  return {
+    '@type': 'DefinedTermSet',
+    '@id': `${url}#glossary`,
+    name: opts.name,
+    description: opts.description,
+    url,
+    hasDefinedTerm: opts.terms.map((t) => ({
+      '@type': 'DefinedTerm',
+      name: t.term,
+      description: t.definition,
+      inDefinedTermSet: `${url}#glossary`,
+    })),
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Faz 41 (uyum) — Breadcrumb (mevcut API korunur)
 // ---------------------------------------------------------------------------
 export const generateBreadcrumbs = (items: { name: string; url: string }[]): JsonLdObject => ({

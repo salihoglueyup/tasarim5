@@ -8,7 +8,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "İstihdam Köprüsü",
+    title: "İstihdam Köprüsü ve Güvenlik Kariyeri",
     description:
       "Güvenlik, temizlik ve teknik bakım alanlarında kariyer fırsatları. Alo Yönetim İstihdam Köprüsü ile profesyonel ekibimize katılın.",
     path: "/istihdam-koprusu",

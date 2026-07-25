@@ -14,6 +14,7 @@ export default function SiteHaritasi() {
         { name: "İletişim", path: "/iletisim" },
         { name: "Sıkça Sorulan Sorular", path: "/sss" },
         { name: "Blog", path: "/blog" },
+        { name: "Site Yönetimi Sözlüğü", path: "/sozluk" },
       ]
     },
     {

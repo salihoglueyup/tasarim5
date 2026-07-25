@@ -8,9 +8,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const base = buildMetadata({
-    title: "İletişim",
+    title: "İletişim ve Ücretsiz Teklif Hattı",
     description:
-      "Alo Yönetim ile iletişime geçin. Adresimiz, telefon numaramız ve destek hattımız üzerinden bize ulaşarak tesis yönetimi, güvenlik veya temizlik teklifi alabilirsiniz.",
+      "Alo Yönetim ile iletişime geçin. Adres, telefon ve destek hattımız üzerinden tesis yönetimi, güvenlik veya temizlik teklifi alın.",
     path: "/iletisim",
     lang,
   });

@@ -8,7 +8,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Blog",
+    title: "Site Yönetimi Blogu ve Rehberleri",
     description:
       "Site ve tesis yönetimi, aidat, güvenlik, temizlik ve mevzuat üzerine güncel rehberler, ipuçları ve sektörel içerikler Alo Yönetim blogunda.",
     path: "/blog",

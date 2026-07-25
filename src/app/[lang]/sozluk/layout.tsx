@@ -8,11 +8,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Sektörel Tesis Yönetimi Çözümleri",
+    title: "Site Yönetimi Sözlüğü ve Terimler",
     description:
-      "Rezidans, AVM, plaza, iş merkezi, hastane ve fabrikalar için sektöre özel tesis yönetimi çözümleri. İhtiyacınıza uygun profesyonel hizmet paketleri.",
-    path: "/sektorel-cozumler",
+      "Aidat, demirbaş, Kat Mülkiyeti Kanunu, işletme projesi ve 5188 gibi tesis yönetimi terimlerinin açık tanımları. Site yöneticileri için sektör sözlüğü.",
+    path: "/sozluk",
     lang,
+    keywords: ["site yönetimi terimleri", "kat mülkiyeti kanunu", "aidat nedir", "demirbaş", "işletme projesi"],
   });
 }
 

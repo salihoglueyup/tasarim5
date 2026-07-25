@@ -37,6 +37,7 @@ const staticRoutes: RouteDef[] = [
   { path: '/surdurulebilirlik/ges-projeleri', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/hesaplayici', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/sozluk', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/sss', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/iletisim', changeFrequency: 'yearly', priority: 0.7 },
   { path: '/teklif-al', changeFrequency: 'yearly', priority: 0.7 },
