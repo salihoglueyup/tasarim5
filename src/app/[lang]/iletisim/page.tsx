@@ -79,7 +79,7 @@ export default function Iletisim() {
             </p>
 
             {submitted ? (
-              <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700/50 p-8 rounded-2xl text-center flex flex-col items-center gap-3">
+              <div role="status" aria-live="polite" className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700/50 p-8 rounded-2xl text-center flex flex-col items-center gap-3">
                 <span className="material-symbols-outlined text-4xl text-emerald-600">check_circle</span>
                 <div className="font-bold text-lg text-emerald-900 dark:text-emerald-300">{t('contact_form_success_title')}</div>
                 <div className="text-xs text-emerald-700 dark:text-emerald-400">{t('contact_form_success_desc')}</div>
@@ -87,10 +87,12 @@ export default function Iletisim() {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div>
-                  <label className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_name')}</label>
-                  <input 
-                    type="text" 
+                  <label htmlFor="contact-name" className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_name')}</label>
+                  <input
+                    id="contact-name"
+                    type="text"
                     required
+                    aria-required="true"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t('contact_form_ph_name')}
@@ -100,10 +102,12 @@ export default function Iletisim() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_phone')}</label>
-                    <input 
-                      type="tel" 
+                    <label htmlFor="contact-phone" className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_phone')}</label>
+                    <input
+                      id="contact-phone"
+                      type="tel"
                       required
+                      aria-required="true"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={t('contact_form_ph_phone')}
@@ -111,10 +115,12 @@ export default function Iletisim() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_email')}</label>
-                    <input 
-                      type="email" 
+                    <label htmlFor="contact-email" className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_email')}</label>
+                    <input
+                      id="contact-email"
+                      type="email"
                       required
+                      aria-required="true"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder={t('contact_form_ph_email')}
@@ -124,10 +130,12 @@ export default function Iletisim() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_message')}</label>
-                  <textarea 
+                  <label htmlFor="contact-message" className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_message')}</label>
+                  <textarea
+                    id="contact-message"
                     rows={4}
                     required
+                    aria-required="true"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t('contact_form_ph_message')}

@@ -33,10 +33,16 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
   // Lock body scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    // ESC ile kapat (klavye erişilebilirliği — SEO V4 Faz 213).
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = 'auto';
+      document.removeEventListener('keydown', onKey);
     };
-  }, []);
+  }, [onClose]);
 
   const handleNext = () => {
     if (currentStep < 3) {

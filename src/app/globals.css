@@ -78,6 +78,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*
+  Görünür odak halkası (SEO V4 Faz 214 — WCAG 2.4.7). Body'de `cursor-none`
+  olduğundan klavye kullanıcıları için odak her zaman net görünmelidir.
+  :focus-visible yalnız klavye/AT ile gezerken çıkar, fare tıklamasında çıkmaz.
+*/
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* Odaklanan öğe üzerinde özel imleci geçersiz kıl (klavye görünürlüğü). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  cursor: auto;
+}
+
+/*
   Hareket azaltma (SEO V4 Faz 202/203/204): kullanıcı prefers-reduced-motion
   belirttiyse animasyon/geçiş/otomatik kaydırmayı en aza indir (INP + erişilebilirlik).
 */
