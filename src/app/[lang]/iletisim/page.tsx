@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';
+import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
 
 export default function Iletisim() {
   const { t } = useLanguage();
@@ -36,6 +37,7 @@ export default function Iletisim() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent(AnalyticsEvents.submitContact);
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
 
 interface QuoteModalProps {
   onClose: () => void;
@@ -49,6 +50,8 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
       setCurrentStep(curr => curr + 1);
     } else {
       setIsCompleted(true);
+      // GA4 dönüşüm event'i (Faz 240/243).
+      trackEvent(AnalyticsEvents.submitQuote, { form: 'quote_modal' });
       // API call placeholder
       console.log("Submitting:", formData);
     }
