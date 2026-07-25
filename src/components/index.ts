@@ -33,6 +33,13 @@ export { default as PortalModal } from './modals/PortalModal';
 // SEO Components
 export { default as JsonLd } from './seo/JsonLd';
 
+// Blog Components
+export { default as PostBody } from './blog/PostBody';
+export { default as ReadingProgress } from './blog/ReadingProgress';
+export { default as ShareButtons } from './blog/ShareButtons';
+export { default as PostGrid } from './blog/PostGrid';
+export { default as RelatedArticles } from './blog/RelatedArticles';
+
 // Section Components
 export { default as Hero } from './sections/Hero';
 export { default as BentoServices } from './sections/BentoServices';

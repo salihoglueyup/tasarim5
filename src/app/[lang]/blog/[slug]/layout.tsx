@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
-import { isValidBlogSlug } from '@/data/blog';
+import { getPost } from '@/data/posts';
 
 interface BlogDetailLayoutProps {
   children: React.ReactNode;
@@ -12,9 +12,10 @@ export async function generateMetadata({
   params,
 }: Omit<BlogDetailLayoutProps, 'children'>): Promise<Metadata> {
   const { lang, slug } = await params;
+  const post = getPost(slug);
 
   // Geçersiz slug'lar için soft-404 yerine gerçek 404 (Faz 31): indexlenmesin.
-  if (!isValidBlogSlug(slug)) {
+  if (!post) {
     return buildMetadata({
       title: 'Sayfa Bulunamadı',
       description: 'Aradığınız blog yazısı bulunamadı.',
@@ -24,16 +25,14 @@ export async function generateMetadata({
     });
   }
 
-  const titleFormatted = slug
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, (l) => l.toUpperCase());
-
   return buildMetadata({
-    title: `${titleFormatted} | Alo Yönetim Blog`,
-    description: `${titleFormatted} hakkında detaylı bilgi, sektörel rehberler ve ipuçları.`,
+    title: `${post.title} | Alo Yönetim Blog`,
+    description: post.description,
     path: `/blog/${slug}`,
     lang,
     ogType: 'article',
+    images: [post.image],
+    keywords: post.tags,
   });
 }
 
@@ -43,7 +42,7 @@ export default async function BlogDetailLayout({
 }: BlogDetailLayoutProps) {
   const { slug } = await params;
   // Bilinmeyen slug → gerçek 404 (soft-404 önleme).
-  if (!isValidBlogSlug(slug)) {
+  if (!getPost(slug)) {
     notFound();
   }
   return <>{children}</>;

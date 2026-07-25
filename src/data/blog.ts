@@ -1,16 +1,13 @@
-// Blog yazılarının tek doğruluk kaynağı (canonical slug listesi).
-// SEO V4 Faz 31 (soft-404) için buradan doğrulama yapılır; sitemap de bunu kullanır.
-// Not: Gerçek CMS/MDX veri katmanı Bölüm G (Faz 151) ile gelecek; bu liste geçiş temelidir.
+// Blog slug'larının doğruluk kaynağı artık yapılandırılmış içerik motorudur
+// (SEO V4 Faz 151). Bu modül geriye dönük uyumluluk için POSTS'tan türetir;
+// sitemap ve soft-404 (Faz 31) doğrulaması buradan yapılır.
 
-export const BLOG_SLUGS = [
-  '2024-aidat-artis-oranlari',
-  'deprem-risk-analizi',
-  'kentsel-donusum-surecleri',
-  'yuzme-havuzu-bakim-kimyasallari',
-] as const;
+import { POST_SLUGS, isValidPost } from '@/data/posts';
 
-export type BlogSlug = (typeof BLOG_SLUGS)[number];
+export const BLOG_SLUGS = POST_SLUGS;
 
-export function isValidBlogSlug(slug: string): slug is BlogSlug {
-  return (BLOG_SLUGS as readonly string[]).includes(slug);
+export type BlogSlug = string;
+
+export function isValidBlogSlug(slug: string): boolean {
+  return isValidPost(slug);
 }

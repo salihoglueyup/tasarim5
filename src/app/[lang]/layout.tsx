@@ -96,6 +96,8 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+        {/* Blog RSS beslemesi (SEO V4 Faz 162) */}
+        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Blog" href="/feed.xml" />
         {/* Kurumsal varlık grafiği: Organization + WebSite (SEO V4 Faz 42/58) */}
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
       </head>

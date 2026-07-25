@@ -7,7 +7,7 @@ import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function HukukVeIcraDanismanligi() {
@@ -132,6 +132,8 @@ export default function HukukVeIcraDanismanligi() {
         </div>
 
       </section>
+
+      <RelatedArticles pillar="/hizmetler/hukuk-ve-icra-danismanligi" />
     </>
   );
 }

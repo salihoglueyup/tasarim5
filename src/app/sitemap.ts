@@ -3,6 +3,8 @@ import { localizedUrl, BASE_URL } from '@/lib/seo';
 import { BLOG_SLUGS } from '@/data/blog';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
+import { CATEGORIES, ALL_TAGS, postsByTag } from '@/data/posts';
+import { AUTHORS } from '@/data/authors';
 
 // Sitenin son kapsamlı güncelleme tarihi. Request-time `new Date()` yerine
 // stabil bir tarih kullanılır (her istekte "bugün" sinyali vermez).
@@ -99,6 +101,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     withAlternates(`/blog/${slug}`, 'monthly', 0.6),
   );
 
+  // Blog taksonomisi (Faz 156/157/159). Thin etiketler (tek yazı) hariç.
+  const categoryEntries = CATEGORIES.map((c) =>
+    withAlternates(`/blog/kategori/${c.slug}`, 'weekly', 0.5),
+  );
+  const authorEntries = AUTHORS.map((a) =>
+    withAlternates(`/blog/yazar/${a.slug}`, 'monthly', 0.4),
+  );
+  const tagEntries = ALL_TAGS.filter((t) => postsByTag(t).length >= 2).map((t) =>
+    withAlternates(`/blog/etiket/${encodeURIComponent(t)}`, 'monthly', 0.3),
+  );
+
   // Yerel (programatik) sayfalar — Faz 112. Öncelik ilçe priority'sine göre.
   const districtEntries = DISTRICTS.map((d) =>
     withAlternates(
@@ -121,6 +134,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticEntries,
     ...blogEntries,
+    ...categoryEntries,
+    ...authorEntries,
+    ...tagEntries,
     ...districtEntries,
     ...serviceDistrictEntries,
   ];

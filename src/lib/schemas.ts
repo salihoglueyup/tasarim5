@@ -453,8 +453,20 @@ export function blogPostingSchema(opts: {
   datePublished: string;
   dateModified?: string;
   authorName?: string;
+  /** E-E-A-T için zengin yazar bilgisi (Faz 94/159). */
+  author?: { name: string; jobTitle?: string; url?: string };
+  section?: string;
+  keywords?: string[];
 }): JsonLdObject {
   const url = abs(opts.path);
+  const author = opts.author
+    ? {
+        '@type': 'Person',
+        name: opts.author.name,
+        ...(opts.author.jobTitle ? { jobTitle: opts.author.jobTitle } : {}),
+        ...(opts.author.url ? { url: abs(opts.author.url) } : {}),
+      }
+    : { '@type': 'Person', name: opts.authorName ?? `${ORG_NAME} Editör Ekibi` };
   return {
     '@type': 'BlogPosting',
     headline: opts.headline,
@@ -464,7 +476,9 @@ export function blogPostingSchema(opts: {
     ...(opts.image ? { image: abs(opts.image) } : {}),
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
-    author: { '@type': 'Person', name: opts.authorName ?? `${ORG_NAME} Editör Ekibi` },
+    ...(opts.section ? { articleSection: opts.section } : {}),
+    ...(opts.keywords && opts.keywords.length ? { keywords: opts.keywords.join(', ') } : {}),
+    author,
     publisher: { '@id': ORG_ID },
   };
 }

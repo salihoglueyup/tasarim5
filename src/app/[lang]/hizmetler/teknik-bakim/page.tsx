@@ -7,7 +7,7 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function TeknikBakim() {
@@ -166,6 +166,8 @@ export default function TeknikBakim() {
         </div>
 
       </section>
+
+      <RelatedArticles pillar="/hizmetler/teknik-bakim" />
     </>
   );
 }
