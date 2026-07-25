@@ -5,7 +5,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, personSchema, webPageSchema } from '@/lib/schemas';
 
 export default function Hakkimizda() {
   const { t } = useLanguage();
@@ -52,12 +53,21 @@ export default function Hakkimizda() {
     { name: t('nav_about'), url: '/hakkimizda' }
   ]);
 
+  // Yönetim ekibi Person node'ları (E-E-A-T sinyali — Faz 53).
+  const personLds = leaders.map((l) =>
+    personSchema({ name: l.name, jobTitle: l.title, image: l.avatar }),
+  );
+
+  const pageLd = webPageSchema({
+    type: 'AboutPage',
+    name: t('about_title'),
+    description: t('about_desc'),
+    path: '/hakkimizda',
+  });
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd, ...personLds]} />
       <PageHeader 
         title={t('about_title')} 
         description={t('about_desc')} 

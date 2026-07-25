@@ -2,7 +2,8 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, jobPostingSchema, webPageSchema } from '@/lib/schemas';
 
 export default function IstihdamKoprusu() {
   const { t } = useLanguage();
@@ -12,36 +13,23 @@ export default function IstihdamKoprusu() {
     { name: t('emp_page_title'), url: '/istihdam-koprusu' }
   ]);
 
-  const jobPostingLd = {
-    '@context': 'https://schema.org',
-    '@type': 'JobPosting',
+  const jobPostingLd = jobPostingSchema({
     title: 'Özel Güvenlik Görevlisi',
-    description: 'Sitelerde ve tesislerde görevlendirilmek üzere kimlikli özel güvenlik görevlileri aranmaktadır.',
+    description:
+      'Sitelerde ve tesislerde görevlendirilmek üzere kimlikli özel güvenlik görevlileri aranmaktadır.',
     datePosted: '2026-07-01',
     validThrough: '2026-12-31',
-    employmentType: 'FULL_TIME',
-    hiringOrganization: {
-      '@type': 'Organization',
-      name: 'Alo Yönetim',
-      sameAs: 'https://aloyonetim.com',
-      logo: 'https://aloyonetim.com/icon.png'
-    },
-    jobLocation: {
-      '@type': 'Place',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'İstanbul',
-        addressCountry: 'TR'
-      }
-    }
-  };
+  });
+
+  const pageLd = webPageSchema({
+    name: t('emp_page_title'),
+    description: t('emp_page_desc'),
+    path: '/istihdam-koprusu',
+  });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbLd, jobPostingLd]) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd, jobPostingLd]} />
       <PageHeader 
         title={t('emp_page_title')} 
         description={t('emp_page_desc')} 

@@ -7,7 +7,8 @@ import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function HukukVeIcraDanismanligi() {
   const { t } = useLanguage();
@@ -54,50 +55,19 @@ export default function HukukVeIcraDanismanligi() {
     { name: t('legal_title'), url: '/hizmetler/hukuk-ve-icra-danismanligi' }
   ]);
 
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Hukuk ve İcra Danışmanlığı',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Hukuk ve İcra Hizmetleri',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Aidat İcra Takibi'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Yönetim Hukuk Danışmanlığı'
-          }
-        }
-      ]
-    }
-  };
+    path: '/hizmetler/hukuk-ve-icra-danismanligi',
+    description: t('legal_desc'),
+    offerCatalogName: 'Hukuk ve İcra Hizmetleri',
+    offers: legalPoints.map((p) => ({ name: p.title, description: p.desc })),
+  });
+
+  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       <PageHeader 
         title={t('legal_title')} 
         description={t('legal_desc')} 

@@ -28,6 +28,9 @@ export { default as CookieConsent } from './ui/CookieConsent';
 // Modal Components
 export { default as PortalModal } from './modals/PortalModal';
 
+// SEO Components
+export { default as JsonLd } from './seo/JsonLd';
+
 // Section Components
 export { default as Hero } from './sections/Hero';
 export { default as BentoServices } from './sections/BentoServices';

@@ -6,7 +6,8 @@ import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function TesisYonetimi() {
   const { t } = useLanguage();
@@ -41,30 +42,17 @@ export default function TesisYonetimi() {
     { name: t('fac_title'), url: '/hizmetler/tesis-yonetimi' }
   ]);
 
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Tesis Yönetimi',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    }
-  };
+    path: '/hizmetler/tesis-yonetimi',
+    description: t('fac_desc'),
+  });
+
+  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       <PageHeader 
         title={t('fac_title')} 
         description={t('fac_desc')} 

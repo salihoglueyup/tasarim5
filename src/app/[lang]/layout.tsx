@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
+import { JsonLd } from "@/components";
+import { organizationSchema, webSiteSchema } from "@/lib/schemas";
 
 const CookieConsent = dynamic(() => import('@/components').then(mod => mod.CookieConsent));
 
@@ -94,58 +96,8 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Alo Yönetim",
-              "url": "https://aloyonetim.com",
-              "logo": "https://aloyonetim.com/icon.png",
-              "foundingDate": "2015",
-              "numberOfEmployees": { "@type": "QuantitativeValue", "value": "500+" },
-              "slogan": "Profesyonel Mülk ve Tesis Yönetimi",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              },
-              "sameAs": [
-                "https://twitter.com/aloyonetim",
-                "https://www.linkedin.com/company/aloyonetim",
-                "https://www.instagram.com/aloyonetim",
-                "https://www.facebook.com/aloyonetim",
-                "https://www.youtube.com/@aloyonetim"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+90-216-550-4848",
-                "contactType": "Customer Service",
-                "areaServed": "TR",
-                "availableLanguage": "Turkish"
-              }
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Alo Yönetim",
-              "url": "https://aloyonetim.com",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": {
-                  "@type": "EntryPoint",
-                  "urlTemplate": "https://aloyonetim.com/blog?q={search_term_string}"
-                },
-                "query-input": "required name=search_term_string"
-              }
-            })
-          }}
-        />
+        {/* Kurumsal varlık grafiği: Organization + WebSite (SEO V4 Faz 42/58) */}
+        <JsonLd data={[organizationSchema(), webSiteSchema()]} />
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] transition-colors duration-500 cursor-none selection:bg-blue-500/30 selection:text-white`}>
         {/* Microsoft Clarity - Heatmap (yalnız env tanımlıysa) */}

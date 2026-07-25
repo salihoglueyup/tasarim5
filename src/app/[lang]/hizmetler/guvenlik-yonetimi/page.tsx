@@ -7,7 +7,8 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function GuvenlikYonetimi() {
   const { t } = useLanguage();
@@ -87,30 +88,18 @@ export default function GuvenlikYonetimi() {
     { name: t('sec_title'), url: '/hizmetler/guvenlik-yonetimi' }
   ]);
 
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Güvenlik Yönetimi',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    }
-  };
+    path: '/hizmetler/guvenlik-yonetimi',
+    description: t('sec_desc'),
+    offers: securityFeatures.map((f) => ({ name: f.title, description: f.desc })),
+  });
+
+  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       <PageHeader 
         title={t('sec_title')} 
         description={t('sec_desc')} 

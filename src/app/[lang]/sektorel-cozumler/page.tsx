@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { JsonLd } from '@/components';
 import { generateBreadcrumbs } from '@/lib/schemas';
 
 export default function SektorelCozumler() {
@@ -97,40 +98,34 @@ export default function SektorelCozumler() {
   ]);
 
   const itemListLd = {
-    '@context': 'https://schema.org',
     '@type': 'ItemList',
     itemListElement: sectors.map((s, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: s.title,
-      description: s.desc
-    }))
+      description: s.desc,
+    })),
   };
 
+  // Sektörel paketler: Product + AggregateOffer (Faz 64).
   const productLd = {
-    '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'Sektörel Tesis Yönetim Çözümleri',
-    description: 'Rezidans, AVM, Sanayi ve Toplu Konut projeleri için özelleştirilmiş entegre tesis yönetimi hizmetleri.',
-    brand: {
-      '@type': 'Brand',
-      name: 'Alo Yönetim'
-    },
+    description:
+      'Rezidans, AVM, Sanayi ve Toplu Konut projeleri için özelleştirilmiş entegre tesis yönetimi hizmetleri.',
+    brand: { '@type': 'Brand', name: 'Alo Yönetim' },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'TRY',
       lowPrice: '5000',
       highPrice: '50000',
-      offerCount: '4'
-    }
+      offerCount: '4',
+    },
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbLd, itemListLd, productLd]) }}
-      />
+      <JsonLd data={[breadcrumbLd, itemListLd, productLd]} />
       <PageHeader 
         title={t('sector_page_title')} 
         description={t('sector_page_desc')} 

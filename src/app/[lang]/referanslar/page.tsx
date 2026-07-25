@@ -5,7 +5,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function Referanslar() {
   const { t } = useLanguage();
@@ -78,12 +79,15 @@ export default function Referanslar() {
     { name: t('ref_page_title'), url: '/referanslar' }
   ]);
 
+  const pageLd = webPageSchema({
+    type: 'CollectionPage',
+    name: t('ref_page_title'),
+    path: '/referanslar',
+  });
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd]} />
       <PageHeader 
         title={t('ref_page_title')} 
         description={t('ref_page_desc')} 

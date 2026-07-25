@@ -7,7 +7,8 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function TemizlikVeHijyen() {
   const { t } = useLanguage();
@@ -94,30 +95,18 @@ export default function TemizlikVeHijyen() {
     { name: t('clean_title'), url: '/hizmetler/temizlik-ve-hijyen' }
   ]);
 
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Temizlik ve Hijyen',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    }
-  };
+    path: '/hizmetler/temizlik-ve-hijyen',
+    description: t('clean_desc'),
+    offers: cleaningHighlights.map((c) => ({ name: c.title, description: c.desc })),
+  });
+
+  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       <PageHeader 
         title={t('clean_title')} 
         description={t('clean_desc')} 

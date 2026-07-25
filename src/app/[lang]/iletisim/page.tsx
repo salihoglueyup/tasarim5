@@ -4,7 +4,8 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';
 
 export default function Iletisim() {
   const { t } = useLanguage();
@@ -47,53 +48,20 @@ export default function Iletisim() {
     { name: t('contact_title'), url: '/iletisim' }
   ]);
 
-  const contactPageLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
+  const contactPageLd = webPageSchema({
+    type: 'ContactPage',
     name: t('contact_title'),
     description: t('contact_desc'),
-    url: 'https://aloyonetim.com/iletisim',
-    mainEntity: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim',
-      image: 'https://aloyonetim.com/icon.png',
-      telephone: '+908500000000',
-      email: 'istanbul@aloyonetim.com',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19',
-        addressLocality: 'Kadıköy',
-        addressRegion: 'İstanbul',
-        postalCode: '34722',
-        addressCountry: 'TR'
-      },
-      department: [
-        {
-          '@type': 'LocalBusiness',
-          name: 'Alo Yönetim Kadıköy',
-          telephone: '+902160000000',
-          email: 'kadikoy@aloyonetim.com'
-        },
-        {
-          '@type': 'LocalBusiness',
-          name: 'Alo Yönetim Ataşehir',
-          telephone: '+902161110000',
-          email: 'atasehir@aloyonetim.com'
-        }
-      ]
-    }
-  };
+    path: '/iletisim',
+  });
+
+  // Merkezi ProfessionalService: NAP, geo, çalışma saatleri ve departman bazlı
+  // contactPoint'ler tek kaynaktan gelir (SEO V4 Faz 61/62).
+  const businessLd = professionalServiceSchema({ description: t('contact_desc') });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageLd) }}
-      />
+      <JsonLd data={[contactPageLd, breadcrumbLd, businessLd]} />
       <PageHeader 
         title={t('contact_title')} 
         description={t('contact_desc')} 

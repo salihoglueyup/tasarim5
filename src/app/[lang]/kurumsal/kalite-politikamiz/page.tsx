@@ -4,7 +4,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, webPageSchema, ORG_ID } from '@/lib/schemas';
 
 export default function KalitePolitikamiz() {
   const { t } = useLanguage();
@@ -61,12 +62,27 @@ export default function KalitePolitikamiz() {
     { name: t('quality_title'), url: '/kurumsal/kalite-politikamiz' }
   ]);
 
+  // Görünür kalite/sertifika kartlarını hasCredential olarak işaretle (Faz 65).
+  const credentialLd = {
+    '@type': 'Organization',
+    '@id': ORG_ID,
+    hasCredential: qualityCards.map((c) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: c.title,
+      credentialCategory: c.subtitle,
+      description: c.desc,
+    })),
+  };
+
+  const pageLd = webPageSchema({
+    name: t('quality_title'),
+    description: t('quality_desc'),
+    path: '/kurumsal/kalite-politikamiz',
+  });
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd, credentialLd]} />
       <PageHeader 
         title={t('quality_title')} 
         description={t('quality_desc')} 

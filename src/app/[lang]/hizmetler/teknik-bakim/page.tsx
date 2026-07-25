@@ -7,7 +7,8 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function TeknikBakim() {
   const { t } = useLanguage();
@@ -42,30 +43,17 @@ export default function TeknikBakim() {
     { name: t('tech_title'), url: '/hizmetler/teknik-bakim' }
   ]);
 
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Teknik Bakım',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    }
-  };
+    path: '/hizmetler/teknik-bakim',
+    description: t('tech_desc'),
+  });
+
+  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       <PageHeader 
         title={t('tech_title')} 
         description={t('tech_desc')} 

@@ -7,7 +7,8 @@ import { Faq, SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 
 export default function Hizmetler() {
   const { t } = useLanguage();
@@ -98,43 +99,24 @@ export default function Hizmetler() {
     { name: t('nav_all_services'), url: '/hizmetler' }
   ]);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Tesis Yönetimi',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Tesis Yönetimi Hizmetleri',
-      itemListElement: allServices.map((s, idx) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: s.title,
-          description: s.desc
-        },
-        position: idx + 1
-      }))
-    }
-  };
+    path: '/hizmetler',
+    description: t('services_desc'),
+    offerCatalogName: 'Tesis Yönetimi Hizmetleri',
+    offers: allServices.map((s) => ({ name: s.title, description: s.desc })),
+  });
+
+  const pageLd = webPageSchema({
+    type: 'CollectionPage',
+    name: t('services_title'),
+    description: t('services_desc'),
+    path: '/hizmetler',
+  });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd, serviceLd]} />
       <PageHeader 
         title={t('services_title')} 
         description={t('services_desc')} 

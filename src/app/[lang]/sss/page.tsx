@@ -5,7 +5,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, faqPageSchema } from '@/lib/schemas';
 
 export default function SSS() {
   const { t } = useLanguage();
@@ -53,18 +54,9 @@ export default function SSS() {
     ? faqs 
     : faqs.filter(f => f.category === activeCategory);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.answer
-      }
-    }))
-  };
+  const jsonLd = faqPageSchema(
+    faqs.map((f) => ({ question: f.question, answer: f.answer })),
+  );
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
@@ -73,14 +65,7 @@ export default function SSS() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[jsonLd, breadcrumbLd]} />
       <PageHeader 
         title={t('faq_page_title')} 
         description={t('faq_page_desc')} 

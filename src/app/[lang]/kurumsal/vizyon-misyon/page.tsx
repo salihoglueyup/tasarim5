@@ -3,7 +3,8 @@
 import PageHeader from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function VizyonMisyon() {
   const { t } = useLanguage();
@@ -26,12 +27,15 @@ export default function VizyonMisyon() {
     { name: t('vision_title'), url: '/kurumsal/vizyon-misyon' }
   ]);
 
+  const pageLd = webPageSchema({
+    type: 'AboutPage',
+    name: t('vision_title'),
+    path: '/kurumsal/vizyon-misyon',
+  });
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd]} />
       <PageHeader 
         title={t('vision_title')} 
         description={t('vision_desc')} 

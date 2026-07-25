@@ -4,7 +4,8 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, courseSchema, eventSchema, webPageSchema } from '@/lib/schemas';
 
 export default function GuvenlikAkademisi() {
   const { t } = useLanguage();
@@ -47,52 +48,33 @@ export default function GuvenlikAkademisi() {
     { name: t('aca_page_title'), url: '/guvenlik-akademisi' }
   ]);
 
-  const eduLd = {
-    '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
-    name: 'Alo Yönetim Güvenlik Akademisi',
-    description: t('aca_page_desc'),
-    url: 'https://aloyonetim.com/guvenlik-akademisi',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    }
-  };
+  // Her eğitim modülü bir Course; kurum EducationalOrganization (Faz 50).
+  const courseLds = academyFeatures.map((f) =>
+    courseSchema({
+      name: f.title,
+      description: f.desc,
+      path: '/guvenlik-akademisi',
+    }),
+  );
 
-  const eventLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Event',
+  // Planlı eğitim takvimi (Faz 51).
+  const eventLd = eventSchema({
     name: '5188 Sayılı Kanun Kapsamında Temel Güvenlik Eğitimi',
-    description: 'Özel güvenlik görevlilerine yönelik zorunlu temel eğitim ve yenileme programı.',
+    description:
+      'Özel güvenlik görevlilerine yönelik zorunlu temel eğitim ve yenileme programı.',
     startDate: '2026-09-01T09:00:00+03:00',
     endDate: '2026-09-15T18:00:00+03:00',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    eventStatus: 'https://schema.org/EventScheduled',
-    location: {
-      '@type': 'Place',
-      name: 'Alo Yönetim Eğitim Merkezi',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19',
-        addressLocality: 'Kadıköy',
-        addressRegion: 'İstanbul',
-        postalCode: '34722',
-        addressCountry: 'TR'
-      }
-    },
-    organizer: {
-      '@type': 'Organization',
-      name: 'Alo Yönetim',
-      url: 'https://aloyonetim.com'
-    }
-  };
+  });
+
+  const pageLd = webPageSchema({
+    name: t('aca_page_title'),
+    description: t('aca_page_desc'),
+    path: '/guvenlik-akademisi',
+  });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbLd, eduLd, eventLd]) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, eventLd]} />
       <PageHeader 
         title={t('aca_page_title')} 
         description={t('aca_page_desc')} 

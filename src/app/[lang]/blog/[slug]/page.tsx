@@ -4,7 +4,8 @@ import { use } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, blogPostingSchema } from '@/lib/schemas';
 
 interface BlogDetailProps {
   params: Promise<{ slug: string }>;
@@ -24,36 +25,20 @@ export default function BlogDetail({ params }: BlogDetailProps) {
     { name: titleFormatted, url: `/blog/${slug}` }
   ]);
 
-  const articleLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  // Tek BlogPosting node'u (sayfadaki görünür yazar/tarih ile birebir — Faz 56/68).
+  const articleLd = blogPostingSchema({
     headline: titleFormatted,
-    author: {
-      '@type': 'Organization',
-      name: 'Alo Yönetim Editör Ekibi'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Alo Yönetim',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://aloyonetim.com/icon.png'
-      }
-    },
-    datePublished: '2026-07-22T00:00:00+03:00', // Mock date
-    image: 'https://images.unsplash.com/photo-1550565118-3a14e8d0386f?q=80&w=2070&auto=format&fit=crop'
-  };
+    description: 'Sektörel rehberler, Kat Mülkiyeti Kanunu ipuçları ve şeffaf yönetim makalesi.',
+    path: `/blog/${slug}`,
+    image: 'https://images.unsplash.com/photo-1550565118-3a14e8d0386f?q=80&w=2070&auto=format&fit=crop',
+    datePublished: '2026-07-22T08:00:00+03:00',
+    dateModified: '2026-07-22T08:00:00+03:00',
+    authorName: 'Av. Ahmet Yılmaz',
+  });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, articleLd]} />
       <PageHeader 
         title={titleFormatted} 
         description="Sektörel rehberler, Kat Mülkiyeti Kanunu ipuçları ve şeffaf yönetim makalesi." 
@@ -108,34 +93,6 @@ export default function BlogDetail({ params }: BlogDetailProps) {
             </div>
           </p>
         </div>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "headline": slug.replace(/-/g, ' ').toUpperCase(),
-              "image": "https://aloyonetim.com/images/hero-poster.webp",
-              "author": {
-                "@type": "Person",
-                "name": "Av. Ahmet Yılmaz",
-                "jobTitle": "Tesis Yönetim & Kat Mülkiyeti Uzmanı",
-                "url": "https://aloyonetim.com/uzmanlar/ahmet-yilmaz"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "Alo Yönetim",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://aloyonetim.com/icon.png"
-                }
-              },
-              "datePublished": "2026-07-22T08:00:00+03:00",
-              "dateModified": "2026-07-22T08:00:00+03:00"
-            })
-          }}
-        />
 
         {/* Author Box - E-E-A-T Signal */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mt-12 mb-6 p-8 bg-slate-50 dark:bg-slate-800/30 rounded-3xl border border-slate-100 dark:border-slate-800">

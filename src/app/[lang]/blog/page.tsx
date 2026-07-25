@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
+import { JsonLd } from '@/components';
 import { generateBreadcrumbs } from '@/lib/schemas';
 
 export default function Blog() {
@@ -87,30 +88,22 @@ export default function Blog() {
   ]);
 
   const blogLd = {
-    '@context': 'https://schema.org',
     '@type': 'Blog',
     name: t('blog_page_title'),
     description: t('blog_page_desc'),
     url: 'https://aloyonetim.com/blog',
-    blogPost: ALL_POSTS.map(post => ({
+    blogPost: ALL_POSTS.map((post) => ({
       '@type': 'BlogPosting',
       headline: post.title,
-      datePublished: post.date, // In reality, format to ISO string like 2024-01-01
+      datePublished: post.date,
       url: `https://aloyonetim.com/blog/${post.slug}`,
-      image: post.image
-    }))
+      image: post.image,
+    })),
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, blogLd]} />
       <PageHeader 
         title={t('blog_page_title')} 
         description={t('blog_page_desc')} 

@@ -7,7 +7,8 @@ import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function HasereVeDezenfeksiyon() {
   const { t } = useLanguage();
@@ -54,30 +55,17 @@ export default function HasereVeDezenfeksiyon() {
     { name: t('pest_title'), url: '/hizmetler/hasere-ve-dezenfeksiyon' }
   ]);
 
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceLd = serviceSchema({
     serviceType: 'Haşere ve Dezenfeksiyon',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Alo Yönetim'
-    },
-    areaServed: {
-      '@type': 'State',
-      name: 'İstanbul'
-    }
-  };
+    path: '/hizmetler/hasere-ve-dezenfeksiyon',
+    description: t('pest_desc'),
+  });
+
+  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       <PageHeader 
         title={t('pest_title')} 
         description={t('pest_desc')} 

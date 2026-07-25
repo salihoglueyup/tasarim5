@@ -2,7 +2,8 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function Surdurulebilirlik() {
   const { t } = useLanguage();
@@ -31,12 +32,15 @@ export default function Surdurulebilirlik() {
     { name: t('sustainability_title'), url: '/kurumsal/surdurulebilirlik' }
   ]);
 
+  const pageLd = webPageSchema({
+    type: 'AboutPage',
+    name: t('sustainability_title'),
+    path: '/kurumsal/surdurulebilirlik',
+  });
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd]} />
       <PageHeader 
         title={t('sustainability_title')} 
         description={t('sustainability_desc')} 

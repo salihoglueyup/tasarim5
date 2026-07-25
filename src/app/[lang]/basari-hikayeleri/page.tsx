@@ -3,7 +3,8 @@
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { JsonLd } from '@/components';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function BasariHikayeleri() {
   const { t } = useLanguage();
@@ -33,12 +34,16 @@ export default function BasariHikayeleri() {
     { name: t('case_page_title'), url: '/basari-hikayeleri' }
   ]);
 
+  const pageLd = webPageSchema({
+    type: 'CollectionPage',
+    name: t('case_page_title'),
+    description: t('case_page_desc'),
+    path: '/basari-hikayeleri',
+  });
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <JsonLd data={[pageLd, breadcrumbLd]} />
       <PageHeader 
         title={t('case_page_title')} 
         description={t('case_page_desc')} 

@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Hero, LogoTicker, SeoTextSection } from '@/components';
+import { Hero, LogoTicker, SeoTextSection, JsonLd } from '@/components';
 import { buildMetadata } from '@/lib/seo';
+import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 
 // Heavy components loaded dynamically for performance (Code Splitting - Faz 47)
 const BentoServices = dynamic(() => import('@/components').then(mod => mod.BentoServices), { ssr: true });
@@ -31,71 +32,34 @@ export async function generateMetadata({
 }
 
 export default function Home() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Alo Yönetim',
-    image: 'https://aloyonetim.com/icon.png',
-    description: 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
-    '@id': 'https://aloyonetim.com',
-    url: 'https://aloyonetim.com',
-    telephone: '+902165504848',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19',
-      addressLocality: 'Kadıköy',
-      addressRegion: 'İstanbul',
-      postalCode: '34722',
-      addressCountry: 'TR'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 40.990,
-      longitude: 29.030
-    },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
-      opens: '09:00',
-      closes: '18:00'
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '340',
-      bestRating: '5',
-      worstRating: '1'
-    }
-  };
+  // Ana sayfa varlık grafiği: WebPage → ProfessionalService (rating) → VideoObject
+  // (SEO V4 Faz 43/46/54/57). NAP/geo/saatler merkezi schema fabrikasından gelir.
+  const businessLd = professionalServiceSchema({
+    description:
+      'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
+    aggregateRating: { ratingValue: '4.9', reviewCount: '340' },
+  });
 
-  const videoJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'VideoObject',
+  const videoLd = videoObjectSchema({
     name: 'Alo Yönetim Tanıtım Filmi',
     description: 'Profesyonel mülk ve tesis yönetimi hizmetlerimizi tanıtan kurumsal filmimiz.',
-    thumbnailUrl: 'https://aloyonetim.com/images/hero-poster.webp',
+    thumbnailUrl: '/images/hero-poster.webp',
+    contentUrl: '/video/brand-film.mp4',
     uploadDate: '2026-01-15T08:00:00+03:00',
-    contentUrl: 'https://aloyonetim.com/video/brand-film.mp4',
     duration: 'PT1M30S',
-    publisher: {
-      '@type': 'Organization',
-      name: 'Alo Yönetim'
-    }
-  };
+  });
+
+  const pageLd = webPageSchema({
+    name: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
+    description:
+      'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi.',
+    path: '/',
+    speakableSelectors: ['h1', '.seo-intro'],
+  });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, videoJsonLd]) }}
-      />
+      <JsonLd data={[pageLd, businessLd, videoLd]} />
       <Hero />
       <SeoTextSection />
       <LogoTicker />
