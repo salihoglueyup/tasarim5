@@ -7,7 +7,7 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function GuvenlikYonetimi() {
@@ -213,6 +213,14 @@ export default function GuvenlikYonetimi() {
         </div>
 
       </section>
+
+      <SeoTextSection
+        titleKey="guvenlik_seo_title"
+        p1Key="guvenlik_seo_p1"
+        p2Key="guvenlik_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/guvenlik-yonetimi" />
+      <RelatedArticles pillar="/hizmetler/guvenlik-yonetimi" />
     </>
   );
 }

@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#F5F5F7',
-    theme_color: '#2D2D3A',
+    background_color: '#0a192f',
+    theme_color: '#0a192f',
     icons: [
       {
         src: '/favicon.ico',

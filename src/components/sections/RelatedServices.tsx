@@ -1,7 +1,6 @@
 "use client";
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 const ALL_SERVICES = [
   { name: 'Güvenlik Yönetimi', path: '/hizmetler/guvenlik-yonetimi', icon: 'security' },

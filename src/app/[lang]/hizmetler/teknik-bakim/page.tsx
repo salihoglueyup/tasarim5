@@ -5,7 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection } from '@/components';
 import Link from 'next/link';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
@@ -167,6 +167,12 @@ export default function TeknikBakim() {
 
       </section>
 
+      <SeoTextSection
+        titleKey="teknik_seo_title"
+        p1Key="teknik_seo_p1"
+        p2Key="teknik_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/teknik-bakim" />
       <RelatedArticles pillar="/hizmetler/teknik-bakim" />
     </>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import PageHeader from '@/components/layout/PageHeader';
-import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';

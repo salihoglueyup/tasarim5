@@ -131,6 +131,12 @@ export default function HavuzBakimiVeHijyen() {
 
       </section>
 
+      <SeoTextSection
+        titleKey="havuz_seo_title"
+        p1Key="havuz_seo_p1"
+        p2Key="havuz_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/havuz-bakimi-ve-hijyen" />
       <RelatedArticles pillar="/hizmetler/havuz-bakimi-ve-hijyen" />
     </>
   );

@@ -1,4 +1,4 @@
-﻿# 📚 Proje Dokümantasyonu
+# 📚 Proje Dokümantasyonu
 
 Bu dizin, **Alo Yönetim Web Uygulaması**'nın tüm teknik, içerik ve strateji belgelerini barındırır.
 
@@ -31,5 +31,5 @@ docs/
 ## 🔗 Hızlı Erişim
 
 - **Ana README:** [../../README.md](../../README.md)
-- **Geliştirici Menüsü:** `dev.bat` (proje kök dizininde)
+- **Geliştirici Yönetim Araçları:** `alo_yonetim.bat` (proje kök dizininde)
 - **Ortam Değişkenleri:** `.env.example`

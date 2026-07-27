@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Magnetic from '@/components/ui/Magnetic';
 import { useState, useRef, MouseEvent } from 'react';

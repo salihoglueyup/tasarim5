@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';

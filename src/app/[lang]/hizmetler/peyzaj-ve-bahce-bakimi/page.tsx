@@ -7,7 +7,7 @@ import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function PeyzajVeBahceBakimi() {
@@ -130,6 +130,14 @@ export default function PeyzajVeBahceBakimi() {
         </div>
 
       </section>
+
+      <SeoTextSection
+        titleKey="peyzaj_seo_title"
+        p1Key="peyzaj_seo_p1"
+        p2Key="peyzaj_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/peyzaj-ve-bahce-bakimi" />
+      <RelatedArticles pillar="/hizmetler/peyzaj-ve-bahce-bakimi" />
     </>
   );
 }

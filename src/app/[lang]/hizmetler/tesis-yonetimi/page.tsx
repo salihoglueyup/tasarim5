@@ -132,6 +132,12 @@ export default function TesisYonetimi() {
 
       </section>
 
+      <SeoTextSection
+        titleKey="tesis_seo_title"
+        p1Key="tesis_seo_p1"
+        p2Key="tesis_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/tesis-yonetimi" />
       <RelatedArticles pillar="/hizmetler/tesis-yonetimi" />
     </>
   );

@@ -7,7 +7,7 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 
 export default function TemizlikVeHijyen() {
@@ -243,6 +243,14 @@ export default function TemizlikVeHijyen() {
         </div>
 
       </section>
+
+      <SeoTextSection
+        titleKey="temizlik_seo_title"
+        p1Key="temizlik_seo_p1"
+        p2Key="temizlik_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/temizlik-ve-hijyen" />
+      <RelatedArticles pillar="/hizmetler/temizlik-ve-hijyen" />
     </>
   );
 }

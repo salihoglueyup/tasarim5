@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useState, useRef, MouseEvent, useEffect } from 'react';
+import { useState, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -12,7 +12,7 @@ interface PageHeaderProps {
   breadcrumbs?: { name: string; url?: string }[];
 }
 
-export default function PageHeader({ title, description, category = "Alo Yönetim", breadcrumbs }: PageHeaderProps) {
+export default function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);

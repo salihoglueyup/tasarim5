@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useSpring, useTransform } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 // A simple counter component that animates from 0 to target

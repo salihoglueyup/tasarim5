@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 import { useState, useEffect } from 'react';
-import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 import { DISTRICTS } from '@/data/districts';
 import dynamic from 'next/dynamic';
@@ -27,7 +26,7 @@ export default function Footer() {
           hour12: false 
         });
         setIstanbulTime(time);
-      } catch (e) {
+      } catch {
         setIstanbulTime("");
       }
     };

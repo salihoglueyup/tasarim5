@@ -133,6 +133,12 @@ export default function HukukVeIcraDanismanligi() {
 
       </section>
 
+      <SeoTextSection
+        titleKey="hukuk_seo_title"
+        p1Key="hukuk_seo_p1"
+        p2Key="hukuk_seo_p2"
+      />
+      <RelatedServices currentPath="/hizmetler/hukuk-ve-icra-danismanligi" />
       <RelatedArticles pillar="/hizmetler/hukuk-ve-icra-danismanligi" />
     </>
   );

@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 <img src="https://raw.githubusercontent.com/salihoglueyup/tasarim5/seo/master-plan-v4/public/images/logos/new-icon-Photoroom.webp" alt="Alo Yönetim Logo" width="120" />
 
@@ -69,19 +69,19 @@ Bu repo; **Next.js 16 (App Router)** üzerine inşa edilmiş, çift dilli (TR/EN
 
 ## 🚀 Hızlı Başlangıç
 
-### Windows — dev.bat (Önerilen)
-\\\
-dev.bat dosyasına çift tıkla → Menüden [1] seç → http://localhost:3000
-\\\
+### Windows — alo_yonetim.bat (Önerilen)
+```
+alo_yonetim.bat dosyasına çift tıkla → Menüden [1] seç → http://localhost:3000
+```
 
 ### Manuel Kurulum
-\\\ash
+```bash
 git clone https://github.com/salihoglueyup/tasarim5.git
 cd tasarim5
 cp .env.example .env.local   # Ortam değişkenlerini doldur
 npm install
 npm run dev
-\\\
+```
 
 Tarayıcıda: **[http://localhost:3000](http://localhost:3000)**
 
@@ -94,21 +94,21 @@ Tarayıcıda: **[http://localhost:3000](http://localhost:3000)**
 | Katman | Teknoloji |
 |---|---|
 | Framework | Next.js 16 · App Router · Turbopack |
-| Dil | TypeScript 5 |
+| Dil | TypeScript 5 (Sıfır ESLint Uyarısı) |
 | Stil | Tailwind CSS 4 (JIT) · Slate & Titanium paleti |
 | Animasyon | Framer Motion (LazyMotion) |
-| Font | Plus Jakarta Sans (next/font) |
-| Barındırma | Vercel (Edge Network) |
+| Font | Plus Jakarta Sans & Inter (next/font) |
+| Barındırma | Vercel (Edge Network) · PWA Manifest (#0a192f Tema) |
 | Veritabanı | Supabase (Lead tablosu) |
 | E-posta | Resend |
 | Analitik | Google Analytics 4 · Microsoft Clarity |
 
 ### Klasör Yapısı
 
-\\\
+```
 src/
 ├── app/[lang]/           → i18n sayfalar (288 rota: /tr/* ve /en/*)
-│   ├── hizmetler/        → 8 hizmet sayfası
+│   ├── hizmetler/        → 8 hizmet sayfası (SeoTextSection + RelatedServices ağ örgüsü)
 │   ├── bolgeler/         → 12 ilçe × 8 hizmet (96 yerel sayfa)
 │   ├── blog/             → Blog (makale, yazar, etiket, kategori)
 │   ├── hesaplayici/      → Aidat hesaplama aracı
@@ -116,7 +116,7 @@ src/
 ├── components/           → Layout, Section, UI, Blog, Modal bileşenleri
 ├── lib/                  → Schemas (JSON-LD), Translations (i18n), Analytics
 └── hooks/                → useLeadSubmit, useScrollProgress vb.
-\\\
+```
 
 > 📖 Detaylı mimari: [docs/architecture/OVERVIEW.md](docs/architecture/OVERVIEW.md)
 
@@ -189,19 +189,19 @@ cp .env.example .env.local
 
 ## 🛠️ Geliştirici Komutları
 
-\\\ash
+```bash
 npm run dev                        # Dev sunucu → localhost:3000
-npm run build                      # Production build (288 rota)
+npm run build                      # Production build (288 rota - Turbopack)
 npm run start                      # Production önizleme
 npx tsc --noEmit                   # TypeScript tip kontrolü
-npx eslint src --ext .ts,.tsx      # Lint kontrolü
+npx eslint src --ext .ts,.tsx      # Lint kontrolü (Sıfır Hata / Uyarı)
 npx vitest run                     # Unit testler
 npx playwright test                # E2E testler
 node scripts/seo-audit.mjs         # SEO dosya denetimi
 node scripts/validate-jsonld.mjs   # JSON-LD şema doğrulama
-\\\
+```
 
-> 🪟 **Windows kısayolu:** \dev.bat\ — 22 geliştirici işlemini tek menüden yönet
+> 🪟 **Windows interaktif menü:** `alo_yonetim.bat` — Geliştirme, derleme, sıfır uyarı linter denetimi ve logo optimizasyonu tek panelde!
 
 ---
 

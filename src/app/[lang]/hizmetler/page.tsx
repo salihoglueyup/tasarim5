@@ -1,6 +1,5 @@
 "use client";
 
-import { Metadata } from 'next';
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Faq, SeoTextSection } from '@/components';

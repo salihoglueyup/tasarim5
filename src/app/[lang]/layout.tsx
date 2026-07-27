@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget, WebVitals, IconFontLoader, CookieConsent, AnalyticsScripts, FramerLazyProvider } from "@/components";
@@ -68,7 +68,14 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  }
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#0a192f',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default async function RootLayout({
@@ -99,6 +106,7 @@ export default async function RootLayout({
         {/* Material Symbols: render-blocking olmasın diye hydration sonrası
             yüklenir (IconFontLoader — Faz 186). No-JS için fallback: */}
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
           <link
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
             rel="stylesheet"
