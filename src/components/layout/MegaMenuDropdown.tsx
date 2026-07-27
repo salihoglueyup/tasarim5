@@ -47,6 +47,7 @@ export default function MegaMenuDropdown({
                 <Link 
                   key={subItem.nameKey} 
                   href={getLocalizedPath(subItem.path)}
+                  prefetch={true}
                   onClick={closeMenus}
                   className="group/item flex items-start gap-3 p-2 rounded-xl hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors relative"
                 >
@@ -83,6 +84,7 @@ export default function MegaMenuDropdown({
 
               <Link 
                 href={getLocalizedPath('/hesaplayici')}
+                prefetch={true}
                 onClick={closeMenus}
                 className="relative z-10 mt-4 text-xs font-bold text-slate-200 hover:text-white flex items-center gap-1 group/btn"
               >

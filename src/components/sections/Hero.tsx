@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -27,9 +28,21 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900/60 to-slate-900 z-0 animate-pulse" />
         
         {/*
-          LCP ve Ağ Hızı Optimizasyonu (v5): 45 KB'lık optimize poster anında yüklenir;
-          video preload="metadata" ile ana iş parçacığını ve ağ trafiğini yormadan arka planda başlar.
+          LCP ve Ağ Hızı Optimizasyonu (v8): Next.js Image priority={true} ve fetchPriority="high"
+          sayesinde tarayıcı /images/hero-poster.webp dosyasını HTML <head> içinden anında
+          keşfeder ve LCP puanını tavan yaptırır. Video ise arka planda yüklenir.
         */}
+        <Image
+          src="/images/hero-poster.webp"
+          alt="Hero arka plan"
+          fill
+          priority={true}
+          fetchPriority="high"
+          sizes="100vw"
+          quality={80}
+          className="object-cover scale-105 pointer-events-none z-0"
+        />
+
         <video
           ref={videoRef}
           autoPlay
@@ -98,6 +111,7 @@ export default function Hero() {
             <Magnetic strength={0.2}>
               <Link 
                 href="/teklif-al"
+                prefetch={true}
                 className="bg-white hover:bg-slate-100 text-slate-950 font-extrabold px-7 py-3.5 text-sm sm:text-base shadow-2xl rounded-xl border border-white/20 inline-flex items-center gap-2 transition-all hover:scale-105 active:scale-95 tracking-tight"
                 aria-label="Ücretsiz keşif isteyin"
                 title="Ücretsiz keşif formu"

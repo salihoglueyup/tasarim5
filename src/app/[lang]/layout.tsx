@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
-import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget, WebVitals, IconFontLoader, CookieConsent, AnalyticsScripts, FramerLazyProvider } from "@/components";
+import { SmoothScroll, NavigationWrapper, WebVitals, IconFontLoader, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { JsonLd } from "@/components";
@@ -138,15 +138,12 @@ export default async function RootLayout({
         <LanguageProvider initialLang={lang}>
           <QuoteProvider>
             <FramerLazyProvider>
-              <NoiseOverlay />
-              <CustomCursor />
-              <QuickCallWidget />
+              <ClientWidgets />
               <SmoothScroll>
                 <NavigationWrapper>
                   {children}
                 </NavigationWrapper>
               </SmoothScroll>
-              <CookieConsent />
             </FramerLazyProvider>
           </QuoteProvider>
         </LanguageProvider>

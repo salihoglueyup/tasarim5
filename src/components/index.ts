@@ -6,6 +6,7 @@ export { default as PageHeader } from './layout/PageHeader';
 export { default as LoginModal } from './layout/LoginModal';
 export { default as AnalyticsScripts } from './layout/AnalyticsScripts';
 export { WebVitals } from './layout/WebVitals';
+export { default as ClientWidgets } from './layout/ClientWidgets';
 
 // UI & Utility Components
 export { default as Logo } from './ui/Logo';
@@ -14,6 +15,7 @@ export { default as FramerLazyProvider } from './ui/FramerLazyProvider';
 export { default as CustomCursor } from './ui/CustomCursor';
 export { default as NoiseOverlay } from './ui/NoiseOverlay';
 export { default as SmoothScroll } from './ui/SmoothScroll';
+export { default as NavigationProgress } from './ui/NavigationProgress';
 export { default as LogoTicker } from './ui/LogoTicker';
 export { default as QuickCallWidget } from './ui/QuickCallWidget';
 export { default as Button } from './ui/Button';

@@ -221,7 +221,7 @@ export default function Header() {
           
           {/* Logo */}
           <Magnetic strength={0.1}>
-            <Link href={getLocalizedPath('/')} className="flex items-center group relative z-[60] py-1" onClick={closeMenus}>
+            <Link href={getLocalizedPath('/')} prefetch={true} className="flex items-center group relative z-[60] py-1" onClick={closeMenus}>
               <Logo variant={isTopOnHomePage ? 'white' : 'auto'} />
             </Link>
           </Magnetic>
@@ -265,6 +265,7 @@ export default function Header() {
                 ) : (
                   <Link 
                     href={getLocalizedPath(item.path!)} 
+                    prefetch={true}
                     className={`relative z-10 text-[13.5px] font-semibold tracking-[-0.01em] transition-colors duration-200 whitespace-nowrap ${
                       isTopOnHomePage 
                         ? 'text-white/95 hover:text-white' 

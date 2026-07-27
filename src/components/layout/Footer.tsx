@@ -50,7 +50,7 @@ export default function Footer() {
           
           {/* Column 1: Brand Info & App Links (4 Cols) */}
           <div className="lg:col-span-4 flex flex-col gap-6 pr-2">
-            <Link href="/" className="inline-block">
+            <Link href="/" prefetch={true} className="inline-block">
               <Logo />
             </Link>
 
@@ -109,6 +109,7 @@ export default function Footer() {
                 <Link 
                   key={item.nameKey} 
                   href={item.path} 
+                  prefetch={true}
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-slate-900 dark:text-white" aria-hidden="true">arrow_forward</span>
@@ -139,6 +140,7 @@ export default function Footer() {
                 <Link 
                   key={item.nameKey} 
                   href={item.path} 
+                  prefetch={true}
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-slate-900 dark:text-white" aria-hidden="true">arrow_forward</span>
