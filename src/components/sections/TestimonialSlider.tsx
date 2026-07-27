@@ -155,7 +155,7 @@ export default function TestimonialSlider() {
             </div>
 
             <blockquote className="text-2xl md:text-3xl text-[var(--color-primary)] font-light leading-relaxed italic">
-              "{current.comment}"
+              &quot;{current.comment}&quot;
             </blockquote>
 
             <div className="flex items-center gap-4">

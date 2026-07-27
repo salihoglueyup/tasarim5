@@ -178,8 +178,8 @@ function AnimatedCounter({ from, to }: { from: number, to: number }) {
   useEffect(() => {
     // Faz 98: Hareketi azaltma tercihi varsa animasyonsuz anında bitir (INP/Erişilebilirlik)
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setCount(to);
-      return;
+      const id = window.requestAnimationFrame(() => setCount(to));
+      return () => window.cancelAnimationFrame(id);
     }
 
     let startTimestamp: number | null = null;

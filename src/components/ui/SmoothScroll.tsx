@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import type Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     let isMounted = true;
     let rafId: number;
-    let lenisInstance: any = null;
+    let lenisInstance: Lenis | null = null;
 
     // Faz 21 & 22: Lenis sadece masaüstünde ve ihtiyaç anında dinamik indirilir (15 KB Gzip tasarruf)
     import('lenis').then(({ default: Lenis }) => {

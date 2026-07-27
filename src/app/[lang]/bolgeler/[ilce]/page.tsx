@@ -119,14 +119,14 @@ export default async function DistrictPage({
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
         {/* TL;DR (AI/snippet için) */}
         <TldrBlock>
-          {district.name}'de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat yönetimi dahil tüm hizmetleri tek çatı altında sunar. {district.name}'de {district.managedProjects}+ proje yönetilmektedir. Ücretsiz keşif için: 0216 550 48 48.
+          {district.name}&apos;de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat yönetimi dahil tüm hizmetleri tek çatı altında sunar. {district.name}&apos;de {district.managedProjects}+ proje yönetilmektedir. Ücretsiz keşif için: 0216 550 48 48.
         </TldrBlock>
 
         {/* Giriş + yerel kanıt */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-8 flex flex-col gap-5">
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
-              {district.name}'de Profesyonel Tesis Yönetimi
+              {district.name}&apos;de Profesyonel Tesis Yönetimi
             </h2>
             <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
               {district.intro}
@@ -142,7 +142,7 @@ export default async function DistrictPage({
           </div>
           <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-xl">
             <div className="text-4xl font-black text-emerald-400">{district.managedProjects}+</div>
-            <div className="font-semibold">{district.name}'de yönetilen proje</div>
+            <div className="font-semibold">{district.name}&apos;de yönetilen proje</div>
             <p className="text-xs text-gray-300 font-light border-t border-white/10 pt-4">
               {district.side} Yakası · ~{Math.round(district.population / 1000)} bin nüfus ·{' '}
               {district.neighborhoods.length} öne çıkan mahalle
@@ -153,7 +153,7 @@ export default async function DistrictPage({
         {/* Hizmetler → hizmet×ilçe sayfaları */}
         <div className="flex flex-col gap-6">
           <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
-            {district.name}'de Sunduğumuz Hizmetler
+            {district.name}&apos;de Sunduğumuz Hizmetler
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((s) => (
@@ -177,10 +177,10 @@ export default async function DistrictPage({
         {/* Mahalleler (near-me) */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12 flex flex-col gap-5">
           <h2 className="text-2xl font-bold text-[var(--color-primary)]">
-            {district.name}'de Hizmet Verdiğimiz Mahalleler
+            {district.name}&apos;de Hizmet Verdiğimiz Mahalleler
           </h2>
           <p className="text-sm text-[var(--color-secondary)] font-light">
-            Yerel ekibimiz {district.name}'in tüm mahallelerinde, yakınınızdaki sitelere hızlı
+            Yerel ekibimiz {district.name}&apos;in tüm mahallelerinde, yakınınızdaki sitelere hızlı
             ulaşır:
           </p>
           <div className="flex flex-wrap gap-3">
@@ -229,7 +229,7 @@ export default async function DistrictPage({
         <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">
           <h2 className="text-3xl font-extrabold">{district.name} için ücretsiz teklif alın</h2>
           <p className="text-gray-300 font-light max-w-xl">
-            {district.name}'deki sitenizde ücretsiz keşif yapalım, 48 saat içinde şeffaf teklifinizi
+            {district.name}&apos;deki sitenizde ücretsiz keşif yapalım, 48 saat içinde şeffaf teklifinizi
             sunalım.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

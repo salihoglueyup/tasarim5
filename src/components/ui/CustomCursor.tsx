@@ -20,8 +20,8 @@ export default function CustomCursor() {
     const touchCheck = window.matchMedia('(pointer: coarse)').matches;
     const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (touchCheck || motionCheck || window.innerWidth < 768) {
-      setIsTouchOrReducedMotion(true);
-      return;
+      const id = window.requestAnimationFrame(() => setIsTouchOrReducedMotion(true));
+      return () => window.cancelAnimationFrame(id);
     }
 
     let rafId: number | null = null;

@@ -125,19 +125,19 @@ export default async function ServiceDistrictPage({
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-14">
         {/* TL;DR (AI/snippet için) */}
         <TldrBlock>
-          {district.name}'de {service.name.toLowerCase()} için Alo Yönetim; {service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.
+          {district.name}&apos;de {service.name.toLowerCase()} için Alo Yönetim; {service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.
         </TldrBlock>
 
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
-            {district.name}'de {service.name}
+            {district.name}&apos;de {service.name}
           </h2>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
             {service.summary}
           </p>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
-            {district.intro} Bu nedenle {district.name}'de {service.name.toLowerCase()} hizmetimizi,
+            {district.intro} Bu nedenle {district.name}&apos;de {service.name.toLowerCase()} hizmetimizi,
             özellikle <strong>{district.localNeeds[0].toLowerCase()}</strong> ihtiyacını gözeterek
             planlıyoruz. {district.neighborhoods.slice(0, 3).join(', ')} başta olmak üzere ilçenin
             tüm mahallelerinde yerinde hizmet veriyoruz.
@@ -180,7 +180,7 @@ export default async function ServiceDistrictPage({
         {/* CTA */}
         <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">
           <h2 className="text-2xl md:text-3xl font-extrabold">
-            {district.name}'de {service.shortName.toLowerCase()} için teklif alın
+            {district.name}&apos;de {service.shortName.toLowerCase()} için teklif alın
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <QuoteCtaButton className="bg-white text-slate-950 font-bold py-3.5 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-lg">

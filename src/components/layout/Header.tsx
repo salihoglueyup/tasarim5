@@ -125,8 +125,9 @@ export default function Header() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const isDark = document.documentElement.classList.contains('dark') || localStorage.getItem('theme') === 'dark';
-      setIsDarkMode(isDark);
+      const id = window.requestAnimationFrame(() => setIsDarkMode(isDark));
       if (isDark) document.documentElement.classList.add('dark');
+      return () => window.cancelAnimationFrame(id);
     }
   }, []);
 

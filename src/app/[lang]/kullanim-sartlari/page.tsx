@@ -22,7 +22,7 @@ export default function KullanimSartlari({ params }: { params: { lang: string } 
               
               <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6 mt-12">2. Use of Service</h2>
               <p>
-                Our services are provided on an "as is" and "as available" basis. We reserve the right to modify or discontinue any part of our service without notice at any time.
+                Our services are provided on an &quot;as is&quot; and &quot;as available&quot; basis. We reserve the right to modify or discontinue any part of our service without notice at any time.
               </p>
               
               <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6 mt-12">3. User Responsibilities</h2>
@@ -44,12 +44,12 @@ export default function KullanimSartlari({ params }: { params: { lang: string } 
               
               <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6 mt-12">2. Hizmetin Kullanımı</h2>
               <p>
-                Hizmetlerimiz "olduğu gibi" ve "mevcut olduğu şekilde" sunulmaktadır. Hizmetimizin herhangi bir bölümünü herhangi bir zamanda bildirimde bulunmaksızın değiştirme veya durdurma hakkımızı saklı tutarız.
+                Hizmetlerimiz &quot;olduğu gibi&quot; ve &quot;mevcut olduğu şekilde&quot; sunulmaktadır. Hizmetimizin herhangi bir bölümünü herhangi bir zamanda bildirimde bulunmaksızın değiştirme veya durdurma hakkımızı saklı tutarız.
               </p>
               
               <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6 mt-12">3. Kullanıcı Sorumlulukları</h2>
               <p>
-                Siteyi herhangi bir yasa dışı amaç için veya bu madde kapsamında yasaklanan herhangi bir amaç için kullanmamayı kabul edersiniz. Siteyi, siteye, hizmetlere veya Alo Yönetim'in genel işine zarar verebilecek herhangi bir şekilde kullanmamayı kabul edersiniz.
+                Siteyi herhangi bir yasa dışı amaç için veya bu madde kapsamında yasaklanan herhangi bir amaç için kullanmamayı kabul edersiniz. Siteyi, siteye, hizmetlere veya Alo Yönetim&apos;in genel işine zarar verebilecek herhangi bir şekilde kullanmamayı kabul edersiniz.
               </p>
 
               <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6 mt-12">4. Sorumluluğun Sınırlandırılması</h2>

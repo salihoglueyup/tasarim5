@@ -16,17 +16,20 @@ export const LanguageProvider = ({ children, initialLang }: { children: React.Re
   const [transMap, setTransMap] = useState(translations);
 
   useEffect(() => {
-    if (initialLang && (initialLang === 'tr' || initialLang === 'en')) {
-      setLanguageState(initialLang as Language);
-      if (typeof window !== 'undefined') {
-        document.documentElement.lang = initialLang;
+    const timer = setTimeout(() => {
+      if (initialLang && (initialLang === 'tr' || initialLang === 'en')) {
+        setLanguageState((prev) => (prev !== initialLang ? (initialLang as Language) : prev));
+        if (typeof window !== 'undefined') {
+          document.documentElement.lang = initialLang;
+        }
+      } else if (typeof window !== 'undefined') {
+        const savedLang = localStorage.getItem('app_language') as Language;
+        if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
+          setLanguageState((prev) => (prev !== savedLang ? savedLang : prev));
+        }
       }
-    } else if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('app_language') as Language;
-      if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
-        setLanguageState(savedLang);
-      }
-    }
+    }, 0);
+    return () => clearTimeout(timer);
   }, [initialLang]);
 
   useEffect(() => {

@@ -113,7 +113,7 @@ export default function Footer() {
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-slate-900 dark:text-white" aria-hidden="true">arrow_forward</span>
-                  {t(item.nameKey as any)}
+                  {t(item.nameKey as Parameters<typeof t>[0])}
                 </Link>
               ))}
             </div>
@@ -143,7 +143,7 @@ export default function Footer() {
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-slate-900 dark:text-white" aria-hidden="true">arrow_forward</span>
-                  {t(item.nameKey as any)}
+                  {t(item.nameKey as Parameters<typeof t>[0])}
                 </Link>
               ))}
             </div>

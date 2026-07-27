@@ -25,7 +25,7 @@ export default function SeoTextSection({
           viewport={{ once: true }}
           className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6 tracking-tight text-center md:text-left"
         >
-          {t(titleKey as any)}
+          {t(titleKey as Parameters<typeof t>[0])}
         </motion.h2>
         
         <motion.div 
@@ -35,8 +35,8 @@ export default function SeoTextSection({
           transition={{ delay: 0.1 }}
           className="text-lg text-[var(--color-secondary)] leading-relaxed space-y-6 text-center md:text-left font-light"
         >
-          <p>{t(p1Key as any)}</p>
-          <p>{t(p2Key as any)}</p>
+          <p>{t(p1Key as Parameters<typeof t>[0])}</p>
+          <p>{t(p2Key as Parameters<typeof t>[0])}</p>
         </motion.div>
       </div>
     </section>

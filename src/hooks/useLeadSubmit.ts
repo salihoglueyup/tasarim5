@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import type { Lead } from '@/lib/leads/types';
 
 /**
@@ -23,7 +23,11 @@ export function useLeadSubmit(): UseLeadSubmit {
   const [status, setStatus] = useState<LeadStatus>('idle');
   const [errorKey, setErrorKey] = useState<string | null>(null);
   // Bileşen mount anı — bota karşı min-süre kontrolü için.
-  const mountedAt = useRef<number>(Date.now());
+  const mountedAt = useRef<number>(0);
+
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
 
   const submit = useCallback(async (lead: Lead, honeypot = ''): Promise<boolean> => {
     setStatus('loading');

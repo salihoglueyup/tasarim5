@@ -13,8 +13,8 @@ function Counter({ value, suffix = "", duration = 2 }: { value: number, suffix?:
     if (inView) {
       // Faz 98, 201: Hareket azaltma tercihi varsa animasyonsuz anında göster
       if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        setDisplayValue(value);
-        return;
+        const id = window.requestAnimationFrame(() => setDisplayValue(value));
+        return () => window.cancelAnimationFrame(id);
       }
 
       let startTimestamp: number | null = null;

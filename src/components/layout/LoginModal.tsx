@@ -13,13 +13,14 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const id = window.requestAnimationFrame(() => setMounted(true));
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
     return () => {
+      window.cancelAnimationFrame(id);
       document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
