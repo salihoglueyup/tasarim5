@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import CallbackForm from '@/components/cro/CallbackForm';
+import { calculateDues } from '@/lib/hesaplayici';
 
 export default function Hesaplayici() {
   const { t } = useLanguage();
@@ -16,19 +17,14 @@ export default function Hesaplayici() {
   const [hasPool, setHasPool] = useState<boolean>(true);
   const [hasGreenSpace, setHasGreenSpace] = useState<boolean>(true);
 
-  // Simple calculation logic
-  const baseCostPerUnit = 350;
-  const securityAddon = hasSecurity ? 450 : 0;
-  const poolAddon = hasPool ? 180 : 0;
-  const greenAddon = hasGreenSpace ? 120 : 0;
-  const elevatorAddon = elevators * 40;
-
-  const estimatedDuesPerUnit = Math.round(
-    baseCostPerUnit + securityAddon + poolAddon + greenAddon + (elevatorAddon / Math.max(units, 1))
-  );
-
-  const totalMonthlyBudget = estimatedDuesPerUnit * units;
-  const estimatedSavings = Math.round(totalMonthlyBudget * 0.22); // %22 ortalama tasarruf
+  // Aidat tahmini — saf fonksiyon (src/lib/hesaplayici.ts, birim test kapsamında).
+  const { estimatedDuesPerUnit, totalMonthlyBudget, estimatedSavings } = calculateDues({
+    units,
+    elevators,
+    hasSecurity,
+    hasPool,
+    hasGreenSpace,
+  });
 
   return (
     <>
