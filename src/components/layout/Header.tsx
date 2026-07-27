@@ -182,6 +182,17 @@ export default function Header() {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMobileMenuOpen]);
 
+  // Sayfa değişimi (route change) anında açık menüleri kapat ve scroll/header durumunu asenkron senkronize et
+  useEffect(() => {
+    const rafId = window.requestAnimationFrame(() => {
+      setIsMobileMenuOpen(false);
+      setHoveredMenu(null);
+      setIsVisible(true);
+      setIsScrolled(window.scrollY > 20);
+    });
+    return () => window.cancelAnimationFrame(rafId);
+  }, [pathname]);
+
   const closeMenus = useCallback(() => {
     setIsMobileMenuOpen(false);
     setHoveredMenu(null);
