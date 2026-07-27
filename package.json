@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "validate:jsonld": "node scripts/validate-jsonld.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
+    "perf:audit": "node scripts/performance/check-lcp-assets.mjs",
     "analyze": "ANALYZE=true next build",
     "analyze:win": "set ANALYZE=true && next build"
   },

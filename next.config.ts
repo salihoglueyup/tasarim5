@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import { getLinkHeaderString } from './src/lib/performance/resourceHints';
 
 const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -55,6 +56,8 @@ const nextConfig: NextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           // HSTS (Faz 36): HTTPS zorunluluğu, 2 yıl + alt alan adları + preload.
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          // v9 Hyper-Speed Early Hints (Preconnect & DNS prefetch in HTTP response headers)
+          { key: 'Link', value: getLinkHeaderString() },
         ],
       },
       {

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { SmoothScroll, NavigationWrapper, WebVitals, IconFontLoader, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
+import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { JsonLd } from "@/components";
@@ -98,11 +99,15 @@ export default async function RootLayout({
   return (
     <html lang={lang} className={`${inter.variable} ${plusJakarta.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Uzak görsel origin'i (blog/testimonial görselleri) — Faz 197 */}
-        <link rel="preconnect" href="https://images.unsplash.com" />
+        {/* v9 Hyper-Speed Resource Hints (Preconnect & DNS-Prefetch) */}
+        {EXTERNAL_CDN_HINTS.map((hint, i) => (
+          <link
+            key={i}
+            rel={hint.rel}
+            href={hint.href}
+            {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
+          />
+        ))}
         {/* Material Symbols: render-blocking olmasın diye hydration sonrası
             yüklenir (IconFontLoader — Faz 186). No-JS için fallback: */}
         <noscript>
@@ -112,11 +117,6 @@ export default async function RootLayout({
             rel="stylesheet"
           />
         </noscript>
-        {/* Faz 121, 122: Third-party analitik ve ölçüm domainleri için preconnect/dns-prefetch */}
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.clarity.ms" />
-        <link rel="dns-prefetch" href="https://connect.facebook.net" />
         {/* Faz 124: En çok dönüştüren (tıklanan) ana rotalar için prefetch */}
         <link rel="prefetch" href="/tr/hizmetler" />
         <link rel="prefetch" href="/tr/iletisim" />

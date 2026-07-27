@@ -3,33 +3,45 @@
 import { useEffect } from 'react';
 
 /**
- * Material Symbols ikon font'unu render-blocking olmadan yükler (Faz 186).
- * Stylesheet <head>'de blocking <link> yerine hydration sonrası eklenir;
- * böylece ilk boyamayı geciktirmez (SEO araçlarındaki "render-blocking" uyarısı).
- * No-JS fallback layout <head>'inde <noscript> ile sağlanır.
+ * v9 Hyper-Speed İkon Font Yükleyici (Zero-FOIT & Zero-FOUC)
+ * Material Symbols ikon font'unu 1-2 saniye gecikmeli (requestIdleCallback) yüklemek yerine,
+ * tarayıcı oluşturmayı (render-blocking) engellemeyen asenkron ön-yükleme (preload stylesheet)
+ * mantığıyla anında ağa indirir ve DOM'a bağlar.
  */
 const HREF =
   'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap';
 
 export default function IconFontLoader() {
   useEffect(() => {
-    const loadFont = () => {
-      if (document.getElementById('material-symbols-css')) return;
-      const link = document.createElement('link');
-      link.id = 'material-symbols-css';
-      link.rel = 'stylesheet';
-      link.href = HREF;
-      document.head.appendChild(link);
-    };
+    if (document.getElementById('material-symbols-css')) return;
 
-    // Faz 56, 58, 62: LCP ve TBT değerlerini bozmamak için boşta veya 1s sonra yükle
-    if ('requestIdleCallback' in window) {
-      const handle = window.requestIdleCallback(() => loadFont(), { timeout: 2000 });
-      return () => window.cancelIdleCallback(handle);
-    } else {
-      const timer = setTimeout(loadFont, 1000);
-      return () => clearTimeout(timer);
-    }
+    // 1. Ağ öncelikli indirme için preload linki
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'style';
+    preloadLink.href = HREF;
+    document.head.appendChild(preloadLink);
+
+    // 2. Render-blocking yapmayan asenkron stylesheet bağlama (media="print" -> onload="all")
+    const styleLink = document.createElement('link');
+    styleLink.id = 'material-symbols-css';
+    styleLink.rel = 'stylesheet';
+    styleLink.href = HREF;
+    styleLink.media = 'print';
+    styleLink.onload = () => {
+      styleLink.media = 'all';
+    };
+    document.head.appendChild(styleLink);
+
+    // Yedek (Fallback): Eğer tarayıcı önbelleğinde vs. onload tetiklenmezse 300ms içinde zorla aktif et
+    const timer = setTimeout(() => {
+      if (styleLink.media !== 'all') {
+        styleLink.media = 'all';
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, []);
+
   return null;
 }
