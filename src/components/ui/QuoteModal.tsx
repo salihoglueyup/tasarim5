@@ -140,7 +140,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
         </button>
 
         {/* LEFT SIDE: Visuals & Branding (Hidden on mobile, 40% on Desktop) */}
-        <div className="hidden lg:flex w-[40%] bg-[var(--color-primary)] relative flex-col justify-between overflow-hidden p-12 text-white">
+        <div className="flex max-lg:hidden w-[40%] bg-[var(--color-primary)] relative flex-col justify-between overflow-hidden p-12 text-white">
           <div className="absolute inset-0 bg-gradient-to-br from-[#2D2D3A] via-[#1f1f2a] to-[#14141d] z-0"></div>
           {/* Glow effect */}
           <div className="absolute -top-1/4 -right-1/4 w-[150%] h-[150%] bg-white/5 blur-[120px] rounded-full mix-blend-screen pointer-events-none z-0" />

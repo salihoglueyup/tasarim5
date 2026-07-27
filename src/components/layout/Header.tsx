@@ -206,7 +206,7 @@ export default function Header() {
           </Magnetic>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1" onMouseLeave={() => setHoveredMenu(null)}>
+          <nav className="flex max-lg:hidden items-center gap-1" onMouseLeave={() => setHoveredMenu(null)}>
             {MENU_ITEMS.map((item) => (
               <div 
                 key={item.nameKey} 
@@ -334,7 +334,7 @@ export default function Header() {
               <button 
                 onClick={() => setIsLoginModalOpen(true)}
                 aria-label="Online İşlemler Girişi"
-                className={`relative overflow-hidden text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300 active:scale-95 hidden sm:inline-flex group border ${
+                className={`relative overflow-hidden text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group border ${
                   isTopOnHomePage 
                     ? 'bg-white/10 border-white/20 text-white hover:bg-white/20' 
                     : 'bg-white border-slate-200 dark:border-white/10 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'
@@ -352,7 +352,7 @@ export default function Header() {
               <button 
                 onClick={openQuoteModal}
                 aria-label="Hızlı teklif alın"
-                className="relative overflow-hidden text-xs font-extrabold bg-gradient-to-r from-[#2D2D3A] via-[#3a3a4b] to-[#1f1f2a] text-white px-5.5 py-2.5 rounded-xl transition-all duration-300 active:scale-95 hidden sm:inline-flex group shadow-md shadow-slate-900/15 hover:shadow-xl hover:shadow-slate-900/25 hover:-translate-y-0.5 border border-white/10"
+                className="relative overflow-hidden text-xs font-extrabold bg-gradient-to-r from-[#2D2D3A] via-[#3a3a4b] to-[#1f1f2a] text-white px-5.5 py-2.5 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group shadow-md shadow-slate-900/15 hover:shadow-xl hover:shadow-slate-900/25 hover:-translate-y-0.5 border border-white/10"
               >
                 <span className="relative z-10 flex items-center gap-1.5">
                   {t('nav_get_quote')}

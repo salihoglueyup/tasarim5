@@ -28,7 +28,7 @@ export default function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubscribe} className="flex items-center gap-3 w-full">
-      <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 shrink-0 hidden sm:inline-block">
+      <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 shrink-0 inline-block max-sm:hidden">
         {t('footer_newsletter_title')}
       </span>
       <div className="relative flex-grow sm:w-72">
