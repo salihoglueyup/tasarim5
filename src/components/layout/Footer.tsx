@@ -284,7 +284,7 @@ export default function Footer() {
                 href={`/bolgeler/${d.slug}`}
                 className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors"
               >
-                {d.name} {language === 'en' ? 'Facility Management' : 'Tesis Yönetimi'}
+                {d.name} {language === 'en' ? 'Property & Site Management' : 'Mülk ve Site Yönetimi'}
               </Link>
             ))}
             <Link

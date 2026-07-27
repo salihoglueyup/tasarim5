@@ -123,7 +123,7 @@ export const en: Record<keyof typeof tr, string> = {
     btn_mute: "Mute Sound",
     
     // Footer
-    footer_about_text: "Since 2009, with our sectoral knowledge and experience, we continue to be the address of trust in professional property management, private security, and integrated facility management services.",
+    footer_about_text: "Since 2009, with our sectoral knowledge and experience, we continue to be the address of trust in professional property management, private security, and integrated building management services.",
     footer_col_corporate: "CORPORATE",
     footer_col_solutions: "OUR SOLUTIONS",
     footer_col_contact: "CONTACT INFO",
@@ -142,7 +142,7 @@ export const en: Record<keyof typeof tr, string> = {
     footer_kvkk: "Data Protection",
     footer_lang_label: "Global / English",
     footer_rights: "All Rights Reserved.",
-    footer_tagline: "Istanbul-Based Professional Facility Management Platform",
+    footer_tagline: "Istanbul-Based Next-Gen Property Management Platform",
 
     // --- HOME COMPONENTS ---
     home_logoticker_title: "Preferred by Turkey's Most Prestigious Projects",
@@ -164,7 +164,7 @@ export const en: Record<keyof typeof tr, string> = {
     home_metric_6_sub: "Average 20 minutes response time",
 
     // Bento Services
-    home_bento_title: "A flawlessly operating facility management system.",
+    home_bento_title: "A flawlessly operating next-gen property management system.",
     home_bento_desc: "Forget classic management approaches. In the field of Istanbul property management and professional apartment management, we manage every cell of your property with a technology and human-oriented new generation architecture.",
     
     // SEO Content Block

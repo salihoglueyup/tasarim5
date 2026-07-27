@@ -40,7 +40,7 @@ export default function PersonnelDifference() {
           <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed">
             Sıradan bir yönetim şirketi değiliz. Kendi kurduğumuz{' '}
             <strong className="text-white font-semibold">&apos;İstihdam Köprüsü&apos;</strong> sistemi ile sektördeki en
-            nitelikli personeli seçiyor, eğitiyor ve sitenize atıyoruz.
+            nitelikli personeli seçiyor, eğitiyor ve mülklerinize atıyoruz.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function PersonnelDifference() {
 
         <div className="relative z-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-sm text-slate-400">
-            Tesisleriniz için %100 SGK güvenceli, belgeli ve denetlenen profesyonel ekipler.
+            Mülkleriniz ve projeleriniz için %100 SGK güvenceli, belgeli ve denetlenen profesyonel ekipler.
           </p>
           <Link
             href="/istihdam-koprusu"

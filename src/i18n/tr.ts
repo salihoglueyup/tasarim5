@@ -121,7 +121,7 @@ export const tr = {
     btn_mute: "Sesi Kapat",
     
     // Footer
-    footer_about_text: "2009 yılından bugüne, sektördeki bilgi birikimi ve deneyimimizle; profesyonel site yönetimi, özel güvenlik ve entegre tesis yönetimi hizmetlerinde güvenin adresi olmaya devam ediyoruz.",
+    footer_about_text: "2009 yılından bugüne, sektördeki bilgi birikimi ve deneyimimizle; profesyonel mülk yönetimi, özel güvenlik ve entegre bina yönetimi hizmetlerinde güvenin adresi olmaya devam ediyoruz.",
     footer_col_corporate: "KURUMSAL",
     footer_col_solutions: "ÇÖZÜMLERİMİZ",
     footer_col_contact: "İLETİŞİM BİLGİLERİ",
@@ -140,7 +140,7 @@ export const tr = {
     footer_kvkk: "KVKK",
     footer_lang_label: "Türkiye / Türkçe",
     footer_rights: "Tüm Hakları Saklıdır.",
-    footer_tagline: "İstanbul Merkezli Profesyonel Tesis Yönetim Platformu",
+    footer_tagline: "İstanbul Merkezli Yeni Nesil Mülk Yönetim Platformu",
 
     // --- HOME COMPONENTS ---
     home_logoticker_title: "Türkiye'nin En Prestijli Projeleri Tarafından Tercih Ediliyoruz",
@@ -162,8 +162,8 @@ export const tr = {
     home_metric_6_sub: "Ortalama 20 dakikada adrese ulaşım",
 
     // Bento Services
-    home_bento_title: "Kusursuz işleyen bir tesis yönetim sistemi.",
-    home_bento_desc: "Klasik yönetim anlayışını unutun. İstanbul site yönetimi ve profesyonel apartman yönetimi alanında sitenizin her hücresini teknoloji ve insan odaklı yeni nesil bir mimariyle yönetiyoruz.",
+    home_bento_title: "Kusursuz işleyen yeni nesil bir mülk yönetim sistemi.",
+    home_bento_desc: "Klasik yönetim anlayışını unutun. İstanbul mülk yönetimi ve profesyonel bina yönetimi alanında mülkünüzün ve projenizin her hücresini teknoloji ve insan odaklı yeni nesil bir mimariyle yönetiyoruz.",
     
     // SEO Content Block
     home_seo_title: "İstanbul Site Yönetimi ve Profesyonel Apartman Yönetiminde Lider Tesis Yönetim Firması",
