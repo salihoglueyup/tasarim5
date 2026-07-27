@@ -7,12 +7,14 @@ import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 import { DISTRICTS } from '@/data/districts';
 import { ORG_ADDRESS_DISPLAY } from '@/lib/schemas';
+import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
 export default function Footer() {
   const { t, language } = useLanguage();
   const [istanbulTime, setIstanbulTime] = useState("");
   const [emailInput, setEmailInput] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const { status: subStatus, submit: submitLead } = useLeadSubmit();
+  const isSubscribed = subStatus === 'success';
 
   useEffect(() => {
     const updateTime = () => {
@@ -33,13 +35,15 @@ export default function Footer() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (emailInput.trim()) {
-      setIsSubscribed(true);
-      setEmailInput("");
-      setTimeout(() => setIsSubscribed(false), 4000);
-    }
+    if (!emailInput.trim()) return;
+    const ok = await submitLead({
+      type: 'newsletter',
+      email: emailInput,
+      meta: { kaynak: 'footer-bulten', dil: language },
+    });
+    if (ok) setEmailInput("");
   };
 
   return (
@@ -261,9 +265,10 @@ export default function Footer() {
                   placeholder={t('footer_newsletter_placeholder')}
                   className="w-full bg-gray-200/70 dark:bg-white/10 text-gray-900 dark:text-white text-xs px-4 py-3 rounded-full border border-gray-300/80 dark:border-white/15 focus:outline-none focus:border-blue-600 pr-12 transition-colors placeholder-gray-500 dark:placeholder-gray-400"
                 />
-                <button 
+                <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 w-9 h-9 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:scale-105 transition-transform"
+                  disabled={subStatus === 'loading'}
+                  className="absolute right-1 top-1 bottom-1 w-9 h-9 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-60"
                   aria-label="Kayıt Ol"
                 >
                   <span className="material-symbols-outlined text-sm font-bold">send</span>
@@ -271,6 +276,9 @@ export default function Footer() {
               </div>
               {isSubscribed && (
                 <span className="text-xs font-bold text-emerald-600 shrink-0">{t('footer_newsletter_success')}</span>
+              )}
+              {subStatus === 'error' && (
+                <span role="alert" className="text-xs font-bold text-red-500 shrink-0">{t('lead_error_generic')}</span>
               )}
             </form>
             

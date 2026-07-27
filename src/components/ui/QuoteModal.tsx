@@ -4,16 +4,18 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
+import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
 interface QuoteModalProps {
   onClose: () => void;
 }
 
 export default function QuoteModal({ onClose }: QuoteModalProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const [currentStep, setCurrentStep] = useState(0);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const { status, errorKey, submit } = useLeadSubmit();
+  const isCompleted = status === 'success';
 
   // Form State
   const [formData, setFormData] = useState({
@@ -45,15 +47,33 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
     };
   }, [onClose]);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep < 3) {
       setCurrentStep(curr => curr + 1);
-    } else {
-      setIsCompleted(true);
+      return;
+    }
+    const ok = await submit({
+      type: 'quote',
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      message: formData.notes || undefined,
+      meta: {
+        sirket: formData.company,
+        rol: formData.role,
+        projeTipi: formData.projectType,
+        bagimsizBolum: formData.unitCount,
+        konum: formData.location,
+        hizmetler: formData.services.join(', '),
+        tercihSaat: formData.contactTime,
+        kvkk: formData.kvkk,
+        kaynak: 'teklif-modal',
+        dil: language,
+      },
+    });
+    if (ok) {
       // GA4 dönüşüm event'i (Faz 240/243).
       trackEvent(AnalyticsEvents.submitQuote, { form: 'quote_modal' });
-      // API call placeholder
-      console.log("Submitting:", formData);
     }
   };
 
@@ -439,17 +459,25 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                     {t('quote_prev_btn')}
                   </button>
                   
-                  <button 
+                  <button
                     onClick={handleNext}
-                    disabled={!isStepValid()}
+                    disabled={!isStepValid() || status === 'loading'}
                     className="bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900 px-8 py-3 rounded-xl font-bold text-sm shadow-lg shadow-[var(--color-primary)]/20 dark:shadow-white/10 hover:scale-105 hover:shadow-[var(--color-primary)]/40 disabled:opacity-50 disabled:hover:scale-100 disabled:shadow-none disabled:cursor-not-allowed transition-all flex items-center gap-2"
                   >
-                    {currentStep === 3 ? t('quote_submit_btn') : t('quote_next_btn')}
+                    {currentStep === 3
+                      ? (status === 'loading' ? t('contact_form_sending') : t('quote_submit_btn'))
+                      : t('quote_next_btn')}
                     <span className="material-symbols-outlined text-[18px]">
                       {currentStep === 3 ? 'send' : 'arrow_forward'}
                     </span>
                   </button>
                 </div>
+
+                {status === 'error' && (
+                  <p role="alert" aria-live="assertive" className="text-sm text-red-600 dark:text-red-400 font-medium text-right">
+                    {t((errorKey || 'lead_error_generic') as Parameters<typeof t>[0])}
+                  </p>
+                )}
 
               </div>
             ) : (

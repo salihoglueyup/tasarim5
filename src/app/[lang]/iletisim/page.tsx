@@ -7,9 +7,10 @@ import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';
 import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
+import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
 export default function Iletisim() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const offices = [
     {
@@ -32,17 +33,28 @@ export default function Iletisim() {
     }
   ];
 
-  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
+  const [honeypot, setHoneypot] = useState('');
+  const { status, errorKey, submit } = useLeadSubmit();
+  const submitted = status === 'success';
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent(AnalyticsEvents.submitContact);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+    const ok = await submit(
+      {
+        type: 'contact',
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+        meta: { kaynak: 'iletisim-formu', dil: language },
+      },
+      honeypot
+    );
+    if (ok) {
+      trackEvent(AnalyticsEvents.submitContact);
       setFormData({ name: '', phone: '', email: '', message: '' });
-    }, 4000);
+    }
   };
 
   const breadcrumbLd = generateBreadcrumbs([
@@ -88,6 +100,17 @@ export default function Iletisim() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                {/* Honeypot — botlar için görünmez; gerçek kullanıcı doldurmaz. */}
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="absolute left-[-9999px] w-px h-px opacity-0"
+                />
                 <div>
                   <label htmlFor="contact-name" className="block text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{t('contact_form_label_name')}</label>
                   <input
@@ -145,11 +168,18 @@ export default function Iletisim() {
                   />
                 </div>
 
-                <button 
+                {status === 'error' && (
+                  <p role="alert" aria-live="assertive" className="text-sm text-red-600 dark:text-red-400 font-medium">
+                    {t((errorKey || 'lead_error_generic') as Parameters<typeof t>[0])}
+                  </p>
+                )}
+
+                <button
                   type="submit"
-                  className="w-full bg-[var(--color-primary)] text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-2"
+                  disabled={status === 'loading'}
+                  className="w-full bg-[var(--color-primary)] text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {t('contact_form_btn')}
+                  {status === 'loading' ? t('contact_form_sending') : t('contact_form_btn')}
                 </button>
               </form>
             )}
