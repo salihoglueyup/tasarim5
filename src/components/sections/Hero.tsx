@@ -27,7 +27,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900/60 to-slate-900 z-0 animate-pulse" />
         
         {/*
-          Poster kullanıcı isteğiyle kaldırıldı; video preload="auto" ile anında ilk kareyi yükler (Faz 31, 35).
+          LCP ve Ağ Hızı Optimizasyonu (v5): 45 KB'lık optimize poster anında yüklenir;
+          video preload="metadata" ile ana iş parçacığını ve ağ trafiğini yormadan arka planda başlar.
         */}
         <video
           ref={videoRef}
@@ -35,7 +36,8 @@ export default function Hero() {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/images/hero-poster.webp"
           aria-hidden="true"
           tabIndex={-1}
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
@@ -8,15 +8,18 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchOrReducedMotion, setIsTouchOrReducedMotion] = useState(false);
   
+  const isVisibleRef = useRef(true);
+  const isHoveringRef = useRef(false);
+
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
-  const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
+  // Anında takip (sıfır gecikme/takılma) ama akıcı mikro-yumuşatma (stiffness: 1200, damping: 35, mass: 0.01)
+  const springConfig = { damping: 35, stiffness: 1200, mass: 0.01 };
   const smoothX = useSpring(cursorX, springConfig);
   const smoothY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Sadece hassas imleci (mouse/trackpad) olmayan kesin dokunmatik cihazlarda veya hareketi azaltma tercihinde devre dışı bırak
     const hasPrecisePointer = window.matchMedia('(pointer: fine)').matches;
     const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isSmallScreen = window.innerWidth < 768;
@@ -29,41 +32,44 @@ export default function CustomCursor() {
       return () => window.cancelAnimationFrame(id);
     }
 
-    // İmleç aktif olduğunda masaüstünde varsayılan ok imlecini gizle
     document.body.classList.add('cursor-none');
 
-    let rafId: number | null = null;
-
+    // Doğrudan senkron atama: çift rAF gecikmesini ve frame atlamasını tamamen yok eder!
     const moveCursor = (e: MouseEvent) => {
-      const latestX = e.clientX - 16;
-      const latestY = e.clientY - 16;
+      cursorX.set(e.clientX - 16);
+      cursorY.set(e.clientY - 16);
       
-      if (!rafId) {
-        rafId = window.requestAnimationFrame(() => {
-          cursorX.set(latestX);
-          cursorY.set(latestY);
-          if (!isVisible) setIsVisible(true);
-          rafId = null;
-        });
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        setIsVisible(true);
       }
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
-        target?.tagName?.toLowerCase() === 'a' ||
-        target?.tagName?.toLowerCase() === 'button' ||
-        target?.closest('a') ||
-        target?.closest('button') ||
-        target?.classList?.contains('cursor-pointer')
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
+      if (!target || !target.tagName) return;
+
+      const shouldHover = Boolean(
+        target.tagName.toLowerCase() === 'a' ||
+        target.tagName.toLowerCase() === 'button' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList?.contains('cursor-pointer') ||
+        target.getAttribute('role') === 'button'
+      );
+
+      if (shouldHover !== isHoveringRef.current) {
+        isHoveringRef.current = shouldHover;
+        setIsHovering(shouldHover);
       }
     };
 
-    const handleMouseOut = () => setIsHovering(false);
+    const handleMouseOut = (e: MouseEvent) => {
+      if (!e.relatedTarget && isHoveringRef.current) {
+        isHoveringRef.current = false;
+        setIsHovering(false);
+      }
+    };
 
     window.addEventListener('mousemove', moveCursor, { passive: true });
     window.addEventListener('mouseover', handleMouseOver, { passive: true });
@@ -71,14 +77,12 @@ export default function CustomCursor() {
 
     return () => {
       document.body.classList.remove('cursor-none');
-      if (rafId) window.cancelAnimationFrame(rafId);
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [cursorX, cursorY]);
 
-  // SSR hydration mismatch önleme & mobilden kaçış
   if (isTouchOrReducedMotion || !isVisible) {
     return null;
   }
@@ -91,6 +95,7 @@ export default function CustomCursor() {
         y: smoothY,
         scale: isHovering ? 1.5 : 1,
         backgroundColor: isHovering ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)',
+        willChange: 'transform',
       }}
       transition={{ scale: { duration: 0.15 }, backgroundColor: { duration: 0.15 } }}
     />
