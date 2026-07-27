@@ -5,10 +5,12 @@ import Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Hareket azaltma tercihi varsa Lenis'i başlatma (Faz 202 — INP/erişilebilirlik).
+    // Faz 91, 94, 202: Hareket azaltma tercihi veya mobil dokunmatik cihaz varsa Lenis'i başlatma (INP ve FPS).
     if (
       typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+       window.matchMedia('(pointer: coarse)').matches ||
+       window.innerWidth < 768)
     ) {
       return;
     }
@@ -24,14 +26,16 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       infinite: false,
     });
 
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);

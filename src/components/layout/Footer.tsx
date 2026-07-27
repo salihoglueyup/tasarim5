@@ -18,6 +18,7 @@ export default function Footer() {
 
   useEffect(() => {
     const updateTime = () => {
+      if (typeof document !== 'undefined' && document.hidden) return;
       try {
         const time = new Date().toLocaleTimeString('tr-TR', { 
           timeZone: 'Europe/Istanbul', 
@@ -31,7 +32,8 @@ export default function Footer() {
       }
     };
     updateTime();
-    const interval = setInterval(updateTime, 1000);
+    // Faz 13, 99: Her saniye render yerine 30 saniyede bir periyodik kontrol
+    const interval = setInterval(updateTime, 30000);
     return () => clearInterval(interval);
   }, []);
 

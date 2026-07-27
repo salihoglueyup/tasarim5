@@ -4,11 +4,13 @@ export { default as Footer } from './layout/Footer';
 export { default as NavigationWrapper } from './layout/NavigationWrapper';
 export { default as PageHeader } from './layout/PageHeader';
 export { default as LoginModal } from './layout/LoginModal';
+export { default as AnalyticsScripts } from './layout/AnalyticsScripts';
 export { WebVitals } from './layout/WebVitals';
 
 // UI & Utility Components
 export { default as Logo } from './ui/Logo';
 export { default as Magnetic } from './ui/Magnetic';
+export { default as FramerLazyProvider } from './ui/FramerLazyProvider';
 export { default as CustomCursor } from './ui/CustomCursor';
 export { default as NoiseOverlay } from './ui/NoiseOverlay';
 export { default as SmoothScroll } from './ui/SmoothScroll';

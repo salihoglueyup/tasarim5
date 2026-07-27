@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
-import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget, WebVitals, IconFontLoader } from "@/components";
-import dynamic from 'next/dynamic';
-import Script from 'next/script';
+import { SmoothScroll, CustomCursor, NoiseOverlay, NavigationWrapper, QuickCallWidget, WebVitals, IconFontLoader, CookieConsent, AnalyticsScripts, FramerLazyProvider } from "@/components";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { JsonLd } from "@/components";
 import { organizationSchema, webSiteSchema } from "@/lib/schemas";
-
-const CookieConsent = dynamic(() => import('@/components').then(mod => mod.CookieConsent));
 
 // Türkçe glyph'ler (ç, ğ, ş, ı, İ, ö, ü) için latin-ext subset (SEO V4 Faz 185).
 // display:swap ile font kaynaklı CLS önlenir.
@@ -110,53 +106,32 @@ export default async function RootLayout({
         {/* Kurumsal varlık grafiği: Organization + WebSite (SEO V4 Faz 42/58) */}
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
       </head>
-      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] transition-colors duration-500 cursor-none selection:bg-blue-500/30 selection:text-white`}>
-        {/* Microsoft Clarity - Heatmap (yalnız env tanımlıysa) */}
-        {clarityId && (
-          <Script id="ms-clarity" strategy="lazyOnload">
-            {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${clarityId}");
-          `}
-          </Script>
-        )}
+      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] cursor-none selection:bg-blue-500/30 selection:text-white`}>
+        {/* Faz 22, 196: Skip Navigation Link */}
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-blue-600 focus:text-white focus:font-bold focus:shadow-2xl">
+          İçeriğe Geç
+        </a>
 
-        {/* Google Analytics via @next/third-parties (yalnız env tanımlıysa) */}
-        {gaId && <GoogleAnalytics gaId={gaId} />}
-
-        {/* Meta (Facebook) Pixel — yalnız env tanımlıysa, lazyOnload (Faz 240 / reklam retargeting) */}
-        {fbPixelId && (
-          <Script id="fb-pixel" strategy="lazyOnload">
-            {`
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '${fbPixelId}');
-              fbq('track', 'PageView');
-            `}
-          </Script>
-        )}
+        {/* Faz 3, 10, 20: TBT/LCP bozmayan asenkron izole analytics */}
+        <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} />
+        
         <WebVitals />
         <IconFontLoader />
         <LanguageProvider initialLang={lang}>
           <QuoteProvider>
-            <NoiseOverlay />
-            <CustomCursor />
-            <QuickCallWidget />
-            <SmoothScroll>
-              <NavigationWrapper>
-                {children}
-              </NavigationWrapper>
-            </SmoothScroll>
-            <CookieConsent />
+            <FramerLazyProvider>
+              <NoiseOverlay />
+              <CustomCursor />
+              <QuickCallWidget />
+              <SmoothScroll>
+                <NavigationWrapper>
+                  <main id="main-content" className="flex-1 w-full">
+                    {children}
+                  </main>
+                </NavigationWrapper>
+              </SmoothScroll>
+              <CookieConsent />
+            </FramerLazyProvider>
           </QuoteProvider>
         </LanguageProvider>
       </body>

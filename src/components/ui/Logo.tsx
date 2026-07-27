@@ -20,6 +20,8 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
           fill
           sizes="48px"
           priority={true}
+          fetchPriority="high"
+          quality={75}
           className={`object-contain transition-all duration-300 ${
             isWhite 
               ? 'filter brightness-0 invert drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]' 

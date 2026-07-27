@@ -1,10 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Faz 217: Güvenlik ve bayt tasarrufu için X-Powered-By başlığını kaldır.
+  poweredByHeader: false,
+  // Faz 124: Gzip/Brotli sıkıştırmasını aktif et.
+  compress: true,
+  // Faz 216: React Strict Mode ile unhandled render hatalarını yakala.
+  reactStrictMode: true,
   // Tek biçim URL: sondaki slash yok (canonical/proxy ile tutarlı — Faz 26).
   trailingSlash: false,
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Faz 41, 42: Gereksiz büyük boyutlar üretilmemesi için optimize edilmiş breakpointler
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: 'https',

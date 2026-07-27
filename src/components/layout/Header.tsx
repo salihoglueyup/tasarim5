@@ -6,10 +6,13 @@ import Logo from '@/components/ui/Logo';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
+import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
-import { translations } from '@/i18n/translations';
-import LoginModal from './LoginModal';
+import type { translations } from '@/i18n/translations';
+
+// Faz 7, 109: LoginModal sadece butona tıklandığında yüklenir, ilk bundle'ı şişirmez.
+const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
 
 type SubItem = {
   nameKey: keyof typeof translations['tr'];

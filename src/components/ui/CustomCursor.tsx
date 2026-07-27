@@ -6,6 +6,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchOrReducedMotion, setIsTouchOrReducedMotion] = useState(false);
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -15,10 +16,31 @@ export default function CustomCursor() {
   const smoothY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    // Faz 94, 203: Mobil veya hareketi azaltma tercihi varsa devre dışı bırak
+    const touchCheck = window.matchMedia('(pointer: coarse)').matches;
+    const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (touchCheck || motionCheck || window.innerWidth < 768) {
+      setIsTouchOrReducedMotion(true);
+      return;
+    }
+
+    let rafId: number | null = null;
+    let latestX = -100;
+    let latestY = -100;
+
+    // Faz 92: rAF throttle ile INP ve TBT darboğazını önle
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16); // offset by half width (32/2)
-      cursorY.set(e.clientY - 16);
-      if (!isVisible) setIsVisible(true);
+      latestX = e.clientX - 16;
+      latestY = e.clientY - 16;
+      
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(() => {
+          cursorX.set(latestX);
+          cursorY.set(latestY);
+          if (!isVisible) setIsVisible(true);
+          rafId = null;
+        });
+      }
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -43,31 +65,28 @@ export default function CustomCursor() {
     window.addEventListener('mouseout', handleMouseOut, { passive: true });
 
     return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };
   }, [cursorX, cursorY, isVisible]);
 
-  // Disable on touch devices
-  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+  // SSR hydration mismatch önleme & mobilden kaçış
+  if (isTouchOrReducedMotion || !isVisible) {
     return null;
   }
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/40 pointer-events-none z-[100] mix-blend-difference"
+      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/40 pointer-events-none z-[100] mix-blend-difference hidden md:block"
       style={{
         x: smoothX,
         y: smoothY,
-        opacity: isVisible ? 1 : 0,
-      }}
-      animate={{
-        scale: isHovering ? 2 : 1,
+        scale: isHovering ? 1.5 : 1,
         backgroundColor: isHovering ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)',
-        border: isHovering ? 'none' : '1px solid rgba(255,255,255,0.4)',
       }}
-      transition={{ duration: 0.2 }}
+      transition={{ scale: { duration: 0.15 }, backgroundColor: { duration: 0.15 } }}
     />
   );
 }

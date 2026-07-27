@@ -11,19 +11,30 @@ function Counter({ value, suffix = "", duration = 2 }: { value: number, suffix?:
 
   useEffect(() => {
     if (inView) {
+      // Faz 98, 201: Hareket azaltma tercihi varsa animasyonsuz anında göster
+      if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setDisplayValue(value);
+        return;
+      }
+
       let startTimestamp: number | null = null;
+      let rafId: number;
+
       const step = (timestamp: number) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-        // easeOutQuart curve
         const easeOut = 1 - Math.pow(1 - progress, 4);
         setDisplayValue(Math.floor(easeOut * value));
         
         if (progress < 1) {
-          window.requestAnimationFrame(step);
+          rafId = window.requestAnimationFrame(step);
         }
       };
-      window.requestAnimationFrame(step);
+      rafId = window.requestAnimationFrame(step);
+
+      return () => {
+        if (rafId) window.cancelAnimationFrame(rafId);
+      };
     }
   }, [inView, value, duration]);
 
