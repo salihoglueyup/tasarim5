@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿<div align="center">
 
-## Getting Started
+# Alo Yönetim
 
-First, run the development server:
+**İstanbul'un Önde Gelen Profesyonel Tesis Yönetim Şirketi**
 
+Aidat takibi · Güvenlik · Teknik bakım · Temizlik · Peyzaj · Hukuki danışmanlık
+
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
+
+</div>
+
+---
+
+## 🚀 Hızlı Başlangıç
+
+**Windows kullanıcıları** — `dev.bat`'a çift tıkla, menüden `[1]`'i seç.
+
+**Manuel kurulum:**
 ```bash
+git clone https://github.com/salihoglueyup/tasarim5.git
+cd tasarim5
+cp .env.example .env.local   # ortam değişkenlerini doldur
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda: **[http://localhost:3000](http://localhost:3000)**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗️ Proje Mimarisi
 
-## Learn More
+| Katman | Teknoloji |
+|---|---|
+| Framework | Next.js 16 · App Router · Turbopack |
+| Dil | TypeScript 5 |
+| Stil | Tailwind CSS 4 (JIT) · Slate & Titanium paleti |
+| Animasyon | Framer Motion (LazyMotion) |
+| Barındırma | Vercel (Edge Network) |
+| Veritabanı | Supabase (Leads tablosu) |
+| E-posta | Resend |
 
-To learn more about Next.js, take a look at the following resources:
+### Klasör Yapısı (Özet)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/[lang]/          → i18n sayfalar (288 rota: /tr/* ve /en/*)
+│   ├── hizmetler/       → 8 hizmet sayfası
+│   ├── bolgeler/        → 12 ilçe × 8 hizmet (96 yerel sayfa)
+│   └── blog/            → Blog sistemi (makale, yazar, etiket, kategori)
+├── components/          → Layout, Section, UI, Blog, Modal bileşenleri
+├── lib/                 → Schemas (JSON-LD), Translations (i18n), Analytics
+└── hooks/               → useLeadSubmit, useScrollProgress vb.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Detaylı mimari için: [docs/architecture/OVERVIEW.md](docs/architecture/OVERVIEW.md)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚙️ Ortam Değişkenleri
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`.env.example`'ı kopyala ve değerleri doldur:
+
+```bash
+cp .env.example .env.local
+```
+
+| Değişken | Açıklama |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Sitenin tam URL'si |
+| `RESEND_API_KEY` | Lead e-posta bildirimleri |
+| `TELEGRAM_BOT_TOKEN` | Anlık Telegram bildirimleri |
+| `SUPABASE_URL` | Lead veritabanı |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 |
+
+> Tam liste ve Vercel kurulumu: [docs/dev/DEPLOYMENT.md](docs/dev/DEPLOYMENT.md)
+
+---
+
+## 🗺️ Dokümantasyon
+
+| Belge | Açıklama |
+|---|---|
+| [docs/dev/SETUP.md](docs/dev/SETUP.md) | Yerel kurulum ve sık sorulan sorunlar |
+| [docs/dev/DEPLOYMENT.md](docs/dev/DEPLOYMENT.md) | Vercel deploy + ortam değişkenleri |
+| [docs/dev/CONTRIBUTING.md](docs/dev/CONTRIBUTING.md) | Commit formatı, kod standartları, PR süreci |
+| [docs/architecture/OVERVIEW.md](docs/architecture/OVERVIEW.md) | Proje mimarisi, klasör yapısı, render stratejisi |
+| [docs/architecture/LEAD_SYSTEM.md](docs/architecture/LEAD_SYSTEM.md) | Lead/form sistemi kurulumu |
+| [docs/seo/README.md](docs/seo/README.md) | SEO stratejisi ve belgelerine giriş |
+| [docs/content/CALENDAR.md](docs/content/CALENDAR.md) | Blog yayın takvimi |
+
+---
+
+## 📊 Performans Hedefleri
+
+| Metrik | Hedef | Durum |
+|---|---|---|
+| Lighthouse Performance | ≥ 90 | ✅ ~98 |
+| Lighthouse SEO | ≥ 95 | ✅ ~98 |
+| Lighthouse Accessibility | ≥ 90 | ✅ 100 |
+| LCP | < 2.0s | ✅ ~1.1s |
+| CLS | < 0.05 | ✅ 0.00 |
+| İlk JS Bundle | < 200 KB | ✅ ~137 KB |
+| Build süresi (288 rota) | — | ✅ ~5.8s |
+
+---
+
+## 🛠️ Geliştirici Komutları
+
+```bash
+npm run dev          # Dev sunucu (localhost:3000)
+npm run build        # Production build
+npm run start        # Production önizleme
+npx tsc --noEmit     # TypeScript kontrolü
+npx eslint src       # Lint kontrolü
+npx playwright test  # E2E testler
+node scripts/seo-audit.mjs        # SEO dosya denetimi
+node scripts/validate-jsonld.mjs  # JSON-LD doğrulama
+```
+
+> **Windows kısayolu:** `dev.bat` — 22 işlemi tek menüden yönet
+
+---
+
+## 🌐 Canlı Ortam
+
+- **Production:** [https://aloyonetim.com](https://aloyonetim.com)
+- **Deploy:** Vercel (main branch → otomatik)
+- **CI:** Lighthouse CI (`lighthouserc.json`)
+
+---
+
+## 📄 Lisans
+
+Tüm hakları saklıdır © 2024 Alo Yönetim Tesis Yönetimi A.Ş.
