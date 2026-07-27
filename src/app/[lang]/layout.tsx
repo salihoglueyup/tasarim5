@@ -118,7 +118,7 @@ export default async function RootLayout({
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] md:cursor-none`}>
         {/* Faz 22, 196: Skip Navigation Link */}
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-blue-600 focus:text-white focus:font-bold focus:shadow-2xl">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-slate-900 focus:text-white dark:focus:bg-white dark:focus:text-slate-950 focus:font-bold focus:shadow-2xl">
           İçeriğe Geç
         </a>
 

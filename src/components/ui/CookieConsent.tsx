@@ -61,7 +61,7 @@ export default function CookieConsent() {
                 {en
                   ? 'We use essential cookies to run the site and, with your consent, analytics cookies to improve it. '
                   : 'Siteyi çalıştırmak için zorunlu çerezler; onayınızla da siteyi geliştirmek için analitik çerezler kullanırız. '}
-                <Link href={policyHref} className="text-blue-600 dark:text-blue-400 hover:underline">
+                <Link href={policyHref} className="text-slate-900 dark:text-white font-bold underline hover:opacity-80">
                   {en ? 'Cookie Policy' : 'Çerez Politikası'}
                 </Link>
               </p>
@@ -77,7 +77,7 @@ export default function CookieConsent() {
             </button>
             <button
               onClick={() => decide('accepted')}
-              className="flex-1 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md shadow-blue-900/20"
+              className="flex-1 py-2 rounded-xl text-xs font-bold text-white dark:text-slate-950 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors shadow-md shadow-slate-900/20 dark:shadow-white/10"
             >
               {en ? 'Accept all' : 'Tümünü kabul et'}
             </button>

@@ -112,7 +112,7 @@ export default function Footer() {
                   href={item.path} 
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600" aria-hidden="true">arrow_forward</span>
+                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-slate-900 dark:text-white" aria-hidden="true">arrow_forward</span>
                   {t(item.nameKey as any)}
                 </Link>
               ))}
@@ -142,7 +142,7 @@ export default function Footer() {
                   href={item.path} 
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-600" aria-hidden="true">arrow_forward</span>
+                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-slate-900 dark:text-white" aria-hidden="true">arrow_forward</span>
                   {t(item.nameKey as any)}
                 </Link>
               ))}
@@ -178,7 +178,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-gray-900 dark:text-white text-xs">{t('footer_customer_service')}</span>
-                <a href="tel:02165504848" className="text-xs font-bold text-[var(--color-primary)] dark:text-blue-400 hover:underline">0216 550 48 48</a>
+                <a href="tel:02165504848" className="text-xs font-bold text-[var(--color-primary)] dark:text-white hover:underline">0216 550 48 48</a>
               </div>
             </div>
 
@@ -226,7 +226,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 font-medium">
-              <span className="material-symbols-outlined text-lg text-blue-600 dark:text-blue-400">health_and_safety</span>
+              <span className="material-symbols-outlined text-lg text-slate-900 dark:text-white">health_and_safety</span>
               <div>
                 <div className="font-bold text-gray-900 dark:text-white leading-none">ISO 45001</div>
                 <div className="text-[10px] text-gray-500">{t('footer_badge_ohs')}</div>
@@ -290,7 +290,7 @@ export default function Footer() {
             ))}
             <Link
               href="/bolgeler"
-              className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-xs font-bold text-slate-900 dark:text-white hover:underline"
             >
               {language === 'en' ? 'All regions →' : 'Tüm bölgeler →'}
             </Link>
@@ -306,7 +306,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">Çerez Politikası</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-blue-500">Site Haritası</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">Çerez Politikası</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-slate-900 dark:text-white">Site Haritası</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-gray-700 dark:text-gray-300">

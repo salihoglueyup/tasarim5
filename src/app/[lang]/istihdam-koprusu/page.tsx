@@ -43,7 +43,7 @@ export default function IstihdamKoprusu() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
             <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-blue-600 mb-1">{t('emp_stat_1_val')}</div>
+              <div className="text-3xl font-extrabold text-slate-900 dark:text-white mb-1">{t('emp_stat_1_val')}</div>
               <div className="text-xs text-gray-500 font-medium">{t('emp_stat_1_text')}</div>
             </div>
             <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">

@@ -25,7 +25,7 @@ export default function ShareButtons({ path, title }: { path: string; title: str
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${l.label} üzerinde paylaş`}
-          className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-blue-600 hover:text-white transition-colors"
+          className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-950 transition-colors"
         >
           <span className="material-symbols-outlined text-lg">{l.icon}</span>
         </a>

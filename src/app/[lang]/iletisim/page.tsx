@@ -133,7 +133,7 @@ export default function Iletisim() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t('contact_form_ph_name')}
-                    className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-blue-600 transition-colors"
+                    className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
                   />
                 </div>
 
@@ -148,7 +148,7 @@ export default function Iletisim() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={t('contact_form_ph_phone')}
-                      className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-blue-600 transition-colors"
+                      className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
                     />
                   </div>
                   <div>
@@ -161,7 +161,7 @@ export default function Iletisim() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder={t('contact_form_ph_email')}
-                      className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-blue-600 transition-colors"
+                      className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
                     />
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function Iletisim() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t('contact_form_ph_message')}
-                    className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-blue-600 transition-colors"
+                    className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[var(--color-primary)] focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
                   />
                 </div>
 
@@ -198,7 +198,7 @@ export default function Iletisim() {
           </div>
 
           {/* Contact Direct Info */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-blue-900 via-[#122338] to-[#081524] text-white p-8 md:p-12 rounded-[3rem] shadow-2xl flex flex-col gap-8">
+          <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-12 rounded-[3rem] shadow-2xl flex flex-col gap-8">
             <div>
               <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-4 py-1.5 rounded-full">
                 {t('contact_direct_badge')}
@@ -209,7 +209,7 @@ export default function Iletisim() {
             <div className="flex flex-col gap-6 border-y border-white/15 py-6">
               <a href="tel:08500000000" className="flex items-center gap-4 text-gray-200 hover:text-white transition-colors">
                 <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-2xl text-blue-400">call</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-300">call</span>
                 </div>
                 <div>
                   <div className="text-xs text-gray-400">{t('contact_direct_cs')}</div>
@@ -239,12 +239,12 @@ export default function Iletisim() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {offices.map((o, i) => (
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 shadow-sm">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
                 <span className="material-symbols-outlined text-xl">location_on</span>
               </div>
               <h3 className="text-xl font-bold text-[var(--color-primary)]">{o.city}</h3>
               <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{o.address}</p>
-              <div className="pt-2 text-xs font-bold text-blue-600">{o.phone}</div>
+              <div className="pt-2 text-xs font-bold text-slate-900 dark:text-white">{o.phone}</div>
             </div>
           ))}
         </div>

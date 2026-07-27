@@ -63,7 +63,7 @@ export default function TesisYonetimi() {
         {/* Transparency Banner */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-16 rounded-[3rem] shadow-sm flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-6 max-w-2xl">
-            <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-4 py-1.5 rounded-full w-fit">
+            <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit">
               {t('fac_banner_badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)]">
@@ -82,8 +82,8 @@ export default function TesisYonetimi() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-900 to-[#122338] text-white p-10 rounded-[2.5rem] flex flex-col gap-6 w-full lg:w-80 shrink-0 shadow-xl">
-            <div className="text-4xl font-extrabold text-blue-400">{t('fac_box_title')}</div>
+          <div className="bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-10 rounded-[2.5rem] flex flex-col gap-6 w-full lg:w-80 shrink-0 shadow-xl">
+            <div className="text-4xl font-extrabold text-slate-300">{t('fac_box_title')}</div>
             <div className="text-lg font-semibold">{t('fac_box_subtitle')}</div>
             <p className="text-xs text-gray-300 font-light leading-relaxed border-t border-white/10 pt-4">
               {t('fac_box_desc')}
@@ -97,7 +97,7 @@ export default function TesisYonetimi() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {legalSteps.map((s, idx) => (
               <div key={idx} className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 flex flex-col gap-3">
-                <span className="text-3xl font-extrabold text-blue-600/40">{s.step}</span>
+                <span className="text-3xl font-extrabold text-slate-900/40 dark:text-white/40">{s.step}</span>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">{s.title}</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{s.desc}</p>
               </div>
@@ -116,7 +116,7 @@ export default function TesisYonetimi() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-blue-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>

@@ -43,7 +43,7 @@ export default function NewsletterForm() {
           value={emailInput}
           onChange={(e) => setEmailInput(e.target.value)}
           placeholder={t('footer_newsletter_placeholder')}
-          className="w-full bg-gray-200/70 dark:bg-white/10 text-gray-900 dark:text-white text-xs px-4 py-3 rounded-full border border-gray-300/80 dark:border-white/15 focus:outline-none focus:border-blue-600 pr-12 transition-colors placeholder-gray-500 dark:placeholder-gray-400"
+          className="w-full bg-gray-200/70 dark:bg-white/10 text-gray-900 dark:text-white text-xs px-4 py-3 rounded-full border border-gray-300/80 dark:border-white/15 focus:outline-none focus:border-slate-900 dark:focus:border-white pr-12 transition-colors placeholder-gray-500 dark:placeholder-gray-400"
         />
         <button
           type="submit"

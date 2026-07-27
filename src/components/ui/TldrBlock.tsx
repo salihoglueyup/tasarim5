@@ -7,12 +7,12 @@
  */
 export default function TldrBlock({ children }: { children: React.ReactNode }) {
   return (
-    <aside className="tldr flex items-start gap-4 bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6">
-      <span className="material-symbols-outlined text-blue-600 shrink-0" aria-hidden="true">
+    <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/15 dark:border-white/15 rounded-2xl p-6">
+      <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">
         bolt
       </span>
       <div>
-        <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
+        <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">
           Özet
         </div>
         <p className="text-sm md:text-base text-[var(--color-secondary)] leading-relaxed">

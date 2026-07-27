@@ -24,7 +24,7 @@ export default function TemizlikVeHijyen() {
       title: t('clean_feat_2_title'),
       desc: t('clean_feat_2_desc'),
       icon: "cleaning_services",
-      color: "from-blue-500 to-indigo-600"
+      color: "from-slate-700 to-slate-900"
     },
     {
       title: t('clean_feat_3_title'),
@@ -70,8 +70,8 @@ export default function TemizlikVeHijyen() {
       season: t('clean_matrix_season_4'), 
       task: t('clean_matrix_task_4'),
       icon: "ac_unit",
-      color: "text-blue-400",
-      bg: "bg-blue-400/10"
+      color: "text-slate-400 dark:text-slate-300",
+      bg: "bg-slate-400/10 dark:bg-slate-300/10"
     }
   ];
 
@@ -159,7 +159,7 @@ export default function TemizlikVeHijyen() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-10">
             <div className="max-w-lg">
-              <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">
+              <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">
                 {t('clean_matrix_badge')}
               </span>
               <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{t('clean_matrix_title')}</h2>

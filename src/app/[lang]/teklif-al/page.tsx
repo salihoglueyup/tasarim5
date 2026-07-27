@@ -57,7 +57,7 @@ export default function TeklifAl() {
               key={s.title}
               className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-sm"
             >
-              <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center shadow-lg">
                 <span className="material-symbols-outlined text-3xl">{s.icon}</span>
               </div>
               <h2 className="text-xl font-bold text-[var(--color-primary)]">{s.title}</h2>
@@ -69,13 +69,13 @@ export default function TeklifAl() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-blue-900 via-[#122338] to-[#081524] text-white rounded-[3rem] p-10 md:p-16 flex flex-col items-center text-center gap-6 shadow-2xl">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-16 flex flex-col items-center text-center gap-6 shadow-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold">Teklif formunu şimdi doldurun</h2>
-          <p className="text-blue-100 font-light max-w-xl">
+          <p className="text-slate-300 font-light max-w-xl">
             Formu doldurmanız yalnızca 1 dakika sürer. Uzman danışmanımız en kısa sürede sizinle
             iletişime geçer.
           </p>
-          <QuoteCtaButton className="mt-2 bg-white text-blue-900 font-bold py-4 px-10 rounded-xl hover:bg-blue-50 transition-colors">
+          <QuoteCtaButton className="mt-2 bg-white text-slate-950 font-bold py-4 px-10 rounded-xl hover:bg-slate-100 transition-colors">
             Teklif Formunu Aç
           </QuoteCtaButton>
         </div>
@@ -90,7 +90,7 @@ export default function TeklifAl() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] hover:border-blue-500 transition-colors"
+                className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] hover:border-slate-900 dark:hover:border-white transition-colors"
               >
                 {s.label}
               </Link>

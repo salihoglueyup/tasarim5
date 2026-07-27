@@ -64,7 +64,7 @@ export default function BasariHikayeleri() {
               <div className="flex flex-col gap-4 bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 w-full lg:w-72 shrink-0">
                 {c.stats.map((s, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
-                    <span className="material-symbols-outlined text-blue-600">check_circle</span>
+                    <span className="material-symbols-outlined text-slate-900 dark:text-white">check_circle</span>
                     {s}
                   </div>
                 ))}

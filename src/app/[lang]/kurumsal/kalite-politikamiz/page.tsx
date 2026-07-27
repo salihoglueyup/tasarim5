@@ -16,7 +16,7 @@ export default function KalitePolitikamiz() {
       subtitle: t('quality_card_1_sub'),
       desc: t('quality_card_1_desc'),
       icon: "verified",
-      color: "from-blue-600 to-indigo-600"
+      color: "from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
     },
     {
       title: t('quality_card_2_title'),
@@ -94,11 +94,11 @@ export default function KalitePolitikamiz() {
           {/* Left Sticky Manifesto */}
           <div className="lg:col-span-5 relative">
             <div className="lg:sticky lg:top-32 flex flex-col gap-8">
-              <span className="text-xs font-bold text-blue-600 bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
+              <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 border border-slate-900/20 dark:border-white/20 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
                 {t('quality_manifest_badge')}
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] leading-tight tracking-tight">
-                {t('quality_manifest_title_1')} <br />{t('quality_manifest_title_2')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t('quality_manifest_title_3')}</span>
+                {t('quality_manifest_title_1')} <br />{t('quality_manifest_title_2')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">{t('quality_manifest_title_3')}</span>
               </h2>
               <div className="space-y-6 text-[var(--color-secondary)] font-light leading-relaxed">
                 <p>
@@ -112,7 +112,7 @@ export default function KalitePolitikamiz() {
               {/* Stats Box */}
               <div className="mt-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 shadow-lg flex items-center justify-between">
                 <div>
-                  <div className="text-4xl font-black text-blue-600">{t('quality_stat_1_val')}</div>
+                  <div className="text-4xl font-black text-slate-900 dark:text-white">{t('quality_stat_1_val')}</div>
                   <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">{t('quality_stat_1_label')}</div>
                 </div>
                 <div className="w-px h-12 bg-[var(--color-outline)]/50"></div>
@@ -129,7 +129,7 @@ export default function KalitePolitikamiz() {
             {/* Timeline Line */}
             <div className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-[var(--color-outline)]/30 rounded-full hidden sm:block" />
             <motion.div 
-              className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-emerald-500 rounded-full hidden sm:block origin-top"
+              className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-gradient-to-b from-slate-900 to-emerald-500 dark:from-white dark:to-emerald-500 rounded-full hidden sm:block origin-top"
               style={{ scaleY: progressBarHeight }}
             />
 

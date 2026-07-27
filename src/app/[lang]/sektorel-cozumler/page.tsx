@@ -164,7 +164,7 @@ export default function SektorelCozumler() {
             >
               <div className="lg:col-span-7 flex flex-col gap-6">
                 <div className="flex items-center gap-3">
-                  <span className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
+                  <span className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-2xl">{currentSector.icon}</span>
                   </span>
                   <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full">
@@ -178,15 +178,15 @@ export default function SektorelCozumler() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {currentSector.features.map((feat, idx) => (
                     <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10 text-xs font-semibold text-[var(--color-primary)]">
-                      <span className="material-symbols-outlined text-blue-600 shrink-0">check_circle</span>
+                      <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0">check_circle</span>
                       <span>{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
-                <div className="flex items-center gap-2 text-blue-300 text-xs font-bold uppercase tracking-widest">
+              <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
+                <div className="flex items-center gap-2 text-slate-300 text-xs font-bold uppercase tracking-widest">
                   <span className="material-symbols-outlined text-sm">stars</span>
                   {t('sector_specialty_tag')}
                 </div>
@@ -198,7 +198,7 @@ export default function SektorelCozumler() {
 
                 <Link 
                   href="/teklif-al" 
-                  className="w-full bg-white text-blue-900 font-bold py-4 px-6 rounded-2xl text-center text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md flex items-center justify-center gap-2 mt-2"
+                  className="w-full bg-white text-slate-950 font-bold py-4 px-6 rounded-2xl text-center text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md flex items-center justify-center gap-2 mt-2"
                 >
                   {currentSector.title} {t('sector_quote_for_sector')}
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -211,7 +211,7 @@ export default function SektorelCozumler() {
         {/* Interactive Sector Personnel & Resource Estimator Widget */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
-            <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
+            <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
               {t('sector_est_tag')}
             </span>
             <h2 className="text-3xl font-bold text-[var(--color-primary)]">{t('sector_est_title')}</h2>
@@ -222,7 +222,7 @@ export default function SektorelCozumler() {
             <div className="flex flex-col gap-3 pt-4">
               <div className="flex justify-between items-center">
                 <label className="font-semibold text-[var(--color-primary)]">{t('sector_est_label')}</label>
-                <span className="text-xl font-bold text-blue-600 bg-blue-500/10 px-4 py-1 rounded-full">{unitCount} {t('sector_est_unit')}</span>
+                <span className="text-xl font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1 rounded-full">{unitCount} {t('sector_est_unit')}</span>
               </div>
               <input 
                 type="range" 
@@ -231,21 +231,21 @@ export default function SektorelCozumler() {
                 step={10}
                 value={unitCount}
                 onChange={(e) => setUnitCount(Number(e.target.value))}
-                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-gradient-to-br from-slate-900 to-[#122338] text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
-            <span className="text-xs text-blue-300 font-semibold uppercase tracking-wider">{t('sector_est_rec_title')}</span>
+          <div className="lg:col-span-6 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
+            <span className="text-xs text-slate-300 font-semibold uppercase tracking-wider">{t('sector_est_rec_title')}</span>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-blue-400">shield</span>
+                  <span className="material-symbols-outlined text-sm text-slate-300">shield</span>
                   {t('sector_est_sec')}
                 </span>
-                <span className="text-2xl font-bold text-blue-400">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
+                <span className="text-2xl font-bold text-slate-300">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
                 <span className="text-[10px] text-gray-400">{t('sector_est_sec_desc')}</span>
               </div>
 
@@ -277,7 +277,7 @@ export default function SektorelCozumler() {
               </div>
             </div>
 
-            <Link href="/teklif-al" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-105 shadow-lg">
+            <Link href="/teklif-al" className="w-full bg-white text-slate-950 font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-105 hover:bg-slate-100 shadow-lg">
               {t('sector_est_btn')}
             </Link>
           </div>
@@ -289,7 +289,7 @@ export default function SektorelCozumler() {
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:shadow-xl transition-all">
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
                     <span className="material-symbols-outlined text-3xl">{s.icon}</span>
                   </div>
                   <span className="text-[10px] font-bold text-emerald-600 bg-emerald-500/10 px-3 py-1 rounded-full">
@@ -302,7 +302,7 @@ export default function SektorelCozumler() {
                 <div className="flex flex-col gap-2 pt-2">
                   {s.features.map((f, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-300">
-                      <span className="material-symbols-outlined text-blue-600 text-sm">check_circle</span>
+                      <span className="material-symbols-outlined text-slate-900 dark:text-white text-sm">check_circle</span>
                       <span>{f}</span>
                     </div>
                   ))}
@@ -328,7 +328,7 @@ export default function SektorelCozumler() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-blue-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>
@@ -343,14 +343,14 @@ export default function SektorelCozumler() {
         </div>
 
         {/* Bottom Call To Action Banner */}
-        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold mb-2">{t('sector_cta_title')}</h2>
             <p className="text-sm text-gray-300 font-light max-w-xl">
               {t('sector_cta_desc')}
             </p>
           </div>
-          <Link href="/teklif-al" className="bg-white text-blue-900 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md">
+          <Link href="/teklif-al" className="bg-white text-slate-950 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md">
             {t('sector_cta_btn')}
           </Link>
         </div>

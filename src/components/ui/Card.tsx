@@ -40,7 +40,7 @@ export const Card: React.FC<CardProps> = ({
   };
 
   const hoverStyles = hoverEffect 
-    ? "hover:shadow-xl hover:border-blue-600/40 dark:hover:border-blue-400/40 hover:-translate-y-1" 
+    ? "hover:shadow-xl hover:border-slate-400/60 dark:hover:border-white/30 hover:-translate-y-1" 
     : "";
 
   return (
@@ -57,7 +57,7 @@ export const Card: React.FC<CardProps> = ({
           className="absolute inset-0 pointer-events-none transition-opacity duration-500"
           style={{
             opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(37,99,235,0.06), transparent 80%)`,
+            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(148, 163, 184, 0.12), transparent 80%)`,
           }}
         />
       )}

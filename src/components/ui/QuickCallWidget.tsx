@@ -50,9 +50,9 @@ export default function QuickCallWidget() {
                 <a
                   href="tel:08500000000"
                   onClick={() => sendGAEvent('event', 'phone_call_click', { category: 'contact', value: 1 })}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-blue-50 dark:bg-white/5 hover:bg-blue-100 dark:hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
                     <span className="material-symbols-outlined text-lg">call</span>
                   </div>
                   <div className="flex flex-col">
@@ -96,7 +96,7 @@ export default function QuickCallWidget() {
                     openQuoteModal();
                     sendGAEvent('event', 'quote_click', { category: 'conversion', value: 1 });
                   }}
-                  className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-[var(--color-primary)] text-white text-xs font-bold shadow-md hover:opacity-95 transition-opacity"
+                  className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-bold shadow-md hover:opacity-95 transition-opacity"
                 >
                   <span className="material-symbols-outlined text-sm">request_quote</span>
                   Hızlı Teklif Al
@@ -109,7 +109,7 @@ export default function QuickCallWidget() {
 
       <button
         onClick={() => (isOpen ? close() : setIsOpen(true))}
-        className="w-14 h-14 rounded-full bg-[var(--color-primary)] text-white shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+        className="w-14 h-14 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
         aria-label="Hızlı Destek"
       >
         <motion.span

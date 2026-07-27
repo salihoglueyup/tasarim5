@@ -56,7 +56,7 @@ export default function InteractiveProcessSteps() {
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
+        <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
           {t('home_process_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
@@ -98,7 +98,7 @@ export default function InteractiveProcessSteps() {
           className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-10 md:p-16 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
         >
           <div className="lg:col-span-8 flex flex-col gap-6">
-            <span className="text-xs font-bold text-blue-600 tracking-widest uppercase bg-blue-500/10 px-4 py-1.5 rounded-full w-fit">
+            <span className="text-xs font-bold text-slate-900 dark:text-white tracking-widest uppercase bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit">
               {steps[activeStep].tag}
             </span>
             <h3 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
@@ -109,8 +109,8 @@ export default function InteractiveProcessSteps() {
             </p>
           </div>
 
-          <div className="lg:col-span-4 bg-gradient-to-br from-blue-900 to-[#122338] text-white p-10 rounded-[2.5rem] flex flex-col items-center justify-center text-center gap-4">
-            <span className="material-symbols-outlined text-6xl text-blue-400">
+          <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-10 rounded-[2.5rem] flex flex-col items-center justify-center text-center gap-4">
+            <span className="material-symbols-outlined text-6xl text-slate-300">
               {steps[activeStep].icon}
             </span>
             <div className="font-bold text-lg">{t('home_process_step_label')} {steps[activeStep].step} / 6</div>

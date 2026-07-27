@@ -140,8 +140,8 @@ export default async function DistrictPage({
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-4 bg-gradient-to-br from-blue-900 to-[#122338] text-white rounded-[2.5rem] p-8 flex flex-col gap-4">
-            <div className="text-4xl font-black text-blue-400">{district.managedProjects}+</div>
+          <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-xl">
+            <div className="text-4xl font-black text-emerald-400">{district.managedProjects}+</div>
             <div className="font-semibold">{district.name}'de yönetilen proje</div>
             <p className="text-xs text-gray-300 font-light border-t border-white/10 pt-4">
               {district.side} Yakası · ~{Math.round(district.population / 1000)} bin nüfus ·{' '}
@@ -162,7 +162,7 @@ export default async function DistrictPage({
                 href={`/bolgeler/${district.slug}/${s.slug}`}
                 className="group bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-7 flex flex-col gap-3 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
               >
-                <span className="material-symbols-outlined text-3xl text-blue-600">{s.icon}</span>
+                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white">{s.icon}</span>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">
                   {s.shortName} — {district.name}
                 </h3>
@@ -187,7 +187,7 @@ export default async function DistrictPage({
             {district.neighborhoods.map((n) => (
               <span
                 key={n}
-                className="bg-blue-500/10 text-blue-700 dark:text-blue-300 rounded-full px-4 py-2 text-sm font-semibold"
+                className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white rounded-full px-4 py-2 text-sm font-semibold"
               >
                 {n}
               </span>
@@ -226,14 +226,14 @@ export default async function DistrictPage({
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-blue-900 via-[#122338] to-[#081524] text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">
           <h2 className="text-3xl font-extrabold">{district.name} için ücretsiz teklif alın</h2>
-          <p className="text-blue-100 font-light max-w-xl">
+          <p className="text-gray-300 font-light max-w-xl">
             {district.name}'deki sitenizde ücretsiz keşif yapalım, 48 saat içinde şeffaf teklifinizi
             sunalım.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <QuoteCtaButton className="bg-white text-blue-900 font-bold py-3.5 px-8 rounded-xl hover:bg-blue-50 transition-colors">
+            <QuoteCtaButton className="bg-white text-slate-950 font-bold py-3.5 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-lg">
               Ücretsiz Teklif Al
             </QuoteCtaButton>
             <a
@@ -249,15 +249,15 @@ export default async function DistrictPage({
         <div className="text-center flex flex-col gap-4">
           <p className="text-sm text-[var(--color-secondary)]">
             İlgili rehberler:{' '}
-            <Link href="/blog" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/blog" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Site Yönetimi Blogu
             </Link>{' '}
             ·{' '}
-            <Link href="/sozluk" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/sozluk" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Yönetim Sözlüğü
             </Link>{' '}
             ·{' '}
-            <Link href="/bolgeler" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/bolgeler" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Tüm Bölgeler
             </Link>
           </p>

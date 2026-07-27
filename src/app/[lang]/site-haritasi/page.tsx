@@ -88,7 +88,7 @@ export default function SiteHaritasi() {
                   <li key={linkIdx}>
                     <Link 
                       href={link.path} 
-                      className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] dark:hover:text-white hover:underline underline-offset-4 decoration-blue-500 transition-all flex items-center gap-2"
+                      className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] dark:hover:text-white hover:underline underline-offset-4 decoration-slate-900 dark:decoration-white transition-all flex items-center gap-2"
                     >
                       <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
                       {link.name}

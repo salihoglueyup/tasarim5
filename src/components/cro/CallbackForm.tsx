@@ -53,7 +53,7 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
   }
 
   const inputClass =
-    'w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-sm text-[var(--color-primary)] dark:text-white focus:outline-none focus:border-blue-600 transition-colors';
+    'w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-sm text-[var(--color-primary)] dark:text-white focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors';
 
   return (
     <form onSubmit={handleSubmit} className={wrapClass}>

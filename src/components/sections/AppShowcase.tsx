@@ -42,10 +42,10 @@ export default function AppShowcase() {
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
-      <div className="bg-gradient-to-br from-[#0c1e34] via-[#122742] to-[#071322] text-white rounded-[3rem] p-10 md:p-20 shadow-2xl relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-20 shadow-2xl relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div className="lg:col-span-6 flex flex-col gap-8">
-          <span className="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full w-fit">
+          <span className="text-xs font-bold text-slate-300 uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full w-fit border border-white/10">
             {t('home_app_badge')}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
@@ -57,7 +57,7 @@ export default function AppShowcase() {
 
           <div className="flex flex-wrap gap-4 pt-4">
             <div className="bg-white/10 px-6 py-3 rounded-2xl flex items-center gap-3 border border-white/10">
-              <span className="material-symbols-outlined text-2xl text-blue-400">phone_iphone</span>
+              <span className="material-symbols-outlined text-2xl text-slate-300">phone_iphone</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-gray-400">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">App Store</span>
@@ -82,7 +82,7 @@ export default function AppShowcase() {
               whileHover={{ scale: 1.02 }}
               className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col gap-3 backdrop-blur-sm"
             >
-              <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-white/10 text-slate-200 flex items-center justify-center">
                 <span className="material-symbols-outlined">{f.icon}</span>
               </div>
               <h3 className="font-bold text-base text-white">{f.title}</h3>

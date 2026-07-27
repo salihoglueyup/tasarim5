@@ -45,7 +45,7 @@ function linkify(text: string, used: Set<string>, keyPrefix: string): React.Reac
     nodes.push(remaining.slice(0, best.pos));
     const matched = remaining.slice(best.pos, best.pos + best.term.length);
     nodes.push(
-      <Link key={`${keyPrefix}-${idx++}`} href={best.href} className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+      <Link key={`${keyPrefix}-${idx++}`} href={best.href} className="text-slate-900 dark:text-white underline decoration-slate-400 hover:decoration-slate-900 dark:hover:decoration-white font-semibold transition-colors">
         {matched}
       </Link>,
     );
@@ -96,15 +96,15 @@ export default function PostBody({ blocks }: { blocks: PostBlock[] }) {
             );
           case 'quote':
             return (
-              <blockquote key={i} className="border-l-4 border-blue-500 pl-6 italic text-slate-800 dark:text-slate-200 my-2">
+              <blockquote key={i} className="border-l-4 border-slate-900 dark:border-white pl-6 italic text-slate-800 dark:text-slate-200 my-2">
                 {b.text}
               </blockquote>
             );
           case 'cta':
             return (
-              <div key={i} className="my-4 bg-blue-50/60 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-2xl p-6 md:p-8 text-center flex flex-col items-center gap-4">
-                <p className="text-base font-semibold text-slate-900 dark:text-white">{b.text}</p>
-                <Link href={b.href} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors">
+              <div key={i} className="my-4 bg-slate-900 text-white dark:bg-white/5 border border-slate-800 dark:border-white/10 rounded-2xl p-6 md:p-8 text-center flex flex-col items-center gap-4 shadow-xl">
+                <p className="text-base font-semibold text-white dark:text-white">{b.text}</p>
+                <Link href={b.href} className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-3 rounded-full font-semibold transition-colors shadow-md">
                   {b.label}
                 </Link>
               </div>

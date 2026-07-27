@@ -62,8 +62,8 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
             {/* Header Content */}
             <div className="pt-10 pb-6 px-8 text-center border-b border-slate-100 dark:border-white/5">
-              <div className="w-16 h-16 bg-blue-50 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-blue-100 dark:border-blue-500/20">
-                <span className="material-symbols-outlined text-3xl text-blue-600 dark:text-blue-400">
+              <div className="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-200 dark:border-white/10">
+                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white">
                   {activeTab === 'sakin' ? 'vpn_key' : 'admin_panel_settings'}
                 </span>
               </div>
@@ -84,13 +84,13 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 />
                 <button 
                   onClick={() => setActiveTab('sakin')}
-                  className={`flex-1 py-2.5 text-sm font-bold z-10 transition-colors ${activeTab === 'sakin' ? 'text-blue-600 dark:text-white' : 'text-slate-500 dark:text-gray-400'}`}
+                  className={`flex-1 py-2.5 text-sm font-bold z-10 transition-colors ${activeTab === 'sakin' ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-gray-400'}`}
                 >
                   Sakin Girişi
                 </button>
                 <button 
                   onClick={() => setActiveTab('yonetici')}
-                  className={`flex-1 py-2.5 text-sm font-bold z-10 transition-colors ${activeTab === 'yonetici' ? 'text-blue-600 dark:text-white' : 'text-slate-500 dark:text-gray-400'}`}
+                  className={`flex-1 py-2.5 text-sm font-bold z-10 transition-colors ${activeTab === 'yonetici' ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-gray-400'}`}
                 >
                   Yönetici Portalı
                 </button>
@@ -118,14 +118,14 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             type="text" 
                             required
                             placeholder="Örn: 532 123 45 67" 
-                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-sm placeholder:text-slate-400"
+                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
                       </div>
                       <div className="flex flex-col gap-1.5">
                         <div className="flex items-center justify-between pl-1">
                           <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest">Sakin Şifresi</label>
-                          <a href="#" className="text-xs text-blue-600 dark:text-blue-400 font-semibold hover:underline">Şifremi Unuttum?</a>
+                          <a href="#" className="text-xs text-slate-900 dark:text-white font-bold underline hover:opacity-80">Şifremi Unuttum?</a>
                         </div>
                         <div className="relative">
                           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
@@ -133,7 +133,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             type="password" 
                             required
                             placeholder="••••••••" 
-                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-sm placeholder:text-slate-400"
+                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
                       </div>
@@ -148,7 +148,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             type="text" 
                             required
                             placeholder="Personel veya Yönetici Kodu" 
-                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-sm placeholder:text-slate-400"
+                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
                       </div>
@@ -160,7 +160,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             type="password" 
                             required
                             placeholder="••••••••" 
-                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-sm placeholder:text-slate-400"
+                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
                       </div>
@@ -169,7 +169,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
                   <button 
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-blue-600/25 transition-all mt-4 flex items-center justify-center gap-2"
+                    className="w-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold py-3.5 rounded-xl shadow-lg hover:shadow-slate-900/25 dark:hover:shadow-white/20 transition-all mt-4 flex items-center justify-center gap-2"
                   >
                     Sisteme Giriş Yap
                     <span className="material-symbols-outlined text-lg">login</span>

@@ -61,7 +61,7 @@ export default async function AuthorArchive({
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{author.bio}</p>
           <div className="flex flex-wrap gap-2">
             {author.expertise.map((e) => (
-              <span key={e} className="bg-blue-500/10 text-blue-700 dark:text-blue-300 rounded-full px-4 py-1.5 text-sm font-semibold">
+              <span key={e} className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white rounded-full px-4 py-1.5 text-sm font-semibold">
                 {e}
               </span>
             ))}

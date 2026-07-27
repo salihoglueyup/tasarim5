@@ -83,8 +83,8 @@ export default function Blog() {
 
       {/* Newsletter */}
       <section className="px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto mt-12">
-        <div className="bg-gradient-to-r from-blue-900 via-[#122338] to-[#081524] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
           <div className="relative z-10 flex-1">
             <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-widest bg-emerald-500/10 px-4 py-1.5 rounded-full w-fit mb-4">
               <span className="material-symbols-outlined text-sm">mail</span>
@@ -100,14 +100,14 @@ export default function Blog() {
               aria-label={t('blog_nl_ph')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-white/10 border border-white/20 text-white placeholder-gray-400 px-6 py-4 rounded-xl focus:outline-none focus:border-blue-400 w-full md:w-80 transition-colors backdrop-blur-sm"
+              className="bg-white/10 border border-white/20 text-white placeholder-gray-400 px-6 py-4 rounded-xl focus:outline-none focus:border-white w-full md:w-80 transition-colors backdrop-blur-sm"
               required
             />
             <button
               type="submit"
               aria-label={t('blog_nl_title')}
               className={`px-8 py-4 rounded-xl font-bold transition-all shadow-lg whitespace-nowrap flex items-center justify-center gap-2 ${
-                subscribed ? 'bg-emerald-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'
+                subscribed ? 'bg-emerald-500 text-white' : 'bg-white text-slate-950 hover:bg-slate-100'
               }`}
             >
               {subscribed ? (
@@ -130,7 +130,7 @@ export default function Blog() {
             onChange={(e) => { setQuery(e.target.value); setPage(1); }}
             placeholder="Yazılarda ara: aidat, güvenlik, havuz…"
             aria-label="Blog içinde ara"
-            className="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full pl-12 pr-5 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full pl-12 pr-5 py-3.5 text-sm focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
           />
         </div>
 
@@ -138,7 +138,7 @@ export default function Blog() {
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           <button
             onClick={() => { setActiveCategory('all'); setPage(1); }}
-            className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === 'all' ? 'bg-blue-600 text-white border-blue-600 shadow-md scale-105' : 'bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-50'}`}
+            className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === 'all' ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 border-slate-900 dark:border-white shadow-md scale-105' : 'bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-50'}`}
           >
             Tümü
           </button>
@@ -146,7 +146,7 @@ export default function Blog() {
             <button
               key={cat.slug}
               onClick={() => { setActiveCategory(cat.slug); setPage(1); }}
-              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === cat.slug ? 'bg-blue-600 text-white border-blue-600 shadow-md scale-105' : 'bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-50'}`}
+              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === cat.slug ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 border-slate-900 dark:border-white shadow-md scale-105' : 'bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-50'}`}
             >
               {cat.name}
             </button>
@@ -163,7 +163,7 @@ export default function Blog() {
                   <Link href={`/blog/${post.slug}`} className="group cursor-pointer block">
                     <div className="w-full aspect-[16/9] bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative border border-gray-200/50 shadow-sm">
                       <Image src={post.image} alt={post.title} width={800} height={450} sizes="(max-width: 768px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-blue-700 font-bold px-4 py-1.5 rounded-full text-xs shadow-sm">
+                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs shadow-sm">
                         {cat?.name}
                       </div>
                     </div>
@@ -173,7 +173,7 @@ export default function Blog() {
                         {formatDate(post.datePublished)}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors leading-tight">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors leading-tight">
                       {post.title}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 font-light mt-2 line-clamp-2">{post.description}</p>
@@ -207,7 +207,7 @@ export default function Blog() {
                 key={n}
                 onClick={() => setPage(n)}
                 aria-current={current === n ? 'page' : undefined}
-                className={`w-10 h-10 rounded-full text-sm font-bold transition-colors ${current === n ? 'bg-blue-600 text-white' : 'border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5'}`}
+                className={`w-10 h-10 rounded-full text-sm font-bold transition-colors ${current === n ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950' : 'border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5'}`}
               >
                 {n}
               </button>

@@ -49,7 +49,7 @@ export default function CertificateBadgeGrid() {
     <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
+        <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
           {t('home_cert_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
@@ -71,7 +71,7 @@ export default function CertificateBadgeGrid() {
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl">{c.icon}</span>
               </div>
-              <span className="bg-blue-500/10 text-blue-600 font-bold text-xs px-3 py-1 rounded-full">
+              <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-xs px-3 py-1 rounded-full">
                 {c.code}
               </span>
             </div>

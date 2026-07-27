@@ -18,7 +18,7 @@ export default function GuvenlikYonetimi() {
       title: t('sec_feat_1_title'),
       desc: t('sec_feat_1_desc'),
       icon: "verified_user",
-      color: "from-blue-500 to-indigo-600"
+      color: "from-slate-700 to-slate-900"
     },
     {
       title: t('sec_feat_2_title'),
@@ -48,7 +48,7 @@ export default function GuvenlikYonetimi() {
       title: t('sec_feat_6_title'),
       desc: t('sec_feat_6_desc'),
       icon: "emergency",
-      color: "from-cyan-500 to-blue-600"
+      color: "from-slate-600 to-slate-800"
     }
   ];
 
@@ -108,14 +108,14 @@ export default function GuvenlikYonetimi() {
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
         {/* Banner Teaser with Radar Effect */}
-        <div className="bg-gradient-to-br from-[#081524] via-[#122338] to-blue-950 text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden">
           
           {/* Radar Background Animation */}
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-30 mix-blend-screen hidden lg:block">
-            <div className="absolute inset-0 border border-blue-500/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
-            <div className="absolute inset-8 border border-blue-400/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-8 border border-slate-400/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
             <div className="absolute inset-16 border border-emerald-400/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
-            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
+            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-slate-300 to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
           </div>
 
           <div className="flex flex-col gap-6 w-full lg:w-7/12 relative z-10">
@@ -127,20 +127,20 @@ export default function GuvenlikYonetimi() {
             >
               {t('sec_banner_badge')}
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1')} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">${t('sec_banner_title_highlight')}</span> ${t('sec_banner_title_2')}` }} />
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1')} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-emerald-400">${t('sec_banner_title_highlight')}</span> ${t('sec_banner_title_2')}` }} />
             <p className="text-lg text-gray-300 font-light leading-relaxed max-w-xl">
               {t('sec_banner_desc')}
             </p>
           </div>
 
           <div className="w-full lg:w-5/12 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 flex flex-col gap-4 text-center relative z-10 hover:bg-white/10 transition-colors shadow-2xl">
-            <div className="w-20 h-20 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center relative">
-               <span className="absolute inset-0 border-2 border-blue-400 rounded-full animate-ping opacity-20"></span>
-               <span className="material-symbols-outlined text-4xl text-blue-400 relative z-10">radar</span>
+            <div className="w-20 h-20 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center relative">
+               <span className="absolute inset-0 border-2 border-emerald-400 rounded-full animate-ping opacity-20"></span>
+               <span className="material-symbols-outlined text-4xl text-emerald-400 relative z-10">radar</span>
             </div>
             <div className="text-4xl font-black text-white mt-2">{t('sec_banner_box_title')}</div>
-            <div className="text-sm font-semibold text-blue-200">{t('sec_banner_box_subtitle')}</div>
-            <Link href="/teklif-al" className="mt-4 bg-blue-600 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-blue-500 transition-transform hover:scale-105 text-sm flex items-center justify-center gap-2">
+            <div className="text-sm font-semibold text-slate-300">{t('sec_banner_box_subtitle')}</div>
+            <Link href="/teklif-al" className="mt-4 bg-white text-slate-950 font-bold py-3.5 px-6 rounded-xl hover:bg-slate-100 transition-transform hover:scale-105 text-sm flex items-center justify-center gap-2">
               {t('sec_banner_box_btn')}
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
@@ -189,7 +189,7 @@ export default function GuvenlikYonetimi() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5 transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-blue-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>

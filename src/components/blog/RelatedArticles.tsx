@@ -21,9 +21,9 @@ export default function RelatedArticles({ pillar }: { pillar: string }) {
               href={`/blog/${p.slug}`}
               className="group flex items-start gap-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-5 hover:shadow-lg transition-all"
             >
-              <span className="material-symbols-outlined text-blue-600 shrink-0">article</span>
+              <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0">article</span>
               <div>
-                <h3 className="font-bold text-[var(--color-primary)] group-hover:text-blue-600 transition-colors leading-snug">
+                <h3 className="font-bold text-[var(--color-primary)] group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors leading-snug">
                   {p.title}
                 </h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light mt-1 line-clamp-2">{p.description}</p>

@@ -40,7 +40,7 @@ export default function Hesaplayici() {
           <div className="lg:col-span-7 bg-[var(--color-surface)] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/50 shadow-sm flex flex-col gap-10">
             
             <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center gap-3">
-              <span className="material-symbols-outlined text-blue-600 text-3xl">tune</span>
+              <span className="material-symbols-outlined text-slate-900 dark:text-white text-3xl">tune</span>
               {t('calc_params_title')}
             </h2>
 
@@ -48,7 +48,7 @@ export default function Hesaplayici() {
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center">
                 <label className="font-semibold text-[var(--color-primary)] text-lg">{t('calc_unit_label')}</label>
-                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{units} {t('calc_unit_val')}</span>
+                <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white px-4 py-1.5 rounded-full font-bold text-lg">{units} {t('calc_unit_val')}</span>
               </div>
               <input 
                 type="range" 
@@ -57,7 +57,7 @@ export default function Hesaplayici() {
                 step={5}
                 value={units}
                 onChange={(e) => setUnits(Number(e.target.value))}
-                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
               />
             </div>
 
@@ -65,7 +65,7 @@ export default function Hesaplayici() {
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center">
                 <label className="font-semibold text-[var(--color-primary)] text-lg">{t('calc_block_label')}</label>
-                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{blocks} {t('calc_block_val')}</span>
+                <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white px-4 py-1.5 rounded-full font-bold text-lg">{blocks} {t('calc_block_val')}</span>
               </div>
               <input 
                 type="range" 
@@ -74,7 +74,7 @@ export default function Hesaplayici() {
                 step={1}
                 value={blocks}
                 onChange={(e) => setBlocks(Number(e.target.value))}
-                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
               />
             </div>
 
@@ -82,7 +82,7 @@ export default function Hesaplayici() {
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center">
                 <label className="font-semibold text-[var(--color-primary)] text-lg">{t('calc_elev_label')}</label>
-                <span className="bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full font-bold text-lg">{elevators} {t('calc_elev_val')}</span>
+                <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white px-4 py-1.5 rounded-full font-bold text-lg">{elevators} {t('calc_elev_val')}</span>
               </div>
               <input 
                 type="range" 
@@ -91,7 +91,7 @@ export default function Hesaplayici() {
                 step={1}
                 value={elevators}
                 onChange={(e) => setElevators(Number(e.target.value))}
-                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
               />
             </div>
 
@@ -103,7 +103,7 @@ export default function Hesaplayici() {
               
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-blue-600">shield</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white">shield</span>
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_sec')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_sec_desc')}</div>
@@ -113,13 +113,13 @@ export default function Hesaplayici() {
                   type="checkbox" 
                   checked={hasSecurity} 
                   onChange={(e) => setHasSecurity(e.target.checked)}
-                  className="w-6 h-6 rounded accent-blue-600 cursor-pointer"
+                  className="w-6 h-6 rounded accent-slate-900 dark:accent-white cursor-pointer"
                 />
               </div>
 
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-blue-600">pool</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white">pool</span>
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_pool')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_pool_desc')}</div>
@@ -129,13 +129,13 @@ export default function Hesaplayici() {
                   type="checkbox" 
                   checked={hasPool} 
                   onChange={(e) => setHasPool(e.target.checked)}
-                  className="w-6 h-6 rounded accent-blue-600 cursor-pointer"
+                  className="w-6 h-6 rounded accent-slate-900 dark:accent-white cursor-pointer"
                 />
               </div>
 
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-blue-600">park</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white">park</span>
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_green')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_green_desc')}</div>
@@ -145,7 +145,7 @@ export default function Hesaplayici() {
                   type="checkbox" 
                   checked={hasGreenSpace} 
                   onChange={(e) => setHasGreenSpace(e.target.checked)}
-                  className="w-6 h-6 rounded accent-blue-600 cursor-pointer"
+                  className="w-6 h-6 rounded accent-slate-900 dark:accent-white cursor-pointer"
                 />
               </div>
 
@@ -157,14 +157,14 @@ export default function Hesaplayici() {
           <div className="lg:col-span-5 sticky top-28">
             <motion.div 
               layout
-              className="bg-gradient-to-br from-[var(--color-primary)] to-[#152a42] text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl flex flex-col gap-8 relative overflow-hidden"
+              className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl flex flex-col gap-8 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                 <span className="material-symbols-outlined text-9xl">calculate</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="bg-white/10 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+                <span className="bg-white/10 text-slate-300 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
                   {t('calc_report_tag')}
                 </span>
               </div>
@@ -200,7 +200,7 @@ export default function Hesaplayici() {
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <Link 
                   href="/teklif-al"
-                  className="flex-1 bg-white text-[var(--color-primary)] hover:bg-gray-100 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-lg text-sm"
+                  className="flex-1 bg-white text-slate-950 hover:bg-gray-100 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-lg text-sm"
                 >
                   {t('calc_btn_quote')}
                   <span className="material-symbols-outlined text-base">arrow_forward</span>

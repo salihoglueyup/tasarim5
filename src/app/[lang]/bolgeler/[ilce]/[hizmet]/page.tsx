@@ -178,12 +178,12 @@ export default async function ServiceDistrictPage({
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-blue-900 via-[#122338] to-[#081524] text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">
           <h2 className="text-2xl md:text-3xl font-extrabold">
             {district.name}'de {service.shortName.toLowerCase()} için teklif alın
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <QuoteCtaButton className="bg-white text-blue-900 font-bold py-3.5 px-8 rounded-xl hover:bg-blue-50 transition-colors">
+            <QuoteCtaButton className="bg-white text-slate-950 font-bold py-3.5 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-lg">
               Ücretsiz Teklif Al
             </QuoteCtaButton>
             <a
@@ -199,11 +199,11 @@ export default async function ServiceDistrictPage({
         <div className="flex flex-col gap-5">
           <p className="text-sm text-[var(--color-secondary)]">
             Ayrıntılı bilgi:{' '}
-            <Link href={service.pillar} className="text-blue-600 font-semibold hover:underline">
+            <Link href={service.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
               {service.name} hizmetimiz
             </Link>{' '}
             ·{' '}
-            <Link href={`/bolgeler/${district.slug}`} className="text-blue-600 font-semibold hover:underline">
+            <Link href={`/bolgeler/${district.slug}`} className="text-slate-900 dark:text-white font-semibold hover:underline">
               {district.name} tüm hizmetler
             </Link>
           </p>
@@ -212,7 +212,7 @@ export default async function ServiceDistrictPage({
               <Link
                 key={s.slug}
                 href={`/bolgeler/${district.slug}/${s.slug}`}
-                className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:border-blue-500 transition-colors"
+                className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:border-slate-900 dark:hover:border-white hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
               >
                 {s.shortName} — {district.name}
               </Link>

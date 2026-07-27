@@ -277,7 +277,7 @@ export default function Header() {
                 aria-label="Türkçe Dil Seçeneği"
                 className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
                   language === 'tr'
-                    ? 'bg-blue-600 text-white shadow-sm'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm'
                     : isTopOnHomePage
                       ? 'text-white/70 hover:text-white'
                       : 'text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white'
@@ -290,7 +290,7 @@ export default function Header() {
                 aria-label="English Language Option"
                 className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
                   language === 'en'
-                    ? 'bg-blue-600 text-white shadow-sm'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm'
                     : isTopOnHomePage
                       ? 'text-white/70 hover:text-white'
                       : 'text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white'

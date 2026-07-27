@@ -104,7 +104,7 @@ export default function SSS() {
                   className="w-full p-8 text-left flex items-center justify-between gap-4 font-bold text-xl text-[var(--color-primary)] cursor-pointer"
                 >
                   <span>{faq.question}</span>
-                  <span className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-600' : ''}`}>
+                  <span className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? 'rotate-180 text-slate-900 dark:text-white' : ''}`}>
                     expand_more
                   </span>
                 </button>
@@ -130,7 +130,7 @@ export default function SSS() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-20 bg-gradient-to-r from-blue-900 to-[#122338] text-white p-10 md:p-14 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="mt-20 bg-gradient-to-r from-slate-900 to-slate-950 text-white p-10 md:p-14 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div>
             <h3 className="text-2xl md:text-3xl font-bold mb-2">{t('faq_cta_title')}</h3>
             <p className="text-gray-300 font-light">{t('faq_cta_desc')}</p>

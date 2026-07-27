@@ -127,8 +127,8 @@ export default function Referanslar() {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === cat
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-blue-400 hover:text-blue-600'
+                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md shadow-slate-900/20 dark:shadow-white/20 font-bold'
+                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {cat}
@@ -164,7 +164,7 @@ export default function Referanslar() {
                   </span>
                 </div>
                 <div className="p-8 flex flex-col gap-3 relative bg-[var(--color-surface)] z-10 rounded-b-[2.5rem]">
-                  <span className="text-xs font-bold text-blue-600 bg-blue-500/10 px-3 py-1.5 rounded-full w-fit">{project.category}</span>
+                  <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-3 py-1.5 rounded-full w-fit">{project.category}</span>
                   <h3 className="text-2xl font-extrabold text-[var(--color-primary)]">{project.name}</h3>
                   <div className="flex items-center gap-2 text-sm text-[var(--color-secondary)] font-medium mt-1">
                     <span className="material-symbols-outlined text-lg text-gray-400">location_on</span>

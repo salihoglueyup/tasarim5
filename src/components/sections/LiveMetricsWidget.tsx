@@ -18,7 +18,7 @@ export default function LiveMetricsWidget() {
   return (
     <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
-      <div className="bg-gradient-to-r from-blue-900 via-[#122338] to-[#081524] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden">
         
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12 border-b border-white/10 pb-8">
           <div>
@@ -41,7 +41,7 @@ export default function LiveMetricsWidget() {
               whileHover={{ y: -5 }}
               className="bg-white/5 border border-white/10 p-8 rounded-[2rem] flex flex-col gap-4 backdrop-blur-sm"
             >
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-white/10 text-slate-200 flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl">{m.icon}</span>
               </div>
               <div>

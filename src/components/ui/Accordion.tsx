@@ -37,7 +37,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) =
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
-                className="material-symbols-outlined text-blue-600 shrink-0 ml-4"
+                className="material-symbols-outlined text-slate-900 dark:text-white shrink-0 ml-4"
               >
                 expand_more
               </motion.span>

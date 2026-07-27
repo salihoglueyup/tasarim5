@@ -29,7 +29,7 @@ export const Input: React.FC<InputProps> = ({
           </span>
         )}
         <input
-          className={`w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-slate-900 dark:text-white text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-all ${
+          className={`w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-slate-900 dark:text-white text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:border-slate-900 dark:focus:border-white focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 transition-all ${
             icon ? 'pl-11' : ''
           } ${error ? 'border-rose-500' : ''} ${className}`}
           {...props}

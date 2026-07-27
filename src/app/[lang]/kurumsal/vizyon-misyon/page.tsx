@@ -52,11 +52,11 @@ export default function VizyonMisyon() {
           
           {/* Vision Section */}
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 rounded-[4rem] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
+            <div className="absolute -inset-10 bg-gradient-to-r from-slate-500/5 to-slate-400/5 rounded-[4rem] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
             
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
               <div className="lg:w-1/3 shrink-0">
-                <div className="text-[8rem] md:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-blue-100 to-transparent dark:from-white/10 dark:to-transparent leading-none select-none">
+                <div className="text-[8rem] md:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent leading-none select-none">
                   01
                 </div>
                 <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] -mt-16 relative z-10 pl-2">{t('vision_head')}</h2>
@@ -64,7 +64,7 @@ export default function VizyonMisyon() {
               <div className="lg:w-2/3">
                 <p className="text-xl md:text-3xl text-[var(--color-secondary)] font-light leading-relaxed">
                   {t('vision_content_1')}
-                  <span className="font-semibold text-blue-600 dark:text-blue-400">{t('vision_highlight_1')}</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">{t('vision_highlight_1')}</span>
                   {t('vision_content_2')}
                   <span className="font-semibold text-[var(--color-primary)]">{t('vision_highlight_2')}</span>
                   {t('vision_content_3')}

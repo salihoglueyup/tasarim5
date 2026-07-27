@@ -106,7 +106,7 @@ export default function TestimonialSlider() {
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto overflow-hidden">
       <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
         <div>
-          <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
+          <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
             {t('home_testimonial_badge')}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
@@ -165,7 +165,7 @@ export default function TestimonialSlider() {
                 width={64}
                 height={64}
                 sizes="64px"
-                className="w-16 h-16 rounded-full object-cover border-2 border-blue-600"
+                className="w-16 h-16 rounded-full object-cover border-2 border-slate-900 dark:border-white"
               />
               <div>
                 <h3 className="text-xl font-bold text-[var(--color-primary)]">{current.name}</h3>
@@ -175,7 +175,7 @@ export default function TestimonialSlider() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-gradient-to-br from-blue-900 to-[#122338] text-white p-8 rounded-[2rem] flex flex-col gap-4">
+          <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 rounded-[2rem] flex flex-col gap-4">
             <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
               <span className="material-symbols-outlined">verified</span>
               {t('home_testimonial_verified')}

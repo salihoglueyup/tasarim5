@@ -37,12 +37,12 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {related.map((service, idx) => (
-          <Link key={idx} href={service.path} className="group flex items-center gap-4 p-6 bg-[var(--color-surface)] border border-slate-200/60 dark:border-white/10 rounded-2xl hover:border-blue-500/50 hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 shrink-0 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <Link key={idx} href={service.path} className="group flex items-center gap-4 p-6 bg-[var(--color-surface)] border border-slate-200/60 dark:border-white/10 rounded-2xl hover:border-slate-400 dark:hover:border-white/40 hover:shadow-lg transition-all duration-300">
+            <div className="w-12 h-12 shrink-0 rounded-xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center group-hover:scale-110 transition-transform">
               <span className="material-symbols-outlined">{service.icon}</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-[var(--color-primary)] group-hover:text-blue-600 transition-colors">{service.name}</span>
+              <span className="font-bold text-[var(--color-primary)] group-hover:opacity-80 transition-opacity">{service.name}</span>
               <span className="text-xs text-[var(--color-secondary)] mt-1 flex items-center gap-1">İncele <span className="material-symbols-outlined text-[10px]">arrow_forward</span></span>
             </div>
           </Link>

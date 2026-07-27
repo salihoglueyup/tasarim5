@@ -70,7 +70,7 @@ export default function Bolgeler() {
                   className="group bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-7 flex flex-col gap-3 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-blue-600">location_on</span>
+                    <span className="material-symbols-outlined text-slate-900 dark:text-white">location_on</span>
                     <h3 className="text-xl font-bold text-[var(--color-primary)]">
                       {d.name}
                     </h3>
@@ -78,7 +78,7 @@ export default function Bolgeler() {
                   <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed line-clamp-3">
                     {d.intro}
                   </p>
-                  <span className="text-xs font-semibold text-blue-600 mt-1 group-hover:underline">
+                  <span className="text-xs font-semibold text-slate-900 dark:text-white mt-1 group-hover:underline">
                     {d.name} hizmetlerini gör →
                   </span>
                 </Link>

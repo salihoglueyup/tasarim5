@@ -24,7 +24,7 @@ export default function Hero() {
       {/* 8K Fullscreen Background Video & Fallback */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         {/* Animated Fallback Gradient (Visible if video is loading or unsupported) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/40 to-slate-900 z-0 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900/60 to-slate-900 z-0 animate-pulse" />
         
         {/*
           Poster kullanıcı isteğiyle kaldırıldı; video preload="auto" ile anında ilk kareyi yükler (Faz 31, 35).
@@ -112,7 +112,7 @@ export default function Hero() {
                 aria-label={isMuted ? "Filmin sesini aç" : "Filmin sesini kapat"}
                 title={isMuted ? "Sesi aç" : "Sesi kapat"}
               >
-                <span className="material-symbols-outlined text-lg text-blue-400" aria-hidden="true">
+                <span className="material-symbols-outlined text-lg text-slate-300" aria-hidden="true">
                   {isMuted ? 'volume_off' : 'volume_up'}
                 </span>
                 <span>{isMuted ? t('btn_unmute') : t('btn_mute')}</span>

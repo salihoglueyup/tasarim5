@@ -62,24 +62,24 @@ export default function TeknikBakim() {
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
         {/* SLA Timer Banner */}
-        <div className="bg-gradient-to-br from-blue-900 via-indigo-900 to-[#122338] text-white p-10 md:p-14 rounded-[3rem] shadow-2xl flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-10 md:p-14 rounded-[3rem] shadow-2xl flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-500/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
           
           <div className="flex flex-col gap-5 relative z-10">
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-xs font-bold text-blue-300 uppercase tracking-widest bg-white/10 border border-white/20 px-4 py-1.5 rounded-full w-fit"
+              className="text-xs font-bold text-slate-300 uppercase tracking-widest bg-white/10 border border-white/20 px-4 py-1.5 rounded-full w-fit"
             >
               {t('tech_banner_badge')}
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight" dangerouslySetInnerHTML={{ __html: t('tech_banner_title') }} />
-            <p className="text-base text-blue-100 font-light max-w-xl leading-relaxed">
+            <p className="text-base text-gray-300 font-light max-w-xl leading-relaxed">
               {t('tech_banner_desc')}
             </p>
             <div className="pt-4">
-              <Link href="/teklif-al" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-2xl inline-flex items-center gap-2 text-sm shadow-xl transition-all hover:scale-105 hover:shadow-blue-500/25">
+              <Link href="/teklif-al" className="bg-white text-slate-950 hover:bg-slate-100 font-bold py-4 px-8 rounded-2xl inline-flex items-center gap-2 text-sm shadow-xl transition-all hover:scale-105 hover:shadow-white/10">
                 <span className="material-symbols-outlined text-lg">build</span>
                 {t('tech_banner_btn')}
               </Link>
@@ -93,11 +93,11 @@ export default function TeknikBakim() {
             transition={{ type: "spring", bounce: 0.4 }}
             className="bg-white/10 p-10 rounded-full border-[8px] border-white/10 text-center shrink-0 w-48 h-48 flex flex-col items-center justify-center relative z-10 backdrop-blur-md shadow-2xl"
           >
-            <div className="text-5xl font-extrabold text-blue-400 flex items-baseline">
+            <div className="text-5xl font-extrabold text-slate-200 flex items-baseline">
               <AnimatedCounter from={0} to={20} />
               <span className="text-2xl ml-1">DK</span>
             </div>
-            <div className="text-xs text-blue-200 mt-2 font-medium uppercase tracking-wider">{t('tech_banner_box_label')}</div>
+            <div className="text-xs text-slate-400 mt-2 font-medium uppercase tracking-wider">{t('tech_banner_box_label')}</div>
           </motion.div>
         </div>
 
@@ -115,7 +115,7 @@ export default function TeknikBakim() {
                 className="flex flex-col sm:flex-row sm:items-center justify-between p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10 gap-4 hover:shadow-md transition-shadow group"
               >
                 <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center font-black text-lg group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center font-black text-lg group-hover:scale-110 transition-transform">
                     0{idx + 1}
                   </div>
                   <div>
@@ -142,7 +142,7 @@ export default function TeknikBakim() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-blue-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>

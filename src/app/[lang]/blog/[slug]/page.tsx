@@ -91,7 +91,7 @@ export default async function BlogDetail({
         {/* Meta bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-6 text-sm text-slate-500">
           <div className="flex items-center gap-3">
-            <span className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
+            <span className="w-9 h-9 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center font-bold text-xs">
               {(author?.name ?? 'AY').split(' ').map((w) => w[0]).slice(0, 2).join('')}
             </span>
             <div>
@@ -112,7 +112,7 @@ export default async function BlogDetail({
           {category && (
             <Link
               href={`/blog/kategori/${category.slug}`}
-              className="bg-blue-500/10 text-blue-700 dark:text-blue-300 font-bold px-4 py-1.5 rounded-full text-xs"
+              className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white font-bold px-4 py-1.5 rounded-full text-xs"
             >
               {category.name}
             </Link>
@@ -133,10 +133,10 @@ export default async function BlogDetail({
         </div>
 
         {/* TL;DR */}
-        <aside className="tldr flex items-start gap-4 bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6">
-          <span className="material-symbols-outlined text-blue-600 shrink-0" aria-hidden="true">bolt</span>
+        <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
+          <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Özet</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">Özet</div>
             <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr}</p>
           </div>
         </aside>
@@ -150,7 +150,7 @@ export default async function BlogDetail({
             <Link
               key={tag}
               href={`/blog/etiket/${encodeURIComponent(tag)}`}
-              className="text-xs bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full px-3 py-1.5 hover:bg-blue-600 hover:text-white transition-colors"
+              className="text-xs bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full px-3 py-1.5 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-950 transition-colors"
             >
               #{tag}
             </Link>
@@ -163,8 +163,8 @@ export default async function BlogDetail({
         {/* Author box (E-E-A-T) */}
         {author && (
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-8 bg-slate-50 dark:bg-slate-800/30 rounded-3xl border border-slate-100 dark:border-slate-800">
-            <div className="w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900/40 border-4 border-white dark:border-[#0b1c30] shadow-md flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-3xl text-blue-600 dark:text-blue-400">person</span>
+            <div className="w-20 h-20 rounded-full bg-slate-200 dark:bg-slate-800 border-4 border-white dark:border-[#0b1c30] shadow-md flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-3xl text-slate-800 dark:text-slate-200">person</span>
             </div>
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <Link href={`/blog/yazar/${author.slug}`} className="text-lg font-bold text-slate-900 dark:text-white hover:underline">
@@ -186,7 +186,7 @@ export default async function BlogDetail({
                   <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/50 dark:border-white/10">
                     <Image src={r.image} alt={r.title} width={400} height={250} sizes="(max-width: 640px) 100vw, 250px" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors leading-snug">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors leading-snug">
                     {r.title}
                   </h3>
                 </Link>
@@ -198,7 +198,7 @@ export default async function BlogDetail({
         {/* Pillar link */}
         <div className="text-center text-sm text-slate-500">
           İlgili hizmet:{' '}
-          <Link href={post.pillar} className="text-blue-600 font-semibold hover:underline">
+          <Link href={post.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
             Detaylı bilgi için tıklayın
           </Link>
         </div>

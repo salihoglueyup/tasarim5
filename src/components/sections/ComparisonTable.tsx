@@ -53,7 +53,7 @@ export default function ComparisonTable() {
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
+        <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
           {t('home_comparison_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
@@ -67,10 +67,10 @@ export default function ComparisonTable() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Left Column: Alo Yönetim */}
-        <div className="bg-gradient-to-b from-blue-900 via-[#122338] to-[#0a1829] text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-blue-500/30 flex flex-col gap-6">
+        <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-500/30 flex flex-col gap-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-6">
             <div>
-              <h3 className="text-2xl font-bold text-blue-400">{t('home_comparison_left_title')}</h3>
+              <h3 className="text-2xl font-bold text-slate-300">{t('home_comparison_left_title')}</h3>
               <span className="text-xs text-gray-300 font-light">{t('home_comparison_left_sub')}</span>
             </div>
             <span className="material-symbols-outlined text-4xl text-emerald-400">verified</span>

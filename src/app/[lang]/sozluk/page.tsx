@@ -108,7 +108,7 @@ export default function Sozluk() {
                     {' '}
                     <Link
                       href={t.link.href}
-                      className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                      className="text-slate-900 dark:text-white font-semibold hover:underline"
                     >
                       {t.link.label} →
                     </Link>
