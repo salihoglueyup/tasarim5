@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../";
 
 @theme {
   /* Ultra-Premium Slate & Titanium Palette (User Selected) */
