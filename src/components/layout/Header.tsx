@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/components/ui/Logo';
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
@@ -102,7 +102,7 @@ export default function Header() {
   // Scroll & UI States
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
   
   // Mobile Menu & Theme States
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -118,8 +118,8 @@ export default function Header() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  // Page Context Detection
-  const isHomePage = pathname === '/';
+  // Page Context Detection (i18n yolları /tr ve /en dahil edildi)
+  const isHomePage = pathname === '/' || pathname === '/tr' || pathname === '/en';
   const isTopOnHomePage = isHomePage && !isScrolled;
 
   useEffect(() => {
@@ -147,16 +147,21 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      
+      if (currentScrollY <= 20) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
         setIsVisible(false);
-      } else {
+      } else if (currentScrollY < lastScrollYRef.current) {
         setIsVisible(true);
       }
-      setLastScrollY(currentScrollY);
+      
+      lastScrollYRef.current = currentScrollY;
     };
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {

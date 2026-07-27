@@ -116,7 +116,7 @@ export default async function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Blog" href="/feed.xml" />
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
       </head>
-      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] md:cursor-none`}>
+      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)]`}>
         {/* Faz 22, 196: Skip Navigation Link */}
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-slate-900 focus:text-white dark:focus:bg-white dark:focus:text-slate-950 focus:font-bold focus:shadow-2xl">
           İçeriğe Geç

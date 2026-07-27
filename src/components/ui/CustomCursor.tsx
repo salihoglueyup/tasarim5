@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchOrReducedMotion, setIsTouchOrReducedMotion] = useState(false);
   
@@ -16,22 +16,27 @@ export default function CustomCursor() {
   const smoothY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Faz 94, 203: Mobil veya hareketi azaltma tercihi varsa devre dışı bırak
-    const touchCheck = window.matchMedia('(pointer: coarse)').matches;
+    // Sadece hassas imleci (mouse/trackpad) olmayan kesin dokunmatik cihazlarda veya hareketi azaltma tercihinde devre dışı bırak
+    const hasPrecisePointer = window.matchMedia('(pointer: fine)').matches;
     const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (touchCheck || motionCheck || window.innerWidth < 768) {
-      const id = window.requestAnimationFrame(() => setIsTouchOrReducedMotion(true));
+    const isSmallScreen = window.innerWidth < 768;
+
+    if (!hasPrecisePointer || motionCheck || isSmallScreen) {
+      const id = window.requestAnimationFrame(() => {
+        setIsTouchOrReducedMotion(true);
+        document.body.classList.remove('cursor-none');
+      });
       return () => window.cancelAnimationFrame(id);
     }
 
-    let rafId: number | null = null;
-    let latestX = -100;
-    let latestY = -100;
+    // İmleç aktif olduğunda masaüstünde varsayılan ok imlecini gizle
+    document.body.classList.add('cursor-none');
 
-    // Faz 92: rAF throttle ile INP ve TBT darboğazını önle
+    let rafId: number | null = null;
+
     const moveCursor = (e: MouseEvent) => {
-      latestX = e.clientX - 16;
-      latestY = e.clientY - 16;
+      const latestX = e.clientX - 16;
+      const latestY = e.clientY - 16;
       
       if (!rafId) {
         rafId = window.requestAnimationFrame(() => {
@@ -46,11 +51,11 @@ export default function CustomCursor() {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.classList.contains('cursor-pointer')
+        target?.tagName?.toLowerCase() === 'a' ||
+        target?.tagName?.toLowerCase() === 'button' ||
+        target?.closest('a') ||
+        target?.closest('button') ||
+        target?.classList?.contains('cursor-pointer')
       ) {
         setIsHovering(true);
       } else {
@@ -65,6 +70,7 @@ export default function CustomCursor() {
     window.addEventListener('mouseout', handleMouseOut, { passive: true });
 
     return () => {
+      document.body.classList.remove('cursor-none');
       if (rafId) window.cancelAnimationFrame(rafId);
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
