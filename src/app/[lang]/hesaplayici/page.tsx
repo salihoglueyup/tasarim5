@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import CallbackForm from '@/components/cro/CallbackForm';
 
 export default function Hesaplayici() {
   const { t } = useLanguage();
@@ -220,6 +221,28 @@ export default function Hesaplayici() {
               </div>
 
             </motion.div>
+
+            {/* Hesaplayıcı → lead (CRO Track 2): tahmini görüşmek için geri-arama. */}
+            <div className="mt-6">
+              <div className="mb-3 px-1">
+                <h3 className="font-bold text-[var(--color-primary)]">{t('calc_lead_title')}</h3>
+                <p className="text-xs text-[var(--color-secondary)]">{t('calc_lead_desc')}</p>
+              </div>
+              <CallbackForm
+                variant="card"
+                meta={{
+                  kaynak: 'hesaplayici',
+                  bagimsizBolum: units,
+                  blok: blocks,
+                  asansor: elevators,
+                  guvenlik: hasSecurity,
+                  havuz: hasPool,
+                  yesilAlan: hasGreenSpace,
+                  tahminiAidat: estimatedDuesPerUnit,
+                  aylikButce: totalMonthlyBudget,
+                }}
+              />
+            </div>
           </div>
 
         </div>
