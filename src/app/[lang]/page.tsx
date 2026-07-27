@@ -7,6 +7,7 @@ import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/l
 // Heavy components loaded dynamically for performance (Code Splitting - Faz 47)
 const BentoServices = dynamic(() => import('@/components/sections/BentoServices'), { ssr: true });
 const WhyUsBentoGrid = dynamic(() => import('@/components/sections/WhyUsBentoGrid'), { ssr: true });
+const PersonnelDifference = dynamic(() => import('@/components/sections/PersonnelDifference'), { ssr: true });
 const ComparisonTable = dynamic(() => import('@/components/sections/ComparisonTable'), { ssr: true });
 const InteractiveProcessSteps = dynamic(() => import('@/components/sections/InteractiveProcessSteps'), { ssr: true });
 const AppShowcase = dynamic(() => import('@/components/sections/AppShowcase'), { ssr: true });
@@ -70,6 +71,7 @@ export default function Home() {
       <LogoTicker />
       <BentoServices />
       <WhyUsBentoGrid />
+      <PersonnelDifference />
       <ComparisonTable />
       <InteractiveProcessSteps />
       <AppShowcase />

@@ -2,7 +2,7 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import { JsonLd, PersonnelDifference } from '@/components';
 import { generateBreadcrumbs, jobPostingSchema, webPageSchema } from '@/lib/schemas';
 
 export default function IstihdamKoprusu() {
@@ -57,6 +57,8 @@ export default function IstihdamKoprusu() {
           </div>
         </div>
       </section>
+
+      <PersonnelDifference />
     </>
   );
 }

@@ -59,3 +59,4 @@ export { default as Faq } from './sections/Faq';
 export { default as PreFooterCta } from './sections/PreFooterCta';
 export { default as SeoTextSection } from './sections/SeoTextSection';
 export { default as RelatedServices } from './sections/RelatedServices';
+export { default as PersonnelDifference } from './sections/PersonnelDifference';
