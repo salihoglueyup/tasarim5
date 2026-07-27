@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState, MouseEvent } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion, HTMLMotionProps, useMotionValue, useMotionTemplate } from 'framer-motion';
 
 export interface CardProps extends HTMLMotionProps<"div"> {
   variant?: 'glass' | 'glow' | 'outline' | 'flat';
@@ -18,16 +18,18 @@ export const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+
+  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(148, 163, 184, 0.12), transparent 80%)`;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current || variant !== 'glow') return;
     const rect = cardRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
   };
 
   const baseStyles = "relative rounded-[2.5rem] overflow-hidden transition-all duration-300";
@@ -53,11 +55,11 @@ export const Card: React.FC<CardProps> = ({
       {...props}
     >
       {variant === 'glow' && (
-        <div 
+        <motion.div 
           className="absolute inset-0 pointer-events-none transition-opacity duration-500"
           style={{
             opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(148, 163, 184, 0.12), transparent 80%)`,
+            background,
           }}
         />
       )}

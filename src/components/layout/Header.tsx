@@ -144,23 +144,33 @@ export default function Header() {
   }, [isDarkMode]);
 
   useEffect(() => {
+    let rafId: number | null = null;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 20);
-      
-      if (currentScrollY <= 20) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollYRef.current) {
-        setIsVisible(true);
-      }
-      
-      lastScrollYRef.current = currentScrollY;
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const nextIsScrolled = currentScrollY > 20;
+        
+        setIsScrolled((prev) => (prev !== nextIsScrolled ? nextIsScrolled : prev));
+        
+        if (currentScrollY <= 20) {
+          setIsVisible((prev) => (!prev ? true : prev));
+        } else if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
+          setIsVisible((prev) => (prev ? false : prev));
+        } else if (currentScrollY < lastScrollYRef.current) {
+          setIsVisible((prev) => (!prev ? true : prev));
+        }
+        
+        lastScrollYRef.current = currentScrollY;
+        rafId = null;
+      });
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -182,7 +192,7 @@ export default function Header() {
       {/* Scroll Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--color-primary)] via-slate-700 to-[var(--color-primary)] z-[60] origin-left"
-        style={{ scaleX }}
+        style={{ scaleX, willChange: 'transform' }}
       />
 
       <header 

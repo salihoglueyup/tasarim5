@@ -4,20 +4,23 @@ import Link from 'next/link';
 import Magnetic from '@/components/ui/Magnetic';
 import { useState, useRef, MouseEvent } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 
 export default function PreFooterCta() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+
+  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const background = useMotionTemplate`radial-gradient(circle 400px at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.08), transparent 80%)`;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
   };
 
   return (
@@ -32,15 +35,11 @@ export default function PreFooterCta() {
           className="relative w-full bg-[var(--color-primary)] rounded-[3rem] overflow-hidden px-8 py-24 md:py-32 flex flex-col items-center justify-center text-center shadow-2xl"
         >
           {/* Spotlight Effect that follows mouse */}
-          <div 
-            className="absolute pointer-events-none transition-opacity duration-500"
+          <motion.div 
+            className="absolute pointer-events-none transition-opacity duration-500 inset-0"
             style={{
               opacity: isHovering ? 1 : 0,
-              background: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.08), transparent 80%)`,
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
+              background,
             }}
           />
 

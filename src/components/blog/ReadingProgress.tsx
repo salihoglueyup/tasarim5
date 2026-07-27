@@ -1,31 +1,20 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 /**
  * Okuma ilerleme çubuğu (SEO Master Plan V4 — Faz 177).
- * Sayfanın en üstünde scroll ilerlemesini gösterir (etkileşim sinyali).
+ * Sayfanın en üstünde scroll ilerlemesini gösterir (Sıfır Re-Render v6 Optimizasyonu).
  */
 export default function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const el = document.documentElement;
-      const scrolled = el.scrollTop;
-      const height = el.scrollHeight - el.clientHeight;
-      setProgress(height > 0 ? Math.min(100, (scrolled / height) * 100) : 0);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-transparent" aria-hidden="true">
-      <div
-        className="h-full bg-slate-900 dark:bg-white transition-[width] duration-150 ease-out"
-        style={{ width: `${progress}%` }}
+    <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-transparent pointer-events-none" aria-hidden="true">
+      <motion.div
+        className="h-full bg-slate-900 dark:bg-white origin-left"
+        style={{ scaleX, willChange: 'transform' }}
       />
     </div>
   );

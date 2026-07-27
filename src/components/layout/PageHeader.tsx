@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { useState, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,16 +14,18 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+
+  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const background = useMotionTemplate`radial-gradient(circle 500px at ${mouseX}px ${mouseY}px, rgba(45,45,58,0.04), transparent 80%)`;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
   };
 
   const pathname = usePathname() || '';
@@ -62,15 +64,11 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
       className="relative w-full bg-gradient-to-b from-slate-100/90 via-slate-50/70 to-white dark:from-[#0a192b] dark:via-[#0c2038] dark:to-[#071322] border-b border-slate-200/60 dark:border-white/10 overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20 px-[var(--spacing-gutter)] flex flex-col items-center justify-center text-center transition-colors duration-300"
     >
       {/* Spotlight Effect that follows mouse */}
-      <div 
-        className="absolute pointer-events-none transition-opacity duration-500 z-0"
+      <motion.div 
+        className="absolute pointer-events-none transition-opacity duration-500 z-0 inset-0"
         style={{
           opacity: isHovering ? 1 : 0,
-          background: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, rgba(45,45,58,0.04), transparent 80%)`,
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          background,
         }}
       />
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 interface MagneticProps {
   children: React.ReactNode;
@@ -11,7 +11,14 @@ interface MagneticProps {
 
 export default function Magnetic({ children, strength = 0.2, className = "" }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+
+  const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+  const smoothX = useSpring(rawX, springConfig);
+  const smoothY = useSpring(rawY, springConfig);
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
@@ -19,14 +26,16 @@ export default function Magnetic({ children, strength = 0.2, className = "" }: M
     const { height, width, left, top } = ref.current.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
-    setPosition({ x: middleX * strength, y: middleY * strength });
+    
+    // React state tetiklenmeden doğrudan GPU animasyon motoruna iletilir!
+    rawX.set(middleX * strength);
+    rawY.set(middleY * strength);
   };
 
   const reset = () => {
-    setPosition({ x: 0, y: 0 });
+    rawX.set(0);
+    rawY.set(0);
   };
-
-  const { x, y } = position;
 
   return (
     <motion.div
@@ -34,8 +43,7 @@ export default function Magnetic({ children, strength = 0.2, className = "" }: M
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
-      animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      style={{ x: smoothX, y: smoothY, willChange: "transform" }}
     >
       {children}
     </motion.div>
