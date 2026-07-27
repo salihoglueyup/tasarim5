@@ -113,8 +113,8 @@ export const tr = {
     calc_start_btn: "Hesaplamaya Başla",
     
     // Hero & Generic Titles
-    hero_badge: "Türkiye'nin En Prestijli Tesis Yönetimi",
-    hero_title: "Profesyonel Site & Tesis Yönetimi",
+    hero_badge: "Türkiye'nin En Prestijli Mülk Yönetimi",
+    hero_title: "Profesyonel Mülk, Site & Tesis Yönetimi",
     hero_subtitle: "Aidat takibinden 7/24 özel güvenliğe, endüstriyel temizlikten nöbetçi teknik bakıma kadar tüm süreçleri dijital, şeffaf ve profesyonel bir şekilde yönetiyoruz.",
     btn_free_discovery: "Ücretsiz Keşif İste",
     btn_unmute: "Filmin Sesini Aç",

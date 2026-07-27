@@ -44,7 +44,7 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
             ? 'text-slate-200 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]' 
             : 'text-slate-500 dark:text-slate-400'
         }`}>
-          Tesis Yönetimi
+          Mülk Yönetimi
         </span>
       </div>
     </div>

@@ -115,8 +115,8 @@ export const en: Record<keyof typeof tr, string> = {
     calc_start_btn: "Start Calculating",
     
     // Hero & Generic Titles
-    hero_badge: "Turkey's Most Prestigious Facility Management",
-    hero_title: "Professional Complex & Facility Management",
+    hero_badge: "Turkey's Most Prestigious Property Management",
+    hero_title: "Professional Property, Complex & Facility Management",
     hero_subtitle: "From dues tracking to 24/7 private security, from industrial cleaning to on-call technical maintenance, we manage all processes digitally, transparently and professionally.",
     btn_free_discovery: "Request Free Discovery",
     btn_unmute: "Unmute Film",
