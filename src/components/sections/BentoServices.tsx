@@ -20,6 +20,9 @@ export default function BentoServices() {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 15 } }
   };
 
+  // GPU Katman Terfisi (Zero-Jank Scrolling)
+  const cardGpuStyle = { willChange: "transform, opacity", transform: "translateZ(0)" };
+
   return (
     <section id="hizmetler" className="py-32 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
@@ -43,9 +46,10 @@ export default function BentoServices() {
         {/* Card 1: Güvenlik (Large) */}
         <motion.div 
           variants={itemVariants}
+          style={cardGpuStyle}
           className="md:col-span-2 md:row-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-colors"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-colors pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }}></div>
           <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] mb-6">shield_person</span>
           <h3 className="text-3xl font-bold text-[var(--color-primary)] mb-4">{t('home_bento_card1_title')}</h3>
           <p className="text-[var(--color-secondary)] text-lg leading-relaxed max-w-md">
@@ -59,6 +63,7 @@ export default function BentoServices() {
         {/* Card 2: Temizlik */}
         <motion.div 
           variants={itemVariants}
+          style={cardGpuStyle}
           className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group"
         >
           <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4">cleaning_services</span>
@@ -71,6 +76,7 @@ export default function BentoServices() {
         {/* Card 3: Aidat & Finans */}
         <motion.div 
           variants={itemVariants}
+          style={cardGpuStyle}
           className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between"
         >
           <div>
@@ -85,6 +91,7 @@ export default function BentoServices() {
         {/* Card 4: Hukuk */}
         <motion.div 
           variants={itemVariants}
+          style={cardGpuStyle}
           className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between"
         >
           <div>
@@ -99,6 +106,7 @@ export default function BentoServices() {
         {/* Card 5: Teknik Bakım */}
         <motion.div 
           variants={itemVariants}
+          style={cardGpuStyle}
           className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex items-center gap-8"
         >
           <div className="flex-1">
@@ -115,6 +123,7 @@ export default function BentoServices() {
         {/* Card 6: Sosyal Tesisler */}
         <motion.div 
           variants={itemVariants}
+          style={cardGpuStyle}
           className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--color-surface-variant)] opacity-0 group-hover:opacity-50 transition-opacity"></div>

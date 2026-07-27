@@ -4,20 +4,24 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isHovering, setIsHovering] = useState(false);
+  // Sadece ilk yüklemede mobil/dokunmatik kontrolü için tek bir state kullanılır.
   const [isTouchOrReducedMotion, setIsTouchOrReducedMotion] = useState(false);
   
-  const isVisibleRef = useRef(true);
   const isHoveringRef = useRef(false);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+  const scaleValue = useMotionValue(1);
+  const bgValue = useMotionValue('rgba(255, 255, 255, 0)');
+  const opacityValue = useMotionValue(1);
   
   // Anında takip (sıfır gecikme/takılma) ama akıcı mikro-yumuşatma (stiffness: 1200, damping: 35, mass: 0.01)
   const springConfig = { damping: 35, stiffness: 1200, mass: 0.01 };
   const smoothX = useSpring(cursorX, springConfig);
   const smoothY = useSpring(cursorY, springConfig);
+  
+  // Hover geçişleri için yumuşak yay efekti
+  const smoothScale = useSpring(scaleValue, { stiffness: 600, damping: 30 });
 
   useEffect(() => {
     const hasPrecisePointer = window.matchMedia('(pointer: fine)').matches;
@@ -38,10 +42,8 @@ export default function CustomCursor() {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
-      
-      if (!isVisibleRef.current) {
-        isVisibleRef.current = true;
-        setIsVisible(true);
+      if (opacityValue.get() === 0) {
+        opacityValue.set(1);
       }
     };
 
@@ -58,16 +60,19 @@ export default function CustomCursor() {
         target.getAttribute('role') === 'button'
       );
 
+      // React re-render tamamen iptal edildi! Doğrudan GPU transform/motionValue ataması:
       if (shouldHover !== isHoveringRef.current) {
         isHoveringRef.current = shouldHover;
-        setIsHovering(shouldHover);
+        scaleValue.set(shouldHover ? 1.5 : 1);
+        bgValue.set(shouldHover ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)');
       }
     };
 
     const handleMouseOut = (e: MouseEvent) => {
       if (!e.relatedTarget && isHoveringRef.current) {
         isHoveringRef.current = false;
-        setIsHovering(false);
+        scaleValue.set(1);
+        bgValue.set('rgba(255, 255, 255, 0)');
       }
     };
 
@@ -81,9 +86,9 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, scaleValue, bgValue, opacityValue]);
 
-  if (isTouchOrReducedMotion || !isVisible) {
+  if (isTouchOrReducedMotion) {
     return null;
   }
 
@@ -93,11 +98,12 @@ export default function CustomCursor() {
       style={{
         x: smoothX,
         y: smoothY,
-        scale: isHovering ? 1.5 : 1,
-        backgroundColor: isHovering ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)',
-        willChange: 'transform',
+        scale: smoothScale,
+        backgroundColor: bgValue,
+        opacity: opacityValue,
+        willChange: 'transform, opacity',
       }}
-      transition={{ scale: { duration: 0.15 }, backgroundColor: { duration: 0.15 } }}
     />
   );
 }
+

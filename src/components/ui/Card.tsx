@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, MouseEvent } from 'react';
+import React, { useRef, MouseEvent } from 'react';
 import { motion, HTMLMotionProps, useMotionValue, useMotionTemplate } from 'framer-motion';
 
 export interface CardProps extends HTMLMotionProps<"div"> {
@@ -18,11 +18,11 @@ export const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6 & v7): State yerine doğrudan MotionValue!
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const hoverOpacity = useMotionValue(0);
   const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(148, 163, 184, 0.12), transparent 80%)`;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -49,17 +49,22 @@ export const Card: React.FC<CardProps> = ({
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => hoverOpacity.set(1)}
+      onMouseLeave={() => hoverOpacity.set(0)}
       className={`${baseStyles} ${variantStyles[variant]} ${hoverStyles} ${className}`}
+      style={{
+        willChange: variant === 'glass' || variant === 'glow' ? 'transform' : undefined,
+        transform: 'translateZ(0)',
+      }}
       {...props}
     >
       {variant === 'glow' && (
         <motion.div 
           className="absolute inset-0 pointer-events-none transition-opacity duration-500"
           style={{
-            opacity: isHovered ? 1 : 0,
+            opacity: hoverOpacity,
             background,
+            willChange: 'opacity, background',
           }}
         />
       )}
@@ -69,3 +74,4 @@ export const Card: React.FC<CardProps> = ({
 };
 
 export default Card;
+

@@ -26,8 +26,8 @@ export default function PersonnelDifference() {
     <section className="py-20 px-[var(--spacing-gutter)] max-w-7xl mx-auto">
       <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 via-[#1e293b] to-[#0f172a] text-white p-8 md:p-16 border border-slate-800 shadow-2xl">
         {/* Glow & Noise */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }} />
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }} />
 
         <div className="relative z-10 max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-emerald-400 text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-sm">

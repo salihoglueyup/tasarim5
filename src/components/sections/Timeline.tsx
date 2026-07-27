@@ -57,7 +57,7 @@ export default function Timeline() {
           
           {/* Animated Foreground Line (Filled) */}
           <motion.div 
-            style={{ scaleY, transformOrigin: "top" }}
+            style={{ scaleY, transformOrigin: "top", willChange: "transform" }}
             className="absolute top-0 left-[39px] md:left-1/2 md:-translate-x-1/2 w-[2px] h-full bg-[var(--color-primary)] rounded-full z-10"
           ></motion.div>
 
@@ -75,6 +75,7 @@ export default function Timeline() {
                   {/* Content Container */}
                   <div className={`w-full md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'} pl-6 md:pl-0`}>
                     <motion.div 
+                      style={{ willChange: "transform, opacity", transform: "translateZ(0)" }}
                       initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}

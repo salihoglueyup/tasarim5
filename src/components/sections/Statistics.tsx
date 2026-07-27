@@ -50,7 +50,7 @@ export default function Statistics() {
   return (
     <section className="py-24 border-y border-[var(--color-outline)]/30 bg-[var(--color-surface)] relative overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-5xl bg-gradient-to-r from-transparent via-[var(--color-outline)]/20 to-transparent opacity-50 blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-5xl bg-gradient-to-r from-transparent via-[var(--color-outline)]/20 to-transparent opacity-50 blur-3xl pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }}></div>
 
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 text-center divide-x-0 md:divide-x divide-[var(--color-outline)]/50">
