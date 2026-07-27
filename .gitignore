@@ -46,3 +46,6 @@ next-env.d.ts
 *.rar
 *.7z
 *.tar.gz
+
+# temporary scripts and artifacts
+/scratch/

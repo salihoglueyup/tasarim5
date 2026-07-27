@@ -13,7 +13,8 @@ import type { Metadata } from 'next';
  *  - Canonical daima sayfanın kendi (self-referencing) temiz URL'sini işaret eder.
  */
 
-export const BASE_URL = 'https://aloyonetim.com';
+import { BASE_URL } from './constants';
+export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
 export const DEFAULT_OG_ALT = 'Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi';

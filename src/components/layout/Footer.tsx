@@ -6,15 +6,15 @@ import { useState, useEffect } from 'react';
 import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 import { DISTRICTS } from '@/data/districts';
-import { ORG_ADDRESS_DISPLAY } from '@/lib/schemas';
-import { useLeadSubmit } from '@/hooks/useLeadSubmit';
+import dynamic from 'next/dynamic';
+import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
+
+// Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
+const NewsletterForm = dynamic(() => import('./NewsletterForm'), { ssr: false });
 
 export default function Footer() {
   const { t, language } = useLanguage();
   const [istanbulTime, setIstanbulTime] = useState("");
-  const [emailInput, setEmailInput] = useState("");
-  const { status: subStatus, submit: submitLead } = useLeadSubmit();
-  const isSubscribed = subStatus === 'success';
 
   useEffect(() => {
     const updateTime = () => {
@@ -31,22 +31,15 @@ export default function Footer() {
         setIstanbulTime("");
       }
     };
-    updateTime();
-    // Faz 13, 99: Her saniye render yerine 30 saniyede bir periyodik kontrol
-    const interval = setInterval(updateTime, 30000);
-    return () => clearInterval(interval);
+    // Faz 13: İlk çalıştırmayı setTimeout/requestIdleCallback ile geciktirerek LCP ve TBT rahatlatılır
+    const initialTimer = setTimeout(updateTime, 1000);
+    // Faz 13: 30000 yerine 60000 (1 dakika) seyrek güncelleme
+    const interval = setInterval(updateTime, 60000);
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(interval);
+    };
   }, []);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!emailInput.trim()) return;
-    const ok = await submitLead({
-      type: 'newsletter',
-      email: emailInput,
-      meta: { kaynak: 'footer-bulten', dil: language },
-    });
-    if (ok) setEmailInput("");
-  };
 
   return (
     <footer className="relative bg-[#f8f9fa] dark:bg-[#0b1c30] border-t border-slate-200/80 dark:border-white/10 w-full overflow-hidden text-slate-700 dark:text-slate-300">
@@ -249,40 +242,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Newsletter Form & Social Media */}
+          {/* Newsletter Form & Social Media (Faz 14 Lazy Load) */}
           <div className="flex flex-col gap-6 w-full lg:w-auto">
-            <form onSubmit={handleSubscribe} className="flex items-center gap-3 w-full">
-              <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 shrink-0 hidden sm:inline-block">{t('footer_newsletter_title')}</span>
-              <div className="relative flex-grow sm:w-72">
-                <label htmlFor="footer-newsletter-email" className="sr-only">
-                  {t('footer_newsletter_placeholder')}
-                </label>
-                <input
-                  id="footer-newsletter-email"
-                  type="email"
-                  required
-                  aria-label={t('footer_newsletter_placeholder')}
-                  value={emailInput}
-                  onChange={(e) => setEmailInput(e.target.value)}
-                  placeholder={t('footer_newsletter_placeholder')}
-                  className="w-full bg-gray-200/70 dark:bg-white/10 text-gray-900 dark:text-white text-xs px-4 py-3 rounded-full border border-gray-300/80 dark:border-white/15 focus:outline-none focus:border-blue-600 pr-12 transition-colors placeholder-gray-500 dark:placeholder-gray-400"
-                />
-                <button
-                  type="submit"
-                  disabled={subStatus === 'loading'}
-                  className="absolute right-1 top-1 bottom-1 w-9 h-9 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-60"
-                  aria-label="Kayıt Ol"
-                >
-                  <span className="material-symbols-outlined text-sm font-bold">send</span>
-                </button>
-              </div>
-              {isSubscribed && (
-                <span className="text-xs font-bold text-emerald-600 shrink-0">{t('footer_newsletter_success')}</span>
-              )}
-              {subStatus === 'error' && (
-                <span role="alert" className="text-xs font-bold text-red-500 shrink-0">{t('lead_error_generic')}</span>
-              )}
-            </form>
+            <NewsletterForm />
             
             {/* Social Media Icons */}
             <div className="flex items-center gap-3 lg:justify-end">

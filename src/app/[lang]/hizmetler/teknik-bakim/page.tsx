@@ -176,8 +176,16 @@ function AnimatedCounter({ from, to }: { from: number, to: number }) {
   const [count, setCount] = useState(from);
 
   useEffect(() => {
+    // Faz 98: Hareketi azaltma tercihi varsa animasyonsuz anında bitir (INP/Erişilebilirlik)
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(to);
+      return;
+    }
+
     let startTimestamp: number | null = null;
+    let rafId: number;
     const duration = 2000;
+
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
@@ -185,10 +193,16 @@ function AnimatedCounter({ from, to }: { from: number, to: number }) {
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setCount(Math.floor(easeProgress * (to - from) + from));
       if (progress < 1) {
-        window.requestAnimationFrame(step);
+        rafId = window.requestAnimationFrame(step);
       }
     };
-    window.requestAnimationFrame(step);
+
+    rafId = window.requestAnimationFrame(step);
+
+    // Faz 98, 100: Memory & CPU rAF leak iptali (Unmount cleanup)
+    return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
   }, [from, to]);
 
   return <>{count}</>;

@@ -1,6 +1,6 @@
 "use client";
 
-import { BASE_URL } from '@/lib/seo';
+import { BASE_URL } from '@/lib/constants';
 
 /**
  * Sosyal paylaşım butonları (SEO Master Plan V4 — Faz 178).

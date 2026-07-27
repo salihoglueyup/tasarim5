@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
-import JsonLd from '@/components/seo/JsonLd';
-import { reviewsWithRating } from '@/lib/schemas';
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -104,18 +102,8 @@ export default function TestimonialSlider() {
 
   const current = testimonials[currentIndex];
 
-  const reviewJsonLd = reviewsWithRating({
-    ratingValue: '4.9',
-    reviews: testimonials.map((tst) => ({
-      author: tst.name,
-      rating: tst.rating,
-      reviewBody: tst.comment,
-    })),
-  });
-
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto overflow-hidden">
-      <JsonLd data={reviewJsonLd} />
       <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
         <div>
           <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">

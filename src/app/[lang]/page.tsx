@@ -5,15 +5,15 @@ import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 
 // Heavy components loaded dynamically for performance (Code Splitting - Faz 47)
-const BentoServices = dynamic(() => import('@/components').then(mod => mod.BentoServices), { ssr: true });
-const WhyUsBentoGrid = dynamic(() => import('@/components').then(mod => mod.WhyUsBentoGrid), { ssr: true });
-const ComparisonTable = dynamic(() => import('@/components').then(mod => mod.ComparisonTable), { ssr: true });
-const InteractiveProcessSteps = dynamic(() => import('@/components').then(mod => mod.InteractiveProcessSteps), { ssr: true });
-const AppShowcase = dynamic(() => import('@/components').then(mod => mod.AppShowcase), { ssr: true });
-const PreFooterCta = dynamic(() => import('@/components').then(mod => mod.PreFooterCta), { ssr: true });
-const TestimonialSlider = dynamic(() => import('@/components').then(mod => mod.TestimonialSlider), { ssr: true });
-const CertificateBadgeGrid = dynamic(() => import('@/components').then(mod => mod.CertificateBadgeGrid), { ssr: true });
-const Faq = dynamic(() => import('@/components').then(mod => mod.Faq), { ssr: true });
+const BentoServices = dynamic(() => import('@/components/sections/BentoServices'), { ssr: true });
+const WhyUsBentoGrid = dynamic(() => import('@/components/sections/WhyUsBentoGrid'), { ssr: true });
+const ComparisonTable = dynamic(() => import('@/components/sections/ComparisonTable'), { ssr: true });
+const InteractiveProcessSteps = dynamic(() => import('@/components/sections/InteractiveProcessSteps'), { ssr: true });
+const AppShowcase = dynamic(() => import('@/components/sections/AppShowcase'), { ssr: true });
+const PreFooterCta = dynamic(() => import('@/components/sections/PreFooterCta'), { ssr: true });
+const TestimonialSlider = dynamic(() => import('@/components/sections/TestimonialSlider'), { ssr: true });
+const CertificateBadgeGrid = dynamic(() => import('@/components/sections/CertificateBadgeGrid'), { ssr: true });
+const Faq = dynamic(() => import('@/components/sections/Faq'), { ssr: true });
 
 export async function generateMetadata({
   params,

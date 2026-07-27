@@ -13,6 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children, initialLang }: { children: React.ReactNode, initialLang?: string }) => {
   const [language, setLanguageState] = useState<Language>((initialLang as Language) || 'tr');
+  const [transMap, setTransMap] = useState(translations);
 
   useEffect(() => {
     if (initialLang && (initialLang === 'tr' || initialLang === 'en')) {
@@ -28,6 +29,15 @@ export const LanguageProvider = ({ children, initialLang }: { children: React.Re
     }
   }, [initialLang]);
 
+  useEffect(() => {
+    // Eğer aktif dil 'en' ise ve en henüz gerçek modülle güncellenmediyse arka planda dinamik import et (Faz 4 & 6)
+    if (language === 'en' && transMap.en === transMap.tr) {
+      import('@/i18n/en').then((mod) => {
+        setTransMap((prev) => ({ ...prev, en: mod.en }));
+      });
+    }
+  }, [language, transMap]);
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     if (typeof window !== 'undefined') {
@@ -37,7 +47,7 @@ export const LanguageProvider = ({ children, initialLang }: { children: React.Re
   };
 
   const t = (key: keyof typeof translations['tr']): string => {
-    return translations[language][key] || translations['tr'][key] || String(key);
+    return transMap[language][key] || transMap['tr'][key] || String(key);
   };
 
   return (

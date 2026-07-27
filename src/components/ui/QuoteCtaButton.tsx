@@ -1,7 +1,6 @@
 "use client";
 
 import { useQuote } from '@/context/QuoteContext';
-import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
 
 /**
  * Teklif modalını açan küçük client "island" (SEO V4 Faz 87).
@@ -21,7 +20,10 @@ export default function QuoteCtaButton({
 }) {
   const { openQuoteModal } = useQuote();
   const handleClick = () => {
-    trackEvent(AnalyticsEvents.openQuoteModal, location ? { location } : {});
+    // Faz 17: Analytics sadece etkileşim anında dinamik yüklenir
+    import('@/lib/analytics').then(({ trackEvent, AnalyticsEvents }) => {
+      trackEvent(AnalyticsEvents.openQuoteModal, location ? { location } : {});
+    });
     openQuoteModal();
   };
   return (

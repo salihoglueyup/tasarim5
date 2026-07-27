@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';
-import { howToSchema } from '@/lib/schemas';
 
 export default function InteractiveProcessSteps() {
   const [activeStep, setActiveStep] = useState(0);
@@ -55,16 +53,8 @@ export default function InteractiveProcessSteps() {
     }
   ];
 
-  const howToJsonLd = howToSchema({
-    name: 'Profesyonel Site Yönetimine Nasıl Geçilir?',
-    description: 'Alo Yönetim ile sitenizi veya tesisinizi profesyonel yönetime taşıma adımları.',
-    steps: steps.map((s) => ({ name: s.title, text: s.desc })),
-  });
-
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-      <JsonLd data={howToJsonLd} />
-
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-500/10 px-4 py-1.5 rounded-full">
           {t('home_process_badge')}

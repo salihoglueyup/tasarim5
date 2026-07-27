@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';
-import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
 export default function Iletisim() {
@@ -17,30 +16,41 @@ export default function Iletisim() {
       city: t('contact_office_1_city'),
       address: t('contact_office_1_address'),
       phone: "0850 000 00 00",
-      email: "istanbul@aloyonetim.com"
+      email: "istanbul@aloyonetim.com",
+      mapUrl: "https://maps.google.com/?q=Kadikoy+Istanbul",
+      isHQ: true
     },
     {
       city: t('contact_office_2_city'),
       address: t('contact_office_2_address'),
-      phone: "0216 000 00 00",
-      email: "kadikoy@aloyonetim.com"
+      phone: "0312 000 00 00",
+      email: "ankara@aloyonetim.com",
+      mapUrl: "https://maps.google.com/?q=Cankaya+Ankara",
+      isHQ: false
     },
     {
       city: t('contact_office_3_city'),
       address: t('contact_office_3_address'),
-      phone: "0216 111 00 00",
-      email: "atasehir@aloyonetim.com"
+      phone: "0232 000 00 00",
+      email: "izmir@aloyonetim.com",
+      mapUrl: "https://maps.google.com/?q=Bayrakli+Izmir",
+      isHQ: false
     }
   ];
 
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
   const [honeypot, setHoneypot] = useState('');
-  const { status, errorKey, submit } = useLeadSubmit();
+  const { status, errorKey, submit: submitLead } = useLeadSubmit();
   const submitted = status === 'success';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const ok = await submit(
+    const ok = await submitLead(
       {
         type: 'contact',
         name: formData.name,
@@ -52,7 +62,9 @@ export default function Iletisim() {
       honeypot
     );
     if (ok) {
-      trackEvent(AnalyticsEvents.submitContact);
+      import('@/lib/analytics').then(({ trackEvent, AnalyticsEvents }) => {
+        trackEvent(AnalyticsEvents.submitContact);
+      });
       setFormData({ name: '', phone: '', email: '', message: '' });
     }
   };

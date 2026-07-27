@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/components/ui/Logo';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import dynamic from 'next/dynamic';
@@ -13,6 +13,8 @@ import type { translations } from '@/i18n/translations';
 
 // Faz 7, 109: LoginModal sadece butona tıklandığında yüklenir, ilk bundle'ı şişirmez.
 const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
+const MobileMenu = dynamic(() => import('./MobileMenu'), { ssr: false });
+const MegaMenuDropdown = dynamic(() => import('./MegaMenuDropdown'), { ssr: false });
 
 type SubItem = {
   nameKey: keyof typeof translations['tr'];
@@ -104,7 +106,6 @@ export default function Header() {
   
   // Mobile Menu & Theme States
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   
   // Login Modal State
@@ -129,7 +130,7 @@ export default function Header() {
     }
   }, []);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     if (isDarkMode) {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
@@ -139,7 +140,7 @@ export default function Header() {
       localStorage.setItem('theme', 'dark');
       setIsDarkMode(true);
     }
-  };
+  }, [isDarkMode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -165,10 +166,10 @@ export default function Header() {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMobileMenuOpen]);
 
-  const closeMenus = () => {
+  const closeMenus = useCallback(() => {
     setIsMobileMenuOpen(false);
     setHoveredMenu(null);
-  };
+  }, []);
 
   return (
     <>
@@ -249,73 +250,14 @@ export default function Header() {
                   </Link>
                 )}
 
-                {/* Dropdown Mega Menu */}
-                {item.subItems && (
-                  <AnimatePresence>
-                    {hoveredMenu === item.nameKey && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 12, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                        transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 w-[720px] pt-3 origin-top z-50"
-                      >
-                        <div className="bg-white/95 dark:bg-[#122338]/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-white/10 overflow-hidden grid grid-cols-12 p-5 gap-4">
-                          
-                          {/* Sub-items (8 Cols) */}
-                          <div className="col-span-8 grid grid-cols-2 gap-2 max-h-[380px] overflow-y-auto pr-1">
-                            {item.subItems.map((subItem) => (
-                              <Link 
-                                key={subItem.nameKey} 
-                                href={getLocalizedPath(subItem.path)}
-                                onClick={closeMenus}
-                                className="group/item flex items-start gap-3 p-2 rounded-xl hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors relative"
-                              >
-                                {subItem.icon && (
-                                  <div className="w-8.5 h-8.5 rounded-lg bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-hover/item:scale-110 shadow-sm">
-                                    <span className="material-symbols-outlined text-[18px]" aria-hidden="true">{subItem.icon}</span>
-                                  </div>
-                                )}
-                                <div>
-                                  <div className="font-bold text-[12.5px] text-slate-900 dark:text-white mb-0.5 transition-colors group-hover/item:text-[var(--color-primary)]">
-                                    {t(subItem.nameKey)}
-                                  </div>
-                                  {subItem.descKey && (
-                                    <p className="text-[10px] font-normal text-slate-500/90 dark:text-gray-400 leading-snug line-clamp-1">
-                                      {t(subItem.descKey)}
-                                    </p>
-                                  )}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-
-                          {/* Featured Callout Promo Card (4 Cols) */}
-                          <div className="col-span-4 bg-gradient-to-br from-[#2D2D3A] via-[#1f1f2a] to-[#14141d] text-white p-5 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-md">
-                            <div className="relative z-10 flex flex-col gap-2">
-                              <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-300 bg-white/10 px-2.5 py-1 rounded-full w-fit border border-white/10">
-                                {t('lbl_live_module')}
-                              </span>
-                              <div className="font-extrabold text-sm leading-snug mt-1">{t('calc_promo_title')}</div>
-                              <p className="text-[11px] text-gray-300 font-light leading-relaxed">
-                                {t('calc_promo_desc')}
-                              </p>
-                            </div>
-
-                            <Link 
-                              href={getLocalizedPath('/hesaplayici')}
-                              onClick={closeMenus}
-                              className="relative z-10 mt-4 text-xs font-bold text-slate-200 hover:text-white flex items-center gap-1 group/btn"
-                            >
-                              {t('calc_start_btn')}
-                              <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
-                            </Link>
-                          </div>
-
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {/* Dropdown Mega Menu (Faz 12 Lazy Split) */}
+                {hoveredMenu === item.nameKey && (
+                  <MegaMenuDropdown 
+                    hoveredMenu={hoveredMenu}
+                    item={item}
+                    getLocalizedPath={getLocalizedPath}
+                    closeMenus={closeMenus}
+                  />
                 )}
               </div>
             ))}
@@ -435,96 +377,23 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0b1c30]/95 backdrop-blur-2xl lg:hidden flex flex-col pt-24 px-6 overflow-y-auto pb-12 font-sans"
-          >
-            <nav className="flex flex-col gap-2 mt-8">
-              {MENU_ITEMS.map((item, i) => (
-                <motion.div 
-                  key={item.nameKey}
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  transition={{ delay: 0.1 + ((i + 1) * 0.05) }}
-                  className="border-b border-slate-200 dark:border-white/10"
-                >
-                  {item.subItems ? (
-                    <div className="flex flex-col">
-                      <button 
-                        onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.nameKey ? null : item.nameKey)}
-                        className="flex items-center justify-between py-4 text-xl font-bold text-slate-900 dark:text-white"
-                      >
-                        {t(item.nameKey)}
-                        <span className={`material-symbols-outlined transition-transform duration-300 ${expandedMobileMenu === item.nameKey ? 'rotate-180' : ''}`}>
-                          expand_more
-                        </span>
-                      </button>
-                      <AnimatePresence>
-                        {expandedMobileMenu === item.nameKey && (
-                          <motion.div 
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="flex flex-col gap-4 pb-6 pl-4 border-l-2 border-slate-200 dark:border-white/10 ml-2">
-                              {item.subItems.map((sub) => (
-                                <Link 
-                                  key={sub.nameKey} 
-                                  href={sub.path} 
-                                  onClick={closeMenus}
-                                  className="text-lg text-slate-600 dark:text-gray-300 hover:text-[var(--color-primary)] dark:hover:text-white flex items-center gap-3 font-medium"
-                                >
-                                  {sub.icon && <span className="material-symbols-outlined text-[18px] opacity-50">{sub.icon}</span>}
-                                  {t(sub.nameKey)}
-                                </Link>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link 
-                      href={item.path!} 
-                      onClick={closeMenus}
-                      className="block py-4 text-xl font-bold text-slate-900 dark:text-white"
-                    >
-                      {t(item.nameKey)}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
-            </nav>
+      {/* Mobile Menu Drawer (Faz 11 Lazy Split) */}
+      {isMobileMenuOpen && (
+        <MobileMenu 
+          isOpen={isMobileMenuOpen}
+          onClose={closeMenus}
+          menuItems={MENU_ITEMS}
+          getLocalizedPath={getLocalizedPath}
+          openQuoteModal={openQuoteModal}
+        />
+      )}
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.4 }}
-              className="mt-12 flex flex-col gap-3"
-            >
-              <button 
-                onClick={() => { closeMenus(); openQuoteModal(); }}
-                className="flex items-center justify-center gap-2 w-full bg-[#2D2D3A] text-white text-lg font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform"
-              >
-                {t('btn_get_quote')}
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <LoginModal 
-        isOpen={isLoginModalOpen} 
-        onClose={() => setIsLoginModalOpen(false)} 
-      />
+      {isLoginModalOpen && (
+        <LoginModal 
+          isOpen={isLoginModalOpen} 
+          onClose={() => setIsLoginModalOpen(false)} 
+        />
+      )}
     </>
   );
 }

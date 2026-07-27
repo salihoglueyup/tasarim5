@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
-import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
 
 interface CallbackFormProps {
   /** Lead'e eklenecek bağlam (kaynak, hesaplayıcı çıktısı vb.). */
@@ -31,7 +30,9 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
       honeypot
     );
     if (ok) {
-      trackEvent(AnalyticsEvents.submitContact, { form: 'callback' });
+      import('@/lib/analytics').then(({ trackEvent, AnalyticsEvents }) => {
+        trackEvent(AnalyticsEvents.submitContact, { form: 'callback' });
+      });
       setName('');
       setPhone('');
     }

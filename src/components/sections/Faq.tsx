@@ -3,8 +3,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';
-import { faqPageSchema } from '@/lib/schemas';
 
 export default function Faq() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -37,13 +35,8 @@ export default function Faq() {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const faqSchema = faqPageSchema(
-    faqs.map((f) => ({ question: f.question, answer: f.answer })),
-  );
-
   return (
     <section className="py-32 px-[var(--spacing-gutter)] bg-[var(--color-background)]">
-      <JsonLd data={faqSchema} />
       <div className="max-w-4xl mx-auto">
         
         <div className="text-center mb-16">

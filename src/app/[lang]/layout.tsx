@@ -11,18 +11,21 @@ import { organizationSchema, webSiteSchema } from "@/lib/schemas";
 // display:swap ile font kaynaklı CLS önlenir.
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
-  display: 'swap'
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
-  display: 'swap'
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 });
-
-import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aloyonetim.com"),
@@ -101,12 +104,19 @@ export default async function RootLayout({
             rel="stylesheet"
           />
         </noscript>
+        {/* Faz 121, 122: Third-party analitik ve ölçüm domainleri için preconnect/dns-prefetch */}
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        {/* Faz 124: En çok dönüştüren (tıklanan) ana rotalar için prefetch */}
+        <link rel="prefetch" href="/tr/hizmetler" />
+        <link rel="prefetch" href="/tr/iletisim" />
         {/* Blog RSS beslemesi (SEO V4 Faz 162) */}
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Blog" href="/feed.xml" />
-        {/* Kurumsal varlık grafiği: Organization + WebSite (SEO V4 Faz 42/58) */}
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
       </head>
-      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] cursor-none selection:bg-blue-500/30 selection:text-white`}>
+      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)] md:cursor-none`}>
         {/* Faz 22, 196: Skip Navigation Link */}
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-blue-600 focus:text-white focus:font-bold focus:shadow-2xl">
           İçeriğe Geç
