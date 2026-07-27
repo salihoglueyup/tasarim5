@@ -25,15 +25,15 @@ export async function generateMetadata({
   const base = buildMetadata({
     title: 'Alo Yönetim',
     description:
-      'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi. Şeffaf aidat takibi, 7/24 güvenlik, temizlik ve teknik bakımla binanızı güvenle yönetiyoruz. Ücretsiz keşif için hemen ulaşın.',
+      'İstanbul Kadıköy merkezli profesyonel mülk, site, apartman, plaza ve tesis yönetimi. Şeffaf aidat takibi, 7/24 güvenlik, temizlik ve teknik bakımla gayrimenkullerinizi güvenle yönetiyoruz. Ücretsiz keşif için hemen ulaşın.',
     path: '/',
     lang,
-    keywords: ['tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],
+    keywords: ['mülk yönetimi', 'tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],
   });
   // Ana sayfada başlık template'ini (%s | Alo Yönetim) baypas et; marka tekrarını önle.
   return {
     ...base,
-    title: { absolute: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri' },
+    title: { absolute: 'Alo Yönetim | Profesyonel Mülk, Site ve Tesis Yönetimi' },
   };
 }
 

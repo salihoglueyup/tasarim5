@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Tek biçim URL: sondaki slash yok (canonical/proxy ile tutarlı — Faz 26).
   trailingSlash: false,
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'lucide-react', 'date-fns', '@next/third-parties'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     // Faz 41, 42: Gereksiz büyük boyutlar üretilmemesi için optimize edilmiş breakpointler
@@ -62,6 +65,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/video/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
+        source: '/fonts/(.*)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
