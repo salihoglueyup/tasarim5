@@ -15,17 +15,33 @@ interface PageHeaderProps {
 export default function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  // Jank önleme: rect'i her mousemove'da değil, hover başında bir kez ölç ve önbelleğe al.
+  const rectRef = useRef<DOMRect | null>(null);
 
   // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const background = useMotionTemplate`radial-gradient(circle 500px at ${mouseX}px ${mouseY}px, rgba(45,45,58,0.04), transparent 80%)`;
 
+  const handleMouseEnter = () => {
+    if (containerRef.current) rectRef.current = containerRef.current.getBoundingClientRect();
+    setIsHovering(true);
+  };
+
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
+    let rect = rectRef.current;
+    if (!rect) {
+      if (!containerRef.current) return;
+      rect = containerRef.current.getBoundingClientRect();
+      rectRef.current = rect;
+    }
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
+  };
+
+  const handleMouseLeave = () => {
+    rectRef.current = null;
+    setIsHovering(false);
   };
 
   const pathname = usePathname() || '';
@@ -59,8 +75,8 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
       <section 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="relative w-full bg-gradient-to-b from-slate-100/90 via-slate-50/70 to-white dark:from-[#0a192b] dark:via-[#0c2038] dark:to-[#071322] border-b border-slate-200/60 dark:border-white/10 overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20 px-[var(--spacing-gutter)] flex flex-col items-center justify-center text-center transition-colors duration-300"
     >
       {/* Spotlight Effect that follows mouse */}

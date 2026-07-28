@@ -1,46 +1,44 @@
 "use client";
 
-import { useInView } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useInView, useMotionValue, animate } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
-// A simple counter component that animates from 0 to target
+// Sayaç bileşeni: 0'dan hedefe animasyon.
+// Jank önleme (v10): Her frame React setState yerine MotionValue + animate kullanılır ve sayı
+// doğrudan DOM'a (textContent) yazılır — böylece 2sn boyunca ~120 re-render tamamen kalkar.
 function Counter({ value, suffix = "", duration = 2 }: { value: number, suffix?: string, duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
-  const [displayValue, setDisplayValue] = useState(0);
+  const count = useMotionValue(0);
 
   useEffect(() => {
-    if (inView) {
-      // Faz 98, 201: Hareket azaltma tercihi varsa animasyonsuz anında göster
-      if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const id = window.requestAnimationFrame(() => setDisplayValue(value));
-        return () => window.cancelAnimationFrame(id);
-      }
+    if (!inView) return;
 
-      let startTimestamp: number | null = null;
-      let rafId: number;
+    const node = ref.current;
+    const write = (v: number) => {
+      if (node) node.textContent = `${Math.floor(v)}${suffix}`;
+    };
 
-      const step = (timestamp: number) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-        const easeOut = 1 - Math.pow(1 - progress, 4);
-        setDisplayValue(Math.floor(easeOut * value));
-        
-        if (progress < 1) {
-          rafId = window.requestAnimationFrame(step);
-        }
-      };
-      rafId = window.requestAnimationFrame(step);
-
-      return () => {
-        if (rafId) window.cancelAnimationFrame(rafId);
-      };
+    // Faz 98, 201: Hareket azaltma tercihi varsa animasyonsuz anında göster
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      write(value);
+      return;
     }
-  }, [inView, value, duration]);
 
+    // ease: easeOut (1 - (1-t)^4) ile aynı his; onUpdate DOM'a yazar, React'e dokunmaz.
+    const controls = animate(count, value, {
+      duration,
+      ease: [0.25, 1, 0.5, 1],
+      onUpdate: write,
+    });
+
+    return () => controls.stop();
+  }, [inView, value, duration, suffix, count]);
+
+  // İlk render (SSR/hydration) için başlangıç değeri; animasyon DOM'u ele geçirir.
   return (
     <span ref={ref}>
-      {displayValue}
+      {0}
       {suffix}
     </span>
   );
