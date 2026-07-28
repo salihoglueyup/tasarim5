@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Magnetic from '@/components/ui/Magnetic';
@@ -11,6 +11,49 @@ export default function Hero() {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+
+  // Yüklenme hızı (v10): 2.27 MB'lık brand-film.mp4 kritik yüklenmede bant genişliğini domine
+  // etmesin diye video kaynağı JSX'te değil, sayfa boşta kalınca (idle) bağlanır. Poster
+  // (hero-poster.webp, priority) anında görünür olduğundan görsel LCP etkilenmez.
+  // Hareket azaltma tercihi veya dokunmatik/mobil cihazda video HİÇ yüklenmez (yalnız poster).
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isCoarseOrSmall =
+      window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    if (reduceMotion || isCoarseOrSmall) return;
+
+    let done = false;
+    const attach = () => {
+      if (done || !videoRef.current) return;
+      done = true;
+      const v = videoRef.current;
+      v.src = '/video/brand-film.mp4';
+      v.load();
+      // muted autoplay güvenli; engellenirse sessizce yut.
+      v.play().catch(() => {});
+    };
+
+    const w = window as typeof window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+
+    let idleId: number | undefined;
+    let timerId: number | undefined;
+    if (typeof w.requestIdleCallback === 'function') {
+      idleId = w.requestIdleCallback(attach, { timeout: 3000 });
+    } else {
+      timerId = window.setTimeout(attach, 1500);
+    }
+
+    return () => {
+      if (idleId !== undefined && typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(idleId);
+      if (timerId !== undefined) window.clearTimeout(timerId);
+    };
+  }, []);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -43,20 +86,19 @@ export default function Hero() {
           className="object-cover scale-105 pointer-events-none z-0"
         />
 
+        {/* Video kaynağı (src) yukarıdaki useEffect içinde idle anında bağlanır — kritik yüklenmeyi rahatlatır. */}
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/images/hero-poster.webp"
           aria-hidden="true"
           tabIndex={-1}
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
-        >
-          <source src="/video/brand-film.mp4" type="video/mp4" />
-        </video>
+        />
 
         {/* Deep Vignette Overlay for Maximum Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60 z-10 pointer-events-none" />
