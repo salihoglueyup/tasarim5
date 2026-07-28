@@ -16,11 +16,28 @@ export default function PreFooterCta() {
   const mouseY = useMotionValue(0);
   const background = useMotionTemplate`radial-gradient(circle 400px at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.08), transparent 80%)`;
 
+  // Jank önleme: rect'i her mousemove'da değil, hover başında bir kez ölç ve önbelleğe al.
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const handleMouseEnter = () => {
+    if (containerRef.current) rectRef.current = containerRef.current.getBoundingClientRect();
+    setIsHovering(true);
+  };
+
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
+    let rect = rectRef.current;
+    if (!rect) {
+      if (!containerRef.current) return;
+      rect = containerRef.current.getBoundingClientRect();
+      rectRef.current = rect;
+    }
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
+  };
+
+  const handleMouseLeave = () => {
+    rectRef.current = null;
+    setIsHovering(false);
   };
 
   return (
@@ -30,8 +47,8 @@ export default function PreFooterCta() {
         <div 
           ref={containerRef}
           onMouseMove={handleMouseMove}
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className="relative w-full bg-[var(--color-primary)] rounded-[3rem] overflow-hidden px-8 py-24 md:py-32 flex flex-col items-center justify-center text-center shadow-2xl"
         >
           {/* Spotlight Effect that follows mouse */}

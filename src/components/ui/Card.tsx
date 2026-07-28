@@ -18,6 +18,8 @@ export const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  // Jank önleme: rect'i her mousemove'da değil, hover başında bir kez ölç ve önbelleğe al.
+  const rectRef = useRef<DOMRect | null>(null);
 
   // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6 & v7): State yerine doğrudan MotionValue!
   const mouseX = useMotionValue(0);
@@ -25,11 +27,26 @@ export const Card: React.FC<CardProps> = ({
   const hoverOpacity = useMotionValue(0);
   const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(148, 163, 184, 0.12), transparent 80%)`;
 
+  const handleMouseEnter = () => {
+    if (variant === 'glow' && cardRef.current) rectRef.current = cardRef.current.getBoundingClientRect();
+    hoverOpacity.set(1);
+  };
+
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current || variant !== 'glow') return;
-    const rect = cardRef.current.getBoundingClientRect();
+    if (variant !== 'glow') return;
+    let rect = rectRef.current;
+    if (!rect) {
+      if (!cardRef.current) return;
+      rect = cardRef.current.getBoundingClientRect();
+      rectRef.current = rect;
+    }
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
+  };
+
+  const handleMouseLeave = () => {
+    rectRef.current = null;
+    hoverOpacity.set(0);
   };
 
   const baseStyles = "relative rounded-[2.5rem] overflow-hidden transition-all duration-300";
@@ -49,8 +66,8 @@ export const Card: React.FC<CardProps> = ({
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => hoverOpacity.set(1)}
-      onMouseLeave={() => hoverOpacity.set(0)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={`${baseStyles} ${variantStyles[variant]} ${hoverStyles} ${className}`}
       style={{
         willChange: variant === 'glass' || variant === 'glow' ? 'transform' : undefined,
