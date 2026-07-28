@@ -1,0 +1,697 @@
+- generic [active] [ref=e1]:
+  - link "İçeriğe Geç" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "İçeriğe Atla" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Alo Yönetim Logo ALO YÖNETİM Mülk Yönetimi" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]:
+          - img "Alo Yönetim Logo" [ref=e10]
+          - generic [ref=e11]:
+            - generic [ref=e12]: ALO YÖNETİM
+            - generic [ref=e13]: Mülk Yönetimi
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - button "Türkçe Dil Seçeneği" [ref=e16]: TR 🇹🇷
+          - button "English Language Option" [ref=e17]: EN 🇬🇧
+        - button "Temayı Değiştir" [ref=e19]:
+          - generic [ref=e20]: dark_mode
+        - button "Online İşlemler Girişi" [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]: lock_open
+            - text: Sisteme Giriş
+        - button "Hızlı teklif alın" [ref=e26]:
+          - generic [ref=e27]:
+            - text: Teklif Alın
+            - generic [ref=e28]: arrow_right_alt
+        - button "Menüyü Aç" [ref=e30]:
+          - generic [ref=e31]: menu
+  - main [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - img "Hero arka plan"
+      - generic [ref=e37]:
+        - generic [ref=e39]:
+          - generic [ref=e40]: verified
+          - generic [ref=e41]: Türkiye'nin En Prestijli Mülk Yönetimi
+        - heading "Profesyonel Mülk, Site & Tesis Yönetimi" [level=1] [ref=e42]
+        - paragraph [ref=e43]: Aidat takibinden 7/24 özel güvenliğe, endüstriyel temizlikten nöbetçi teknik bakıma kadar tüm süreçleri dijital, şeffaf ve profesyonel bir şekilde yönetiyoruz.
+        - generic [ref=e44]:
+          - link "Ücretsiz keşif isteyin" [ref=e46] [cursor=pointer]:
+            - /url: /teklif-al
+            - generic [ref=e47]: Ücretsiz Keşif İste
+            - generic [ref=e48]: arrow_forward
+          - button "Filmin sesini aç" [ref=e50]:
+            - generic [ref=e51]: volume_off
+            - generic [ref=e52]: Filmin Sesini Aç
+    - generic [ref=e54]:
+      - heading "İstanbul Site Yönetimi ve Profesyonel Apartman Yönetiminde Lider Tesis Yönetim Firması" [level=2] [ref=e55]
+      - generic [ref=e56]:
+        - paragraph [ref=e57]: İstanbul site yönetimi alanında uzmanlaşmış olan Alo Yönetim, profesyonel apartman yönetimi ve entegre tesis yönetim firması olarak 15 yılı aşkın süredir sektörde güvenin adresidir. Geleneksel ve şeffaf olmayan yönetim anlayışını tamamen dijitalleştiriyor; aidat tahsilatından hukuki süreçlere, asansör bakımından 7/24 özel güvenliğe kadar tüm ihtiyaçlarınızı tek bir çatı altında, profesyonel bir ekiple karşılıyoruz. Amacımız sadece binaları yönetmek değil, yaşam alanlarınıza değer katmak ve sürdürülebilir bir huzur ortamı inşa etmektir.
+        - paragraph [ref=e58]: Büyük ölçekli rezidanslardan butik sitelere, alışveriş merkezlerinden sanayi tesislerine kadar geniş bir portföyde hizmet veren tesis yönetim firması olarak, bütçenizi optimize ediyoruz. Profesyonel apartman yönetimi hizmetimiz, komşuluk ilişkilerini zedelemeden, yasal mevzuatlara tam uyumlu ve %100 şeffaf bir modelle yürütülür. Ortak alanların periyodik bakımı, endüstriyel temizlik standartları ve anında müdahale gerektiren teknik arızalar için kurduğumuz yapay zeka destekli operasyon merkezi sayesinde sorunlar büyümeden çözüme kavuşturulur.
+    - generic [ref=e59]:
+      - paragraph [ref=e61]: Türkiye'nin En Prestijli Projeleri Tarafından Tercih Ediliyoruz
+      - generic [ref=e65]:
+        - generic [ref=e66] [cursor=pointer]: Emaar Square
+        - generic [ref=e68] [cursor=pointer]: Zorlu Center
+        - generic [ref=e70] [cursor=pointer]: Ağaoğlu 1453
+        - generic [ref=e72] [cursor=pointer]: Sinpaş Altınoran
+        - generic [ref=e74] [cursor=pointer]: Dap Yapı Vazo Kule
+        - generic [ref=e76] [cursor=pointer]: Tahincioğlu Palladium
+        - generic [ref=e78] [cursor=pointer]: Nef Ataköy
+        - generic [ref=e80] [cursor=pointer]: Rönesans Tower
+        - generic [ref=e82] [cursor=pointer]: Emaar Square
+        - generic [ref=e84] [cursor=pointer]: Zorlu Center
+        - generic [ref=e86] [cursor=pointer]: Ağaoğlu 1453
+        - generic [ref=e88] [cursor=pointer]: Sinpaş Altınoran
+        - generic [ref=e90] [cursor=pointer]: Dap Yapı Vazo Kule
+        - generic [ref=e92] [cursor=pointer]: Tahincioğlu Palladium
+        - generic [ref=e94] [cursor=pointer]: Nef Ataköy
+        - generic [ref=e96] [cursor=pointer]: Rönesans Tower
+        - generic [ref=e98] [cursor=pointer]: Emaar Square
+        - generic [ref=e100] [cursor=pointer]: Zorlu Center
+        - generic [ref=e102] [cursor=pointer]: Ağaoğlu 1453
+        - generic [ref=e104] [cursor=pointer]: Sinpaş Altınoran
+        - generic [ref=e106] [cursor=pointer]: Dap Yapı Vazo Kule
+        - generic [ref=e108] [cursor=pointer]: Tahincioğlu Palladium
+        - generic [ref=e110] [cursor=pointer]: Nef Ataköy
+        - generic [ref=e112] [cursor=pointer]: Rönesans Tower
+        - generic [ref=e114] [cursor=pointer]: Emaar Square
+        - generic [ref=e116] [cursor=pointer]: Zorlu Center
+        - generic [ref=e118] [cursor=pointer]: Ağaoğlu 1453
+        - generic [ref=e120] [cursor=pointer]: Sinpaş Altınoran
+        - generic [ref=e122] [cursor=pointer]: Dap Yapı Vazo Kule
+        - generic [ref=e124] [cursor=pointer]: Tahincioğlu Palladium
+        - generic [ref=e126] [cursor=pointer]: Nef Ataköy
+        - generic [ref=e128] [cursor=pointer]: Rönesans Tower
+    - generic [ref=e130]:
+      - generic [ref=e131]:
+        - heading "Kusursuz işleyen yeni nesil bir mülk yönetim sistemi." [level=2] [ref=e132]
+        - paragraph [ref=e133]: Klasik yönetim anlayışını unutun. İstanbul mülk yönetimi ve profesyonel bina yönetimi alanında mülkünüzün ve projenizin her hücresini teknoloji ve insan odaklı yeni nesil bir mimariyle yönetiyoruz.
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]: shield_person
+          - heading "7/24 Kesintisiz Güvenlik" [level=3] [ref=e137]
+          - paragraph [ref=e138]: Özel eğitimli personelimiz ve son teknoloji kamera/plaka tanıma sistemlerimizle sitenizin sınırlarından içeri sadece huzur girebilir.
+          - generic [ref=e139]: arrow_forward
+        - generic [ref=e141]:
+          - generic [ref=e142]: cleaning_services
+          - heading "Premium Temizlik" [level=3] [ref=e143]
+          - paragraph [ref=e144]: Ortak alanlar, otoparklar ve peyzaj alanları her sabah ilk günkü parlaklığına kavuşur. Endüstriyel değil, butik temizlik anlayışı.
+        - generic [ref=e146]:
+          - generic [ref=e147]: account_balance_wallet
+          - heading "Şeffaf Finans" [level=3] [ref=e148]
+          - paragraph [ref=e149]: Tek tuşla aidat ödeme, anlık gelir-gider takibi ve %100 şeffaf bilanço paylaşımı.
+        - generic [ref=e151]:
+          - generic [ref=e152]: gavel
+          - heading "Hukuki Koruma" [level=3] [ref=e153]
+          - paragraph [ref=e154]: Geciken aidatlar ve komşu anlaşmazlıkları için anında avukat desteği.
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - heading "Periyodik Teknik Bakım" [level=3] [ref=e157]
+            - paragraph [ref=e158]: Asansör, jeneratör, havuz dairesi ve yangın sistemleri arızalanmadan önce düzenli bakımla korunur. Sürpriz masraflara son.
+          - generic [ref=e159]: engineering
+        - generic [ref=e161]:
+          - generic [ref=e163]: pool
+          - heading "Sosyal Alan & Havuz Yönetimi" [level=3] [ref=e164]
+          - paragraph [ref=e165]: Sağlık Bakanlığı standartlarında havuz kimyasalları ölçümü, spor salonu bakımı ve peyzajın 4 mevsim yeşil kalması.
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - text: Teknolojik Üstünlüğümüz
+        - heading "Neden Alo Yönetim?" [level=2] [ref=e168]
+        - paragraph [ref=e169]: Sitenize değer katan modern bento teknolojilerimiz ve şeffaf yönetim modelimiz.
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e172]:
+            - generic [ref=e173]: Güvenlik Teknolojisi
+            - generic [ref=e174]: videocam
+          - generic [ref=e176]:
+            - heading "Yapay Zeka Destekli Kameralar & PTS Entegrasyonu" [level=3] [ref=e177]
+            - paragraph [ref=e178]: Sitenize giren çıkan yabancı araçlar ve şüpheli hareketler yapay zeka ile anında tespit edilip güvenlik odasına uyarı düşer.
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - generic [ref=e181]: Tasarruf
+            - generic [ref=e182]: savings
+          - generic [ref=e184]:
+            - heading "Şeffaf Satın Alma Gücü" [level=3] [ref=e185]
+            - paragraph [ref=e186]: 100+ projeden gelen toplu tedarik alımımızla siteniz sigorta ve malzemede %20+ tasarruf eder.
+        - generic [ref=e187]:
+          - generic [ref=e188]:
+            - generic [ref=e189]: Teknik Servis
+            - generic [ref=e190]: engineering
+          - generic [ref=e192]:
+            - heading "7/24 Nöbetçi Teknik Ekip" [level=3] [ref=e193]
+            - paragraph [ref=e194]: Gece yarısı meydana gelen jeneratör ve kazan dairesi arızalarına ortalama 20 dakikada müdahale edilir.
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - generic [ref=e197]: Mobil Portal
+            - generic [ref=e198]: phone_iphone
+          - generic [ref=e200]:
+            - heading "Mobil Uygulamadan Canlı Aidat ve Bilanço Takibi" [level=3] [ref=e201]
+            - paragraph [ref=e202]: Kat malikleri toplanan aidatların hangi faturalara harcandığını fotoğraflı dekontlarıyla anlık olarak cebinden izler.
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - generic [ref=e205]: Hukuki Destek
+            - generic [ref=e206]: gavel
+          - generic [ref=e208]:
+            - heading "Hukuk Kadromuzla Husumetsiz İcra Takibi" [level=3] [ref=e209]
+            - paragraph [ref=e210]: Aidatını ödemeyen dairelerin yasal süreçleri avukatlarımızca komşuluk ilişkileri bozulmadan şeffafça yürütülür.
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - generic [ref=e213]: Ekolojik Temizlik
+            - generic [ref=e214]: eco
+          - generic [ref=e216]:
+            - heading "ISO 9001 ve Ekolojik Yeşil Temizlik" [level=3] [ref=e217]
+            - paragraph [ref=e218]: Ortak alanlarda kullanılan tüm kimyasallar doğa ve çocuk dostudur, bitkilere ve evcil hayvanlara zarar vermez.
+    - generic [ref=e220]:
+      - generic [ref=e221]:
+        - generic [ref=e222]: İstihdam Köprüsü Avantajı
+        - heading "Farkımız Personelimizde" [level=2] [ref=e224]
+        - paragraph [ref=e225]:
+          - text: Sıradan bir yönetim şirketi değiliz. Kendi kurduğumuz
+          - strong [ref=e226]: "'İstihdam Köprüsü'"
+          - text: sistemi ile sektördeki en nitelikli personeli seçiyor, eğitiyor ve mülklerinize atıyoruz.
+      - generic [ref=e227]:
+        - generic [ref=e228]:
+          - generic [ref=e229]: ✓
+          - generic [ref=e230]:
+            - heading "Titiz İşe Alım" [level=3] [ref=e231]
+            - paragraph [ref=e232]: Güvenlik ve geçmiş taraması yapılmış personel.
+        - generic [ref=e233]:
+          - generic [ref=e234]: ✓
+          - generic [ref=e235]:
+            - heading "Sürekli Eğitim" [level=3] [ref=e236]
+            - paragraph [ref=e237]: Acil durum, iletişim ve teknik konularda periyodik eğitimler.
+        - generic [ref=e238]:
+          - generic [ref=e239]: ✓
+          - generic [ref=e240]:
+            - heading "Yedekli Çalışma" [level=3] [ref=e241]
+            - paragraph [ref=e242]: İzin ve hastalık durumlarında anında ikame personel desteği.
+        - generic [ref=e243]:
+          - generic [ref=e244]: ✓
+          - generic [ref=e245]:
+            - heading "Düzenli Denetim" [level=3] [ref=e246]
+            - paragraph [ref=e247]: Saha müfettişlerimiz tarafından habersiz gece ve gündüz denetimleri.
+      - generic [ref=e248]:
+        - paragraph [ref=e249]: Mülkleriniz ve projeleriniz için %100 SGK güvenceli, belgeli ve denetlenen profesyonel ekipler.
+        - link "İstihdam Köprüsü Modelimizi İnceleyin →" [ref=e250] [cursor=pointer]:
+          - /url: /istihdam-koprusu
+          - generic [ref=e251]: İstihdam Köprüsü Modelimizi İnceleyin
+          - generic [ref=e252]: →
+    - generic [ref=e253]:
+      - generic [ref=e254]:
+        - text: Farkımızı Görün
+        - heading "Alo Yönetim vs Geleneksel Yönetim" [level=2] [ref=e255]
+        - paragraph [ref=e256]: Neden İstanbul'un en prestijli projeleri geleneksel yöntemleri terk edip profesyonel apartman yönetimi ve tesis yönetim firması olan Alo Yönetim'e geçiyor?
+      - generic [ref=e257]:
+        - generic [ref=e258]:
+          - generic [ref=e259]:
+            - generic [ref=e260]:
+              - heading "Alo Yönetim Modeli" [level=3] [ref=e261]
+              - text: "%100 Kurumsal & Şeffaf Dijital Yönetim"
+            - generic [ref=e262]: verified
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - generic [ref=e265]: check_circle
+              - generic [ref=e266]:
+                - heading "Şeffaf Gelir / Gider Takibi" [level=4] [ref=e267]
+                - paragraph [ref=e268]: "%100 Dijital. Her faturanın görseli ve dekontu 7/24 mobil uygulamada."
+            - generic [ref=e269]:
+              - generic [ref=e270]: check_circle
+              - generic [ref=e271]:
+                - heading "Aidat Ödeme Seçenekleri" [level=4] [ref=e272]
+                - paragraph [ref=e273]: Mobil uygulama üzerinden Kredi Kartı (Taksitli) veya Havale/EFT.
+            - generic [ref=e274]:
+              - generic [ref=e275]: check_circle
+              - generic [ref=e276]:
+                - heading "Geciken Aidat & İcra Takibi" [level=4] [ref=e277]
+                - paragraph [ref=e278]: Otomatik yasal ihtar ve avukat ekibiyle komşuluk ilişkilerini bozmadan takip.
+            - generic [ref=e279]:
+              - generic [ref=e280]: check_circle
+              - generic [ref=e281]:
+                - heading "7/24 Acil Teknik Müdahale" [level=4] [ref=e282]
+                - paragraph [ref=e283]: Mobil arıza kaydı ve ortalama 20 dakikada adrese ulaşan nöbetçi teknik ekip.
+            - generic [ref=e284]:
+              - generic [ref=e285]: check_circle
+              - generic [ref=e286]:
+                - heading "Toplu Satın Alma Gücü" [level=4] [ref=e287]
+                - paragraph [ref=e288]: 100+ projeden gelen hacimle elektrik, sigorta ve malzeme alımında %20+ indirim.
+            - generic [ref=e289]:
+              - generic [ref=e290]: check_circle
+              - generic [ref=e291]:
+                - heading "Güvenlik Personeli Yasal Sorumluluğu" [level=4] [ref=e292]
+                - paragraph [ref=e293]: 5188 kanuna uygun SGK, kıdem tazminatı sorumluluğu %100 Alo Yönetim'de.
+            - generic [ref=e294]:
+              - generic [ref=e295]: check_circle
+              - generic [ref=e296]:
+                - heading "Ortak Alan Tesis Rezervasyonu" [level=4] [ref=e297]
+                - paragraph [ref=e298]: Tenis kortu, havuz ve sosyal tesisler mobil uygulamadan randevulu.
+            - generic [ref=e299]:
+              - generic [ref=e300]: check_circle
+              - generic [ref=e301]:
+                - heading "Devir Teslim Kolaylığı" [level=4] [ref=e302]
+                - paragraph [ref=e303]: Resmi tutanakla 48 saat içinde sıfır pürüzle devir teslim garantisi.
+          - link "Hemen Şeffaf Yönetime Geçin" [ref=e304] [cursor=pointer]:
+            - /url: /teklif-al
+        - generic [ref=e305]:
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - heading "Geleneksel / Amatör Yönetim" [level=3] [ref=e308]
+              - text: Eski Nesil Yetersiz Yaklaşım
+            - generic [ref=e309]: cancel
+          - generic [ref=e310]:
+            - generic [ref=e311]:
+              - generic [ref=e312]: cancel
+              - generic [ref=e313]:
+                - heading "Şeffaf Gelir / Gider Takibi" [level=4] [ref=e314]
+                - paragraph [ref=e315]: Defter kayıtları elle tutulur, belgeler yıl sonuna kadar gizli kalır.
+            - generic [ref=e316]:
+              - generic [ref=e317]: cancel
+              - generic [ref=e318]:
+                - heading "Aidat Ödeme Seçenekleri" [level=4] [ref=e319]
+                - paragraph [ref=e320]: Elden nakit toplama veya sadece belirli banka şubesine havale.
+            - generic [ref=e321]:
+              - generic [ref=e322]: cancel
+              - generic [ref=e323]:
+                - heading "Geciken Aidat & İcra Takibi" [level=4] [ref=e324]
+                - paragraph [ref=e325]: Komşularla yüz yüze tartışma, yıllarca ödenmeyen aidat birikimleri.
+            - generic [ref=e326]:
+              - generic [ref=e327]: cancel
+              - generic [ref=e328]:
+                - heading "7/24 Acil Teknik Müdahale" [level=4] [ref=e329]
+                - paragraph [ref=e330]: Yöneticinin telefonunu açmasını bekleme veya tanıdık usta arama.
+            - generic [ref=e331]:
+              - generic [ref=e332]: cancel
+              - generic [ref=e333]:
+                - heading "Toplu Satın Alma Gücü" [level=4] [ref=e334]
+                - paragraph [ref=e335]: Tek bina bazında yüksek fiyattan perakende satın alma.
+            - generic [ref=e336]:
+              - generic [ref=e337]: cancel
+              - generic [ref=e338]:
+                - heading "Güvenlik Personeli Yasal Sorumluluğu" [level=4] [ref=e339]
+                - paragraph [ref=e340]: Kıdem tazminatı birikmez, dava açıldığında kat malikleri borçlanır.
+            - generic [ref=e341]:
+              - generic [ref=e342]: cancel
+              - generic [ref=e343]:
+                - heading "Ortak Alan Tesis Rezervasyonu" [level=4] [ref=e344]
+                - paragraph [ref=e345]: Kapıya kağıt asma veya sıra kavgası yaşanması.
+            - generic [ref=e346]:
+              - generic [ref=e347]: cancel
+              - generic [ref=e348]:
+                - heading "Devir Teslim Kolaylığı" [level=4] [ref=e349]
+                - paragraph [ref=e350]: Aylarca devredilmeyen eksik evraklar ve kayıp kararlar defteri.
+    - generic [ref=e351]:
+      - generic [ref=e352]:
+        - text: Süreç Nasıl İşler?
+        - heading "6 Adımda Alo Yönetim'e Geçiş" [level=2] [ref=e353]
+        - paragraph [ref=e354]: Eski yönetimden ayrılmak gözünüzü korkutmasın. 48 saatlik resmi devir teslim süreciyle tüm işlemleri biz yürütüyoruz.
+      - generic [ref=e355]:
+        - 'button "1 Aşama 1: Analiz" [ref=e356]':
+          - generic [ref=e357]: "1"
+          - text: "Aşama 1: Analiz"
+        - 'button "2 Aşama 2: Bütçe" [ref=e358]':
+          - generic [ref=e359]: "2"
+          - text: "Aşama 2: Bütçe"
+        - 'button "3 Aşama 3: Karar" [ref=e360]':
+          - generic [ref=e361]: "3"
+          - text: "Aşama 3: Karar"
+        - 'button "4 Aşama 4: Devir" [ref=e362]':
+          - generic [ref=e363]: "4"
+          - text: "Aşama 4: Devir"
+        - 'button "5 Aşama 5: Kurulum" [ref=e364]':
+          - generic [ref=e365]: "5"
+          - text: "Aşama 5: Kurulum"
+        - 'button "6 Aşama 6: Başlangıç" [ref=e366]':
+          - generic [ref=e367]: "6"
+          - text: "Aşama 6: Başlangıç"
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - generic [ref=e370]: "Aşama 1: Analiz"
+          - heading "Ücretsiz Keşif & Detaylı Analiz" [level=3] [ref=e371]
+          - paragraph [ref=e372]: Mühendislerimiz ve mali danışmanlarımız sitenize gelerek tesisin fiziki durumu, asansörler, jeneratör ve geçmiş harcama bütçelerini inceler.
+        - generic [ref=e373]:
+          - generic [ref=e374]: search_insights
+          - generic [ref=e375]: Adım 1 / 6
+          - generic [ref=e376]: "%100 Alo Yönetim Güvencesi"
+    - generic [ref=e378]:
+      - generic [ref=e379]:
+        - generic [ref=e380]: Tüm Site Cebinizde
+        - heading "Alo Yönetim Sakin & Yönetici Portalı" [level=2] [ref=e381]
+        - paragraph [ref=e382]: Karmaşık belgelere, kayıp dekontlara ve ulaşılamayan yöneticilere son. İos ve Android uygulamamızla siteniz tamamen dijitalleşiyor.
+        - generic [ref=e383]:
+          - generic [ref=e384]:
+            - generic [ref=e385]: phone_iphone
+            - generic [ref=e386]:
+              - generic [ref=e387]: İndir
+              - generic [ref=e388]: App Store
+          - generic [ref=e389]:
+            - generic [ref=e390]: android
+            - generic [ref=e391]:
+              - generic [ref=e392]: İndir
+              - generic [ref=e393]: Google Play
+      - generic [ref=e394]:
+        - generic [ref=e395]:
+          - generic [ref=e396]: credit_card
+          - heading "Kredi Kartı ile Taksitli Aidat Ödeme" [level=3] [ref=e398]
+          - paragraph [ref=e399]: Banka sırası beklemeden 3D Secure güvencesiyle tek tıkla aidatınızı ödeyin.
+        - generic [ref=e400]:
+          - generic [ref=e401]: receipt_long
+          - heading "Şeffaf Canlı Gelir/Gider Bilanço" [level=3] [ref=e403]
+          - paragraph [ref=e404]: Sitenin topladığı her kuruşun ve yapılan her harcamanın faturasını anında görün.
+        - generic [ref=e405]:
+          - generic [ref=e406]: event_seat
+          - heading "Tesis & Sosyal Alan Rezervasyonu" [level=3] [ref=e408]
+          - paragraph [ref=e409]: Tenis kortu, açık havuz veya toplantı salonu rezervasyonlarınızı cebinizden yönetin.
+        - generic [ref=e410]:
+          - generic [ref=e411]: engineering
+          - heading "Fotoğraflı Anlık Arıza Bildirimi" [level=3] [ref=e413]
+          - paragraph [ref=e414]: Patlayan ampulü veya asansör arızasını fotoğraflayıp bildirin, teknik ekibin gelişini canlı izleyin.
+        - generic [ref=e415]:
+          - generic [ref=e416]: how_to_vote
+          - heading "Dijital Karar & Anket Oylaması" [level=3] [ref=e418]
+          - paragraph [ref=e419]: Genel kurul kararlarına veya renk seçim anketlerine oturduğunuz yerden katılın.
+        - generic [ref=e420]:
+          - generic [ref=e421]: sensor_door
+          - heading "Mobil Otomatik Kapı & Bariyer Açma" [level=3] [ref=e423]
+          - paragraph [ref=e424]: Site ana kapısını veya plaka tanımayı akıllı telefonunuz üzerinden kontrol edin.
+    - generic [ref=e425]:
+      - generic [ref=e426]:
+        - generic [ref=e427]:
+          - text: Gerçek Müşteri Deneyimleri
+          - heading "Yöneticilerimiz Ne Diyor?" [level=2] [ref=e428]
+        - generic [ref=e429]:
+          - button "Önceki Yorum" [ref=e430]:
+            - generic [ref=e431]: arrow_back
+          - generic [ref=e432]: 1 / 8
+          - button "Sonraki Yorum" [ref=e433]:
+            - generic [ref=e434]: arrow_forward
+      - generic [ref=e435]:
+        - generic [ref=e436]:
+          - generic [ref=e437]:
+            - generic [ref=e438]: star
+            - generic [ref=e439]: star
+            - generic [ref=e440]: star
+            - generic [ref=e441]: star
+            - generic [ref=e442]: star
+          - blockquote [ref=e443]: "\"Eski yönetimde aidatların nereye gittiğini takip edemiyorduk. Alo Yönetim'e geçtikten sonra ilk yıl bütçemizde %24 net tasarruf sağladık. Tüm harcamalar şeffaf bir şekilde cebimizde.\""
+          - generic [ref=e444]:
+            - img "Ahmet Yılmaz" [ref=e445]
+            - generic [ref=e446]:
+              - heading "Ahmet Yılmaz" [level=3] [ref=e447]
+              - paragraph [ref=e448]: Yönetim Kurulu Başkanı • Lalezar Konakları (240 Daire)
+              - text: Kadıköy, İstanbul
+        - generic [ref=e449]:
+          - generic [ref=e450]:
+            - generic [ref=e451]: verified
+            - text: Onaylı Kullanıcı Yorumu
+          - generic [ref=e452]: Bu değerlendirme Alo Yönetim tarafından hizmet verilen Lalezar Konakları (240 Daire) yönetim kurulundan alınmıştır.
+    - generic [ref=e453]:
+      - generic [ref=e454]:
+        - text: Resmi Standartlarımız
+        - heading "Kalite Sertifikalarımız & Güvencelerimiz" [level=2] [ref=e455]
+        - paragraph [ref=e456]: Rastgele değil, uluslararası akredite kurumlar tarafından onaylanmış resmi protokollerle hizmet veriyoruz.
+      - generic [ref=e457]:
+        - generic [ref=e458]:
+          - generic [ref=e459]:
+            - generic [ref=e460]: verified
+            - generic [ref=e462]: ISO 9001:2015
+          - heading "Kalite Yönetim Sistemi" [level=3] [ref=e463]
+          - paragraph [ref=e464]: Tüm tesis ve site yönetimi operasyonlarımız uluslararası standartlara göre denetlenir.
+        - generic [ref=e465]:
+          - generic [ref=e466]:
+            - generic [ref=e467]: security
+            - generic [ref=e469]: ISO 27001
+          - heading "Bilgi Güvenliği Yönetimi" [level=3] [ref=e470]
+          - paragraph [ref=e471]: Kat maliklerinin kişisel verileri ve finansal bilgileri yüksek güvenlikli sunucularda saklanır.
+        - generic [ref=e472]:
+          - generic [ref=e473]:
+            - generic [ref=e474]: gavel
+            - generic [ref=e476]: KVKK
+          - heading "Kişisel Verilerin Korunması" [level=3] [ref=e477]
+          - paragraph [ref=e478]: CCTV kamera kayıtları ve ziyaretçi defterleri 6698 sayılı kanuna %100 uygun işlenir.
+        - generic [ref=e479]:
+          - generic [ref=e480]:
+            - generic [ref=e481]: health_and_safety
+            - generic [ref=e483]: ISO 45001
+          - heading "İş Sağlığı ve Güvenliği" [level=3] [ref=e484]
+          - paragraph [ref=e485]: Temizlik, güvenlik ve teknik personelimizin İSG eğitimleri eksiksiz olarak güncellenir.
+        - generic [ref=e486]:
+          - generic [ref=e487]:
+            - generic [ref=e488]: eco
+            - generic [ref=e490]: ISO 14001
+          - heading "Çevre Yönetim Sistemi" [level=3] [ref=e491]
+          - paragraph [ref=e492]: Sitemizde kullanılan tüm kimyasallar ekolojik ve doğaya saygılı ürünlerden seçilir.
+        - generic [ref=e493]:
+          - generic [ref=e494]:
+            - generic [ref=e495]: shield
+            - generic [ref=e497]: "5188"
+          - heading "Yetkili Güvenlik Şirketi" [level=3] [ref=e498]
+          - paragraph [ref=e499]: İçişleri Bakanlığı Emniyet Genel Müdürlüğü ruhsatlı özel güvenlik hizmeti altyapısı.
+    - generic [ref=e501]:
+      - generic [ref=e502]:
+        - heading "Aklınıza takılanlar." [level=2] [ref=e503]
+        - paragraph [ref=e504]: Sürecimizle ilgili en çok merak edilen soruları şeffaflıkla yanıtladık.
+      - generic [ref=e505]:
+        - button "Eski yönetimden size geçiş süreci nasıl işliyor? add" [ref=e507]:
+          - generic [ref=e508]: Eski yönetimden size geçiş süreci nasıl işliyor?
+          - generic [ref=e509]: add
+        - button "Personel seçimi ve denetimi kime ait? add" [ref=e512]:
+          - generic [ref=e513]: Personel seçimi ve denetimi kime ait?
+          - generic [ref=e514]: add
+        - button "Aidatları nasıl takip ediyorsunuz? add" [ref=e517]:
+          - generic [ref=e518]: Aidatları nasıl takip ediyorsunuz?
+          - generic [ref=e519]: add
+        - button "Acil durumlarda (gece su patlaması, asansör arızası) ne yapıyoruz? add" [ref=e522]:
+          - generic [ref=e523]: Acil durumlarda (gece su patlaması, asansör arızası) ne yapıyoruz?
+          - generic [ref=e524]: add
+        - button "Yönetim şeffaflığını nasıl sağlıyorsunuz? add" [ref=e527]:
+          - generic [ref=e528]: Yönetim şeffaflığını nasıl sağlıyorsunuz?
+          - generic [ref=e529]: add
+    - generic [ref=e534]:
+      - heading "Yönetimde Yeni Bir Dönem." [level=2] [ref=e535]
+      - paragraph [ref=e536]: Gelin sitenizi yerinde inceleyelim, eksikleri tespit edelim ve size özel, şeffaf bir yönetim planı sunalım. Tamamen ücretsiz.
+      - link "Ücretsiz Keşif Raporu Alın arrow_forward" [ref=e538] [cursor=pointer]:
+        - /url: /teklif-al
+        - text: Ücretsiz Keşif Raporu Alın
+        - generic [ref=e539]: arrow_forward
+  - contentinfo [ref=e540]:
+    - generic [ref=e541]:
+      - generic [ref=e542]:
+        - generic [ref=e543]:
+          - link "Alo Yönetim Logo ALO YÖNETİM Mülk Yönetimi" [ref=e544] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e545]:
+              - img "Alo Yönetim Logo" [ref=e547]
+              - generic [ref=e548]:
+                - generic [ref=e549]: ALO YÖNETİM
+                - generic [ref=e550]: Mülk Yönetimi
+          - paragraph [ref=e551]: 2009 yılından bugüne, sektördeki bilgi birikimi ve deneyimimizle; profesyonel mülk yönetimi, özel güvenlik ve entegre bina yönetimi hizmetlerinde güvenin adresi olmaya devam ediyoruz.
+          - generic [ref=e552]:
+            - button "App Store — yakında" [ref=e553]:
+              - generic [ref=e554]: apple
+              - generic [ref=e555]:
+                - generic [ref=e556]: Download on the
+                - generic [ref=e557]: App Store
+            - button "Google Play — yakında" [ref=e558]:
+              - generic [ref=e559]: play_arrow
+              - generic [ref=e560]:
+                - generic [ref=e561]: GET IT ON
+                - generic [ref=e562]: Google Play
+        - generic [ref=e563]:
+          - heading "KURUMSAL" [level=4] [ref=e564]
+          - navigation "Alt menü - Kurumsal" [ref=e565]:
+            - link "Biz Kimiz?" [ref=e566] [cursor=pointer]:
+              - /url: /hakkimizda
+              - generic [ref=e567]: arrow_forward
+              - text: Biz Kimiz?
+            - link "Vizyon & Misyon" [ref=e568] [cursor=pointer]:
+              - /url: /kurumsal/vizyon-misyon
+              - generic [ref=e569]: arrow_forward
+              - text: Vizyon & Misyon
+            - link "Kalite Politikamız" [ref=e570] [cursor=pointer]:
+              - /url: /kurumsal/kalite-politikamiz
+              - generic [ref=e571]: arrow_forward
+              - text: Kalite Politikamız
+            - link "Sürdürülebilirlik" [ref=e572] [cursor=pointer]:
+              - /url: /kurumsal/surdurulebilirlik
+              - generic [ref=e573]: arrow_forward
+              - text: Sürdürülebilirlik
+            - link "Referanslar" [ref=e574] [cursor=pointer]:
+              - /url: /referanslar
+              - generic [ref=e575]: arrow_forward
+              - text: Referanslar
+            - link "Başarı Hikayeleri" [ref=e576] [cursor=pointer]:
+              - /url: /basari-hikayeleri
+              - generic [ref=e577]: arrow_forward
+              - text: Başarı Hikayeleri
+            - link "İletişim" [ref=e578] [cursor=pointer]:
+              - /url: /iletisim
+              - generic [ref=e579]: arrow_forward
+              - text: İletişim
+            - link "Sıkça Sorulan Sorular" [ref=e580] [cursor=pointer]:
+              - /url: /sss
+              - generic [ref=e581]: arrow_forward
+              - text: Sıkça Sorulan Sorular
+            - link "Blog & Haberler" [ref=e582] [cursor=pointer]:
+              - /url: /blog
+              - generic [ref=e583]: arrow_forward
+              - text: Blog & Haberler
+        - generic [ref=e584]:
+          - heading "ÇÖZÜMLERİMİZ" [level=4] [ref=e585]
+          - navigation "Alt menü - Çözümler" [ref=e586]:
+            - link "Tüm Hizmetler" [ref=e587] [cursor=pointer]:
+              - /url: /hizmetler
+              - generic [ref=e588]: arrow_forward
+              - text: Tüm Hizmetler
+            - link "Güvenlik Yönetimi" [ref=e589] [cursor=pointer]:
+              - /url: /hizmetler/guvenlik-yonetimi
+              - generic [ref=e590]: arrow_forward
+              - text: Güvenlik Yönetimi
+            - link "Mülk Yönetimi" [ref=e591] [cursor=pointer]:
+              - /url: /hizmetler/tesis-yonetimi
+              - generic [ref=e592]: arrow_forward
+              - text: Mülk Yönetimi
+            - link "Temizlik & Hijyen" [ref=e593] [cursor=pointer]:
+              - /url: /hizmetler/temizlik-ve-hijyen
+              - generic [ref=e594]: arrow_forward
+              - text: Temizlik & Hijyen
+            - link "Teknik Bakım" [ref=e595] [cursor=pointer]:
+              - /url: /hizmetler/teknik-bakim
+              - generic [ref=e596]: arrow_forward
+              - text: Teknik Bakım
+            - link "Peyzaj & Bahçe Bakımı" [ref=e597] [cursor=pointer]:
+              - /url: /hizmetler/peyzaj-ve-bahce-bakimi
+              - generic [ref=e598]: arrow_forward
+              - text: Peyzaj & Bahçe Bakımı
+            - link "Havuz Bakımı & Hijyen" [ref=e599] [cursor=pointer]:
+              - /url: /hizmetler/havuz-bakimi-ve-hijyen
+              - generic [ref=e600]: arrow_forward
+              - text: Havuz Bakımı & Hijyen
+            - link "Haşere & Dezenfeksiyon" [ref=e601] [cursor=pointer]:
+              - /url: /hizmetler/hasere-ve-dezenfeksiyon
+              - generic [ref=e602]: arrow_forward
+              - text: Haşere & Dezenfeksiyon
+            - link "Hukuk & İcra Takibi" [ref=e603] [cursor=pointer]:
+              - /url: /hizmetler/hukuk-ve-icra-danismanligi
+              - generic [ref=e604]: arrow_forward
+              - text: Hukuk & İcra Takibi
+            - link "Sektörel Çözümler" [ref=e605] [cursor=pointer]:
+              - /url: /sektorel-cozumler
+              - generic [ref=e606]: arrow_forward
+              - text: Sektörel Çözümler
+            - link "İstihdam Köprüsü" [ref=e607] [cursor=pointer]:
+              - /url: /istihdam-koprusu
+              - generic [ref=e608]: arrow_forward
+              - text: İstihdam Köprüsü
+            - link "Güvenlik Akademisi" [ref=e609] [cursor=pointer]:
+              - /url: /guvenlik-akademisi
+              - generic [ref=e610]: arrow_forward
+              - text: Güvenlik Akademisi
+        - generic [ref=e611]:
+          - heading "İLETİŞİM BİLGİLERİ" [level=4] [ref=e612]
+          - generic [ref=e613]:
+            - generic [ref=e615]: "İstanbul Merkez: 10:42"
+            - generic [ref=e616]: partly_cloudy_day
+          - generic [ref=e617]:
+            - generic [ref=e618]: location_on
+            - generic [ref=e620]:
+              - generic [ref=e621]: Genel Müdürlük
+              - generic [ref=e622]: "Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19, 34722 Kadıköy / İstanbul"
+          - generic [ref=e623]:
+            - generic [ref=e624]: call
+            - generic [ref=e626]:
+              - generic [ref=e627]: Müşteri Hizmetleri
+              - link "0216 550 48 48" [ref=e628] [cursor=pointer]:
+                - /url: tel:02165504848
+          - generic [ref=e629]:
+            - generic [ref=e630]: schedule
+            - generic [ref=e632]:
+              - generic [ref=e633]: Çalışma Saatlerimiz
+              - generic [ref=e634]: 09:00 - 18:00
+          - link "chat WhatsApp Destek Hattı Hemen mesaj gönderin" [ref=e635] [cursor=pointer]:
+            - /url: https://wa.me/905550000000
+            - generic [ref=e636]: chat
+            - generic [ref=e638]:
+              - generic [ref=e639]: WhatsApp Destek Hattı
+              - generic [ref=e640]: Hemen mesaj gönderin
+      - generic [ref=e641]:
+        - generic [ref=e642]:
+          - generic [ref=e643]:
+            - generic [ref=e644]: verified
+            - generic [ref=e645]:
+              - generic [ref=e646]: ISO 9001:2015
+              - generic [ref=e647]: Kalite Yönetimi
+          - generic [ref=e648]:
+            - generic [ref=e649]: health_and_safety
+            - generic [ref=e650]:
+              - generic [ref=e651]: ISO 45001
+              - generic [ref=e652]: İSG Yönetimi
+          - generic [ref=e653]:
+            - generic [ref=e654]: admin_panel_settings
+            - generic [ref=e655]:
+              - generic [ref=e656]: ÖGG Belgeli
+              - generic [ref=e657]: T.C. İçişleri Bak.
+        - generic [ref=e659]:
+          - link "Facebook" [ref=e660] [cursor=pointer]:
+            - /url: https://www.facebook.com/aloyonetim
+          - link "Twitter" [ref=e664] [cursor=pointer]:
+            - /url: https://twitter.com/aloyonetim
+          - link "Instagram" [ref=e668] [cursor=pointer]:
+            - /url: https://www.instagram.com/aloyonetim
+          - link "LinkedIn" [ref=e672] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/aloyonetim
+          - link "YouTube" [ref=e676] [cursor=pointer]:
+            - /url: https://www.youtube.com/@aloyonetim
+      - generic [ref=e680]:
+        - heading "Hizmet Bölgelerimiz" [level=4] [ref=e681]
+        - navigation "Bölgeler" [ref=e682]:
+          - link "Kadıköy Mülk ve Site Yönetimi" [ref=e683] [cursor=pointer]:
+            - /url: /bolgeler/kadikoy
+          - link "Ataşehir Mülk ve Site Yönetimi" [ref=e684] [cursor=pointer]:
+            - /url: /bolgeler/atasehir
+          - link "Üsküdar Mülk ve Site Yönetimi" [ref=e685] [cursor=pointer]:
+            - /url: /bolgeler/uskudar
+          - link "Maltepe Mülk ve Site Yönetimi" [ref=e686] [cursor=pointer]:
+            - /url: /bolgeler/maltepe
+          - link "Kartal Mülk ve Site Yönetimi" [ref=e687] [cursor=pointer]:
+            - /url: /bolgeler/kartal
+          - link "Ümraniye Mülk ve Site Yönetimi" [ref=e688] [cursor=pointer]:
+            - /url: /bolgeler/umraniye
+          - link "Beşiktaş Mülk ve Site Yönetimi" [ref=e689] [cursor=pointer]:
+            - /url: /bolgeler/besiktas
+          - link "Şişli Mülk ve Site Yönetimi" [ref=e690] [cursor=pointer]:
+            - /url: /bolgeler/sisli
+          - link "Bakırköy Mülk ve Site Yönetimi" [ref=e691] [cursor=pointer]:
+            - /url: /bolgeler/bakirkoy
+          - link "Sarıyer Mülk ve Site Yönetimi" [ref=e692] [cursor=pointer]:
+            - /url: /bolgeler/sariyer
+          - link "Beylikdüzü Mülk ve Site Yönetimi" [ref=e693] [cursor=pointer]:
+            - /url: /bolgeler/beylikduzu
+          - link "Başakşehir Mülk ve Site Yönetimi" [ref=e694] [cursor=pointer]:
+            - /url: /bolgeler/basaksehir
+          - link "Tüm bölgeler →" [ref=e695] [cursor=pointer]:
+            - /url: /bolgeler
+      - generic [ref=e696]:
+        - generic [ref=e697]: TÜM SİSTEMLER ÇEVRİMİÇİ
+        - generic [ref=e699]:
+          - text: © 2026 Alo Yönetim. Tüm Hakları Saklıdır. |
+          - link "Kullanım Koşulları" [ref=e700] [cursor=pointer]:
+            - /url: /kullanim-sartlari
+          - text: "|"
+          - link "Gizlilik Politikası" [ref=e701] [cursor=pointer]:
+            - /url: /gizlilik-politikasi
+          - text: "|"
+          - link "Çerez Politikası" [ref=e702] [cursor=pointer]:
+            - /url: /cerez-politikasi
+          - text: "|"
+          - link "KVKK" [ref=e703] [cursor=pointer]:
+            - /url: /kvkk-ve-aydinlatma-metni
+          - text: "|"
+          - link "Site Haritası" [ref=e704] [cursor=pointer]:
+            - /url: /site-haritasi
+        - generic [ref=e705]:
+          - generic [ref=e706]: language
+          - generic [ref=e707]: Türkiye / Türkçe
+  - alert [ref=e708]

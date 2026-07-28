@@ -1,0 +1,5 @@
+[    3082ms] [WARNING] @next/third-parties: GA has not been initialized @ http://localhost:3000/_next/static/chunks/3pdtzfmlw1ruw.js:12
+[    3245ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/icon?2782093946a0f83c:0
+[    3246ms] [WARNING] Error while trying to use the following icon from the Manifest: http://localhost:3000/favicon.ico (Resource size is not correct - typo in the Manifest?) @ http://localhost:3000/:0
+[    3257ms] [WARNING] @next/third-parties: GA has not been initialized @ http://localhost:3000/_next/static/chunks/3pdtzfmlw1ruw.js:12
+[   19291ms] [WARNING] Deprecated API for given entry type. @ :3
