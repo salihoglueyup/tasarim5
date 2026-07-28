@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
   // Tek biçim URL: sondaki slash yok (canonical/proxy ile tutarlı — Faz 26).
   trailingSlash: false,
   experimental: {
-    optimizePackageImports: ['framer-motion', 'lucide-react', 'date-fns', '@next/third-parties'],
+    optimizePackageImports: ['framer-motion', '@next/third-parties'],
   },
   images: {
     formats: ['image/avif', 'image/webp'],
