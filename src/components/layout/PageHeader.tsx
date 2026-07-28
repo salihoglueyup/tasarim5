@@ -89,7 +89,7 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
       />
 
       {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-slate-400/10 dark:bg-white/5 blur-3xl rounded-full pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }}></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-slate-400/10 dark:bg-white/5 blur-3xl rounded-full pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
 
       <div className="relative z-10 max-w-4xl flex flex-col items-center">
         

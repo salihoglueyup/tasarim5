@@ -49,7 +49,7 @@ export default function BentoServices() {
           style={cardGpuStyle}
           className="md:col-span-2 md:row-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-colors pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }}></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-colors pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
           <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] mb-6">shield_person</span>
           <h3 className="text-3xl font-bold text-[var(--color-primary)] mb-4">{t('home_bento_card1_title')}</h3>
           <p className="text-[var(--color-secondary)] text-lg leading-relaxed max-w-md">

@@ -84,7 +84,7 @@ export default function Blog() {
       {/* Newsletter */}
       <section className="px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto mt-12">
         <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" style={{ willChange: "transform", transform: "translateZ(0)" }}></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
           <div className="relative z-10 flex-1">
             <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-widest bg-emerald-500/10 px-4 py-1.5 rounded-full w-fit mb-4">
               <span className="material-symbols-outlined text-sm">mail</span>
