@@ -123,25 +123,17 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Elegant Refined Plus Jakarta Sans Headline */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-[var(--font-plus-jakarta)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-extrabold tracking-[-0.03em] leading-[1.05] text-white mb-4 drop-shadow-xl"
-          >
+          {/* Elegant Refined Plus Jakarta Sans Headline
+              LCP optimizasyonu (v12): Bu h1 LCP elementidir. framer-motion opacity:0 fade-in'i
+              LCP'yi ~1.5s'ye geciktiriyordu; anında boyanması için giriş animasyonu kaldırıldı. */}
+          <h1 className="font-[var(--font-plus-jakarta)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-extrabold tracking-[-0.03em] leading-[1.05] text-white mb-4 drop-shadow-xl">
             {t('hero_title')}
-          </motion.h1>
+          </h1>
 
-          {/* Far-Left Subtitle */}
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm sm:text-base md:text-lg text-slate-200 font-light leading-relaxed max-w-xl mb-7 drop-shadow-sm tracking-[-0.01em]"
-          >
+          {/* Far-Left Subtitle — fold-üstü LCP metni, anında boyanır (giriş animasyonu yok). */}
+          <p className="text-sm sm:text-base md:text-lg text-slate-200 font-light leading-relaxed max-w-xl mb-7 drop-shadow-sm tracking-[-0.01em]">
             {t('hero_subtitle')}
-          </motion.p>
+          </p>
 
           {/* Action Buttons */}
           <motion.div 

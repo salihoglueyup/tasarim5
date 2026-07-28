@@ -9,12 +9,10 @@ export default function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     background_color: '#0a192f',
     theme_color: '#0a192f',
+    // Not: favicon.ico manifest'ten çıkarıldı — raster .ico + sizes:'any' Chrome'da
+    // "Resource size is not correct" uyarısı veriyordu. Tab favicon'u Next'in
+    // app/favicon.ico convention'ıyla zaten ayrı sunuluyor. PWA ikonları PNG.
     icons: [
-      {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
       {
         src: '/icon',
         type: 'image/png',

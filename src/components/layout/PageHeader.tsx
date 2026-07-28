@@ -123,25 +123,15 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
           )}
         </motion.div>
 
-        {/* Title */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight"
-        >
+        {/* Title — LCP optimizasyonu (v12): fold-üstü LCP metni, giriş animasyonu kaldırıldı (anında boyanır). */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
           {title}
-        </motion.h1>
-        
-        {/* Description */}
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-xl text-slate-600 dark:text-gray-300 max-w-2xl font-light leading-relaxed"
-        >
+        </h1>
+
+        {/* Description — fold-üstü LCP adayı, anında boyanır. */}
+        <p className="text-lg md:text-xl text-slate-600 dark:text-gray-300 max-w-2xl font-light leading-relaxed">
           {description}
-        </motion.p>
+        </p>
       </div>
 
     </section>
