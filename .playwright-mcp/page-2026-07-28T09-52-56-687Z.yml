@@ -1,0 +1,249 @@
+- generic [active] [ref=e1]:
+  - link "İçeriğe Geç" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "İçeriğe Atla" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Alo Yönetim Logo ALO YÖNETİM Mülk Yönetimi" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]:
+          - img "Alo Yönetim Logo" [ref=e10]
+          - generic [ref=e11]:
+            - generic [ref=e12]: ALO YÖNETİM
+            - generic [ref=e13]: Mülk Yönetimi
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - button "Türkçe Dil Seçeneği" [ref=e16]: TR 🇹🇷
+          - button "English Language Option" [ref=e17]: EN 🇬🇧
+        - button "Temayı Değiştir" [ref=e19]:
+          - generic [ref=e20]: dark_mode
+        - button "Online İşlemler Girişi" [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]: lock_open
+            - text: Sisteme Giriş
+        - button "Hızlı teklif alın" [ref=e26]:
+          - generic [ref=e27]:
+            - text: Teklif Alın
+            - generic [ref=e28]: arrow_right_alt
+        - button "Menüyü Aç" [ref=e30]:
+          - generic [ref=e31]: menu
+  - main [ref=e32]
+  - contentinfo [ref=e54]:
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - link "Alo Yönetim Logo ALO YÖNETİM Mülk Yönetimi" [ref=e58] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e59]:
+              - img "Alo Yönetim Logo" [ref=e61]
+              - generic [ref=e62]:
+                - generic [ref=e63]: ALO YÖNETİM
+                - generic [ref=e64]: Mülk Yönetimi
+          - paragraph [ref=e65]: 2009 yılından bugüne, sektördeki bilgi birikimi ve deneyimimizle; profesyonel mülk yönetimi, özel güvenlik ve entegre bina yönetimi hizmetlerinde güvenin adresi olmaya devam ediyoruz.
+          - generic [ref=e66]:
+            - button "App Store — yakında" [ref=e67]:
+              - generic [ref=e68]: apple
+              - generic [ref=e69]:
+                - generic [ref=e70]: Download on the
+                - generic [ref=e71]: App Store
+            - button "Google Play — yakında" [ref=e72]:
+              - generic [ref=e73]: play_arrow
+              - generic [ref=e74]:
+                - generic [ref=e75]: GET IT ON
+                - generic [ref=e76]: Google Play
+        - generic [ref=e77]:
+          - heading "KURUMSAL" [level=4] [ref=e78]
+          - navigation "Alt menü - Kurumsal" [ref=e79]:
+            - link "Biz Kimiz?" [ref=e80] [cursor=pointer]:
+              - /url: /hakkimizda
+              - generic [ref=e81]: arrow_forward
+              - text: Biz Kimiz?
+            - link "Vizyon & Misyon" [ref=e82] [cursor=pointer]:
+              - /url: /kurumsal/vizyon-misyon
+              - generic [ref=e83]: arrow_forward
+              - text: Vizyon & Misyon
+            - link "Kalite Politikamız" [ref=e84] [cursor=pointer]:
+              - /url: /kurumsal/kalite-politikamiz
+              - generic [ref=e85]: arrow_forward
+              - text: Kalite Politikamız
+            - link "Sürdürülebilirlik" [ref=e86] [cursor=pointer]:
+              - /url: /kurumsal/surdurulebilirlik
+              - generic [ref=e87]: arrow_forward
+              - text: Sürdürülebilirlik
+            - link "Referanslar" [ref=e88] [cursor=pointer]:
+              - /url: /referanslar
+              - generic [ref=e89]: arrow_forward
+              - text: Referanslar
+            - link "Başarı Hikayeleri" [ref=e90] [cursor=pointer]:
+              - /url: /basari-hikayeleri
+              - generic [ref=e91]: arrow_forward
+              - text: Başarı Hikayeleri
+            - link "İletişim" [ref=e92] [cursor=pointer]:
+              - /url: /iletisim
+              - generic [ref=e93]: arrow_forward
+              - text: İletişim
+            - link "Sıkça Sorulan Sorular" [ref=e94] [cursor=pointer]:
+              - /url: /sss
+              - generic [ref=e95]: arrow_forward
+              - text: Sıkça Sorulan Sorular
+            - link "Blog & Haberler" [ref=e96] [cursor=pointer]:
+              - /url: /blog
+              - generic [ref=e97]: arrow_forward
+              - text: Blog & Haberler
+        - generic [ref=e98]:
+          - heading "ÇÖZÜMLERİMİZ" [level=4] [ref=e99]
+          - navigation "Alt menü - Çözümler" [ref=e100]:
+            - link "Tüm Hizmetler" [ref=e101] [cursor=pointer]:
+              - /url: /hizmetler
+              - generic [ref=e102]: arrow_forward
+              - text: Tüm Hizmetler
+            - link "Güvenlik Yönetimi" [ref=e103] [cursor=pointer]:
+              - /url: /hizmetler/guvenlik-yonetimi
+              - generic [ref=e104]: arrow_forward
+              - text: Güvenlik Yönetimi
+            - link "Mülk Yönetimi" [ref=e105] [cursor=pointer]:
+              - /url: /hizmetler/tesis-yonetimi
+              - generic [ref=e106]: arrow_forward
+              - text: Mülk Yönetimi
+            - link "Temizlik & Hijyen" [ref=e107] [cursor=pointer]:
+              - /url: /hizmetler/temizlik-ve-hijyen
+              - generic [ref=e108]: arrow_forward
+              - text: Temizlik & Hijyen
+            - link "Teknik Bakım" [ref=e109] [cursor=pointer]:
+              - /url: /hizmetler/teknik-bakim
+              - generic [ref=e110]: arrow_forward
+              - text: Teknik Bakım
+            - link "Peyzaj & Bahçe Bakımı" [ref=e111] [cursor=pointer]:
+              - /url: /hizmetler/peyzaj-ve-bahce-bakimi
+              - generic [ref=e112]: arrow_forward
+              - text: Peyzaj & Bahçe Bakımı
+            - link "Havuz Bakımı & Hijyen" [ref=e113] [cursor=pointer]:
+              - /url: /hizmetler/havuz-bakimi-ve-hijyen
+              - generic [ref=e114]: arrow_forward
+              - text: Havuz Bakımı & Hijyen
+            - link "Haşere & Dezenfeksiyon" [ref=e115] [cursor=pointer]:
+              - /url: /hizmetler/hasere-ve-dezenfeksiyon
+              - generic [ref=e116]: arrow_forward
+              - text: Haşere & Dezenfeksiyon
+            - link "Hukuk & İcra Takibi" [ref=e117] [cursor=pointer]:
+              - /url: /hizmetler/hukuk-ve-icra-danismanligi
+              - generic [ref=e118]: arrow_forward
+              - text: Hukuk & İcra Takibi
+            - link "Sektörel Çözümler" [ref=e119] [cursor=pointer]:
+              - /url: /sektorel-cozumler
+              - generic [ref=e120]: arrow_forward
+              - text: Sektörel Çözümler
+            - link "İstihdam Köprüsü" [ref=e121] [cursor=pointer]:
+              - /url: /istihdam-koprusu
+              - generic [ref=e122]: arrow_forward
+              - text: İstihdam Köprüsü
+            - link "Güvenlik Akademisi" [ref=e123] [cursor=pointer]:
+              - /url: /guvenlik-akademisi
+              - generic [ref=e124]: arrow_forward
+              - text: Güvenlik Akademisi
+        - generic [ref=e125]:
+          - heading "İLETİŞİM BİLGİLERİ" [level=4] [ref=e126]
+          - generic [ref=e127]:
+            - generic [ref=e129]: "İstanbul Merkez: 10:42"
+            - generic [ref=e130]: partly_cloudy_day
+          - generic [ref=e131]:
+            - generic [ref=e132]: location_on
+            - generic [ref=e134]:
+              - generic [ref=e135]: Genel Müdürlük
+              - generic [ref=e136]: "Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19, 34722 Kadıköy / İstanbul"
+          - generic [ref=e137]:
+            - generic [ref=e138]: call
+            - generic [ref=e140]:
+              - generic [ref=e141]: Müşteri Hizmetleri
+              - link "0216 550 48 48" [ref=e142] [cursor=pointer]:
+                - /url: tel:02165504848
+          - generic [ref=e143]:
+            - generic [ref=e144]: schedule
+            - generic [ref=e146]:
+              - generic [ref=e147]: Çalışma Saatlerimiz
+              - generic [ref=e148]: 09:00 - 18:00
+          - link "chat WhatsApp Destek Hattı Hemen mesaj gönderin" [ref=e149] [cursor=pointer]:
+            - /url: https://wa.me/905550000000
+            - generic [ref=e150]: chat
+            - generic [ref=e152]:
+              - generic [ref=e153]: WhatsApp Destek Hattı
+              - generic [ref=e154]: Hemen mesaj gönderin
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - generic [ref=e158]: verified
+            - generic [ref=e159]:
+              - generic [ref=e160]: ISO 9001:2015
+              - generic [ref=e161]: Kalite Yönetimi
+          - generic [ref=e162]:
+            - generic [ref=e163]: health_and_safety
+            - generic [ref=e164]:
+              - generic [ref=e165]: ISO 45001
+              - generic [ref=e166]: İSG Yönetimi
+          - generic [ref=e167]:
+            - generic [ref=e168]: admin_panel_settings
+            - generic [ref=e169]:
+              - generic [ref=e170]: ÖGG Belgeli
+              - generic [ref=e171]: T.C. İçişleri Bak.
+        - generic [ref=e173]:
+          - link "Facebook" [ref=e174] [cursor=pointer]:
+            - /url: https://www.facebook.com/aloyonetim
+          - link "Twitter" [ref=e178] [cursor=pointer]:
+            - /url: https://twitter.com/aloyonetim
+          - link "Instagram" [ref=e182] [cursor=pointer]:
+            - /url: https://www.instagram.com/aloyonetim
+          - link "LinkedIn" [ref=e186] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/aloyonetim
+          - link "YouTube" [ref=e190] [cursor=pointer]:
+            - /url: https://www.youtube.com/@aloyonetim
+      - generic [ref=e194]:
+        - heading "Hizmet Bölgelerimiz" [level=4] [ref=e195]
+        - navigation "Bölgeler" [ref=e196]:
+          - link "Kadıköy Mülk ve Site Yönetimi" [ref=e197] [cursor=pointer]:
+            - /url: /bolgeler/kadikoy
+          - link "Ataşehir Mülk ve Site Yönetimi" [ref=e198] [cursor=pointer]:
+            - /url: /bolgeler/atasehir
+          - link "Üsküdar Mülk ve Site Yönetimi" [ref=e199] [cursor=pointer]:
+            - /url: /bolgeler/uskudar
+          - link "Maltepe Mülk ve Site Yönetimi" [ref=e200] [cursor=pointer]:
+            - /url: /bolgeler/maltepe
+          - link "Kartal Mülk ve Site Yönetimi" [ref=e201] [cursor=pointer]:
+            - /url: /bolgeler/kartal
+          - link "Ümraniye Mülk ve Site Yönetimi" [ref=e202] [cursor=pointer]:
+            - /url: /bolgeler/umraniye
+          - link "Beşiktaş Mülk ve Site Yönetimi" [ref=e203] [cursor=pointer]:
+            - /url: /bolgeler/besiktas
+          - link "Şişli Mülk ve Site Yönetimi" [ref=e204] [cursor=pointer]:
+            - /url: /bolgeler/sisli
+          - link "Bakırköy Mülk ve Site Yönetimi" [ref=e205] [cursor=pointer]:
+            - /url: /bolgeler/bakirkoy
+          - link "Sarıyer Mülk ve Site Yönetimi" [ref=e206] [cursor=pointer]:
+            - /url: /bolgeler/sariyer
+          - link "Beylikdüzü Mülk ve Site Yönetimi" [ref=e207] [cursor=pointer]:
+            - /url: /bolgeler/beylikduzu
+          - link "Başakşehir Mülk ve Site Yönetimi" [ref=e208] [cursor=pointer]:
+            - /url: /bolgeler/basaksehir
+          - link "Tüm bölgeler →" [ref=e209] [cursor=pointer]:
+            - /url: /bolgeler
+      - generic [ref=e210]:
+        - generic [ref=e211]: TÜM SİSTEMLER ÇEVRİMİÇİ
+        - generic [ref=e213]:
+          - text: © 2026 Alo Yönetim. Tüm Hakları Saklıdır. |
+          - link "Kullanım Koşulları" [ref=e214] [cursor=pointer]:
+            - /url: /kullanim-sartlari
+          - text: "|"
+          - link "Gizlilik Politikası" [ref=e215] [cursor=pointer]:
+            - /url: /gizlilik-politikasi
+          - text: "|"
+          - link "Çerez Politikası" [ref=e216] [cursor=pointer]:
+            - /url: /cerez-politikasi
+          - text: "|"
+          - link "KVKK" [ref=e217] [cursor=pointer]:
+            - /url: /kvkk-ve-aydinlatma-metni
+          - text: "|"
+          - link "Site Haritası" [ref=e218] [cursor=pointer]:
+            - /url: /site-haritasi
+        - generic [ref=e219]:
+          - generic [ref=e220]: language
+          - generic [ref=e221]: Türkiye / Türkçe

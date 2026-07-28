@@ -11,6 +11,10 @@ export function proxy(request: NextRequest) {
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
+    // Next app metadata route'ları (noktasız oldukları için locale rewrite'a takılıp
+    // /tr/icon'a yönlenip 404 veriyorlardı) — olduğu gibi sun.
+    pathname === '/icon' ||
+    pathname === '/apple-icon' ||
     pathname.includes('.') // Dosya uzantısı varsa (resim, favicon vb.)
   ) {
     return NextResponse.next();
