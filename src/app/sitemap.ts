@@ -1,143 +1,61 @@
-import { MetadataRoute } from 'next';
-import { localizedUrl, BASE_URL } from '@/lib/seo';
-import { BLOG_SLUGS } from '@/data/blog';
-import { DISTRICTS } from '@/data/districts';
-import { SERVICES } from '@/data/services';
-import { CATEGORIES, ALL_TAGS, postsByTag } from '@/data/posts';
-import { AUTHORS } from '@/data/authors';
+import type { MetadataRoute } from 'next';
+import { BASE_URL } from '@/lib/seo';
+import { prisma } from '@/lib/prisma';
 
-// Sitenin son kapsamlı güncelleme tarihi. Request-time `new Date()` yerine
-// stabil bir tarih kullanılır (her istekte "bugün" sinyali vermez).
-// Not: Sayfa bazlı gerçek tarihler blog frontmatter ile gelecek (Bölüm G / Faz 24).
-const LAST_UPDATED = new Date('2026-07-24T00:00:00+03:00');
-
-type RouteDef = {
-  path: string;
-  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
-  priority: number;
-};
-
-// Locale-siz kanonik yollar. Her biri için tr/en alternates üretilir.
-const staticRoutes: RouteDef[] = [
-  { path: '/', changeFrequency: 'weekly', priority: 1 },
-  { path: '/hakkimizda', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler', changeFrequency: 'weekly', priority: 0.9 },
-  { path: '/hizmetler/guvenlik-yonetimi', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/tesis-yonetimi', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/temizlik-ve-hijyen', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/teknik-bakim', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/peyzaj-ve-bahce-bakimi', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/havuz-bakimi-ve-hijyen', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/hasere-ve-dezenfeksiyon', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/hizmetler/hukuk-ve-icra-danismanligi', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/kurumsal/vizyon-misyon', changeFrequency: 'yearly', priority: 0.5 },
-  { path: '/kurumsal/kalite-politikamiz', changeFrequency: 'yearly', priority: 0.5 },
-  { path: '/kurumsal/surdurulebilirlik', changeFrequency: 'yearly', priority: 0.5 },
-  { path: '/sektorel-cozumler', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/referanslar', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/basari-hikayeleri', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/guvenlik-akademisi', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/istihdam-koprusu', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/surdurulebilirlik/ges-projeleri', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/hesaplayici', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
-  { path: '/bolgeler', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/sozluk', changeFrequency: 'monthly', priority: 0.5 },
-  { path: '/sss', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/iletisim', changeFrequency: 'yearly', priority: 0.7 },
-  { path: '/teklif-al', changeFrequency: 'yearly', priority: 0.7 },
-  { path: '/site-haritasi', changeFrequency: 'yearly', priority: 0.3 },
-  { path: '/kvkk-ve-aydinlatma-metni', changeFrequency: 'yearly', priority: 0.2 },
-  { path: '/gizlilik-politikasi', changeFrequency: 'yearly', priority: 0.2 },
-  { path: '/cerez-politikasi', changeFrequency: 'yearly', priority: 0.2 },
-  { path: '/kullanim-sartlari', changeFrequency: 'yearly', priority: 0.2 },
-];
-
-type Extra = Pick<MetadataRoute.Sitemap[number], 'images' | 'videos'>;
-
-function withAlternates(
-  path: string,
-  changeFrequency: RouteDef['changeFrequency'],
-  priority: number,
-  extra?: Extra,
-): MetadataRoute.Sitemap[number] {
-  return {
-    url: localizedUrl(path, 'tr'),
-    lastModified: LAST_UPDATED,
-    changeFrequency,
-    priority,
-    alternates: {
-      languages: {
-        tr: localizedUrl(path, 'tr'),
-        en: localizedUrl(path, 'en'),
-        'x-default': localizedUrl(path, 'tr'),
-      },
-    },
-    ...extra,
-  };
-}
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const staticEntries = staticRoutes.map((r) => {
-    // Ana sayfa: image sitemap (Faz 22) + video sitemap (Faz 23) — VideoObject ile hizalı.
-    if (r.path === '/') {
-      return withAlternates(r.path, r.changeFrequency, r.priority, {
-        images: [`${BASE_URL}/images/hero-poster.webp`],
-        videos: [
-          {
-            title: 'Alo Yönetim Tanıtım Filmi',
-            thumbnail_loc: `${BASE_URL}/images/hero-poster.webp`,
-            description:
-              'Profesyonel mülk ve tesis yönetimi hizmetlerimizi tanıtan kurumsal filmimiz.',
-            content_loc: `${BASE_URL}/video/brand-film.mp4`,
-          },
-        ],
-      });
-    }
-    return withAlternates(r.path, r.changeFrequency, r.priority);
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await prisma.post.findMany({ where: { published: true }, select: { slug: true, dateModified: true } });
+  const categories = await prisma.category.findMany({ select: { slug: true, updatedAt: true } });
+  
+  // Etiketleri postlardan çıkaralım (gerçekte ayrı bir tabloda olsa daha iyi ama şimdilik JSON'dan alıyoruz)
+  const tagsSet = new Set<string>();
+  const postsWithTags = await prisma.post.findMany({ where: { published: true }, select: { tags: true } });
+  postsWithTags.forEach(p => {
+    try {
+      const parsed = typeof p.tags === 'string' ? JSON.parse(p.tags) : p.tags;
+      if (Array.isArray(parsed)) parsed.forEach(t => tagsSet.add(t));
+    } catch(e) {}
   });
 
-  const blogEntries = BLOG_SLUGS.map((slug) =>
-    withAlternates(`/blog/${slug}`, 'monthly', 0.6),
-  );
+  const routes = [
+    '',
+    '/hakkimizda',
+    '/iletisim',
+    '/sozluk',
+    '/hizmetler',
+    '/hizmetler/tesis-yonetimi',
+    '/hizmetler/hukuk-ve-icra-danismanligi',
+    '/hizmetler/mali-ve-finansal-yonetim',
+    '/hizmetler/teknik-bakim',
+    '/hizmetler/temizlik-ve-peyzaj',
+    '/hizmetler/havuz-bakimi-ve-hijyen',
+    '/blog',
+  ].map((r) => ({
+    url: `${BASE_URL}${r}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: r === '' ? 1 : 0.8,
+  }));
 
-  // Blog taksonomisi (Faz 156/157/159). Thin etiketler (tek yazı) hariç.
-  const categoryEntries = CATEGORIES.map((c) =>
-    withAlternates(`/blog/kategori/${c.slug}`, 'weekly', 0.5),
-  );
-  const authorEntries = AUTHORS.map((a) =>
-    withAlternates(`/blog/yazar/${a.slug}`, 'monthly', 0.4),
-  );
-  const tagEntries = ALL_TAGS.filter((t) => postsByTag(t).length >= 2).map((t) =>
-    withAlternates(`/blog/etiket/${encodeURIComponent(t)}`, 'monthly', 0.3),
-  );
+  const postRoutes = posts.map((p) => ({
+    url: `${BASE_URL}/blog/${p.slug}`,
+    lastModified: p.dateModified.toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
 
-  // Yerel (programatik) sayfalar — Faz 112. Öncelik ilçe priority'sine göre.
-  const districtEntries = DISTRICTS.map((d) =>
-    withAlternates(
-      `/bolgeler/${d.slug}`,
-      'monthly',
-      d.priority === 1 ? 0.7 : d.priority === 2 ? 0.6 : 0.5,
-    ),
-  );
+  const catRoutes = categories.map((c) => ({
+    url: `${BASE_URL}/blog/kategori/${c.slug}`,
+    lastModified: c.updatedAt.toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
 
-  const serviceDistrictEntries = DISTRICTS.flatMap((d) =>
-    SERVICES.map((s) =>
-      withAlternates(
-        `/bolgeler/${d.slug}/${s.slug}`,
-        'monthly',
-        d.priority === 1 ? 0.6 : 0.5,
-      ),
-    ),
-  );
+  const tagRoutes = Array.from(tagsSet).map((t) => ({
+    url: `${BASE_URL}/blog/etiket/${encodeURIComponent(t)}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.5,
+  }));
 
-  return [
-    ...staticEntries,
-    ...blogEntries,
-    ...categoryEntries,
-    ...authorEntries,
-    ...tagEntries,
-    ...districtEntries,
-    ...serviceDistrictEntries,
-  ];
+  return [...routes, ...postRoutes, ...catRoutes, ...tagRoutes];
 }

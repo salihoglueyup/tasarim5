@@ -1,13 +1,18 @@
 import Link from 'next/link';
-import { POSTS } from '@/data/posts';
+import { prisma } from '@/lib/prisma';
 
 /**
  * Pillar → cluster iç linki (SEO Master Plan V4 — Faz 152).
  * Bir hizmet (pillar) sayfasına, o pillar'a bağlı blog makalelerinin listesini
  * ekler. Client sayfalarda da güvenle kullanılır (yalnız statik Link render eder).
  */
-export default function RelatedArticles({ pillar }: { pillar: string }) {
-  const posts = POSTS.filter((p) => p.pillar === pillar).slice(0, 4);
+export default async function RelatedArticles({ pillar }: { pillar: string }) {
+  const posts = await prisma.post.findMany({
+    where: { pillar, published: true },
+    take: 4,
+    orderBy: { datePublished: 'desc' }
+  });
+  
   if (posts.length === 0) return null;
 
   return (

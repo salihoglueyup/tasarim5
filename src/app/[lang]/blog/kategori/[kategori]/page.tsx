@@ -4,13 +4,14 @@ import PageHeader from '@/components/layout/PageHeader';
 import { JsonLd, PostGrid } from '@/components';
 import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
-import { CATEGORIES, getCategory, postsByCategory } from '@/data/posts';
+import { prisma } from '@/lib/prisma';
 
-export const revalidate = 86400;
+export const revalidate = 60;
 export const dynamicParams = true;
 
-export function generateStaticParams() {
-  return LOCALES.flatMap((lang) => CATEGORIES.map((c) => ({ lang, kategori: c.slug })));
+export async function generateStaticParams() {
+  const categories = await prisma.category.findMany({ select: { slug: true } });
+  return LOCALES.flatMap((lang) => categories.map((c) => ({ lang, kategori: c.slug })));
 }
 
 export async function generateMetadata({
@@ -19,7 +20,8 @@ export async function generateMetadata({
   params: Promise<{ lang: string; kategori: string }>;
 }): Promise<Metadata> {
   const { lang, kategori } = await params;
-  const cat = getCategory(kategori);
+  const cat = await prisma.category.findUnique({ where: { slug: kategori } });
+  
   if (!cat) {
     return buildMetadata({ title: 'Kategori Bulunamadı', description: 'Kategori bulunamadı.', path: `/blog/kategori/${kategori}`, lang, noindex: true });
   }
@@ -37,10 +39,19 @@ export default async function CategoryArchive({
   params: Promise<{ lang: string; kategori: string }>;
 }) {
   const { kategori } = await params;
-  const cat = getCategory(kategori);
+  
+  const cat = await prisma.category.findUnique({ 
+    where: { slug: kategori } 
+  });
+  
   if (!cat) notFound();
 
-  const posts = postsByCategory(kategori);
+  const posts = await prisma.post.findMany({
+    where: { categoryId: cat.id, published: true },
+    include: { category: true },
+    orderBy: { datePublished: 'desc' }
+  });
+  
   const path = `/blog/kategori/${kategori}`;
 
   const breadcrumbLd = generateBreadcrumbs([

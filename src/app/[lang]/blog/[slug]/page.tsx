@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import { JsonLd, PostBody, ReadingProgress, ShareButtons } from '@/components';
+import { prisma } from '@/lib/prisma';
 import {
   generateBreadcrumbs,
   blogPostingSchema,
@@ -10,23 +11,16 @@ import {
   personSchema,
 } from '@/lib/schemas';
 import { LOCALES } from '@/lib/seo';
-import {
-  getPost,
-  getCategory,
-  relatedPosts,
-  readingMinutes,
-  POSTS,
-} from '@/data/posts';
-import { getAuthor } from '@/data/authors';
 
-export const revalidate = 86400;
+export const revalidate = 60; // 1 dakika cache
 export const dynamicParams = true;
 
-export function generateStaticParams() {
-  return LOCALES.flatMap((lang) => POSTS.map((p) => ({ lang, slug: p.slug })));
+export async function generateStaticParams() {
+  const posts = await prisma.post.findMany({ select: { slug: true } });
+  return LOCALES.flatMap((lang) => posts.map((p) => ({ lang, slug: p.slug })));
 }
 
-function formatDate(iso: string): string {
+function formatDate(iso: string | Date): string {
   return new Date(iso).toLocaleDateString('tr-TR', {
     day: 'numeric',
     month: 'long',
@@ -40,13 +34,50 @@ export default async function BlogDetail({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPost(slug);
-  if (!post) notFound();
+  
+  const post = await prisma.post.findUnique({
+    where: { slug },
+    include: { author: true, category: true }
+  });
 
-  const author = getAuthor(post.author);
-  const category = getCategory(post.category);
-  const related = relatedPosts(post);
-  const minutes = readingMinutes(post);
+  if (!post || !post.published) notFound();
+
+  const author = post.author;
+  const category = post.category;
+  
+  // İlgili yazıları getir (aynı kategoriden son 3 yayınlanmış yazı)
+  const related = await prisma.post.findMany({
+    where: { 
+      categoryId: post.categoryId, 
+      id: { not: post.id },
+      published: true 
+    },
+    take: 3,
+    orderBy: { datePublished: 'desc' }
+  });
+
+  // Convert tags back to array if stored as string
+  let tags: string[] = [];
+  try {
+    tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
+    if (!Array.isArray(tags)) tags = [];
+  } catch (e) {
+    tags = [];
+  }
+
+  // Parse content to pass to PostBody
+  let blocks: any[] = [];
+  try {
+    blocks = typeof post.content === 'string' ? JSON.parse(post.content) : post.content;
+    if (!Array.isArray(blocks)) blocks = [];
+  } catch (e) {
+    blocks = [];
+  }
+
+  // Calculate reading minutes (approx 200 words per minute)
+  const wordCount = JSON.stringify(blocks).split(/\s+/).length;
+  const minutes = Math.max(1, Math.ceil(wordCount / 200));
+
   const path = `/blog/${post.slug}`;
 
   const breadcrumbLd = generateBreadcrumbs([
@@ -61,12 +92,12 @@ export default async function BlogDetail({
     description: post.description,
     path,
     image: post.image,
-    datePublished: post.datePublished,
-    dateModified: post.dateModified,
+    datePublished: post.datePublished.toISOString(),
+    dateModified: post.dateModified.toISOString(),
     section: category?.name,
-    keywords: post.tags,
+    keywords: tags,
     author: author
-      ? { name: author.name, jobTitle: author.title, url: `/blog/yazar/${author.slug}` }
+      ? { name: author.name, jobTitle: 'Yazar', url: `/blog/yazar/${author.id}` }
       : undefined,
   });
 
@@ -77,14 +108,10 @@ export default async function BlogDetail({
     speakableSelectors: ['h1', '.tldr'],
   });
 
-  const authorLd = author
-    ? personSchema({ name: author.name, jobTitle: author.title, sameAs: author.sameAs })
-    : null;
-
   return (
     <>
       <ReadingProgress />
-      <JsonLd data={[pageLd, breadcrumbLd, articleLd, ...(authorLd ? [authorLd] : [])]} />
+      <JsonLd data={[pageLd, breadcrumbLd, articleLd]} />
       <PageHeader title={post.title} description={post.description} />
 
       <article className="py-16 px-[var(--spacing-gutter)] max-w-3xl mx-auto flex flex-col gap-10">
@@ -97,7 +124,7 @@ export default async function BlogDetail({
             <div>
               <div className="font-bold text-slate-900 dark:text-white">
                 {author ? (
-                  <Link href={`/blog/yazar/${author.slug}`} className="hover:underline">
+                  <Link href={`/blog/yazar/${author.id}`} className="hover:underline">
                     {author.name}
                   </Link>
                 ) : (
@@ -122,7 +149,7 @@ export default async function BlogDetail({
         {/* Cover */}
         <div className="w-full aspect-[16/9] rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10">
           <Image
-            src={post.image}
+            src={post.image || '/images/hero-poster-v5.webp'}
             alt={post.title}
             width={1200}
             height={675}
@@ -133,50 +160,38 @@ export default async function BlogDetail({
         </div>
 
         {/* TL;DR */}
-        <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
-          <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
-          <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">Özet</div>
-            <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr}</p>
-          </div>
-        </aside>
+        {post.tldr && (
+          <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
+            <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
+            <div>
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">Özet</div>
+              <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr}</p>
+            </div>
+          </aside>
+        )}
 
         {/* Body */}
-        <PostBody blocks={post.content} />
+        <PostBody blocks={blocks} />
 
         {/* Tags */}
-        <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-200 dark:border-white/10">
-          {post.tags.map((tag) => (
-            <Link
-              key={tag}
-              href={`/blog/etiket/${encodeURIComponent(tag)}`}
-              className="text-xs bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full px-3 py-1.5 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-950 transition-colors"
-            >
-              #{tag}
-            </Link>
-          ))}
-        </div>
+        {tags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-200 dark:border-white/10">
+            {tags.map((tag: string) => (
+              <Link
+                key={tag}
+                href={`/blog/etiket/${encodeURIComponent(tag)}`}
+                className="text-xs bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full px-3 py-1.5 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-950 transition-colors"
+              >
+                #{tag}
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* Share */}
         <ShareButtons path={path} title={post.title} />
 
-        {/* Author box (E-E-A-T) */}
-        {author && (
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-8 bg-slate-50 dark:bg-slate-800/30 rounded-3xl border border-slate-100 dark:border-slate-800">
-            <div className="w-20 h-20 rounded-full bg-slate-200 dark:bg-slate-800 border-4 border-white dark:border-[#0b1c30] shadow-md flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-3xl text-slate-800 dark:text-slate-200">person</span>
-            </div>
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-              <Link href={`/blog/yazar/${author.slug}`} className="text-lg font-bold text-slate-900 dark:text-white hover:underline">
-                {author.name}
-              </Link>
-              <div className="text-sm text-[var(--color-primary)] font-semibold mb-2">{author.title}</div>
-              <p className="text-sm text-slate-600 dark:text-slate-400 font-light leading-relaxed">{author.bio}</p>
-            </div>
-          </div>
-        )}
-
-        {/* Related posts (Faz 158/174) */}
+        {/* Related posts */}
         {related.length > 0 && (
           <div className="flex flex-col gap-6 pt-6 border-t border-slate-200 dark:border-white/10">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white">İlgili Yazılar</h2>
@@ -184,7 +199,7 @@ export default async function BlogDetail({
               {related.map((r) => (
                 <Link key={r.slug} href={`/blog/${r.slug}`} className="group flex flex-col gap-3">
                   <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/50 dark:border-white/10">
-                    <Image src={r.image} alt={r.title} width={400} height={250} sizes="(max-width: 640px) 100vw, 250px" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={r.image || '/images/hero-poster-v5.webp'} alt={r.title} width={400} height={250} sizes="(max-width: 640px) 100vw, 250px" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors leading-snug">
                     {r.title}
@@ -196,12 +211,14 @@ export default async function BlogDetail({
         )}
 
         {/* Pillar link */}
-        <div className="text-center text-sm text-slate-500">
-          İlgili hizmet:{' '}
-          <Link href={post.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
-            Detaylı bilgi için tıklayın
-          </Link>
-        </div>
+        {post.pillar && (
+          <div className="text-center text-sm text-slate-500">
+            İlgili hizmet:{' '}
+            <Link href={post.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
+              Detaylı bilgi için tıklayın
+            </Link>
+          </div>
+        )}
       </article>
     </>
   );
