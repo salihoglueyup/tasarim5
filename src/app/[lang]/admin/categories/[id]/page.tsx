@@ -27,10 +27,10 @@ export default async function EditCategoryPage({ params }: { params: Promise<{ l
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
           {isNew ? 'Yeni Kategori Ekle' : 'Kategoriyi Düzenle'}
         </h1>
-        <p className="text-sm text-gray-400 mt-1">
+        <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
           {isNew ? 'Blog yazılarınız için yeni bir kategori oluşturun.' : `"${category?.name}" kategorisini düzenliyorsunuz.`}
         </p>
       </div>

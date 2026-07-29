@@ -25,10 +25,10 @@ export default async function EditPostPage({ params }: { params: Promise<{ lang:
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
           {isNew ? 'Yeni Yazı Ekle' : 'Yazıyı Düzenle'}
         </h1>
-        <p className="text-sm text-gray-400 mt-1">
+        <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
           {isNew ? 'Yeni bir blog yazısı oluşturun ve yayınlayın.' : `"${post?.title}" başlıklı yazıyı düzenliyorsunuz.`}
         </p>
       </div>

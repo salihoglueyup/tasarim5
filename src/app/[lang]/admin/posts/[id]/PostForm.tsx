@@ -124,7 +124,7 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl">
+        <div className="bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-600 dark:text-red-400 p-4 rounded-xl">
           {error}
         </div>
       )}
@@ -132,33 +132,33 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content Area */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6">
+          <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6 shadow-sm dark:shadow-none">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Başlık</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">Başlık</label>
               <input
                 type="text"
                 required
                 value={formData.title}
                 onChange={handleTitleChange}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
+                className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
                 placeholder="Yazı başlığını girin..."
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Açıklama (SEO / Özet)</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">Açıklama (SEO / Özet)</label>
               <textarea
                 required
                 rows={3}
                 value={formData.description}
                 onChange={e => setFormData({...formData, description: e.target.value})}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all resize-none"
+                className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all resize-none"
                 placeholder="Arama sonuçlarında ve yazı kartlarında görünecek açıklama..."
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">İçerik</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">İçerik</label>
               <TiptapEditor 
                 content={formData.content} 
                 onChange={(content) => setFormData({...formData, content})} 
@@ -170,37 +170,37 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
         {/* Sidebar Options Area */}
         <div className="space-y-6">
           
-          <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6">
+          <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6 shadow-sm dark:shadow-none">
             <div className="flex items-center justify-between">
-              <h3 className="text-white font-medium">Yayın Ayarları</h3>
+              <h3 className="text-slate-900 dark:text-white font-medium">Yayın Ayarları</h3>
               <label className="flex items-center space-x-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={formData.published}
                   onChange={e => setFormData({...formData, published: e.target.checked})}
-                  className="w-5 h-5 rounded border-gray-300 text-brand-500 focus:ring-brand-500 bg-white/5"
+                  className="w-5 h-5 rounded border-slate-300 dark:border-gray-600 text-brand-500 focus:ring-brand-500 bg-slate-50 dark:bg-white/5"
                 />
-                <span className="text-gray-300 text-sm">Yayında</span>
+                <span className="text-slate-700 dark:text-gray-300 text-sm">Yayında</span>
               </label>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Kategori</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">Kategori</label>
               <select
                 value={formData.categoryId}
                 onChange={e => setFormData({...formData, categoryId: e.target.value})}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all [&>option]:bg-[#0B0F19]"
+                className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all [&>option]:bg-white dark:[&>option]:bg-[#0B0F19]"
               >
                 {renderCategoryOptions()}
               </select>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Yazar</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">Yazar</label>
               <select
                 value={formData.authorId}
                 onChange={e => setFormData({...formData, authorId: e.target.value})}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all [&>option]:bg-[#0B0F19]"
+                className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all [&>option]:bg-white dark:[&>option]:bg-[#0B0F19]"
               >
                 {authors.map((a: any) => (
                   <option key={a.id} value={a.id}>{a.name}</option>
@@ -209,28 +209,28 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Kapak Görseli</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">Kapak Görseli</label>
               <div className="space-y-3">
-                <label className="flex items-center justify-center w-full px-4 py-3 bg-white/5 border border-white/10 border-dashed rounded-xl cursor-pointer hover:bg-white/10 transition-colors">
-                  <span className="text-sm text-gray-400">
+                <label className="flex items-center justify-center w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-slate-300 dark:border-white/10 border-dashed rounded-xl cursor-pointer hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
+                  <span className="text-sm text-slate-500 dark:text-gray-400">
                     {uploading ? 'Yükleniyor...' : '🖼️ Bilgisayardan Seç / Yükle'}
                   </span>
                   <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
                 </label>
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs text-gray-500">veya URL girin:</span>
+                  <span className="text-xs text-slate-500 dark:text-gray-500">veya URL girin:</span>
                   <input
                     type="text"
                     value={formData.image}
                     onChange={e => setFormData({...formData, image: e.target.value})}
                     placeholder="https://..."
-                    className="flex-1 bg-transparent border-b border-white/10 px-2 py-1 text-sm text-white focus:outline-none focus:border-brand-500 transition-colors"
+                    className="flex-1 bg-transparent border-b border-slate-300 dark:border-white/10 px-2 py-1 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 transition-colors"
                   />
                 </div>
               </div>
               
               {formData.image && (
-                <div className="mt-4 relative h-32 rounded-lg overflow-hidden border border-white/10 group">
+                <div className="mt-4 relative h-32 rounded-lg overflow-hidden border border-slate-200 dark:border-white/10 group">
                   <img src={formData.image} alt="Kapak" className="w-full h-full object-cover" />
                   <button 
                     type="button"
@@ -244,42 +244,42 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
             </div>
           </div>
 
-          <details className="bg-white/[0.03] border border-white/10 rounded-2xl backdrop-blur-sm group cursor-pointer overflow-hidden">
-            <summary className="p-6 font-medium text-gray-300 outline-none select-none flex items-center justify-between">
+          <details className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl backdrop-blur-sm group cursor-pointer overflow-hidden shadow-sm dark:shadow-none">
+            <summary className="p-6 font-medium text-slate-700 dark:text-gray-300 outline-none select-none flex items-center justify-between">
               Gelişmiş Seçenekler
-              <span className="text-gray-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+              <span className="text-slate-500 dark:text-gray-500 group-open:rotate-180 transition-transform duration-300">▼</span>
             </summary>
             
-            <div className="p-6 pt-0 space-y-6 border-t border-white/5">
+            <div className="p-6 pt-0 space-y-6 border-t border-slate-100 dark:border-white/5">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">URL Adresi (Slug)</label>
+                <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">URL Adresi (Slug)</label>
                 <input
                   type="text"
                   required
                   value={formData.slug}
                   onChange={e => setFormData({...formData, slug: e.target.value})}
-                  className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm"
+                  className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">TLDR (Kısa Özet)</label>
+                <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">TLDR (Kısa Özet)</label>
                 <textarea
                   rows={2}
                   value={formData.tldr}
                   onChange={e => setFormData({...formData, tldr: e.target.value})}
-                  className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all resize-none text-sm"
+                  className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all resize-none text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Etiketler</label>
+                <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">Etiketler</label>
                 <input
                   type="text"
                   value={formData.tags}
                   onChange={e => setFormData({...formData, tags: e.target.value})}
                   placeholder="Virgülle ayırın (ör: yazılım, yönetim)"
-                  className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm"
+                  className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm"
                 />
               </div>
             </div>
@@ -289,7 +289,7 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-brand-600 to-brand-500 text-white font-medium rounded-xl px-4 py-4 hover:from-brand-500 hover:to-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-[#0B0F19] transition-all duration-300 disabled:opacity-50 shadow-[0_0_20px_rgba(var(--brand-500),0.3)] hover:shadow-[0_0_30px_rgba(var(--brand-500),0.5)] transform hover:-translate-y-0.5"
+              className="w-full bg-gradient-to-r from-brand-600 to-brand-500 text-white font-medium rounded-xl px-4 py-4 hover:from-brand-500 hover:to-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-[#0B0F19] transition-all duration-300 disabled:opacity-50 shadow-[0_0_20px_rgba(var(--brand-500),0.3)] hover:shadow-[0_0_30px_rgba(var(--brand-500),0.5)] transform hover:-translate-y-0.5"
             >
               {loading ? 'Kaydediliyor...' : 'Yazıyı Kaydet'}
             </button>
