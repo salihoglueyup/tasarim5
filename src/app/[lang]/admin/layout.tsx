@@ -33,12 +33,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-gray-100 flex font-sans pt-[72px]">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-gray-100 flex font-sans pt-[72px]">
       {/* Sidebar */}
-      <aside className="w-64 bg-white/[0.02] border-r border-white/10 flex flex-col backdrop-blur-xl">
-        <div className="h-16 flex items-center px-6 border-b border-white/10">
-          <Link href={`/${lang}/admin/dashboard`} className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-accent-400">
-            Alo Yönetim Panel
+      <aside className="w-64 bg-white dark:bg-white/[0.02] border-r border-slate-200 dark:border-white/10 flex flex-col z-20 relative shadow-sm dark:shadow-none">
+        <div className="h-16 flex items-center px-6 border-b border-slate-200 dark:border-white/10 hidden md:flex">
+          <Link href={`/${lang}/admin/dashboard`} className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-accent-600 dark:from-brand-400 dark:to-accent-400">
+            Yönetim Paneli
           </Link>
         </div>
         
@@ -51,8 +51,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 href={item.path}
                 className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
                   isActive 
-                    ? 'bg-brand-500/10 text-brand-400 border border-brand-500/20' 
-                    : 'text-gray-400 hover:text-white hover:bg-white/[0.05]'
+                    ? 'bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-500/20 shadow-sm dark:shadow-none' 
+                    : 'text-slate-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.05]'
                 }`}
               >
                 <span className="mr-3">{item.icon}</span>
@@ -62,10 +62,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           })}
         </nav>
 
-        <div className="p-4 border-t border-white/10">
+        <div className="p-4 border-t border-slate-200 dark:border-white/10">
           <button
             onClick={handleLogout}
-            className="flex items-center w-full px-4 py-3 text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-xl transition-all duration-200"
+            className="flex items-center w-full px-4 py-3 text-sm font-medium text-slate-500 hover:text-red-500 hover:bg-red-50 dark:text-gray-400 dark:hover:text-red-400 dark:hover:bg-red-400/10 rounded-xl transition-all duration-200"
           >
             <span className="mr-3">🚪</span> Çıkış Yap
           </button>
@@ -74,11 +74,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col relative overflow-hidden">
-        {/* Background glow effects */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-[150px] pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+        {/* Background glow effects (Dark mode only) */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-[150px] pointer-events-none hidden dark:block"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/10 rounded-full blur-[150px] pointer-events-none hidden dark:block"></div>
 
-        <div className="flex-1 overflow-y-auto p-8 z-10">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8 z-10">
           <div className="max-w-6xl mx-auto">
             {children}
           </div>
