@@ -1,12 +1,17 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { decrypt } from './lib/auth';
 
 const locales = ['tr', 'en'];
 const defaultLocale = 'tr';
 
-export function proxy(request: NextRequest) {
+const protectedRoutes = ['/admin'];
+const publicRoutes = ['/admin/login'];
+
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // 1. STATİK DOSYA VE API KONTROLÜ
   // Statik dosyaları, api isteklerini, next.js sistem dosyalarını pas geç
   if (
     pathname.startsWith('/_next') ||
@@ -20,6 +25,31 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // 2. AUTHENTICATION (Yönetim Paneli)
+  // We need to support multi-language routing, so we check if the path contains /admin
+  const isProtectedRoute = protectedRoutes.some((route) => pathname.includes(route) && !pathname.includes('/admin/login'));
+  const isPublicRoute = publicRoutes.some((route) => pathname.includes(route));
+
+  if (isProtectedRoute || isPublicRoute) {
+    const cookie = request.cookies.get('admin_session')?.value;
+    const session = cookie ? await decrypt(cookie) : null;
+
+    if (isProtectedRoute && !session?.userId) {
+      // Redirect to login, preserving the language prefix if it exists
+      const langPrefix = pathname.split('/')[1] || defaultLocale;
+      const loginUrl = new URL(`/${langPrefix}/admin/login`, request.nextUrl);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    if (isPublicRoute && session?.userId) {
+      // If already logged in, redirect to dashboard
+      const langPrefix = pathname.split('/')[1] || defaultLocale;
+      const dashboardUrl = new URL(`/${langPrefix}/admin/dashboard`, request.nextUrl);
+      return NextResponse.redirect(dashboardUrl);
+    }
+  }
+
+  // 3. LOCALE (DİL) YÖNLENDİRMESİ
   // URL'nin başında herhangi bir locale var mı?
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
