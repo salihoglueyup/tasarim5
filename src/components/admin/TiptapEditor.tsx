@@ -114,7 +114,7 @@ export default function TiptapEditor({ content, onChange }: TiptapProps) {
   return (
     <div className="border border-white/10 rounded-xl bg-white/[0.01] overflow-hidden focus-within:border-brand-500/50 focus-within:ring-1 focus-within:ring-brand-500/50 transition-all duration-300">
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} className="cursor-text" />
+      <EditorContent editor={editor} className="cursor-text max-h-[600px] overflow-y-auto custom-scrollbar" />
     </div>
   );
 }
