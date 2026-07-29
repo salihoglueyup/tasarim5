@@ -5,12 +5,15 @@ import Link from 'next/link';
 export default async function AdminDashboard({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   
-  const postsCount = await prisma.post.count();
-  const categoriesCount = await prisma.category.count();
-  const authorsCount = await prisma.author.count();
-  const faqsCount = await prisma.faq.count();
+  const [postCount, categoryCount, authorCount, faqCount, referenceCount, partnerCount] = await Promise.all([
+    prisma.post.count(),
+    prisma.category.count(),
+    prisma.author.count(),
+    prisma.faq.count(),
+    prisma.reference.count(),
+    prisma.partner.count(),
+  ]);
 
-  // Get latest 5 posts
   const latestPosts = await prisma.post.findMany({
     orderBy: { datePublished: 'desc' },
     take: 5,
@@ -20,17 +23,18 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
     }
   });
 
-  // Get latest 5 faqs
   const latestFaqs = await prisma.faq.findMany({
     orderBy: { createdAt: 'desc' },
     take: 5,
   });
 
   const stats = [
-    { name: 'Toplam Yazı', value: postsCount, icon: '📝', color: 'from-blue-500 to-cyan-500' },
-    { name: 'S.S.S', value: faqsCount, icon: '❓', color: 'from-amber-500 to-orange-500' },
-    { name: 'Kategoriler', value: categoriesCount, icon: '🏷️', color: 'from-purple-500 to-pink-500' },
-    { name: 'Yazarlar', value: authorsCount, icon: '👥', color: 'from-emerald-500 to-teal-500' },
+    { name: 'Toplam Yazı', value: postCount, icon: '📝', color: 'from-blue-500 to-cyan-500' },
+    { name: 'S.S.S', value: faqCount, icon: '❓', color: 'from-amber-500 to-orange-500' },
+    { name: 'Kategoriler', value: categoryCount, icon: '🏷️', color: 'from-purple-500 to-pink-500' },
+    { name: 'Yazarlar', value: authorCount, icon: '👥', color: 'from-emerald-500 to-teal-500' },
+    { name: 'Referanslar', value: referenceCount, icon: '🏢', color: 'from-brand-600 to-brand-400' },
+    { name: 'İş Ortakları', value: partnerCount, icon: '🤝', color: 'from-indigo-500 to-blue-400' },
   ];
 
   return (

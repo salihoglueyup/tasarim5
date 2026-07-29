@@ -28,6 +28,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Dashboard', path: `/${lang}/admin/dashboard`, icon: '📊' },
     { name: 'Yazılar', path: `/${lang}/admin/posts`, icon: '📝' },
     { name: 'Kategoriler', path: `/${lang}/admin/categories`, icon: '🏷️' },
+    { name: 'Referanslar', path: `/${lang}/admin/references`, icon: '🏢' },
+    { name: 'İş Ortakları', path: `/${lang}/admin/partners`, icon: '🤝' },
     { name: 'Yazarlar', path: `/${lang}/admin/authors`, icon: '👥' },
     { name: 'S.S.S', path: `/${lang}/admin/faqs`, icon: '❓' },
   ];
