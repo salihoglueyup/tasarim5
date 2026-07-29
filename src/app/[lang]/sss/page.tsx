@@ -1,148 +1,61 @@
-"use client";
-
-import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, faqPageSchema } from '@/lib/schemas';
+import { prisma } from '@/lib/prisma';
+import FaqClient from './FaqClient';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 
-export default function SSS() {
-  const { t } = useLanguage();
+export const revalidate = 60; // 1 dakika cache
 
-  const categories = [
-    t('faq_cat_all'), 
-    t('faq_cat_finance'), 
-    t('faq_cat_security'), 
-    t('faq_cat_transfer'), 
-    t('faq_cat_tech')
-  ];
+export async function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
-  const faqs = [
-    {
-      category: t('faq_cat_finance'),
-      question: t('faq_1_q'),
-      answer: t('faq_1_a')
-    },
-    {
-      category: t('faq_cat_transfer'),
-      question: t('faq_2_q'),
-      answer: t('faq_2_a')
-    },
-    {
-      category: t('faq_cat_security'),
-      question: t('faq_3_q'),
-      answer: t('faq_3_a')
-    },
-    {
-      category: t('faq_cat_tech'),
-      question: t('faq_4_q'),
-      answer: t('faq_4_a')
-    },
-    {
-      category: t('faq_cat_finance'),
-      question: t('faq_5_q'),
-      answer: t('faq_5_a')
-    }
-  ];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  return buildMetadata({
+    title: 'Sıkça Sorulan Sorular — Alo Yönetim',
+    description: 'Site ve tesis yönetimi, aidat tahsilatı, hukuki süreçler ve teknik bakım hizmetlerimiz hakkında en çok merak edilen sorular.',
+    path: '/sss',
+    lang,
+  });
+}
 
-  const [activeCategory, setActiveCategory] = useState(t('faq_cat_all'));
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export default async function SSSPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
 
-  const filteredFaqs = activeCategory === t('faq_cat_all') 
-    ? faqs 
-    : faqs.filter(f => f.category === activeCategory);
+  // DB'den soruları çek
+  const faqs = await prisma.faq.findMany({
+    orderBy: [{ category: 'asc' }, { order: 'asc' }],
+  });
+
+  // Benzersiz kategorileri bul
+  const categories = Array.from(new Set(faqs.map(f => f.category)));
+  categories.unshift('Tümü'); // Tümü kategorisini ekle
 
   const jsonLd = faqPageSchema(
-    faqs.map((f) => ({ question: f.question, answer: f.answer })),
+    faqs.map((f) => ({ question: f.question, answer: f.answer.replace(/<[^>]+>/g, '') }))
   );
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
-    { name: t('nav_faq'), url: '/sss' }
+    { name: 'S.S.S', url: '/sss' }
   ]);
 
   return (
     <>
       <JsonLd data={[jsonLd, breadcrumbLd]} />
       <PageHeader 
-        title={t('faq_page_title')} 
-        description={t('faq_page_desc')} 
+        title="Sıkça Sorulan Sorular" 
+        description="Aklınıza takılan soruların cevaplarını burada bulabilirsiniz." 
       />
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-4xl mx-auto">
-        
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => { setActiveCategory(cat); setOpenIndex(null); }}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${
-                activeCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md'
-                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* FAQ Accordion List */}
-        <div className="flex flex-col gap-4">
-          {filteredFaqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div 
-                key={index}
-                className="bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-3xl overflow-hidden transition-colors hover:border-[var(--color-primary)]/50"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full p-8 text-left flex items-center justify-between gap-4 font-bold text-xl text-[var(--color-primary)] cursor-pointer"
-                >
-                  <span>{faq.question}</span>
-                  <span className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? 'rotate-180 text-slate-900 dark:text-white' : ''}`}>
-                    expand_more
-                  </span>
-                </button>
-
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-8 pb-8 text-lg text-[var(--color-secondary)] font-light leading-relaxed border-t border-gray-100 dark:border-white/5 pt-4">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* CTA Banner */}
-        <div className="mt-20 bg-gradient-to-r from-slate-900 to-slate-950 text-white p-10 md:p-14 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-2">{t('faq_cta_title')}</h3>
-            <p className="text-gray-300 font-light">{t('faq_cta_desc')}</p>
-          </div>
-          <Link 
-            href="/iletisim" 
-            className="bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shrink-0"
-          >
-            {t('faq_cta_btn')}
-          </Link>
-        </div>
-
+        <FaqClient faqs={faqs} categories={categories} />
       </section>
     </>
   );

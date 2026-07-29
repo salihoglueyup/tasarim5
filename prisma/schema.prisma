@@ -64,3 +64,13 @@ model Post {
   datePublished DateTime @default(now())
   dateModified  DateTime @updatedAt
 }
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  category  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
