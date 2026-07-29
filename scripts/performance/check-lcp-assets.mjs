@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.resolve(__dirname, '../../public');
 const BUDGETS_KB = {
-  'hero-poster-v4.webp': 150, // LCP Görseli max 150 KB
+  'hero-poster-v5.webp': 150, // LCP Görseli max 150 KB
   'brand-film.mp4': 3000,  // Ana Sayfa Video max 3 MB (3000 KB)
   'logo.svg': 50,          // Marka Logosu max 50 KB
   'favicon.ico': 50,
@@ -59,7 +59,7 @@ function checkFile(relativePath, budgetKB) {
 }
 
 console.log('--- Kritik LCP ve Fold-Üstü Öğeler ---');
-checkFile('images/hero-poster-v4.webp', BUDGETS_KB['hero-poster-v4.webp']);
+checkFile('images/hero-poster-v5.webp', BUDGETS_KB['hero-poster-v5.webp']);
 checkFile('video/brand-film.mp4', BUDGETS_KB['brand-film.mp4']);
 checkFile('images/hero-mockup.webp', 200);
 
