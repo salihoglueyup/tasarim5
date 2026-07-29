@@ -76,3 +76,17 @@ export async function savePost(id: string, data: any, lang: string) {
     return { error: 'Yazı kaydedilemedi.' };
   }
 }
+
+export async function getRelatedPosts(pillar: string) {
+  try {
+    return await prisma.post.findMany({
+      where: { pillar, published: true },
+      take: 4,
+      orderBy: { datePublished: 'desc' },
+      select: { slug: true, title: true, description: true }
+    });
+  } catch (error) {
+    console.error('getRelatedPosts failed:', error);
+    return [];
+  }
+}

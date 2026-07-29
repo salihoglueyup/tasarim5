@@ -1,19 +1,26 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getRelatedPosts } from '@/app/actions/post-actions';
 
 /**
  * Pillar → cluster iç linki (SEO Master Plan V4 — Faz 152).
  * Bir hizmet (pillar) sayfasına, o pillar'a bağlı blog makalelerinin listesini
- * ekler. Client sayfalarda da güvenle kullanılır (yalnız statik Link render eder).
+ * ekler. Client sayfalarda da güvenle kullanılır.
  */
-export default async function RelatedArticles({ pillar }: { pillar: string }) {
-  const posts = await prisma.post.findMany({
-    where: { pillar, published: true },
-    take: 4,
-    orderBy: { datePublished: 'desc' }
-  });
+export default function RelatedArticles({ pillar }: { pillar: string }) {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getRelatedPosts(pillar).then((data) => {
+      setPosts(data || []);
+      setLoading(false);
+    });
+  }, [pillar]);
   
-  if (posts.length === 0) return null;
+  if (loading || posts.length === 0) return null;
 
   return (
     <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">

@@ -60,6 +60,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             src={project.image} 
             alt={project.title}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -118,6 +119,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
                         src={url} 
                         alt={`${project.title} - Galeri ${idx + 1}`}
                         fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
