@@ -14,16 +14,14 @@ export default function Hero() {
 
   // Yüklenme hızı (v10): 2.27 MB'lık brand-film.mp4 kritik yüklenmede bant genişliğini domine
   // etmesin diye video kaynağı JSX'te değil, sayfa boşta kalınca (idle) bağlanır. Poster
-  // (hero-poster-v2.webp, priority) anında görünür olduğundan görsel LCP etkilenmez.
-  // Hareket azaltma tercihi veya dokunmatik/mobil cihazda video HİÇ yüklenmez (yalnız poster).
+  // (hero-poster-v3.webp, priority) anında görünür olduğundan görsel LCP etkilenmez.
+  // Hareket azaltma tercihi açık olan cihazlarda video HİÇ yüklenmez.
   useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isCoarseOrSmall =
-      window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
-    if (reduceMotion || isCoarseOrSmall) return;
+    if (reduceMotion) return;
 
     let done = false;
     const attach = () => {
@@ -72,11 +70,11 @@ export default function Hero() {
         
         {/*
           LCP ve Ağ Hızı Optimizasyonu (v8): Next.js Image priority={true} ve fetchPriority="high"
-          sayesinde tarayıcı /images/hero-poster-v2.webp dosyasını HTML <head> içinden anında
+          sayesinde tarayıcı /images/hero-poster-v3.webp dosyasını HTML <head> içinden anında
           keşfeder ve LCP puanını tavan yaptırır. Video ise arka planda yüklenir.
         */}
         <Image
-          src="/images/hero-poster-v2.webp"
+          src="/images/hero-poster-v3.webp"
           alt="Hero arka plan"
           fill
           priority={true}
@@ -94,7 +92,7 @@ export default function Hero() {
           muted
           playsInline
           preload="none"
-          poster="/images/hero-poster-v2.webp"
+          poster="/images/hero-poster-v3.webp"
           aria-hidden="true"
           tabIndex={-1}
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
