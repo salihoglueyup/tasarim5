@@ -36,7 +36,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-gray-100 flex font-sans pt-[72px]">
       {/* Sidebar */}
       <aside className="w-64 bg-white dark:bg-white/[0.02] border-r border-slate-200 dark:border-white/10 flex flex-col z-20 relative shadow-sm dark:shadow-none">
-        <div className="h-16 flex items-center px-6 border-b border-slate-200 dark:border-white/10 hidden md:flex">
+        <div className="h-16 flex items-center px-6 border-b border-slate-200 dark:border-white/10">
           <Link href={`/${lang}/admin/dashboard`} className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-accent-600 dark:from-brand-400 dark:to-accent-400">
             Yönetim Paneli
           </Link>
