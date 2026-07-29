@@ -50,7 +50,7 @@ export default function PostBody({ htmlContent }: { htmlContent: string }) {
 
   return (
     <div 
-      className="prose prose-invert prose-brand max-w-none text-slate-700 dark:text-slate-300 w-full prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-brand-400 prose-img:rounded-2xl prose-img:shadow-lg"
+      className="prose prose-slate prose-lg max-w-none text-slate-900 w-full prose-headings:text-slate-950 prose-a:text-brand-600 prose-strong:text-slate-900 prose-img:rounded-2xl prose-img:shadow-lg"
       dangerouslySetInnerHTML={{ __html: processedHtml }} 
     />
   );
