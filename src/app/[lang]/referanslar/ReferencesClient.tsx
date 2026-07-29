@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 
 type Project = {
@@ -31,6 +32,7 @@ export default function ReferencesClient({
   lang: string
 }) {
   const { t } = useLanguage();
+  const router = useRouter();
 
   const categories = [
     t('ref_cat_all'), 
@@ -113,7 +115,7 @@ export default function ReferencesClient({
                   className={`group relative overflow-hidden rounded-[2rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/40 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer ${
                     isLarge ? 'md:col-span-2 md:row-span-2' : ''
                   }`}
-                  onClick={() => window.location.href = `/${lang}/referanslar/${project.slug}`}
+                  onClick={() => router.push(`/${lang}/referanslar/${project.slug}`)}
                 >
                   {project.image ? (
                     <Image 
