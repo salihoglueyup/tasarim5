@@ -8,34 +8,22 @@ import { savePost } from '@/app/actions/post-actions';
 export default function PostForm({ post, categories, authors, lang, isNew }: any) {
   const router = useRouter();
   
-  const extractHtml = (content: any) => {
-    if (!content) return '';
-    try {
-      const parsed = typeof content === 'string' ? JSON.parse(content) : content;
-      if (Array.isArray(parsed) && parsed[0]?.type === 'html') {
-        return parsed[0].body;
-      }
-      return typeof content === 'string' ? content : '';
-    } catch (e) {
-      return content;
-    }
-  };
-
   const [formData, setFormData] = useState({
     title: post?.title || '',
     slug: post?.slug || '',
     description: post?.description || '',
     tldr: post?.tldr || '',
     pillar: post?.pillar || 'Alo Yönetim Rehberi',
-    image: post?.image || '/images/hero-poster-v5.webp',
+    image: post?.image || '',
     categoryId: post?.categoryId || (categories[0]?.id || ''),
     authorId: post?.authorId || (authors[0]?.id || ''),
     published: post?.published ?? true,
     tags: post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags).join(', ') : post.tags.join(', ')) : '',
-    content: extractHtml(post?.content)
+    content: post?.content || ''
   });
 
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
 
   const generateSlug = (text: string) => {
@@ -54,6 +42,34 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
       title,
       slug: isNew ? generateSlug(title) : prev.slug
     }));
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    const data = new FormData();
+    data.append('file', file);
+
+    try {
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: data,
+      });
+      const result = await res.json();
+      
+      if (result.success) {
+        setFormData(prev => ({ ...prev, image: result.url }));
+      } else {
+        alert(result.error || 'Dosya yüklenemedi.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Yükleme sırasında hata oluştu.');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,6 +91,34 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
     } else {
       router.push(`/${lang}/admin/posts`);
     }
+  };
+
+  // Kategorileri hiyerarşik (Ağaç) olarak düzenleme
+  const renderCategoryOptions = () => {
+    const rootCategories = categories.filter((c: any) => !c.parentId);
+    const options: JSX.Element[] = [];
+
+    const addCategoryToOptions = (cat: any, depth = 0) => {
+      const prefix = depth > 0 ? '— '.repeat(depth) : '';
+      options.push(
+        <option key={cat.id} value={cat.id}>
+          {prefix}{cat.name}
+        </option>
+      );
+      
+      const children = categories.filter((c: any) => c.parentId === cat.id);
+      children.forEach((child: any) => addCategoryToOptions(child, depth + 1));
+    };
+
+    rootCategories.forEach((root: any) => addCategoryToOptions(root));
+    
+    // Eğer hiyerarşi kurulamadıysa (veritabanında children/parent bağlantısı yoksa veya hepsi rootsa) normal sırala
+    if (options.length === 0) {
+      return categories.map((c: any) => (
+        <option key={c.id} value={c.id}>{c.name}</option>
+      ));
+    }
+    return options;
   };
 
   return (
@@ -125,16 +169,19 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
 
         {/* Sidebar Options Area */}
         <div className="space-y-6">
+          
           <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">URL Adresi (Slug)</label>
-              <input
-                type="text"
-                required
-                value={formData.slug}
-                onChange={e => setFormData({...formData, slug: e.target.value})}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
-              />
+            <div className="flex items-center justify-between">
+              <h3 className="text-white font-medium">Yayın Ayarları</h3>
+              <label className="flex items-center space-x-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.published}
+                  onChange={e => setFormData({...formData, published: e.target.checked})}
+                  className="w-5 h-5 rounded border-gray-300 text-brand-500 focus:ring-brand-500 bg-white/5"
+                />
+                <span className="text-gray-300 text-sm">Yayında</span>
+              </label>
             </div>
 
             <div>
@@ -144,9 +191,7 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
                 onChange={e => setFormData({...formData, categoryId: e.target.value})}
                 className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all [&>option]:bg-[#0B0F19]"
               >
-                {categories.map((c: any) => (
-                  <option key={c.id} value={c.id}>{c.name}</option>
-                ))}
+                {renderCategoryOptions()}
               </select>
             </div>
 
@@ -162,58 +207,83 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
                 ))}
               </select>
             </div>
-
+            
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Durum</label>
-              <label className="flex items-center space-x-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.published}
-                  onChange={e => setFormData({...formData, published: e.target.checked})}
-                  className="w-5 h-5 rounded border-gray-300 text-brand-500 focus:ring-brand-500 bg-white/5"
-                />
-                <span className="text-gray-300">Yayında</span>
-              </label>
-            </div>
-          </div>
-
-          <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Kapak Görseli URL</label>
-              <input
-                type="text"
-                value={formData.image}
-                onChange={e => setFormData({...formData, image: e.target.value})}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
-              />
+              <label className="block text-sm font-medium text-gray-300 mb-2">Kapak Görseli</label>
+              <div className="space-y-3">
+                <label className="flex items-center justify-center w-full px-4 py-3 bg-white/5 border border-white/10 border-dashed rounded-xl cursor-pointer hover:bg-white/10 transition-colors">
+                  <span className="text-sm text-gray-400">
+                    {uploading ? 'Yükleniyor...' : '🖼️ Bilgisayardan Seç / Yükle'}
+                  </span>
+                  <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
+                </label>
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs text-gray-500">veya URL girin:</span>
+                  <input
+                    type="text"
+                    value={formData.image}
+                    onChange={e => setFormData({...formData, image: e.target.value})}
+                    placeholder="https://..."
+                    className="flex-1 bg-transparent border-b border-white/10 px-2 py-1 text-sm text-white focus:outline-none focus:border-brand-500 transition-colors"
+                  />
+                </div>
+              </div>
+              
               {formData.image && (
-                <div className="mt-3 relative h-32 rounded-lg overflow-hidden border border-white/10">
+                <div className="mt-4 relative h-32 rounded-lg overflow-hidden border border-white/10 group">
                   <img src={formData.image} alt="Kapak" className="w-full h-full object-cover" />
+                  <button 
+                    type="button"
+                    onClick={() => setFormData({...formData, image: ''})}
+                    className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    ×
+                  </button>
                 </div>
               )}
             </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">TLDR (Kısa Özet)</label>
-              <textarea
-                rows={2}
-                value={formData.tldr}
-                onChange={e => setFormData({...formData, tldr: e.target.value})}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all resize-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Etiketler</label>
-              <input
-                type="text"
-                value={formData.tags}
-                onChange={e => setFormData({...formData, tags: e.target.value})}
-                placeholder="Virgülle ayırın (ör: yazılım, yönetim)"
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
-              />
-            </div>
           </div>
+
+          <details className="bg-white/[0.03] border border-white/10 rounded-2xl backdrop-blur-sm group cursor-pointer overflow-hidden">
+            <summary className="p-6 font-medium text-gray-300 outline-none select-none flex items-center justify-between">
+              Gelişmiş Seçenekler
+              <span className="text-gray-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+            </summary>
+            
+            <div className="p-6 pt-0 space-y-6 border-t border-white/5">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">URL Adresi (Slug)</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.slug}
+                  onChange={e => setFormData({...formData, slug: e.target.value})}
+                  className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">TLDR (Kısa Özet)</label>
+                <textarea
+                  rows={2}
+                  value={formData.tldr}
+                  onChange={e => setFormData({...formData, tldr: e.target.value})}
+                  className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all resize-none text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Etiketler</label>
+                <input
+                  type="text"
+                  value={formData.tags}
+                  onChange={e => setFormData({...formData, tags: e.target.value})}
+                  placeholder="Virgülle ayırın (ör: yazılım, yönetim)"
+                  className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm"
+                />
+              </div>
+            </div>
+          </details>
 
           <div className="pt-4">
             <button

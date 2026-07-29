@@ -32,7 +32,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-gray-100 flex font-sans">
+    <div className="min-h-screen bg-[#0B0F19] text-gray-100 flex font-sans pt-[72px]">
       {/* Sidebar */}
       <aside className="w-64 bg-white/[0.02] border-r border-white/10 flex flex-col backdrop-blur-xl">
         <div className="h-16 flex items-center px-6 border-b border-white/10">
@@ -76,18 +76,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Background glow effects */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-[150px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/10 rounded-full blur-[150px] pointer-events-none"></div>
-        
-        <header className="h-16 border-b border-white/10 flex items-center justify-between px-8 bg-white/[0.01] backdrop-blur-md z-10">
-          <h2 className="text-lg font-medium text-gray-200">
-            {menuItems.find(i => pathname.includes(i.path))?.name || 'Yönetim'}
-          </h2>
-          <div className="flex items-center space-x-4">
-            <div className="text-sm text-gray-400">admin@aloyonetim.com</div>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-500 to-accent-500 flex items-center justify-center text-white font-bold shadow-lg shadow-brand-500/20">
-              A
-            </div>
-          </div>
-        </header>
 
         <div className="flex-1 overflow-y-auto p-8 z-10">
           <div className="max-w-6xl mx-auto">
