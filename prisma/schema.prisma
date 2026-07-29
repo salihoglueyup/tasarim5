@@ -76,17 +76,27 @@ model Faq {
 }
 
 model Reference {
-  id        String   @id @default(cuid())
-  title     String
-  slug      String   @unique
-  category  String
-  location  String
-  units     String
-  image     String?
-  published Boolean  @default(true)
-  order     Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                String   @id @default(cuid())
+  title             String
+  slug              String   @unique
+  category          String
+  location          String
+  units             String
+  image             String?
+  published         Boolean  @default(true)
+  order             Int      @default(0)
+  
+  // Detay Sayfası Ek Alanları
+  content           String?  // Uzun proje açıklaması
+  services          String?  // Virgülle ayrılmış hizmetler (örn: 7/24 Güvenlik, Havuz Bakımı)
+  gallery           String?  // JSON formatında çoklu resim URL'leri
+  testimonialText   String?  // Müşteri yorumu
+  testimonialAuthor String?  // Yorumu yapan kişi
+  stats             String?  // JSON formatında istatistikler [{"label":"Aidat Tahsilatı", "value":"%98"}]
+  coordinates       String?  // Harita koordinatları "lat,lng"
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 }
 
 model Partner {

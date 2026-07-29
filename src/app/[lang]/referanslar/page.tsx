@@ -41,6 +41,7 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
       <ReferencesClient 
         initialProjects={projects} 
         partners={partners} 
+        lang={lang}
       />
     </>
   );

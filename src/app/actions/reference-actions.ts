@@ -12,6 +12,13 @@ export async function saveReference(id: string | 'new', data: {
   image?: string;
   published: boolean;
   order: number;
+  content?: string | null;
+  services?: string | null;
+  gallery?: string | null;
+  testimonialText?: string | null;
+  testimonialAuthor?: string | null;
+  stats?: string | null;
+  coordinates?: string | null;
 }) {
   try {
     if (id !== 'new') {

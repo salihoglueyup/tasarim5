@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 type Project = {
   id: string;
   title: string;
+  slug: string;
   category: string;
   units: string;
   location: string;
@@ -22,10 +23,12 @@ type Partner = {
 
 export default function ReferencesClient({ 
   initialProjects, 
-  partners 
+  partners,
+  lang
 }: { 
   initialProjects: Project[], 
-  partners: Partner[] 
+  partners: Partner[],
+  lang: string
 }) {
   const { t } = useLanguage();
 
@@ -110,6 +113,7 @@ export default function ReferencesClient({
                   className={`group relative overflow-hidden rounded-[2rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/40 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer ${
                     isLarge ? 'md:col-span-2 md:row-span-2' : ''
                   }`}
+                  onClick={() => window.location.href = `/${lang}/referanslar/${project.slug}`}
                 >
                   {project.image ? (
                     <Image 
