@@ -65,17 +65,10 @@ export default async function BlogDetail({
     tags = [];
   }
 
-  // Parse content to pass to PostBody
-  let blocks: any[] = [];
-  try {
-    blocks = typeof post.content === 'string' ? JSON.parse(post.content) : post.content;
-    if (!Array.isArray(blocks)) blocks = [];
-  } catch (e) {
-    blocks = [];
-  }
-
   // Calculate reading minutes (approx 200 words per minute)
-  const wordCount = JSON.stringify(blocks).split(/\s+/).length;
+  // Strip HTML tags for accurate word count
+  const plainText = (post.content || '').replace(/<[^>]*>?/gm, '');
+  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(wordCount / 200));
 
   const path = `/blog/${post.slug}`;
@@ -97,7 +90,7 @@ export default async function BlogDetail({
     section: category?.name,
     keywords: tags,
     author: author
-      ? { name: author.name, jobTitle: 'Yazar', url: `/blog/yazar/${author.id}` }
+      ? { name: author.name, jobTitle: 'Yazar', url: `/blog/yazar/${author.slug}` }
       : undefined,
   });
 
@@ -124,7 +117,7 @@ export default async function BlogDetail({
             <div>
               <div className="font-bold text-slate-900 dark:text-white">
                 {author ? (
-                  <Link href={`/blog/yazar/${author.id}`} className="hover:underline">
+                  <Link href={`/blog/yazar/${author.slug}`} className="hover:underline">
                     {author.name}
                   </Link>
                 ) : (
@@ -171,7 +164,7 @@ export default async function BlogDetail({
         )}
 
         {/* Body */}
-        <PostBody blocks={blocks} />
+        <PostBody htmlContent={post.content} />
 
         {/* Tags */}
         {tags.length > 0 && (
