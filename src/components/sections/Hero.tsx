@@ -14,7 +14,7 @@ export default function Hero() {
 
   // Yüklenme hızı (v10): 2.27 MB'lık brand-film.mp4 kritik yüklenmede bant genişliğini domine
   // etmesin diye video kaynağı JSX'te değil, sayfa boşta kalınca (idle) bağlanır. Poster
-  // (hero-poster-v4.webp, priority) anında görünür olduğundan görsel LCP etkilenmez.
+  // (hero-poster-v5.webp, priority) anında görünür olduğundan görsel LCP etkilenmez.
   // Hareket azaltma tercihi açık olan cihazlarda video HİÇ yüklenmez.
   useEffect(() => {
     const el = videoRef.current;
@@ -70,11 +70,11 @@ export default function Hero() {
         
         {/*
           LCP ve Ağ Hızı Optimizasyonu (v8): Next.js Image priority={true} ve fetchPriority="high"
-          sayesinde tarayıcı /images/hero-poster-v4.webp dosyasını HTML <head> içinden anında
+          sayesinde tarayıcı /images/hero-poster-v5.webp dosyasını HTML <head> içinden anında
           keşfeder ve LCP puanını tavan yaptırır. Video ise arka planda yüklenir.
         */}
         <Image
-          src="/images/hero-poster-v4.webp"
+          src="/images/hero-poster-v5.webp"
           alt="Hero arka plan"
           fill
           priority={true}
@@ -92,7 +92,7 @@ export default function Hero() {
           muted
           playsInline
           preload="none"
-          poster="/images/hero-poster-v4.webp"
+          poster="/images/hero-poster-v5.webp"
           aria-hidden="true"
           tabIndex={-1}
           className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
