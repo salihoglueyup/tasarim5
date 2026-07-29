@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  posts       Post[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Author {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  avatar    String?
+  bio       String?
+  posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  description   String
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  tags          String   // Comma-separated string or JSON string
+  authorId      String
+  author        Author   @relation(fields: [authorId], references: [id])
+  image         String?
+  pillar        String?
+  tldr          String?
+  content       String   // Storing JSON stringified blocks or HTML
+  published     Boolean  @default(false)
+  datePublished DateTime @default(now())
+  dateModified  DateTime @updatedAt
+}

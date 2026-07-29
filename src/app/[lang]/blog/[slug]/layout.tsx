@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
-import { getPost } from '@/data/posts';
+import { prisma } from '@/lib/prisma';
 
 interface BlogDetailLayoutProps {
   children: React.ReactNode;
@@ -12,10 +12,12 @@ export async function generateMetadata({
   params,
 }: Omit<BlogDetailLayoutProps, 'children'>): Promise<Metadata> {
   const { lang, slug } = await params;
-  const post = getPost(slug);
+  
+  const post = await prisma.post.findUnique({
+    where: { slug }
+  });
 
-  // Geçersiz slug'lar için soft-404 yerine gerçek 404 (Faz 31): indexlenmesin.
-  if (!post) {
+  if (!post || !post.published) {
     return buildMetadata({
       title: 'Sayfa Bulunamadı',
       description: 'Aradığınız blog yazısı bulunamadı.',
@@ -25,14 +27,23 @@ export async function generateMetadata({
     });
   }
 
+  // Convert tags string to array
+  let tags: string[] = [];
+  try {
+    tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
+    if (!Array.isArray(tags)) tags = [];
+  } catch (e) {
+    tags = [];
+  }
+
   return buildMetadata({
     title: `${post.title} | Alo Yönetim Blog`,
     description: post.description,
     path: `/blog/${slug}`,
     lang,
     ogType: 'article',
-    images: [post.image],
-    keywords: post.tags,
+    images: post.image ? [post.image] : [],
+    keywords: tags,
   });
 }
 
@@ -41,9 +52,14 @@ export default async function BlogDetailLayout({
   params,
 }: BlogDetailLayoutProps) {
   const { slug } = await params;
-  // Bilinmeyen slug → gerçek 404 (soft-404 önleme).
-  if (!getPost(slug)) {
+  
+  const post = await prisma.post.findUnique({
+    where: { slug }
+  });
+
+  if (!post || !post.published) {
     notFound();
   }
+  
   return <>{children}</>;
 }

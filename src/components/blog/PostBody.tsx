@@ -64,6 +64,14 @@ export default function PostBody({ blocks }: { blocks: PostBlock[] }) {
     <div className="flex flex-col gap-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300 font-light">
       {blocks.map((b, i) => {
         switch (b.type) {
+          case 'html':
+            return (
+              <div 
+                key={i} 
+                className="prose prose-invert prose-brand max-w-none text-slate-700 dark:text-slate-300 w-full"
+                dangerouslySetInnerHTML={{ __html: b.body }} 
+              />
+            );
           case 'h2':
             return (
               <h2 key={i} className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-6">
