@@ -469,6 +469,8 @@ export function blogPostingSchema(opts: {
   author?: { name: string; jobTitle?: string; url?: string };
   section?: string;
   keywords?: string[];
+  timeRequired?: string;
+  wordCount?: number;
 }): JsonLdObject {
   const url = abs(opts.path);
   const author = opts.author
@@ -490,8 +492,18 @@ export function blogPostingSchema(opts: {
     dateModified: opts.dateModified ?? opts.datePublished,
     ...(opts.section ? { articleSection: opts.section } : {}),
     ...(opts.keywords && opts.keywords.length ? { keywords: opts.keywords.join(', ') } : {}),
+    ...(opts.timeRequired ? { timeRequired: opts.timeRequired } : {}),
+    ...(opts.wordCount ? { wordCount: opts.wordCount } : {}),
     author,
-    publisher: { '@id': ORG_ID },
+    publisher: {
+      '@type': 'Organization',
+      '@id': ORG_ID,
+      name: ORG_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: ORG_LOGO,
+      }
+    },
   };
 }
 
@@ -503,7 +515,9 @@ export type WebPageType =
   | 'ContactPage'
   | 'AboutPage'
   | 'CollectionPage'
-  | 'FAQPage';
+  | 'FAQPage'
+  | 'ProfilePage'
+  | 'ItemPage';
 
 export function webPageSchema(opts: {
   type?: WebPageType;

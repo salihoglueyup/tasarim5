@@ -96,7 +96,7 @@ export default function PostForm({ post, categories, authors, lang, isNew }: any
   // Kategorileri hiyerarşik (Ağaç) olarak düzenleme
   const renderCategoryOptions = () => {
     const rootCategories = categories.filter((c: any) => !c.parentId);
-    const options: JSX.Element[] = [];
+    const options: React.ReactNode[] = [];
 
     const addCategoryToOptions = (cat: any, depth = 0) => {
       const prefix = depth > 0 ? '— '.repeat(depth) : '';

@@ -5,13 +5,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 
-export default function TestimonialSlider() {
+export default function TestimonialSlider({
+  dbReferences
+}: {
+  dbReferences?: {
+    id: string;
+    testimonialAuthor: string | null;
+    testimonialText: string | null;
+    title: string;
+    units: string;
+    location: string;
+    image: string | null;
+    category: string;
+  }[]
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { t } = useLanguage();
 
-  const testimonials = [
+  const fallbackTestimonials = [
     {
-      id: 1,
+      id: "1",
       name: "Ahmet Yılmaz",
       title: t('home_testimonial_1_title'),
       site: "Lalezar Konakları (240 Daire)",
@@ -21,7 +34,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 2,
+      id: "2",
       name: "Ayşe Kaya",
       title: t('home_testimonial_2_title'),
       site: "Sapphire Residence (180 Daire)",
@@ -31,7 +44,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 3,
+      id: "3",
       name: "Mehmet Demir",
       title: t('home_testimonial_3_title'),
       site: "Marina Towers (320 Daire)",
@@ -41,7 +54,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 4,
+      id: "4",
       name: "Selin Öztürk",
       title: t('home_testimonial_4_title'),
       site: "Koru Park Evleri (95 Daire)",
@@ -51,7 +64,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 5,
+      id: "5",
       name: "Mustafa Çelik",
       title: t('home_testimonial_5_title'),
       site: "Vadi Panorama Projesi (410 Daire)",
@@ -61,7 +74,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 6,
+      id: "6",
       name: "Zeynep Arslan",
       title: t('home_testimonial_6_title'),
       site: "Akasya Evleri (150 Daire)",
@@ -71,7 +84,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 7,
+      id: "7",
       name: "Burak Şahin",
       title: t('home_testimonial_7_title'),
       site: "Horizon Plaza & Loft (210 Daire)",
@@ -81,7 +94,7 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"
     },
     {
-      id: 8,
+      id: "8",
       name: "Canan Erdem",
       title: t('home_testimonial_8_title'),
       site: "Yeşiltepe Sitesi (130 Daire)",
@@ -91,6 +104,21 @@ export default function TestimonialSlider() {
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
     }
   ];
+
+  let testimonials = fallbackTestimonials;
+  
+  if (dbReferences && dbReferences.length > 0) {
+    testimonials = dbReferences.map(ref => ({
+      id: ref.id,
+      name: ref.testimonialAuthor || "Bilinmiyor",
+      title: ref.category,
+      site: `${ref.title} (${ref.units})`,
+      location: ref.location,
+      rating: 5,
+      comment: ref.testimonialText || "",
+      avatar: ref.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    }));
+  }
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);

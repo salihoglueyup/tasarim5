@@ -1,44 +1,27 @@
 import type { Lead, ChannelResult } from './types';
+import { prisma } from '@/lib/prisma';
 
 /**
- * Veritabanı kaydı — Supabase REST (PostgREST) insert, ağır SDK yok.
- * Env-gated: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY tanımlı değilse atlanır.
- * `leads` tablosu şeması için bkz. LEADS_SETUP.md.
+ * Veritabanı kaydı — Prisma ile yerel DB'ye kaydedilir.
  */
 
 export async function storeLead(lead: Lead): Promise<ChannelResult> {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!url || !key) {
-    return { channel: 'database', status: 'skipped', detail: 'env yok' };
-  }
-
   try {
-    const res = await fetch(`${url.replace(/\/$/, '')}/rest/v1/leads`, {
-      method: 'POST',
-      headers: {
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal',
-      },
-      body: JSON.stringify({
+    await prisma.lead.create({
+      data: {
         type: lead.type,
         name: lead.name ?? null,
         phone: lead.phone ?? null,
         email: lead.email ?? null,
+        subject: lead.subject ?? null,
         message: lead.message ?? null,
-        meta: lead.meta ?? null,
-      }),
+        meta: lead.meta ? JSON.stringify(lead.meta) : null,
+      },
     });
 
-    if (!res.ok) {
-      const text = await res.text().catch(() => '');
-      return { channel: 'database', status: 'error', detail: `HTTP ${res.status} ${text.slice(0, 120)}` };
-    }
     return { channel: 'database', status: 'ok' };
   } catch (err) {
+    console.error('Lead store error:', err);
     return { channel: 'database', status: 'error', detail: (err as Error).message };
   }
 }

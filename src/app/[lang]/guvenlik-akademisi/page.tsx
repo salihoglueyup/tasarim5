@@ -72,9 +72,23 @@ export default function GuvenlikAkademisi() {
     path: '/guvenlik-akademisi',
   });
 
+  const aloGuvenlikLd = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'Alo Güvenlik Kursu',
+    url: 'https://www.guvenlikkursu.com/',
+  };
+
+  const ucgGuvenlikLd = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: '3G Güvenlik Merkezi',
+    url: 'https://3gguvenlik.com/',
+  };
+
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, eventLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, eventLd, aloGuvenlikLd, ucgGuvenlikLd]} />
       <PageHeader 
         title={t('aca_page_title')} 
         description={t('aca_page_desc')} 
@@ -98,6 +112,54 @@ export default function GuvenlikAkademisi() {
              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 dark:from-white dark:to-slate-300">{t('aca_intro_badge_val')}</div>
              <div className="text-xs text-slate-400 mt-2 font-medium">{t('aca_intro_badge_text')}</div>
            </div>
+        </div>
+
+        {/* Grup Şirketlerimiz (Eğitim Kurumlarımız) */}
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)]">{t('aca_group_title')}</h2>
+             <p className="text-base text-[var(--color-secondary)] font-light mt-4 max-w-2xl mx-auto leading-relaxed">{t('aca_group_desc')}</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Alo Güvenlik */}
+            <a href="https://www.guvenlikkursu.com/" target="_blank" rel="noopener noreferrer" className="group relative bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-10 hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col items-start h-full">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-red-500/20 transition-colors" />
+               <div className="flex items-center justify-between w-full mb-8 relative z-10">
+                 <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-gray-200 dark:border-slate-700">
+                   {/* Logo Placeholder */}
+                   <span className="material-symbols-outlined text-3xl text-red-600">local_police</span>
+                 </div>
+                 <span className="text-xs font-bold text-red-600 bg-red-50 dark:bg-red-500/10 px-4 py-2 rounded-full uppercase tracking-wider">{t('aca_group_c1_badge')}</span>
+               </div>
+               <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-4 relative z-10">{t('aca_group_c1_title')}</h3>
+               <p className="text-[var(--color-secondary)] font-light leading-relaxed relative z-10 mb-8 flex-grow">
+                 {t('aca_group_c1_desc')}
+               </p>
+               <div className="flex items-center gap-2 text-red-600 font-bold text-sm uppercase tracking-widest relative z-10 group-hover:translate-x-2 transition-transform">
+                 İncele <span className="material-symbols-outlined text-lg">arrow_forward</span>
+               </div>
+            </a>
+
+            {/* 3G Güvenlik */}
+            <a href="https://3gguvenlik.com/" target="_blank" rel="noopener noreferrer" className="group relative bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-10 hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col items-start h-full">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-colors" />
+               <div className="flex items-center justify-between w-full mb-8 relative z-10">
+                 <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-gray-200 dark:border-slate-700">
+                   {/* Logo Placeholder */}
+                   <span className="material-symbols-outlined text-3xl text-blue-600">security</span>
+                 </div>
+                 <span className="text-xs font-bold text-blue-600 bg-blue-50 dark:bg-blue-500/10 px-4 py-2 rounded-full uppercase tracking-wider">{t('aca_group_c2_badge')}</span>
+               </div>
+               <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-4 relative z-10">{t('aca_group_c2_title')}</h3>
+               <p className="text-[var(--color-secondary)] font-light leading-relaxed relative z-10 mb-8 flex-grow">
+                 {t('aca_group_c2_desc')}
+               </p>
+               <div className="flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest relative z-10 group-hover:translate-x-2 transition-transform">
+                 İncele <span className="material-symbols-outlined text-lg">arrow_forward</span>
+               </div>
+            </a>
+          </div>
         </div>
 
         {/* Curriculum Timeline Accordion */}
@@ -166,6 +228,51 @@ export default function GuvenlikAkademisi() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* İstihdam Köprüsü Timeline */}
+        <div className="max-w-5xl mx-auto mt-24">
+          <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)]">{t('aca_path_title')}</h2>
+             <p className="text-base text-[var(--color-secondary)] font-light mt-4 max-w-2xl mx-auto leading-relaxed">{t('aca_path_desc')}</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 md:gap-4 relative">
+             {/* Connecting Line (Desktop only) */}
+             <div className="hidden md:block absolute top-12 h-0.5 bg-gradient-to-r from-gray-200 via-brand-500 to-emerald-500 dark:from-white/10 dark:via-brand-500 dark:to-emerald-500 z-0" style={{ left: '16.66%', right: '16.66%' }} />
+             
+             {[
+               {
+                 title: t('aca_path_s1_title'),
+                 desc: t('aca_path_s1_desc'),
+                 icon: 'school',
+                 color: 'text-gray-500 dark:text-gray-300',
+                 bg: 'bg-gray-100 dark:bg-slate-800 border-gray-200 dark:border-slate-700'
+               },
+               {
+                 title: t('aca_path_s2_title'),
+                 desc: t('aca_path_s2_desc'),
+                 icon: 'workspace_premium',
+                 color: 'text-brand-500',
+                 bg: 'bg-brand-50 dark:bg-brand-500/10 border-brand-200 dark:border-brand-500/30'
+               },
+               {
+                 title: t('aca_path_s3_title'),
+                 desc: t('aca_path_s3_desc'),
+                 icon: 'work',
+                 color: 'text-emerald-500',
+                 bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30'
+               }
+             ].map((step, idx) => (
+                <div key={idx} className="relative z-10 flex flex-col items-center text-center group">
+                   <div className={`w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-xl border-4 transition-transform duration-500 group-hover:scale-110 ${step.bg}`}>
+                      <span className={`material-symbols-outlined text-4xl ${step.color}`}>{step.icon}</span>
+                   </div>
+                   <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{step.title}</h3>
+                   <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed max-w-xs">{step.desc}</p>
+                </div>
+             ))}
           </div>
         </div>
 

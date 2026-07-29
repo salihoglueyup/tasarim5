@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
-export default function Faq() {
+export default function Faq({ dbFaqs }: { dbFaqs?: { question: string; answer: string; }[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const { t } = useLanguage();
 
-  const faqs = [
+  const fallbackFaqs = [
     {
       question: t('home_faq_1_q'),
       answer: t('home_faq_1_a')
@@ -30,6 +30,8 @@ export default function Faq() {
       answer: t('home_faq_5_a')
     }
   ];
+
+  const faqs = dbFaqs && dbFaqs.length > 0 ? dbFaqs : fallbackFaqs;
 
   const toggleFaq = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

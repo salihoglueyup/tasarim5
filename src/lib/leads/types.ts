@@ -11,6 +11,7 @@ export interface Lead {
   name?: string;
   phone?: string;
   email?: string;
+  subject?: string;
   message?: string;
   /** Kaynak sayfa, dil, hesaplayıcı çıktısı, UTM vb. serbest bağlam. */
   meta?: Record<string, string | number | boolean | null | undefined>;

@@ -2,20 +2,23 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
-const brands = [
-  "Emaar Square",
-  "Zorlu Center",
-  "Ağaoğlu 1453",
-  "Sinpaş Altınoran",
-  "Dap Yapı Vazo Kule",
-  "Tahincioğlu Palladium",
-  "Nef Ataköy",
-  "Rönesans Tower",
+const fallbackBrands = [
+  { name: "Emaar Square", logo: null },
+  { name: "Zorlu Center", logo: null },
+  { name: "Ağaoğlu 1453", logo: null },
+  { name: "Sinpaş Altınoran", logo: null },
+  { name: "Dap Yapı Vazo Kule", logo: null },
+  { name: "Tahincioğlu Palladium", logo: null },
+  { name: "Nef Ataköy", logo: null },
+  { name: "Rönesans Tower", logo: null },
 ];
 
-export default function LogoTicker() {
+export default function LogoTicker({ dbPartners }: { dbPartners?: { name: string; logo: string | null }[] }) {
   const { t } = useLanguage();
+
+  const brands = dbPartners && dbPartners.length > 0 ? dbPartners : fallbackBrands;
 
   return (
     <section className="w-full py-16 bg-[var(--color-background)] overflow-hidden border-b border-[var(--color-outline)]/30">
@@ -45,9 +48,15 @@ export default function LogoTicker() {
               key={index} 
               className="flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
             >
-              <span className="text-xl md:text-2xl font-bold tracking-tight text-[var(--color-primary)]">
-                {brand}
-              </span>
+              {brand.logo ? (
+                <div className="relative h-12 w-32">
+                   <Image src={brand.logo} alt={brand.name} fill className="object-contain" />
+                </div>
+              ) : (
+                <span className="text-xl md:text-2xl font-bold tracking-tight text-[var(--color-primary)]">
+                  {brand.name}
+                </span>
+              )}
             </div>
           ))}
         </motion.div>

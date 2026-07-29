@@ -37,7 +37,39 @@ export async function generateMetadata({
   };
 }
 
-export default function Home() {
+import { prisma } from '@/lib/prisma';
+
+export default async function Home() {
+  // Veritabanından Faq'ları çek (Eğer yoksa [] döner, child component fallback kullanır)
+  const dbFaqs = await prisma.faq.findMany({
+    orderBy: { order: 'asc' },
+    select: { question: true, answer: true }
+  });
+
+  // Veritabanından İş Ortaklarını (Partners) çek
+  const dbPartners = await prisma.partner.findMany({
+    orderBy: { order: 'asc' },
+    select: { name: true, logo: true }
+  });
+
+  // Veritabanından Müşteri Yorumlarını (References) çek
+  const dbReferences = await prisma.reference.findMany({
+    where: {
+      testimonialText: { not: null } // Sadece yorumu olanları al
+    },
+    orderBy: { createdAt: 'desc' },
+    select: {
+      id: true,
+      testimonialAuthor: true,
+      testimonialText: true,
+      title: true,
+      units: true,
+      location: true,
+      image: true,
+      category: true
+    }
+  });
+
   // Ana sayfa varlık grafiği: WebPage → ProfessionalService (rating) → VideoObject
   // (SEO V4 Faz 43/46/54/57). NAP/geo/saatler merkezi schema fabrikasından gelir.
   const businessLd = professionalServiceSchema({
@@ -68,16 +100,16 @@ export default function Home() {
       <JsonLd data={[pageLd, businessLd, videoLd]} />
       <Hero />
       <SeoTextSection />
-      <LogoTicker />
+      <LogoTicker dbPartners={dbPartners} />
       <BentoServices />
       <WhyUsBentoGrid />
       <PersonnelDifference />
       <ComparisonTable />
       <InteractiveProcessSteps />
       <AppShowcase />
-      <TestimonialSlider />
+      <TestimonialSlider dbReferences={dbReferences} />
       <CertificateBadgeGrid />
-      <Faq />
+      <Faq dbFaqs={dbFaqs} />
       <PreFooterCta />
     </>
   );
