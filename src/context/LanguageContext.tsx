@@ -50,7 +50,8 @@ export const LanguageProvider = ({ children, initialLang }: { children: React.Re
   };
 
   const t = (key: keyof typeof translations['tr']): string => {
-    return transMap[language][key] || transMap['tr'][key] || String(key);
+    const dictionary = transMap[language] || transMap['tr'];
+    return dictionary[key] || transMap['tr'][key] || String(key);
   };
 
   return (
