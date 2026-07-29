@@ -2,8 +2,8 @@ import { prisma } from '@/lib/prisma';
 import PostForm from './PostForm';
 import { notFound } from 'next/navigation';
 
-export default async function EditPostPage({ params }: { params: { lang: string, id: string } }) {
-  const { lang, id } = params;
+export default async function EditPostPage({ params }: { params: Promise<{ lang: string, id: string }> }) {
+  const { lang, id } = await params;
   const isNew = id === 'new';
 
   let post = null;

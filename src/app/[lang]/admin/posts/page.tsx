@@ -2,8 +2,8 @@ import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import DeletePostButton from './DeletePostButton';
 
-export default async function AdminPosts({ params }: { params: { lang: string } }) {
-  const lang = params.lang;
+export default async function AdminPosts({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const posts = await prisma.post.findMany({
     orderBy: { datePublished: 'desc' },
     include: {
