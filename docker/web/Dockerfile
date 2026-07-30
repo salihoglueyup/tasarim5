@@ -53,6 +53,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.
 # Also copy sqlite bindings (better-sqlite3) from builder
 COPY --from=builder /app/node_modules/better-sqlite3 ./node_modules/better-sqlite3
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/node_modules/dotenv ./node_modules/dotenv
 
 # Prisma CLI'ı ve bağımlılıklarını (effect, vs.) tam olarak kuruyoruz
 RUN npm install -g prisma@7.9.1
