@@ -1,7 +1,8 @@
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 
-export default async function AdminFaqsPage() {
+export default async function AdminFaqsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const faqs = await prisma.faq.findMany({
     orderBy: [{ category: 'asc' }, { order: 'asc' }],
   });
@@ -14,7 +15,7 @@ export default async function AdminFaqsPage() {
           <p className="text-sm text-slate-500">Sıkça Sorulan Soruları ekleyin, düzenleyin veya silin.</p>
         </div>
         <Link 
-          href="/admin/faqs/new" 
+          href={`/${lang}/admin/faqs/new`}
           className="bg-brand-500 hover:bg-brand-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
         >
           + Yeni Soru Ekle
@@ -46,7 +47,7 @@ export default async function AdminFaqsPage() {
                   <td className="px-6 py-4 text-slate-500">{faq.order}</td>
                   <td className="px-6 py-4 text-right">
                     <Link 
-                      href={`/admin/faqs/${faq.id}`}
+                      href={`/${lang}/admin/faqs/${faq.id}`}
                       className="text-brand-500 hover:text-brand-600 font-medium mr-4"
                     >
                       Düzenle

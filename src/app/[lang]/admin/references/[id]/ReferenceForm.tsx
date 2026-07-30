@@ -26,6 +26,7 @@ export default function ReferenceForm({ reference, lang, isNew }: any) {
     testimonialAuthor: reference?.testimonialAuthor || '',
     stats: reference?.stats || '',
     coordinates: reference?.coordinates || '',
+    isSuccessStory: reference?.isSuccessStory ?? false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -233,6 +234,25 @@ export default function ReferenceForm({ reference, lang, isNew }: any) {
                 onChange={e => setFormData({...formData, slug: e.target.value})}
                 className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
               />
+            </div>
+
+            <div className="flex items-center justify-between p-4 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-xl mt-4">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-amber-600 dark:text-amber-400">star</span>
+                <div>
+                  <h3 className="text-sm font-bold text-amber-800 dark:text-amber-300">Başarı Hikayesi mi?</h3>
+                  <p className="text-xs text-amber-700/70 dark:text-amber-400/70">Bu proje Başarı Hikayeleri sayfasında listelenir.</p>
+                </div>
+              </div>
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.isSuccessStory}
+                  onChange={e => setFormData({...formData, isSuccessStory: e.target.checked})}
+                  className="sr-only peer"
+                />
+                <div className="w-9 h-5 bg-slate-200 dark:bg-white/10 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-amber-500/30 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-500"></div>
+              </label>
             </div>
 
             <div>

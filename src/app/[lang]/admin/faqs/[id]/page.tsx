@@ -5,9 +5,9 @@ import { notFound } from 'next/navigation';
 export default async function AdminFaqDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ lang: string, id: string }>;
 }) {
-  const { id } = await params;
+  const { lang, id } = await params;
   const isNew = id === 'new';
   
   let faq = null;
@@ -31,6 +31,7 @@ export default async function AdminFaqDetailPage({
       <FaqForm 
         faq={faq} 
         existingCategories={categories.map(c => c.category)} 
+        lang={lang}
       />
     </div>
   );

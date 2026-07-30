@@ -9,12 +9,15 @@ const globalForPrisma = globalThis as unknown as {
 let prisma: PrismaClient;
 
 if (typeof window === 'undefined') {
+  // Prisma 7.9.1 adapter-better-sqlite3 expects { url: string }
+  const dbUrl = process.env.DATABASE_URL || 'file:./prisma/dev.db';
+
   if (process.env.NODE_ENV === 'production') {
-    const adapter = new PrismaBetterSqlite3({ url: 'file:./dev.db' });
+    const adapter = new PrismaBetterSqlite3({ url: dbUrl });
     prisma = new PrismaClient({ adapter });
   } else {
     if (!globalForPrisma.prisma) {
-      const adapter = new PrismaBetterSqlite3({ url: 'file:./dev.db' });
+      const adapter = new PrismaBetterSqlite3({ url: dbUrl });
       globalForPrisma.prisma = new PrismaClient({ adapter });
     }
     prisma = globalForPrisma.prisma;

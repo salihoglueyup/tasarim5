@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: docker/web/Dockerfile
+    container_name: aloyonetim-web
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data/db:/app/data
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - DATABASE_URL=file:/app/data/production.db
+      # Localhost'taki Nginx üzerinden hizmet verileceği için n8n host adresi olarak kullanılabilir
+      - N8N_URL=http://n8n.aloyonetim.com
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: aloyonetim-n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=n8n.aloyonetim.com
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://n8n.aloyonetim.com/
+      - GENERIC_TIMEZONE=Europe/Istanbul
+    volumes:
+      - ./data/n8n:/home/node/.n8n

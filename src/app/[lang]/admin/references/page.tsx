@@ -33,6 +33,7 @@ export default async function AdminReferences({ params }: { params: Promise<{ la
                 <th className="p-4 font-medium">Proje Adı</th>
                 <th className="p-4 font-medium">Kategori</th>
                 <th className="p-4 font-medium">Konum</th>
+                <th className="p-4 font-medium">Tür</th>
                 <th className="p-4 font-medium">Durum</th>
                 <th className="p-4 font-medium text-right">İşlemler</th>
               </tr>
@@ -65,6 +66,16 @@ export default async function AdminReferences({ params }: { params: Promise<{ la
                   </td>
                   <td className="p-4 text-slate-600 dark:text-gray-400">
                     {ref.location}
+                  </td>
+                  <td className="p-4">
+                    {ref.isSuccessStory ? (
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-500/20">
+                        <span className="material-symbols-outlined text-[14px]">star</span>
+                        Başarı Hikayesi
+                      </span>
+                    ) : (
+                      <span className="text-xs text-slate-400">Normal</span>
+                    )}
                   </td>
                   <td className="p-4">
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${

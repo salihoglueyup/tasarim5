@@ -19,6 +19,7 @@ export async function saveReference(id: string | 'new', data: {
   testimonialAuthor?: string | null;
   stats?: string | null;
   coordinates?: string | null;
+  isSuccessStory?: boolean;
 }) {
   try {
     if (id !== 'new') {

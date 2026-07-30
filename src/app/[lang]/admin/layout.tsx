@@ -38,9 +38,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       name: 'Kurumsal Yönetim',
       icon: '🏢',
       subItems: [
+        { name: 'Sektörel Çözümler', path: `/${lang}/admin/sectoral-solutions`, icon: '💼' },
         { name: 'Referanslar', path: `/${lang}/admin/references`, icon: '🏙️' },
         { name: 'İş Ortakları', path: `/${lang}/admin/partners`, icon: '🤝' },
         { name: 'S.S.S', path: `/${lang}/admin/faqs`, icon: '❓' },
+      ],
+    },
+    {
+      name: 'Site Ayarları',
+      icon: '⚙️',
+      subItems: [
+        { name: 'Hesaplayıcı', path: `/${lang}/admin/calculator-settings`, icon: '🧮' },
       ],
     },
   ];

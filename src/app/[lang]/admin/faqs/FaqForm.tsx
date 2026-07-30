@@ -7,10 +7,12 @@ import TiptapEditor from '@/components/admin/TiptapEditor';
 
 export default function FaqForm({ 
   faq, 
-  existingCategories 
+  existingCategories,
+  lang = 'tr'
 }: { 
   faq: any,
-  existingCategories: string[]
+  existingCategories: string[],
+  lang?: string
 }) {
   const router = useRouter();
   const [isSaving, setIsSaving] = useState(false);
@@ -38,7 +40,7 @@ export default function FaqForm({
 
     setIsSaving(false);
     if (res.success) {
-      router.push('/admin/faqs');
+      router.push(`/${lang}/admin/faqs`);
       router.refresh();
     } else {
       alert('Kaydedilirken hata oluştu: ' + res.error);
@@ -54,7 +56,7 @@ export default function FaqForm({
     setIsDeleting(false);
     
     if (res.success) {
-      router.push('/admin/faqs');
+      router.push(`/${lang}/admin/faqs`);
       router.refresh();
     } else {
       alert('Silinirken hata oluştu: ' + res.error);
@@ -125,7 +127,7 @@ export default function FaqForm({
       <div className="flex justify-between pt-4 border-t border-slate-200 dark:border-white/10">
         <button 
           type="button" 
-          onClick={() => router.push('/admin/faqs')}
+          onClick={() => router.push(`/${lang}/admin/faqs`)}
           className="px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium"
         >
           İptal

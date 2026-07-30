@@ -49,7 +49,11 @@ export default function QuickCallWidget() {
 
                 <a
                   href="tel:08500000000"
-                  onClick={() => sendGAEvent('event', 'phone_call_click', { category: 'contact', value: 1 })}
+                  onClick={() => {
+                    if (process.env.NEXT_PUBLIC_GA_ID) {
+                      sendGAEvent('event', 'phone_call_click', { category: 'contact', value: 1 });
+                    }
+                  }}
                   className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                 >
                   <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
@@ -65,7 +69,11 @@ export default function QuickCallWidget() {
                   href={waLink(t('cro_whatsapp_prefill'))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => sendGAEvent('event', 'whatsapp_click', { category: 'contact', value: 1 })}
+                  onClick={() => {
+                    if (process.env.NEXT_PUBLIC_GA_ID) {
+                      sendGAEvent('event', 'whatsapp_click', { category: 'contact', value: 1 });
+                    }
+                  }}
                   className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-50 dark:bg-white/5 hover:bg-emerald-100 dark:hover:bg-white/10 transition-colors"
                 >
                   <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
@@ -94,7 +102,9 @@ export default function QuickCallWidget() {
                   onClick={() => {
                     close();
                     openQuoteModal();
-                    sendGAEvent('event', 'quote_click', { category: 'conversion', value: 1 });
+                    if (process.env.NEXT_PUBLIC_GA_ID) {
+                      sendGAEvent('event', 'quote_click', { category: 'conversion', value: 1 });
+                    }
                   }}
                   className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-bold shadow-md hover:opacity-95 transition-opacity"
                 >

@@ -7,6 +7,7 @@ const bundleAnalyzer = withBundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   // Faz 217: Güvenlik ve bayt tasarrufu için X-Powered-By başlığını kaldır.
   poweredByHeader: false,
   // Faz 124: Gzip/Brotli sıkıştırmasını aktif et.

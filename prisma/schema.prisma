@@ -95,6 +95,8 @@ model Reference {
   stats             String?  // JSON formatında istatistikler [{"label":"Aidat Tahsilatı", "value":"%98"}]
   coordinates       String?  // Harita koordinatları "lat,lng"
 
+  isSuccessStory    Boolean  @default(false) // Başarı Hikayesi sayfasında gösterilecek mi?
+
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 }
@@ -119,4 +121,40 @@ model Lead {
   meta      String?  // JSON string
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
+}
+
+model CalculatorConfig {
+  id                 String   @id @default(cuid())
+  baseCostPerUnit    Int      @default(350)
+  securityAddon      Int      @default(450)
+  poolAddon          Int      @default(180)
+  greenAddon         Int      @default(120)
+  elevatorAddon      Int      @default(40)
+  savingsRate        Float    @default(0.22)
+  updatedAt          DateTime @updatedAt
+}
+
+model CalculatorLog {
+  id            String   @id @default(cuid())
+  units         Int
+  blocks        Int
+  elevators     Int
+  hasSecurity   Boolean
+  hasPool       Boolean
+  hasGreenSpace Boolean
+  createdAt     DateTime @default(now())
+}
+
+model SectoralSolution {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String
+  icon        String
+  kpiTag      String
+  features    String   // JSON string, array of strings
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

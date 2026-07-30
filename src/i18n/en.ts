@@ -1027,6 +1027,26 @@ export const en: Record<keyof typeof tr, string> = {
     aca_cur_desc: "Periodic training modules that our personnel take before going to the field and during their field duties.",
     aca_cur_mod: "Module",
 
+    // Group Companies
+    aca_group_title: "Powered by Our Group Companies",
+    aca_group_desc: "We train and employ the security personnel protecting Turkey's most prestigious projects directly in our own training institutions. We do not use subcontractors.",
+    aca_group_c1_title: "Alo Security Course",
+    aca_group_c1_badge: "Flagship",
+    aca_group_c1_desc: "The most established training center in the sector with 17+ years of experience, 12,500+ graduates and a 98.5% exam success rate.",
+    aca_group_c2_title: "3G Security Center",
+    aca_group_c2_badge: "Dynamic Power",
+    aca_group_c2_desc: "The modern and innovative face of security with its strong instructor staff and operational infrastructure.",
+
+    // Career Path
+    aca_path_title: "From Academy to Direct Employment",
+    aca_path_desc: "Employment bridge in Alo Management projects for candidates who successfully complete the certification process.",
+    aca_path_s1_title: "1. Rigorous Selection & Training",
+    aca_path_s1_desc: "Candidates are carefully selected and subjected to rigorous training in our academies approved by the Ministry of National Education and Ministry of Interior.",
+    aca_path_s2_title: "2. Official Certification",
+    aca_path_s2_desc: "Private Security Guard Exam preparation, health reports and TR Ministry of Interior official Identity Card acquisition process are completed.",
+    aca_path_s3_title: "3. Prestigious Employment",
+    aca_path_s3_desc: "Our graduates start working directly in Istanbul's most prestigious estates, residences and shopping malls.",
+
     // İstihdam Köprüsü
     emp_page_title: "Our Employment Bridge Model",
     emp_page_desc: "Our sustainable employment approach with qualified human resources training, continuous education and legal assurance.",

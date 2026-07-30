@@ -12,6 +12,15 @@ export interface CalcInput {
   hasGreenSpace: boolean;
 }
 
+export interface CalcConfig {
+  baseCostPerUnit: number;
+  securityAddon: number;
+  poolAddon: number;
+  greenAddon: number;
+  elevatorAddon: number;
+  savingsRate: number;
+}
+
 export interface CalcResult {
   /** Bağımsız bölüm başına aylık tahmini aidat (₺). */
   estimatedDuesPerUnit: number;
@@ -21,26 +30,29 @@ export interface CalcResult {
   estimatedSavings: number;
 }
 
-const BASE_COST_PER_UNIT = 350;
-const SECURITY_ADDON = 450;
-const POOL_ADDON = 180;
-const GREEN_ADDON = 120;
-const ELEVATOR_ADDON = 40; // asansör başına
-const SAVINGS_RATE = 0.22;
+// Fallback default config in case DB is empty
+export const defaultCalcConfig: CalcConfig = {
+  baseCostPerUnit: 350,
+  securityAddon: 450,
+  poolAddon: 180,
+  greenAddon: 120,
+  elevatorAddon: 40,
+  savingsRate: 0.22
+};
 
-export function calculateDues(input: CalcInput): CalcResult {
+export function calculateDues(input: CalcInput, config: CalcConfig = defaultCalcConfig): CalcResult {
   const { units, elevators, hasSecurity, hasPool, hasGreenSpace } = input;
 
-  const securityAddon = hasSecurity ? SECURITY_ADDON : 0;
-  const poolAddon = hasPool ? POOL_ADDON : 0;
-  const greenAddon = hasGreenSpace ? GREEN_ADDON : 0;
-  const elevatorAddon = elevators * ELEVATOR_ADDON;
+  const securityAddon = hasSecurity ? config.securityAddon : 0;
+  const poolAddon = hasPool ? config.poolAddon : 0;
+  const greenAddon = hasGreenSpace ? config.greenAddon : 0;
+  const elevatorAddon = elevators * config.elevatorAddon;
 
   const estimatedDuesPerUnit = Math.round(
-    BASE_COST_PER_UNIT + securityAddon + poolAddon + greenAddon + elevatorAddon / Math.max(units, 1)
+    config.baseCostPerUnit + securityAddon + poolAddon + greenAddon + elevatorAddon / Math.max(units, 1)
   );
   const totalMonthlyBudget = estimatedDuesPerUnit * units;
-  const estimatedSavings = Math.round(totalMonthlyBudget * SAVINGS_RATE);
+  const estimatedSavings = Math.round(totalMonthlyBudget * config.savingsRate);
 
   return { estimatedDuesPerUnit, totalMonthlyBudget, estimatedSavings };
 }
