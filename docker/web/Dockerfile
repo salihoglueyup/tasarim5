@@ -48,14 +48,13 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy prisma directory (schema and migrations)
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
-COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.ts
 
 # Also copy sqlite bindings (better-sqlite3) from builder
 COPY --from=builder /app/node_modules/better-sqlite3 ./node_modules/better-sqlite3
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
-# Prisma config'in çalışabilmesi için prisma ve dotenv'i lokal olarak kuruyoruz
-RUN npm install prisma@7.9.1 dotenv
+# Prisma CLI'ı ve bağımlılıklarını (effect, vs.) tam olarak kuruyoruz
+RUN npm install -g prisma@7.9.1
 
 # USER nextjs (SQLite volume izinleri (CANTOPEN) sorunu yaşamamak için root olarak çalıştırıyoruz)
 
