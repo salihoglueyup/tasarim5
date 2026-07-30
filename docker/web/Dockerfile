@@ -64,4 +64,4 @@ ENV HOSTNAME "0.0.0.0"
 ENV DATABASE_URL="file:/app/data/production.db"
 
 # Başlangıçta veritabanı tablolarını senkronize edip (push) ardından sunucuyu başlatıyoruz
-CMD npx prisma db push --accept-data-loss && node server.js
+CMD node node_modules/prisma/build/index.js db push --accept-data-loss && node server.js
