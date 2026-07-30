@@ -52,8 +52,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 # Also copy sqlite bindings (better-sqlite3) from builder
 COPY --from=builder /app/node_modules/better-sqlite3 ./node_modules/better-sqlite3
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 
-USER nextjs
+# USER nextjs (SQLite volume izinleri (CANTOPEN) sorunu yaşamamak için root olarak çalıştırıyoruz)
 
 EXPOSE 3001
 
@@ -62,4 +63,5 @@ ENV HOSTNAME "0.0.0.0"
 # Veritabanı URL'sini container içindeki volume'a yönlendiriyoruz
 ENV DATABASE_URL="file:/app/data/production.db"
 
-CMD ["node", "server.js"]
+# Başlangıçta veritabanı tablolarını senkronize edip (push) ardından sunucuyu başlatıyoruz
+CMD npx prisma db push --accept-data-loss && node server.js
