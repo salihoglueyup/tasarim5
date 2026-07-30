@@ -14,6 +14,7 @@ type Project = {
   units: string;
   location: string;
   image: string | null;
+  clientLogo?: string | null; // Gelecekte eklenebilecek şirket logosu alanı
 };
 
 type Partner = {
@@ -93,9 +94,24 @@ const ProjectCard = ({ project, isLarge, lang, router }: { project: Project, isL
       <div className="absolute top-0 -left-[150%] w-full h-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-[35deg] group-hover:left-[200%] transition-all duration-[1.2s] ease-in-out z-10 pointer-events-none" />
 
       {/* Üst Kısım İçin İnce Gölge (Badge okunurluğu için) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent opacity-60 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-transparent opacity-80 z-0 pointer-events-none" />
+      
+      {/* Alt Kısım İçin Ekstra Karanlık Gradyan (Yazı okunurluğu için) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 z-0 pointer-events-none" />
 
-      {/* Units (Birim) Badge - Üst Köşe */}
+      {/* Sol Üst - Müşteri / Site Logosu Alanı */}
+      <div className="absolute top-6 left-6 z-10 transition-transform duration-500 group-hover:scale-110" style={{ transform: "translateZ(25px)" }}>
+        <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg flex items-center justify-center overflow-hidden group-hover:bg-white/30 group-hover:border-white/50 transition-colors">
+          {/* Eğer backend'den logo gelirse resmi bas, yoksa şık bir ikon göster */}
+          {project.clientLogo ? (
+            <Image src={project.clientLogo} alt="Logo" fill className="object-cover" />
+          ) : (
+            <span className="material-symbols-outlined text-white/90 group-hover:text-white text-[24px]">corporate_fare</span>
+          )}
+        </div>
+      </div>
+
+      {/* Units (Birim) Badge - Sağ Üst Köşe */}
       <div className="absolute top-6 right-6 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 z-10" style={{ transform: "translateZ(20px)" }}>
         <span className="bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold px-4 py-2 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.2)]">
           {project.units}
@@ -105,7 +121,7 @@ const ProjectCard = ({ project, isLarge, lang, router }: { project: Project, isL
       {/* Frosted Glass (Buzlu Cam) İçerik Katmanı - Alt Kısım */}
       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
         <div 
-          className="bg-black/30 backdrop-blur-xl border border-white/20 rounded-[1.5rem] p-5 sm:p-6 shadow-2xl relative overflow-hidden group-hover:bg-black/40 group-hover:border-white/30 transition-colors duration-500"
+          className="bg-black/50 backdrop-blur-xl border border-white/20 rounded-[1.5rem] p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.4)] relative overflow-hidden group-hover:bg-black/60 group-hover:border-white/30 transition-colors duration-500"
           style={{ transform: "translateZ(30px)" }} // 3D Derinlik
         >
           {/* Cama vuran ekstra yansıma */}
@@ -113,13 +129,13 @@ const ProjectCard = ({ project, isLarge, lang, router }: { project: Project, isL
           
           <div className="relative z-10 flex justify-between items-end gap-4">
             <div className="flex-1">
-              <span className="inline-block text-[10px] font-bold tracking-wider uppercase text-brand-300 bg-brand-500/20 px-3 py-1 rounded-full mb-3 border border-brand-500/30">
+              <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-white bg-[var(--color-primary)]/80 backdrop-blur-md px-3 py-1 rounded-full mb-3 border border-white/20 shadow-md">
                 {project.category}
               </span>
-              <h3 className={`font-extrabold text-white leading-tight mb-2 ${isLarge ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>
+              <h3 className={`font-extrabold text-white leading-tight mb-2 drop-shadow-md ${isLarge ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>
                 {project.title}
               </h3>
-              <div className="flex items-center gap-1.5 text-sm text-gray-300 font-medium">
+              <div className="flex items-center gap-1.5 text-sm text-gray-200 font-medium drop-shadow-md">
                 <span className="material-symbols-outlined text-[16px] text-brand-400">location_on</span>
                 {project.location}
               </div>

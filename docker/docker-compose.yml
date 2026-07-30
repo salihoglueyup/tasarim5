@@ -15,6 +15,7 @@ services:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
       - DATABASE_URL=file:/app/data/production.db
+      - REDIS_URL=redis://redis:6379
       # Localhost'taki Nginx üzerinden hizmet verileceği için n8n host adresi olarak kullanılabilir
       - N8N_URL=http://n8n.aloyonetim.com
 
@@ -33,3 +34,11 @@ services:
       - GENERIC_TIMEZONE=Europe/Istanbul
     volumes:
       - ./data/n8n:/home/node/.n8n
+
+  redis:
+    image: redis:alpine
+    container_name: aloyonetim-redis
+    restart: unless-stopped
+    volumes:
+      - ./data/redis:/data
+    command: redis-server --appendonly yes
