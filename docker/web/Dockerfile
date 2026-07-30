@@ -18,8 +18,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Generate Prisma Client (Needs to be done here so the client matches the schema)
-ENV DATABASE_URL="file:/app/prisma/dev.db"
+ENV DATABASE_URL="file:/app/data/production.db"
+RUN mkdir -p /app/data
 RUN npx prisma generate
+RUN npx prisma db push --accept-data-loss
 
 # Build Next.js
 ENV NEXT_TELEMETRY_DISABLED 1
