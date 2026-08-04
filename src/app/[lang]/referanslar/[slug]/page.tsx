@@ -6,6 +6,8 @@ import { JsonLd } from '@/components';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import redis from '@/lib/redis';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ReferenceDetailPage({ params }: { params: Promise<{ lang: string, slug: string }> }) {
   const { lang, slug } = await params;
 
@@ -140,7 +142,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             
             {project.content && (
               <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-bold prose-headings:text-[var(--color-primary)] prose-a:text-brand-500 hover:prose-a:text-brand-400 text-[var(--color-secondary)] leading-relaxed">
-                <div dangerouslySetInnerHTML={{ __html: project.content }} />
+                <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(project.content) }} />
               </div>
             )}
 

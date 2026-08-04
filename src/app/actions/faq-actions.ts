@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
 
 export async function saveFaq(data: {
   id?: string;
@@ -11,6 +12,9 @@ export async function saveFaq(data: {
   order: number;
 }) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     if (data.id) {
       await prisma.faq.update({
         where: { id: data.id },
@@ -44,6 +48,9 @@ export async function saveFaq(data: {
 
 export async function deleteFaq(id: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     await prisma.faq.delete({
       where: { id },
     });

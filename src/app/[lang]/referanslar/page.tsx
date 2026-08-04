@@ -5,6 +5,8 @@ import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import ReferencesClient from './ReferencesClient';
 import redis from '@/lib/redis';
 
+export const dynamic = 'force-dynamic';
+
 // Server Component
 export default async function ReferanslarPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

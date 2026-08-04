@@ -56,3 +56,10 @@ next-env.d.ts
 *.db-journal
 *.sqlite
 *.sqlite3
+
+# Docker runtime verisi — canlı DB/redis/n8n dosyaları GİT'E GİRMEMELİ
+# (PII + şifre hash'leri içerir; ayrıca repo'yu şişirir). Yalnız compose/config izlenir.
+/docker/data/
+
+# Playwright MCP test artefaktları (ölçüm çıktıları — çöp)
+/.playwright-mcp/

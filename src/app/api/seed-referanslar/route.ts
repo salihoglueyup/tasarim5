@@ -1,8 +1,19 @@
 import { prisma } from '@/lib/prisma';
 import { NextResponse } from 'next/server';
+import { assertAdmin } from '@/lib/auth';
 
 export async function GET() {
   try {
+    // Güvenlik: Bu tek seferlik tohumlama aracı yalnızca üretim-dışında ve admin
+    // oturumuyla çalışır. (Öncesinde auth yoktu; herkes DB'yi tekrarlı kayıtla doldurabiliyordu.)
+    if (process.env.NODE_ENV === 'production') {
+      return NextResponse.json({ success: false, error: 'Not found.' }, { status: 404 });
+    }
+    const session = await assertAdmin();
+    if (!session) {
+      return NextResponse.json({ success: false, error: 'Yetkisiz erişim.' }, { status: 401 });
+    }
+
     const partnerLogos = [
       "Acıbadem", "Rönesans", "Ağaoğlu", "Sur Yapı", "Sinpaş", "DAP Yapı", "Ege Yapı", "Tahincioğlu"
     ];

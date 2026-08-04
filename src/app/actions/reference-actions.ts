@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
 
 export async function saveReference(id: string | 'new', data: {
   title: string;
@@ -22,6 +23,9 @@ export async function saveReference(id: string | 'new', data: {
   isSuccessStory?: boolean;
 }) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     if (id !== 'new') {
       await prisma.reference.update({
         where: { id },
@@ -45,6 +49,9 @@ export async function saveReference(id: string | 'new', data: {
 
 export async function deleteReference(id: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     await prisma.reference.delete({
       where: { id },
     });

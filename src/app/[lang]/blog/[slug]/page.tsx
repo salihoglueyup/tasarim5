@@ -12,13 +12,10 @@ import {
 } from '@/lib/schemas';
 import { LOCALES } from '@/lib/seo';
 
-export const revalidate = 60; // 1 dakika cache
+ // 1 dakika cache
 export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  const posts = await prisma.post.findMany({ select: { slug: true } });
-  return LOCALES.flatMap((lang) => posts.map((p) => ({ lang, slug: p.slug })));
-}
+
 
 function formatDate(iso: string | Date): string {
   return new Date(iso).toLocaleDateString('tr-TR', {

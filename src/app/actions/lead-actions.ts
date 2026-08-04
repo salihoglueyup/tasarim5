@@ -2,9 +2,13 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
 
 export async function deleteLead(id: string, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     await prisma.lead.delete({ where: { id } });
     revalidatePath(`/${lang}/admin/leads`);
     return { success: true };
@@ -16,6 +20,9 @@ export async function deleteLead(id: string, lang: string) {
 
 export async function markLeadAsRead(id: string, isRead: boolean, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     await prisma.lead.update({
       where: { id },
       data: { isRead }

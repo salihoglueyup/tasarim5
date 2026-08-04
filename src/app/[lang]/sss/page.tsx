@@ -5,11 +5,11 @@ import { prisma } from '@/lib/prisma';
 import FaqClient from './FaqClient';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 
-export const revalidate = 60; // 1 dakika cache
+export const dynamic = 'force-dynamic';
 
-export async function generateStaticParams() {
-  return LOCALES.map((lang) => ({ lang }));
-}
+ // 1 dakika cache
+
+
 
 export async function generateMetadata({
   params,

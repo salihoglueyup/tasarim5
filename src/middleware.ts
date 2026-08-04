@@ -34,8 +34,8 @@ export async function middleware(request: NextRequest) {
     const cookie = request.cookies.get('admin_session')?.value;
     const session = cookie ? await decrypt(cookie) : null;
 
-    if (isProtectedRoute && !session?.userId) {
-      // Redirect to login, preserving the language prefix if it exists
+    if (isProtectedRoute && (!session?.userId || session?.role !== 'ADMIN')) {
+      // Oturum yok VEYA rol ADMIN değil → login'e yönlendir (dil önekini koru)
       const langPrefix = pathname.split('/')[1] || defaultLocale;
       const loginUrl = new URL(`/${langPrefix}/admin/login`, request.nextUrl);
       return NextResponse.redirect(loginUrl);

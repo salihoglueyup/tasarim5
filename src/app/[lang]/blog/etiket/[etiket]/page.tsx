@@ -5,7 +5,7 @@ import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 
-export const revalidate = 60;
+
 export const dynamicParams = true;
 
 export async function generateMetadata({

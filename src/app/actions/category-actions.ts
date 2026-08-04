@@ -2,35 +2,54 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
+import { logAction } from '@/lib/audit';
+import { z } from 'zod';
+
+const CategorySchema = z.object({
+  name: z.string().min(1, 'Kategori adı zorunludur').max(100, 'Çok uzun'),
+  slug: z.string().min(1, 'URL zorunludur').max(100, 'Çok uzun'),
+  description: z.string().max(500, 'Açıklama en fazla 500 karakter olabilir'),
+  parentId: z.string().optional().nullable(),
+});
 
 export async function saveCategory(id: string, data: { name: string; slug: string; description: string; parentId?: string }, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
+    // ZOD DOĞRULAMASI (Payload Poisoning Zırhı)
+    const parsed = CategorySchema.safeParse(data);
+    if (!parsed.success) {
+      return { error: 'Geçersiz veri formatı gönderildi.' };
+    }
+    const safeData = parsed.data;
+
     if (id === 'new') {
-      // Create
-      await prisma.category.create({
+      const category = await prisma.category.create({
         data: {
-          name: data.name,
-          slug: data.slug,
-          description: data.description,
-          parentId: data.parentId || null,
+          name: safeData.name,
+          slug: safeData.slug,
+          description: safeData.description,
+          parentId: safeData.parentId || null,
         }
       });
+      await logAction(session.userId, 'CREATE', 'Category', category.id, safeData);
     } else {
-      // Check if parentId is not pointing to itself
-      if (data.parentId === id) {
+      if (safeData.parentId === id) {
         return { error: 'Bir kategori kendisinin üst kategorisi olamaz.' };
       }
 
-      // Update
       await prisma.category.update({
         where: { id },
         data: {
-          name: data.name,
-          slug: data.slug,
-          description: data.description,
-          parentId: data.parentId || null,
+          name: safeData.name,
+          slug: safeData.slug,
+          description: safeData.description,
+          parentId: safeData.parentId || null,
         }
       });
+      await logAction(session.userId, 'UPDATE', 'Category', id, safeData);
     }
 
     revalidatePath(`/${lang}/admin/categories`);
@@ -38,7 +57,6 @@ export async function saveCategory(id: string, data: { name: string; slug: strin
     return { success: true };
   } catch (error: any) {
     console.error('Save category error:', error);
-    // Prisma unique constraint hatası (P2002) - slug çakışması
     if (error.code === 'P2002') {
       return { error: 'Bu URL (slug) zaten başka bir kategori tarafından kullanılıyor.' };
     }
@@ -48,19 +66,21 @@ export async function saveCategory(id: string, data: { name: string; slug: strin
 
 export async function deleteCategory(id: string, lang: string) {
   try {
-    // Kategoriye bağlı yazı var mı kontrol et
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     const postsCount = await prisma.post.count({ where: { categoryId: id } });
     if (postsCount > 0) {
       return { error: 'Bu kategoriye bağlı yazılar var. Önce yazıları silmeli veya başka kategoriye taşımalısınız.' };
     }
 
-    // Alt kategorisi var mı kontrol et
     const childrenCount = await prisma.category.count({ where: { parentId: id } });
     if (childrenCount > 0) {
       return { error: 'Bu kategorinin alt kategorileri var. Önce onları silmeli veya taşımalısınız.' };
     }
 
     await prisma.category.delete({ where: { id } });
+    await logAction(session.userId, 'DELETE', 'Category', id);
     
     revalidatePath(`/${lang}/admin/categories`);
     revalidatePath(`/${lang}/admin/posts`);

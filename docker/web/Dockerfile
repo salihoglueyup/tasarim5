@@ -4,7 +4,7 @@ FROM node:22-alpine AS base
 # Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat python3 make g++
+RUN apk add --no-cache libc6-compat python3 make g++ openssl
 WORKDIR /app
 
 # Install dependencies
@@ -17,11 +17,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Generate Prisma Client (Needs to be done here so the client matches the schema)
-ENV DATABASE_URL="file:/app/data/production.db"
-RUN mkdir -p /app/data
+# Generate Prisma Client (Needs a dummy DATABASE_URL just to generate)
+ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 RUN npx prisma generate
-RUN npx prisma db push --accept-data-loss
 
 # Build Next.js
 ENV NEXT_TELEMETRY_DISABLED 1
@@ -31,13 +29,16 @@ RUN npm run build
 FROM base AS runner
 WORKDIR /app
 
+# Install OpenSSL for Prisma to work properly in Alpine
+RUN apk add --no-cache openssl
+
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Set correct permissions for nextjs user and don't run as root
+# Set correct permissions for nextjs user
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
@@ -50,21 +51,17 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.ts
 
-# Also copy sqlite bindings (better-sqlite3) from builder
-COPY --from=builder /app/node_modules/better-sqlite3 ./node_modules/better-sqlite3
-
-# Prisma 7 CLI ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz
+# Prisma CLI ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz (migrate/push için)
 RUN npm install -g prisma@7.9.1 dotenv
 ENV NODE_PATH="/usr/local/lib/node_modules"
 
-# USER nextjs (SQLite volume izinleri (CANTOPEN) sorunu yaşamamak için root olarak çalıştırıyoruz)
+# Non-root user kullanımı (Güvenlik)
+USER nextjs
 
 EXPOSE 3001
 
 ENV PORT 3001
 ENV HOSTNAME "0.0.0.0"
-# Veritabanı URL'sini container içindeki volume'a yönlendiriyoruz
-ENV DATABASE_URL="file:/app/data/production.db"
 
 # Başlangıçta veritabanı tablolarını senkronize edip (push) ardından sunucuyu başlatıyoruz
 CMD npx prisma db push --accept-data-loss && node server.js

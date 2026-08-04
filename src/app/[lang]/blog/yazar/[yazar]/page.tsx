@@ -6,13 +6,10 @@ import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject, personSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 
-export const revalidate = 60;
+
 export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  const authors = await prisma.author.findMany({ select: { slug: true } });
-  return LOCALES.flatMap((lang) => authors.map((a) => ({ lang, yazar: a.slug })));
-}
+
 
 export async function generateMetadata({
   params,

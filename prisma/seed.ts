@@ -1,17 +1,18 @@
 import { PrismaClient } from '../src/generated/prisma/client';
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Pool } from 'pg';
 import { CATEGORIES, POSTS } from '../src/data/posts';
 import bcrypt from 'bcryptjs';
 
-const adapter = new PrismaBetterSqlite3({ url: 'file:./dev.db' });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log('Seeding database...');
 
-  // Create an admin user
-  // (In production, you'd use a strong password and not hardcode it here)
-  // We'll use a dummy password for now.
   const adminPassword = await bcrypt.hash('admin123', 10);
   
   await prisma.user.upsert({
@@ -25,7 +26,6 @@ async function main() {
     },
   });
 
-  // Seed Categories
   for (const cat of CATEGORIES) {
     await prisma.category.upsert({
       where: { slug: cat.slug },
@@ -38,7 +38,6 @@ async function main() {
     });
   }
 
-  // Seed Authors (Extract from POSTS)
   const authors = Array.from(new Set(POSTS.map(p => p.author)));
   for (const authorSlug of authors) {
     const name = authorSlug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
@@ -53,9 +52,7 @@ async function main() {
     });
   }
 
-  // Seed Posts
   for (const post of POSTS) {
-    
     const category = await prisma.category.findUnique({ where: { slug: post.category } });
     const author = await prisma.author.findUnique({ where: { slug: post.author } });
 

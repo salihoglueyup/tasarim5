@@ -1,6 +1,8 @@
 import { prisma } from '@/lib/prisma';
 import BasariHikayeleriClient from './BasariHikayeleriClient';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BasariHikayeleriPage() {
   const stories = await prisma.reference.findMany({
     where: {

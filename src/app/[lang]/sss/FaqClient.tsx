@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
+import DOMPurify from 'isomorphic-dompurify';
+
 export default function FaqClient({ 
   faqs, 
   categories 
@@ -105,7 +107,7 @@ export default function FaqClient({
                     >
                       <div 
                         className="px-6 md:px-8 pb-8 prose prose-slate prose-lg max-w-none text-slate-700 dark:text-slate-300 prose-a:text-brand-500 prose-p:leading-relaxed border-t border-slate-100 dark:border-white/5 pt-6"
-                        dangerouslySetInnerHTML={{ __html: faq.answer }}
+                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(faq.answer) }}
                       />
                     </motion.div>
                   )}

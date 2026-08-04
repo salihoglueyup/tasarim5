@@ -19,7 +19,7 @@ export interface Lead {
 
 /** Tek bir bildirim/kayıt kanalının sonucu. */
 export interface ChannelResult {
-  channel: 'email' | 'telegram' | 'database';
+  channel: 'email' | 'telegram' | 'database' | 'n8n';
   status: 'ok' | 'skipped' | 'error';
   detail?: string;
 }

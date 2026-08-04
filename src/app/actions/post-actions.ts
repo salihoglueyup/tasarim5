@@ -3,9 +3,13 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { assertAdmin } from '@/lib/auth';
 
 export async function deletePost(id: string, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     await prisma.post.delete({ where: { id } });
     revalidatePath(`/${lang}/admin/posts`);
     return { success: true };
@@ -17,6 +21,9 @@ export async function deletePost(id: string, lang: string) {
 
 export async function savePost(id: string, data: any, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     let post;
     
     // Convert tags if they're sent as array, or keep as string

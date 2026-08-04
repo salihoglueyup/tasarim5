@@ -6,13 +6,10 @@ import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 
-export const revalidate = 60;
+
 export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  const categories = await prisma.category.findMany({ select: { slug: true } });
-  return LOCALES.flatMap((lang) => categories.map((c) => ({ lang, kategori: c.slug })));
-}
+
 
 export async function generateMetadata({
   params,

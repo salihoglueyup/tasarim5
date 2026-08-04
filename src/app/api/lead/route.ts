@@ -50,5 +50,8 @@ export async function POST(req: NextRequest) {
 
   // 5) Kanallara fan-out.
   const dispatch = await dispatchLead(result.lead);
-  return Response.json(dispatch, { status: dispatch.ok ? 200 : 502 });
+  // Güvenlik: kanal `detail`'i (downstream iç hata metni) client'a sızdırılmaz;
+  // yalnız kanal adı + durumu döndürülür (detay sunucu log'unda kalır).
+  const safeChannels = dispatch.channels.map((c) => ({ channel: c.channel, status: c.status }));
+  return Response.json({ ok: dispatch.ok, channels: safeChannels }, { status: dispatch.ok ? 200 : 502 });
 }

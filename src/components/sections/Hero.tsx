@@ -61,7 +61,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full h-[100vh] min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-8 sm:pb-12">
+    <section className="relative w-full h-[100vh] min-h-[500px] md:min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-4 sm:pb-6">
       
       {/* 8K Fullscreen Background Video & Fallback */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -81,7 +81,7 @@ export default function Hero() {
           fetchPriority="high"
           sizes="100vw"
           quality={80}
-          className="object-cover scale-105 pointer-events-none z-0"
+          className="object-cover object-center scale-105 pointer-events-none z-0"
         />
 
         {/* Video kaynağı (src) yukarıdaki useEffect içinde idle anında bağlanır — kritik yüklenmeyi rahatlatır. */}
@@ -95,7 +95,7 @@ export default function Hero() {
           poster="/images/hero-poster-v5.webp"
           aria-hidden="true"
           tabIndex={-1}
-          className="w-full h-full object-cover scale-105 pointer-events-none relative z-1"
+          className="w-full h-full object-cover object-center scale-105 pointer-events-none relative z-1"
         />
 
         {/* Deep Vignette Overlay for Maximum Readability */}
@@ -104,7 +104,7 @@ export default function Hero() {
       </div>
 
       {/* Flush Far-Left Bottom Aligned Content Container */}
-      <div className="relative z-20 w-full px-6 sm:px-10 md:px-14 lg:px-20">
+      <div className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         
         <div className="max-w-3xl flex flex-col items-start text-left">
           
@@ -124,7 +124,7 @@ export default function Hero() {
           {/* Elegant Refined Plus Jakarta Sans Headline
               LCP optimizasyonu (v12): Bu h1 LCP elementidir. framer-motion opacity:0 fade-in'i
               LCP'yi ~1.5s'ye geciktiriyordu; anında boyanması için giriş animasyonu kaldırıldı. */}
-          <h1 className="font-[var(--font-plus-jakarta)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-extrabold tracking-[-0.03em] leading-[1.05] text-white mb-4 drop-shadow-xl">
+          <h1 className="font-[var(--font-plus-jakarta)] text-3xl sm:text-4xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-extrabold tracking-[-0.03em] leading-[1.05] text-white mb-4 drop-shadow-xl">
             {t('hero_title')}
           </h1>
 
@@ -144,7 +144,7 @@ export default function Hero() {
               <Link 
                 href="/teklif-al"
                 prefetch={true}
-                className="bg-white hover:bg-slate-100 text-slate-950 font-extrabold px-7 py-3.5 text-sm sm:text-base shadow-2xl rounded-xl border border-white/20 inline-flex items-center gap-2 transition-all hover:scale-105 active:scale-95 tracking-tight"
+                className="bg-white hover:bg-slate-100 text-slate-950 font-extrabold px-5 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base shadow-2xl rounded-xl border border-white/20 inline-flex items-center gap-2 transition-all hover:scale-105 active:scale-95 tracking-tight"
                 aria-label="Ücretsiz keşif isteyin"
                 title="Ücretsiz keşif formu"
               >
@@ -156,7 +156,7 @@ export default function Hero() {
             <Magnetic strength={0.2}>
               <button 
                 onClick={toggleMute}
-                className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-xl border border-white/20 px-5.5 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white hover:bg-slate-800 transition-all shadow-xl tracking-tight"
+                className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-xl border border-white/20 px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white hover:bg-slate-800 transition-all shadow-xl tracking-tight"
                 aria-label={isMuted ? "Filmin sesini aç" : "Filmin sesini kapat"}
                 title={isMuted ? "Sesi aç" : "Sesi kapat"}
               >

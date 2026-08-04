@@ -54,8 +54,8 @@ export default function InteractiveProcessSteps() {
   ];
 
   return (
-    <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-12 md:py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
         <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
           {t('home_process_badge')}
         </span>
@@ -68,12 +68,12 @@ export default function InteractiveProcessSteps() {
       </div>
 
       {/* Interactive Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+      <div className="flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-3 mb-8 md:mb-12 overflow-x-auto snap-x pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {steps.map((s, idx) => (
           <button
             key={idx}
             onClick={() => setActiveStep(idx)}
-            className={`px-5 py-3 rounded-2xl text-sm font-bold transition-all flex items-center gap-2 ${
+            className={`px-5 py-3 rounded-2xl text-sm font-bold transition-all flex items-center gap-2 shrink-0 snap-center ${
               activeStep === idx
                 ? 'bg-[var(--color-primary)] text-white shadow-lg scale-105'
                 : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)] hover:border-[var(--color-primary)]'
@@ -95,7 +95,7 @@ export default function InteractiveProcessSteps() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.3 }}
-          className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-10 md:p-16 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+          className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 lg:p-16 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
         >
           <div className="lg:col-span-8 flex flex-col gap-6">
             <span className="text-xs font-bold text-slate-900 dark:text-white tracking-widest uppercase bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit">

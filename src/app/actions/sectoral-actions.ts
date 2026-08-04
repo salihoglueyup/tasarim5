@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
 
 export async function saveSectoralSolution(id: string | 'new', data: {
   title: string;
@@ -14,6 +15,9 @@ export async function saveSectoralSolution(id: string | 'new', data: {
   order: number;
 }) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     if (id !== 'new') {
       await prisma.sectoralSolution.update({
         where: { id },
@@ -37,6 +41,9 @@ export async function saveSectoralSolution(id: string | 'new', data: {
 
 export async function deleteSectoralSolution(id: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     await prisma.sectoralSolution.delete({
       where: { id },
     });

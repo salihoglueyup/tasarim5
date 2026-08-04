@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DOMPurify from 'isomorphic-dompurify';
 
 /**
  * Blog içerik gövdesi render'ı + otomatik iç linkleme
@@ -51,7 +52,7 @@ export default function PostBody({ htmlContent }: { htmlContent: string }) {
   return (
     <div 
       className="prose prose-slate prose-lg max-w-none text-slate-900 w-full prose-headings:text-slate-950 prose-a:text-brand-600 prose-strong:text-slate-900 prose-img:rounded-2xl prose-img:shadow-lg"
-      dangerouslySetInnerHTML={{ __html: processedHtml }} 
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(processedHtml) }} 
     />
   );
 }

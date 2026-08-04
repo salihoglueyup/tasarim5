@@ -2,9 +2,13 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
 
 export async function saveAuthor(id: string, data: { name: string; slug: string; bio?: string; avatar?: string }, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     if (id === 'new') {
       await prisma.author.create({
         data: {
@@ -40,6 +44,9 @@ export async function saveAuthor(id: string, data: { name: string; slug: string;
 
 export async function deleteAuthor(id: string, lang: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { error: 'Yetkisiz işlem.' };
+
     const postsCount = await prisma.post.count({ where: { authorId: id } });
     if (postsCount > 0) {
       return { error: 'Bu yazara ait yazılar var. Önce yazıları silmeli veya başka yazara taşımalısınız.' };

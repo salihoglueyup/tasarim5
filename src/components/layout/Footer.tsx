@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#f8f9fa] dark:bg-[#0b1c30] border-t border-slate-200/80 dark:border-white/10 w-full overflow-hidden text-slate-700 dark:text-slate-300">
       
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-16 pb-8 flex flex-col gap-12">
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-10 md:pt-16 pb-6 md:pb-8 flex flex-col gap-10 md:gap-12">
         
         {/* Main Footer 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
@@ -65,7 +65,7 @@ export default function Footer() {
                 type="button"
                 aria-label="App Store — yakında"
                 title="Yakında App Store'da"
-                className="flex items-center gap-3 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-4 py-2.5 rounded-2xl hover:bg-gray-200 dark:hover:bg-white/20 transition-all group text-left"
+                className="flex items-center justify-center sm:justify-start gap-3 w-full sm:w-auto bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-4 py-2.5 rounded-2xl hover:bg-gray-200 dark:hover:bg-white/20 transition-all group text-left"
               >
                 <span className="material-symbols-outlined text-2xl text-gray-800 dark:text-white">apple</span>
                 <div className="flex flex-col text-left">
@@ -78,7 +78,7 @@ export default function Footer() {
                 type="button"
                 aria-label="Google Play — yakında"
                 title="Yakında Google Play'de"
-                className="flex items-center gap-3 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-4 py-2.5 rounded-2xl hover:bg-gray-200 dark:hover:bg-white/20 transition-all group text-left"
+                className="flex items-center justify-center sm:justify-start gap-3 w-full sm:w-auto bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-4 py-2.5 rounded-2xl hover:bg-gray-200 dark:hover:bg-white/20 transition-all group text-left"
               >
                 <span className="material-symbols-outlined text-2xl text-emerald-600 dark:text-emerald-400">play_arrow</span>
                 <div className="flex flex-col text-left">

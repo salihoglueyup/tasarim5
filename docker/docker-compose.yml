@@ -1,6 +1,31 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: aloyonetim-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: alo_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: aloyonetim
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      # Yalnız localhost'a bind — veritabanı dış ağa açılmaz (secret'lar docker/.env'de).
+      - "127.0.0.1:5432:5432"
+
+  redis:
+    image: redis:alpine
+    container_name: aloyonetim-redis
+    restart: unless-stopped
+    volumes:
+      - ./data/redis:/data
+    # Redis'e parola zorunluluğu (önceden auth yoktu — herkes bağlanabiliyordu).
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "127.0.0.1:6379:6379"
+
   web:
     build:
       context: ..
@@ -9,36 +34,52 @@ services:
     restart: unless-stopped
     ports:
       - "3001:3001"
-    volumes:
-      - ./data/db:/app/data
+    depends_on:
+      - postgres
+      - redis
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
-      - DATABASE_URL=file:/app/data/production.db
-      - REDIS_URL=redis://redis:6379
-      # Localhost'taki Nginx üzerinden hizmet verileceği için n8n host adresi olarak kullanılabilir
-      - N8N_URL=http://n8n.aloyonetim.com
+      # Secret'lar docker/.env dosyasından gelir (git-ignored) — literal parola yok.
+      - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD}@postgres:5432/aloyonetim?schema=public
+      - REDIS_URL=redis://:${REDIS_PASSWORD}@redis:6379
+      - JWT_SECRET=${JWT_SECRET}
+      # N8N webhook URL
+      - N8N_URL=http://n8n:5678
 
   n8n:
     image: docker.n8n.io/n8nio/n8n
     container_name: aloyonetim-n8n
     restart: unless-stopped
     ports:
-      - "5678:5678"
+      # n8n yönetim paneli yalnız localhost'ta — dış ağa açılmaz (tünel/proxy ile erişilir).
+      - "127.0.0.1:5678:5678"
+    depends_on:
+      - postgres
     environment:
-      - N8N_HOST=n8n.aloyonetim.com
+      - N8N_HOST=localhost
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
       - NODE_ENV=production
-      - WEBHOOK_URL=http://n8n.aloyonetim.com/
+      - WEBHOOK_URL=http://localhost:5678/
       - GENERIC_TIMEZONE=Europe/Istanbul
+      # n8n veritabanı olarak da Postgres kullanabilir ama şimdilik kendi SQLite'ını kullansın (hızlı kurulum)
     volumes:
       - ./data/n8n:/home/node/.n8n
 
-  redis:
-    image: redis:alpine
-    container_name: aloyonetim-redis
+  prisma-studio:
+    build:
+      context: ..
+      dockerfile: docker/web/Dockerfile
+    container_name: aloyonetim-prisma-studio
     restart: unless-stopped
-    volumes:
-      - ./data/redis:/data
-    command: redis-server --appendonly yes
+    command: npx prisma studio --port 5555 --browser none
+    # GÜVENLIK: Prisma Studio DB'ye tam erişim verir — porta dış publish YOK.
+    # Gerektiğinde SSH tüneli veya `docker compose exec` ile erişilir.
+    ports:
+      - "127.0.0.1:5555:5555"
+    depends_on:
+      - postgres
+    environment:
+      - HOST=0.0.0.0
+      - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD}@postgres:5432/aloyonetim?schema=public

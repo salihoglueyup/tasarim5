@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth';
 
 export async function savePartner(id: string | 'new', data: {
   name: string;
@@ -9,6 +10,9 @@ export async function savePartner(id: string | 'new', data: {
   order: number;
 }) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     if (id !== 'new') {
       await prisma.partner.update({
         where: { id },
@@ -32,6 +36,9 @@ export async function savePartner(id: string | 'new', data: {
 
 export async function deletePartner(id: string) {
   try {
+    const session = await assertAdmin();
+    if (!session) return { success: false, error: 'Yetkisiz işlem.' };
+
     await prisma.partner.delete({
       where: { id },
     });

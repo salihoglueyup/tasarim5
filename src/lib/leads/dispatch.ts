@@ -2,6 +2,7 @@ import type { Lead, DispatchResult, ChannelResult } from './types';
 import { notifyEmail } from './notify-email';
 import { notifyTelegram } from './notify-telegram';
 import { storeLead } from './store-db';
+import { notifyN8n } from './notify-n8n';
 
 /**
  * Lead fan-out orkestrasyonu (Track 1).
@@ -15,11 +16,12 @@ export async function dispatchLead(lead: Lead): Promise<DispatchResult> {
     notifyEmail(lead),
     notifyTelegram(lead),
     storeLead(lead),
+    notifyN8n(lead),
   ]);
 
   const channels: ChannelResult[] = settled.map((r, i) => {
     if (r.status === 'fulfilled') return r.value;
-    const channel = (['email', 'telegram', 'database'] as const)[i];
+    const channel = (['email', 'telegram', 'database', 'n8n'] as const)[i];
     return { channel, status: 'error', detail: (r.reason as Error)?.message ?? 'unknown' };
   });
 

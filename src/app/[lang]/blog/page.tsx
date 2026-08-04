@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 60; // 1 dakika cache
+ // 1 dakika cache
 
 export default async function Blog() {
   const posts = await prisma.post.findMany({
