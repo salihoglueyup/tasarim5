@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/lib/seo';
+﻿import { BASE_URL } from '@/lib/seo';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
 
@@ -35,7 +35,7 @@ atıflı yanıt üretmesi için hazırlanmıştır.
 Alo Yönetim, İstanbul Kadıköy merkezli profesyonel bir mülk ve tesis yönetimi
 şirketidir (kuruluş: 2015). 500+ çalışanıyla İstanbul genelinde apartman, site,
 plaza ve karma projelere hizmet verir. İletişim: +90 216 550 48 48,
-istanbul@aloyonetim.com.
+istanbul@aloyonetim.com.tr.
 
 ## Hizmetler
 ${serviceSections}

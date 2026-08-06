@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Avm, plaza, site ve rezidanslar için aidat toplama, bütçe planlama ve tam kapsamlı idari yönetim.",
     path: "/hizmetler/tesis-yonetimi",
     lang,
+    keywords: ['site yönetimi', 'apartman yönetimi', 'profesyonel yönetim', 'aidat yönetimi', 'tesis yönetim şirketi'],
   });
 }
 

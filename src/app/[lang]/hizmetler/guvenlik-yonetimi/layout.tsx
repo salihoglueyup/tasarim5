@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Sertifikalı güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.",
     path: "/hizmetler/guvenlik-yonetimi",
     lang,
+    keywords: ['site güvenliği', 'özel güvenlik', 'apartman güvenliği', 'kameralı güvenlik', '7/24 güvenlik hizmeti'],
   });
 }
 

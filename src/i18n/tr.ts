@@ -1,4 +1,4 @@
-export const tr = {
+﻿export const tr = {
     // Error Pages
     err_404_title: "Sayfa Bulunamadı",
     err_404_desc: "Aradığınız sayfa taşınmış, silinmiş veya geçici olarak kullanılamıyor olabilir. En iyi hizmete ulaşmak için ana sayfaya dönebilir veya hizmetlerimize göz atabilirsiniz.",
@@ -1067,7 +1067,7 @@ export const tr = {
     kvkk_h3: "3. İşlenen Verilerin Kimlere ve Hangi Amaçla Aktarılabileceği",
     kvkk_p3: "Kişisel verileriniz, kanuni yükümlülüklerimizi yerine getirmek amacıyla yetkili kamu kurum ve kuruluşlarına, hukuki uyuşmazlıkların giderilmesi amacıyla şirket avukatlarımıza ve aidat tahsilat süreçleri için anlaşmalı bankalara aktarılabilmektedir.",
     kvkk_h4: "4. İletişim ve Haklarınız",
-    kvkk_p4: "KVKK 11. Madde kapsamındaki haklarınızı kullanmak için <strong>kvkk@aloyonetim.com</strong> adresi üzerinden bizimle iletişime geçebilirsiniz.",
+    kvkk_p4: "KVKK 11. Madde kapsamındaki haklarınızı kullanmak için <strong>kvkk@aloyonetim.com.tr</strong> adresi üzerinden bizimle iletişime geçebilirsiniz.",
 
     // Footer Badges
     footer_badge_quality: "Kalite Yönetimi",

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * On-page SEO denetim script'i (SEO Master Plan V4 — Faz 100).
  *
  * Çalışan sunucudaki sayfaları gezer ve sayfa başına şu on-page sinyallerini
@@ -92,7 +92,7 @@ for (const path of PATHS) {
   const canonical = /<link[^>]*rel=["']canonical["']/i.test(html);
   const words = strip(html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? html).split(' ').length;
   const internalLinks = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)].filter(
-    ([, href]) => href.startsWith('/') || href.includes('aloyonetim.com'),
+    ([, href]) => href.startsWith('/') || href.includes('aloyonetim.com.tr'),
   ).length;
 
   const issues = [];

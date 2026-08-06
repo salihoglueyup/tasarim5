@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Merkezi JSON-LD şema fabrikası (SEO Master Plan V4 — Bölüm C, Faz 41–70).
  *
  * Tüm yapılandırılmış veri (schema.org) tek bir yerden, tip-güvenli üretici
@@ -30,7 +30,7 @@ export const ORG_NAME = 'Alo Yönetim';
 export const ORG_LEGAL_NAME = 'Alo Yönetim Tesis Yönetimi A.Ş.';
 export const ORG_LOGO = `${BASE_URL}/icon.png`;
 export const ORG_PHONE = '+902165504848';
-export const ORG_EMAIL = 'istanbul@aloyonetim.com';
+export const ORG_EMAIL = 'istanbul@aloyonetim.com.tr';
 export const ORG_FOUNDING_DATE = '2015';
 export const ORG_PRICE_RANGE = '₺₺';
 

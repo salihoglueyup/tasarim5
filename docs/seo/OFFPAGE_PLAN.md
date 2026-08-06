@@ -1,4 +1,4 @@
-# Off-Page, Yerel İşaretler & Backlink Planı
+﻿# Off-Page, Yerel İşaretler & Backlink Planı
 
 > **Amaç (SEO Master Plan V4 — Bölüm J, Faz 231–247):** Site dışı otorite (backlink, citation),
 > yerel varlık (Google Business Profile) ve dijital PR ile alan otoritesini artırmak. Bu bölümün
@@ -11,8 +11,8 @@ Tüm off-page kayıtlarında **birebir** kullanılacak künye:
 Alo Yönetim
 Eğitim Mah. Kasap İsmail Sk. No:15/19, Kadıköy, İstanbul, TR
 Tel: +90 216 550 48 48
-E-posta: istanbul@aloyonetim.com
-Web: https://aloyonetim.com
+E-posta: istanbul@aloyonetim.com.tr
+Web: https://aloyonetim.com.tr
 ```
 Sosyal: facebook.com/aloyonetim · twitter.com/aloyonetim · instagram.com/aloyonetim ·
 linkedin.com/company/aloyonetim · youtube.com/@aloyonetim

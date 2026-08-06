@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Aidat borçlarının hukuki yollarla tahsili, sözleşme hazırlıkları ve genel kurul yasal süreç yönetimleri.",
     path: "/hizmetler/hukuk-ve-icra-danismanligi",
     lang,
+    keywords: ['aidat icra takibi', 'kat mülkiyeti hukuku', 'yönetim hukuk danışmanlığı', 'site hukuku'],
   });
 }
 

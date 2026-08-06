@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.",
     path: "/hizmetler/peyzaj-ve-bahce-bakimi",
     lang,
+    keywords: ['bahçe bakımı', 'peyzaj yönetimi', 'site bahçesi', 'çevre düzenleme', 'yeşil alan bakımı'],
   });
 }
 

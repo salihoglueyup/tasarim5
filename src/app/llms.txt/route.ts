@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/lib/seo';
+﻿import { BASE_URL } from '@/lib/seo';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
 
@@ -27,7 +27,7 @@ export function GET() {
 
 Alo Yönetim; Kadıköy (İstanbul) merkezli olup İstanbul genelinde 500+ çalışanıyla hizmet verir. Kat Mülkiyeti Kanunu ve 5188 sayılı Özel Güvenlik Kanunu kapsamında, şeffaf işletme projesi ve dijital aidat takibiyle çalışır. 2026 itibarıyla hizmetleri güncel tutulmaktadır.
 
-- İletişim: +90 216 550 48 48 · istanbul@aloyonetim.com
+- İletişim: +90 216 550 48 48 · istanbul@aloyonetim.com.tr
 - Adres: Eğitim Mah. Kasap İsmail Sk. No:15/19, Kadıköy, İstanbul, TR
 - Web: ${BASE_URL}
 

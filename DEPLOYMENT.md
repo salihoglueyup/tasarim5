@@ -1,4 +1,4 @@
-# Deployment Rehberi — Alo Yönetim (Next.js 16 SSR)
+﻿# Deployment Rehberi — Alo Yönetim (Next.js 16 SSR)
 
 Bu uygulama **tam SSR**'dir: middleware/proxy (`src/proxy.ts`), API route (`/api/lead`),
 `next/image` optimizasyonu ve dinamik sayfalar içerir. Bu yüzden **statik export (`output: 'export'`)
@@ -24,7 +24,7 @@ Uygulama Vercel için tasarlandı; middleware, API, `next/image` sıfır konfig�
 ## Seçenek B — cPanel (Setup Node.js App / Phusion Passenger)
 
 Paylaşımlı cPanel'de çalışır ama kırılgandır. WordPress ana domaindeyse Next'i **alt alan adında**
-yayınla (ör. `app.aloyonetim.com`) — aynı kökte PHP/`.htaccess` ile Node çakışır.
+yayınla (ör. `app.aloyonetim.com.tr`) — aynı kökte PHP/`.htaccess` ile Node çakışır.
 
 ### cPanel "Setup Node.js App" alanları
 
@@ -34,7 +34,7 @@ yayınla (ör. `app.aloyonetim.com`) — aynı kökte PHP/`.htaccess` ile Node �
 | Application mode | **Production** |
 | NODE_ENV | **production** |
 | Application root | Dosyaları yüklediğin klasör, ör. `aloyonetim` (`/home/KULLANICI/aloyonetim`) |
-| Application URL | ör. `app.aloyonetim.com` |
+| Application URL | ör. `app.aloyonetim.com.tr` |
 | Application startup file | **`server.js`** (bu repoda hazır) |
 
 ### Adımlar

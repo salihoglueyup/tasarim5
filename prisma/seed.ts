@@ -1,4 +1,4 @@
-import { PrismaClient } from '../src/generated/prisma/client';
+﻿import { PrismaClient } from '../src/generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import { CATEGORIES, POSTS } from '../src/data/posts';
@@ -16,10 +16,10 @@ async function main() {
   const adminPassword = await bcrypt.hash('admin123', 10);
   
   await prisma.user.upsert({
-    where: { email: 'admin@aloyonetim.com' },
+    where: { email: 'admin@aloyonetim.com.tr' },
     update: {},
     create: {
-      email: 'admin@aloyonetim.com',
+      email: 'admin@aloyonetim.com.tr',
       name: 'Alo Yönetim Admin',
       password: adminPassword,
       role: 'ADMIN',

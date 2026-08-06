@@ -1,4 +1,4 @@
-# Lead Yakalama Kurulumu (Fonksiyonel Katman — Track 1)
+﻿# Lead Yakalama Kurulumu (Fonksiyonel Katman — Track 1)
 
 Site formları (iletişim, teklif sihirbazı, bülten, geri-arama) tek bir uç noktaya
 (`POST /api/lead`) gider ve oradan **üç kanala paralel** dağıtılır: e-posta, Telegram,
@@ -11,7 +11,7 @@ route: `src/app/api/lead/route.ts`, ortak istemci hook'u: `src/hooks/useLeadSubm
 
 ## 1) E-posta — Resend
 1. https://resend.com → hesap aç, **API Keys**'ten anahtar üret.
-2. `aloyonetim.com` domain'ini **Domains** altında doğrula (SPF/DKIM DNS kayıtları). Doğrulanana
+2. `aloyonetim.com.tr` domain'ini **Domains** altında doğrula (SPF/DKIM DNS kayıtları). Doğrulanana
    kadar `LEAD_FROM_EMAIL` yerine Resend test adresi (`onboarding@resend.dev`) kullanılır.
 3. Env: `RESEND_API_KEY`, `LEAD_TO_EMAIL` (virgülle çoklu adres olabilir), `LEAD_FROM_EMAIL`.
 

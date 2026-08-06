@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <img src="https://raw.githubusercontent.com/salihoglueyup/tasarim5/seo/master-plan-v4/public/images/logos/new-icon-Photoroom.webp" alt="Alo Yönetim Logo" width="120" />
 
@@ -19,7 +19,7 @@ Aidat Yönetimi · Güvenlik · Teknik Bakım · Temizlik · Peyzaj · Hukuki Da
 
 <br/>
 
-[🌐 Canlı Siteyi Gör](https://aloyonetim.com) &nbsp;&nbsp;|&nbsp;&nbsp; [📚 Dokümantasyon](docs/README.md) &nbsp;&nbsp;|&nbsp;&nbsp; [🚀 Hızlı Başlangıç](#-hızlı-başlangıç)
+[🌐 Canlı Siteyi Gör](https://aloyonetim.com.tr) &nbsp;&nbsp;|&nbsp;&nbsp; [📚 Dokümantasyon](docs/README.md) &nbsp;&nbsp;|&nbsp;&nbsp; [🚀 Hızlı Başlangıç](#-hızlı-başlangıç)
 
 </div>
 
@@ -207,7 +207,7 @@ node scripts/validate-jsonld.mjs   # JSON-LD şema doğrulama
 
 ## 🌐 Canlıya Alma
 
-- **Production:** [https://aloyonetim.com](https://aloyonetim.com)
+- **Production:** [https://aloyonetim.com.tr](https://aloyonetim.com.tr)
 - **Platform:** Vercel (main branch → otomatik deploy)
 - **CI:** Lighthouse CI (\lighthouserc.json\) — PR'da otomatik çalışır
 - **Monitoring:** Google Analytics 4 + Microsoft Clarity + Web Vitals API

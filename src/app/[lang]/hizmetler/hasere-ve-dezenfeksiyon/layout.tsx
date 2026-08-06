@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Sağlık Bakanlığı onaylı biyosidal ürünlerle kalıcı böcek, kemirgen ilaçlama ve periyodik dezenfeksiyon hizmetleri.",
     path: "/hizmetler/hasere-ve-dezenfeksiyon",
     lang,
+    keywords: ['haşere ilaçlama', 'dezenfeksiyon hizmeti', 'pest kontrol', 'site ilaçlama', 'biyosidal uygulama'],
   });
 }
 

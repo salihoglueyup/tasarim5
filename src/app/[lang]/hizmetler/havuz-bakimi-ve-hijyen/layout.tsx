@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Uzman havuz operatörlerimizle sezonluk ve yıllık periyodik havuz bakımı, su analizi ve kimyasal şartlandırma.",
     path: "/hizmetler/havuz-bakimi-ve-hijyen",
     lang,
+    keywords: ['havuz bakımı', 'havuz hijyeni', 'havuz suyu yönetimi', 'site havuzu bakımı'],
   });
 }
 

@@ -28,7 +28,7 @@ Vercel Proje → Settings → Environment Variables bölümüne ekle:
 ### Zorunlu — Site Kimliği
 | Değişken | Örnek Değer | Ortam |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://aloyonetim.com` | Production |
+| `NEXT_PUBLIC_SITE_URL` | `https://aloyonetim.com.tr` | Production |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | `905216550xxxx` | Hepsi |
 
 ### Lead Yakalama (Opsiyonel ama önerilen)
@@ -73,7 +73,7 @@ git push origin main
        ↓
   Edge Network'e deploy
        ↓
-  aloyonetim.com güncellendi
+  aloyonetim.com.tr güncellendi
 ```
 
 ### Preview Deploy (Feature Branch)
@@ -88,7 +88,7 @@ git push origin feature/yeni-ozellik
 ## 4. Domain Ayarı
 
 1. Vercel → Project → Settings → Domains
-2. `aloyonetim.com` ekle
+2. `aloyonetim.com.tr` ekle
 3. DNS yöneticisinde (Cloudflare/Namecheap vb.):
    - A kaydı: `76.76.21.21` (Vercel IP)
    - CNAME: `www` → `cname.vercel-dns.com`
@@ -100,10 +100,10 @@ git push origin feature/yeni-ozellik
 
 ```bash
 # Sitemap erişilebilir mi?
-curl https://aloyonetim.com/sitemap.xml
+curl https://aloyonetim.com.tr/sitemap.xml
 
 # robots.txt doğru mu?
-curl https://aloyonetim.com/robots.txt
+curl https://aloyonetim.com.tr/robots.txt
 
 # JSON-LD geçerli mi?
 node scripts/validate-jsonld.mjs

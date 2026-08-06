@@ -29,7 +29,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aloyonetim.com"),
+  metadataBase: new URL("https://aloyonetim.com.tr"),
   title: {
     default: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
     template: "%s | Alo Yönetim"
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://aloyonetim.com",
+    url: "https://aloyonetim.com.tr",
     title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
     description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
     siteName: "Alo Yönetim",

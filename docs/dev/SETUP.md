@@ -27,7 +27,7 @@ Zorunlu değişkenler:
 
 | Değişken | Açıklama | Kaynak |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Sitenin tam URL'si | Örn: `https://aloyonetim.com` |
+| `NEXT_PUBLIC_SITE_URL` | Sitenin tam URL'si | Örn: `https://aloyonetim.com.tr` |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp numarası | Örn: `905xxxxxxxxx` |
 | `RESEND_API_KEY` | E-posta gönderimi | [resend.com](https://resend.com) |
 | `TELEGRAM_BOT_TOKEN` | Telegram bildirimleri | @BotFather |

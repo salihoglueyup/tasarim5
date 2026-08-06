@@ -1,4 +1,4 @@
-import type { tr } from './tr';
+﻿import type { tr } from './tr';
 
 export const en: Record<keyof typeof tr, string> = {
     // Error Pages
@@ -1069,7 +1069,7 @@ export const en: Record<keyof typeof tr, string> = {
     kvkk_h3: "3. To Whom and For What Purpose the Processed Data Can Be Transferred",
     kvkk_p3: "Your personal data can be transferred to authorized public institutions and organizations in order to fulfill our legal obligations, to our company lawyers for the resolution of legal disputes, and to contracted banks for dues collection processes.",
     kvkk_h4: "4. Communication and Your Rights",
-    kvkk_p4: "You can contact us via <strong>kvkk@aloyonetim.com</strong> to exercise your rights under Article 11 of the PDPL.",
+    kvkk_p4: "You can contact us via <strong>kvkk@aloyonetim.com.tr</strong> to exercise your rights under Article 11 of the PDPL.",
 
     // Footer Badges
     footer_badge_quality: "Quality Management",

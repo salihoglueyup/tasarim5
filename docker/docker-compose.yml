@@ -14,6 +14,12 @@ services:
     ports:
       # Yalnız localhost'a bind — veritabanı dış ağa açılmaz (secret'lar docker/.env'de).
       - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alo_user -d aloyonetim"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
   redis:
     image: redis:alpine
@@ -35,8 +41,10 @@ services:
     ports:
       - "3001:3001"
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
@@ -55,7 +63,8 @@ services:
       # n8n yönetim paneli yalnız localhost'ta — dış ağa açılmaz (tünel/proxy ile erişilir).
       - "127.0.0.1:5678:5678"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       - N8N_HOST=localhost
       - N8N_PORT=5678
@@ -79,7 +88,8 @@ services:
     ports:
       - "127.0.0.1:5555:5555"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       - HOST=0.0.0.0
       - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD}@postgres:5432/aloyonetim?schema=public
