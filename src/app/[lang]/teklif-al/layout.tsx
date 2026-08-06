@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Alo Yönetim profesyonel hizmetlerinden (Güvenlik, Temizlik, Teknik Bakım, Yönetim vb.) hızlı ve detaylı teklif almak için hemen formu doldurun.",
     path: "/teklif-al",
     lang,
+    keywords: ['tesis yönetimi teklif', 'site yönetimi fiyat', 'profesyonel yönetim teklif al', 'ücretsiz keşif'],
   });
 }
 

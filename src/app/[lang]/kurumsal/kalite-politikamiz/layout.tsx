@@ -13,6 +13,7 @@ export async function generateMetadata({
       "ISO standartları ve sürekli iyileştirme ilkesiyle şekillenen Alo Yönetim kalite politikası ve hizmet standartlarımız.",
     path: "/kurumsal/kalite-politikamiz",
     lang,
+    keywords: ['ISO tesis yönetimi', 'kalite yönetimi', 'hizmet kalite standartları', 'sürekli iyileştirme'],
   });
 }
 

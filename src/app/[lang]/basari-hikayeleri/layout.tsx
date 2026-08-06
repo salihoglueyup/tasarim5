@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Alo Yönetim ile çalışan site, plaza ve rezidansların gerçek başarı hikayeleri: maliyet tasarrufu, memnuniyet artışı ve profesyonel tesis yönetimi sonuçları.",
     path: "/basari-hikayeleri",
     lang,
+    keywords: ['tesis yönetimi başarı hikayesi', 'site yönetimi referans', 'maliyet tasarrufu', 'müşteri memnuniyeti'],
   });
 }
 

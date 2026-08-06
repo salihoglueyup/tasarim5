@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Alo Yönetim'in vizyonu, misyonu ve değerleri. Profesyonel tesis yönetiminde sektöre yön veren kurumsal yaklaşımımız.",
     path: "/kurumsal/vizyon-misyon",
     lang,
+    keywords: ['alo yönetim vizyon', 'tesis yönetimi misyon', 'kurumsal değerler', 'profesyonel yönetim felsefesi'],
   });
 }
 

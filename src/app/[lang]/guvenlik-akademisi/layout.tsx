@@ -13,6 +13,7 @@ export async function generateMetadata({
       "5188 sayılı kanun kapsamında özel güvenlik eğitimleri, sertifika programları ve profesyonel gelişim fırsatları Alo Yönetim Güvenlik Akademisi'nde.",
     path: "/guvenlik-akademisi",
     lang,
+    keywords: ['özel güvenlik eğitimi', 'güvenlik sertifikası', '5188 eğitimi', 'güvenlik görevlisi kursu'],
   });
 }
 

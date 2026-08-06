@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Çevreye duyarlı tesis yönetimi, enerji verimliliği ve yeşil dönüşüm projeleriyle Alo Yönetim'in sürdürülebilirlik yaklaşımı.",
     path: "/kurumsal/surdurulebilirlik",
     lang,
+    keywords: ['sürdürülebilir tesis yönetimi', 'yeşil bina yönetimi', 'enerji verimliliği', 'çevre dostu yönetim'],
   });
 }
 

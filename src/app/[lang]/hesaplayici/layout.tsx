@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Sitenizin veya binanızın büyüklüğüne göre profesyonel tesis yönetimi ve aidat maliyetini hızlıca hesaplayın, size özel teklif alın.",
     path: "/hesaplayici",
     lang,
+    keywords: ['aidat hesaplama', 'site yönetim maliyeti', 'aidat hesap makinesi', 'tesis yönetimi ücret'],
   });
 }
 

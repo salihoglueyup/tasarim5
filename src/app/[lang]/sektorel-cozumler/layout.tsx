@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Rezidans, AVM, plaza, iş merkezi, hastane ve fabrikalar için sektöre özel tesis yönetimi çözümleri. İhtiyacınıza uygun profesyonel hizmet paketleri.",
     path: "/sektorel-cozumler",
     lang,
+    keywords: ['sektörel tesis yönetimi', 'AVM yönetimi', 'hastane tesis yönetimi', 'plaza yönetimi', 'rezidans yönetimi'],
   });
 }
 

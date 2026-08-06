@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Güvenlik, temizlik ve teknik bakım alanlarında kariyer fırsatları. Alo Yönetim İstihdam Köprüsü ile profesyonel ekibimize katılın.",
     path: "/istihdam-koprusu",
     lang,
+    keywords: ['güvenlik görevlisi iş ilanı', 'temizlik elemanı işe alım', 'tesis yönetimi kariyer', 'güvenlik personeli'],
   });
 }
 

@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Siteler ve tesisler için güneş enerji santrali (GES) kurulumu ile enerji maliyetlerini düşürün. Alo Yönetim GES projeleri ve danışmanlığı.",
     path: "/surdurulebilirlik/ges-projeleri",
     lang,
+    keywords: ['GES projesi', 'güneş enerji santrali', 'site GES kurulumu', 'enerji tasarrufu tesis'],
   });
 }
 
