@@ -1,12 +1,36 @@
+import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { JsonLd } from '@/components';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { buildMetadata } from '@/lib/seo';
 import redis from '@/lib/redis';
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const ref = await prisma.reference.findUnique({
+    where: { slug },
+    select: { title: true, category: true, location: true, published: true },
+  });
+  if (!ref || !ref.published) {
+    return buildMetadata({ title: 'Referans Bulunamadı', description: '', path: `/referanslar/${slug}`, lang, noindex: true });
+  }
+  return buildMetadata({
+    title: `${ref.title} — ${ref.location} Referansı`,
+    description: `${ref.category} kategorisinde ${ref.location} bölgesinde yönetilen ${ref.title} projemiz. Alo Yönetim profesyonel tesis yönetimi referansları.`,
+    path: `/referanslar/${slug}`,
+    lang,
+    keywords: [ref.category, ref.location, 'site yönetimi referansı', 'tesis yönetimi projesi'],
+  });
+}
 
 export default async function ReferenceDetailPage({ params }: { params: Promise<{ lang: string, slug: string }> }) {
   const { lang, slug } = await params;
