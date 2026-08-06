@@ -69,6 +69,7 @@ export async function generateMetadata({
     description: `${district.name}'de profesyonel ${service.name.toLowerCase()}. ${service.summary} ${district.name} yerel ekibimizle hemen ücretsiz teklif alın.`,
     path: `/bolgeler/${ilce}/${hizmet}`,
     lang,
+    ogImageType: 'local',
     keywords: service.keywords.map((k) => `${k} ${district.name}`),
   });
 }

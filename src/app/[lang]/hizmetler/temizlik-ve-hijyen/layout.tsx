@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.",
     path: "/hizmetler/temizlik-ve-hijyen",
     lang,
+    ogImageType: 'service',
     keywords: ['site temizliği', 'ortak alan temizliği', 'apartman temizlik şirketi', 'profesyonel temizlik hizmeti'],
   });
 }

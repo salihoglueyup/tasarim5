@@ -64,6 +64,8 @@ export type BuildMetadataArgs = {
   noindex?: boolean;
   /** OG tipi (varsayılan "website"; blog için "article"). */
   ogType?: 'website' | 'article';
+  /** OG görsel varyantı: default | service | local | article. Otomatik türetilir. */
+  ogImageType?: 'default' | 'service' | 'local' | 'article';
 };
 
 /**
@@ -79,21 +81,27 @@ export function buildMetadata({
   keywords,
   noindex = false,
   ogType = 'website',
+  ogImageType,
 }: BuildMetadataArgs): Metadata {
   const locale = normalizeLocale(lang);
   const canonical = localizedUrl(path, locale);
 
-  // Görsel verilmezse dinamik marka OG görseline (src/app/[lang]/og) düşülür.
-  // Dosya-konvansiyonu yerine açık referans: iç sayfalarda da güvenilir çalışır.
+  // OG görsel tipi: açıkça geçilmezse ogType'tan türetilir.
+  const resolvedOgType: 'default' | 'service' | 'local' | 'article' =
+    ogImageType ?? (ogType === 'article' ? 'article' : 'default');
+
+  // Görsel verilmezse dinamik OG route'u devreye girer (Faz 4 — güncellenmiş).
+  // title ve type query param olarak iletilir; her sayfa kendine özgü görsel alır.
+  const ogParams = new URLSearchParams({ title, type: resolvedOgType }).toString();
   const resolvedImages =
     images && images.length
       ? images
       : [
           {
-            url: localizedUrl('/og', locale),
+            url: `${localizedUrl('/og', locale)}?${ogParams}`,
             width: 1200,
             height: 630,
-            alt: DEFAULT_OG_ALT,
+            alt: title,
           },
         ];
 

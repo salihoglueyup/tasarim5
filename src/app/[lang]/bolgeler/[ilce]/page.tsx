@@ -65,6 +65,7 @@ export async function generateMetadata({
     description: `${district.name}'de profesyonel site, apartman ve tesis yönetimi. Güvenlik, temizlik, teknik bakım ve aidat yönetimi için ${district.name} yerel ekibimizle 7/24 hizmetinizdeyiz.`,
     path: `/bolgeler/${ilce}`,
     lang,
+    ogImageType: 'local',
     keywords: [
       `${district.name} site yönetimi`,
       `${district.name} tesis yönetimi`,

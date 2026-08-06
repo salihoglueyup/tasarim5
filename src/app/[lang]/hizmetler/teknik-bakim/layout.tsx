@@ -13,6 +13,7 @@ export async function generateMetadata({
       "Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti.",
     path: "/hizmetler/teknik-bakim",
     lang,
+    ogImageType: 'service',
     keywords: ['asansör bakımı', 'jeneratör bakımı', 'teknik işletme', 'periyodik bakım', 'bina teknik servis'],
   });
 }
