@@ -63,3 +63,6 @@ next-env.d.ts
 
 # Playwright MCP test artefaktları (ölçüm çıktıları — çöp)
 /.playwright-mcp/
+
+# Blog taslakları — generate-blog-draft.ts çıktısı, geçici
+/src/data/drafts/
