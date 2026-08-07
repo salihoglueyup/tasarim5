@@ -1,0 +1,5 @@
+Contact: mailto:info@aloyonetim.com.tr
+Expires: 2027-08-07T00:00:00.000Z
+Preferred-Languages: tr, en
+Canonical: https://aloyonetim.com.tr/.well-known/security.txt
+Policy: https://aloyonetim.com.tr/gizlilik-politikasi
