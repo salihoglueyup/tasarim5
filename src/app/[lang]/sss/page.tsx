@@ -32,9 +32,16 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
     orderBy: [{ category: 'asc' }, { order: 'asc' }],
   });
 
-  // Benzersiz kategorileri bul
-  const categories = Array.from(new Set(faqs.map(f => f.category)));
-  categories.unshift('Tümü'); // Tümü kategorisini ekle
+  // Benzersiz kategorileri bul ve sayılarını hesapla
+  const uniqueCategories = Array.from(new Set(faqs.map(f => f.category)));
+  
+  const categories = [
+    { name: 'Tümü', count: faqs.length },
+    ...uniqueCategories.map(cat => ({
+      name: cat,
+      count: faqs.filter(f => f.category === cat).length
+    }))
+  ];
 
   const jsonLd = faqPageSchema(
     faqs.map((f) => ({ question: f.question, answer: f.answer.replace(/<[^>]+>/g, '') }))

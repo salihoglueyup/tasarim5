@@ -13,7 +13,8 @@ export default function FaqClient({
   lang
 }: { 
   faqs: any[], 
-  categories: string[],
+  categories: { name: string; count: number }[],
+  lang: string
   lang: string
 }) {
   const { t } = useLanguage();
@@ -28,6 +29,36 @@ export default function FaqClient({
   const [searchQuery, setSearchQuery] = useState('');
   const [openIndex, setOpenIndex] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(20);
+
+  const categoryIcons: Record<string, string> = {
+    'Tümü': 'apps',
+    'Finans': 'account_balance',
+    'Güvenlik': 'security',
+    'Hukuk': 'gavel',
+    'Teknik': 'engineering',
+    'Temizlik': 'cleaning_services',
+    'Yönetim': 'admin_panel_settings',
+    'Tesis Yönetimi': 'apartment',
+    'Aidat Takibi': 'receipt_long',
+    'Havuz Bakımı': 'pool',
+    'Peyzaj ve Bahçe': 'park',
+    'Haşere Kontrolü': 'bug_report',
+  };
+
+  const highlightText = (text: string, highlight: string) => {
+    if (!highlight.trim()) return text;
+    const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+    return parts.map((part) => 
+      part.toLowerCase() === highlight.toLowerCase() 
+        ? `<mark class="bg-brand-500/20 text-brand-700 dark:text-brand-300 rounded px-1">${part}</mark>` 
+        : part
+    ).join('');
+  };
+
+  const getCategoryName = (name: string) => {
+    const translation = t(`cat_${name}`);
+    return translation === `cat_${name}` ? name : translation;
+  };
 
   // Filtreleme mantığı
   const filteredFaqs = faqs.filter(faq => {
@@ -46,35 +77,48 @@ export default function FaqClient({
 
   return (
     <>
-      {/* Search Bar */}
-      <div className="relative mb-12 max-w-2xl mx-auto">
-        <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-          <span className="material-symbols-outlined text-slate-400">search</span>
+      {/* Sticky Header for Search & Filters */}
+      <div className="sticky top-20 z-40 bg-[var(--color-background)]/90 backdrop-blur-xl py-6 -mx-4 px-4 md:mx-0 md:px-0 mb-12 border-b border-[var(--color-outline)]/40 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]">
+        {/* Search Bar */}
+        <div className="relative mb-6 max-w-2xl mx-auto">
+          <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+            <span className="material-symbols-outlined text-[var(--color-secondary)]">search</span>
+          </div>
+          <input 
+            type="text" 
+            placeholder={t('sss_search_placeholder')}
+            value={searchQuery}
+            onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
+            className="w-full pl-14 pr-6 py-4 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all text-[var(--color-primary)] text-lg placeholder:text-[var(--color-secondary)]/70"
+          />
         </div>
-        <input 
-          type="text" 
-          placeholder={t('sss_search_placeholder')}
-          value={searchQuery}
-          onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
-          className="w-full pl-14 pr-6 py-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500 transition-all text-slate-900 dark:text-white text-lg placeholder-slate-400"
-        />
-      </div>
 
-      {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => { setActiveCategory(cat); setOpenIndex(null); setVisibleCount(20); }}
-            className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-              activeCategory === cat
-                ? 'bg-brand-500 text-white shadow-md shadow-brand-500/20 scale-105'
-                : 'bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-brand-500 hover:text-brand-500'
-            }`}
-          >
-            {t(`cat_${cat}`) || cat}
-          </button>
-        ))}
+        {/* Category Filter Pills (Horizontal Scroll) */}
+        <div className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-3 pb-2 snap-x max-w-5xl mx-auto">
+          {categories.map((cat) => (
+            <button
+              key={cat.name}
+              onClick={() => { setActiveCategory(cat.name); setOpenIndex(null); setVisibleCount(20); }}
+              className={`snap-center shrink-0 flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 ${
+                activeCategory === cat.name
+                  ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/25 scale-[1.02]'
+                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)] hover:border-brand-500/50 hover:text-[var(--color-primary)] hover:bg-brand-500/5'
+              }`}
+            >
+              <span className={`material-symbols-outlined text-lg ${activeCategory === cat.name ? 'text-white' : 'text-[var(--color-secondary)]'}`}>
+                {categoryIcons[cat.name] || 'label'}
+              </span>
+              <span>{getCategoryName(cat.name)}</span>
+              <span className={`ml-1.5 text-[11px] px-2.5 py-0.5 rounded-full font-bold ${
+                activeCategory === cat.name 
+                  ? 'bg-black/20 text-white' 
+                  : 'bg-[var(--color-background)] text-[var(--color-secondary)]'
+              }`}>
+                {cat.count}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* FAQ Accordion List */}
@@ -99,9 +143,10 @@ export default function FaqClient({
                     onClick={() => setOpenIndex(isOpen ? null : faq.id)}
                     className="w-full p-6 md:p-8 text-left flex items-start sm:items-center justify-between gap-6 cursor-pointer group"
                   >
-                    <span className={`font-bold text-lg md:text-xl transition-colors ${isOpen ? 'text-brand-600 dark:text-brand-400' : 'text-slate-900 dark:text-white group-hover:text-brand-500'}`}>
-                      {getLocalized(faq, 'question')}
-                    </span>
+                    <span 
+                      className={`font-bold text-lg md:text-xl transition-colors ${isOpen ? 'text-brand-600 dark:text-brand-400' : 'text-slate-900 dark:text-white group-hover:text-brand-500'}`}
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(highlightText(getLocalized(faq, 'question') || '', searchQuery)) }}
+                    />
                     
                     {/* Dynamic Icon */}
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
