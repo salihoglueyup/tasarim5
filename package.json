@@ -41,6 +41,7 @@
     "@tiptap/extension-youtube": "^3.29.2",
     "@tiptap/react": "^3.29.2",
     "@tiptap/starter-kit": "^3.29.2",
+    "dotenv": "^17.4.2",
     "framer-motion": "^12.42.2",
     "ioredis": "^5.11.1",
     "isomorphic-dompurify": "^3.21.0",
