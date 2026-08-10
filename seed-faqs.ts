@@ -6,7 +6,7 @@ async function main() {
   console.log('Starting FAQ seed process...');
   
   // JSON dosyasının yolu (absolute path to the brain scratch folder)
-  const jsonPath = 'C:\\Users\\eyupz\\.gemini\\antigravity-ide\\brain\\d390b4cb-efb0-4d54-87d6-f63ba240b1e4\\scratch\\faqs_core_1.json';
+  const jsonPath = path.join(__dirname, 'prisma', 'data', 'faqs_core_1.json');
   
   if (!fs.existsSync(jsonPath)) {
     console.error(`File not found: ${jsonPath}`);
