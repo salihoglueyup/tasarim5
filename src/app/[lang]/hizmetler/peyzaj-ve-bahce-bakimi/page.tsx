@@ -1,5 +1,6 @@
 "use client";
 import JsonLd from '@/components/seo/JsonLd';
+import { RelatedArticles } from '@/components';
 
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
