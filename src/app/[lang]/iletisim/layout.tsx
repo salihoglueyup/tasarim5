@@ -20,7 +20,7 @@ export async function generateMetadata({
     ...base,
     openGraph: {
       ...base.openGraph,
-      emails: ["info@aloyonetim.com"],
+      emails: ["info@aloyonetim.com.tr"],
       phoneNumbers: ["+90 216 550 48 48"],
       countryName: "Turkey",
     },

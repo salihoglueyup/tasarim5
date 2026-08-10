@@ -193,13 +193,13 @@ export default function Iletisim() {
                   </div>
                 </a>
                 
-                <a href="mailto:info@aloyonetim.com" className="group flex items-center gap-5">
+                <a href="mailto:info@aloyonetim.com.tr" className="group flex items-center gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-slate-700 transition-colors shrink-0">
                     <span className="material-symbols-outlined text-xl group-hover:text-white">mail</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-0.5">{t('contact_info_email')}</span>
-                    <span className="text-lg font-medium">info@aloyonetim.com</span>
+                    <span className="text-lg font-medium">info@aloyonetim.com.tr</span>
                   </div>
                 </a>
 
