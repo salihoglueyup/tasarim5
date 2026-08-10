@@ -17,6 +17,19 @@
   --color-secondary: #5A5A6A; /* Secondary: Açık Gri */
   --color-tertiary: #86869B; /* Daha açık gri vurgu */
   
+  /* BRAND COLORS: Titanium & Slate Mapping */
+  --color-brand-50: #EBEBEF;
+  --color-brand-100: #D2D2D7;
+  --color-brand-200: #86869B;
+  --color-brand-300: #5A5A6A;
+  --color-brand-400: #3B3B4A;
+  --color-brand-500: #2D2D3A; /* Primary Antrasit */
+  --color-brand-600: #1F1F28;
+  --color-brand-700: #15151C;
+  --color-brand-800: #0C0C10;
+  --color-brand-900: #050507;
+  --color-brand-950: #000000;
+  
   /* Text */
   --color-heading-text: #2D2D3A;
   --color-body-text: #5A5A6A;

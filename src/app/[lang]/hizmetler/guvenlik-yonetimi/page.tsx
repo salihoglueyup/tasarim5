@@ -86,13 +86,13 @@ export default function GuvenlikYonetimi() {
   };
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
+    { name: t('nav_home'), url: '/' },
     { name: t('nav_all_services'), url: '/hizmetler' },
     { name: t('sec_title'), url: '/hizmetler/guvenlik-yonetimi' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Güvenlik Yönetimi',
+    serviceType: t('serv_sec_name'),
     path: '/hizmetler/guvenlik-yonetimi',
     description: t('sec_desc'),
     offers: securityFeatures.map((f) => ({ name: f.title, description: f.desc })),

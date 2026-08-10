@@ -8,6 +8,7 @@ import { DISTRICTS } from '@/data/districts';
 import dynamic from 'next/dynamic';
 import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
 import AppBadges from '@/components/ui/AppBadges';
+import { waLink } from '@/lib/cro';
 
 // Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
 const NewsletterForm = dynamic(() => import('./NewsletterForm'), { ssr: false });
@@ -171,7 +172,7 @@ export default function Footer() {
 
             {/* WhatsApp Green Pill Button */}
             <a 
-              href="https://wa.me/905550000000" 
+              href={waLink(t('cro_whatsapp_prefill'))}
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-3 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 transition-colors group"

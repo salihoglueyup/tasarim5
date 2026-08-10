@@ -8,6 +8,7 @@ import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 import LegalCalculator from '@/components/sections/LegalCalculator';
@@ -53,13 +54,13 @@ export default function HukukVeIcraDanismanligi() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
+    { name: t('nav_home'), url: '/' },
     { name: t('nav_all_services'), url: '/hizmetler' },
     { name: t('legal_title'), url: '/hizmetler/hukuk-ve-icra-danismanligi' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Hukuk ve İcra Danışmanlığı',
+    serviceType: t('serv_legal_name'),
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
     description: t('legal_desc'),
     offerCatalogName: 'Hukuk ve İcra Hizmetleri',
@@ -88,25 +89,25 @@ export default function HukukVeIcraDanismanligi() {
         </div>
 
         <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
-          <div className="flex flex-col items-center gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center gap-6"
+          >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('legal_banner_badge')}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
-              Hukuk ve İcra <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
-                Danışmanlığı
-              </span>
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_legal_hero_title') }} />
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('legal_banner_desc')}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                Hemen Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('btn_get_quote')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

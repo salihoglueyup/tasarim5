@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/JsonLd';
-import { Hero, LogoTicker, SeoTextSection } from '@/components';;
+import { Hero, SeoTextSection } from '@/components';
 import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
@@ -61,10 +61,6 @@ export default async function Home({ params }: Props) {
     }
   });
 
-  const dbPartners = await prisma.partner.findMany({
-    orderBy: { order: 'asc' },
-    select: { name: true, logo: true }
-  });
 
   const dbReferences = await prisma.reference.findMany({
     where: { testimonialText: { not: null } },
@@ -107,7 +103,6 @@ export default async function Home({ params }: Props) {
       <JsonLd data={[pageLd, businessLd, videoLd]} />
       <Hero />
       <SeoTextSection />
-      <LogoTicker dbPartners={dbPartners} />
       <BentoServices />
       <WhyUsBentoGrid />
       <PersonnelDifference />

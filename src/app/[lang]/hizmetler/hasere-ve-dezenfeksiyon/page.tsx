@@ -8,6 +8,7 @@ import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 import PestControlCalculator from '@/components/sections/PestControlCalculator';
@@ -53,13 +54,13 @@ export default function HasereVeDezenfeksiyon() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
+    { name: t('nav_home'), url: '/' },
     { name: t('nav_all_services'), url: '/hizmetler' },
     { name: t('pest_title'), url: '/hizmetler/hasere-ve-dezenfeksiyon' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Haşere ve Dezenfeksiyon',
+    serviceType: t('serv_pest_name'),
     path: '/hizmetler/hasere-ve-dezenfeksiyon',
     description: t('pest_desc'),
   });
@@ -86,25 +87,25 @@ export default function HasereVeDezenfeksiyon() {
         </div>
 
         <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
-          <div className="flex flex-col items-center gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center gap-6"
+          >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('pest_banner_badge')}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
-              Haşere Kontrolü <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
-                ve Dezenfeksiyon
-              </span>
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pest_hero_title') }} />
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('pest_banner_desc')}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                Hemen Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('btn_get_quote')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -119,7 +120,7 @@ export default function HasereVeDezenfeksiyon() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {pestPoints.map((p, i) => (
             <Card key={i} variant="glow" className="p-10 flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl">{p.icon}</span>
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{p.title}</h3>
@@ -142,7 +143,7 @@ export default function HasereVeDezenfeksiyon() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-purple-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-brand-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>

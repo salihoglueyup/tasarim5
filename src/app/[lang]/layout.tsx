@@ -2,10 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "../globals.css";
 import { SmoothScroll, NavigationWrapper, WebVitals, IconFontLoader, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
+import MaterialSymbolsFix from "@/components/ui/MaterialSymbolsFix";
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/JsonLd';
 import { organizationSchema, webSiteSchema } from "@/lib/schemas";
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
@@ -149,6 +150,7 @@ export default async function RootLayout({
         {/* Faz 3, 10, 20: TBT/LCP bozmayan asenkron izole analytics */}
         <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} />
         
+        <MaterialSymbolsFix />
         <WebVitals />
         <IconFontLoader />
         <LanguageProvider initialLang={lang} initialDictionary={dictionaries[lang] || trDict}>

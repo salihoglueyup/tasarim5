@@ -1,53 +1,52 @@
 "use client";
-import JsonLd from '@/components/seo/JsonLd';
-import { RelatedArticles } from '@/components';
 
 import { useState } from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection } from '@/components';
-import { Card, Badge, Button } from '@/components';
+import { Card } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import JsonLd from '@/components/seo/JsonLd';
+import { RelatedArticles } from '@/components';;
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
-import PoolCalculator from '@/components/sections/PoolCalculator';
-import PoolTestimonials from '@/components/sections/PoolTestimonials';
+import DuesCalculator from '@/components/sections/DuesCalculator';
+import DuesTestimonials from '@/components/sections/DuesTestimonials';
 
-export default function HavuzBakimiVeHijyen() {
+export default function AidatTakibi() {
   const { t } = useLanguage();
 
-  const poolPoints = [
+  const duesPoints = [
     {
-      title: t('pool_feat_1_title'),
-      desc: t('pool_feat_1_desc'),
-      icon: "science"
+      title: t('dues_feat_1_title'),
+      desc: t('dues_feat_1_desc'),
+      icon: "smartphone"
     },
     {
-      title: t('pool_feat_2_title'),
-      desc: t('pool_feat_2_desc'),
-      icon: "filter_alt"
+      title: t('dues_feat_2_title'),
+      desc: t('dues_feat_2_desc'),
+      icon: "account_balance_wallet"
     },
     {
-      title: t('pool_feat_3_title'),
-      desc: t('pool_feat_3_desc'),
-      icon: "pool"
+      title: t('dues_feat_3_title'),
+      desc: t('dues_feat_3_desc'),
+      icon: "notifications_active"
     },
     {
-      title: t('pool_feat_4_title'),
-      desc: t('pool_feat_4_desc'),
-      icon: "verified"
+      title: t('dues_feat_4_title'),
+      desc: t('dues_feat_4_desc'),
+      icon: "gavel"
     }
   ];
 
   const faqs = [
     {
-      q: t('pool_faq_1_q'),
-      a: t('pool_faq_1_a')
+      q: t('dues_faq_1_q'),
+      a: t('dues_faq_1_a')
     },
     {
-      q: t('pool_faq_2_q'),
-      a: t('pool_faq_2_a')
+      q: t('dues_faq_2_q'),
+      a: t('dues_faq_2_a')
     }
   ];
 
@@ -56,13 +55,15 @@ export default function HavuzBakimiVeHijyen() {
   const breadcrumbLd = generateBreadcrumbs([
     { name: t('nav_home'), url: '/' },
     { name: t('nav_all_services'), url: '/hizmetler' },
-    { name: t('pool_title'), url: '/hizmetler/havuz-bakimi-ve-hijyen' }
+    { name: t('dues_title'), url: '/hizmetler/aidat-takibi' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: t('serv_pool_name'),
-    path: '/hizmetler/havuz-bakimi-ve-hijyen',
-    description: t('pool_desc'),
+    serviceType: t('serv_dues_name'),
+    path: '/hizmetler/aidat-takibi',
+    description: t('dues_desc'),
+    offerCatalogName: 'Aidat ve Finansal Yönetim Hizmetleri',
+    offers: duesPoints.map((p) => ({ name: p.title, description: p.desc })),
   });
 
   const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
@@ -75,7 +76,7 @@ export default function HavuzBakimiVeHijyen() {
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
         </div>
         
         {/* Abstract Minimal Animation */}
@@ -94,11 +95,11 @@ export default function HavuzBakimiVeHijyen() {
             className="flex flex-col items-center gap-6"
           >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
-              {t('pool_banner_badge')}
+              {t('dues_banner_badge')}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pool_hero_title') }} />
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_dues_hero_title') }} />
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('pool_banner_desc')}
+              {t('dues_banner_desc')}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
@@ -111,16 +112,16 @@ export default function HavuzBakimiVeHijyen() {
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
-        {/* Pool Calculator */}
+        {/* Dues Calculator */}
         <div className="-mt-32 relative z-30">
-          <PoolCalculator />
+          <DuesCalculator />
         </div>
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {poolPoints.map((p, i) => (
+          {duesPoints.map((p, i) => (
             <Card key={i} variant="glow" className="p-10 flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl">{p.icon}</span>
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{p.title}</h3>
@@ -129,12 +130,12 @@ export default function HavuzBakimiVeHijyen() {
           ))}
         </div>
 
-        {/* Pool Specific Social Proof */}
-        <PoolTestimonials />
+        {/* Dues Specific Social Proof */}
+        <DuesTestimonials />
 
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('pool_faq_title')}</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('dues_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
@@ -143,7 +144,7 @@ export default function HavuzBakimiVeHijyen() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-brand-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>
@@ -160,13 +161,12 @@ export default function HavuzBakimiVeHijyen() {
       </section>
 
       <SeoTextSection
-        titleKey="havuz_seo_title"
-        p1Key="havuz_seo_p1"
-        p2Key="havuz_seo_p2"
+        titleKey="dues_seo_title"
+        p1Key="dues_seo_p1"
+        p2Key="dues_seo_p2"
       />
-      <RelatedServices currentPath="/hizmetler/havuz-bakimi-ve-hijyen" />
-      <RelatedArticles pillar="/hizmetler/havuz-bakimi-ve-hijyen" />
+      <RelatedServices currentPath="/hizmetler/aidat-takibi" />
+      <RelatedArticles pillar="/hizmetler/aidat-takibi" />
     </>
   );
 }
-
