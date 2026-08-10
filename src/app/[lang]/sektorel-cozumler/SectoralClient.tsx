@@ -5,7 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs } from '@/lib/schemas';
 
 export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) {

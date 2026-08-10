@@ -6,7 +6,7 @@ import { Faq, SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 
 export default function Hizmetler() {

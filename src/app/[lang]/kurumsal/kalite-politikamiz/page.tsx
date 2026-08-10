@@ -4,7 +4,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, webPageSchema, ORG_ID } from '@/lib/schemas';
 
 export default function KalitePolitikamiz() {

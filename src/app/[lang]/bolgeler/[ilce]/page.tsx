@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd, QuoteCtaButton, TldrBlock } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';
+import { QuoteCtaButton, TldrBlock } from '@/components';;
 import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,

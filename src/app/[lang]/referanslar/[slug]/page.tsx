@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata } from '@/lib/seo';
 import redis from '@/lib/redis';

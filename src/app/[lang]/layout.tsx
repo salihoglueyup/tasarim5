@@ -5,7 +5,7 @@ import { SmoothScroll, NavigationWrapper, WebVitals, IconFontLoader, AnalyticsSc
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
-import { JsonLd } from "@/components";
+import JsonLd from '@/components/seo/JsonLd';;
 import { organizationSchema, webSiteSchema } from "@/lib/schemas";
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { buildMetadata } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { BASE_URL } from '@/lib/seo';

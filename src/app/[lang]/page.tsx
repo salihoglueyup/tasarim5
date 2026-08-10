@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Hero, LogoTicker, SeoTextSection, JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';
+import { Hero, LogoTicker, SeoTextSection } from '@/components';;
 import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';

@@ -1,6 +1,7 @@
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
-import { JsonLd, QuoteCtaButton } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';
+import { QuoteCtaButton } from '@/components';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 const STEPS = [

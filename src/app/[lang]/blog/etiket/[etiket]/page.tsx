@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd, PostGrid } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';
+import { PostGrid } from '@/components';;
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';

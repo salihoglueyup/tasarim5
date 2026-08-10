@@ -4,7 +4,7 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, courseSchema, eventSchema, webPageSchema } from '@/lib/schemas';
 
 export default function GuvenlikAkademisi() {

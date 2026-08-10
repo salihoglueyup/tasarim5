@@ -1,5 +1,5 @@
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';

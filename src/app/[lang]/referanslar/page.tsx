@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import ReferencesClient from './ReferencesClient';
 import redis from '@/lib/redis';

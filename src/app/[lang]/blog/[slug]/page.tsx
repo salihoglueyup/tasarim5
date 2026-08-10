@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
-import { JsonLd, PostBody, ReadingProgress, ShareButtons } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';
+import { PostBody, ReadingProgress, ShareButtons } from '@/components';;
 import TableOfContents from '@/components/blog/TableOfContents';
 import { prisma } from '@/lib/prisma';
 import {

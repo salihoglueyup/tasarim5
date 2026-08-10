@@ -2,7 +2,7 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function BasariHikayeleriClient({ stories }: { stories: any[] }) {

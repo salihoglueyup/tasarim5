@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd } from '@/components';
+import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';
 import { ORG_ADDRESS_DISPLAY, ORG_PHONE_DISPLAY, ORG_PHONE } from '@/lib/constants';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
