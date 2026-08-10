@@ -52,10 +52,10 @@ export const Card: React.FC<CardProps> = ({
   const baseStyles = "relative rounded-[2.5rem] overflow-hidden transition-all duration-300";
 
   const variantStyles = {
-    glass: "bg-white/80 dark:bg-white/5 backdrop-blur-2xl border border-slate-200/80 dark:border-white/10 shadow-sm",
-    glow: "bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-sm",
-    outline: "bg-transparent border border-slate-200 dark:border-white/10",
-    flat: "bg-gray-50 dark:bg-white/5 border border-transparent",
+    glass: "bg-slate-50/80 dark:bg-slate-900/50 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm",
+    glow: "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm",
+    outline: "bg-transparent border border-slate-300 dark:border-slate-700",
+    flat: "bg-slate-100 dark:bg-slate-800 border border-transparent",
   };
 
   const hoverStyles = hoverEffect 

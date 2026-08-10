@@ -81,7 +81,7 @@ export default function LeadMessageModal({ lead }: { lead: any }) {
           {lead.meta && (
             <div>
               <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Ek (Meta) Bilgiler</div>
-              <pre className="bg-slate-900 text-emerald-400 p-4 rounded-xl overflow-x-auto text-xs font-mono">
+              <pre className="bg-slate-900 text-slate-400 p-4 rounded-xl overflow-x-auto text-xs font-mono">
                 {JSON.stringify(JSON.parse(lead.meta), null, 2)}
               </pre>
             </div>

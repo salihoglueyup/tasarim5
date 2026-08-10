@@ -11,6 +11,12 @@ import {
   webPageSchema,
 } from '@/lib/schemas';
 import { LOCALES } from '@/lib/seo';
+import trDict from '@/i18n/locales/tr/common.json';
+import enDict from '@/i18n/locales/en/common.json';
+import ruDict from '@/i18n/locales/ru/common.json';
+import arDict from '@/i18n/locales/ar/common.json';
+
+const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
  // 1 dakika cache
 export const dynamicParams = true;
@@ -30,7 +36,8 @@ export default async function BlogDetail({
 }: {
   params: Promise<{ lang: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, lang } = await params;
+  const t = (key: string) => dictionaries[lang]?.[key] || dictionaries['tr'][key] || key;
   
   const post = await prisma.post.findUnique({
     where: { slug },
@@ -67,7 +74,7 @@ export default async function BlogDetail({
   const path = `/blog/${post.slug}`;
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
+    { name: t('breadcrumb_home'), url: '/' },
     { name: 'Blog', url: '/blog' },
     ...(category ? [{ name: category.name, url: `/blog/kategori/${category.slug}` }] : []),
     { name: post.title, url: path },
@@ -124,7 +131,7 @@ export default async function BlogDetail({
                   )}
                 </div>
                 <div className="text-xs">
-                  {formatDate(post.datePublished)} • {minutes} dk okuma
+                  {formatDate(post.datePublished)} • {minutes} {t('blog_read_min')}
                 </div>
               </div>
             </div>
@@ -153,13 +160,13 @@ export default async function BlogDetail({
 
           {/* TL;DR */}
           {post.tldr && (
-            <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
-              <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
-              <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">Özet</div>
-                <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr}</p>
-              </div>
-            </aside>
+              <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
+                <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">{t('blog_summary')}</div>
+                  <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr}</p>
+                </div>
+              </aside>
           )}
 
           {/* Body */}
@@ -207,7 +214,7 @@ export default async function BlogDetail({
           {/* Related posts */}
           {related.length > 0 && (
             <div className="flex flex-col gap-6 pt-6 border-t border-slate-200 dark:border-white/10">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">İlgili Yazılar</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{t('blog_related_posts')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {related.map((r) => (
                   <Link key={r.slug} href={`/blog/${r.slug}`} className="group flex flex-col gap-3">
@@ -226,9 +233,9 @@ export default async function BlogDetail({
           {/* Pillar link */}
           {post.pillar && (
             <div className="text-center text-sm text-slate-500 mt-4">
-              İlgili hizmet:{' '}
+              {t('blog_related_service')}{' '}
               <Link href={post.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
-                Detaylı bilgi için tıklayın
+                {t('blog_click_details')}
               </Link>
             </div>
           )}

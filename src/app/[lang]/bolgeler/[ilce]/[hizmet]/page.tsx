@@ -152,7 +152,7 @@ export default async function ServiceDistrictPage({
               key={b}
               className="flex items-start gap-3 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-5"
             >
-              <span className="material-symbols-outlined text-emerald-600 shrink-0">check_circle</span>
+              <span className="material-symbols-outlined text-slate-600 shrink-0">check_circle</span>
               <span className="text-sm text-[var(--color-secondary)] font-medium">{b}</span>
             </div>
           ))}

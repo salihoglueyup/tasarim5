@@ -32,7 +32,7 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
     { name: 'Toplam Yazı', value: postCount, icon: '📝', color: 'from-blue-500 to-cyan-500' },
     { name: 'S.S.S', value: faqCount, icon: '❓', color: 'from-amber-500 to-orange-500' },
     { name: 'Kategoriler', value: categoryCount, icon: '🏷️', color: 'from-purple-500 to-pink-500' },
-    { name: 'Yazarlar', value: authorCount, icon: '👥', color: 'from-emerald-500 to-teal-500' },
+    { name: 'Yazarlar', value: authorCount, icon: '👥', color: 'from-slate-500 to-slate-500' },
     { name: 'Referanslar', value: referenceCount, icon: '🏢', color: 'from-brand-600 to-brand-400' },
     { name: 'İş Ortakları', value: partnerCount, icon: '🤝', color: 'from-indigo-500 to-blue-400' },
   ];
@@ -63,7 +63,7 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
           </Link>
           <Link 
             href={`/${lang}/admin/authors/new`} 
-            className="flex items-center gap-2 bg-white dark:bg-white/[0.05] hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-500 text-slate-700 dark:text-white px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500 transition-all font-medium text-sm shadow-sm"
+            className="flex items-center gap-2 bg-white dark:bg-white/[0.05] hover:bg-slate-50 hover:text-slate-600 dark:hover:bg-slate-500 text-slate-700 dark:text-white px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-slate-500 transition-all font-medium text-sm shadow-sm"
           >
             <span className="material-symbols-outlined text-lg">person_add</span>
             Yeni Yazar
@@ -116,7 +116,7 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
                     </td>
                     <td className="py-4">
                       {post.published ? (
-                        <span className="inline-flex items-center px-2 py-1 rounded-md bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium border border-emerald-200 dark:border-emerald-500/20">
+                        <span className="inline-flex items-center px-2 py-1 rounded-md bg-slate-50 dark:bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-500/20">
                           Yayında
                         </span>
                       ) : (

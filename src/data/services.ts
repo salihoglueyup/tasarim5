@@ -26,6 +26,22 @@ export type ServiceDef = {
 
 export const SERVICES: ServiceDef[] = [
   {
+    slug: 'aidat-takibi',
+    name: 'Aidat Takibi',
+    shortName: 'Aidat Takibi',
+    icon: 'account_balance_wallet',
+    summary:
+      'Aidat borçlarının şeffaf takibi, dijital tahsilat yönetimi ve kat malikleri için hızlı ödeme kolaylığı.',
+    benefits: [
+      'Dijital aidat takip sistemi',
+      'Online ve güvenli ödeme seçenekleri',
+      'Otomatik borç hatırlatmaları',
+      'Şeffaf gelir-gider raporlaması',
+    ],
+    keywords: ['aidat takibi', 'aidat ödeme', 'site aidat yönetimi'],
+    pillar: '/hizmetler/aidat-takibi',
+  },
+  {
     slug: 'guvenlik-yonetimi',
     name: 'Güvenlik Yönetimi',
     shortName: 'Güvenlik',

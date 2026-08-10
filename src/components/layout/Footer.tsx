@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { DISTRICTS } from '@/data/districts';
 import dynamic from 'next/dynamic';
 import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
+import AppBadges from '@/components/ui/AppBadges';
 
 // Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
 const NewsletterForm = dynamic(() => import('./NewsletterForm'), { ssr: false });
@@ -41,7 +42,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-[#f8f9fa] dark:bg-[#0b1c30] border-t border-slate-200/80 dark:border-white/10 w-full overflow-hidden text-slate-700 dark:text-slate-300">
+    <footer className="relative bg-[#f8f9fa] dark:bg-slate-950 border-t border-slate-200/80 dark:border-white/10 w-full overflow-hidden text-slate-700 dark:text-slate-300">
       
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-10 md:pt-16 pb-6 md:pb-8 flex flex-col gap-10 md:gap-12">
         
@@ -58,35 +59,8 @@ export default function Footer() {
               {t('footer_about_text')}
             </p>
 
-            {/* App Store & Google Play Pills */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              {/* Uygulama henüz yayında değil: bozuk href="#" yerine buton (Faz: link kalitesi) */}
-              <button
-                type="button"
-                aria-label="App Store — yakında"
-                title="Yakında App Store'da"
-                className="flex items-center justify-center sm:justify-start gap-3 w-full sm:w-auto bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-4 py-2.5 rounded-2xl hover:bg-gray-200 dark:hover:bg-white/20 transition-all group text-left"
-              >
-                <span className="material-symbols-outlined text-2xl text-gray-800 dark:text-white">apple</span>
-                <div className="flex flex-col text-left">
-                  <span className="text-[9px] font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 leading-none">Download on the</span>
-                  <span className="text-xs font-bold text-gray-900 dark:text-white leading-tight mt-0.5">App Store</span>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                aria-label="Google Play — yakında"
-                title="Yakında Google Play'de"
-                className="flex items-center justify-center sm:justify-start gap-3 w-full sm:w-auto bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-4 py-2.5 rounded-2xl hover:bg-gray-200 dark:hover:bg-white/20 transition-all group text-left"
-              >
-                <span className="material-symbols-outlined text-2xl text-emerald-600 dark:text-emerald-400">play_arrow</span>
-                <div className="flex flex-col text-left">
-                  <span className="text-[9px] font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 leading-none">GET IT ON</span>
-                  <span className="text-xs font-bold text-gray-900 dark:text-white leading-tight mt-0.5">Google Play</span>
-                </div>
-              </button>
-            </div>
+            {/* App Store & Google Play & AppGallery Pills */}
+            <AppBadges />
 
             {/* Brand Info & App Links (4 Cols) */}
           </div>
@@ -133,6 +107,7 @@ export default function Footer() {
                 { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen' },
                 { nameKey: 'nav_pest_control', path: '/hizmetler/hasere-ve-dezenfeksiyon' },
                 { nameKey: 'nav_legal_consulting', path: '/hizmetler/hukuk-ve-icra-danismanligi' },
+                { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi' },
                 { nameKey: 'nav_sectoral_solutions', path: '/sektorel-cozumler' },
                 { nameKey: 'nav_employment_bridge', path: '/istihdam-koprusu' },
                 { nameKey: 'nav_academy', path: '/guvenlik-akademisi' }
@@ -156,7 +131,7 @@ export default function Footer() {
             
             {/* Live Weather & Time Pill */}
             <div className="inline-flex items-center gap-2 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-700 dark:text-gray-300 w-fit">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
               <span>{t('footer_istanbul_center')} {istanbulTime || '10:42'}</span>
               <span className="material-symbols-outlined text-sm text-amber-500">partly_cloudy_day</span>
             </div>
@@ -189,7 +164,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-lg">schedule</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-gray-900 dark:text-white text-xs">{t('footer_working_hours_title') || 'Çalışma Saatlerimiz'}</span>
+                <span className="font-bold text-gray-900 dark:text-white text-xs">{t('footer_working_hours_title')}</span>
                 <span className="text-xs text-gray-600 dark:text-gray-400 font-light leading-snug">09:00 - 18:00</span>
               </div>
             </div>
@@ -199,14 +174,14 @@ export default function Footer() {
               href="https://wa.me/905550000000" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-3 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-300 dark:border-emerald-700/50 p-3 rounded-2xl hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors group"
+              className="flex items-center gap-3 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 transition-colors group"
             >
-              <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center shrink-0 shadow-sm">
                 <span className="material-symbols-outlined text-xl">chat</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-xs font-bold text-emerald-950 dark:text-emerald-300">{t('footer_whatsapp_title')}</span>
-                <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-light">{t('footer_whatsapp_desc')}</span>
+                <span className="text-xs font-bold text-slate-900 dark:text-white">{t('footer_whatsapp_title')}</span>
+                <span className="text-[11px] text-slate-600 dark:text-gray-400 font-light">{t('footer_whatsapp_desc')}</span>
               </div>
             </a>
           </div>
@@ -219,7 +194,7 @@ export default function Footer() {
           {/* ISO Badges */}
           <div className="flex flex-wrap items-center gap-6">
             <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 font-medium">
-              <span className="material-symbols-outlined text-lg text-emerald-600 dark:text-emerald-400">verified</span>
+              <span className="material-symbols-outlined text-lg text-slate-900 dark:text-white">verified</span>
               <div>
                 <div className="font-bold text-gray-900 dark:text-white leading-none">ISO 9001:2015</div>
                 <div className="text-[10px] text-gray-500">{t('footer_badge_quality')}</div>
@@ -235,7 +210,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 font-medium">
-              <span className="material-symbols-outlined text-lg text-purple-600 dark:text-purple-400">admin_panel_settings</span>
+              <span className="material-symbols-outlined text-lg text-slate-900 dark:text-white">admin_panel_settings</span>
               <div>
                 <div className="font-bold text-gray-900 dark:text-white leading-none">{t('footer_badge_sec')}</div>
                 <div className="text-[10px] text-gray-500">{t('footer_badge_sec_desc')}</div>
@@ -277,23 +252,23 @@ export default function Footer() {
         {/* Bölge Dizini (yerel SEO — programatik ilçe linkleri) */}
         <div className="pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col gap-4">
           <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
-            {language === 'en' ? 'Service Areas' : 'Hizmet Bölgelerimiz'}
+            {t('footer_service_areas')}
           </h4>
-          <div className="flex flex-wrap gap-x-4 gap-y-2" role="navigation" aria-label={language === 'en' ? 'Districts' : 'Bölgeler'}>
+          <div className="flex flex-wrap gap-x-4 gap-y-2" role="navigation" aria-label={t('footer_service_areas')}>
             {DISTRICTS.map((d) => (
               <Link
                 key={d.slug}
                 href={`/bolgeler/${d.slug}`}
                 className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors"
               >
-                {d.name} {language === 'en' ? 'Property & Site Management' : 'Mülk ve Site Yönetimi'}
+                {d.name} {t('footer_property_management')}
               </Link>
             ))}
             <Link
               href="/bolgeler"
               className="text-xs font-bold text-slate-900 dark:text-white hover:underline"
             >
-              {language === 'en' ? 'All regions →' : 'Tüm bölgeler →'}
+              {t('footer_all_regions')}
             </Link>
           </div>
         </div>
@@ -301,13 +276,13 @@ export default function Footer() {
         {/* Sub-footer Bottom Bar */}
         <div className="pt-6 border-t border-gray-200/60 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
           
-          <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold px-3 py-1 rounded-full text-[11px]">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-300 font-semibold px-3 py-1 rounded-full text-[11px]">
+            <span className="w-2 h-2 rounded-full bg-slate-500 animate-ping"></span>
             {t('footer_all_systems_online')}
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">Çerez Politikası</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-slate-900 dark:text-white">Site Haritası</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-slate-900 dark:text-white">{t('footer_sitemap')}</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-gray-700 dark:text-gray-300">

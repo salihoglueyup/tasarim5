@@ -55,7 +55,7 @@ export default async function AdminPosts({ params }: { params: Promise<{ lang: s
                   <td className="p-4 text-slate-600 dark:text-gray-400 whitespace-nowrap">{post.author.name}</td>
                   <td className="p-4 whitespace-nowrap">
                     {post.published ? (
-                      <span className="inline-flex items-center px-2 py-1 rounded-md bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 text-xs">
+                      <span className="inline-flex items-center px-2 py-1 rounded-md bg-slate-50 dark:bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-500/20 text-xs">
                         Yayında
                       </span>
                     ) : (

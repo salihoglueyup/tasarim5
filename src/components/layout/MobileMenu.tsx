@@ -51,7 +51,7 @@ export default function MobileMenu({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: '100%' }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0b1c30]/95 backdrop-blur-2xl lg:hidden flex flex-col pt-24 px-6 overflow-y-auto pb-12 font-sans"
+          className="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl lg:hidden flex flex-col pt-24 px-6 overflow-y-auto pb-12 font-sans"
         >
           <nav className="flex flex-col gap-2 mt-8">
             {menuItems.map((item, i) => (

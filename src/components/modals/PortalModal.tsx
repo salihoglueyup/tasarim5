@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface PortalModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface PortalModalProps {
 }
 
 export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
+  const { t } = useLanguage();
   return (
     <AnimatePresence>
       {isOpen && (
@@ -24,7 +26,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-white dark:bg-[#122338] rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-gray-200 dark:border-white/10 overflow-hidden"
+            className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-gray-200 dark:border-white/10 overflow-hidden"
           >
             {/* Close Button */}
             <button 
@@ -40,15 +42,15 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Sakin & Yönetici Portalı</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('portal_title')}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Sitenizin aidat ödemelerini, harcama bilançolarını ve arıza bildirimlerini yönetmek için giriş yapın.
+                  {t('portal_desc')}
                 </p>
               </div>
 
               <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">T.C. Kimlik veya Daire No</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">{t('portal_tc_label')}</label>
                   <input 
                     type="text" 
                     placeholder="12345678901"
@@ -57,7 +59,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Şifre</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">{t('portal_password')}</label>
                   <input 
                     type="password" 
                     placeholder="••••••••"
@@ -69,16 +71,16 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                   type="submit"
                   className="w-full bg-[var(--color-primary)] text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-2"
                 >
-                  Portala Giriş Yap
+                  {t('portal_btn')}
                 </button>
               </form>
 
               <div className="pt-4 border-t border-gray-100 dark:border-white/10 flex items-center justify-between text-xs text-gray-400">
-                <span>Mobil Uygulamamız Hazır</span>
+                <span>{t('portal_app_ready')}</span>
                 <div className="flex gap-2">
                   <span className="font-semibold text-slate-900 dark:text-white">App Store</span>
                   <span>•</span>
-                  <span className="font-semibold text-emerald-500">Google Play</span>
+                  <span className="font-semibold text-slate-500">Google Play</span>
                 </div>
               </div>
 

@@ -6,6 +6,7 @@ import { useQuote } from '@/context/QuoteContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { sendGAEvent } from '@next/third-parties/google';
 import { waLink } from '@/lib/cro';
+import { ORG_PHONE } from '@/lib/constants';
 import CallbackForm from '@/components/cro/CallbackForm';
 
 export default function QuickCallWidget() {
@@ -28,7 +29,7 @@ export default function QuickCallWidget() {
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            className="bg-white dark:bg-[#122338] border border-gray-200 dark:border-white/10 p-5 rounded-3xl shadow-2xl flex flex-col gap-3 w-72 text-gray-900 dark:text-white"
+            className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/10 p-5 rounded-3xl shadow-2xl flex flex-col gap-3 w-72 text-gray-900 dark:text-white"
           >
             {view === 'callback' ? (
               <>
@@ -48,7 +49,7 @@ export default function QuickCallWidget() {
                 </div>
 
                 <a
-                  href="tel:08500000000"
+                  href={`tel:${ORG_PHONE}`}
                   onClick={() => {
                     if (process.env.NEXT_PUBLIC_GA_ID) {
                       sendGAEvent('event', 'phone_call_click', { category: 'contact', value: 1 });
@@ -60,9 +61,9 @@ export default function QuickCallWidget() {
                     <span className="material-symbols-outlined text-lg">call</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs font-bold">7/24 Çağrı Merkezi</span>
-                    <span className="text-[10px] text-gray-500 dark:text-gray-400">0850 000 00 00</span>
-                  </div>
+                  <span className="text-xs font-bold text-gray-900 dark:text-white">Genel Müdürlük</span>
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400">0216 550 48 48</span>
+                </div>
                 </a>
 
                 <a
@@ -74,27 +75,27 @@ export default function QuickCallWidget() {
                       sendGAEvent('event', 'whatsapp_click', { category: 'contact', value: 1 });
                     }
                   }}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-50 dark:bg-white/5 hover:bg-emerald-100 dark:hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
                     <span className="material-symbols-outlined text-lg">chat</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold">WhatsApp Canlı Destek</span>
-                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400">Anında Yanıt</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400">Anında Yanıt</span>
                   </div>
                 </a>
 
                 <button
                   onClick={() => setView('callback')}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-amber-50 dark:bg-white/5 hover:bg-amber-100 dark:hover:bg-white/10 transition-colors text-left"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors text-left"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
                     <span className="material-symbols-outlined text-lg">phone_callback</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold">{t('cro_callback_open')}</span>
-                    <span className="text-[10px] text-gray-500 dark:text-gray-400">{t('cro_callback_title')}</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400">{t('cro_callback_title')}</span>
                   </div>
                 </button>
 

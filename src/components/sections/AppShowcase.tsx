@@ -65,7 +65,7 @@ export default function AppShowcase() {
             </div>
 
             <div className="bg-white/10 px-6 py-3 rounded-2xl flex items-center gap-3 border border-white/10">
-              <span className="material-symbols-outlined text-2xl text-emerald-400">android</span>
+              <span className="material-symbols-outlined text-2xl text-slate-300">android</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-gray-400">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">Google Play</span>

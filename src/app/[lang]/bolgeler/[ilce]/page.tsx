@@ -135,14 +135,14 @@ export default async function DistrictPage({
             <ul className="flex flex-col gap-3 mt-2">
               {district.localNeeds.map((need) => (
                 <li key={need} className="flex items-start gap-3 text-sm text-[var(--color-secondary)]">
-                  <span className="material-symbols-outlined text-emerald-600 text-lg shrink-0">check_circle</span>
+                  <span className="material-symbols-outlined text-slate-600 text-lg shrink-0">check_circle</span>
                   {need}
                 </li>
               ))}
             </ul>
           </div>
           <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-xl">
-            <div className="text-4xl font-black text-emerald-400">{district.managedProjects}+</div>
+            <div className="text-4xl font-black text-slate-400">{district.managedProjects}+</div>
             <div className="font-semibold">{district.name}&apos;de yönetilen proje</div>
             <p className="text-xs text-gray-300 font-light border-t border-white/10 pt-4">
               {district.side} Yakası · ~{Math.round(district.population / 1000)} bin nüfus ·{' '}

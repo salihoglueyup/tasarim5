@@ -23,7 +23,7 @@ export default function KalitePolitikamiz() {
       subtitle: t('quality_card_2_sub'),
       desc: t('quality_card_2_desc'),
       icon: "security",
-      color: "from-emerald-500 to-teal-600"
+      color: "from-slate-500 to-slate-600"
     },
     {
       title: t('quality_card_3_title'),
@@ -37,7 +37,7 @@ export default function KalitePolitikamiz() {
       subtitle: t('quality_card_4_sub'),
       desc: t('quality_card_4_desc'),
       icon: "eco",
-      color: "from-green-500 to-emerald-700"
+      color: "from-slate-500 to-slate-700"
     },
     {
       title: t('quality_card_5_title'),
@@ -117,7 +117,7 @@ export default function KalitePolitikamiz() {
                 </div>
                 <div className="w-px h-12 bg-[var(--color-outline)]/50"></div>
                 <div>
-                  <div className="text-4xl font-black text-emerald-500">{t('quality_stat_2_val')}</div>
+                  <div className="text-4xl font-black text-slate-500">{t('quality_stat_2_val')}</div>
                   <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">{t('quality_stat_2_label')}</div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function KalitePolitikamiz() {
             {/* Timeline Line */}
             <div className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-[var(--color-outline)]/30 rounded-full hidden sm:block" />
             <motion.div 
-              className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-gradient-to-b from-slate-900 to-emerald-500 dark:from-white dark:to-emerald-500 rounded-full hidden sm:block origin-top"
+              className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-gradient-to-b from-slate-900 to-slate-500 dark:from-white dark:to-slate-500 rounded-full hidden sm:block origin-top"
               style={{ scaleY: progressBarHeight }}
             />
 

@@ -22,10 +22,10 @@ export default function LiveMetricsWidget() {
         
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12 border-b border-white/10 pb-8">
           <div>
-            <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-widest bg-emerald-500/10 px-4 py-1.5 rounded-full w-fit mb-3">
+            <div className="flex items-center gap-2 text-slate-300 font-bold text-xs uppercase tracking-widest bg-slate-500/20 px-4 py-1.5 rounded-full w-fit mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-300"></span>
               </span>
               {t('home_metrics_badge')}
             </div>

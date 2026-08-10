@@ -121,7 +121,7 @@ export default function GesProjeleri() {
               </div>
               <div>
                 <div className="text-xs text-gray-300">{t('ges_calc_payback_label')}</div>
-                <div className="text-xl font-bold text-emerald-400">{estimatedPaybackYears}{t('ges_calc_payback_val_suffix')}</div>
+                <div className="text-xl font-bold text-amber-400">{estimatedPaybackYears}{t('ges_calc_payback_val_suffix')}</div>
               </div>
             </div>
 

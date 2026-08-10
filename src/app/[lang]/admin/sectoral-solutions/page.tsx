@@ -49,7 +49,7 @@ export default async function AdminSectoralSolutions({ params }: { params: Promi
                   <td className="p-4">
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${
                       sol.published 
-                        ? 'bg-green-50 text-green-700 border-green-200' 
+                        ? 'bg-slate-50 text-slate-700 border-slate-200' 
                         : 'bg-yellow-50 text-yellow-700 border-yellow-200'
                     }`}>
                       {sol.published ? 'Yayında' : 'Taslak'}

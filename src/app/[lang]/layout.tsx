@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "../globals.css";
 import { SmoothScroll, NavigationWrapper, WebVitals, IconFontLoader, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
@@ -7,6 +7,12 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { JsonLd } from "@/components";
 import { organizationSchema, webSiteSchema } from "@/lib/schemas";
+import trDict from '@/i18n/locales/tr/common.json';
+import enDict from '@/i18n/locales/en/common.json';
+import ruDict from '@/i18n/locales/ru/common.json';
+import arDict from '@/i18n/locales/ar/common.json';
+
+const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
 // Türkçe glyph'ler (ç, ğ, ş, ı, İ, ö, ü) için latin-ext subset (SEO V4 Faz 185).
 // display:swap ile font kaynaklı CLS önlenir.
@@ -23,6 +29,15 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
+});
+
+const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-cairo",
   display: 'swap',
   preload: true,
   adjustFontFallback: true,
@@ -89,6 +104,7 @@ export default async function RootLayout({
   // Await params to ensure compatibility with Next.js 15
   const resolvedParams = await Promise.resolve(params);
   const lang = resolvedParams?.lang || 'tr';
+  const isRtl = lang === 'ar';
 
   // Analytics ID'leri env'den okunur; tanımlı değilse ilgili script render edilmez
   // (SEO V4 Faz 10 — mock ID'ler yayına çıkmaz, gerçek değerler .env ile girilir).
@@ -97,7 +113,7 @@ export default async function RootLayout({
   const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
   return (
-    <html lang={lang} className={`${inter.variable} ${plusJakarta.variable}`}>
+    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} className={`${inter.variable} ${plusJakarta.variable} ${cairo.variable}`}>
       <head>
         {/* v9 Hyper-Speed Resource Hints (Preconnect & DNS-Prefetch) */}
         {EXTERNAL_CDN_HINTS.map((hint, i) => (
@@ -135,7 +151,7 @@ export default async function RootLayout({
         
         <WebVitals />
         <IconFontLoader />
-        <LanguageProvider initialLang={lang}>
+        <LanguageProvider initialLang={lang} initialDictionary={dictionaries[lang] || trDict}>
           <QuoteProvider>
             <FramerLazyProvider>
               <ClientWidgets />

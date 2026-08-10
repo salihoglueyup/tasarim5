@@ -47,7 +47,7 @@ export default function IstihdamKoprusu() {
               <div className="text-xs text-gray-500 font-medium">{t('emp_stat_1_text')}</div>
             </div>
             <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-emerald-600 mb-1">{t('emp_stat_2_val')}</div>
+              <div className="text-3xl font-extrabold text-slate-600 mb-1">{t('emp_stat_2_val')}</div>
               <div className="text-xs text-gray-500 font-medium">{t('emp_stat_2_text')}</div>
             </div>
             <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">

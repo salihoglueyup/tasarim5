@@ -185,13 +185,13 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                   <span className="text-2xl font-bold">₺{totalMonthlyBudget.toLocaleString()}</span>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs text-emerald-400 font-semibold">{t('calc_report_savings_label')}</span>
-                  <span className="text-2xl font-bold text-emerald-400">~₺{estimatedSavings.toLocaleString()}</span>
+                  <span className="text-xs text-slate-400 font-semibold">{t('calc_report_savings_label')}</span>
+                  <span className="text-2xl font-bold text-slate-400">~₺{estimatedSavings.toLocaleString()}</span>
                 </div>
               </div>
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex items-start gap-3">
-                <span className="material-symbols-outlined text-emerald-400 shrink-0 mt-0.5">verified</span>
+                <span className="material-symbols-outlined text-slate-400 shrink-0 mt-0.5">verified</span>
                 <p className="text-xs text-gray-200 leading-relaxed">
                   {t('calc_report_info')}
                 </p>

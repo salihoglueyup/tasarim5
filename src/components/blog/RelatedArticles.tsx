@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 import { getRelatedPosts } from '@/app/actions/post-actions';
 
 /**
@@ -10,6 +11,7 @@ import { getRelatedPosts } from '@/app/actions/post-actions';
  * ekler. Client sayfalarda da güvenle kullanılır.
  */
 export default function RelatedArticles({ pillar }: { pillar: string }) {
+  const { t } = useLanguage();
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +27,7 @@ export default function RelatedArticles({ pillar }: { pillar: string }) {
   return (
     <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       <div className="flex flex-col gap-6">
-        <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">İlgili Rehberler</h2>
+        <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">{t('blog_related_guides')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {posts.map((p) => (
             <Link

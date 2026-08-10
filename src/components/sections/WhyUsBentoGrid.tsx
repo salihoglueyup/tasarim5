@@ -71,9 +71,14 @@ export default function WhyUsBentoGrid() {
           <motion.div
             key={index}
             whileHover={{ y: -5 }}
-            className={`${item.span} bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-12 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:border-[var(--color-primary)] transition-all`}
+            className={`${item.span} bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:border-[var(--color-primary)] transition-all relative overflow-hidden group`}
           >
-            <div className="flex items-center justify-between">
+            {/* Dekoratif dev ikon (arkaplan) */}
+            <div className="absolute -bottom-8 -right-8 text-slate-100 dark:text-slate-800/50 pointer-events-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 z-0">
+              <span className="material-symbols-outlined" style={{ fontSize: '180px' }}>{item.icon}</span>
+            </div>
+
+            <div className="flex items-center justify-between relative z-10">
               <span className="text-xs font-bold text-slate-900 dark:text-white tracking-widest uppercase bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
                 {item.tag}
               </span>
@@ -82,9 +87,9 @@ export default function WhyUsBentoGrid() {
               </div>
             </div>
 
-            <div>
+            <div className="relative z-10 mt-8">
               <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{item.title}</h3>
-              <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{item.desc}</p>
+              <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">{item.desc}</p>
             </div>
           </motion.div>
         ))}

@@ -30,7 +30,7 @@ export default function GuvenlikAkademisi() {
       desc: t('aca_feat_3_desc'),
       icon: "psychology",
       duration: t('aca_feat_3_dur'),
-      color: "from-emerald-500 to-teal-600"
+      color: "from-slate-500 to-slate-600"
     },
     {
       title: t('aca_feat_4_title'),
@@ -240,7 +240,7 @@ export default function GuvenlikAkademisi() {
           
           <div className="grid md:grid-cols-3 gap-8 md:gap-4 relative">
              {/* Connecting Line (Desktop only) */}
-             <div className="hidden md:block absolute top-12 h-0.5 bg-gradient-to-r from-gray-200 via-brand-500 to-emerald-500 dark:from-white/10 dark:via-brand-500 dark:to-emerald-500 z-0" style={{ left: '16.66%', right: '16.66%' }} />
+             <div className="hidden md:block absolute top-12 h-0.5 bg-gradient-to-r from-gray-200 via-brand-500 to-slate-500 dark:from-white/10 dark:via-brand-500 dark:to-slate-500 z-0" style={{ left: '16.66%', right: '16.66%' }} />
              
              {[
                {
@@ -261,8 +261,8 @@ export default function GuvenlikAkademisi() {
                  title: t('aca_path_s3_title'),
                  desc: t('aca_path_s3_desc'),
                  icon: 'work',
-                 color: 'text-emerald-500',
-                 bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30'
+                 color: 'text-slate-500',
+                 bg: 'bg-slate-50 dark:bg-slate-500/10 border-slate-200 dark:border-slate-500/30'
                }
              ].map((step, idx) => (
                 <div key={idx} className="relative z-10 flex flex-col items-center text-center group">

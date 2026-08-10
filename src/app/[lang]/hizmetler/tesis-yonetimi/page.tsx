@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import FacilityCalculator from '@/components/sections/FacilityCalculator';
+import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
 
 export default function TesisYonetimi() {
   const { t } = useLanguage();
@@ -53,42 +55,50 @@ export default function TesisYonetimi() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
-      <PageHeader 
-        title={t('fac_title')} 
-        description={t('fac_desc')} 
-      />
-
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+      
+      {/* Immersive Full-Width Hero (Titanium & Slate) */}
+      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+        </div>
         
-        {/* Transparency Banner */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-16 rounded-[3rem] shadow-sm flex flex-col lg:flex-row justify-between items-center gap-10">
-          <div className="flex flex-col gap-6 max-w-2xl">
-            <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit">
+        {/* Abstract Minimal Animation */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+            <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
+            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
+        </div>
+
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+          <div className="flex flex-col items-center gap-6">
+            <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('fac_banner_badge')}
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)]">
-              {t('fac_banner_title')}
-            </h2>
-            <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
+              Profesyonel <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
+                Tesis Yönetimi
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('fac_banner_desc')}
             </p>
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link href="/hesaplayici" className="bg-[var(--color-primary)] text-white font-bold py-4 px-8 rounded-xl w-fit shadow-md hover:opacity-95 transition-opacity text-sm">
-                {t('fac_banner_btn_calc')}
-              </Link>
-              <Link href="/teklif-al" className="border border-[var(--color-outline)] text-[var(--color-primary)] font-bold py-4 px-8 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-sm">
-                {t('fac_banner_btn_offer')}
+            <div className="flex gap-4 mt-8">
+              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+                Hemen Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-10 rounded-[2.5rem] flex flex-col gap-6 w-full lg:w-80 shrink-0 shadow-xl">
-            <div className="text-4xl font-extrabold text-slate-300">{t('fac_box_title')}</div>
-            <div className="text-lg font-semibold">{t('fac_box_subtitle')}</div>
-            <p className="text-xs text-gray-300 font-light leading-relaxed border-t border-white/10 pt-4">
-              {t('fac_box_desc')}
-            </p>
-          </div>
+      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+        
+        {/* Facility Calculator */}
+        <div className="-mt-32 relative z-30">
+          <FacilityCalculator />
         </div>
 
         {/* Legal Debt Collection 4-Step Flow */}
@@ -104,6 +114,9 @@ export default function TesisYonetimi() {
             ))}
           </div>
         </div>
+
+        {/* Facility Specific Social Proof */}
+        <FacilityTestimonials />
 
         {/* Service Specific FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

@@ -39,7 +39,7 @@ export default function MegaMenuDropdown({
           transition={{ type: "spring", stiffness: 350, damping: 28 }}
           className="absolute top-full left-1/2 -translate-x-1/2 w-[720px] pt-3 origin-top z-50"
         >
-          <div className="bg-white/95 dark:bg-[#122338]/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-white/10 overflow-hidden grid grid-cols-12 p-5 gap-4">
+          <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-white/10 overflow-hidden grid grid-cols-12 p-5 gap-4">
             
             {/* Sub-items (8 Cols) */}
             <div className="col-span-8 grid grid-cols-2 gap-2 max-h-[380px] overflow-y-auto pr-1">

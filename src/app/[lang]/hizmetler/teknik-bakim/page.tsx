@@ -7,8 +7,9 @@ import { SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import MaintenanceCalculator from '@/components/sections/MaintenanceCalculator';
+import MaintenanceTestimonials from '@/components/sections/MaintenanceTestimonials';
 
 export default function TeknikBakim() {
   const { t } = useLanguage();
@@ -54,51 +55,50 @@ export default function TeknikBakim() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
-      <PageHeader 
-        title={t('tech_title')} 
-        description={t('tech_desc')} 
-      />
-
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+      
+      {/* Immersive Full-Width Hero (Titanium & Slate) */}
+      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+        </div>
         
-        {/* SLA Timer Banner */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-10 md:p-14 rounded-[3rem] shadow-2xl flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-500/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
-          
-          <div className="flex flex-col gap-5 relative z-10">
-            <motion.span 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-xs font-bold text-slate-300 uppercase tracking-widest bg-white/10 border border-white/20 px-4 py-1.5 rounded-full w-fit"
-            >
+        {/* Abstract Minimal Animation */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+            <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
+            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
+        </div>
+
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+          <div className="flex flex-col items-center gap-6">
+            <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('tech_banner_badge')}
-            </motion.span>
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight" dangerouslySetInnerHTML={{ __html: t('tech_banner_title') }} />
-            <p className="text-base text-gray-300 font-light max-w-xl leading-relaxed">
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
+              Önleyici <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
+                Teknik Bakım
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('tech_banner_desc')}
             </p>
-            <div className="pt-4">
-              <Link href="/teklif-al" className="bg-white text-slate-950 hover:bg-slate-100 font-bold py-4 px-8 rounded-2xl inline-flex items-center gap-2 text-sm shadow-xl transition-all hover:scale-105 hover:shadow-white/10">
-                <span className="material-symbols-outlined text-lg">build</span>
-                {t('tech_banner_btn')}
+            <div className="flex gap-4 mt-8">
+              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+                Hemen Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
           </div>
+        </div>
+      </div>
 
-          <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", bounce: 0.4 }}
-            className="bg-white/10 p-10 rounded-full border-[8px] border-white/10 text-center shrink-0 w-48 h-48 flex flex-col items-center justify-center relative z-10 backdrop-blur-md shadow-2xl"
-          >
-            <div className="text-5xl font-extrabold text-slate-200 flex items-baseline">
-              <AnimatedCounter from={0} to={20} />
-              <span className="text-2xl ml-1">DK</span>
-            </div>
-            <div className="text-xs text-slate-400 mt-2 font-medium uppercase tracking-wider">{t('tech_banner_box_label')}</div>
-          </motion.div>
+      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+        
+        {/* Maintenance Calculator */}
+        <div className="-mt-32 relative z-30">
+          <MaintenanceCalculator />
         </div>
 
         {/* Maintenance Intervals Table */}
@@ -123,13 +123,16 @@ export default function TeknikBakim() {
                     <p className="text-sm text-[var(--color-secondary)] font-light mt-1">{item.interval}</p>
                   </div>
                 </div>
-                <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full w-fit whitespace-nowrap">
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 border border-slate-500/20 px-4 py-2 rounded-full w-fit whitespace-nowrap">
                   {item.status}
                 </span>
               </motion.div>
             ))}
           </div>
         </div>
+
+        {/* Maintenance Specific Social Proof */}
+        <MaintenanceTestimonials />
 
         {/* FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

@@ -20,7 +20,7 @@ export default function MarkReadButton({ id, lang, isRead }: { id: string, lang:
       disabled={loading}
       className={`inline-flex items-center justify-center p-1.5 rounded-lg border transition-all disabled:opacity-50 ${
         isRead 
-          ? 'bg-emerald-50 text-emerald-600 border-emerald-200 hover:bg-emerald-100 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 dark:hover:bg-emerald-500/20' 
+          ? 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 dark:bg-slate-500/10 dark:text-slate-400 dark:border-slate-500/20 dark:hover:bg-slate-500/20' 
           : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100 dark:bg-white/5 dark:text-gray-400 dark:border-white/10 dark:hover:bg-white/10'
       }`}
       title={isRead ? "Okunmadı Olarak İşaretle" : "Okundu Olarak İşaretle"}

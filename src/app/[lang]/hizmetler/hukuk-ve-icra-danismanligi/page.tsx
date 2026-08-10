@@ -7,8 +7,9 @@ import { SeoTextSection } from '@/components';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import LegalCalculator from '@/components/sections/LegalCalculator';
+import LegalTestimonials from '@/components/sections/LegalTestimonials';
 
 export default function HukukVeIcraDanismanligi() {
   const { t } = useLanguage();
@@ -68,29 +69,50 @@ export default function HukukVeIcraDanismanligi() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
-      <PageHeader 
-        title={t('legal_title')} 
-        description={t('legal_desc')} 
-      />
+      
+      {/* Immersive Full-Width Hero (Titanium & Slate) */}
+      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+        </div>
+        
+        {/* Abstract Minimal Animation */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+            <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
+            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
+        </div>
+
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+          <div className="flex flex-col items-center gap-6">
+            <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
+              {t('legal_banner_badge')}
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
+              Hukuk ve İcra <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
+                Danışmanlığı
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
+              {t('legal_banner_desc')}
+            </p>
+            <div className="flex gap-4 mt-8">
+              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+                Hemen Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
-        {/* Banner */}
-        <div className="bg-gradient-to-br from-slate-900 via-[#1e293b] to-[#0f172a] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row justify-between items-center gap-10">
-          <div className="flex flex-col gap-6 max-w-2xl">
-            <Badge status="neutral">{t('legal_banner_badge')}</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              {t('legal_banner_title')}
-            </h2>
-            <p className="text-lg text-slate-300 font-light leading-relaxed">
-              {t('legal_banner_desc')}
-            </p>
-          </div>
-          <Link href="/teklif-al">
-            <Button variant="primary" size="lg" className="bg-slate-700 hover:bg-slate-600 text-white shrink-0">
-              {t('legal_banner_btn')}
-            </Button>
-          </Link>
+        {/* Legal Calculator */}
+        <div className="-mt-32 relative z-30">
+          <LegalCalculator />
         </div>
 
         {/* 4 Cards Grid */}
@@ -105,6 +127,9 @@ export default function HukukVeIcraDanismanligi() {
             </Card>
           ))}
         </div>
+
+        {/* Legal Specific Social Proof */}
+        <LegalTestimonials />
 
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

@@ -54,6 +54,7 @@ const MENU_ITEMS: MenuItem[] = [
       { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen', descKey: 'nav_pool_care_desc', icon: 'pool' },
       { nameKey: 'nav_pest_control', path: '/hizmetler/hasere-ve-dezenfeksiyon', descKey: 'nav_pest_control_desc', icon: 'bug_report' },
       { nameKey: 'nav_legal_consulting', path: '/hizmetler/hukuk-ve-icra-danismanligi', descKey: 'nav_legal_consulting_desc', icon: 'gavel' },
+      { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi', descKey: 'nav_dues_desc', icon: 'account_balance_wallet' },
       { nameKey: 'nav_sectoral_solutions', path: '/sektorel-cozumler', descKey: 'nav_sectoral_solutions_desc', icon: 'domain' },
       { nameKey: 'nav_employment_bridge', path: '/istihdam-koprusu', descKey: 'nav_employment_bridge_desc', icon: 'handshake' },
     ]
@@ -80,19 +81,22 @@ export default function Header() {
     return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
   };
 
-  const handleLanguageChange = (newLang: 'tr' | 'en') => {
+  const handleLanguageChange = (newLang: 'tr' | 'en' | 'ru' | 'ar') => {
     if (newLang === language) return;
     
     let cleanPath = pathname;
-    if (pathname.startsWith('/en/') || pathname === '/en') {
-      cleanPath = pathname.replace(/^\/en/, '') || '/';
-    } else if (pathname.startsWith('/tr/') || pathname === '/tr') {
-      cleanPath = pathname.replace(/^\/tr/, '') || '/';
+    const langPrefixes = ['/en', '/tr', '/ru', '/ar'];
+    
+    for (const prefix of langPrefixes) {
+      if (pathname.startsWith(prefix + '/') || pathname === prefix) {
+        cleanPath = pathname.replace(new RegExp(`^${prefix}`), '') || '/';
+        break;
+      }
     }
     
     let newUrl = cleanPath;
-    if (newLang === 'en') {
-      newUrl = `/en${cleanPath === '/' ? '' : cleanPath}`;
+    if (newLang !== 'tr') {
+      newUrl = `/${newLang}${cleanPath === '/' ? '' : cleanPath}`;
     }
     
     setLanguage(newLang);
@@ -112,14 +116,30 @@ export default function Header() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   
   // Hover & Mega Menu States
-  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [hoveredMenu, setHoveredMenuState] = useState<string | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const setHoveredMenu = (menu: string | null, delay: number = 0) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    
+    if (delay > 0 && menu === null) {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setHoveredMenuState(null);
+      }, delay);
+    } else {
+      setHoveredMenuState(menu);
+    }
+  };
 
   // Scroll Progress (Framer Motion)
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  // Page Context Detection (i18n yolları /tr ve /en dahil edildi)
-  const isHomePage = pathname === '/' || pathname === '/tr' || pathname === '/en';
+  // Page Context Detection (i18n yolları /tr, /en, /ru, /ar dahil edildi)
+  const isHomePage = pathname === '/' || pathname === '/tr' || pathname === '/en' || pathname === '/ru' || pathname === '/ar';
   const isTopOnHomePage = isHomePage && !isScrolled;
 
   useEffect(() => {
@@ -213,8 +233,8 @@ export default function Header() {
           isTopOnHomePage
             ? 'bg-transparent py-4 border-b border-transparent'
             : isScrolled
-              ? 'bg-white/85 dark:bg-[#0b1c30]/90 backdrop-blur-2xl shadow-sm border-b border-slate-200/60 dark:border-white/10 py-3'
-              : 'bg-white/70 dark:bg-[#0b1c30]/70 backdrop-blur-xl py-4 border-b border-slate-200/40 dark:border-white/10'
+              ? 'bg-white/85 dark:bg-slate-950/90 backdrop-blur-2xl shadow-sm border-b border-slate-200/60 dark:border-white/10 py-3'
+              : 'bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl py-4 border-b border-slate-200/40 dark:border-white/10'
         }`}
       >
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] flex justify-between items-center transition-all duration-300">
@@ -294,38 +314,62 @@ export default function Header() {
             {/* Actions */}
           <div className="flex items-center gap-3 relative z-[60]">
             
-            {/* Language Switcher (TR / EN) */}
-            <div className={`flex items-center p-1 rounded-full border transition-colors ${
-              isTopOnHomePage 
-                ? 'bg-white/10 border-white/20 text-white' 
-                : 'bg-slate-100 dark:bg-white/10 border-slate-200/60 dark:border-white/10'
-            }`}>
+            {/* Language Switcher Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredMenu('language')}
+              onMouseLeave={() => setHoveredMenu(null, 2000)}
+            >
               <button
-                onClick={() => handleLanguageChange('tr')}
-                aria-label="Türkçe Dil Seçeneği"
-                className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
-                  language === 'tr'
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm'
-                    : isTopOnHomePage
-                      ? 'text-white/70 hover:text-white'
-                      : 'text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white'
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all border ${
+                  isTopOnHomePage 
+                    ? 'bg-white/10 border-white/20 text-white hover:bg-white/20' 
+                    : 'bg-white border-slate-200 dark:border-white/10 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'
                 }`}
+                aria-haspopup="true"
+                aria-expanded={hoveredMenu === 'language'}
               >
-                TR 🇹🇷
+                <span className="uppercase">{language}</span>
+                <span className={`material-symbols-outlined text-[14px] transition-transform duration-300 ${hoveredMenu === 'language' ? 'rotate-180' : ''}`}>
+                  expand_more
+                </span>
               </button>
-              <button
-                onClick={() => handleLanguageChange('en')}
-                aria-label="English Language Option"
-                className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
-                  language === 'en'
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm'
-                    : isTopOnHomePage
-                      ? 'text-white/70 hover:text-white'
-                      : 'text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                EN 🇬🇧
-              </button>
+
+              {/* Dropdown Menu */}
+              {hoveredMenu === 'language' && (
+                <div className="absolute top-full right-0 pt-2 z-[70]">
+                  <div className={`w-28 backdrop-blur-xl border rounded-xl shadow-xl overflow-hidden py-1 ${
+                    isTopOnHomePage 
+                      ? 'bg-slate-900/40 border-white/20' 
+                      : 'bg-white/90 dark:bg-slate-950/90 border-slate-200 dark:border-white/10'
+                  }`}>
+                    {[
+                      { code: 'tr', label: 'TR', flag: '🇹🇷' },
+                      { code: 'en', label: 'EN', flag: '🇬🇧' },
+                      { code: 'ru', label: 'RU', flag: '🇷🇺' },
+                      { code: 'ar', label: 'AR', flag: '🇸🇦' },
+                    ].map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          handleLanguageChange(lang.code as 'tr'|'en'|'ru'|'ar');
+                          setHoveredMenu(null);
+                        }}
+                        className={`w-full text-left px-4 py-2.5 text-xs font-bold flex items-center justify-between transition-colors ${
+                          isTopOnHomePage
+                            ? (language === lang.code ? 'bg-white/20 text-white' : 'text-white/80 hover:bg-white/10 hover:text-white')
+                            : (language === lang.code 
+                                ? 'bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white' 
+                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5')
+                        }`}
+                      >
+                        <span>{lang.label}</span>
+                        <span className="text-sm">{lang.flag}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Theme Toggle */}

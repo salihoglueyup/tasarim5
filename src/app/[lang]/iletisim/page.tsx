@@ -128,7 +128,7 @@ export default function Iletisim() {
         
         {/* Background Glows (Hafifletildi) */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px] bg-brand-500/5 dark:bg-brand-500/15 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-emerald-500/5 dark:bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-slate-500/5 dark:bg-slate-500/10 blur-[100px] rounded-full pointer-events-none" />
         
         <div className="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
           <motion.div 
@@ -137,11 +137,11 @@ export default function Iletisim() {
             className="inline-flex items-center gap-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2 rounded-full shadow-sm backdrop-blur-sm"
           >
             <span className="relative flex h-2.5 w-2.5">
-              {isOpenNow && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>}
-              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isOpenNow ? 'bg-emerald-500' : 'bg-red-500'}`}></span>
+              {isOpenNow && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>}
+              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isOpenNow ? 'bg-slate-500' : 'bg-red-500'}`}></span>
             </span>
             <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-200">
-              {isOpenNow ? 'Şu an Açığız, Hemen Arayın' : 'Şu an Kapalıyız, Mesaj Bırakın'}
+              {isOpenNow ? t('contact_open_now') : t('contact_closed_now')}
             </span>
           </motion.div>
           
@@ -151,7 +151,7 @@ export default function Iletisim() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--color-primary)] dark:text-white"
           >
-            Bize <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] dark:from-white dark:to-gray-400">Ulaşın.</span>
+            {t('contact_hero_title_1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] dark:from-white dark:to-gray-400">{t('contact_hero_title_2')}</span>
           </motion.h1>
           
           <motion.p 
@@ -160,7 +160,7 @@ export default function Iletisim() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-[var(--color-secondary)] dark:text-gray-400 font-medium leading-relaxed"
           >
-            Sorularınız mı var? Profesyonel ekibimiz size yardımcı olmak için hazır. Hızlıca bizimle iletişime geçin.
+            {t('contact_hero_desc')}
           </motion.p>
         </div>
       </div>
@@ -179,8 +179,8 @@ export default function Iletisim() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2" />
             
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-8">İletişim Bilgileri</h3>
-              <p className="text-gray-300 mb-10 font-medium">Bize aşağıdaki kanallardan doğrudan ulaşabilir veya sağdaki formu kullanabilirsiniz.</p>
+              <h3 className="text-3xl font-bold mb-8">{t('contact_info_title')}</h3>
+              <p className="text-gray-300 mb-10 font-medium">{t('contact_info_desc')}</p>
               
               <div className="flex flex-col gap-8">
                 <a href={`tel:${ORG_PHONE}`} className="group flex items-center gap-5">
@@ -188,17 +188,17 @@ export default function Iletisim() {
                     <span className="material-symbols-outlined text-xl group-hover:text-white">call</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-0.5">Müşteri Hizmetleri</span>
+                    <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-0.5">{t('contact_info_cs')}</span>
                     <span className="text-xl font-bold">{ORG_PHONE_DISPLAY}</span>
                   </div>
                 </a>
                 
                 <a href="mailto:info@aloyonetim.com" className="group flex items-center gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-emerald-500 transition-colors shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-slate-700 transition-colors shrink-0">
                     <span className="material-symbols-outlined text-xl group-hover:text-white">mail</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-0.5">E-Posta</span>
+                    <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-0.5">{t('contact_info_email')}</span>
                     <span className="text-lg font-medium">info@aloyonetim.com</span>
                   </div>
                 </a>
@@ -208,7 +208,7 @@ export default function Iletisim() {
                     <span className="material-symbols-outlined text-xl text-white">location_on</span>
                   </div>
                   <div className="flex flex-col pt-1">
-                    <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Merkez Ofis</span>
+                    <span className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">{t('contact_info_hq')}</span>
                     <span className="text-sm font-medium leading-relaxed text-gray-200">{ORG_ADDRESS_DISPLAY}</span>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ export default function Iletisim() {
                     <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                     <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                   </div>
-                  <div className="text-xs font-medium text-gray-300 mt-1">Mutlu müşteri tarafından öneriliyor</div>
+                  <div className="text-xs font-medium text-gray-300 mt-1">{t('contact_social_proof')}</div>
                 </div>
               </div>
             </div>
@@ -248,8 +248,8 @@ export default function Iletisim() {
                     <span className="material-symbols-outlined text-[18px]">bolt</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-amber-900 dark:text-amber-300">Sizi Hemen Arayalım</h4>
-                    <p className="text-xs text-amber-700 dark:text-amber-500/70 font-medium">Form doldurmak istemiyorsanız, numaranızı bırakın.</p>
+                    <h4 className="font-bold text-amber-900 dark:text-amber-300">{t('contact_quick_call_title')}</h4>
+                    <p className="text-xs text-amber-700 dark:text-amber-500/70 font-medium">{t('contact_quick_call_desc')}</p>
                   </div>
                 </div>
                 <CallbackForm variant="inline" />
@@ -258,14 +258,14 @@ export default function Iletisim() {
               {/* İletişim Formu */}
               <motion.div variants={itemVariants} className="flex-1">
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-[var(--color-primary)]">Detaylı İletişim Formu</h2>
+                  <h2 className="text-2xl font-bold text-[var(--color-primary)]">{t('contact_detailed_form_title')}</h2>
                 </div>
 
                 {submitted ? (
-                  <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700/50 p-8 rounded-2xl text-center flex flex-col items-center gap-3 h-full justify-center">
-                    <span className="material-symbols-outlined text-6xl text-emerald-500 mb-2">check_circle</span>
-                    <div className="font-bold text-xl text-emerald-900 dark:text-emerald-300">{t('contact_form_success_title')}</div>
-                    <div className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">{t('contact_form_success_desc')}</div>
+                  <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-300 dark:border-slate-700/50 p-8 rounded-2xl text-center flex flex-col items-center gap-3 h-full justify-center">
+                    <span className="material-symbols-outlined text-6xl text-slate-800 dark:text-slate-300 mb-2">check_circle</span>
+                    <div className="font-bold text-xl text-slate-900 dark:text-slate-100">{t('contact_form_success_title')}</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300 font-medium">{t('contact_form_success_desc')}</div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -359,7 +359,7 @@ export default function Iletisim() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={itemVariants} className="bg-white dark:bg-[var(--color-surface)] border border-gray-100 dark:border-[var(--color-outline)]/60 p-6 md:p-8 rounded-[2rem] shadow-sm">
             <h2 className="text-2xl font-bold text-[var(--color-primary)] mb-6 flex items-center gap-3">
               <span className="material-symbols-outlined text-2xl text-brand-500 bg-brand-500/10 p-2 rounded-xl">forum</span>
-              Sıkça Sorulan Sorular
+              {t('contact_faq_header')}
             </h2>
             <div className="flex flex-col gap-3">
               {faqs.map((faq, i) => (
@@ -402,13 +402,13 @@ export default function Iletisim() {
                   <span className="material-symbols-outlined text-[16px]">store</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[var(--color-primary)] text-xs">Merkez Ofis</h4>
-                  <p className="text-[10px] text-[var(--color-secondary)]">Kadıköy, İstanbul</p>
+                  <h4 className="font-bold text-[var(--color-primary)] text-xs">{t('contact_map_hq')}</h4>
+                  <p className="text-[10px] text-[var(--color-secondary)]">{t('contact_map_city')}</p>
                 </div>
               </div>
               <a href="https://maps.google.com/?q=Osmanağa+Mah.+Misakı+Milli+Sok.+No:94A+Kadıköy/İstanbul" target="_blank" rel="noopener noreferrer" className="mt-1 bg-brand-500 text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center justify-center gap-2 hover:bg-brand-600 transition-colors">
                 <span className="material-symbols-outlined text-[14px]">directions</span>
-                Yol Tarifi Al
+                {t('contact_map_directions')}
               </a>
             </div>
           </motion.div>

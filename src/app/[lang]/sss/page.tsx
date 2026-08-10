@@ -4,12 +4,9 @@ import { generateBreadcrumbs, faqPageSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import FaqClient from './FaqClient';
 import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 
 export const dynamic = 'force-dynamic';
-
- // 1 dakika cache
-
-
 
 export async function generateMetadata({
   params,
@@ -17,9 +14,10 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const dict = await getDictionary(lang as any);
   return buildMetadata({
-    title: 'Sıkça Sorulan Sorular — Alo Yönetim',
-    description: 'Site ve tesis yönetimi, aidat tahsilatı, hukuki süreçler ve teknik bakım hizmetlerimiz hakkında en çok merak edilen sorular.',
+    title: dict.sss_title + ' — Alo Yönetim',
+    description: dict.sss_desc,
     path: '/sss',
     lang,
   });
@@ -27,6 +25,7 @@ export async function generateMetadata({
 
 export default async function SSSPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
+  const dict = await getDictionary(lang as any);
 
   // DB'den soruları çek
   const faqs = await prisma.faq.findMany({
@@ -43,19 +42,19 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
-    { name: 'S.S.S', url: '/sss' }
+    { name: dict.sss_title, url: '/sss' }
   ]);
 
   return (
     <>
       <JsonLd data={[jsonLd, breadcrumbLd]} />
       <PageHeader 
-        title="Sıkça Sorulan Sorular" 
-        description="Aklınıza takılan soruların cevaplarını burada bulabilirsiniz." 
+        title={dict.sss_title} 
+        description={dict.sss_desc} 
       />
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-4xl mx-auto">
-        <FaqClient faqs={faqs} categories={categories} />
+        <FaqClient faqs={faqs} categories={categories} lang={lang} />
       </section>
     </>
   );

@@ -23,16 +23,22 @@ model User {
 }
 
 model Category {
-  id          String     @id @default(cuid())
-  slug        String     @unique
-  name        String
-  description String
-  parentId    String?
-  parent      Category?  @relation("SubCategories", fields: [parentId], references: [id])
-  children    Category[] @relation("SubCategories")
-  posts       Post[]
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  id             String     @id @default(cuid())
+  slug           String     @unique
+  name           String
+  name_en        String?
+  name_ru        String?
+  name_ar        String?
+  description    String
+  description_en String?
+  description_ru String?
+  description_ar String?
+  parentId       String?
+  parent         Category?  @relation("SubCategories", fields: [parentId], references: [id])
+  children       Category[] @relation("SubCategories")
+  posts          Post[]
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 }
 
 model Author {
@@ -47,58 +53,91 @@ model Author {
 }
 
 model Post {
-  id            String   @id @default(cuid())
-  slug          String   @unique
-  title         String
-  description   String
-  categoryId    String
-  category      Category @relation(fields: [categoryId], references: [id])
-  tags          String   // Comma-separated string or JSON string
-  authorId      String
-  author        Author   @relation(fields: [authorId], references: [id])
-  image         String?
-  pillar        String?
-  tldr          String?
-  content       String   // Storing JSON stringified blocks or HTML
-  published     Boolean  @default(false)
-  datePublished DateTime @default(now())
-  dateModified  DateTime @updatedAt
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  title_en       String?
+  title_ru       String?
+  title_ar       String?
+  description    String
+  description_en String?
+  description_ru String?
+  description_ar String?
+  categoryId     String
+  category       Category @relation(fields: [categoryId], references: [id])
+  tags           String // Comma-separated string or JSON string
+  authorId       String
+  author         Author   @relation(fields: [authorId], references: [id])
+  image          String?
+  pillar         String?
+  tldr           String?
+  tldr_en        String?
+  tldr_ru        String?
+  tldr_ar        String?
+  content        String // Storing JSON stringified blocks or HTML
+  content_en     String?
+  content_ru     String?
+  content_ar     String?
+  published      Boolean  @default(false)
+  datePublished  DateTime @default(now())
+  dateModified   DateTime @updatedAt
 }
 
 model Faq {
-  id        String   @id @default(cuid())
-  question  String
-  answer    String
-  category  String
-  order     Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  question    String
+  question_en String?
+  question_ru String?
+  question_ar String?
+  answer      String
+  answer_en   String?
+  answer_ru   String?
+  answer_ar   String?
+  category    String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Reference {
-  id                String   @id @default(cuid())
-  title             String
-  slug              String   @unique
-  category          String
-  location          String
-  units             String
-  image             String?
-  published         Boolean  @default(true)
-  order             Int      @default(0)
-  
+  id          String  @id @default(cuid())
+  title       String
+  title_en    String?
+  title_ru    String?
+  title_ar    String?
+  slug        String  @unique
+  category    String
+  location    String
+  location_en String?
+  location_ru String?
+  location_ar String?
+  units       String
+  image       String?
+  published   Boolean @default(true)
+  order       Int     @default(0)
+
   // Detay Sayfası Ek Alanları
-  content           String?  // Uzun proje açıklaması
-  services          String?  // Virgülle ayrılmış hizmetler (örn: 7/24 Güvenlik, Havuz Bakımı)
-  gallery           String?  // JSON formatında çoklu resim URL'leri
-  testimonialText   String?  // Müşteri yorumu
-  testimonialAuthor String?  // Yorumu yapan kişi
-  stats             String?  // JSON formatında istatistikler [{"label":"Aidat Tahsilatı", "value":"%98"}]
-  coordinates       String?  // Harita koordinatları "lat,lng"
+  content            String? // Uzun proje açıklaması
+  content_en         String?
+  content_ru         String?
+  content_ar         String?
+  services           String? // Virgülle ayrılmış hizmetler (örn: 7/24 Güvenlik, Havuz Bakımı)
+  services_en        String?
+  services_ru        String?
+  services_ar        String?
+  gallery            String? // JSON formatında çoklu resim URL'leri
+  testimonialText    String? // Müşteri yorumu
+  testimonialText_en String?
+  testimonialText_ru String?
+  testimonialText_ar String?
+  testimonialAuthor  String? // Yorumu yapan kişi
+  stats              String? // JSON formatında istatistikler [{"label":"Aidat Tahsilatı", "value":"%98"}]
+  coordinates        String? // Harita koordinatları "lat,lng"
 
-  isSuccessStory    Boolean  @default(false) // Başarı Hikayesi sayfasında gösterilecek mi?
+  isSuccessStory Boolean @default(false) // Başarı Hikayesi sayfasında gösterilecek mi?
 
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Partner {
@@ -112,26 +151,26 @@ model Partner {
 
 model Lead {
   id        String   @id @default(cuid())
-  type      String   // 'contact' | 'callback' | 'quote' | 'newsletter'
+  type      String // 'contact' | 'callback' | 'quote' | 'newsletter'
   name      String?
   phone     String?
   email     String?
   subject   String?
   message   String?
-  meta      String?  // JSON string
+  meta      String? // JSON string
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
 }
 
 model CalculatorConfig {
-  id                 String   @id @default(cuid())
-  baseCostPerUnit    Int      @default(350)
-  securityAddon      Int      @default(450)
-  poolAddon          Int      @default(180)
-  greenAddon         Int      @default(120)
-  elevatorAddon      Int      @default(40)
-  savingsRate        Float    @default(0.22)
-  updatedAt          DateTime @updatedAt
+  id              String   @id @default(cuid())
+  baseCostPerUnit Int      @default(350)
+  securityAddon   Int      @default(450)
+  poolAddon       Int      @default(180)
+  greenAddon      Int      @default(120)
+  elevatorAddon   Int      @default(40)
+  savingsRate     Float    @default(0.22)
+  updatedAt       DateTime @updatedAt
 }
 
 model CalculatorLog {
@@ -146,17 +185,29 @@ model CalculatorLog {
 }
 
 model SectoralSolution {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  title       String
-  description String
-  icon        String
-  kpiTag      String
-  features    String   // JSON string, array of strings
-  order       Int      @default(0)
-  published   Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  title_en       String?
+  title_ru       String?
+  title_ar       String?
+  description    String
+  description_en String?
+  description_ru String?
+  description_ar String?
+  icon           String
+  kpiTag         String
+  kpiTag_en      String?
+  kpiTag_ru      String?
+  kpiTag_ar      String?
+  features       String // JSON string, array of strings
+  features_en    String?
+  features_ru    String?
+  features_ar    String?
+  order          Int      @default(0)
+  published      Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model AuditLog {

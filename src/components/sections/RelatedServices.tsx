@@ -1,16 +1,18 @@
 "use client";
 
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ALL_SERVICES = [
-  { name: 'Güvenlik Yönetimi', path: '/hizmetler/guvenlik-yonetimi', icon: 'security' },
-  { name: 'Tesis Yönetimi', path: '/hizmetler/tesis-yonetimi', icon: 'account_balance_wallet' },
-  { name: 'Temizlik ve Hijyen', path: '/hizmetler/temizlik-ve-hijyen', icon: 'cleaning_services' },
-  { name: 'Teknik Bakım', path: '/hizmetler/teknik-bakim', icon: 'engineering' },
-  { name: 'Peyzaj ve Bahçe Bakımı', path: '/hizmetler/peyzaj-ve-bahce-bakimi', icon: 'park' },
-  { name: 'Havuz Bakımı ve Hijyen', path: '/hizmetler/havuz-bakimi-ve-hijyen', icon: 'pool' },
-  { name: 'Haşere ve Dezenfeksiyon', path: '/hizmetler/hasere-ve-dezenfeksiyon', icon: 'bug_report' },
-  { name: 'Hukuk ve İcra Danışmanlığı', path: '/hizmetler/hukuk-ve-icra-danismanligi', icon: 'gavel' }
+  { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi', icon: 'security' },
+  { nameKey: 'nav_facility_mgmt', path: '/hizmetler/tesis-yonetimi', icon: 'account_balance_wallet' },
+  { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen', icon: 'cleaning_services' },
+  { nameKey: 'nav_tech_maintenance', path: '/hizmetler/teknik-bakim', icon: 'engineering' },
+  { nameKey: 'nav_landscaping', path: '/hizmetler/peyzaj-ve-bahce-bakimi', icon: 'park' },
+  { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen', icon: 'pool' },
+  { nameKey: 'nav_pest_control', path: '/hizmetler/hasere-ve-dezenfeksiyon', icon: 'bug_report' },
+  { nameKey: 'nav_legal', path: '/hizmetler/hukuk-ve-icra-danismanligi', icon: 'gavel' },
+  { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi', icon: 'account_balance_wallet' }
 ];
 
 interface RelatedServicesProps {
@@ -18,6 +20,7 @@ interface RelatedServicesProps {
 }
 
 export default function RelatedServices({ currentPath }: RelatedServicesProps) {
+  const { t } = useLanguage();
   const currentIndex = ALL_SERVICES.findIndex(s => s.path === currentPath);
   
   const related = [];
@@ -31,8 +34,8 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
   return (
     <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto border-t border-slate-100 dark:border-white/5">
       <div className="flex flex-col items-center md:items-start mb-10">
-        <h3 className="text-2xl font-bold text-[var(--color-primary)]">İlgili Diğer Hizmetlerimiz</h3>
-        <p className="text-[var(--color-secondary)] font-light mt-2 text-sm">Alo Yönetim bünyesinde sunduğumuz diğer ayrıcalıklı çözümler.</p>
+        <h3 className="text-2xl font-bold text-[var(--color-primary)]">{t('related_services_title')}</h3>
+        <p className="text-[var(--color-secondary)] font-light mt-2 text-sm">{t('related_services_desc')}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {related.map((service, idx) => (
@@ -41,8 +44,8 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
               <span className="material-symbols-outlined">{service.icon}</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-[var(--color-primary)] group-hover:opacity-80 transition-opacity">{service.name}</span>
-              <span className="text-xs text-[var(--color-secondary)] mt-1 flex items-center gap-1">İncele <span className="material-symbols-outlined text-[10px]">arrow_forward</span></span>
+              <span className="font-bold text-[var(--color-primary)] group-hover:opacity-80 transition-opacity">{(t as any)(service.nameKey)}</span>
+              <span className="text-xs text-[var(--color-secondary)] mt-1 flex items-center gap-1">{t('related_services_inspect')} <span className="material-symbols-outlined text-[10px]">arrow_forward</span></span>
             </div>
           </Link>
         ))}

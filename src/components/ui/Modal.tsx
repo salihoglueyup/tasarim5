@@ -57,7 +57,7 @@ export const Modal: React.FC<ModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className={`relative w-full ${maxWidthStyles[maxWidth]} bg-white dark:bg-[#122338] rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10 p-6 md:p-8 z-10`}
+            className={`relative w-full ${maxWidthStyles[maxWidth]} bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10 p-6 md:p-8 z-10`}
           >
             {title && (
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/10">

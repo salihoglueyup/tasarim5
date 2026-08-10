@@ -3,8 +3,10 @@ import dynamic from 'next/dynamic';
 import { Hero, LogoTicker, SeoTextSection, JsonLd } from '@/components';
 import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
+import { getDictionary } from '@/lib/i18n';
+import { prisma } from '@/lib/prisma';
 
-// Heavy components loaded dynamically for performance (Code Splitting - Faz 47)
+// Heavy components loaded dynamically for performance
 const BentoServices = dynamic(() => import('@/components/sections/BentoServices'), { ssr: true });
 const WhyUsBentoGrid = dynamic(() => import('@/components/sections/WhyUsBentoGrid'), { ssr: true });
 const PersonnelDifference = dynamic(() => import('@/components/sections/PersonnelDifference'), { ssr: true });
@@ -16,47 +18,55 @@ const TestimonialSlider = dynamic(() => import('@/components/sections/Testimonia
 const CertificateBadgeGrid = dynamic(() => import('@/components/sections/CertificateBadgeGrid'), { ssr: true });
 const Faq = dynamic(() => import('@/components/sections/Faq'), { ssr: true });
 
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
+  
   const base = buildMetadata({
-    title: 'Alo Yönetim',
-    description:
-      'İstanbul Kadıköy merkezli profesyonel mülk, site, apartman, plaza ve tesis yönetimi. Şeffaf aidat takibi, 7/24 güvenlik, temizlik ve teknik bakımla gayrimenkullerinizi güvenle yönetiyoruz. Ücretsiz keşif için hemen ulaşın.',
+    title: t.home_meta_title_base || 'Alo Yönetim',
+    description: t.home_meta_desc || 'İstanbul Kadıköy merkezli profesyonel mülk, site, apartman, plaza ve tesis yönetimi. Şeffaf aidat takibi, 7/24 güvenlik, temizlik ve teknik bakımla gayrimenkullerinizi güvenle yönetiyoruz. Ücretsiz keşif için hemen ulaşın.',
     path: '/',
     lang,
     keywords: ['mülk yönetimi', 'tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],
   });
-  // Ana sayfada başlık template'ini (%s | Alo Yönetim) baypas et; marka tekrarını önle.
+  
   return {
     ...base,
-    title: { absolute: 'Alo Yönetim | Profesyonel Mülk, Site ve Tesis Yönetimi' },
+    title: { absolute: t.home_meta_title_absolute || 'Alo Yönetim | Profesyonel Mülk, Site ve Tesis Yönetimi' },
   };
 }
 
-import { prisma } from '@/lib/prisma';
+export default async function Home({ params }: Props) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
 
-export default async function Home() {
-  // Veritabanından Faq'ları çek (Eğer yoksa [] döner, child component fallback kullanır)
   const dbFaqs = await prisma.faq.findMany({
+    take: 5,
+    where: {
+      NOT: {
+        question: {
+          contains: 'ilçesinde'
+        }
+      }
+    },
     orderBy: { order: 'asc' },
-    select: { question: true, answer: true }
+    select: { 
+      question: true, question_en: true, question_ru: true, question_ar: true,
+      answer: true, answer_en: true, answer_ru: true, answer_ar: true
+    }
   });
 
-  // Veritabanından İş Ortaklarını (Partners) çek
   const dbPartners = await prisma.partner.findMany({
     orderBy: { order: 'asc' },
     select: { name: true, logo: true }
   });
 
-  // Veritabanından Müşteri Yorumlarını (References) çek
   const dbReferences = await prisma.reference.findMany({
-    where: {
-      testimonialText: { not: null } // Sadece yorumu olanları al
-    },
+    where: { testimonialText: { not: null } },
     orderBy: { createdAt: 'desc' },
     select: {
       id: true,
@@ -70,17 +80,14 @@ export default async function Home() {
     }
   });
 
-  // Ana sayfa varlık grafiği: WebPage → ProfessionalService (rating) → VideoObject
-  // (SEO V4 Faz 43/46/54/57). NAP/geo/saatler merkezi schema fabrikasından gelir.
   const businessLd = professionalServiceSchema({
-    description:
-      'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
+    description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
     aggregateRating: { ratingValue: '4.9', reviewCount: '340' },
   });
 
   const videoLd = videoObjectSchema({
-    name: 'Alo Yönetim Tanıtım Filmi',
-    description: 'Profesyonel mülk ve tesis yönetimi hizmetlerimizi tanıtan kurumsal filmimiz.',
+    name: t.video_ld_name || 'Alo Yönetim Tanıtım Filmi',
+    description: t.video_ld_desc || 'Profesyonel mülk ve tesis yönetimi hizmetlerimizi tanıtan kurumsal filmimiz.',
     thumbnailUrl: '/images/hero-poster.webp',
     contentUrl: '/video/brand-film.mp4',
     uploadDate: '2026-01-15T08:00:00+03:00',
@@ -88,9 +95,8 @@ export default async function Home() {
   });
 
   const pageLd = webPageSchema({
-    name: 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
-    description:
-      'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi.',
+    name: t.page_ld_name || 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
+    description: t.page_ld_desc || 'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi.',
     path: '/',
     speakableSelectors: ['h1', '.seo-intro'],
   });
@@ -109,7 +115,7 @@ export default async function Home() {
       <AppShowcase />
       <TestimonialSlider dbReferences={dbReferences} />
       <CertificateBadgeGrid />
-      <Faq dbFaqs={dbFaqs} />
+      <Faq dbFaqs={dbFaqs} lang={lang} />
       <PreFooterCta />
     </>
   );

@@ -1,32 +1,95 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { decrypt } from './lib/auth';
+import { match } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
 
-const locales = ['tr', 'en'];
+const locales = ['tr', 'en', 'ru', 'ar'];
 const defaultLocale = 'tr';
 
 const protectedRoutes = ['/admin'];
 const publicRoutes = ['/admin/login'];
 
+// Translated Slugs Mapping (English, Russian, Arabic) -> Turkish App Router folders
+const translatedSlugs: Record<string, Record<string, string>> = {
+  en: {
+    'services': 'hizmetler',
+    'contact': 'iletisim',
+    'about': 'hakkimizda',
+    'regions': 'bolgeler',
+    'blog': 'blog',
+    'calculator': 'hesaplayici',
+    'corporate': 'kurumsal',
+    'references': 'referanslar',
+    'faq': 'sss',
+    'dictionary': 'sozluk',
+    'get-quote': 'teklif-al',
+    'success-stories': 'basari-hikayeleri',
+    'security-academy': 'guvenlik-akademisi',
+    'sectoral-solutions': 'sektorel-cozumler',
+    'sustainability': 'surdurulebilirlik',
+  },
+  ru: {
+    'uslugi': 'hizmetler',
+    'kontakty': 'iletisim',
+    'o-nas': 'hakkimizda',
+    'regioni': 'bolgeler',
+    'blog': 'blog',
+    'kalkulyator': 'hesaplayici',
+    'korporativniy': 'kurumsal',
+    'otzyvy': 'referanslar',
+    'faq': 'sss',
+    'slovar': 'sozluk',
+    'poluchit-czenu': 'teklif-al',
+    'istorii-uspekha': 'basari-hikayeleri',
+    'akademiya-bezopasnosti': 'guvenlik-akademisi',
+    'otraslevye-resheniya': 'sektorel-cozumler',
+    'ustoychivost': 'surdurulebilirlik',
+  },
+  ar: {
+    'khadamat': 'hizmetler',
+    'itisal': 'iletisim',
+    'man-nahnu': 'hakkimizda',
+    'manatiq': 'bolgeler',
+    'mudawana': 'blog',
+    'alat-hasiba': 'hesaplayici',
+    'sharika': 'kurumsal',
+    'marajie': 'referanslar',
+    'asilat-mutakarira': 'sss',
+    'qamus': 'sozluk',
+    'ahsul-ala-ard': 'teklif-al',
+    'qisas-najah': 'basari-hikayeleri',
+    'akadimiyat-al-amn': 'guvenlik-akademisi',
+    'hulul-qitaeia': 'sektorel-cozumler',
+    'aistidama': 'surdurulebilirlik',
+  }
+};
+
+function getLocale(request: NextRequest): string {
+  const headers = { 'accept-language': request.headers.get('accept-language') || '' };
+  const languages = new Negotiator({ headers }).languages();
+  try {
+    return match(languages, locales, defaultLocale);
+  } catch {
+    return defaultLocale;
+  }
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 1. STATİK DOSYA VE API KONTROLÜ
-  // Statik dosyaları, api isteklerini, next.js sistem dosyalarını pas geç
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
-    // Next app metadata route'ları (noktasız oldukları için locale rewrite'a takılıp
-    // /tr/icon'a yönlenip 404 veriyorlardı) — olduğu gibi sun.
     pathname === '/icon' ||
     pathname === '/apple-icon' ||
-    pathname.includes('.') // Dosya uzantısı varsa (resim, favicon vb.)
+    pathname.includes('.')
   ) {
     return NextResponse.next();
   }
 
   // 2. AUTHENTICATION (Yönetim Paneli)
-  // We need to support multi-language routing, so we check if the path contains /admin
   const isProtectedRoute = protectedRoutes.some((route) => pathname.includes(route) && !pathname.includes('/admin/login'));
   const isPublicRoute = publicRoutes.some((route) => pathname.includes(route));
 
@@ -35,45 +98,68 @@ export async function middleware(request: NextRequest) {
     const session = cookie ? await decrypt(cookie) : null;
 
     if (isProtectedRoute && (!session?.userId || session?.role !== 'ADMIN')) {
-      // Oturum yok VEYA rol ADMIN değil → login'e yönlendir (dil önekini koru)
-      const langPrefix = pathname.split('/')[1] || defaultLocale;
+      const langPrefix = locales.find(l => pathname.startsWith(`/${l}/`)) || defaultLocale;
       const loginUrl = new URL(`/${langPrefix}/admin/login`, request.nextUrl);
       return NextResponse.redirect(loginUrl);
     }
 
     if (isPublicRoute && session?.userId) {
-      // If already logged in, redirect to dashboard
-      const langPrefix = pathname.split('/')[1] || defaultLocale;
+      const langPrefix = locales.find(l => pathname.startsWith(`/${l}/`)) || defaultLocale;
       const dashboardUrl = new URL(`/${langPrefix}/admin/dashboard`, request.nextUrl);
       return NextResponse.redirect(dashboardUrl);
     }
   }
 
-  // 3. LOCALE (DİL) YÖNLENDİRMESİ
+  // 3. LOCALE (DİL) YÖNLENDİRMESİ & SLUG ÇEVİRİLERİ
+  
   // URL'nin başında herhangi bir locale var mı?
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  const pathnameIsMissingLocale = locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // Eğer URL'de desteklenen bir locale varsa (ör: /en veya /en/hizmetler), devam et.
-  if (pathnameHasLocale) {
-    // Özel kural: Eğer kullanıcı /tr prefix'ini zorla girdiyse, /tr siz haline redirect edelim (SEO Canonical)
-    if (pathname.startsWith('/tr/') || pathname === '/tr') {
-       const newPathname = pathname.replace(/^\/tr/, '') || '/';
-       return NextResponse.redirect(new URL(newPathname, request.url));
+  // Ziyaretçi ana sayfaya geldiyse ve locale yoksa auto-detect yap
+  if (pathname === '/' && !request.cookies.has('NEXT_LOCALE')) {
+    const detectedLocale = getLocale(request);
+    if (detectedLocale !== defaultLocale) {
+      const redirectUrl = new URL(`/${detectedLocale}`, request.url);
+      return NextResponse.redirect(redirectUrl);
     }
-    return NextResponse.next();
   }
 
-  // Eğer URL'de desteklenen bir locale YOKSA (yani /hizmetler veya /)
-  // URL'yi değiştirmeden, sunucuya /tr/hizmetler olarak rewrite yapıyoruz.
-  const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-  return NextResponse.rewrite(newUrl);
+  if (pathnameIsMissingLocale) {
+    // Eğer locale yoksa, varsayılan dile (tr) rewrite yapıyoruz (SEO açısından URL değişmez)
+    const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+    return NextResponse.rewrite(newUrl);
+  }
+
+  // Locale var. /tr prefix'i kullanılıyorsa ana sayfaya at (Canonical için)
+  if (pathname.startsWith('/tr/') || pathname === '/tr') {
+    const newPathname = pathname.replace(/^\/tr/, '') || '/';
+    return NextResponse.redirect(new URL(newPathname, request.url));
+  }
+
+  // URL Çevirilerini Rewrite Etme (Örn: /en/services -> /en/hizmetler)
+  const currentLocale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+  if (currentLocale && currentLocale !== defaultLocale) {
+    const segments = pathname.split('/').filter(Boolean); // ["en", "services"]
+    if (segments.length > 1) {
+      const originalSlug = segments[1];
+      const translated = translatedSlugs[currentLocale]?.[originalSlug];
+      
+      if (translated) {
+        // Yolu Türkçe (gerçek) klasör yapısına rewrite et (url'de İngilizce kalır)
+        segments[1] = translated;
+        const rewrittenPath = `/${segments.join('/')}`;
+        return NextResponse.rewrite(new URL(rewrittenPath, request.url));
+      }
+    }
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    // Bütün yolları yakala
     '/((?!api|_next/static|_next/image|favicon.ico|images|video|fonts|.*\\..*).*)',
   ],
 };

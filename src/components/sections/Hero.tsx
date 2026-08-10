@@ -116,7 +116,7 @@ export default function Hero() {
             className="mb-4"
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full font-semibold text-xs text-white shadow-lg tracking-tight">
-              <span className="material-symbols-outlined text-sm text-emerald-400">verified</span>
+              <span className="material-symbols-outlined text-sm text-slate-300">verified</span>
               <span>{t('hero_badge')}</span>
             </div>
           </motion.div>

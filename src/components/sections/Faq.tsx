@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
-export default function Faq({ dbFaqs }: { dbFaqs?: { question: string; answer: string; }[] }) {
+export default function Faq({ dbFaqs, lang = 'tr' }: { dbFaqs?: any[], lang?: string }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const { t } = useLanguage();
 
@@ -61,7 +61,7 @@ export default function Faq({ dbFaqs }: { dbFaqs?: { question: string; answer: s
                   className="w-full py-8 flex items-center justify-between text-left focus:outline-none group"
                 >
                   <span className={`text-xl md:text-2xl font-medium transition-colors ${isActive ? 'text-[var(--color-primary)]' : 'text-[var(--color-secondary)] group-hover:text-[var(--color-primary)]'}`}>
-                    {faq.question}
+                    {faq[`question_${lang}`] || faq.question}
                   </span>
                   <motion.div 
                     animate={{ rotate: isActive ? 45 : 0 }}
@@ -80,9 +80,7 @@ export default function Faq({ dbFaqs }: { dbFaqs?: { question: string; answer: s
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="pb-8 pr-12 text-[var(--color-secondary)] leading-relaxed text-lg font-light">
-                        {faq.answer}
-                      </div>
+                      <div className="pb-8 pr-12 text-[var(--color-secondary)] leading-relaxed text-lg font-light" dangerouslySetInnerHTML={{ __html: faq[`answer_${lang}`] || faq.answer }} />
                     </motion.div>
                   )}
                 </AnimatePresence>

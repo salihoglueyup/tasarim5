@@ -131,8 +131,8 @@ export default function Hizmetler() {
             <p className="text-xs text-gray-300 font-light">{t('services_sla_1_desc')}</p>
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-900 to-[#0e2c20] text-white p-8 rounded-3xl flex flex-col gap-3 shadow-lg">
-            <span className="material-symbols-outlined text-3xl text-emerald-400">verified_user</span>
+          <div className="bg-gradient-to-br from-slate-800 to-slate-950 text-white p-8 rounded-3xl flex flex-col gap-3 shadow-lg">
+            <span className="material-symbols-outlined text-3xl text-slate-300">verified_user</span>
             <div className="text-2xl font-bold">{t('services_sla_2_title')}</div>
             <p className="text-xs text-gray-300 font-light">{t('services_sla_2_desc')}</p>
           </div>

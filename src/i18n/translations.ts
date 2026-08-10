@@ -1,14 +1,10 @@
-import { tr } from './tr';
+import trDefault from './locales/tr/common.json';
 
-export type Language = 'tr' | 'en';
+export type Language = 'tr' | 'en' | 'ru' | 'ar';
 
-/**
- * Varsayılan çeviri objesi (Faz 4 & 6: i18n Code-Splitting).
- * Bundle şişkinliğini önlemek için ilk yüklemede sadece TR (varsayılan dil) yüklenir.
- * EN (İngilizce) çevirileri LanguageContext tarafından ihtiyaç duyulduğunda dinamik olarak import edilir.
- */
 export const translations = {
-  tr,
-  // İlk yüklemede ve SSR sırasında fallback olarak tr kullanılır, client'ta en seçilirse asenkron yüklenir.
-  en: tr as Record<keyof typeof tr, string>,
+  tr: trDefault,
+  en: trDefault as Record<keyof typeof trDefault, string>,
+  ru: trDefault as Record<keyof typeof trDefault, string>,
+  ar: trDefault as Record<keyof typeof trDefault, string>,
 };

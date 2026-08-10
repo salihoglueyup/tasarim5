@@ -66,7 +66,7 @@ export default function BasariHikayeleriClient({ stories }: { stories: any[] }) 
           {cases.map((c, i) => (
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 hover:border-[var(--color-primary)] transition-all">
               <div className="flex flex-col gap-4 max-w-2xl">
-                <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 px-4 py-1.5 rounded-full w-fit">
+                <span className="text-xs font-bold text-slate-600 bg-slate-500/10 px-4 py-1.5 rounded-full w-fit">
                   {c.tag}
                 </span>
                 <h2 className="text-3xl font-bold text-[var(--color-primary)]">{c.title}</h2>

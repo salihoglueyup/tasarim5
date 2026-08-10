@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import SecurityCalculator from '@/components/sections/SecurityCalculator';
+import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
 
 export default function GuvenlikYonetimi() {
   const { t } = useLanguage();
@@ -24,7 +26,7 @@ export default function GuvenlikYonetimi() {
       title: t('sec_feat_2_title'),
       desc: t('sec_feat_2_desc'),
       icon: "center_focus_strong",
-      color: "from-emerald-500 to-teal-600"
+      color: "from-slate-600 to-slate-800"
     },
     {
       title: t('sec_feat_3_title'),
@@ -100,51 +102,50 @@ export default function GuvenlikYonetimi() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
-      <PageHeader 
-        title={t('sec_title')} 
-        description={t('sec_desc')} 
-      />
+      
+      {/* Immersive Full-Width Hero */}
+      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+        </div>
+        
+        {/* Radar Animation embedded in background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+            <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
+            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
+        </div>
+
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center gap-6"
+          >
+            <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
+              {t('sec_banner_badge')}
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1')} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">${t('sec_banner_title_highlight')}</span> ${t('sec_banner_title_2')}` }} />
+            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
+              {t('sec_banner_desc')}
+            </p>
+            <div className="flex gap-4 mt-8">
+              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+                {t('sec_banner_box_btn')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
-        {/* Banner Teaser with Radar Effect */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden">
-          
-          {/* Radar Background Animation */}
-          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-30 mix-blend-screen hidden lg:block">
-            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
-            <div className="absolute inset-8 border border-slate-400/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
-            <div className="absolute inset-16 border border-emerald-400/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
-            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-slate-300 to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
-          </div>
-
-          <div className="flex flex-col gap-6 w-full lg:w-7/12 relative z-10">
-            <motion.span 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full w-fit"
-            >
-              {t('sec_banner_badge')}
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1')} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-emerald-400">${t('sec_banner_title_highlight')}</span> ${t('sec_banner_title_2')}` }} />
-            <p className="text-lg text-gray-300 font-light leading-relaxed max-w-xl">
-              {t('sec_banner_desc')}
-            </p>
-          </div>
-
-          <div className="w-full lg:w-5/12 bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 flex flex-col gap-4 text-center relative z-10 hover:bg-white/10 transition-colors shadow-2xl">
-            <div className="w-20 h-20 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center relative">
-               <span className="absolute inset-0 border-2 border-emerald-400 rounded-full animate-ping opacity-20"></span>
-               <span className="material-symbols-outlined text-4xl text-emerald-400 relative z-10">radar</span>
-            </div>
-            <div className="text-4xl font-black text-white mt-2">{t('sec_banner_box_title')}</div>
-            <div className="text-sm font-semibold text-slate-300">{t('sec_banner_box_subtitle')}</div>
-            <Link href="/teklif-al" className="mt-4 bg-white text-slate-950 font-bold py-3.5 px-6 rounded-xl hover:bg-slate-100 transition-transform hover:scale-105 text-sm flex items-center justify-center gap-2">
-              {t('sec_banner_box_btn')}
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </Link>
-          </div>
+        {/* Security Calculator */}
+        <div className="-mt-32 relative z-30">
+          <SecurityCalculator />
         </div>
 
         {/* 6 Bento Grid Cards with Staggered Animation */}
@@ -177,6 +178,9 @@ export default function GuvenlikYonetimi() {
             ))}
           </motion.div>
         </div>
+
+        {/* Security Specific Social Proof */}
+        <SecurityTestimonials />
 
         {/* FAQ Section */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

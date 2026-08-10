@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { JsonLd, RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import CleaningCalculator from '@/components/sections/CleaningCalculator';
+import CleaningTestimonials from '@/components/sections/CleaningTestimonials';
 
 export default function TemizlikVeHijyen() {
   const { t } = useLanguage();
@@ -18,7 +20,7 @@ export default function TemizlikVeHijyen() {
       title: t('clean_feat_1_title'),
       desc: t('clean_feat_1_desc'),
       icon: "eco",
-      color: "from-emerald-500 to-green-600"
+      color: "from-slate-500 to-slate-700"
     },
     {
       title: t('clean_feat_2_title'),
@@ -46,8 +48,8 @@ export default function TemizlikVeHijyen() {
       season: t('clean_matrix_season_1'), 
       task: t('clean_matrix_task_1'),
       icon: "local_florist",
-      color: "text-green-500",
-      bg: "bg-green-500/10"
+      color: "text-slate-500",
+      bg: "bg-slate-500/10"
     },
     { 
       id: "yaz",
@@ -107,31 +109,50 @@ export default function TemizlikVeHijyen() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
-      <PageHeader 
-        title={t('clean_title')} 
-        description={t('clean_desc')} 
-      />
+      
+      {/* Immersive Full-Width Hero (Titanium & Slate) */}
+      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+        </div>
+        
+        {/* Abstract Minimal Animation */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+            <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
+            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
+        </div>
+
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+          <div className="flex flex-col items-center gap-6">
+            <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
+              {t('clean_banner_badge')}
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
+              Profesyonel <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">
+                Temizlik ve Hijyen
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
+              {t('clean_banner_desc')}
+            </p>
+            <div className="flex gap-4 mt-8">
+              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+                Hemen Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
-        {/* Banner */}
-        <div className="bg-gradient-to-br from-emerald-950 via-[#0e2c20] to-[#071912] text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row justify-between items-center gap-10 overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
-          <div className="flex flex-col gap-6 max-w-2xl relative z-10">
-            <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full w-fit">
-              {t('clean_banner_badge')}
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-              {t('clean_banner_title')}
-            </h2>
-            <p className="text-lg text-emerald-100/80 font-light leading-relaxed">
-              {t('clean_banner_desc')}
-            </p>
-          </div>
-          <Link href="/teklif-al" className="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-4 px-8 rounded-2xl shrink-0 text-sm shadow-xl transition-all hover:scale-105 hover:shadow-emerald-500/25 relative z-10 flex items-center gap-2">
-            {t('clean_banner_btn')}
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </Link>
+        {/* Cleaning Calculator */}
+        <div className="-mt-32 relative z-30">
+          <CleaningCalculator />
         </div>
 
         {/* Highlights Grid */}
@@ -208,6 +229,9 @@ export default function TemizlikVeHijyen() {
           </div>
         </div>
 
+        {/* Cleaning Specific Social Proof */}
+        <CleaningTestimonials />
+
         {/* SSS Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">{t('clean_faq_title')}</h2>
@@ -219,7 +243,7 @@ export default function TemizlikVeHijyen() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-emerald-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
                     expand_more
                   </span>
                 </button>

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 type LoginModalProps = {
   isOpen: boolean;
@@ -9,6 +10,7 @@ type LoginModalProps = {
 };
 
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'sakin' | 'yonetici'>('sakin');
   const [mounted, setMounted] = useState(false);
 
@@ -68,9 +70,9 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   {activeTab === 'sakin' ? 'vpn_key' : 'admin_panel_settings'}
                 </span>
               </div>
-              <h2 id="login-modal-title" className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight">Sisteme Giriş</h2>
+              <h2 id="login-modal-title" className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight">{t('login_title')}</h2>
               <p className="text-sm text-slate-500 dark:text-gray-400 mt-2 font-light">
-                {activeTab === 'sakin' ? 'Aidat ve borç sorgulama portalı' : 'Sistem yöneticileri için operasyon portalı'}
+                {activeTab === 'sakin' ? t('login_desc_resident') : t('login_desc_admin')}
               </p>
             </div>
 
@@ -87,13 +89,13 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   onClick={() => setActiveTab('sakin')}
                   className={`flex-1 py-2.5 text-sm font-bold z-10 transition-colors ${activeTab === 'sakin' ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-gray-400'}`}
                 >
-                  Sakin Girişi
+                  {t('login_tab_resident')}
                 </button>
                 <button 
                   onClick={() => setActiveTab('yonetici')}
                   className={`flex-1 py-2.5 text-sm font-bold z-10 transition-colors ${activeTab === 'yonetici' ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-gray-400'}`}
                 >
-                  Yönetici Portalı
+                  {t('login_tab_admin')}
                 </button>
               </div>
 
@@ -106,34 +108,34 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   exit={{ opacity: 0, x: activeTab === 'sakin' ? 10 : -10 }}
                   transition={{ duration: 0.2 }}
                   className="flex flex-col gap-4"
-                  onSubmit={(e) => { e.preventDefault(); alert("Bu bir UI simülasyonudur. Gerçek entegrasyon CRM sisteminize bağlanarak yapılacaktır."); onClose(); }}
+                  onSubmit={(e) => { e.preventDefault(); alert(t('login_ui_simulation')); onClose(); }}
                 >
                   
                   {activeTab === 'sakin' ? (
                     <>
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">TC Kimlik / Telefon</label>
+                        <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">{t('login_resident_tc')}</label>
                         <div className="relative">
                           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">person</span>
                           <input 
                             type="text" 
                             required
-                            placeholder="Örn: 532 123 45 67" 
+                            placeholder={t('login_resident_tc_ph')} 
                             className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
                       </div>
                       <div className="flex flex-col gap-1.5">
                         <div className="flex items-center justify-between pl-1">
-                          <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest">Sakin Şifresi</label>
-                          <a href="#" className="text-xs text-slate-900 dark:text-white font-bold underline hover:opacity-80">Şifremi Unuttum?</a>
+                          <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest">{t('login_resident_pass')}</label>
+                          <a href="#" className="text-xs text-slate-900 dark:text-white font-bold underline hover:opacity-80">{t('login_forgot_password')}</a>
                         </div>
                         <div className="relative">
                           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
                           <input 
                             type="password" 
                             required
-                            placeholder="••••••••" 
+                            placeholder={t('login_resident_pass_ph')} 
                             className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
@@ -142,25 +144,25 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   ) : (
                     <>
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">Yönetici Kodu</label>
+                        <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">{t('login_admin_code')}</label>
                         <div className="relative">
                           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">badge</span>
                           <input 
                             type="text" 
                             required
-                            placeholder="Personel veya Yönetici Kodu" 
+                            placeholder={t('login_admin_code_ph')} 
                             className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
                       </div>
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">Giriş Anahtarı (Şifre)</label>
+                        <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">{t('login_admin_pass')}</label>
                         <div className="relative">
                           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">key</span>
                           <input 
                             type="password" 
                             required
-                            placeholder="••••••••" 
+                            placeholder={t('login_resident_pass_ph')} 
                             className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3.5 pl-12 pr-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 focus:border-slate-900 dark:focus:border-white transition-all text-sm placeholder:text-slate-400"
                           />
                         </div>
@@ -172,7 +174,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     type="submit"
                     className="w-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold py-3.5 rounded-xl shadow-lg hover:shadow-slate-900/25 dark:hover:shadow-white/20 transition-all mt-4 flex items-center justify-center gap-2"
                   >
-                    Sisteme Giriş Yap
+                    {t('login_btn')}
                     <span className="material-symbols-outlined text-lg">login</span>
                   </button>
 
@@ -184,7 +186,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             <div className="bg-slate-50 dark:bg-slate-800/50 p-5 text-center text-xs text-slate-500 dark:text-gray-400 font-light border-t border-slate-100 dark:border-white/5">
               <span className="flex items-center justify-center gap-1">
                 <span className="material-symbols-outlined text-[14px]">shield_lock</span>
-                256-bit SSL ile güvenli bağlantı.
+                {t('login_secure_ssl')}
               </span>
             </div>
 

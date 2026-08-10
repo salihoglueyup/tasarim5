@@ -73,13 +73,13 @@ export default function ComparisonTable() {
               <h3 className="text-2xl font-bold text-slate-300">{t('home_comparison_left_title')}</h3>
               <span className="text-xs text-gray-300 font-light">{t('home_comparison_left_sub')}</span>
             </div>
-            <span className="material-symbols-outlined text-4xl text-emerald-400">verified</span>
+            <span className="material-symbols-outlined text-4xl text-slate-300">verified</span>
           </div>
 
           <div className="flex flex-col gap-6">
             {comparisonRows.map((row, i) => (
               <div key={i} className="flex items-start gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                <span className="material-symbols-outlined text-emerald-400 shrink-0 mt-1">check_circle</span>
+                <span className="material-symbols-outlined text-slate-300 shrink-0 mt-1">check_circle</span>
                 <div>
                   <h4 className="font-bold text-white text-base mb-1">{row.title}</h4>
                   <p className="text-sm text-gray-300 font-light leading-relaxed">{row.alo}</p>

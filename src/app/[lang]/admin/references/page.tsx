@@ -80,7 +80,7 @@ export default async function AdminReferences({ params }: { params: Promise<{ la
                   <td className="p-4">
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${
                       ref.published 
-                        ? 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 border-green-200 dark:border-green-500/20' 
+                        ? 'bg-slate-50 dark:bg-slate-500/10 text-slate-700 dark:text-slate-400 border-slate-200 dark:border-slate-500/20' 
                         : 'bg-yellow-50 dark:bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-500/20'
                     }`}>
                       {ref.published ? 'Yayında' : 'Taslak'}

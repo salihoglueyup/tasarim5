@@ -187,7 +187,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                   <span className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-2xl">{currentSector.icon}</span>
                   </span>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full">
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 border border-slate-500/20 px-4 py-1.5 rounded-full">
                     {currentSector.kpi}
                   </span>
                 </div>
@@ -271,10 +271,10 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-emerald-400">cleaning_services</span>
+                  <span className="material-symbols-outlined text-sm text-slate-300">cleaning_services</span>
                   {t('sector_est_clean')}
                 </span>
-                <span className="text-2xl font-bold text-emerald-400">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
+                <span className="text-2xl font-bold text-slate-300">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
                 <span className="text-[10px] text-gray-400">{t('sector_est_clean_desc')}</span>
               </div>
 
@@ -312,7 +312,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                   <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
                     <span className="material-symbols-outlined text-3xl">{s.icon}</span>
                   </div>
-                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-500/10 px-3 py-1 rounded-full">
+                  <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 px-3 py-1 rounded-full">
                     {s.kpi}
                   </span>
                 </div>

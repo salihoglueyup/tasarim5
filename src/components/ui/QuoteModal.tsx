@@ -129,7 +129,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-6xl h-full max-h-[90vh] bg-white dark:bg-[#0b1c30] rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
+        className="relative w-full max-w-6xl h-full max-h-[90vh] bg-white dark:bg-slate-950 rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
       >
         {/* Close Button */}
         <button 
@@ -181,7 +181,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
         </div>
 
         {/* RIGHT SIDE: Interactive Form Area */}
-        <div className="flex-1 flex flex-col relative bg-white dark:bg-[#0b1c30] w-full h-full overflow-y-auto custom-scrollbar">
+        <div className="flex-1 flex flex-col relative bg-white dark:bg-slate-950 w-full h-full overflow-y-auto custom-scrollbar">
           
           <div className="flex-1 flex flex-col justify-center p-6 md:p-10 lg:p-12 xl:p-16">
             

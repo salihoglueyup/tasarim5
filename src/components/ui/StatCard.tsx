@@ -26,7 +26,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           </div>
         )}
         {trend && (
-          <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 px-3 py-1 rounded-full">
             {trend}
           </span>
         )}

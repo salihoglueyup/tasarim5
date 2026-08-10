@@ -68,7 +68,7 @@ export default function CertificateBadgeGrid() {
             className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 shadow-sm hover:border-[var(--color-primary)] transition-all"
           >
             <div className="flex items-center justify-between">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl">{c.icon}</span>
               </div>
               <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-xs px-3 py-1 rounded-full">

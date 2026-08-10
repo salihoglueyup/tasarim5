@@ -46,8 +46,8 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
   if (status === 'success') {
     return (
       <div role="status" aria-live="polite" className={`${wrapClass} items-center text-center`}>
-        <span className="material-symbols-outlined text-3xl text-emerald-600">check_circle</span>
-        <p className="text-sm font-medium text-emerald-700 dark:text-emerald-400">{t('cro_callback_success')}</p>
+        <span className="material-symbols-outlined text-3xl text-slate-800 dark:text-white">check_circle</span>
+        <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('cro_callback_success')}</p>
       </div>
     );
   }
