@@ -82,7 +82,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' blob: data: https://images.unsplash.com https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://www.clarity.ms https://c.bing.com https://www.facebook.com",
               "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://connect.facebook.net",
               "worker-src 'self' blob:",
-              "frame-src 'self' https://www.youtube.com",
+              "frame-src 'self' https://www.youtube.com https://www.google.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
