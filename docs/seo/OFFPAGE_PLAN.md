@@ -1,4 +1,4 @@
-﻿# Off-Page, Yerel İşaretler & Backlink Planı
+# Off-Page, Yerel İşaretler & Backlink Planı
 
 > **Amaç (SEO Master Plan V4 — Bölüm J, Faz 231–247):** Site dışı otorite (backlink, citation),
 > yerel varlık (Google Business Profile) ve dijital PR ile alan otoritesini artırmak. Bu bölümün
@@ -27,6 +27,8 @@ linkedin.com/company/aloyonetim · youtube.com/@aloyonetim
 - [ ] Yorum akışı: memnun müşteri → kısa yorum linki; tüm yorumlara 48 saatte yanıt.
       Site `aggregateRating` (4.9) gerçek GBP puanıyla tutarlı tutulur (Faz 46/234).
 - [ ] GBP Insights: harita paketi görünürlüğü, yol tarifi/arama aksiyonları — aylık izle.
+
+> 📅 **Durum (Ağustos 2026):** GBP henüz oluşturulmadı — öncelikli aksiyon.
 
 ## 2. NAP citation & dizinler (Faz 235/236)
 Öncelikli Türkiye dizinleri (tutarlı NAP + web linki):
@@ -62,7 +64,18 @@ Anchor dağılımı doğal tutulur (marka + çıplak URL + konu karışık); par
 - [ ] İçerik boşlukları (CONTENT_CLUSTERS.md) + backlink boşluklarını kapat.
 - [ ] Çeyreklik GAP raporu → içerik/off-page aksiyon listesi.
 
-## 7. Uygulanmış kod tarafı
-- `sameAs` schema + Footer sosyal linkleri gerçek profillere bağlı (Faz 239).
-- GA4 dönüşüm event'leri: teklif modalı, form, tıkla-ara, WhatsApp (Faz 240 — bkz. `src/lib/analytics.ts`).
-- IndexNow anahtarı env'de hazır (`INDEXNOW_KEY`), Bing/Yandex anlık indeksleme için (Faz 29).
+## 7. Uygulanmış kod tarafı ✅
+
+| Öğe | Durum | Not |
+|---|---|---|
+| `sameAs` schema + Footer sosyal linkleri | ✅ Hazır | Gerçek profillere bağlı (Faz 239) |
+| GA4 dönüşüm event'leri | ✅ Hazır | open_quote_modal, form, tıkla-ara, WhatsApp (Faz 240) |
+| IndexNow anahtarı env'de | ✅ Hazır | `INDEXNOW_KEY` — doldurmak için Bing'e başvur |
+| Favicon (kartal logosu) | ✅ Ağustos 2026 | 4 boyut, Google indekslemesi bekleniyor |
+| security.txt | ✅ Ağustos 2026 | /.well-known/security.txt |
+| robots.txt (AI botları izni) | ✅ Hazır | GPTBot, ClaudeBot, vb. açık |
+| llms.txt / llms-full.txt | ✅ Hazır | AI motorları için içerik beslemesi |
+| Google Business Profile | ⬜ Bekliyor | **Öncelikli aksiyon** |
+| Bing Places | ⬜ Bekliyor | GBP sonrası |
+| NAP citation (dizinler) | ⬜ Bekliyor | GBP sonrası |
+

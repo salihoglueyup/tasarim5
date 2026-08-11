@@ -5,11 +5,15 @@
 
 ## Otomatik kontroller (her ay çalıştır)
 ```bash
-npm run build            # derleme + statik üretim hatasız (exit 0)
-npm run start &          # prod sunucu
-npm run seo:audit        # on-page: title/desc/H1/canonical/kelime/iç link (0 hata)
-npm run validate:jsonld  # tüm JSON-LD geçerli + tip envanteri
-npx lhci autorun         # Lighthouse CI eşikleri (perf/seo/a11y)
+npm run build              # Derleme + statik üretim hatasız (exit 0)
+npm run start &            # Prod sunucu
+npm run seo:audit          # On-page: title/desc/H1/canonical/kelime/iç link (0 hata)
+npm run validate:jsonld    # Tüm JSON-LD geçerli + tip envanteri
+npx lhci autorun           # Lighthouse CI eşikleri (perf/seo/a11y)
+
+# veya Makefile kısayolları (sunucuda):
+make status                # Container sağlık kontrolü
+make logs-web              # Next.js logları
 ```
 
 ## Teknik (aylık)
