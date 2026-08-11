@@ -1,90 +1,135 @@
-﻿# ⚙️ Yerel Geliştirme Kurulumu
+# ⚙️ Yerel Geliştirme Kurulumu
 
 ## Gereksinimler
 
 | Araç | Minimum Sürüm | Kontrol |
 |---|---|---|
-| Node.js | 20.x (LTS) | `node -v` |
+| Node.js | 22.x (LTS) | `node -v` |
 | npm | 10.x | `npm -v` |
 | Git | 2.x | `git --version` |
+| Docker Desktop | 24.x | `docker -v` |
+
+---
 
 ## 1. Depoyu Klonla
 
 ```bash
-git clone https://github.com/salihoglueyup/tasarim5.git
-cd tasarim5
+git clone https://github.com/salihoglueyup/tasarim5.git aloyonetim
+cd aloyonetim
 ```
+
+---
 
 ## 2. Ortam Değişkenlerini Ayarla
 
 `.env.example` dosyasını kopyala ve değerleri doldur:
 
 ```bash
-cp .env.example .env.local
+cp .env.example .env
+nano .env   # veya istediğin editörle aç
 ```
 
-Zorunlu değişkenler:
+**Yerel geliştirme için zorunlu değişkenler:**
 
-| Değişken | Açıklama | Kaynak |
+| Değişken | Açıklama | Örnek |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Sitenin tam URL'si | Örn: `https://aloyonetim.com.tr` |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp numarası | Örn: `905xxxxxxxxx` |
-| `RESEND_API_KEY` | E-posta gönderimi | [resend.com](https://resend.com) |
-| `TELEGRAM_BOT_TOKEN` | Telegram bildirimleri | @BotFather |
-| `TELEGRAM_CHAT_ID` | Telegram hedef kanalı | getUpdates API |
-| `SUPABASE_URL` | Veritabanı URL | [supabase.com](https://supabase.com) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Veritabanı anahtarı | Supabase Dashboard |
-| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 | GA4 yönetici paneli |
+| `POSTGRES_PASSWORD` | PostgreSQL şifresi | `guclu_sifre_123` |
+| `REDIS_PASSWORD` | Redis şifresi | `redis_sifre_456` |
+| `JWT_SECRET` | Admin panel JWT anahtarı | En az 64 karakter rastgele string |
+| `DATABASE_URL` | Prisma bağlantısı | `postgresql://alo_user:SIFRE@localhost:5432/aloyonetim?schema=public` |
+| `REDIS_URL` | Redis bağlantısı | `redis://:SIFRE@localhost:6379` |
 
-> Hiçbir değer yoksa bile uygulama çalışır — lead kanalları sessizce atlanır.
+**Opsiyonel (lead bildirimleri için):**
 
-## 3. Bağımlılıkları Yükle
+| Değişken | Açıklama |
+|---|---|
+| `RESEND_API_KEY` | E-posta gönderimi |
+| `TELEGRAM_BOT_TOKEN` | Telegram bildirimleri |
+| `TELEGRAM_CHAT_ID` | Hedef Telegram kanalı |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 |
 
-```bash
-npm install
-```
-
-## 4. Dev Sunucusunu Başlat
-
-```bash
-npm run dev
-# veya dev.bat'tan [1] seç
-```
-
-Tarayıcıda aç: [http://localhost:3000](http://localhost:3000)
+> Hiçbir lead değişkeni yoksa bile uygulama çalışır — formlar sessizce loglanır.
 
 ---
 
-## 🪟 Windows Kullanıcıları: dev.bat Menüsü
+## 3. Docker ile Veritabanını Başlat
 
-Proje kök dizinindeki `dev.bat` dosyasına çift tıklayarak tüm işlemleri menüden yapabilirsin.
+```bash
+# Tüm servisleri başlat (PostgreSQL, Redis, N8N, Prisma Studio)
+make up
+
+# Veya uzun hali:
+docker compose -f docker/docker-compose.yml --env-file .env up -d
+```
+
+---
+
+## 4. Bağımlılıkları Yükle
+
+```bash
+npm install
+npx prisma generate   # Prisma Client'ı oluştur
+```
+
+---
+
+## 5. Dev Sunucusunu Başlat
+
+```bash
+npm run dev
+```
+
+Tarayıcıda aç: [http://localhost:3001](http://localhost:3001)
+
+> Port 3001 kullanılır (3000 değil) — `package.json`'da `next dev -p 3001` olarak tanımlı.
+
+---
+
+## 6. (Opsiyonel) Veritabanını Doldur
+
+SSS verilerini yüklemek için:
+```bash
+npx tsx import-faqs.ts
+```
+
+---
 
 ## Faydalı Komutlar
 
 ```bash
-npm run build      # Production build
-npm run start      # Production önizleme
-npx tsc --noEmit   # TypeScript kontrolü
-npx eslint src     # Lint kontrolü
+npm run build      # Production build kontrolü
+npm run lint       # ESLint kontrolü
+npx tsc --noEmit   # TypeScript tip kontrolü
+npm test           # Vitest birim testleri
+make status        # Docker container durumları
+make logs-web      # Next.js logları
 ```
+
+---
 
 ## Sık Karşılaşılan Sorunlar
 
 ### `.next/` ile ilgili hatalar
 ```bash
-# dev.bat [17] veya:
-rm -rf .next && npm run dev
+Remove-Item -Recurse -Force .next   # PowerShell
+rm -rf .next                         # Linux/Mac
+npm run dev
 ```
 
-### node_modules sorunları
+### Veritabanı bağlantı hatası
 ```bash
-# dev.bat [18] veya:
-rm -rf node_modules .next && npm install
+make status   # Postgres container'ın çalıştığını kontrol et
+make up       # Çalışmıyorsa başlat
+```
+
+### `Cannot find module '@/generated/prisma/client'`
+```bash
+npx prisma generate
 ```
 
 ### Ortam değişkeni eksik uyarısı
-`.env.local` dosyasının var olduğundan emin ol — `.env.example`'dan kopyalanabilir.
+`.env` dosyasının var olduğundan emin ol — `.env.example`'dan kopyalanabilir.
 
 ---
 
-**Sonraki:** [DEPLOYMENT.md](DEPLOYMENT.md) — Vercel'e deploy
+**Sonraki:** [DEPLOYMENT.md](DEPLOYMENT.md) — Sunucuya deploy

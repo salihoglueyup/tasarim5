@@ -1,4 +1,4 @@
-﻿# 🤝 Katkı Kılavuzu
+# 🤝 Katkı Kılavuzu
 
 ## Genel Prensipler
 
@@ -30,14 +30,16 @@
 | `docs` | Sadece dokümantasyon |
 | `chore` | Yapılandırma, bağımlılık, araç |
 | `test` | Test ekleme/güncelleme |
+| `i18n` | Çeviri ekleme/güncelleme |
 
 ### Örnekler
 ```bash
 feat(blog): add related articles component
 fix(form): handle empty phone field validation
 perf(hero): remove blocking poster image
-docs(dev): update deployment guide for Vercel
+docs(dev): update deployment guide for Docker
 chore: update eslint config
+i18n(services): add Russian translations for cleaning page
 style(bolgeler): migrate from blue to slate palette
 ```
 
@@ -51,6 +53,7 @@ main                    ← Production (koruma altında)
   └── feat/yeni-ozellik ← Özellik geliştirme
   └── fix/hata-adi      ← Hata düzeltme
   └── chore/temizlik    ← Temizlik/refactor
+  └── i18n/dil-adi      ← Çeviri çalışmaları
 ```
 
 ---
@@ -77,9 +80,11 @@ main                    ← Production (koruma altında)
 - `LazyMotion` içinde `motion.*` yerine `m.*` kullan (tree shaking için)
 - `prefers-reduced-motion` desteğini kontrol et
 
-### i18n
-- Yeni UI metinleri `src/lib/translations.ts`'e eklenir (hem `tr` hem `en`)
-- Sayfalar `/[lang]/` altında yer alır
+### i18n (Çoklu Dil)
+- Yeni UI metinleri `src/i18n/locales/tr/common.json`'a eklenir
+- Otomatik çeviri için: `node scripts/translate.mjs`
+- 4 dil desteklenir: `tr`, `en`, `ru`, `ar`
+- Detaylar için: [../i18n/TRANSLATION_GUIDE.md](../i18n/TRANSLATION_GUIDE.md)
 
 ---
 
@@ -87,11 +92,11 @@ main                    ← Production (koruma altında)
 
 1. Branch oluştur: `git checkout -b feat/ozellik-adi`
 2. Değişikliklerini yap
-3. Build al: `npm run build` (288 rota hatasız derlenmelidir)
+3. Build al: `npm run build` (hatasız derlenmelidir)
 4. TypeScript kontrol: `npx tsc --noEmit`
-5. Commit + push: `git push origin feat/ozellik-adi`
-6. GitHub'da PR aç → kısa açıklama yaz
-7. Preview deploy URL'ini kontrol et (Vercel otomatik oluşturur)
+5. i18n değişikliği varsa: `node scripts/translate.mjs`
+6. Commit + push: `git push origin feat/ozellik-adi`
+7. GitHub'da PR aç → kısa açıklama yaz
 
 ---
 
@@ -101,8 +106,11 @@ main                    ← Production (koruma altında)
 |---|---|
 | Yeni sayfa | `src/app/[lang]/<slug>/page.tsx` |
 | Yeni bileşen | `src/components/<kategori>/` |
-| UI çevirisi | `src/lib/translations.ts` |
+| Türkçe çeviri anahtarı | `src/i18n/locales/tr/common.json` |
+| Otomatik çeviri | `node scripts/translate.mjs` |
 | Schema / JSON-LD | `src/lib/schemas.ts` |
 | Lead/form API | `src/app/api/lead/route.ts` |
 | Global stiller | `src/app/globals.css` |
 | Görseller | `public/images/` |
+| Docker komutları | `Makefile` veya [dev/DOCKER.md](DOCKER.md) |
+| Veritabanı modelleri | `prisma/schema.prisma` |
