@@ -387,16 +387,15 @@ WCAG 2.1 AA uyumu, `:focus-visible` odak halkası, `Skip-to-content` linki, `pre
 # Bölüm 5: SEO ve AI Engine Optimization (seo/)
 
 ## 5.1 SEO Yol Haritası (ROADMAP.md)
-250 Fazlık SEO Master Plan V4 tamamlanma durumu ve V5 gelecek fırsatları.
+250 Fazlık SEO Master Plan V4 tamamlanma durumu ve V5 gelecek fırsاتları.
 
 - **hreflang Matrisi (`src/lib/seo.ts`)**: 4 dil için (`tr-TR`, `en-US`, `ru-RU`, `ar-SA` ve `x-default`) otomatik `hreflang` ve canonical URL üretimi.
 - **Sitemap Alternates (`src/app/sitemap.ts`)**: Tüm static, dinamik ve bölgesel rotalar 4 dil için `alternates.languages` ile haritalanır.
 
-## 5.3 AI / GEO Stratejisi (GEO_STRATEGY.md)
-ChatGPT, Perplexity, Claude ve Gemini yapay zeka motorlarında kaynak olarak yer almak için:
-- `/llms.txt`: Kısa özet ve marka kimliği.
-- `/llms-full.txt`: Derin mevzuat, KMK ve soru-cevap veri seti.
-- `/api/summary`: Makine-okur özet API.
+- **`/llms.txt`**: Kısa özet ve marka kimliği.
+- **`/llms-full.txt`**: Veritabanından (PostgreSQL `prisma.faq` ve `prisma.post`) 520+ SSS sorusu ve blog yazılarıyla **dinamik** olarak üretilen derin AI rehberi.
+- **IndexNow Anlık İndeksleme**: Bing ve Yandex'e sayfa değişikliklerini anında bildiren `src/lib/indexnow.ts` ve `scripts/notify-indexnow.mjs`.
+- **`/api/summary`**: Makine-okur özet API.
 
 ## 5.4 Off-Page ve Backlink Planı (OFFPAGE_PLAN.md)
 Google Business Profile (GBP), Bing Places, yerel rehberler ve NAP tutarlılığı stratejisi.

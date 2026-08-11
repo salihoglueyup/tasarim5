@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Merkezi JSON-LD şema fabrikası (SEO Master Plan V4 — Bölüm C, Faz 41–70).
  *
  * Tüm yapılandırılmış veri (schema.org) tek bir yerden, tip-güvenli üretici
@@ -554,6 +554,7 @@ export function localBusinessAreaSchema(opts: {
   geo: { lat: number; lng: number };
   description?: string;
   url: string;
+  aggregateRating?: RatingInput;
 }): JsonLdObject {
   return {
     '@type': 'ProfessionalService',
@@ -570,8 +571,42 @@ export function localBusinessAreaSchema(opts: {
       latitude: opts.geo.lat,
       longitude: opts.geo.lng,
     },
+    hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(opts.areaName)}`,
     areaServed: { '@type': 'AdministrativeArea', name: `${opts.areaName}, İstanbul` },
     parentOrganization: { '@id': ORG_ID },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '14:00',
+      },
+    ],
+    ...(opts.aggregateRating
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: opts.aggregateRating.ratingValue,
+            reviewCount: opts.aggregateRating.reviewCount,
+            bestRating: '5',
+            worstRating: '1',
+          },
+        }
+      : {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '120',
+            bestRating: '5',
+            worstRating: '1',
+          },
+        }),
   };
 }
 

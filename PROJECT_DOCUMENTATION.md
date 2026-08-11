@@ -219,7 +219,8 @@ Form gönderimleri (`POST /api/lead`) **üç kanala paralel** iletilir:
 ### 🤖 GEO (AI Engine Optimization)
 ChatGPT, Perplexity, Claude ve Gemini gibi AI motorlarında doğru temsil edilmek için:
 - **`/llms.txt`**: Kısa AI marka ve altyapı özeti.
-- **`/llms-full.txt`**: Mevzuat, KMK maddeleri, 5188 kanun detayları ve SSS verisi.
+- **`/llms-full.txt`**: Veritabanındaki 520+ SSS sorusu ve blog yazılarıyla **dinamik** olarak beslenen AI rehberi.
+- **IndexNow Anlık İndeksleme**: Bing ve Yandex'e yeni/güncellenen sayfaları milisaniyeler içinde bildiren `src/lib/indexnow.ts` ve `scripts/notify-indexnow.mjs` modülü.
 - **`/api/summary`**: Makine-okur özet uç noktası.
 
 ---
