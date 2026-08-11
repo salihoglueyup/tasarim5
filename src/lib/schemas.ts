@@ -37,10 +37,10 @@ export const ORG_PRICE_RANGE = '₺₺';
 /** Postal adres (Kadıköy merkez ofis). */
 export const ORG_ADDRESS = {
   '@type': 'PostalAddress',
-  streetAddress: 'Eğitim Mahallesi, Kasap İsmail Sk. No: 15 / 19',
+  streetAddress: 'Osmanağa Mahallesi, Misakı Milli Sokak No:94A',
   addressLocality: 'Kadıköy',
   addressRegion: 'İstanbul',
-  postalCode: '34722',
+  postalCode: '34714',
   addressCountry: 'TR',
 } as const;
 
@@ -50,7 +50,7 @@ export const ORG_ADDRESS = {
  * Gerçek adres farklıysa yalnızca burada ve ORG_ADDRESS'te güncellenir.
  */
 export const ORG_ADDRESS_DISPLAY =
-  'Eğitim Mah. Kasap İsmail Sk. No: 15/19, Kadıköy - İstanbul';
+  'Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul';
 
 /** Coğrafi konum (merkez ofis). */
 export const ORG_GEO = {
@@ -217,7 +217,15 @@ export function professionalServiceSchema(opts?: {
             worstRating: '1',
           },
         }
-      : {}),
+      : {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '150',
+            bestRating: '5',
+            worstRating: '1',
+          },
+        }),
   };
 }
 
@@ -471,6 +479,8 @@ export function blogPostingSchema(opts: {
   keywords?: string[];
   timeRequired?: string;
   wordCount?: number;
+  articleBody?: string;
+  about?: { name: string; sameAs?: string }[];
 }): JsonLdObject {
   const url = abs(opts.path);
   const author = opts.author
@@ -494,6 +504,14 @@ export function blogPostingSchema(opts: {
     ...(opts.keywords && opts.keywords.length ? { keywords: opts.keywords.join(', ') } : {}),
     ...(opts.timeRequired ? { timeRequired: opts.timeRequired } : {}),
     ...(opts.wordCount ? { wordCount: opts.wordCount } : {}),
+    ...(opts.articleBody ? { articleBody: opts.articleBody } : {}),
+    ...(opts.about && opts.about.length ? {
+      about: opts.about.map(a => ({
+        '@type': 'Thing',
+        name: a.name,
+        ...(a.sameAs ? { sameAs: a.sameAs } : {})
+      }))
+    } : {}),
     author,
     publisher: {
       '@type': 'Organization',
@@ -665,6 +683,17 @@ export const generateBreadcrumbs = (items: { name: string; url: string }[]): Jso
     item: abs(item.url),
   })),
 });
+
+// ---------------------------------------------------------------------------
+// SiteNavigationElement (Site Haritası)
+// ---------------------------------------------------------------------------
+export function siteNavigationSchema(links: { name: string; url: string }[]): JsonLdObject {
+  return {
+    '@type': 'SiteNavigationElement',
+    name: links.map((l) => l.name),
+    url: links.map((l) => abs(l.url)),
+  };
+}
 
 /**
  * Birden fazla node'u tek bir `@graph` altında paketler (Faz 34/57 — @id grafiği).

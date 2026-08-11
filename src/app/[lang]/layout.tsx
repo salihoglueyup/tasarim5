@@ -122,6 +122,7 @@ export default async function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
     <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} className={`${inter.variable} ${plusJakarta.variable} ${cairo.variable}`}>
@@ -149,6 +150,11 @@ export default async function RootLayout({
         <link rel="prefetch" href="/tr/iletisim" />
         {/* Blog RSS beslemesi (SEO V4 Faz 162) */}
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Blog" href="/feed.xml" />
+        
+        {/* OpenSearch & Humans.txt (Faz 200) */}
+        <link rel="search" type="application/opensearchdescription+xml" title="Alo Yönetim" href="/opensearch.xml" />
+        <link rel="author" href="/humans.txt" />
+        
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)]`}>
@@ -158,7 +164,7 @@ export default async function RootLayout({
         </a>
 
         {/* Faz 3, 10, 20: TBT/LCP bozmayan asenkron izole analytics */}
-        <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} />
+        <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} gtmId={gtmId} />
         
         <MaterialSymbolsFix />
         <WebVitals />

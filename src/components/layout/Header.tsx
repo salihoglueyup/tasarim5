@@ -330,11 +330,12 @@ export default function Header() {
                     ? 'bg-white/10 border-white/20 text-white hover:bg-white/20' 
                     : 'bg-white border-slate-200 dark:border-white/10 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'
                 }`}
+                aria-label="Dil Seçimi"
                 aria-haspopup="true"
                 aria-expanded={hoveredMenu === 'language'}
               >
                 <span className="uppercase">{language}</span>
-                <span className={`material-symbols-outlined text-[14px] transition-transform duration-300 ${hoveredMenu === 'language' ? 'rotate-180' : ''}`}>
+                <span className={`material-symbols-outlined text-[14px] transition-transform duration-300 ${hoveredMenu === 'language' ? 'rotate-180' : ''}`} aria-hidden="true">
                   expand_more
                 </span>
               </button>

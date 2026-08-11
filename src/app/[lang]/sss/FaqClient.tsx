@@ -55,7 +55,7 @@ export default function FaqClient({
   };
 
   const getCategoryName = (name: string) => {
-    const translation = t(`cat_${name}`);
+    const translation = t(`cat_${name}` as Parameters<typeof t>[0]);
     return translation === `cat_${name}` ? name : translation;
   };
 

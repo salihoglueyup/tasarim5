@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs } from '@/lib/schemas';
@@ -48,7 +49,9 @@ export default async function Blog() {
         description="Site ve apartman yönetimi hakkında bilmeniz gereken her şey." 
       />
 
-      <BlogListClient posts={posts} categories={categories} />
+      <Suspense fallback={<div className="h-96 flex items-center justify-center">Yükleniyor...</div>}>
+        <BlogListClient posts={posts} categories={categories} />
+      </Suspense>
     </>
   );
 }

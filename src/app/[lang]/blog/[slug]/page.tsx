@@ -3,15 +3,17 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
-import { PostBody, ReadingProgress, ShareButtons } from '@/components';;
+import { PostBody, ReadingProgress, ShareButtons } from '@/components';
 import TableOfContents from '@/components/blog/TableOfContents';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
 import {
   generateBreadcrumbs,
   blogPostingSchema,
   webPageSchema,
 } from '@/lib/schemas';
-import { LOCALES } from '@/lib/seo';
+import { LOCALES, buildMetadata } from '@/lib/seo';
+import type { Metadata } from 'next';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
@@ -19,8 +21,41 @@ import arDict from '@/i18n/locales/ar/common.json';
 
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
- // 1 dakika cache
 export const dynamicParams = true;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const post = await prisma.post.findUnique({
+    where: { slug },
+    include: { author: true },
+  });
+  if (!post || !post.published) {
+    return buildMetadata({ title: 'Yazı Bulunamadı', description: '', path: '/blog', lang, noindex: true });
+  }
+  return buildMetadata({
+    title: post.title,
+    description: post.description,
+    path: `/blog/${slug}`,
+    lang,
+    ogType: 'article',
+    ogImageType: 'article',
+    datePublished: post.datePublished.toISOString(),
+    dateModified: post.dateModified?.toISOString() ?? post.datePublished.toISOString(),
+    authorName: post.author?.name ?? 'Alo Yönetim',
+    keywords: (() => {
+      try {
+        const t = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
+        return Array.isArray(t) ? t : [];
+      } catch {
+        return [];
+      }
+    })(),
+  });
+}
 
 
 
@@ -74,12 +109,14 @@ export default async function BlogDetail({
 
   const path = `/blog/${post.slug}`;
 
-  const breadcrumbLd = generateBreadcrumbs([
+  const breadcrumbs = [
     { name: t('breadcrumb_home'), url: '/' },
     { name: 'Blog', url: '/blog' },
     ...(category ? [{ name: category.name, url: `/blog/kategori/${category.slug}` }] : []),
     { name: post.title, url: path },
-  ]);
+  ];
+
+  const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
   const articleLd = blogPostingSchema({
     headline: post.title,
@@ -92,6 +129,10 @@ export default async function BlogDetail({
     keywords: tags,
     timeRequired: `PT${minutes}M`,
     wordCount: wordCount,
+    articleBody: plainText.substring(0, 800),
+    about: [
+      { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' }
+    ],
     author: author
       ? { name: author.name, jobTitle: 'Yazar', url: `/blog/yazar/${author.slug}` }
       : undefined,
@@ -108,6 +149,9 @@ export default async function BlogDetail({
     <>
       <ReadingProgress />
       <JsonLd data={[pageLd, breadcrumbLd, articleLd]} />
+      <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
       <PageHeader title={post.title} description={post.description} />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-7xl mx-auto flex gap-10 items-start">

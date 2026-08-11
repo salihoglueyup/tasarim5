@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
@@ -14,9 +15,16 @@ function formatDate(iso: string | Date): string {
 
 export default function BlogListClient({ posts, categories }: { posts: any[], categories: any[] }) {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
+  
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) setQuery(q);
+  }, [searchParams]);
+
   const [page, setPage] = useState(1);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);

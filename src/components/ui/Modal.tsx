@@ -64,6 +64,7 @@ export const Modal: React.FC<ModalProps> = ({
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h3>
                 <button
                   onClick={onClose}
+                  aria-label="Kapat"
                   className="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   <span className="material-symbols-outlined text-lg">close</span>

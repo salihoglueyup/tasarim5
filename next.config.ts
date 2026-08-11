@@ -9,8 +9,7 @@ const bundleAnalyzer = withBundleAnalyzer({
 const nextConfig: NextConfig = {
   output: "standalone",
   typescript: {
-    // Üretim ortamında (Docker build sırasında) TS hatalarının build'i kırmaması için:
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   // Faz 217: Güvenlik ve bayt tasarrufu için X-Powered-By başlığını kaldır.
   poweredByHeader: false,

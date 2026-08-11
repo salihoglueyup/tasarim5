@@ -134,6 +134,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
         {/* Close Button */}
         <button 
           onClick={onClose}
+          aria-label="Kapat"
           className="absolute top-4 right-4 z-50 w-10 h-10 bg-gray-100/80 dark:bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-white/70 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/20 transition-all"
         >
           <span className="material-symbols-outlined text-[20px]">close</span>

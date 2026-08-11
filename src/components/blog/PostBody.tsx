@@ -9,40 +9,21 @@ import DOMPurify from 'isomorphic-dompurify';
  * Anahtar kelimeleri otomatik olarak ilgili sayfalara linkler.
  */
 
-const AUTO_LINKS: { term: string; href: string }[] = [
-  { term: 'kat mülkiyeti kanunu', href: '/sozluk#kat-m-lkiyeti-kanunu-kmk' },
-  { term: 'işletme projesi', href: '/sozluk#i-letme-projesi' },
-  { term: 'aidat icra takibi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
-  { term: 'icra takibi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
-  { term: 'teknik bakım', href: '/hizmetler/teknik-bakim' },
-  { term: 'havuz bakımı', href: '/hizmetler/havuz-bakimi-ve-hijyen' },
-  { term: 'tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
-  { term: 'demirbaş', href: '/sozluk#demirba' },
-  { term: 'aidat', href: '/sozluk#aidat' },
-];
+import { autoLinkHtml } from '@/lib/autoLinker';
 
-function autoLinkHtml(html: string): string {
-  if (!html) return '';
-  let result = html;
-  const used = new Set<string>();
-
-  for (const link of AUTO_LINKS) {
-    if (used.has(link.term)) continue;
-    
-    // HTML tagleri (özellikle <a> tagleri) içindeki metinleri es geçmek için regex
-    // Bu regex, kelimenin önünde kapanmamış bir < veya arkasında kapanmamış bir </a> olmadığını varsayar.
-    const regex = new RegExp(`(?![^<]*>|[^<>]*<\\/a>)\\b(${link.term})\\b`, 'i');
-    
-    // Her terim makale boyunca sadece 1 kez linklensin (aşırı linklemeyi önlemek için)
-    const match = result.match(regex);
-    if (match) {
-      result = result.replace(regex, (m) => {
-        used.add(link.term);
-        return `<a href="${link.href}" class="text-brand-400 underline decoration-brand-400/50 hover:decoration-brand-400 font-semibold transition-colors">${m}</a>`;
-      });
+// Inject IDs into H2 and H3 tags for SEO Table of Contents (Sitelinks)
+if (typeof DOMPurify.addHook === 'function') {
+  DOMPurify.addHook('afterSanitizeAttributes', function(node) {
+    if (node.tagName === 'H2' || node.tagName === 'H3') {
+      if (!node.getAttribute('id')) {
+        const text = node.textContent || '';
+        const id = 'heading-' + text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        if (id !== 'heading-') {
+          node.setAttribute('id', id);
+        }
+      }
     }
-  }
-  return result;
+  });
 }
 
 export default function PostBody({ htmlContent }: { htmlContent: string }) {

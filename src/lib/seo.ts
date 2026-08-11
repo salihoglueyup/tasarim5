@@ -78,6 +78,12 @@ export type BuildMetadataArgs = {
   ogType?: 'website' | 'article';
   /** OG görsel varyantı: default | service | local | article. Otomatik türetilir. */
   ogImageType?: 'default' | 'service' | 'local' | 'article';
+  /** Blog yazıları için E-E-A-T: yayın tarihi (ISO 8601). */
+  datePublished?: string;
+  /** Blog yazıları için E-E-A-T: güncelleme tarihi (ISO 8601). */
+  dateModified?: string;
+  /** Blog yazıları için E-E-A-T: yazar adı. */
+  authorName?: string;
 };
 
 /**
@@ -94,6 +100,9 @@ export function buildMetadata({
   noindex = false,
   ogType = 'website',
   ogImageType,
+  datePublished,
+  dateModified,
+  authorName,
 }: BuildMetadataArgs): Metadata {
   const locale = normalizeLocale(lang);
   const canonical = localizedUrl(path, locale);
@@ -133,6 +142,13 @@ export function buildMetadata({
       title,
       description,
       images: resolvedImages,
+      ...(ogType === 'article' && datePublished
+        ? {
+            publishedTime: datePublished,
+            modifiedTime: dateModified ?? datePublished,
+            ...(authorName ? { authors: [authorName] } : {}),
+          }
+        : {}),
     },
 
     twitter: {

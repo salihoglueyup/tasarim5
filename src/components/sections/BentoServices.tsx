@@ -72,7 +72,7 @@ export default function BentoServices() {
                     <span className="material-symbols-outlined text-[18px] text-[var(--color-primary)]">check</span>
                   </div>
                   <span className="text-[var(--color-secondary)] font-medium text-lg">
-                    {t(`home_bento_card1_chk${num}`)}
+                    {t(`home_bento_card1_chk${num}` as Parameters<typeof t>[0])}
                   </span>
                 </li>
               ))}

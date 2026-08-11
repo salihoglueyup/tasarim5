@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import JsonLd from '@/components/seo/JsonLd';
+import { faqPageSchema } from '@/lib/schemas';
 
 export default function Faq({ dbFaqs, lang = 'tr' }: { dbFaqs?: any[], lang?: string }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -32,6 +34,7 @@ export default function Faq({ dbFaqs, lang = 'tr' }: { dbFaqs?: any[], lang?: st
   ];
 
   const faqs = dbFaqs && dbFaqs.length > 0 ? dbFaqs : fallbackFaqs;
+  const jsonLd = faqPageSchema(faqs.map((f: any) => ({ question: f.question || f.q, answer: f.answer || f.a })));
 
   const toggleFaq = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -39,6 +42,7 @@ export default function Faq({ dbFaqs, lang = 'tr' }: { dbFaqs?: any[], lang?: st
 
   return (
     <section className="py-32 px-[var(--spacing-gutter)] bg-[var(--color-background)]">
+      <JsonLd data={jsonLd} />
       <div className="max-w-4xl mx-auto">
         
         <div className="text-center mb-16">

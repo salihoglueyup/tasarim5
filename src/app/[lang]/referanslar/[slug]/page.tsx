@@ -3,10 +3,12 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata } from '@/lib/seo';
 import redis from '@/lib/redis';
+import { autoLinkHtml } from '@/lib/autoLinker';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const dynamic = 'force-dynamic';
 
@@ -85,11 +87,13 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
     services = project.services.split(',').map((s: string) => s.trim()).filter((s: string) => s);
   }
 
-  const breadcrumbLd = generateBreadcrumbs([
+  const breadcrumbs = [
     { name: 'Anasayfa', url: '/' },
     { name: 'Referanslarımız', url: '/referanslar' },
     { name: project.title, url: `/referanslar/${project.slug}` }
-  ]);
+  ];
+
+  const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
   const pageLd = webPageSchema({
     type: 'ItemPage',
@@ -122,6 +126,9 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
         <div className="absolute inset-0 bg-gradient-to-b from-[#050B14]/40 via-transparent to-transparent opacity-80" />
         
         <div className="relative z-10 w-full max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20">
+          <div className="mb-4">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
           <Link href={`/${lang}/referanslar`} className="inline-flex items-center text-sm font-bold text-white/70 hover:text-white mb-8 transition-colors bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 hover:bg-white/10">
             <span className="material-symbols-outlined text-lg mr-2">arrow_back</span>
             Tüm Referanslara Dön
@@ -166,7 +173,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             
             {project.content && (
               <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-bold prose-headings:text-[var(--color-primary)] prose-a:text-brand-500 hover:prose-a:text-brand-400 text-[var(--color-secondary)] leading-relaxed">
-                <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(project.content) }} />
+                <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(autoLinkHtml(project.content)) }} />
               </div>
             )}
 

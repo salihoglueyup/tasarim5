@@ -93,9 +93,25 @@ export default function Iletisim() {
       import('@/lib/analytics').then(({ trackEvent, AnalyticsEvents }) => {
         trackEvent(AnalyticsEvents.submitContact);
       });
+      // Trigger new GTM Event Architecture (Faz 4.3)
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: 'generate_lead',
+          formType: 'contact',
+          language: language
+        });
+      }
       reset();
     }
   };
+
+  const [rating, setRating] = useState({ ratingValue: '4.9', reviewCount: '150' });
+
+  useEffect(() => {
+    fetch('/api/reviews').then(res => res.json()).then(data => {
+      if(data.ratingValue) setRating({ ratingValue: data.ratingValue, reviewCount: data.reviewCount });
+    }).catch(err => console.error(err));
+  }, []);
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
@@ -109,7 +125,10 @@ export default function Iletisim() {
     path: '/iletisim',
   });
 
-  const businessLd = professionalServiceSchema({ description: t('contact_desc') });
+  const serviceLd = professionalServiceSchema({
+    description: t('contact_desc'),
+    aggregateRating: rating
+  });
 
   const faqs = [
     { q: t('contact_faq_1_q'), a: t('contact_faq_1_a') },
@@ -119,7 +138,7 @@ export default function Iletisim() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-[#0B1120]">
-      <JsonLd data={[contactPageLd, breadcrumbLd, businessLd]} />
+      <JsonLd data={[contactPageLd, breadcrumbLd, serviceLd]} />
       
       {/* ÜST HERO BÖLÜMÜ (Light/Ferah Tema, Grid Desen) */}
       <div className="w-full bg-[var(--color-background)] dark:bg-[#0B1120] pt-40 pb-56 px-4 flex flex-col items-center text-center relative overflow-hidden">

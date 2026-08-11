@@ -16,17 +16,15 @@ export default function TableOfContents() {
     // Select all H2 and H3 elements inside the prose article
     const elements = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
     
-    const parsedItems: TocItem[] = elements.map((elem, index) => {
-      // Create an ID if none exists
-      if (!elem.id) {
-        elem.id = `heading-${index}-${elem.textContent?.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-      }
+    const parsedItems: TocItem[] = elements.map((elem) => {
+      // Use the pre-injected ID from DOMPurify
+      const id = elem.id || '';
       return {
-        id: elem.id,
+        id,
         text: elem.textContent || '',
         level: Number(elem.tagName.charAt(1)), // 2 for H2, 3 for H3
       };
-    });
+    }).filter(item => item.id && item.text);
 
     setItems(parsedItems);
 

@@ -5,8 +5,10 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
+import { autoLinkHtml } from '@/lib/autoLinker';
+import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) {
   const { t } = useLanguage();
@@ -143,9 +145,17 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
     },
   };
 
+  const breadcrumbs = [
+    { name: 'Anasayfa', url: '/' },
+    { name: t('sector_page_title'), url: '/sektorel-cozumler' }
+  ];
+  
   return (
     <>
       <JsonLd data={[breadcrumbLd, itemListLd, productLd]} />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-4">
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
       <PageHeader 
         title={t('sector_page_title')} 
         description={t('sector_page_desc')} 
@@ -193,7 +203,10 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">{currentSector.title}</h2>
-                <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{currentSector.desc}</p>
+                <p 
+                  className="text-base text-[var(--color-secondary)] font-light leading-relaxed prose-a:text-brand-500 prose-a:font-semibold hover:prose-a:text-brand-600 prose-a:underline transition-colors"
+                  dangerouslySetInnerHTML={{ __html: autoLinkHtml(currentSector.desc) }}
+                />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {currentSector.features.map((feat: string, idx: number) => (
