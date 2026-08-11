@@ -4,6 +4,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import { DISTRICTS } from '@/data/districts';
+
 export default function SiteHaritasi() {
   const sitemapData = [
     {
@@ -32,6 +34,13 @@ export default function SiteHaritasi() {
       ]
     },
     {
+      title: "Hizmet Bölgelerimiz (İlçeler)",
+      links: DISTRICTS.map((d) => ({
+        name: `${d.name} Tesis Yönetimi`,
+        path: `/bolgeler/${d.slug}`,
+      })),
+    },
+    {
       title: "Kurumsal",
       links: [
         { name: "Hakkımızda", path: "/hakkimizda" },
@@ -57,7 +66,7 @@ export default function SiteHaritasi() {
       links: [
         { name: "Gizlilik Politikası", path: "/gizlilik-politikasi" },
         { name: "Çerez Politikası", path: "/cerez-politikasi" },
-        { name: "Kullanım Koşulları", path: "/kullanim-kosullari" },
+        { name: "Kullanım Koşulları", path: "/kullanim-sartlari" },
       ]
     }
   ];

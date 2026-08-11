@@ -8,12 +8,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Aidat ve Yönetim Ücreti Hesaplayıcı",
+    title: "Aidat ve Tesis Yönetimi Maliyet Hesaplayıcı",
     description:
-      "Sitenizin veya binanızın büyüklüğüne göre profesyonel tesis yönetimi ve aidat maliyetini hızlıca hesaplayın, size özel teklif alın.",
+      "Siteniz veya tesisiniz için ortalama aidat, güvenlik, temizlik ve bakım maliyetlerini saniyeler içinde hesaplayın. Şeffaf ve tahmini bütçe aracı.",
     path: "/hesaplayici",
     lang,
-    keywords: ['aidat hesaplama', 'site yönetim maliyeti', 'aidat hesap makinesi', 'tesis yönetimi ücret'],
+    keywords: ['aidat hesaplama', 'site yönetimi maliyeti', 'yönetim ücreti hesaplama', 'aidat bütçesi'],
   });
 }
 

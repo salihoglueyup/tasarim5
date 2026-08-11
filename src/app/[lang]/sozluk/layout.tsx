@@ -8,12 +8,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Site Yönetimi Sözlüğü ve Terimler",
+    title: "Site Yönetimi Sözlüğü — Aidat, KMK, Demirbaş",
     description:
-      "Aidat, demirbaş, Kat Mülkiyeti Kanunu, işletme projesi ve 5188 gibi tesis yönetimi terimlerinin açık tanımları. Site yöneticileri için sektör sözlüğü.",
+      "Kat malikleri ve site yöneticileri için aidat, demirbaş, Kat Mülkiyeti Kanunu ve 5188 sayılı kanun gibi tesis yönetimi terimlerinin açık tanımları.",
     path: "/sozluk",
     lang,
-    keywords: ["site yönetimi terimleri", "kat mülkiyeti kanunu", "aidat nedir", "demirbaş", "işletme projesi"],
+    keywords: ['site yönetimi sözlüğü', 'aidat nedir', 'kat mülkiyeti kanunu nedir', 'demirbaş nedir', 'işletme projesi nedir'],
   });
 }
 

@@ -8,12 +8,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Özel Güvenlik Eğitimi Akademisi",
+    title: "Özel Güvenlik Akademisi ve 5188 Hizmet İçi Eğitim",
     description:
-      "5188 sayılı kanun kapsamında özel güvenlik eğitimleri, sertifika programları ve profesyonel gelişim fırsatları Alo Yönetim Güvenlik Akademisi'nde.",
+      "5188 sayılı Özel Güvenlik Kanunu standartlarında eğitimli, sertifikalı güvenlik personeli ve sürekli hizmet içi gelişim akademi programlarımız.",
     path: "/guvenlik-akademisi",
     lang,
-    keywords: ['özel güvenlik eğitimi', 'güvenlik sertifikası', '5188 eğitimi', 'güvenlik görevlisi kursu'],
+    keywords: ['özel güvenlik akademisi', '5188 eğitimi', 'güvenlik personeli eğitimi', 'site güvenlik standartları'],
   });
 }
 

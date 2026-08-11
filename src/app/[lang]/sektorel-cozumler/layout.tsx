@@ -8,12 +8,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Sektörel Tesis Yönetimi Çözümleri",
+    title: "Rezidans, AVM ve Plaza Sektörel Tesis Yönetimi",
     description:
-      "Rezidans, AVM, plaza, iş merkezi, hastane ve fabrikalar için sektöre özel tesis yönetimi çözümleri. İhtiyacınıza uygun profesyonel hizmet paketleri.",
+      "Lüks rezidanslar, alışveriş merkezleri, plazalar ve iş merkezleri için sektöre özel tesis yönetimi, VIP güvenlik ve kurumsal temizlik çözümleri.",
     path: "/sektorel-cozumler",
     lang,
-    keywords: ['sektörel tesis yönetimi', 'AVM yönetimi', 'hastane tesis yönetimi', 'plaza yönetimi', 'rezidans yönetimi'],
+    keywords: ['rezidans yönetimi', 'AVM tesis yönetimi', 'plaza yönetimi', 'iş merkezi yönetimi'],
   });
 }
 

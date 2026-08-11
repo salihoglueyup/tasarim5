@@ -212,9 +212,8 @@ Form gönderimleri (`POST /api/lead`) **üç kanala paralel** iletilir:
 
 ## 9. SEO, GEO (AI Engine Optimization) ve Schema Mimarisi
 
-### 🎯 SEO Master Plan & JSON-LD
-- **hreflang Matrisi (`src/lib/seo.ts`)**: 4 dil için (`tr-TR`, `en-US`, `ru-RU`, `ar-SA` ve `x-default`) otomatik `hreflang` ve canonical URL üretimi.
-- **Sitemap & Robots**: 288+ rota otomatik indekslenir. `sitemap.ts` tüm rotalara 4 dilli `alternates.languages` eşleşmesini ekler. `robots.txt` AI crawler'lara (GPTBot, ClaudeBot, PerplexityBot) tam izin verir.
+- **Sayfa-Özel SEO Metadata Layout'ları**: `/sozluk`, `/hesaplayici`, `/sektorel-cozumler`, `/guvenlik-akademisi` ve `/site-haritasi` sayfalarına özgü hedeflenmiş SEO başlıkları ve meta açıklamaları.
+- **HTML Site Haritası İç Linklemesi (`/site-haritasi`)**: 12 İstanbul ilçesinin tesis yönetimi sayfalarına doğrudan bağlamsal iç linkleme.
 
 ### 🤖 GEO (AI Engine Optimization)
 ChatGPT, Perplexity, Claude ve Gemini gibi AI motorlarında doğru temsil edilmek için:
