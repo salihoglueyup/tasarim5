@@ -213,8 +213,8 @@ Form gönderimleri (`POST /api/lead`) **üç kanala paralel** iletilir:
 ## 9. SEO, GEO (AI Engine Optimization) ve Schema Mimarisi
 
 ### 🎯 SEO Master Plan & JSON-LD
-- **JSON-LD Fabrikası (`src/lib/schemas.ts`)**: Organization, LocalBusiness, FAQPage, Article, Service, BreadcrumbList şemaları otomatik üretilir.
-- **Sitemap & Robots**: 288+ rota otomatik indekslenir. `robots.txt` AI crawler'lara (GPTBot, ClaudeBot, PerplexityBot) tam izin verir.
+- **hreflang Matrisi (`src/lib/seo.ts`)**: 4 dil için (`tr-TR`, `en-US`, `ru-RU`, `ar-SA` ve `x-default`) otomatik `hreflang` ve canonical URL üretimi.
+- **Sitemap & Robots**: 288+ rota otomatik indekslenir. `sitemap.ts` tüm rotalara 4 dilli `alternates.languages` eşleşmesini ekler. `robots.txt` AI crawler'lara (GPTBot, ClaudeBot, PerplexityBot) tam izin verir.
 
 ### 🤖 GEO (AI Engine Optimization)
 ChatGPT, Perplexity, Claude ve Gemini gibi AI motorlarında doğru temsil edilmek için:

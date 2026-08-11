@@ -8,10 +8,6 @@ const bundleAnalyzer = withBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  eslint: {
-    // Üretim ortamında (Docker build sırasında) ESLint hatalarının build'i kırmaması için:
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     // Üretim ortamında (Docker build sırasında) TS hatalarının build'i kırmaması için:
     ignoreBuildErrors: true,

@@ -389,8 +389,8 @@ WCAG 2.1 AA uyumu, `:focus-visible` odak halkası, `Skip-to-content` linki, `pre
 ## 5.1 SEO Yol Haritası (ROADMAP.md)
 250 Fazlık SEO Master Plan V4 tamamlanma durumu ve V5 gelecek fırsatları.
 
-## 5.2 Anahtar Kelime Eşleme Matrisi (KEYWORD_MAP.md)
-Her indekslenebilir sayfaya **tek bir birincil keyword** atanarak cannibalization (çakışma) önlenmiştir.
+- **hreflang Matrisi (`src/lib/seo.ts`)**: 4 dil için (`tr-TR`, `en-US`, `ru-RU`, `ar-SA` ve `x-default`) otomatik `hreflang` ve canonical URL üretimi.
+- **Sitemap Alternates (`src/app/sitemap.ts`)**: Tüm static, dinamik ve bölgesel rotalar 4 dil için `alternates.languages` ile haritalanır.
 
 ## 5.3 AI / GEO Stratejisi (GEO_STRATEGY.md)
 ChatGPT, Perplexity, Claude ve Gemini yapay zeka motorlarında kaynak olarak yer almak için:

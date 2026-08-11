@@ -19,14 +19,24 @@ export { BASE_URL };
 /** Varsayılan (marka) OG görselinin alt metni. */
 export const DEFAULT_OG_ALT = 'Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi';
 
-export const LOCALES = ['tr', 'en'] as const;
+export const LOCALES = ['tr', 'en', 'ru', 'ar'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'tr';
 export const SITE_NAME = 'Alo Yönetim';
 
+const OG_LOCALE_MAP: Record<Locale, string> = {
+  tr: 'tr_TR',
+  en: 'en_US',
+  ru: 'ru_RU',
+  ar: 'ar_SA',
+};
+
 /** Gelen değeri desteklenen bir Locale'e normalize eder. */
 export function normalizeLocale(lang?: string): Locale {
-  return lang === 'en' ? 'en' : DEFAULT_LOCALE;
+  if (lang === 'en' || lang === 'ru' || lang === 'ar') {
+    return lang;
+  }
+  return DEFAULT_LOCALE;
 }
 
 /**
@@ -40,11 +50,13 @@ export function localizedUrl(path: string, lang: Locale): string {
   return `${BASE_URL}${prefix}${normalized}` || BASE_URL;
 }
 
-/** hreflang matrisi: tr-TR, en-US ve x-default (TR varsayılan). */
+/** hreflang matrisi: tr-TR, en-US, ru-RU, ar-SA ve x-default (TR varsayılan). */
 export function buildLanguageAlternates(path: string): Record<string, string> {
   return {
     'tr-TR': localizedUrl(path, 'tr'),
     'en-US': localizedUrl(path, 'en'),
+    'ru-RU': localizedUrl(path, 'ru'),
+    'ar-SA': localizedUrl(path, 'ar'),
     'x-default': localizedUrl(path, 'tr'),
   };
 }
@@ -115,13 +127,14 @@ export function buildMetadata({
     },
     openGraph: {
       type: ogType,
-      locale: locale === 'en' ? 'en_US' : 'tr_TR',
+      locale: OG_LOCALE_MAP[locale] || 'tr_TR',
       url: canonical,
       siteName: SITE_NAME,
       title,
       description,
       images: resolvedImages,
     },
+
     twitter: {
       card: 'summary_large_image',
       title,

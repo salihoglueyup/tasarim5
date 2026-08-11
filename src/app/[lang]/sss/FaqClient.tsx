@@ -15,7 +15,6 @@ export default function FaqClient({
   faqs: any[], 
   categories: { name: string; count: number }[],
   lang: string
-  lang: string
 }) {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('Tümü');
