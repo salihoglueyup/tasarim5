@@ -23,6 +23,29 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: '512x512',
       },
     ],
+    shortcuts: [
+      {
+        name: 'Aidat Hesapla',
+        short_name: 'Hesapla',
+        description: 'Aidat ve yönetim gideri hesaplama',
+        url: '/tr/hesaplayici',
+        icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Hizmetlerimiz',
+        short_name: 'Hizmetler',
+        description: 'Tesis ve Mülk Yönetimi Hizmetleri',
+        url: '/tr/hizmetler',
+        icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Teklif Al',
+        short_name: 'Teklif Al',
+        description: 'Ücretsiz hizmet teklifi alın',
+        url: '/tr/teklif-al',
+        icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
+      }
+    ],
   }
 }
 
