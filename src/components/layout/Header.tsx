@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/components/ui/Logo';
-import { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
 import type { translations } from '@/i18n/translations';
+import SiteNavigationSeo from '@/components/seo/SiteNavigationSeo';
 
 // Faz 7, 109: LoginModal sadece butona tıklandığında yüklenir, ilk bundle'ı şişirmez.
 const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
@@ -224,8 +225,25 @@ export default function Header() {
     setHoveredMenu(null);
   }, []);
 
+  const allLinks = React.useMemo(() => {
+    const links: {name: string, url: string}[] = [];
+    MENU_ITEMS.forEach(item => {
+      if (item.path) {
+        links.push({ name: t(item.nameKey as any), url: getLocalizedPath(item.path) });
+      }
+      if (item.subItems) {
+        item.subItems.forEach(sub => {
+          links.push({ name: t(sub.nameKey as any), url: getLocalizedPath(sub.path) });
+        });
+      }
+    });
+    return links;
+  }, [t, getLocalizedPath]);
+
   return (
     <>
+      <SiteNavigationSeo links={allLinks} />
+      
       {/* Scroll Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--color-primary)] via-slate-700 to-[var(--color-primary)] z-[60] origin-left"
