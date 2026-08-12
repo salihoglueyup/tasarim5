@@ -37,6 +37,7 @@ export { default as PortalModal } from './modals/PortalModal';
 
 // SEO Components
 export { default as JsonLd } from './seo/JsonLd';
+export { default as GTMDataLayer } from './seo/GTMDataLayer';
 
 // Blog Components
 export { default as PostBody } from './blog/PostBody';
@@ -62,3 +63,6 @@ export { default as PreFooterCta } from './sections/PreFooterCta';
 export { default as SeoTextSection } from './sections/SeoTextSection';
 export { default as RelatedServices } from './sections/RelatedServices';
 export { default as PersonnelDifference } from './sections/PersonnelDifference';
+
+// SEO Components
+export * from './seo';
