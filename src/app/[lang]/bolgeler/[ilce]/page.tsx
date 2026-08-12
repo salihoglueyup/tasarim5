@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
-import { QuoteCtaButton, TldrBlock } from '@/components';;
+import { QuoteCtaButton, TldrBlock, DynamicFAQ } from '@/components';
 import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,
@@ -208,23 +208,8 @@ export default async function DistrictPage({
         </div>
 
         {/* Yerel SSS */}
-        <div className="flex flex-col gap-6">
-          <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
-            {district.name} — Sıkça Sorulan Sorular
-          </h2>
-          <div className="flex flex-col gap-4">
-            {faqs.map((f) => (
-              <div
-                key={f.question}
-                className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-6"
-              >
-                <h3 className="font-bold text-[var(--color-primary)] mb-2">{f.question}</h3>
-                <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
-                  {f.answer}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12">
+          <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} />
         </div>
 
         {/* CTA */}
