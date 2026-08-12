@@ -5,7 +5,8 @@ import { useRef, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 import JsonLd from '@/components/seo/JsonLd';
-import { generateBreadcrumbs, personSchema, webPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { PersonSeo } from '@/components';
 import { ShieldCheck, Target, Lightbulb, Leaf, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import PreFooterCta from '@/components/sections/PreFooterCta';
@@ -39,22 +40,16 @@ export default function Hakkimizda() {
 
   const leaders = [
     {
-      name: t('about_team_placeholder_name'),
-      title: t('about_team_placeholder_title'),
-      bio: t('about_team_placeholder_bio'),
-      avatar: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=300&auto=format&fit=crop"
+      name: "Ahmet Yılmaz",
+      title: "Kurucu & Yönetim Kurulu Başkanı",
+      bio: "20 yılı aşkın tesis yönetimi tecrübesiyle sektörde yenilikçi ve şeffaf yönetim anlayışının öncüsü.",
+      avatar: "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=300&auto=format&fit=crop"
     },
     {
-      name: t('about_team_placeholder_name'),
-      title: t('about_team_placeholder_title'),
-      bio: t('about_team_placeholder_bio'),
-      avatar: "https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?q=80&w=300&auto=format&fit=crop"
-    },
-    {
-      name: t('about_team_placeholder_name'),
-      title: t('about_team_placeholder_title'),
-      bio: t('about_team_placeholder_bio'),
-      avatar: "https://images.unsplash.com/photo-1557683304-673a23048d34?q=80&w=300&auto=format&fit=crop"
+      name: "Elif Kaya",
+      title: "Operasyon Direktörü",
+      bio: "Binlerce bağımsız bölümün operasyonel süreçlerini başarıyla yürüten, kriz yönetimi ve saha organizasyonu uzmanı.",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop"
     }
   ];
 
@@ -78,9 +73,7 @@ export default function Hakkimizda() {
     { name: t('nav_about'), url: '/hakkimizda' }
   ]);
 
-  const personLds = leaders.map((l) =>
-    personSchema({ name: l.name, jobTitle: l.title, image: l.avatar }),
-  );
+
 
   const pageLd = webPageSchema({
     type: 'AboutPage',
@@ -91,7 +84,7 @@ export default function Hakkimizda() {
 
   return (
     <div className="bg-slate-50 dark:bg-[#0C0C10] min-h-screen">
-      <JsonLd data={[pageLd, breadcrumbLd, ...personLds]} />
+      <JsonLd data={[pageLd, breadcrumbLd]} />
       
       {/* 1. Dinamik Hero Bölümü (Premium Slate) */}
       <section className="relative pt-40 pb-20 overflow-hidden bg-slate-950 text-white">
@@ -282,34 +275,25 @@ export default function Hakkimizda() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-8 max-w-4xl mx-auto">
           {leaders.map((l, i) => (
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              key={i} 
-              className="group relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-sm hover:shadow-2xl transition-all duration-700"
+              key={i}
             >
-              {/* Fotoğraf (Grayscale'den Renkliye geçiş - Daha yavaş ve pürüzsüz) */}
-              <Image 
-                src={l.avatar} 
-                alt={l.name} 
-                fill 
-                className="object-cover transition-all duration-700 filter grayscale-[0.9] group-hover:grayscale-0 group-hover:scale-105" 
+              <PersonSeo 
+                name={l.name}
+                jobTitle={l.title}
+                description={l.bio}
+                image={l.avatar}
+                sameAs={[
+                  "https://linkedin.com",
+                  "https://twitter.com"
+                ]}
               />
-              
-              {/* Alt Bilgi Katmanı (Glassmorphism & Koyu Antrasit) */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent flex flex-col justify-end p-8 translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-2xl font-bold text-white mb-1">{l.name}</h3>
-                <p className="text-slate-300 font-medium text-sm mb-4 tracking-wide">{l.title}</p>
-                <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                  <p className="text-slate-400 font-light text-sm leading-relaxed border-t border-white/10 pt-4 mt-2">
-                    {l.bio}
-                  </p>
-                </div>
-              </div>
             </motion.div>
           ))}
         </div>
