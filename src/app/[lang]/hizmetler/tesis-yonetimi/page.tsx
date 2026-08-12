@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection } from '@/components';
+import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ } from '@/components';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
-import { RelatedArticles } from '@/components';;
-import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { RelatedArticles } from '@/components';
+import { generateBreadcrumbs } from '@/lib/schemas';
 import FacilityCalculator from '@/components/sections/FacilityCalculator';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
 
@@ -24,21 +23,10 @@ export default function TesisYonetimi() {
   ];
 
   const faqs = [
-    {
-      q: t('fac_faq_1_q'),
-      a: t('fac_faq_1_a')
-    },
-    {
-      q: t('fac_faq_2_q'),
-      a: t('fac_faq_2_a')
-    },
-    {
-      q: t('fac_faq_3_q'),
-      a: t('fac_faq_3_a')
-    }
+    { question: t('fac_faq_1_q'), answer: t('fac_faq_1_a') },
+    { question: t('fac_faq_2_q'), answer: t('fac_faq_2_a') },
+    { question: t('fac_faq_3_q'), answer: t('fac_faq_3_a') }
   ];
-
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: t('nav_home'), url: '/' },
@@ -46,17 +34,15 @@ export default function TesisYonetimi() {
     { name: t('fac_title'), url: '/hizmetler/tesis-yonetimi' }
   ]);
 
-  const serviceLd = serviceSchema({
-    serviceType: t('serv_fac_name'),
-    path: '/hizmetler/tesis-yonetimi',
-    description: t('fac_desc'),
-  });
-
-  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
-
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <JsonLd data={[breadcrumbLd]} />
+      <ServiceSeo 
+        serviceType={t('serv_fac_name')}
+        description={t('fac_desc')}
+        areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe"]}
+        priceRange="₺₺"
+      />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
@@ -73,7 +59,7 @@ export default function TesisYonetimi() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,6 +70,14 @@ export default function TesisYonetimi() {
               {t('fac_banner_badge')}
             </span>
             <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') }} />
+            
+            <AggregateRatingSeo 
+              itemReviewed={{ '@type': 'Service', name: t('serv_fac_name') }}
+              ratingValue={4.9}
+              reviewCount={312}
+              className="mt-2"
+            />
+
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('fac_banner_desc')}
             </p>
@@ -120,29 +114,9 @@ export default function TesisYonetimi() {
         {/* Facility Specific Social Proof */}
         <FacilityTestimonials />
 
-        {/* Service Specific FAQ */}
+        {/* Service Specific FAQ via DynamicFAQ Component */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('fac_faq_title')}</h2>
-          <div className="flex flex-col gap-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
-                >
-                  <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
-                    expand_more
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <div className="p-6 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-white/10 text-sm text-[var(--color-secondary)] leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <DynamicFAQ faqs={faqs} title={t('fac_faq_title')} />
         </div>
 
       </section>
@@ -157,4 +131,3 @@ export default function TesisYonetimi() {
     </>
   );
 }
-
