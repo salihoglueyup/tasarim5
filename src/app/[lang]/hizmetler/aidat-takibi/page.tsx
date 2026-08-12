@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
+import GTMDataLayer from '@/components/seo/GTMDataLayer';
 import { RelatedArticles } from '@/components';;
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 import DuesCalculator from '@/components/sections/DuesCalculator';
@@ -70,6 +71,7 @@ export default function AidatTakibi() {
 
   return (
     <>
+      <GTMDataLayer event="view_service" data={{ service_name: "Aidat Takibi", category: "Hizmet" }} />
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}

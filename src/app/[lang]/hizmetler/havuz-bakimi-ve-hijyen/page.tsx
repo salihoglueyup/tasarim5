@@ -1,5 +1,6 @@
 "use client";
 import JsonLd from '@/components/seo/JsonLd';
+import GTMDataLayer from '@/components/seo/GTMDataLayer';
 import { RelatedArticles } from '@/components';
 
 import { useState } from 'react';
@@ -69,6 +70,7 @@ export default function HavuzBakimiVeHijyen() {
 
   return (
     <>
+      <GTMDataLayer event="view_service" data={{ service_name: "Havuz Bakımı ve Hijyen", category: "Hizmet" }} />
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
