@@ -3,8 +3,8 @@
 import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
-import { PersonnelDifference } from '@/components';;
-import { generateBreadcrumbs, jobPostingSchema, webPageSchema } from '@/lib/schemas';
+import { PersonnelDifference, JobPostingSeo } from '@/components';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function IstihdamKoprusu() {
   const { t } = useLanguage();
@@ -14,14 +14,6 @@ export default function IstihdamKoprusu() {
     { name: t('emp_page_title'), url: '/istihdam-koprusu' }
   ]);
 
-  const jobPostingLd = jobPostingSchema({
-    title: 'Özel Güvenlik Görevlisi',
-    description:
-      'Sitelerde ve tesislerde görevlendirilmek üzere kimlikli özel güvenlik görevlileri aranmaktadır.',
-    datePosted: '2026-07-01',
-    validThrough: '2026-12-31',
-  });
-
   const pageLd = webPageSchema({
     name: t('emp_page_title'),
     description: t('emp_page_desc'),
@@ -30,7 +22,24 @@ export default function IstihdamKoprusu() {
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, jobPostingLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd]} />
+      <JobPostingSeo 
+        title="Özel Güvenlik Görevlisi"
+        description="Sitelerde ve tesislerde görevlendirilmek üzere kimlikli özel güvenlik görevlileri aranmaktadır."
+        datePosted="2026-07-01"
+        validThrough="2026-12-31"
+        jobLocation={{
+          addressLocality: "İstanbul",
+          addressRegion: "İstanbul",
+          addressCountry: "TR"
+        }}
+        baseSalary={{
+          currency: "TRY",
+          value: 35000,
+          unitText: "MONTH"
+        }}
+      />
+      
       <PageHeader 
         title={t('emp_page_title')} 
         description={t('emp_page_desc')} 
