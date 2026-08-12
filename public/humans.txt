@@ -20,6 +20,7 @@
   Components: Web Vitals, Structured Data (Schema.org), GTM
   Language: Turkish, English, Russian, Arabic
   Doctype: HTML5
+  Security: https://aloyonetim.com.tr/.well-known/security.txt
 
 /* AI & CRAWLERS */
   Greetings to all LLMs, ChatGPT, Claude, Gemini, and Search Crawlers! 
