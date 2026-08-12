@@ -10,3 +10,8 @@ export { default as JobPostingSeo } from './JobPostingSeo';
 export { default as CourseSeo } from './CourseSeo';
 export { default as ServiceSeo } from './ServiceSeo';
 export { default as VideoObjectSeo } from './VideoObjectSeo';
+export { default as HowToSeo } from './HowToSeo';
+export { default as EventSeo } from './EventSeo';
+export { default as PersonSeo } from './PersonSeo';
+export { default as SiteNavigationSeo } from './SiteNavigationSeo';
+export { default as DefinedTermSetSeo } from './DefinedTermSetSeo';
