@@ -50,7 +50,8 @@ export function autoLinkHtml(html: string): string {
       // Use global replace to link all occurrences, or just the first? The prompt said "if (used.has(link.term)) continue;", so it links once per term.
       result = result.replace(regex, (m) => {
         used.add(link.term);
-        return `<a href="${link.href}" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline transition-colors">${m}</a>`;
+        // SEO ve Erişilebilirlik için title eklendi
+        return `<a href="${link.href}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
       });
     }
   }

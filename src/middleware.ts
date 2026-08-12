@@ -89,6 +89,14 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // 1.5. URL NORMALIZATION (SEO Faz 5: Lowercase enforcement)
+  // Büyük harf içeren URL'leri 301 ile küçük harfe yönlendirir (Duplicate Content cezasını önler).
+  if (pathname !== pathname.toLowerCase()) {
+    const url = request.nextUrl.clone();
+    url.pathname = url.pathname.toLowerCase();
+    return NextResponse.redirect(url, 301);
+  }
+
   // 2. AUTHENTICATION (Yönetim Paneli)
   const isProtectedRoute = protectedRoutes.some((route) => pathname.includes(route) && !pathname.includes('/admin/login'));
   const isPublicRoute = publicRoutes.some((route) => pathname.includes(route));

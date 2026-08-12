@@ -11,7 +11,6 @@ type EventParams = Record<string, string | number | boolean | undefined>;
 declare global {
   interface Window {
     gtag?: (command: string, eventName: string, params?: EventParams) => void;
-    dataLayer?: unknown[];
   }
 }
 
@@ -19,9 +18,9 @@ export function trackEvent(name: string, params: EventParams = {}): void {
   if (typeof window === 'undefined') return;
   if (typeof window.gtag === 'function') {
     window.gtag('event', name, params);
-  } else if (Array.isArray(window.dataLayer)) {
+  } else if (Array.isArray((window as any).dataLayer)) {
     // GA henüz hazır değilse dataLayer'a bırak (gtag hazır olunca işlenir).
-    window.dataLayer.push({ event: name, ...params });
+    (window as any).dataLayer.push({ event: name, ...params });
   }
 }
 

@@ -5,7 +5,6 @@ import { type NextRequest } from 'next/server';
 // ?title=, ?type=(default|service|local|article) query param'larını destekler.
 // buildMetadata (src/lib/seo.ts) her sayfa için title'ı otomatik olarak geçirir.
 
-export const contentType = 'image/png';
 
 const TYPE_CONFIG = {
   service: { badge: 'Hizmet', color: '#3B82F6' },

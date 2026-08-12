@@ -12,6 +12,7 @@ import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
 import arDict from '@/i18n/locales/ar/common.json';
+import DynamicBreadcrumb from '@/components/seo/DynamicBreadcrumb';
 
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
@@ -165,6 +166,7 @@ export default async function RootLayout({
 
         {/* Faz 3, 10, 20: TBT/LCP bozmayan asenkron izole analytics */}
         <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} gtmId={gtmId} />
+        <DynamicBreadcrumb />
         
         <MaterialSymbolsFix />
         <WebVitals />
