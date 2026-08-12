@@ -2,7 +2,7 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ } from '@/components';
+import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -16,10 +16,10 @@ export default function TesisYonetimi() {
   const { t } = useLanguage();
 
   const legalSteps = [
-    { step: "01", title: t('fac_step_1_title'), desc: t('fac_step_1_desc') },
-    { step: "02", title: t('fac_step_2_title'), desc: t('fac_step_2_desc') },
-    { step: "03", title: t('fac_step_3_title'), desc: t('fac_step_3_desc') },
-    { step: "04", title: t('fac_step_4_title'), desc: t('fac_step_4_desc') }
+    { name: t('fac_step_1_title'), text: t('fac_step_1_desc') },
+    { name: t('fac_step_2_title'), text: t('fac_step_2_desc') },
+    { name: t('fac_step_3_title'), text: t('fac_step_3_desc') },
+    { name: t('fac_step_4_title'), text: t('fac_step_4_desc') }
   ];
 
   const faqs = [
@@ -97,18 +97,13 @@ export default function TesisYonetimi() {
           <FacilityCalculator />
         </div>
 
-        {/* Legal Debt Collection 4-Step Flow */}
+        {/* Legal Debt Collection 4-Step Flow using HowToSeo */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('fac_steps_title')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {legalSteps.map((s, idx) => (
-              <div key={idx} className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 flex flex-col gap-3">
-                <span className="text-3xl font-extrabold text-slate-900/40 dark:text-white/40">{s.step}</span>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">{s.title}</h3>
-                <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
+          <HowToSeo 
+            name={t('fac_steps_title')}
+            description="Tesis yönetimine profesyonel geçiş sürecimiz dört temel adımdan oluşmaktadır."
+            steps={legalSteps}
+          />
         </div>
 
         {/* Facility Specific Social Proof */}
