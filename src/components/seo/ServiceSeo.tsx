@@ -1,0 +1,58 @@
+"use client";
+
+import JsonLd from './JsonLd';
+
+interface ServiceSeoProps {
+  serviceType: string;
+  description: string;
+  providerName?: string;
+  providerUrl?: string;
+  areaServed?: string | string[]; // "İstanbul", "Kadıköy", etc.
+  priceRange?: string; // e.g., "$$$", "1000 TRY - 5000 TRY"
+}
+
+/**
+ * SEO Faz 12: Hizmet Sayfaları için Service Şeması
+ * Temizlik, Güvenlik, Aidat Takibi gibi hizmetlerin Google'da 
+ * sağlayıcı, bölge ve fiyat bilgisiyle tam teşekküllü listelenmesini sağlar.
+ */
+export default function ServiceSeo({
+  serviceType,
+  description,
+  providerName = "Alo Yönetim",
+  providerUrl = "https://aloyonetim.com",
+  areaServed = "İstanbul",
+  priceRange
+}: ServiceSeoProps) {
+  
+  const schema: any = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType,
+    description,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: providerName,
+      url: providerUrl
+    }
+  };
+
+  if (areaServed) {
+    schema.areaServed = Array.isArray(areaServed) 
+      ? areaServed.map(area => ({ '@type': 'City', name: area }))
+      : { '@type': 'City', name: areaServed };
+  }
+
+  if (priceRange) {
+    schema.offers = {
+      '@type': 'Offer',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'TRY',
+        description: priceRange
+      }
+    };
+  }
+
+  return <JsonLd data={schema} />;
+}
