@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
-import { PostBody, ReadingProgress, ShareButtons } from '@/components';
+import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
 import TableOfContents from '@/components/blog/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
@@ -192,7 +192,7 @@ export default async function BlogDetail({
 
           {/* Cover */}
           <div className="w-full aspect-[16/9] rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10">
-            <Image
+            <ImageWithSeo
               src={post.image || '/images/hero-poster-v5.webp'}
               alt={post.title}
               width={1200}
@@ -200,6 +200,9 @@ export default async function BlogDetail({
               sizes="(max-width: 768px) 100vw, 768px"
               className="w-full h-full object-cover"
               priority
+              injectSchema={true}
+              author={author?.name ?? 'Alo Yönetim'}
+              datePublished={post.datePublished.toISOString()}
             />
           </div>
 
@@ -237,21 +240,23 @@ export default async function BlogDetail({
 
           {/* Author Box */}
           {author && (
-            <div className="flex items-start gap-6 bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-6 md:p-8 rounded-3xl mt-6">
+            <div itemScope itemType="https://schema.org/Person" className="flex items-start gap-6 bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-6 md:p-8 rounded-3xl mt-6">
+               <meta itemProp="jobTitle" content="Yazar" />
+               <meta itemProp="url" content={`/blog/yazar/${author.slug}`} />
                {author.avatar ? (
-                 <Image src={author.avatar} alt={author.name} width={80} height={80} className="w-20 h-20 rounded-full object-cover shrink-0" />
+                 <Image itemProp="image" src={author.avatar} alt={author.name} width={80} height={80} className="w-20 h-20 rounded-full object-cover shrink-0" />
                ) : (
                  <div className="w-20 h-20 rounded-full bg-brand-500 flex items-center justify-center text-white text-2xl font-bold shrink-0">
                     {author.name.charAt(0)}
                  </div>
                )}
                <div className="flex flex-col gap-2">
-                 <h4 className="text-xl font-bold text-slate-900 dark:text-white">
+                 <h4 className="text-xl font-bold text-slate-900 dark:text-white" itemProp="name">
                    <Link href={`/blog/yazar/${author.slug}`} className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                       {author.name}
                    </Link>
                  </h4>
-                 {author.bio && <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{author.bio}</p>}
+                 {author.bio && <p itemProp="description" className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{author.bio}</p>}
                </div>
             </div>
           )}
