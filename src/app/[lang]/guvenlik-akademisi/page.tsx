@@ -4,8 +4,9 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
-import { generateBreadcrumbs, courseSchema, eventSchema, webPageSchema } from '@/lib/schemas';
+import JsonLd from '@/components/seo/JsonLd';
+import { generateBreadcrumbs, courseSchema, webPageSchema } from '@/lib/schemas';
+import { EventSeo } from '@/components';
 
 export default function GuvenlikAkademisi() {
   const { t } = useLanguage();
@@ -57,14 +58,6 @@ export default function GuvenlikAkademisi() {
     }),
   );
 
-  // Planlı eğitim takvimi (Faz 51).
-  const eventLd = eventSchema({
-    name: '5188 Sayılı Kanun Kapsamında Temel Güvenlik Eğitimi',
-    description:
-      'Özel güvenlik görevlilerine yönelik zorunlu temel eğitim ve yenileme programı.',
-    startDate: '2026-09-01T09:00:00+03:00',
-    endDate: '2026-09-15T18:00:00+03:00',
-  });
 
   const pageLd = webPageSchema({
     name: t('aca_page_title'),
@@ -88,7 +81,7 @@ export default function GuvenlikAkademisi() {
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, eventLd, aloGuvenlikLd, ucgGuvenlikLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, aloGuvenlikLd, ucgGuvenlikLd]} />
       <PageHeader 
         title={t('aca_page_title')} 
         description={t('aca_page_desc')} 
@@ -112,6 +105,31 @@ export default function GuvenlikAkademisi() {
              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 dark:from-white dark:to-slate-300">{t('aca_intro_badge_val')}</div>
              <div className="text-xs text-slate-400 mt-2 font-medium">{t('aca_intro_badge_text')}</div>
            </div>
+        </div>
+
+        {/* Yaklaşan Eğitimler (EventSeo) */}
+        <div className="max-w-4xl mx-auto mt-20">
+          <div className="text-center mb-10">
+             <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">Yaklaşan Eğitimler</h2>
+             <p className="text-sm text-[var(--color-secondary)] font-light mt-4">Sınırlı kontenjanlı akademi eğitimlerimize hemen başvurun.</p>
+          </div>
+          <div className="flex flex-col gap-6">
+            <EventSeo 
+              name="5188 Sayılı Kanun Kapsamında Temel Güvenlik Eğitimi"
+              description="Özel güvenlik görevlilerine yönelik zorunlu temel eğitim ve yenileme programı. Sınav hazırlık ve silahlı/silahsız eğitimler."
+              startDate="2026-09-01T09:00:00+03:00"
+              endDate="2026-09-15T18:00:00+03:00"
+              locationName="Alo Güvenlik Kurs Merkezi"
+              offersUrl="https://www.guvenlikkursu.com/"
+            />
+            <EventSeo 
+              name="Site Yöneticiliği ve Kriz Yönetimi Semineri"
+              description="Profesyonel site yöneticileri için sakinlerle iletişim, halkla ilişkiler ve stres yönetimi eğitim semineri."
+              startDate="2026-10-10T10:00:00+03:00"
+              endDate="2026-10-10T16:00:00+03:00"
+              locationName="Alo Yönetim Genel Merkez"
+            />
+          </div>
         </div>
 
         {/* Grup Şirketlerimiz (Eğitim Kurumlarımız) */}
