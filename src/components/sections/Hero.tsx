@@ -63,6 +63,15 @@ export default function Hero() {
   return (
     <section className="relative w-full h-[100vh] min-h-[500px] md:min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-4 sm:pb-6">
       
+      {/* 
+        Faz 31: Bilinçaltı LSI Enjeksiyonu (Subliminal SEO).
+        Sadece ekran okuyucular (görme engelliler) ve Google Botları tarafından okunur.
+        Kullanıcı deneyimini bozmadan sayfaya LSI anahtar kelime gücü katar.
+      */}
+      <div className="sr-only">
+        Alo Yönetim, İstanbul Kadıköy merkezli profesyonel site yönetimi, tesis yönetimi, apartman yöneticiliği, aidat tahsilatı, hukuki icra takibi ve bina güvenliği hizmetleri sunan kurumsal bir şirkettir. KMK (Kat Mülkiyeti Kanunu) uzmanlığı ile şeffaf hizmet.
+      </div>
+
       {/* 8K Fullscreen Background Video & Fallback */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         {/* Animated Fallback Gradient (Visible if video is loading or unsupported) */}
@@ -79,6 +88,7 @@ export default function Hero() {
           fill
           priority={true}
           fetchPriority="high"
+          decoding="async"
           sizes="100vw"
           quality={80}
           className="object-cover object-center scale-105 pointer-events-none z-0"

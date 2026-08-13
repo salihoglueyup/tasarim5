@@ -9,6 +9,7 @@ interface ServiceSeoProps {
   providerUrl?: string;
   areaServed?: string | string[]; // "İstanbul", "Kadıköy", etc.
   priceRange?: string; // e.g., "$$$", "1000 TRY - 5000 TRY"
+  sameAs?: string | string[]; // Wikipedia Entity links
 }
 
 /**
@@ -22,7 +23,8 @@ export default function ServiceSeo({
   providerName = "Alo Yönetim",
   providerUrl = "https://aloyonetim.com",
   areaServed = "İstanbul",
-  priceRange
+  priceRange,
+  sameAs
 }: ServiceSeoProps) {
   
   const schema: any = {
@@ -34,7 +36,8 @@ export default function ServiceSeo({
       '@type': 'LocalBusiness',
       name: providerName,
       url: providerUrl
-    }
+    },
+    ...(sameAs ? { sameAs } : {})
   };
 
   if (areaServed) {

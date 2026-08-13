@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/JsonLd';
 import { Hero, SeoTextSection } from '@/components';
+import GoogleReviewsWidget from '@/components/sections/GoogleReviewsWidget';
 import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
@@ -95,7 +96,7 @@ export default async function Home({ params }: Props) {
     name: t.page_ld_name || 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
     description: t.page_ld_desc || 'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi.',
     path: '/',
-    speakableSelectors: ['h1', '.seo-intro'],
+    speakableSelectors: ['#speakable-content'],
   });
 
   return (

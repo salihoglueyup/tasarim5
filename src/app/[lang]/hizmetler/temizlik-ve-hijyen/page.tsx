@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection } from '@/components';
+import { SeoTextSection, ServiceSeo } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -103,6 +103,7 @@ export default function TemizlikVeHijyen() {
     path: '/hizmetler/temizlik-ve-hijyen',
     description: t('clean_desc'),
     offers: cleaningHighlights.map((c) => ({ name: c.title, description: c.desc })),
+    sameAs: 'https://tr.wikipedia.org/wiki/Temizlik',
   });
 
   const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
@@ -110,6 +111,12 @@ export default function TemizlikVeHijyen() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <ServiceSeo 
+        serviceType={t('serv_clean_name') || 'Temizlik ve Hijyen'}
+        description={t('clean_desc') || 'Profesyonel temizlik ve hijyen hizmetleri.'}
+        areaServed={["İstanbul", "Kadıköy"]}
+        sameAs="https://tr.wikipedia.org/wiki/Temizlik"
+      />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">

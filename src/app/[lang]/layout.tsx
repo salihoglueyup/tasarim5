@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "../globals.css";
-import { SmoothScroll, NavigationWrapper, WebVitals, IconFontLoader, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
+import { SmoothScroll, NavigationWrapper, WebVitals, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
 import MaterialSymbolsFix from "@/components/ui/MaterialSymbolsFix";
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -137,15 +137,9 @@ export default async function RootLayout({
             {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
           />
         ))}
-        {/* Material Symbols: render-blocking olmasın diye hydration sonrası
-            yüklenir (IconFontLoader — Faz 186). No-JS için fallback: */}
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-          <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
+        
+        
+        
         {/* Faz 124: En çok dönüştüren (tıklanan) ana rotalar için prefetch */}
         <link rel="prefetch" href="/tr/hizmetler" />
         <link rel="prefetch" href="/tr/iletisim" />
@@ -157,6 +151,25 @@ export default async function RootLayout({
         <link rel="author" href="/humans.txt" />
         
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
+        {/* Faz 25: 0ms Speculation Rules API (Chrome) */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [
+                {
+                  where: {
+                    and: [
+                      { href_matches: "/*" },
+                      { not: { href_matches: "/*\\?*" } }
+                    ]
+                  },
+                  eagerness: "moderate"
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)]`}>
         {/* Faz 22, 196: Skip Navigation Link */}
@@ -170,7 +183,6 @@ export default async function RootLayout({
         
         <MaterialSymbolsFix />
         <WebVitals />
-        <IconFontLoader />
         <LanguageProvider initialLang={lang} initialDictionary={dictionaries[lang] || trDict}>
           <QuoteProvider>
             <FramerLazyProvider>

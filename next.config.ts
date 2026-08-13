@@ -58,6 +58,31 @@ const nextConfig: NextConfig = {
         source: '/hizmetlerimiz',
         destination: '/hizmetler',
         permanent: true,
+      },
+      {
+        source: '/iletisim-gec',
+        destination: '/iletisim',
+        permanent: true,
+      },
+      {
+        source: '/hakkimizda',
+        destination: '/kurumsal/hakkimizda',
+        permanent: true,
+      },
+      {
+        source: '/referanslarimiz',
+        destination: '/referanslar',
+        permanent: true,
+      },
+      {
+        source: '/blog-yazilari',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/servisler',
+        destination: '/hizmetler',
+        permanent: true,
       }
     ];
   },

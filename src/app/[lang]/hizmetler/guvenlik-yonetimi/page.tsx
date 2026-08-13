@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection } from '@/components';
+import { SeoTextSection, ServiceSeo } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -96,6 +96,7 @@ export default function GuvenlikYonetimi() {
     path: '/hizmetler/guvenlik-yonetimi',
     description: t('sec_desc'),
     offers: securityFeatures.map((f) => ({ name: f.title, description: f.desc })),
+    sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
   });
 
   const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
@@ -103,6 +104,12 @@ export default function GuvenlikYonetimi() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <ServiceSeo 
+        serviceType={t('serv_sec_name') || 'Güvenlik Yönetimi'}
+        description={t('sec_desc') || 'Profesyonel güvenlik yönetimi hizmetleri.'}
+        areaServed={["İstanbul", "Kadıköy"]}
+        sameAs="https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi"
+      />
       
       {/* Immersive Full-Width Hero */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">

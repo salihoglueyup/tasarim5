@@ -6,7 +6,8 @@ import { Faq, SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/JsonLd';
+import ItemListSeo from '@/components/seo/ItemListSeo';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 
 export default function Hizmetler() {
@@ -111,11 +112,19 @@ export default function Hizmetler() {
     name: t('services_title'),
     description: t('services_desc'),
     path: '/hizmetler',
+    hasPart: allServices.map(s => s.link)
   });
+
+  const carouselItems = allServices.map((s) => ({
+    name: s.title,
+    url: `https://aloyonetim.com${s.link}`,
+    description: s.desc
+  }));
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, serviceLd]} />
+      <ItemListSeo items={carouselItems} />
       <PageHeader 
         title={t('services_title')} 
         description={t('services_desc')} 

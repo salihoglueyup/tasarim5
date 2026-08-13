@@ -1,19 +1,28 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
+import CalculatorLeadForm from './CalculatorLeadForm';
 
 export default function FacilityCalculator() {
   const { t } = useLanguage();
   const [flats, setFlats] = useState(100);
   const [isCalculated, setIsCalculated] = useState(false);
+  const [averageDues, setAverageDues] = useState(1500);
+  const [savingPercentage, setSavingPercentage] = useState(0.15);
 
-  // Fake savings logic (can be adjusted later)
-  // Assume a typical flat pays 1500 TL dues. We can save %15 through bulk purchasing.
-  const averageDues = 1500; 
-  const savingPercentage = 0.15;
+  useEffect(() => {
+    fetch('/api/calculator')
+      .then(res => res.json())
+      .then(data => {
+        if (data.baseCostPerUnit) setAverageDues(data.baseCostPerUnit);
+        if (data.savingsRate) setSavingPercentage(data.savingsRate);
+      })
+      .catch(() => {});
+  }, []);
+
   const monthlySavings = flats * averageDues * savingPercentage;
   const yearlySavings = monthlySavings * 12;
 
@@ -76,10 +85,10 @@ export default function FacilityCalculator() {
           
           <span className="text-xs text-gray-400 mb-8">{t('calc_disclaimer_dues')}</span>
           
-          <Link href="/teklif-al" className="w-full bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-6 rounded-xl transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-white/10">
-            {t('calc_btn_free_discovery')}
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </Link>
+          <CalculatorLeadForm 
+            serviceName="Tesis Yönetimi" 
+            calcDetails={{ flats, monthlySavings, yearlySavings }}
+          />
         </div>
 
       </div>

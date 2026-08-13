@@ -68,6 +68,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/sozluk', priority: 0.6, changeFreq: 'weekly' },
     { path: '/blog', priority: 0.75, changeFreq: 'daily' },
     { path: '/bolgeler', priority: 0.7, changeFreq: 'monthly' },
+    { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly' },
+    { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly' },
+    { path: '/cerez-politikasi', priority: 0.3, changeFreq: 'monthly' },
+    { path: '/kvkk-ve-aydinlatma-metni', priority: 0.3, changeFreq: 'monthly' },
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.map((p) =>

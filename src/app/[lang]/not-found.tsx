@@ -62,6 +62,13 @@ export default function NotFound() {
             <span className="material-symbols-outlined text-sm">grid_view</span>
             {t('err_404_services')}
           </Link>
+          <Link 
+            href={getLocalizedPath('/site-haritasi')} 
+            className="bg-slate-800 hover:bg-slate-900 text-white dark:bg-slate-700 dark:hover:bg-slate-600 font-semibold py-3 px-8 rounded-full transition-colors flex items-center justify-center gap-2"
+          >
+            <span className="material-symbols-outlined text-sm">account_tree</span>
+            Site Haritası
+          </Link>
         </motion.div>
       </div>
     </div>

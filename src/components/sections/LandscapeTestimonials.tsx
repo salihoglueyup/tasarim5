@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import ReviewListSeo from '@/components/seo/ReviewListSeo';
 
 export default function LandscapeTestimonials() {
   const { t } = useLanguage();
@@ -62,6 +63,14 @@ export default function LandscapeTestimonials() {
           </motion.div>
         ))}
       </div>
+      <ReviewListSeo 
+        reviews={testimonials.map(item => ({
+          author: item.author,
+          reviewBody: t(item.quote as any) || item.quote,
+          rating: 5
+        }))} 
+        ratingValue="4.9" 
+      />
     </div>
   );
 }

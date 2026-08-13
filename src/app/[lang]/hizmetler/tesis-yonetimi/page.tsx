@@ -11,6 +11,7 @@ import { RelatedArticles } from '@/components';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import FacilityCalculator from '@/components/sections/FacilityCalculator';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
+import Image from 'next/image';
 
 export default function TesisYonetimi() {
   const { t } = useLanguage();
@@ -42,13 +43,14 @@ export default function TesisYonetimi() {
         description={t('fac_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe"]}
         priceRange="₺₺"
+        sameAs="https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi"
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+          <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt="tesis-yonetimi hero" fill className="object-cover object-center opacity-30" priority />
         </div>
         
         {/* Abstract Minimal Animation */}

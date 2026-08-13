@@ -1,12 +1,18 @@
 import { TERMS } from '@/data/dictionary';
 
-// Statik özel linkler ve ekstra eşanlamlı kelimeler (isteğe bağlı)
+import { SERVICES } from '@/data/services';
+
+// Dinamik Hizmet Linkleri (Faz 22: Örümcek Ağı Linkleme)
+const SERVICE_LINKS = SERVICES.map(s => ({
+  term: s.name.toLowerCase(),
+  href: s.pillar // e.g. '/hizmetler/aidat-takibi'
+}));
+
+// Ekstra spesifik eşanlamlılar
 const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'aidat icra takibi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
   { term: 'icra takibi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
-  { term: 'teknik bakım', href: '/hizmetler/teknik-bakim' },
-  { term: 'havuz bakımı', href: '/hizmetler/havuz-bakimi-ve-hijyen' },
-  { term: 'tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  ...SERVICE_LINKS
 ];
 
 const DICTIONARY_LINKS = TERMS.map(t => ({

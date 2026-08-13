@@ -14,6 +14,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 import PoolCalculator from '@/components/sections/PoolCalculator';
 import PoolTestimonials from '@/components/sections/PoolTestimonials';
+import Image from 'next/image';
 
 export default function HavuzBakimiVeHijyen() {
   const { t } = useLanguage();
@@ -77,7 +78,7 @@ export default function HavuzBakimiVeHijyen() {
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+          <Image src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2000&auto=format&fit=crop" alt="havuz-bakimi-ve-hijyen hero" fill className="object-cover object-center opacity-30" priority />
         </div>
         
         {/* Abstract Minimal Animation */}

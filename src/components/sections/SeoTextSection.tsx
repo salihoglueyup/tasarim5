@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
+import SemanticLinker from '@/components/seo/SemanticLinker';
 
 interface SeoTextSectionProps {
   titleKey?: string;
@@ -17,7 +18,7 @@ export default function SeoTextSection({
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto bg-slate-50 dark:bg-[#0a192b] border-y border-slate-200/50 dark:border-white/5">
+    <section id="speakable-content" className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto bg-slate-50 dark:bg-[#0a192b] border-y border-slate-200/50 dark:border-white/5">
       <div className="max-w-4xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -35,8 +36,8 @@ export default function SeoTextSection({
           transition={{ delay: 0.1 }}
           className="text-lg text-[var(--color-secondary)] leading-relaxed space-y-6 text-center md:text-left font-light"
         >
-          <p>{t(p1Key as Parameters<typeof t>[0])}</p>
-          <p>{t(p2Key as Parameters<typeof t>[0])}</p>
+          <p><SemanticLinker text={t(p1Key as Parameters<typeof t>[0]) as string} /></p>
+          <p><SemanticLinker text={t(p2Key as Parameters<typeof t>[0]) as string} /></p>
         </motion.div>
       </div>
     </section>

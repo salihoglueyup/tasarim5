@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
-import { generateBreadcrumbs, professionalServiceSchema, webPageSchema } from '@/lib/schemas';
-import { ORG_ADDRESS_DISPLAY, ORG_PHONE_DISPLAY, ORG_PHONE } from '@/lib/constants';
+import JsonLd from '@/components/seo/JsonLd';
+import { generateBreadcrumbs, professionalServiceSchema, webPageSchema, ORG_NAME, ORG_ADDRESS, ORG_GEO, ORG_PHONE } from '@/lib/schemas';
+import { ORG_ADDRESS_DISPLAY, ORG_PHONE_DISPLAY } from '@/lib/constants';
+import { LocalBusinessSeo } from '@/components';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -139,6 +140,22 @@ export default function Iletisim() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-[#0B1120]">
       <JsonLd data={[contactPageLd, breadcrumbLd, serviceLd]} />
+      <LocalBusinessSeo 
+        businessName={ORG_NAME}
+        telephone={ORG_PHONE}
+        address={{
+          streetAddress: ORG_ADDRESS.streetAddress,
+          addressLocality: ORG_ADDRESS.addressLocality,
+          addressRegion: ORG_ADDRESS.addressRegion,
+          postalCode: ORG_ADDRESS.postalCode,
+          addressCountry: ORG_ADDRESS.addressCountry
+        }}
+        geo={{
+          latitude: ORG_GEO.latitude,
+          longitude: ORG_GEO.longitude
+        }}
+        areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe"]}
+      />
       
       {/* ÜST HERO BÖLÜMÜ (Light/Ferah Tema, Grid Desen) */}
       <div className="w-full bg-[var(--color-background)] dark:bg-[#0B1120] pt-40 pb-56 px-4 flex flex-col items-center text-center relative overflow-hidden">

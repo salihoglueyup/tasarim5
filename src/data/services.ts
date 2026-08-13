@@ -22,6 +22,8 @@ export type ServiceDef = {
   keywords: string[];
   /** Ana hizmet sayfası yolu (pillar iç link). */
   pillar: string;
+  /** Entity SEO için Wikipedia (veya otoriter) linki. */
+  sameAs?: string;
 };
 
 export const SERVICES: ServiceDef[] = [
@@ -56,6 +58,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     keywords: ['site güvenliği', 'özel güvenlik', 'apartman güvenliği', 'kameralı güvenlik'],
     pillar: '/hizmetler/guvenlik-yonetimi',
+    sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
   },
   {
     slug: 'tesis-yonetimi',
@@ -70,8 +73,9 @@ export const SERVICES: ServiceDef[] = [
       'Ortak alanların bütünsel işletmesi',
       'Kat malikleri kuruluna düzenli raporlama',
     ],
-    keywords: ['site yönetimi', 'apartman yönetimi', 'profesyonel yönetim', 'aidat yönetimi'],
+    keywords: ['tesis yönetimi', 'bina yönetimi', 'plaza yönetimi', 'avm yönetimi'],
     pillar: '/hizmetler/tesis-yonetimi',
+    sameAs: 'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
   },
   {
     slug: 'temizlik-ve-hijyen',
@@ -86,8 +90,9 @@ export const SERVICES: ServiceDef[] = [
       'Mevsimsel dış cephe ve cam temizliği',
       'Sertifikalı temizlik kimyasalları',
     ],
-    keywords: ['site temizliği', 'ortak alan temizliği', 'apartman temizlik şirketi'],
+    keywords: ['profesyonel temizlik', 'bina temizliği', 'site temizliği', 'endüstriyel temizlik'],
     pillar: '/hizmetler/temizlik-ve-hijyen',
+    sameAs: 'https://tr.wikipedia.org/wiki/Temizlik',
   },
   {
     slug: 'teknik-bakim',

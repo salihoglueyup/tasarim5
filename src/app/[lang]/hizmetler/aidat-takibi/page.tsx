@@ -13,6 +13,7 @@ import { RelatedArticles } from '@/components';;
 import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
 import DuesCalculator from '@/components/sections/DuesCalculator';
 import DuesTestimonials from '@/components/sections/DuesTestimonials';
+import Image from 'next/image';
 
 export default function AidatTakibi() {
   const { t } = useLanguage();
@@ -78,7 +79,7 @@ export default function AidatTakibi() {
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+          <Image src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop" alt="aidat-takibi hero" fill className="object-cover object-center opacity-30" priority />
         </div>
         
         {/* Abstract Minimal Animation */}

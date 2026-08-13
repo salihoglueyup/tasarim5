@@ -66,3 +66,12 @@ next-env.d.ts
 
 # Blog taslakları — generate-blog-draft.ts çıktısı, geçici
 /src/data/drafts/
+
+# PWA build artifact'ları (next-pwa tarafından üretilir, runtime'da regenerate olur)
+/public/sw.js
+/public/workbox-*.js
+/public/swe-worker-*.js
+/public/fallback-*.js
+
+# Geçici patch scriptleri
+/patch_*.js

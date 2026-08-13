@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
+import CalculatorLeadForm from './CalculatorLeadForm';
 
 export default function LegalCalculator() {
   const { t } = useLanguage();
@@ -82,10 +83,10 @@ export default function LegalCalculator() {
           
           <span className="text-xs text-slate-400 mb-8 font-medium">{t('calc_legal_included')}</span>
           
-          <Link href="/teklif-al" className="w-full bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-6 rounded-xl transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-white/10">
-            {t('calc_btn_open_file')}
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </Link>
+          <CalculatorLeadForm 
+            serviceName="Hukuk ve İcra" 
+            calcDetails={{ debtAmount, costToManagement, recoveredAmount }}
+          />
         </div>
 
       </div>

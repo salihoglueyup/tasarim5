@@ -26,14 +26,20 @@ if (typeof DOMPurify.addHook === 'function') {
   });
 }
 
-export default function PostBody({ htmlContent }: { htmlContent: string }) {
+export default function PostBody({ htmlContent, title = 'Alo Yönetim' }: { htmlContent: string; title?: string }) {
   // İçeriği otomatik linkle
   const processedHtml = autoLinkHtml(htmlContent);
+
+  // Otomatik Alt Etiketi Enjeksiyonu (Faz 22: Görsel SEO)
+  // Eğer img etiketinde alt="" yoksa, yazının başlığını ekler.
+  const seoHtml = processedHtml.replace(/<img(?![^>]*alt=)[^>]*>/gi, (match) => { 
+    return match.replace('<img', `<img alt="${title}"`); 
+  });
 
   return (
     <div 
       className="prose prose-slate prose-lg max-w-none text-slate-900 w-full prose-headings:text-slate-950 prose-a:text-brand-600 prose-strong:text-slate-900 prose-img:rounded-2xl prose-img:shadow-lg"
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(processedHtml) }} 
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(seoHtml) }} 
     />
   );
 }
