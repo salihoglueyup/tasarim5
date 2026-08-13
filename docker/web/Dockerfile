@@ -52,6 +52,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy prisma directory (schema and migrations)
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.ts
+# Standalone output trace @prisma/adapter-pg ve bağımlılıklarını dahil etmiyor —
+# pg driver adapter olmadan Prisma DB sorguları sessizce [] döner.
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma/adapter-pg ./node_modules/@prisma/adapter-pg
 
 # Prisma CLI ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz (migrate/push için)
 RUN npm install -g prisma@7.9.1 dotenv
