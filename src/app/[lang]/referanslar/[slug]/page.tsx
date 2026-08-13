@@ -5,13 +5,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import redis from '@/lib/redis';
 import { autoLinkHtml } from '@/lib/autoLinker';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
-export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+export const revalidate = 3600;
 
+export async function generateStaticParams() {
+  try {
+    const refs = await prisma.reference.findMany({
+      where: { published: true },
+      select: { slug: true }
+    });
+    return LOCALES.flatMap((lang) =>
+      refs.map((r) => ({ lang, slug: r.slug }))
+    );
+  } catch {
+    return [];
+  }
+}
 export async function generateMetadata({
   params,
 }: {

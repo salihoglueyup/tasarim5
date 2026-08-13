@@ -1,155 +1,159 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
-import SitemapClient from './SitemapClient';
-import { DISTRICTS } from '@/data/districts';
-import { TERMS } from '@/data/dictionary';
-import { prisma } from '@/lib/prisma';
 import JsonLd from '@/components/seo/JsonLd';
-import { siteNavigationSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { buildMetadata } from '@/lib/seo';
+import { prisma } from '@/lib/prisma';
+import { SERVICES } from '@/data/services';
+import { DISTRICTS } from '@/data/districts';
 
-export default async function SiteHaritasi() {
-  let blogCategories: { slug: string; name: string }[] = [];
-  let blogPosts: { slug: string; title: string }[] = [];
-  let referenceProjects: { slug: string; title: string }[] = [];
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return buildMetadata({
+    title: 'Site Haritası',
+    description: 'Alo Yönetim web sitesindeki tüm sayfalara ve hizmetlere bu sayfadan ulaşabilirsiniz.',
+    path: '/site-haritasi',
+    lang,
+  });
+}
+
+export default async function SiteHaritasiPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+
+  // DB verilerini çek
+  const categories = await prisma.category.findMany();
+  const posts = await prisma.post.findMany({ where: { published: true }, select: { slug: true, title: true } });
   
-  try {
-    const [categoriesResult, postsResult, referencesResult] = await Promise.all([
-      prisma.category.findMany({ select: { slug: true, name: true } }),
-      prisma.post.findMany({ where: { published: true }, select: { slug: true, title: true } }),
-      prisma.reference.findMany({ where: { published: true }, select: { slug: true, title: true } })
-    ]);
-    blogCategories = categoriesResult;
-    blogPosts = postsResult;
-    referenceProjects = referencesResult;
-  } catch (error) {
-    console.error("Failed to fetch sitemap dynamic data:", error);
-  }
-
-  // Construct Base Sitemap Data
-  const sitemapData = [
-    {
-      title: "Ana Sayfalar",
-      links: [
-        { name: "Anasayfa", path: "/" },
-        { name: "Tüm Hizmetler", path: "/hizmetler" },
-        { name: "İletişim", path: "/iletisim" },
-        { name: "Sıkça Sorulan Sorular", path: "/sss" },
-        { name: "Blog", path: "/blog" },
-        { name: "Site Yönetimi Sözlüğü", path: "/sozluk" },
-        { name: "Hizmet Bölgeleri", path: "/bolgeler" },
-      ]
-    },
-    {
-      title: "Hizmetlerimiz",
-      links: [
-        { name: "Güvenlik Yönetimi", path: "/hizmetler/guvenlik-yonetimi" },
-        { name: "Tesis Yönetimi", path: "/hizmetler/tesis-yonetimi" },
-        { name: "Temizlik ve Hijyen", path: "/hizmetler/temizlik-ve-hijyen" },
-        { name: "Teknik Bakım", path: "/hizmetler/teknik-bakim" },
-        { name: "Peyzaj ve Bahçe Bakımı", path: "/hizmetler/peyzaj-ve-bahce-bakimi" },
-        { name: "Havuz Bakımı ve Hijyen", path: "/hizmetler/havuz-bakimi-ve-hijyen" },
-        { name: "Haşere ve Dezenfeksiyon", path: "/hizmetler/hasere-ve-dezenfeksiyon" },
-        { name: "Hukuk ve İcra Danışmanlığı", path: "/hizmetler/hukuk-ve-icra-danismanligi" },
-      ]
-    },
-    {
-      title: "Kurumsal",
-      links: [
-        { name: "Hakkımızda", path: "/hakkimizda" },
-        { name: "Vizyon ve Misyon", path: "/kurumsal/vizyon-misyon" },
-        { name: "Kalite Politikamız", path: "/kurumsal/kalite-politikamiz" },
-        { name: "Sürdürülebilirlik", path: "/kurumsal/surdurulebilirlik" },
-        { name: "Referanslar", path: "/referanslar" },
-        { name: "Başarı Hikayeleri", path: "/basari-hikayeleri" },
-      ]
-    },
-    {
-      title: "Özel Çözümler & Akademiler",
-      links: [
-        { name: "Sektörel Çözümler", path: "/sektorel-cozumler" },
-        { name: "İstihdam Köprüsü", path: "/istihdam-koprusu" },
-        { name: "Güvenlik Akademisi", path: "/guvenlik-akademisi" },
-        { name: "Aidat Hesaplayıcı", path: "/hesaplayici" },
-        { name: "Teklif Al", path: "/teklif-al" },
-      ]
-    },
-    {
-      title: "Yasal & Sözleşmeler",
-      links: [
-        { name: "Gizlilik Politikası", path: "/gizlilik-politikasi" },
-        { name: "Çerez Politikası", path: "/cerez-politikasi" },
-        { name: "Kullanım Koşulları", path: "/kullanim-sartlari" },
-      ]
-    },
-    {
-      title: "Sözlük Terimleri",
-      links: TERMS.map(t => ({
-        name: t.term,
-        path: `/sozluk#${t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
-      }))
-    }
-  ];
-
-  if (blogCategories.length > 0) {
-    sitemapData.push({
-      title: "Blog Kategorileri",
-      links: blogCategories.map(c => ({
-        name: c.name,
-        path: `/blog/kategori/${c.slug}`
-      }))
-    });
-  }
-
-  if (blogPosts.length > 0) {
-    sitemapData.push({
-      title: "Blog Yazıları",
-      links: blogPosts.map(p => ({
-        name: p.title,
-        path: `/blog/${p.slug}`
-      }))
-    });
-  }
-
-  if (referenceProjects.length > 0) {
-    sitemapData.push({
-      title: "Referans Projelerimiz",
-      links: referenceProjects.map(r => ({
-        name: r.title,
-        path: `/referanslar/${r.slug}`
-      }))
-    });
-  }
-
-  // Bölgeler en altta çok yer kaplayacağı için sonda eklenebilir
-  sitemapData.push({
-    title: "Hizmet Bölgelerimiz (İlçeler)",
-    links: DISTRICTS.map((d) => ({
-      name: `${d.name} Tesis Yönetimi`,
-      path: `/bolgeler/${d.slug}`,
-    })),
+  const breadcrumbLd = generateBreadcrumbs([
+    { name: 'Anasayfa', url: '/' },
+    { name: 'Site Haritası', url: '/site-haritasi' }
+  ]);
+  const pageLd = webPageSchema({
+    name: 'Site Haritası',
+    description: 'Alo Yönetim web sitesindeki tüm sayfalara ulaşın.',
+    path: '/site-haritasi',
   });
 
-  const highlights = [
-    { name: "Aidat Hesaplayıcı", path: "/hesaplayici" },
-    { name: "Tesis Yönetimi", path: "/hizmetler/tesis-yonetimi" },
-    { name: "Güvenlik Akademisi", path: "/guvenlik-akademisi" },
-    { name: "Site Yönetimi Sözlüğü", path: "/sozluk" },
+  const SECTORAL_SOLUTIONS = [
+    { slug: 'rezidans', title: 'Rezidans' },
+    { slug: 'avm', title: 'AVM' },
+    { slug: 'sanayi', title: 'Sanayi ve Fabrika' },
+    { slug: 'toplukonut', title: 'Toplu Konut ve Site' }
   ];
-
-  // Extract all links for JSON-LD schema
-  const allLinks = sitemapData.flatMap(cat => cat.links);
-  const jsonLdData = siteNavigationSchema(allLinks.map(l => ({ name: l.name, url: l.path })));
 
   return (
     <>
-      <JsonLd data={jsonLdData} />
-      
+      <JsonLd data={[breadcrumbLd, pageLd]} />
       <PageHeader 
         title="Site Haritası" 
-        description="Alo Yönetim bünyesindeki tüm sayfalara, hizmetlere, bölgelere ve bilgi kaynaklarına tek bir noktadan hızlıca erişin." 
+        description="Arama motorlarının ve ziyaretçilerimizin sitemizdeki tüm içeriklere hızlıca ulaşmasını sağlayan merkez üssü."
       />
+      <section className="py-16 px-[var(--spacing-gutter)] max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          
+          {/* Kurumsal */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Kurumsal</h2>
+            <ul className="space-y-2">
+              <li><Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Anasayfa</Link></li>
+              <li><Link href="/kurumsal/hakkimizda" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Hakkımızda</Link></li>
+              <li><Link href="/kurumsal/vizyon-misyon" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Vizyon & Misyon</Link></li>
+              <li><Link href="/iletisim" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">İletişim</Link></li>
+              <li><Link href="/sss" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Sıkça Sorulan Sorular</Link></li>
+              <li><Link href="/referanslar" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Referanslarımız</Link></li>
+              <li><Link href="/app" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Mobil Uygulamamız</Link></li>
+            </ul>
+          </div>
 
-      <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-        <SitemapClient data={sitemapData} highlights={highlights} />
+          {/* Hizmetler */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Hizmetlerimiz</h2>
+            <ul className="space-y-2">
+              <li><Link href="/hizmetler" className="font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-500 transition-colors">Tüm Hizmetler</Link></li>
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/hizmetler/${s.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Sektörel Çözümler */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Sektörel Çözümler</h2>
+            <ul className="space-y-2">
+              {SECTORAL_SOLUTIONS.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/sektorel-cozumler/${s.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                    {s.title} Yönetimi
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Hizmet Bölgeleri */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Hizmet Bölgelerimiz</h2>
+            <ul className="space-y-2 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700">
+              {DISTRICTS.map((d) => (
+                <li key={d.slug}>
+                  <Link href={`/bolgeler/${d.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                    {d.name} Tesis Yönetimi
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Blog & Bilgi Merkezi */}
+          <div className="space-y-4 md:col-span-2 lg:col-span-2">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Blog ve Bilgi Merkezi</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">Kategoriler</h3>
+                <ul className="space-y-2">
+                  <li><Link href="/blog" className="font-semibold text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Tüm Blog Yazıları</Link></li>
+                  {categories.map((c) => (
+                    <li key={c.slug}>
+                      <Link href={`/blog/kategori/${c.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">Son Yazılar</h3>
+                <ul className="space-y-2 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700">
+                  {posts.slice(0, 20).map((p) => (
+                    <li key={p.slug}>
+                      <Link href={`/blog/${p.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors line-clamp-1">
+                        {p.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </section>
     </>
   );

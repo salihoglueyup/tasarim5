@@ -1,9 +1,9 @@
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';;
-import { generateBreadcrumbs, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import FaqClient from './FaqClient';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 
 export const dynamic = 'force-dynamic';
@@ -52,9 +52,15 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
     { name: dict.sss_title, url: '/sss' }
   ]);
 
+  const pageLd = webPageSchema({
+    name: dict.sss_title + ' — Alo Yönetim',
+    path: '/sss',
+    speakableSelectors: ['h1', '.faq-question', '.faq-answer'],
+  });
+
   return (
     <>
-      <JsonLd data={[jsonLd, breadcrumbLd]} />
+      <JsonLd data={[breadcrumbLd, jsonLd, pageLd]} />
       <PageHeader 
         title={dict.sss_title} 
         description={dict.sss_desc} 

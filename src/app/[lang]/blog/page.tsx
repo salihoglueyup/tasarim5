@@ -6,16 +6,19 @@ import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
 import { notFound } from 'next/navigation';
 
- // 1 dakika cache
+import ItemListSeo from '@/components/seo/ItemListSeo';
+import { BASE_URL } from '@/lib/seo';
+
+// 1 dakika cache
 
 export default async function Blog() {
   const posts = await prisma.post.findMany({
     where: { published: true },
     orderBy: { datePublished: 'desc' },
     include: { category: true }
-  });
+  }).catch(() => []);
 
-  const categories = await prisma.category.findMany();
+  const categories = await prisma.category.findMany().catch(() => []);
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
@@ -35,10 +38,18 @@ export default async function Blog() {
       image: post.image,
     })),
   };
+  
+  const carouselItems = posts.map(post => ({
+    name: post.title,
+    url: `${BASE_URL}/blog/${post.slug}`,
+    image: post.image || undefined,
+    description: post.description || undefined
+  }));
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, blogLd]} />
+      <ItemListSeo items={carouselItems} />
       {/* 
         We can't use useLanguage here cleanly without passing to client component
         But we can just pass strings or use a dictionary if we want SSR i18n.

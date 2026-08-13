@@ -9,8 +9,18 @@ import { prisma } from '@/lib/prisma';
 
 
 export const dynamicParams = true;
+export const revalidate = 86400; // 1 day
 
-
+export async function generateStaticParams() {
+  try {
+    const authors = await prisma.author.findMany({ select: { slug: true } });
+    return LOCALES.flatMap((lang) =>
+      authors.map((author) => ({ lang, yazar: author.slug }))
+    );
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,

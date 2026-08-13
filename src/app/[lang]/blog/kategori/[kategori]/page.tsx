@@ -9,8 +9,18 @@ import { prisma } from '@/lib/prisma';
 
 
 export const dynamicParams = true;
+export const revalidate = 3600;
 
-
+export async function generateStaticParams() {
+  try {
+    const cats = await prisma.category.findMany({ select: { slug: true } });
+    return LOCALES.flatMap((lang) =>
+      cats.map((cat) => ({ lang, kategori: cat.slug }))
+    );
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,

@@ -12,6 +12,7 @@ import {
   blogPostingSchema,
   webPageSchema,
 } from '@/lib/schemas';
+import BlogFAQExtractor from '@/components/seo/BlogFAQExtractor';
 import { LOCALES, buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import trDict from '@/i18n/locales/tr/common.json';
@@ -22,6 +23,21 @@ import arDict from '@/i18n/locales/ar/common.json';
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
 export const dynamicParams = true;
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  try {
+    const posts = await prisma.post.findMany({
+      where: { published: true },
+      select: { slug: true }
+    });
+    return LOCALES.flatMap((lang) =>
+      posts.map((post) => ({ lang, slug: post.slug }))
+    );
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,
@@ -95,6 +111,25 @@ export default async function BlogDetail({
     orderBy: { datePublished: 'desc' }
   });
 
+  const [prevPost, nextPost] = await Promise.all([
+    prisma.post.findFirst({
+      where: {
+        published: true,
+        datePublished: { lt: post.datePublished },
+      },
+      orderBy: { datePublished: 'desc' },
+      select: { title: true, slug: true }
+    }),
+    prisma.post.findFirst({
+      where: {
+        published: true,
+        datePublished: { gt: post.datePublished },
+      },
+      orderBy: { datePublished: 'asc' },
+      select: { title: true, slug: true }
+    }),
+  ]);
+
   let tags: string[] = [];
   try {
     tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
@@ -134,7 +169,13 @@ export default async function BlogDetail({
       { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' }
     ],
     author: author
-      ? { name: author.name, jobTitle: 'Yazar', url: `/blog/yazar/${author.slug}` }
+      ? { 
+          name: author.name, 
+          jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı', 
+          url: `/blog/yazar/${author.slug}`,
+          alumniOf: [{ name: 'İstanbul Üniversitesi', sameAs: 'https://tr.wikipedia.org/wiki/İstanbul_Üniversitesi' }],
+          knowsAbout: ['Tesis Yönetimi', 'Bina Güvenliği', 'Aidat Hukuku', 'Site Yönetimi']
+        }
       : undefined,
   });
 
@@ -147,8 +188,9 @@ export default async function BlogDetail({
 
   return (
     <>
+      <JsonLd data={[breadcrumbLd, articleLd, pageLd]} />
+      {post.content && <BlogFAQExtractor htmlContent={post.content} />}
       <ReadingProgress />
-      <JsonLd data={[pageLd, breadcrumbLd, articleLd]} />
       <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
         <Breadcrumbs items={breadcrumbs} />
       </div>
@@ -218,7 +260,7 @@ export default async function BlogDetail({
           )}
 
           {/* Body */}
-          <PostBody htmlContent={post.content} />
+          <PostBody htmlContent={post.content} title={post.title} />
 
           {/* Tags */}
           {tags.length > 0 && (
@@ -277,6 +319,31 @@ export default async function BlogDetail({
                   </Link>
                 ))}
               </div>
+            </div>
+          )}
+          
+          {/* Next & Previous Posts (Link Juice) */}
+          {(prevPost || nextPost) && (
+            <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-slate-200 dark:border-white/10">
+              {prevPost ? (
+                <Link href={`/blog/${prevPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-start text-left">
+                  <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Önceki Yazı
+                  </span>
+                  <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{prevPost.title}</span>
+                </Link>
+              ) : <div className="flex-1" />}
+              
+              {nextPost ? (
+                <Link href={`/blog/${nextPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-end text-right">
+                  <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
+                    Sonraki Yazı
+                    <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  </span>
+                  <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{nextPost.title}</span>
+                </Link>
+              ) : <div className="flex-1" />}
             </div>
           )}
 

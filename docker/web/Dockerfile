@@ -9,7 +9,8 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json* ./
-RUN npm ci
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+RUN npm ci --no-audit --no-fund
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -65,4 +66,4 @@ ENV PORT 3001
 ENV HOSTNAME "0.0.0.0"
 
 # Başlangıçta veritabanı tablolarını senkronize edip (push) ardından sunucuyu başlatıyoruz
-CMD npx prisma db push --accept-data-loss && node server.js
+CMD npx prisma db push && node server.js
