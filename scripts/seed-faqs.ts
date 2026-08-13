@@ -1,5 +1,6 @@
 import 'dotenv/config';
-import { prisma } from './src/lib/prisma';
+import { PrismaClient } from '@prisma/client';
+import { prisma } from '../src/lib/prisma';
 import * as fs from 'fs';
 import * as path from 'path';
 
