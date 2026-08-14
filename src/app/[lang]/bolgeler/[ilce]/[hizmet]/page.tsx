@@ -30,8 +30,52 @@ export function generateStaticParams() {
   );
 }
 
-/** Hizmet×ilçe özel SSS (Faz 115/129 — schema-content uyumlu). */
-function serviceDistrictFaqs(serviceName: string, districtName: string, benefit: string) {
+/** Hizmete özgü 3. SSS sorusu — tüm sayfalarda aynı olmayacak şekilde farklılaştırıldı. */
+const SERVICE_SPECIFIC_Q3: Record<string, { q: string; a: string }> = {
+  'aidat-takibi': {
+    q: 'Aidat ödenmezse yasal süreç nasıl işler?',
+    a: 'Ödenmeyen aidatlar için önce yazılı ihtarname gönderilir; ardından 634 sayılı KMK m.20 kapsamında icra takibi başlatılır. Dijital sistemimiz gecikmeleri anlık olarak tespit eder ve süreci otomatik olarak yönetir.',
+  },
+  'guvenlik-yonetimi': {
+    q: 'Güvenlik personeli 5188 sayılı Kanun\'a uygun mu?',
+    a: 'Evet. Tüm personelimiz 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun kapsamında lisanslı ve periyodik eğitimden geçmiş uzman güvenlik görevlilerinden oluşur.',
+  },
+  'tesis-yonetimi': {
+    q: 'Yıllık işletme projesi ne zaman ve nasıl hazırlanır?',
+    a: 'İşletme projesi, her yıl Ocak ayında KMK m.37 uyarınca kat malikleri kuruluna sunulmak üzere hazırlanır. Gelir-gider tahmini, demirbaş planı ve acil fon ayırımı şeffaf biçimde raporlanır.',
+  },
+  'temizlik-ve-hijyen': {
+    q: 'Temizlik hangi sıklıkla yapılır, programa nasıl ulaşırım?',
+    a: 'Temizlik takvimi sitenizin büyüklüğüne ve sözleşme kapsamına göre günlük, haftalık veya 2 haftada bir olarak planlanır. Uygulama üzerinden temizlik raporuna ve fotoğraflı doğrulamaya anlık erişebilirsiniz.',
+  },
+  'teknik-bakim': {
+    q: 'Periyodik bakım raporları nasıl takip edilir?',
+    a: 'Her bakım ziyareti sonrası dijital rapor site yönetimine iletilir; asansör, jeneratör ve ortak sistem kayıtları arşivlenir. Anlaşmazlık ya da sigorta durumunda hukuki geçerli belge niteliği taşır.',
+  },
+  'peyzaj-ve-bahce-bakimi': {
+    q: 'Mevsimsel bakım programı nasıl planlanıyor?',
+    a: 'İlkbahar çiçeklendirmesi, yaz sulama ve çim bakımı, sonbahar budama ve kışa hazırlık olarak 4 mevsim ayrı programa alınır. Sitenizin peyzaj karakterine göre özelleştirilmiş yıllık takvim sunulur.',
+  },
+  'havuz-bakimi-ve-hijyen': {
+    q: 'Havuz suyu kalitesi nasıl kontrol ediliyor?',
+    a: 'pH, klor, alkalinite ve bulanıklık değerleri günlük ölçülür; sonuçlar dijital havuz günlüğüne kaydedilir. Sağlık Bakanlığı standartlarına aykırı değer tespit edilirse havuz hemen devre dışı bırakılır.',
+  },
+  'hasere-ve-dezenfeksiyon': {
+    q: 'İlaçlama sonrası sakinlerin dikkat etmesi gerekenler neler?',
+    a: 'Uygulama sonrası havalandırma süresi (genellikle 2-4 saat) geçene kadar ilaçlanan alanlara girilmemesi önerilir. Kullanılan tüm ürünler Sağlık Bakanlığı onaylı ve çocuk/evcil hayvan güvenliği test edilmiş preparatlardır.',
+  },
+  'hukuk-ve-icra-danismanligi': {
+    q: 'Aidat icrası ne zaman başlatılır, süreç kaç hafta sürer?',
+    a: 'İhtarnameye rağmen ödeme yapılmayan durumlarda icra takibi 5-7 iş günü içinde başlatılır. Hukuk büromuz dosyayı alırken tüm belgeleri hazır tutar; çoğu dava 4-8 hafta içinde sonuçlanır.',
+  },
+};
+
+/** Hizmet×ilçe özel SSS — Q3 her hizmet için benzersiz. */
+function serviceDistrictFaqs(serviceName: string, districtName: string, benefit: string, serviceSlug: string) {
+  const q3 = SERVICE_SPECIFIC_Q3[serviceSlug] ?? {
+    q: `${districtName}'de sözleşme süreci nasıl işliyor?`,
+    a: `${districtName}'de ücretsiz keşif randevusu alırsınız; uzman ekibimiz sitenizi yerinde inceleyerek 48 saat içinde şeffaf ve kalem kalem hazırlanmış bir teklif sunar. Teklif onayı sonrası hemen süreci başlatırız.`,
+  };
   return [
     {
       question: `${districtName}'de ${serviceName.toLowerCase()} ne kadar tutar?`,
@@ -41,10 +85,7 @@ function serviceDistrictFaqs(serviceName: string, districtName: string, benefit:
       question: `${districtName}'de ${serviceName.toLowerCase()} hizmetiniz neleri kapsıyor?`,
       answer: `${districtName} genelinde sunduğumuz ${serviceName.toLowerCase()} hizmeti; ${benefit.toLowerCase()} başta olmak üzere sitenizin tüm ihtiyaçlarını profesyonel ekip ve düzenli raporlamayla karşılar.`,
     },
-    {
-      question: `${districtName}'de acil durumda ne kadar sürede ulaşırsınız?`,
-      answer: `${districtName}'de yerel ekip yapımız sayesinde acil taleplerde hızlı müdahale ederiz; mahallenizdeki sitelere en kısa sürede ulaşacak şekilde planlama yaparız.`,
-    },
+    { question: q3.q, answer: q3.a },
   ];
 }
 
@@ -65,13 +106,18 @@ export async function generateMetadata({
       noindex: true,
     });
   }
+  const neighborhoods = district.neighborhoods.slice(0, 2).join(', ');
   return buildMetadata({
-    title: `${service.name} ${district.name}`,
-    description: `${district.name}'de profesyonel ${service.name.toLowerCase()}. ${service.summary} ${district.name} yerel ekibimizle hemen ücretsiz teklif alın.`,
+    title: `${service.name} ${district.name} — Profesyonel Tesis Yönetimi`,
+    description: `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`,
     path: `/bolgeler/${ilce}/${hizmet}`,
     lang,
     ogImageType: 'local',
-    keywords: service.keywords.map((k) => `${k} ${district.name}`),
+    keywords: [
+      ...service.keywords.map((k) => `${k} ${district.name}`),
+      `${district.name} ${service.name.toLowerCase()}`,
+      `${district.name} tesis yönetimi`,
+    ],
   });
 }
 
@@ -86,7 +132,7 @@ export default async function ServiceDistrictPage({
   if (!district || !service) notFound();
 
   const path = `/bolgeler/${district.slug}/${service.slug}`;
-  const faqs = serviceDistrictFaqs(service.name, district.name, service.benefits[0]);
+  const faqs = serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },

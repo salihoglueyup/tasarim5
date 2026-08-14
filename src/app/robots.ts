@@ -25,7 +25,8 @@ const AI_BOTS = [
 ];
 
 export default function robots(): MetadataRoute.Robots {
-  const disallow = ['/admin', '/api/', '/_next/'];
+  // /tag/ → eski WordPress URL kalıpları; sitede var olmayan yollar (legacy crawl atığı).
+  const disallow = ['/admin', '/api/', '/_next/', '/tag/'];
   return {
     rules: [
       {
