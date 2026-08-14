@@ -83,7 +83,18 @@ const nextConfig: NextConfig = {
         source: '/servisler',
         destination: '/hizmetler',
         permanent: true,
-      }
+      },
+      // Legacy URL düzeltmeleri — GSC 404 raporundan
+      {
+        source: '/kullanim-kosullari',
+        destination: '/kullanim-sartlari',
+        permanent: true,
+      },
+      {
+        source: '/kullanim-kosullari/:path*',
+        destination: '/kullanim-sartlari/:path*',
+        permanent: true,
+      },
     ];
   },
   async headers() {
