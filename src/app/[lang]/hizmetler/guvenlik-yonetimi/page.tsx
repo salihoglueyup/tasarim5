@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import { RelatedArticles } from '@/components';;
-import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import SecurityCalculator from '@/components/sections/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
 
@@ -103,7 +103,7 @@ export default function GuvenlikYonetimi() {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/guvenlik-yonetimi', speakableSelectors: ['h1', '#speakable-content'] })]} />
       <ServiceSeo 
         serviceType={t('serv_sec_name') || 'Güvenlik Yönetimi'}
         description={t('sec_desc') || 'Profesyonel güvenlik yönetimi hizmetleri.'}

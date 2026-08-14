@@ -11,7 +11,7 @@ import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import PoolCalculator from '@/components/sections/PoolCalculator';
 import PoolTestimonials from '@/components/sections/PoolTestimonials';
 import Image from 'next/image';
@@ -72,7 +72,7 @@ export default function HavuzBakimiVeHijyen() {
   return (
     <>
       <GTMDataLayer event="view_service" data={{ service_name: "Havuz Bakımı ve Hijyen", category: "Hizmet" }} />
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/havuz-bakimi-ve-hijyen', speakableSelectors: ['h1', '#speakable-content'] })]} />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">

@@ -10,7 +10,7 @@ import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import PestControlCalculator from '@/components/sections/PestControlCalculator';
 import PestControlTestimonials from '@/components/sections/PestControlTestimonials';
 import Image from 'next/image';
@@ -70,7 +70,7 @@ export default function HasereVeDezenfeksiyon() {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/hasere-ve-dezenfeksiyon', speakableSelectors: ['h1', '#speakable-content'] })]} />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">

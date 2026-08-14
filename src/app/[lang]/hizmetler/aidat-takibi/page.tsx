@@ -10,7 +10,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import GTMDataLayer from '@/components/seo/GTMDataLayer';
 import { RelatedArticles } from '@/components';;
-import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import DuesCalculator from '@/components/sections/DuesCalculator';
 import DuesTestimonials from '@/components/sections/DuesTestimonials';
 import Image from 'next/image';
@@ -73,7 +73,7 @@ export default function AidatTakibi() {
   return (
     <>
       <GTMDataLayer event="view_service" data={{ service_name: "Aidat Takibi", category: "Hizmet" }} />
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/aidat-takibi', speakableSelectors: ['h1', '#speakable-content'] })]} />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">

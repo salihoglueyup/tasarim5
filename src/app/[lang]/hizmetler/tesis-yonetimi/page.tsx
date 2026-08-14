@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import { RelatedArticles } from '@/components';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import FacilityCalculator from '@/components/sections/FacilityCalculator';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
 import Image from 'next/image';
@@ -37,7 +37,7 @@ export default function TesisYonetimi() {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd]} />
+      <JsonLd data={[breadcrumbLd, webPageSchema({ path: '/hizmetler/tesis-yonetimi', speakableSelectors: ['h1', '#speakable-content'] })]} />
       <ServiceSeo 
         serviceType={t('serv_fac_name')}
         description={t('fac_desc')}

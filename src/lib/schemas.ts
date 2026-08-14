@@ -586,7 +586,7 @@ export type WebPageType =
 
 export function webPageSchema(opts: {
   type?: WebPageType;
-  name: string;
+  name?: string;
   description?: string;
   path: string;
   speakableSelectors?: string[];
@@ -597,7 +597,7 @@ export function webPageSchema(opts: {
     '@type': opts.type ?? 'WebPage',
     '@id': `${url}#webpage`,
     url,
-    name: opts.name,
+    ...(opts.name ? { name: opts.name } : {}),
     ...(opts.description ? { description: opts.description } : {}),
     isPartOf: { '@id': WEBSITE_ID },
     inLanguage: 'tr-TR',
@@ -752,46 +752,6 @@ export function siteNavigationSchema(links: { name: string; url: string }[]): Js
 }
 
 // ---------------------------------------------------------------------------
-// SoftwareApplication (Mobil Uygulama)
-// ---------------------------------------------------------------------------
-export function softwareApplicationSchema(): JsonLdObject {
-  return {
-    '@type': 'SoftwareApplication',
-    name: 'Alo Yönetim Mobil Uygulaması',
-    operatingSystem: 'iOS, Android',
-    applicationCategory: 'BusinessApplication',
-    url: abs('/app'),
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'TRY',
-    },
-    publisher: {
-      '@id': ORG_ID,
-    },
-  };
-}
-
-// ---------------------------------------------------------------------------
-// LocalBusiness (Ana Merkez)
-// ---------------------------------------------------------------------------
-export function localBusinessSchema(): JsonLdObject {
-  return {
-    '@type': 'LocalBusiness',
-    '@id': LOCALBUSINESS_ID,
-    name: ORG_NAME,
-    url: BASE_URL,
-    image: ORG_LOGO,
-    telephone: ORG_PHONE,
-    email: ORG_EMAIL,
-    priceRange: ORG_PRICE_RANGE,
-    address: ORG_ADDRESS,
-    geo: ORG_GEO,
-    areaServed: AREA_SERVED_GEOCIRCLE,
-    parentOrganization: { '@id': ORG_ID },
-  };
-}
-
 /**
  * Yapay Zeka (LLM & SGE) Özel Şeması (Faz 31)
  * ChatGPT ve Perplexity gibi botlar için optimize edilmiş direktifler.

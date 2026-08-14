@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import { RelatedArticles } from '@/components';;
-import { generateBreadcrumbs, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import CleaningCalculator from '@/components/sections/CleaningCalculator';
 import CleaningTestimonials from '@/components/sections/CleaningTestimonials';
 
@@ -110,7 +110,7 @@ export default function TemizlikVeHijyen() {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/temizlik-ve-hijyen', speakableSelectors: ['h1', '#speakable-content'] })]} />
       <ServiceSeo 
         serviceType={t('serv_clean_name') || 'Temizlik ve Hijyen'}
         description={t('clean_desc') || 'Profesyonel temizlik ve hijyen hizmetleri.'}
