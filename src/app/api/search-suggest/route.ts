@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
+import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
 
 /**
  * OpenSearch Autocomplete API Endpoint
@@ -17,6 +18,12 @@ import { BASE_URL } from '@/lib/seo';
  * ]
  */
 export async function GET(req: NextRequest) {
+  pruneBuckets();
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? req.headers.get('x-real-ip') ?? 'unknown';
+  if (!rateLimit(ip)) {
+    return NextResponse.json(['' , [], [], []], { status: 429 });
+  }
+
   const { searchParams } = new URL(req.url);
   const q = searchParams.get('q');
 
