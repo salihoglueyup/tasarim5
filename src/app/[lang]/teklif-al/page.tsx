@@ -1,8 +1,27 @@
+import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
 import { QuoteCtaButton } from '@/components';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { buildMetadata } from '@/lib/seo';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return buildMetadata({
+    title: 'Ücretsiz Tesis Yönetimi Teklifi Alın — 48 Saat İçinde',
+    description:
+      'Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifi. 48 saat içinde net fiyat, gizli gider yok.',
+    path: '/teklif-al',
+    lang,
+    keywords: ['tesis yönetimi teklif', 'site yönetimi fiyat', 'ücretsiz tesis keşfi', 'apartman yönetimi ücret'],
+    ogImageType: 'service',
+  });
+}
 
 const STEPS = [
   {

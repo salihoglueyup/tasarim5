@@ -1,6 +1,7 @@
 "use client";
 
 import JsonLd from './JsonLd';
+import { BASE_URL } from '@/lib/constants';
 
 interface JobPostingSeoProps {
   title: string;
@@ -36,8 +37,8 @@ export default function JobPostingSeo({
   validThrough,
   employmentType = "FULL_TIME",
   hiringOrganizationName = "Alo Yönetim",
-  hiringOrganizationUrl = "https://aloyonetim.com",
-  hiringOrganizationLogo = "https://aloyonetim.com/logo.png",
+  hiringOrganizationUrl = BASE_URL,
+  hiringOrganizationLogo = `${BASE_URL}/logo.png`,
   jobLocation,
   baseSalary
 }: JobPostingSeoProps) {

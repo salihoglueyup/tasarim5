@@ -8,11 +8,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: "Kurumsal Hakkımızda",
+    title: 'Hakkımızda — Alo Yönetim Tesis Yönetimi A.Ş.',
     description:
-      "Alo Yönetim'in vizyonu, misyonu ve kurumsal geçmişi hakkında detaylı bilgi alın. Şeffaf ve profesyonel yönetim anlayışımızla tanışın.",
-    path: "/hakkimizda",
+      '2015\'ten bu yana İstanbul genelinde 500+ uzman çalışan ve onlarca prestijli proje. KMK ve 5188 uyumlu, şeffaf ve insan odaklı tesis yönetiminin adresi.',
+    path: '/hakkimizda',
     lang,
+    keywords: ['alo yönetim hakkında', 'tesis yönetimi şirketi istanbul', 'alo yönetim ekip', 'profesyonel site yönetimi'],
   });
 }
 

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';;
@@ -5,11 +6,24 @@ import { generateBreadcrumbs } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
 import { notFound } from 'next/navigation';
-
 import ItemListSeo from '@/components/seo/ItemListSeo';
-import { BASE_URL } from '@/lib/seo';
+import { BASE_URL, buildMetadata } from '@/lib/seo';
 
-// 1 dakika cache
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return buildMetadata({
+    title: 'Blog — Site ve Tesis Yönetimi Rehberleri',
+    description:
+      'Aidat takibi, güvenlik yönetimi, KMK mevzuatı ve tesis yönetimi hakkında güncel rehberler ve sektör makaleleri.',
+    path: '/blog',
+    lang,
+    keywords: ['site yönetimi blog', 'aidat rehberi', 'tesis yönetimi makaleler', 'kmk mevzuat'],
+  });
+}
 
 export default async function Blog() {
   const posts = await prisma.post.findMany({

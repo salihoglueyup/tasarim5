@@ -1,11 +1,29 @@
+import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import ReferencesClient from './ReferencesClient';
 import redis from '@/lib/redis';
+import { buildMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return buildMetadata({
+    title: 'Referanslarımız — Yönettiğimiz Prestijli Projeler',
+    description:
+      'İstanbul genelinde onlarca apartman, site ve plaza yönetim referansımız. Güvenlik, temizlik ve tesis yönetiminde kanıtlanmış başarı.',
+    path: '/referanslar',
+    lang,
+    keywords: ['site yönetimi referanslar', 'tesis yönetimi projeleri', 'istanbul apartman yönetimi referans'],
+  });
+}
 
 // Server Component
 export default async function ReferanslarPage({ params }: { params: Promise<{ lang: string }> }) {
