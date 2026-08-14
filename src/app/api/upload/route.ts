@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { writeFile } from 'fs/promises';
+import { writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import { assertAdmin } from '@/lib/auth';
 
@@ -72,12 +72,7 @@ export async function POST(request: Request) {
 
     const path = join(process.cwd(), 'public/uploads', filename);
 
-    // Klasörün var olduğundan emin ol (varsa oluştur)
-    const fs = require('fs');
-    const dir = join(process.cwd(), 'public/uploads');
-    if (!fs.existsSync(dir)){
-        fs.mkdirSync(dir, { recursive: true });
-    }
+    await mkdir(join(process.cwd(), 'public/uploads'), { recursive: true });
 
     await writeFile(path, buffer);
     const fileUrl = `/uploads/${filename}`;

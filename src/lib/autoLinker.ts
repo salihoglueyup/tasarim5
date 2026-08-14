@@ -31,8 +31,20 @@ const EXTRA_DICTIONARY_LINKS = TERMS
   })
   .filter(Boolean) as { term: string; href: string }[];
 
-export const AUTO_LINKS = [...CUSTOM_LINKS, ...DICTIONARY_LINKS, ...EXTRA_DICTIONARY_LINKS]
+const AUTO_LINKS_SORTED = [...CUSTOM_LINKS, ...DICTIONARY_LINKS, ...EXTRA_DICTIONARY_LINKS]
   .sort((a, b) => b.term.length - a.term.length);
+
+// Regex'ler modül yüklenirken bir kez derlenir — her çağrıda yeniden oluşturulmaz.
+const AUTO_LINK_ENTRIES: { term: string; href: string; regex: RegExp }[] =
+  AUTO_LINKS_SORTED.map(link => ({
+    ...link,
+    regex: new RegExp(
+      `(?![^<]*>|[^<>]*<\\/a>)(?:^|(?<=\\s|\\p{P}))(${link.term})(?:(?=\\s|\\p{P})|$)`,
+      'iu'
+    ),
+  }));
+
+export const AUTO_LINKS = AUTO_LINKS_SORTED;
 
 /**
  * Verilen HTML metni içerisindeki anahtar kelimeleri bulup,
@@ -43,21 +55,13 @@ export function autoLinkHtml(html: string): string {
   let result = html;
   const used = new Set<string>();
 
-  for (const link of AUTO_LINKS) {
-    if (used.has(link.term)) continue;
-    
-    // JavaScript \\b does not support Turkish characters (ı,ğ,ü,ş,ö,ç).
-    // Using positive lookbehinds and lookaheads for word boundaries or start/end of string.
-    // (?![^<]*>|[^<>]*<\\/a>) ensures we don't replace inside HTML tags or existing links.
-    const regex = new RegExp(`(?![^<]*>|[^<>]*<\\/a>)(?:^|(?<=\\s|\\p{P}))(${link.term})(?:(?=\\s|\\p{P})|$)`, 'iu');
-    
-    const match = result.match(regex);
+  for (const entry of AUTO_LINK_ENTRIES) {
+    if (used.has(entry.term)) continue;
+    const match = result.match(entry.regex);
     if (match) {
-      // Use global replace to link all occurrences, or just the first? The prompt said "if (used.has(link.term)) continue;", so it links once per term.
-      result = result.replace(regex, (m) => {
-        used.add(link.term);
-        // SEO ve Erişilebilirlik için title eklendi
-        return `<a href="${link.href}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
+      result = result.replace(entry.regex, (m) => {
+        used.add(entry.term);
+        return `<a href="${entry.href}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
       });
     }
   }

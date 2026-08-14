@@ -8,7 +8,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   const { t } = useLanguage();
 
   useEffect(() => {
-    console.error(error);
+    if (process.env.NODE_ENV !== 'production') console.error(error);
   }, [error]);
 
   return (

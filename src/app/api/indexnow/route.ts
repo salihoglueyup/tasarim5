@@ -10,7 +10,7 @@ import { NextResponse } from 'next/server';
  * Body: { url: "https://aloyonetim.com.tr/tr/blog/yeni-makale" }
  */
 
-const INDEXNOW_KEY = '5a2b1c3d4e5f6g7h8i9j0k1l2m3n4o5p'; // Güvenlik için statik bir anahtar (32+ karakter)
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? '';
 const HOST = 'aloyonetim.com.tr';
 
 export async function POST(req: Request) {
@@ -20,6 +20,10 @@ export async function POST(req: Request) {
 
     if (!url) {
       return NextResponse.json({ error: 'URL parametresi eksik.' }, { status: 400 });
+    }
+
+    if (!INDEXNOW_KEY) {
+      return NextResponse.json({ error: 'IndexNow key yapılandırılmamış.' }, { status: 503 });
     }
 
     const payload = {
