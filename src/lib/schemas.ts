@@ -753,6 +753,38 @@ export function siteNavigationSchema(links: { name: string; url: string }[]): Js
 
 // ---------------------------------------------------------------------------
 /**
+ * DigitalDocument — ISO sertifikaları ve resmi belgeler için.
+ * Google'ın Certification/DigitalDocument rich result'larını destekler.
+ */
+export function digitalDocumentSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  issuerName?: string;
+  issuerUrl?: string;
+  about?: string;
+}): JsonLdObject {
+  return {
+    '@type': 'DigitalDocument',
+    name: opts.name,
+    description: opts.description,
+    url: abs(opts.url),
+    encodingFormat: 'application/pdf',
+    ...(opts.datePublished ? { datePublished: opts.datePublished } : {}),
+    ...(opts.issuerName ? {
+      publisher: {
+        '@type': 'Organization',
+        name: opts.issuerName,
+        ...(opts.issuerUrl ? { url: opts.issuerUrl } : {}),
+      },
+    } : {}),
+    author: { '@id': ORG_ID },
+    ...(opts.about ? { about: { '@type': 'Thing', name: opts.about } } : {}),
+  };
+}
+
+/**
  * Yapay Zeka (LLM & SGE) Özel Şeması (Faz 31)
  * ChatGPT ve Perplexity gibi botlar için optimize edilmiş direktifler.
  */
