@@ -176,10 +176,10 @@ export async function middleware(request: NextRequest) {
     return NextResponse.rewrite(newUrl);
   }
 
-  // Locale var. /tr prefix'i kullanılıyorsa ana sayfaya at (Canonical için)
+  // Locale var. /tr prefix'i kullanılıyorsa ana sayfaya at (Canonical için 301 kalıcı yönlendirme)
   if (pathname.startsWith('/tr/') || pathname === '/tr') {
     const newPathname = pathname.replace(/^\/tr/, '') || '/';
-    return NextResponse.redirect(new URL(newPathname, request.url));
+    return NextResponse.redirect(new URL(newPathname, request.url), 301);
   }
 
   // URL Çevirilerini Rewrite Etme (Örn: /en/services -> /en/hizmetler)
