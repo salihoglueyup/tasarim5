@@ -4,14 +4,23 @@ import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { assertAdmin } from '@/lib/auth';
+import { notifyIndexNow } from '@/lib/indexnow-auto';
 
 export async function deletePost(id: string, lang: string) {
   try {
     const session = await assertAdmin();
     if (!session) return { error: 'Yetkisiz işlem.' };
 
+    const targetPost = await prisma.post.findUnique({ where: { id }, select: { slug: true } });
+
     await prisma.post.delete({ where: { id } });
     revalidatePath(`/${lang}/admin/posts`);
+    revalidatePath(`/${lang}/blog`);
+
+    if (targetPost?.slug) {
+      notifyIndexNow([`/blog/${targetPost.slug}`, '/blog', '/sitemap.xml']);
+    }
+
     return { success: true };
   } catch (error) {
     console.error('Post deletion failed:', error);
@@ -74,6 +83,11 @@ export async function savePost(id: string, data: any, lang: string) {
     revalidatePath(`/${lang}/admin/posts`);
     revalidatePath(`/${lang}/blog`);
     
+    // Arama motorlarına (Bing/Yandex) anında otomatik bildirim gönder
+    if (post?.slug && post?.published) {
+      notifyIndexNow([`/blog/${post.slug}`, '/blog', '/sitemap.xml', '/feed.xml']);
+    }
+
     return { success: true, post };
   } catch (error: any) {
     console.error('Post save failed:', error);

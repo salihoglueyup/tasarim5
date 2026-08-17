@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { assertAdmin } from '@/lib/auth';
+import { notifyIndexNow } from '@/lib/indexnow-auto';
 
 export async function saveFaq(data: {
   id?: string;
@@ -39,6 +40,9 @@ export async function saveFaq(data: {
     revalidatePath('/sss');
     revalidatePath('/admin/faqs');
     revalidatePath('/[lang]/sss', 'page');
+
+    notifyIndexNow(['/sss', '/sitemap.xml']);
+
     return { success: true };
   } catch (error: any) {
     console.error('saveFaq error:', error);

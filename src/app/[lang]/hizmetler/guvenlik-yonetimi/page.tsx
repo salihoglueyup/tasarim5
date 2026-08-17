@@ -12,6 +12,7 @@ import { RelatedArticles } from '@/components';;
 import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import SecurityCalculator from '@/components/sections/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
+import EmergencyDisasterAuditSeo from '@/components/seo/EmergencyDisasterAuditSeo';
 
 export default function GuvenlikYonetimi() {
   const { t } = useLanguage();
@@ -186,6 +187,9 @@ export default function GuvenlikYonetimi() {
             ))}
           </motion.div>
         </div>
+
+        {/* Afet, Yangın & Sığınak Güvenliği Denetim Motoru */}
+        <EmergencyDisasterAuditSeo />
 
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />

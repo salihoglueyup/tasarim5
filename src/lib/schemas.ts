@@ -153,7 +153,52 @@ export function organizationSchema(): JsonLdObject {
       sameAs: [
         'https://www.linkedin.com/in/eyup-salihoglu/',
       ]
-    }
+    },
+    award: [
+      'ISO 9001:2015 Kalite Yönetim Sistemi',
+      'ISO 14001:2015 Çevre Yönetim Sistemi',
+      'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+      'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
+      'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
+      'TSE Hizmet Yeterlilik Belgesi',
+    ],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 9001:2015 Kalite Yönetim Sistemi Sertifikası',
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 14001:2015 Çevre Yönetim Sistemi Sertifikası',
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Sertifikası',
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi Sertifikası',
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi Sertifikası',
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
+    ],
   };
 }
 

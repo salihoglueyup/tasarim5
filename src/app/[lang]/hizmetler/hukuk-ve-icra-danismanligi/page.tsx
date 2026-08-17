@@ -13,6 +13,9 @@ import { useLanguage } from '@/context/LanguageContext';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import LegalCalculator from '@/components/sections/LegalCalculator';
 import LegalTestimonials from '@/components/sections/LegalTestimonials';
+import KMKLawAssistantSeo from '@/components/seo/KMKLawAssistantSeo';
+import KMKLegalProcessHowToSeo from '@/components/seo/KMKLegalProcessHowToSeo';
+import KMKLegalTemplateGeneratorSeo from '@/components/seo/KMKLegalTemplateGeneratorSeo';
 import Image from 'next/image';
 
 export default function HukukVeIcraDanismanligi() {
@@ -131,6 +134,15 @@ export default function HukukVeIcraDanismanligi() {
             </Card>
           ))}
         </div>
+
+        {/* KMK & Yasal Mevzuat Akıllı Danışmanı */}
+        <KMKLawAssistantSeo />
+
+        {/* KMK Yasal Süreç & İcra HowTo Yol Haritası */}
+        <KMKLegalProcessHowToSeo />
+
+        {/* KMK 634 Karar & İhtarname Şablonu Jeneratörü */}
+        <KMKLegalTemplateGeneratorSeo />
 
         {/* Legal Specific Social Proof */}
         <LegalTestimonials />

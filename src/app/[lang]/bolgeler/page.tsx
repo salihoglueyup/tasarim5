@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/JsonLd';
+import IstanbulDuesHeatmapSeo from '@/components/seo/IstanbulDuesHeatmapSeo';
+import DistrictComparisonMatrixSeo from '@/components/seo/DistrictComparisonMatrixSeo';
 import { buildMetadata } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { BASE_URL } from '@/lib/seo';
@@ -56,7 +58,9 @@ export default function Bolgeler() {
         description="Hizmet verdiğimiz ilçeyi seçin; mahallenize kadar uzanan yerel tesis yönetimi ekibimizle tanışın."
       />
 
-      <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
+      <section className="py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
+        <IstanbulDuesHeatmapSeo />
+        <DistrictComparisonMatrixSeo />
         {sides.map((side) => (
           <div key={side} className="flex flex-col gap-6">
             <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">

@@ -13,6 +13,7 @@ import { RelatedArticles } from '@/components';;
 import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import DuesCalculator from '@/components/sections/DuesCalculator';
 import DuesTestimonials from '@/components/sections/DuesTestimonials';
+import InteractiveCostSimulatorSeo from '@/components/seo/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
 
 export default function AidatTakibi() {
@@ -132,6 +133,9 @@ export default function AidatTakibi() {
             </Card>
           ))}
         </div>
+
+        {/* KMK Arsa Payı & İşletme Projesi Masraf Simülatörü */}
+        <InteractiveCostSimulatorSeo />
 
         {/* Dues Specific Social Proof */}
         <DuesTestimonials />

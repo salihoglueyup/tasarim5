@@ -250,27 +250,60 @@ export default function Footer() {
 
         </div>
 
-        {/* Bölge Dizini (yerel SEO — programatik ilçe linkleri) */}
-        <div className="pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col gap-4">
-          <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
-            {t('footer_service_areas')}
-          </h4>
-          <div className="flex flex-wrap gap-x-4 gap-y-2" role="navigation" aria-label={t('footer_service_areas')}>
-            {DISTRICTS.map((d) => (
+        {/* Bölge Dizini & Yerel Hizmetler (Yerel SEO — 56 İlçe Hizmet Ağı) */}
+        <div className="pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col gap-6">
+          <div className="flex flex-col gap-3">
+            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
+              {t('footer_service_areas')}
+            </h4>
+            <div className="flex flex-wrap gap-x-4 gap-y-2" role="navigation" aria-label={t('footer_service_areas')}>
+              {DISTRICTS.map((d) => (
+                <Link
+                  key={d.slug}
+                  href={`/bolgeler/${d.slug}`}
+                  className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                >
+                  {d.name} {t('footer_property_management')}
+                </Link>
+              ))}
               <Link
-                key={d.slug}
-                href={`/bolgeler/${d.slug}`}
-                className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors"
+                href="/bolgeler"
+                className="text-xs font-bold text-slate-900 dark:text-white hover:underline"
               >
-                {d.name} {t('footer_property_management')}
+                {t('footer_all_regions')} →
               </Link>
-            ))}
-            <Link
-              href="/bolgeler"
-              className="text-xs font-bold text-slate-900 dark:text-white hover:underline"
-            >
-              {t('footer_all_regions')}
-            </Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h5 className="font-bold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              Popüler Bölgesel Çözümler
+            </h5>
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] text-gray-500 dark:text-gray-400">
+              <Link href="/bolgeler/kadikoy/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white">Kadıköy Aidat Takibi</Link>
+              <span>•</span>
+              <Link href="/bolgeler/atasehir/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Ataşehir Güvenlik Yönetimi</Link>
+              <span>•</span>
+              <Link href="/bolgeler/uskudar/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Üsküdar Tesis Yönetimi</Link>
+              <span>•</span>
+              <Link href="/bolgeler/besiktas/hukuk-ve-icra-danismanligi" className="hover:text-slate-900 dark:hover:text-white">Beşiktaş Hukuk & İcra</Link>
+              <span>•</span>
+              <Link href="/bolgeler/sisli/temizlik-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white">Şişli Temizlik ve Hijyen</Link>
+              <span>•</span>
+              <Link href="/bolgeler/bakirkoy/teknik-bakim" className="hover:text-slate-900 dark:hover:text-white">Bakırköy Teknik Bakım</Link>
+              <span>•</span>
+              <Link href="/bolgeler/basaksehir/havuz-bakimi-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white">Başakşehir Havuz Bakımı</Link>
+              <span>•</span>
+              <Link href="/bolgeler/maltepe/peyzaj-ve-bahce-bakimi" className="hover:text-slate-900 dark:hover:text-white">Maltepe Peyzaj Bakımı</Link>
+              <span>•</span>
+              <Link href="/bolgeler/umraniye/hasere-ve-dezenfeksiyon" className="hover:text-slate-900 dark:hover:text-white">Ümraniye Haşere İlaçlama</Link>
+              <span>•</span>
+              <Link href="/bolgeler/sariyer/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Sarıyer Özel Güvenlik</Link>
+              <span>•</span>
+              <Link href="/bolgeler/beylikduzu/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white">Beylikdüzü Aidat Takibi</Link>
+              <span>•</span>
+              <Link href="/bolgeler/kartal/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Kartal Tesis Yönetimi</Link>
+            </div>
           </div>
         </div>
 

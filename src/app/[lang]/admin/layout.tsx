@@ -51,6 +51,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         { name: 'Hesaplayıcı', path: `/${lang}/admin/calculator-settings`, icon: '🧮' },
       ],
     },
+    {
+      name: 'SEO & İndeksleme',
+      icon: '🚀',
+      subItems: [
+        { name: 'SEO Sağlık & IndexNow', path: `/${lang}/admin/seo-health`, icon: '📡' },
+      ],
+    },
   ];
 
   // Aktif menü grubunu bulup başlangıçta otomatik açması için

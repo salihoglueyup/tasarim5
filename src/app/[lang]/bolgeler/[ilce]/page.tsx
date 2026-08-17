@@ -4,6 +4,13 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
 import { QuoteCtaButton, TldrBlock, DynamicFAQ } from '@/components';
+import {
+  DistrictLocalHighlightsSeo,
+  EmergencyServiceBadgeSeo,
+  NeighborhoodDirectorySeo,
+  SocialProofTickerSeo,
+  DistrictNeighborhoodDuesTableSeo
+} from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,
@@ -40,7 +47,7 @@ function districtFaqs(name: string, needs: string[]) {
     },
     {
       question: `${name}'de yönetim değişikliği süreci nasıl işler?`,
-      answer: `Öncelikle ${name}'deki sitenizde ücretsiz keşif yaparız; ardından mevcut yönetim planı ve demirbaş devrini tutanakla alır, 48 saat içinde şeffaf teklifimizi sunarız. En yoğun ihtiyacınız ${needs[0].toLowerCase()} ise sürecin merkezine bunu koyarız.`,
+      answer: `Öncelikle ${name}'deki sitenizde ücretsiz keşif yaparız; ardından mevcut yönetim planı ve demirbaş devrini tutanakla alır, 48 saat içinde şeffaf teklifimizi sunarız. En yoğun ihtiyacınız ${needs[0]?.toLowerCase() || 'güvenlik ve aidat yönetimi'} ise sürecin merkezine bunu koyarız.`,
     },
   ];
 }
@@ -62,8 +69,8 @@ export async function generateMetadata({
     });
   }
   return buildMetadata({
-    title: `${district.name} Tesis ve Site Yönetimi`,
-    description: `${district.name}'de profesyonel site, apartman ve tesis yönetimi. Güvenlik, temizlik, teknik bakım ve aidat yönetimi için ${district.name} yerel ekibimizle 7/24 hizmetinizdeyiz.`,
+    title: `${district.name} Site ve Tesis Yönetimi`,
+    description: `${district.name}'de profesyonel site, apartman ve bina yönetimi. Güvenlik, temizlik, teknik bakım ve aidat takibi için ${district.name} yerel ekibimizle 7/24 hizmetinizdeyiz.`,
     path: `/bolgeler/${ilce}`,
     lang,
     ogImageType: 'local',
@@ -71,6 +78,9 @@ export async function generateMetadata({
       `${district.name} site yönetimi`,
       `${district.name} tesis yönetimi`,
       `${district.name} apartman yönetimi`,
+      `${district.name} bina yönetimi`,
+      `${district.name} site yönetim şirketleri`,
+      `${district.name} güvenlik hizmetleri`,
     ],
   });
 }
@@ -118,11 +128,17 @@ export default async function DistrictPage({
         description={`${district.name} ve çevresinde profesyonel site, apartman ve tesis yönetimi hizmetleri.`}
       />
 
-      <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
+      <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-12">
         {/* TL;DR (AI/snippet için) */}
         <TldrBlock>
           {district.name}&apos;de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat yönetimi dahil tüm hizmetleri tek çatı altında sunar. {district.name}&apos;de {district.managedProjects}+ proje yönetilmektedir. Ücretsiz keşif için: 0216 550 48 48.
         </TldrBlock>
+
+        {/* Canlı 7/24 Acil Müdahale Rozeti & Canlı Aktivite Şeridi */}
+        <div className="flex flex-col gap-4">
+          <EmergencyServiceBadgeSeo serviceTitle={`${district.name} 7/24 Acil Müdahale ve Operasyon Merkezi`} />
+          <SocialProofTickerSeo />
+        </div>
 
         {/* Giriş + yerel kanıt */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -152,6 +168,16 @@ export default async function DistrictPage({
           </div>
         </div>
 
+        {/* İlçe Yerel Otorite Kartı */}
+        <DistrictLocalHighlightsSeo
+          districtName={district.name}
+          side={district.side as 'Anadolu' | 'Avrupa'}
+          population={district.population}
+          managedProjects={district.managedProjects}
+          neighborhoods={district.neighborhoods}
+          localNeeds={district.localNeeds}
+        />
+
         {/* Hizmetler → hizmet×ilçe sayfaları */}
         <div className="flex flex-col gap-6">
           <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
@@ -176,26 +202,19 @@ export default async function DistrictPage({
           </div>
         </div>
 
-        {/* Mahalleler (near-me) */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12 flex flex-col gap-5">
-          <h2 className="text-2xl font-bold text-[var(--color-primary)]">
-            {district.name}&apos;de Hizmet Verdiğimiz Mahalleler
-          </h2>
-          <p className="text-sm text-[var(--color-secondary)] font-light">
-            Yerel ekibimiz {district.name}&apos;in tüm mahallelerinde, yakınınızdaki sitelere hızlı
-            ulaşır:
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {district.neighborhoods.map((n) => (
-              <span
-                key={n}
-                className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white rounded-full px-4 py-2 text-sm font-semibold"
-              >
-                {n}
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* Mahalle Bazlı Aidat & Tesis Yönetimi Tablosu */}
+        <DistrictNeighborhoodDuesTableSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          neighborhoods={district.neighborhoods}
+        />
+
+        {/* Hiper-Yerel Mahalleler SILO Bağlantı Motoru */}
+        <NeighborhoodDirectorySeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          neighborhoods={district.neighborhoods}
+        />
 
         {/* Harita (lazy) */}
         <div className="rounded-[2.5rem] overflow-hidden border border-[var(--color-outline)]/60">

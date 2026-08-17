@@ -50,9 +50,13 @@ export function localizedUrl(path: string, lang: Locale): string {
   return `${BASE_URL}${prefix}${normalized}` || BASE_URL;
 }
 
-/** hreflang matrisi: tr-TR, en-US, ru-RU, ar-SA ve x-default (TR varsayılan). */
+/** hreflang matrisi: ISO 639-1 saf diller (tr, en, ru, ar) + bölgesel (tr-TR, en-US, ru-RU, ar-SA) + x-default. */
 export function buildLanguageAlternates(path: string): Record<string, string> {
   return {
+    'tr': localizedUrl(path, 'tr'),
+    'en': localizedUrl(path, 'en'),
+    'ru': localizedUrl(path, 'ru'),
+    'ar': localizedUrl(path, 'ar'),
     'tr-TR': localizedUrl(path, 'tr'),
     'en-US': localizedUrl(path, 'en'),
     'ru-RU': localizedUrl(path, 'ru'),
@@ -127,6 +131,7 @@ export function buildMetadata({
         ];
 
   return {
+    metadataBase: new URL(BASE_URL),
     title,
     description,
     ...(keywords && keywords.length ? { keywords } : {}),
@@ -137,6 +142,7 @@ export function buildMetadata({
     openGraph: {
       type: ogType,
       locale: OG_LOCALE_MAP[locale] || 'tr_TR',
+      alternateLocale: Object.values(OG_LOCALE_MAP).filter((l) => l !== (OG_LOCALE_MAP[locale] || 'tr_TR')),
       url: canonical,
       siteName: SITE_NAME,
       title,

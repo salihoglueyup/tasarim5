@@ -8,6 +8,14 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import ItemListSeo from '@/components/seo/ItemListSeo';
+import {
+  LiveMetricBadgeSeo,
+  ServiceComparisonMatrixSeo,
+  DynamicPriceOfferSeo,
+  MevzuatReferenceSeo,
+  InstantAnswerCardSeo,
+  SemanticTopicClusterSeo
+} from '@/components/seo';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 
 export default function Hizmetler() {
@@ -200,11 +208,46 @@ export default function Hizmetler() {
           ))}
         </div>
 
+        {/* Canlı Kurumsal Metrikler */}
+        <LiveMetricBadgeSeo />
+
+        {/* Dynamic Price Offer Paketleri */}
+        <DynamicPriceOfferSeo serviceName="Alo Yönetim Profesyonel Tesis Yönetimi" />
+
+        {/* Geleneksel vs. Alo Yönetim Karşılaştırma Matrisi */}
+        <ServiceComparisonMatrixSeo />
+
+        {/* KMK 634 Resmi Mevzuat Doğrulama Kartı */}
+        <MevzuatReferenceSeo
+          kanunAdi="634 Sayılı Kat Mülkiyeti Kanunu"
+          maddeNo="Madde 20 & 37"
+          maddeBasligi="Ortak Gider Paylaşımı ve İşletme Projesi Zorunluluğu"
+          orijinalMetin="Kat maliklerinden her biri aralarında başka türlü anlaşma olmadıkça: Kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine ve bunlar için toplanacak avansa eşit olarak katılmakla yükümlüdür. Yönetici veya yönetim kurulu, kat malikleri kurulunca kabul edilmiş bir işletme projesi yoksa gecikmeksizin bir işletme projesi yapar."
+          uzmanYorumu="Alo Yönetim, yönettiği tüm bağımsız bölümlerde KMK standartlarında dijital işletme projesi hazırlayarak tebliğ eder ve aidat tahsilat oranını %98'in üzerine çıkarır."
+        />
+
+        {/* Google 0. Sıra (Featured Snippet) Doğrudan Cevap Kartı */}
+        <InstantAnswerCardSeo
+          question="Site ve Apartman Yönetimi Hizmetleri Neleri Kapsar?"
+          shortAnswer="Profesyonel site yönetimi; 5188 sayılı kanun kapsamında 7/24 özel güvenlik, ortak alan temizliği, asansör ve jeneratör periyodik teknik bakımı, peyzaj sulama, havuz hijyeni ve KMK 37 uyarınca aidat takibi ile hukuk danışmanlığını tek çatı altında kapsayan entegre tesis işletmesidir."
+          bulletPoints={[
+            '5188 Sayılı Kanun Uyumlu 7/24 Fiziki Güvenlik ve Plaka Tanıma Sistemi (PTS)',
+            'Kazan Dairesi, Asansör, Hidrofor ve Yangın Sistemleri Periyodik Bakımı',
+            'Sertifikalı Personelle Günlük Blok Temizliği ve Çöp Toplama Hizmeti',
+            'Şeffaf KMK İşletme Projesi, Mobil Sakin Aidat Takip Paneli ve İcra Danışmanlığı'
+          ]}
+          lawArticle="634 Sayılı Kat Mülkiyeti Kanunu & 5188 Sayılı Özel Güvenlik Kanunu"
+          category="Entegre Tesis Yönetimi"
+        />
+
         <SeoTextSection 
           titleKey="services_seo_title" 
           p1Key="services_seo_p1" 
           p2Key="services_seo_p2" 
         />
+
+        {/* Semantik Konu Kümeleri ve Akıllı Bağlantı Ağı */}
+        <SemanticTopicClusterSeo />
         
         <div className="my-16">
           <Faq />

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { BASE_URL, buildLanguageAlternates } from '@/lib/seo';
+import { BASE_URL, buildLanguageAlternates, localizedUrl, LOCALES } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
@@ -10,11 +10,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
 
   // --- DB verileri ---
-  const [posts, categories, authors, references] = await Promise.all([
+  const [posts, categories, authors, references, sectoralSolutions] = await Promise.all([
     prisma.post.findMany({ where: { published: true }, select: { slug: true, dateModified: true } }),
     prisma.category.findMany({ select: { slug: true, updatedAt: true } }),
     prisma.author.findMany({ select: { slug: true, updatedAt: true } }),
     prisma.reference.findMany({ where: { published: true }, select: { slug: true, updatedAt: true } }),
+    prisma.sectoralSolution.findMany({ select: { slug: true, updatedAt: true } }),
   ]);
 
   const postsWithTags = await prisma.post.findMany({ where: { published: true }, select: { tags: true } });
@@ -26,17 +27,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     } catch {}
   });
 
-  const makeItem = (path: string, priority: number, changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never', lastModified: string = now) => {
-    const fullUrl = path === '/' ? BASE_URL : `${BASE_URL}${path}`;
-    return {
-      url: fullUrl,
-      lastModified,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages: buildLanguageAlternates(path),
-      },
+  // Her yol (path) için tüm dillerde (TR, EN, RU, AR) bağımsız ve tam yetkili sitemap girdisi üretir
+  const makeItems = (
+    path: string,
+    priority: number,
+    changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never',
+    lastModified: string = now
+  ): MetadataRoute.Sitemap => {
+    const alternates = {
+      languages: buildLanguageAlternates(path),
     };
+
+    return LOCALES.map((lang) => {
+      const fullUrl = localizedUrl(path, lang);
+      return {
+        url: fullUrl,
+        lastModified,
+        changeFrequency,
+        priority: lang === 'tr' ? priority : Math.max(0.4, Number((priority * 0.9).toFixed(2))),
+        alternates,
+      };
+    });
   };
 
   // --- Statik rotalar ---
@@ -53,8 +64,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/hizmetler/aidat-takibi', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hakkimizda', priority: 0.8, changeFreq: 'monthly' },
     { path: '/kurumsal/vizyon-misyon', priority: 0.6, changeFreq: 'monthly' },
+    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.7, changeFreq: 'monthly' },
     { path: '/kurumsal/kalite-politikamiz', priority: 0.6, changeFreq: 'monthly' },
     { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly' },
     { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly' },
@@ -66,6 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/hesaplayici', priority: 0.65, changeFreq: 'monthly' },
     { path: '/sss', priority: 0.65, changeFreq: 'weekly' },
     { path: '/sozluk', priority: 0.6, changeFreq: 'weekly' },
+    { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly' },
     { path: '/blog', priority: 0.75, changeFreq: 'daily' },
     { path: '/bolgeler', priority: 0.7, changeFreq: 'monthly' },
     { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly' },
@@ -74,47 +88,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/kvkk-ve-aydinlatma-metni', priority: 0.3, changeFreq: 'monthly' },
   ];
 
-  const staticRoutes: MetadataRoute.Sitemap = staticPaths.map((p) =>
-    makeItem(p.path, p.priority, p.changeFreq)
+  const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((p) =>
+    makeItems(p.path, p.priority, p.changeFreq)
   );
 
-  // --- Bölge sayfaları: /bolgeler/[ilce] (12 sayfa) ---
-  const districtRoutes: MetadataRoute.Sitemap = DISTRICTS.map((d) => {
+  const districtRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) => {
     const prio = d.priority === 1 ? 0.75 : d.priority === 2 ? 0.65 : 0.55;
-    return makeItem(`/bolgeler/${d.slug}`, prio, 'monthly');
+    return makeItems(`/bolgeler/${d.slug}`, prio, 'monthly');
   });
 
-  // --- Bölge×Hizmet sayfaları: /bolgeler/[ilce]/[hizmet] (12×8 = 96 sayfa) ---
   const districtServiceRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) =>
-    SERVICES.map((s) => {
+    SERVICES.flatMap((s) => {
       const prio = d.priority === 1 ? 0.7 : d.priority === 2 ? 0.6 : 0.5;
-      return makeItem(`/bolgeler/${d.slug}/${s.slug}`, prio, 'monthly');
+      return makeItems(`/bolgeler/${d.slug}/${s.slug}`, prio, 'monthly');
     })
   );
 
-  // --- Blog detay ---
-  const postRoutes: MetadataRoute.Sitemap = posts.map((p) =>
-    makeItem(`/blog/${p.slug}`, 0.7, 'weekly', p.dateModified.toISOString())
+  const postRoutes: MetadataRoute.Sitemap = posts.flatMap((p) =>
+    makeItems(`/blog/${p.slug}`, 0.7, 'weekly', p.dateModified.toISOString())
   );
 
-  // --- Blog kategori ---
-  const catRoutes: MetadataRoute.Sitemap = categories.map((c) =>
-    makeItem(`/blog/kategori/${c.slug}`, 0.6, 'weekly', c.updatedAt.toISOString())
+  const catRoutes: MetadataRoute.Sitemap = categories.flatMap((c) =>
+    makeItems(`/blog/kategori/${c.slug}`, 0.6, 'weekly', c.updatedAt.toISOString())
   );
 
-  // --- Blog yazar ---
-  const authorRoutes: MetadataRoute.Sitemap = authors.map((a) =>
-    makeItem(`/blog/yazar/${a.slug}`, 0.5, 'monthly', a.updatedAt.toISOString())
+  const authorRoutes: MetadataRoute.Sitemap = authors.flatMap((a) =>
+    makeItems(`/blog/yazar/${a.slug}`, 0.5, 'monthly', a.updatedAt.toISOString())
   );
 
-  // --- Blog etiket ---
-  const tagRoutes: MetadataRoute.Sitemap = Array.from(tagsSet).map((t) =>
-    makeItem(`/blog/etiket/${encodeURIComponent(t)}`, 0.5, 'weekly')
+  const tagRoutes: MetadataRoute.Sitemap = Array.from(tagsSet).flatMap((t) =>
+    makeItems(`/blog/etiket/${encodeURIComponent(t)}`, 0.5, 'weekly')
   );
 
-  // --- Referans detay ---
-  const referenceRoutes: MetadataRoute.Sitemap = references.map((r) =>
-    makeItem(`/referanslar/${r.slug}`, 0.6, 'monthly', r.updatedAt.toISOString())
+  const referenceRoutes: MetadataRoute.Sitemap = references.flatMap((r) =>
+    makeItems(`/referanslar/${r.slug}`, 0.6, 'monthly', r.updatedAt.toISOString())
+  );
+
+  const sectoralRoutes: MetadataRoute.Sitemap = sectoralSolutions.flatMap((s) =>
+    makeItems(`/sektorel-cozumler/${s.slug}`, 0.6, 'monthly', s.updatedAt.toISOString())
   );
 
   return [
@@ -126,6 +137,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...authorRoutes,
     ...tagRoutes,
     ...referenceRoutes,
+    ...sectoralRoutes,
   ];
 }
-

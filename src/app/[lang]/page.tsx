@@ -19,6 +19,9 @@ const PreFooterCta = dynamic(() => import('@/components/sections/PreFooterCta'),
 const TestimonialSlider = dynamic(() => import('@/components/sections/TestimonialSlider'), { ssr: true });
 const CertificateBadgeGrid = dynamic(() => import('@/components/sections/CertificateBadgeGrid'), { ssr: true });
 const Faq = dynamic(() => import('@/components/sections/Faq'), { ssr: true });
+const InteractiveFacilityExplorer = dynamic(() => import('@/components/sections/InteractiveFacilityExplorer'), { ssr: true });
+const IstanbulDuesHeatmapSeo = dynamic(() => import('@/components/seo/IstanbulDuesHeatmapSeo'), { ssr: true });
+const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/KMKLawAssistantSeo'), { ssr: true });
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -62,7 +65,6 @@ export default async function Home({ params }: Props) {
     }
   });
 
-
   const dbReferences = await prisma.reference.findMany({
     where: { testimonialText: { not: null } },
     orderBy: { createdAt: 'desc' },
@@ -104,10 +106,13 @@ export default async function Home({ params }: Props) {
       <JsonLd data={[pageLd, businessLd, videoLd]} />
       <Hero />
       <SeoTextSection />
+      <InteractiveFacilityExplorer />
       <BentoServices />
+      <IstanbulDuesHeatmapSeo />
       <WhyUsBentoGrid />
       <PersonnelDifference />
       <ComparisonTable />
+      <KMKLawAssistantSeo />
       <InteractiveProcessSteps />
       <AppShowcase />
       <TestimonialSlider dbReferences={dbReferences} />

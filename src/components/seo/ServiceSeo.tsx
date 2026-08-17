@@ -1,6 +1,7 @@
 "use client";
 
 import JsonLd from './JsonLd';
+import { BASE_URL } from '@/lib/constants';
 
 interface ServiceSeoProps {
   serviceType: string;
@@ -8,12 +9,12 @@ interface ServiceSeoProps {
   providerName?: string;
   providerUrl?: string;
   areaServed?: string | string[]; // "İstanbul", "Kadıköy", etc.
-  priceRange?: string; // e.g., "$$$", "1000 TRY - 5000 TRY"
+  priceRange?: string; // e.g., "₺₺", "1000 TRY - 5000 TRY"
   sameAs?: string | string[]; // Wikipedia Entity links
 }
 
 /**
- * SEO Faz 12: Hizmet Sayfaları için Service Şeması
+ * Hizmet Sayfaları İçin Service JSON-LD Şeması
  * Temizlik, Güvenlik, Aidat Takibi gibi hizmetlerin Google'da 
  * sağlayıcı, bölge ve fiyat bilgisiyle tam teşekküllü listelenmesini sağlar.
  */
@@ -21,9 +22,9 @@ export default function ServiceSeo({
   serviceType,
   description,
   providerName = "Alo Yönetim",
-  providerUrl = "https://aloyonetim.com",
+  providerUrl = BASE_URL,
   areaServed = "İstanbul",
-  priceRange,
+  priceRange = "₺₺",
   sameAs
 }: ServiceSeoProps) {
   
@@ -31,9 +32,10 @@ export default function ServiceSeo({
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType,
+    name: serviceType,
     description,
     provider: {
-      '@type': 'LocalBusiness',
+      '@type': 'ProfessionalService',
       name: providerName,
       url: providerUrl
     },

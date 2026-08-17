@@ -38,6 +38,7 @@ const MENU_ITEMS: MenuItem[] = [
       { nameKey: 'nav_success_stories', path: '/basari-hikayeleri', descKey: 'nav_success_desc', icon: 'emoji_events' },
       { nameKey: 'nav_academy', path: '/guvenlik-akademisi', descKey: 'nav_academy_desc', icon: 'school' },
       { nameKey: 'nav_quality', path: '/kurumsal/kalite-politikamiz', descKey: 'nav_quality_desc', icon: 'verified' },
+      { nameKey: 'nav_certificates', path: '/kurumsal/kalite-belgelerimiz', descKey: 'nav_certificates_desc', icon: 'workspace_premium' },
       { nameKey: 'nav_sustainability', path: '/kurumsal/surdurulebilirlik', descKey: 'nav_sustainability_desc', icon: 'eco' },
       { nameKey: 'nav_ges', path: '/surdurulebilirlik/ges-projeleri', descKey: 'nav_ges_desc', icon: 'solar_power' },
       { nameKey: 'nav_vision', path: '/kurumsal/vizyon-misyon', descKey: 'nav_vision_desc', icon: 'visibility' },
@@ -82,15 +83,18 @@ export default function Header() {
     return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
   };
 
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
+
   const handleLanguageChange = (newLang: 'tr' | 'en' | 'ru' | 'ar') => {
+    setHoveredMenu(null);
     if (newLang === language) return;
     
-    let cleanPath = pathname;
+    let cleanPath = pathname || '/';
     const langPrefixes = ['/en', '/tr', '/ru', '/ar'];
     
     for (const prefix of langPrefixes) {
-      if (pathname.startsWith(prefix + '/') || pathname === prefix) {
-        cleanPath = pathname.replace(new RegExp(`^${prefix}`), '') || '/';
+      if (cleanPath.startsWith(prefix + '/') || cleanPath === prefix) {
+        cleanPath = cleanPath.replace(new RegExp(`^${prefix}`), '') || '/';
         break;
       }
     }
@@ -100,9 +104,30 @@ export default function Header() {
       newUrl = `/${newLang}${cleanPath === '/' ? '' : cleanPath}`;
     }
     
+    if (typeof document !== 'undefined') {
+      document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
+    }
     setLanguage(newLang);
     router.push(newUrl);
+    router.refresh();
   };
+
+  // Click Outside Listener to reliably close Language Dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target as Node)
+      ) {
+        setHoveredMenuState((prev) => (prev === 'language' ? null : prev));
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Scroll & UI States
   const [isScrolled, setIsScrolled] = useState(false);
@@ -338,12 +363,18 @@ export default function Header() {
             
             {/* Language Switcher Dropdown */}
             <div 
+              ref={languageDropdownRef}
               className="relative"
               onMouseEnter={() => setHoveredMenu('language')}
-              onMouseLeave={() => setHoveredMenu(null, 2000)}
+              onMouseLeave={() => setHoveredMenu(null, 1500)}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all border ${
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setHoveredMenu(hoveredMenu === 'language' ? null : 'language');
+                }}
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all border cursor-pointer ${
                   isTopAndDarkHero 
                     ? 'bg-white/10 border-white/20 text-white hover:bg-white/20' 
                     : 'bg-white border-slate-200 dark:border-white/10 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'
@@ -363,8 +394,8 @@ export default function Header() {
                 <div className="absolute top-full right-0 pt-2 z-[70]">
                   <div className={`w-28 backdrop-blur-xl border rounded-xl shadow-xl overflow-hidden py-1 ${
                     isTopAndDarkHero 
-                      ? 'bg-slate-900/40 border-white/20' 
-                      : 'bg-white/90 dark:bg-slate-950/90 border-slate-200 dark:border-white/10'
+                      ? 'bg-slate-900/90 border-white/20 text-white' 
+                      : 'bg-white/95 dark:bg-slate-950/95 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white'
                   }`}>
                     {[
                       { code: 'tr', label: 'TR', flag: '🇹🇷' },
@@ -374,15 +405,16 @@ export default function Header() {
                     ].map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => {
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
                           handleLanguageChange(lang.code as 'tr'|'en'|'ru'|'ar');
-                          setHoveredMenu(null);
                         }}
-                        className={`w-full text-left px-4 py-2.5 text-xs font-bold flex items-center justify-between transition-colors ${
+                        className={`w-full text-left px-4 py-2.5 text-xs font-bold flex items-center justify-between transition-colors cursor-pointer ${
                           isTopAndDarkHero
-                            ? (language === lang.code ? 'bg-white/20 text-white' : 'text-white/80 hover:bg-white/10 hover:text-white')
+                            ? (language === lang.code ? 'bg-white/20 text-white font-extrabold' : 'text-white/80 hover:bg-white/10 hover:text-white')
                             : (language === lang.code 
-                                ? 'bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white' 
+                                ? 'bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-extrabold' 
                                 : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5')
                         }`}
                       >

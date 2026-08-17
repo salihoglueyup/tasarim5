@@ -25,13 +25,13 @@ export const Tabs: React.FC<TabsProps> = ({
             key={tab}
             onClick={() => onChange(tab)}
             className={`relative px-5 py-2 rounded-full text-xs font-bold transition-colors z-10 ${
-              isActive ? 'text-white dark:text-white' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              isActive ? 'text-white dark:text-slate-950' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             {isActive && (
               <motion.div
                 layoutId="tabs-active-pill"
-                className="absolute inset-0 bg-[var(--color-primary)] rounded-full -z-10 shadow-sm"
+                className="absolute inset-0 bg-slate-900 dark:bg-white rounded-full -z-10 shadow-sm"
                 transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
               />
             )}

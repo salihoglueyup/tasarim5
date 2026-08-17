@@ -48,6 +48,13 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
         
         <div className="flex flex-wrap items-center gap-3">
           <Link 
+            href={`/${lang}/admin/seo-health`} 
+            className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-4 py-2.5 rounded-xl transition-all font-bold text-sm shadow-md"
+          >
+            <span className="material-symbols-outlined text-lg">rocket_launch</span>
+            SEO & IndexNow
+          </Link>
+          <Link 
             href={`/${lang}/admin/posts/new`} 
             className="flex items-center gap-2 bg-white dark:bg-white/[0.05] hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-brand-500 text-slate-700 dark:text-white px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-500 transition-all font-medium text-sm shadow-sm"
           >

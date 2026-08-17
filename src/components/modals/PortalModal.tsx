@@ -69,7 +69,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
 
                 <button 
                   type="submit"
-                  className="w-full bg-[var(--color-primary)] text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-2"
+                  className="w-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-2 cursor-pointer"
                 >
                   {t('portal_btn')}
                 </button>

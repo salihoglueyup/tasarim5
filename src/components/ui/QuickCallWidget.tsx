@@ -20,22 +20,28 @@ export default function QuickCallWidget() {
     setView('menu');
   };
 
+  const handleOpenSpotlight = () => {
+    close();
+    window.dispatchEvent(new CustomEvent('open-spotlight-search'));
+  };
+
   return (
-    <div className="fixed bottom-6 right-6 z-[90] flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-6 z-[90] flex flex-col items-end gap-3 font-sans">
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 10 }}
+            initial={{ opacity: 0, scale: 0.85, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/10 p-5 rounded-3xl shadow-2xl flex flex-col gap-3 w-72 text-gray-900 dark:text-white"
+            exit={{ opacity: 0, scale: 0.85, y: 15 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-[2rem] shadow-2xl flex flex-col gap-3 w-80 text-slate-900 dark:text-white backdrop-blur-xl"
           >
             {view === 'callback' ? (
               <>
                 <button
                   onClick={() => setView('menu')}
-                  className="flex items-center gap-1 text-xs font-bold text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors self-start"
+                  className="flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors self-start"
                 >
                   <span className="material-symbols-outlined text-[16px]">arrow_back</span>
                   {t('cro_callback_open')}
@@ -44,10 +50,41 @@ export default function QuickCallWidget() {
               </>
             ) : (
               <>
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-wider pb-2 border-b border-gray-100 dark:border-white/10">
-                  Hızlı İletişim Kısayolları
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-[11px] font-extrabold text-slate-400 dark:text-slate-400 uppercase tracking-wider">
+                    Hızlı İşlemler & İletişim
+                  </span>
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  </span>
                 </div>
 
+                {/* 1. Site İçi Akıllı Arama Kısayolu */}
+                <button
+                  onClick={handleOpenSpotlight}
+                  className="flex items-center justify-between p-3 rounded-2xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 transition-all text-left group shadow-sm"
+                  title="Site İçi Akıllı Arama (Ctrl+K / ⌘K)"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                      <span className="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">search</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-400 transition-colors">
+                        Site İçi Akıllı Arama
+                      </span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 font-light">
+                        Hizmet, ilçe veya KMK ara
+                      </span>
+                    </div>
+                  </div>
+                  <kbd className="px-2 py-0.5 text-[10px] font-mono bg-white/60 dark:bg-white/10 rounded-md border border-slate-200 dark:border-white/15 text-slate-600 dark:text-slate-300 font-bold">
+                    ⌘K
+                  </kbd>
+                </button>
+
+                {/* 2. Genel Müdürlük Telefonu */}
                 <a
                   href={`tel:${ORG_PHONE}`}
                   onClick={() => {
@@ -55,17 +92,18 @@ export default function QuickCallWidget() {
                       sendGAEvent('event', 'phone_call_click', { category: 'contact', value: 1 });
                     }
                   }}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors group"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-slate-700 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
                     <span className="material-symbols-outlined text-lg">call</span>
                   </div>
                   <div className="flex flex-col">
-                  <span className="text-xs font-bold text-gray-900 dark:text-white">Genel Müdürlük</span>
-                  <span className="text-[10px] text-gray-500 dark:text-gray-400">0216 550 48 48</span>
-                </div>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">Genel Müdürlük</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">0216 550 48 48</span>
+                  </div>
                 </a>
 
+                {/* 3. WhatsApp Canlı Destek */}
                 <a
                   href={waLink(t('cro_whatsapp_prefill'))}
                   target="_blank"
@@ -75,30 +113,32 @@ export default function QuickCallWidget() {
                       sendGAEvent('event', 'whatsapp_click', { category: 'contact', value: 1 });
                     }
                   }}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors group"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
                     <span className="material-symbols-outlined text-lg">chat</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs font-bold">WhatsApp Canlı Destek</span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">Anında Yanıt</span>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">WhatsApp Canlı Destek</span>
+                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Anında Yanıt</span>
                   </div>
                 </a>
 
+                {/* 4. Sizi Arayalım Formu */}
                 <button
                   onClick={() => setView('callback')}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors text-left"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left group"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
                     <span className="material-symbols-outlined text-lg">phone_callback</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs font-bold">{t('cro_callback_open')}</span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">{t('cro_callback_title')}</span>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">{t('cro_callback_open')}</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-light">{t('cro_callback_title')}</span>
                   </div>
                 </button>
 
+                {/* 5. Hızlı Teklif Al Butonu */}
                 <button
                   onClick={() => {
                     close();
@@ -107,10 +147,10 @@ export default function QuickCallWidget() {
                       sendGAEvent('event', 'quote_click', { category: 'conversion', value: 1 });
                     }
                   }}
-                  className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-bold shadow-md hover:opacity-95 transition-opacity"
+                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-slate-950 text-white dark:bg-white dark:text-slate-950 text-xs font-extrabold shadow-lg hover:opacity-95 transition-all mt-1"
                 >
                   <span className="material-symbols-outlined text-sm">request_quote</span>
-                  Hızlı Teklif Al
+                  <span>Hızlı Teklif Al</span>
                 </button>
               </>
             )}
@@ -118,17 +158,23 @@ export default function QuickCallWidget() {
         )}
       </AnimatePresence>
 
+      {/* Ana Yuvarlak Floating Eylem Butonu */}
       <button
         onClick={() => (isOpen ? close() : setIsOpen(true))}
-        className="w-14 h-14 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
-        aria-label="Hızlı Destek"
+        className="w-14 h-14 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all border border-white/20 relative"
+        aria-label="Hızlı İşlemler & İletişim"
+        title="Hızlı İşlemler & İletişim"
       >
         <motion.span
-          className="material-symbols-outlined text-2xl"
+          className="material-symbols-outlined text-2xl font-bold"
           animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
         >
           {isOpen ? 'add' : 'support_agent'}
         </motion.span>
+        {!isOpen && (
+          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-white dark:border-slate-950" />
+        )}
       </button>
 
     </div>

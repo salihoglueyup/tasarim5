@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, courseSchema, webPageSchema } from '@/lib/schemas';
 import { EventSeo } from '@/components';
+import EmergencyPreparednessAuditSeo from '@/components/seo/EmergencyPreparednessAuditSeo';
 
 export default function GuvenlikAkademisi() {
   const { t } = useLanguage();
@@ -248,6 +249,9 @@ export default function GuvenlikAkademisi() {
             })}
           </div>
         </div>
+
+        {/* Deprem, Yangın & Afet Güvenliği Denetim Portalı */}
+        <EmergencyPreparednessAuditSeo />
 
         {/* İstihdam Köprüsü Timeline */}
         <div className="max-w-5xl mx-auto mt-24">

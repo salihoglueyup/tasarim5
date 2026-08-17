@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import TrustVerificationAuditSeo from '@/components/seo/TrustVerificationAuditSeo';
 
 interface Certificate {
   id: string;
@@ -44,7 +45,7 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
   // Map mouse position to shine effect
-  const shineOpacity = useTransform(mouseYSpring, [-0.5, 0.5], [0.1, 0.5]);
+  const shineOpacity = useTransform(mouseYSpring, [-0.5, 0.5], [0.05, 0.3]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -52,7 +53,6 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
     const width = rect.width;
     const height = rect.height;
     
-    // Calculate mouse position relative to center of card (-0.5 to 0.5)
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
     const xPct = mouseX / width - 0.5;
@@ -63,7 +63,6 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
   };
 
   const handleMouseLeave = () => {
-    // Reset position smoothly
     x.set(0);
     y.set(0);
   };
@@ -85,43 +84,40 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
       className="relative cursor-pointer group h-[340px] md:h-[400px] w-full perspective-[1000px]"
     >
       <div 
-        className="absolute inset-0 bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/60 dark:border-white/10 overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:border-[var(--color-primary)]/30"
+        className="absolute inset-0 bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:border-slate-900 dark:group-hover:border-white"
         style={{ transform: "translateZ(0)" }}
       >
         {/* Glow / Shine Layer */}
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/50 to-white/0 dark:from-white/0 dark:via-white/10 dark:to-white/0 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-tr from-white/0 via-slate-100/40 to-white/0 dark:from-white/0 dark:via-white/5 dark:to-white/0 pointer-events-none"
           style={{ opacity: shineOpacity }}
         />
-        
-        {/* Animated Gradient Background Blob */}
-        <div className={`absolute top-[-20%] right-[-20%] w-[150%] h-[150%] bg-gradient-to-br ${cert.color} opacity-5 blur-3xl group-hover:opacity-15 transition-opacity duration-700`} />
 
         <div className="p-8 h-full flex flex-col items-start justify-between relative z-10">
           <div 
-            className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cert.color} shadow-lg flex items-center justify-center shrink-0 mb-6`}
-            style={{ transform: "translateZ(30px)" }} // Pop-out icon effect
+            className="w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md flex items-center justify-center shrink-0 mb-6 group-hover:scale-110 transition-transform duration-300"
+            style={{ transform: "translateZ(30px)" }}
           >
-            <span className="material-symbols-outlined text-white text-3xl">{cert.icon}</span>
+            <span className="material-symbols-outlined text-2xl">{cert.icon}</span>
           </div>
 
           <div className="flex-grow flex flex-col justify-end w-full" style={{ transform: "translateZ(20px)" }}>
-            <span className={`text-[10px] font-black tracking-widest uppercase mb-2 text-transparent bg-clip-text bg-gradient-to-r ${cert.color}`}>
+            <span className="inline-block self-start text-[10px] font-extrabold tracking-wider uppercase mb-2.5 px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700">
               {t(cert.titleKey as any)}
             </span>
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-tight mb-3">
+            <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white leading-tight mb-3">
               {t(cert.subKey as any)}
             </h3>
-            <p className="text-sm font-light text-slate-600 dark:text-slate-400 line-clamp-3 mb-4">
+            <p className="text-sm font-light text-slate-600 dark:text-slate-300 line-clamp-3 mb-4 leading-relaxed">
               {t(cert.descKey as any)}
             </p>
             <Link
               href={`/kurumsal/sertifikalar/${cert.slug}`}
               onClick={(e) => e.stopPropagation()}
-              className={`text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r ${cert.color} flex items-center gap-1 hover:gap-2 transition-all`}
+              className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
             >
-              Detayları İncele
-              <span className="material-symbols-outlined text-sm text-slate-500">arrow_forward</span>
+              <span>Detayları İncele</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
         </div>
@@ -140,18 +136,18 @@ export default function CertificatesClient() {
         description={t('certificates_desc')} 
       />
 
-      <section className="relative py-24 bg-slate-50 dark:bg-[#0a0a0f] overflow-hidden">
+      <section className="relative py-24 bg-slate-50/50 dark:bg-slate-950 overflow-hidden">
         {/* Subtle background blurs */}
-        <div className="absolute top-0 left-0 w-[50vw] h-[50vw] bg-[var(--color-primary)] opacity-[0.03] rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-teal-500 opacity-[0.03] rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-[50vw] h-[50vw] bg-blue-500/5 dark:bg-primary/10 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-slate-500/5 dark:bg-blue-600/10 rounded-full blur-[140px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] relative z-10">
           
           <div className="text-center max-w-4xl mx-auto mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-8">
-              {t('certificates_manifest_title_1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">{t('certificates_manifest_title_2')}</span>
+              {t('certificates_manifest_title_1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-100 dark:to-slate-400">{t('certificates_manifest_title_2')}</span>
             </h2>
-            <div className="flex flex-col md:flex-row gap-6 text-left md:text-center justify-center text-slate-600 dark:text-slate-400">
+            <div className="flex flex-col md:flex-row gap-6 text-left md:text-center justify-center text-slate-600 dark:text-slate-300">
               <p className="text-base md:text-lg font-light leading-relaxed flex-1">
                 {t('certificates_manifest_p1')}
               </p>
@@ -161,7 +157,7 @@ export default function CertificatesClient() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10 perspective-[2000px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10 perspective-[2000px] mb-16">
             {CERTIFICATES.map((cert) => (
               <CertificateCard 
                 key={cert.id} 
@@ -170,6 +166,9 @@ export default function CertificatesClient() {
               />
             ))}
           </div>
+
+          {/* TÜRKAK & ISO Canlı Güvenilirlik Mührü (E-E-A-T) */}
+          <TrustVerificationAuditSeo />
 
         </div>
       </section>

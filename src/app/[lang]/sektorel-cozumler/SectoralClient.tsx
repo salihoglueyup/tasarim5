@@ -9,6 +9,7 @@ import { autoLinkHtml } from '@/lib/autoLinker';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import SectoralRoiCalculatorSeo from '@/components/seo/SectoralRoiCalculatorSeo';
 
 export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) {
   const { t } = useLanguage();
@@ -349,6 +350,9 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             </div>
           ))}
         </div>
+
+        {/* 3 Yıllık Sektörel ROI & Tasarruf Matrisi */}
+        <SectoralRoiCalculatorSeo />
 
         {/* FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
+import { SERVICES } from '@/data/services';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // Günde bir yenile (ISR)
@@ -35,14 +36,25 @@ export async function GET() {
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
 
-    // Ana dizindeki sabit görseller (Örn: Hero arka planı)
+    // Ana sayfa sabit görseli
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}/</loc>\n`;
     xml += `    <image:image>\n`;
     xml += `      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n`;
-    xml += `      <image:title>Alo Yönetim Tesis Yönetimi</image:title>\n`;
+    xml += `      <image:title>Alo Yönetim Profesyonel Tesis ve Mülk Yönetimi</image:title>\n`;
     xml += `    </image:image>\n`;
     xml += `  </url>\n`;
+
+    // 9 Temel Hizmet Sayfası Görselleri
+    for (const service of SERVICES) {
+      xml += `  <url>\n`;
+      xml += `    <loc>${BASE_URL}${service.pillar}</loc>\n`;
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${BASE_URL}/og</image:loc>\n`;
+      xml += `      <image:title>${escapeXml(service.name)} — Alo Yönetim</image:title>\n`;
+      xml += `    </image:image>\n`;
+      xml += `  </url>\n`;
+    }
 
     // Blog yazıları
     for (const post of posts) {

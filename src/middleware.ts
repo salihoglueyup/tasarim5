@@ -78,13 +78,49 @@ function getLocale(request: NextRequest): string {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. STATİK DOSYA VE API KONTROLÜ
+  // 0. SECURITY & VULNERABILITY SHIELD (Faz 218: Bot Exploit & Dotfile Probing Kalkanı)
+  // Saldırgan botların .env, .aws, .claude, /@fs/, .php, .sql gibi dosyaları aramasını sıfır gecikmeyle 403 Forbidden olarak keser.
+  const lowerPath = pathname.toLowerCase();
+  const isSecurityBlocked =
+    lowerPath.startsWith('/@fs') ||
+    lowerPath.startsWith('/.env') ||
+    lowerPath.startsWith('/.aws') ||
+    lowerPath.startsWith('/.claude') ||
+    lowerPath.startsWith('/.git') ||
+    lowerPath.startsWith('/.bash') ||
+    lowerPath.startsWith('/.config') ||
+    lowerPath.includes('/.env') ||
+    lowerPath.includes('/.aws') ||
+    lowerPath.includes('/.claude') ||
+    lowerPath.endsWith('.php') ||
+    lowerPath.endsWith('.sql') ||
+    lowerPath.endsWith('.bak') ||
+    lowerPath.endsWith('.ini') ||
+    lowerPath.endsWith('.conf') ||
+    lowerPath.endsWith('.log') ||
+    lowerPath.endsWith('.yml') ||
+    lowerPath.endsWith('.yaml');
+
+  if (isSecurityBlocked) {
+    return new NextResponse('Forbidden', { status: 403, headers: { 'Content-Type': 'text/plain' } });
+  }
+
+  // 1. MEŞRU STATİK DOSYA VE API KONTROLÜ
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname === '/icon' ||
     pathname === '/apple-icon' ||
-    pathname.includes('.')
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.jpeg') ||
+    pathname.endsWith('.webp') ||
+    pathname.endsWith('.svg') ||
+    pathname.endsWith('.pdf') ||
+    pathname.endsWith('.xml') ||
+    pathname.endsWith('.txt') ||
+    pathname.endsWith('.webmanifest') ||
+    pathname.endsWith('.ico')
   ) {
     return NextResponse.next();
   }
@@ -168,6 +204,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|images|video|fonts|.*\\..*).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|images|video|fonts).*)',
   ],
 };

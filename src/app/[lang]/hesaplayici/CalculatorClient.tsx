@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import CallbackForm from '@/components/cro/CallbackForm';
+import { ChecklistAuditSeo, QuizAuditScoreSeo } from '@/components/seo';
+import FacilityAuditReportModal from '@/components/modals/FacilityAuditReportModal';
 import { calculateDues, CalcConfig } from '@/lib/hesaplayici';
 
 export default function CalculatorClient({ initialConfig }: { initialConfig: CalcConfig }) {
@@ -16,6 +18,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
   const [hasSecurity, setHasSecurity] = useState<boolean>(true);
   const [hasPool, setHasPool] = useState<boolean>(true);
   const [hasGreenSpace, setHasGreenSpace] = useState<boolean>(true);
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState<boolean>(false);
 
   // Aidat tahmini — saf fonksiyon (src/lib/hesaplayici.ts, birim test kapsamında).
   const { estimatedDuesPerUnit, totalMonthlyBudget, estimatedSavings } = calculateDues({
@@ -207,14 +210,22 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                 </Link>
 
                 <button 
-                  onClick={() => window.print()}
-                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
-                  title={t('calc_btn_print_title')}
+                  onClick={() => setIsAuditModalOpen(true)}
+                  className="bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-300 font-bold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
+                  title="Resmi PDF Tesis Sağlık ve Tasarruf Karnesi Oluştur"
                 >
-                  <span className="material-symbols-outlined text-base">print</span>
-                  <span>{t('calc_btn_print')}</span>
+                  <span className="material-symbols-outlined text-base">assessment</span>
+                  <span>PDF Raporu Al</span>
                 </button>
               </div>
+
+              <button 
+                onClick={() => setIsAuditModalOpen(true)}
+                className="w-full py-3 bg-gradient-to-r from-blue-600/20 via-slate-800 to-blue-600/20 hover:brightness-125 border border-blue-500/30 rounded-2xl text-xs font-extrabold text-blue-300 flex items-center justify-center gap-2 transition-all"
+              >
+                <span className="material-symbols-outlined text-sm text-blue-400">verified</span>
+                <span>Yönetim Kurulu İçin Resmi Tasarruf Karnesi Üret</span>
+              </button>
 
             </motion.div>
 
@@ -242,7 +253,20 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           </div>
 
         </div>
+
+        {/* İnteraktif Risk Skoru & Yasal Denetim Kontrol Listesi */}
+        <div className="mt-16 space-y-12">
+          <QuizAuditScoreSeo />
+          <ChecklistAuditSeo />
+        </div>
       </section>
+
+      {/* Resmi PDF Tesis Sağlık & Tasarruf Karne Modalı */}
+      <FacilityAuditReportModal
+        isOpen={isAuditModalOpen}
+        onClose={() => setIsAuditModalOpen(false)}
+        defaultUnits={units}
+      />
     </>
   );
 }

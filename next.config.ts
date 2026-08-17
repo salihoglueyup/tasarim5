@@ -65,8 +65,18 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/hakkimizda',
-        destination: '/kurumsal/hakkimizda',
+        source: '/kurumsal',
+        destination: '/hakkimizda',
+        permanent: true,
+      },
+      {
+        source: '/kurumsal/hakkimizda',
+        destination: '/hakkimizda',
+        permanent: true,
+      },
+      {
+        source: '/hizmetler/hasere-kontrol',
+        destination: '/hizmetler/hasere-ve-dezenfeksiyon',
         permanent: true,
       },
       {
@@ -84,7 +94,7 @@ const nextConfig: NextConfig = {
         destination: '/hizmetler',
         permanent: true,
       },
-      // Legacy URL düzeltmeleri — GSC 404 raporundan
+      // Legacy URL düzeltmeleri — GSC 404 & Otorite Kurtarma
       {
         source: '/kullanim-kosullari',
         destination: '/kullanim-sartlari',
@@ -93,6 +103,59 @@ const nextConfig: NextConfig = {
       {
         source: '/kullanim-kosullari/:path*',
         destination: '/kullanim-sartlari/:path*',
+        permanent: true,
+      },
+      // Google'da 1. ve 3. sırada olan eski sayfaların otorite aktarımı (SEO Master Plan)
+      {
+        source: '/site-apartman-guvenligi',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/guvenlik-kursu-egitimi',
+        destination: '/guvenlik-akademisi',
+        permanent: true,
+      },
+      {
+        source: '/ev-ofis-temizligi',
+        destination: '/hizmetler/temizlik-ve-hijyen',
+        permanent: true,
+      },
+      // Yüksek gösterimli eski WordPress tag & kategori arşivleri
+      {
+        source: '/tag/guvenlik-egitimi',
+        destination: '/guvenlik-akademisi',
+        permanent: true,
+      },
+      {
+        source: '/tag/guvenlik-kursu',
+        destination: '/guvenlik-akademisi',
+        permanent: true,
+      },
+      {
+        source: '/tag/:tag*',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/category/:cat*',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/feed',
+        destination: '/feed.xml',
+        permanent: true,
+      },
+      // Eski haber/blog linklerini (.html) yeni blog sayfasına yönlendir
+      {
+        source: '/:id(\\d+)/:slug*.html',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/:id/:slug.html',
+        destination: '/blog',
         permanent: true,
       },
     ];

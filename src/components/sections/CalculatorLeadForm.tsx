@@ -51,8 +51,8 @@ export default function CalculatorLeadForm({ serviceName, calcDetails, buttonTex
 
   if (status === 'success') {
     return (
-      <div className="w-full bg-emerald-500/20 text-emerald-300 font-bold py-4 px-6 rounded-xl text-center flex flex-col items-center gap-2">
-        <span className="material-symbols-outlined text-3xl">check_circle</span>
+      <div className="w-full bg-blue-500/20 text-blue-300 font-bold py-4 px-6 rounded-xl text-center flex flex-col items-center gap-2 border border-blue-500/30">
+        <span className="material-symbols-outlined text-3xl text-blue-400">check_circle</span>
         Talebiniz Alındı!
       </div>
     );

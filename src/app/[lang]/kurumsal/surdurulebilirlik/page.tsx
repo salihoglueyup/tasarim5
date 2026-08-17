@@ -2,7 +2,8 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/JsonLd';
+import FacilityEcoHealthScoreSeo from '@/components/seo/FacilityEcoHealthScoreSeo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function Surdurulebilirlik() {
@@ -46,7 +47,7 @@ export default function Surdurulebilirlik() {
         description={t('sustainability_desc')} 
       />
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {ecoPoints.map((p, i) => (
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col gap-4 shadow-sm">
@@ -58,6 +59,9 @@ export default function Surdurulebilirlik() {
             </div>
           ))}
         </div>
+
+        {/* Yeşil Tesis & Çatı GES Karbon Tasarruf Simülatörü */}
+        <FacilityEcoHealthScoreSeo />
       </section>
     </>
   );
