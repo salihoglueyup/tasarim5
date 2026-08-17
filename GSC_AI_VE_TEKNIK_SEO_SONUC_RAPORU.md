@@ -26,6 +26,7 @@
 | Kategori | Tespit Edilen Problem | Kök Neden Analizi | Uygulanan Teknik Çözüm | Sonuç & Doğrulama |
 | :--- | :--- | :--- | :--- | :--- |
 | **GSC Yorum Snippet** | `"<parent_node>" alanı için geçersiz nesne türü` (6 Sayfa) | Google, `@type: "Service"` altında doğrudan `aggregateRating` bulunmasını geçersiz sayar. | `serviceSchema` içinden geçersiz alan temizlendi, `AggregateRatingSeo` doğrudan `ProfessionalService` nesnesine bağlandı. | ✅ Zengin Sonuçlar (Rich Results) standardına %100 uyumlu hale geldi. |
+| **GSC Profil Sayfası** | `"mainEntity" alanı eksik` (ProfilePage zengin sonuç hatası) | Google, `@type: "ProfilePage"` şemasında varlığın kim olduğunu belirten `mainEntity` alanını zorunlu tutar. | `aiAssistantSchema` ve `webPageSchema` (yazar profilleri) içine `mainEntity: { @type: 'Organization' / 'Person' }` bağlandı. | ✅ Google URL Denetimi Rich Results testinden sıfır hata ile geçti. |
 | **Site Haritaları** | 56 İlçe Hizmet Sayfasının Dizine Girmemesi | Sitemaps güncel değildi ve sayfaların doğrudan taranabilir iç linkleri azdı. | 3 adet dinamik XML sitemap yayınlandı, footer'a 56 sayfalık tıklanabilir iç link matrisi eklendi. | ✅ 616 URL Google tarafından 17 Ağu 2026'da "Başarılı" okundu. |
 | **Cloudflare AI (GEO)** | AI Taleplerinde Takılma (Demand Signals) | AI botları `/hizmetler/site-yonetimi` gibi genel aramalara yöneldiğinde 404 alıyordu. | `next.config.ts` içine `/hizmetler/site-yonetimi`, `/bina-yonetimi`, `/apartman-yonetimi` ➡️ `/hizmetler/tesis-yonetimi` 301 kuralları eklendi. | ✅ 71 AI Answer Retrieval başarısı desteklendi. |
 | **SEO Yönlendirme** | `/tr` sayfalarının 307 dönmesi | `NextResponse.redirect()` varsayılan olarak geçici 307 durum kodu döndürür. | `middleware.ts` içinde `/tr` yönlendirmesine açıkça `301` durum kodu parametresi verildi. | ✅ Duplicate Content ceza riski tamamen sıfırlandı. |
@@ -174,6 +175,33 @@ if (pathname.startsWith('/tr/') || pathname === '/tr') {
 
 ---
 
+### 3.6. Google ProfilePage "mainEntity" Zengin Sonuç Uyumlaştırması (`src/lib/schemas.ts`)
+Google Search Console URL Denetimi'nde `ProfilePage` türü için `"mainEntity" alanı eksik` uyarısı giderilmiş, hem `aiAssistantSchema` hem de yazar sayfaları için `mainEntity` varlığı bağlanmıştır:
+
+```typescript
+// src/lib/schemas.ts
+export function aiAssistantSchema(): JsonLdObject {
+  return {
+    '@type': 'ProfilePage',
+    name: 'Alo Yönetim - AI Assistant Profile',
+    description: '...',
+    mainEntity: {
+      '@type': 'Organization',
+      '@id': ORG_ID,
+      name: ORG_NAME,
+      legalName: ORG_LEGAL_NAME,
+      url: BASE_URL,
+      logo: ORG_LOGO,
+      telephone: ORG_PHONE,
+      address: ORG_ADDRESS,
+    },
+    about: { '@id': ORG_ID },
+  };
+}
+```
+
+---
+
 ## 📊 4. Google Search Console & Cloudflare AI Durum Tablosu
 
 ```
@@ -210,6 +238,8 @@ Sprint boyunca yapılan tüm geliştirmeler aşamalı olarak test edilmiş ve Gi
 4. `54eb4e6`: `fix(seo-schema): add bestRating and worstRating to MobileApp schema`
 5. `1accb7d`: `feat(seo): add 301 redirects for ai demand signals (site-yonetimi, bina-yonetimi, apartman-yonetimi)`
 6. `ed8733b`: `fix(seo): use explicit HTTP 301 for /tr canonical redirect in middleware`
+7. `656b8e1`: `docs: add comprehensive GSC and technical SEO sprint report`
+8. `bfc7759`: `fix(seo-schema): add mainEntity to ProfilePage schemas for GSC Rich Results compliance`
 
 ---
 
