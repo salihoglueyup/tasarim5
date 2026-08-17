@@ -295,7 +295,6 @@ export function serviceSchema(opts: {
   description?: string;
   offerCatalogName?: string;
   offers?: OfferItem[];
-  aggregateRating?: RatingInput;
   sameAs?: string;
 }): JsonLdObject {
   return {
@@ -307,25 +306,6 @@ export function serviceSchema(opts: {
     ...(opts.sameAs ? { sameAs: opts.sameAs } : {}),
     provider: { '@id': LOCALBUSINESS_ID },
     areaServed: { '@type': 'State', name: 'İstanbul' },
-    ...(opts.aggregateRating
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: opts.aggregateRating.ratingValue,
-            reviewCount: opts.aggregateRating.reviewCount,
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }
-      : {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            reviewCount: '124',
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }),
     ...(opts.offers && opts.offers.length
       ? {
           hasOfferCatalog: {

@@ -33,8 +33,19 @@ export default function AggregateRatingSeo({
   
   const schema = {
     '@context': 'https://schema.org',
-    '@type': itemReviewed['@type'] || 'Service', // Varsayılan Service
-    name: itemReviewed.name,
+    '@type': 'ProfessionalService',
+    name: itemReviewed.name || 'Alo Yönetim Mülk ve Tesis Yönetimi',
+    image: 'https://aloyonetim.com.tr/images/logos/new-icon-transparent-hd.png',
+    telephone: '0216 550 48 48',
+    url: 'https://aloyonetim.com.tr',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Osmanağa Mah. Misakı Milli Sok. No:94A',
+      addressLocality: 'Kadıköy',
+      addressRegion: 'İstanbul',
+      postalCode: '34714',
+      addressCountry: 'TR',
+    },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue,

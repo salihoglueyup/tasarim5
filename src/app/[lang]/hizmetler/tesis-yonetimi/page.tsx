@@ -74,7 +74,7 @@ export default function TesisYonetimi() {
             <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') }} />
             
             <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'Service', name: t('serv_fac_name') }}
+              itemReviewed={{ '@type': 'ProfessionalService', name: `Alo Yönetim - ${t('serv_fac_name')}` }}
               ratingValue={4.9}
               reviewCount={312}
               className="mt-2"
