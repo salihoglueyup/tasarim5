@@ -66,8 +66,14 @@ export default async function AuthorArchive({
     '@type': 'ItemList',
     itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `${BASE_URL}/blog/${p.slug}` })),
   };
-  const pageLd = webPageSchema({ type: 'ProfilePage', name: `${author.name} — Yazar`, description: author.bio || 'Yazar Profili', path });
-  const authorLd = personSchema({ name: author.name, jobTitle: 'Yazar' });
+  const authorLd = personSchema({ name: author.name, jobTitle: 'Yazar', image: author.avatar || undefined });
+  const pageLd = webPageSchema({
+    type: 'ProfilePage',
+    name: `${author.name} — Yazar`,
+    description: author.bio || 'Yazar Profili',
+    path,
+    mainEntity: authorLd,
+  });
 
   return (
     <>
