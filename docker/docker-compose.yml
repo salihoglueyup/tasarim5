@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: alo_user
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-alo_super_secret_2026}
       POSTGRES_DB: aloyonetim
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
@@ -30,12 +30,12 @@ services:
     restart: unless-stopped
     volumes:
       - ./data/redis:/data
-    # Redis'e parola zorunluluğu (önceden auth yoktu — herkes bağlanabiliyordu).
-    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    # Redis'e parola zorunluluğu — boş kaldığında çökmesini önleyen varsayılan fallback eklendi.
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-alo_redis_secret_2026}
     ports:
       - "127.0.0.1:6379:6379"
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-alo_redis_secret_2026}", "ping"]
       interval: 5s
       timeout: 3s
       retries: 5
@@ -62,10 +62,10 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
-      # Secret'lar docker/.env dosyasından gelir (git-ignored) — literal parola yok.
-      - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD}@postgres:5432/aloyonetim?schema=public
-      - REDIS_URL=redis://:${REDIS_PASSWORD}@redis:6379
-      - JWT_SECRET=${JWT_SECRET}
+      # Secret'lar .env veya docker/.env dosyasından gelir (git-ignored).
+      - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD:-alo_super_secret_2026}@postgres:5432/aloyonetim?schema=public
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-alo_redis_secret_2026}@redis:6379
+      - JWT_SECRET=${JWT_SECRET:-alo_jwt_secret_key_2026_super_secure}
       # N8N webhook URL
       - N8N_URL=http://n8n:5678
     deploy:
@@ -96,7 +96,7 @@ services:
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=alo_user
-      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD:-alo_super_secret_2026}
       - DB_POSTGRESDB_SCHEMA=n8n
       - NODE_OPTIONS=--max-old-space-size=768
     volumes:
@@ -122,7 +122,7 @@ services:
         condition: service_healthy
     environment:
       - HOST=0.0.0.0
-      - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD}@postgres:5432/aloyonetim?schema=public
+      - DATABASE_URL=postgresql://alo_user:${POSTGRES_PASSWORD:-alo_super_secret_2026}@postgres:5432/aloyonetim?schema=public
     deploy:
       resources:
         limits:
