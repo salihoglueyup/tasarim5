@@ -55,6 +55,31 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/hizmetler/site-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/site-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/bina-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/apartman-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/mulk-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi',
+        permanent: true,
+      },
+      {
         source: '/hizmetlerimiz',
         destination: '/hizmetler',
         permanent: true,
