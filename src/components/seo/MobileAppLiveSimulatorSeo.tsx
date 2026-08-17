@@ -22,7 +22,9 @@ export default function MobileAppLiveSimulatorSeo() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '450'
+      reviewCount: '450',
+      bestRating: '5',
+      worstRating: '1'
     },
     offers: {
       '@type': 'Offer',
