@@ -25,10 +25,29 @@ const AI_BOTS = [
 ];
 
 export default function robots(): MetadataRoute.Robots {
-  // Özel/teknik ve exploit deneme yolları botlara kapalıdır; eski /tag/ yolları ise 301 ile /blog'a yönlendiği için engellenmez.
+  const allow = [
+    '/',
+    '/api/ai-knowledge',
+    '/api/knowledge-graph',
+    '/api/summary',
+    '/api/terms',
+    '/api/search-suggest',
+    '/llms.txt',
+    '/llms-full.txt',
+    '/opensearch.xml',
+    '/.well-known/security.txt',
+    '/.well-known/traffic-advice'
+  ];
+
+  // Özel/teknik, oturum, form ve exploit deneme yolları botlara kapalıdır
   const disallow = [
     '/admin',
-    '/api/',
+    '/api/admin',
+    '/api/auth',
+    '/api/calculator',
+    '/api/lead',
+    '/api/upload',
+    '/api/seed-referanslar',
     '/_next/',
     '/@fs/',
     '/.*',
@@ -39,17 +58,18 @@ export default function robots(): MetadataRoute.Robots {
     '/*.ini$',
     '/*.conf$'
   ];
+
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow,
         disallow,
       },
       {
-        // AI yanıt/tarama botları: içerik taramaya açık (görünürlük için).
+        // AI yanıt/tarama botları: içerik ve bilgi tabanlarını taramaya açık
         userAgent: AI_BOTS,
-        allow: '/',
+        allow,
         disallow,
       },
     ],
@@ -57,7 +77,10 @@ export default function robots(): MetadataRoute.Robots {
       `${BASE_URL}/sitemap.xml`,
       `${BASE_URL}/image-sitemap.xml`,
       `${BASE_URL}/document-sitemap.xml`,
+      `${BASE_URL}/rss.xml`,
+      `${BASE_URL}/feed.xml`,
     ],
     host: BASE_URL,
   };
 }
+

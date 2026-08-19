@@ -17,6 +17,9 @@ export async function GET() {
     { name: 'Zengin Medyalı RSS Haber Akışı', path: '/rss.xml', type: 'RSS 2.0 Enclosure', status: 'Active' },
     { name: 'RFC 4287 Atom Feed Akışı', path: '/feed.xml', type: 'Atom 1.0', status: 'Active' },
     { name: 'Çok Katmanlı Autocomplete API', path: '/api/search-suggest', type: 'Search Suggest', status: 'Active' },
+    { name: 'Chrome Private Prefetch Proxy', path: '/.well-known/traffic-advice', type: 'Instant SERP Protocol', status: 'Active' },
+    { name: 'RFC 9116 Domain Güvenlik Protokolü', path: '/.well-known/security.txt', type: 'IETF Security Protocol', status: 'Active' },
+    { name: 'Schema.org Semantik Sözlük API', path: '/api/terms', type: 'Linked Data JSON-LD', status: 'Active' },
     { name: 'JSON Özet Endpoint', path: '/api/summary', type: 'JSON API', status: 'Active' },
     { name: 'AI Knowledge Base Endpoint', path: '/api/ai-knowledge', type: 'LLMO AI Protocol', status: 'Active' },
     { name: 'Canlı SEO Sağlık & Teşhis API', path: '/api/admin/seo-health', type: 'Diagnostics API', status: 'Active' }

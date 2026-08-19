@@ -70,6 +70,9 @@ export async function GET() {
     { id: 'llms_full', name: 'AI Kapsamlı Bilgi Protokolü', path: '/llms-full.txt', cat: 'Protocols' as const },
     { id: 'knowledge_graph', name: 'Birleşik Schema.org Knowledge Graph', path: '/api/knowledge-graph', cat: 'Entities' as const },
     { id: 'ai_knowledge', name: 'AI Bilgi Tabanı Endpoint', path: '/api/ai-knowledge', cat: 'Protocols' as const },
+    { id: 'traffic_advice', name: 'Chrome Private Prefetch Proxy', path: '/.well-known/traffic-advice', cat: 'Protocols' as const },
+    { id: 'security_txt', name: 'RFC 9116 Domain Security Text', path: '/.well-known/security.txt', cat: 'Protocols' as const },
+    { id: 'terms_api', name: 'Schema.org DefinedTermSet Sözlük API', path: '/api/terms', cat: 'Entities' as const },
     { id: 'rss_xml', name: 'Zengin Medyalı RSS 2.0 Akışı', path: '/rss.xml', cat: 'Crawlers' as const },
     { id: 'atom_feed', name: 'RFC 4287 Atom 1.0 Akışı', path: '/feed.xml', cat: 'Crawlers' as const },
     { id: 'search_suggest', name: 'Çok Katmanlı Autocomplete API', path: '/api/search-suggest?q=guvenlik', cat: 'Protocols' as const }
