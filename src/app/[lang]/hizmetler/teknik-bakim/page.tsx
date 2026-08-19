@@ -6,6 +6,7 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
+import { InstantAnswerCardSeo, InteractiveTechnicalAuditRadarSeo } from '@/components/seo';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -159,6 +160,39 @@ export default function TeknikBakim() {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* Teknik Bakım Uyumluluk Radarı */}
+        <InteractiveTechnicalAuditRadarSeo districtName="İstanbul" />
+
+        {/* AI Overviews & Position Zero Snippet Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <InstantAnswerCardSeo
+            question="Asansör Yeşil Etiket Muayenesi Zorunlu mu ve Alınmazsa Ne Olur?"
+            shortAnswer="Evet, Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği gereğince yılda bir kez A Tipi Akredite Muayene Kuruluşunca kontrol zorunludur. Yeşil etiket alınmayan ve kırmızı etiket iliştirilen asansörler 30 gün içinde düzeltilmezse ilgili belediyece mühürlenerek kullanıma kapatılır ve yöneticiye idari para cezası uygulanır."
+            bulletPoints={[
+              'Yeşil Etiket: Kusursuz, can ve mal güvenliği tam (1 yıl geçerli).',
+              'Mavi Etiket: Hafif kusurlu, 120 gün içinde giderilmesi gerekir.',
+              'Sarı Etiket: Kusurlu, 120 gün içinde giderilmezse mühürlenir.',
+              'Kırmızı Etiket: Güvensiz, 30 gün içinde giderilmezse zabıta mühürler.'
+            ]}
+            lawArticle="Sanayi ve Teknoloji Bakanlığı Asansör Yönetmeliği (2019/30740)"
+            verifiedBy="Alo Yönetim Mühendislik ve Teknik Teftiş Kurulu"
+            category="Asansör & Tesis Mevzuatı"
+          />
+          <InstantAnswerCardSeo
+            question="Elektrik Faturasında Reaktif Güç Cezası Nedir ve Nasıl Engellenir?"
+            shortAnswer="EPDK mevzuatına göre kurulu gücü 50 kVA üzerindeki tesislerde endüktif reaktif oran %20'yi, kapasitif reaktif oran %15'i aşarsa elektrik dağıtım şirketi faturaya ağır reaktif bedel cezası yansıtır. Bu ceza, sitenin kompanzasyon panosundaki kondansatör ve harmonik filtrelerin röle takibiyle 7/24 kontrol edilmesiyle %100 engellenir."
+            bulletPoints={[
+              'Kompanzasyon panosu kondansatörleri periyodik olarak kademe testine tabi tutulmalıdır.',
+              'Akıllı reaktif güç kontrol rölesi günlük sayaç tüketim oranlarını takip etmelidir.',
+              'Ceza sınırına yaklaşan projelerde otomatik SMS uyarısı ve anlık müdahale yapılır.',
+              'Alo Yönetim teknik takibindeki sitelerde reaktif ceza riski %0\'a indirilir.'
+            ]}
+            lawArticle="EPDK Elektrik Piyasası Tarifeler Yönetmeliği"
+            verifiedBy="Alo Yönetim Elektrik Mühendisliği Masası"
+            category="Enerji & Tesisat Yönetimi"
+          />
         </div>
 
         {/* 4-Step HowTo Process */}

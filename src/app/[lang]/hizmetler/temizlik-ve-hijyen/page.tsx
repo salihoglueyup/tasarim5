@@ -4,6 +4,7 @@ import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
+import { InstantAnswerCardSeo, InteractiveCleaningAuditRadarSeo } from '@/components/seo';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -268,6 +269,39 @@ export default function TemizlikVeHijyen() {
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
+
+        {/* Temizlik & Hijyen Denetim Radarı */}
+        <InteractiveCleaningAuditRadarSeo districtName="İstanbul" />
+
+        {/* AI Overviews & Position Zero Snippet Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <InstantAnswerCardSeo
+            question="Site Temizlik Personelinin Kıdem ve İhbar Tazminatı Sorumluluğu Kime Aittir?"
+            shortAnswer="Bordrolu personel çalıştıran sitelerde tüm kıdem, ihbar, yıllık izin ve SGK yükümlülükleri doğrudan kat maliklerine aittir. Hizmet alımı (taşeron/entegre tesis yönetimi) modeliyle Alo Yönetim'den temin edilen temizlik personellerinde ise tüm yasal, mali ve tazminat sorumlulukları şirketimize aittir; site yönetimine hiçbir hukuki veya maddi risk rücu etmez."
+            bulletPoints={[
+              'Doğrudan istihdamda yöneticiler ve kat malikleri müştereken müteselsil sorumludur.',
+              'Profesyonel tesis yönetiminde tüm SGK, İSG ve tazminat garantisi şirketimizdedir.',
+              'Personel izin ve rapor durumlarında anında ikame personel yönlendirilir.',
+              '6331 sayılı İSG mevzuatı gereği periyodik eğitim ve sağlık raporları eksiksiz tutulur.'
+            ]}
+            lawArticle="4857 Sayılı İş Kanunu & 6331 Sayılı İSG Kanunu"
+            verifiedBy="Alo Yönetim Hukuk ve Bordro Denetim Kurulu"
+            category="İş Hukuku & Personel Yönetimi"
+          />
+          <InstantAnswerCardSeo
+            question="Apartman Ortak Alan Temizliği Hangi Standartlarda ve Periyotlarda Yapılmalıdır?"
+            shortAnswer="Apartman ve site ortak alanlarında; giriş holleri ve asansör kabinleri günlük olarak dezenfekte edilmeli, kat koridorları ve merdivenler haftada en az 2 gün mop/otomat ile yıkanmalı, kapalı otoparklar ise ayda bir binicili zemin yıkama makineleriyle yağdan arındırılmalıdır. Kullanılan tüm kimyasallar Sağlık Bakanlığı ve TSE onaylı olmalıdır."
+            bulletPoints={[
+              'Günlük: Giriş kapıları, interkom panelleri, asansörler ve çöp transferi.',
+              'Haftalık: Yangın merdivenleri, tırabzanlar, paspaslar ve posta kutuları.',
+              'Aylık: Kapalı otopark zemin otomatı yıkaması, sığınak ve teknik hacim temizliği.',
+              'Sezonluk: Dış cephe cam temizliği ve yağmur ızgara drenaj kanallarının açılması.'
+            ]}
+            lawArticle="TSE 13811 Hijyen ve Sanitasyon Yönetim Standardı"
+            verifiedBy="Alo Yönetim Hijyen ve Kimyasal Güvenlik Masası"
+            category="Hijyen & Temizlik Standartları"
+          />
         </div>
 
         {/* Cleaning Specific Social Proof */}

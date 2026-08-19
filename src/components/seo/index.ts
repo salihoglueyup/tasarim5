@@ -58,4 +58,8 @@ export { default as InteractiveSecurityRiskRadarSeo } from './InteractiveSecurit
 export { default as SecurityLegalTemplateGeneratorSeo } from './SecurityLegalTemplateGeneratorSeo';
 export { default as DistrictSecurityAuditTableSeo } from './DistrictSecurityAuditTableSeo';
 export { default as DistrictSecuritySpotlightSeo } from './DistrictSecuritySpotlightSeo';
-
+export { default as InteractiveTechnicalAuditRadarSeo } from './InteractiveTechnicalAuditRadarSeo';
+export { default as DistrictTechnicalAuditTableSeo } from './DistrictTechnicalAuditTableSeo';
+export { default as CleaningScheduleGeneratorSeo } from './CleaningScheduleGeneratorSeo';
+export { default as DistrictCleaningAuditTableSeo } from './DistrictCleaningAuditTableSeo';
+export { default as InteractiveCleaningAuditRadarSeo } from './InteractiveCleaningAuditRadarSeo';

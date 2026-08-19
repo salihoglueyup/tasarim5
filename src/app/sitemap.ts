@@ -58,8 +58,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/hizmetler', priority: 0.85, changeFreq: 'weekly' },
     { path: '/hizmetler/tesis-yonetimi', priority: 0.85, changeFreq: 'daily' },
     { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily' },
-    { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/teknik-bakim', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily' },
+    { path: '/hizmetler/teknik-bakim', priority: 0.85, changeFreq: 'daily' },
     { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly' },
@@ -99,7 +99,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const districtServiceRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) =>
     SERVICES.flatMap((s) => {
-      const isHighPriorityService = s.slug === 'guvenlik-yonetimi' || s.slug === 'tesis-yonetimi';
+      const isHighPriorityService =
+        s.slug === 'guvenlik-yonetimi' ||
+        s.slug === 'tesis-yonetimi' ||
+        s.slug === 'teknik-bakim' ||
+        s.slug === 'temizlik-ve-hijyen';
       const basePrio = d.priority === 1 ? 0.8 : d.priority === 2 ? 0.7 : 0.6;
       const prio = isHighPriorityService ? Math.min(0.85, basePrio + 0.1) : basePrio;
       const freq = isHighPriorityService ? 'weekly' : 'monthly';

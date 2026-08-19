@@ -999,3 +999,213 @@ export function districtSecurityServiceSchema({
   };
 }
 
+export function districtTechnicalServiceSchema(opts: {
+  districtName: string;
+  path: string;
+  geo?: { lat: number; lng: number };
+  neighborhoods?: string[];
+}): JsonLdObject {
+  const { districtName, path, geo } = opts;
+  const url = `${BASE_URL}${path}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'EngineeringService',
+    '@id': `${url}#technical-service`,
+    name: `${districtName} Bina & Site Teknik Bakım, Asansör & Jeneratör Servisi`,
+    description: `${districtName} genelinde asansör aylık bakımı, yeşil etiket muayenesi, jeneratör ATS yük testleri ve kompanzasyon panosu yönetimi hizmeti.`,
+    url,
+    serviceType: 'Tesis ve Bina Teknik Bakım, Onarım ve Mühendislik Hizmetleri',
+    category: 'EngineeringService',
+    provider: {
+      '@type': 'Corporation',
+      '@id': ORG_ID,
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: ORG_PHONE,
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'TMMOB Makina ve Elektrik Mühendisleri Odası Tescilli Teknik Bakım Yeterliliği',
+          credentialCategory: 'ProfessionalLicense'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Sanayi ve Teknoloji Bakanlığı Asansör Yetkili Servis Sertifikasyonu',
+          credentialCategory: 'GovernmentPermit'
+        }
+      ]
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: `${districtName}, İstanbul`,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'İstanbul, Türkiye'
+      },
+      ...(geo ? {
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: geo.lat,
+          longitude: geo.lng
+        }
+      } : {})
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${districtName} Teknik Bakım ve Mühendislik Çözümleri`,
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Asansör Aylık Bakımı ve Yıllık Yeşil Etiket Muayene Koordinasyonu'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: '7/24 Kesintisiz Jeneratör & Otomatik Transfer Panosu (ATS) Bakımı'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Kompanzasyon Panosu Reaktif / Kapasitif Ceza Önleme ve Röle Takibi'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Yangın Pompası, Hidrofor, Su Deposu ve Havalandırma Bakımı'
+          }
+        }
+      ]
+    },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/teklif-al?hizmet=teknik-bakim&bolge=${encodeURIComponent(districtName)}`,
+        inLanguage: 'tr-TR',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      },
+      result: {
+        '@type': 'Reservation',
+        name: `${districtName} Teknik Bakım Keşif Randevusu`
+      }
+    }
+  };
+}
+
+export function districtCleaningServiceSchema(opts: {
+  districtName: string;
+  path: string;
+  geo?: { lat: number; lng: number };
+  neighborhoods?: string[];
+}): JsonLdObject {
+  const { districtName, path, geo } = opts;
+  const url = `${BASE_URL}${path}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HouseCleaningService',
+    '@id': `${url}#cleaning-service`,
+    name: `${districtName} Profesyonel Site Temizliği, Dış Cephe Cam Silimi & İlaçlama`,
+    description: `${districtName} siteleri ve tesisleri için TSE HYB standartlarında blok kat temizliği, asansör hijyeni, dağcı dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama.`,
+    url,
+    serviceType: 'Site, Rezidans ve Tesis Profesyonel Temizlik ve Dezenfeksiyon Hizmetleri',
+    category: 'HouseCleaningService',
+    provider: {
+      '@type': 'Corporation',
+      '@id': ORG_ID,
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: ORG_PHONE,
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'TSE HYB 12849 Hizmet Yeterlilik Belgesi (Endüstriyel Temizlik)',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'T.C. Sağlık Bakanlığı Biyosidal Ürün Uygulama İzin Belgesi',
+          credentialCategory: 'GovernmentPermit'
+        }
+      ]
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: `${districtName}, İstanbul`,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'İstanbul, Türkiye'
+      },
+      ...(geo ? {
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: geo.lat,
+          longitude: geo.lng
+        }
+      } : {})
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${districtName} Profesyonel Temizlik ve Hijyen Hizmetleri`,
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Günlük Blok Girişi, Kat Koridoru ve Asansör Dezenfeksiyonu'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Endüstriyel Dağcı (İple Erişim) Dış Cephe Cam Yıkama'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Kapalı Otopark Zemin Otomat Yıkama ve Çöp Şaftı Sterilizasyonu'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Sağlık Bakanlığı Onaylı Biyosidal Haşere & Kemirgen İlaçlaması'
+          }
+        }
+      ]
+    },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`,
+        inLanguage: 'tr-TR',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      },
+      result: {
+        '@type': 'Reservation',
+        name: `${districtName} Site Temizliği Keşif Randevusu`
+      }
+    }
+  };
+}
+

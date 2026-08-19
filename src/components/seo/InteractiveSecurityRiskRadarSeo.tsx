@@ -89,7 +89,7 @@ const AUDIT_CRITERIA: AuditCriterion[] = [
   }
 ];
 
-export default function InteractiveSecurityRiskRadarSeo() {
+export default function InteractiveSecurityRiskRadarSeo({ districtName }: { districtName?: string } = {}) {
   const [selectedIds, setSelectedIds] = useState<string[]>([
     'crit_5188',
     'crit_nizamiye',

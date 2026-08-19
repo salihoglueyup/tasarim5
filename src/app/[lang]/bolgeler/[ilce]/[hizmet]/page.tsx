@@ -9,6 +9,10 @@ import {
   InteractiveSecurityRiskRadarSeo,
   SecurityTrustBadgeGridSeo,
   SecurityLegalTemplateGeneratorSeo,
+  DistrictTechnicalAuditTableSeo,
+  InteractiveTechnicalAuditRadarSeo,
+  CleaningScheduleGeneratorSeo,
+  DistrictCleaningAuditTableSeo,
 } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 import {
@@ -18,6 +22,8 @@ import {
   localBusinessAreaSchema,
   faqPageSchema,
   districtSecurityServiceSchema,
+  districtTechnicalServiceSchema,
+  districtCleaningServiceSchema,
   ORG_PHONE,
 } from '@/lib/schemas';
 
@@ -116,28 +122,50 @@ export async function generateMetadata({
   }
   const neighborhoods = district.neighborhoods.slice(0, 2).join(', ');
 
-  // Güvenlik Yönetimi için yüksek niyetli B2B Exact-Match Başlık & Açıklama
   const isSecurity = service.slug === 'guvenlik-yonetimi';
-  const metaTitle = isSecurity
-    ? `${district.name} Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`
-    : `${service.name} ${district.name} — Profesyonel Tesis Yönetimi`;
+  const isTechnical = service.slug === 'teknik-bakim';
+  const isCleaning = service.slug === 'temizlik-ve-hijyen';
 
-  const metaDesc = isSecurity
-    ? `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`
-    : `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`;
+  let metaTitle = `${service.name} ${district.name} — Profesyonel Tesis Yönetimi`;
+  let metaDesc = `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`;
+  let serviceKeywords: string[] = [];
 
-  const securityKeywords = isSecurity
-    ? [
-        `${district.name} özel güvenlik şirketi`,
-        `${district.name} site güvenliği`,
-        `${district.name} güvenlik firmaları`,
-        `${district.name} apartman güvenliği`,
-        `${district.name} 5188 özel güvenlik`,
-        `${district.name} güvenlik personeli`,
-        `${district.name} site güvenlik şirketleri`,
-        `${district.name} kameralı güvenlik`,
-      ]
-    : [];
+  if (isSecurity) {
+    metaTitle = `${district.name} Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`;
+    metaDesc = `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    serviceKeywords = [
+      `${district.name} özel güvenlik şirketi`,
+      `${district.name} site güvenliği`,
+      `${district.name} güvenlik firmaları`,
+      `${district.name} apartman güvenliği`,
+      `${district.name} 5188 özel güvenlik`,
+      `${district.name} güvenlik personeli`,
+      `${district.name} site güvenlik şirketleri`,
+      `${district.name} kameralı güvenlik`,
+    ];
+  } else if (isTechnical) {
+    metaTitle = `${district.name} Bina & Site Teknik Bakım, Asansör & Jeneratör — Alo Yönetim`;
+    metaDesc = `${district.name}'de asansör yeşil etiket muayenesi, jeneratör ATS yük testleri ve kompanzasyon panosu reaktif ceza önleme çözümleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    serviceKeywords = [
+      `${district.name} site teknik bakım`,
+      `${district.name} asansör bakım firmaları`,
+      `${district.name} jeneratör periyodik bakım`,
+      `${district.name} kompanzasyon takibi`,
+      `${district.name} bina teknik servisi`,
+      `${district.name} hidrofor arıza servisi`,
+    ];
+  } else if (isCleaning) {
+    metaTitle = `${district.name} Site & Apartman Temizliği, Dış Cephe Cam Silimi — Alo Yönetim`;
+    metaDesc = `${district.name}'de TSE HYB standartlarında ortak alan temizliği, dağcı iple erişim dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama. Ücretsiz keşif.`;
+    serviceKeywords = [
+      `${district.name} site temizlik şirketi`,
+      `${district.name} apartman temizliği`,
+      `${district.name} dış cephe cam silimi`,
+      `${district.name} dağcı cam temizliği`,
+      `${district.name} site böcek ilaçlama`,
+      `${district.name} otopark zemin yıkama`,
+    ];
+  }
 
   return buildMetadata({
     title: metaTitle,
@@ -146,7 +174,7 @@ export async function generateMetadata({
     lang,
     ogImageType: 'local',
     keywords: [
-      ...securityKeywords,
+      ...serviceKeywords,
       ...service.keywords.map((k) => `${k} ${district.name}`),
       `${district.name} ${service.name.toLowerCase()}`,
       `${district.name} tesis yönetimi`,
@@ -167,24 +195,46 @@ export default async function ServiceDistrictPage({
   const path = `/bolgeler/${district.slug}/${service.slug}`;
   const faqs = serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
   const isSecurity = service.slug === 'guvenlik-yonetimi';
+  const isTechnical = service.slug === 'teknik-bakim';
+  const isCleaning = service.slug === 'temizlik-ve-hijyen';
 
-  const pageHeaderTitle = isSecurity
-    ? `${district.name} Özel Güvenlik Şirketi & Site Güvenliği`
-    : `${service.name} — ${district.name}`;
+  let pageHeaderTitle = `${service.name} — ${district.name}`;
+  let pageHeaderDesc = `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
 
-  const pageHeaderDesc = isSecurity
-    ? `${district.name} ve tüm mahallelerinde 5188 sayılı kanun standartlarında lisanslı özel güvenlik personeli ve 7/24 kamera izleme hizmeti.`
-    : `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
+  if (isSecurity) {
+    pageHeaderTitle = `${district.name} Özel Güvenlik Şirketi & Site Güvenliği`;
+    pageHeaderDesc = `${district.name} ve tüm mahallelerinde 5188 sayılı kanun standartlarında lisanslı özel güvenlik personeli ve 7/24 kamera izleme hizmeti.`;
+  } else if (isTechnical) {
+    pageHeaderTitle = `${district.name} Bina & Site Teknik Bakım Onarım`;
+    pageHeaderDesc = `${district.name} genelinde asansör, jeneratör, kompanzasyon ve yangın tesisatı periyodik bakım ve mühendislik hizmeti.`;
+  } else if (isCleaning) {
+    pageHeaderTitle = `${district.name} Site & Apartman Temizlik Hizmetleri`;
+    pageHeaderDesc = `${district.name} siteleri için TSE HYB standartlarında blok kat temizliği, dağcı cam silimi ve biyosidal ilaçlama.`;
+  }
+
+  const breadcrumbName = isSecurity
+    ? `${district.name} Özel Güvenlik`
+    : isTechnical
+    ? `${district.name} Teknik Bakım`
+    : isCleaning
+    ? `${district.name} Site Temizliği`
+    : service.shortName;
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
     { name: 'Bölgeler', url: '/bolgeler' },
     { name: district.name, url: `/bolgeler/${district.slug}` },
-    { name: isSecurity ? `${district.name} Özel Güvenlik` : service.shortName, url: path },
+    { name: breadcrumbName, url: path },
   ]);
 
   const serviceLd = localServiceSchema({
-    serviceType: isSecurity ? 'Özel Güvenlik ve Site Emniyeti' : service.name,
+    serviceType: isSecurity
+      ? 'Özel Güvenlik ve Site Emniyeti'
+      : isTechnical
+      ? 'Teknik Bakım ve Mühendislik'
+      : isCleaning
+      ? 'Site ve Endüstriyel Temizlik'
+      : service.name,
     areaName: district.name,
     path,
     description: service.summary,
@@ -211,6 +261,23 @@ export default async function ServiceDistrictPage({
       })
     : null;
 
+  const technicalServiceLd = isTechnical
+    ? districtTechnicalServiceSchema({
+        districtName: district.name,
+        path,
+        geo: district.geo,
+        neighborhoods: district.neighborhoods,
+      })
+    : null;
+
+  const cleaningServiceLd = isCleaning
+    ? districtCleaningServiceSchema({
+        districtName: district.name,
+        path,
+        geo: district.geo,
+        neighborhoods: district.neighborhoods,
+      })
+    : null;
 
   const jsonLdData = [
     pageLd,
@@ -219,6 +286,8 @@ export default async function ServiceDistrictPage({
     businessLd,
     faqLd,
     ...(securityServiceLd ? [securityServiceLd] : []),
+    ...(technicalServiceLd ? [technicalServiceLd] : []),
+    ...(cleaningServiceLd ? [cleaningServiceLd] : []),
   ];
 
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
@@ -236,6 +305,10 @@ export default async function ServiceDistrictPage({
         <TldrBlock>
           {isSecurity ? (
             `${district.name}'de 5188 sayılı Kanun kapsamında site ve tesis güvenliği için Alo Yönetim; Valilik izinli lisanslı güvenlik personeli, PTS plaka tanıma, 4K gece görüşlü CCTV ve 7/24 devriye masası ile hizmet verir. ${district.name}'de ${district.managedProjects}+ projede 0 güvenlik açığı sağlanmıştır. 48 saat içinde ücretsiz güvenlik keşif raporu için: 0216 550 48 48.`
+          ) : isTechnical ? (
+            `${district.name}'de bina ve site teknik işletmesi için Alo Yönetim; Sanayi Bakanlığı yetkili asansör bakımı, jeneratör yük testleri, reaktif ceza önleyici kompanzasyon takibi ve hidrofor kontrolü sunar. Sıfır arıza, yüzde 100 yasal muayene garantisi: 0216 550 48 48.`
+          ) : isCleaning ? (
+            `${district.name}'de profesyonel site ve bina temizliği için Alo Yönetim; TSE HYB 12849 belgeli kat koridoru paspaslama, asansör dezenfeksiyonu, IRATA sertifikalı dağcı cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama uygular: 0216 550 48 48.`
           ) : (
             `${district.name}'de ${service.name.toLowerCase()} için Alo Yönetim; ${service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.`
           )}
@@ -244,11 +317,15 @@ export default async function ServiceDistrictPage({
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
-            {district.name}&apos;de {isSecurity ? '5188 Sayılı Kanun Kapsamında Özel Güvenlik' : service.name}
+            {district.name}&apos;de {isSecurity ? '5188 Sayılı Kanun Kapsamında Özel Güvenlik' : isTechnical ? 'TMMOB Uyumlu Profesyonel Teknik Bakım' : isCleaning ? 'TSE HYB Onaylı Site Temizliği' : service.name}
           </h2>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
             {isSecurity
               ? `${district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz.`
+              : isTechnical
+              ? `${district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, jeneratör ATS kontrolleri ve kompanzasyon cezası engelleme protokolleriyle güvenceye alıyoruz.`
+              : isCleaning
+              ? `${district.name} apartman ve sitelerinde günlük kat koridoru hijyeninden, endüstriyel dağcı cam silimine ve Sağlık Bakanlığı onaylı biyosidal haşere ilaçlamasına kadar uçtan uca hijyen sağlıyoruz.`
               : service.summary}
           </p>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
@@ -272,6 +349,34 @@ export default async function ServiceDistrictPage({
             />
             <InteractiveSecurityRiskRadarSeo />
             <SecurityLegalTemplateGeneratorSeo />
+          </div>
+        )}
+
+        {/* Teknik Bakım Hizmeti için Özel Denetim Matrisi & Radar */}
+        {isTechnical && (
+          <div className="flex flex-col gap-12">
+            <DistrictTechnicalAuditTableSeo
+              districtName={district.name}
+              districtSlug={district.slug}
+              population={district.population}
+              neighborhoods={district.neighborhoods}
+              localNeeds={district.localNeeds}
+            />
+            <InteractiveTechnicalAuditRadarSeo districtName={district.name} />
+          </div>
+        )}
+
+        {/* Temizlik ve Hijyen Hizmeti için Çizelge Oluşturucu & Denetim Matrisi */}
+        {isCleaning && (
+          <div className="flex flex-col gap-12">
+            <DistrictCleaningAuditTableSeo
+              districtName={district.name}
+              districtSlug={district.slug}
+              population={district.population}
+              neighborhoods={district.neighborhoods}
+              localNeeds={district.localNeeds}
+            />
+            <CleaningScheduleGeneratorSeo districtName={district.name} />
           </div>
         )}
 
