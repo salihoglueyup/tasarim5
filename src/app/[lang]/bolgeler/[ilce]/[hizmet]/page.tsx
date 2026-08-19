@@ -3,7 +3,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
-import { QuoteCtaButton, TldrBlock } from '@/components';;
+import { QuoteCtaButton, TldrBlock } from '@/components';
+import {
+  DistrictSecurityAuditTableSeo,
+  InteractiveSecurityRiskRadarSeo,
+  SecurityTrustBadgeGridSeo,
+  SecurityLegalTemplateGeneratorSeo,
+} from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,
@@ -11,8 +17,10 @@ import {
   localServiceSchema,
   localBusinessAreaSchema,
   faqPageSchema,
+  districtSecurityServiceSchema,
   ORG_PHONE,
 } from '@/lib/schemas';
+
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES, getService } from '@/data/services';
 import { LOCALES } from '@/lib/seo';
@@ -194,11 +202,30 @@ export default async function ServiceDistrictPage({
     speakableSelectors: ['h1', '.tldr'],
   });
 
+  const securityServiceLd = isSecurity
+    ? districtSecurityServiceSchema({
+        districtName: district.name,
+        path,
+        geo: district.geo,
+        neighborhoods: district.neighborhoods,
+      })
+    : null;
+
+
+  const jsonLdData = [
+    pageLd,
+    breadcrumbLd,
+    serviceLd,
+    businessLd,
+    faqLd,
+    ...(securityServiceLd ? [securityServiceLd] : []),
+  ];
+
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, serviceLd, businessLd, faqLd]} />
+      <JsonLd data={jsonLdData} />
       <PageHeader
         title={pageHeaderTitle}
         description={pageHeaderDesc}
@@ -207,16 +234,22 @@ export default async function ServiceDistrictPage({
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-14">
         {/* TL;DR (AI/snippet için) */}
         <TldrBlock>
-          {district.name}&apos;de {service.name.toLowerCase()} için Alo Yönetim; {service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.
+          {isSecurity ? (
+            `${district.name}'de 5188 sayılı Kanun kapsamında site ve tesis güvenliği için Alo Yönetim; Valilik izinli lisanslı güvenlik personeli, PTS plaka tanıma, 4K gece görüşlü CCTV ve 7/24 devriye masası ile hizmet verir. ${district.name}'de ${district.managedProjects}+ projede 0 güvenlik açığı sağlanmıştır. 48 saat içinde ücretsiz güvenlik keşif raporu için: 0216 550 48 48.`
+          ) : (
+            `${district.name}'de ${service.name.toLowerCase()} için Alo Yönetim; ${service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.`
+          )}
         </TldrBlock>
 
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
-            {district.name}&apos;de {service.name}
+            {district.name}&apos;de {isSecurity ? '5188 Sayılı Kanun Kapsamında Özel Güvenlik' : service.name}
           </h2>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
-            {service.summary}
+            {isSecurity
+              ? `${district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz.`
+              : service.summary}
           </p>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
             {district.intro} Bu nedenle {district.name}&apos;de {service.name.toLowerCase()} hizmetimizi,
@@ -225,6 +258,22 @@ export default async function ServiceDistrictPage({
             tüm mahallelerinde yerinde hizmet veriyoruz.
           </p>
         </div>
+
+        {/* Güvenlik Hizmeti için Özel Rozetler & Denetim Matrisi */}
+        {isSecurity && (
+          <div className="flex flex-col gap-12">
+            <SecurityTrustBadgeGridSeo />
+            <DistrictSecurityAuditTableSeo
+              districtName={district.name}
+              districtSlug={district.slug}
+              population={district.population}
+              neighborhoods={district.neighborhoods}
+              localNeeds={district.localNeeds}
+            />
+            <InteractiveSecurityRiskRadarSeo />
+            <SecurityLegalTemplateGeneratorSeo />
+          </div>
+        )}
 
         {/* Faydalar */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -250,6 +299,7 @@ export default async function ServiceDistrictPage({
                 key={f.question}
                 className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-6"
               >
+
                 <h3 className="font-bold text-[var(--color-primary)] mb-2">{f.question}</h3>
                 <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
                   {f.answer}

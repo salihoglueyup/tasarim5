@@ -886,3 +886,116 @@ export function graph(...nodes: JsonLdObject[]): JsonLdObject {
     '@graph': nodes,
   };
 }
+
+/**
+ * İlçe Bazlı 5188 Sayılı Kanun Özel Güvenlik Zengin Şeması (SecurityService & HowTo)
+ */
+export function districtSecurityServiceSchema({
+  districtName,
+  path,
+  geo,
+  neighborhoods,
+}: {
+  districtName: string;
+  path: string;
+  geo?: { lat: number; lng: number };
+  neighborhoods?: string[];
+}): JsonLdObject {
+  const url = `${BASE_URL}${path}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SecurityService',
+    '@id': `${url}#security-service`,
+    name: `${districtName} 5188 Özel Güvenlik Şirketi & Site Emniyet Hizmetleri`,
+    description: `${districtName} genelinde 5188 sayılı kanun standartlarında Valilik ruhsatlı özel güvenlik personeli, 7/24 devriye, PTS plaka tanıma ve CCTV kamera izleme hizmeti.`,
+    url,
+    serviceType: '5188 Sayılı Kanun Kapsamında Özel Güvenlik ve Koruma',
+    category: 'SecurityService',
+    provider: {
+      '@type': 'Corporation',
+      '@id': ORG_ID,
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: ORG_PHONE,
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Şirketi Faaliyet İzin Belgesi',
+          credentialCategory: 'GovernmentPermit'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'T.C. İstanbul Valiliği Özel Güvenlik İzin Ruhsatı',
+          credentialCategory: 'GovernmentPermit'
+        }
+      ]
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: `${districtName}, İstanbul`,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'İstanbul, Türkiye'
+      },
+      ...(geo ? {
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: geo.lat,
+          longitude: geo.lng
+        }
+      } : {})
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${districtName} Özel Güvenlik ve Koruma Çözümleri`,
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: '5188 Sertifikalı Üniformalı Site Güvenlik Personeli'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Yapay Zeka Destekli PTS (Plaka Tanıma) ve Bariyer Otomasyonu'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'RFID Devriye Tur Kontrol ve 7/24 CCTV İzleme Merkezi'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'İstanbul Valiliği 5188 Özel Güvenlik İzin Alma Danışmanlığı'
+          }
+        }
+      ]
+    },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/teklif-al?hizmet=guvenlik&bolge=${encodeURIComponent(districtName)}`,
+        inLanguage: 'tr-TR',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      },
+      result: {
+        '@type': 'Reservation',
+        name: `${districtName} 5188 Güvenlik Keşif Randevusu`
+      }
+    }
+  };
+}
+

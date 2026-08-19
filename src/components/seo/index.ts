@@ -56,3 +56,6 @@ export { default as SecurityTechMatrixSeo } from './SecurityTechMatrixSeo';
 export { default as DistrictSecurityClusterSeo } from './DistrictSecurityClusterSeo';
 export { default as InteractiveSecurityRiskRadarSeo } from './InteractiveSecurityRiskRadarSeo';
 export { default as SecurityLegalTemplateGeneratorSeo } from './SecurityLegalTemplateGeneratorSeo';
+export { default as DistrictSecurityAuditTableSeo } from './DistrictSecurityAuditTableSeo';
+export { default as DistrictSecuritySpotlightSeo } from './DistrictSecuritySpotlightSeo';
+

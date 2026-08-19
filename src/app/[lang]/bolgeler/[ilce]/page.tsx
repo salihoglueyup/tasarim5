@@ -9,7 +9,8 @@ import {
   EmergencyServiceBadgeSeo,
   NeighborhoodDirectorySeo,
   SocialProofTickerSeo,
-  DistrictNeighborhoodDuesTableSeo
+  DistrictNeighborhoodDuesTableSeo,
+  DistrictSecuritySpotlightSeo,
 } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 import {
@@ -178,7 +179,15 @@ export default async function DistrictPage({
           localNeeds={district.localNeeds}
         />
 
+        {/* 5188 Özel Güvenlik Masası Vitrini */}
+        <DistrictSecuritySpotlightSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          managedProjects={district.managedProjects}
+        />
+
         {/* Hizmetler → hizmet×ilçe sayfaları */}
+
         <div className="flex flex-col gap-6">
           <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
             {district.name}&apos;de Sunduğumuz Hizmetler

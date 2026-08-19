@@ -68,6 +68,8 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 48 ilçede 200+ çalı
 - [Google Dataset Search İstanbul 48 İlçe Veri Seti](${BASE_URL}/api/datasets/istanbul-facility-data): Schema.org açık veri standardında aidat ortalamaları ve 5188 güvenlik verileri.
 - [RFC 7946 GeoJSON İstanbul Hizmet Masaları](${BASE_URL}/api/geo/districts.geojson): 48 ilçe koordinat ve bölgesel yönetim harita veri seti.
 - [OpenGIS KML İstanbul Tesis Haritası](${BASE_URL}/api/geo/istanbul.kml): Google Earth / Maps uyumlu bölgesel şube harita dosyası.
+- [İstanbul 48 İlçe 5188 Güvenlik GeoRSS / Atom XML Beslemesi](${BASE_URL}/api/security/districts-feed.xml): Arama motorları ve harita botları için ilçe bazlı özel güvenlik coğrafi veri akışı.
+
 
 ## Hizmetler
 ${services}
