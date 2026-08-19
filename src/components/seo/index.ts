@@ -54,3 +54,4 @@ export { default as SectoralRoiCalculatorSeo } from './SectoralRoiCalculatorSeo'
 export { default as SecurityComparisonTableSeo } from './SecurityComparisonTableSeo';
 export { default as SecurityTechMatrixSeo } from './SecurityTechMatrixSeo';
 export { default as DistrictSecurityClusterSeo } from './DistrictSecurityClusterSeo';
+export { default as InteractiveSecurityRiskRadarSeo } from './InteractiveSecurityRiskRadarSeo';

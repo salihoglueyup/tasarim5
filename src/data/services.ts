@@ -51,12 +51,23 @@ export const SERVICES: ServiceDef[] = [
     summary:
       '5188 sayılı kanuna uygun, kimlikli özel güvenlik personeli ve entegre kamera sistemleriyle 7/24 site güvenliği.',
     benefits: [
-      'Kimlikli ve eğitimli özel güvenlik görevlileri',
-      '7/24 kamera izleme ve devriye',
-      'Ziyaretçi ve araç giriş-çıkış kontrolü',
-      'Acil durum müdahale protokolleri',
+      '5188 Sayılı Kanun lisanslı özel güvenlik görevlileri',
+      '7/24 AI analizli kamera izleme ve GPS devriye',
+      'Plaka tanıma (PTS) ve kartlı turnike kontrolü',
+      'Acil durum, yangın ve tahliye eylem protokolleri',
     ],
-    keywords: ['site güvenliği', 'özel güvenlik', 'apartman güvenliği', 'kameralı güvenlik'],
+    keywords: [
+      'site güvenliği',
+      'özel güvenlik şirketi',
+      '5188 özel güvenlik',
+      'apartman güvenliği',
+      'kameralı güvenlik',
+      'site güvenlik şirketleri',
+      'fiziki güvenlik hizmeti',
+      'özel güvenlik firmaları',
+      'nizamiye güvenlik personeli',
+      'site güvenlik görevlisi'
+    ],
     pillar: '/hizmetler/guvenlik-yonetimi',
     sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
   },

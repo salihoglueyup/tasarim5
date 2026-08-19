@@ -12,7 +12,8 @@ import {
   SecurityTrustBadgeGridSeo,
   SecurityComparisonTableSeo,
   SecurityTechMatrixSeo,
-  DistrictSecurityClusterSeo
+  DistrictSecurityClusterSeo,
+  InteractiveSecurityRiskRadarSeo
 } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -219,6 +220,9 @@ export default function GuvenlikYonetimi() {
             ))}
           </motion.div>
         </div>
+
+        {/* İnteraktif 5188 Güvenlik & Risk Analiz Testi */}
+        <InteractiveSecurityRiskRadarSeo />
 
         {/* Karar Matrisi: Bireysel Bekçi vs 5188 Lisanslı Özel Güvenlik */}
         <SecurityComparisonTableSeo />
