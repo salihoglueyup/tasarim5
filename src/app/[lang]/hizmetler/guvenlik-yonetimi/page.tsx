@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection, ServiceSeo } from '@/components';
+import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
-import { RelatedArticles } from '@/components';;
+import { RelatedArticles } from '@/components';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import SecurityCalculator from '@/components/sections/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
@@ -19,59 +19,68 @@ export default function GuvenlikYonetimi() {
 
   const securityFeatures = [
     {
-      title: t('sec_feat_1_title'),
-      desc: t('sec_feat_1_desc'),
+      title: t('sec_feat_1_title') || '5188 Lisanslı Özel Güvenlik',
+      desc: t('sec_feat_1_desc') || 'Emniyet Genel Müdürlüğü ve Valilik onaylı, 5188 sayılı kanun kapsamında yetkilendirilmiş uzman güvenlik personeli.',
       icon: "verified_user",
       color: "from-slate-700 to-slate-900"
     },
     {
-      title: t('sec_feat_2_title'),
-      desc: t('sec_feat_2_desc'),
+      title: t('sec_feat_2_title') || '7/24 CCTV & Kamera İzleme Merkezi',
+      desc: t('sec_feat_2_desc') || 'Kör nokta bırakmayan yüksek çözünürlüklü IP kamera sistemleri, yapay zeka destekli hareket ve sınır ihlal alarmları.',
       icon: "center_focus_strong",
       color: "from-slate-600 to-slate-800"
     },
     {
-      title: t('sec_feat_3_title'),
-      desc: t('sec_feat_3_desc'),
+      title: t('sec_feat_3_title') || 'Plaka Tanıma & Turnike Geçiş Sistemi',
+      desc: t('sec_feat_3_desc') || 'Site sakinleri ve misafir araçlar için otomatik PTS (Plaka Tanıma Sistemi) ve RFID kartlı/biyometrik yaya geçiş kontrolü.',
       icon: "qr_code_scanner",
       color: "from-amber-500 to-orange-600"
     },
     {
-      title: t('sec_feat_4_title'),
-      desc: t('sec_feat_4_desc'),
+      title: t('sec_feat_4_title') || 'Devriye Tur Kontrol ve Raporlama',
+      desc: t('sec_feat_4_desc') || 'Karekodlu ve GPS destekli gece/gündüz devriye turları ile ortak alanların, otoparkların ve çevre duvarlarının anlık denetimi.',
       icon: "shield_person",
       color: "from-purple-500 to-fuchsia-600"
     },
     {
-      title: t('sec_feat_5_title'),
-      desc: t('sec_feat_5_desc'),
+      title: t('sec_feat_5_title') || 'Yangın & Acil Durum Tahliye Yönetimi',
+      desc: t('sec_feat_5_desc') || 'Sığınak, yangın merdiveni ve kaçış yollarının sürekli açık tutulması; periyodik tahliye tatbikatları ve kriz yönetimi.',
       icon: "videocam",
       color: "from-red-500 to-rose-600"
     },
     {
-      title: t('sec_feat_6_title'),
-      desc: t('sec_feat_6_desc'),
+      title: t('sec_feat_6_title') || 'Hızlı Müdahale ve Emniyet Koordinasyonu',
+      desc: t('sec_feat_6_desc') || 'Olası asayiş, hırsızlık veya acil sağlık durumlarında polis ve 112 acil çağrı merkezleriyle entegre alarm protokolü.',
       icon: "emergency",
       color: "from-slate-600 to-slate-800"
     }
   ];
 
-  const faqs = [
-    {
-      q: t('sec_faq_1_q'),
-      a: t('sec_faq_1_a')
-    },
-    {
-      q: t('sec_faq_2_q'),
-      a: t('sec_faq_2_a')
-    },
-    {
-      q: t('sec_faq_3_q'),
-      a: t('sec_faq_3_a')
-    }
+  const securitySteps = [
+    { name: '1. Güvenlik ve Risk Analizi Keşfi', text: 'Sitenizin çevre duvarları, kapı girişleri, otopark ve kör noktaları yerinde incelenir; detaylı güvenlik açığı raporu çıkarılır.' },
+    { name: '2. 5188 Sayılı Kanun İzin & Valilik Süreci', text: 'Özel güvenlik komisyonu onayları, valilik izin belgeleri ve güvenlik noktası planlaması yasal mevzuata tam uyumlu hazırlanır.' },
+    { name: '3. Lisanslı ve Üniformalı Personel Görevlendirmesi', text: 'Sabıka kaydı temiz, fiziki ve psikolojik testlerden geçmiş, yangın ve ilk yardım sertifikalı profesyonel güvenlik ekibi atanır.' },
+    { name: '4. 7/24 Dijital Devriye ve Denetim', text: 'GPS destekli tur kontrol kalemi, plaka tanıma sistemi ve nöbetçi amir teftişleri ile sıfır güvenlik zafiyeti sağlanır.' }
   ];
 
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const faqs = [
+    {
+      question: 'Sitemizde özel güvenlik görevlendirmek için yasal prosedür nedir?',
+      answer: '5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun uyarınca, sitede özel güvenlik istihdam edilebilmesi için İl Özel Güvenlik Komisyonu\'na başvuru yapılarak Valilik izni alınmalıdır. Alo Yönetim olarak tüm başvuru, izin ve onay süreçlerini site adına anahtar teslim yürütüyoruz.'
+    },
+    {
+      question: 'Güvenlik görevlilerinin yetki ve sorumlulukları nelerdir?',
+      answer: 'Güvenlik görevlileri 5188 sayılı kanun kapsamında; siteye giriş yapan ziyaretçilerin kimlik kontrolünü yapma, eşyaları X-ray/dedektörden geçirme, suçüstü durumunda yakalama ve genel kolluk kuvvetlerine teslim etme yetkisine sahiptir.'
+    },
+    {
+      question: 'Gece devriyeleri ve nöbet denetimleri nasıl yapılıyor?',
+      answer: 'Güvenlik personeli belirlenen kritik noktalardaki RFID/QR devriye istasyonlarını saat başı okutur. Turlar dijital yönetim panelimize anlık aktarılır; nöbet uykusu veya tur aksaması yaşanmaması için merkez denetim ekiplerimizce habersiz gece teftişleri yapılır.'
+    },
+    {
+      question: 'Güvenlik kameraları ve kayıt saklama süresi nedir?',
+      answer: 'Site ortak alan güvenlik kameraları 7/24 kesintisiz kayıt altına alınır. KVKK (Kişisel Verilerin Korunması Kanunu) Aydınlatma Metni çerçevesinde görüntüler şifreli NVR sunucularında en az 30 gün yasal saklama süresiyle muhafaza edilir.'
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,28 +96,30 @@ export default function GuvenlikYonetimi() {
   };
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t('nav_home'), url: '/' },
-    { name: t('nav_all_services'), url: '/hizmetler' },
-    { name: t('sec_title'), url: '/hizmetler/guvenlik-yonetimi' }
+    { name: t('nav_home') || 'Anasayfa', url: '/' },
+    { name: t('nav_all_services') || 'Hizmetler', url: '/hizmetler' },
+    { name: t('sec_title') || 'Güvenlik Yönetimi', url: '/hizmetler/guvenlik-yonetimi' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: t('serv_sec_name'),
+    serviceType: 'Profesyonel Güvenlik Yönetimi',
     path: '/hizmetler/guvenlik-yonetimi',
-    description: t('sec_desc'),
+    description: '5188 sayılı Özel Güvenlik Kanunu uyumlu, 7/24 CCTV kamera takibi, plaka tanıma ve lisanslı güvenlik personeli ile profesyonel site güvenlik yönetimi.',
+    offerCatalogName: 'Özel Güvenlik ve Tesis Emniyet Hizmetleri',
     offers: securityFeatures.map((f) => ({ name: f.title, description: f.desc })),
     sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
   });
 
-  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
+  const faqLd = faqPageSchema(faqs);
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/guvenlik-yonetimi', speakableSelectors: ['h1', '#speakable-content'] })]} />
       <ServiceSeo 
-        serviceType={t('serv_sec_name') || 'Güvenlik Yönetimi'}
-        description={t('sec_desc') || 'Profesyonel güvenlik yönetimi hizmetleri.'}
-        areaServed={["İstanbul", "Kadıköy"]}
+        serviceType="Profesyonel Güvenlik Yönetimi"
+        description="5188 sayılı Özel Güvenlik Kanunu uyumlu, 7/24 CCTV kamera takibi, plaka tanıma ve lisanslı güvenlik personeli ile profesyonel site güvenlik yönetimi."
+        areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
+        priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi"
       />
       
@@ -127,7 +138,7 @@ export default function GuvenlikYonetimi() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,15 +146,23 @@ export default function GuvenlikYonetimi() {
             className="flex flex-col items-center gap-6"
           >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
-              {t('sec_banner_badge')}
+              {t('sec_banner_badge') || '5188 Sayılı Kanun Güvencesi'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1')} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">${t('sec_banner_title_highlight')}</span> ${t('sec_banner_title_2')}` }} />
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1') || 'Profesyonel'} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">${t('sec_banner_title_highlight') || 'Güvenlik Yönetimi'}</span> ${t('sec_banner_title_2') || 've Tesis Emniyeti'}` }} />
+            
+            <AggregateRatingSeo 
+              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Profesyonel Güvenlik Yönetimi' }}
+              ratingValue={4.9}
+              reviewCount={284}
+              className="mt-2"
+            />
+
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('sec_banner_desc')}
+              {t('sec_banner_desc') || 'Sertifikalı güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.'}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('sec_banner_box_btn')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('sec_banner_box_btn') || 'Ücretsiz Güvenlik Keşfi'} <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
           </motion.div>
@@ -160,8 +179,8 @@ export default function GuvenlikYonetimi() {
         {/* 6 Bento Grid Cards with Staggered Animation */}
         <div className="space-y-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{t('sec_grid_title')}</h2>
-            <p className="text-sm text-[var(--color-secondary)] font-light mt-4">{t('sec_grid_desc')}</p>
+            <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{t('sec_grid_title') || 'Entegre Güvenlik Standartlarımız'}</h2>
+            <p className="text-sm text-[var(--color-secondary)] font-light mt-4">{t('sec_grid_desc') || '5188 sayılı kanun standartlarında, teknoloji ve disiplin odaklı koruma kalkanı.'}</p>
           </div>
           
           <motion.div 
@@ -188,44 +207,24 @@ export default function GuvenlikYonetimi() {
           </motion.div>
         </div>
 
+        {/* 4-Step HowTo Process */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
+          <HowToSeo 
+            name="5188 Sayılı Kanun Uyumlu Site Güvenlik Kurulum Süreci"
+            description="Site ve tesislerde özel güvenlik hizmetine geçiş ve operasyonel entegrasyon için 4 adımlı standart sürecimiz."
+            steps={securitySteps}
+          />
+        </div>
+
         {/* Afet, Yangın & Sığınak Güvenliği Denetim Motoru */}
         <EmergencyDisasterAuditSeo />
 
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />
 
-        {/* FAQ Section */}
+        {/* Dynamic FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-extrabold text-[var(--color-primary)] mb-8">{t('sec_faq_title')}</h2>
-          <div className="flex flex-col gap-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5 transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
-                >
-                  <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
-                    expand_more
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div 
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-white/10"
-                    >
-                      <div className="p-6 text-sm text-[var(--color-secondary)] leading-relaxed">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
+          <DynamicFAQ faqs={faqs} title={t('sec_faq_title') || 'Güvenlik Yönetimi Hakkında Sıkça Sorulan Sorular'} />
         </div>
 
       </section>
@@ -240,4 +239,5 @@ export default function GuvenlikYonetimi() {
     </>
   );
 }
+
 

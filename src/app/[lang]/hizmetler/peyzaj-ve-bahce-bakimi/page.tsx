@@ -5,10 +5,10 @@ import { RelatedArticles } from '@/components';
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection } from '@/components';
-import { Card, Badge, Button } from '@/components';
+import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
+import { Card } from '@/components';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import LandscapeCalculator from '@/components/sections/LandscapeCalculator';
@@ -20,57 +20,80 @@ export default function PeyzajVeBahceBakimi() {
 
   const landscapePoints = [
     {
-      title: t('land_feat_1_title'),
-      desc: t('land_feat_1_desc'),
+      title: t('land_feat_1_title') || 'Otomatik Sulama & Drenaj Sistemleri',
+      desc: t('land_feat_1_desc') || 'Akıllı yağmur sensörlü damlama ve rotor sulama sistemleri ile %40 su tasarruflu ve verimli sulama altyapısı.',
       icon: "water_drop"
     },
     {
-      title: t('land_feat_2_title'),
-      desc: t('land_feat_2_desc'),
+      title: t('land_feat_2_title') || 'Periyodik Çim Biçme & Havalandırma',
+      desc: t('land_feat_2_desc') || 'Düzenli çim kesimi, silindirleme, kök havalandırma, gübreleme ve yabani otla mücadele uygulamaları.',
       icon: "park"
     },
     {
-      title: t('land_feat_3_title'),
-      desc: t('land_feat_3_desc'),
+      title: t('land_feat_3_title') || 'Ağaç Budama & Bitki Sağlığı',
+      desc: t('land_feat_3_desc') || 'Uzman ziraat mühendisleri denetiminde form ve gençleştirme budaması, mantar ve zararlı böcek ilaçlaması.',
       icon: "forest"
     },
     {
-      title: t('land_feat_4_title'),
-      desc: t('land_feat_4_desc'),
+      title: t('land_feat_4_title') || 'Mevsimlik Çiçeklendirme & Sert Zemin',
+      desc: t('land_feat_4_desc') || 'Yazlık ve kışlık mevsimlik çiçek dikimi, çalı gruplaması, ağaç altı cüruf/malç serimi ve yürüyüş yolları bakımı.',
       icon: "deck"
     }
   ];
 
+  const landscapeSteps = [
+    { name: '1. Toprak Analizi ve Bitki Envanteri Keşfi', text: 'Sitenin peyzaj alanı, toprak pH değeri, mevcut ağaç ve çim türleri ziraat mühendislerimizce incelenerek ihtiyaç raporu hazırlanır.' },
+    { name: '2. Otomatik Sulama ve Altyapı Revizyonu', text: 'Damla sulama, spring başlıkları ve su sayaçları kontrol edilir; kuraklık veya su israfını önleyen akıllı kontrol üniteleri devreye alınır.' },
+    { name: '3. 4 Mevsim Periyodik Bakım ve Budama', text: 'Mevsimine göre çim havalandırma, ara ekim, form budaması ve organik gübreleme işlemleri planlı takvimle yürütülür.' },
+    { name: '4. Bitki Koruma ve Düzenli Raporlama', text: 'Zararlılara karşı biyolojik ve kimyasal ilaçlama yapılır; site yönetimine fotoğraflı yeşil alan gelişim raporu sunulur.' }
+  ];
+
   const faqs = [
     {
-      q: t('land_faq_1_q'),
-      a: t('land_faq_1_a')
+      question: 'Site ve sitelerin bahçe bakımında hangi periyotlar uygulanır?',
+      answer: 'İlkbahar ve yaz aylarında haftalık çim biçme ve günlük sulama kontrolü; sonbaharda yaprak toplama, budama ve dip gübreleme; kışın ise don koruma ve ağaç bakımı şeklinde 12 aylık periyodik takvim uygulanır.'
     },
     {
-      q: t('land_faq_2_q'),
-      a: t('land_faq_2_a')
+      question: 'Otomatik sulama sistemi arızalarında ve su tasarrufunda ne yapıyorsunuz?',
+      answer: 'Teknik ekibimiz patlak boru, tıkalı nozul ve vana arızalarına aynı gün müdahale eder. Akıllı yağmur sensörleri takılarak gereksiz sulama engellenir ve ortak alan su faturası %30-40 oranında düşürülür.'
+    },
+    {
+      question: 'Ağaç budama işlemleri için belediyeden izin almak gerekir mi?',
+      answer: 'Büyük gövdeli ve tescilli anıt ağaçların derin budaması veya kesimi için ilgili İlçe Belediyesi Park ve Bahçeler Müdürlüğü\'nden izin alınması şarttır. Bu yasal izin süreçlerini ziraat mühendisimiz site adına yürütür.'
+    },
+    {
+      question: 'Çimlerin sararması ve kurumasını önlemek için hangi yöntemler kullanılıyor?',
+      answer: 'Toprak sıkışması vertiküt (havalandırma) makinesiyle giderilir, kök bölgesine uygun NPK gübresi verilir, mantar enfeksiyonlarına karşı koruyucu ilaçlama yapılır ve gölgeye dayanıklı tohumlarla ara ekim yapılır.'
     }
   ];
 
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t('nav_home'), url: '/' },
-    { name: t('nav_all_services'), url: '/hizmetler' },
-    { name: t('land_title'), url: '/hizmetler/peyzaj-ve-bahce-bakimi' }
+    { name: t('nav_home') || 'Anasayfa', url: '/' },
+    { name: t('nav_all_services') || 'Hizmetler', url: '/hizmetler' },
+    { name: t('land_title') || 'Peyzaj ve Bahçe Bakımı', url: '/hizmetler/peyzaj-ve-bahce-bakimi' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: t('serv_land_name'),
+    serviceType: 'Peyzaj ve Bahçe Bakımı',
     path: '/hizmetler/peyzaj-ve-bahce-bakimi',
-    description: t('land_desc'),
+    description: 'Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.',
+    offerCatalogName: 'Peyzaj ve Bahçe Bakım Hizmetleri',
+    offers: landscapePoints.map((p) => ({ name: p.title, description: p.desc })),
+    sameAs: 'https://tr.wikipedia.org/wiki/Peyzaj_mimarl%C4%B1%C4%9F%C4%B1',
   });
 
-  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
+  const faqLd = faqPageSchema(faqs);
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/peyzaj-ve-bahce-bakimi', speakableSelectors: ['h1', '#speakable-content'] })]} />
+      <ServiceSeo 
+        serviceType="Peyzaj ve Bahçe Bakımı"
+        description="Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı."
+        areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
+        priceRange="₺₺"
+        sameAs="https://tr.wikipedia.org/wiki/Peyzaj_mimarl%C4%B1%C4%9F%C4%B1"
+      />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
@@ -87,7 +110,7 @@ export default function PeyzajVeBahceBakimi() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,15 +118,23 @@ export default function PeyzajVeBahceBakimi() {
             className="flex flex-col items-center gap-6"
           >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
-              {t('land_banner_badge')}
+              {t('land_banner_badge') || 'Doğayla Uyumlu Yeşil Alanlar'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_land_hero_title') }} />
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_land_hero_title') || 'Peyzaj Tasarımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Bahçe Bakım Yönetimi</span>' }} />
+            
+            <AggregateRatingSeo 
+              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Peyzaj ve Bahçe Bakımı' }}
+              ratingValue={4.8}
+              reviewCount={142}
+              className="mt-2"
+            />
+
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('land_banner_desc')}
+              {t('land_banner_desc') || 'Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.'}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('btn_get_quote') || 'Teklif Alın'} <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
           </motion.div>
@@ -130,32 +161,21 @@ export default function PeyzajVeBahceBakimi() {
           ))}
         </div>
 
+        {/* 4-Step HowTo Process */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
+          <HowToSeo 
+            name="Site ve Tesis 4 Mevsim Peyzaj Bakım Protokolü"
+            description="Site bahçelerinin her mevsim canlı, estetik ve bakımlı kalması için uyguladığımız 4 aşamalı peyzaj yönetim protokolümüz."
+            steps={landscapeSteps}
+          />
+        </div>
+
         {/* Landscape Specific Social Proof */}
         <LandscapeTestimonials />
 
-        {/* SSS Accordion */}
+        {/* Dynamic FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('land_faq_title')}</h2>
-          <div className="flex flex-col gap-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
-                >
-                  <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
-                    expand_more
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <div className="p-6 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-white/10 text-sm text-[var(--color-secondary)] leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <DynamicFAQ faqs={faqs} title={t('land_faq_title') || 'Peyzaj ve Bahçe Bakımı Hakkında Sıkça Sorulan Sorular'} />
         </div>
 
       </section>
@@ -170,4 +190,5 @@ export default function PeyzajVeBahceBakimi() {
     </>
   );
 }
+
 

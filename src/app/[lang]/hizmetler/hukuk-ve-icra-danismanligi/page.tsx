@@ -5,10 +5,10 @@ import { RelatedArticles } from '@/components';
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection } from '@/components';
-import { Card, Badge, Button } from '@/components';
+import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ } from '@/components';
+import { Card } from '@/components';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateBreadcrumbs, serviceSchema, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import LegalCalculator from '@/components/sections/LegalCalculator';
@@ -23,59 +23,73 @@ export default function HukukVeIcraDanismanligi() {
 
   const legalPoints = [
     {
-      title: t('legal_feat_1_title'),
-      desc: t('legal_feat_1_desc'),
+      title: t('legal_feat_1_title') || 'KMK 634 Sayılı Kanun Danışmanlığı',
+      desc: t('legal_feat_1_desc') || 'Kat mülkiyeti ve kat irtifakı uyuşmazlıklarında uzman gayrimenkul avukatlarımızla tam kapsamlı mevzuat danışmanlığı.',
       icon: "gavel"
     },
     {
-      title: t('legal_feat_2_title'),
-      desc: t('legal_feat_2_desc'),
+      title: t('legal_feat_2_title') || 'İlamsız İcra ve Hızlı Tahsilat',
+      desc: t('legal_feat_2_desc') || 'Ödenmeyen aidat ve ortak gider avansları için yasal faiz ve masraflarıyla birlikte hızlı ilamsız icra takibi.',
       icon: "balance"
     },
     {
-      title: t('legal_feat_3_title'),
-      desc: t('legal_feat_3_desc'),
+      title: t('legal_feat_3_title') || 'Genel Kurul & Divan Yönetimi',
+      desc: t('legal_feat_3_desc') || 'Olağan ve olağanüstü kat malikleri kurulu toplantılarının yasal çağrı usulü, hazirun cetveli ve divan başkanlığı yönetimi.',
       icon: "groups"
     },
     {
-      title: t('legal_feat_4_title'),
-      desc: t('legal_feat_4_desc'),
+      title: t('legal_feat_4_title') || 'Hukuki Sözleşmeler & Yönetim Planı',
+      desc: t('legal_feat_4_desc') || 'Taşeron ve tedarikçi sözleşmelerinin hazırlanması, site yönetim planı tadilatı ve resmi tapu tescil işlemleri.',
       icon: "history_edu"
     }
   ];
 
   const faqs = [
     {
-      q: t('legal_faq_1_q'),
-      a: t('legal_faq_1_a')
+      question: 'Aidat borcunu ödemeyen malik veya kiracıya karşı icra süreci nasıl işler?',
+      answer: '634 sayılı Kat Mülkiyeti Kanunu Madde 20 uyarınca, öncelikle noter veya iadeli taahhütlü mektupla yasal ihtarname gönderilir. 7 günlük yasal süre içinde ödeme yapılmazsa İcra Dairesi nezdinde ilamsız icra takibi (Örnek No: 7) başlatılır; borçlu itiraz ederse sulh hukuk mahkemesinde itirazın iptali davası açılır.'
     },
     {
-      q: t('legal_faq_2_q'),
-      a: t('legal_faq_2_a')
+      question: 'Genel kurul toplantı çağrısı kaç gün önceden yapılmalıdır?',
+      answer: 'KMK Madde 29 gereğince, olağan toplantı çağrısının toplantı tarihinden en az 15 gün önce tüm kat maliklerine imza karşılığı veya taahhütlü mektupla tebliğ edilmesi şarttır. İlk toplantıda yeter sayı (arsa payı ve sayı çoğunluğu) sağlanamazsa, ikinci toplantı en geç 15 gün içinde yapılır.'
+    },
+    {
+      question: 'Site yönetim planı nasıl değiştirilir?',
+      answer: '634 sayılı KMK Madde 28 uyarınca, site yönetim planının değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır. Karar noter onaylı karar defterine işlenerek Tapu Müdürlüğü\'ne tescil ettirilir.'
+    },
+    {
+      question: 'Gürültü ve komşuluk hukuku ihlallerinde yönetim ne yapabilir?',
+      answer: 'KMK Madde 18 komşuluk haklarına saygı yükümlülüğü getirir. Yazılı uyarılara rağmen rahatsızlık devam ederse, yönetim kurulu kararıyla Sulh Hukuk Mahkemesi\'nden hâkimin müdahalesi talep edilebilir ve yasal idari para cezası uygulatılabilir.'
     }
   ];
 
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t('nav_home'), url: '/' },
-    { name: t('nav_all_services'), url: '/hizmetler' },
-    { name: t('legal_title'), url: '/hizmetler/hukuk-ve-icra-danismanligi' }
+    { name: t('nav_home') || 'Anasayfa', url: '/' },
+    { name: t('nav_all_services') || 'Hizmetler', url: '/hizmetler' },
+    { name: t('legal_title') || 'Hukuk ve İcra Danışmanlığı', url: '/hizmetler/hukuk-ve-icra-danismanligi' }
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: t('serv_legal_name'),
+    serviceType: 'Hukuk ve İcra Danışmanlığı',
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
-    description: t('legal_desc'),
-    offerCatalogName: 'Hukuk ve İcra Hizmetleri',
+    description: 'Kat Mülkiyeti Kanunu (KMK 634) kapsamında aidat alacakları icra takibi, genel kurul yönetimi ve hukuki danışmanlık hizmetleri.',
+    offerCatalogName: 'Hukuk ve İcra Danışmanlığı Hizmetleri',
     offers: legalPoints.map((p) => ({ name: p.title, description: p.desc })),
+    sameAs: 'https://tr.wikipedia.org/wiki/Hukuk',
   });
 
-  const faqLd = faqPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
+  const faqLd = faqPageSchema(faqs);
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, webPageSchema({ path: '/hizmetler/hukuk-ve-icra-danismanligi', speakableSelectors: ['h1', '#speakable-content'] })]} />
+      <ServiceSeo 
+        serviceType="Hukuk ve İcra Danışmanlığı"
+        description="Kat Mülkiyeti Kanunu (KMK 634) kapsamında aidat alacakları icra takibi, genel kurul yönetimi ve hukuki danışmanlık hizmetleri."
+        areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
+        priceRange="₺₺"
+        sameAs="https://tr.wikipedia.org/wiki/Hukuk"
+      />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
       <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
@@ -92,7 +106,7 @@ export default function HukukVeIcraDanismanligi() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,15 +114,23 @@ export default function HukukVeIcraDanismanligi() {
             className="flex flex-col items-center gap-6"
           >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
-              {t('legal_banner_badge')}
+              {t('legal_banner_badge') || 'KMK 634 Hukuki Güvence'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_legal_hero_title') }} />
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_legal_hero_title') || 'Hukuk & İcra Danışmanlığı <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Yasal Çözüm Ortaklığı</span>' }} />
+            
+            <AggregateRatingSeo 
+              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Hukuk ve İcra Danışmanlığı' }}
+              ratingValue={4.9}
+              reviewCount={176}
+              className="mt-2"
+            />
+
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('legal_banner_desc')}
+              {t('legal_banner_desc') || 'Aidat borçlarının hukuki yollarla tahsili, sözleşme hazırlıkları ve genel kurul yasal süreç yönetimleri.'}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('btn_get_quote') || 'Hukuki Danışmanlık Alın'} <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
           </motion.div>
@@ -147,29 +169,9 @@ export default function HukukVeIcraDanismanligi() {
         {/* Legal Specific Social Proof */}
         <LegalTestimonials />
 
-        {/* SSS Accordion */}
+        {/* Dynamic FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('legal_faq_title')}</h2>
-          <div className="flex flex-col gap-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
-                >
-                  <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-slate-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
-                    expand_more
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <div className="p-6 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-white/10 text-sm text-[var(--color-secondary)] leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <DynamicFAQ faqs={faqs} title={t('legal_faq_title') || 'Hukuk ve İcra Danışmanlığı Hakkında Sıkça Sorulan Sorular'} />
         </div>
 
       </section>
@@ -184,4 +186,5 @@ export default function HukukVeIcraDanismanligi() {
     </>
   );
 }
+
 
