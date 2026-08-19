@@ -66,6 +66,19 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
         t('sector_housing_feat_3'),
         t('sector_housing_feat_4')
       ]
+    },
+    {
+      id: "guvenlik-rezidans-plaza",
+      title: "5188 Özel Güvenlik & Plaza Emniyet Çözümleri",
+      desc: "Rezidans, plaza ve büyük toplu konut sitelerinde 5188 sayılı kanuna uygun sertifikalı özel güvenlik, AI plaka tanıma (PTS), kartlı turnike ve 7/24 kesintisiz devriye kalkanı.",
+      icon: "security",
+      kpi: "%100 Sıfır Zafiyet & 5188 Valilik İzin Güvencesi",
+      features: [
+        "5188 Lisanslı ve Sabıka Kaydı Temiz Özel Güvenlik Personeli",
+        "Yapay Zeka Destekli Otomatik Plaka Tanıma (PTS) & Turnike Kontrolü",
+        "Kör Noktasız 4K Gece Görüşlü IP CCTV Ağı & 30 Günlük Şifreli Kayıt",
+        "GPS & RFID Zaman Damgalı Saatlik Devriye ve Mobil Amir Teftişi"
+      ]
     }
   ];
 

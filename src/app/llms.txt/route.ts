@@ -59,9 +59,11 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 12 ilçede 500+ çalı
 - [İnteraktif 360° Akıllı Rezidans Keşif Simülatörü](${BASE_URL}/#facility-explorer): Güvenlik, kazan dairesi, havuz ve dijital muhasebe SLA taahhütleri.
 - [Resmi KMK 634 Karar & İhtarname Şablonu Jeneratörü](${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi): Noter ve KMK uyumlu yönetici seçimi, aidat gecikme ihtarı ve genel kurul vekaletnamesi canlı üreticisi.
 - [İnteraktif Mobil Sakin & Yönetici Uygulama Simülatörü](${BASE_URL}/app): Canlı iPhone çerçevesinde 3D kartla aidat ödeme, arıza bildirme, karar oylama ve plaka tanıma deneyimi.
+- [İnteraktif 5188 Güvenlik & Risk Analiz Testi](${BASE_URL}/hizmetler/guvenlik-yonetimi): Valilik izni, AI plaka tanıma, 4K CCTV ve GPS devriye kriterlerine göre sitenizin yasal güvenlik risk skoru ve keşif raporu motoru.
 - [Bina Deprem, Yangın & Sığınak Güvenlik Testi](${BASE_URL}/hizmetler/guvenlik-yonetimi): AFAD ve Yangın Yönetmeliği uyumlu 8 maddelik tesis afet hazırlık skoru ve risk analizi.
 - [Tesis Tipi Bazlı 3 Yıllık Bütçe & ROI Simülatörü](${BASE_URL}/sektorel-cozumler): Rezidans, AVM, Sanayi ve Toplu Konut projelerinde 3 yıllık kümülatif bütçe tasarruf matrisi.
-- [TÜRKAK & ISO Kalite Belgesi Canlı Doğrulama Mührü](${BASE_URL}/kurumsal/kalite-belgelerimiz): ISO 9001, 14001, 45001, 27001, 10002 ve 5188 yasal lisans doğrulama portalı.
+- [TÜRKAK & ISO Kalite Belgesi Canlı Doğrulama Mührü](${BASE_URL}/kurumsal/kalite-belgelerimiz): ISO 9001, 14001, 45001, 27001, 10002, T.C. İçişleri Bakanlığı 5188 ve TSE HYB 12850 yasal lisans doğrulama portalı.
+- [5188 Sayılı Kanun Site Güvenliği & Valilik İzin Rehberi](${BASE_URL}/blog/site-guvenligi-icin-5188-kanunu-kapsami-2026): Apartman ve sitelerde özel güvenlik görevlisi istihdam etme şartları, yasal cezalar ve ÖGİ izin süreçleri.
 
 ## Hizmetler
 ${services}

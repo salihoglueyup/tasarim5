@@ -56,32 +56,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/iletisim', priority: 0.9, changeFreq: 'monthly' },
     { path: '/teklif-al', priority: 0.9, changeFreq: 'monthly' },
     { path: '/hizmetler', priority: 0.85, changeFreq: 'weekly' },
-    { path: '/hizmetler/tesis-yonetimi', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/guvenlik-yonetimi', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/hizmetler/tesis-yonetimi', priority: 0.85, changeFreq: 'daily' },
+    { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily' },
     { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/teknik-bakim', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/aidat-takibi', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/hizmetler/aidat-takibi', priority: 0.85, changeFreq: 'weekly' },
     { path: '/hakkimizda', priority: 0.8, changeFreq: 'monthly' },
     { path: '/kurumsal/vizyon-misyon', priority: 0.6, changeFreq: 'monthly' },
-    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.7, changeFreq: 'monthly' },
+    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.75, changeFreq: 'monthly' },
     { path: '/kurumsal/kalite-politikamiz', priority: 0.6, changeFreq: 'monthly' },
     { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly' },
     { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly' },
     { path: '/referanslar', priority: 0.75, changeFreq: 'weekly' },
     { path: '/basari-hikayeleri', priority: 0.75, changeFreq: 'weekly' },
-    { path: '/guvenlik-akademisi', priority: 0.7, changeFreq: 'weekly' },
-    { path: '/sektorel-cozumler', priority: 0.7, changeFreq: 'weekly' },
+    { path: '/guvenlik-akademisi', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/sektorel-cozumler', priority: 0.75, changeFreq: 'weekly' },
     { path: '/istihdam-koprusu', priority: 0.6, changeFreq: 'monthly' },
-    { path: '/hesaplayici', priority: 0.65, changeFreq: 'monthly' },
-    { path: '/sss', priority: 0.65, changeFreq: 'weekly' },
-    { path: '/sozluk', priority: 0.6, changeFreq: 'weekly' },
+    { path: '/hesaplayici', priority: 0.7, changeFreq: 'monthly' },
+    { path: '/sss', priority: 0.7, changeFreq: 'weekly' },
+    { path: '/sozluk', priority: 0.7, changeFreq: 'weekly' },
     { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly' },
-    { path: '/blog', priority: 0.75, changeFreq: 'daily' },
-    { path: '/bolgeler', priority: 0.7, changeFreq: 'monthly' },
+    { path: '/blog', priority: 0.8, changeFreq: 'daily' },
+    { path: '/bolgeler', priority: 0.75, changeFreq: 'monthly' },
     { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly' },
     { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly' },
     { path: '/cerez-politikasi', priority: 0.3, changeFreq: 'monthly' },
@@ -93,14 +93,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const districtRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) => {
-    const prio = d.priority === 1 ? 0.75 : d.priority === 2 ? 0.65 : 0.55;
+    const prio = d.priority === 1 ? 0.8 : d.priority === 2 ? 0.7 : 0.6;
     return makeItems(`/bolgeler/${d.slug}`, prio, 'monthly');
   });
 
   const districtServiceRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) =>
     SERVICES.flatMap((s) => {
-      const prio = d.priority === 1 ? 0.7 : d.priority === 2 ? 0.6 : 0.5;
-      return makeItems(`/bolgeler/${d.slug}/${s.slug}`, prio, 'monthly');
+      const isHighPriorityService = s.slug === 'guvenlik-yonetimi' || s.slug === 'tesis-yonetimi';
+      const basePrio = d.priority === 1 ? 0.8 : d.priority === 2 ? 0.7 : 0.6;
+      const prio = isHighPriorityService ? Math.min(0.85, basePrio + 0.1) : basePrio;
+      const freq = isHighPriorityService ? 'weekly' : 'monthly';
+      return makeItems(`/bolgeler/${d.slug}/${s.slug}`, prio, freq);
     })
   );
 

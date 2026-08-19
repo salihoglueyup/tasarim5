@@ -8,10 +8,21 @@ const SERVICE_LINKS = SERVICES.map(s => ({
   href: s.pillar // e.g. '/hizmetler/aidat-takibi'
 }));
 
-// Ekstra spesifik eşanlamlılar
+// Ekstra spesifik eşanlamlılar ve yüksek niyetli SEO anahtar kelimeleri
 const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'aidat icra takibi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
   { term: 'icra takibi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
+  { term: 'özel güvenlik şirketi', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'özel güvenlik firmaları', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'özel güvenlik firması', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'site güvenliği', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'özel güvenlik', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'apartman güvenliği', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'güvenlik personeli', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'güvenlik görevlisi', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: '5188 sayılı kanun', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: '5188 özel güvenlik', href: '/hizmetler/guvenlik-yonetimi' },
+  { term: 'güvenlik akademisi', href: '/guvenlik-akademisi' },
   ...SERVICE_LINKS
 ];
 

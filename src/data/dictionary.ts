@@ -63,4 +63,34 @@ export const TERMS: Term[] = [
     definition:
       'Kat malikleri kurulunca seçilen, yönetimin gelir-gider hesaplarını ve işlemlerini denetleyen kişi veya kuruldur. Şeffaf yönetimin temel güvencesidir.',
   },
+  {
+    term: 'Özel Güvenlik İzni (ÖGİ)',
+    definition:
+      '5188 sayılı kanun uyarınca apartman ve sitelerde özel güvenlik görevlisi istihdam edebilmek için İl Valiliği Özel Güvenlik Komisyonu tarafından verilen resmi faaliyet ve çalışma izin belgesidir.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: 'Güvenlik yönetimi' },
+  },
+  {
+    term: 'Özel Güvenlik Kimlik Kartı',
+    definition:
+      'Emniyet Genel Müdürlüğü ve Valilik onaylı, adli sicil araştırması ve 120 saatlik temel güvenlik eğitimini tamamlamış kişilere verilen resmi 5188 çalışma lisansıdır. Kimliksiz personel çalıştırmak kanunen yasaktır.',
+    link: { href: '/guvenlik-akademisi', label: 'Güvenlik akademisi' },
+  },
+  {
+    term: 'Plaka Tanıma Sistemi (PTS)',
+    definition:
+      'Site ve otopark girişlerinde araç plakalarını yapay zeka algoritmalarıyla milisaniyeler içinde okuyup kayıtlı sakinlerin bariyerini otomatik açan, yabancı araçları engelleyen ve misafir süresi takip eden akıllı kamera sistemidir.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: 'Akıllı güvenlik teknolojileri' },
+  },
+  {
+    term: 'RFID Devriye Tur Kontrol Sistemi',
+    definition:
+      'Güvenlik görevlilerinin site sınırları, yangın merdivenleri, otopark ve sığınak gibi kritik kontrol noktalarını belirlenen saatlerde elektronik kalemle okuttuğu, anlık GPS ve zaman damgalı nöbet denetim teknolojisidir.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: 'Güvenlik denetimi' },
+  },
+  {
+    term: 'Özel Güvenlik Zorunlu Mali Sorumluluk Sigortası',
+    definition:
+      '5188 sayılı Kanun Madde 21 gereğince, özel güvenlik görevlilerinin üçüncü şahıslara ve site sakinlerine verebilecekleri zararları teminat altına alan yasal zorunlu sigorta poliçesidir.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: '5188 yasal sigorta' },
+  },
 ];
