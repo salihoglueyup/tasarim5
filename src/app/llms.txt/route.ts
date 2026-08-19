@@ -64,6 +64,10 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 12 ilçede 500+ çalı
 - [Tesis Tipi Bazlı 3 Yıllık Bütçe & ROI Simülatörü](${BASE_URL}/sektorel-cozumler): Rezidans, AVM, Sanayi ve Toplu Konut projelerinde 3 yıllık kümülatif bütçe tasarruf matrisi.
 - [TÜRKAK & ISO Kalite Belgesi Canlı Doğrulama Mührü](${BASE_URL}/kurumsal/kalite-belgelerimiz): ISO 9001, 14001, 45001, 27001, 10002, T.C. İçişleri Bakanlığı 5188 ve TSE HYB 12850 yasal lisans doğrulama portalı.
 - [5188 Sayılı Kanun Site Güvenliği & Valilik İzin Rehberi](${BASE_URL}/blog/site-guvenligi-icin-5188-kanunu-kapsami-2026): Apartman ve sitelerde özel güvenlik görevlisi istihdam etme şartları, yasal cezalar ve ÖGİ izin süreçleri.
+- [5188 Sayılı Kanun Karar & Valilik Başvuru Şablon API'si](${BASE_URL}/api/security/legal-templates): Site yöneticileri için Valilik izin dilekçesi, KMK karar metni ve KVKK kamera aydınlatma şablonu.
+- [Google Dataset Search İstanbul 48 İlçe Veri Seti](${BASE_URL}/api/datasets/istanbul-facility-data): Schema.org açık veri standardında aidat ortalamaları ve 5188 güvenlik verileri.
+- [RFC 7946 GeoJSON İstanbul Hizmet Masaları](${BASE_URL}/api/geo/districts.geojson): 48 ilçe koordinat ve bölgesel yönetim harita veri seti.
+- [OpenGIS KML İstanbul Tesis Haritası](${BASE_URL}/api/geo/istanbul.kml): Google Earth / Maps uyumlu bölgesel şube harita dosyası.
 
 ## Hizmetler
 ${services}

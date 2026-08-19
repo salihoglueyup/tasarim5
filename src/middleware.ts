@@ -201,7 +201,7 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // 4. ENTERPRISE SEO & BOT RESPONSE HEADERS
+  // 4. ENTERPRISE SEO & BOT RESPONSE HEADERS (RFC 8288 Edge Web Linking)
   if (!pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
     // Googlebot, Bingbot, YandexBot standart robots yönergesi
     response.headers.set(
@@ -209,15 +209,23 @@ export async function middleware(request: NextRequest) {
       'all, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
     );
 
-    // Canonical Header Injection
+    // RFC 8288 Multi-Resource Edge Link Header (Canonical, Sitemap, Knowledge Graph & Feeds)
     const canonicalUrl = `https://aloyonetim.com.tr${pathname === '/' ? '' : pathname}`;
-    response.headers.set('Link', `<${canonicalUrl}>; rel="canonical"`);
+    const linkHeaders = [
+      `<${canonicalUrl}>; rel="canonical"`,
+      `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/api/knowledge-graph>; rel="alternate"; type="application/ld+json"`,
+      `<https://aloyonetim.com.tr/feed.xml>; rel="alternate"; type="application/atom+xml"`,
+      `<https://aloyonetim.com.tr/opensearch.xml>; rel="search"; type="application/opensearchdescription+xml"`
+    ];
+    response.headers.set('Link', linkHeaders.join(', '));
 
     // AI Arama Motoru Tespiti & Bilgi Yönlendirmesi
     const userAgent = request.headers.get('user-agent') || '';
-    if (/GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot/i.test(userAgent)) {
+    if (/GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot/i.test(userAgent)) {
       response.headers.set('X-AI-Knowledge-Protocol', 'https://aloyonetim.com.tr/llms.txt');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai-knowledge');
+      response.headers.set('X-AI-Knowledge-Graph', 'https://aloyonetim.com.tr/api/knowledge-graph');
     }
   }
 
