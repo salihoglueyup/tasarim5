@@ -139,6 +139,8 @@ export function organizationSchema(): JsonLdObject {
     image: { '@id': LOGO_ID },
     foundingDate: ORG_FOUNDING_DATE,
     slogan: 'Profesyonel Mülk ve Tesis Yönetimi',
+    description: 'İstanbul Kadıköy merkezli, Türkiye\'nin en güvenilir, şeffaf, yenilikçi ve yasalara %100 uygun çalışan profesyonel tesis ve site yönetim şirketidir. Güvenlik, temizlik, teknik bakım ve aidat icra takibi hizmetlerini tek çatı altında sunar.',
+    disambiguatingDescription: 'Alo Yönetim, Türkiye genelinde site, apartman, rezidans ve ticari tesisler için entegre yönetim, özel güvenlik, profesyonel temizlik, teknik işletim ve aidat tahsilat süreçlerini yürüten lider tesis yönetim şirketidir.',
     numberOfEmployees: { '@type': 'QuantitativeValue', value: '500+' },
     address: ORG_ADDRESS,
     areaServed: { '@type': 'City', name: 'İstanbul' },
