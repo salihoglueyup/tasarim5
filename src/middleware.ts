@@ -182,6 +182,8 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(newPathname, request.url), 301);
   }
 
+  let response = NextResponse.next();
+
   // URL Çevirilerini Rewrite Etme (Örn: /en/services -> /en/hizmetler)
   const currentLocale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
   if (currentLocale && currentLocale !== defaultLocale) {
@@ -194,12 +196,32 @@ export async function middleware(request: NextRequest) {
         // Yolu Türkçe (gerçek) klasör yapısına rewrite et (url'de İngilizce kalır)
         segments[1] = translated;
         const rewrittenPath = `/${segments.join('/')}`;
-        return NextResponse.rewrite(new URL(rewrittenPath, request.url));
+        response = NextResponse.rewrite(new URL(rewrittenPath, request.url));
       }
     }
   }
 
-  return NextResponse.next();
+  // 4. ENTERPRISE SEO & BOT RESPONSE HEADERS
+  if (!pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
+    // Googlebot, Bingbot, YandexBot standart robots yönergesi
+    response.headers.set(
+      'X-Robots-Tag',
+      'all, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+    );
+
+    // Canonical Header Injection
+    const canonicalUrl = `https://aloyonetim.com.tr${pathname === '/' ? '' : pathname}`;
+    response.headers.set('Link', `<${canonicalUrl}>; rel="canonical"`);
+
+    // AI Arama Motoru Tespiti & Bilgi Yönlendirmesi
+    const userAgent = request.headers.get('user-agent') || '';
+    if (/GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot/i.test(userAgent)) {
+      response.headers.set('X-AI-Knowledge-Protocol', 'https://aloyonetim.com.tr/llms.txt');
+      response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai-knowledge');
+    }
+  }
+
+  return response;
 }
 
 export const config = {

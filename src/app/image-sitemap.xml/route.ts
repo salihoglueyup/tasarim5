@@ -42,6 +42,9 @@ export async function GET() {
     xml += `    <image:image>\n`;
     xml += `      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n`;
     xml += `      <image:title>Alo Yönetim Profesyonel Tesis ve Mülk Yönetimi</image:title>\n`;
+    xml += `      <image:caption>İstanbul genelinde 5188 güvenlik, entegre tesis yönetimi ve aidat tahsilat çözümleri</image:caption>\n`;
+    xml += `      <image:geo_location>Kadıköy, İstanbul, Türkiye</image:geo_location>\n`;
+    xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
     xml += `    </image:image>\n`;
     xml += `  </url>\n`;
 
@@ -52,6 +55,9 @@ export async function GET() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${BASE_URL}/og</image:loc>\n`;
       xml += `      <image:title>${escapeXml(service.name)} — Alo Yönetim</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(service.summary)}</image:caption>\n`;
+      xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
+      xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
       xml += `    </image:image>\n`;
       xml += `  </url>\n`;
     }
@@ -66,6 +72,9 @@ export async function GET() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${escapeXml(imageUrl)}</image:loc>\n`;
       xml += `      <image:title>${escapeXml(post.title)}</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(post.title)} — Alo Yönetim Bilgi Merkezi</image:caption>\n`;
+      xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
+      xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
       xml += `    </image:image>\n`;
       xml += `  </url>\n`;
     }
@@ -80,6 +89,9 @@ export async function GET() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${escapeXml(imageUrl)}</image:loc>\n`;
       xml += `      <image:title>${escapeXml(ref.title)}</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(ref.title)} — Alo Yönetim Referans Projesi</image:caption>\n`;
+      xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
+      xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
       xml += `    </image:image>\n`;
       xml += `  </url>\n`;
     }

@@ -13,6 +13,13 @@ const CERTIFICATES = [
     lastmod: '2026-01-01',
   },
   {
+    slug: 'iso-9001',
+    name: 'ISO 9001:2015 Kalite Yönetim Sistemi Belgesi',
+    pdf: '/certificates/iso-9001.pdf',
+    page: '/kurumsal/kalite-belgelerimiz',
+    lastmod: '2026-01-01',
+  },
+  {
     slug: 'iso-14001',
     name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
     pdf: '/certificates/iso-14001.pdf',
@@ -24,6 +31,13 @@ const CERTIFICATES = [
     name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
     pdf: '/certificates/iso-45001.pdf',
     page: '/kurumsal/sertifikalar/iso-45001',
+    lastmod: '2026-01-01',
+  },
+  {
+    slug: 'iso-27001',
+    name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
+    pdf: '/certificates/iso-27001.pdf',
+    page: '/kurumsal/kalite-belgelerimiz',
     lastmod: '2026-01-01',
   },
   {
@@ -56,6 +70,45 @@ const CERTIFICATES = [
   },
 ];
 
+const LEGAL_TEMPLATES = [
+  {
+    slug: '5188-valilik-guvenlik-izni-basvuru-dilekcesi',
+    name: 'T.C. Valiliği 5188 Sayılı Kanun Özel Güvenlik İzni (ÖGİ) Başvuru Dilekçesi Şablonu',
+    page: '/hizmetler/guvenlik-yonetimi',
+    lastmod: '2026-02-01',
+  },
+  {
+    slug: '5188-site-guvenlik-istihdam-karar-defteri-metni',
+    name: 'KMK Madde 32 & 5188 Uyumlu Site Genel Kurulu Özel Güvenlik Karar Defteri Şablonu',
+    page: '/hizmetler/guvenlik-yonetimi',
+    lastmod: '2026-02-01',
+  },
+  {
+    slug: 'kvkk-6698-site-kamera-kayit-aydinlatma-metni',
+    name: '6698 Sayılı KVKK Uyumlu Site 4K Kamera ve Ziyaretçi Kaydı Aydınlatma Metni',
+    page: '/hizmetler/guvenlik-yonetimi',
+    lastmod: '2026-02-01',
+  },
+  {
+    slug: '5188-nizamiye-guvenlik-gorev-talimatnamesi',
+    name: '5188 Sayılı Kanun Madde 7 Uyumlu Nizamiye Özel Güvenlik Nöbet Talimatnamesi',
+    page: '/hizmetler/guvenlik-yonetimi',
+    lastmod: '2026-02-01',
+  },
+  {
+    slug: 'kmk-634-yonetici-secimi-karar-sablonu',
+    name: '634 Sayılı Kat Mülkiyeti Kanunu Madde 34 Yönetici Seçimi Karar Tutanağı',
+    page: '/hizmetler/hukuk-ve-icra-danismanligi',
+    lastmod: '2026-02-01',
+  },
+  {
+    slug: 'kmk-20-aidat-gecikme-ihtarname-sablonu',
+    name: 'KMK Madde 20/2 ve İİK Uyumlu Aidat ve Ortak Gider Noter İhtarnamesi Taslağı',
+    page: '/hizmetler/hukuk-ve-icra-danismanligi',
+    lastmod: '2026-02-01',
+  },
+];
+
 export async function GET() {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
@@ -83,6 +136,15 @@ export async function GET() {
     xml += `    <lastmod>${cert.lastmod}</lastmod>\n`;
     xml += `    <changefreq>yearly</changefreq>\n`;
     xml += `    <priority>0.65</priority>\n`;
+    xml += `  </url>\n`;
+  }
+
+  for (const doc of LEGAL_TEMPLATES) {
+    xml += `  <url>\n`;
+    xml += `    <loc>${BASE_URL}${doc.page}#${doc.slug}</loc>\n`;
+    xml += `    <lastmod>${doc.lastmod}</lastmod>\n`;
+    xml += `    <changefreq>monthly</changefreq>\n`;
+    xml += `    <priority>0.75</priority>\n`;
     xml += `  </url>\n`;
   }
 
