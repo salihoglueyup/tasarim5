@@ -14,7 +14,8 @@ import {
   SecurityTechMatrixSeo,
   DistrictSecurityClusterSeo,
   InteractiveSecurityRiskRadarSeo,
-  InstantAnswerCardSeo
+  InstantAnswerCardSeo,
+  SecurityLegalTemplateGeneratorSeo
 } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -312,6 +313,9 @@ export default function GuvenlikYonetimi() {
             category="Yasal Yetki ve Sorumluluklar"
           />
         </div>
+
+        {/* 5188 Yasal Dilekçe & Karar Defteri Şablonu Oluşturucu */}
+        <SecurityLegalTemplateGeneratorSeo />
 
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />
