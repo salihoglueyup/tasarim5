@@ -107,13 +107,38 @@ export async function generateMetadata({
     });
   }
   const neighborhoods = district.neighborhoods.slice(0, 2).join(', ');
+
+  // Güvenlik Yönetimi için yüksek niyetli B2B Exact-Match Başlık & Açıklama
+  const isSecurity = service.slug === 'guvenlik-yonetimi';
+  const metaTitle = isSecurity
+    ? `${district.name} Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`
+    : `${service.name} ${district.name} — Profesyonel Tesis Yönetimi`;
+
+  const metaDesc = isSecurity
+    ? `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`
+    : `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`;
+
+  const securityKeywords = isSecurity
+    ? [
+        `${district.name} özel güvenlik şirketi`,
+        `${district.name} site güvenliği`,
+        `${district.name} güvenlik firmaları`,
+        `${district.name} apartman güvenliği`,
+        `${district.name} 5188 özel güvenlik`,
+        `${district.name} güvenlik personeli`,
+        `${district.name} site güvenlik şirketleri`,
+        `${district.name} kameralı güvenlik`,
+      ]
+    : [];
+
   return buildMetadata({
-    title: `${service.name} ${district.name} — Profesyonel Tesis Yönetimi`,
-    description: `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`,
+    title: metaTitle,
+    description: metaDesc,
     path: `/bolgeler/${ilce}/${hizmet}`,
     lang,
     ogImageType: 'local',
     keywords: [
+      ...securityKeywords,
       ...service.keywords.map((k) => `${k} ${district.name}`),
       `${district.name} ${service.name.toLowerCase()}`,
       `${district.name} tesis yönetimi`,
@@ -133,16 +158,25 @@ export default async function ServiceDistrictPage({
 
   const path = `/bolgeler/${district.slug}/${service.slug}`;
   const faqs = serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
+  const isSecurity = service.slug === 'guvenlik-yonetimi';
+
+  const pageHeaderTitle = isSecurity
+    ? `${district.name} Özel Güvenlik Şirketi & Site Güvenliği`
+    : `${service.name} — ${district.name}`;
+
+  const pageHeaderDesc = isSecurity
+    ? `${district.name} ve tüm mahallelerinde 5188 sayılı kanun standartlarında lisanslı özel güvenlik personeli ve 7/24 kamera izleme hizmeti.`
+    : `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
     { name: 'Bölgeler', url: '/bolgeler' },
     { name: district.name, url: `/bolgeler/${district.slug}` },
-    { name: service.shortName, url: path },
+    { name: isSecurity ? `${district.name} Özel Güvenlik` : service.shortName, url: path },
   ]);
 
   const serviceLd = localServiceSchema({
-    serviceType: service.name,
+    serviceType: isSecurity ? 'Özel Güvenlik ve Site Emniyeti' : service.name,
     areaName: district.name,
     path,
     description: service.summary,
@@ -154,7 +188,7 @@ export default async function ServiceDistrictPage({
   });
   const faqLd = faqPageSchema(faqs);
   const pageLd = webPageSchema({
-    name: `${service.name} ${district.name}`,
+    name: pageHeaderTitle,
     description: service.summary,
     path,
     speakableSelectors: ['h1', '.tldr'],
@@ -166,8 +200,8 @@ export default async function ServiceDistrictPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd, serviceLd, businessLd, faqLd]} />
       <PageHeader
-        title={`${service.name} — ${district.name}`}
-        description={`${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`}
+        title={pageHeaderTitle}
+        description={pageHeaderDesc}
       />
 
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-14">

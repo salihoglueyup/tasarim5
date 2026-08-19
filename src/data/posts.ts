@@ -48,6 +48,120 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: 'site-guvenligi-icin-5188-kanunu-kapsami-2026',
+    title: 'Site Güvenliği için 5188 Sayılı Kanun: Kapsamı ve Uyum Rehberi',
+    description: '5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun\'un sitelere uygulanması: özel güvenlik çalıştırma şartları, lisans zorunlulukları ve uyumsuzluk yaptırımları.',
+    category: 'guvenlik',
+    tags: [
+      '5188 kanunu',
+      'özel güvenlik şirketi',
+      'site güvenliği',
+      'güvenlik mevzuatı',
+      'özel güvenlik lisansı',
+      'apartman güvenliği'
+    ],
+    author: 'ahmet-yilmaz',
+    datePublished: '2026-08-07T11:00:00+03:00',
+    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2069',
+    pillar: '/hizmetler/guvenlik-yonetimi',
+    tldr: '5188 sayılı Kanun, özel güvenlik görevlisi istihdam eden tüm siteleri kapsar. Silahlı/silahsız görevli çalıştırmak için Valilik izni ve lisanslı personel zorunludur; uyumsuzluk ağır para cezası gerektirir.',
+    content: [
+      {
+        type: 'h2',
+        text: '5188 Sayılı Özel Güvenlik Kanunu Nedir?'
+      },
+      {
+        type: 'p',
+        text: '5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun, konut siteleri, plazalar ve apartmanlarda görev yapan özel güvenlik personellerinin yasal çalışma çerçevesini belirler. Kanun; özel güvenlik şirketlerine faaliyet izin belgesi zorunluluğu getirir, görevlilerin eğitim şartlarını belirler ve işveren site yönetimlerinin yasal sorumluluklarını düzenler.'
+      },
+      {
+        type: 'h2',
+        text: 'Siteleri Kapsama Alan Durumlar ve Valilik İzni'
+      },
+      {
+        type: 'p',
+        text: 'Konut siteleri; bünyelerinde güvenlik görevlisi istihdam ettiklerinde veya kurumsal özel güvenlik şirketinden hizmet aldıklarında 5188 kapsamına girer. Sitede özel güvenlik çalıştırmak isteyen yönetim kurulunun önce İl Özel Güvenlik Komisyonu\'na başvurarak Valilik Özel Güvenlik İzni (ÖGİ) alması şarttır.'
+      },
+      {
+        type: 'h2',
+        text: 'Kanunun Temel Yükümlülükleri ve Standartlar'
+      },
+      {
+        type: 'ul',
+        items: [
+          'Özel Güvenlik İzni (ÖGİ): Valilik komisyonunca verilir ve düzenli denetlenir.',
+          'Lisanslı Kimlik Kartı: Görevlilerin Emniyet onaylı Özel Güvenlik Kimlik Kartı bulunmalıdır.',
+          'Zorunlu Mali Sorumluluk Sigortası: Görev esnasında oluşabilecek zararlar sigorta güvencesindedir.',
+          'Üniforma ve Teçhizat: Görevliler Valilik onaylı standart üniforma giymek zorundadır.',
+          '7/24 Devriye ve Raporlama: Kritik noktalarda RFID/GPS devriye tur takibi yapılmalıdır.'
+        ]
+      },
+      {
+        type: 'h2',
+        text: '5188 Uyumlu Güvenlik Hizmeti Nasıl Alınır?'
+      },
+      {
+        type: 'p',
+        text: 'En güvenli yol, 5188 faaliyet izin belgesine sahip kurumsal bir özel güvenlik şirketiyle sözleşme imzalamaktır. Bu sayede tüm personel kıdem, SGK, yedek personel ve yasal sorumluluklar hizmet sağlayıcı firma tarafından üstlenilir.'
+      },
+      {
+        type: 'cta',
+        text: 'Siteniz için 5188 uyumlu kurumsal özel güvenlik teklifi alın.',
+        href: '/teklif-al',
+        label: 'Ücretsiz Güvenlik Teklifi Al'
+      }
+    ]
+  },
+  {
+    slug: 'guvenlik-yonetimi-hizmeti-rehberi-2026',
+    title: 'Özel Güvenlik Şirketi ve Site Güvenlik Yönetimi Rehberi (2026)',
+    description: '5188 sayılı kanuna uygun, kimlikli özel güvenlik personeli ve entegre kamera sistemleriyle 7/24 site güvenliği rehberi: maliyetler, seçim kriterleri ve yasal haklar.',
+    category: 'guvenlik',
+    tags: [
+      'site güvenliği',
+      'özel güvenlik şirketi',
+      'apartman güvenliği',
+      'kameralı güvenlik',
+      'güvenlik yönetimi',
+      'tesis yönetimi'
+    ],
+    author: 'elif-demir',
+    datePublished: '2026-08-06T08:00:00+03:00',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070',
+    pillar: '/hizmetler/guvenlik-yonetimi',
+    tldr: 'Özel Güvenlik Yönetimi, modern site ve rezidansların vazgeçilmezidir. Bu rehberde 5188 izin süreçleri, maliyet faktörleri ve doğru özel güvenlik firması seçimi ele alınmaktadır.',
+    content: [
+      {
+        type: 'h2',
+        text: 'Özel Güvenlik Yönetimi Neleri Kapsar?'
+      },
+      {
+        type: 'p',
+        text: 'Güvenlik yönetimi; nizamiyede kimlik kontrolü, AI plaka tanıma sistemi ile otopark bariyer otomasyonu, 7/24 CCTV kamera takibi ve gece/gündüz planlı devriye hizmetlerinin entegre bir kalkan olarak yürütülmesidir.'
+      },
+      {
+        type: 'h2',
+        text: 'Doğru Özel Güvenlik Şirketi Nasıl Seçilir?'
+      },
+      {
+        type: 'ol',
+        items: [
+          'İçişleri Bakanlığı ve Valilik 5188 faaliyet izin belgelerini sorgulayın.',
+          'Mesleki ve Mali Sorumluluk Sigortası limitlerini kontrol edin.',
+          'Hizmet içi eğitim ve akademisi olan firmaları tercih edin.',
+          'GPS/RFID devriye kontrol sisteminin şeffaf raporlandığından emin olun.',
+          'Ani personel eksikliğinde 1 saat içinde yedek görevli gönderme garantisi isteyin.'
+        ]
+      },
+      {
+        type: 'cta',
+        text: 'Siteniz için profesyonel güvenlik keşif raporu ve fiyat teklifi alın.',
+        href: '/teklif-al',
+        label: 'Ücretsiz Güvenlik Keşfi İsteyin'
+      }
+    ]
+  },
+  {
     slug: '2024-aidat-artis-oranlari',
     title: 'Aidat Artış Oranları Nasıl Belirlenir? (2026 Rehberi)',
     description:

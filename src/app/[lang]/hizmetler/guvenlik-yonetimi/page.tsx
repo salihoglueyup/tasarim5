@@ -13,7 +13,8 @@ import {
   SecurityComparisonTableSeo,
   SecurityTechMatrixSeo,
   DistrictSecurityClusterSeo,
-  InteractiveSecurityRiskRadarSeo
+  InteractiveSecurityRiskRadarSeo,
+  InstantAnswerCardSeo
 } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -277,6 +278,40 @@ export default function GuvenlikYonetimi() {
 
         {/* İstanbul İlçelerine Göre Güvenlik Kümeleri */}
         <DistrictSecurityClusterSeo />
+
+        {/* Google AI Overviews & Doğrudan Yanıt Kartları (Featured Snippet) */}
+        <div className="space-y-8">
+          <InstantAnswerCardSeo 
+            question="Site ve Apartmanlara Özel Güvenlik Nasıl Tutulur?"
+            shortAnswer="Site ve apartmanlarda özel güvenlik personeli istihdam etmek için 5188 Sayılı Kanun uyarınca kat malikleri genel kurul kararı alınmalı ve İl Valiliği Özel Güvenlik Komisyonu'na başvuru yapılmalıdır. Valilik Özel Güvenlik İzni (ÖGİ) onaylandıktan sonra lisanslı bir özel güvenlik şirketi ile sözleşme imzalanarak hizmet başlatılır."
+            bulletPoints={[
+              "Genel kurulda oy çokluğu ile özel güvenlik istihdam kararı alınır.",
+              "İl Valiliği Özel Güvenlik Komisyonu'na ÖGİ ruhsat başvurusu yapılır.",
+              "5188 faaliyet izin belgeli kurumsal özel güvenlik şirketi seçilir.",
+              "Görev yapacak personelin adli sicil ve Özel Güvenlik Kimlik Kartı doğrulanır.",
+              "Zorunlu Mali Sorumluluk Sigortası poliçesi düzenlenerek nizamiyede görev başlar."
+            ]}
+            lawArticle="5188 Sayılı Kanun Madde 3, 7 ve 21"
+            verifiedBy="Alo Yönetim Hukuk & Güvenlik Operasyon Masası"
+            lastUpdated="2026 Güncel"
+            category="5188 Özel Güvenlik Mevzuatı"
+          />
+
+          <InstantAnswerCardSeo 
+            question="Özel Güvenlik Görevlilerinin Yasal Yetkileri Nelerdir?"
+            shortAnswer="Özel güvenlik görevlileri, 5188 Sayılı Kanun Madde 7 uyarınca koruma alanına giren kişilerin kimliklerini sorma, duyarlı kapı veya dedektörle üst/bagaj arama, suçüstü halinde şüpheliyi yakalama ve olay yerindeki delilleri muhafaza ederek derhal genel kolluğa (Polis/Jandarma) teslim etme yetkisine sahiptir."
+            bulletPoints={[
+              "Site girişlerinde kimlik kontrolü ve ziyaretçi kayıt defteri tutma yetkisi.",
+              "Metal dedektörü, X-ray ve el dedektörü ile eşyaları tarama hakkı.",
+              "Hırsızlık, saldırı veya suç anında şüpheliyi yakalama ve kolluğa teslim etme yetkisi.",
+              "Yangın, deprem gibi acil durumlarda tesise girme ve tahliyeyi yönetme yetkisi."
+            ]}
+            lawArticle="5188 Sayılı Kanun Madde 7 (Özel Güvenlik Görevlilerinin Yetkileri)"
+            verifiedBy="Alo Yönetim Hukuk & Güvenlik Operasyon Masası"
+            lastUpdated="2026 Güncel"
+            category="Yasal Yetki ve Sorumluluklar"
+          />
+        </div>
 
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />
