@@ -105,7 +105,7 @@ Haklarınız için KVKK 11. Madde kapsamında Site Yönetimimize yazılı olarak
     url: `${BASE_URL}/api/security/legal-templates`,
     provider: {
       '@type': 'Corporation',
-      name: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL
     },
     dataset: filtered.map(t => ({

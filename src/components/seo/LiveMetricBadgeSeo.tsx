@@ -18,10 +18,10 @@ interface LiveMetricBadgeSeoProps {
 }
 
 const DEFAULT_METRICS: MetricItem[] = [
-  { label: "Uzman Personel", value: "500+", unitText: "Kişi", icon: "badge" },
+  { label: "Uzman Personel", value: "200+", unitText: "Kişi", icon: "badge" },
   { label: "Yönetilen Tesis", value: "200+", unitText: "Proje", icon: "apartment" },
-  { label: "Hizmet Bölgesi", value: "12", unitText: "İlçe", icon: "location_city" },
-  { label: "Memnuniyet Oranı", value: "%98.4", unitText: "Oran", icon: "thumb_up" }
+  { label: "Hizmet Bölgesi", value: "48", unitText: "İlçe", icon: "location_city" },
+  { label: "Memnuniyet Oranı", value: "%98.7", unitText: "Oran", icon: "thumb_up" }
 ];
 
 /**

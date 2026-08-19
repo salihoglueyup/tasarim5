@@ -50,13 +50,13 @@ export default function SocialProofTickerSeo({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+    name: 'Alo Yönetim ve Organizasyon A.Ş.',
     url: BASE_URL,
     interactionStatistic: [
       {
         '@type': 'InteractionCounter',
         interactionType: 'https://schema.org/TradeAction',
-        userInteractionCount: '500+'
+        userInteractionCount: '200+'
       }
     ]
   };

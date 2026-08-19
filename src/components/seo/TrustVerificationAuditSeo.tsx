@@ -85,7 +85,7 @@ export default function TrustVerificationAuditSeo() {
   const schemaData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+    name: 'Alo Yönetim ve Organizasyon A.Ş.',
     url: 'https://aloyonetim.com.tr',
     hasCredential: certificates.map((c) => ({
       '@type': 'EducationalOccupationalCredential',

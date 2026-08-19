@@ -41,7 +41,7 @@ const DEFAULT_ROWS: ComparisonRow[] = [
   {
     feature: "Personel & Güvenlik Yönetimi",
     traditional: "Kayıtsız/eğitimsiz eleman çalıştırma, kıdem tazminatı riski",
-    aloYonetim: "5188 belgeli özel güvenlik, bordrolu ve sigortalı 500+ personel, sıfır tazminat riski"
+    aloYonetim: "5188 belgeli özel güvenlik, bordrolu ve sigortalı 200+ uzman personel, sıfır tazminat riski"
   },
   {
     feature: "Kalite Standartları & Güvence",
@@ -59,7 +59,7 @@ const DEFAULT_ROWS: ComparisonRow[] = [
  */
 export default function ServiceComparisonMatrixSeo({
   title = "Geleneksel Site Yönetimi vs. Alo Yönetim",
-  subtitle = "Neden İstanbul'da 500+ tesis Alo Yönetim'i tercih ediyor?",
+  subtitle = "Neden İstanbul'da 200+ tesis Alo Yönetim'i tercih ediyor?",
   rows = DEFAULT_ROWS,
   className = ""
 }: ServiceComparisonMatrixSeoProps) {

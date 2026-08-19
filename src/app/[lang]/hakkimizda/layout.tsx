@@ -8,9 +8,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Hakkımızda — Alo Yönetim Tesis Yönetimi A.Ş.',
+    title: 'Hakkımızda — Alo Yönetim ve Organizasyon A.Ş.',
     description:
-      '2015\'ten bu yana İstanbul genelinde 500+ uzman çalışan ve onlarca prestijli proje. KMK ve 5188 uyumlu, şeffaf ve insan odaklı tesis yönetiminin adresi.',
+      '2009\'dan bu yana İstanbul genelinde 200+ uzman çalışan ve onlarca prestijli proje. KMK ve 5188 uyumlu, şeffaf ve insan odaklı tesis yönetiminin adresi.',
     path: '/hakkimizda',
     lang,
     keywords: ['alo yönetim hakkında', 'tesis yönetimi şirketi istanbul', 'alo yönetim ekip', 'profesyonel site yönetimi'],

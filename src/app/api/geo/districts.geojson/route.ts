@@ -37,7 +37,7 @@ export async function GET() {
       neighborhoods: d.neighborhoods,
       localNeeds: d.localNeeds,
       phone: '+902165504848',
-      provider: 'Alo Yönetim Tesis Yönetimi A.Ş.'
+      provider: 'Alo Yönetim ve Organizasyon A.Ş.'
     }
   }));
 
@@ -51,7 +51,7 @@ export async function GET() {
       }
     },
     metadata: {
-      provider: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+      provider: 'Alo Yönetim ve Organizasyon A.Ş.',
       website: BASE_URL,
       totalDistricts: DISTRICTS.length,
       coverage: 'İstanbul (Anadolu ve Avrupa Yakası)',

@@ -64,7 +64,7 @@ export default function SectoralRoiCalculatorSeo() {
     description: 'Rezidans, AVM, Sanayi ve Toplu Konut tesisleri için geleneksel yönetim ile Alo Yönetim arasındaki 3 yıllık bütçe tasarruf analizi.',
     provider: {
       '@type': 'Organization',
-      name: 'Alo Yönetim Tesis Yönetimi A.Ş.'
+      name: 'Alo Yönetim ve Organizasyon A.Ş.'
     }
   };
 

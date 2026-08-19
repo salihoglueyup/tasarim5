@@ -28,7 +28,7 @@ export default function GeoTargetAreaSeo({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+    name: 'Alo Yönetim ve Organizasyon A.Ş.',
     url: BASE_URL,
     areaServed: DISTRICTS.map((d) => ({
       '@type': 'AdministrativeArea',
@@ -70,7 +70,7 @@ export default function GeoTargetAreaSeo({
 
           <div className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-bold border border-emerald-500/20">
             <span className="material-symbols-outlined text-sm">map</span>
-            <span>12 İlçe & 500+ Mahalle</span>
+            <span>{DISTRICTS.length} İlçe & İstanbul Geneli</span>
           </div>
         </div>
 

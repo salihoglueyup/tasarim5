@@ -26,7 +26,7 @@ export async function GET() {
     name: ORG_NAME,
     legalName: ORG_LEGAL_NAME,
     tagline: 'İstanbul Genelinde Profesyonel Apartman, Site, Rezidans ve Entegre Tesis Yönetimi',
-    established: '2015',
+    established: '2009',
     headquarters: {
       address: ORG_ADDRESS_DISPLAY,
       city: 'İstanbul',
@@ -44,13 +44,14 @@ export async function GET() {
       'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
       'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
       'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-      'T.C. İstanbul Valiliği Özel Güvenlik Ruhsatı'
+      'T.C. İstanbul Valiliği Özel Güvenlik Ruhsatı',
+      'TSE HYB 12850 Hizmet Yeterlilik Belgesi'
     ],
     operationalScope: {
       totalDistricts: DISTRICTS.length,
       managedProjects: '200+',
-      totalStaff: '500+',
-      satisfactionRate: '98.7%',
+      totalStaff: '200+',
+      satisfactionRate: '%98.7',
       emergencyResponse: '7/24 Kesintisiz Nöbetçi Teknik ve Güvenlik Operasyonu'
     }
   };

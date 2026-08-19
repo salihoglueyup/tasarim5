@@ -64,7 +64,7 @@ export default function SecurityTrustBadgeGridSeo({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+    name: 'Alo Yönetim ve Organizasyon A.Ş.',
     url: BASE_URL,
     hasCredential: DEFAULT_BADGES.map((b) => ({
       '@type': 'GovernmentPermit',
