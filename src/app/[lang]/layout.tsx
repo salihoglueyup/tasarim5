@@ -147,10 +147,11 @@ export default async function RootLayout({
         {/* Faz 124: En çok dönüştüren (tıklanan) ana rotalar için prefetch */}
         <link rel="prefetch" href="/tr/hizmetler" />
         <link rel="prefetch" href="/tr/iletisim" />
-        {/* Blog RSS beslemesi (SEO V4 Faz 162) */}
-        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Blog" href="/feed.xml" />
+        {/* Blog RSS & Atom beslemeleri */}
+        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim RSS 2.0" href="/rss.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Alo Yönetim Atom 1.0" href="/feed.xml" />
         
-        {/* OpenSearch & Humans.txt (Faz 200) */}
+        {/* OpenSearch & Humans.txt */}
         <link rel="search" type="application/opensearchdescription+xml" title="Alo Yönetim" href="/opensearch.xml" />
         <link rel="author" href="/humans.txt" />
         

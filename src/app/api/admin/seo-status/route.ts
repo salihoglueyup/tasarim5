@@ -8,14 +8,18 @@ const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'aloyonetim-indexnow-key';
 export async function GET() {
   const sitemaps = [
     { name: 'Ana Site Haritası', path: '/sitemap.xml', type: 'XML Sitemap', status: 'Active' },
-    { name: 'Görsel Site Haritası', path: '/image-sitemap.xml', type: 'XML Images', status: 'Active' },
-    { name: 'Belge & PDF Haritası', path: '/document-sitemap.xml', type: 'XML Documents', status: 'Active' },
+    { name: 'Görsel & Geo Site Haritası', path: '/image-sitemap.xml', type: 'XML Images', status: 'Active' },
+    { name: 'Belge & 5188 Yasal Şablon Haritası', path: '/document-sitemap.xml', type: 'XML Documents', status: 'Active' },
+    { name: 'Tarayıcı OpenSearch Protokolü', path: '/opensearch.xml', type: 'OpenSearch 1.1', status: 'Active' },
+    { name: 'Birleşik Schema.org Knowledge Graph', path: '/api/knowledge-graph', type: 'Linked Data JSON-LD', status: 'Active' },
     { name: 'LLMs AI Metin Protokolü', path: '/llms.txt', type: 'AI Text (SGE/Perplexity)', status: 'Active' },
     { name: 'LLMs Kapsamlı AI Protokolü', path: '/llms-full.txt', type: 'AI Full Knowledge', status: 'Active' },
-    { name: 'RSS Haber Akışı', path: '/rss.xml', type: 'RSS 2.0', status: 'Active' },
-    { name: 'Atom Feed Akışı', path: '/feed.xml', type: 'Atom 1.0', status: 'Active' },
+    { name: 'Zengin Medyalı RSS Haber Akışı', path: '/rss.xml', type: 'RSS 2.0 Enclosure', status: 'Active' },
+    { name: 'RFC 4287 Atom Feed Akışı', path: '/feed.xml', type: 'Atom 1.0', status: 'Active' },
+    { name: 'Çok Katmanlı Autocomplete API', path: '/api/search-suggest', type: 'Search Suggest', status: 'Active' },
     { name: 'JSON Özet Endpoint', path: '/api/summary', type: 'JSON API', status: 'Active' },
-    { name: 'AI Knowledge Base Endpoint', path: '/api/ai-knowledge', type: 'LLMO AI Protocol', status: 'Active' }
+    { name: 'AI Knowledge Base Endpoint', path: '/api/ai-knowledge', type: 'LLMO AI Protocol', status: 'Active' },
+    { name: 'Canlı SEO Sağlık & Teşhis API', path: '/api/admin/seo-health', type: 'Diagnostics API', status: 'Active' }
   ];
 
   const redirects301 = [

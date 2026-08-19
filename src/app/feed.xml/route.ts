@@ -1,40 +1,77 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
+import { ORG_NAME } from '@/lib/schemas';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Saatte bir tazele
+
+function escapeXml(unsafe: string) {
+  return unsafe.replace(/[<>&'"]/g, function (c) {
+    switch (c) {
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '&': return '&amp;';
+      case '\'': return '&apos;';
+      case '"': return '&quot;';
+      default: return c;
+    }
+  });
+}
 
 export async function GET() {
   const posts = await prisma.post.findMany({
     where: { published: true },
     include: { category: true, author: true },
-    orderBy: { datePublished: 'desc' }
+    orderBy: { datePublished: 'desc' },
+    take: 30
   });
 
-  const feed = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-  <title>Alo Yönetim Blog</title>
-  <description>Site ve tesis yönetimi hakkında güncel rehberler.</description>
-  <link>${BASE_URL}/blog</link>
-  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  ${posts
-    .map(
-      (p) => `
-    <item>
-      <title><![CDATA[${p.title}]]></title>
-      <description><![CDATA[${p.description}]]></description>
-      <link>${BASE_URL}/blog/${p.slug}</link>
-      <category>${p.category.name}</category>
-      <pubDate>${p.datePublished.toUTCString()}</pubDate>
-    </item>
-  `,
-    )
-    .join('')}
-</channel>
-</rss>`;
-  return new NextResponse(feed, {
+  const latestUpdated = posts.length > 0 && posts[0].datePublished
+    ? new Date(posts[0].datePublished).toISOString()
+    : new Date().toISOString();
+
+  const entries = posts.map(p => {
+    const postUrl = `${BASE_URL}/blog/${p.slug}`;
+    const pubIso = new Date(p.datePublished).toISOString();
+    const authorName = p.author?.name || 'Alo Yönetim Uzman Masası';
+    const catName = p.category?.name || 'Site Yönetimi';
+
+    return `  <entry>
+    <title>${escapeXml(p.title)}</title>
+    <link href="${postUrl}" />
+    <id>${postUrl}</id>
+    <updated>${pubIso}</updated>
+    <summary>${escapeXml(p.description || p.title)}</summary>
+    <category term="${escapeXml(catName)}" />
+    <author>
+      <name>${escapeXml(authorName)}</name>
+    </author>
+  </entry>`;
+  }).join('\n');
+
+  const atomFeed = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>${ORG_NAME} Blog &amp; Bilgi Merkezi</title>
+  <subtitle>Profesyonel Tesis Yönetimi, 5188 Özel Güvenlik, KMK Hukuk ve Aidat Tahsilatı Rehberleri</subtitle>
+  <link href="${BASE_URL}/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="${BASE_URL}/blog" />
+  <id>${BASE_URL}/blog</id>
+  <updated>${latestUpdated}</updated>
+  <rights>© 2026 ${ORG_NAME}. Tüm Hakları Saklıdır.</rights>
+  <author>
+    <name>${ORG_NAME} Hukuk &amp; Operasyon Kurulu</name>
+    <email>info@aloyonetim.com.tr</email>
+  </author>
+${entries}
+</feed>`;
+
+  return new NextResponse(atomFeed, {
+    status: 200,
     headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate',
+      'Content-Type': 'application/atom+xml; charset=utf-8',
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800',
     },
   });
 }
+
