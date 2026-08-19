@@ -2,6 +2,14 @@ import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/constants';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
+import {
+  ORG_NAME,
+  ORG_LEGAL_NAME,
+  ORG_PHONE_DISPLAY,
+  ORG_EMAIL,
+  ORG_ADDRESS_DISPLAY,
+  ORG_GEO
+} from '@/lib/schemas';
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 saat önbellek
@@ -15,16 +23,17 @@ export const revalidate = 86400; // 24 saat önbellek
  */
 export async function GET() {
   const companyProfile = {
-    name: 'Alo Yönetim Tesis Yönetimi A.Ş.',
+    name: ORG_NAME,
+    legalName: ORG_LEGAL_NAME,
     tagline: 'İstanbul Genelinde Profesyonel Apartman, Site, Rezidans ve Entegre Tesis Yönetimi',
     established: '2015',
     headquarters: {
-      address: 'Osmanağa Mah. Söğütlüçeşme Cad. No: 128/4 Kadıköy / İstanbul',
+      address: ORG_ADDRESS_DISPLAY,
       city: 'İstanbul',
       country: 'Türkiye',
-      coordinates: { latitude: 40.9922, longitude: 29.0287 },
-      phone: '0216 550 48 48',
-      email: 'info@aloyonetim.com.tr',
+      coordinates: { latitude: ORG_GEO.latitude, longitude: ORG_GEO.longitude },
+      phone: ORG_PHONE_DISPLAY,
+      email: ORG_EMAIL,
       website: BASE_URL,
       languages: ['tr', 'en', 'ru', 'ar']
     },
@@ -57,7 +66,7 @@ export async function GET() {
       id: 'dues_heatmap',
       name: 'İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)',
       url: `${BASE_URL}/bolgeler`,
-      description: 'İstanbul 12 ilçesinin m² başına piyasa aidat ortalamaları ve Alo Yönetim ile %20-30 tasarruf simülatörü.'
+      description: `İstanbul ${DISTRICTS.length} ilçesinin m² başına piyasa aidat ortalamaları ve Alo Yönetim ile %20-30 tasarruf simülatörü.`
     },
     {
       id: 'audit_scorecard',

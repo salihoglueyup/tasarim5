@@ -7,7 +7,7 @@ import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import JsonLd from '@/components/seo/JsonLd';
-import { organizationSchema, webSiteSchema } from "@/lib/schemas";
+import { organizationSchema, webSiteSchema, aiAssistantSchema } from "@/lib/schemas";
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
@@ -155,7 +155,7 @@ export default async function RootLayout({
         <link rel="search" type="application/opensearchdescription+xml" title="Alo Yönetim" href="/opensearch.xml" />
         <link rel="author" href="/humans.txt" />
         
-        <JsonLd data={[organizationSchema(), webSiteSchema()]} />
+        <JsonLd data={[organizationSchema(), webSiteSchema(), aiAssistantSchema()]} />
         {/* Faz 25: 0ms Speculation Rules API (Chrome) */}
         <script
           type="speculationrules"
