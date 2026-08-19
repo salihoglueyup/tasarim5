@@ -137,6 +137,46 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/ozel-guvenlik',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/site-guvenligi',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/apartman-guvenligi',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/site-guvenlik-sirketleri',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/guvenlik-sirketleri',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/fiziki-guvenlik',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/5188-ozel-guvenlik',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/guvenlik-hizmetleri',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
         source: '/guvenlik-kursu-egitimi',
         destination: '/guvenlik-akademisi',
         permanent: true,

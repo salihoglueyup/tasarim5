@@ -3,7 +3,17 @@
 import { useState } from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
+import { 
+  SeoTextSection, 
+  ServiceSeo, 
+  AggregateRatingSeo, 
+  DynamicFAQ, 
+  HowToSeo,
+  SecurityTrustBadgeGridSeo,
+  SecurityComparisonTableSeo,
+  SecurityTechMatrixSeo,
+  DistrictSecurityClusterSeo
+} from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -176,6 +186,9 @@ export default function GuvenlikYonetimi() {
           <SecurityCalculator />
         </div>
 
+        {/* 5188 Yasal Ruhsatlar & Akreditasyon Şeması */}
+        <SecurityTrustBadgeGridSeo />
+
         {/* 6 Bento Grid Cards with Staggered Animation */}
         <div className="space-y-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -207,6 +220,45 @@ export default function GuvenlikYonetimi() {
           </motion.div>
         </div>
 
+        {/* Karar Matrisi: Bireysel Bekçi vs 5188 Lisanslı Özel Güvenlik */}
+        <SecurityComparisonTableSeo />
+
+        {/* Yapay Zeka & Donanım Teknolojileri Ekosistemi */}
+        <SecurityTechMatrixSeo />
+
+        {/* Güvenlik Akademisi E-E-A-T Spotlight Kartı */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-700/50 rounded-[3rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="space-y-4 max-w-2xl relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-bold text-slate-300">
+              <span className="material-symbols-outlined text-sm">school</span>
+              <span>Kendi Akademimizde Yetişen Uzman Kadro</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight leading-tight">
+              Alo Güvenlik Akademisi: <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Sürekli Hizmet İçi Eğitim Güvencesi</span>
+            </h2>
+            <p className="text-sm md:text-base text-gray-300 font-light leading-relaxed">
+              Tesislerinizde görev alan tüm özel güvenlik personeli; 5188 mevzuat, yangın söndürme, ilk yardım, yakın savunma, şüpheli profil analizi ve etkili iletişim eğitimlerini akademimizde tamamlar.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ 5188 Kanun Eğitimi</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ AFAD Yangın Tatbikatı</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ Sağlık Bakanlığı İlk Yardım</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ Kriz & Öfke Kontrolü</span>
+            </div>
+          </div>
+          <div className="relative z-10 shrink-0">
+            <Link 
+              href="/guvenlik-akademisi" 
+              className="bg-white hover:bg-slate-100 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 flex items-center gap-3 text-sm"
+            >
+              <span>Akademi Müfredatını İnceleyin</span>
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
@@ -218,6 +270,9 @@ export default function GuvenlikYonetimi() {
 
         {/* Afet, Yangın & Sığınak Güvenliği Denetim Motoru */}
         <EmergencyDisasterAuditSeo />
+
+        {/* İstanbul İlçelerine Göre Güvenlik Kümeleri */}
+        <DistrictSecurityClusterSeo />
 
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />
@@ -239,5 +294,6 @@ export default function GuvenlikYonetimi() {
     </>
   );
 }
+
 
 

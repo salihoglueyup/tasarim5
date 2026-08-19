@@ -14,7 +14,18 @@ export async function generateMetadata({
     path: "/hizmetler/guvenlik-yonetimi",
     lang,
     ogImageType: 'service',
-    keywords: ['site güvenliği', 'özel güvenlik', 'apartman güvenliği', 'kameralı güvenlik', '7/24 güvenlik hizmeti'],
+    keywords: [
+      'site güvenliği',
+      'özel güvenlik şirketi',
+      '5188 özel güvenlik',
+      'apartman güvenliği',
+      'site güvenlik şirketleri istanbul',
+      'fiziki güvenlik',
+      'plaka tanıma sistemi site',
+      'cctv kamera izleme merkezi',
+      '7/24 güvenlik hizmeti',
+      'nizamiye güvenlik personeli'
+    ],
   });
 }
 
