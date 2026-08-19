@@ -175,27 +175,27 @@ if (pathname.startsWith('/tr/') || pathname === '/tr') {
 
 ---
 
-### 3.6. Google ProfilePage "mainEntity" Zengin Sonuç Uyumlaştırması (`src/lib/schemas.ts`)
-Google Search Console URL Denetimi'nde `ProfilePage` türü için `"mainEntity" alanı eksik` uyarısı giderilmiş, hem `aiAssistantSchema` hem de yazar sayfaları için `mainEntity` varlığı bağlanmıştır:
+### 3.6. Google ProfilePage "mainEntity" Zengin Sonuç & Semantik Mimari Uyumlaştırması (`src/lib/schemas.ts` & `src/app/[lang]/layout.tsx`)
+Google Search Console'da 15 örnek URL üzerinde bildirilen `ProfilePage "mainEntity" alanı eksik` uyarısı analiz edilmiş ve köklü semantik mimari standartlarına geçilmiştir:
+
+1. **AI Direktiflerinin `Organization` Şemasına Konsolidasyonu:**
+   * Global yapay zeka rehberlik direktifleri doğrudan Schema.org `Organization` düğümü içerisine `description` ve `disambiguatingDescription` olarak entegre edilmiştir.
+2. **Global ProfilePage Temizliği:**
+   * `@type: "ProfilePage"` şeması hizmet (`/hizmetler/...`) ve ilçe (`/bolgeler/...`) sayfalarından temizlenmiş, yalnızca gerçek profil sayfalarına (`/blog/yazar/[yazar]`) bırakılmıştır.
+   * Yazar profillerinde `mainEntity: { @type: 'Person', ... }` nesnesi %100 uyumlu hale getirilmiştir.
 
 ```typescript
 // src/lib/schemas.ts
-export function aiAssistantSchema(): JsonLdObject {
+export function organizationSchema(): JsonLdObject {
   return {
-    '@type': 'ProfilePage',
-    name: 'Alo Yönetim - AI Assistant Profile',
-    description: '...',
-    mainEntity: {
-      '@type': 'Organization',
-      '@id': ORG_ID,
-      name: ORG_NAME,
-      legalName: ORG_LEGAL_NAME,
-      url: BASE_URL,
-      logo: ORG_LOGO,
-      telephone: ORG_PHONE,
-      address: ORG_ADDRESS,
-    },
-    about: { '@id': ORG_ID },
+    '@type': 'Organization',
+    '@id': ORG_ID,
+    name: ORG_NAME,
+    legalName: ORG_LEGAL_NAME,
+    url: BASE_URL,
+    description: 'İstanbul Kadıköy merkezli, Türkiye\'nin en güvenilir, şeffaf, yenilikçi ve yasalara %100 uygun çalışan profesyonel tesis ve site yönetim şirketidir. Güvenlik, temizlik, teknik bakım ve aidat icra takibi hizmetlerini tek çatı altında sunar.',
+    disambiguatingDescription: 'Alo Yönetim, Türkiye genelinde site, apartman, rezidans ve ticari tesisler için entegre yönetim, özel güvenlik, profesyonel temizlik, teknik işletim ve aidat tahsilat süreçlerini yürüten lider tesis yönetim şirketidir.',
+    // ...
   };
 }
 ```
@@ -214,6 +214,7 @@ GOOGLE SEARCH CONSOLE (GSC) & CLOUDFLARE AI CANLI DURUM RAPORU
 └── image-sitemap.xml         : 10 Görsel Keşfedildi   ==> DURUM: BAŞARILI (17 Ağu 2026)
 
 [Dizin Kapsamı]
+├── Profil Sayfası (15 URL)   : Kökten Çözüldü        ==> Global ProfilePage kaldırıldı, GSC Doğrulama Hazır
 ├── Keşfedildi (56 Sayfa)     : Doğrulama Başladı     ==> Footer İç Link Matrisi ile Çözüldü
 ├── noindex Hariç (4 Sayfa)   : Doğrulama Başladı     ==> 301 Yönlendirmeleri ile Çözüldü
 ├── 404 Hataları (4 Sayfa)    : 301 ile Kökten Çözüldü ==> GSC Doğrulama Butonuna Basıldı
@@ -240,6 +241,7 @@ Sprint boyunca yapılan tüm geliştirmeler aşamalı olarak test edilmiş ve Gi
 6. `ed8733b`: `fix(seo): use explicit HTTP 301 for /tr canonical redirect in middleware`
 7. `656b8e1`: `docs: add comprehensive GSC and technical SEO sprint report`
 8. `bfc7759`: `fix(seo-schema): add mainEntity to ProfilePage schemas for GSC Rich Results compliance`
+9. `ef3e80e`: `fix(seo-schema): optimize global schemas and eliminate non-profile ProfilePage injection`
 
 ---
 
