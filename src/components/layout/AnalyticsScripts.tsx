@@ -62,8 +62,8 @@ export default function AnalyticsScripts({ gaId, clarityId, fbPixelId, gtmId }: 
         </Script>
       )}
 
-      {/* Google Analytics - Etkileşim sonrası / Idle yükleme (Faz 10) */}
-      {shouldLoad && gaId && <GoogleAnalytics gaId={gaId} />}
+      {/* Google Analytics 4 (gtag.js) - @next/third-parties/google ile optimize edilmiş resmi entegrasyon */}
+      {gaId && <GoogleAnalytics gaId={gaId} />}
 
       {/* Microsoft Clarity - Heatmap */}
       {shouldLoad && clarityId && (
