@@ -187,7 +187,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             
             {project.content && (
               <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-bold prose-headings:text-[var(--color-primary)] prose-a:text-brand-500 hover:prose-a:text-brand-400 text-[var(--color-secondary)] leading-relaxed">
-                <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(autoLinkHtml(project.content)) }} />
+                <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(autoLinkHtml(project.content, `/referanslar/${project.slug}`)) }} />
               </div>
             )}
 
