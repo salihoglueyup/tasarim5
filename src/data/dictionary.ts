@@ -93,4 +93,100 @@ export const TERMS: Term[] = [
       '5188 sayılı Kanun Madde 21 gereğince, özel güvenlik görevlilerinin üçüncü şahıslara ve site sakinlerine verebilecekleri zararları teminat altına alan yasal zorunlu sigorta poliçesidir.',
     link: { href: '/hizmetler/guvenlik-yonetimi', label: '5188 yasal sigorta' },
   },
+  {
+    term: 'Tesis Yönetimi (Entegre Tesis Yönetimi)',
+    definition:
+      'Bir yapının ya da sitenin fiziki, teknik, güvenlik, temizlik, peyzaj ve bütçe/muhasebe operasyonlarının tek bir kurumsal merkezden ve kalite standartlarında yönetilmesini sağlayan profesyonel yönetim disiplinidir.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'Tesis yönetimi' },
+  },
+  {
+    term: 'Hizmet Seviyesi Taahhüdü (SLA)',
+    definition:
+      'Tesis yönetim şirketi ile site yönetimi arasında imzalanan, arıza müdahale süresi (örn. 45 dk), temizlik frekansı ve güvenlik devriye sayılarını yasal güvenceye bağlayan resmi performans sözleşmesidir.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'Kurumsal SLA taahhütleri' },
+  },
+  {
+    term: 'Önleyici Bakım (Preventive Maintenance)',
+    definition:
+      'Asansör, jeneratör, hidrofor ve yangın sistemlerinde arıza oluşmadan önce yapılan periyodik kontroller ve parça yenilemeleridir. Sitenin büyük onarım maliyetlerini %40\'a kadar düşürür.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Önleyici teknik bakım' },
+  },
+  {
+    term: 'Bina Otomasyon Sistemi (BMS)',
+    definition:
+      'Aydınlatma, ısıtma-soğutma, havalandırma ve su pompalarını tek ekrandan sensörlerle izleyip yöneten, enerji israfını ve elektrik faturasını minimuma indiren akıllı bina yönetim altyapısıdır.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Bina otomasyonu' },
+  },
+  {
+    term: 'Demirbaş Avans Fonu',
+    definition:
+      'KMK uyarınca kat maliklerinden çatı onarımı, asansör revizyonu veya dış cephe boyası gibi büyük sermaye yatırımları için toplanan ve cari aidat hesabından ayrı tutulan yedek fondur.',
+    link: { href: '/hizmetler/aidat-takibi', label: 'Demirbaş fonu yönetimi' },
+  },
+  {
+    term: 'TSE HYB 12850 Belgesi',
+    definition:
+      'Türk Standardları Enstitüsü tarafından verilen, tesis ve bina yönetim firmalarının idari, teknik ve personel yeterliliğe sahip olduğunu kanıtlayan resmi Hizmet Yeterlilik Belgesi\'dir.',
+    link: { href: '/kurumsal/kalite-belgelerimiz', label: 'TSE kalite belgelerimiz' },
+  },
+  {
+    term: 'Merkezi Isı Pay Ölçer',
+    definition:
+      'Merkezi ısıtma sistemine sahip binalarda her bağımsız bölümün harcadığı gerçek ısı enerjisini ölçerek doğalgaz faturasının adil ve yasal kurallara göre dairelere paylaştırılmasını sağlayan cihazdır.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Isı pay ölçer ve faturalandırma' },
+  },
+  {
+    term: 'Mali İbra',
+    definition:
+      'Kat Malikleri Kurulu olağan toplantısında, yöneticinin geçmiş dönem gelir-gider hesaplarının ve işletme faaliyetlerinin maliklerce oylanarak hukuken ve mali açıdan aklanması işlemidir.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Mali ibra ve genel kurul' },
+  },
+  {
+    term: 'Site İşletme Bütçesi',
+    definition:
+      'KMK m.37 uyarınca sitenin 1 yıllık güvenlik, temizlik, personel, enerji ve teknik bakım giderlerini hesaplayan ve aidat tutarlarını belirleyen yasal mali projeksiyon belgesidir.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'İşletme bütçesi hazırlama' },
+  },
+  {
+    term: 'Yeşil Tesis & Enerji Verimliliği',
+    definition:
+      'Site ortak alanlarında LED aydınlatma, çatı GES güneş enerjisi panelleri, yağmur suyu hasadı ve kompanzasyon takibiyle karbon ayak izini ve elektrik maliyetlerini düşüren çevreci yönetim modelidir.',
+    link: { href: '/kurumsal/surdurulebilirlik', label: 'Sürdürülebilir tesis yönetimi' },
+  },
+  {
+    term: 'ISO 41001 Tesis Yönetim Sistemi',
+    definition:
+      'Tesis yönetimi disiplini için uluslararası akreditasyon standardıdır. Binaların fiziki, teknik ve idari süreçlerinin kurumsal kalite, sürdürülebilirlik ve maliyet tasarrufu çerçevesinde yönetildiğini belgeler.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'ISO 41001 tesis yönetimi' },
+  },
+  {
+    term: 'Kat Mülkiyeti Kanunu Madde 37 (İşletme Projesi)',
+    definition:
+      'KMK 37. maddesi uyarınca yöneticinin 1 yıllık tahmini gelir-gider bütçesini ve daire başı aidat avanslarını belirleyerek kat maliklerine resmi tebliğ etmesini zorunlu kılan yasal hükümdür.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'İşletme projesi hukuku' },
+  },
+  {
+    term: 'Kat Mülkiyeti Kanunu Madde 20 (Aidat Borcu)',
+    definition:
+      'Kat maliklerinin ortak yer veya tesisler üzerindeki kullanma hakkından vazgeçmek veya kendi bağımsız bölümünün durumundan dolayı yararlanmaya lüzum veya ihtiyaç bulunmadığını ileri sürmek suretiyle aidat ödemekten kaçınamayacağını hükme bağlayan emredici kanun maddesidir.',
+    link: { href: '/hizmetler/aidat-takibi', label: 'Aidat borcu ve icra takibi' },
+  },
+  {
+    term: 'Yeşil Etiket (Asansör)',
+    definition:
+      'A Tipi Muayene Kuruluşları (MMO veya TSE) tarafından yapılan yıllık periyodik kontroller sonucunda can ve mal güvenliği açısından kusursuz çalışan asansörlere verilen resmi uygunluk etiketidir.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Asansör yeşil etiket bakımı' },
+  },
+  {
+    term: 'Enerji Kimlik Belgesi (EKB)',
+    definition:
+      'Binalarda enerjinin ve enerji kaynaklarının verimli kullanılmasını, enerji israfının önlenmesini ve çevrenin korunmasını gösteren; asgari C sınıfı olması hedeflenen resmi enerji performans karnesidir.',
+    link: { href: '/kurumsal/surdurulebilirlik', label: 'Enerji kimlik belgesi ve tasarruf' },
+  },
+  {
+    term: 'Yangın Söndürme ve Duman Tahliye Sistemi',
+    definition:
+      'Binaların Yangından Korunması Hakkında Yönetmelik gereğince sitelerde ve otoparklarda bulunması zorunlu olan sprinkler, yangın hidroforu, duman damperleri ve yangın algılama otomasyonudur.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Yangın güvenlik sistemleri' },
+  },
 ];
