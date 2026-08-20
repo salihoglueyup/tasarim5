@@ -63,3 +63,9 @@ export { default as DistrictTechnicalAuditTableSeo } from './DistrictTechnicalAu
 export { default as CleaningScheduleGeneratorSeo } from './CleaningScheduleGeneratorSeo';
 export { default as DistrictCleaningAuditTableSeo } from './DistrictCleaningAuditTableSeo';
 export { default as InteractiveCleaningAuditRadarSeo } from './InteractiveCleaningAuditRadarSeo';
+export { default as DistrictFacilityAuditTableSeo } from './DistrictFacilityAuditTableSeo';
+export { default as InteractiveFacilityAuditRadarSeo } from './InteractiveFacilityAuditRadarSeo';
+export { default as FacilityLegalTemplateGeneratorSeo } from './FacilityLegalTemplateGeneratorSeo';
+export { default as FacilityComparisonMatrixSeo } from './FacilityComparisonMatrixSeo';
+export { default as KeywordAnalysisSeo } from './KeywordAnalysisSeo';
+export { default as BlogSeo } from './BlogSeo';
