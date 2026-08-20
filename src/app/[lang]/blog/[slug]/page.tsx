@@ -14,6 +14,7 @@ import {
 } from '@/lib/schemas';
 import BlogFAQExtractor from '@/components/seo/BlogFAQExtractor';
 import { LOCALES, buildMetadata } from '@/lib/seo';
+import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
 import type { Metadata } from 'next';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
@@ -153,6 +154,16 @@ export default async function BlogDetail({
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
+  const entityGraph = resolveTopicalEntityGraph(post.content || '');
+  const keyFacts = extractKeyFactsAndKpis(post.content || '');
+
+  const dynamicAbout = [
+    { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' },
+    ...entityGraph.about.map((a) => ({ name: a.name, sameAs: a.sameAs })),
+  ];
+
+  const dynamicMentions = entityGraph.mentions.map((m) => ({ name: m.name, sameAs: m.sameAs }));
+
   const articleLd = blogPostingSchema({
     headline: post.title,
     description: post.description,
@@ -165,9 +176,8 @@ export default async function BlogDetail({
     timeRequired: `PT${minutes}M`,
     wordCount: wordCount,
     articleBody: plainText.substring(0, 800),
-    about: [
-      { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' }
-    ],
+    about: dynamicAbout,
+    mentions: dynamicMentions,
     author: author
       ? { 
           name: author.name, 
@@ -259,8 +269,26 @@ export default async function BlogDetail({
               </aside>
           )}
 
-          {/* Body */}
-          <PostBody htmlContent={post.content} title={post.title} />
+          {/* Body with smart cross-linking */}
+          <PostBody htmlContent={post.content} title={post.title} currentUrl={path} />
+
+          {/* AI Search Key Facts & Quantitative Signals */}
+          {keyFacts.length > 0 && (
+            <div className="bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-3">
+                <span className="material-symbols-outlined text-brand-600 text-base" aria-hidden="true">analytics</span>
+                <span>Önemli Sayısal & Yasal Metrikler</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {keyFacts.slice(0, 4).map((f, i) => (
+                  <div key={i} className="flex items-start gap-2 bg-white dark:bg-white/5 p-3 rounded-xl border border-slate-100 dark:border-white/5 text-xs text-slate-600 dark:text-slate-300">
+                    <span className="font-bold text-brand-600 dark:text-brand-400 shrink-0">{f.raw}</span>
+                    <span className="line-clamp-2">{f.context}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Tags */}
           {tags.length > 0 && (
