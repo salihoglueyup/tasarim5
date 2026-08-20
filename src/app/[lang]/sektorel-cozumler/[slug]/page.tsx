@@ -1,0 +1,236 @@
+import type { Metadata } from 'next';
+import { prisma } from '@/lib/prisma';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import JsonLd from '@/components/seo/JsonLd';
+import PageHeader from '@/components/layout/PageHeader';
+import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
+import { buildMetadata, LOCALES } from '@/lib/seo';
+import { autoLinkHtml } from '@/lib/autoLinker';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+
+export const dynamicParams = true;
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  try {
+    const solutions = await prisma.sectoralSolution.findMany({
+      where: { published: true },
+      select: { slug: true },
+    });
+    return LOCALES.flatMap((lang) =>
+      solutions.map((s) => ({ lang, slug: s.slug }))
+    );
+  } catch {
+    return [];
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const solution = await prisma.sectoralSolution.findUnique({
+    where: { slug },
+  });
+
+  if (!solution || !solution.published) {
+    return buildMetadata({
+      title: 'Sektörel Çözüm Bulunamadı',
+      description: '',
+      path: `/sektorel-cozumler/${slug}`,
+      lang,
+      noindex: true,
+    });
+  }
+
+  const title = `${solution.title} — Profesyonel Tesis Yönetimi | Alo Yönetim`;
+  const description = solution.description.length > 160
+    ? `${solution.description.substring(0, 155)}...`
+    : solution.description;
+
+  return buildMetadata({
+    title,
+    description,
+    path: `/sektorel-cozumler/${slug}`,
+    lang,
+    targetKeyword: `${solution.title.toLowerCase()} yönetimi`,
+    keywords: [
+      solution.title.toLowerCase(),
+      `${solution.title.toLowerCase()} yönetimi`,
+      `${solution.title.toLowerCase()} tesis yönetimi`,
+      'profesyonel tesis yönetimi',
+      'sektörel tesis çözümleri',
+      'iso 41001',
+      '5188 güvenlik',
+    ],
+  });
+}
+
+export default async function SectoralSolutionDetailPage({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}) {
+  const { lang, slug } = await params;
+  const solution = await prisma.sectoralSolution.findUnique({
+    where: { slug },
+  });
+
+  if (!solution || !solution.published) {
+    notFound();
+  }
+
+  let features: string[] = [];
+  try {
+    if (solution.features) {
+      features = typeof solution.features === 'string' ? JSON.parse(solution.features) : solution.features;
+    }
+  } catch (e) {
+    features = (solution.features || '').split(',').map((f) => f.trim()).filter(Boolean);
+  }
+
+  const path = `/sektorel-cozumler/${solution.slug}`;
+
+  const breadcrumbs = [
+    { name: 'Anasayfa', url: '/' },
+    { name: 'Sektörel Çözümler', url: '/sektorel-cozumler' },
+    { name: solution.title, url: path },
+  ];
+
+  const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
+
+  const serviceLd = serviceSchema({
+    serviceType: solution.title,
+    description: solution.description,
+    path,
+    priceRange: '₺₺₺',
+  });
+
+  const pageLd = webPageSchema({
+    type: 'ItemPage',
+    name: `${solution.title} | Alo Yönetim`,
+    path,
+    description: solution.description,
+    speakableSelectors: ['h1', 'p'],
+  });
+
+  // Otomatik linkleme
+  const processedDescription = autoLinkHtml(solution.description, path);
+
+  return (
+    <>
+      <JsonLd data={[breadcrumbLd, serviceLd, pageLd]} />
+
+      <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
+
+      <PageHeader
+        title={solution.title}
+        description={solution.kpiTag ? `Hedeflenen KPI: ${solution.kpiTag}` : 'Sektörünüze özel entegre tesis yönetimi çözümleri.'}
+      />
+
+      <div className="py-16 px-[var(--spacing-gutter)] max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Sol Kolon: Detaylar & Özellikler */}
+          <div className="lg:col-span-8 space-y-10">
+            <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-sm">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-2xl">{solution.icon || 'domain'}</span>
+                </span>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+                    Sektörel Operasyon Modeli
+                  </span>
+                  <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+                    {solution.title} Yönetim Çözümümüz
+                  </h2>
+                </div>
+              </div>
+
+              <div 
+                className="text-base text-slate-700 dark:text-slate-300 leading-relaxed space-y-4"
+                dangerouslySetInnerHTML={{ __html: processedDescription }}
+              />
+
+              {solution.kpiTag && (
+                <div className="mt-8 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center gap-3">
+                  <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl">trending_up</span>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">Kanıtlanmış Sektörel KPI</span>
+                    <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-200">{solution.kpiTag}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Özellikler Grid */}
+            {features.length > 0 && (
+              <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-sm">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-brand-500">task_alt</span>
+                  Öne Çıkan Standartlarımız ve Hizmet Kapsamı
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                      <span className="material-symbols-outlined text-brand-500 text-lg shrink-0 mt-0.5">check_circle</span>
+                      <span className="text-sm text-slate-700 dark:text-slate-300 font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Sağ Kolon: CTA & İletişim Kartı */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-8 shadow-xl border border-slate-800 space-y-6">
+              <span className="px-3 py-1 rounded-full bg-brand-500/20 text-brand-400 text-xs font-bold uppercase tracking-wider inline-block">
+                Ücretsiz Keşif & Analiz
+              </span>
+              <h3 className="text-2xl font-bold">
+                {solution.title} İçin Profesyonel Teklif Alın
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-light">
+                Tesisinizin büyüklüğü, personel ihtiyacı ve teknik altyapısına özel 48 saat içinde şeffaf bütçe ve yönetim planı sunalım.
+              </p>
+
+              <div className="pt-2">
+                <Link
+                  href="/teklif-al"
+                  className="w-full flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-2xl transition-all shadow-lg hover:scale-105 active:scale-95 text-sm"
+                >
+                  <span className="material-symbols-outlined text-lg">description</span>
+                  <span>Ücretsiz Teklif İste</span>
+                </Link>
+              </div>
+
+              <div className="border-t border-white/10 pt-4 flex items-center justify-between text-xs text-slate-400">
+                <span>ISO 41001 & 5188 Güvencesi</span>
+                <span className="text-emerald-400 font-semibold">48 Saatte Yanıt</span>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-6 shadow-sm">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-4">
+                Diğer Sektörel Çözümler
+              </h4>
+              <Link
+                href="/sektorel-cozumler"
+                className="text-xs text-brand-600 dark:text-brand-400 font-bold hover:underline flex items-center gap-1"
+              >
+                <span>Tüm Sektörel Çözümleri Gör</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
