@@ -75,3 +75,13 @@ next-env.d.ts
 
 # Geçici patch scriptleri
 /patch_*.js
+
+# Dumps, logs & database backups
+*.sql
+*.dump
+*.rdb
+*.log
+*.bak
+*.key
+*.crt
+*.pfx
