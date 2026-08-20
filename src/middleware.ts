@@ -208,13 +208,23 @@ export async function middleware(request: NextRequest) {
       'X-Robots-Tag',
       'all, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
     );
+    response.headers.set(
+      'X-Topical-Authority',
+      'Alo Yonetim - Profesyonel Tesis Yonetimi (KMK 634 & 5188 Ozel Guvenlik)'
+    );
+    response.headers.set(
+      'X-Dataset-Reference',
+      'https://aloyonetim.com.tr/api/datasets/istanbul-facility-data'
+    );
 
-    // RFC 8288 Multi-Resource Edge Link Header (Canonical, Sitemap, Knowledge Graph & Feeds)
+    // RFC 8288 Multi-Resource Edge Link Header (Canonical, Sitemap, Knowledge Graph, Dataset & Feeds)
     const canonicalUrl = `https://aloyonetim.com.tr${pathname === '/' ? '' : pathname}`;
     const linkHeaders = [
       `<${canonicalUrl}>; rel="canonical"`,
       `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
       `<https://aloyonetim.com.tr/api/knowledge-graph>; rel="alternate"; type="application/ld+json"`,
+      `<https://aloyonetim.com.tr/api/datasets/istanbul-facility-data>; rel="describedby"; type="application/ld+json"`,
+      `<https://aloyonetim.com.tr/api/facility/districts-feed.xml>; rel="alternate"; type="application/rss+xml"`,
       `<https://aloyonetim.com.tr/feed.xml>; rel="alternate"; type="application/atom+xml"`,
       `<https://aloyonetim.com.tr/opensearch.xml>; rel="search"; type="application/opensearchdescription+xml"`
     ];
@@ -226,6 +236,7 @@ export async function middleware(request: NextRequest) {
       response.headers.set('X-AI-Knowledge-Protocol', 'https://aloyonetim.com.tr/llms.txt');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai-knowledge');
       response.headers.set('X-AI-Knowledge-Graph', 'https://aloyonetim.com.tr/api/knowledge-graph');
+      response.headers.set('X-AI-Facility-Framework', 'https://aloyonetim.com.tr/api/facility/legal-templates');
     }
   }
 

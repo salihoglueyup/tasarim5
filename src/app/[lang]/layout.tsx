@@ -122,9 +122,8 @@ export default async function RootLayout({
   const lang = resolvedParams?.lang || 'tr';
   const isRtl = lang === 'ar';
 
-  // Analytics ID'leri env'den okunur; tanımlı değilse ilgili script render edilmez
-  // (SEO V4 Faz 10 — mock ID'ler yayına çıkmaz, gerçek değerler .env ile girilir).
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  // Analytics ID'leri env'den okunur; GA_ID varsayılan olarak G-L7RLVMBW9G ile çalışır
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-L7RLVMBW9G';
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
@@ -147,9 +146,11 @@ export default async function RootLayout({
         {/* Faz 124: En çok dönüştüren (tıklanan) ana rotalar için prefetch */}
         <link rel="prefetch" href="/tr/hizmetler" />
         <link rel="prefetch" href="/tr/iletisim" />
-        {/* Blog RSS & Atom beslemeleri */}
+        {/* Blog RSS & Atom & GeoRSS beslemeleri */}
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim RSS 2.0" href="/rss.xml" />
         <link rel="alternate" type="application/atom+xml" title="Alo Yönetim Atom 1.0" href="/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Tesis Yönetimi GeoRSS" href="/api/facility/districts-feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim 5188 Güvenlik GeoRSS" href="/api/security/districts-feed.xml" />
         
         {/* OpenSearch & Humans.txt */}
         <link rel="search" type="application/opensearchdescription+xml" title="Alo Yönetim" href="/opensearch.xml" />

@@ -5,6 +5,7 @@ import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // 1 saat önbellek
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
@@ -26,6 +27,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       if (Array.isArray(parsed)) parsed.forEach((t: string) => tagsSet.add(t));
     } catch {}
   });
+
+  // En son blog güncelleme tarihi
+  const latestPostDate = posts.length > 0
+    ? posts.reduce((latest, p) => p.dateModified > latest ? p.dateModified : latest, posts[0].dateModified).toISOString()
+    : now;
 
   // Her yol (path) için tüm dillerde (TR, EN, RU, AR) bağımsız ve tam yetkili sitemap girdisi üretir
   const makeItems = (
@@ -50,64 +56,72 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   };
 
-  // --- Statik rotalar ---
-  const staticPaths: { path: string; priority: number; changeFreq: 'daily' | 'weekly' | 'monthly' }[] = [
-    { path: '/', priority: 1.0, changeFreq: 'daily' },
-    { path: '/iletisim', priority: 0.9, changeFreq: 'monthly' },
-    { path: '/teklif-al', priority: 0.9, changeFreq: 'monthly' },
-    { path: '/hizmetler', priority: 0.85, changeFreq: 'weekly' },
-    { path: '/hizmetler/tesis-yonetimi', priority: 0.85, changeFreq: 'daily' },
-    { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily' },
-    { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily' },
-    { path: '/hizmetler/teknik-bakim', priority: 0.85, changeFreq: 'daily' },
-    { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly' },
-    { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.85, changeFreq: 'weekly' },
-    { path: '/hizmetler/aidat-takibi', priority: 0.85, changeFreq: 'weekly' },
-    { path: '/hakkimizda', priority: 0.8, changeFreq: 'monthly' },
-    { path: '/kurumsal/vizyon-misyon', priority: 0.6, changeFreq: 'monthly' },
-    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.75, changeFreq: 'monthly' },
-    { path: '/kurumsal/kalite-politikamiz', priority: 0.6, changeFreq: 'monthly' },
-    { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly' },
-    { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly' },
-    { path: '/referanslar', priority: 0.75, changeFreq: 'weekly' },
-    { path: '/basari-hikayeleri', priority: 0.75, changeFreq: 'weekly' },
-    { path: '/guvenlik-akademisi', priority: 0.85, changeFreq: 'weekly' },
-    { path: '/sektorel-cozumler', priority: 0.75, changeFreq: 'weekly' },
-    { path: '/istihdam-koprusu', priority: 0.6, changeFreq: 'monthly' },
-    { path: '/hesaplayici', priority: 0.7, changeFreq: 'monthly' },
-    { path: '/sss', priority: 0.7, changeFreq: 'weekly' },
-    { path: '/sozluk', priority: 0.7, changeFreq: 'weekly' },
-    { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly' },
-    { path: '/blog', priority: 0.8, changeFreq: 'daily' },
-    { path: '/bolgeler', priority: 0.75, changeFreq: 'monthly' },
-    { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly' },
-    { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly' },
-    { path: '/cerez-politikasi', priority: 0.3, changeFreq: 'monthly' },
-    { path: '/kvkk-ve-aydinlatma-metni', priority: 0.3, changeFreq: 'monthly' },
+  // --- Statik rotalar ("Tesis Yönetimi" Odaklı Öncelikler) ---
+  const staticPaths: { path: string; priority: number; changeFreq: 'daily' | 'weekly' | 'monthly'; lastMod?: string }[] = [
+    { path: '/', priority: 1.0, changeFreq: 'daily', lastMod: latestPostDate },
+    { path: '/hizmetler/tesis-yonetimi', priority: 0.95, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler', priority: 0.9, changeFreq: 'weekly', lastMod: now },
+    { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/teknik-bakim', priority: 0.85, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/aidat-takibi', priority: 0.85, changeFreq: 'weekly', lastMod: now },
+    { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.85, changeFreq: 'weekly', lastMod: now },
+    { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly', lastMod: now },
+    { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly', lastMod: now },
+    { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly', lastMod: now },
+    { path: '/teklif-al', priority: 0.9, changeFreq: 'monthly', lastMod: now },
+    { path: '/iletisim', priority: 0.85, changeFreq: 'monthly', lastMod: now },
+    { path: '/hakkimizda', priority: 0.8, changeFreq: 'monthly', lastMod: now },
+    { path: '/sektorel-cozumler', priority: 0.8, changeFreq: 'weekly', lastMod: now },
+    { path: '/hesaplayici', priority: 0.8, changeFreq: 'monthly', lastMod: now },
+    { path: '/guvenlik-akademisi', priority: 0.85, changeFreq: 'weekly', lastMod: now },
+    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.75, changeFreq: 'monthly', lastMod: now },
+    { path: '/referanslar', priority: 0.75, changeFreq: 'weekly', lastMod: now },
+    { path: '/basari-hikayeleri', priority: 0.75, changeFreq: 'weekly', lastMod: now },
+    { path: '/sss', priority: 0.75, changeFreq: 'weekly', lastMod: now },
+    { path: '/sozluk', priority: 0.75, changeFreq: 'weekly', lastMod: now },
+    { path: '/blog', priority: 0.8, changeFreq: 'daily', lastMod: latestPostDate },
+    { path: '/bolgeler', priority: 0.8, changeFreq: 'monthly', lastMod: now },
+    { path: '/kurumsal/vizyon-misyon', priority: 0.6, changeFreq: 'monthly', lastMod: now },
+    { path: '/kurumsal/kalite-politikamiz', priority: 0.6, changeFreq: 'monthly', lastMod: now },
+    { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly', lastMod: now },
+    { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly', lastMod: now },
+    { path: '/istihdam-koprusu', priority: 0.6, changeFreq: 'monthly', lastMod: now },
+    { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly', lastMod: now },
+    { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly', lastMod: now },
+    { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly', lastMod: now },
+    { path: '/cerez-politikasi', priority: 0.3, changeFreq: 'monthly', lastMod: now },
+    { path: '/kvkk-ve-aydinlatma-metni', priority: 0.3, changeFreq: 'monthly', lastMod: now },
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((p) =>
-    makeItems(p.path, p.priority, p.changeFreq)
+    makeItems(p.path, p.priority, p.changeFreq, p.lastMod || now)
   );
 
   const districtRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) => {
-    const prio = d.priority === 1 ? 0.8 : d.priority === 2 ? 0.7 : 0.6;
+    const prio = d.priority === 1 ? 0.85 : d.priority === 2 ? 0.75 : 0.65;
     return makeItems(`/bolgeler/${d.slug}`, prio, 'monthly');
   });
 
   const districtServiceRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) =>
     SERVICES.flatMap((s) => {
+      const isFacilityManagement = s.slug === 'tesis-yonetimi';
       const isHighPriorityService =
+        isFacilityManagement ||
         s.slug === 'guvenlik-yonetimi' ||
-        s.slug === 'tesis-yonetimi' ||
         s.slug === 'teknik-bakim' ||
         s.slug === 'temizlik-ve-hijyen';
+      
       const basePrio = d.priority === 1 ? 0.8 : d.priority === 2 ? 0.7 : 0.6;
-      const prio = isHighPriorityService ? Math.min(0.85, basePrio + 0.1) : basePrio;
+      // Tesis yönetimi kombinasyonları daima en yüksek öncelikle (0.95) sunulur
+      const prio = isFacilityManagement
+        ? 0.95
+        : isHighPriorityService
+        ? Math.min(0.85, basePrio + 0.1)
+        : basePrio;
+
       const freq = isHighPriorityService ? 'weekly' : 'monthly';
-      return makeItems(`/bolgeler/${d.slug}/${s.slug}`, prio, freq);
+      return makeItems(`/bolgeler/${d.slug}/${s.slug}`, prio, freq, now);
     })
   );
 
@@ -128,11 +142,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const referenceRoutes: MetadataRoute.Sitemap = references.flatMap((r) =>
-    makeItems(`/referanslar/${r.slug}`, 0.6, 'monthly', r.updatedAt.toISOString())
+    makeItems(`/referanslar/${r.slug}`, 0.65, 'monthly', r.updatedAt.toISOString())
   );
 
   const sectoralRoutes: MetadataRoute.Sitemap = sectoralSolutions.flatMap((s) =>
-    makeItems(`/sektorel-cozumler/${s.slug}`, 0.6, 'monthly', s.updatedAt.toISOString())
+    makeItems(`/sektorel-cozumler/${s.slug}`, 0.7, 'monthly', s.updatedAt.toISOString())
   );
 
   return [
