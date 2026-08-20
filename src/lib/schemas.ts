@@ -69,8 +69,16 @@ export const ORG_SAME_AS = [
   'https://www.youtube.com/@aloyonetim',
 ];
 
-/** Topikal otorite sinyali (Faz 67 — knowsAbout). */
+/** Topikal otorite ve Knowledge Graph varlık sinyali (Faz 67 — knowsAbout / Wikidata). */
 export const ORG_KNOWS_ABOUT = [
+  { '@type': 'Thing', name: 'Tesis yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
+  { '@type': 'Thing', name: 'Mülk yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1758229' },
+  { '@type': 'Thing', name: 'Kat Mülkiyeti Kanunu (KMK 634)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
+  { '@type': 'Thing', name: '5188 Sayılı Özel Güvenlik Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q11440' },
+  { '@type': 'Thing', name: 'Önleyici Teknik Bakım (Preventive Maintenance)', sameAs: 'https://www.wikidata.org/wiki/Q183057' },
+  { '@type': 'Thing', name: 'ISO 41001 Tesis Yönetim Standardı', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+  { '@type': 'Thing', name: 'Bina Otomasyon ve Yönetim Sistemleri', sameAs: 'https://www.wikidata.org/wiki/Q895066' },
+  { '@type': 'Thing', name: 'İşletme Bütçesi ve Finansal Aidat Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1670988' },
   'Tesis yönetimi',
   'Site yönetimi',
   'Apartman yönetimi',
@@ -233,15 +241,22 @@ export function webSiteSchema(): JsonLdObject {
 export type RatingInput = { ratingValue: string; reviewCount: string };
 
 export function professionalServiceSchema(opts?: {
+  name?: string;
   description?: string;
+  path?: string;
+  areaServed?: string | JsonLdObject;
   aggregateRating?: RatingInput;
+  knowsAbout?: any[];
 }): JsonLdObject {
+  const path = opts?.path ? (opts.path.startsWith('http') ? opts.path : `${BASE_URL}${opts.path}`) : BASE_URL;
+  const id = opts?.path ? `${path}#professionalservice` : LOCALBUSINESS_ID;
+
   return {
     '@type': 'ProfessionalService',
-    '@id': LOCALBUSINESS_ID,
-    name: ORG_NAME,
+    '@id': id,
+    name: opts?.name ?? ORG_NAME,
     image: ORG_LOGO,
-    url: BASE_URL,
+    url: path,
     telephone: ORG_PHONE,
     email: ORG_EMAIL,
     priceRange: ORG_PRICE_RANGE,
@@ -249,8 +264,15 @@ export function professionalServiceSchema(opts?: {
     address: ORG_ADDRESS,
     geo: ORG_GEO,
     hasMap: 'https://www.google.com/maps?q=Alo+Yönetim+Kadıköy',
-    areaServed: AREA_SERVED_GEOCIRCLE,
+    areaServed: opts?.areaServed
+      ? (typeof opts.areaServed === 'string' ? { '@type': 'AdministrativeArea', name: opts.areaServed } : opts.areaServed)
+      : AREA_SERVED_GEOCIRCLE,
     parentOrganization: { '@id': ORG_ID },
+    knowsAbout: opts?.knowsAbout ?? [
+      { '@type': 'Thing', name: 'Tesis Yönetimi (Facility Management)', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
+      { '@type': 'Thing', name: 'ISO 41001 Tesis Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+      { '@type': 'Thing', name: 'Bina Otomasyonu ve Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q895066' },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -299,6 +321,7 @@ export function serviceSchema(opts: {
   offerCatalogName?: string;
   offers?: OfferItem[];
   sameAs?: string;
+  priceRange?: string;
 }): JsonLdObject {
   return {
     '@type': 'Service',
@@ -307,6 +330,7 @@ export function serviceSchema(opts: {
     url: abs(opts.path),
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.sameAs ? { sameAs: opts.sameAs } : {}),
+    ...(opts.priceRange ? { priceRange: opts.priceRange } : {}),
     provider: { '@id': LOCALBUSINESS_ID },
     areaServed: { '@type': 'State', name: 'İstanbul' },
     ...(opts.offers && opts.offers.length
@@ -547,6 +571,7 @@ export function blogPostingSchema(opts: {
   wordCount?: number;
   articleBody?: string;
   about?: { name: string; sameAs?: string }[];
+  mentions?: { name: string; sameAs?: string }[];
 }): JsonLdObject {
   const url = abs(opts.path);
   const author = opts.author
@@ -584,6 +609,13 @@ export function blogPostingSchema(opts: {
         '@type': 'Thing',
         name: a.name,
         ...(a.sameAs ? { sameAs: a.sameAs } : {})
+      }))
+    } : {}),
+    ...(opts.mentions && opts.mentions.length ? {
+      mentions: opts.mentions.map(m => ({
+        '@type': 'Thing',
+        name: m.name,
+        ...(m.sameAs ? { sameAs: m.sameAs } : {})
       }))
     } : {}),
     author,
@@ -1208,4 +1240,194 @@ export function districtCleaningServiceSchema(opts: {
     }
   };
 }
+
+/**
+ * İlçe Bazlı Entegre Tesis Yönetimi Zengin Varlık Şeması (ProfessionalService & OfferCatalog)
+ */
+export function districtFacilityServiceSchema(opts: {
+  districtName: string;
+  path: string;
+  geo?: { lat: number; lng: number };
+  neighborhoods?: string[];
+}): JsonLdObject {
+  const { districtName, path, geo, neighborhoods } = opts;
+  const url = `${BASE_URL}${path}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${url}#facility-service`,
+    name: `${districtName} Profesyonel Tesis Yönetimi & Entegre Site İşletme Şirketi`,
+    description: `${districtName} genelinde apartman, site, plaza ve rezidanslar için 634 sayılı KMK tam uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım, şeffaf aidat muhasebesi ve temizlik işletmesi.`,
+    url,
+    serviceType: 'Entegre Tesis ve Mülk Yönetimi',
+    category: 'ProfessionalService',
+    priceRange: '₺₺',
+    about: [
+      { '@type': 'Thing', name: 'Facility management', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
+      { '@type': 'Thing', name: 'Property management', sameAs: 'https://www.wikidata.org/wiki/Q1758229' },
+      { '@type': 'Thing', name: 'Condominium', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
+      { '@type': 'Thing', name: 'Preventive maintenance', sameAs: 'https://www.wikidata.org/wiki/Q183057' }
+    ],
+    provider: {
+      '@type': 'Corporation',
+      '@id': ORG_ID,
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: ORG_PHONE,
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
+          credentialCategory: 'GovernmentPermit'
+        }
+      ]
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: `${districtName}, İstanbul`,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'İstanbul, Türkiye'
+      },
+      ...(geo ? {
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: geo.lat,
+          longitude: geo.lng
+        }
+      } : {}),
+      ...(neighborhoods && neighborhoods.length ? {
+        description: `${neighborhoods.join(', ')} mahallelerinde yerinde 7/24 tesis yönetim masası.`
+      } : {})
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${districtName} Entegre Tesis Yönetimi ve İşletme Çözümleri`,
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: '634 Sayılı KMK m.37 Şeffaf Yıllık İşletme Projesi & Bütçe Yönetimi'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: '5188 Lisanslı Özel Güvenlik, PTS Plaka Tanıma & 7/24 CCTV İzleme'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Asansör, Jeneratör & Hidrofor 7/24 Mobil Önleyici Teknik Servisi'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'TSE 13811 Standartlarında Ortak Alan Temizliği & Biyosidal İlaçlama'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Otomatik SMS/Kredi Kartı ile Aidat Tahsilatı & Anlaşmalı Hukuki İcra Masası'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: '4 Mevsim Peyzaj Bakımı, Çim Biçme & Akıllı Otomatik Sulama Sistemleri'
+          }
+        }
+      ]
+    },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/teklif-al?hizmet=tesis-yonetimi&bolge=${encodeURIComponent(districtName)}`,
+        inLanguage: 'tr-TR',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      },
+      result: {
+        '@type': 'Reservation',
+        name: `${districtName} Ücretsiz Tesis & Site Keşif Randevusu`
+      }
+    }
+  };
+}
+
+/**
+ * Kat Mülkiyeti Hukuku ve İcra Danışmanlığı Şeması (Schema.org LegalService).
+ */
+export function legalServiceSchema(opts?: {
+  name?: string;
+  description?: string;
+  path?: string;
+  areaServed?: string;
+}): JsonLdObject {
+  const path = opts?.path ?? '/hizmetler/hukuk-ve-icra-danismanligi';
+  const name = opts?.name ?? 'Kat Mülkiyeti Hukuku ve Aidat İcra Takibi Danışmanlığı';
+  const description =
+    opts?.description ??
+    '634 Sayılı Kat Mülkiyeti Kanunu (KMK), icra takibi, şeffaf işletme projesi denetimi ve genel kurul hukuki danışmanlık hizmetleri.';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LegalService',
+    '@id': `${BASE_URL}${path}#legalservice`,
+    name,
+    description,
+    url: `${BASE_URL}${path}`,
+    telephone: ORG_PHONE,
+    email: ORG_EMAIL,
+    priceRange: ORG_PRICE_RANGE,
+    image: `${BASE_URL}/images/hero-poster-v5.webp`,
+    address: ORG_ADDRESS,
+    geo: ORG_GEO,
+    parentOrganization: { '@id': ORG_ID },
+    areaServed: opts?.areaServed
+      ? { '@type': 'AdministrativeArea', name: opts.areaServed }
+      : AREA_SERVED_GEOCIRCLE,
+    knowsAbout: [
+      { '@type': 'Thing', name: 'Kat Mülkiyeti Kanunu (KMK 634)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
+      { '@type': 'Thing', name: 'İcra ve İflas Hukuku', sameAs: 'https://www.wikidata.org/wiki/Q1148408' },
+      { '@type': 'Thing', name: 'İşletme Projesi ve Aidat Borçlandırması', sameAs: 'https://www.wikidata.org/wiki/Q1670988' },
+    ],
+  };
+}
+
+
+
 
