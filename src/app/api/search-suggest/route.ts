@@ -25,6 +25,16 @@ import { DISTRICTS } from '@/data/districts';
 
 const STATIC_TOOLS = [
   {
+    title: 'İnteraktif Tesis Yönetimi Uyumluluk & Tasarruf Radarı',
+    description: 'Sitenizin KMK m.37, 5188 güvenlik, teknik ve hijyen sağlık skoru ile %30 tasarruf simülatörü.',
+    url: `${BASE_URL}/hizmetler/tesis-yonetimi`
+  },
+  {
+    title: 'Tesis Yönetimi Aidat & Bütçe Hesaplayıcı',
+    description: 'Daire ve bağımsız bölüm sayısına göre resmi aidat ve işletme maliyet simülatörü.',
+    url: `${BASE_URL}/hesaplayici`
+  },
+  {
     title: '5188 Güvenlik Risk Skoru & Mevzuat Radarı',
     description: 'Sitenizin 5188 yasal izin, kamera ve devriye risk skoru hesaplayıcısı.',
     url: `${BASE_URL}/hizmetler/guvenlik-yonetimi`
@@ -41,17 +51,12 @@ const STATIC_TOOLS = [
   },
   {
     title: 'İstanbul İlçe Aidat & Tasarruf Isı Haritası (2026)',
-    description: '12 ilçenin ortalama m² aidat endeksi ve tasarruf simülatörü.',
+    description: '39 ilçenin ortalama m² aidat endeksi ve tasarruf simülatörü.',
     url: `${BASE_URL}/bolgeler`
   },
   {
-    title: 'Tesis Yönetimi Aidat & Bütçe Hesaplayıcı',
-    description: 'Daire sayısına göre resmi aidat ve işletme maliyet simülatörü.',
-    url: `${BASE_URL}/hesaplayici`
-  },
-  {
     title: 'Apartman & Site Yönetimi Terimler Sözlüğü',
-    description: '5188, KMK, arsa payı, reaktif ceza ve tüm site yönetimi terimleri.',
+    description: '5188, KMK, arsa payı, reaktif ceza, SLA, BMS ve tüm site yönetimi terimleri.',
     url: `${BASE_URL}/sozluk`
   },
   {
@@ -99,15 +104,19 @@ export async function GET(req: NextRequest) {
     // 2. İlçe & İlçe-Hizmet Kombinasyonu Eşleşmeleri (Districts)
     for (const district of DISTRICTS) {
       if (district.name.toLowerCase().includes(normalizedQuery)) {
-        suggestions.push(`${district.name} Profesyonel Site & Tesis Yönetimi`);
-        descriptions.push(`${district.name} bölgesinde 7/24 entegre tesis ve bina yönetimi hizmetleri.`);
-        urls.push(`${BASE_URL}/bolgeler/${district.slug}`);
+        suggestions.push(`${district.name} Profesyonel Tesis Yönetimi & Site İşletmesi`);
+        descriptions.push(`${district.name} bölgesinde 634 KMK uyumlu entegre tesis yönetimi, 5188 güvenlik ve teknik işletme.`);
+        urls.push(`${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi`);
 
         // Güvenlik veya aidat kelimesi geçiyorsa direkt o hizmeti de öner
         if (normalizedQuery.includes('güvenlik') || normalizedQuery.includes('guvenlik')) {
           suggestions.push(`${district.name} Özel Güvenlik Şirketi & Site Güvenliği`);
           descriptions.push(`5188 lisanslı güvenlik personeli, PTS ve 7/24 devriye hizmeti.`);
           urls.push(`${BASE_URL}/bolgeler/${district.slug}/guvenlik-yonetimi`);
+        } else {
+          suggestions.push(`${district.name} Tüm Hizmetler & Yerel Rehber`);
+          descriptions.push(`${district.name} bölgesindeki tüm yönetim, güvenlik, temizlik ve teknik bakım hizmetlerimiz.`);
+          urls.push(`${BASE_URL}/bolgeler/${district.slug}`);
         }
         if (suggestions.length >= 5) break;
       }

@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { assertAdmin } from '@/lib/auth';
+import { notifyIndexNow } from '@/lib/indexnow-auto';
 
 export async function saveAuthor(id: string, data: { name: string; slug: string; bio?: string; avatar?: string }, lang: string) {
   try {
@@ -32,6 +33,14 @@ export async function saveAuthor(id: string, data: { name: string; slug: string;
 
     revalidatePath(`/${lang}/admin/authors`);
     revalidatePath(`/${lang}/admin/posts`);
+    revalidatePath(`/${lang}/blog/yazar/${data.slug}`);
+
+    notifyIndexNow([
+      `/blog/yazar/${data.slug}`,
+      '/blog',
+      '/sitemap.xml'
+    ]);
+
     return { success: true };
   } catch (error: any) {
     console.error('Save author error:', error);
@@ -52,10 +61,20 @@ export async function deleteAuthor(id: string, lang: string) {
       return { error: 'Bu yazara ait yazılar var. Önce yazıları silmeli veya başka yazara taşımalısınız.' };
     }
 
+    const targetAuthor = await prisma.author.findUnique({ where: { id }, select: { slug: true } });
+
     await prisma.author.delete({ where: { id } });
     
     revalidatePath(`/${lang}/admin/authors`);
     revalidatePath(`/${lang}/admin/posts`);
+
+    if (targetAuthor?.slug) {
+      notifyIndexNow([
+        `/blog/yazar/${targetAuthor.slug}`,
+        '/sitemap.xml'
+      ]);
+    }
+
     return { success: true };
   } catch (error) {
     console.error('Delete author error:', error);

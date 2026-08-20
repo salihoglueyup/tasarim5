@@ -29,10 +29,12 @@ export async function GET() {
       avgDuesPerM2TRY: avgDuesPerM2,
       estimatedSavingsPercent: `${estimatedSavingsPercent}%`,
       securityComplianceRequirement: securityIntensity,
+      facilityManagementCompliance: '634 Sayılı KMK & ISO 9001 Tam Uyumlu',
       keyNeighborhoods: d.neighborhoods.join(', '),
+      facilityManagementUrl: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
       servicePageUrl: `${BASE_URL}/bolgeler/${d.slug}`,
       securityPageUrl: `${BASE_URL}/bolgeler/${d.slug}/guvenlik-yonetimi`,
-      lastUpdated: '2026-08-01'
+      lastUpdated: '2026-08-20'
     };
   });
 
@@ -40,8 +42,8 @@ export async function GET() {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     '@id': `${BASE_URL}/api/datasets/istanbul-facility-data#dataset`,
-    name: 'İstanbul 48 İlçe Tesis Yönetimi, Aidat Maliyetleri ve 5188 Güvenlik Veri Seti (2026)',
-    description: 'İstanbul genelindeki 48 ilçenin ortalama m² aidat piyasa değerleri, konut yoğunluğu, tahmini tasarruf oranları ve 5188 sayılı kanun güvenlik gereksinim analiz verisi.',
+    name: `İstanbul ${DISTRICTS.length} İlçe Tesis Yönetimi, Aidat Maliyetleri ve KMK İşletme Veri Seti (2026)`,
+    description: `İstanbul genelindeki ${DISTRICTS.length} ilçenin ortalama m² aidat piyasa değerleri, konut yoğunluğu, tahmini bütçe tasarruf oranları, 634 sayılı KMK işletme standartları ve 5188 sayılı kanun güvenlik gereksinim analiz verisi.`,
     url: `${BASE_URL}/api/datasets/istanbul-facility-data`,
     identifier: 'https://doi.org/10.5281/zenodo.aloyonetim.istanbul.2026',
     license: 'https://creativecommons.org/licenses/by/4.0/',
@@ -65,6 +67,8 @@ export async function GET() {
       address: ORG_ADDRESS
     },
     keywords: [
+      'İstanbul Tesis Yönetimi Veri Seti',
+      'Entegre Tesis Yönetimi İstatistikleri',
       'İstanbul Site Yönetimi Verileri',
       '5188 Özel Güvenlik İstatistikleri',
       'İlçe Aidat Maliyetleri 2026',
@@ -75,6 +79,7 @@ export async function GET() {
       { '@type': 'PropertyValue', name: 'Metrekare Aidat Ortalaması', unitText: 'TL/m²' },
       { '@type': 'PropertyValue', name: 'Bütçe Tasarruf Oranı', unitText: '%' },
       { '@type': 'PropertyValue', name: 'Yönetilen Proje Sayısı', unitText: 'Adet' },
+      { '@type': 'PropertyValue', name: 'Tesis Yönetimi Uyumluluk Standardı', unitText: 'Metin' },
       { '@type': 'PropertyValue', name: '5188 Güvenlik Gereksinim Seviyesi', unitText: 'Metin' }
     ],
     distribution: [

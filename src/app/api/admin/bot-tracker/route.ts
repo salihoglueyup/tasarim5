@@ -35,6 +35,8 @@ export async function GET(request: NextRequest) {
     { name: 'RFC 7946 GeoJSON District Map', url: `${BASE_URL}/api/geo/districts.geojson`, status: 'Active', format: 'GeoJSON' },
     { name: 'OpenGIS KML Map', url: `${BASE_URL}/api/geo/istanbul.kml`, status: 'Active', format: 'KML XML' },
     { name: 'Google Dataset Search Engine', url: `${BASE_URL}/api/datasets/istanbul-facility-data`, status: 'Active', format: 'Schema.org Dataset' },
+    { name: 'KMK 634 Facility Legal Template Generator', url: `${BASE_URL}/api/facility/legal-templates`, status: 'Active', format: 'DigitalDocument' },
+    { name: 'Facility Management GeoRSS XML Feed', url: `${BASE_URL}/api/facility/districts-feed.xml`, status: 'Active', format: 'GeoRSS XML' },
     { name: '5188 Legal Template Generator', url: `${BASE_URL}/api/security/legal-templates`, status: 'Active', format: 'DigitalDocument' }
   ];
 

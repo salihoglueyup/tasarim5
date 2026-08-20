@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { assertAdmin } from '@/lib/auth';
 import { logAction } from '@/lib/audit';
+import { notifyIndexNow } from '@/lib/indexnow-auto';
 import { z } from 'zod';
 
 const CategorySchema = z.object({
@@ -54,6 +55,15 @@ export async function saveCategory(id: string, data: { name: string; slug: strin
 
     revalidatePath(`/${lang}/admin/categories`);
     revalidatePath(`/${lang}/admin/posts`);
+    revalidatePath(`/${lang}/blog`);
+    revalidatePath(`/${lang}/blog/kategori/${safeData.slug}`);
+
+    notifyIndexNow([
+      `/blog/kategori/${safeData.slug}`,
+      '/blog',
+      '/sitemap.xml'
+    ]);
+
     return { success: true };
   } catch (error: any) {
     console.error('Save category error:', error);
@@ -79,11 +89,23 @@ export async function deleteCategory(id: string, lang: string) {
       return { error: 'Bu kategorinin alt kategorileri var. Önce onları silmeli veya taşımalısınız.' };
     }
 
+    const targetCat = await prisma.category.findUnique({ where: { id }, select: { slug: true } });
+
     await prisma.category.delete({ where: { id } });
     await logAction(session.userId, 'DELETE', 'Category', id);
     
     revalidatePath(`/${lang}/admin/categories`);
     revalidatePath(`/${lang}/admin/posts`);
+    revalidatePath(`/${lang}/blog`);
+
+    if (targetCat?.slug) {
+      notifyIndexNow([
+        `/blog/kategori/${targetCat.slug}`,
+        '/blog',
+        '/sitemap.xml'
+      ]);
+    }
+
     return { success: true };
   } catch (error) {
     console.error('Delete category error:', error);
