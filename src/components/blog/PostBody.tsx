@@ -26,9 +26,17 @@ if (typeof DOMPurify.addHook === 'function') {
   });
 }
 
-export default function PostBody({ htmlContent, title = 'Alo Yönetim' }: { htmlContent: string; title?: string }) {
-  // İçeriği otomatik linkle
-  const processedHtml = autoLinkHtml(htmlContent);
+export default function PostBody({
+  htmlContent,
+  title = 'Alo Yönetim',
+  currentUrl,
+}: {
+  htmlContent: string;
+  title?: string;
+  currentUrl?: string;
+}) {
+  // İçeriği otomatik linkle (self-referencing döngüleri engelleyerek)
+  const processedHtml = autoLinkHtml(htmlContent, currentUrl);
 
   // Otomatik Alt Etiketi Enjeksiyonu (Faz 22: Görsel SEO)
   // Eğer img etiketinde alt="" yoksa, yazının başlığını ekler.
