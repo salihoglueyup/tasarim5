@@ -24,6 +24,10 @@ export type ServiceDef = {
   pillar: string;
   /** Entity SEO için Wikipedia (veya otoriter) linki. */
   sameAs?: string;
+  /** Wikidata Knowledge Graph URI. */
+  wikidata?: string;
+  /** İlgili Yasal veya Uluslararası Standartlar. */
+  standards?: string[];
 };
 
 export const SERVICES: ServiceDef[] = [
@@ -42,6 +46,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     keywords: ['aidat takibi', 'aidat ödeme', 'site aidat yönetimi'],
     pillar: '/hizmetler/aidat-takibi',
+    wikidata: 'https://www.wikidata.org/wiki/Q1670988',
   },
   {
     slug: 'guvenlik-yonetimi',
@@ -70,6 +75,8 @@ export const SERVICES: ServiceDef[] = [
     ],
     pillar: '/hizmetler/guvenlik-yonetimi',
     sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
+    wikidata: 'https://www.wikidata.org/wiki/Q11440',
+    standards: ['5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun'],
   },
   {
     slug: 'tesis-yonetimi',
@@ -77,16 +84,33 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'Tesis Yönetimi',
     icon: 'apartment',
     summary:
-      'Aidat takibinden bütçe planlamasına, tüm ortak alan işletmesini şeffaf ve dijital olarak yöneten profesyonel tesis yönetimi.',
+      'Aidat takibinden bütçe planlamasına, 5188 güvenlikten teknik bakıma tüm ortak alan işletmesini şeffaf ve dijital olarak yöneten entegre tesis yönetimi.',
     benefits: [
-      'Dijital aidat takibi ve online ödeme',
-      'Şeffaf işletme projesi ve bütçe',
-      'Ortak alanların bütünsel işletmesi',
-      'Kat malikleri kuruluna düzenli raporlama',
+      'ISO 41001:2018 standartlarında entegre tesis yönetimi',
+      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) tam hukuki uyum',
+      'Dijital aidat tahsilatı ve şeffaf işletme projesi bütçeleme',
+      '7/24 mobil teknik bakım, acil müdahale ve enerji tasarrufu',
     ],
-    keywords: ['tesis yönetimi', 'bina yönetimi', 'plaza yönetimi', 'avm yönetimi'],
+    keywords: [
+      'tesis yönetimi',
+      'profesyonel tesis yönetimi',
+      'entegre tesis yönetimi',
+      'istanbul tesis yönetimi',
+      'tesis yönetim şirketi',
+      'tesis yönetim firmaları',
+      'bina ve tesis yönetimi',
+      'site ve tesis yönetimi',
+      'plaza tesis yönetimi',
+      'rezidans tesis yönetimi',
+      'endüstriyel tesis yönetimi',
+      'bina yönetimi',
+      'apartman yönetimi',
+      'site yönetimi'
+    ],
     pillar: '/hizmetler/tesis-yonetimi',
     sameAs: 'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
+    wikidata: 'https://www.wikidata.org/wiki/Q1391515',
+    standards: ['ISO 41001:2018', '634 Sayılı Kat Mülkiyeti Kanunu (KMK)'],
   },
   {
     slug: 'temizlik-ve-hijyen',
