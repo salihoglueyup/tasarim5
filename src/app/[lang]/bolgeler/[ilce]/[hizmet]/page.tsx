@@ -13,6 +13,9 @@ import {
   InteractiveTechnicalAuditRadarSeo,
   CleaningScheduleGeneratorSeo,
   DistrictCleaningAuditTableSeo,
+  DistrictFacilityAuditTableSeo,
+  InteractiveFacilityAuditRadarSeo,
+  FacilityLegalTemplateGeneratorSeo,
 } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 import {
@@ -21,6 +24,7 @@ import {
   localServiceSchema,
   localBusinessAreaSchema,
   faqPageSchema,
+  districtFacilityServiceSchema,
   districtSecurityServiceSchema,
   districtTechnicalServiceSchema,
   districtCleaningServiceSchema,
@@ -122,6 +126,7 @@ export async function generateMetadata({
   }
   const neighborhoods = district.neighborhoods.slice(0, 2).join(', ');
 
+  const isFacility = service.slug === 'tesis-yonetimi';
   const isSecurity = service.slug === 'guvenlik-yonetimi';
   const isTechnical = service.slug === 'teknik-bakim';
   const isCleaning = service.slug === 'temizlik-ve-hijyen';
@@ -130,7 +135,21 @@ export async function generateMetadata({
   let metaDesc = `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`;
   let serviceKeywords: string[] = [];
 
-  if (isSecurity) {
+  if (isFacility) {
+    metaTitle = `${district.name} Tesis Yönetimi & Site Yönetim Şirketi — Alo Yönetim`;
+    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 güvenlik, teknik bakım ve şeffaf KMK aidat tahsilatı. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    serviceKeywords = [
+      `${district.name} tesis yönetimi`,
+      `${district.name} site yönetimi`,
+      `${district.name} bina yönetimi`,
+      `${district.name} apartman yönetimi`,
+      `${district.name} tesis yönetim şirketi`,
+      `${district.name} site yönetim firmaları`,
+      `${district.name} entegre tesis yönetimi`,
+      `${district.name} profesyonel tesis yönetimi`,
+      `${district.name} kmk site yönetimi`,
+    ];
+  } else if (isSecurity) {
     metaTitle = `${district.name} Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`;
     metaDesc = `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
     serviceKeywords = [
@@ -194,6 +213,7 @@ export default async function ServiceDistrictPage({
 
   const path = `/bolgeler/${district.slug}/${service.slug}`;
   const faqs = serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
+  const isFacility = service.slug === 'tesis-yonetimi';
   const isSecurity = service.slug === 'guvenlik-yonetimi';
   const isTechnical = service.slug === 'teknik-bakim';
   const isCleaning = service.slug === 'temizlik-ve-hijyen';
@@ -201,7 +221,10 @@ export default async function ServiceDistrictPage({
   let pageHeaderTitle = `${service.name} — ${district.name}`;
   let pageHeaderDesc = `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
 
-  if (isSecurity) {
+  if (isFacility) {
+    pageHeaderTitle = `${district.name} Profesyonel Tesis Yönetimi & Site İşletmeciliği`;
+    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK tam uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve şeffaf aidat muhasebesi.`;
+  } else if (isSecurity) {
     pageHeaderTitle = `${district.name} Özel Güvenlik Şirketi & Site Güvenliği`;
     pageHeaderDesc = `${district.name} ve tüm mahallelerinde 5188 sayılı kanun standartlarında lisanslı özel güvenlik personeli ve 7/24 kamera izleme hizmeti.`;
   } else if (isTechnical) {
@@ -212,7 +235,9 @@ export default async function ServiceDistrictPage({
     pageHeaderDesc = `${district.name} siteleri için TSE HYB standartlarında blok kat temizliği, dağcı cam silimi ve biyosidal ilaçlama.`;
   }
 
-  const breadcrumbName = isSecurity
+  const breadcrumbName = isFacility
+    ? `${district.name} Tesis Yönetimi`
+    : isSecurity
     ? `${district.name} Özel Güvenlik`
     : isTechnical
     ? `${district.name} Teknik Bakım`
@@ -228,7 +253,9 @@ export default async function ServiceDistrictPage({
   ]);
 
   const serviceLd = localServiceSchema({
-    serviceType: isSecurity
+    serviceType: isFacility
+      ? 'Entegre Tesis ve Mülk Yönetimi'
+      : isSecurity
       ? 'Özel Güvenlik ve Site Emniyeti'
       : isTechnical
       ? 'Teknik Bakım ve Mühendislik'
@@ -251,6 +278,15 @@ export default async function ServiceDistrictPage({
     path,
     speakableSelectors: ['h1', '.tldr'],
   });
+
+  const facilityServiceLd = isFacility
+    ? districtFacilityServiceSchema({
+        districtName: district.name,
+        path,
+        geo: district.geo,
+        neighborhoods: district.neighborhoods,
+      })
+    : null;
 
   const securityServiceLd = isSecurity
     ? districtSecurityServiceSchema({
@@ -285,6 +321,7 @@ export default async function ServiceDistrictPage({
     serviceLd,
     businessLd,
     faqLd,
+    ...(facilityServiceLd ? [facilityServiceLd] : []),
     ...(securityServiceLd ? [securityServiceLd] : []),
     ...(technicalServiceLd ? [technicalServiceLd] : []),
     ...(cleaningServiceLd ? [cleaningServiceLd] : []),
@@ -303,7 +340,9 @@ export default async function ServiceDistrictPage({
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-14">
         {/* TL;DR (AI/snippet için) */}
         <TldrBlock>
-          {isSecurity ? (
+          {isFacility ? (
+            `${district.name}'de 634 sayılı KMK tam uyumlu profesyonel site ve tesis yönetimi için Alo Yönetim; şeffaf bütçe işletme projesi, 5188 lisanslı güvenlik, 7/24 mobil teknik bakım ve endüstriyel hijyen hizmeti sunar. ${district.name}'de %25-30 aidat ve işletme tasarrufu garantisi. 48 saat içinde ücretsiz tesis keşif raporu için: 0216 550 48 48.`
+          ) : isSecurity ? (
             `${district.name}'de 5188 sayılı Kanun kapsamında site ve tesis güvenliği için Alo Yönetim; Valilik izinli lisanslı güvenlik personeli, PTS plaka tanıma, 4K gece görüşlü CCTV ve 7/24 devriye masası ile hizmet verir. ${district.name}'de ${district.managedProjects}+ projede 0 güvenlik açığı sağlanmıştır. 48 saat içinde ücretsiz güvenlik keşif raporu için: 0216 550 48 48.`
           ) : isTechnical ? (
             `${district.name}'de bina ve site teknik işletmesi için Alo Yönetim; Sanayi Bakanlığı yetkili asansör bakımı, jeneratör yük testleri, reaktif ceza önleyici kompanzasyon takibi ve hidrofor kontrolü sunar. Sıfır arıza, yüzde 100 yasal muayene garantisi: 0216 550 48 48.`
@@ -317,10 +356,20 @@ export default async function ServiceDistrictPage({
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
-            {district.name}&apos;de {isSecurity ? '5188 Sayılı Kanun Kapsamında Özel Güvenlik' : isTechnical ? 'TMMOB Uyumlu Profesyonel Teknik Bakım' : isCleaning ? 'TSE HYB Onaylı Site Temizliği' : service.name}
+            {isFacility
+              ? `${district.name}'de 634 Sayılı KMK Uyumlu Profesyonel Tesis Yönetimi`
+              : isSecurity
+              ? '5188 Sayılı Kanun Kapsamında Özel Güvenlik'
+              : isTechnical
+              ? 'TMMOB Uyumlu Profesyonel Teknik Bakım'
+              : isCleaning
+              ? 'TSE HYB Onaylı Site Temizliği'
+              : service.name}
           </h2>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
-            {isSecurity
+            {isFacility
+              ? `${district.name} genelindeki sitelerde, rezidanslarda ve plazalarda Kat Mülkiyeti Kanunu'na tam uygun şeffaf bütçe yönetimi, yasal işletme projesi, 5188 lisanslı güvenlik ve mobil teknik işletme hizmeti sunuyoruz.`
+              : isSecurity
               ? `${district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz.`
               : isTechnical
               ? `${district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, jeneratör ATS kontrolleri ve kompanzasyon cezası engelleme protokolleriyle güvenceye alıyoruz.`
@@ -335,6 +384,21 @@ export default async function ServiceDistrictPage({
             tüm mahallelerinde yerinde hizmet veriyoruz.
           </p>
         </div>
+
+        {/* Tesis Yönetimi Hizmeti için Özel Denetim Matrisi & Radar & Hukuk Jeneratörü */}
+        {isFacility && (
+          <div className="flex flex-col gap-12">
+            <DistrictFacilityAuditTableSeo
+              districtName={district.name}
+              districtSlug={district.slug}
+              population={district.population}
+              neighborhoods={district.neighborhoods}
+              localNeeds={district.localNeeds}
+            />
+            <InteractiveFacilityAuditRadarSeo districtName={district.name} />
+            <FacilityLegalTemplateGeneratorSeo />
+          </div>
+        )}
 
         {/* Güvenlik Hizmeti için Özel Rozetler & Denetim Matrisi */}
         {isSecurity && (
