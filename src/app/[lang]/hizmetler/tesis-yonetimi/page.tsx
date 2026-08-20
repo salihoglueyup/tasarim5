@@ -1,130 +1,162 @@
-"use client";
-
-import PageHeader from '@/components/layout/PageHeader';
-import RelatedServices from '@/components/sections/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { useLanguage } from '@/context/LanguageContext';
+import type { Metadata } from 'next';
+import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
-import { RelatedArticles } from '@/components';
-import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import FacilityCalculator from '@/components/sections/FacilityCalculator';
-import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
-import Image from 'next/image';
+import { 
+  generateBreadcrumbs, 
+  webPageSchema, 
+  serviceSchema, 
+  faqPageSchema,
+  professionalServiceSchema,
+} from '@/lib/schemas';
+import { 
+  KeywordAnalysisSeo, 
+  VoiceSearchSpeakableSeo, 
+  DefinedTermSetSeo 
+} from '@/components/seo';
+import { getFacilityManagementSemanticGraph } from '@/lib/seoEngine';
+import TesisYonetimiClient from './TesisYonetimiClient';
 
-export default function TesisYonetimi() {
-  const { t } = useLanguage();
+export const revalidate = 86400; // 24 saat ISR
+export const dynamicParams = true;
 
-  const legalSteps = [
-    { name: t('fac_step_1_title'), text: t('fac_step_1_desc') },
-    { name: t('fac_step_2_title'), text: t('fac_step_2_desc') },
-    { name: t('fac_step_3_title'), text: t('fac_step_3_desc') },
-    { name: t('fac_step_4_title'), text: t('fac_step_4_desc') }
-  ];
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
-  const faqs = [
-    { question: t('fac_faq_1_q'), answer: t('fac_faq_1_a') },
-    { question: t('fac_faq_2_q'), answer: t('fac_faq_2_a') },
-    { question: t('fac_faq_3_q'), answer: t('fac_faq_3_a') }
-  ];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+
+  const title = t.serv_fac_meta_title || 'Profesyonel Tesis Yönetimi | Alo Yönetim İstanbul';
+  const description = t.serv_fac_meta_desc || 'İstanbul genelinde apartman, site, plaza ve rezidanslar için profesyonel tesis yönetimi. 7/24 güvenlik, temizlik, teknik bakım ve şeffaf aidat takibi.';
+
+  return buildMetadata({
+    title,
+    description,
+    path: '/hizmetler/tesis-yonetimi',
+    lang,
+    targetKeyword: 'tesis yönetimi',
+    ogImageType: 'service',
+    keywords: [
+      'tesis yönetimi',
+      'profesyonel tesis yönetimi',
+      'entegre tesis yönetimi',
+      'istanbul tesis yönetimi',
+      'tesis yönetim şirketi',
+      'tesis yönetim firmaları',
+      'bina ve tesis yönetimi',
+      'site ve tesis yönetimi',
+      'plaza tesis yönetimi',
+      'rezidans tesis yönetimi',
+      'endüstriyel tesis yönetimi',
+      'apartman yönetimi',
+      'site yönetimi',
+      'iso 41001 tesis yönetimi',
+      'kmk 634 tesis işletmesi'
+    ],
+  });
+}
+
+export default async function TesisYonetimiPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+
+  const pageTitle = t.serv_fac_name || 'Tesis Yönetimi';
+  const pageDesc = t.fac_desc || 'İstanbul genelinde apartman, site, plaza ve entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve aidat icra takibi hizmetleri.';
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t('nav_home'), url: '/' },
-    { name: t('nav_all_services'), url: '/hizmetler' },
-    { name: t('fac_title'), url: '/hizmetler/tesis-yonetimi' }
+    { name: t.nav_home || 'Anasayfa', url: '/' },
+    { name: t.nav_all_services || 'Hizmetler', url: '/hizmetler' },
+    { name: pageTitle, url: '/hizmetler/tesis-yonetimi' },
   ]);
+
+  const serviceLd = serviceSchema({
+    serviceType: pageTitle,
+    description: pageDesc,
+    path: '/hizmetler/tesis-yonetimi',
+    priceRange: '₺₺',
+  });
+
+  const professionalLd = professionalServiceSchema({
+    name: 'Alo Yönetim Profesyonel Tesis ve Mülk Yönetimi',
+    description: 'İstanbul genelinde apartman, site, plaza ve endüstriyel tesisler için ISO 41001 standartlarında entegre tesis yönetimi hizmetleri.',
+    path: '/hizmetler/tesis-yonetimi',
+    areaServed: 'İstanbul, Türkiye (39 İlçe)',
+  });
+
+  const faqs = [
+    { 
+      question: t.fac_faq_1_q || 'Profesyonel tesis yönetimi neleri kapsar?', 
+      answer: t.fac_faq_1_a || 'Tesis yönetimi; 5188 sayılı kanuna uygun fiziki güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, aidat takibi, KMK hukuki danışmanlığı, peyzaj ve havuz bakımını tek çatı altında entegre olarak kapsar.' 
+    },
+    { 
+      question: t.fac_faq_2_q || 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?', 
+      answer: t.fac_faq_2_a || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.' 
+    },
+    { 
+      question: t.fac_faq_3_q || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?', 
+      answer: t.fac_faq_3_a || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.' 
+    }
+  ];
+
+  const faqLd = faqPageSchema(faqs);
+
+  const pageLd = webPageSchema({
+    name: `${pageTitle} | Alo Yönetim`,
+    description: pageDesc,
+    path: '/hizmetler/tesis-yonetimi',
+    speakableSelectors: ['h1', 'h2', '.tldr', '.summary-badge'],
+  });
+
+  const semanticGraphLd = getFacilityManagementSemanticGraph();
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, webPageSchema({ path: '/hizmetler/tesis-yonetimi', speakableSelectors: ['h1', '#speakable-content'] })]} />
-      <ServiceSeo 
-        serviceType={t('serv_fac_name')}
-        description={t('fac_desc')}
-        areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe"]}
-        priceRange="₺₺"
-        sameAs="https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi"
+      <JsonLd data={[breadcrumbLd, serviceLd, professionalLd, faqLd, pageLd, semanticGraphLd]} />
+      <KeywordAnalysisSeo
+        title={pageTitle}
+        description={pageDesc}
+        path="/hizmetler/tesis-yonetimi"
+        targetKeyword="tesis yönetimi"
+        keywords={[
+          'tesis yönetimi',
+          'entegre tesis yönetimi',
+          'istanbul tesis yönetimi',
+          'bina yönetimi',
+          'site yönetimi',
+          'iso 41001'
+        ]}
       />
-      
-      {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt="tesis-yonetimi hero" fill className="object-cover object-center opacity-30" priority />
-        </div>
-        
-        {/* Abstract Minimal Animation */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
-            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
-            <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
-            <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
-            <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
-        </div>
-
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center gap-6"
-          >
-            <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
-              {t('fac_banner_badge')}
-            </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') }} />
-            
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: `Alo Yönetim - ${t('serv_fac_name')}` }}
-              ratingValue={4.9}
-              reviewCount={312}
-              className="mt-2"
-            />
-
-            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('fac_banner_desc')}
-            </p>
-            <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
-        
-        {/* Facility Calculator */}
-        <div className="-mt-32 relative z-30">
-          <FacilityCalculator />
-        </div>
-
-        {/* Legal Debt Collection 4-Step Flow using HowToSeo */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <HowToSeo 
-            name={t('fac_steps_title')}
-            description="Tesis yönetimine profesyonel geçiş sürecimiz dört temel adımdan oluşmaktadır."
-            steps={legalSteps}
-          />
-        </div>
-
-        {/* Facility Specific Social Proof */}
-        <FacilityTestimonials />
-
-        {/* Service Specific FAQ via DynamicFAQ Component */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <DynamicFAQ faqs={faqs} title={t('fac_faq_title')} />
-        </div>
-
-      </section>
-
-      <SeoTextSection
-        titleKey="tesis_seo_title"
-        p1Key="tesis_seo_p1"
-        p2Key="tesis_seo_p2"
+      <VoiceSearchSpeakableSeo
+        question="İstanbul'da profesyonel tesis yönetimi hizmeti neleri kapsar?"
+        directAnswer="Alo Yönetim; 634 sayılı KMK ve ISO 41001 standartlarında 5188 lisanslı güvenlik, TSE 13811 temizlik, asansör ve yangın teknik bakımı ile şeffaf aidat muhasebesini tek çatı altında sunar."
+        lang={lang}
       />
-      <RelatedServices currentPath="/hizmetler/tesis-yonetimi" />
-      <RelatedArticles pillar="/hizmetler/tesis-yonetimi" />
+      <DefinedTermSetSeo
+        name="Tesis Yönetimi ve Kat Mülkiyeti Terimleri"
+        description="Entegre tesis yönetimi, 634 sayılı KMK ve 5188 özel güvenlik yasal terimler sözlüğü."
+        path="/hizmetler/tesis-yonetimi"
+        terms={[
+          {
+            term: 'Tesis Yönetimi',
+            definition: 'Binaların idari, hukuki, teknik ve temizlik operasyonlarının ISO 41001 standartlarında tek çatı altında profesyonelce yönetilmesidir.',
+          },
+          {
+            term: 'İşletme Projesi',
+            definition: '634 sayılı KMK 37. maddesi uyarınca anagayrimenkulün bir yıllık tahmini gelir ve giderlerini gösteren yasal bütçe belgesidir.',
+          },
+        ]}
+      />
+      <TesisYonetimiClient />
     </>
   );
 }
