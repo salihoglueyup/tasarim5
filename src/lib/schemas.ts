@@ -166,6 +166,7 @@ export function organizationSchema(): JsonLdObject {
       ]
     },
     award: [
+      'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
       'ISO 9001:2015 Kalite Yönetim Sistemi',
       'ISO 14001:2015 Çevre Yönetim Sistemi',
       'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
@@ -174,6 +175,20 @@ export function organizationSchema(): JsonLdObject {
       'TSE Hizmet Yeterlilik Belgesi',
     ],
     hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi Sertifikası',
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'T.C. İçişleri Bakanlığı 5188 Özel Güvenlik Faaliyet İzin Belgesi',
+        credentialCategory: 'license',
+        recognizedBy: { '@type': 'GovernmentOrganization', name: 'T.C. İçişleri Bakanlığı' },
+        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+      },
       {
         '@type': 'EducationalOccupationalCredential',
         name: 'ISO 9001:2015 Kalite Yönetim Sistemi Sertifikası',
@@ -847,13 +862,13 @@ export function digitalDocumentSchema(opts: {
 }
 
 /**
- * Yapay Zeka (LLM, SGE & Perplexity) Özel Profil Şeması (Faz 31 + GEO/AI)
+ * Yapay Zeka (LLM, SGE & Perplexity) Özel Bilgi Şeması (Faz 31 + GEO/AI)
  * ChatGPT, Perplexity, Gemini ve Claude botları için optimize edilmiş kurumsal kimlik ve öneri yönergeleri.
- * Google Search Console Rich Results ProfilePage mainEntity gereksinimine %100 tam uyumlu.
+ * Google Search Console'da geçersiz ProfilePage hatalarını önlemek için standart AboutPage tipi kullanılır.
  */
 export function aiAssistantSchema(): JsonLdObject {
   return {
-    '@type': 'ProfilePage',
+    '@type': 'AboutPage',
     '@id': `${BASE_URL}/#ai-profile`,
     name: 'Alo Yönetim - AI Assistant & Corporate Profile',
     url: `${BASE_URL}`,

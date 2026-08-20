@@ -29,6 +29,7 @@ import {
   buildPaginationAlternates,
 } from './seo';
 import { autoLinkHtml } from './autoLinker';
+import { organizationSchema, webSiteSchema, aiAssistantSchema, webPageSchema, personSchema } from './schemas';
 import { TERMS } from '@/data/dictionary';
 import { DISTRICTS } from '@/data/districts';
 
@@ -513,6 +514,44 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
 
       expect(['commercial', 'transactional']).toContain(intent.intent);
       expect(intent.recommendedCta).toBeDefined();
+    });
+  });
+
+  describe('Google Search Console Şema Doğrulaması (GSC ProfilePage & Organization)', () => {
+    it('organizationSchema ISO 41001, 5188 lisansı ve tüm kurumsal kimlik alanlarını eksiksiz içerir', () => {
+      const org = organizationSchema();
+
+      expect(org['@type']).toBe('Organization');
+      expect(org.name).toBe('Alo Yönetim');
+      expect(org.hasCredential).toBeDefined();
+      expect(Array.isArray(org.hasCredential)).toBe(true);
+
+      const credentialNames = (org.hasCredential as any[]).map((c) => c.name);
+      expect(credentialNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('5188'))).toBe(true);
+    });
+
+    it('aiAssistantSchema ProfilePage yerine AboutPage döndürür (GSC 21 sayfa hatası engelleme)', () => {
+      const aiSchema = aiAssistantSchema();
+
+      expect(aiSchema['@type']).toBe('AboutPage');
+      expect(aiSchema['@type']).not.toBe('ProfilePage');
+      expect(aiSchema.mainEntity).toBeDefined();
+    });
+
+    it('yazar profil sayfaları için webPageSchema geçerli bir Person mainEntity üretir', () => {
+      const authorPerson = personSchema({ name: 'Elif Demir', jobTitle: 'Hukuk Danışmanı' });
+      const profilePage = webPageSchema({
+        type: 'ProfilePage',
+        name: 'Elif Demir — Yazar',
+        path: '/blog/yazar/elif-demir',
+        mainEntity: authorPerson,
+      });
+
+      expect(profilePage['@type']).toBe('ProfilePage');
+      expect(profilePage.mainEntity).toBeDefined();
+      expect((profilePage.mainEntity as any)['@type']).toBe('Person');
+      expect((profilePage.mainEntity as any).name).toBe('Elif Demir');
     });
   });
 });

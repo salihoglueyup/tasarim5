@@ -178,7 +178,7 @@ export async function GET() {
   }));
 
   const aiAssistantProfileNode = {
-    '@type': 'ProfilePage',
+    '@type': 'AboutPage',
     '@id': `${BASE_URL}/#ai-profile`,
     name: 'Alo Yönetim - AI Assistant & Corporate Profile',
     url: `${BASE_URL}`,
