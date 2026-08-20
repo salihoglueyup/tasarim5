@@ -1,28 +1,30 @@
 import type { Metadata } from 'next';
 
 /**
- * Merkezi SEO yardımcı modülü (SEO Master Plan V4 — Faz 1).
+ * Merkezi SEO Yardımcı ve Metadata Fabrikası (Alo Yönetim — SEO Master Plan V4).
  *
  * Tüm sayfaların metadata'sını tek bir yerden üretir; canonical, hreflang
- * (alternates.languages), Open Graph, Twitter ve robots alanlarını otomatik
- * ve tutarlı biçimde doldurur.
- *
- * Dil kuralı (proxy/middleware ile uyumlu):
- *  - TR varsayılan dildir ve **prefix'siz** sunulur:  /hizmetler
- *  - EN, /en prefix'i ile sunulur:                    /en/hizmetler
- *  - Canonical daima sayfanın kendi (self-referencing) temiz URL'sini işaret eder.
+ * (alternates.languages), Open Graph, Twitter, Googlebot gelişmiş direktifleri
+ * (max-image-preview:large, max-snippet:-1), yerel geo etiketleri, sayfalama (pagination)
+ * ve kanonik URL temizliğini otomatik ve tutarlı biçimde sağlar.
  */
 
 import { BASE_URL } from './constants';
 export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
-export const DEFAULT_OG_ALT = 'Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi';
+export const DEFAULT_OG_ALT = 'Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi İstanbul';
 
 export const LOCALES = ['tr', 'en', 'ru', 'ar'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'tr';
 export const SITE_NAME = 'Alo Yönetim';
+
+/** Sabit Coğrafi Konum Koordinatları (Kadıköy Merkez Ofis). */
+export const SEO_GEO_REGION = 'TR-34';
+export const SEO_GEO_PLACENAME = 'Kadıköy, İstanbul, Türkiye';
+export const SEO_GEO_POSITION = '40.9900;29.0300';
+export const SEO_ICBM = '40.9900, 29.0300';
 
 const OG_LOCALE_MAP: Record<Locale, string> = {
   tr: 'tr_TR',
@@ -40,14 +42,48 @@ export function normalizeLocale(lang?: string): Locale {
 }
 
 /**
+ * URL üzerindeki takip ve kampanya parametrelerini (UTM, fbclid, gclid vb.)
+ * temizleyerek saf kanonik URL üretir (Kopya içerik önleme).
+ */
+export function sanitizeCanonicalUrl(url: string, allowedParams: string[] = []): string {
+  try {
+    const parsed = new URL(url.startsWith('http') ? url : `${BASE_URL}${url.startsWith('/') ? url : `/${url}`}`);
+    const keysToDelete: string[] = [];
+
+    parsed.searchParams.forEach((_, key) => {
+      const lowerKey = key.toLowerCase();
+      if (
+        lowerKey.startsWith('utm_') ||
+        lowerKey === 'fbclid' ||
+        lowerKey === 'gclid' ||
+        lowerKey === 'msclkid' ||
+        lowerKey === 'ref' ||
+        lowerKey === 'source' ||
+        lowerKey === 'session_id'
+      ) {
+        if (!allowedParams.includes(key)) {
+          keysToDelete.push(key);
+        }
+      }
+    });
+
+    keysToDelete.forEach((key) => parsed.searchParams.delete(key));
+    const cleanSearch = parsed.searchParams.toString();
+    return `${parsed.origin}${parsed.pathname}${cleanSearch ? `?${cleanSearch}` : ''}`;
+  } catch {
+    return url;
+  }
+}
+
+/**
  * Locale-siz bir kanonik yol ("/", "/hizmetler", "/hizmetler/tesis-yonetimi")
  * ve dil için mutlak URL üretir.
  */
 export function localizedUrl(path: string, lang: Locale): string {
-  // Baştaki "/" garanti, sondaki "/" temizlenir, kök "" olur.
   const normalized = path === '/' ? '' : `/${path.replace(/^\/+|\/+$/g, '')}`;
   const prefix = lang === DEFAULT_LOCALE ? '' : `/${lang}`;
-  return `${BASE_URL}${prefix}${normalized}` || BASE_URL;
+  const full = `${BASE_URL}${prefix}${normalized}` || BASE_URL;
+  return sanitizeCanonicalUrl(full);
 }
 
 /** hreflang matrisi: ISO 639-1 saf diller (tr, en, ru, ar) + bölgesel (tr-TR, en-US, ru-RU, ar-SA) + x-default. */
@@ -65,6 +101,81 @@ export function buildLanguageAlternates(path: string): Record<string, string> {
   };
 }
 
+/**
+ * Sayfalama (Pagination) için prev ve next linklerini ve kanonik URL'yi üretir.
+ */
+export function buildPaginationAlternates(
+  basePath: string,
+  currentPage: number,
+  totalPages: number,
+  lang: string = DEFAULT_LOCALE
+): {
+  canonical: string;
+  prev?: string;
+  next?: string;
+} {
+  const locale = normalizeLocale(lang);
+  const cleanBasePath = basePath.replace(/\/page\/\d+/g, '').replace(/\/+$/, '');
+
+  const pagePath = currentPage <= 1 ? cleanBasePath : `${cleanBasePath}/page/${currentPage}`;
+  const canonical = localizedUrl(pagePath, locale);
+
+  let prev: string | undefined;
+  if (currentPage > 1) {
+    const prevPath = currentPage === 2 ? cleanBasePath : `${cleanBasePath}/page/${currentPage - 1}`;
+    prev = localizedUrl(prevPath, locale);
+  }
+
+  let next: string | undefined;
+  if (currentPage < totalPages) {
+    const nextPath = `${cleanBasePath}/page/${currentPage + 1}`;
+    next = localizedUrl(nextPath, locale);
+  }
+
+  return { canonical, prev, next };
+}
+
+/**
+ * Breadcrumb dizisinden arama motoru dostu başlık zinciri üretir.
+ */
+export function buildBreadcrumbTitleChain(
+  breadcrumbs: { name: string; url?: string }[],
+  separator = ' | '
+): string {
+  const names = breadcrumbs
+    .map((b) => b.name.trim())
+    .filter((n) => n && n.toLowerCase() !== 'anasayfa' && n.toLowerCase() !== 'home');
+  return names.length > 0 ? names.reverse().join(separator) : SITE_NAME;
+}
+
+export interface SocialShareLinks {
+  whatsapp: string;
+  linkedin: string;
+  twitter: string;
+  facebook: string;
+}
+
+/**
+ * Sosyal Medya Paylaşım Linkleri Üreticisi.
+ */
+export function generateSocialShareUrls(
+  pageUrl: string,
+  title: string,
+  summary?: string
+): SocialShareLinks {
+  const fullUrl = pageUrl.startsWith('http') ? pageUrl : `${BASE_URL}${pageUrl.startsWith('/') ? pageUrl : `/${pageUrl}`}`;
+  const encodedUrl = encodeURIComponent(fullUrl);
+  const encodedTitle = encodeURIComponent(title);
+  const encodedSummary = encodeURIComponent(summary || title);
+
+  return {
+    whatsapp: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedSummary}`,
+  };
+}
+
 export type BuildMetadataArgs = {
   /** Sayfa başlığı (title template'i root layout tarafından uygulanır). */
   title: string;
@@ -73,7 +184,7 @@ export type BuildMetadataArgs = {
   path: string;
   /** Sayfanın dili; verilmezse TR. */
   lang?: string;
-  /** OG/Twitter görselleri. Verilmezse dinamik opengraph-image route'u devreye girer (Faz 4). */
+  /** OG/Twitter görselleri. Verilmezse dinamik opengraph-image route'u devreye girer. */
   images?: string[];
   keywords?: string[];
   /** true ise robots noindex (follow açık kalır). */
@@ -88,11 +199,12 @@ export type BuildMetadataArgs = {
   dateModified?: string;
   /** Blog yazıları için E-E-A-T: yazar adı. */
   authorName?: string;
+  /** Hedef anahtar kelime (örn. 'tesis yönetimi') */
+  targetKeyword?: string;
 };
 
 /**
- * Sayfa metadata'sı üretir. Canonical + hreflang + OG + Twitter + robots dahil.
- * `metadataBase` yalnız root layout'ta tanımlanır (burada tekrar edilmez).
+ * Sayfa metadata'sı üretir. Canonical + hreflang + OG + Twitter + Googlebot gelişmiş direktifleri dahil.
  */
 export function buildMetadata({
   title,
@@ -100,23 +212,31 @@ export function buildMetadata({
   path,
   lang,
   images,
-  keywords,
+  keywords = [],
   noindex = false,
   ogType = 'website',
   ogImageType,
   datePublished,
   dateModified,
   authorName,
+  targetKeyword,
 }: BuildMetadataArgs): Metadata {
   const locale = normalizeLocale(lang);
   const canonical = localizedUrl(path, locale);
 
-  // OG görsel tipi: açıkça geçilmezse ogType'tan türetilir.
+  const resolvedKeywords = Array.from(
+    new Set([
+      ...(targetKeyword ? [targetKeyword] : []),
+      ...keywords,
+      'tesis yönetimi',
+      'site yönetimi',
+      'İstanbul',
+    ])
+  );
+
   const resolvedOgType: 'default' | 'service' | 'local' | 'article' =
     ogImageType ?? (ogType === 'article' ? 'article' : 'default');
 
-  // Görsel verilmezse dinamik OG route'u devreye girer (Faz 4 — güncellenmiş).
-  // title ve type query param olarak iletilir; her sayfa kendine özgü görsel alır.
   const ogParams = new URLSearchParams({ title, type: resolvedOgType }).toString();
   const resolvedImages =
     images && images.length
@@ -134,7 +254,7 @@ export function buildMetadata({
     metadataBase: new URL(BASE_URL),
     title,
     description,
-    ...(keywords && keywords.length ? { keywords } : {}),
+    keywords: resolvedKeywords,
     alternates: {
       canonical,
       languages: buildLanguageAlternates(path),
@@ -156,7 +276,6 @@ export function buildMetadata({
           }
         : {}),
     },
-
     twitter: {
       card: 'summary_large_image',
       title,
@@ -164,7 +283,63 @@ export function buildMetadata({
       images: resolvedImages,
     },
     robots: noindex
-      ? { index: false, follow: true }
-      : { index: true, follow: true },
+      ? {
+          index: false,
+          follow: true,
+          nocache: true,
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+          },
+        },
+    other: {
+      'geo.region': SEO_GEO_REGION,
+      'geo.placename': SEO_GEO_PLACENAME,
+      'geo.position': SEO_GEO_POSITION,
+      'ICBM': SEO_ICBM,
+      'rating': 'general',
+      'revisit-after': '3 days',
+      'X-Topical-Domain': 'Facility and Property Management',
+      'DC.title': title,
+      'DC.description': description,
+      'DC.creator': authorName || SITE_NAME,
+      'DC.language': locale,
+    },
+  };
+}
+
+/**
+ * Başlık ve Açıklama Kalite Kontrol Fonksiyonu.
+ */
+export function validateSnippetQuality(title: string, description: string): {
+  isTitleValid: boolean;
+  isDescriptionValid: boolean;
+  titleLength: number;
+  descriptionLength: number;
+  suggestions: string[];
+} {
+  const suggestions: string[] = [];
+  const titleLength = title.trim().length;
+  const descriptionLength = description.trim().length;
+
+  if (titleLength < 30) suggestions.push('Başlık çok kısa (en az 30 karakter önerilir)');
+  if (titleLength > 65) suggestions.push('Başlık arama sonuçlarında kesilebilir (en fazla 65 karakter önerilir)');
+
+  if (descriptionLength < 100) suggestions.push('Açıklama çok kısa (en az 100 karakter önerilir)');
+  if (descriptionLength > 165) suggestions.push('Açıklama arama sonuçlarında kesilebilir (en fazla 160 karakter önerilir)');
+
+  return {
+    isTitleValid: titleLength >= 30 && titleLength <= 65,
+    isDescriptionValid: descriptionLength >= 100 && descriptionLength <= 165,
+    titleLength,
+    descriptionLength,
+    suggestions,
   };
 }
