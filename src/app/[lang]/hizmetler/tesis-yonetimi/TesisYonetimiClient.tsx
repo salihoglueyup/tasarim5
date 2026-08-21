@@ -27,18 +27,49 @@ export default function TesisYonetimiClient() {
   ];
 
   const faqs = [
-    { 
-      question: t('fac_faq_1_q') || 'Profesyonel tesis yönetimi neleri kapsar?', 
-      answer: t('fac_faq_1_a') || 'Tesis yönetimi; 5188 sayılı kanuna uygun fiziki güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, aidat takibi, KMK hukuki danışmanlığı, peyzaj ve havuz bakımını tek çatı altında entegre olarak kapsar.' 
+    {
+      question: t('fac_faq_1_q') || 'Profesyonel tesis yönetimi neleri kapsar?',
+      answer: t('fac_faq_1_a') || 'Tesis yönetimi; 5188 sayılı kanuna uygun fiziki güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, aidat takibi, KMK hukuki danışmanlığı, peyzaj ve havuz bakımını tek çatı altında entegre olarak kapsar.'
     },
-    { 
-      question: t('fac_faq_2_q') || 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?', 
-      answer: t('fac_faq_2_a') || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.' 
+    {
+      question: t('fac_faq_2_q') || 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?',
+      answer: t('fac_faq_2_a') || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.'
     },
-    { 
-      question: t('fac_faq_3_q') || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?', 
-      answer: t('fac_faq_3_a') || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.' 
-    }
+    {
+      question: t('fac_faq_3_q') || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?',
+      answer: t('fac_faq_3_a') || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.'
+    },
+    {
+      question: 'Tesis yönetimi hizmetinin aylık maliyeti nedir?',
+      answer: 'Maliyet; bina tipi, daire sayısı ve hizmet kapsamına göre değişir. Rezidanslarda daire başına aylık ₺850-1.600, toplu konutlarda ₺550-1.100 aralığında değişmektedir. Kesin fiyat için ücretsiz keşif talep ediniz.',
+    },
+    {
+      question: 'KMK Madde 37 işletme projesi nedir?',
+      answer: 'İşletme projesi; yöneticinin her yıl hazırladığı, 12 aylık tahmini gelir-gider ve her kat malikine düşen avans tutarını gösteren belgedir. Tebliğden 7 gün içinde itiraz edilmezse kesinleşir ve icra takibine dayanak olur.',
+    },
+    {
+      question: 'Asansör yeşil etiket zorunluluğu nedir?',
+      answer: 'Asansör Yönetmeliği kapsamında her asansörün yılda en az bir kez periyodik kontrolü ve yeşil etiket onayı zorunludur. Alo Yönetim yetkili A tipi muayene kuruluşlarıyla bu süreci takip eder.',
+    },
+    {
+      question: 'Tesis yönetiminde acil arızalara müdahale süresi ne kadar?',
+      answer: 'SLA kapsamında kritik arızalar (su baskını, asansör sıkışması, güvenlik ihlali) için maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz kesintisiz hizmet vermektedir.',
+    },
+    {
+      question: 'Aidatları geciktiren sakinlere nasıl müdahale edilir?',
+      answer: 'Otomatik SMS hatırlatma, WhatsApp bildirim ve avukat ihtarının ardından KMK m.20 kapsamında mahkeme kararı beklenmeksizin icra takibi başlatılır. Tahsilat oranı %98\'in üzerinde tutulur.',
+    },
+    {
+      question: 'Tesis yönetim şirketi nasıl seçilir?',
+      answer: 'ISO sertifikaları ve 5188 lisansının güncelliğini, en az 3 referans siteyi, sözleşmedeki SLA sürelerini ve aylık raporlama yükümlülüklerini kontrol edin. Detaylı rehberimize göz atın.',
+    },
+  ];
+
+  const SECTORS = [
+    { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans & Lüks Site', icon: 'apartment', desc: 'Concierge, VIP güvenlik, havuz & spa', color: 'from-amber-500/10 to-amber-600/5 border-amber-500/20 hover:border-amber-400/40' },
+    { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', label: 'Plaza & Ofis Binası', icon: 'business', desc: 'HVAC, enerji optimizasyonu, kiracı yönetimi', color: 'from-blue-500/10 to-blue-600/5 border-blue-500/20 hover:border-blue-400/40' },
+    { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', label: 'Toplu Konut & Site', icon: 'domain', desc: '%25-33 aidat tasarrufu, KMK uyumluluk', color: 'from-emerald-500/10 to-emerald-600/5 border-emerald-500/20 hover:border-emerald-400/40' },
+    { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi Tesisi & Fabrika', icon: 'factory', desc: 'ISO 45001, ağır teknik bakım, yangın', color: 'from-orange-500/10 to-orange-600/5 border-orange-500/20 hover:border-orange-400/40' },
   ];
 
   return (
@@ -135,6 +166,34 @@ export default function TesisYonetimiClient() {
             verifiedBy="Alo Yönetim Hukuk & Mevzuat Masası"
             category="KMK Mevzuatı & Bütçe Yönetimi"
           />
+        </div>
+
+        {/* Sektör Alt Sayfaları Vitrin */}
+        <div>
+          <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-3 text-center">
+            Mülk Tipinize Özel Tesis Yönetimi
+          </h2>
+          <p className="text-[var(--color-text-muted)] text-center mb-10 max-w-2xl mx-auto">
+            Her yapı tipinin kendine özgü gereksinimleri vardır. Mülkünüze özel çözümü keşfedin.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {SECTORS.map((s, i) => (
+              <motion.a
+                key={s.href}
+                href={s.href}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`flex flex-col gap-3 p-6 rounded-2xl border bg-gradient-to-br ${s.color} transition-all group`}
+              >
+                <span className="material-symbols-outlined text-3xl text-[var(--color-text-primary)] group-hover:scale-110 transition-transform">{s.icon}</span>
+                <h3 className="font-bold text-[var(--color-text-primary)]">{s.label}</h3>
+                <p className="text-sm text-[var(--color-text-muted)]">{s.desc}</p>
+                <span className="text-xs font-semibold text-brand-500 mt-auto">Detaylı İncele →</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
 
         {/* Tesis Yönetimi Karşılaştırma Matrisi (Bireysel vs Alo Yönetim) */}

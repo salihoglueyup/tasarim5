@@ -14,7 +14,8 @@ import {
   VoiceSearchSpeakableSeo, 
   DefinedTermSetSeo 
 } from '@/components/seo';
-import { getFacilityManagementSemanticGraph } from '@/lib/seoEngine';
+import { generateFacilityManagementGraph } from '@/lib/seo/facilityTopicGraph';
+import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
 import TesisYonetimiClient from './TesisYonetimiClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -31,34 +32,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const t = await getDictionary(lang);
+  const serpMeta = getFacilitySerpMeta(lang);
 
-  const title = t.serv_fac_meta_title || 'Profesyonel Tesis Yönetimi | Alo Yönetim İstanbul';
-  const description = t.serv_fac_meta_desc || 'İstanbul genelinde apartman, site, plaza ve rezidanslar için profesyonel tesis yönetimi. 7/24 güvenlik, temizlik, teknik bakım ve şeffaf aidat takibi.';
+  const title = t.serv_fac_meta_title || serpMeta.title;
+  const description = t.serv_fac_meta_desc || serpMeta.description;
 
   return buildMetadata({
     title,
     description,
-    path: '/hizmetler/tesis-yonetimi',
+    path: serpMeta.canonicalPath,
     lang,
-    targetKeyword: 'tesis yönetimi',
+    targetKeyword: serpMeta.targetKeyword,
     ogImageType: 'service',
-    keywords: [
-      'tesis yönetimi',
-      'profesyonel tesis yönetimi',
-      'entegre tesis yönetimi',
-      'istanbul tesis yönetimi',
-      'tesis yönetim şirketi',
-      'tesis yönetim firmaları',
-      'bina ve tesis yönetimi',
-      'site ve tesis yönetimi',
-      'plaza tesis yönetimi',
-      'rezidans tesis yönetimi',
-      'endüstriyel tesis yönetimi',
-      'apartman yönetimi',
-      'site yönetimi',
-      'iso 41001 tesis yönetimi',
-      'kmk 634 tesis işletmesi'
-    ],
+    keywords: serpMeta.keywords,
   });
 }
 
@@ -94,18 +80,38 @@ export default async function TesisYonetimiPage({
   });
 
   const faqs = [
-    { 
-      question: t.fac_faq_1_q || 'Profesyonel tesis yönetimi neleri kapsar?', 
-      answer: t.fac_faq_1_a || 'Tesis yönetimi; 5188 sayılı kanuna uygun fiziki güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, aidat takibi, KMK hukuki danışmanlığı, peyzaj ve havuz bakımını tek çatı altında entegre olarak kapsar.' 
+    {
+      question: t.fac_faq_1_q || 'Profesyonel tesis yönetimi neleri kapsar?',
+      answer: t.fac_faq_1_a || 'Tesis yönetimi; 5188 sayılı kanuna uygun fiziki güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, aidat takibi, KMK hukuki danışmanlığı, peyzaj ve havuz bakımını tek çatı altında entegre olarak kapsar.'
     },
-    { 
-      question: t.fac_faq_2_q || 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?', 
-      answer: t.fac_faq_2_a || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.' 
+    {
+      question: t.fac_faq_2_q || 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?',
+      answer: t.fac_faq_2_a || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.'
     },
-    { 
-      question: t.fac_faq_3_q || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?', 
-      answer: t.fac_faq_3_a || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.' 
-    }
+    {
+      question: t.fac_faq_3_q || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?',
+      answer: t.fac_faq_3_a || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.'
+    },
+    {
+      question: 'Tesis yönetimi hizmetinin aylık maliyeti nedir?',
+      answer: 'Maliyet; bina tipi, daire sayısı ve hizmet kapsamına göre değişir. Rezidanslarda daire başına aylık ₺850-1.600, toplu konutlarda ₺550-1.100 aralığında değişmektedir. Kesin fiyat için ücretsiz keşif talep ediniz.',
+    },
+    {
+      question: 'KMK Madde 37 işletme projesi nedir ve nasıl hazırlanır?',
+      answer: 'İşletme projesi; yöneticinin her yıl hazırladığı, 12 aylık tahmini gelir-gider ve her kat malikine düşen avans tutarını gösteren belgedir. Tebliğden 7 gün içinde itiraz edilmezse kesinleşir ve icra takibine dayanak olur.',
+    },
+    {
+      question: 'Asansör yeşil etiket yükümlülüğü nedir?',
+      answer: 'Asansör Yönetmeliği kapsamında her asansörün yılda en az bir kez periyodik kontrolü ve yeşil etiket onayı zorunludur. Alo Yönetim yetkili A tipi muayene kuruluşlarıyla bu süreci takip eder.',
+    },
+    {
+      question: 'Acil teknik arızalarda müdahale süresi ne kadar?',
+      answer: 'SLA kapsamında kritik arızalar için maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz kesintisiz hizmet vermektedir.',
+    },
+    {
+      question: 'Tesis yönetim şirketi seçerken nelere dikkat edilmeli?',
+      answer: 'ISO sertifikaları ve 5188 lisansının güncelliğini, en az 3 referans siteyi, sözleşmedeki SLA sürelerini ve aylık raporlama yükümlülüklerini kontrol edin. Kapsamlı seçim rehberimizi inceleyin.',
+    },
   ];
 
   const faqLd = faqPageSchema(faqs);
@@ -117,11 +123,11 @@ export default async function TesisYonetimiPage({
     speakableSelectors: ['h1', 'h2', '.tldr', '.summary-badge'],
   });
 
-  const semanticGraphLd = getFacilityManagementSemanticGraph();
+  const facilityGraphLd = generateFacilityManagementGraph(lang);
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, professionalLd, faqLd, pageLd, semanticGraphLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, professionalLd, faqLd, pageLd, facilityGraphLd]} />
       <KeywordAnalysisSeo
         title={pageTitle}
         description={pageDesc}

@@ -65,8 +65,33 @@ for (const entity of FACILITY_MANAGEMENT_ENTITIES) {
   }
 }
 
-// 4. Ekstra Spesifik Eşanlamlılar
+// 4. Ekstra Spesifik Tesis Yönetimi ve Sektörel Eşanlamlılar (Pillar Güçlendirici)
 const CUSTOM_LINKS: { term: string; href: string }[] = [
+  { term: 'profesyonel tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'entegre tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis yönetim hizmetleri', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis yönetim şirketi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis yönetim şirketleri', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis yönetim firmaları', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'bina ve tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'site ve tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'iso 41001 tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'rezidans tesis yönetimi', href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
+  { term: 'lüks site yönetimi', href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
+  { term: 'rezidans yönetim şirketi', href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
+  { term: 'plaza tesis yönetimi', href: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
+  { term: 'ofis binası yönetimi', href: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
+  { term: 'ticari bina yönetimi', href: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
+  { term: 'toplu konut yönetimi', href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi' },
+  { term: 'toki site yönetimi', href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi' },
+  { term: 'büyük site yönetimi', href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi' },
+  { term: 'sanayi tesisi yönetimi', href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
+  { term: 'fabrika tesis yönetimi', href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
+  { term: 'endüstriyel tesis yönetimi', href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
+  { term: 'avm tesis yönetimi', href: '/sektorel-cozumler/avm-yonetimi' },
+  { term: 'tesis yönetim şirketi nasıl seçilir', href: '/hizmetler/tesis-yonetimi/rehber' },
+  { term: 'tesis yönetimi rehberi', href: '/hizmetler/tesis-yonetimi/rehber' },
+  { term: 'tesis yönetim sözleşmesi', href: '/hizmetler/tesis-yonetimi/rehber' },
   { term: 'güvenlik akademisi', href: '/guvenlik-akademisi' },
   { term: 'aidat hesaplama', href: '/hesaplayici' },
   { term: 'kmk hesaplayıcı', href: '/hesaplayici' },

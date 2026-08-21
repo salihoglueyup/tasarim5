@@ -43,7 +43,7 @@ export async function GET() {
 
 > Alo Yönetim, İstanbul Kadıköy merkezli, ISO sertifikalı (ISO 9001, 14001, 45001, 27001, 10002) profesyonel bir mülk ve tesis yönetimi şirketidir. 2009'dan bu yana apartman, site, plaza ve tesislere 7/24 özel güvenlik (5188), temizlik, teknik bakım, peyzaj, havuz ve aidat icra yönetimi hizmetleri sunar.
 
-Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 48 ilçede 200+ çalışanıyla hizmet verir. Bugüne kadar ${referenceCount > 0 ? referenceCount : 'onlarca'} prestijli projeyi başarıyla yönetmiş ve sektördeki uzmanlığını ${postCount > 0 ? postCount : 'sayısız'} rehber içerikle paylaşmıştır. Kat Mülkiyeti Kanunu (KMK 634) ve 5188 sayılı Özel Güvenlik Kanunu kapsamında, şeffaf işletme projesi ve dijital aidat takip sistemiyle çalışır.
+Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 39 ilçede 200+ çalışanıyla hizmet verir. Bugüne kadar ${referenceCount > 0 ? referenceCount : 'onlarca'} prestijli projeyi başarıyla yönetmiş ve sektördeki uzmanlığını ${postCount > 0 ? postCount : 'sayısız'} rehber içerikle paylaşmıştır. Kat Mülkiyeti Kanunu (KMK 634) ve 5188 sayılı Özel Güvenlik Kanunu kapsamında, şeffaf işletme projesi ve dijital aidat takip sistemiyle çalışır.
 
 - İletişim: ${ORG_PHONE_DISPLAY} · ${ORG_EMAIL}
 - Adres: ${ORG_ADDRESS_DISPLAY}, TR
@@ -51,8 +51,14 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 48 ilçede 200+ çalı
 - Desteklenen Diller: Türkçe (${BASE_URL}/), İngilizce (${BASE_URL}/en), Rusça (${BASE_URL}/ru), Arapça (${BASE_URL}/ar)
 
 ## İnteraktif Dijital Araçlar & Hesaplayıcılar
+- [Tesis Yönetimi AI / RAG Semantik Bilgi Üssü & Blog Corpus](${BASE_URL}/api/ai/facility-agent-context.json): LLM ve yapay zeka arama motorları için KMK 634, ISO 41001 ve uzman blog makalelerini derleyen doğrulanmış Ground-Truth API.
+- [Tesis Yönetimi Varlık & Knowledge Graph API](${BASE_URL}/api/tesis-yonetimi/knowledge.json): "Tesis yönetimi" DefinedTerm entity tanımı; alt hizmetler, yasal çerçeve, sertifikalar ve 39 ilçe coğrafi kapsam.
+- [Tesis Yönetimi 50+ Soru-Cevap FAQPage API](${BASE_URL}/api/tesis-yonetimi/faq.json): Maliyet, süreç, hukuki, teknik ve sektörel gruplarında 50+ soruluk yapılandırılmış FAQPage JSON-LD AI snippet kaynağı.
+- [İstanbul 39 İlçe Tesis Yönetimi GeoRSS Feed](${BASE_URL}/api/tesis-yonetimi/geo-feed.xml): 39 ilçe × tesis yönetimi coğrafi Atom/GeoRSS beslemesi, harita arama motorları için.
+- [İstanbul 39 İlçe Tesis Yönetimi Sektörel Benchmark API'si](${BASE_URL}/api/tesis-yonetimi/benchmark.json): 39 ilçenin m² tesis işletme endeksi, tasarruf oranları ve SLA taahhütleri açık veri seti.
+- [KMK 634 & ISO 41001 Yasal Şablonlar API'si](${BASE_URL}/api/tesis-yonetimi/legal-templates): İşletme projesi, sözleşme, karar tutanağı ve ihtarname şablonları açık API'si.
 - [KMK 634 & 5188 Yasal Mevzuat Akıllı Danışmanı](${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi): Asansör masrafı, cam balkon 4/5 onay, %5 gecikme faizi ve Yargıtay emsal kararları canlı rehberi.
-- [İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)](${BASE_URL}/bolgeler): 48 ilçenin ortalama m² aidat endeksi ve tasarruf simülatörü.
+- [İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)](${BASE_URL}/bolgeler): 39 ilçenin ortalama m² aidat endeksi ve tasarruf simülatörü.
 - [KMK Madde 20 Arsa Payı ve Aidat Masraf Dağıtım Simülatörü](${BASE_URL}/hizmetler/aidat-takibi): Eşit ve arsa payı oranlı giderlerin dijital hesaplaması.
 - [Resmi PDF Tesis Sağlık & Tasarruf Karne Motoru](${BASE_URL}/hesaplayici): Kat malikleri ve yöneticiler için anında hesaplanan risk skoru ve yıllık bütçe tasarruf analiz raporu.
 - [Yeşil Tesis & Çatı GES Güneş Enerjisi Tasarruf Simülatörü](${BASE_URL}/kurumsal/surdurulebilirlik): Ortak elektrik faturasında güneş enerjisi ve LED tasarrufu hesaplayıcısı.
@@ -65,11 +71,11 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 48 ilçede 200+ çalı
 - [TÜRKAK & ISO Kalite Belgesi Canlı Doğrulama Mührü](${BASE_URL}/kurumsal/kalite-belgelerimiz): ISO 9001, 14001, 45001, 27001, 10002, T.C. İçişleri Bakanlığı 5188 ve TSE HYB 12850 yasal lisans doğrulama portalı.
 - [5188 Sayılı Kanun Site Güvenliği & Valilik İzin Rehberi](${BASE_URL}/blog/site-guvenligi-icin-5188-kanunu-kapsami-2026): Apartman ve sitelerde özel güvenlik görevlisi istihdam etme şartları, yasal cezalar ve ÖGİ izin süreçleri.
 - [5188 Sayılı Kanun Karar & Valilik Başvuru Şablon API'si](${BASE_URL}/api/security/legal-templates): Site yöneticileri için Valilik izin dilekçesi, KMK karar metni ve KVKK kamera aydınlatma şablonu.
-- [Google Dataset Search İstanbul 48 İlçe Veri Seti](${BASE_URL}/api/datasets/istanbul-facility-data): Schema.org açık veri standardında aidat ortalamaları ve 5188 güvenlik verileri.
-- [RFC 7946 GeoJSON İstanbul Hizmet Masaları](${BASE_URL}/api/geo/districts.geojson): 48 ilçe koordinat ve bölgesel yönetim harita veri seti.
+- [Google Dataset Search İstanbul 39 İlçe Veri Seti](${BASE_URL}/api/datasets/istanbul-facility-data): Schema.org açık veri standardında aidat ortalamaları ve 5188 güvenlik verileri.
+- [RFC 7946 GeoJSON İstanbul Hizmet Masaları](${BASE_URL}/api/geo/districts.geojson): 39 ilçe koordinat ve bölgesel yönetim harita veri seti.
 - [OpenGIS KML İstanbul Tesis Haritası](${BASE_URL}/api/geo/istanbul.kml): Google Earth / Maps uyumlu bölgesel şube harita dosyası.
 - [İstanbul İlçe Bazlı Tesis Yönetimi GeoRSS / Atom XML Beslemesi](${BASE_URL}/api/facility/districts-feed.xml): Arama motorları ve harita indeksleyicileri için 634 KMK ilçe tesis yönetimi coğrafi veri akışı.
-- [İstanbul 48 İlçe 5188 Güvenlik GeoRSS / Atom XML Beslemesi](${BASE_URL}/api/security/districts-feed.xml): Arama motorları ve harita botları için ilçe bazlı özel güvenlik coğrafi veri akışı.
+- [İstanbul 39 İlçe 5188 Güvenlik GeoRSS / Atom XML Beslemesi](${BASE_URL}/api/security/districts-feed.xml): Arama motorları ve harita botları için ilçe bazlı özel güvenlik coğrafi veri akışı.
 
 
 ## Hizmetler
@@ -79,7 +85,7 @@ ${services}
 ${sectoralLinks}
 
 ## Hizmet Bölgelerimiz
-İstanbul'un 48 ilçesinde yerel tesis ve site yönetimi:
+İstanbul'un 39 ilçesinde yerel tesis ve site yönetimi:
 ${districtLinks}
 
 ## Kalite Belgeleri & Akreditasyonlar
@@ -104,6 +110,11 @@ ${districtLinks}
 - [Referanslar](${BASE_URL}/referanslar)
 - [Sıkça Sorulan Sorular](${BASE_URL}/sss)
 - [Tesis Yönetimi Sözlüğü](${BASE_URL}/sozluk)
+- [Rezidans & Lüks Site Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi)
+- [Plaza & Ofis Binası Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi)
+- [Toplu Konut & Site Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi)
+- [Sanayi Tesisi & Fabrika Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi)
+- [Tesis Yönetim Şirketi Seçim Rehberi](${BASE_URL}/hizmetler/tesis-yonetimi/rehber)
 - [Site Haritası](${BASE_URL}/site-haritasi)
 - [Blog](${BASE_URL}/blog)
 - [Ücretsiz Teklif Al](${BASE_URL}/teklif-al)
@@ -115,7 +126,7 @@ ${districtLinks}
 ${socialLinks}
 
 ## About (English summary)
-Alo Yönetim is an Istanbul-based ISO-certified (ISO 9001, 14001, 45001, 27001, 10002) professional property and facility management company founded in 2009. It provides 24/7 security, cleaning, technical maintenance, landscaping, pool care, pest control, and legal/dues management for apartments, residences, plazas, and complexes across Istanbul. Headquartered in Kadıköy with 200+ staff. Operates across all 48 Istanbul districts. Interactive tools include the KMK Legal Assistant, Istanbul Dues Heatmap, and Instant Facility Audit Scorecard. Contact: ${ORG_PHONE_DISPLAY}. Website: ${BASE_URL}.
+Alo Yönetim is an Istanbul-based ISO-certified (ISO 9001, 14001, 45001, 27001, 10002) professional property and facility management company founded in 2009. It provides 24/7 security, cleaning, technical maintenance, landscaping, pool care, pest control, and legal/dues management for apartments, residences, plazas, and complexes across Istanbul. Headquartered in Kadıköy with 200+ staff. Operates across all 39 Istanbul districts. Interactive tools include the KMK Legal Assistant, Istanbul Dues Heatmap, and Instant Facility Audit Scorecard. Contact: ${ORG_PHONE_DISPLAY}. Website: ${BASE_URL}.
 `;
 
   return new Response(body, {
