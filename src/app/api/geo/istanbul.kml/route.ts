@@ -33,7 +33,7 @@ export async function GET() {
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
     <name>Alo Yönetim İstanbul Tesis &amp; Özel Güvenlik Hizmet Haritası</name>
-    <description>İstanbul'un 48 ilçesinde profesyonel apartman, site, rezidans yönetimi ve 5188 sayılı kanun lisanslı özel güvenlik operasyon noktaları.</description>
+    <description>İstanbul'un 39 ilçesinde profesyonel apartman, site, rezidans yönetimi ve 5188 sayılı kanun lisanslı özel güvenlik operasyon noktaları.</description>
 ${placemarks}
   </Document>
 </kml>`;

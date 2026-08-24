@@ -9,7 +9,7 @@ export const revalidate = 86400; // 24 saat önbellek
 /**
  * Google Dataset Search Engine API (/api/datasets/istanbul-facility-data)
  * 
- * Schema.org Dataset standardına %100 uyumlu olarak İstanbul'un 48 ilçesindeki
+ * Schema.org Dataset standardına %100 uyumlu olarak İstanbul'un 39 ilçesindeki
  * tesis yönetimi, aidat piyasa ortalamaları ve 5188 güvenlik verilerini açık veri olarak sunar.
  * Google Dataset Search (datasetsearch.research.google.com) ve veri madenciliği botları tarafından taranır.
  */

@@ -77,18 +77,27 @@ export const ORG_KNOWS_ABOUT = [
   { '@type': 'Thing', name: '5188 Sayılı Özel Güvenlik Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q11440' },
   { '@type': 'Thing', name: 'Önleyici Teknik Bakım (Preventive Maintenance)', sameAs: 'https://www.wikidata.org/wiki/Q183057' },
   { '@type': 'Thing', name: 'ISO 41001 Tesis Yönetim Standardı', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+  { '@type': 'Thing', name: 'ISO 9001 Kalite Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q11029' },
+  { '@type': 'Thing', name: 'ISO 14001 Çevre Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q832444' },
+  { '@type': 'Thing', name: 'ISO 45001 İş Sağlığı ve Güvenliği', sameAs: 'https://www.wikidata.org/wiki/Q25052309' },
+  { '@type': 'Thing', name: 'ISO 27001 Bilgi Güvenliği Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q831623' },
   { '@type': 'Thing', name: 'Bina Otomasyon ve Yönetim Sistemleri', sameAs: 'https://www.wikidata.org/wiki/Q895066' },
   { '@type': 'Thing', name: 'İşletme Bütçesi ve Finansal Aidat Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1670988' },
+  { '@type': 'Thing', name: 'Peyzaj ve Bahçe Bakımı', sameAs: 'https://www.wikidata.org/wiki/Q47844' },
   'Tesis yönetimi',
   'Site yönetimi',
   'Apartman yönetimi',
+  'Rezidans yönetimi',
+  'Plaza yönetimi',
   'Kat Mülkiyeti Kanunu',
   '5188 sayılı Özel Güvenlik Kanunu',
-  'Bina güvenliği',
+  'Bina güvenliği ve CCTV izleme',
   'Profesyonel temizlik ve hijyen',
-  'Teknik bakım ve işletme',
+  'Teknik bakım ve enerji optimizasyonu',
   'Aidat tahsilatı ve icra takibi',
   'Peyzaj ve bahçe bakımı',
+  'Havuz bakımı ve su analizi',
+  'Haşere ve böcek ilaçlama',
 ];
 
 /**
@@ -98,7 +107,7 @@ export const ORG_KNOWS_ABOUT = [
 export const AREA_SERVED_GEOCIRCLE = {
   '@type': 'GeoCircle',
   geoMidpoint: { '@type': 'GeoCoordinates', latitude: 41.0082, longitude: 28.9784 },
-  geoRadius: '40000',
+  geoRadius: '45000',
 } as const;
 
 /** Departman bazlı iletişim noktaları (Faz 61 — ContactPoint). */
@@ -108,21 +117,21 @@ export const ORG_CONTACT_POINTS = [
     telephone: ORG_PHONE,
     contactType: 'customer service',
     areaServed: 'TR',
-    availableLanguage: ['Turkish', 'English'],
+    availableLanguage: ['Turkish', 'English', 'Russian', 'Arabic'],
   },
   {
     '@type': 'ContactPoint',
     telephone: ORG_PHONE,
     contactType: 'sales',
     areaServed: 'TR',
-    availableLanguage: ['Turkish'],
+    availableLanguage: ['Turkish', 'English'],
   },
   {
     '@type': 'ContactPoint',
     telephone: ORG_PHONE,
     contactType: 'emergency',
     areaServed: 'TR',
-    availableLanguage: ['Turkish'],
+    availableLanguage: ['Turkish', 'English'],
   },
 ];
 
@@ -235,18 +244,29 @@ export function webSiteSchema(): JsonLdObject {
   return {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
-    name: ORG_NAME,
+    name: 'Alo Yönetim Tesis ve Site Yönetimi',
+    alternateName: ['Alo Yönetim', 'Alo Yonetim', 'Alo Yönetim A.Ş.'],
     url: BASE_URL,
     publisher: { '@id': ORG_ID },
-    inLanguage: 'tr-TR',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/blog?q={search_term_string}`,
+    inLanguage: ['tr-TR', 'en-US', 'ru-RU', 'ar-SA'],
+    potentialAction: [
+      {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${BASE_URL}/blog?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
       },
-      'query-input': 'required name=search_term_string',
-    },
+      {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${BASE_URL}/sozluk?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    ],
   };
 }
 
@@ -686,14 +706,12 @@ export function webPageSchema(opts: {
           }))
         }
       : {}),
-    ...(opts.speakableSelectors && opts.speakableSelectors.length
-      ? {
-          speakable: {
-            '@type': 'SpeakableSpecification',
-            cssSelector: opts.speakableSelectors,
-          },
-        }
-      : {}),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: opts.speakableSelectors && opts.speakableSelectors.length
+        ? opts.speakableSelectors
+        : ['#speakable-content', '#tldr-facility', 'h1'],
+    },
   };
 }
 
@@ -805,17 +823,22 @@ export function definedTermSetSchema(opts: {
 }
 
 // ---------------------------------------------------------------------------
-// Faz 41 (uyum) — Breadcrumb (mevcut API korunur)
-// ---------------------------------------------------------------------------
-export const generateBreadcrumbs = (items: { name: string; url: string }[]): JsonLdObject => ({
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    name: item.name,
-    item: abs(item.url),
-  })),
-});
+export const generateBreadcrumbs = (items: { name: string; url: string }[]): JsonLdObject => {
+  const cleanItems = items.filter(Boolean);
+  const lastItem = cleanItems[cleanItems.length - 1];
+  const canonicalId = lastItem ? `${abs(lastItem.url)}#breadcrumb` : undefined;
+
+  return {
+    '@type': 'BreadcrumbList',
+    ...(canonicalId ? { '@id': canonicalId } : {}),
+    itemListElement: cleanItems.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: abs(item.url),
+    })),
+  };
+};
 
 // ---------------------------------------------------------------------------
 // SiteNavigationElement (Site Haritası)
@@ -1443,6 +1466,127 @@ export function legalServiceSchema(opts?: {
   };
 }
 
+// ---------------------------------------------------------------------------
+// authorPersonSchema — Yazar Otorite Şeması (Faz 6A E-E-A-T)
+// ---------------------------------------------------------------------------
+export function authorPersonSchema(author: {
+  slug: string;
+  name: string;
+  bio?: string | null;
+  avatar?: string | null;
+}): JsonLdObject {
+  return {
+    '@type': 'Person',
+    '@id': `${BASE_URL}/blog/yazar/${author.slug}#person`,
+    name: author.name,
+    url: abs(`/blog/yazar/${author.slug}`),
+    jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı',
+    worksFor: { '@id': ORG_ID },
+    knowsAbout: [
+      'Tesis Yönetimi',
+      'KMK 634 Kat Mülkiyeti Kanunu',
+      'ISO 41001 Entegre Tesis Yönetimi',
+      'Aidat Yönetimi ve İcra Takibi',
+      'Site Güvenliği (5188)',
+    ],
+    alumniOf: [
+      {
+        '@type': 'EducationalOrganization',
+        name: 'İstanbul Üniversitesi',
+        sameAs: 'https://tr.wikipedia.org/wiki/%C4%B0stanbul_%C3%9Cniversitesi',
+      },
+    ],
+    ...(author.bio ? { description: author.bio } : {}),
+    ...(author.avatar
+      ? { image: { '@type': 'ImageObject', url: author.avatar } }
+      : {}),
+  };
+}
 
+// ---------------------------------------------------------------------------
+// CaseStudy — Vaka Çalışması İçerik Şeması (Faz 6B E-E-A-T)
+// ---------------------------------------------------------------------------
+export function caseStudySchema(cases: {
+  name: string;
+  description: string;
+  result: string;
+  metric: string;
+  value: string;
+}[]): JsonLdObject {
+  return {
+    '@type': 'ItemList',
+    name: 'Alo Yönetim Başarılı Tesis Yönetimi Vaka Çalışmaları',
+    description: 'Profesyonel tesis yönetimi hizmetimizin sağladığı ölçülebilir sonuçlar.',
+    numberOfItems: cases.length,
+    itemListElement: cases.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Article',
+        name: c.name,
+        description: c.description,
+        about: {
+          '@type': 'Thing',
+          name: 'Tesis Yönetimi',
+          sameAs: 'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
+        },
+        result: {
+          '@type': 'QuantitativeValue',
+          name: c.metric,
+          value: c.value,
+          description: c.result,
+        },
+      },
+    })),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Credential — Kurumsal Sertifika/Yetki Belgesi Şeması (Faz 6C E-E-A-T)
+// ---------------------------------------------------------------------------
+export function credentialSchema(): JsonLdObject {
+  return {
+    '@type': 'ItemList',
+    name: 'Alo Yönetim Akreditasyon & Sertifikalar',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
+          description: 'ISO 41001:2018 standardına uygun entegre tesis yönetim sistemi belgelendirmesi.',
+          recognizedBy: { '@type': 'Organization', name: 'Türk Standartları Enstitüsü (TSE)' },
+          credentialCategory: 'certificate',
+          about: { '@type': 'Thing', name: 'Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@type': 'EducationalOccupationalCredential',
+          name: '634 Sayılı KMK Uyum Belgesi',
+          description: 'Kat Mülkiyeti Kanunu\'na tam uyumlu yönetim protokolü.',
+          recognizedBy: { '@type': 'Organization', name: 'T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı' },
+          credentialCategory: 'certificate',
+          about: { '@type': 'Thing', name: 'Kat Mülkiyeti Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: {
+          '@type': 'EducationalOccupationalCredential',
+          name: '5188 Sayılı Kanun Özel Güvenlik Faaliyet İzin Belgesi',
+          description: 'T.C. İçişleri Bakanlığı onaylı 5188 sayılı kanun kapsamlı özel güvenlik faaliyet izni.',
+          recognizedBy: { '@type': 'Organization', name: 'T.C. İçişleri Bakanlığı' },
+          credentialCategory: 'license',
+          about: { '@type': 'Thing', name: '5188 Özel Güvenlik Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q20967015' },
+        },
+      },
+    ],
+  };
+}
 
 

@@ -12,7 +12,7 @@ import {
   DistrictNeighborhoodDuesTableSeo,
   DistrictSecuritySpotlightSeo,
 } from '@/components/seo';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import {
   generateBreadcrumbs,
   webPageSchema,
@@ -20,9 +20,9 @@ import {
   faqPageSchema,
   ORG_PHONE,
 } from '@/lib/schemas';
-import { DISTRICTS, getDistrict } from '@/data/districts';
+import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts';
 import { SERVICES } from '@/data/services';
-import { LOCALES } from '@/lib/seo';
+import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
 
 // ISR: yüzlerce yerel sayfa için günlük yeniden doğrulama (Faz 120/126).
 export const revalidate = 86400;
@@ -69,20 +69,17 @@ export async function generateMetadata({
       noindex: true,
     });
   }
+
+  const serpMeta = getFacilitySerpMeta(lang, district.slug);
+
   return buildMetadata({
-    title: `${district.name} Site ve Tesis Yönetimi`,
-    description: `${district.name}'de profesyonel site, apartman ve bina yönetimi. Güvenlik, temizlik, teknik bakım ve aidat takibi için ${district.name} yerel ekibimizle 7/24 hizmetinizdeyiz.`,
+    title: serpMeta.title,
+    description: serpMeta.description,
     path: `/bolgeler/${ilce}`,
     lang,
+    targetKeyword: serpMeta.targetKeyword,
     ogImageType: 'local',
-    keywords: [
-      `${district.name} site yönetimi`,
-      `${district.name} tesis yönetimi`,
-      `${district.name} apartman yönetimi`,
-      `${district.name} bina yönetimi`,
-      `${district.name} site yönetim şirketleri`,
-      `${district.name} güvenlik hizmetleri`,
-    ],
+    keywords: serpMeta.keywords,
   });
 }
 
@@ -224,6 +221,40 @@ export default async function DistrictPage({
           districtSlug={district.slug}
           neighborhoods={district.neighborhoods}
         />
+
+        {/* Mahalle Detay Sayfaları (Faz 8C — neighborhoodData varsa) */}
+        {district.neighborhoodData && district.neighborhoodData.length > 0 && (
+          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-12 rounded-[2.5rem]">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-[var(--color-primary)]">
+                {district.name} Mahallelerinde Tesis Yönetimi
+              </h2>
+              <Link
+                href={`/bolgeler/${district.slug}/mahalleler`}
+                className="text-sm text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1"
+              >
+                Tümünü gör <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {district.neighborhoodData.map((n: NeighborhoodInfo) => (
+                <Link
+                  key={n.slug}
+                  href={`/bolgeler/${district.slug}/mahalleler/${n.slug}`}
+                  className="group flex flex-col gap-1.5 p-4 border border-[var(--color-outline)]/40 rounded-xl hover:border-brand-500/50 hover:bg-brand-50 dark:hover:bg-brand-900/10 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-base" aria-hidden="true">location_on</span>
+                    <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                      {n.name}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[var(--color-secondary)] line-clamp-2 pl-6">{n.characteristics.join(' · ')}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Harita (lazy) */}
         <div className="rounded-[2.5rem] overflow-hidden border border-[var(--color-outline)]/60">

@@ -140,6 +140,16 @@ ${socialMediaXml}
 </company_profile>
 
 <interactive_tools>
+  <tool id="ai_facility_rag">
+    <name>Tesis Yönetimi AI / RAG Semantik Bilgi Üssü & Blog Knowledge Corpus</name>
+    <url>${BASE_URL}/api/ai/facility-agent-context.json</url>
+    <description>LLM ve yapay zeka arama motorları için ISO 41001 standartlarını, KMK 634 kanun maddelerini ve tüm uzman blog makalelerini RAG formatında derleyen doğrulanmış Ground-Truth API.</description>
+  </tool>
+  <tool id="facility_benchmark_dataset">
+    <name>İstanbul 39 İlçe Tesis Yönetimi Sektörel Benchmark API'si</name>
+    <url>${BASE_URL}/api/tesis-yonetimi/benchmark.json</url>
+    <description>39 ilçenin m² tesis işletme endeksi, tasarruf oranları ve SLA taahhütleri açık veri seti.</description>
+  </tool>
   <tool id="kmk_assistant">
     <name>KMK 634 & 5188 Yasal Mevzuat Akıllı Danışmanı</name>
     <url>${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi</url>
@@ -148,7 +158,7 @@ ${socialMediaXml}
   <tool id="dues_heatmap">
     <name>İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)</name>
     <url>${BASE_URL}/bolgeler</url>
-    <description>İstanbul 48 ilçesinin m² başına piyasa aidat ortalamaları ve Alo Yönetim ile %20-30 tasarruf simülasyonu.</description>
+    <description>İstanbul 39 ilçesinin m² başına piyasa aidat ortalamaları ve Alo Yönetim ile %20-30 tasarruf simülasyonu.</description>
   </tool>
   <tool id="audit_scorecard">
     <name>Resmi PDF Tesis Sağlık & Tasarruf Karnesi</name>
@@ -261,7 +271,7 @@ ${regionList}
 </service_regions>
 
 <district_service_pages>
-<!-- 12 ilçe × ${SERVICES.length} hizmet = ${DISTRICTS.length * SERVICES.length} yerel hizmet sayfası -->
+<!-- 39 ilçe × ${SERVICES.length} hizmet = ${DISTRICTS.length * SERVICES.length} yerel hizmet sayfası -->
 ${districtServiceMatrix}
 </district_service_pages>
 `;

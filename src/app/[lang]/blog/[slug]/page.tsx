@@ -13,7 +13,7 @@ import {
   webPageSchema,
 } from '@/lib/schemas';
 import BlogFAQExtractor from '@/components/seo/BlogFAQExtractor';
-import { LOCALES, buildMetadata } from '@/lib/seo';
+import { LOCALES, buildMetadata, BASE_URL } from '@/lib/seo';
 import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
 import type { Metadata } from 'next';
 import trDict from '@/i18n/locales/tr/common.json';
@@ -159,35 +159,41 @@ export default async function BlogDetail({
 
   const dynamicAbout = [
     { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' },
+    { name: 'ISO 41001:2018 Entegre Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+    { name: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
     ...entityGraph.about.map((a) => ({ name: a.name, sameAs: a.sameAs })),
   ];
 
   const dynamicMentions = entityGraph.mentions.map((m) => ({ name: m.name, sameAs: m.sameAs }));
 
-  const articleLd = blogPostingSchema({
-    headline: post.title,
-    description: post.description,
-    path,
-    image: post.image || undefined,
-    datePublished: post.datePublished.toISOString(),
-    dateModified: post.dateModified.toISOString(),
-    section: category?.name,
-    keywords: tags,
-    timeRequired: `PT${minutes}M`,
-    wordCount: wordCount,
-    articleBody: plainText.substring(0, 800),
-    about: dynamicAbout,
-    mentions: dynamicMentions,
-    author: author
-      ? { 
-          name: author.name, 
-          jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı', 
-          url: `/blog/yazar/${author.slug}`,
-          alumniOf: [{ name: 'İstanbul Üniversitesi', sameAs: 'https://tr.wikipedia.org/wiki/İstanbul_Üniversitesi' }],
-          knowsAbout: ['Tesis Yönetimi', 'Bina Güvenliği', 'Aidat Hukuku', 'Site Yönetimi']
-        }
-      : undefined,
-  });
+  const articleLd = {
+    ...blogPostingSchema({
+      headline: post.title,
+      description: post.description,
+      path,
+      image: post.image || undefined,
+      datePublished: post.datePublished.toISOString(),
+      dateModified: post.dateModified.toISOString(),
+      section: category?.name,
+      keywords: tags,
+      timeRequired: `PT${minutes}M`,
+      wordCount: wordCount,
+      articleBody: plainText.substring(0, 800),
+      about: dynamicAbout,
+      mentions: dynamicMentions,
+      author: author
+        ? { 
+            name: author.name, 
+            jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı', 
+            url: `/blog/yazar/${author.slug}`,
+            alumniOf: [{ name: 'İstanbul Üniversitesi', sameAs: 'https://tr.wikipedia.org/wiki/İstanbul_Üniversitesi' }],
+            knowsAbout: ['Tesis Yönetimi', 'Bina Güvenliği', 'Aidat Hukuku', 'Site Yönetimi']
+          }
+        : undefined,
+    }),
+    isBasedOn: `${BASE_URL}/api/ai/facility-agent-context.json`,
+    citation: `${BASE_URL}/api/ai/facility-agent-context.json`,
+  };
 
   const pageLd = webPageSchema({
     name: post.title,

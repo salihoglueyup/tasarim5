@@ -16,9 +16,10 @@ export async function deletePost(id: string, lang: string) {
     await prisma.post.delete({ where: { id } });
     revalidatePath(`/${lang}/admin/posts`);
     revalidatePath(`/${lang}/blog`);
+    revalidatePath('/api/ai/facility-agent-context.json');
 
     if (targetPost?.slug) {
-      notifyIndexNow([`/blog/${targetPost.slug}`, '/blog', '/sitemap.xml']);
+      notifyIndexNow([`/blog/${targetPost.slug}`, '/blog', '/sitemap.xml', '/api/ai/facility-agent-context.json']);
     }
 
     return { success: true };
@@ -82,10 +83,11 @@ export async function savePost(id: string, data: any, lang: string) {
 
     revalidatePath(`/${lang}/admin/posts`);
     revalidatePath(`/${lang}/blog`);
+    revalidatePath('/api/ai/facility-agent-context.json');
     
-    // Arama motorlarına (Bing/Yandex) anında otomatik bildirim gönder
+    // Arama motorlarına ve AI botlarına anında otomatik bildirim gönder
     if (post?.slug && post?.published) {
-      notifyIndexNow([`/blog/${post.slug}`, '/blog', '/sitemap.xml', '/feed.xml']);
+      notifyIndexNow([`/blog/${post.slug}`, '/blog', '/sitemap.xml', '/feed.xml', '/api/ai/facility-agent-context.json']);
     }
 
     return { success: true, post };

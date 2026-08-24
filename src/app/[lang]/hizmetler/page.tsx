@@ -31,6 +31,15 @@ export default function Hizmetler() {
 
   const allServices = [
     {
+      title: t('serv_4_title') || 'Profesyonel Tesis Yönetimi',
+      category: t('services_cat_management'),
+      desc: t('serv_4_desc'),
+      link: "/hizmetler/tesis-yonetimi",
+      icon: "account_balance_wallet",
+      stats: t('serv_4_stats'),
+      isFlagship: true
+    },
+    {
       title: t('serv_1_title'),
       category: t('services_cat_security'),
       desc: t('serv_1_desc'),
@@ -53,14 +62,6 @@ export default function Hizmetler() {
       link: "/hizmetler/teknik-bakim",
       icon: "engineering",
       stats: t('serv_3_stats')
-    },
-    {
-      title: t('serv_4_title'),
-      category: t('services_cat_management'),
-      desc: t('serv_4_desc'),
-      link: "/hizmetler/tesis-yonetimi",
-      icon: "account_balance_wallet",
-      stats: t('serv_4_stats')
     },
     {
       title: t('serv_5_title'),

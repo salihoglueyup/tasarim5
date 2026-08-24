@@ -123,6 +123,12 @@ export default function KMKLawAssistantSeo() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': 'https://aloyonetim.com.tr/hizmetler/hukuk-ve-icra-danismanligi#kmk-faq',
+    name: 'Kat Mülkiyeti Kanunu (KMK 634) ve Tesis Yönetimi Yasal SSS Rehberi',
+    about: [
+      { '@type': 'Thing', name: 'Kat Mülkiyeti Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
+      { '@type': 'Thing', name: 'Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
+    ],
     mainEntity: KMK_LAW_DATABASE.map((item) => ({
       '@type': 'Question',
       name: item.question,

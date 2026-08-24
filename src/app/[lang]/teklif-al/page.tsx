@@ -61,9 +61,40 @@ export default function TeklifAl() {
     path: '/teklif-al',
   });
 
+  const quoteActionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FinancialProduct',
+    name: 'Alo Yönetim Şeffaf Tesis Yönetimi Teklifi',
+    description: 'ISO 41001 standartlarında 5188 güvenlik ve aidat takibi içeren kurumsal tesis yönetim teklifi.',
+    potentialAction: {
+      '@type': 'QuoteAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://aloyonetim.com.tr/teklif-al',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform',
+        ],
+      },
+      result: {
+        '@type': 'Quote',
+        name: '48 Saatte Şeffaf Tesis Yönetimi Teklifi',
+      },
+    },
+  };
+
+  const contactPointLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPoint',
+    telephone: '+90-216-550-48-48',
+    contactType: 'sales and quotation',
+    areaServed: 'TR',
+    availableLanguage: ['Turkish', 'English', 'Russian', 'Arabic'],
+  };
+
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, quoteActionLd, contactPointLd]} />
       <PageHeader
         title="Ücretsiz Teklif Alın"
         description="Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifini 48 saat içinde alın. Gizli gider yok, taahhüt yok."

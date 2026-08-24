@@ -48,11 +48,27 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aloyonetim.com.tr"),
   title: {
-    default: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
-    template: "%s | Alo Yönetim"
+    default: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi & Entegre Tesis İşletmeciliği",
+    template: "%s | Alo Yönetim Tesis Yönetimi"
   },
-  description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.",
-  keywords: ["mülk yönetimi", "tesis yönetimi", "güvenlik hizmetleri", "temizlik şirketi", "profesyonel mülk yönetimi", "apartman yönetimi", "İstanbul", "Kadıköy"],
+  description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. 400+ tesis referansı ile %30 tasarruf güvencesi.",
+  keywords: [
+    "tesis yönetimi",
+    "profesyonel tesis yönetimi",
+    "istanbul tesis yönetimi",
+    "entegre tesis yönetimi",
+    "tesis yönetim şirketleri",
+    "tesis yönetim firmaları",
+    "site ve tesis yönetimi",
+    "bina tesis yönetimi",
+    "plaza tesis yönetimi",
+    "rezidans tesis yönetimi",
+    "iso 41001 tesis yönetimi",
+    "kmk 634 site yönetimi",
+    "5188 özel güvenlik",
+    "apartman yönetimi",
+    "İstanbul"
+  ],
   authors: [{ name: "Alo Yönetim" }],
   creator: "Alo Yönetim",
   publisher: "Alo Yönetim",
@@ -73,15 +89,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://aloyonetim.com.tr",
-    title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
-    description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
+    title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
+    description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
     siteName: "Alo Yönetim",
-    // Görsel: dinamik opengraph-image route'u ile sağlanacak (SEO V4 Faz 4).
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi",
-    description: "Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri.",
+    title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
+    description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
   },
   robots: {
     index: true,

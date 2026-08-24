@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
-import { 
-  generateBreadcrumbs, 
-  webPageSchema, 
-  serviceSchema, 
+import {
+  generateBreadcrumbs,
+  webPageSchema,
+  serviceSchema,
   faqPageSchema,
   professionalServiceSchema,
+  credentialSchema,
 } from '@/lib/schemas';
 import { 
   KeywordAnalysisSeo, 
@@ -79,6 +80,31 @@ export default async function TesisYonetimiPage({
     areaServed: 'İstanbul, Türkiye (39 İlçe)',
   });
 
+  const calculateActionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Tesis Yönetimi Canlı Bütçe & Tasarruf Simülatörü',
+    url: `${BASE_URL}/api/tesis-yonetimi/calculate-budget`,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'All',
+    potentialAction: {
+      '@type': 'CalculateAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/api/tesis-yonetimi/calculate-budget?units={units}&blocks={blocks}&district={district}`,
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform',
+        ],
+      },
+      'query-input': 'required name=units',
+      result: {
+        '@type': 'FinancialProduct',
+        name: 'Tahmini Tesis Yönetimi Bütçesi ve %30 Tasarruf Raporu',
+      },
+    },
+  };
+
   const faqs = [
     {
       question: t.fac_faq_1_q || 'Profesyonel tesis yönetimi neleri kapsar?',
@@ -127,7 +153,7 @@ export default async function TesisYonetimiPage({
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, professionalLd, faqLd, pageLd, facilityGraphLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, professionalLd, calculateActionLd, faqLd, pageLd, facilityGraphLd, credentialSchema()]} />
       <KeywordAnalysisSeo
         title={pageTitle}
         description={pageDesc}
@@ -139,7 +165,8 @@ export default async function TesisYonetimiPage({
           'istanbul tesis yönetimi',
           'bina yönetimi',
           'site yönetimi',
-          'iso 41001'
+          'iso 41001',
+          'kmk 634'
         ]}
       />
       <VoiceSearchSpeakableSeo
@@ -153,12 +180,24 @@ export default async function TesisYonetimiPage({
         path="/hizmetler/tesis-yonetimi"
         terms={[
           {
-            term: 'Tesis Yönetimi',
-            definition: 'Binaların idari, hukuki, teknik ve temizlik operasyonlarının ISO 41001 standartlarında tek çatı altında profesyonelce yönetilmesidir.',
+            term: 'Tesis Yönetimi (Facility Management)',
+            definition: 'Binaların idari, hukuki, teknik ve temizlik operasyonlarının ISO 41001:2018 standartlarında tek çatı altında profesyonelce yönetilmesidir.',
           },
           {
-            term: 'İşletme Projesi',
-            definition: '634 sayılı KMK 37. maddesi uyarınca anagayrimenkulün bir yıllık tahmini gelir ve giderlerini gösteren yasal bütçe belgesidir.',
+            term: 'İşletme Projesi (KMK Madde 37)',
+            definition: '634 sayılı KMK 37. maddesi uyarınca anagayrimenkulün bir yıllık tahmini gelir ve giderlerini gösteren kesinleşmiş yasal bütçe belgesidir.',
+          },
+          {
+            term: 'Yasal Gecikme Tazminatı (KMK Madde 20/2)',
+            definition: 'Aidat borcunu gününde ödemeyen kat malikine re\'sen uygulanan aylık %5 oranındaki kanuni gecikme tazminatıdır.',
+          },
+          {
+            term: 'Çift Çoğunluk Kuralı (KMK Madde 34/4)',
+            definition: 'Yönetici seçiminde geçerli bir kararın oluşabilmesi için kat maliklerinin hem sayı hem arsa payı bakımından salt çoğunluğunun (%50+1) sağlanması şartıdır.',
+          },
+          {
+            term: 'Asansör Yeşil Etiket Uyumu',
+            definition: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği uyarınca yılda bir zorunlu yapılan periyodik muayene belgesidir.',
           },
         ]}
       />

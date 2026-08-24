@@ -78,6 +78,9 @@
     "typescript": "^5",
     "vitest": "^2.1.9"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "overrides": {
     "sharp": "^0.35.0",
     "postcss": "^8.5.22"

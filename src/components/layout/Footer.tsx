@@ -99,9 +99,9 @@ export default function Footer() {
             <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_solutions')}</h4>
             <div className="flex flex-col gap-3" role="navigation" aria-label="Alt menü - Çözümler">
               {[
+                { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi' }, // Amiral Gemisi #1
                 { nameKey: 'nav_all_services', path: '/hizmetler' },
                 { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi' },
-                { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi' },
                 { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen' },
                 { nameKey: 'nav_tech_maintenance', path: '/hizmetler/teknik-bakim' },
                 { nameKey: 'nav_landscaping', path: '/hizmetler/peyzaj-ve-bahce-bakimi' },
@@ -316,7 +316,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-slate-900 dark:text-white">{t('footer_sitemap')}</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/sozluk' : '/sozluk'} className="hover:underline">KMK & Tesis Sözlüğü</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-amber-600 dark:text-amber-400 font-medium">RSS Bülteni</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-slate-900 dark:text-white">{t('footer_sitemap')}</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-gray-700 dark:text-gray-300">

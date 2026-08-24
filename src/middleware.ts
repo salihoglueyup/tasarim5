@@ -3,6 +3,9 @@ import type { NextRequest } from 'next/server';
 import { decrypt } from './lib/auth';
 import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
+import { buildHttpLinkHeader, buildXRobotsTag } from './lib/seo/edgeHeaderInjector';
+import { analyzeCrawlBudget } from './lib/seo/crawlBudgetDefender';
+import { detectAndLogAiCrawler } from './lib/seo/aiBotTelemetry';
 
 const locales = ['tr', 'en', 'ru', 'ar'];
 const defaultLocale = 'tr';
@@ -14,6 +17,16 @@ const publicRoutes = ['/admin/login'];
 const translatedSlugs: Record<string, Record<string, string>> = {
   en: {
     'services': 'hizmetler',
+    'facility-management': 'hizmetler/tesis-yonetimi',
+    'services/facility-management': 'hizmetler/tesis-yonetimi',
+    'security-management': 'hizmetler/guvenlik-yonetimi',
+    'services/security-management': 'hizmetler/guvenlik-yonetimi',
+    'cleaning-and-hygiene': 'hizmetler/temizlik-ve-hijyen',
+    'services/cleaning-and-hygiene': 'hizmetler/temizlik-ve-hijyen',
+    'technical-maintenance': 'hizmetler/teknik-bakim',
+    'services/technical-maintenance': 'hizmetler/teknik-bakim',
+    'legal-and-execution-consultancy': 'hizmetler/hukuk-ve-icra-danismanligi',
+    'services/legal-and-execution-consultancy': 'hizmetler/hukuk-ve-icra-danismanligi',
     'contact': 'iletisim',
     'about': 'hakkimizda',
     'regions': 'bolgeler',
@@ -28,9 +41,17 @@ const translatedSlugs: Record<string, Record<string, string>> = {
     'security-academy': 'guvenlik-akademisi',
     'sectoral-solutions': 'sektorel-cozumler',
     'sustainability': 'surdurulebilirlik',
+    'sitemap': 'site-haritasi',
+    'privacy-policy': 'gizlilik-politikasi',
+    'terms-of-use': 'kullanim-sartlari',
+    'cookie-policy': 'cerez-politikasi',
+    'kvkk': 'kvkk-ve-aydinlatma-metni',
+    'career': 'istihdam-koprusu',
   },
   ru: {
     'uslugi': 'hizmetler',
+    'upravlenie-obektami': 'hizmetler/tesis-yonetimi',
+    'uslugi/upravlenie-obektami': 'hizmetler/tesis-yonetimi',
     'kontakty': 'iletisim',
     'o-nas': 'hakkimizda',
     'regioni': 'bolgeler',
@@ -45,9 +66,17 @@ const translatedSlugs: Record<string, Record<string, string>> = {
     'akademiya-bezopasnosti': 'guvenlik-akademisi',
     'otraslevye-resheniya': 'sektorel-cozumler',
     'ustoychivost': 'surdurulebilirlik',
+    'karta-sayta': 'site-haritasi',
+    'politika-konfidentsialnosti': 'gizlilik-politikasi',
+    'usloviya-ispolzovaniya': 'kullanim-sartlari',
+    'politika-cookie': 'cerez-politikasi',
+    'kvkk': 'kvkk-ve-aydinlatma-metni',
+    'karera': 'istihdam-koprusu',
   },
   ar: {
     'khadamat': 'hizmetler',
+    'idarat-al-marafiq': 'hizmetler/tesis-yonetimi',
+    'khadamat/idarat-al-marafiq': 'hizmetler/tesis-yonetimi',
     'itisal': 'iletisim',
     'man-nahnu': 'hakkimizda',
     'manatiq': 'bolgeler',
@@ -62,6 +91,12 @@ const translatedSlugs: Record<string, Record<string, string>> = {
     'akadimiyat-al-amn': 'guvenlik-akademisi',
     'hulul-qitaeia': 'sektorel-cozumler',
     'aistidama': 'surdurulebilirlik',
+    'kharitat-almawqie': 'site-haritasi',
+    'siyasat-alkhususia': 'gizlilik-politikasi',
+    'shurut-alistikhdam': 'kullanim-sartlari',
+    'siyasat-malafat-taarif': 'cerez-politikasi',
+    'kvkk': 'kvkk-ve-aydinlatma-metni',
+    'tawzif': 'istihdam-koprusu',
   }
 };
 
@@ -77,9 +112,10 @@ function getLocale(request: NextRequest): string {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const userAgent = request.headers.get('user-agent') || '';
+  const clientIp = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
 
   // 0. SECURITY & VULNERABILITY SHIELD (Faz 218: Bot Exploit & Dotfile Probing Kalkanı)
-  // Saldırgan botların .env, .aws, .claude, /@fs/, .php, .sql gibi dosyaları aramasını sıfır gecikmeyle 403 Forbidden olarak keser.
   const lowerPath = pathname.toLowerCase();
   const isSecurityBlocked =
     lowerPath.startsWith('/@fs') ||
@@ -105,6 +141,9 @@ export async function middleware(request: NextRequest) {
     return new NextResponse('Forbidden', { status: 403, headers: { 'Content-Type': 'text/plain' } });
   }
 
+  // 0.5. AI BOT & LLM TELEMETRY LOGGING (GPTBot, ClaudeBot, Perplexity, DeepSeek)
+  detectAndLogAiCrawler(userAgent, pathname, clientIp, 200);
+
   // 1. MEŞRU STATİK DOSYA VE API KONTROLÜ
   if (
     pathname.startsWith('/_next') ||
@@ -126,7 +165,6 @@ export async function middleware(request: NextRequest) {
   }
 
   // 1.5. URL NORMALIZATION (SEO Faz 5: Lowercase enforcement)
-  // Büyük harf içeren URL'leri 301 ile küçük harfe yönlendirir (Duplicate Content cezasını önler).
   if (pathname !== pathname.toLowerCase()) {
     const url = request.nextUrl.clone();
     url.pathname = url.pathname.toLowerCase();
@@ -155,8 +193,6 @@ export async function middleware(request: NextRequest) {
   }
 
   // 3. LOCALE (DİL) YÖNLENDİRMESİ & SLUG ÇEVİRİLERİ
-  
-  // URL'nin başında herhangi bir locale var mı?
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
@@ -171,7 +207,6 @@ export async function middleware(request: NextRequest) {
   }
 
   if (pathnameIsMissingLocale) {
-    // Eğer locale yoksa, varsayılan dile (tr) rewrite yapıyoruz (SEO açısından URL değişmez)
     const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
     return NextResponse.rewrite(newUrl);
   }
@@ -184,59 +219,65 @@ export async function middleware(request: NextRequest) {
 
   let response = NextResponse.next();
 
-  // URL Çevirilerini Rewrite Etme (Örn: /en/services -> /en/hizmetler)
+  // URL Çevirilerini Rewrite Etme (Örn: /en/services/facility-management -> /en/hizmetler/tesis-yonetimi)
   const currentLocale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
   if (currentLocale && currentLocale !== defaultLocale) {
-    const segments = pathname.split('/').filter(Boolean); // ["en", "services"]
+    const segments = pathname.split('/').filter(Boolean); // ["en", "services", "facility-management"]
     if (segments.length > 1) {
+      const fullSubPath = segments.slice(1).join('/');
       const originalSlug = segments[1];
-      const translated = translatedSlugs[currentLocale]?.[originalSlug];
       
-      if (translated) {
-        // Yolu Türkçe (gerçek) klasör yapısına rewrite et (url'de İngilizce kalır)
-        segments[1] = translated;
+      if (translatedSlugs[currentLocale]?.[fullSubPath]) {
+        const translatedPath = translatedSlugs[currentLocale][fullSubPath];
+        const rewrittenPath = `/${currentLocale}/${translatedPath}`;
+        response = NextResponse.rewrite(new URL(rewrittenPath, request.url));
+      } else if (translatedSlugs[currentLocale]?.[originalSlug]) {
+        segments[1] = translatedSlugs[currentLocale][originalSlug];
         const rewrittenPath = `/${segments.join('/')}`;
         response = NextResponse.rewrite(new URL(rewrittenPath, request.url));
       }
     }
   }
 
-  // 4. ENTERPRISE SEO & BOT RESPONSE HEADERS (RFC 8288 Edge Web Linking)
+  // 4. ENTERPRISE SEO & BOT RESPONSE HEADERS (RFC 8288 Edge Web Linking & Crawl Budget Defender)
   if (!pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
-    // Googlebot, Bingbot, YandexBot standart robots yönergesi
-    response.headers.set(
-      'X-Robots-Tag',
-      'all, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-    );
+    // Tarama Bütçesi Denetimi (?utm_*, ?fbclid=* vb.)
+    const crawlBudget = analyzeCrawlBudget(request.nextUrl.searchParams);
+
+    if (crawlBudget.shouldNoindex) {
+      response.headers.set('X-Robots-Tag', 'noindex, follow');
+      response.headers.set('X-Crawl-Defender', 'Protected-From-Parameter-Bloat');
+    } else {
+      response.headers.set(
+        'X-Robots-Tag',
+        buildXRobotsTag({ maxImagePreview: 'large', maxSnippet: -1, maxVideoPreview: -1 })
+      );
+    }
+
     response.headers.set(
       'X-Topical-Authority',
-      'Alo Yonetim - Profesyonel Tesis Yonetimi (KMK 634 & 5188 Ozel Guvenlik)'
+      'Alo Yonetim - Profesyonel Tesis Yonetimi (ISO 41001 & KMK 634)'
     );
     response.headers.set(
       'X-Dataset-Reference',
-      'https://aloyonetim.com.tr/api/datasets/istanbul-facility-data'
+      'https://aloyonetim.com.tr/api/geo/facility-coverage.geojson'
     );
 
-    // RFC 8288 Multi-Resource Edge Link Header (Canonical, Sitemap, Knowledge Graph, Dataset & Feeds)
-    const canonicalUrl = `https://aloyonetim.com.tr${pathname === '/' ? '' : pathname}`;
-    const linkHeaders = [
-      `<${canonicalUrl}>; rel="canonical"`,
+    // RFC 8288 standardında Link Header Enjeksiyonu
+    const httpLinkHeader = buildHttpLinkHeader(pathname, currentLocale || defaultLocale);
+    const extraLinks = [
       `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
-      `<https://aloyonetim.com.tr/api/knowledge-graph>; rel="alternate"; type="application/ld+json"`,
-      `<https://aloyonetim.com.tr/api/datasets/istanbul-facility-data>; rel="describedby"; type="application/ld+json"`,
-      `<https://aloyonetim.com.tr/api/facility/districts-feed.xml>; rel="alternate"; type="application/rss+xml"`,
-      `<https://aloyonetim.com.tr/feed.xml>; rel="alternate"; type="application/atom+xml"`,
-      `<https://aloyonetim.com.tr/opensearch.xml>; rel="search"; type="application/opensearchdescription+xml"`
+      `<https://aloyonetim.com.tr/feed/tesis-yonetimi.xml>; rel="alternate"; type="application/rss+xml"`,
+      `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`
     ];
-    response.headers.set('Link', linkHeaders.join(', '));
+    response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
 
     // AI Arama Motoru Tespiti & Bilgi Yönlendirmesi
-    const userAgent = request.headers.get('user-agent') || '';
-    if (/GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot/i.test(userAgent)) {
+    if (/GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek/i.test(userAgent)) {
       response.headers.set('X-AI-Knowledge-Protocol', 'https://aloyonetim.com.tr/llms.txt');
-      response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai-knowledge');
-      response.headers.set('X-AI-Knowledge-Graph', 'https://aloyonetim.com.tr/api/knowledge-graph');
-      response.headers.set('X-AI-Facility-Framework', 'https://aloyonetim.com.tr/api/facility/legal-templates');
+      response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
+      response.headers.set('X-AI-Legal-Precedents', 'https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
+      response.headers.set('X-AI-RFP-Generator', 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator');
     }
   }
 

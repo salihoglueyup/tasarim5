@@ -3,7 +3,9 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema, definedTermSetSchema } from '@/lib/schemas';
-import { TERMS } from '@/data/dictionary';
+import { TERMS, termToSlug } from '@/data/dictionary';
+import { KMK_LAW_INDEX } from '@/app/api/tesis-yonetimi/kmk-law-index.json/route';
+import { VoiceSearchSpeakableSeo } from '@/components/seo';
 import SozlukClient from './SozlukClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -38,7 +40,7 @@ export async function generateMetadata({
       'demirbaş nedir',
       'mali ibra nedir',
       'kat malikleri kurulu',
-      'apartman yönetimi sözlüğü'
+      'apartman yönetimi sözlüğü',
     ],
   });
 }
@@ -63,21 +65,46 @@ export default async function SozlukPage({
     speakableSelectors: ['h1', 'p'],
   });
 
-  const termSetLd = definedTermSetSchema({
-    name: 'Site ve Tesis Yönetimi Sözlüğü',
-    description: 'Kat Mülkiyeti Kanunu ve profesyonel tesis yönetimi yasal terimler sözlüğü.',
-    path: '/sozluk',
-    terms: TERMS.map((t) => ({
+  const kmkTerms = KMK_LAW_INDEX.map((item) => ({
+    term: `KMK Madde ${item.articleNumber}: ${item.title}`,
+    definition: item.summary,
+    url: item.legalAnchor,
+  }));
+
+  const allTerms = [
+    ...TERMS.map((t) => ({
       term: t.term,
       definition: t.definition,
       url: `/sozluk#${t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
     })),
+    ...kmkTerms,
+  ];
+
+  const termSetLd = definedTermSetSchema({
+    name: 'Site ve Tesis Yönetimi Sözlüğü & KMK 634 Kanun Maddeleri',
+    description: 'Kat Mülkiyeti Kanunu ve profesyonel tesis yönetimi yasal terimler ve mevzuat maddeleri sözlüğü.',
+    path: '/sozluk',
+    terms: allTerms,
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, pageLd, termSetLd]} />
+      <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-6">
+        <VoiceSearchSpeakableSeo
+          question="Site ve Tesis Yönetimi Terimleri ve KMK Maddeleri Nelerdir?"
+          directAnswer="634 sayılı Kat Mülkiyeti Kanunu (KMK), 5188 sayılı özel güvenlik kanunu ve ISO 41001 entegre tesis yönetimi standartlarına dair tüm yasal terimler ve tanımlardır."
+          lang={lang}
+        />
+      </div>
       <SozlukClient />
+
+      {/* Bireysel terim sayfaları — Google arama motoru tarama linkleri (Faz 7A) */}
+      <nav aria-label="Sözlük terimleri" className="sr-only">
+        {TERMS.map((t) => (
+          <a key={t.term} href={`/sozluk/${termToSlug(t.term)}`}>{t.term} nedir</a>
+        ))}
+      </nav>
     </>
   );
 }

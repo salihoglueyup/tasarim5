@@ -8,6 +8,8 @@ import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/l
 import { getDictionary } from '@/lib/i18n';
 import { prisma } from '@/lib/prisma';
 
+import { generateFacilityManagementGraph } from '@/lib/seo/facilityTopicGraph';
+
 // Heavy components loaded dynamically for performance
 const BentoServices = dynamic(() => import('@/components/sections/BentoServices'), { ssr: true });
 const WhyUsBentoGrid = dynamic(() => import('@/components/sections/WhyUsBentoGrid'), { ssr: true });
@@ -32,16 +34,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getDictionary(lang);
   
   const base = buildMetadata({
-    title: t.home_meta_title_base || 'Alo Yönetim',
-    description: t.home_meta_desc || 'İstanbul Kadıköy merkezli profesyonel mülk, site, apartman, plaza ve tesis yönetimi. Şeffaf aidat takibi, 7/24 güvenlik, temizlik ve teknik bakımla gayrimenkullerinizi güvenle yönetiyoruz. Ücretsiz keşif için hemen ulaşın.',
+    title: t.home_meta_title_base || 'Alo Yönetim — Profesyonel Tesis Yönetimi',
+    description: t.home_meta_desc || 'İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. %30 maliyet tasarrufu ve 7/24 hizmet.',
     path: '/',
     lang,
-    keywords: ['mülk yönetimi', 'tesis yönetimi', 'bina yönetimi', 'site yönetimi', 'profesyonel yönetim', 'aidat takip programı'],
+    targetKeyword: 'tesis yönetimi',
+    keywords: [
+      'tesis yönetimi',
+      'profesyonel tesis yönetimi',
+      'istanbul tesis yönetimi',
+      'entegre tesis yönetimi',
+      'tesis yönetim şirketleri',
+      'bina yönetimi',
+      'site yönetimi',
+      'iso 41001',
+      '5188 özel güvenlik'
+    ],
   });
   
   return {
     ...base,
-    title: { absolute: t.home_meta_title_absolute || 'Alo Yönetim | Profesyonel Mülk, Site ve Tesis Yönetimi' },
+    title: { absolute: t.home_meta_title_absolute || 'Alo Yönetim | İstanbul Profesyonel Tesis ve Site Yönetimi' },
   };
 }
 
@@ -101,9 +114,11 @@ export default async function Home({ params }: Props) {
     speakableSelectors: ['#speakable-content'],
   });
 
+  const facilityGraphLd = generateFacilityManagementGraph(lang);
+
   return (
     <>
-      <JsonLd data={[pageLd, businessLd, videoLd]} />
+      <JsonLd data={[pageLd, businessLd, videoLd, facilityGraphLd]} />
       <Hero />
       <SeoTextSection />
       <InteractiveFacilityExplorer />

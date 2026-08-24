@@ -22,6 +22,7 @@ const AI_BOTS = [
   'CCBot',
   'Applebot-Extended',
   'cohere-ai',
+  'DeepSeekBot',
 ];
 
 export default function robots(): MetadataRoute.Robots {
@@ -29,6 +30,12 @@ export default function robots(): MetadataRoute.Robots {
     '/',
     '/api/ai-knowledge',
     '/api/knowledge-graph',
+    '/api/ai/facility-agent-context.json',
+    '/api/tesis-yonetimi/calculate-budget',
+    '/api/tesis-yonetimi/dictionary.json',
+    '/api/tesis-yonetimi/legal-precedents.json',
+    '/api/tesis-yonetimi/rfp-generator',
+    '/api/geo/facility-coverage.geojson',
     '/api/geo/districts.geojson',
     '/api/geo/istanbul.kml',
     '/api/datasets/istanbul-facility-data',
@@ -43,11 +50,14 @@ export default function robots(): MetadataRoute.Robots {
     '/api/summary',
     '/api/terms',
     '/api/search-suggest',
+    '/feed/tesis-yonetimi.xml',
+    '/video-sitemap.xml',
+    '/sitemap-regions.xml',
     '/llms.txt',
     '/llms-full.txt',
     '/opensearch.xml',
     '/.well-known/security.txt',
-    '/.well-known/traffic-advice'
+    '/.well-known/traffic-advice',
   ];
 
   // Özel/teknik, oturum, form ve exploit deneme yolları botlara kapalıdır
@@ -86,8 +96,11 @@ export default function robots(): MetadataRoute.Robots {
     ],
     sitemap: [
       `${BASE_URL}/sitemap.xml`,
+      `${BASE_URL}/sitemap-regions.xml`,
       `${BASE_URL}/image-sitemap.xml`,
+      `${BASE_URL}/video-sitemap.xml`,
       `${BASE_URL}/document-sitemap.xml`,
+      `${BASE_URL}/feed/tesis-yonetimi.xml`,
       `${BASE_URL}/api/facility/districts-feed.xml`,
       `${BASE_URL}/api/security/districts-feed.xml`,
       `${BASE_URL}/rss.xml`,
@@ -96,4 +109,3 @@ export default function robots(): MetadataRoute.Robots {
     host: BASE_URL,
   };
 }
-

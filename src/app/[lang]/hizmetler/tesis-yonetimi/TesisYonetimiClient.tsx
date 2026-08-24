@@ -8,6 +8,8 @@ import {
   FacilityComparisonMatrixSeo,
   FacilityLegalTemplateGeneratorSeo,
 } from '@/components/seo';
+import CaseStudySeo from '@/components/seo/CaseStudySeo';
+import ComparisonTableSeo from '@/components/seo/ComparisonTableSeo';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -196,6 +198,11 @@ export default function TesisYonetimiClient() {
           </div>
         </div>
 
+        {/* Kanıtlanmış Sonuçlar — Vaka Çalışmaları (E-E-A-T Faz 6B) */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
+          <CaseStudySeo />
+        </div>
+
         {/* Tesis Yönetimi Karşılaştırma Matrisi (Bireysel vs Alo Yönetim) */}
         <FacilityComparisonMatrixSeo />
 
@@ -213,6 +220,11 @@ export default function TesisYonetimiClient() {
 
         {/* Facility Specific Social Proof */}
         <FacilityTestimonials />
+
+        {/* Profesyonel vs Bireysel Yönetim Karşılaştırma Tablosu (Faz 7B Featured Snippet) */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
+          <ComparisonTableSeo />
+        </div>
 
         {/* Service Specific FAQ via DynamicFAQ Component */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

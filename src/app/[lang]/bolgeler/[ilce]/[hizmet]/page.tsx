@@ -18,6 +18,9 @@ import {
   FacilityLegalTemplateGeneratorSeo,
 } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
+import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
+import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
+import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
 import {
   generateBreadcrumbs,
   webPageSchema,
@@ -212,11 +215,15 @@ export default async function ServiceDistrictPage({
   if (!district || !service) notFound();
 
   const path = `/bolgeler/${district.slug}/${service.slug}`;
-  const faqs = serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
   const isFacility = service.slug === 'tesis-yonetimi';
   const isSecurity = service.slug === 'guvenlik-yonetimi';
   const isTechnical = service.slug === 'teknik-bakim';
   const isCleaning = service.slug === 'temizlik-ve-hijyen';
+
+  const synthesizedDistrictFaq = isFacility ? synthesizeDistrictFacilityFaq(district.slug) : null;
+  const faqs = (isFacility && synthesizedDistrictFaq)
+    ? synthesizedDistrictFaq.faqs.map(f => ({ question: f.question, answer: f.answer }))
+    : serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
 
   let pageHeaderTitle = `${service.name} — ${district.name}`;
   let pageHeaderDesc = `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
@@ -266,6 +273,30 @@ export default async function ServiceDistrictPage({
     path,
     description: service.summary,
   });
+
+  const enhancedServiceLd = {
+    ...serviceLd,
+    ...(isFacility
+      ? {
+          category: 'ISO 41001 Entegre Tesis Yönetimi',
+          hasCredential: [
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
+              sameAs: 'https://www.wikidata.org/wiki/Q108846399',
+            },
+          ],
+        }
+      : {
+          isSubServiceOf: {
+            '@type': 'Service',
+            name: `${district.name} Tesis Yönetimi`,
+            url: `https://aloyonetim.com.tr/bolgeler/${district.slug}/tesis-yonetimi`,
+            category: 'ISO 41001 Entegre Tesis Yönetimi',
+          },
+        }),
+  };
+
   const businessLd = localBusinessAreaSchema({
     areaName: district.name,
     geo: district.geo,
@@ -315,12 +346,17 @@ export default async function ServiceDistrictPage({
       })
     : null;
 
+  const nearestHubInfo = findNearestFacilityHub(district.geo.lat, district.geo.lng);
+  const authorityLd = isFacility ? generateVerifiedAuthorityGraph() : null;
+
   const jsonLdData = [
     pageLd,
     breadcrumbLd,
-    serviceLd,
+    enhancedServiceLd,
     businessLd,
     faqLd,
+    nearestHubInfo.schema,
+    ...(authorityLd ? [authorityLd] : []),
     ...(facilityServiceLd ? [facilityServiceLd] : []),
     ...(securityServiceLd ? [securityServiceLd] : []),
     ...(technicalServiceLd ? [technicalServiceLd] : []),

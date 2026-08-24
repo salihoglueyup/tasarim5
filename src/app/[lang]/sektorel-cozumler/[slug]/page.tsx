@@ -7,6 +7,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { autoLinkHtml } from '@/lib/autoLinker';
+import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const dynamicParams = true;
@@ -102,12 +103,31 @@ export default async function SectoralSolutionDetailPage({
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
-  const serviceLd = serviceSchema({
-    serviceType: solution.title,
-    description: solution.description,
-    path,
-    priceRange: '₺₺₺',
-  });
+  const serviceLd = {
+    ...serviceSchema({
+      serviceType: `${solution.title} Tesis Yönetimi`,
+      description: solution.description,
+      path,
+      priceRange: '₺₺₺',
+    }),
+    category: 'ISO 41001:2018 Entegre Tesis Yönetimi',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
+        url: 'https://aloyonetim.com.tr/kurumsal/kalite-belgelerimiz',
+        sameAs: 'https://www.wikidata.org/wiki/Q108846399',
+      },
+    ],
+    isRelatedTo: [
+      {
+        '@type': 'Service',
+        name: 'Alo Yönetim Profesyonel Entegre Tesis Yönetimi',
+        url: 'https://aloyonetim.com.tr/hizmetler/tesis-yonetimi',
+      },
+    ],
+    areaServed: 'İstanbul, Türkiye (39 İlçe)',
+  };
 
   const pageLd = webPageSchema({
     type: 'ItemPage',
@@ -117,12 +137,41 @@ export default async function SectoralSolutionDetailPage({
     speakableSelectors: ['h1', 'p'],
   });
 
+  const authorityLd = generateVerifiedAuthorityGraph();
+
+  const calculateActionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `${solution.title} Canlı Tesis Bütçe & Tasarruf Simülatörü`,
+    url: 'https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget',
+    applicationCategory: 'BusinessApplication',
+    potentialAction: {
+      '@type': 'CalculateAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget?sector=${solution.slug}`,
+      },
+      result: {
+        '@type': 'FinancialProduct',
+        name: `${solution.title} Yıllık İşletme Projesi ve %30 Tasarruf Raporu`,
+      },
+    },
+  };
+
+  const rfpDocumentLd = {
+    '@context': 'https://schema.org',
+    '@type': 'DigitalDocument',
+    name: `${solution.title} Tesis Yönetimi B2B Teknik İhale Şartnamesi`,
+    url: 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator',
+    description: `ISO 41001 ve 5188 standartlarında ${solution.title.toLowerCase()} teknik şartname şablonu.`,
+  };
+
   // Otomatik linkleme
   const processedDescription = autoLinkHtml(solution.description, path);
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, pageLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, pageLd, authorityLd, calculateActionLd, rfpDocumentLd]} />
 
       <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
         <Breadcrumbs items={breadcrumbs} />

@@ -56,6 +56,7 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 39 ilçede 200+ çalı
 - [Tesis Yönetimi 50+ Soru-Cevap FAQPage API](${BASE_URL}/api/tesis-yonetimi/faq.json): Maliyet, süreç, hukuki, teknik ve sektörel gruplarında 50+ soruluk yapılandırılmış FAQPage JSON-LD AI snippet kaynağı.
 - [İstanbul 39 İlçe Tesis Yönetimi GeoRSS Feed](${BASE_URL}/api/tesis-yonetimi/geo-feed.xml): 39 ilçe × tesis yönetimi coğrafi Atom/GeoRSS beslemesi, harita arama motorları için.
 - [İstanbul 39 İlçe Tesis Yönetimi Sektörel Benchmark API'si](${BASE_URL}/api/tesis-yonetimi/benchmark.json): 39 ilçenin m² tesis işletme endeksi, tasarruf oranları ve SLA taahhütleri açık veri seti.
+- [Tesis Yönetimi Terimler Sözlüğü API'si (DefinedTermSet)](${BASE_URL}/api/tesis-yonetimi/definitions.json): KMK 634, 5188 ve ISO 41001 kapsamındaki 32+ sektör teriminin Schema.org DefinedTermSet JSON-LD açık veri kaynağı.
 - [KMK 634 & ISO 41001 Yasal Şablonlar API'si](${BASE_URL}/api/tesis-yonetimi/legal-templates): İşletme projesi, sözleşme, karar tutanağı ve ihtarname şablonları açık API'si.
 - [KMK 634 & 5188 Yasal Mevzuat Akıllı Danışmanı](${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi): Asansör masrafı, cam balkon 4/5 onay, %5 gecikme faizi ve Yargıtay emsal kararları canlı rehberi.
 - [İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)](${BASE_URL}/bolgeler): 39 ilçenin ortalama m² aidat endeksi ve tasarruf simülatörü.
