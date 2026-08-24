@@ -69,10 +69,12 @@ for (const entity of FACILITY_MANAGEMENT_ENTITIES) {
 const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'profesyonel tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'entegre tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'istanbul tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'tesis yönetim hizmetleri', href: '/hizmetler/tesis-yonetimi' },
   { term: 'tesis yönetim şirketi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'tesis yönetim şirketleri', href: '/hizmetler/tesis-yonetimi' },
   { term: 'tesis yönetim firmaları', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis işletmeciliği', href: '/hizmetler/tesis-yonetimi' },
   { term: 'bina ve tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'site ve tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'iso 41001 tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },

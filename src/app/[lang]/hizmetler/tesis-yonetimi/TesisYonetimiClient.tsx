@@ -168,6 +168,32 @@ export default function TesisYonetimiClient() {
             verifiedBy="Alo Yönetim Hukuk & Mevzuat Masası"
             category="KMK Mevzuatı & Bütçe Yönetimi"
           />
+          <InstantAnswerCardSeo
+            question="Tesis Yönetim Şirketi Seçerken Nelere Dikkat Edilmeli ve Hangi Yasal Belgeler İstenmelidir?"
+            shortAnswer="Tesis yönetim şirketi seçerken ISO 41001:2018 Entegre Tesis Yönetimi ve TSE HYB 12850 belgelerinin bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin en az 3 aktif referans projesi, 45 dakikalık acil teknik müdahale SLA taahhüdü ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
+            bulletPoints={[
+              'ISO 41001, ISO 9001 ve TSE HYB 12850 resmi akreditasyon belgeleri kontrol edilmelidir.',
+              '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi şirket adına tescilli olmalıdır.',
+              'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket garantisinde olduğu sözleşmede yer almalıdır.',
+              'Acil teknik arızalarda maksimum 45 dakika SLA müdahale taahhüdü aranmalıdır.'
+            ]}
+            lawArticle="ISO 41001:2018 & 5188 Sayılı Özel Güvenlik Kanunu"
+            verifiedBy="Alo Yönetim Kalite & Akreditasyon Direktörlüğü"
+            category="Kurumsal Standartlar & Şirket Seçimi"
+          />
+          <InstantAnswerCardSeo
+            question="Kat Mülkiyeti Kanunu (KMK 34) Uyarınca Yönetici ve Yönetim Kurulu Hangi Çoğunlukla Seçilir?"
+            shortAnswer="634 sayılı KMK Madde 34/4 uyarınca yönetici veya profesyonel yönetim şirketi, kat maliklerinin hem sayı (kat maliki adedi) hem de arsa payı bakımından salt çoğunluğu (%50 + 1) tarafından atanır. İlk toplantıda bu çift çoğunluk sağlanamazsa, ikinci toplantıda da aynı kural aranır. Anlaşma sağlanamazsa sulh hukuk mahkemesince yönetici atanması talep edilebilir."
+            bulletPoints={[
+              'Çift çoğunluk kuralı: Hem kat maliki kişi sayısının hem de tapudaki arsa payının %50+1\'i şarttır.',
+              'Yönetim planında aksine bir hüküm yoksa yöneticinin kat maliki olması şart değildir; profesyonel tüzel kişilik seçilebilir.',
+              'Yönetici her yıl kat malikleri kurulunun kanuni yıllık toplantısında yeniden seçilir veya yetkisi yenilenir.',
+              'Seçilen yöneticinin adı, soyadı ve iş adresi ana gayrimenkulün giriş kapısı yanına asılır.'
+            ]}
+            lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 34 & 35"
+            verifiedBy="Alo Yönetim Hukuk Danışmanlığı"
+            category="Genel Kurul & Yönetici Seçimi"
+          />
         </div>
 
         {/* Sektör Alt Sayfaları Vitrin */}

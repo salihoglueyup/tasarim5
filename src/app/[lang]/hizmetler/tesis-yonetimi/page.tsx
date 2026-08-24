@@ -135,8 +135,12 @@ export default async function TesisYonetimiPage({
       answer: 'SLA kapsamında kritik arızalar için maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz kesintisiz hizmet vermektedir.',
     },
     {
-      question: 'Tesis yönetim şirketi seçerken nelere dikkat edilmeli?',
-      answer: 'ISO sertifikaları ve 5188 lisansının güncelliğini, en az 3 referans siteyi, sözleşmedeki SLA sürelerini ve aylık raporlama yükümlülüklerini kontrol edin. Kapsamlı seçim rehberimizi inceleyin.',
+      question: 'Tesis yönetim şirketi seçerken nelere dikkat edilmeli ve hangi yasal belgeler istenmelidir?',
+      answer: 'ISO 41001:2018 ve TSE HYB 12850 belgelerinin güncelliği, 5188 Özel Güvenlik Faaliyet İzin Belgesi, en az 3 referans tesis, sözleşmedeki 45 dakikalık SLA süresi ve kıdem tazminatı sorumluluğu kontrol edilmelidir.',
+    },
+    {
+      question: 'Kat Mülkiyeti Kanunu (KMK 34) uyarınca yönetici hangi oy çokluğu ile seçilir?',
+      answer: '634 sayılı KMK Madde 34/4 gereğince yönetici; kat maliklerinin hem sayı (kişi sayısı) hem de arsa payı bakımından salt çoğunluğu (%50 + 1) tarafından seçilir.',
     },
   ];
 
@@ -197,7 +201,35 @@ export default async function TesisYonetimiPage({
           },
           {
             term: 'Asansör Yeşil Etiket Uyumu',
-            definition: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği uyarınca yılda bir zorunlu yapılan periyodik muayene belgesidir.',
+            definition: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği uyarınca yılda bir zorunlu yapılan periyodik muayene ve güvenlik tescil belgesidir.',
+          },
+          {
+            term: 'Kompanzasyon & Reaktif Güç Takibi',
+            definition: 'Tesis elektrik panolarında reaktif enerji oranını denetleyerek elektrik dağıtım şirketinin kestiği yüksek cezaları %100 engelleyen teknik mühendislik izlemesidir.',
+          },
+          {
+            term: 'Arsa Payı Esası (KMK Madde 20/1-c)',
+            definition: 'Bakım, onarım, sigorta ve yönetici aylığı gibi ana gayrimenkul ortak giderlerinin her bağımsız bölümün tapudaki arsa payı oranında paylaştırılması ilkesidir.',
+          },
+          {
+            term: 'Eşit Paylaşım İlkesi (KMK Madde 20/1-a)',
+            definition: 'Kapıcı, kaloriferci, bahçıvan ve bekçi giderleri ile bunlar için toplanan avansın tüm kat malikleri arasında eşit olarak bölüştürülmesidir.',
+          },
+          {
+            term: '5188 Sayılı Kanun Valilik İzni',
+            definition: 'Apartman ve sitelerde fiziki güvenlik personeli istihdam edebilmek veya güvenlik şirketiyle çalışmak için İl Özel Güvenlik Komisyonu ve Valilikten alınması zorunlu yasal izin kararıdır.',
+          },
+          {
+            term: 'Önleyici Koruyucu Bakım (Preventive Maintenance)',
+            definition: 'Tesis bileşenlerinin (hidrofor, jeneratör, kazan dairesi) arızalanmasını beklemeden periyodik ölçüm ve testlerle ömrünü uzatan planlı mühendislik yönetimidir.',
+          },
+          {
+            term: 'Denetçi Raporu (KMK Madde 41)',
+            definition: 'Denetçinin veya denetim kurulunun yöneticinin hesap ve işlemlerini en geç üç ayda bir denetleyerek genel kurula sunduğu resmi mali ve idari teftiş raporudur.',
+          },
+          {
+            term: 'Ortak Alan İşgali & Müdahalenin Men-i (KMK Madde 18)',
+            definition: 'Kat maliklerinin sığınak, yangın merdiveni, çatı ve koridor gibi ortak alanları özel mülk gibi kapatmasını engelleyen ve eski hale getirilmesini sağlayan yasal süreçtir.',
           },
         ]}
       />

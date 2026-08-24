@@ -34,7 +34,7 @@ import {
   ORG_PHONE,
 } from '@/lib/schemas';
 
-import { DISTRICTS, getDistrict } from '@/data/districts';
+import { DISTRICTS, getDistrict, getDistrictDues } from '@/data/districts';
 import { SERVICES, getService } from '@/data/services';
 import { LOCALES } from '@/lib/seo';
 
@@ -430,6 +430,9 @@ export default async function ServiceDistrictPage({
               population={district.population}
               neighborhoods={district.neighborhoods}
               localNeeds={district.localNeeds}
+              avgDuesM2={getDistrictDues(district.slug).avgDuesM2}
+              aloDuesM2={getDistrictDues(district.slug).aloDuesM2}
+              savingsRate={getDistrictDues(district.slug).savingsRate}
             />
             <InteractiveFacilityAuditRadarSeo districtName={district.name} />
             <FacilityLegalTemplateGeneratorSeo />

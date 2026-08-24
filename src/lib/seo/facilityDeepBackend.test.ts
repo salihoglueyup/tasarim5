@@ -4,8 +4,8 @@ import {
   getAiCrawlerAnalytics,
   clearAiCrawlerLogsForTesting,
 } from '@/lib/seo/aiBotTelemetry';
-import { YARGITAY_LEGAL_PRECEDENTS } from '@/app/api/tesis-yonetimi/legal-precedents.json/route';
-import { generateFacilityRfpDocument } from '@/app/api/tesis-yonetimi/rfp-generator/route';
+import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
+import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
 import { resolveSiloRedirect } from '@/lib/seo/siloRedirector';
 
 describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları', () => {

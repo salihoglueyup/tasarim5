@@ -9,6 +9,9 @@ interface DistrictFacilityAuditTableSeoProps {
   population: number;
   neighborhoods: string[];
   localNeeds: string[];
+  avgDuesM2?: number;
+  aloDuesM2?: number;
+  savingsRate?: number;
   className?: string;
 }
 
@@ -18,6 +21,9 @@ export default function DistrictFacilityAuditTableSeo({
   population,
   neighborhoods,
   localNeeds,
+  avgDuesM2 = 45,
+  aloDuesM2 = 33,
+  savingsRate = 25,
   className = ""
 }: DistrictFacilityAuditTableSeoProps) {
   const [activeTab, setActiveTab] = useState<'yonetim' | 'teknik-guvenlik' | 'tasarruf'>('yonetim');
@@ -139,6 +145,22 @@ export default function DistrictFacilityAuditTableSeo({
           >
             Tasarruf & Hukuk
           </button>
+        </div>
+      </div>
+
+      {/* District Dues & Facility Benchmark Bar */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+        <div className="p-4 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200/70 dark:border-white/5">
+          <div className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-secondary)]">{districtName} Piyasa Ort. Aidat</div>
+          <div className="text-xl font-black text-[var(--color-primary)] mt-1">₺{avgDuesM2}<span className="text-xs font-normal text-[var(--color-secondary)]"> / m²</span></div>
+        </div>
+        <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-800/30">
+          <div className="text-[11px] font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Alo Yönetim Optimize Aidat</div>
+          <div className="text-xl font-black text-emerald-600 dark:text-emerald-400 mt-1">₺{aloDuesM2}<span className="text-xs font-normal text-emerald-700/70 dark:text-emerald-300/70"> / m²</span></div>
+        </div>
+        <div className="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-800/30">
+          <div className="text-[11px] font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-300">Ortalama Bütçe Tasarrufu</div>
+          <div className="text-xl font-black text-blue-600 dark:text-blue-400 mt-1">%{savingsRate}<span className="text-xs font-normal text-blue-700/70 dark:text-blue-300/70"> Net İndirim</span></div>
         </div>
       </div>
 

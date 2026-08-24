@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { calculateFacilityBudget } from '@/app/api/tesis-yonetimi/calculate-budget/route';
-import { FACILITY_TERMS } from '@/app/api/tesis-yonetimi/dictionary.json/route';
+import { calculateFacilityBudget } from '@/data/facilityBudgetData';
+import { FACILITY_TERMS } from '@/data/facilityDictionaryData';
 import { webPageSchema } from '@/lib/schemas';
 
 describe('Tesis Yönetimi İleri Düzey SEO & Hesaplama Motorları', () => {
@@ -35,7 +35,7 @@ describe('Tesis Yönetimi İleri Düzey SEO & Hesaplama Motorları', () => {
 
       // Schema.org CalculateAction kontrolü
       expect(result.schema['@type']).toBe('CalculateAction');
-      expect(result.schema.result.value).toBe(result.savingsWithAloYonetim.optimizedBudget);
+      expect((result.schema.result as { value: number }).value).toBe(result.savingsWithAloYonetim.optimizedBudget);
     });
 
     it('Rezidans ve Plaza gibi ticari tesis tiplerinde birim katsayıları uygular', () => {

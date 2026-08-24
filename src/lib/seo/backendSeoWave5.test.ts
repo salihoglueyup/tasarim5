@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { generateEtag, evaluateConditionalGet } from '@/lib/seo/etagEngine';
 import { lintSchemaOrgObject } from '@/lib/seo/schemaLinter';
 import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
-import { KMK_LAW_INDEX } from '@/app/api/tesis-yonetimi/kmk-law-index.json/route';
+import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 
 describe('5 İleri Düzey Backend SEO Motoru Testleri (Wave 5)', () => {
   describe('Dinamik ETag & 304 Not Modified Motoru (etagEngine.ts)', () => {

@@ -4,7 +4,7 @@ import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema, definedTermSetSchema } from '@/lib/schemas';
 import { TERMS, termToSlug } from '@/data/dictionary';
-import { KMK_LAW_INDEX } from '@/app/api/tesis-yonetimi/kmk-law-index.json/route';
+import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 import { VoiceSearchSpeakableSeo } from '@/components/seo';
 import SozlukClient from './SozlukClient';
 

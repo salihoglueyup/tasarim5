@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
 import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
-import { KMK_LAW_INDEX } from '@/app/api/tesis-yonetimi/kmk-law-index.json/route';
+import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 import { TERMS } from '@/data/dictionary';
 
 describe('5 Ana Sayfa Tesis Yönetimi SEO Entegrasyon Testleri (Wave 6)', () => {

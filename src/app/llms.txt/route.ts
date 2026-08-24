@@ -77,7 +77,11 @@ Alo Yönetim; Kadıköy merkez ofisinden İstanbul geneli 39 ilçede 200+ çalı
 - [OpenGIS KML İstanbul Tesis Haritası](${BASE_URL}/api/geo/istanbul.kml): Google Earth / Maps uyumlu bölgesel şube harita dosyası.
 - [İstanbul İlçe Bazlı Tesis Yönetimi GeoRSS / Atom XML Beslemesi](${BASE_URL}/api/facility/districts-feed.xml): Arama motorları ve harita indeksleyicileri için 634 KMK ilçe tesis yönetimi coğrafi veri akışı.
 - [İstanbul 39 İlçe 5188 Güvenlik GeoRSS / Atom XML Beslemesi](${BASE_URL}/api/security/districts-feed.xml): Arama motorları ve harita botları için ilçe bazlı özel güvenlik coğrafi veri akışı.
-
+## Tesis Yönetimi (Facility Management) & ISO 41001 Standartları
+- [Profesyonel Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): İstanbul 39 ilçede apartman, site, plaza ve endüstriyel tesisler için ISO 41001 standartlarında entegre tesis yönetimi.
+- **Yasal ve Teknik Akreditasyonlar**: ISO 41001:2018 (Tesis Yönetimi), ISO 9001, ISO 14001, ISO 45001, TSE HYB 12850, T.C. İçişleri Bakanlığı 5188 Özel Güvenlik Faaliyet İzin Belgesi.
+- **Temel Metrikler & SLA**: %25-35 ortalama bütçe tasarrufu, %99.2 dijital aidat tahsilatı, 45 dakika acil teknik müdahale SLA taahhüdü, %100 reaktif güç cezası önleme garantisi.
+- **KMK 634 & Hukuk Standartları**: 37. madde uyarınca kesinleşmiş işletme projesi, 20/2 maddesi gereği geciken aidatlara aylık %5 yasal gecikme tazminatı, 34/4 maddesi uyarınca çift çoğunluklu yönetici seçimi güvencesi.
 
 ## Hizmetler
 ${services}
@@ -85,7 +89,7 @@ ${services}
 ## Sektörel Çözümler
 ${sectoralLinks}
 
-## Hizmet Bölgelerimiz
+## Hizmet Bölgelerimiz (39 İlçe Tesis Yönetimi)
 İstanbul'un 39 ilçesinde yerel tesis ve site yönetimi:
 ${districtLinks}
 
