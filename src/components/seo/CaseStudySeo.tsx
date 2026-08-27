@@ -33,31 +33,31 @@ export default function CaseStudySeo() {
       <JsonLd data={[schema]} />
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl" aria-hidden="true">
+          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl" aria-hidden="true">
             workspace_premium
           </span>
           <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
             Kanıtlanmış Sonuçlar
           </h2>
         </div>
-        <p className="text-[var(--color-secondary)] max-w-2xl">
+        <p className="text-[var(--color-secondary)] max-w-2xl text-sm md:text-base font-light">
           Ölçülebilir tasarruf ve verimlilik artışı sağlayan gerçek başarı hikayelerimizden seçkiler.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {CASES.map((c) => (
             <div
               key={c.name}
-              className="flex flex-col gap-4 p-7 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] hover:border-brand-500/40 transition-colors"
+              className="flex flex-col gap-4 p-7 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2rem] hover:border-slate-400 dark:hover:border-slate-500 transition-colors shadow-2xs hover:shadow-sm"
             >
               <div className="flex flex-col gap-1">
-                <div className="text-4xl font-black text-brand-600 dark:text-brand-400 tabular-nums">
+                <div className="text-4xl font-black text-emerald-600 dark:text-emerald-400 tabular-nums">
                   {c.value}
                 </div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <div className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                   {c.metric}
                 </div>
               </div>
-              <div className="h-px bg-[var(--color-outline)]/40" />
+              <div className="h-px bg-[var(--color-outline)]/50" />
               <div>
                 <div className="font-bold text-sm text-[var(--color-primary)] mb-1">{c.name}</div>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">{c.result}</p>
