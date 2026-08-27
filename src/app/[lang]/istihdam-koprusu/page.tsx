@@ -1,74 +1,68 @@
-"use client";
-
-import PageHeader from '@/components/layout/PageHeader';
-import { useLanguage } from '@/context/LanguageContext';
+import type { Metadata } from 'next';
+import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
-import { PersonnelDifference, JobPostingSeo } from '@/components';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import IstihdamKoprusuClient from './IstihdamKoprusuClient';
 
-export default function IstihdamKoprusu() {
-  const { t } = useLanguage();
+export const revalidate = 86400; // 24 saat ISR
+export const dynamicParams = true;
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+
+  const title = t.emp_meta_title || 'İstihdam Köprüsü — Tesis & Özel Güvenlik Kariyer Fırsatları | Alo Yönetim';
+  const description = t.emp_meta_desc || 'İstanbul genelinde 5188 kimlikli özel güvenlik, temizlik personeli ve teknik bakım uzmanı açık iş pozisyonları ve kariyer başvurusu.';
+
+  return buildMetadata({
+    title,
+    description,
+    path: '/istihdam-koprusu',
+    lang,
+    ogImageType: 'default',
+    keywords: [
+      'özel güvenlik iş ilanları istanbul',
+      'site yönetimi iş başvurusu',
+      'tesis temizlik personeli arayanlar',
+      'teknik bakım iş ilanları',
+      'alo yönetim kariyer'
+    ],
+  });
+}
+
+export default async function IstihdamKoprusuPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: t('emp_page_title'), url: '/istihdam-koprusu' }
+    { name: t.nav_home || 'Anasayfa', url: '/' },
+    { name: t.emp_page_title || 'İstihdam Köprüsü', url: '/istihdam-koprusu' }
   ]);
 
   const pageLd = webPageSchema({
-    name: t('emp_page_title'),
-    description: t('emp_page_desc'),
+    name: t.emp_page_title || 'İstihdam Köprüsü',
+    description: t.emp_page_desc || 'Tesis yönetimi ve özel güvenlik sektöründe kariyer ve açık iş ilanları.',
     path: '/istihdam-koprusu',
+    speakableSelectors: ['h1', 'p'],
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd]} />
-      <JobPostingSeo 
-        title="Özel Güvenlik Görevlisi"
-        description="Sitelerde ve tesislerde görevlendirilmek üzere kimlikli özel güvenlik görevlileri aranmaktadır."
-        datePosted="2026-07-01"
-        validThrough="2026-12-31"
-        jobLocation={{
-          addressLocality: "İstanbul",
-          addressRegion: "İstanbul",
-          addressCountry: "TR"
-        }}
-        baseSalary={{
-          currency: "TRY",
-          value: 35000,
-          unitText: "MONTH"
-        }}
-      />
-      
-      <PageHeader 
-        title={t('emp_page_title')} 
-        description={t('emp_page_desc')} 
-      />
-
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-4xl mx-auto">
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-16 rounded-[3rem] shadow-sm flex flex-col gap-8">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)]">{t('emp_sec_title')}</h2>
-          <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">
-            {t('emp_sec_desc')}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-            <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-slate-900 dark:text-white mb-1">{t('emp_stat_1_val')}</div>
-              <div className="text-xs text-gray-500 font-medium">{t('emp_stat_1_text')}</div>
-            </div>
-            <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-slate-600 mb-1">{t('emp_stat_2_val')}</div>
-              <div className="text-xs text-gray-500 font-medium">{t('emp_stat_2_text')}</div>
-            </div>
-            <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-purple-600 mb-1">{t('emp_stat_3_val')}</div>
-              <div className="text-xs text-gray-500 font-medium">{t('emp_stat_3_text')}</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <PersonnelDifference />
+      <IstihdamKoprusuClient />
     </>
   );
 }
