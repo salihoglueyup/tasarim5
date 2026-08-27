@@ -10,6 +10,7 @@ import { RelatedArticles } from '@/components';
 import MaintenanceCalculator from '@/components/sections/MaintenanceCalculator';
 import MaintenanceTestimonials from '@/components/sections/MaintenanceTestimonials';
 import Image from 'next/image';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function TeknikBakimClient() {
   const { t } = useLanguage();
@@ -58,7 +59,7 @@ export default function TeknikBakimClient() {
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2000&auto=format&fit=crop" alt="Teknik Bakım ve Onarım - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
@@ -72,7 +73,7 @@ export default function TeknikBakimClient() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,7 +83,7 @@ export default function TeknikBakimClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('tech_banner_badge') || '7/24 Kesintisiz Tesis Altyapısı'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_maint_hero_title') || 'Teknik Bakım, Onarım & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Mobil Servis</span>' }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_maint_hero_title') || 'Teknik Bakım, Onarım & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Mobil Servis</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Teknik Bakım ve Onarım' }}
@@ -103,11 +104,166 @@ export default function TeknikBakimClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
         {/* Maintenance Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <MaintenanceCalculator />
+        </div>
+
+        {/* ========================================================================= */}
+        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
+        {/* ========================================================================= */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Başlık & Rozetler */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">engineering</span>
+              <span>Özet Rehber: Profesyonel Tesis Teknik Bakım ve Mühendislik Nedir?</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+              Sanayi Bakanlığı & MMO Yeşil Etiket Standardı
+            </span>
+          </div>
+
+          {/* Genişletilmiş ve Detaylandırılmış Metin */}
+          <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
+            <p>
+              <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis Teknik Bakım ve Mühendislik Yönetimi</strong>;{' '}
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                konut siteleri
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                çok katlı lüks rezidanslar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                iş merkezleri ve kurumsal plazalar
+              </Link>
+              {' '}ile{' '}
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                endüstriyel fabrikaların
+              </Link>{' '}
+              elektromekanik, ısıtma, soğutma, yangın ve enerji altyapılarının kesintisiz, güvenli ve ekonomik olarak işletilmesini sağlayan kestirimci mühendislik disiplinidir. Reaktif (arıza oluştuktan sonra tamir eden) anlayışın yerine planlı önleyici bakım modelini koyarak cihazların amortisman ömrünü uzatır, acil arıza maliyetlerini %40 azaltır ve bina sakinlerine kesintisiz konfor sunar.
+            </p>
+            <p>
+              Tüm teknik operasyonlarımız;{' '}
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=30740&MevzuatTur=7&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+                Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <a href="https://www.mmo.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+                TMMOB Makina Mühendisleri Odası (MMO) Periyodik Kontrol Standartları
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                634 Sayılı Kat Mülkiyeti Kanunu (KMK)
+              </Link>
+              {' '}ve Binaların Yangından Korunması Hakkında Yönetmelik mevzuatlarına tam uyumlu olarak yetkili mühendis kadrolarımızca yürütülür.
+            </p>
+            <p>
+              Teknik bakım süreçlerimiz;{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Entegre Tesis Yönetimi
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                5188 Lisanslı Özel Güvenlik
+              </Link>
+              {' '}ve{' '}
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Şeffaf Aidat Takibi
+              </Link>{' '}
+              ile entegre olarak dört ana operasyonel uzmanlık sütununda icra edilir:
+            </p>
+
+            {/* 4 Ana Operasyonel Disiplin Kartı */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🛗</span> Asansör & Yürüyen Merdiven Yeşil Etiket Yönetimi
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Aylık periyodik yetkili servis bakımları, yıllık A Tipi Muayene Kuruluşu (MMO/TÜRKAK) denetim koordinasyonu ile kusursuz yeşil etiket tescili ve 7/24 asansörde kalma acil kurtarma SLA garantisi.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>⚡</span> Jeneratör, Trafo & Kompanzasyon (%0 Reaktif Ceza)
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Senkron jeneratör gruplarının haftalık test çalıştırmaları, termal kamera ile pano ısınma kontrolleri ve kompanzasyon rölesi optimizasyonu ile elektrik faturalarında %100 reaktif ceza muafiyeti.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>💧</span> Hidrofor, Su Arıtma & Kazan/Isıtma Tesisatları
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Kesintisiz şebeke ve hidrofor basınç optimizasyonu, membran/genleşme tankı testleri, merkezi kazan brülör ve baca gazı emisyon ayarları, boyler temizliği ve yıllık su deposu dezenfeksiyonu.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🚒</span> Yangın Algılama, Sprinkler & Duman Tahliye Otomasyonu
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Yangın zon dedektör testleri, acil yangın hidrofor pompalarının basınç testleri, duman tahliye damperleri, sığınak havalandırma sistemleri ve BMS bina otomasyon entegrasyonu.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Alo Yönetim ile çalışan tesislerde; sitenin tüm teknik ekipmanları karekodlu dijital bakım karnesine işlenir. Yapılan tüm işçilik hizmetleri 1 yıl, orijinal yedek parça değişimleri ise 2 yıl parça garantisi altındadır. Bina yöneticilerinin asansör ve yangın güvenliğinden doğan şahsi cezai sorumlulukları sıfırlanır.
+            </p>
+          </div>
+
+          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">timer</span>
+                </span>
+                <span>45 Dakika SLA Acil Müdahale</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Asansörde kalma, elektrik kesintisi veya ana boru patlağında 7/24 nöbetçi gezici teknik servis garantisi.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">verified</span>
+                </span>
+                <span>%100 Yeşil Etiket Güvencesi</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Asansörlerin A Tipi akredite muayenesinden kusursuz yeşil etiket alması ve mühürlenme riskinin sıfırlanması.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">energy_savings_leaf</span>
+                </span>
+                <span>%0 Reaktif Elektrik Cezası</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Kompanzasyon panosu ve güç kontrol rölesi takibiyle ortak elektrik faturasında ceza bedelinin engellenmesi.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Maintenance Intervals Table */}
@@ -191,6 +347,57 @@ export default function TeknikBakimClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Periyodik Teknik Bakım ve Tesisat İşletmesi"
+        serviceCategory="Mühendislik & Teknik Bakım"
+        lawReferences={[
+          {
+            title: "Asansör İşletme ve Bakım Yönetmeliği",
+            sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı & Resmi Gazete",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=25841&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Yönetmelik No: 30737",
+            description: "Asansörlerin aylık yetkili servis bakımı, yıllık A tipi muayene kuruluşu denetimi, yeşil/kırmızı etiketleme ve yönetici cezai sorumluluklarını düzenler."
+          },
+          {
+            title: "Binaların Yangından Korunması Hakkında Yönetmelik",
+            sourceName: "T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=11736&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Yangın Yönetmeliği",
+            description: "Yangın hidroforları, sprinkler hatları, yangın algılama ve duman tahliye sistemlerinin periyodik test ve hazır bulundurulma kuralları."
+          },
+          {
+            title: "TMMOB Makina Mühendisleri Odası Asansör Kontrol Merkezi (AKM)",
+            sourceName: "TMMOB MMO Resmi Portalı",
+            url: "https://www.mmo.org.tr",
+            badge: "TMMOB Standartları",
+            description: "Asansör, yürüyen merdiven, basınçlı kaplar ve havalandırma sistemlerinin periyodik mühendislik testleri ve uygunluk raporları."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "yesil-etiket-asansor",
+            term: "Yeşil Etiket Asansör Nedir?",
+            summary: "Yıllık periyodik kontrolde kusursuz bulunan ve can güvenliği açısından kullanımında hiçbir sakınca olmayan asansör etiketidir."
+          },
+          {
+            slug: "jenerator-periyodik-bakimi-ve-yuk-testi",
+            term: "Jeneratör Bakımı ve Yük Testi",
+            summary: "Elektrik kesintisinde asansör ve hidroforların durmaması için yapılan yağ, filtre değişimi ve otomatik transfer panosu testleridir."
+          },
+          {
+            slug: "kompanzasyon-reaktif-guc",
+            term: "Kompanzasyon & Reaktif Ceza",
+            summary: "Elektrik faturasında endüktif ve kapasitif reaktif aşım cezalarını engelleyen pano kondansatör dengeleme sistemidir."
+          },
+          {
+            slug: "bina-otomasyon-sistemi-bms",
+            term: "Bina Otomasyon Sistemi (BMS)",
+            summary: "Aydınlatma, iklimlendirme ve hidroforların merkezi yazılımla kontrol edilerek enerji tasarrufu sağlanmasıdır."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="teknik_seo_title"
