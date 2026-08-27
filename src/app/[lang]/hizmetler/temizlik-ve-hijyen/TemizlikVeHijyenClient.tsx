@@ -11,6 +11,7 @@ import { RelatedArticles } from '@/components';
 import CleaningCalculator from '@/components/sections/CleaningCalculator';
 import CleaningTestimonials from '@/components/sections/CleaningTestimonials';
 import Image from 'next/image';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function TemizlikVeHijyenClient() {
   const { t } = useLanguage();
@@ -20,7 +21,7 @@ export default function TemizlikVeHijyenClient() {
       title: t('clean_feat_1_title') || 'Çevre Dostu & TSE Belgeli Kimyasallar',
       desc: t('clean_feat_1_desc') || 'Yüzeylere ve insan sağlığına zarar vermeyen, Sağlık Bakanlığı ve TSE onaylı sertifikalı temizlik ürünleri.',
       icon: "eco",
-      color: "from-slate-500 to-slate-700"
+      color: "from-emerald-700 to-teal-900"
     },
     {
       title: t('clean_feat_2_title') || 'Endüstriyel Temizlik Makineleri',
@@ -32,13 +33,13 @@ export default function TemizlikVeHijyenClient() {
       title: t('clean_feat_3_title') || '4 Mevsim Periyodik Temizlik Takvimi',
       desc: t('clean_feat_3_desc') || 'Günlük blok içi temizliği, haftalık otopark ve cam yıkaması, aylık detaylı ortak alan dezenfeksiyon planlaması.',
       icon: "calendar_month",
-      color: "from-amber-500 to-orange-600"
+      color: "from-blue-700 to-indigo-900"
     },
     {
       title: t('clean_feat_4_title') || 'Hijyen & Dezenfeksiyon Standartları',
       desc: t('clean_feat_4_desc') || 'Asansör kabinleri, kapı kolları, tırabzanlar ve çocuk oyun alanlarında yüksek temas yüzeyi mikrobiyal arındırma.',
       icon: "sanitizer",
-      color: "from-purple-500 to-fuchsia-600"
+      color: "from-slate-600 to-slate-800"
     }
   ];
 
@@ -116,10 +117,10 @@ export default function TemizlikVeHijyenClient() {
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+          <Image src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2000&auto=format&fit=crop" alt="Temizlik ve Hijyen Yönetimi - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
         </div>
         
         {/* Abstract Minimal Animation */}
@@ -130,7 +131,7 @@ export default function TemizlikVeHijyenClient() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,7 +141,7 @@ export default function TemizlikVeHijyenClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('clean_banner_badge') || 'Endüstriyel Hijyen Standartları'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_clean_hero_title') || 'Profesyonel Temizlik & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Ortak Alan Hijyeni</span>' }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_clean_hero_title') || 'Profesyonel Temizlik & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Ortak Alan Hijyeni</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Temizlik ve Hijyen Yönetimi' }}
@@ -161,11 +162,166 @@ export default function TemizlikVeHijyenClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
         {/* Cleaning Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <CleaningCalculator />
+        </div>
+
+        {/* ========================================================================= */}
+        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
+        {/* ========================================================================= */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Başlık & Rozetler */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400">clean_hands</span>
+              <span>Özet Rehber: Profesyonel Site ve Tesis Temizlik Yönetimi Nedir?</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+              TSE 13811 & ISO 9001 Hijyen Standardı
+            </span>
+          </div>
+
+          {/* Genişletilmiş ve Detaylandırılmış Metin */}
+          <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
+            <p>
+              <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis Temizlik ve Hijyen Yönetimi</strong>;{' '}
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                konut siteleri
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                çok katlı lüks rezidanslar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                iş merkezleri ve plazalar
+              </Link>
+              {' '}ile{' '}
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                endüstriyel tesislerin
+              </Link>{' '}
+              tüm ortak kullanım alanlarının, blok içi hollerinin, asansör kabinlerinin ve otopark zeminlerinin uluslararası sanitasyon standartlarında temiz tutulmasını sağlayan kurumsal operasyon disiplinidir. Geleneksel bina kapıcılığı yerine endüstriyel zemin yıkama makineleri, mikrofiber teknolojisi ve Sağlık Bakanlığı onaylı çevre dostu kimyasallarla çalışılarak mülkünüzün prestiji ve sakin sağlığı en üst düzeyde korunur.
+            </p>
+            <p>
+              Temizlik operasyonlarımız;{' '}
+              <a href="https://www.tse.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
+                TSE 13811 Hijyen ve Sanitasyon Yönetim Sistemi
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <a href="https://www.saglik.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
+                T.C. Sağlık Bakanlığı Biyosidal Ürün Ruhsat Standartları
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                634 Sayılı Kat Mülkiyeti Kanunu (KMK)
+              </Link>
+              {' '}ve 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu çerçevesinde sertifikalı personellerle yürütülür.
+            </p>
+            <p>
+              Hijyen yönetimimiz;{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Entegre Tesis Yönetimi
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                5188 Lisanslı Özel Güvenlik
+              </Link>
+              {' '}ve{' '}
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Teknik Bakım Servisi
+              </Link>{' '}
+              ile entegre olarak dört ana operasyonel uzmanlık sütununda icra edilir:
+            </p>
+
+            {/* 4 Ana Operasyonel Disiplin Kartı */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🏢</span> Blok İçi Kat Holleri & Panoramik Asansör Hijyeni
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Günlük mermer/granit zemin paspaslama, paslanmaz asansör kabin ve ayna dezenfeksiyonu, tırabzanlar, posta kutuları ve kapı kollarında yüksek temas yüzeyi arındırması.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🚜</span> Kapalı & Açık Otopark Zemin Otomatı Yıkaması
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Binicili endüstriyel zemin yıkama otomatları, epoksi/helikopter perdahlı beton zemin yağ lekesi arındırma, tazyikli yıkama ve drenaj ızgara kanallarının temizlenmesi.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🏊</span> Sosyal Tesis, Havuz Çevresi & Fitness Dezenfeksiyonu
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Açık/kapalı yüzme havuzu güverte hijyeni, sauna ve buhar odalarının buharlı sterilizasyonu, fitness aletleri nano-gümüş dezenfeksiyonu ve soyunma odası sanitasyonu.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>♻️</span> Sıfır Atık Yönetimi, Çöp Şutu & Haşere İlaçlama
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Sıfır Atık Yönetmeliği uyumlu geri dönüştürülebilir atık lojistiği, çöp şutlarının basınçlı koku giderme dezenfeksiyonu ve periyodik biyosidal haşere/kemirgen ilaçlaması.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Alo Yönetim ile çalışan tesislerde; tüm temizlik personellerinin SGK primleri, maaşları, kıdem ve ihbar tazminatları ile 6331 sayılı İSG mevzuatı yükümlülükleri şirketimizce üstlenilir. Bina yöneticilerinin ve kat malikleri kurullarının işveren sorumluluğundan doğan şahsi hukuki ve cezai riskleri tamamen sıfırlanır.
+            </p>
+          </div>
+
+          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">eco</span>
+                </span>
+                <span>%100 TSE & Çevre Dostu Kimyasal</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                İnsan sağlığına, çocuklara ve evcil hayvanlara zararsız Sağlık Bakanlığı onaylı sertifikalı hijyen ürünleri.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">precision_manufacturing</span>
+                </span>
+                <span>Endüstriyel Makine Parkuru</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Binicili zemin yıkama otomatları, endüstriyel vakum ve yüksek basınçlı yıkama teknolojisiyle kusursuz temizlik.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">verified_user</span>
+                </span>
+                <span>Sıfır İş Hukuku Riski</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Temizlik personeli kıdem, ihbar, SGK ve İSG sorumluluklarının kurumsal olarak şirketimizce üstlenilmesi.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Highlights Grid */}
@@ -293,6 +449,57 @@ export default function TemizlikVeHijyenClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Endüstriyel Temizlik ve Ortak Alan Hijyeni"
+        serviceCategory="Temizlik & Hijyen"
+        lawReferences={[
+          {
+            title: "Sıfır Atık Yönetmeliği",
+            sourceName: "T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
+            url: "https://sifiratik.gov.tr",
+            badge: "Sıfır Atık",
+            description: "Sitelerde ve toplu konutlarda ayrıştırılmış atık toplama kutuları, geçici atık depolama alanı ve Sıfır Atık Belgesi alınması kuralları."
+          },
+          {
+            title: "TSE 13811 Hijyen ve Sanitasyon Yönetim Standardı",
+            sourceName: "Türk Standardları Enstitüsü (TSE)",
+            url: "https://www.tse.org.tr",
+            badge: "TSE 13811",
+            description: "Toplu yaşam alanlarında bulaşıcı hastalık riskini önleyen dezenfeksiyon protokolleri ve kimyasal güvenlik kriterleri."
+          },
+          {
+            title: "T.C. Sağlık Bakanlığı Biyosidal Ürünler ve Halk Sağlığı Yönetmeliği",
+            sourceName: "T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü",
+            url: "https://www.saglik.gov.tr",
+            badge: "Sağlık Bakanlığı Onaylı",
+            description: "Ortak alanlarda kullanılacak dezenfektan ve yüzey temizleyicilerin ruhsatlandırma ve insan sağlığına uygunluk şartları."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "atik-yonetimi-ve-sifir-atik-belgesi",
+            term: "Sıfır Atık Belgesi & Yönetimi",
+            summary: "Sitelerde geri dönüştürülebilir atıkların kaynağında ayrıştırılarak çevre mevzuatına uygun şekilde bertaraf edilmesidir."
+          },
+          {
+            slug: "su-deposu-dezenfeksiyonu-ve-analizi",
+            term: "Su Deposu Dezenfeksiyonu",
+            summary: "İçme ve kullanma suyu depolarının 6 ayda bir klorlanarak biyolojik film tabakasından arındırılması işlemidir."
+          },
+          {
+            slug: "vektor-ve-hasere-ilaclama-biyosidal",
+            term: "Biyosidal İlaçlama ve Dezenfeksiyon",
+            summary: "Böcek, kemirgen ve haşerelere karşı Sağlık Bakanlığı onaylı kokusuz ve çevre dostu ilaçlarla yapılan uygulamadır."
+          },
+          {
+            slug: "havuz-bakimi-ve-kimyasal-operasyonu",
+            term: "Havuz Hijyeni ve Kimyasal Denge",
+            summary: "Ortak açık ve kapalı yüzme havuzlarında pH, klor ve yosun önleyici dengesinin günlük olarak ölçülüp tutulmasıdır."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="temizlik_seo_title"
