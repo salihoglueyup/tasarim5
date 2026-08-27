@@ -1,67 +1,60 @@
-"use client";
+import type { Metadata } from 'next';
+import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
+import JsonLd from '@/components/seo/JsonLd';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import GizlilikPolitikasiClient from './GizlilikPolitikasiClient';
 
-import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
-import { useLanguage } from '@/context/LanguageContext';
-import TableOfContents from '@/components/blog/TableOfContents';
-import LegalPageSeo from '@/components/seo/LegalPageSeo';
+export const revalidate = 86400; // 24 saat ISR
+export const dynamicParams = true;
 
-export default function GizlilikPolitikasi() {
-  const { t, language } = useLanguage();
-  
-  const sections = Array.from({ length: 25 }, (_, i) => i + 1);
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+
+  const title = t.gizlilik_title ? `${t.gizlilik_title} | Alo Yönetim` : 'Gizlilik Politikası | Alo Yönetim';
+  const description = t.gizlilik_desc || 'Alo Yönetim web sitesi ve mobil uygulamaları kullanıcı gizlilik politikası ve veri güvenliği ilkeleri.';
+
+  return buildMetadata({
+    title,
+    description,
+    path: '/gizlilik-politikasi',
+    lang,
+    ogImageType: 'default',
+  });
+}
+
+export default async function GizlilikPolitikasiPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+
+  const breadcrumbLd = generateBreadcrumbs([
+    { name: t.nav_home || 'Anasayfa', url: '/' },
+    { name: t.gizlilik_title || 'Gizlilik Politikası', url: '/gizlilik-politikasi' }
+  ]);
+
+  const pageLd = webPageSchema({
+    name: t.gizlilik_title || 'Gizlilik Politikası',
+    description: t.gizlilik_desc || 'Alo Yönetim kullanıcı gizlilik sözleşmesi.',
+    path: '/gizlilik-politikasi',
+  });
 
   return (
     <>
-      <LegalPageSeo 
-        title={t('gizlilik_title')}
-        description={t('gizlilik_desc')}
-        path={`/${language}/gizlilik-politikasi`}
-      />
-
-      <PageHeader 
-        title={t('gizlilik_title')} 
-        description={t('gizlilik_desc')} 
-      />
-
-      <article className="py-16 md:py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12 lg:gap-16 items-start relative">
-          
-          <TableOfContents />
-
-          <div className="bg-[var(--color-surface)] p-8 md:p-16 rounded-[2.5rem] border border-[var(--color-outline)]/50 shadow-sm relative">
-            <div className="absolute top-8 right-8 md:top-12 md:right-12">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-xs font-medium text-slate-600 dark:text-slate-400">
-                <span className="material-symbols-outlined text-[14px]">update</span>
-                Son Güncelleme: 1 Ağustos 2026
-              </span>
-            </div>
-
-            <div className="prose prose-lg dark:prose-invert max-w-none text-[var(--color-secondary)] pt-12 md:pt-8">
-              {sections.map((i) => {
-                const headingKey = `gizlilik_h${i}` as Parameters<typeof t>[0];
-                const paragraphKey = `gizlilik_p${i}` as Parameters<typeof t>[0];
-                
-                const heading = t(headingKey);
-                const paragraph = t(paragraphKey);
-
-                if (heading === headingKey || !heading) return null;
-
-                return (
-                  <React.Fragment key={i}>
-                    <h2 id={`madde-${i}`} className={`text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-6 scroll-mt-32 ${i > 1 ? 'mt-12' : ''}`}>
-                      {heading}
-                    </h2>
-                    {paragraph && paragraph !== paragraphKey && (
-                      <div dangerouslySetInnerHTML={{ __html: paragraph }} />
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </article>
+      <JsonLd data={[pageLd, breadcrumbLd]} />
+      <GizlilikPolitikasiClient />
     </>
   );
 }
