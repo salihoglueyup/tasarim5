@@ -94,7 +94,7 @@ services:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_DATABASE=aloyonetim
       - DB_POSTGRESDB_USER=alo_user
       - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD:-alo_super_secret_2026}
       - DB_POSTGRESDB_SCHEMA=n8n
