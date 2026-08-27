@@ -76,6 +76,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths: { path: string; priority: number; changeFreq: 'daily' | 'weekly' | 'monthly'; lastMod?: string }[] = [
     { path: '/', priority: 1.0, changeFreq: 'daily', lastMod: latestPostDate },
     { path: '/hizmetler/tesis-yonetimi', priority: 1.0, changeFreq: 'daily', lastMod: now }, // Amiral Gemisi #1
+    { path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/tesis-yonetimi/plaza-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
+    { path: '/hizmetler/tesis-yonetimi/rehber', priority: 0.9, changeFreq: 'weekly', lastMod: now },
     { path: '/hizmetler', priority: 0.95, changeFreq: 'weekly', lastMod: now },
     { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
     { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily', lastMod: now },
