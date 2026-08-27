@@ -3,6 +3,11 @@ services:
     image: postgres:15-alpine
     container_name: aloyonetim-postgres
     restart: unless-stopped
+    env_file:
+      - path: ../.env
+        required: false
+      - path: ./.env
+        required: false
     environment:
       POSTGRES_USER: alo_user
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-alo_super_secret_2026}
@@ -28,10 +33,15 @@ services:
     image: redis:alpine
     container_name: aloyonetim-redis
     restart: unless-stopped
-    volumes:
-      - ./data/redis:/data
+    env_file:
+      - path: ../.env
+        required: false
+      - path: ./.env
+        required: false
     # Redis'e parola zorunluluğu — boş kaldığında çökmesini önleyen varsayılan fallback eklendi.
     command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-alo_redis_secret_2026}
+    volumes:
+      - ./data/redis:/data
     ports:
       - "127.0.0.1:6379:6379"
     healthcheck:
@@ -51,6 +61,11 @@ services:
       dockerfile: docker/web/Dockerfile
     container_name: aloyonetim-web
     restart: unless-stopped
+    env_file:
+      - path: ../.env
+        required: false
+      - path: ./.env
+        required: false
     ports:
       # 127.0.0.1 bind — nginx host'ta proxy yapıyor, dış ağa açılmaz.
       - "127.0.0.1:3001:3001"
@@ -77,6 +92,11 @@ services:
     image: docker.n8n.io/n8nio/n8n
     container_name: aloyonetim-n8n
     restart: unless-stopped
+    env_file:
+      - path: ../.env
+        required: false
+      - path: ./.env
+        required: false
     ports:
       # n8n yönetim paneli yalnız localhost'ta — dış ağa açılmaz (tünel/proxy ile erişilir).
       - "127.0.0.1:5678:5678"
@@ -112,6 +132,11 @@ services:
       dockerfile: docker/web/Dockerfile
     container_name: aloyonetim-prisma-studio
     restart: unless-stopped
+    env_file:
+      - path: ../.env
+        required: false
+      - path: ./.env
+        required: false
     command: npx prisma studio --port 5555 --browser none
     # GÜVENLIK: Prisma Studio DB'ye tam erişim verir — porta dış publish YOK.
     # Gerektiğinde SSH tüneli veya `docker compose exec` ile erişilir.
