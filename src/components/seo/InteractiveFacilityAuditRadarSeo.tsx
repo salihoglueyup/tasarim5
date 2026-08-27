@@ -122,11 +122,11 @@ export default function InteractiveFacilityAuditRadarSeo({
   const status = getHealthStatus(totalScore);
 
   return (
-    <div className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-12 shadow-sm ${className}`}>
+    <div className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-12 shadow-sm ${className}`}>
       {/* Başlık */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-gray-200 dark:border-white/10">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/60">
         <div>
-          <span className="text-xs font-black text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
+          <span className="text-xs font-black text-slate-900 dark:text-slate-200 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
             İnteraktif Denetim Aracı
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -159,24 +159,24 @@ export default function InteractiveFacilityAuditRadarSeo({
               onClick={() => toggleCriterion(c.id)}
               className={`p-5 rounded-2xl border transition-all cursor-pointer flex items-start gap-4 ${
                 isChecked
-                  ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-500/40 shadow-sm'
-                  : 'bg-gray-50 dark:bg-white/[0.02] border-gray-200 dark:border-white/10 hover:border-gray-300'
+                  ? 'bg-emerald-500/5 dark:bg-emerald-950/20 border-emerald-500/40 shadow-sm'
+                  : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/70 hover:border-slate-400 dark:hover:border-slate-500'
               }`}
             >
               <div className={`w-6 h-6 rounded-lg mt-0.5 flex items-center justify-center transition-colors ${
-                isChecked ? 'bg-emerald-600 text-white' : 'border border-gray-300 dark:border-white/20'
+                isChecked ? 'bg-emerald-600 text-white' : 'border border-[var(--color-outline)]'
               }`}>
                 {isChecked && <span className="material-symbols-outlined text-sm font-black">check</span>}
               </div>
 
               <div className="flex-1">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{c.category}</span>
+                  <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">{c.category}</span>
                   <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400">+{c.points} Puan</span>
                 </div>
                 <h4 className="text-base font-bold text-[var(--color-primary)] mt-1">{c.title}</h4>
                 <p className="text-xs text-[var(--color-secondary)] font-light mt-1 leading-relaxed">{c.desc}</p>
-                <div className="mt-2 text-[11px] font-mono text-slate-400">
+                <div className="mt-2 text-[11px] font-mono text-[var(--color-tertiary)]">
                   <span className="material-symbols-outlined text-[12px] align-middle mr-1">gavel</span>
                   {c.lawRef}
                 </div>
@@ -187,9 +187,9 @@ export default function InteractiveFacilityAuditRadarSeo({
       </div>
 
       {/* Tasarruf ve Eylem Alanı */}
-      <div className="pt-6 border-t border-gray-200 dark:border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div className="pt-6 border-t border-[var(--color-outline)]/60 flex flex-col lg:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
             <span className="material-symbols-outlined text-2xl">trending_up</span>
           </div>
           <div>
@@ -202,7 +202,7 @@ export default function InteractiveFacilityAuditRadarSeo({
 
         <Link
           href={`/teklif-al?hizmet=tesis-yonetimi&skor=${totalScore}`}
-          className="w-full lg:w-auto px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-3 transition-all hover:scale-105 shadow-xl"
+          className="w-full lg:w-auto px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-white font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-3 transition-all hover:scale-105 shadow-xl"
         >
           <span>Bu Skora Özel Ücretsiz Keşif Raporu İsteyin</span>
           <span className="material-symbols-outlined text-base">arrow_forward</span>

@@ -153,13 +153,13 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
   };
 
   return (
-    <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-12 shadow-sm">
+    <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-12 shadow-sm">
       <JsonLd data={schemaData} />
 
       {/* Başlık */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-gray-200 dark:border-white/10">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/60">
         <div>
-          <span className="text-xs font-black text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
+          <span className="text-xs font-black text-slate-900 dark:text-slate-200 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
             Hukuki Belge & Şablon Motoru
           </span>
           <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -174,14 +174,14 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
         <div className="flex items-center gap-3">
           <button
             onClick={handleCopy}
-            className="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm"
+            className="px-5 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm shrink-0"
           >
             <span className="material-symbols-outlined text-sm">{isCopied ? 'check' : 'content_copy'}</span>
             {isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}
           </button>
           <button
             onClick={handleDownload}
-            className="px-5 py-3 rounded-xl border border-gray-300 dark:border-white/20 hover:bg-gray-100 dark:hover:bg-white/5 text-[var(--color-primary)] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+            className="px-5 py-3 rounded-xl border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shrink-0"
           >
             <span className="material-symbols-outlined text-sm">download</span>
             TXT İndir
@@ -200,14 +200,14 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
           <button
             key={tab.id}
             onClick={() => setSelectedTemplate(tab.id as FacilityTemplateType)}
-            className={`p-4 rounded-2xl border text-left transition-all ${
+            className={`p-4 rounded-2xl border text-left transition-all cursor-pointer ${
               selectedTemplate === tab.id
-                ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                : 'bg-gray-50 dark:bg-white/[0.02] border-gray-200 dark:border-white/10 text-[var(--color-primary)] hover:border-gray-300'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm font-bold'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-primary)] hover:border-slate-400'
             }`}
           >
             <div className="text-sm font-bold">{tab.title}</div>
-            <div className={`text-xs mt-1 ${selectedTemplate === tab.id ? 'text-slate-300' : 'text-[var(--color-secondary)]'}`}>{tab.desc}</div>
+            <div className={`text-xs mt-1 ${selectedTemplate === tab.id ? 'text-slate-300 dark:text-slate-700' : 'text-[var(--color-secondary)]'}`}>{tab.desc}</div>
           </button>
         ))}
       </div>
@@ -215,7 +215,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
       {/* Form Alanları & Canlı Önizleme */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Form */}
-        <div className="flex flex-col gap-4 p-6 bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-2xl">
+        <div className="flex flex-col gap-4 p-6 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl">
           <h4 className="text-sm font-extrabold text-[var(--color-primary)] uppercase tracking-wider mb-2">
             Belge Değişkenleri
           </h4>
@@ -226,7 +226,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
               type="text"
               value={siteName}
               onChange={(e) => setSiteName(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-white/20 bg-white dark:bg-zinc-800 text-sm"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-primary)] text-sm focus:outline-none focus:border-slate-500"
               placeholder="Örn: Akasya Konutları"
             />
           </div>
@@ -237,7 +237,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
               type="text"
               value={managerName}
               onChange={(e) => setManagerName(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-white/20 bg-white dark:bg-zinc-800 text-sm"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-primary)] text-sm focus:outline-none focus:border-slate-500"
               placeholder="Örn: Ahmet Yılmaz"
             />
           </div>
@@ -248,7 +248,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
               type="text"
               value={unitCount}
               onChange={(e) => setUnitCount(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-white/20 bg-white dark:bg-zinc-800 text-sm"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-primary)] text-sm focus:outline-none focus:border-slate-500"
               placeholder="Örn: 120"
             />
           </div>
@@ -259,7 +259,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
               type="text"
               value={cityDistrict}
               onChange={(e) => setCityDistrict(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-white/20 bg-white dark:bg-zinc-800 text-sm"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-primary)] text-sm focus:outline-none focus:border-slate-500"
               placeholder="Örn: Kadıköy / İstanbul"
             />
           </div>
@@ -270,7 +270,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
               type="text"
               value={annualBudget}
               onChange={(e) => setAnnualBudget(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-white/20 bg-white dark:bg-zinc-800 text-sm"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-primary)] text-sm focus:outline-none focus:border-slate-500"
               placeholder="Örn: 2.400.000"
             />
           </div>
@@ -281,7 +281,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
               type="text"
               value={monthlyDues}
               onChange={(e) => setMonthlyDues(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-white/20 bg-white dark:bg-zinc-800 text-sm"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-primary)] text-sm focus:outline-none focus:border-slate-500"
               placeholder="Örn: 2.500"
             />
           </div>
@@ -297,7 +297,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
             </span>
           </div>
 
-          <pre className="flex-1 p-6 rounded-2xl bg-gray-900 text-slate-100 font-mono text-xs leading-relaxed overflow-x-auto whitespace-pre-wrap border border-gray-800 shadow-inner">
+          <pre className="flex-1 p-6 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] font-mono text-xs leading-relaxed overflow-x-auto whitespace-pre-wrap border border-[var(--color-outline)]/70 shadow-xs">
             {generateText()}
           </pre>
         </div>

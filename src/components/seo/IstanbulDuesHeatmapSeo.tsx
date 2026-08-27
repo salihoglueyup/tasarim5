@@ -184,25 +184,25 @@ export default function IstanbulDuesHeatmapSeo() {
   };
 
   return (
-    <section className="relative py-16 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-900 dark:text-white rounded-[2.5rem] border border-slate-200/80 dark:border-slate-800 shadow-xl overflow-hidden my-12">
+    <section className="relative py-16 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] border border-[var(--color-outline)]/80 shadow-sm overflow-hidden my-12">
       <JsonLd data={datasetSchema} />
 
       {/* Arka Plan Gradientleri */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/5 dark:bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-slate-500/5 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Başlık */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm">trending_down</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
+            <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">trending_down</span>
             İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            İlçenize Göre <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-100 dark:to-slate-400">Site Aidat Raporu</span> & Tasarruf Oranı
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
+            İlçenize Göre <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Site Aidat Raporu</span> & Tasarruf Oranı
           </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base font-light">
-            İstanbul genelindeki 12 ilçede piyasa ortalaması aidat maliyetlerini inceleyin, Alo Yönetim'in toplu satın alma ve verimli operasyon gücüyle sitenizde sağlanacak yıllık net kazancı hesaplayın.
+          <p className="mt-3 text-[var(--color-secondary)] text-sm sm:text-base font-light">
+            İstanbul genelindeki 12 ilçede piyasa ortalaması aidat maliyetlerini inceleyin, Alo Yönetim&apos;in toplu satın alma ve verimli operasyon gücüyle sitenizde sağlanacak yıllık net kazancı hesaplayın.
           </p>
         </div>
 
@@ -210,30 +210,30 @@ export default function IstanbulDuesHeatmapSeo() {
         <div className="flex justify-center gap-2 mb-8">
           <button
             onClick={() => setSelectedSide('all')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedSide === 'all'
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold scale-105'
-                : 'bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-2xs'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold'
+                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-slate-400'
             }`}
           >
             Tüm İstanbul (12 İlçe)
           </button>
           <button
             onClick={() => setSelectedSide('anadolu')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedSide === 'anadolu'
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold scale-105'
-                : 'bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-2xs'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold'
+                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-slate-400'
             }`}
           >
             Anadolu Yakası
           </button>
           <button
             onClick={() => setSelectedSide('avrupa')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedSide === 'avrupa'
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold scale-105'
-                : 'bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-2xs'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold'
+                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-slate-400'
             }`}
           >
             Avrupa Yakası
@@ -248,26 +248,26 @@ export default function IstanbulDuesHeatmapSeo() {
               <button
                 key={d.slug}
                 onClick={() => setSelectedDistrict(d)}
-                className={`p-3.5 rounded-2xl border text-left transition-all relative overflow-hidden group ${
+                className={`p-3.5 rounded-2xl border text-left transition-all relative overflow-hidden group cursor-pointer ${
                   isSelected
-                    ? 'bg-white dark:bg-slate-900 border-slate-900 dark:border-white shadow-xl ring-2 ring-slate-900/10 dark:ring-white/20 scale-[1.03]'
-                    : 'bg-white/80 dark:bg-slate-900/50 border-slate-200/80 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-white dark:hover:bg-slate-900 shadow-xs hover:shadow-md'
+                    ? 'bg-[var(--color-surface-variant)] border-slate-900 dark:border-white shadow-md ring-2 ring-slate-900/10 dark:ring-white/20'
+                    : 'bg-[var(--color-surface)] border-[var(--color-outline)]/80 hover:border-slate-400 hover:shadow-xs'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
                   <span className={`text-sm font-bold transition-colors ${
-                    isSelected ? 'text-slate-900 dark:text-white' : 'text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white'
+                    isSelected ? 'text-[var(--color-primary)] font-black' : 'text-[var(--color-primary)]'
                   }`}>
                     {d.name}
                   </span>
-                  <span className="px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold border border-emerald-200/60 dark:border-emerald-800/40">
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold border border-emerald-500/20">
                     -%{d.savingsRate}
                   </span>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">
-                  Ort: <span className="font-semibold text-slate-700 dark:text-slate-200">{d.avgDuesM2} ₺/m²</span>
+                <div className="text-xs text-[var(--color-secondary)]">
+                  Ort: <span className="font-semibold text-[var(--color-primary)]">{d.avgDuesM2} ₺/m²</span>
                 </div>
-                <div className="text-xs text-slate-900 dark:text-white font-bold mt-0.5">
+                <div className="text-xs text-[var(--color-primary)] font-bold mt-0.5">
                   Alo: {d.aloDuesM2} ₺/m²
                 </div>
               </button>
@@ -276,33 +276,33 @@ export default function IstanbulDuesHeatmapSeo() {
         </div>
 
         {/* Seçili İlçe Detayı & İnteraktif Büyüklük Simülatörü */}
-        <div className="bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+        <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/70 rounded-3xl p-6 sm:p-8 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Sol Bölüm: İlçe Analiz Kartı */}
             <div className="lg:col-span-5 space-y-4">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-500/20 font-bold text-xs">
+                <span className="px-3 py-1 rounded-lg bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-[var(--color-outline)] font-bold text-xs">
                   {selectedDistrict.side === 'anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                <span className="text-xs text-[var(--color-secondary)] font-medium">
                   {selectedDistrict.activeUnits.toLocaleString('tr-TR')} Bağımsız Bölüm Kapasitesi
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
                 {selectedDistrict.name} Bölgesi Tesis Analizi
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+              <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
                 {selectedDistrict.description}
               </p>
 
               <div className="space-y-2 pt-2">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                <div className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                   Bölgede Yönetilen Örnek Projeler:
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedDistrict.popularComplexes.map((c, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 text-xs border border-slate-200/80 dark:border-slate-700">
+                    <span key={i} className="px-2.5 py-1 rounded-md bg-[var(--color-surface)] text-[var(--color-primary)] text-xs border border-[var(--color-outline)]/70">
                       {c}
                     </span>
                   ))}
@@ -311,8 +311,8 @@ export default function IstanbulDuesHeatmapSeo() {
 
               <div className="pt-2">
                 <a
-                  href={`/tr/bolgeler/${selectedDistrict.slug}`}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white hover:underline group"
+                  href={`/bolgeler/${selectedDistrict.slug}/tesis-yonetimi`}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-primary)] hover:underline group"
                 >
                   <span>{selectedDistrict.name} Bölge Hizmet Detayları</span>
                   <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -321,26 +321,28 @@ export default function IstanbulDuesHeatmapSeo() {
             </div>
 
             {/* Sağ Bölüm: Canlı Tasarruf Hesaplayıcı */}
-            <div className="lg:col-span-7 bg-slate-50 dark:bg-slate-950 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-slate-800 space-y-6">
+            <div className="lg:col-span-7 bg-[var(--color-surface)] p-6 sm:p-7 rounded-2xl border border-[var(--color-outline)]/80 space-y-6">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                  <label htmlFor="dues-area-range" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
                     Sitenizin Toplam Kapalı / Açık Alanı (m²):
                   </label>
-                  <span className="text-sm font-extrabold text-slate-900 dark:text-white px-3 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xs">
+                  <span className="text-sm font-extrabold text-[var(--color-primary)] px-3 py-1 rounded-lg bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
                     {areaSize.toLocaleString('tr-TR')} m²
                   </span>
                 </div>
                 <input
+                  id="dues-area-range"
+                  aria-label="Sitenizin Toplam Kapalı veya Açık Alanı (m²)"
                   type="range"
                   min="2000"
                   max="100000"
                   step="1000"
                   value={areaSize}
                   onChange={(e) => setAreaSize(Number(e.target.value))}
-                  className="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
+                  className="w-full h-2.5 bg-slate-300 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
                 />
-                <div className="flex justify-between text-[11px] text-slate-500 mt-1">
+                <div className="flex justify-between text-[11px] text-[var(--color-secondary)] mt-1">
                   <span>2.000 m² (Butik Apartman)</span>
                   <span>50.000 m² (Site)</span>
                   <span>100.000 m² (Mega Rezidans)</span>
@@ -349,40 +351,40 @@ export default function IstanbulDuesHeatmapSeo() {
 
               {/* Karşılaştırma Kutuları */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-2xs">
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Bölge Piyasa Ortalaması</div>
-                  <div className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-300 mt-1">
-                    {monthlyMarketTotal.toLocaleString('tr-TR')} ₺ <span className="text-xs font-normal text-slate-500">/ay</span>
+                <div className="p-3.5 bg-[var(--color-surface-variant)] rounded-xl border border-[var(--color-outline)]/60">
+                  <div className="text-[11px] text-[var(--color-secondary)] font-medium">Bölge Piyasa Ortalaması</div>
+                  <div className="text-base sm:text-lg font-bold text-[var(--color-primary)] mt-1">
+                    {monthlyMarketTotal.toLocaleString('tr-TR')} ₺ <span className="text-xs font-normal text-[var(--color-secondary)]">/ay</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{selectedDistrict.avgDuesM2} ₺/m²</div>
+                  <div className="text-[10px] text-[var(--color-tertiary)] mt-0.5">{selectedDistrict.avgDuesM2} ₺/m²</div>
                 </div>
 
-                <div className="p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm">
-                  <div className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold">Alo Yönetim Operasyonu</div>
-                  <div className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-1">
-                    {monthlyAloTotal.toLocaleString('tr-TR')} ₺ <span className="text-xs font-normal text-slate-500">/ay</span>
+                <div className="p-3.5 bg-[var(--color-surface-variant)] rounded-xl border border-[var(--color-outline)]/80 shadow-2xs">
+                  <div className="text-[11px] text-[var(--color-primary)] font-semibold">Alo Yönetim Operasyonu</div>
+                  <div className="text-base sm:text-lg font-extrabold text-[var(--color-primary)] mt-1">
+                    {monthlyAloTotal.toLocaleString('tr-TR')} ₺ <span className="text-xs font-normal text-[var(--color-secondary)]">/ay</span>
                   </div>
-                  <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{selectedDistrict.aloDuesM2} ₺/m²</div>
+                  <div className="text-[10px] text-[var(--color-secondary)] mt-0.5">{selectedDistrict.aloDuesM2} ₺/m²</div>
                 </div>
 
-                <div className="p-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 rounded-xl shadow-md">
-                  <div className="text-[11px] text-emerald-400 dark:text-emerald-600 font-extrabold uppercase">Yıllık Net Tasarruf</div>
-                  <div className="text-base sm:text-lg font-black mt-1">
+                <div className="p-3.5 bg-emerald-500/10 dark:bg-emerald-950/30 border border-emerald-500/20 text-[var(--color-primary)] rounded-xl shadow-2xs">
+                  <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-extrabold uppercase">Yıllık Net Tasarruf</div>
+                  <div className="text-base sm:text-lg font-black mt-1 text-emerald-700 dark:text-emerald-300">
                     {annualSavings.toLocaleString('tr-TR')} ₺
                   </div>
-                  <div className="text-[10px] text-slate-300 dark:text-slate-600 font-semibold mt-0.5">
+                  <div className="text-[10px] text-emerald-600/80 dark:text-emerald-400/80 font-semibold mt-0.5">
                     -%{selectedDistrict.savingsRate} Maliyet Avantajı
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-200/80 dark:border-slate-800">
-                <div className="text-xs text-slate-500 dark:text-slate-400 text-center sm:text-left font-light">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-[var(--color-outline)]/40">
+                <div className="text-xs text-[var(--color-secondary)] text-center sm:text-left font-light">
                   * Veriler 2026 İstanbul bölgesel enerji, personel ve malzeme endeksi baz alınarak hesaplanmıştır.
                 </div>
                 <a
-                  href="/tr/teklif-al"
-                  className="px-6 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs sm:text-sm hover:opacity-95 transition-all flex-shrink-0 flex items-center gap-2 shadow-md hover:shadow-xl hover:scale-105"
+                  href="/teklif-al?hizmet=tesis-yonetimi"
+                  className="px-6 py-3.5 bg-[var(--color-primary)] hover:opacity-90 text-white font-extrabold rounded-2xl text-xs sm:text-sm transition-all flex-shrink-0 flex items-center gap-2 shadow-md hover:scale-105"
                 >
                   <span>Sitenize Özel Fiyat Alın</span>
                   <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>

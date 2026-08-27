@@ -38,23 +38,23 @@ export default function HowToSeo({ name, description, steps, className = "" }: H
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Timeline UI */}
           <div className="flex flex-col gap-4 relative">
-            <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gray-200 dark:bg-white/10 z-0 hidden sm:block" />
+            <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-[var(--color-outline)]/60 z-0 hidden sm:block" />
             {steps.map((step, idx) => {
               const isActive = activeStep === idx;
               return (
                 <button
                   key={idx}
                   onClick={() => setActiveStep(idx)}
-                  className={`relative z-10 flex items-start gap-4 p-4 rounded-2xl transition-all text-left ${
+                  className={`relative z-10 flex items-start gap-4 p-4 rounded-2xl transition-all text-left cursor-pointer ${
                     isActive 
-                      ? 'bg-slate-900 shadow-xl text-white dark:bg-white dark:text-slate-900' 
-                      : 'hover:bg-slate-50 dark:hover:bg-white/5 bg-white dark:bg-zinc-900/50 border border-slate-100 dark:border-white/5'
+                      ? 'bg-[var(--color-primary)] shadow-md text-[var(--color-on-primary)]' 
+                      : 'hover:bg-[var(--color-surface-variant)] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)]'
                   }`}
                 >
                   <span className={`shrink-0 w-12 h-12 flex items-center justify-center rounded-xl font-black text-lg ${
                     isActive
-                      ? 'bg-white text-slate-900 dark:bg-slate-900 dark:text-white'
-                      : 'bg-slate-100 text-slate-400 dark:bg-white/10 dark:text-white/40'
+                      ? 'bg-[var(--color-on-primary)] text-[var(--color-primary)]'
+                      : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)]'
                   }`}>
                     {idx + 1}
                   </span>
@@ -67,7 +67,7 @@ export default function HowToSeo({ name, description, steps, className = "" }: H
           </div>
 
           {/* Detailed Content UI */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-8 md:p-10 shadow-sm relative overflow-hidden flex flex-col justify-center min-h-[300px]">
+          <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-[2rem] p-8 md:p-10 shadow-sm relative overflow-hidden flex flex-col justify-center min-h-[300px]">
              <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
                 <span className="material-symbols-outlined" style={{ fontSize: '12rem' }}>
                   info

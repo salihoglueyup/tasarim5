@@ -150,7 +150,7 @@ export default function KMKLawAssistantSeo() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Başlık Bölümü */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <span className="material-symbols-outlined text-sm">gavel</span>
             KMK 634 & 5188 Yasal Mevzuat Rehberi
           </div>
@@ -165,10 +165,16 @@ export default function KMKLawAssistantSeo() {
         {/* Canlı Arama ve Kategori Filtreleri */}
         <div className="space-y-4 mb-8">
           <div className="relative max-w-xl mx-auto">
+            <label htmlFor="kmk-search-input" className="sr-only">
+              Kat Mülkiyeti Kanunu ve mevzuat maddesi ara
+            </label>
             <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
               <span className="material-symbols-outlined">search</span>
             </span>
             <input
+              id="kmk-search-input"
+              name="kmk-search"
+              aria-label="Kat Mülkiyeti Kanunu ve mevzuat maddesi arayın"
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -177,6 +183,8 @@ export default function KMKLawAssistantSeo() {
             />
             {searchQuery && (
               <button
+                type="button"
+                aria-label="Aramayı Temizle"
                 onClick={() => setSearchQuery('')}
                 className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-700 dark:hover:text-white"
               >

@@ -101,13 +101,13 @@ export default function FacilityComparisonMatrixSeo({ className = "" }: { classN
   };
 
   return (
-    <div className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-12 shadow-sm ${className}`}>
+    <div className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-12 shadow-sm ${className}`}>
       <JsonLd data={schemaData} />
 
       {/* Başlık */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-gray-200 dark:border-white/10">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/60">
         <div>
-          <span className="text-xs font-black text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
+          <span className="text-xs font-black text-slate-900 dark:text-slate-200 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
             Hizmet & Maliyet Karşılaştırması
           </span>
           <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -120,7 +120,7 @@ export default function FacilityComparisonMatrixSeo({ className = "" }: { classN
 
         <Link
           href="/teklif-al?hizmet=tesis-yonetimi"
-          className="px-6 py-3.5 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-md"
+          className="px-6 py-3.5 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-md shrink-0"
         >
           <span>Ücretsiz Bütçe Analizi İsteyin</span>
           <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -131,29 +131,29 @@ export default function FacilityComparisonMatrixSeo({ className = "" }: { classN
       <div className="mt-8 overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[700px]">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-white/10 text-xs font-black uppercase text-[var(--color-secondary)]">
+            <tr className="border-b border-[var(--color-outline)]/60 text-xs font-black uppercase text-[var(--color-secondary)]">
               <th className="py-4 px-4 w-1/4">Yönetim & Hizmet Kriteri</th>
               <th className="py-4 px-4 w-3/8 text-rose-600 dark:text-rose-400">Bireysel / Amatör Yönetim</th>
               <th className="py-4 px-4 w-3/8 text-emerald-600 dark:text-emerald-400">Alo Yönetim Tesis İşletmesi</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100 dark:divide-white/5 text-sm">
+          <tbody className="divide-y divide-[var(--color-outline)]/30 text-sm">
             {COMPARISON_DATA.map((row, idx) => (
-              <tr key={idx} className="hover:bg-gray-50/50 dark:hover:bg-white/[0.02] transition-colors">
+              <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors">
                 <td className="py-5 px-4 font-bold text-[var(--color-primary)] align-top">
                   <div>{row.criteria}</div>
-                  <div className="text-[11px] font-mono text-slate-400 font-normal mt-1.5 flex items-center gap-1">
+                  <div className="text-[11px] font-mono text-[var(--color-tertiary)] font-normal mt-1.5 flex items-center gap-1">
                     <span className="material-symbols-outlined text-[12px]">gavel</span>
                     {row.lawReference}
                   </div>
                 </td>
-                <td className="py-5 px-4 text-xs font-light text-[var(--color-secondary)] bg-rose-50/20 dark:bg-rose-950/10 rounded-xl align-top">
+                <td className="py-5 px-4 text-xs font-light text-[var(--color-secondary)] bg-rose-500/5 dark:bg-rose-950/20 border border-rose-500/20 rounded-xl align-top">
                   <div className="flex items-start gap-2">
                     <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5">cancel</span>
                     <span>{row.individualManagement.text}</span>
                   </div>
                 </td>
-                <td className="py-5 px-4 text-xs font-medium text-[var(--color-primary)] bg-emerald-50/30 dark:bg-emerald-950/20 rounded-xl align-top border border-emerald-500/20">
+                <td className="py-5 px-4 text-xs font-medium text-[var(--color-primary)] bg-emerald-500/5 dark:bg-emerald-950/20 rounded-xl align-top border border-emerald-500/30">
                   <div className="flex items-start gap-2">
                     <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base shrink-0 mt-0.5">check_circle</span>
                     <span>{row.aloYonetimIntegrated.text}</span>
