@@ -10,6 +10,7 @@ import { RelatedArticles } from '@/components';
 import PestControlCalculator from '@/components/sections/PestControlCalculator';
 import PestControlTestimonials from '@/components/sections/PestControlTestimonials';
 import Image from 'next/image';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function HasereVeDezenfeksiyonClient() {
   const { t } = useLanguage();
@@ -74,7 +75,7 @@ export default function HasereVeDezenfeksiyonClient() {
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image src="https://images.unsplash.com/photo-1584820927498-cafe2c1bb869?q=80&w=2000&auto=format&fit=crop" alt="Haşere İlaçlama ve Dezenfeksiyon - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
@@ -88,7 +89,7 @@ export default function HasereVeDezenfeksiyonClient() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,7 +99,7 @@ export default function HasereVeDezenfeksiyonClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('pest_banner_badge') || 'Sağlık Bakanlığı Ruhsatlı'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pest_hero_title') || 'Haşere İlaçlama & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Kalıcı Dezenfeksiyon</span>' }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pest_hero_title') || 'Haşere İlaçlama & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Kalıcı Dezenfeksiyon</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Haşere İlaçlama ve Dezenfeksiyon' }}
@@ -119,10 +120,10 @@ export default function HasereVeDezenfeksiyonClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
         {/* Pest Control Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <PestControlCalculator />
         </div>
 
@@ -157,6 +158,52 @@ export default function HasereVeDezenfeksiyonClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Biyosidal Haşere İlaçlama ve Dezenfeksiyon"
+        serviceCategory="İlaçlama & Çevre Sağlığı"
+        lawReferences={[
+          {
+            title: "Biyosidal Ürünlerin Kullanım Usul ve Esasları Hakkında Yönetmelik",
+            sourceName: "T.C. Sağlık Bakanlığı & Resmi Gazete",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=33966&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Yönetmelik No: 27475",
+            description: "Toplu konut, site, iş merkezi ve tesislerde haşere ve kemirgen kontrolü yapacak personelin yetki belgesi, kullanılan biyosidal ürünlerin izinleri ve uygulama formu zorunlulukları."
+          },
+          {
+            title: "Dünya Sağlık Örgütü (WHO) Entegre Vektör Yönetimi (IVM) Protokolü",
+            sourceName: "World Health Organization (WHO)",
+            url: "https://www.who.int",
+            badge: "WHO Standartları",
+            description: "İnsan sağlığını ve ekolojik dengeyi koruyan, kimyasal kullanımını minimize eden modern Entegre Zararlı Yönetimi (IPM) ilkeleri."
+          },
+          {
+            title: "T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü Çevre Sağlığı Dairesi",
+            sourceName: "T.C. Sağlık Bakanlığı",
+            url: "https://www.saglik.gov.tr",
+            badge: "Halk Sağlığı",
+            description: "Halk sağlığı alanında zararlılarla mücadelede ruhsatlı biyosidal ürün veri tabanı ve resmi denetim kriterleri."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "vektor-ve-hasere-ilaclama-biyosidal",
+            term: "Biyosidal İlaçlama & Vektör Kontrolü",
+            summary: "Bina ortak alanlarında haşere, böcek ve kemirgenlere karşı Sağlık Bakanlığı onaylı kokusuz ilaçlama uygulamasıdır."
+          },
+          {
+            slug: "su-deposu-dezenfeksiyonu-ve-analizi",
+            term: "Su Deposu & Tesisat Dezenfeksiyonu",
+            summary: "İçme ve kullanma suyu depolarında mikrobiyal üremeyi engelleyen periyodik kimyasal ve mekanik temizlik işlemidir."
+          },
+          {
+            slug: "atik-yonetimi-ve-sifir-atik-belgesi",
+            term: "Çöp Şutları ve Atık Alanı Sterilizasyonu",
+            summary: "Koku ve sinek oluşumunu önlemek için çöp toplama merkezlerinin biyolojik dezenfeksiyonu ve hijyen kontrolüdür."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="hasere_seo_title"
