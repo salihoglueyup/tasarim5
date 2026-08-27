@@ -67,6 +67,14 @@ for (const entity of FACILITY_MANAGEMENT_ENTITIES) {
 
 // 4. Ekstra Spesifik Tesis Yönetimi ve Sektörel Eşanlamlılar (Pillar Güçlendirici)
 const CUSTOM_LINKS: { term: string; href: string }[] = [
+  { term: 'tesis ve mülk hizmetleri', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis ve mülk yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'mülk hizmetleri', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'mülk yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'gayrimenkul tesis işletmeciliği', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'mülk varlık yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'istanbul mülk yönetimi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'profesyonel mülk yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'profesyonel tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'entegre tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
   { term: 'istanbul tesis yönetimi', href: '/hizmetler/tesis-yonetimi' },
@@ -94,6 +102,20 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'tesis yönetim şirketi nasıl seçilir', href: '/hizmetler/tesis-yonetimi/rehber' },
   { term: 'tesis yönetimi rehberi', href: '/hizmetler/tesis-yonetimi/rehber' },
   { term: 'tesis yönetim sözleşmesi', href: '/hizmetler/tesis-yonetimi/rehber' },
+  { term: 'tesis yönetim teklifi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis keşif formu', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'yargıtay emsal kararları', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'kmk 634 içtihatları', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis yönetim şartnamesi', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'rfp şartname oluşturucu', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'rezidans yönetimi istanbul', href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
+  { term: 'plaza yönetimi istanbul', href: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
+  { term: 'toki site yönetimi istanbul', href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi' },
+  { term: 'sanayi tesisi yönetimi istanbul', href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
+  { term: 'site aidat tasarrufu', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis bütçe planlaması', href: '/hizmetler/tesis-yonetimi' },
+  { term: '5188 tesis güvenliği', href: '/hizmetler/tesis-yonetimi' },
+  { term: 'tesis teknik işletme', href: '/hizmetler/tesis-yonetimi' },
   { term: 'güvenlik akademisi', href: '/guvenlik-akademisi' },
   { term: 'aidat hesaplama', href: '/hesaplayici' },
   { term: 'kmk hesaplayıcı', href: '/hesaplayici' },
@@ -167,37 +189,60 @@ export function autoLinkHtml(
   maxLinks: number = 8
 ): string {
   if (!html) return '';
-  let result = html;
+
+  const normalizedCurrentUrl = currentUrl ? currentUrl.replace(/\/+$/, '') : '';
   const usedTerms = new Set<string>();
   const usedUrls = new Set<string>();
   let insertedCount = 0;
 
-  const normalizedCurrentUrl = currentUrl ? currentUrl.replace(/\/+$/, '') : '';
+  // HTML'i etiketler (<...>) ve düz metin parçalarına böl
+  const tokens = html.split(/(<[^>]+>)/g);
+  let inAnchor = false;
 
-  for (const entry of AUTO_LINK_ENTRIES) {
-    if (insertedCount >= maxLinks) break;
-    if (usedTerms.has(entry.term)) continue;
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    if (!token) continue;
 
-    // Kendine link vermeyi engelle
-    if (normalizedCurrentUrl && (entry.href === normalizedCurrentUrl || entry.href === `${normalizedCurrentUrl}/`)) {
+    if (token.startsWith('<')) {
+      if (/^<a[\s>]/i.test(token)) {
+        inAnchor = true;
+      } else if (/^<\/a>/i.test(token)) {
+        inAnchor = false;
+      }
       continue;
     }
 
-    // Aynı hedefe çok fazla link verilmesini sınırla
-    if (usedUrls.has(entry.href)) continue;
+    // <a> tag'i içindeyse veya sadece boşluksa link ekleme
+    if (inAnchor || !token.trim()) continue;
 
-    const match = result.match(entry.regex);
-    if (match) {
-      result = result.replace(entry.regex, (m) => {
-        usedTerms.add(entry.term);
-        usedUrls.add(entry.href);
-        insertedCount++;
-        return `<a href="${entry.href}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
-      });
+    let textChunk = token;
+
+    for (const entry of AUTO_LINK_ENTRIES) {
+      if (insertedCount >= maxLinks) break;
+      if (usedTerms.has(entry.term)) continue;
+
+      // Kendine link vermeyi engelle
+      if (normalizedCurrentUrl && (entry.href === normalizedCurrentUrl || entry.href === `${normalizedCurrentUrl}/`)) {
+        continue;
+      }
+
+      // Aynı hedefe çok fazla link verilmesini sınırla
+      if (usedUrls.has(entry.href)) continue;
+
+      if (entry.regex.test(textChunk)) {
+        textChunk = textChunk.replace(entry.regex, (m) => {
+          usedTerms.add(entry.term);
+          usedUrls.add(entry.href);
+          insertedCount++;
+          return `<a href="${entry.href}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-amber-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
+        });
+      }
     }
+
+    tokens[i] = textChunk;
   }
 
-  return result;
+  return tokens.join('');
 }
 
 function escapeRegExp(string: string): string {

@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/lib/seo';
-import { getDistrict } from '@/data/districts';
+import { getDistrict, getDistrictDues } from '@/data/districts';
 
 export type FacilityType = 'site' | 'residence' | 'plaza' | 'commercial' | 'industrial';
 
@@ -46,14 +46,6 @@ const TYPE_BASELINES: Record<FacilityType, { name: string; basePerUnit: number; 
   industrial: { name: 'Sanayi ve Lojistik Tesisi', basePerUnit: 5800, avgM2PerUnit: 350 },
 };
 
-const DISTRICT_FACTORS: Record<string, number> = {
-  besiktas: 1.30, sariyer: 1.35, kadikoy: 1.25, sisli: 1.20, bakirkoy: 1.20,
-  uskudar: 1.15, atasehir: 1.15, beyoglu: 1.15, basaksehir: 1.05, kartal: 1.00,
-  pendik: 0.95, umraniye: 1.00, esenyurt: 0.85, beylikduzu: 0.95, fatih: 1.00,
-  zeytinburnu: 0.95, eyupsultan: 1.00, cekmekoy: 1.05, maltepe: 1.05,
-  sancaktepe: 0.90, tuzla: 0.95,
-};
-
 export function calculateFacilityBudget(
   unitsInput: number = 30,
   typeInput: FacilityType = 'site',
@@ -64,7 +56,10 @@ export function calculateFacilityBudget(
   const facilityType = (TYPE_BASELINES[typeInput] ? typeInput : 'site') as FacilityType;
   const config = TYPE_BASELINES[facilityType];
   const district = getDistrict(districtSlug) || { name: 'Kadıköy', slug: 'kadikoy' };
-  const districtFactor = DISTRICT_FACTORS[district.slug] || 1.0;
+  const dues = getDistrictDues(district.slug);
+  
+  // 39 İlçe için dinamik aidat katsayısı (İstanbul taban 48 TL/m2 baz alınır)
+  const districtFactor = dues && dues.avgDuesM2 > 0 ? dues.avgDuesM2 / 48 : 1.0;
   const totalFloorAreaM2 = customM2 && customM2 > 0 ? customM2 : units * config.avgM2PerUnit;
   const scaleFactor = units > 200 ? 0.85 : units > 100 ? 0.90 : units > 50 ? 0.95 : 1.0;
   const rawDuesPerUnit = Math.round(config.basePerUnit * districtFactor * scaleFactor);

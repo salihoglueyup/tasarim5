@@ -189,6 +189,141 @@ export const TERMS: Term[] = [
       'Binaların Yangından Korunması Hakkında Yönetmelik gereğince sitelerde ve otoparklarda bulunması zorunlu olan sprinkler, yangın hidroforu, duman damperleri ve yangın algılama otomasyonudur.',
     link: { href: '/hizmetler/teknik-bakim', label: 'Yangın güvenlik sistemleri' },
   },
+  {
+    term: 'Arsa Payı',
+    definition:
+      'Kat mülkiyetinde her bir bağımsız bölüme, yapının inşa edildiği arsa üzerinde tahsis edilen mülkiyet payıdır. Ortak giderlerin paylaşımında ve oy hakkı nisabında temel kriterdir.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Arsa payı hukuku' },
+  },
+  {
+    term: 'Kat İrtifakı',
+    definition:
+      'Bir arsa üzerinde yapılmakta olan veya ileride yapılacak binanın bağımsız bölümleri için, arsa payına bağlı olarak kurulan irtifak hakkıdır. İskan alındıktan sonra kat mülkiyetine çevrilir.',
+  },
+  {
+    term: 'İskan (Yapı Kullanma İzin Belgesi)',
+    definition:
+      'Belediye tarafından inşaatı tamamlanan binanın projesine, fen ve sağlık kurallarına uygun olduğunu onaylayan resmi belgedir. İskansız binalarda şantiye tarifesi elektrik-su uygulanır.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'İskan ve tesis yönetimi' },
+  },
+  {
+    term: 'Su Deposu Dezenfeksiyonu ve Analizi',
+    definition:
+      'Sitelerdeki içme ve kullanma suyu depolarının Sağlık Bakanlığı onaylı biyosidal ürünlerle 6 ayda bir temizlenmesi, klorlanması ve mikrobiyolojik laboratuvar testlerinin yapılması yasal zorunluluğudur.',
+    link: { href: '/hizmetler/temizlik-ve-hijyen', label: 'Su deposu temizliği' },
+  },
+  {
+    term: 'Havuz Bakımı ve Kimyasal Operasyonu',
+    definition:
+      'Yüzme havuzlarında pH, serbest klor, bağlı klor ve siyanürik asit değerlerinin günlük ölçülerek Sağlık Bakanlığı normlarında tutulması, filtrasyon ters yıkama ve dip süpürme operasyonudur.',
+    link: { href: '/hizmetler/temizlik-ve-hijyen', label: 'Havuz hijyeni ve bakımı' },
+  },
+  {
+    term: 'Peyzaj ve Otomatik Sulama Yönetimi',
+    definition:
+      'Site bahçe alanlarının mevsimlik budama, çim biçme, gübreleme, ilaçlama ve toprak nem sensörlü akıllı sulama sistemleriyle su tasarruflu olarak bakımıdır.',
+    link: { href: '/hizmetler/temizlik-ve-hijyen', label: 'Peyzaj ve bahçe bakımı' },
+  },
+  {
+    term: 'Vektör ve Haşere İlaçlama (Biyosidal)',
+    definition:
+      'Ortak alanlar, sığınaklar, kazan daireleri ve çöp şaftlarında kemirgen ve böceklere karşı Sağlık Bakanlığı ruhsatlı mesul müdür denetiminde yapılan periyodik ilaçlama işlemidir.',
+    link: { href: '/hizmetler/temizlik-ve-hijyen', label: 'Bina ve site ilaçlama' },
+  },
+  {
+    term: 'Jeneratör Periyodik Bakımı ve Yük Testi',
+    definition:
+      'Elektrik kesintilerinde asansör, hidrofor, yangın pompaları ve çevre aydınlatmayı besleyen jeneratörlerin aylık filtre, yağ, akü ve transfer panosu yük denetimleridir.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Jeneratör teknik servis' },
+  },
+  {
+    term: 'Hidrofor ve Basınç Dengeleme Sistemi',
+    definition:
+      'Yüksek katlı bloklarda su basıncını sabit tutan, frekans kontrollü invertörlü pompalar ve membranlı genleşme tanklarından oluşan sıhhi tesisat mekanizmasıdır.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Hidrofor bakımı' },
+  },
+  {
+    term: 'CCTV Kamera Güvenlik Sistemi',
+    definition:
+      'Site çevre sınırları, blok girişleri, otopark ve çocuk oyun alanlarını 7/24 yüksek çözünürlükle kaydeden, KVKK mevzuatına uygun kayıt saklama süreli kapalı devre kamera ağıdır.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: 'CCTV güvenlik altyapısı' },
+  },
+  {
+    term: 'Nizamiye Güvenlik Protokolü',
+    definition:
+      'Site ana giriş kapısında misafir, kurye ve teknik servis girişlerinin kimlik teyidi, sakin onayı ve geçiş kaydıyla kontrol altına alındığı 5188 güvenlik prosedürüdür.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: 'Nizamiye güvenlik yönetimi' },
+  },
+  {
+    term: 'Kat İrtifakından Kat Mülkiyetine Geçiş',
+    definition:
+      'Yapı kullanma izin belgesi (iskan) alınan binalarda, tapu müdürlüğüne başvurularak her bağımsız bölümün müstakil kat mülkiyeti tapusuna dönüştürülmesi hukuki sürecidir.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Tapu ve mülkiyet hukuku' },
+  },
+  {
+    term: 'İlamsız İcra Takibi (Aidat Borcu)',
+    definition:
+      'KMK m.20 ve İcra İflas Kanunu uyarınca, borçlu kat malikine mahkeme ilamı olmaksızın İcra Dairesi kanalıyla Ödeme Emri (Örnek No: 7) gönderilmesi sürecidir.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Aidat icra takibi' },
+  },
+  {
+    term: 'Gecikme Tazminatı (%5 Yasal Faiz)',
+    definition:
+      '634 sayılı KMK 20. maddesi gereğince, ödeme vadesi geçen aidat ve ortak gider avans borçlarına aylık yüzde 5 oranında işletilen yasal cezai faizdir.',
+    link: { href: '/hizmetler/aidat-takibi', label: 'Gecikme faizi hesaplama' },
+  },
+  {
+    term: 'Olağan ve Olağanüstü Genel Kurul',
+    definition:
+      'Yönetim planında belirtilen tarihte yılda en az bir kez yapılan toplantı olağan; yönetici, denetçi veya maliklerin 1/3 istemiyle acil durumlarda toplanan kurul olağanüstüdür.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Genel kurul organizasyonu' },
+  },
+  {
+    term: 'Hazirun Cetveli',
+    definition:
+      'Kat Malikleri Kurulu toplantısına bizzat katılan veya vekaletname ile temsil edilen maliklerin ad-soyad, daire no, arsa payı ve imzalarını içeren resmi yoklama tutanağıdır.',
+  },
+  {
+    term: 'Toplu Yapı Yönetimi (KMK Ek Madde 69)',
+    definition:
+      'Birden çok parsel ve bloktan oluşan sitelerde blok kat malikleri kurulları ile tüm siteyi kapsayan Toplu Yapı Temsilciler Kurulu\'nun oluşturulduğu entegre yönetim modelidir.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'Toplu yapı ve site yönetimi' },
+  },
+  {
+    term: 'Sığınak Yönetmeliği ve Alan Kullanımı',
+    definition:
+      'Sitelerin sığınak alanlarının sadece acil durumlar ve koruma amacıyla tahsis edilmesini, ticari depo veya şahsi otopark olarak kiralanamayacağını düzenleyen kamu mevzuatıdır.',
+  },
+  {
+    term: 'Atık Yönetimi ve Sıfır Atık Belgesi',
+    definition:
+      'Sitelerde evsel atıklar, geri dönüştürülebilir ambalajlar, bitkisel atık yağlar ve elektronik atıkların Çevre Şehircilik Bakanlığı Sıfır Atık Yönetmeliği\'ne uygun olarak ayrıştırılmasıdır.',
+    link: { href: '/kurumsal/surdurulebilirlik', label: 'Sıfır atık ve sürdürülebilirlik' },
+  },
+  {
+    term: 'Asansör Kırmızı / Sarı / Mavi / Yeşil Etiket',
+    definition:
+      'Yıllık asansör muayenesinde; kırmızı: can güvenliği tehlikeli (mühürlenir), sarı: kusurlu, mavi: hafif kusurlu, yeşil: kusursuz ve güvenli çalıştığını gösteren resmi teknik durum etiketidir.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Asansör muayene ve etiket takibi' },
+  },
+  {
+    term: 'Termal Kamera ile Enerji Kaçağı Tespiti',
+    definition:
+      'Binaların dış cephelerinde, elektrik panolarında ve mekanik tesisatta ısı kaçaklarını ve aşırı ısınan kablo bağlantılarını temassız kızılötesi kameralarla tespit etme yöntemidir.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Termal enerji denetimi' },
+  },
+  {
+    term: 'Yönetici İbra Edilmemesi (Adli Süreç)',
+    definition:
+      'Genel kurulda mali ve idari açıdan aklanmayan eski yöneticiye karşı Sulh Hukuk Mahkemesi nezdinde hesapların denetimi, usulsüz harcamaların tazmini ve dava açılması sürecidir.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Yönetici ibra davaları' },
+  },
+  {
+    term: 'Ortak Alan Kiraya Verme (KMK m.45)',
+    definition:
+      'Çatı baz istasyonu, kapıcı dairesi veya otopark gibi ortak yerlerin üçüncü kişilere kiralanabilmesi için kat maliklerinin tamamının (%100 oybirliği) rızasının gerektiği yasal kuraldır.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Ortak alan kiralama hukuku' },
+  },
 ];
 
 export function termToSlug(term: string): string {

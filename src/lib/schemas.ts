@@ -60,14 +60,34 @@ export const ORG_GEO = {
   longitude: 29.03,
 } as const;
 
-/** Doğrulanmış sosyal + kurumsal profiller (Faz 60 — sameAs). */
+/** Doğrulanmış sosyal + kurumsal profiller ve grup şirketleri (Faz 60 — sameAs). */
 export const ORG_SAME_AS = [
   'https://twitter.com/aloyonetim',
   'https://www.linkedin.com/company/aloyonetim',
   'https://www.instagram.com/aloyonetim',
   'https://www.facebook.com/aloyonetim',
   'https://www.youtube.com/@aloyonetim',
+  'https://www.guvenlikkursu.com/',
+  'https://3gguvenlik.com/',
 ];
+
+/** Grup şirketlerimiz ve kurumsal güvenlik çözüm ortaklarımız (Faz 12). */
+export const GROUP_COMPANIES = [
+  {
+    name: 'Alo Güvenlik',
+    legalName: 'Alo Özel Güvenlik Eğitim Kurumu',
+    url: 'https://www.guvenlikkursu.com/',
+    serviceType: '5188 Sayılı Özel Güvenlik Eğitimi & Sertifikasyon',
+    description: 'Silahlı ve silahsız özel güvenlik eğitimi, yenileme eğitimi ve güvenlik sertifikası.',
+  },
+  {
+    name: '3G Özel Güvenlik',
+    legalName: '3G Özel Güvenlik ve Koruma Hizmetleri Ltd. Şti.',
+    url: 'https://3gguvenlik.com/',
+    serviceType: '5188 Lisanslı Özel Güvenlik ve Tesis Koruma',
+    description: 'Siteler, plazalar, fabrikalar ve lüks tesisler için 5188 lisanslı fiziki ve elektronik güvenlik hizmetleri.',
+  },
+] as const;
 
 /** Topikal otorite ve Knowledge Graph varlık sinyali (Faz 67 — knowsAbout / Wikidata). */
 export const ORG_KNOWS_ABOUT = [
@@ -165,6 +185,13 @@ export function organizationSchema(): JsonLdObject {
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
     contactPoint: ORG_CONTACT_POINTS,
+    subOrganization: GROUP_COMPANIES.map((company) => ({
+      '@type': 'Organization',
+      name: company.name,
+      legalName: company.legalName,
+      url: company.url,
+      description: company.description,
+    })),
     founder: {
       '@type': 'Person',
       name: 'Eyüp Salihoğlu',

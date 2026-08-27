@@ -2,15 +2,17 @@ import { BASE_URL } from '@/lib/seo';
 import { getDistrict } from '@/data/districts';
 
 export interface RfpConfig {
-  facilityName: string;
-  units: number;
-  blocks: number;
-  districtSlug: string;
-  servicesNeeded: string[];
+  facilityName?: string;
+  units?: number;
+  blocks?: number;
+  districtSlug?: string;
+  servicesNeeded?: string[];
 }
 
+export const RFP_DEFAULT_TEMPLATE = `1. İŞİN KONUSU VE KAPSAMI: 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında profesyonel tesis yönetimi hizmetlerinin yürütülmesidir.`;
+
 export function generateFacilityRfpDocument(config: RfpConfig) {
-  const district = getDistrict(config.districtSlug) || { name: 'Kadıköy', slug: 'kadikoy' };
+  const district = (config.districtSlug ? getDistrict(config.districtSlug) : null) || { name: 'Kadıköy', slug: 'kadikoy' };
   const facilityName = config.facilityName || `${district.name} Prestij Sitesi`;
   const units = Math.max(1, config.units || 60);
   const blocks = Math.max(1, config.blocks || 2);

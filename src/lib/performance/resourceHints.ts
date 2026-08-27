@@ -19,8 +19,8 @@ export const EXTERNAL_CDN_HINTS: ResourceHint[] = [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
 
-  // Unsplash Görsel Sunucuları (Preconnect — görseller için tünel açar)
-  { rel: 'preconnect', href: 'https://images.unsplash.com' },
+  // Unsplash Görsel Sunucuları (DNS Prefetch)
+  { rel: 'dns-prefetch', href: 'https://images.unsplash.com' },
 
   // Google Analytics & Tag Manager (DNS Prefetch — DNS çözümlemesini arka planda bitirir)
   { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
