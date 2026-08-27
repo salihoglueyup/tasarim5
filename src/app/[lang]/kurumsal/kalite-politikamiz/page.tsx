@@ -1,172 +1,88 @@
-"use client";
-
-import PageHeader from '@/components/layout/PageHeader';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
+import type { Metadata } from 'next';
+import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
+import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema, ORG_ID } from '@/lib/schemas';
+import KalitePolitikamizClient from './KalitePolitikamizClient';
 
-export default function KalitePolitikamiz() {
-  const { t } = useLanguage();
+export const revalidate = 86400; // 24 saat ISR
+export const dynamicParams = true;
 
-  const qualityCards = [
-    {
-      title: t('quality_card_1_title'),
-      subtitle: t('quality_card_1_sub'),
-      desc: t('quality_card_1_desc'),
-      icon: "verified",
-      color: "from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
-    },
-    {
-      title: t('quality_card_2_title'),
-      subtitle: t('quality_card_2_sub'),
-      desc: t('quality_card_2_desc'),
-      icon: "security",
-      color: "from-slate-500 to-slate-600"
-    },
-    {
-      title: t('quality_card_3_title'),
-      subtitle: t('quality_card_3_sub'),
-      desc: t('quality_card_3_desc'),
-      icon: "health_and_safety",
-      color: "from-amber-500 to-orange-600"
-    },
-    {
-      title: t('quality_card_4_title'),
-      subtitle: t('quality_card_4_sub'),
-      desc: t('quality_card_4_desc'),
-      icon: "eco",
-      color: "from-slate-500 to-slate-700"
-    },
-    {
-      title: t('quality_card_5_title'),
-      subtitle: t('quality_card_5_sub'),
-      desc: t('quality_card_5_desc'),
-      icon: "fact_check",
-      color: "from-purple-500 to-indigo-600"
-    }
-  ];
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+
+  const title = t.quality_meta_title || 'Kalite Politikamız — Uluslararası Tesis Yönetim Standartları | Alo Yönetim';
+  const description = t.quality_meta_desc || 'ISO 9001 Kalite, ISO 41001 Tesis Yönetimi, ISO 45001 İSG ve 5188 Güvenlik akreditasyonlarıyla sıfır hata ve maksimum memnuniyet politikamız.';
+
+  return buildMetadata({
+    title,
+    description,
+    path: '/kurumsal/kalite-politikamiz',
+    lang,
+    ogImageType: 'default',
+    keywords: [
+      'alo yönetim kalite politikası',
+      'iso 9001 tesis yönetimi',
+      'iso 41001 kalite standartları',
+      'site yönetimi hizmet kalitesi',
+      'türkak akreditasyonlu site yönetimi'
+    ],
   });
+}
 
-  const progressBarHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+export default async function KalitePolitikamizPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: t('nav_corporate'), url: '/kurumsal' },
-    { name: t('quality_title'), url: '/kurumsal/kalite-politikamiz' }
+    { name: t.nav_home || 'Anasayfa', url: '/' },
+    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
+    { name: t.quality_title || 'Kalite Politikamız', url: '/kurumsal/kalite-politikamiz' }
   ]);
 
-  // Görünür kalite/sertifika kartlarını hasCredential olarak işaretle (Faz 65).
   const credentialLd = {
     '@type': 'Organization',
     '@id': ORG_ID,
-    hasCredential: qualityCards.map((c) => ({
-      '@type': 'EducationalOccupationalCredential',
-      name: c.title,
-      credentialCategory: c.subtitle,
-      description: c.desc,
-    })),
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+        credentialCategory: 'TÜRKAK Akreditasyonlu Kalite Standardı',
+        description: 'Tesis işletmesinde müşteri odaklılık ve sürekli iyileştirme güvencesi.'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 41001:2018 Tesis Yönetim Standardı',
+        credentialCategory: 'Uluslararası Tesis İşletim Standardı',
+        description: 'Toplu yaşam alanlarında maliyet optimizasyonu ve operasyonel verimlilik.'
+      }
+    ]
   };
 
   const pageLd = webPageSchema({
-    name: t('quality_title'),
-    description: t('quality_desc'),
+    name: t.quality_title || 'Kalite Politikamız',
+    description: t.quality_desc || 'Alo Yönetim kurumsal kalite ve hizmet yeterlilik politikası.',
     path: '/kurumsal/kalite-politikamiz',
+    speakableSelectors: ['h1', 'p'],
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, credentialLd]} />
-      <PageHeader 
-        title={t('quality_title')} 
-        description={t('quality_desc')} 
-      />
-
-      <section ref={containerRef} className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
-          
-          {/* Left Sticky Manifesto */}
-          <div className="lg:col-span-5 relative">
-            <div className="lg:sticky lg:top-32 flex flex-col gap-8">
-              <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 border border-slate-900/20 dark:border-white/20 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
-                {t('quality_manifest_badge')}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] leading-tight tracking-tight">
-                {t('quality_manifest_title_1')} <br />{t('quality_manifest_title_2')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">{t('quality_manifest_title_3')}</span>
-              </h2>
-              <div className="space-y-6 text-[var(--color-secondary)] font-light leading-relaxed">
-                <p>
-                  {t('quality_manifest_p1')}
-                </p>
-                <p>
-                  {t('quality_manifest_p2')}
-                </p>
-              </div>
-
-              {/* Stats Box */}
-              <div className="mt-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 shadow-lg flex items-center justify-between">
-                <div>
-                  <div className="text-4xl font-black text-slate-900 dark:text-white">{t('quality_stat_1_val')}</div>
-                  <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">{t('quality_stat_1_label')}</div>
-                </div>
-                <div className="w-px h-12 bg-[var(--color-outline)]/50"></div>
-                <div>
-                  <div className="text-4xl font-black text-slate-500">{t('quality_stat_2_val')}</div>
-                  <div className="text-xs font-bold text-[var(--color-secondary)] uppercase mt-1">{t('quality_stat_2_label')}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Scroll-Animated Cards Timeline */}
-          <div className="lg:col-span-7 relative">
-            {/* Timeline Line */}
-            <div className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-[var(--color-outline)]/30 rounded-full hidden sm:block" />
-            <motion.div 
-              className="absolute left-6 md:left-[3.5rem] top-0 bottom-0 w-1 bg-gradient-to-b from-slate-900 to-slate-500 dark:from-white dark:to-slate-500 rounded-full hidden sm:block origin-top"
-              style={{ scaleY: progressBarHeight }}
-            />
-
-            <div className="flex flex-col gap-10">
-              {qualityCards.map((q, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="relative flex items-start gap-6 md:gap-10"
-                >
-                  {/* Timeline Dot */}
-                  <div className="hidden sm:flex z-10 w-14 h-14 bg-[var(--color-surface)] border-4 border-white dark:border-slate-900 rounded-full shadow-lg items-center justify-center shrink-0 relative -left-1">
-                    <span className={`material-symbols-outlined text-transparent bg-clip-text bg-gradient-to-br ${q.color}`}>
-                      {q.icon}
-                    </span>
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-3 shadow-sm hover:shadow-xl transition-all w-full group relative overflow-hidden">
-                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${q.color} opacity-5 rounded-bl-[100px] -z-0 group-hover:scale-150 transition-transform duration-700`} />
-                    
-                    <span className={`text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r ${q.color} tracking-widest uppercase mb-1`}>
-                      {q.title}
-                    </span>
-                    <h3 className="text-2xl font-bold text-[var(--color-primary)] relative z-10">{q.subtitle}</h3>
-                    <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed mt-2 relative z-10">{q.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <KalitePolitikamizClient />
     </>
   );
 }
