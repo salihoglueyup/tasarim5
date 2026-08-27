@@ -6,6 +6,8 @@ import Link from 'next/link';
 
 import DOMPurify from 'isomorphic-dompurify';
 import { useLanguage } from '@/context/LanguageContext';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
+
 
 export default function FaqClient({ 
   faqs, 
@@ -191,6 +193,57 @@ export default function FaqClient({
           </>
         )}
       </div>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Tesis ve Site Yönetimi Soru & Cevap Bankası"
+        serviceCategory="Mevzuat & Bilgi Bankası"
+        lawReferences={[
+          {
+            title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Resmi Metin",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+            badge: "KMK 634",
+            description: "Site yöneticisinin görevleri, kat malikleri kurulu toplantı nisapları, işletme projeleri ve aidat gecikme faizi kanun maddeleri."
+          },
+          {
+            title: "5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun",
+            sourceName: "T.C. İçişleri Bakanlığı EGM",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
+            badge: "5188 Sayılı Kanun",
+            description: "Sitelerde fiziki güvenlik personeli istihdamı, valilik güvenlik izinleri ve kamera izleme yasal prosedürleri."
+          },
+          {
+            title: "2004 Sayılı İcra ve İflas Kanunu (İİK)",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=5",
+            badge: "İİK 2004",
+            description: "Ödenmeyen ortak gider borçlarının ilamsız icra yoluyla tahsili ve itirazın kaldırılması süreçleri."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "kat-mulkiyeti-kanunu-kmk",
+            term: "Kat Mülkiyeti Kanunu (KMK)",
+            summary: "Toplu yaşam alanlarında malik ve kiracıların haklarını, ortak alan kullanımını düzenleyen ana kanundur."
+          },
+          {
+            slug: "aidat",
+            term: "Aidat Borcu ve Dağıtımı",
+            summary: "Apartman ve sitelerde ortak giderlerin paylaştırılması ve ödenmesi zorunlu katkı payıdır."
+          },
+          {
+            slug: "gecikme-tazminati-5-yasal-faiz",
+            term: "%5 Yasal Gecikme Faizi",
+            summary: "Gününde ödenmeyen aidatlara KMK m.20/2 uyarınca işletilen aylık %5 gecikme tazminatıdır."
+          },
+          {
+            slug: "isletme-projesi",
+            term: "İşletme Projesi Nedir?",
+            summary: "Sitenin 1 yıllık tahmini bütçesi ve her daireye düşen aylık avans payını gösteren resmi projedir."
+          }
+        ]}
+      />
 
       {/* CTA Banner */}
       <div className="mt-20 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-brand-950 dark:to-slate-900 text-white p-10 md:p-14 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left relative overflow-hidden shadow-2xl">

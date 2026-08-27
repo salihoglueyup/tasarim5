@@ -90,14 +90,7 @@ export default async function SozlukPage({
   return (
     <>
       <JsonLd data={[breadcrumbLd, pageLd, termSetLd]} />
-      <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-6">
-        <VoiceSearchSpeakableSeo
-          question="Site ve Tesis Yönetimi Terimleri ve KMK Maddeleri Nelerdir?"
-          directAnswer="634 sayılı Kat Mülkiyeti Kanunu (KMK), 5188 sayılı özel güvenlik kanunu ve ISO 41001 entegre tesis yönetimi standartlarına dair tüm yasal terimler ve tanımlardır."
-          lang={lang}
-        />
-      </div>
-      <SozlukClient />
+      <SozlukClient lang={lang} />
 
       {/* Bireysel terim sayfaları — Google arama motoru tarama linkleri (Faz 7A) */}
       <nav aria-label="Sözlük terimleri" className="sr-only">

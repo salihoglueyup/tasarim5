@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import PageHeader from '@/components/layout/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
 import trDict from '@/i18n/locales/tr/common.json';
@@ -105,31 +105,20 @@ export default async function TermPage({
   return (
     <>
       <JsonLd data={[termLd, pageLd, breadcrumbLd]} />
-      <div className="max-w-4xl mx-auto px-[var(--spacing-gutter)] pt-4">
-        <Breadcrumbs items={breadcrumbs} />
-      </div>
+      <PageHeader 
+        title={`${term.term} Nedir?`}
+        description={term.definition.slice(0, 160)}
+        breadcrumbs={breadcrumbs}
+      />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-4xl mx-auto flex flex-col gap-12">
-        {/* Term Header */}
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-2 text-sm text-slate-500">
-            <Link href="/sozluk" className="hover:text-brand-600 transition-colors">Sözlük</Link>
-            <span>›</span>
-            <span className="text-[var(--color-primary)] font-semibold">{term.term}</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black text-[var(--color-primary)] leading-tight">
-            {term.term}
-            <span className="text-brand-600 dark:text-brand-400"> Nedir?</span>
-          </h1>
-        </div>
-
         {/* Definition Card */}
-        <div className="term-definition bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-12 rounded-[2.5rem]">
+        <div className="term-definition bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-12 rounded-[2.5rem] shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl" aria-hidden="true">
-              dictionary
+            <span className="material-symbols-outlined text-amber-500 text-2xl" aria-hidden="true">
+              menu_book
             </span>
-            <span className="text-sm font-bold uppercase tracking-wider text-slate-500">Tanım</span>
+            <span className="text-sm font-bold uppercase tracking-wider text-[var(--color-tertiary)]">Resmi Tanım</span>
           </div>
           <p className="text-lg md:text-xl text-[var(--color-secondary)] leading-relaxed">
             {term.definition}
@@ -138,7 +127,7 @@ export default async function TermPage({
             <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/40">
               <Link
                 href={term.link.href}
-                className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm"
+                className="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:opacity-95 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm shadow-md"
               >
                 <span className="material-symbols-outlined text-base">arrow_forward</span>
                 {term.link.label}
@@ -148,14 +137,14 @@ export default async function TermPage({
         </div>
 
         {/* Quick Answer Box — Featured Snippet hedefi */}
-        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40 p-6 rounded-2xl">
+        <div className="bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 p-6 rounded-2xl">
           <div className="flex items-start gap-3">
-            <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 text-xl shrink-0 mt-0.5" aria-hidden="true">
+            <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl shrink-0 mt-0.5" aria-hidden="true">
               lightbulb
             </span>
             <div>
-              <div className="font-bold text-amber-900 dark:text-amber-200 text-sm mb-1">Hızlı Yanıt</div>
-              <p className="text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
+              <div className="font-bold text-[var(--color-primary)] text-sm mb-1">Hızlı Özet (AI & Arama Motoru Yanıtı)</div>
+              <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
                 <strong>{term.term}</strong>: {term.definition.split('.')[0]}.
               </p>
             </div>
@@ -171,9 +160,9 @@ export default async function TermPage({
                 <Link
                   key={rt.term}
                   href={`/sozluk/${termToSlug(rt.term)}`}
-                  className="flex flex-col gap-1.5 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-brand-500/50 transition-colors"
+                  className="flex flex-col gap-1.5 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/50 transition-colors group"
                 >
-                  <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-brand-600">{rt.term}</span>
+                  <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{rt.term}</span>
                   <p className="text-xs text-[var(--color-secondary)] line-clamp-2">{rt.definition}</p>
                 </Link>
               ))}
@@ -186,23 +175,23 @@ export default async function TermPage({
           {prevTerm ? (
             <Link
               href={`/sozluk/${termToSlug(prevTerm.term)}`}
-              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-brand-500/40 transition-colors flex flex-col gap-1"
+              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/40 transition-colors flex flex-col gap-1 group"
             >
-              <span className="text-xs text-slate-500 flex items-center gap-1">
+              <span className="text-xs text-[var(--color-tertiary)] flex items-center gap-1">
                 <span className="material-symbols-outlined text-sm">arrow_back</span> Önceki
               </span>
-              <span className="font-bold text-sm text-[var(--color-primary)] line-clamp-1">{prevTerm.term}</span>
+              <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 line-clamp-1">{prevTerm.term}</span>
             </Link>
           ) : <div className="flex-1" />}
           {nextTerm ? (
             <Link
               href={`/sozluk/${termToSlug(nextTerm.term)}`}
-              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-brand-500/40 transition-colors flex flex-col items-end gap-1"
+              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/40 transition-colors flex flex-col items-end gap-1 group"
             >
-              <span className="text-xs text-slate-500 flex items-center gap-1">
+              <span className="text-xs text-[var(--color-tertiary)] flex items-center gap-1">
                 Sonraki <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </span>
-              <span className="font-bold text-sm text-[var(--color-primary)] line-clamp-1">{nextTerm.term}</span>
+              <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 line-clamp-1">{nextTerm.term}</span>
             </Link>
           ) : <div className="flex-1" />}
         </div>
@@ -211,7 +200,7 @@ export default async function TermPage({
         <div className="text-center">
           <Link
             href="/sozluk"
-            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[var(--color-tertiary)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
           >
             <span className="material-symbols-outlined text-base">menu_book</span>
             Tüm sözlüğe dön

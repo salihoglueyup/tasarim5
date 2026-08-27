@@ -7,6 +7,7 @@ import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
+import { CATEGORIES, POSTS } from '@/data/posts';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,8 +33,17 @@ export default async function SiteHaritasiPage({
   const { lang } = await params;
 
   // DB verilerini çek
-  const categories = await prisma.category.findMany();
-  const posts = await prisma.post.findMany({ where: { published: true }, select: { slug: true, title: true } });
+  const dbCategories = await prisma.category.findMany().catch(() => []);
+  const dbPosts = await prisma.post.findMany({ where: { published: true }, select: { slug: true, title: true } }).catch(() => []);
+  
+  const categories: Array<{ id: string; slug: string; name: string }> =
+    dbCategories.length > 0
+      ? (dbCategories as any)
+      : CATEGORIES.map((c) => ({ id: c.slug, slug: c.slug, name: c.name }));
+  const posts: Array<{ slug: string; title: string }> =
+    dbPosts.length > 0
+      ? (dbPosts as any)
+      : POSTS.map((p) => ({ slug: p.slug, title: p.title }));
   
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
