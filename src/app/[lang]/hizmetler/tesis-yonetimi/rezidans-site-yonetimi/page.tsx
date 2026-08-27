@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
-import { generateBreadcrumbs, webPageSchema, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { KeywordAnalysisSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
+import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import RezidansYonetimiClient from './RezidansYonetimiClient';
 
 export const revalidate = 86400;
@@ -17,9 +18,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Rezidans & Lüks Site Yönetimi | Alo Yönetim İstanbul',
+    title: 'Rezidans & Lüks Site Yönetimi 2026 | Alo Yönetim İstanbul',
     description:
-      'İstanbul rezidans ve lüks siteler için 7/24 concierge, VIP güvenlik, havuz & spa yönetimi, asansör bakımı ve şeffaf aidat takibi. ISO 9001 kalite güvencesiyle.',
+      'İstanbul rezidans ve lüks siteler için 7/24 concierge, VIP güvenlik, havuz & spa yönetimi, asansör bakımı ve %30 tasarruflu şeffaf aidat takibi.',
     path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
     lang,
     ogImageType: 'service',
@@ -44,25 +45,8 @@ export default async function RezidansYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  void lang;
 
-  const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Hizmetler', url: '/hizmetler' },
-    { name: 'Tesis Yönetimi', url: '/hizmetler/tesis-yonetimi' },
-    { name: 'Rezidans & Lüks Site Yönetimi', url: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
-  ]);
-
-  const serviceLd = serviceSchema({
-    serviceType: 'Rezidans & Lüks Site Yönetimi',
-    description:
-      'İstanbul rezidans ve lüks sitelerde 7/24 concierge, VIP güvenlik, havuz & spa yönetimi, asansör bakımı ve KMK uyumlu aidat takibi.',
-    path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
-    priceRange: '₺₺₺',
-    sameAs: 'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
-  });
-
-  const faqLd = faqPageSchema([
+  const faqs = [
     {
       question: 'Rezidans tesis yönetimi normal site yönetiminden nasıl farklıdır?',
       answer:
@@ -88,19 +72,34 @@ export default async function RezidansYonetimiPage({
       answer:
         'Önleyici teknik bakım, yüksek standartlı temizlik, peyzaj ve dış cephe bakımı ile düzenli denetim raporları, rezidansın piyasa değerini ve sakin memnuniyetini üst seviyede tutar.',
     },
-  ]);
+  ];
 
-  const pageLd = webPageSchema({
-    name: 'Rezidans & Lüks Site Yönetimi | Alo Yönetim',
+  const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
+    subSectorSlug: 'rezidans-site-yonetimi',
+    name: 'Rezidans & Lüks Site Yönetimi',
     description:
-      'İstanbul rezidans ve lüks sitelerde 7/24 concierge, VIP güvenlik, havuz & spa yönetimi.',
-    path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
-    speakableSelectors: ['h1', 'p'],
+      'İstanbul genelinde lüks rezidans ve konut kuleleri için 7/24 concierge, 5188 VIP güvenlik, havuz & spa bakımı ve ISO 41001 standartlarında entegre tesis yönetimi.',
+    priceRange: '₺₺₺',
+    lang,
+    faqs,
+    sameAsWikidata: 'https://www.wikidata.org/wiki/Q108846399',
   });
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
+      <JsonLd data={subSectorGraphLd} />
+      <KeywordAnalysisSeo
+        title="Rezidans & Lüks Site Yönetimi"
+        description="İstanbul rezidans ve lüks siteler için VIP tesis yönetimi."
+        path="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi"
+        targetKeyword="rezidans tesis yönetimi"
+        keywords={['rezidans yönetimi', 'lüks site yönetimi', 'concierge', 'vip güvenlik']}
+      />
+      <VoiceSearchSpeakableSeo
+        question="Rezidans tesis yönetimi neleri kapsar?"
+        directAnswer="Rezidans tesis yönetimi; concierge, VIP güvenlik, lobi karşılama, havuz spa bakımı ve KMK uyumlu şeffaf aidat tahsilatını kapsar."
+        lang={lang}
+      />
       <RezidansYonetimiClient />
     </>
   );

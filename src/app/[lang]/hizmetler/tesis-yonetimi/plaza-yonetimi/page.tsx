@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
-import { generateBreadcrumbs, webPageSchema, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { KeywordAnalysisSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
+import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import PlazaYonetimiClient from './PlazaYonetimiClient';
 
 export const revalidate = 86400;
@@ -17,9 +18,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Plaza & Ofis Binası Tesis Yönetimi | Alo Yönetim İstanbul',
+    title: 'Plaza & Ofis Binası Tesis Yönetimi 2026 | Alo Yönetim İstanbul',
     description:
-      'İstanbul plaza ve ofis binaları için HVAC yönetimi, enerji optimizasyonu, kiracı koordinasyonu ve 7/24 teknik destek. ISO sertifikalı kurumsal tesis yönetimi.',
+      'İstanbul plaza ve ofis binaları için HVAC yönetimi, enerji optimizasyonu, kiracı koordinasyonu ve %30 tasarruflu 7/24 teknik destek.',
     path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
     lang,
     ogImageType: 'service',
@@ -44,24 +45,8 @@ export default async function PlazaYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  void lang;
 
-  const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Hizmetler', url: '/hizmetler' },
-    { name: 'Tesis Yönetimi', url: '/hizmetler/tesis-yonetimi' },
-    { name: 'Plaza & Ofis Binası Yönetimi', url: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
-  ]);
-
-  const serviceLd = serviceSchema({
-    serviceType: 'Plaza & Ticari Bina Tesis Yönetimi',
-    description:
-      'İstanbul plaza ve ticari binalarda HVAC yönetimi, enerji optimizasyonu, kiracı koordinasyonu, 7/24 teknik destek ve kurumsal güvenlik.',
-    path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
-    priceRange: '₺₺₺',
-  });
-
-  const faqLd = faqPageSchema([
+  const faqs = [
     {
       question: 'Plaza tesis yönetiminde en kritik hizmetler nelerdir?',
       answer:
@@ -87,19 +72,34 @@ export default async function PlazaYonetimiPage({
       answer:
         'SLA kapsamında kritik teknik arızalarda (asansör, HVAC, jeneratör) maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz sahada hazır bulunur.',
     },
-  ]);
+  ];
 
-  const pageLd = webPageSchema({
-    name: 'Plaza & Ofis Binası Tesis Yönetimi | Alo Yönetim',
+  const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
+    subSectorSlug: 'plaza-yonetimi',
+    name: 'Plaza & Ofis Binası Tesis Yönetimi',
     description:
-      'İstanbul plaza ve ofis binaları için HVAC yönetimi, enerji optimizasyonu ve kurumsal tesis yönetimi.',
-    path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
-    speakableSelectors: ['h1', 'p'],
+      'İstanbul plaza ve iş merkezleri için HVAC iklimlendirme, enerji optimizasyonu, kiracı koordinasyonu ve ISO 41001 standartlarında entegre tesis yönetimi.',
+    priceRange: '₺₺₺',
+    lang,
+    faqs,
+    sameAsWikidata: 'https://www.wikidata.org/wiki/Q102163',
   });
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
+      <JsonLd data={subSectorGraphLd} />
+      <KeywordAnalysisSeo
+        title="Plaza & Ofis Binası Tesis Yönetimi"
+        description="İstanbul plaza ve iş merkezleri için kurumsal HVAC ve tesis işletmesi."
+        path="/hizmetler/tesis-yonetimi/plaza-yonetimi"
+        targetKeyword="plaza tesis yönetimi"
+        keywords={['plaza yönetimi', 'iş merkezi yönetimi', 'hvac bakımı', 'enerji optimizasyonu']}
+      />
+      <VoiceSearchSpeakableSeo
+        question="Plaza tesis yönetimi neleri kapsar?"
+        directAnswer="Plaza tesis yönetimi; HVAC iklimlendirme, turnike güvenlik kontrolü, enerji tasarrufu ve kiracı yönetimini kapsar."
+        lang={lang}
+      />
       <PlazaYonetimiClient />
     </>
   );

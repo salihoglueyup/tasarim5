@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
-import { generateBreadcrumbs, webPageSchema, serviceSchema, faqPageSchema } from '@/lib/schemas';
+import { KeywordAnalysisSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
+import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import SanayiTesisiYonetimiClient from './SanayiTesisiYonetimiClient';
 
 export const revalidate = 86400;
@@ -17,9 +18,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Sanayi Tesisi & Fabrika Tesis Yönetimi | Alo Yönetim İstanbul',
+    title: 'Sanayi Tesisi & Fabrika Tesis Yönetimi 2026 | Alo Yönetim İstanbul',
     description:
-      'İstanbul sanayi tesisi ve fabrikalar için ISO 45001 iş güvenliği, ağır teknik bakım, yangın sistemi yönetimi ve perimetre güvenliği. Endüstriyel tesis yönetimi uzmanı.',
+      'İstanbul sanayi tesisi ve fabrikalar için ISO 45001 iş güvenliği, ağır teknik bakım, yangın sistemi yönetimi ve %30 tasarruflu perimetre güvenliği.',
     path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
     lang,
     ogImageType: 'service',
@@ -44,24 +45,8 @@ export default async function SanayiTesisiYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  void lang;
 
-  const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Hizmetler', url: '/hizmetler' },
-    { name: 'Tesis Yönetimi', url: '/hizmetler/tesis-yonetimi' },
-    { name: 'Sanayi Tesisi & Fabrika Yönetimi', url: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
-  ]);
-
-  const serviceLd = serviceSchema({
-    serviceType: 'Sanayi Tesisi & Endüstriyel Tesis Yönetimi',
-    description:
-      'İstanbul sanayi ve fabrika tesislerinde ISO 45001 iş güvenliği denetimi, ağır teknik bakım, yangın sistemi, perimetre güvenliği ve endüstriyel hijyen.',
-    path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
-    priceRange: '₺₺₺',
-  });
-
-  const faqLd = faqPageSchema([
+  const faqs = [
     {
       question: 'Sanayi tesislerinde ISO 45001 uyumu nasıl sağlanır?',
       answer:
@@ -87,19 +72,34 @@ export default async function SanayiTesisiYonetimiPage({
       answer:
         'Endüstriyel zemin temizliği için özel makine ve kimyasallar kullanılır. Atık yönetimi çevre mevzuatı (Çevre Kanunu, ISO 14001) çerçevesinde belgelenmiş şekilde yürütülür.',
     },
-  ]);
+  ];
 
-  const pageLd = webPageSchema({
-    name: 'Sanayi Tesisi & Fabrika Tesis Yönetimi | Alo Yönetim',
+  const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
+    subSectorSlug: 'sanayi-tesisi-yonetimi',
+    name: 'Sanayi Tesisi & Fabrika Yönetimi',
     description:
-      'İstanbul sanayi ve fabrika tesislerinde ISO 45001 iş güvenliği, ağır teknik bakım ve endüstriyel tesis yönetimi.',
-    path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
-    speakableSelectors: ['h1', 'p'],
+      'İstanbul sanayi ve fabrika tesislerinde ISO 45001 iş güvenliği denetimi, ağır teknik bakım, yangın sistemi, perimetre güvenliği ve endüstriyel hijyen hizmetleri.',
+    priceRange: '₺₺₺',
+    lang,
+    faqs,
+    sameAsWikidata: 'https://www.wikidata.org/wiki/Q83405',
   });
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
+      <JsonLd data={subSectorGraphLd} />
+      <KeywordAnalysisSeo
+        title="Sanayi Tesisi & Fabrika Tesis Yönetimi"
+        description="İstanbul sanayi tesisleri ve fabrikalar için ağır teknik bakım ve ISO 45001 tesis işletmesi."
+        path="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi"
+        targetKeyword="sanayi tesis yönetimi"
+        keywords={['sanayi tesis yönetimi', 'fabrika yönetimi', 'endüstriyel bakım', 'perimetre güvenliği']}
+      />
+      <VoiceSearchSpeakableSeo
+        question="Sanayi tesisi yönetimi neleri kapsar?"
+        directAnswer="Sanayi tesisi yönetimi; ISO 45001 iş güvenliği, ağır mekanik bakım, yangın sistemleri kontrolü ve 5188 perimetre güvenliğini kapsar."
+        lang={lang}
+      />
       <SanayiTesisiYonetimiClient />
     </>
   );
