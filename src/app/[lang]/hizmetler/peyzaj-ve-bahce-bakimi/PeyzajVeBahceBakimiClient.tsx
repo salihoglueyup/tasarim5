@@ -10,6 +10,7 @@ import { RelatedArticles } from '@/components';
 import LandscapeCalculator from '@/components/sections/LandscapeCalculator';
 import LandscapeTestimonials from '@/components/sections/LandscapeTestimonials';
 import Image from 'next/image';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function PeyzajVeBahceBakimiClient() {
   const { t } = useLanguage();
@@ -74,7 +75,7 @@ export default function PeyzajVeBahceBakimiClient() {
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image src="https://images.unsplash.com/photo-1558904541-efa843a96f09?q=80&w=2000&auto=format&fit=crop" alt="Peyzaj ve Bahçe Bakımı - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
@@ -88,7 +89,7 @@ export default function PeyzajVeBahceBakimiClient() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,7 +99,7 @@ export default function PeyzajVeBahceBakimiClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('land_banner_badge') || 'Doğayla Uyumlu Yeşil Alanlar'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_land_hero_title') || 'Peyzaj Tasarımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Bahçe Bakım Yönetimi</span>' }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_land_hero_title') || 'Peyzaj Tasarımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Bahçe Bakım Yönetimi</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Peyzaj ve Bahçe Bakımı' }}
@@ -119,10 +120,10 @@ export default function PeyzajVeBahceBakimiClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
         {/* Landscape Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <LandscapeCalculator />
         </div>
 
@@ -157,6 +158,52 @@ export default function PeyzajVeBahceBakimiClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Peyzaj Tasarımı ve Bahçe Bakımı"
+        serviceCategory="Peyzaj & Yeşil Alan"
+        lawReferences={[
+          {
+            title: "6831 Sayılı Orman Kanunu ve Kent İçi Ağaç Koruma Mevzuatı",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6831&MevzuatTur=1&MevzuatTertip=3",
+            badge: "Orman Kanunu",
+            description: "Site ve parsel içi yetişkin ağaçların budanması, korunması ve belediye park-bahçeler müdürlüğü resmi izin prosedürleri."
+          },
+          {
+            title: "T.C. Tarım ve Orman Bakanlığı Bitki Sağlığı ve Zirai Mücadele Standartları",
+            sourceName: "T.C. Tarım ve Orman Bakanlığı",
+            url: "https://www.tarimorman.gov.tr",
+            badge: "Bitki Koruma",
+            description: "Peyzaj çim alanları, süs bitkileri ve ağaçlarda görülen mantari hastalıklar ve zararlılarla çevre dostu entegre mücadele kuralları."
+          },
+          {
+            title: "TMMOB Peyzaj Mimarları Odası Yeşil Alan & Sulama Kriterleri",
+            sourceName: "TMMOB Peyzaj Mimarları Odası",
+            url: "https://www.peyzaj.org.tr",
+            badge: "TMMOB Standartları",
+            description: "Kurakçıl peyzaj, su tasarruflu otomatik damlama sulama ve iklim uyumlu bitkilendirme mühendislik standartları."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "peyzaj-ve-otomatik-sulama-yonetimi",
+            term: "Otomatik Sulama & Peyzaj Yönetimi",
+            summary: "Yağmur sensörlü akıllı sulama altyapısı ve 4 mevsim periyodik çim-bitki bakım takvimi yönetimidir."
+          },
+          {
+            slug: "atik-yonetimi-ve-sifir-atik-belgesi",
+            term: "Peyzaj Atıkları & Kompost Yönetimi",
+            summary: "Budama ve çim biçme atıklarının çevre mevzuatına uygun olarak toplanması ve organik geri kazanımıdır."
+          },
+          {
+            slug: "vektor-ve-hasere-ilaclama-biyosidal",
+            term: "Bitki Zararlıları & Zirai İlaçlama",
+            summary: "Yeşil alanlarda bitki sağlığını tehdit eden kene, yaprak biti ve mantarlara karşı sertifikalı koruma uygulamasıdır."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="peyzaj_seo_title"
