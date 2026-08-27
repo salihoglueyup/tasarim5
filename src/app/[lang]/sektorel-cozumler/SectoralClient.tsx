@@ -10,6 +10,8 @@ import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import SectoralRoiCalculatorSeo from '@/components/seo/SectoralRoiCalculatorSeo';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
+
 
 export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) {
   const { t } = useLanguage();
@@ -175,8 +177,175 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
         description={t('sector_page_desc')} 
       />
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
+        {/* ========================================================================= */}
+        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
+        {/* ========================================================================= */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Başlık & Rozetler */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">domain_add</span>
+              <span>Özet Rehber: Sektörel Tesis Yönetimi ve Tipolojiye Özel İşletme Nedir?</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+              ISO 41001 & Tesis Yaşam Döngüsü Standardı
+            </span>
+          </div>
+
+          {/* Genişletilmiş ve Detaylandırılmış Metin */}
+          <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
+            <p>
+              <strong className="text-[var(--color-primary)] font-bold">Sektörel Tesis Yönetimi</strong>;{' '}
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                lüks rezidanslar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                büyük toplu konut siteleri
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                iş merkezleri ve kurumsal plazalar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                sanayi ve fabrika tesisleri
+              </Link>
+              {' '}ile{' '}
+              <Link href="/sektorel-cozumler/avm-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                alışveriş merkezlerinin (AVM)
+              </Link>{' '}
+              kendine özgü operasyonel, teknik, güvenlik ve yasal dinamiklerine göre tasarlanan bütünleşik yönetim modelidir. Standart ve şablonik bina yönetimi yaklaşımları yerine, her mülk tipolojisinin insan sirkülasyonu, enerji tüketim profili, amortisman riskleri ve sakin beklentilerine göre özelleştirilmiş SLA (Hizmet Seviyesi Taahhüdü) süreçleri uygulanır.
+            </p>
+            <p>
+              Sektörel operasyonlarımız;{' '}
+              <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+                ISO 41001:2018 Uluslararası Tesis Yönetimi Standardı
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                634 Sayılı Kat Mülkiyeti Kanunu (KMK)
+              </Link>
+              ,{' '}
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+                5188 Sayılı Özel Güvenlik Kanunu
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              {' '}ve 6331 Sayılı İş Sağlığı ve Güvenliği (İSG) mevzuatlarına tam entegre olarak icra edilir.
+            </p>
+            <p>
+              Tesis tipolojisine göre özelleştirilen ana hizmet hatlarımız;{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Entegre Tesis Yönetimi
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                5188 Özel Güvenlik
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Şeffaf Aidat Takibi
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Mühendislik & Teknik Bakım
+              </Link>
+              {' '}ve{' '}
+              <Link href="/hizmetler/temizlik-ve-hijyen" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Endüstriyel Temizlik
+              </Link>{' '}
+              olmak üzere dört ana yapısal tipolojide odaklanır:
+            </p>
+
+            {/* 4 Ana Sektörel Tipoloji Kartı */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🏢</span> Lüks Rezidans & Çok Katlı Yaşam Projeleri
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  7/24 konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri, dijital mobil aidat & rezervasyon uygulaması ve üst düzey sakin konforu.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🏘️</span> Site & Büyük Ölçekli Toplu Konut Yönetimi
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  KMK m.20 şeffaf aidat ve işletme projesi, ilamsız icra takibi, periyodik yeşil etiket asansör bakımı, geniş peyzaj/otomatik sulama ve çevre çit güvenliği.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>💼</span> Plaza, İş Merkezi & Ticari Gayrimenkuller
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Turnike/kartlı geçiş, BMS yangın & duman otomasyonu, kompanzasyon %0 reaktif ceza yönetimi, B2B teknik şartname ve enerji optimizasyon denetimleri.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🏭</span> Sanayi, Fabrika & Lojistik Depo Tesisleri
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  6331 İSG denetimleri, ağır vasıta PTS giriş-çıkış kontrolü, trafo/yüksek gerilim ve jeneratör bakımları, endüstriyel atık ve çevre mevzuatı uyumu.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Alo Yönetim ölçek ekonomisi sayesinde; her tesis tipolojisinde satın alma maliyetlerinde %30'a varan doğrudan tasarruf sağlanır, yönetim kurullarının hukuki riskleri sıfırlanır ve gayrimenkulün piyasa değeri korunur.
+            </p>
+          </div>
+
+          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">trending_down</span>
+                </span>
+                <span>%30 Net Bütçe Tasarrufu</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Toplu satın alma gücü ve ölçek ekonomisiyle enerji, temizlik kimyasalı ve teknik bakım maliyetlerinde indirim.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">verified</span>
+                </span>
+                <span>%100 Tipolojiye Özel SLA</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Rezidans, toplu konut, plaza ve sanayi projelerine özel tanımlı yanıt süreleri ve hizmet kalite standartları.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">shield_person</span>
+                </span>
+                <span>7/24 Şeffaf Denetim</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Canlı dijital aidat muhasebesi, süpervizör gece devriyeleri ve bağımsız denetçi teftiş raporları.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Interactive Sector Tabs */}
         <div className="flex flex-col gap-8">
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -391,6 +560,57 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             ))}
           </div>
         </div>
+
+        {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+        <ServiceAuthorityHubSeo
+          serviceName="Sektörel Tesis ve Gayrimenkul Yönetim Çözümleri"
+          serviceCategory="Sektörel Çözümler"
+          lawReferences={[
+            {
+              title: "ISO 41001:2018 Tesis Yönetim Sistemi Standardı",
+              sourceName: "Türk Standardları Enstitüsü (TSE)",
+              url: "https://www.tse.org.tr",
+              badge: "ISO 41001",
+              description: "Rezidans, plaza, AVM ve endüstriyel tesislerde entegre hizmet kalitesi, iş sürekliliği ve maliyet kontrolü uluslararası standardı."
+            },
+            {
+              title: "IFMA — International Facility Management Association Standartları",
+              sourceName: "IFMA Global Portal",
+              url: "https://www.ifma.org",
+              badge: "IFMA Global",
+              description: "Dünya genelinde gayrimenkul ve ticari varlıkların yaşam döngüsü amortisman yönetimi ve yeşil bina (LEED/BREEAM) uyumluluk kriterleri."
+            },
+            {
+              title: "634 Sayılı Kat Mülkiyeti Kanunu — Toplu Yapı Yönetimi (Madde 66-74)",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+              badge: "KMK m.66-74",
+              description: "Karma yaşam projeleri, çok bloklu siteler ve sanayi sitelerinde ortak alanların temsilciler kurulu ve toplu yapı yönetim planıyla işletilmesi."
+            }
+          ]}
+          glossaryTerms={[
+            {
+              slug: "toplu-yapi-yonetimi",
+              term: "Toplu Yapı Yönetimi Nedir?",
+              summary: "Birden çok parsel ve bloktan oluşan karma projelerde ortak sosyal tesis ve güvenliğin merkezi kurulla yönetilmesidir."
+            },
+            {
+              slug: "bina-otomasyon-sistemi-bms",
+              term: "Bina Otomasyon Sistemi (BMS)",
+              summary: "Plaza ve rezidanslarda enerji, aydınlatma, iklimlendirme ve asansör sistemlerini tek merkezden optimize eden akıllı yazılımdır."
+            },
+            {
+              slug: "kat-mulkiyeti-kanunu-kmk",
+              term: "Kat Mülkiyeti Kanunu (KMK)",
+              summary: "Tüm konut ve ticari bağımsız bölümlerin ortak gider, genel kurul ve yönetim esaslarını düzenleyen kanundur."
+            },
+            {
+              slug: "isletme-projesi",
+              term: "Sektörel İşletme Projesi & Bütçe",
+              summary: "Tesisin 1 yıllık bütçesini, amortisman fonunu ve bağımsız bölüm başına düşen avans tutarını belirleyen yasal tablodur."
+            }
+          ]}
+        />
 
         {/* Bottom Call To Action Banner */}
         <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
