@@ -11,7 +11,9 @@ import {
   SocialProofTickerSeo,
   DistrictNeighborhoodDuesTableSeo,
   DistrictSecuritySpotlightSeo,
+  ServiceAuthorityHubSeo,
 } from '@/components/seo';
+
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import {
   generateBreadcrumbs,
@@ -270,6 +272,57 @@ export default async function DistrictPage({
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12">
           <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} />
         </div>
+
+        {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+        <ServiceAuthorityHubSeo
+          serviceName={`${district.name} Tesis ve Site Yönetimi`}
+          serviceCategory="Yerel Tesis Yönetimi"
+          lawReferences={[
+            {
+              title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK)",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+              badge: "KMK 634",
+              description: `${district.name} genelindeki konut siteleri, rezidanslar ve apartmanlarda ortak alan yönetimi, işletme projeleri ve genel kurul hukuku.`
+            },
+            {
+              title: "5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun",
+              sourceName: "T.C. İçişleri Bakanlığı & EGM",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
+              badge: "5188 Sayılı Kanun",
+              description: `${district.name} İlçe Emniyet Müdürlüğü ve İstanbul Valiliği koordinasyonunda 7/24 lisanslı fiziki güvenlik ve PTS denetimleri.`
+            },
+            {
+              title: "ISO 41001:2018 Tesis Yönetim Sistemi Standartları",
+              sourceName: "Türk Standardları Enstitüsü (TSE)",
+              url: "https://www.tse.org.tr",
+              badge: "ISO 41001",
+              description: `${district.name} bölgesindeki sitelerin operasyonel gider optimizasyonu, enerji verimliliği ve periyodik teknik bakım kalitesi.`
+            }
+          ]}
+          glossaryTerms={[
+            {
+              slug: "toplu-yapi-yonetimi",
+              term: `${district.name} Toplu Yapı Yönetimi`,
+              summary: `${district.name} ilçesindeki çok bloklu ve parselli karma konut projelerinde ortak alanların profesyonel yönetimidir.`
+            },
+            {
+              slug: "aidat",
+              term: "Aidat Borcu ve Tahsilat Düzeni",
+              summary: `${district.name} sitelerinde aidatların KMK m.20 arsa payı esasına göre paylaştırılması ve dijital tahsilatıdır.`
+            },
+            {
+              slug: "5188-sayili-kanun",
+              term: "5188 Sayılı Özel Güvenlik Mevzuatı",
+              summary: "Nizamiye kontrolü, devriye ve plaka tanıma sistemlerinin valilik izinleri ve yetki çerçevesidir."
+            },
+            {
+              slug: "isletme-projesi",
+              term: "Yıllık Site İşletme Projesi",
+              summary: "Sitenin 1 yıllık tahmini gider bütçesi ve her bağımsız bölümün aylık ödeme planını içeren belgedir."
+            }
+          ]}
+        />
 
         {/* CTA */}
         <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">

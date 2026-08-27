@@ -17,10 +17,11 @@ import {
   InteractiveFacilityAuditRadarSeo,
   FacilityLegalTemplateGeneratorSeo,
 } from '@/components/seo';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
 import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
+import { buildDistrictFacilityGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import {
   generateBreadcrumbs,
   webPageSchema,
@@ -209,7 +210,7 @@ export default async function ServiceDistrictPage({
 }: {
   params: Promise<{ lang: string; ilce: string; hizmet: string }>;
 }) {
-  const { ilce, hizmet } = await params;
+  const { lang, ilce, hizmet } = await params;
   const district = getDistrict(ilce);
   const service = getService(hizmet);
   if (!district || !service) notFound();
@@ -291,7 +292,7 @@ export default async function ServiceDistrictPage({
           isSubServiceOf: {
             '@type': 'Service',
             name: `${district.name} Tesis Yönetimi`,
-            url: `https://aloyonetim.com.tr/bolgeler/${district.slug}/tesis-yonetimi`,
+            url: `${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi`,
             category: 'ISO 41001 Entegre Tesis Yönetimi',
           },
         }),
@@ -310,12 +311,16 @@ export default async function ServiceDistrictPage({
     speakableSelectors: ['h1', '.tldr'],
   });
 
-  const facilityServiceLd = isFacility
-    ? districtFacilityServiceSchema({
+  const districtFacilityGraphLd = isFacility
+    ? buildDistrictFacilityGraphSchema({
+        districtSlug: district.slug,
         districtName: district.name,
-        path,
+        lang,
+        pageTitle: pageHeaderTitle,
+        pageDescription: pageHeaderDesc,
         geo: district.geo,
         neighborhoods: district.neighborhoods,
+        faqs,
       })
     : null;
 
@@ -349,19 +354,20 @@ export default async function ServiceDistrictPage({
   const nearestHubInfo = findNearestFacilityHub(district.geo.lat, district.geo.lng);
   const authorityLd = isFacility ? generateVerifiedAuthorityGraph() : null;
 
-  const jsonLdData = [
-    pageLd,
-    breadcrumbLd,
-    enhancedServiceLd,
-    businessLd,
-    faqLd,
-    nearestHubInfo.schema,
-    ...(authorityLd ? [authorityLd] : []),
-    ...(facilityServiceLd ? [facilityServiceLd] : []),
-    ...(securityServiceLd ? [securityServiceLd] : []),
-    ...(technicalServiceLd ? [technicalServiceLd] : []),
-    ...(cleaningServiceLd ? [cleaningServiceLd] : []),
-  ];
+  const jsonLdData = districtFacilityGraphLd
+    ? districtFacilityGraphLd
+    : [
+        pageLd,
+        breadcrumbLd,
+        enhancedServiceLd,
+        businessLd,
+        faqLd,
+        nearestHubInfo.schema,
+        ...(authorityLd ? [authorityLd] : []),
+        ...(securityServiceLd ? [securityServiceLd] : []),
+        ...(technicalServiceLd ? [technicalServiceLd] : []),
+        ...(cleaningServiceLd ? [cleaningServiceLd] : []),
+      ];
 
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
 
