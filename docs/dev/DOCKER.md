@@ -21,16 +21,17 @@ docker/
 
 ## Servisler
 
-### 1. `aloyonetim-web` (Next.js)
+### 1. `aloyonetim-web` (Next.js 16)
 - **Image:** Multi-stage Dockerfile (`docker/web/Dockerfile`)
 - **Port:** `3001` (sadece localhost'a bağlı)
 - **Bağımlılık:** `postgres` (healthy), `redis` (started)
-- **Başlangıç komutu:** `npx prisma db push && node server.js`
-  - Her başlangıçta Prisma şemasını veritabanıyla senkronize eder
-  - Sonra Next.js standalone server'ı başlatır
+- **Başlangıç komutu (`entrypoint.sh`):**
+  1. `prisma db push` (Prisma 7 şemasını veritabanına otomatik senkronize eder)
+  2. `node server.js` (Next.js standalone sunucuyu başlatır)
+- **Prisma 7 Desteği:** `prisma.config.ts` ve `@prisma/adapter-pg` runner stage'e dahil edilmiştir
 
-### 2. `aloyonetim-postgres` (PostgreSQL 15)
-- **Image:** `postgres:15-alpine`
+### 2. `aloyonetim-postgres` (PostgreSQL 16 / 15-alpine)
+- **Image:** `postgres:15-alpine` (veya `postgres:16-alpine`)
 - **Port:** `5432` (sadece localhost)
 - **Volume:** `docker/data/postgres` → `/var/lib/postgresql/data`
 - **Healthcheck:** `pg_isready -U alo_user -d aloyonetim`
@@ -54,7 +55,7 @@ docker/
 - **Timezone:** `Europe/Istanbul`
 
 ### 5. `aloyonetim-prisma-studio` (DB GUI)
-- **Image:** Aynı Dockerfile (web servisiyle aynı)
+- **Image:** Web servisiyle aynı Dockerfile
 - **Port:** `5555` (sadece localhost)
 - **Komut:** `npx prisma studio --port 5555 --browser none`
 - **Bağımlılık:** `postgres` (healthy)
@@ -66,13 +67,13 @@ docker/
 ```dockerfile
 # Faz 1: deps → npm ci ile bağımlılıkları kur
 # Faz 2: builder → prisma generate + next build
-# Faz 3: runner → Sadece production dosyaları (küçük image)
+# Faz 3: runner → Sadece production dosyaları, prisma.config.ts, @prisma/adapter-pg ve entrypoint.sh (küçük image)
 ```
 
 **Build-time ENV notları:**
 - `DATABASE_URL=postgresql://dummy:dummy@...` → Prisma generate için sahte URL
 - `JWT_SECRET=dummy_secret_for_build` → auth.ts güvenlik kontrolünü geçmek için
-- Gerçek değerler **runtime**'da (CMD aşamasında) `.env` dosyasından gelir
+- Gerçek değerler **runtime**'da (`docker/web/entrypoint.sh` üzerinden) `.env` dosyasından gelir
 
 ---
 

@@ -4,19 +4,19 @@
 
 | Katman | Teknoloji | Sürüm |
 |---|---|---|
-| Framework | Next.js (App Router) | 16.x |
-| Bundler | Turbopack | (Next.js ile birlikte) |
+| Framework | Next.js (App Router, Turbopack, React 19.2.4) | 16.3.0 |
 | Dil | TypeScript | 5.x |
-| Stil | Tailwind CSS | 4.x (JIT) |
-| Animasyon | Framer Motion (`LazyMotion`) | 12.x |
-| Font | Plus Jakarta Sans + Cairo (RTL) | next/font |
-| ORM | Prisma | 7.x |
-| Veritabanı | PostgreSQL | 15 |
-| Önbellek | Redis | Alpine |
-| Auth | JOSE (JWT) | 6.x |
-| Barındırma | Kendi Linux sunucusu (Docker) | — |
-| CDN / Proxy | Cloudflare | — |
-| Otomasyon | N8N | — |
+| Stil | Tailwind CSS (Slate & Titanyum Teması) | 4.x (PostCSS + Typography) |
+| Animasyon | Framer Motion (`LazyMotion` & Springs) | 12.x |
+| Font | Plus Jakarta Sans, Inter + Cairo (RTL) | next/font + Material Symbols |
+| ORM | Prisma 7 (Driver Adapter: `@prisma/adapter-pg`) | 7.9.1 |
+| Veritabanı | PostgreSQL (Docker: `aloyonetim-postgres`) | 16 / 15-alpine |
+| Önbellek | Redis Alpine (ioredis + AOF) | Port 6379 |
+| Auth | JOSE (JWT tabanlı Admin Auth) | 6.x |
+| Barındırma | Kendi Linux sunucusu (Docker Compose) | 5 Servis |
+| CDN / Proxy | Cloudflare (SSL + HSTS + Speculation Rules) | — |
+| Otomasyon | N8N Workflow Engine | Port 5678 |
+| AI / GEO Motoru | LLMs.txt, Semantik Veri Setleri & IndexNow | 20+ Özel Endpoint |
 
 ---
 
@@ -26,25 +26,24 @@
 src/
 ├── app/
 │   ├── [lang]/                  ← i18n rotalar (tr / en / ru / ar)
-│   │   ├── layout.tsx           ← Root layout, meta, analytics, icons
-│   │   ├── page.tsx             ← Ana sayfa
-│   │   ├── hizmetler/           ← Hizmet sayfaları (9 hizmet)
-│   │   ├── hakkimizda/          ← Kurumsal sayfalar
-│   │   ├── iletisim/            ← İletişim formu
-│   │   ├── sss/                 ← S.S.S (veritabanından dinamik)
+│   │   ├── layout.tsx           ← Root layout, meta, analytics, icons, SW purge
+│   │   ├── page.tsx             ← Ana sayfa (Hero poster + high priority)
+│   │   ├── hizmetler/           ← Hizmet sayfaları (10+ detaylı hizmet)
+│   │   ├── hakkimizda/          ← Kurumsal sayfalar (Dark Hero standardı)
+│   │   ├── iletisim/            ← İletişim & Teklif formu
+│   │   ├── sss/                 ← S.S.S (500+ soru, DB'den dinamik)
 │   │   ├── blog/                ← Blog (liste, slug, yazar, etiket, kategori)
-│   │   ├── referanslar/         ← Referans projeler
-│   │   ├── admin/               ← Admin paneli (JWT korumalı)
+│   │   ├── referanslar/         ← Referans projeler (3D tilt & filtreler)
+│   │   ├── admin/               ← Admin paneli (JWT korumalı, bot telemetri)
 │   │   └── ...                  ← Diğer içerik sayfaları
 │   ├── api/
-│   │   ├── lead/route.ts        ← Lead yakalama uç noktası
+│   │   ├── tesis-yonetimi/      ← KMK, AI snippets, benchmark, geo-feed, rfp
+│   │   ├── admin/               ← Bot telemetry, schema lint, indexnow bulk
+│   │   ├── seo/                 ← Bot analytics, audit, intent match, rank score
+│   │   ├── geo/                 ← Districts geojson, nearest facility hub
+│   │   ├── lead/route.ts        ← Lead yakalama uç noktası (Email/Telegram/DB)
 │   │   ├── auth/                ← JWT login/logout
-│   │   └── faqs/                ← SSS API
-│   ├── sitemap.ts               ← Dinamik sitemap
-│   ├── robots.ts                ← robots.txt
-│   ├── manifest.ts              ← PWA manifest (favicon ikonları)
-│   ├── favicon.ico              ← Kartal logosu (32x32)
-│   └── llms.txt/route.ts        ← AI motoru beslemesi (GEO)
+│   │   └── llms.txt/route.ts    ← AI motoru beslemesi (GEO)
 │
 ├── components/
 │   ├── layout/                  ← Header, Footer, NavigationWrapper

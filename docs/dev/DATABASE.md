@@ -2,11 +2,12 @@
 
 ## Genel Bakış
 
-- **ORM:** Prisma 7.x (driver adapter: `@prisma/adapter-pg`)
-- **Veritabanı:** PostgreSQL 15 (Docker container: `aloyonetim-postgres`)
+- **ORM:** Prisma 7.9.1 (driver adapter: `@prisma/adapter-pg`)
+- **Veritabanı:** PostgreSQL 16 / 15-alpine (Docker container: `aloyonetim-postgres`)
 - **Şema:** `prisma/schema.prisma`
-- **Prisma Client:** `src/generated/prisma/` (git-ignored, her kurulumda üretilir)
-- **Konfigürasyon:** `prisma.config.ts`
+- **Prisma Config:** `prisma.config.ts` (Prisma v7 native config dosyası)
+- **Prisma Client Başlatma (`src/lib/prisma.ts`):** `pg.Pool` ve `PrismaPg` adapter ile bağlantı havuzu yönetimi
+- **Prisma Client Üretim Konumu:** `node_modules/@prisma/client` / `.prisma/client`
 
 ---
 
