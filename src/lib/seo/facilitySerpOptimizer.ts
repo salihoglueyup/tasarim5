@@ -53,15 +53,31 @@ export function getFacilitySerpMeta(lang = 'tr', districtSlug?: string): Facilit
   }
 
   // Ana Hub Sayfası
-  const title = 'Profesyonel Tesis Yönetimi İstanbul — ISO 41001 Standartlarında Entegre Yönetim';
-  const description = 'İstanbul genelinde 39 ilçede 400+ tesis referansı. ISO 41001 onaylı entegre tesis yönetimi, 5188 özel güvenlik, teknik bakım, aidat takibi ve %30 bütçe tasarrufu.';
+  let title = 'Profesyonel Tesis Yönetimi İstanbul — ISO 41001 Standartlarında Entegre Yönetim';
+  let description = 'İstanbul genelinde 39 ilçede 400+ tesis referansı. ISO 41001 onaylı entegre tesis yönetimi, 5188 özel güvenlik, teknik bakım, aidat takibi ve %30 bütçe tasarrufu.';
+  let targetKeyword = 'tesis yönetimi';
+
+  if (lang === 'en') {
+    title = 'Professional Facility Management Istanbul — ISO 41001 Certified Services';
+    description = 'Integrated facility management across 39 Istanbul districts. ISO 41001 accredited property care, licensed security, technical maintenance, and 30% cost savings.';
+    targetKeyword = 'facility management istanbul';
+  } else if (lang === 'ru') {
+    title = 'Профессиональное Управление Недвижимостью и Объектами в Стамбуле — ISO 41001';
+    description = 'Комплексное управление жилыми и коммерческими объектами в Стамбуле. Лицензированная охрана 5188, техническое обслуживание и экономия бюджета до 30%.';
+    targetKeyword = 'управление недвижимостью стамбул';
+  } else if (lang === 'ar') {
+    title = 'إدارة المرافق والممتلكات المتكاملة في إسطنبول — معايير ISO 41001';
+    description = 'إدارة مجمعات سكنية وأبراج تجارية في 39 منطقة في إسطنبول. أمن وحراسة مرخصة، صيانة فنية وإدارة رسوم دقيقة مع توفير 30% في الميزانية.';
+    targetKeyword = 'إدارة المرافق اسطنبول';
+  }
+
   const canonicalPath = '/hizmetler/tesis-yonetimi';
-  const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Tesis Yönetimi')}&title=${encodeURIComponent('Profesyonel Tesis Yönetimi İstanbul')}&subtitle=${encodeURIComponent('ISO 41001 Standartlarında 39 İlçede Entegre Yönetim')}&rating=${encodeURIComponent('★ 4.9 · 400+ Tesis Referansı')}`;
+  const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Tesis Yönetimi')}&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('ISO 41001 Standartlarında 39 İlçede Entegre Yönetim')}&rating=${encodeURIComponent('★ 4.9 · 400+ Tesis Referansı')}`;
 
   return {
     title,
     description,
-    targetKeyword: 'tesis yönetimi',
+    targetKeyword,
     keywords: [
       'tesis yönetimi',
       'profesyonel tesis yönetimi',

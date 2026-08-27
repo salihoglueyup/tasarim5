@@ -181,7 +181,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
           itemOffered: {
             '@type': 'Service',
             name: 'Rezidans ve Lüks Konut Tesis Yönetimi',
-            url: `${BASE_URL}${langPrefix}/sektorel-cozumler/rezidans-yonetimi`,
+            url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
           },
         },
         {
@@ -189,7 +189,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
           itemOffered: {
             '@type': 'Service',
             name: 'Plaza, İş Merkezi ve Ofis Kuleleri Tesis Yönetimi',
-            url: `${BASE_URL}${langPrefix}/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi`,
+            url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/plaza-yonetimi`,
           },
         },
         {
@@ -197,15 +197,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
           itemOffered: {
             '@type': 'Service',
             name: 'Büyük Ölçekli Site ve Toplu Yapı Tesis Yönetimi',
-            url: `${BASE_URL}${langPrefix}/sektorel-cozumler/site-ve-toplu-konut-yonetimi`,
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'AVM ve Ticari Alışveriş Merkezleri Tesis Yönetimi',
-            url: `${BASE_URL}${langPrefix}/sektorel-cozumler/avm-yonetimi`,
+            url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi`,
           },
         },
         {
@@ -213,7 +205,15 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
           itemOffered: {
             '@type': 'Service',
             name: 'Sanayi, Fabrika ve Lojistik Tesisleri Yönetimi',
-            url: `${BASE_URL}${langPrefix}/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi`,
+            url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Tesis Yönetimi Seçim ve Geçiş Rehberi',
+            url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/rehber`,
           },
         },
       ],

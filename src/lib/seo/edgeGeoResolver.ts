@@ -1,4 +1,4 @@
-import { DISTRICTS, District } from '@/data/districts';
+import { DISTRICTS, District, getDistrictDues } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
 
 export interface NearestHubResult {
@@ -7,6 +7,11 @@ export interface NearestHubResult {
     slug: string;
     side: 'Anadolu' | 'Avrupa';
     canonicalUrl: string;
+  };
+  duesData: {
+    avgDuesM2: number;
+    aloDuesM2: number;
+    savingsRate: number;
   };
   distanceKm: number;
   estimatedSlaMinutes: number;
@@ -49,7 +54,7 @@ function calculateHaversineDistance(
 }
 
 /**
- * Verilen koordinatlara en yakın Alo Yönetim ilçe operasyon merkezini ve SLA süresini hesaplar.
+ * Verilen koordinatlara en yakın Alo Yönetim ilçe operasyon merkezini, yerel aidat verisini ve SLA süresini hesaplar.
  */
 export function findNearestFacilityHub(lat: number, lng: number): NearestHubResult {
   let nearestDistrict: District = DISTRICTS[0];
@@ -67,6 +72,7 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
 
   // SLA süresi: mesafeye göre 25 - 45 dakika arası
   const estimatedSla = Math.min(45, Math.max(25, Math.round(20 + minDistance * 1.2)));
+  const dues = getDistrictDues(nearestDistrict.slug);
 
   return {
     nearestDistrict: {
@@ -74,6 +80,11 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
       slug: nearestDistrict.slug,
       side: nearestDistrict.side,
       canonicalUrl: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`,
+    },
+    duesData: {
+      avgDuesM2: dues.avgDuesM2,
+      aloDuesM2: dues.aloDuesM2,
+      savingsRate: dues.savingsRate,
     },
     distanceKm: minDistance === Infinity ? 0 : minDistance,
     estimatedSlaMinutes: estimatedSla,
