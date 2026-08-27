@@ -6,8 +6,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import CallbackForm from '@/components/cro/CallbackForm';
-import { ChecklistAuditSeo, QuizAuditScoreSeo } from '@/components/seo';
+import { ChecklistAuditSeo, QuizAuditScoreSeo, ServiceAuthorityHubSeo } from '@/components/seo';
 import FacilityAuditReportModal from '@/components/modals/FacilityAuditReportModal';
+
 import { calculateDues, CalcConfig } from '@/lib/hesaplayici';
 
 export default function CalculatorClient({ initialConfig }: { initialConfig: CalcConfig }) {
@@ -36,7 +37,170 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
         description={t('calc_page_desc')} 
       />
 
-      <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+        
+        {/* ========================================================================= */}
+        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
+        {/* ========================================================================= */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Başlık & Rozetler */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400">calculate</span>
+              <span>Özet Rehber: Profesyonel Tesis & Site Aidat Bütçesi Nasıl Hesaplanır?</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+              KMK m.20 & m.37 Yasal Bütçe Standardı
+            </span>
+          </div>
+
+          {/* Genişletilmiş ve Detaylandırılmış Metin */}
+          <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
+            <p>
+              <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis ve Site Aidat Bütçesi Hesaplama</strong>;{' '}
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                konut siteleri
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                lüks rezidanslar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                iş merkezleri ve plazalar
+              </Link>
+              {' '}ile{' '}
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                sanayi tesislerinde
+              </Link>{' '}
+              634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde bağımsız bölüm sayısı, asansör adedi, güvenlik ve temizlik personeli ihtiyacı ile enerji tüketim parametreleri analiz edilerek yıllık tahmini işletme projesinin (KMK m.37) hazırlanması sürecidir.
+            </p>
+            <p>
+              Bütçeleme algoritmamız;{' '}
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                634 Sayılı KMK Madde 20 (Ortak Giderlere Katılma)
+              </Link>
+              ,{' '}
+              <Link href="/sozluk/aidat" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                KMK Madde 37 (İşletme Projesi Hazırlama Usulü)
+              </Link>
+              ,{' '}
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
+                2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              {' '}ve ISO 41001 Entegre Tesis Maliyet Yönetimi standartlarına tam uyumlu olarak yapılandırılmıştır.
+            </p>
+            <p>
+              Hesaplanan bütçe;{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Entegre Tesis Yönetimi
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                5188 Lisanslı Özel Güvenlik
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Şeffaf Aidat Takibi
+              </Link>
+              ,{' '}
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Teknik Bakım Servisi
+              </Link>
+              {' '}ve{' '}
+              <Link href="/hizmetler/hukuk-ve-icra-danismanligi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                KMK Hukuk Danışmanlığı
+              </Link>{' '}
+              ile entegre olarak dört ana maliyet kaleminde optimize edilir:
+            </p>
+
+            {/* 4 Ana Bütçe Sütunu */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🛡️</span> 5188 Özel Güvenlik & Resepsiyon Bütçesi
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  7/24 vardiyalı özel güvenlik görevlileri, SGK primleri, yemek, yol, kıyafet, teçhizat ve Valilik izin harçları kalemleri.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🧹</span> Endüstriyel Temizlik, Hijyen & Peyzaj Giderleri
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Ortak alan kat personelleri, zemin yıkama otomatı amortismanı, TSE onaylı kimyasal sarfiyatı ve otomatik bahçe sulama bakımları.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>⚡</span> Asansör, Jeneratör & Elektromekanik Bakım
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  A Tipi Muayene Kuruluşu MMO yeşil etiket harçları, jeneratör yakıt/filtreleri, kompanzasyon %0 reaktif ceza ve hidrofor periyodik bakımları.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>📑</span> İdari Yazılım, Muhasebe & KMK Hukuk Masası
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Canlı mobil aidat yazılımı lisansı, SMS bildirimleri, noter onaylı tebligatlar, genel kurul divan yönetimi ve ilamsız icra takibi.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Alo Yönetim ölçek ekonomisi ve kurumsal satın alma gücü sayesinde sitelerin bütçelerinde %30'a varan net tasarruf sağlanır, yönetim kurullarının hukuki sorumlulukları sıfırlanır ve tüm sakinlere şeffaf hesap dökümü sunulur.
+            </p>
+          </div>
+
+          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">trending_down</span>
+                </span>
+                <span>%30 Net Bütçe Tasarrufu</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Toplu satın alma gücüyle asansör, güvenlik, temizlik ve elektrik maliyetlerinde doğrudan tasarruf.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">verified</span>
+                </span>
+                <span>%100 KMK 37 Uyumlu Bilanço</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Genel kurullarda itiraz edilemez, mahkemede kesin delil teşkil eden şeffaf işletme projesi.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">smartphone</span>
+                </span>
+                <span>7/24 Canlı Mobil Takip</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Her kat malikinin aidat, harcama makbuzu ve banka ekstresini anlık izleyebildiği dijital şeffaflık.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Controls Column */}
@@ -259,6 +423,57 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           <QuizAuditScoreSeo />
           <ChecklistAuditSeo />
         </div>
+
+        {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+        <ServiceAuthorityHubSeo
+          serviceName="Site ve Apartman Aidat Bütçe Simülatörü"
+          serviceCategory="Finans & Bütçe Yönetimi"
+          lawReferences={[
+            {
+              title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Madde 20 & 37",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+              badge: "KMK m.20/37",
+              description: "Kat malikleri arasında işletme projesi tebliği, giderlerin arsa payına göre dağılımı ve resmi itiraz prosedürleri."
+            },
+            {
+              title: "TÜİK Tüketici Fiyat Endeksi (TÜFE/ÜFE) Resmi Veri Tabanı",
+              sourceName: "Türkiye İstatistik Kurumu (TÜİK)",
+              url: "https://www.tuik.gov.tr",
+              badge: "TÜİK Enflasyon Verisi",
+              description: "Yıllık aidat ve bakım sözleşmelerinin bütçe artış oranlarında yasal referans olarak alınan resmi enflasyon endeksleri."
+            },
+            {
+              title: "2004 Sayılı İcra ve İflas Kanunu (İİK) — Madde 68",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=5",
+              badge: "İİK m.68",
+              description: "Kesinleşen site işletme projesine dayalı aidat borçlarının ilamsız icra takibinde itirazın kesin kaldırılması kuralları."
+            }
+          ]}
+          glossaryTerms={[
+            {
+              slug: "aidat",
+              term: "Aidat Nedir?",
+              summary: "Ortak giderlerin kat malikleri arasında arsa payı veya eşit bölüşüm esasına göre paylaştırılan yasal katkı payıdır."
+            },
+            {
+              slug: "isletme-projesi",
+              term: "İşletme Projesi Nedir?",
+              summary: "Sitenin 1 yıllık tahmini gelir-gider bütçesi ve bağımsız bölümlere düşen avans payını gösteren belgedir."
+            },
+            {
+              slug: "arsa-payi",
+              term: "Arsa Payı Nedir?",
+              summary: "Bağımsız bölümlere ana taşınmazın değerine oranla tahsis edilen mülkiyet ve ortak gider payıdır."
+            },
+            {
+              slug: "gecikme-tazminati-5-yasal-faiz",
+              term: "%5 Yasal Gecikme Tazminatı",
+              summary: "KMK m.20/2 uyarınca gününde ödenmeyen aidatlara kanun gereği işletilen aylık %5 yasal faizdir."
+            }
+          ]}
+        />
       </section>
 
       {/* Resmi PDF Tesis Sağlık & Tasarruf Karne Modalı */}

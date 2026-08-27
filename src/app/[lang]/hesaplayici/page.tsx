@@ -88,22 +88,24 @@ export default async function HesaplayiciServer() {
   return (
     <>
       <JsonLd data={[breadcrumbLd, webAppLd, pageLd]} />
-      <DefinedTermSetSeo
-        name="Tesis Yönetimi ve Aidat Bütçe Terimleri"
-        description="KMK 634 Madde 20, İşletme Projesi ve Arsa Payı Bütçe Dağılımı Tanımları"
-        path="/hesaplayici"
-        terms={[
-          {
-            term: 'Tahmini İşletme Projesi (KMK 37)',
-            definition: 'Anagayrimenkulün bir yıllık tahmini giderlerini ve her kat malikine düşen aylık avans tutarını gösteren yasal bütçedir.',
-          },
-          {
-            term: '%30 Tesis Yönetimi Tasarruf Modeli',
-            definition: 'Toplu satın alma gücü, önleyici bakım ve dijital enerji otomasyonu ile işletme masraflarından sağlanan somut tasarruf oranıdır.',
-          },
-        ]}
-      />
       <CalculatorClient initialConfig={config} />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20">
+        <DefinedTermSetSeo
+          name="Tesis Yönetimi ve Aidat Bütçe Terimleri"
+          description="KMK 634 Madde 20, İşletme Projesi ve Arsa Payı Bütçe Dağılımı Tanımları"
+          path="/hesaplayici"
+          terms={[
+            {
+              term: 'Tahmini İşletme Projesi (KMK 37)',
+              definition: 'Anagayrimenkulün bir yıllık tahmini giderlerini ve her kat malikine düşen aylık avans tutarını gösteren yasal bütçedir.',
+            },
+            {
+              term: '%30 Tesis Yönetimi Tasarruf Modeli',
+              definition: 'Toplu satın alma gücü, önleyici bakım ve dijital enerji otomasyonu ile işletme masraflarından sağlanan somut tasarruf oranıdır.',
+            },
+          ]}
+        />
+      </div>
     </>
   );
 }

@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
-import { QuoteCtaButton } from '@/components';;
+import { QuoteCtaButton } from '@/components';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+
 import { buildMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
@@ -148,6 +150,57 @@ export default function TeklifAl() {
             ))}
           </div>
         </div>
+
+        {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+        <ServiceAuthorityHubSeo
+          serviceName="Site & Tesis Yönetimi Resmi Teklif ve Keşif Hizmeti"
+          serviceCategory="Teklif & Sözleşme Yönetimi"
+          lawReferences={[
+            {
+              title: "634 Sayılı Kat Mülkiyeti Kanunu — Madde 34 & 35",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+              badge: "KMK m.34/35",
+              description: "Yöneticinin kat malikleri kurulu adına üçüncü şahıslarla bakım, güvenlik, temizlik ve işletme sözleşmesi yapma yasal yetkileri."
+            },
+            {
+              title: "4734 Sayılı Kamu İhale Kanunu — Hizmet Alımı Teknik Şartname Standartları",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4734&MevzuatTur=1&MevzuatTertip=5",
+              badge: "İhale Standartları",
+              description: "Toplu konut ve karma tesislerde şeffaf tedarikçi seçimi, birim fiyat cetvelleri ve teknik şartname şablonları."
+            },
+            {
+              title: "ISO 41001:2018 Entegre Tesis Yönetimi Standartları",
+              sourceName: "Türk Standardları Enstitüsü (TSE)",
+              url: "https://www.tse.org.tr",
+              badge: "ISO 41001",
+              description: "Teklif edilen tüm hizmet kalemlerinde KPI metrikleri, SLA seviyeleri ve aylık performans denetim kriterleri."
+            }
+          ]}
+          glossaryTerms={[
+            {
+              slug: "isletme-projesi",
+              term: "İşletme Projesi & Şeffaf Bütçe",
+              summary: "Sitenin yıllık tahmini bütçesi ve her bağımsız bölüme düşen avans payını gösteren resmi projedir."
+            },
+            {
+              slug: "demirbas",
+              term: "Ortak Alan Demirbaş Yönetimi",
+              summary: "Jeneratör, hidrofor, asansör ve havuz ekipmanlarının amortisman ve yenileme fonu planlamasıdır."
+            },
+            {
+              slug: "arsa-payi",
+              term: "Arsa Payı ve Gider Paylaşımı",
+              summary: "Ortak giderlerin kanuna uygun olarak kat malikleri arasında adil dağıtılmasını sağlayan orandır."
+            },
+            {
+              slug: "kat-mulkiyeti-kanunu-kmk",
+              term: "KMK Yasal Çerçeve",
+              summary: "Yönetim sözleşmelerinin hukuki geçerliliğini ve genel kurul onay mekanizmalarını düzenleyen kanundur."
+            }
+          ]}
+        />
       </section>
     </>
   );
