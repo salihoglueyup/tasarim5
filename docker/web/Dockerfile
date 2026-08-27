@@ -34,6 +34,10 @@ WORKDIR /app
 # Install OpenSSL for Prisma to work properly in Alpine
 RUN apk add --no-cache openssl
 
+# Prisma CLI ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz (migrate/push için) — COPY öncesi önbelleklenir
+RUN npm install -g prisma@7.9.1 dotenv
+ENV NODE_PATH="/usr/local/lib/node_modules"
+
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
@@ -56,9 +60,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.
 # pg driver adapter olmadan Prisma DB sorguları sessizce [] döner.
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma/adapter-pg ./node_modules/@prisma/adapter-pg
 
-# Prisma CLI ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz (migrate/push için)
-RUN npm install -g prisma@7.9.1 dotenv
-ENV NODE_PATH="/usr/local/lib/node_modules"
+# Akıllı başlangıç betiği
+COPY --from=builder --chown=nextjs:nodejs /app/docker/web/entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
 # Non-root user kullanımı (Güvenlik)
 USER nextjs
@@ -68,5 +72,4 @@ EXPOSE 3001
 ENV PORT 3001
 ENV HOSTNAME "0.0.0.0"
 
-# Başlangıçta veritabanı tablolarını senkronize edip (push) ardından sunucuyu başlatıyoruz
-CMD npx prisma db push && node server.js
+ENTRYPOINT ["/bin/sh", "./entrypoint.sh"]

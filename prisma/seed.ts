@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { PrismaClient } from '../src/generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
@@ -25,7 +26,20 @@ async function seedPost(post: Post) {
 
   await prisma.post.upsert({
     where: { slug: post.slug },
-    update: {},
+    update: {
+      title: post.title,
+      description: post.description,
+      categoryId: category.id,
+      authorId: author.id,
+      tags: JSON.stringify(post.tags),
+      image: post.image,
+      pillar: post.pillar,
+      tldr: post.tldr,
+      content: JSON.stringify(post.content),
+      published: true,
+      datePublished: new Date(post.datePublished),
+      dateModified: post.dateModified ? new Date(post.dateModified) : new Date(post.datePublished),
+    },
     create: {
       slug: post.slug,
       title: post.title,

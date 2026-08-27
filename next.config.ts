@@ -5,13 +5,7 @@ import withPWAInit from '@ducanh2912/next-pwa';
 
 const withPWA = withPWAInit({
   dest: 'public',
-  cacheOnFrontEndNav: true,
-  aggressiveFrontEndNavCaching: true,
-  reloadOnOnline: true,
-  disable: process.env.NODE_ENV === 'development',
-  workboxOptions: {
-    disableDevLogs: true,
-  },
+  disable: true, // Standalone Docker ve CDN ortamlarında 404 MIME hatalarını engelle
 });
 
 const bundleAnalyzer = withBundleAnalyzer({
