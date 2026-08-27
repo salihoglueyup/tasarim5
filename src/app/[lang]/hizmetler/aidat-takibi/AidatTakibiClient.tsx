@@ -12,6 +12,7 @@ import DuesCalculator from '@/components/sections/DuesCalculator';
 import DuesTestimonials from '@/components/sections/DuesTestimonials';
 import InteractiveCostSimulatorSeo from '@/components/seo/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function AidatTakibiClient() {
   const { t } = useLanguage();
@@ -77,7 +78,7 @@ export default function AidatTakibiClient() {
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop" alt="Online Aidat Takibi - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
@@ -91,7 +92,7 @@ export default function AidatTakibiClient() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,7 +102,7 @@ export default function AidatTakibiClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('dues_banner_badge') || 'Dijital Finansal Yönetim'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_dues_hero_title') || 'Online Aidat Takibi & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Şeffaf Muhasebe</span>' }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_dues_hero_title') || 'Online Aidat Takibi & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Şeffaf Muhasebe</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Online Aidat Takibi ve Finansal Yönetim' }}
@@ -122,11 +123,166 @@ export default function AidatTakibiClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
         {/* Dues Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <DuesCalculator />
+        </div>
+
+        {/* ========================================================================= */}
+        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
+        {/* ========================================================================= */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Başlık & Rozetler */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400">payments</span>
+              <span>Özet Rehber: Profesyonel Aidat ve Finans Yönetimi Nedir?</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+              634 KMK m.20 & m.37 Standardı
+            </span>
+          </div>
+
+          {/* Genişletilmiş ve Detaylandırılmış Metin */}
+          <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
+            <p>
+              <strong className="text-[var(--color-primary)] font-bold">Profesyonel Aidat ve Finans Yönetimi</strong>;{' '}
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                konut siteleri ve toplu yapılar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                çok katlı lüks rezidanslar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                iş merkezleri ve kurumsal plazaların
+              </Link>{' '}
+              ortak alan elektrik, su, doğalgaz, personel maaşları, asansör bakımı ve güvenlik gibi tüm cari giderlerinin karşılanması amacıyla yürütülen dijital bütçe ve tahsilat disiplinidir. Amatör bina yönetimlerinde sıkça yaşanan bakiye kayıpları, tahsilat tıkanıklıkları ve komşuluk ihtilaflarını tamamen ortadan kaldıran bu kurumsal model; %99 tahsilat oranı, sıfır bakiye hatası ve anlık denetlenebilir şeffaf muhasebe altyapısı sunar.
+            </p>
+            <p>
+              Tüm finansal süreçlerimiz;{' '}
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                634 Sayılı Kat Mülkiyeti Kanunu (KMK)
+              </Link>
+              ,{' '}
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
+                KMK Madde 37 (İşletme Projesi Tebliği)
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
+                2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              {' '}ve Bankacılık Düzenleme ve Denetleme Kurumu (BDDK) onaylı 256-bit SSL şifrelemeli sanal POS altyapısıyla yürütülür.
+            </p>
+            <p>
+              Finansal yönetim operasyonlarımız;{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Entegre Tesis Yönetimi
+              </Link>
+              {' '}ve{' '}
+              <Link href="/hizmetler/hukuk-ve-icra-danismanligi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                Hukuk ve İcra Masası
+              </Link>{' '}
+              ile entegre olarak dört ana operasyonel uzmanlık sütununda icra edilir:
+            </p>
+
+            {/* 4 Ana Operasyonel Disiplin Kartı */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>📱</span> 7/24 Mobil Uygulama & Kredi Kartı ile Online Ödeme
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Site sakinleri ve kiracılar için iOS/Android mobil uygulama üzerinden 3D Secure güvencesiyle tek çekim veya taksitli kredi kartı ödemesi, otomatik ödeme talimatı ve anlık borç sorgulama.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>📜</span> KMK m.37 İşletme Projesi & Arsa Payı Bütçelendirmesi
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Yıllık tahmini gelir-gider avans tablosunun hazırlanması, bağımsız bölüm arsa paylarına göre adil paylaştırılması, noter onaylı tebligatların yapılması ve bütçenin kesinleştirilmesi.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>⚖️</span> KMK m.20/2 Yasal Gecikme Tazminatı & İcra Takibi
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Gününde ödenmeyen aidatlara aylık %5 yasal gecikme tazminatının işletilmesi, otomatik SMS/WhatsApp ihtar mekanizması ve uzlaşma sağlanamayan durumlarda ilamsız icra takibi koordinasyonu.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>📊</span> Canlı Şeffaf Bilanço & Bağımsız Denetim Raporu
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Kasa ve banka hesap hareketlerinin anlık dijital mutabakatı, tüm fatura ve dekontların sisteme yüklenmesi, denetim kuruluna hazır aylık mali bilanço ve genel kurul ibra raporlaması.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Alo Yönetim ile çalışan tesislerde; kiracı ve mülk sahibi arasındaki{' '}
+              <Link href="/sozluk/aidat" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                işletme aidatı
+              </Link>{' '}
+              ve{' '}
+              <Link href="/sozluk/demirbas" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                demirbaş avansı
+              </Link>{' '}
+              ayrımı sistemsel olarak hatasız yapılır. Kat malikleri kurulu adına açılan müstakil banka hesaplarında toplanan fonlar üzerinde tam şeffaflık sağlanır ve sitenizin işletme bütçesi her zaman pozitif nakit akışında tutulur.
+            </p>
+          </div>
+
+          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">trending_up</span>
+                </span>
+                <span>%99 Ortalama Tahsilat Başarısı</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Zamanında hatırlatma, kredi kartı kolaylığı ve kurumsal takip sistemi ile aidatların aksamadan toplanması.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">gavel</span>
+                </span>
+                <span>%100 KMK 634 Mevzuat Güvencesi</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Resmi işletme projesi tebliği ve İİK m.68 kapsamında itiraz edilemez yasal icra takip altyapısı.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">visibility</span>
+                </span>
+                <span>7/24 Canlı Şeffaf Denetim</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Her daire sakininin tüm harcama faturalarını ve banka hareketlerini mobil uygulamadan anlık inceleyebilmesi.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 4 Cards Grid */}
@@ -163,6 +319,57 @@ export default function AidatTakibiClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Aidat Takibi ve Finansal Yönetim"
+        serviceCategory="Finans & Yönetim"
+        lawReferences={[
+          {
+            title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Madde 20",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+            badge: "KMK m.20",
+            description: "Kat maliklerinin kapıcı, kaloriferci, bahçıvan, bekçi giderlerine eşit; bakım, onarım ve işletme giderlerine ise arsa payı oranında katılma zorunluluğunu ve gecikme halinde aylık %5 gecikme tazminatını düzenler."
+          },
+          {
+            title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Madde 37",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+            badge: "KMK m.37",
+            description: "Kat malikleri kurulunca kabul edilmiş işletme projesinin kesinleşmesini ve İcra ve İflas Kanunu'nun 68. maddesinin 1. fıkrasında belirtilen resmi belge hükmünde sayılmasını hükme bağlar."
+          },
+          {
+            title: "2004 Sayılı İcra ve İflas Kanunu (İİK) — Madde 68",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=5",
+            badge: "İİK m.68",
+            description: "İtirazın kesin olarak kaldırılması ve kesinleşmiş işletme projesine dayalı aidat borçlarının ilamsız icra yoluyla tahsilat prosedürünü belirler."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "aidat",
+            term: "Aidat Nedir?",
+            summary: "Ortak giderlerin kat malikleri arasında arsa payı veya eşit bölüşüm esasına göre paylaştırılan yasal katkı payıdır."
+          },
+          {
+            slug: "gecikme-tazminati-5-yasal-faiz",
+            term: "Gecikme Tazminatı (%5 Yasal Faiz)",
+            summary: "KMK m.20/2 gereğince zamanında ödenmeyen aidat ve avans borçlarına uygulanan aylık %5 yasal tazminat oranıdır."
+          },
+          {
+            slug: "isletme-projesi",
+            term: "İşletme Projesi Nedir?",
+            summary: "Sitenin 1 yıllık tahmini gelir-gider bütçesi ve her bağımsız bölüme düşen aylık avans payını gösteren resmi belgedir."
+          },
+          {
+            slug: "demirbas",
+            term: "Demirbaş ve Yatırım Fonu",
+            summary: "Binanın ana yapısını ve değerini artıran büyük tadilat ve yatırımlar için mülk sahiplerinden toplanan fondur."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="dues_seo_title"
