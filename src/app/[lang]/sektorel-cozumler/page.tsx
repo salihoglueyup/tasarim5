@@ -25,7 +25,7 @@ export default async function SektorelCozumlerPage() {
   const dbSolutions = await prisma.sectoralSolution.findMany({
     where: { published: true },
     orderBy: { order: 'asc' }
-  });
+  }).catch(() => []);
 
   return (
     <SectoralClient dbSolutions={dbSolutions} />

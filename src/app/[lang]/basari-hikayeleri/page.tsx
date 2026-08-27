@@ -28,7 +28,7 @@ export default async function BasariHikayeleriPage() {
       published: true
     },
     orderBy: { order: 'asc' }
-  });
+  }).catch(() => []);
 
   return (
     <BasariHikayeleriClient stories={stories} />

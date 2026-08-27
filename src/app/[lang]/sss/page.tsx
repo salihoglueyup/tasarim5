@@ -30,7 +30,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
   // DB'den soruları çek
   const faqs = await prisma.faq.findMany({
     orderBy: [{ category: 'asc' }, { order: 'asc' }],
-  });
+  }).catch(() => []);
 
   // Benzersiz kategorileri bul ve sayılarını hesapla
   const uniqueCategories = Array.from(new Set(faqs.map(f => f.category)));
