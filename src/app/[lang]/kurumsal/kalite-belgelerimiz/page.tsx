@@ -1,8 +1,16 @@
-import { translations, Language } from '@/i18n/translations';
-import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema, graph } from '@/lib/schemas';
+import type { Metadata } from 'next';
+import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
+import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
 import JsonLd from '@/components/seo/JsonLd';
-import { BASE_URL } from '@/lib/seo';
 import CertificatesClient from './CertificatesClient';
+
+export const revalidate = 86400; // 24 saat ISR
+export const dynamicParams = true;
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 const CERT_SCHEMAS = [
   { name: 'Doğaya Saygı Sertifikası', description: 'Operasyonlarımızın doğaya ve ekosisteme saygılı şekilde yürütüldüğünü belgeleyen çevre sorumluluk sertifikası.', pdf: '/certificates/dogaya-saygi.pdf', about: 'Çevre Sorumluluğu', issuer: 'Türkiye Çevre Ajansı' },
@@ -14,45 +22,52 @@ const CERT_SCHEMAS = [
   { name: 'ISO 10002:2018 Müşteri Memnuniyeti', description: 'Sakinlerden gelen tüm talep ve şikayetlerin hızlı ve sistematik biçimde çözüme kavuşturulmasını belgeleyen standart.', pdf: '/certificates/iso-10002.pdf', about: 'Müşteri Memnuniyeti', issuer: 'ISO', issuerUrl: 'https://www.iso.org', date: '2018-07-01' },
 ];
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
-  const resolvedParams = await params;
-  const lang = (resolvedParams.lang || 'tr') as Language;
-  const t = (key: keyof typeof translations.tr) => translations[lang]?.[key] || translations.tr[key];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
 
-  return {
-    title: `${t('certificates_title')} | Alo Yönetim`,
-    description: t('certificates_desc'),
-    openGraph: {
-      title: `${t('certificates_title')} | Alo Yönetim`,
-      description: t('certificates_desc'),
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${resolvedParams.lang}/kurumsal/kalite-belgelerimiz`,
-      images: [
-        {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/og/corporate.jpg`,
-          width: 1200,
-          height: 630,
-          alt: t('certificates_title'),
-        }
-      ],
-    }
-  };
+  const title = t.certificates_title ? `${t.certificates_title} | Alo Yönetim` : 'Kalite Belgelerimiz ve ISO Akreditasyonlarımız | Alo Yönetim';
+  const description = t.certificates_desc || 'ISO 9001, ISO 14001, ISO 45001, ISO 22301 ve ISO 41001 uluslararası kalite ve yeterlilik sertifikalarımız.';
+
+  return buildMetadata({
+    title,
+    description,
+    path: '/kurumsal/kalite-belgelerimiz',
+    lang,
+    ogImageType: 'default',
+    keywords: [
+      'kalite belgelerimiz',
+      'iso sertifikaları site yönetimi',
+      'türkak akredite belgeler',
+      'iso 14001 çevre belgesi',
+      'iso 45001 isg belgesi'
+    ],
+  });
 }
 
-export default async function CertificatesPage({ params }: { params: Promise<{ lang: string }> }) {
-  const resolvedParams = await params;
-  const lang = (resolvedParams.lang || 'tr') as Language;
-  const t = (key: keyof typeof translations.tr) => translations[lang]?.[key] || translations.tr[key];
+export default async function CertificatesPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: t('nav_corporate'), url: '/kurumsal' },
-    { name: t('nav_certificates'), url: '/kurumsal/kalite-belgelerimiz' }
+    { name: t.nav_home || 'Anasayfa', url: '/' },
+    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
+    { name: t.nav_certificates || 'Kalite Belgelerimiz', url: '/kurumsal/kalite-belgelerimiz' }
   ]);
 
   const pageLd = webPageSchema({
-    name: t('certificates_title'),
-    description: t('certificates_desc'),
+    name: t.certificates_title || 'Kalite Belgelerimiz',
+    description: t.certificates_desc || 'Alo Yönetim kurumsal kalite ve yeterlilik sertifikaları.',
     path: '/kurumsal/kalite-belgelerimiz',
+    speakableSelectors: ['h1', 'p'],
   });
 
   const certSchemas = CERT_SCHEMAS.map((c) =>
