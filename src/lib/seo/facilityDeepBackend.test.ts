@@ -7,8 +7,10 @@ import {
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
 import { resolveSiloRedirect } from '@/lib/seo/siloRedirector';
+import { calculateFacilityBudget } from '@/data/facilityBudgetData';
+import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
 
-describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları', () => {
+describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları (Faz 7)', () => {
   beforeEach(() => {
     clearAiCrawlerLogsForTesting();
   });
@@ -80,6 +82,29 @@ describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları', () => 
       expect(rfp.fullText).toContain('ISO 41001:2018');
       expect(rfp.fullText).toContain('5188 Sayılı');
       expect(rfp.schema['@type']).toBe('DigitalDocument');
+    });
+  });
+
+  describe('39 İlçe Tesis Bütçe Hesaplama Motoru (calculateFacilityBudget)', () => {
+    it('Kadıköy ve Beşiktaş için dinamik aidat katsayılı hesaplama yapar', () => {
+      const kadikoyRes = calculateFacilityBudget(50, 'site', 'kadikoy');
+      const besiktasRes = calculateFacilityBudget(50, 'site', 'besiktas');
+
+      expect(kadikoyRes.estimatedMonthlyBudget).toBeGreaterThan(0);
+      expect(besiktasRes.estimatedMonthlyBudget).toBeGreaterThan(0);
+      expect(kadikoyRes.savingsWithAloYonetim.annualSavingsAmount).toBeGreaterThan(0);
+      expect(besiktasRes.savingsWithAloYonetim.savingsPercentage).toBeGreaterThanOrEqual(20);
+    });
+  });
+
+  describe('Edge Geo Resolver (findNearestFacilityHub)', () => {
+    it('Verilen koordinatlar için en yakın ilçe ve aidat verilerini döner', () => {
+      const result = findNearestFacilityHub(40.99, 29.02); // Kadıköy koordinatları
+
+      expect(result.nearestDistrict.slug).toBe('kadikoy');
+      expect(result.duesData.avgDuesM2).toBeGreaterThan(0);
+      expect(result.duesData.savingsRate).toBeGreaterThanOrEqual(20);
+      expect(result.estimatedSlaMinutes).toBeLessThanOrEqual(45);
     });
   });
 
