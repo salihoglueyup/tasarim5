@@ -34,6 +34,27 @@ if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
   echo "✅ PostgreSQL bağlantısı başarıyla kuruldu!"
   echo "🔄 Veritabanı şeması doğrulanıyor (Prisma DB Push)..."
   npx prisma db push --accept-data-loss || echo "⚠️ Prisma DB Push tamamlanamadı ancak sunucu başlatılacak."
+
+  echo "🔍 Veritabanı içerik kontrolü yapılıyor..."
+  NEED_SEED=$(node -e "
+    const { Pool } = require('pg');
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 3000 });
+    pool.query('SELECT (SELECT COUNT(*) FROM \"Post\") + (SELECT COUNT(*) FROM \"Reference\") as total', (err, res) => {
+      pool.end();
+      if (err || !res || !res.rows || parseInt(res.rows[0].total, 10) === 0) {
+        console.log('YES');
+      } else {
+        console.log('NO');
+      }
+    });
+  " 2>/dev/null || echo "YES")
+
+  if [ "$NEED_SEED" = "YES" ]; then
+    echo "🌱 [Alo Yönetim] Veritabanı boş tespit edildi, otomatik Master Seed çalıştırılıyor..."
+    npx tsx prisma/seed.ts || echo "⚠️ Otomatik seed sırasında uyarı oluştu."
+  else
+    echo "✨ Veritabanı içerikleri mevcut, seed adımı atlandı."
+  fi
 fi
 
 echo "🌟 Next.js Production Sunucusu Başlatılıyor (Port: ${PORT:-3001})..."
