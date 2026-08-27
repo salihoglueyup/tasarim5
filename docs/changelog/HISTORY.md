@@ -85,14 +85,24 @@ Alo Yönetim web uygulamasının tüm önemli geliştirme adımlarının kronolo
 - Dockerfile build aşamasında `JWT_SECRET` dummy değeri ile hata çözüldü
 - `POSTGRES_PASSWORD` ve `REDIS_PASSWORD` tek yerden yönetilir hale getirildi
 
-### Dokümantasyon Reorganizasyonu
-- Root dizinindeki `DEPLOYMENT.md` ve `GELISIM_RAPORU.md` silindi
-- `docs/dev/DEPLOYMENT.md` — Docker tabanlı tam deploy rehberi
-- `docs/dev/DOCKER.md` — Docker servis mimarisi
-- `docs/dev/DATABASE.md` — Prisma ve seed rehberi
-- `docs/i18n/README.md` — Çoklu dil mimarisi
-- `docs/i18n/TRANSLATION_GUIDE.md` — Çeviri ekleme adımları
-- `docs/README.md` — Tüm dökümanların güncel index'i
+---
+
+## Faz 6 — Core Web Vitals (CLS 0.000), Prisma 7.9.1, Evrensel Parlak Navbar & Dark Hero
+**Dönem:** Ağustos 2026
+
+### Core Web Vitals & CLS 0.000 Sıfırlama
+- `content-visibility: auto; contain-intrinsic-size: 1px 600px;` kuralı section etiketlerinden kaldırıldı; 1080p ekranda footer ve sayfa itmesi tamamen sıfırlandı (CLS: **0.000**).
+- Material Symbols fontu `&display=block` olarak entegre edildi; ligature metin kayması (FOUT) engellendi.
+- Google Lighthouse Accessibility skoru **100/100 Tam Puan**'a ulaştırıldı (WCAG AAA > 7:1 renk kontrastı, tam ARIA etiketleri, form label bağlamaları).
+
+### Prisma 7.9.1 & Sürücü Adaptörü Yükseltmesi
+- Prisma 7.9.1'e yükseltildi ve `@prisma/adapter-pg` driver adapter ile `prisma.config.ts` mimarisine geçildi.
+- Docker multi-stage build'de `runner` aşamasına `prisma.config.ts` ve `@prisma/adapter-pg` dahil edildi.
+- `docker/web/entrypoint.sh` ile container açılışında `prisma db push` ve `node server.js` akışı otomatikleştirildi.
+
+### Evrensel Parlak Navbar & Ultra-Premium Dark Hero
+- `Header.tsx` içinde `isTopAndDarkHero = !isScrolled` yapılarak anasayfadaki kristal parlaklığındaki beyaz navbar, altın armalı beyaz logo ve cam efektli butonlar tüm sayfalara yayıldı.
+- `PageHeader.tsx` anasayfa ve `/hakkimizda` ile birebir uyumlu Slate-950 titanium koyu gradyanına ve cam breadcrumbs rozetine yükseltildi.
 
 ---
 

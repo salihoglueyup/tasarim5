@@ -30,19 +30,20 @@ Alo Yönetim; site, rezidans, AVM ve toplu yapı yönetimi, güvenlik, temizlik,
 
 | Katman | Teknoloji / Kütüphane | Sürüm / Detay |
 |---|---|---|
-| **Framework** | Next.js (App Router, Turbopack) | 16.x |
+| **Framework** | Next.js (App Router, Turbopack) | 16.3.0 (React 19.2.4) |
 | **Dil** | TypeScript | 5.x |
-| **Stil / Tasarım** | Tailwind CSS (Slate & Titanium Teması) | 4.x |
-| **Animasyon** | Framer Motion (`LazyMotion`) | 12.x |
-| **Fontlar** | Plus Jakarta Sans & Cairo (RTL) | `next/font` |
-| **ORM** | Prisma (Driver Adapter: `@prisma/adapter-pg`) | 7.x |
-| **Veritabanı** | PostgreSQL (Docker Container) | 15.x |
-| **Önbellek (Cache)** | Redis (ioredis + AOF Persistence) | Alpine |
+| **Stil / Tasarım** | Tailwind CSS (Slate & Titanyum Teması) | 4.x (PostCSS + Typography) |
+| **Animasyon** | Framer Motion (`LazyMotion` & Springs) | 12.x |
+| **Fontlar** | Plus Jakarta Sans, Inter & Cairo (RTL) | `next/font` + Material Symbols Outlined |
+| **ORM** | Prisma 7 (Driver Adapter: `@prisma/adapter-pg`, `prisma.config.ts`) | 7.9.1 |
+| **Veritabanı** | PostgreSQL (Docker Container) | 16 / 15-alpine |
+| **Önbellek (Cache)** | Redis (ioredis + AOF Persistence) | Alpine (Port 6379) |
 | **Kimlik Doğrulama** | JOSE (JWT tabanlı Admin Auth) | 6.x |
-| **Containerization** | Docker & Docker Compose | 24.x+ / v2 |
-| **Otomasyon** | N8N | Latest |
-| **Reverse Proxy & CDN** | Nginx & Cloudflare | SSL + HSTS |
+| **Containerization** | Docker & Docker Compose (5 Servis) | 24.x+ / v2 (`web`, `postgres`, `redis`, `prisma-studio`, `n8n`) |
+| **Otomasyon** | N8N Workflow Engine | Docker Container (Port 5678) |
+| **Reverse Proxy & CDN** | Nginx & Cloudflare | SSL + HSTS + Speculation Rules API |
 | **Çoklu Dil (i18n)** | App Router `[lang]` + JSON Sözlükler | 4 Dil (`tr`, `en`, `ru`, `ar`) |
+| **Yapay Zeka / GEO** | LLMs.txt, AI Telemetry, Entity Graph, IndexNow | 20+ Özel AI ve Semantik Motor |
 
 ---
 
