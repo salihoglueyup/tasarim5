@@ -11,6 +11,7 @@ import { RelatedArticles } from '@/components';
 import PoolCalculator from '@/components/sections/PoolCalculator';
 import PoolTestimonials from '@/components/sections/PoolTestimonials';
 import Image from 'next/image';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function HavuzBakimiVeHijyenClient() {
   const { t } = useLanguage();
@@ -76,7 +77,7 @@ export default function HavuzBakimiVeHijyenClient() {
       />
       
       {/* Immersive Full-Width Hero (Titanium & Slate) */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2000&auto=format&fit=crop" alt="Yüzme Havuzu Bakımı - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
@@ -84,13 +85,13 @@ export default function HavuzBakimiVeHijyenClient() {
         
         {/* Abstract Minimal Animation */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen z-0 hidden md:block">
-            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_bezier(0,0,0.2,1)_infinite]" />
+            <div className="absolute inset-0 border border-slate-400/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
             <div className="absolute inset-16 border border-slate-300/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
             <div className="absolute inset-32 border border-slate-200/40 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +101,7 @@ export default function HavuzBakimiVeHijyenClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('pool_banner_badge') || 'Sağlık Bakanlığı Onaylı Hijyen'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pool_hero_title') || 'Yüzme Havuzu Bakımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Kimyasal Şartlandırma</span>' }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pool_hero_title') || 'Yüzme Havuzu Bakımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Kimyasal Şartlandırma</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Havuz Bakımı ve Hijyen' }}
@@ -121,10 +122,10 @@ export default function HavuzBakimiVeHijyenClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
         {/* Pool Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <PoolCalculator />
         </div>
 
@@ -159,6 +160,52 @@ export default function HavuzBakimiVeHijyenClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Yüzme Havuzu Bakımı ve Kimyasal Hijyen"
+        serviceCategory="Havuz & Sanitasyon"
+        lawReferences={[
+          {
+            title: "Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik",
+            sourceName: "T.C. Sağlık Bakanlığı & Resmi Gazete",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=15494&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Yönetmelik No: 28143",
+            description: "Site ve tesis havuzlarında serbest klor (1-3 ppm), bağlı klor, pH (6.5-7.8), mikrobiyolojik parametreler ve havuz işletme defteri tutulma zorunluluğu."
+          },
+          {
+            title: "TSE 11899 Yüzme Havuzu Suyunun Hazırlanması ve Tesisleri Standardı",
+            sourceName: "Türk Standardları Enstitüsü (TSE)",
+            url: "https://www.tse.org.tr",
+            badge: "TSE 11899",
+            description: "Kum filtrelerinin filtrasyon debisi, ters yıkama hızları, denge tankı kapasitesi ve klorlama otomasyonu teknik şartnamesi."
+          },
+          {
+            title: "T.C. Sağlık Bakanlığı Halk Sağlığı Su Güvenliği ve Denetim Sistemi",
+            sourceName: "T.C. Sağlık Bakanlığı",
+            url: "https://www.saglik.gov.tr",
+            badge: "Halk Sağlığı",
+            description: "Akredite laboratuvarlarca aylık olarak yapılan E. coli, Pseudomonas aeruginosa ve koliform bakteri mikrobiyolojik analiz protokolü."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "havuz-bakimi-ve-kimyasal-operasyonu",
+            term: "Havuz Kimyasal Dengesi & Operasyonu",
+            summary: "Havuz suyunun berraklığını ve hijyenini sağlayan klor, pH düşürücü, yosun önleyici ve çöktürücü kimyasal yönetim protokolüdür."
+          },
+          {
+            slug: "su-deposu-dezenfeksiyonu-ve-analizi",
+            term: "Su Deposu & Denge Tankı Temizliği",
+            summary: "Havuz denge depoları ve kullanım suyu tanklarının periyodik dezenfeksiyonu ve bakteriyel analiz sürecidir."
+          },
+          {
+            slug: "vektor-ve-hasere-ilaclama-biyosidal",
+            term: "Biyosidal Dezenfeksiyon & İlaçlama",
+            summary: "Havuz çevresi ve soyunma kabinlerinde mantar, bakteri ve zararlılara karşı uygulanan sertifikalı hijyen programıdır."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="havuz_seo_title"
