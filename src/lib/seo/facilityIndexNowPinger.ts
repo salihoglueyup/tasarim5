@@ -19,7 +19,7 @@ export interface IndexNowPingResult {
 /**
  * Tesis Yönetimi ve 39 İlçe URL'lerini IndexNow formatında derler.
  */
-export function buildFacilityIndexNowPayload(apiKey: string = 'aloyonetim-indexnow-key-2026'): IndexNowPayload {
+export function buildFacilityIndexNowPayload(apiKey: string = 'b42e617d3a2e4e10b171a7d6abdf93e5'): IndexNowPayload {
   const host = 'aloyonetim.com.tr';
   const urlList: string[] = [];
 
