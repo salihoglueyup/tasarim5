@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
 import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
+import { BlogArticleEcosystemSeo } from '@/components/seo';
 import TableOfContents from '@/components/blog/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
@@ -21,6 +22,9 @@ import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
 import arDict from '@/i18n/locales/ar/common.json';
 
+import { POSTS, CATEGORIES } from '@/data/posts';
+import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
+
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
 export const dynamicParams = true;
@@ -32,12 +36,17 @@ export async function generateStaticParams() {
       where: { published: true },
       select: { slug: true }
     });
-    return LOCALES.flatMap((lang) =>
-      posts.map((post) => ({ lang, slug: post.slug }))
-    );
+    if (posts.length > 0) {
+      return LOCALES.flatMap((lang) =>
+        posts.map((post) => ({ lang, slug: post.slug }))
+      );
+    }
   } catch {
-    return [];
+    // Fallback below
   }
+  return LOCALES.flatMap((lang) =>
+    POSTS.map((post) => ({ lang, slug: post.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -46,10 +55,26 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const post = await prisma.post.findUnique({
+  let post = await prisma.post.findUnique({
     where: { slug },
     include: { author: true },
-  });
+  }).catch(() => null);
+
+  if (!post) {
+    const staticP = POSTS.find((p) => p.slug === slug);
+    if (staticP) {
+      post = {
+        title: staticP.title,
+        description: staticP.description,
+        published: true,
+        datePublished: new Date(staticP.datePublished),
+        dateModified: new Date(staticP.dateModified || staticP.datePublished),
+        author: { name: 'Alo Yönetim Hukuk & Tesis Kurulu' },
+        tags: staticP.tags,
+      } as any;
+    }
+  }
+
   if (!post || !post.published) {
     return buildMetadata({ title: 'Yazı Bulunamadı', description: '', path: '/blog', lang, noindex: true });
   }
@@ -74,8 +99,6 @@ export async function generateMetadata({
   });
 }
 
-
-
 function formatDate(iso: string | Date): string {
   return new Date(iso).toLocaleDateString('tr-TR', {
     day: 'numeric',
@@ -92,10 +115,68 @@ export default async function BlogDetail({
   const { slug, lang } = await params;
   const t = (key: string) => dictionaries[lang]?.[key] || dictionaries['tr'][key] || key;
   
-  const post = await prisma.post.findUnique({
+  let post = await prisma.post.findUnique({
     where: { slug },
     include: { author: true, category: true }
-  });
+  }).catch(() => null);
+
+  if (!post) {
+    const staticP = POSTS.find((p) => p.slug === slug);
+    if (staticP) {
+      const cat = CATEGORIES.find((c) => c.slug === staticP.category);
+      post = {
+        id: `static-${staticP.slug}`,
+        slug: staticP.slug,
+        title: staticP.title,
+        description: staticP.description,
+        title_en: null,
+        title_ru: null,
+        title_ar: null,
+        description_en: null,
+        description_ru: null,
+        description_ar: null,
+        summary: staticP.tldr,
+        content: JSON.stringify(staticP.content),
+        content_en: null,
+        content_ru: null,
+        content_ar: null,
+        image: staticP.image,
+        published: true,
+        categoryId: staticP.category,
+        authorId: staticP.author,
+        views: 0,
+        tags: JSON.stringify(staticP.tags),
+        datePublished: new Date(staticP.datePublished),
+        dateModified: new Date(staticP.dateModified || staticP.datePublished),
+        createdAt: new Date(staticP.datePublished),
+        updatedAt: new Date(staticP.dateModified || staticP.datePublished),
+        author: {
+          id: staticP.author,
+          slug: staticP.author,
+          name: 'Alo Yönetim Hukuk & Tesis Kurulu',
+          avatar: '/images/eyup-salihoglu.webp',
+          bio: 'Tesis Yönetimi ve Kat Mülkiyeti Kanunu Uzmanı',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        category: cat ? {
+          id: cat.slug,
+          slug: cat.slug,
+          name: cat.name,
+          name_en: null,
+          name_ru: null,
+          name_ar: null,
+          description: cat.description,
+          description_en: null,
+          description_ru: null,
+          description_ar: null,
+          parentId: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        } : null,
+      } as any;
+    }
+  }
 
   if (!post || !post.published) notFound();
 
@@ -110,7 +191,7 @@ export default async function BlogDetail({
     },
     take: 3,
     orderBy: { datePublished: 'desc' }
-  });
+  }).catch(() => []);
 
   const [prevPost, nextPost] = await Promise.all([
     prisma.post.findFirst({
@@ -120,7 +201,7 @@ export default async function BlogDetail({
       },
       orderBy: { datePublished: 'desc' },
       select: { title: true, slug: true }
-    }),
+    }).catch(() => null),
     prisma.post.findFirst({
       where: {
         published: true,
@@ -128,7 +209,7 @@ export default async function BlogDetail({
       },
       orderBy: { datePublished: 'asc' },
       select: { title: true, slug: true }
-    }),
+    }).catch(() => null),
   ]);
 
   let tags: string[] = [];
@@ -139,7 +220,8 @@ export default async function BlogDetail({
     tags = [];
   }
 
-  const plainText = (post.content || '').replace(/<[^>]*>?/gm, '');
+  const renderedHtml = renderPostBlocksToHtml(post.content || '');
+  const plainText = (renderedHtml || '').replace(/<[^>]*>?/gm, '');
   const wordCount = plainText.split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(wordCount / 200));
 
@@ -154,8 +236,8 @@ export default async function BlogDetail({
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
-  const entityGraph = resolveTopicalEntityGraph(post.content || '');
-  const keyFacts = extractKeyFactsAndKpis(post.content || '');
+  const entityGraph = resolveTopicalEntityGraph(plainText || post.title);
+  const keyFacts = extractKeyFactsAndKpis(plainText || post.title);
 
   const dynamicAbout = [
     { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' },
@@ -205,7 +287,7 @@ export default async function BlogDetail({
   return (
     <>
       <JsonLd data={[breadcrumbLd, articleLd, pageLd]} />
-      {post.content && <BlogFAQExtractor htmlContent={post.content} />}
+      {renderedHtml && <BlogFAQExtractor htmlContent={renderedHtml} />}
       <ReadingProgress />
       <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
         <Breadcrumbs items={breadcrumbs} />
@@ -313,6 +395,15 @@ export default async function BlogDetail({
 
           {/* Share */}
           <ShareButtons path={path} title={post.title} />
+
+          {/* Zengin İç/Dış Link & Yasal Mevzuat Otorite Ekosistemi (Faz 14) */}
+          <BlogArticleEcosystemSeo
+            title={post.title}
+            content={post.content || ''}
+            tags={tags}
+            categoryName={post.category?.name}
+            lang={lang}
+          />
 
           {/* Author Box */}
           {author && (

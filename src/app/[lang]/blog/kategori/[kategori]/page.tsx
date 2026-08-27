@@ -8,18 +8,25 @@ import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas'
 import { prisma } from '@/lib/prisma';
 
 
+import { CATEGORIES, POSTS } from '@/data/posts';
+
 export const dynamicParams = true;
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
   try {
     const cats = await prisma.category.findMany({ select: { slug: true } });
-    return LOCALES.flatMap((lang) =>
-      cats.map((cat) => ({ lang, kategori: cat.slug }))
-    );
+    if (cats.length > 0) {
+      return LOCALES.flatMap((lang) =>
+        cats.map((cat) => ({ lang, kategori: cat.slug }))
+      );
+    }
   } catch {
-    return [];
+    // Fallback below
   }
+  return LOCALES.flatMap((lang) =>
+    CATEGORIES.map((cat) => ({ lang, kategori: cat.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -28,8 +35,15 @@ export async function generateMetadata({
   params: Promise<{ lang: string; kategori: string }>;
 }): Promise<Metadata> {
   const { lang, kategori } = await params;
-  const cat = await prisma.category.findUnique({ where: { slug: kategori } });
+  let cat = await prisma.category.findUnique({ where: { slug: kategori } }).catch(() => null);
   
+  if (!cat) {
+    const staticC = CATEGORIES.find((c) => c.slug === kategori);
+    if (staticC) {
+      cat = { name: staticC.name, description: staticC.description, slug: staticC.slug } as any;
+    }
+  }
+
   if (!cat) {
     return buildMetadata({ title: 'Kategori Bulunamadı', description: 'Kategori bulunamadı.', path: `/blog/kategori/${kategori}`, lang, noindex: true });
   }
@@ -48,17 +62,41 @@ export default async function CategoryArchive({
 }) {
   const { kategori } = await params;
   
-  const cat = await prisma.category.findUnique({ 
+  let cat = await prisma.category.findUnique({ 
     where: { slug: kategori } 
-  });
+  }).catch(() => null);
   
+  if (!cat) {
+    const staticC = CATEGORIES.find((c) => c.slug === kategori);
+    if (staticC) {
+      cat = { id: staticC.slug, name: staticC.name, description: staticC.description, slug: staticC.slug } as any;
+    }
+  }
+
   if (!cat) notFound();
 
-  const posts = await prisma.post.findMany({
+  let posts = await prisma.post.findMany({
     where: { categoryId: cat.id, published: true },
     include: { category: true },
     orderBy: { datePublished: 'desc' }
-  });
+  }).catch(() => []);
+
+  if (posts.length === 0) {
+    posts = POSTS.filter((p) => p.category === kategori).map((p, idx) => ({
+      id: `static-${idx}`,
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+      image: p.image,
+      datePublished: new Date(p.datePublished),
+      dateModified: new Date(p.dateModified || p.datePublished),
+      category: cat,
+      tags: JSON.stringify(p.tags),
+      authorId: p.author,
+      views: 0,
+      published: true,
+    })) as any;
+  }
   
   const path = `/blog/kategori/${kategori}`;
 

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
+import { POSTS } from '@/data/posts';
 
 interface BlogDetailLayoutProps {
   children: React.ReactNode;
@@ -13,9 +14,24 @@ export async function generateMetadata({
 }: Omit<BlogDetailLayoutProps, 'children'>): Promise<Metadata> {
   const { lang, slug } = await params;
   
-  const post = await prisma.post.findUnique({
+  let post = await prisma.post.findUnique({
     where: { slug }
-  });
+  }).catch(() => null);
+
+  if (!post) {
+    const staticP = POSTS.find((p) => p.slug === slug);
+    if (staticP) {
+      post = {
+        title: staticP.title,
+        description: staticP.description,
+        published: true,
+        datePublished: new Date(staticP.datePublished),
+        dateModified: new Date(staticP.dateModified || staticP.datePublished),
+        image: staticP.image,
+        tags: JSON.stringify(staticP.tags),
+      } as any;
+    }
+  }
 
   if (!post || !post.published) {
     return buildMetadata({
@@ -64,9 +80,16 @@ export default async function BlogDetailLayout({
 }: BlogDetailLayoutProps) {
   const { slug } = await params;
   
-  const post = await prisma.post.findUnique({
+  let post = await prisma.post.findUnique({
     where: { slug }
-  });
+  }).catch(() => null);
+
+  if (!post) {
+    const staticP = POSTS.find((p) => p.slug === slug);
+    if (staticP) {
+      post = { id: staticP.slug, published: true } as any;
+    }
+  }
 
   if (!post || !post.published) {
     notFound();

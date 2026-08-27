@@ -10,18 +10,25 @@ import { generateBreadcrumbs, webPageSchema, JsonLdObject, authorPersonSchema } 
 import { prisma } from '@/lib/prisma';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
+import { POSTS, CATEGORIES } from '@/data/posts';
+
 export const dynamicParams = true;
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
   try {
     const authors = await prisma.author.findMany({ select: { slug: true } });
-    return LOCALES.flatMap((lang) =>
-      authors.map((author) => ({ lang, yazar: author.slug }))
-    );
+    if (authors.length > 0) {
+      return LOCALES.flatMap((lang) =>
+        authors.map((author) => ({ lang, yazar: author.slug }))
+      );
+    }
   } catch {
-    return [];
+    // Fallback below
   }
+  return LOCALES.flatMap((lang) =>
+    ['eyup-salihoglu', 'alo-yonetim'].map((yazar) => ({ lang, yazar }))
+  );
 }
 
 export async function generateMetadata({
@@ -30,7 +37,15 @@ export async function generateMetadata({
   params: Promise<{ lang: string; yazar: string }>;
 }): Promise<Metadata> {
   const { lang, yazar } = await params;
-  const author = await prisma.author.findUnique({ where: { slug: yazar } });
+  let author = await prisma.author.findUnique({ where: { slug: yazar } }).catch(() => null);
+  if (!author) {
+    if (yazar === 'eyup-salihoglu' || yazar === 'alo-yonetim') {
+      author = {
+        name: 'Eyüp Salihoğlu',
+        bio: 'Tesis Yönetimi ve Kat Mülkiyeti Kanunu Uzmanı',
+      } as any;
+    }
+  }
   if (!author) {
     return buildMetadata({ title: 'Yazar Bulunamadı', description: '', path: `/blog/yazar/${yazar}`, lang, noindex: true });
   }
@@ -49,14 +64,43 @@ export default async function AuthorArchive({
   params: Promise<{ lang: string; yazar: string }>;
 }) {
   const { yazar } = await params;
-  const author = await prisma.author.findUnique({ where: { slug: yazar } });
+  let author = await prisma.author.findUnique({ where: { slug: yazar } }).catch(() => null);
+  if (!author) {
+    if (yazar === 'eyup-salihoglu' || yazar === 'alo-yonetim') {
+      author = {
+        id: yazar,
+        slug: yazar,
+        name: 'Eyüp Salihoğlu',
+        avatar: '/images/eyup-salihoglu.webp',
+        role: 'Kurucu Genel Müdür & Tesis Yönetimi Danışmanı',
+        bio: '15 yılı aşkın süredir İstanbul genelinde 200+ toplu konut, rezidans ve iş merkezinin entegre tesis yönetimi, 5188 özel güvenlik ve KMK hukuk danışmanlığını yürütmektedir.',
+      } as any;
+    }
+  }
   if (!author) notFound();
 
-  const posts = await prisma.post.findMany({
+  let posts = await prisma.post.findMany({
     where: { authorId: author.id, published: true },
     include: { category: true },
     orderBy: { datePublished: 'desc' },
-  });
+  }).catch(() => []);
+
+  if (posts.length === 0) {
+    posts = POSTS.map((p, idx) => ({
+      id: `static-${idx}`,
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+      image: p.image,
+      datePublished: new Date(p.datePublished),
+      dateModified: new Date(p.dateModified || p.datePublished),
+      category: CATEGORIES.find((c) => c.slug === p.category) || null,
+      tags: JSON.stringify(p.tags),
+      authorId: author.id,
+      views: 0,
+      published: true,
+    })) as any;
+  }
 
   const path = `/blog/yazar/${yazar}`;
 
