@@ -67,5 +67,13 @@ export { default as DistrictFacilityAuditTableSeo } from './DistrictFacilityAudi
 export { default as InteractiveFacilityAuditRadarSeo } from './InteractiveFacilityAuditRadarSeo';
 export { default as FacilityLegalTemplateGeneratorSeo } from './FacilityLegalTemplateGeneratorSeo';
 export { default as FacilityComparisonMatrixSeo } from './FacilityComparisonMatrixSeo';
+export { default as FacilityDistrictGridSeo } from './FacilityDistrictGridSeo';
+export { default as FacilityRfpDownloadModalSeo } from './FacilityRfpDownloadModalSeo';
+export { default as FacilityLegalPrecedentsBrowserSeo } from './FacilityLegalPrecedentsBrowserSeo';
+export { default as FacilityGroupSecurityTrustSeo } from './FacilityGroupSecurityTrustSeo';
+export { default as FacilitySubSectorCrossNav } from './FacilitySubSectorCrossNav';
+export { default as BlogArticleEcosystemSeo } from './BlogArticleEcosystemSeo';
 export { default as KeywordAnalysisSeo } from './KeywordAnalysisSeo';
 export { default as BlogSeo } from './BlogSeo';
+export { default as ServiceAuthorityHubSeo } from './ServiceAuthorityHubSeo';
+
