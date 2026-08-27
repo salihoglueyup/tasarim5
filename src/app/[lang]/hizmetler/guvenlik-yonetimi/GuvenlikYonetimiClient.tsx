@@ -22,6 +22,7 @@ import { RelatedArticles } from '@/components';
 import SecurityCalculator from '@/components/sections/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
 import EmergencyDisasterAuditSeo from '@/components/seo/EmergencyDisasterAuditSeo';
+import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 export default function GuvenlikYonetimiClient() {
   const { t } = useLanguage();
@@ -37,31 +38,31 @@ export default function GuvenlikYonetimiClient() {
       title: t('sec_feat_2_title') || '7/24 CCTV & Kamera İzleme Merkezi',
       desc: t('sec_feat_2_desc') || 'Kör nokta bırakmayan yüksek çözünürlüklü IP kamera sistemleri, yapay zeka destekli hareket ve sınır ihlal alarmları.',
       icon: "center_focus_strong",
-      color: "from-slate-600 to-slate-800"
+      color: "from-blue-700 to-indigo-900"
     },
     {
       title: t('sec_feat_3_title') || 'Plaka Tanıma & Turnike Geçiş Sistemi',
       desc: t('sec_feat_3_desc') || 'Site sakinleri ve misafir araçlar için otomatik PTS (Plaka Tanıma Sistemi) ve RFID kartlı/biyometrik yaya geçiş kontrolü.',
       icon: "qr_code_scanner",
-      color: "from-amber-500 to-orange-600"
+      color: "from-slate-600 to-slate-800"
     },
     {
       title: t('sec_feat_4_title') || 'Devriye Tur Kontrol ve Raporlama',
       desc: t('sec_feat_4_desc') || 'Karekodlu ve GPS destekli gece/gündüz devriye turları ile ortak alanların, otoparkların ve çevre duvarlarının anlık denetimi.',
       icon: "shield_person",
-      color: "from-purple-500 to-fuchsia-600"
+      color: "from-emerald-700 to-teal-900"
     },
     {
       title: t('sec_feat_5_title') || 'Yangın & Acil Durum Tahliye Yönetimi',
       desc: t('sec_feat_5_desc') || 'Sığınak, yangın merdiveni ve kaçış yollarının sürekli açık tutulması; periyodik tahliye tatbikatları ve kriz yönetimi.',
-      icon: "videocam",
-      color: "from-red-500 to-rose-600"
+      icon: "emergency",
+      color: "from-slate-700 to-slate-900"
     },
     {
       title: t('sec_feat_6_title') || 'Hızlı Müdahale ve Emniyet Koordinasyonu',
       desc: t('sec_feat_6_desc') || 'Olası asayiş, hırsızlık veya acil sağlık durumlarında polis ve 112 acil çağrı merkezleriyle entegre alarm protokolü.',
-      icon: "emergency",
-      color: "from-slate-600 to-slate-800"
+      icon: "local_police",
+      color: "from-blue-800 to-slate-900"
     }
   ];
 
@@ -115,7 +116,7 @@ export default function GuvenlikYonetimiClient() {
       />
       
       {/* Immersive Full-Width Hero */}
-      <div className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-slate-950">
+      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-36 md:pt-36 md:pb-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
@@ -129,7 +130,7 @@ export default function GuvenlikYonetimiClient() {
             <div className="absolute inset-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left animate-spin" style={{ animationDuration: '3s' }} />
         </div>
 
-        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center mt-20 flex flex-col items-center">
+        <div className="relative z-20 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -139,7 +140,7 @@ export default function GuvenlikYonetimiClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('sec_banner_badge') || '5188 Sayılı Kanun Güvencesi'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1') || 'Profesyonel'} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">${t('sec_banner_title_highlight') || 'Güvenlik Yönetimi'}</span> ${t('sec_banner_title_2') || 've Tesis Emniyeti'}` }} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1') || 'Profesyonel'} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">${t('sec_banner_title_highlight') || 'Güvenlik Yönetimi'}</span> ${t('sec_banner_title_2') || 've Tesis Emniyeti'}` }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Profesyonel Güvenlik Yönetimi' }}
@@ -160,11 +161,166 @@ export default function GuvenlikYonetimiClient() {
         </div>
       </div>
 
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
         {/* Security Calculator */}
-        <div className="-mt-32 relative z-30">
+        <div className="-mt-20 md:-mt-32 relative z-30">
           <SecurityCalculator />
+        </div>
+
+        {/* ========================================================================= */}
+        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
+        {/* ========================================================================= */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Başlık & Rozetler */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">verified_user</span>
+              <span>Özet Rehber: 5188 Lisanslı Özel Güvenlik Nedir?</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+              5188 Sayılı Kanun & Valilik Ruhsatı
+            </span>
+          </div>
+
+          {/* Genişletilmiş ve Detaylandırılmış Metin */}
+          <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
+            <p>
+              <strong className="text-[var(--color-primary)] font-bold">5188 Lisanslı Özel Güvenlik Hizmeti</strong>;{' '}
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                konut siteleri ve toplu yapılar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                çok katlı lüks rezidanslar
+              </Link>
+              ,{' '}
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                iş merkezleri ve kurumsal plazalar
+              </Link>
+              {' '}ile{' '}
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                endüstriyel tesis ve fabrikaların
+              </Link>{' '}
+              can, mal ve bilgi güvenliğini sağlamak amacıyla T.C. İçişleri Bakanlığı ve İl Valilikleri denetiminde yürütülen profesyonel koruma disiplinidir. Geleneksel ve yetkisiz kapıcı/bekçi modelinin aksine 5188 lisanslı güvenlik; kimlik sorgulama, üst/araç detektör araması, suçüstü yakalama, tahliye yönetimi ve genel kolluk (Polis/Jandarma) ile anlık koordinasyon sağlama gibi yasal ve adli yetkilerle donatılmıştır.
+            </p>
+            <p>
+              Güvenlik operasyonlarımız;{' '}
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+                5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <a href="https://www.egm.gov.tr/ozelguvenlik" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+                Emniyet Genel Müdürlüğü Özel Güvenlik Denetleme Standartları
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
+              ,{' '}
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                634 Sayılı Kat Mülkiyeti Kanunu (KMK)
+              </Link>
+              {' '}ve 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kamera kayıt saklama protokolleri çerçevesinde kusursuz bir yasal güvenceyle icra edilir.
+            </p>
+            <p>
+              Alo Yönetim, özel güvenlik operasyonlarını{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Entegre Tesis Yönetimi
+              </Link>{' '}
+              ve{' '}
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Teknik Bakım ve Otomasyon
+              </Link>{' '}
+              süreçleriyle senkronize ederek dört ana operasyonel sütun üzerinde icra eder:
+            </p>
+
+            {/* 4 Ana Operasyonel Disiplin Kartı */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🛡️</span> Fiziki Koruma & Nizamiye Geçiş Kontrolü
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Üniformalı, silahlı/silahsız lisanslı güvenlik personeli, turnike ve manyetik bariyer kontrolü, X-ray çanta taraması, el dedektörüyle arama ve misafir/kurye girişlerinin dijital kayıt altına alınması.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>📹</span> Yapay Zeka Destekli 7/24 CCTV & PTS
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Kör nokta bırakmayan IP kamera izleme merkezi, sınır ihlali ve hareket algılama sensörleri, otomatik Plaka Tanıma Sistemi (PTS) ile abone ve misafir araç bariyer otomasyonu.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🚨</span> GPS Destekli Devriye & Gece Teftiş Masası
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Karekodlu ve RFID etiketli saatlik devriye kontrol turları, GPS konum takibi ve merkez operasyon müdürlerince habersiz gece denetimleri ile sıfır zafiyet garantisi.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                  <span>🚒</span> Yangın, Deprem & Kriz Tahliye Yönetimi
+                </span>
+                <p className="text-[var(--color-secondary)]">
+                  Yangın kaçış yolları ve acil sığınakların açık tutulması, periyodik tahliye tatbikatları, AFAD/İtfaiye koordinasyonu ve 112 Acil Çağrı Merkezi ile entegre acil alarm protokolleri.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Tüm personelimiz,{' '}
+              <Link href="/guvenlik-akademisi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Alo Güvenlik Akademisi
+              </Link>{' '}
+              kapsamında 5188 kanun, yakın savunma, etkili iletişim, kriz yönetimi, yangın söndürme ve ilk yardım eğitimlerini başarıyla tamamlamıştır. Sitenizde veya tesisinizde görevlendirilen tüm personelin kıdem/ihbar tazminatları, SGK primleri ve Zorunlu Özel Güvenlik Mali Sorumluluk Sigortaları şirketimizin tüzel kişilik güvencesi altındadır; kat malikleri kurulunun hiçbir şahsi hukuki ve cezai riski bulunmaz.
+            </p>
+          </div>
+
+          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">verified</span>
+                </span>
+                <span>%100 Valilik İzni & Yasal Güvence</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                İl Özel Güvenlik Komisyonu ruhsatlandırma, karar defteri onayları ve yasal izin süreçlerinin anahtar teslim yürütülmesi.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">timer</span>
+                </span>
+                <span>45 Dakika SLA Acil Müdahale</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                İstanbul genelinde mobil devriye amirlikleri, acil destek ekipleri ve kolluk kuvvetleriyle entegre hızlı asayiş müdahalesi.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-lg">security</span>
+                </span>
+                <span>Sıfır Hukuki Risk & Tam Sigorta</span>
+              </div>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Tüm kıdem/ihbar tazminatı, SGK ve mesleki mali mesuliyet risklerinin şirketimizce üstlenilmesi; yöneticilere sıfır şahsi sorumluluk.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 5188 Yasal Ruhsatlar & Akreditasyon Şeması */}
@@ -211,31 +367,31 @@ export default function GuvenlikYonetimiClient() {
         <SecurityTechMatrixSeo />
 
         {/* Güvenlik Akademisi E-E-A-T Spotlight Kartı */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-700/50 rounded-[3rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
           <div className="space-y-4 max-w-2xl relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-bold text-slate-300">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-bold text-blue-600 dark:text-blue-400">
               <span className="material-symbols-outlined text-sm">school</span>
               <span>Kendi Akademimizde Yetişen Uzman Kadro</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight leading-tight">
               Alo Güvenlik Akademisi: <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Sürekli Hizmet İçi Eğitim Güvencesi</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Sürekli Hizmet İçi Eğitim Güvencesi</span>
             </h2>
-            <p className="text-sm md:text-base text-gray-300 font-light leading-relaxed">
+            <p className="text-sm md:text-base text-[var(--color-secondary)] font-light leading-relaxed">
               Tesislerinizde görev alan tüm özel güvenlik personeli; 5188 mevzuat, yangın söndürme, ilk yardım, yakın savunma, şüpheli profil analizi ve etkili iletişim eğitimlerini akademimizde tamamlar.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ 5188 Kanun Eğitimi</span>
-              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ AFAD Yangın Tatbikatı</span>
-              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ Sağlık Bakanlığı İlk Yardım</span>
-              <span className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">✓ Kriz & Öfke Kontrolü</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)]">✓ 5188 Kanun Eğitimi</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)]">✓ AFAD Yangın Tatbikatı</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)]">✓ Sağlık Bakanlığı İlk Yardım</span>
+              <span className="text-xs px-3 py-1.5 rounded-lg bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)]">✓ Kriz & Öfke Kontrolü</span>
             </div>
           </div>
           <div className="relative z-10 shrink-0">
             <Link 
               href="/guvenlik-akademisi" 
-              className="bg-white hover:bg-slate-100 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 flex items-center gap-3 text-sm"
+              className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 flex items-center gap-3 text-sm"
             >
               <span>Akademi Müfredatını İnceleyin</span>
               <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -304,6 +460,57 @@ export default function GuvenlikYonetimiClient() {
         </div>
 
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="5188 Lisanslı Özel Güvenlik Yönetimi"
+        serviceCategory="Güvenlik & Asayiş"
+        lawReferences={[
+          {
+            title: "5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
+            badge: "5188 Sayılı Kanun",
+            description: "Özel güvenlik görevlilerinin kimlik kartı, yetki sınırları, arama ve yakalama prosedürleri ile tesis güvenlik komisyonu izin süreçlerini yasal çerçeveye oturtur."
+          },
+          {
+            title: "Özel Güvenlik Hizmetlerine Dair Kanunun Uygulanmasına İlişkin Yönetmelik",
+            sourceName: "T.C. Resmi Gazete & Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=7280&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Yönetmelik No: 25606",
+            description: "Site ve konut projelerinde fiziki güvenlik noktalarının kurulması, vardiya planlaması, denetim kuralları ve üniforma standartlarını belirler."
+          },
+          {
+            title: "Emniyet Genel Müdürlüğü (EGM) Özel Güvenlik Denetleme Başkanlığı",
+            sourceName: "T.C. İçişleri Bakanlığı EGM",
+            url: "https://www.egm.gov.tr/ozelguvenlik",
+            badge: "EGM Resmi Portal",
+            description: "Özel güvenlik şirketleri ve projelerinin yasal denetimi, ÖGNET sistemi üzerinden bildirimler ve silah/ekipman izin prosedürleri."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "5188-sayili-kanun",
+            term: "5188 Sayılı Kanun Nedir?",
+            summary: "Türkiye'de özel güvenlik hizmetlerinin yürütülmesini, personel yetkilerini ve valilik izinlerini düzenleyen ana mevzuattır."
+          },
+          {
+            slug: "ozel-guvenlik-izni-ogi",
+            term: "Özel Güvenlik İzni (ÖGİ)",
+            summary: "Site veya tesisin özel güvenlik personeli istihdam edebilmesi için İl Özel Güvenlik Komisyonu'ndan alınan yasal izindir."
+          },
+          {
+            slug: "plaka-tanima-sistemi-pts",
+            term: "Plaka Tanıma Sistemi (PTS)",
+            summary: "Site giriş-çıkışlarında araç plakalarını optik karakter tanıma ile okuyup bariyerleri otomatik yöneten sistemdir."
+          },
+          {
+            slug: "cctv-ve-kamera-guvenlik-sistemi",
+            term: "CCTV & Yapay Zeka Kamera Sistemi",
+            summary: "Ortak alanların 7/24 yüksek çözünürlüklü ve hareket analizli kameralarla izlenmesini ve kayıt altına alınmasını sağlayan altyapıdır."
+          }
+        ]}
+      />
 
       <SeoTextSection
         titleKey="guvenlik_seo_title"
