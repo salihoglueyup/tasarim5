@@ -21,9 +21,10 @@ const PreFooterCta = dynamic(() => import('@/components/sections/PreFooterCta'),
 const TestimonialSlider = dynamic(() => import('@/components/sections/TestimonialSlider'), { ssr: true });
 const CertificateBadgeGrid = dynamic(() => import('@/components/sections/CertificateBadgeGrid'), { ssr: true });
 const Faq = dynamic(() => import('@/components/sections/Faq'), { ssr: true });
-const InteractiveFacilityExplorer = dynamic(() => import('@/components/sections/InteractiveFacilityExplorer'), { ssr: true });
 const IstanbulDuesHeatmapSeo = dynamic(() => import('@/components/seo/IstanbulDuesHeatmapSeo'), { ssr: true });
 const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/KMKLawAssistantSeo'), { ssr: true });
+const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/ServiceAuthorityHubSeo'), { ssr: true });
+
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -121,7 +122,6 @@ export default async function Home({ params }: Props) {
       <JsonLd data={[pageLd, businessLd, videoLd, facilityGraphLd]} />
       <Hero />
       <SeoTextSection />
-      <InteractiveFacilityExplorer />
       <BentoServices />
       <IstanbulDuesHeatmapSeo />
       <WhyUsBentoGrid />
@@ -133,6 +133,60 @@ export default async function Home({ params }: Props) {
       <TestimonialSlider dbReferences={dbReferences} />
       <CertificateBadgeGrid />
       <Faq dbFaqs={dbFaqs} lang={lang} />
+      
+      {/* E-E-A-T Master Mevzuat & İç/Dış Bağlantı Otorite Hub'ı */}
+      <section className="py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+        <ServiceAuthorityHubSeo
+          serviceName="Alo Yönetim Entegre Tesis ve Mülk Yönetim Ekosistemi"
+          serviceCategory="Entegre Tesis Yönetimi"
+          lawReferences={[
+            {
+              title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Resmi Metin",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+              badge: "KMK 634",
+              description: "Türkiye genelinde tüm bağımsız bölümler, apartmanlar, toplu konut siteleri ve plazalarda ortak alan mülkiyeti, yönetim planı ve işletme bütçesi ana kanunudur."
+            },
+            {
+              title: "5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun",
+              sourceName: "T.C. İçişleri Bakanlığı EGM",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
+              badge: "5188 Sayılı Kanun",
+              description: "Konut ve ticari tesislerde görev yapan özel güvenlik personelinin eğitim standartları, valilik özel güvenlik izinleri (ÖGİ) ve denetim esasları."
+            },
+            {
+              title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
+              sourceName: "Türk Standardları Enstitüsü (TSE)",
+              url: "https://www.tse.org.tr",
+              badge: "ISO 41001 & TSE HYB",
+              description: "Gayrimenkullerin ve yaşam alanlarının verimli, güvenli, sürdürülebilir ve maliyet tasarruflu işletilmesini belgeleyen dünya standardı."
+            }
+          ]}
+          glossaryTerms={[
+            {
+              slug: "kat-mulkiyeti-kanunu-kmk",
+              term: "Kat Mülkiyeti Kanunu (KMK)",
+              summary: "Toplu yaşam alanlarında malik ve kiracıların haklarını, ortak alan kullanımını düzenleyen ana kanundur."
+            },
+            {
+              slug: "aidat",
+              term: "Site & Apartman Aidat Yönetimi",
+              summary: "Ortak giderlerin şeffaf ve adil biçimde arsa payına göre paylaştırılması ve dijital muhasebe takibidir."
+            },
+            {
+              slug: "5188-sayili-kanun",
+              term: "5188 Lisanslı Özel Güvenlik",
+              summary: "Nizamiye devriye, CCTV kamera analitiği ve plaka tanıma sistemleriyle 7/24 kesintisiz tesis emniyetidir."
+            },
+            {
+              slug: "isletme-projesi",
+              term: "Yıllık Site İşletme Projesi & Bütçe",
+              summary: "Sitenin 1 yıllık tahmini gider bütçesi ve her bağımsız bölümün aylık ödeme planını içeren resmi projedir."
+            }
+          ]}
+        />
+      </section>
+
       <PreFooterCta />
     </>
   );

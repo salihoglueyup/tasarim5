@@ -25,6 +25,7 @@ const cairo = Cairo({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://aloyonetim.com.tr'),
   title: 'Sayfa Bulunamadı | Alo Yönetim',
   description: 'Aradığınız sayfa bulunamadı.',
   robots: {

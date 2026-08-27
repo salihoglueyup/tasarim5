@@ -77,8 +77,13 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full bg-gradient-to-b from-slate-100/90 via-slate-50/70 to-white dark:from-[#0a192b] dark:via-[#0c2038] dark:to-[#071322] border-b border-slate-200/60 dark:border-white/10 overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20 px-[var(--spacing-gutter)] flex flex-col items-center justify-center text-center transition-colors duration-300"
+      className="relative w-full bg-slate-950 text-white border-b border-white/10 overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20 px-[var(--spacing-gutter)] flex flex-col items-center justify-center text-center transition-colors duration-300"
     >
+      {/* Zarif arkaplan gradyanı ve dokusu */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[#15151C] to-slate-900 -z-10" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-800/20 blur-3xl rounded-full translate-x-1/3 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
+
       {/* Spotlight Effect that follows mouse */}
       <motion.div 
         className="absolute pointer-events-none transition-opacity duration-500 z-0 inset-0"
@@ -89,7 +94,7 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
       />
 
       {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-slate-400/10 dark:bg-white/5 blur-3xl rounded-full pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-white/5 blur-3xl rounded-full pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
 
       <div className="relative z-10 max-w-4xl flex flex-col items-center">
         
@@ -98,38 +103,38 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-slate-200 dark:border-white/15 shadow-sm text-xs font-semibold text-slate-600 dark:text-gray-300 mb-6 flex-wrap justify-center"
+          className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-sm text-xs font-semibold text-slate-300 mb-6 flex-wrap justify-center"
         >
-          <Link href="/" className="hover:text-[var(--color-primary)] dark:hover:text-white transition-colors">Anasayfa</Link>
+          <Link href="/" className="hover:text-white transition-colors">Anasayfa</Link>
           
           {finalBreadcrumbs ? (
             finalBreadcrumbs.map((crumb, i) => (
               <span key={i} className="flex items-center gap-2">
-                <span className="text-slate-400">/</span>
+                <span className="text-slate-500">/</span>
                 {crumb.url ? (
-                  <Link href={crumb.url} className="hover:text-[var(--color-primary)] dark:hover:text-white transition-colors">
+                  <Link href={crumb.url} className="hover:text-white transition-colors">
                     {crumb.name}
                   </Link>
                 ) : (
-                  <span className="text-[var(--color-primary)] dark:text-white font-bold">{crumb.name}</span>
+                  <span className="text-white font-bold">{crumb.name}</span>
                 )}
               </span>
             ))
           ) : (
             <>
-              <span className="text-slate-400">/</span>
-              <span className="text-[var(--color-primary)] dark:text-white font-bold">{title}</span>
+              <span className="text-slate-500">/</span>
+              <span className="text-white font-bold">{title}</span>
             </>
           )}
         </motion.div>
 
-        {/* Title — LCP optimizasyonu (v12): fold-üstü LCP metni, giriş animasyonu kaldırıldı (anında boyanır). */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+        {/* Title — LCP optimizasyonu: anında boyanır */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight drop-shadow-lg">
           {title}
         </h1>
 
-        {/* Description — fold-üstü LCP adayı, anında boyanır. */}
-        <p className="text-lg md:text-xl text-slate-600 dark:text-gray-300 max-w-2xl font-light leading-relaxed">
+        {/* Description */}
+        <p className="text-lg md:text-xl text-slate-400 max-w-2xl font-light leading-relaxed">
           {description}
         </p>
       </div>

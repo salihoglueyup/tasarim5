@@ -1,4 +1,3 @@
-@import 'material-symbols/outlined.css';
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin "@tailwindcss/typography";
@@ -167,22 +166,6 @@ select:focus-visible,
   }
 }
 
-/* 
-  Faz 74, 80: Ekran dışı (off-screen) bölümler için content-visibility: auto.
-  Tarayıcı, kullanıcı kaydırana kadar alt bölümlerin layout ve paint işlemlerini
-  atlayarak ilk yükleme süresini (LCP) ve TBT'yi muazzam ölçüde iyileştirir.
-*/
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 600px;
-}
-
-/* İlk görünen Hero bölümü anında render edilmelidir */
-section:first-of-type {
-  content-visibility: visible;
-  contain: none;
-}
-
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
@@ -195,6 +178,8 @@ section:first-of-type {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
 }

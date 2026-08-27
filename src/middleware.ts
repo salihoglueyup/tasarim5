@@ -6,6 +6,8 @@ import Negotiator from 'negotiator';
 import { buildHttpLinkHeader, buildXRobotsTag } from './lib/seo/edgeHeaderInjector';
 import { analyzeCrawlBudget } from './lib/seo/crawlBudgetDefender';
 import { detectAndLogAiCrawler } from './lib/seo/aiBotTelemetry';
+import { buildFacilityEdgeHeaders, generateFacilityContentHash } from './lib/seo/facilityEdgeOptimizer';
+import { recordBotCrawlEvent } from './lib/seo/facilityBotAuditLog';
 
 const locales = ['tr', 'en', 'ru', 'ar'];
 const defaultLocale = 'tr';
@@ -241,13 +243,51 @@ export async function middleware(request: NextRequest) {
 
   // 4. ENTERPRISE SEO & BOT RESPONSE HEADERS (RFC 8288 Edge Web Linking & Crawl Budget Defender)
   if (!pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
+    const isAiBot = /GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek/i.test(userAgent);
+    const isSearchBot = /Googlebot|bingbot|YandexBot|DuckDuckBot|Baiduspider/i.test(userAgent);
+    const isFacilityRoute = pathname.includes('/tesis-yonetimi');
+
+    // 4.1 Tesis Yönetimi 304 Not Modified & ETag Kalkanı
+    if (isFacilityRoute && request.method === 'GET') {
+      const currentEtag = generateFacilityContentHash();
+      const ifNoneMatch = request.headers.get('if-none-match');
+
+      if (ifNoneMatch && (ifNoneMatch === currentEtag || ifNoneMatch.includes(currentEtag))) {
+        if (isAiBot || isSearchBot) {
+          const botName = isAiBot ? 'AICrawler' : 'Googlebot';
+          const botType = isAiBot ? 'AICrawler' : 'SearchEngine';
+          recordBotCrawlEvent(botName, botType, pathname, 304, request.headers.get('x-forwarded-for') || 'edge-ip', userAgent);
+        }
+        return new NextResponse(null, {
+          status: 304,
+          headers: {
+            'ETag': currentEtag,
+            'Cache-Control': 'public, max-age=7200, s-maxage=86400, stale-while-revalidate=604800',
+            'X-Facility-Cache-Hit': 'Edge-304-Revalidated',
+          },
+        });
+      }
+
+      if (isAiBot || isSearchBot) {
+        const botName = isAiBot ? 'AICrawler' : 'Googlebot';
+        const botType = isAiBot ? 'AICrawler' : 'SearchEngine';
+        recordBotCrawlEvent(botName, botType, pathname, 200, request.headers.get('x-forwarded-for') || 'edge-ip', userAgent);
+      }
+
+      // Tesis rotalarına özel Edge Header enjeksiyonu
+      const facilityHeaders = buildFacilityEdgeHeaders(pathname, currentLocale || defaultLocale, isAiBot);
+      Object.entries(facilityHeaders).forEach(([key, val]) => {
+        if (val) response.headers.set(key, val);
+      });
+    }
+
     // Tarama Bütçesi Denetimi (?utm_*, ?fbclid=* vb.)
     const crawlBudget = analyzeCrawlBudget(request.nextUrl.searchParams);
 
     if (crawlBudget.shouldNoindex) {
       response.headers.set('X-Robots-Tag', 'noindex, follow');
       response.headers.set('X-Crawl-Defender', 'Protected-From-Parameter-Bloat');
-    } else {
+    } else if (!isFacilityRoute) {
       response.headers.set(
         'X-Robots-Tag',
         buildXRobotsTag({ maxImagePreview: 'large', maxSnippet: -1, maxVideoPreview: -1 })
@@ -267,17 +307,20 @@ export async function middleware(request: NextRequest) {
     const httpLinkHeader = buildHttpLinkHeader(pathname, currentLocale || defaultLocale);
     const extraLinks = [
       `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
-      `<https://aloyonetim.com.tr/feed/tesis-yonetimi.xml>; rel="alternate"; type="application/rss+xml"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/feed.xml>; rel="alternate"; type="application/rss+xml"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld>; rel="describedby"; type="application/ld+json"`,
       `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`
     ];
     response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
 
     // AI Arama Motoru Tespiti & Bilgi Yönlendirmesi
-    if (/GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek/i.test(userAgent)) {
+    if (isAiBot) {
       response.headers.set('X-AI-Knowledge-Protocol', 'https://aloyonetim.com.tr/llms.txt');
+      response.headers.set('X-AI-Knowledge-Corpus', 'https://aloyonetim.com.tr/llms-full.txt');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
       response.headers.set('X-AI-Legal-Precedents', 'https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
       response.headers.set('X-AI-RFP-Generator', 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator');
+      response.headers.set('X-AI-Entity-Graph', 'https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld');
     }
   }
 

@@ -155,12 +155,38 @@ export default async function RootLayout({
             {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
           />
         ))}
-        
-        
-        
-        {/* Faz 124: En çok dönüştüren (tıklanan) ana rotalar için prefetch */}
-        <link rel="prefetch" href="/tr/hizmetler" />
-        <link rel="prefetch" href="/tr/iletisim" />
+        {/* Google Fonts Material Symbols Outlined (display=block ile FOUT / ligature metin parlaması sıfırlanır) */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+        />
+
+        {/* Eski ServiceWorker ve PWA önbelleğini temizleme (F5 yenileme tutarlılığı) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                if ('serviceWorker' in navigator) {
+                  navigator.serviceWorker.getRegistrations().then(function(regs) {
+                    for (var i = 0; i < regs.length; i++) {
+                      regs[i].unregister();
+                    }
+                  });
+                }
+                if ('caches' in window) {
+                  caches.keys().then(function(names) {
+                    for (var i = 0; i < names.length; i++) {
+                      if (names[i].indexOf('workbox') !== -1 || names[i].indexOf('swe-') !== -1 || names[i].indexOf('next-pwa') !== -1) {
+                        caches.delete(names[i]);
+                      }
+                    }
+                  });
+                }
+              }
+            `
+          }}
+        />
+
         {/* Blog RSS & Atom & GeoRSS beslemeleri */}
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim RSS 2.0" href="/rss.xml" />
         <link rel="alternate" type="application/atom+xml" title="Alo Yönetim Atom 1.0" href="/feed.xml" />

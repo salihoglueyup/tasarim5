@@ -52,7 +52,7 @@ export default function Footer() {
           
           {/* Column 1: Brand Info & App Links (4 Cols) */}
           <div className="lg:col-span-4 flex flex-col gap-6 pr-2">
-            <Link href="/" prefetch={true} className="inline-block">
+            <Link href={language === 'tr' ? '/' : `/${language}`} prefetch={true} className="inline-block" aria-label="Alo Yönetim Anasayfa">
               <Logo />
             </Link>
 
@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* Column 2: KURUMSAL (2.5 Cols) */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_corporate')}</h4>
+            <h3 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_corporate')}</h3>
             <div className="flex flex-col gap-3" role="navigation" aria-label="Alt menü - Kurumsal">
               {[
                 { nameKey: 'nav_about', path: '/hakkimizda' },
@@ -96,7 +96,7 @@ export default function Footer() {
 
           {/* Column 3: ÇÖZÜMLERİMİZ (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_solutions')}</h4>
+            <h3 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_solutions')}</h3>
             <div className="flex flex-col gap-3" role="navigation" aria-label="Alt menü - Çözümler">
               {[
                 { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi' }, // Amiral Gemisi #1
@@ -128,7 +128,7 @@ export default function Footer() {
 
           {/* Column 4: İLETİŞİM BİLGİLERİ (2.5 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_contact')}</h4>
+            <h3 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">{t('footer_col_contact')}</h3>
             
             {/* Live Weather & Time Pill */}
             <div className="inline-flex items-center gap-2 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-700 dark:text-gray-300 w-fit">
@@ -253,22 +253,22 @@ export default function Footer() {
         {/* Bölge Dizini & Yerel Hizmetler (Yerel SEO — 56 İlçe Hizmet Ağı) */}
         <div className="pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col gap-6">
           <div className="flex flex-col gap-3">
-            <h4 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
+            <h3 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
               {t('footer_service_areas')}
-            </h4>
-            <div className="flex flex-wrap gap-x-4 gap-y-2" role="navigation" aria-label={t('footer_service_areas')}>
+            </h3>
+            <div className="flex flex-wrap gap-x-2 gap-y-2" role="navigation" aria-label={t('footer_service_areas')}>
               {DISTRICTS.map((d) => (
                 <Link
                   key={d.slug}
                   href={`/bolgeler/${d.slug}`}
-                  className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
                 >
                   {d.name} {t('footer_property_management')}
                 </Link>
               ))}
               <Link
                 href="/bolgeler"
-                className="text-xs font-bold text-slate-900 dark:text-white hover:underline"
+                className="text-xs font-bold text-slate-900 dark:text-white hover:underline inline-block py-1 px-2"
               >
                 {t('footer_all_regions')} →
               </Link>
@@ -276,33 +276,202 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h5 className="font-bold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              Tesis & Mülk Yönetimi Çözümleri
+            </h4>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-gray-500 dark:text-gray-400">
+              <Link href="/hizmetler/tesis-yonetimi" className="font-semibold text-slate-900 dark:text-white hover:underline inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis & Mülk Yönetimi (Ana Merkez)</Link>
+              <span>•</span>
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Rezidans & Lüks Site Yönetimi</Link>
+              <span>•</span>
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Plaza & İş Merkezi Yönetimi</Link>
+              <span>•</span>
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Toplu Konut & TOKİ Yönetimi</Link>
+              <span>•</span>
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sanayi & Fabrika Tesis Yönetimi</Link>
+              <span>•</span>
+              <Link href="/hizmetler/tesis-yonetimi/rehber" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis Yönetim Şirketi Seçim Rehberi</Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Popüler Bölgesel Çözümler
-            </h5>
-            <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] text-gray-500 dark:text-gray-400">
-              <Link href="/bolgeler/kadikoy/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white">Kadıköy Aidat Takibi</Link>
+            </h4>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-gray-500 dark:text-gray-400">
+              <Link href="/bolgeler/kadikoy/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Kadıköy Aidat Takibi</Link>
               <span>•</span>
-              <Link href="/bolgeler/atasehir/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Ataşehir Güvenlik Yönetimi</Link>
+              <Link href="/bolgeler/atasehir/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Ataşehir Güvenlik Yönetimi</Link>
               <span>•</span>
-              <Link href="/bolgeler/uskudar/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Üsküdar Tesis Yönetimi</Link>
+              <Link href="/bolgeler/uskudar/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Üsküdar Tesis Yönetimi</Link>
               <span>•</span>
-              <Link href="/bolgeler/besiktas/hukuk-ve-icra-danismanligi" className="hover:text-slate-900 dark:hover:text-white">Beşiktaş Hukuk & İcra</Link>
+              <Link href="/bolgeler/besiktas/hukuk-ve-icra-danismanligi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Beşiktaş Hukuk & İcra</Link>
               <span>•</span>
-              <Link href="/bolgeler/sisli/temizlik-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white">Şişli Temizlik ve Hijyen</Link>
+              <Link href="/bolgeler/sisli/temizlik-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Şişli Temizlik ve Hijyen</Link>
               <span>•</span>
-              <Link href="/bolgeler/bakirkoy/teknik-bakim" className="hover:text-slate-900 dark:hover:text-white">Bakırköy Teknik Bakım</Link>
+              <Link href="/bolgeler/bakirkoy/teknik-bakim" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Bakırköy Teknik Bakım</Link>
               <span>•</span>
-              <Link href="/bolgeler/basaksehir/havuz-bakimi-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white">Başakşehir Havuz Bakımı</Link>
+              <Link href="/bolgeler/basaksehir/havuz-bakimi-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Başakşehir Havuz Bakımı</Link>
               <span>•</span>
-              <Link href="/bolgeler/maltepe/peyzaj-ve-bahce-bakimi" className="hover:text-slate-900 dark:hover:text-white">Maltepe Peyzaj Bakımı</Link>
+              <Link href="/bolgeler/maltepe/peyzaj-ve-bahce-bakimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Maltepe Peyzaj Bakımı</Link>
               <span>•</span>
-              <Link href="/bolgeler/umraniye/hasere-ve-dezenfeksiyon" className="hover:text-slate-900 dark:hover:text-white">Ümraniye Haşere İlaçlama</Link>
+              <Link href="/bolgeler/umraniye/hasere-ve-dezenfeksiyon" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Ümraniye Haşere İlaçlama</Link>
               <span>•</span>
-              <Link href="/bolgeler/sariyer/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Sarıyer Özel Güvenlik</Link>
+              <Link href="/bolgeler/sariyer/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sarıyer Özel Güvenlik</Link>
               <span>•</span>
-              <Link href="/bolgeler/beylikduzu/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white">Beylikdüzü Aidat Takibi</Link>
+              <Link href="/bolgeler/beylikduzu/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Beylikdüzü Aidat Takibi</Link>
               <span>•</span>
-              <Link href="/bolgeler/kartal/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white">Kartal Tesis Yönetimi</Link>
+              <Link href="/bolgeler/kartal/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Kartal Tesis Yönetimi</Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              Grup Şirketlerimiz & Güvenlik Çözüm Ortaklarımız
+            </h4>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-gray-600 dark:text-gray-400">
+              <a
+                href="https://www.guvenlikkursu.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-slate-900 dark:text-white hover:underline inline-flex items-center gap-1 group py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="Alo Güvenlik — 5188 Sayılı Özel Güvenlik Eğitimi & Sertifikasyon"
+              >
+                <span>🛡️ Alo Güvenlik Eğitimi (guvenlikkursu.com)</span>
+                <span className="material-symbols-outlined text-[12px] opacity-70 group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://3gguvenlik.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-slate-900 dark:text-white hover:underline inline-flex items-center gap-1 group py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="3G Özel Güvenlik ve Koruma Hizmetleri — 5188 Lisanslı Tesis Emniyeti"
+              >
+                <span>👮 3G Özel Güvenlik (3gguvenlik.com)</span>
+                <span className="material-symbols-outlined text-[12px] opacity-70 group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+              </a>
+              <span>•</span>
+              <span className="text-gray-500">T.C. İçişleri Bakanlığı 5188 Sayılı Kanun Uyumlu Entegre Güvenlik Ağı</span>
+            </div>
+          </div>
+
+          {/* Resmi Mevzuatlar, Kamu Kurumları ve Akreditasyon Otoriteleri (E-E-A-T Sitewide) */}
+          <div className="flex flex-col gap-3 pt-4 border-t border-gray-200/60 dark:border-white/5">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">account_balance</span>
+              <span>Resmi Mevzuatlar, Kamu Kurumları ve Akreditasyon Otoriteleri</span>
+            </h4>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-gray-500 dark:text-gray-400">
+              <a
+                href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="634 Sayılı Kat Mülkiyeti Kanunu — T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi"
+              >
+                <span>634 Sayılı KMK (mevzuat.gov.tr)</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun"
+              >
+                <span>5188 Sayılı Kanun</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="2004 Sayılı İcra ve İflas Kanunu"
+              >
+                <span>2004 Sayılı İİK</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.egm.gov.tr/ozelguvenlik"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="Emniyet Genel Müdürlüğü Özel Güvenlik Denetleme Başkanlığı ÖGNET"
+              >
+                <span>EGM Özel Güvenlik (ÖGNET)</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.tse.org.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="Türk Standardları Enstitüsü — ISO 41001 & TSE HYB 12850"
+              >
+                <span>TSE Standartları</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.tuik.gov.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="Türkiye İstatistik Kurumu — Resmi TÜFE/ÜFE Verileri"
+              >
+                <span>TÜİK Enflasyon Verileri</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://sifiratik.gov.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Sıfır Atık"
+              >
+                <span>Sıfır Atık Portalı</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.kvkk.gov.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="Kişisel Verileri Koruma Kurumu (KVKK)"
+              >
+                <span>KVKK Kurumu</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.turkak.org.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="TÜRKAK — Türk Akreditasyon Kurumu"
+              >
+                <span>TÜRKAK Akreditasyon</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
+              <span>•</span>
+              <a
+                href="https://www.iskur.gov.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                title="Türkiye İş Kurumu (İŞKUR)"
+              >
+                <span>İŞKUR Portalı</span>
+                <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
+              </a>
             </div>
           </div>
         </div>
