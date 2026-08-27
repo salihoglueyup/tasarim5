@@ -77,7 +77,7 @@ export default async function Home({ params }: Props) {
       question: true, question_en: true, question_ru: true, question_ar: true,
       answer: true, answer_en: true, answer_ru: true, answer_ar: true
     }
-  });
+  }).catch(() => []);
 
   const dbReferences = await prisma.reference.findMany({
     where: { testimonialText: { not: null } },
@@ -92,7 +92,7 @@ export default async function Home({ params }: Props) {
       image: true,
       category: true
     }
-  });
+  }).catch(() => []);
 
   const businessLd = professionalServiceSchema({
     description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
