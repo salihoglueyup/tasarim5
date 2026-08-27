@@ -34,10 +34,12 @@ export default function CleaningCalculator() {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-[var(--color-primary)]">{t('calc_clean_area')}</label>
+                <label htmlFor="cleaning-area-input" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_clean_area')}</label>
                 <span className="text-lg font-black text-slate-700 dark:text-slate-300">{area.toLocaleString('tr-TR')} m²</span>
               </div>
               <input 
+                id="cleaning-area-input"
+                aria-label="Temizlik Yapılacak Toplam Alan (m²)"
                 type="range" 
                 min="500" max="25000" step="500"
                 value={area}

@@ -90,7 +90,7 @@ export default function InteractiveFacilityExplorer() {
         
         {/* Bölüm Başlığı */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/20 dark:border-white/20 text-slate-900 dark:text-slate-100 text-xs font-black uppercase tracking-wider mb-4">
             <span className="material-symbols-outlined text-sm">apartment</span>
             İnteraktif Akıllı Tesis Keşfi
           </div>

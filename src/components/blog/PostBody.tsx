@@ -1,15 +1,6 @@
-import Link from 'next/link';
 import DOMPurify from 'isomorphic-dompurify';
-
-/**
- * Blog içerik gövdesi render'ı + otomatik iç linkleme
- * (SEO Master Plan V4 — Faz 151/176).
- *
- * Tiptap'ten gelen raw HTML içeriğini güvenli bir şekilde render eder.
- * Anahtar kelimeleri otomatik olarak ilgili sayfalara linkler.
- */
-
 import { autoLinkHtml } from '@/lib/autoLinker';
+import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
 
 // Inject IDs into H2 and H3 tags for SEO Table of Contents (Sitelinks)
 if (typeof DOMPurify.addHook === 'function') {
@@ -35,19 +26,27 @@ export default function PostBody({
   title?: string;
   currentUrl?: string;
 }) {
-  // İçeriği otomatik linkle (self-referencing döngüleri engelleyerek)
-  const processedHtml = autoLinkHtml(htmlContent, currentUrl);
+  // 1. JSON bloklarını veya ham metni semantik zengin HTML'e dönüştür
+  const parsedHtml = renderPostBlocksToHtml(htmlContent);
 
-  // Otomatik Alt Etiketi Enjeksiyonu (Faz 22: Görsel SEO)
-  // Eğer img etiketinde alt="" yoksa, yazının başlığını ekler.
+  // 2. İçeriği otomatik linkle (self-referencing döngüleri engelleyerek)
+  const processedHtml = autoLinkHtml(parsedHtml, currentUrl);
+
+  // 3. Otomatik Alt Etiketi Enjeksiyonu (Görsel SEO)
   const seoHtml = processedHtml.replace(/<img(?![^>]*alt=)[^>]*>/gi, (match) => { 
     return match.replace('<img', `<img alt="${title}"`); 
   });
 
+  // 4. DOMPurify ile güvenli temizlik (class ve id korumalı)
+  const sanitizedHtml = DOMPurify.sanitize(seoHtml, {
+    ADD_ATTR: ['id', 'class', 'target', 'rel', 'title', 'alt', 'src', 'width', 'height'],
+    ADD_TAGS: ['iframe', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote'],
+  });
+
   return (
     <div 
-      className="prose prose-slate prose-lg max-w-none text-slate-900 w-full prose-headings:text-slate-950 prose-a:text-brand-600 prose-strong:text-slate-900 prose-img:rounded-2xl prose-img:shadow-lg"
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(seoHtml) }} 
+      className="prose prose-slate prose-lg dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 w-full prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-brand-600 dark:prose-a:text-amber-400 prose-a:font-semibold prose-strong:text-slate-900 dark:prose-strong:text-white prose-blockquote:border-amber-500 prose-img:rounded-2xl prose-img:shadow-lg leading-relaxed"
+      dangerouslySetInnerHTML={{ __html: sanitizedHtml }} 
     />
   );
 }

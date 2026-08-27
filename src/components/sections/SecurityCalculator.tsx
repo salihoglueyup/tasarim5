@@ -35,10 +35,12 @@ export default function SecurityCalculator() {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-[var(--color-primary)]">{t('calc_sec_personnel')}</label>
+                <label htmlFor="sec-calc-pers" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_sec_personnel')}</label>
                 <span className="text-lg font-black text-slate-700 dark:text-slate-300">{personnel} {t('calc_unit_person')}</span>
               </div>
               <input 
+                id="sec-calc-pers"
+                aria-label="Güvenlik Personeli Sayısı"
                 type="range" 
                 min="1" max="20" step="1"
                 value={personnel}
@@ -49,10 +51,12 @@ export default function SecurityCalculator() {
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-[var(--color-primary)]">{t('calc_sec_cameras')}</label>
+                <label htmlFor="sec-calc-cam" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_sec_cameras')}</label>
                 <span className="text-lg font-black text-slate-700 dark:text-slate-300">{cameras} {t('calc_unit_item')}</span>
               </div>
               <input 
+                id="sec-calc-cam"
+                aria-label="Güvenlik Kamerası Sayısı"
                 type="range" 
                 min="0" max="100" step="5"
                 value={cameras}

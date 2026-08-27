@@ -34,10 +34,12 @@ export default function DuesCalculator() {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-[var(--color-primary)]">{t('calc_fac_flats')}</label>
+                <label htmlFor="dues-calc-flats" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_fac_flats')}</label>
                 <span className="text-lg font-black text-slate-700 dark:text-slate-300">{apartmentCount} Daire</span>
               </div>
               <input 
+                id="dues-calc-flats"
+                aria-label="Toplam Daire Sayısı"
                 type="range" 
                 min="10" max="1000" step="10"
                 value={apartmentCount}
@@ -48,10 +50,12 @@ export default function DuesCalculator() {
             
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-[var(--color-primary)]">{t('calc_fac_avg_dues')}</label>
+                <label htmlFor="dues-calc-avg" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_fac_avg_dues')}</label>
                 <span className="text-lg font-black text-slate-700 dark:text-slate-300">₺{avgDues.toLocaleString('tr-TR')}</span>
               </div>
               <input 
+                id="dues-calc-avg"
+                aria-label="Daire Başı Ortalama Aidat Tutarı"
                 type="range" 
                 min="250" max="10000" step="250"
                 value={avgDues}

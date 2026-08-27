@@ -42,22 +42,22 @@ export default function FacilityTestimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
-            className="bg-gray-50 dark:bg-zinc-900/50 p-8 rounded-3xl border border-gray-200/60 dark:border-white/5 flex flex-col justify-between"
+            className="bg-[var(--color-surface-variant)] p-8 rounded-3xl border border-[var(--color-outline)]/60 flex flex-col justify-between shadow-2xs"
           >
             <div>
-              <span className="text-slate-400 text-4xl leading-none font-serif">"</span>
+              <span className="text-[var(--color-tertiary)] text-4xl leading-none font-serif">&ldquo;</span>
               <p className="text-[var(--color-secondary)] italic font-light text-sm mt-2 mb-6">
                 {t(item.quote as any)}
               </p>
             </div>
-            <div className="flex items-center gap-4 border-t border-gray-200 dark:border-white/10 pt-6">
-              <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 font-bold text-lg">
+            <div className="flex items-center gap-4 border-t border-[var(--color-outline)]/60 pt-6">
+              <div className="w-12 h-12 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 flex items-center justify-center text-[var(--color-primary)] font-bold text-lg shadow-2xs">
                 {item.author.charAt(0)}
               </div>
               <div>
                 <h4 className="text-[var(--color-primary)] font-bold text-sm">{item.author}</h4>
                 <p className="text-xs text-[var(--color-secondary)]">{t(item.role as any)}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">{item.project}</p>
+                <p className="text-xs text-[var(--color-tertiary)] font-medium mt-0.5">{item.project}</p>
               </div>
             </div>
           </motion.div>

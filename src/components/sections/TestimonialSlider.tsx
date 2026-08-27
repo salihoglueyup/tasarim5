@@ -197,8 +197,8 @@ export default function TestimonialSlider({
               />
               <div>
                 <h3 className="text-xl font-bold text-[var(--color-primary)]">{current.name}</h3>
-                <p className="text-sm text-[var(--color-secondary)] font-medium">{current.title} • {current.site}</p>
-                <span className="text-xs text-gray-400">{current.location}</span>
+                <p className="text-sm text-[var(--color-secondary)] font-semibold">{current.title} • {current.site}</p>
+                <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{current.location}</span>
               </div>
             </div>
           </div>
