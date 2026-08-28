@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import { QuoteCtaButton } from '@/components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { EventSeo, ServiceAuthorityHubSeo } from '@/components/seo';
@@ -255,6 +257,32 @@ export default function GuvenlikAkademisiClient() {
                    <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed max-w-xs">{step.desc}</p>
                 </div>
              ))}
+          </div>
+        </div>
+
+        {/* Kurumsal Güvenlik Teklifi & Hizmet Köprüsü (CRO Banner) */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+          <div className="flex flex-col gap-4 max-w-2xl text-center md:text-left">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full w-fit mx-auto md:mx-0 border border-white/10">
+              5188 Lisanslı Güvenlik Hizmetleri
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold leading-tight">
+              Siteniz veya Tesisiniz İçin Lisanslı Özel Güvenlik mi Arıyorsunuz?
+            </h2>
+            <p className="text-slate-300 text-sm md:text-base font-light leading-relaxed">
+              Alo Yönetim güvencesiyle 5188 sertifikalı güvenlik personeli, 7/24 kamera & devriye denetimi ve risk analizi hizmeti. 48 saat içinde şeffaf teklif alın.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 w-full md:w-auto">
+            <QuoteCtaButton className="bg-white text-slate-950 font-bold py-3.5 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-lg text-center">
+              Güvenlik Teklifi Al
+            </QuoteCtaButton>
+            <Link
+              href="/hizmetler/guvenlik-yonetimi"
+              className="border border-white/30 text-white font-bold py-3 px-6 rounded-xl hover:bg-white/10 transition-colors text-center text-sm"
+            >
+              Hizmet Detayları
+            </Link>
           </div>
         </div>
 

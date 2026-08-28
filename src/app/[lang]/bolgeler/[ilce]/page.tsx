@@ -124,14 +124,14 @@ export default async function DistrictPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd, businessLd, faqLd]} />
       <PageHeader
-        title={`${district.name} Tesis Yönetimi`}
-        description={`${district.name} ve çevresinde profesyonel site, apartman ve tesis yönetimi hizmetleri.`}
+        title={`${district.name} Site ve Tesis Yönetimi`}
+        description={`${district.name} genelinde site, apartman ve rezidanslar için %30 aidat tasarruflu, 5188 lisanslı profesyonel yönetim hizmetleri.`}
       />
 
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-12">
         {/* TL;DR (AI/snippet için) */}
         <TldrBlock>
-          {district.name}&apos;de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat yönetimi dahil tüm hizmetleri tek çatı altında sunar. {district.name}&apos;de {district.managedProjects}+ proje yönetilmektedir. Ücretsiz keşif için: 0216 550 48 48.
+          {district.name}&apos;de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat yönetimi dahil tüm hizmetleri tek çatı altında sunar. {district.name}&apos;de {district.managedProjects}+ proje yönetilmektedir. Ücretsiz keşif ve teklif için: 0216 550 48 48.
         </TldrBlock>
 
         {/* Canlı 7/24 Acil Müdahale Rozeti & Canlı Aktivite Şeridi */}
@@ -144,7 +144,7 @@ export default async function DistrictPage({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-8 flex flex-col gap-5">
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
-              {district.name}&apos;de Profesyonel Tesis Yönetimi
+              {district.name}&apos;de Profesyonel Site ve Tesis Yönetimi
             </h2>
             <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
               {district.intro}
@@ -165,6 +165,9 @@ export default async function DistrictPage({
               {district.side} Yakası · ~{Math.round(district.population / 1000)} bin nüfus ·{' '}
               {district.neighborhoods.length} öne çıkan mahalle
             </p>
+            <QuoteCtaButton className="mt-2 bg-white text-slate-950 font-bold py-3 px-5 rounded-xl text-center hover:bg-slate-100 transition-colors shadow text-sm">
+              {district.name} İçin Teklif Al
+            </QuoteCtaButton>
           </div>
         </div>
 
