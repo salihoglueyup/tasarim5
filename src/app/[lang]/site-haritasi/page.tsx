@@ -9,7 +9,7 @@ import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
 import { CATEGORIES, POSTS } from '@/data/posts';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,

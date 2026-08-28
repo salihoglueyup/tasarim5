@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
+import { redis } from '@/lib/redis';
 import BasariHikayeleriClient from './BasariHikayeleriClient';
 import { buildMetadata } from '@/lib/seo';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,
@@ -22,13 +23,29 @@ export async function generateMetadata({
 }
 
 export default async function BasariHikayeleriPage() {
-  const stories = await prisma.reference.findMany({
-    where: {
-      isSuccessStory: true,
-      published: true
-    },
-    orderBy: { order: 'asc' }
-  }).catch(() => []);
+  let stories: any[] = [];
+  const cacheKeyStories = 'success_stories_list_v2';
+
+  try {
+    const cached = await redis.get(cacheKeyStories);
+    if (cached) stories = JSON.parse(cached);
+  } catch {
+    // Redis fallback
+  }
+
+  if (stories.length === 0) {
+    stories = await prisma.reference.findMany({
+      where: {
+        isSuccessStory: true,
+        published: true
+      },
+      orderBy: { order: 'asc' }
+    }).catch(() => []);
+
+    if (stories.length > 0) {
+      redis.setex(cacheKeyStories, 3600, JSON.stringify(stories)).catch(() => {});
+    }
+  }
 
   return (
     <BasariHikayeleriClient stories={stories} />

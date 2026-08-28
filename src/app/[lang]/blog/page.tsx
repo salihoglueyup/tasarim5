@@ -10,6 +10,9 @@ import ItemListSeo from '@/components/seo/ItemListSeo';
 import { BASE_URL, buildMetadata } from '@/lib/seo';
 
 import { POSTS, CATEGORIES } from '@/data/posts';
+import { redis } from '@/lib/redis';
+
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,
@@ -28,16 +31,42 @@ export async function generateMetadata({
 }
 
 export default async function Blog() {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    orderBy: { datePublished: 'desc' },
-    include: { category: true }
-  }).catch(() => []);
+  let finalPosts: any[] = [];
+  let finalCategories: any[] = [];
+  const cacheKeyPosts = 'blog_list_posts_v2';
+  const cacheKeyCats = 'blog_list_cats_v2';
 
-  const categories = await prisma.category.findMany().catch(() => []);
+  try {
+    const [cachedP, cachedC] = await Promise.all([
+      redis.get(cacheKeyPosts),
+      redis.get(cacheKeyCats),
+    ]);
+    if (cachedP) finalPosts = JSON.parse(cachedP);
+    if (cachedC) finalCategories = JSON.parse(cachedC);
+  } catch {
+    // Redis offline/error fallback
+  }
 
-  let finalPosts = posts;
-  let finalCategories = categories;
+  if (finalPosts.length === 0) {
+    const [dbPosts, dbCategories] = await Promise.all([
+      prisma.post.findMany({
+        where: { published: true },
+        orderBy: { datePublished: 'desc' },
+        include: { category: true }
+      }).catch(() => []),
+      prisma.category.findMany().catch(() => []),
+    ]);
+
+    finalPosts = dbPosts;
+    finalCategories = dbCategories;
+
+    if (finalPosts.length > 0) {
+      redis.setex(cacheKeyPosts, 3600, JSON.stringify(finalPosts)).catch(() => {});
+    }
+    if (finalCategories.length > 0) {
+      redis.setex(cacheKeyCats, 3600, JSON.stringify(finalCategories)).catch(() => {});
+    }
+  }
 
   if (finalPosts.length === 0) {
     finalPosts = POSTS.map((p, idx) => ({

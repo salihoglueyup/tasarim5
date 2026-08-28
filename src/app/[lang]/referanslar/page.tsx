@@ -8,7 +8,7 @@ import redis from '@/lib/redis';
 import { buildMetadata } from '@/lib/seo';
 import { getReferencesList, PARTNERS_DATA } from '@/data/references';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,
