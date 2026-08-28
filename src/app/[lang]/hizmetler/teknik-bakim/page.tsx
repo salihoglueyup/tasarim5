@@ -25,18 +25,21 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_maint_meta_title || 'Bina ve Tesis Teknik Bakım, Onarım ve Mobil Servis | Alo Yönetim';
-  const description = t.serv_maint_meta_desc || 'Asansör yeşil etiket muayenesi, jeneratör, hidrofor, kompanzasyon ve yangın tesisatı periyodik bakımı. 7/24 kesintisiz mobil teknik servis ve önleyici bakım.';
+  const title = 'Bina & Site Teknik Bakım Hizmetleri — Asansör, Jeneratör & HVAC | Alo Yönetim';
+  const description = 'Asansör yeşil etiket muayenesi, jeneratör, hidrofor ve kompanzasyon panosu bakımı. 7/24 kesintisiz mobil teknik servis ve %0 reaktif ceza güvencesi.';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/teknik-bakim',
     lang,
+    targetKeyword: 'bina teknik bakım',
     ogImageType: 'service',
     keywords: [
       'teknik bakım',
+      'bina teknik bakım',
       'asansör bakımı',
+      'asansör arıza servisi',
       'jeneratör periyodik bakım',
       'bina hidrofor bakımı',
       'kompanzasyon panosu reaktif ceza',

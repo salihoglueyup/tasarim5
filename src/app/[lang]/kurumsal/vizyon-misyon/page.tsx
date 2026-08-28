@@ -20,14 +20,15 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.vision_meta_title || 'Vizyon & Misyon — Geleceğin Akıllı Tesis Yönetimi | Alo Yönetim';
-  const description = t.vision_meta_desc || 'Teknoloji, şeffaflık ve insan odaklı entegre tesis yönetimi vizyonumuzla yaşam alanlarında güven ve konfor standartlarını yükseltiyoruz.';
+  const title = 'Vizyon & Misyonumuz — Akıllı ve Şeffaf Tesis Yönetimi | Alo Yönetim';
+  const description = 'Yapay zeka destekli bina otomasyonu, %30 maliyet tasarrufu ve sakin memnuniyeti odaklı entegre tesis yönetimi vizyonumuz. Kurumsal değerlerimizi inceleyin!';
 
   return buildMetadata({
     title,
     description,
     path: '/kurumsal/vizyon-misyon',
     lang,
+    targetKeyword: 'alo yönetim vizyon ve misyon',
     ogImageType: 'default',
     keywords: [
       'alo yönetim vizyon',

@@ -20,19 +20,21 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.ges_meta_title || 'Çatı GES Güneş Enerjisi Projeleri ve Site Enerji Tasarrufu | Alo Yönetim';
-  const description = t.ges_meta_desc || 'Apartman, site ve plazalarda ortak alan elektrik tüketimini %70 sıfırlayan çatı tipi güneş enerjisi (GES) fizibilite, kurulum ve finansman çözümleri.';
+  const title = 'Çatı GES Güneş Enerjisi & Amortisman Hesaplama — Siteler İçin | Alo Yönetim';
+  const description = 'Sitelerde ortak alan elektrik faturasını %70 düşüren çatı tipi güneş enerjisi (GES) fizibilite, amortisman hesaplama ve anahtar teslim kurulum. Teklif alın!';
 
   return buildMetadata({
     title,
     description,
     path: '/surdurulebilirlik/ges-projeleri',
     lang,
+    targetKeyword: 'çatı ges site yönetimi',
     ogImageType: 'default',
     keywords: [
       'çatı ges site yönetimi',
       'apartman güneş enerjisi',
       'site ortak alan elektrik tasarrufu',
+      'ges amortisman hesaplama',
       'güneş paneli amortisman hesaplama',
       'epdk lisanssız elektrik üretimi'
     ],

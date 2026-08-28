@@ -25,17 +25,19 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_pool_meta_title || 'Yüzme Havuzu Bakımı ve Kimyasal Şartlandırma | Alo Yönetim';
-  const description = t.serv_pool_meta_desc || 'Sertifikalı havuz operatörlerimizle açık ve kapalı yüzme havuzları için günlük kimyasal analiz, filtre ters yıkama, dip süpürme ve Sağlık Bakanlığı onaylı hijyen.';
+  const title = 'Site & Rezidans Havuz Bakımı — Sağlık Bakanlığı Onaylı Hijyen | Alo Yönetim';
+  const description = 'Site ve rezidanslar için günlük klor-pH ölçümü, filtre ters yıkama ve sertifikalı operatörlü havuz bakımı. Sağlık Bakanlığı standartlarında periyodik analiz.';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/havuz-bakimi-ve-hijyen',
     lang,
+    targetKeyword: 'site havuz bakımı',
     ogImageType: 'service',
     keywords: [
       'havuz bakımı',
+      'site havuz bakımı',
       'yüzme havuzu bakımı',
       'havuz kimyasalları klor ph',
       'site havuz işletmesi',

@@ -20,17 +20,19 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.about_meta_title || 'Hakkımızda — Kurumsal Tesis ve Bina Yönetim Vizyonumuz | Alo Yönetim';
-  const description = t.about_meta_desc || '15+ yıllık tecrübe, 45.000+ bağımsız bölüm ve 1.200+ uzman saha kadrosuyla İstanbul genelinde şeffaf ve kurumsal tesis yönetimi öncüsü.';
+  const title = 'Hakkımızda — 15+ Yıllık Tecrübe, 120+ Proje & Kurumsal Yönetim | Alo Yönetim';
+  const description = 'Alo Yönetim ve Organizasyon A.Ş. hakkında: 15+ yıl tecrübe, 120+ proje, ISO 41001 & 5188 lisanslı güvenlik ile İstanbul\'un lider tesis yönetim şirketi.';
 
   return buildMetadata({
     title,
     description,
     path: '/hakkimizda',
     lang,
+    targetKeyword: 'alo yönetim hakkında',
     ogImageType: 'default',
     keywords: [
       'alo yönetim hakkında',
+      'alo yönetim ve organizasyon',
       'kurumsal tesis yönetimi',
       'site yönetim şirketi istanbul',
       'bina yönetim vizyonu',

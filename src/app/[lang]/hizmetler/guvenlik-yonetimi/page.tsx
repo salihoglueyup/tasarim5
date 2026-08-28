@@ -25,17 +25,19 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_sec_meta_title || '5188 Lisanslı Özel Güvenlik ve Tesis Emniyeti | Alo Yönetim';
-  const description = t.serv_sec_meta_desc || '5188 sayılı kanun kapsamında Emniyet ve Valilik izinli profesyonel özel güvenlik hizmetleri. 7/24 CCTV, plaka tanıma PTS, GPS devriye ve fiziki koruma.';
+  const title = '5188 Özel Güvenlik Şirketi — Site, Plaza & Tesis Güvenlik Hizmetleri | Alo Yönetim';
+  const description = '5188 sayılı Kanun kapsamında Valilik izinli lisanslı özel güvenlik, 7/24 devriye, CCTV kamera izleme ve fiziki koruma hizmetleri. 48 saatte teklif alın!';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/guvenlik-yonetimi',
     lang,
+    targetKeyword: 'özel güvenlik şirketi',
     ogImageType: 'service',
     keywords: [
       'özel güvenlik şirketi',
+      'özel güvenlik şirketleri',
       '5188 özel güvenlik',
       'site güvenliği',
       'apartman güvenliği',

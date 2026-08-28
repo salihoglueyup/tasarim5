@@ -26,14 +26,15 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_legal_meta_title || 'KMK 634 Hukuk ve Aidat İcra Danışmanlığı | Alo Yönetim';
-  const description = t.serv_legal_meta_desc || 'Kat Mülkiyeti Kanunu (KMK 634) kapsamında aidat borçları icra takibi, genel kurul ve divan yönetimi, yönetim planı tadilatı ve hukuki danışmanlık.';
+  const title = 'Kat Mülkiyeti Hukuku & Aidat İcra Danışmanlığı — KMK 634 | Alo Yönetim';
+  const description = 'KMK 634 kapsamında geciken aidatlar için ilamsız icra takibi, %5 gecikme tazminatı tahsili ve genel kurul hukuki danışmanlığı. Avukat destekli şeffaf süreç.';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
     lang,
+    targetKeyword: 'kat mülkiyeti hukuku',
     ogImageType: 'service',
     keywords: [
       'kat mülkiyeti hukuku',

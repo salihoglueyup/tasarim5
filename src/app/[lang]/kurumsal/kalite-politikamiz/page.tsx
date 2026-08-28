@@ -20,14 +20,15 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.quality_meta_title || 'Kalite Politikamız — Uluslararası Tesis Yönetim Standartları | Alo Yönetim';
-  const description = t.quality_meta_desc || 'ISO 9001 Kalite, ISO 41001 Tesis Yönetimi, ISO 45001 İSG ve 5188 Güvenlik akreditasyonlarıyla sıfır hata ve maksimum memnuniyet politikamız.';
+  const title = 'Kalite Politikamız — ISO 41001 & ISO 9001 Standartları | Alo Yönetim';
+  const description = 'ISO 9001, ISO 41001, ISO 45001 ve 5188 Sayılı Kanun lisanslarıyla sıfır hata ve %100 sakin memnuniyeti ilkelerimiz. Kalite taahhütlerimizi inceleyin!';
 
   return buildMetadata({
     title,
     description,
     path: '/kurumsal/kalite-politikamiz',
     lang,
+    targetKeyword: 'site yönetimi kalite politikası',
     ogImageType: 'default',
     keywords: [
       'alo yönetim kalite politikası',

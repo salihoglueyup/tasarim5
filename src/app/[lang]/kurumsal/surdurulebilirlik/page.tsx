@@ -20,20 +20,23 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.sustainability_meta_title || 'Kurumsal Sürdürülebilirlik & Çevre Politikamız | Alo Yönetim';
-  const description = t.sustainability_meta_desc || 'Sıfır atık, su geri kazanımı, yenilenebilir enerji entegrasyonu ve çevreye duyarlı kurumsal yönetim prensiplerimiz.';
+  const title = 'Sürdürülebilirlik & Yeşil Tesis Yönetimi — ISO 14001 & ESG | Alo Yönetim';
+  const description = 'Sitelerde sıfır atık, gri su geri kazanımı, GES çatı güneş enerjisi ve ISO 14001 çevre yönetim standartlarımız. Yeşil bina çözümlerimizi inceleyin!';
 
   return buildMetadata({
     title,
     description,
     path: '/kurumsal/surdurulebilirlik',
     lang,
+    targetKeyword: 'yeşil bina tesis yönetimi',
     ogImageType: 'default',
     keywords: [
       'kurumsal sürdürülebilirlik',
+      'yeşil bina tesis yönetimi',
       'çevre politikası site yönetimi',
       'yeşil bina prensipleri',
-      'alo yönetim esg'
+      'alo yönetim esg',
+      'iso 14001 çevre yönetimi'
     ],
   });
 }

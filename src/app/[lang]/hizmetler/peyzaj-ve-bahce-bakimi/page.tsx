@@ -25,17 +25,19 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_land_meta_title || 'Peyzaj Tasarımı ve Bahçe Bakım Yönetimi | Alo Yönetim';
-  const description = t.serv_land_meta_desc || 'Ziraat mühendislerimizle site ve tesisler için 4 mevsim periyodik çim biçme, ağaç budama, bitki koruma ve akıllı otomatik sulama sistemleri bakımı.';
+  const title = 'Site & Tesis Peyzaj ve Bahçe Bakımı — Ziraat Mühendisliği | Alo Yönetim';
+  const description = 'Siteler için 4 mevsim periyodik çim biçme, ağaç budama, gübreleme ve akıllı otomatik sulama bakımı. Ziraat mühendisi denetimli profesyonel peyzaj hizmeti.';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/peyzaj-ve-bahce-bakimi',
     lang,
+    targetKeyword: 'site peyzaj bakımı',
     ogImageType: 'service',
     keywords: [
       'peyzaj bakımı',
+      'site peyzaj bakımı',
       'site bahçe bakımı',
       'çim biçme budama',
       'otomatik sulama sistemleri',

@@ -25,17 +25,20 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_pest_meta_title || 'Sağlık Bakanlığı Ruhsatlı Haşere İlaçlama ve Dezenfeksiyon | Alo Yönetim';
-  const description = t.serv_pest_meta_desc || 'Apartman, site ve tesisler için Sağlık Bakanlığı onaylı biyosidal ürünlerle kokusuz, kalıcı böcek, kemirgen kontrolü ve periyodik dezenfeksiyon hizmeti.';
+  const title = 'Apartman & Site Haşere İlaçlama — Sağlık Bakanlığı Ruhsatlı | Alo Yönetim';
+  const description = 'Site, apartman ve tesisler için Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle kokusuz böcek, fare ve kemirgen ilaçlama hizmeti. Randevu: 0216 550 48 48.';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/hasere-ve-dezenfeksiyon',
     lang,
+    targetKeyword: 'apartman böcek ilaçlama',
     ogImageType: 'service',
     keywords: [
       'haşere ilaçlama',
+      'alo böcek',
+      'alo ilaçlama',
       'site ilaçlama',
       'apartman böcek ilaçlama',
       'dezenfeksiyon hizmeti',

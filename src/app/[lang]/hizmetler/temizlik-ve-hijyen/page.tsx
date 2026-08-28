@@ -25,19 +25,20 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_clean_meta_title || 'Profesyonel Apartman, Site ve Tesis Temizliği | Alo Yönetim';
-  const description = t.serv_clean_meta_desc || 'TSE 13811 hijyen standartlarında, endüstriyel zemin yıkama makineleri ve sertifikalı personellerle 4 mevsim site, apartman ve plaza ortak alan temizliği.';
+  const title = 'Apartman, Site & Plaza Ortak Alan Temizlik Şirketi | Alo Yönetim';
+  const description = 'TSE 13811 standartlarında endüstriyel zemin makineleri ve kadrolu personellerle blok, kat holü ve otopark temizliği. 48 saat içinde şeffaf teklif alın!';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/temizlik-ve-hijyen',
     lang,
+    targetKeyword: 'site temizlik şirketi',
     ogImageType: 'service',
     keywords: [
       'site temizlik şirketi',
       'apartman temizliği',
-      'ortak alan temizliği',
+      'site ortak alan temizliği',
       'merdiven temizliği',
       'otopark zemin yıkama',
       'tse 13811 hijyen',

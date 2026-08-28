@@ -25,21 +25,24 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.serv_dues_meta_title || 'Online Aidat Takibi ve Dijital Muhasebe Yönetimi | Alo Yönetim';
-  const description = t.serv_dues_meta_desc || 'Site ve apartmanlar için %99 tahsilat oranlı dijital aidat takip sistemi. Online kredi kartıyla ödeme, otomatik banka entegrasyonu ve KMK 634 icra takibi.';
+  const title = 'Profesyonel Aidat Takibi & Tahsilat Yönetimi — KMK 634 m.20 | Alo Yönetim';
+  const description = 'Site ve apartmanlar için %99 tahsilat garantili dijital aidat takip sistemi. Kredi kartıyla online ödeme, otomatik banka entegrasyonu ve yasal icra takibi.';
 
   return buildMetadata({
     title,
     description,
     path: '/hizmetler/aidat-takibi',
     lang,
+    targetKeyword: 'aidat takibi',
     ogImageType: 'service',
     keywords: [
       'aidat takibi',
+      'profesyonel aidat tahsili',
       'online aidat ödeme',
       'site aidat takip programı',
       'apartman aidat tahsilatı',
       'kat mülkiyeti aidat takibi',
+      'aidat icra takibi',
       'şeffaf site muhasebesi',
       'tesis yönetimi aidat'
     ],
