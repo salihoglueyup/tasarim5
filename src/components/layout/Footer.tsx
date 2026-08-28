@@ -280,7 +280,7 @@ export default function Footer() {
               Tesis & Mülk Yönetimi Çözümleri
             </h4>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-gray-500 dark:text-gray-400">
-              <Link href="/hizmetler/tesis-yonetimi" className="font-semibold text-slate-900 dark:text-white hover:underline inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis & Mülk Yönetimi (Ana Merkez)</Link>
+              <Link href="/hizmetler/tesis-yonetimi" className="font-semibold text-slate-900 dark:text-white hover:underline inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">İstanbul Tesis Yönetimi & Entegre İşletme</Link>
               <span>•</span>
               <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Rezidans & Lüks Site Yönetimi</Link>
               <span>•</span>

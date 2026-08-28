@@ -22,6 +22,7 @@ import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer'
 import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
 import { buildDistrictFacilityGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
+import { getAdjacentDistrictMeshLinks } from '@/lib/seo/facilityMeshLinkerEngine';
 import {
   generateBreadcrumbs,
   webPageSchema,
@@ -577,28 +578,53 @@ export default async function ServiceDistrictPage({
           </div>
         </div>
 
-        {/* İç linkler: pillar + diğer hizmetler + ilçe */}
-        <div className="flex flex-col gap-5">
-          <p className="text-sm text-[var(--color-secondary)]">
-            Ayrıntılı bilgi:{' '}
-            <Link href={service.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
-              {service.name} hizmetimiz
-            </Link>{' '}
-            ·{' '}
-            <Link href={`/bolgeler/${district.slug}`} className="text-slate-900 dark:text-white font-semibold hover:underline">
-              {district.name} tüm hizmetler
-            </Link>
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {otherServices.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/bolgeler/${district.slug}/${s.slug}`}
-                className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:border-slate-900 dark:hover:border-white hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
-              >
-                {s.shortName} — {district.name}
+        {/* İç linkler: pillar + diğer hizmetler + ilçe + komşu ilçe mesh */}
+        <div className="flex flex-col gap-6 pt-4 border-t border-[var(--color-outline)]/40">
+          <div className="flex flex-col gap-2">
+            <p className="text-sm text-[var(--color-secondary)]">
+              Ana Hizmet Merkezi:{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-slate-900 dark:text-white font-bold hover:underline">
+                İstanbul Profesyonel Tesis Yönetimi ve Entegre Tesis İşletmeciliği
+              </Link>{' '}
+              ·{' '}
+              <Link href={service.pillar} className="text-slate-900 dark:text-white font-semibold hover:underline">
+                {service.name} hizmetimiz
+              </Link>{' '}
+              ·{' '}
+              <Link href={`/bolgeler/${district.slug}`} className="text-slate-900 dark:text-white font-semibold hover:underline">
+                {district.name} tüm hizmetler
               </Link>
-            ))}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">{district.name} Diğer Hizmetlerimiz</h3>
+            <div className="flex flex-wrap gap-2">
+              {otherServices.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/bolgeler/${district.slug}/${s.slug}`}
+                  className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-4 py-1.5 text-xs font-semibold text-[var(--color-primary)] hover:border-slate-900 dark:hover:border-white hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
+                >
+                  {s.shortName} — {district.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">Komşu İlçelerde Tesis Yönetimi</h3>
+            <div className="flex flex-wrap gap-2">
+              {getAdjacentDistrictMeshLinks(district.slug, lang).map((adj) => (
+                <Link
+                  key={adj.url}
+                  href={adj.url}
+                  className="bg-[var(--color-surface)] border border-blue-500/20 text-blue-600 dark:text-blue-400 rounded-full px-4 py-1.5 text-xs font-semibold hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors"
+                >
+                  {adj.anchorText}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

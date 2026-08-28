@@ -56,8 +56,8 @@ export function getFacilitySerpMeta(lang = 'tr', districtSlug?: string): Facilit
   }
 
   // Ana Hub Sayfası
-  let title = 'Profesyonel Tesis Yönetimi İstanbul — ISO 41001 Standartlarında Entegre Yönetim';
-  let description = 'İstanbul genelinde 39 ilçede 400+ tesis referansı. ISO 41001 onaylı entegre tesis yönetimi, 5188 özel güvenlik, teknik bakım, aidat takibi ve %30 bütçe tasarrufu.';
+  let title = 'Tesis Yönetimi İstanbul — ISO 41001 Entegre Tesis Yönetim Şirketi | Alo Yönetim';
+  let description = 'İstanbul genelinde 39 ilçede 400+ tesis referansı. ISO 41001 sertifikalı profesyonel tesis yönetimi, 5188 güvenlik, teknik bakım ve %30 aidat tasarrufu. Teklif alın!';
   let targetKeyword = 'tesis yönetimi';
 
   if (lang === 'en') {
