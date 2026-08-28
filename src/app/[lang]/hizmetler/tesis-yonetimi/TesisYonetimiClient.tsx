@@ -11,6 +11,7 @@ import {
   FacilityGroupSecurityTrustSeo,
   FacilitySubSectorCrossNav,
   ServiceAuthorityHubSeo,
+  FacilityMaintenanceScheduleSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -277,6 +278,7 @@ export default function TesisYonetimiClient() {
         <div className="space-y-12">
           <FacilityComparisonMatrixSeo />
           <FacilityGroupSecurityTrustSeo />
+          <FacilityMaintenanceScheduleSeo />
         </div>
 
         {/* 4. BÖLÜM: Kanıtlanmış Başarı & Müşteri Deneyimi (Vaka Çalışmaları + Yorumlar) */}

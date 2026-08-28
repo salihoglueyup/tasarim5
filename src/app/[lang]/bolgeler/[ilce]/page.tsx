@@ -348,31 +348,39 @@ export default async function DistrictPage({
         </div>
 
         {/* Blog & pillar iç linkler */}
-        <div className="text-center flex flex-col gap-4">
-          <p className="text-sm text-[var(--color-secondary)]">
+        <div className="text-center flex flex-col gap-4 border-t border-[var(--color-outline)]/40 pt-8">
+          <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
             Kurumsal Hizmetler & Mevzuat:{' '}
             <Link href="/hizmetler/tesis-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              İstanbul Profesyonel Tesis Yönetimi
+              İstanbul Tesis Yönetimi
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              Plaza & İş Merkezi Yönetimi
             </Link>{' '}
             ·{' '}
             <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Rezidans & Site Yönetimi
             </Link>{' '}
             ·{' '}
+            <Link href="/hizmetler/guvenlik-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              5188 Özel Güvenlik Hizmetleri
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hizmetler/teknik-bakim" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              Asansör & Teknik Bakım
+            </Link>{' '}
+            ·{' '}
             <Link href="/hesaplayici" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Aidat ve Bütçe Hesaplayıcı
             </Link>{' '}
             ·{' '}
-            <Link href="/blog" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              Site Yönetimi Blogu
-            </Link>{' '}
-            ·{' '}
             <Link href="/sozluk" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              Yönetim Sözlüğü
+              KMK 634 Terimler Sözlüğü
             </Link>{' '}
             ·{' '}
             <Link href="/bolgeler" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              Tüm Bölgeler
+              İstanbul 39 İlçe Tesis Yönetimi
             </Link>
           </p>
         </div>

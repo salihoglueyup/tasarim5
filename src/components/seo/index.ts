@@ -76,4 +76,5 @@ export { default as BlogArticleEcosystemSeo } from './BlogArticleEcosystemSeo';
 export { default as KeywordAnalysisSeo } from './KeywordAnalysisSeo';
 export { default as BlogSeo } from './BlogSeo';
 export { default as ServiceAuthorityHubSeo } from './ServiceAuthorityHubSeo';
+export { default as FacilityMaintenanceScheduleSeo } from './FacilityMaintenanceScheduleSeo';
 
