@@ -24,9 +24,20 @@ const nextConfig: NextConfig = {
   // Faz 216: React Strict Mode ile unhandled render hatalarını yakala.
   reactStrictMode: true,
   // Tek biçim URL: sondaki slash yok (canonical/proxy ile tutarlı — Faz 26).
-  trailingSlash: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
   experimental: {
-    optimizePackageImports: ['framer-motion', '@next/third-parties'],
+    optimizePackageImports: [
+      'framer-motion',
+      '@next/third-parties',
+      'lucide-react',
+      'date-fns',
+      'clsx',
+      'tailwind-merge',
+      'canvas-confetti',
+      'ioredis'
+    ],
   },
   images: {
     formats: ['image/avif', 'image/webp'],

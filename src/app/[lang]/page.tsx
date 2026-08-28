@@ -7,6 +7,7 @@ import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
 import { prisma } from '@/lib/prisma';
+import { redis } from '@/lib/redis';
 
 import { generateFacilityManagementGraph } from '@/lib/seo/facilityTopicGraph';
 
@@ -63,36 +64,64 @@ export default async function Home({ params }: Props) {
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const dbFaqs = await prisma.faq.findMany({
-    take: 5,
-    where: {
-      NOT: {
-        question: {
-          contains: 'ilçesinde'
-        }
-      }
-    },
-    orderBy: { order: 'asc' },
-    select: { 
-      question: true, question_en: true, question_ru: true, question_ar: true,
-      answer: true, answer_en: true, answer_ru: true, answer_ar: true
-    }
-  }).catch(() => []);
+  let dbFaqs: any[] = [];
+  let dbReferences: any[] = [];
+  const cacheKeyFaqs = `home_faqs_v2_${lang}`;
+  const cacheKeyRefs = `home_refs_v2_${lang}`;
 
-  const dbReferences = await prisma.reference.findMany({
-    where: { testimonialText: { not: null } },
-    orderBy: { createdAt: 'desc' },
-    select: {
-      id: true,
-      testimonialAuthor: true,
-      testimonialText: true,
-      title: true,
-      units: true,
-      location: true,
-      image: true,
-      category: true
+  try {
+    const [cachedFaqs, cachedRefs] = await Promise.all([
+      redis.get(cacheKeyFaqs),
+      redis.get(cacheKeyRefs),
+    ]);
+    if (cachedFaqs) dbFaqs = JSON.parse(cachedFaqs);
+    if (cachedRefs) dbReferences = JSON.parse(cachedRefs);
+  } catch {
+    // Redis offline/error fallback
+  }
+
+  if (dbFaqs.length === 0) {
+    dbFaqs = await prisma.faq.findMany({
+      take: 5,
+      where: {
+        NOT: {
+          question: {
+            contains: 'ilçesinde'
+          }
+        }
+      },
+      orderBy: { order: 'asc' },
+      select: { 
+        question: true, question_en: true, question_ru: true, question_ar: true,
+        answer: true, answer_en: true, answer_ru: true, answer_ar: true
+      }
+    }).catch(() => []);
+
+    if (dbFaqs.length > 0) {
+      redis.setex(cacheKeyFaqs, 3600, JSON.stringify(dbFaqs)).catch(() => {});
     }
-  }).catch(() => []);
+  }
+
+  if (dbReferences.length === 0) {
+    dbReferences = await prisma.reference.findMany({
+      where: { testimonialText: { not: null } },
+      orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        testimonialAuthor: true,
+        testimonialText: true,
+        title: true,
+        units: true,
+        location: true,
+        image: true,
+        category: true
+      }
+    }).catch(() => []);
+
+    if (dbReferences.length > 0) {
+      redis.setex(cacheKeyRefs, 3600, JSON.stringify(dbReferences)).catch(() => {});
+    }
+  }
 
   const businessLd = professionalServiceSchema({
     description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',

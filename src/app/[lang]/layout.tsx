@@ -155,11 +155,35 @@ export default async function RootLayout({
             {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
           />
         ))}
-        {/* Google Fonts Material Symbols Outlined (display=block ile FOUT / ligature metin parlaması sıfırlanır) */}
+        {/* LCP Hero Poster Preload (Zero-latency image fetch) */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-poster-v5.webp"
+          type="image/webp"
+          // @ts-ignore
+          fetchPriority="high"
+        />
+
+        {/* Non-blocking Async Material Symbols Font (0ms Render Block) */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+        />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+          media="print"
+          // @ts-ignore
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+          />
+        </noscript>
 
         {/* Eski ServiceWorker ve PWA önbelleğini temizleme (F5 yenileme tutarlılığı) */}
         <script
