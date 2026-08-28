@@ -1,0 +1,169 @@
+{
+  "name": "W4 — Rakip Reklam İzleme (Pazartesi 09:00)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Pazartesi 09:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Aranacak anahtar kelimeler\nconst keywords = [\n  'güvenlik şirketi',\n  'site yönetimi',\n  'tesis yönetimi',\n  'apartman yönetimi',\n  'özel güvenlik'\n];\nreturn keywords.map(kw => ({ json: { keyword: kw } }));"
+      },
+      "id": "keywords",
+      "name": "Anahtar Kelimeler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.linkedin.com/v2/adLibraryPosts?q=criteria&criteria.searchTerm={{ encodeURIComponent($json.keyword) }}&criteria.countryCode=TR&count=10",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
+            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fetch-ads",
+      "name": "Reklamları Ara",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst keyword = $('Anahtar Kelimeler').item.json.keyword;\nconst elements = items[0]?.json?.elements || [];\n\nreturn elements.map(ad => ({\n  json: {\n    keyword,\n    advertiser: ad.sponsorName || ad.advertiserName || 'Bilinmiyor',\n    adText: (ad.adContent?.body || ad.introductoryText || '').substring(0, 500),\n    adId: ad.id || ad.entityUrn || ''\n  }\n}));"
+      },
+      "id": "parse-ads",
+      "name": "Reklamları Düzenle",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id FROM \"LinkedInAdSnapshot\" WHERE advertiser = $1 AND keyword = $2 AND \"capturedAt\" > NOW() - INTERVAL '7 days' LIMIT 1",
+        "additionalFields": {
+          "queryReplacement": "={{ [$json.advertiser, $json.keyword] }}"
+        },
+        "options": {}
+      },
+      "id": "check-existing",
+      "name": "Daha Önce Kayıtlı mı?",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1120, 300],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{ $json.length }}",
+              "rightValue": 0,
+              "operator": { "type": "number", "operation": "equals" }
+            }
+          ]
+        }
+      },
+      "id": "if-new",
+      "name": "Yeni Reklam mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"LinkedInAdSnapshot\" (id, advertiser, \"adText\", keyword, \"capturedAt\", \"isNew\") VALUES (gen_random_uuid()::text, $1, $2, $3, NOW(), true)",
+        "additionalFields": {
+          "queryReplacement": "={{ [$('Reklamları Düzenle').item.json.advertiser, $('Reklamları Düzenle').item.json.adText, $('Reklamları Düzenle').item.json.keyword] }}"
+        },
+        "options": {}
+      },
+      "id": "save-ad",
+      "name": "Yeni Reklamı Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1560, 240],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "=🔍 *Yeni Rakip Reklamı Bulundu!*\n\n🏢 Firma: {{ $('Reklamları Düzenle').item.json.advertiser }}\n🔑 Arama: {{ $('Reklamları Düzenle').item.json.keyword }}\n\n📝 {{ $('Reklamları Düzenle').item.json.adText.substring(0, 200) }}...",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-alert",
+      "name": "Rakip Uyarısı",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1780, 240],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-cred",
+          "name": "Alo Yönetim Telegram"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Pazartesi 09:00": {
+      "main": [[{ "node": "Anahtar Kelimeler", "type": "main", "index": 0 }]]
+    },
+    "Anahtar Kelimeler": {
+      "main": [[{ "node": "Reklamları Ara", "type": "main", "index": 0 }]]
+    },
+    "Reklamları Ara": {
+      "main": [[{ "node": "Reklamları Düzenle", "type": "main", "index": 0 }]]
+    },
+    "Reklamları Düzenle": {
+      "main": [[{ "node": "Daha Önce Kayıtlı mı?", "type": "main", "index": 0 }]]
+    },
+    "Daha Önce Kayıtlı mı?": {
+      "main": [[{ "node": "Yeni Reklam mı?", "type": "main", "index": 0 }]]
+    },
+    "Yeni Reklam mı?": {
+      "main": [[{ "node": "Yeni Reklamı Kaydet", "type": "main", "index": 0 }]]
+    },
+    "Yeni Reklamı Kaydet": {
+      "main": [[{ "node": "Rakip Uyarısı", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "linkedin", "rakipAnaliz"]
+}

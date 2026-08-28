@@ -1,0 +1,138 @@
+{
+  "name": "W5 — LinkedIn Sayfa İstatistikleri (Cuma 17:00)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 17 * * 5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cuma 17:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.linkedin.com/v2/organizationPageStatistics?q=organization&organization=urn%3Ali%3Aorganization%3A{{ $env.LINKEDIN_COMPANY_ID }}&timeIntervals.timeGranularityType=WEEK&timeIntervals.timeRange.start={{ Date.now() - 7*24*60*60*1000 }}&timeIntervals.timeRange.end={{ Date.now() }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
+            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "get-page-stats",
+      "name": "Sayfa İstatistikleri Al",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.linkedin.com/v2/networkSizes/urn%3Ali%3Aorganization%3A{{ $env.LINKEDIN_COMPANY_ID }}?edgeType=CompanyFollowedByMember",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
+            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "get-followers",
+      "name": "Takipçi Sayısı Al",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 480]
+    },
+    {
+      "parameters": {
+        "jsCode": "const stats = $('Sayfa İstatistikleri Al').item.json;\nconst followers = $('Takipçi Sayısı Al').item.json;\n\nconst elements = stats.elements || [];\nlet totalImpressions = 0;\nlet totalClicks = 0;\nlet totalEngagement = 0;\n\nelements.forEach(el => {\n  const views = el.totalPageStatistics?.views || {};\n  totalImpressions += (views.mobileCustomButtonClickCounts || 0) + (views.desktopCustomButtonClickCounts || 0);\n  const clicks = el.totalPageStatistics?.clicks || {};\n  totalClicks += (clicks.mobileCustomButtonClickCounts || 0) + (clicks.desktopCustomButtonClickCounts || 0);\n});\n\nif (totalImpressions > 0) {\n  totalEngagement = (totalClicks / totalImpressions) * 100;\n}\n\nconst weekStart = new Date();\nweekStart.setDate(weekStart.getDate() - 7);\n\nreturn [{\n  json: {\n    weekStart: weekStart.toISOString(),\n    followers: followers.firstDegreeSize || 0,\n    impressions: totalImpressions,\n    clicks: totalClicks,\n    engagement: Math.round(totalEngagement * 100) / 100,\n    recordedAt: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "parse-stats",
+      "name": "Verileri Düzenle",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 380]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"LinkedInMetrics\" (id, \"weekStart\", followers, impressions, clicks, engagement, \"recordedAt\") VALUES (gen_random_uuid()::text, $1::timestamptz, $2::int, $3::int, $4::int, $5::float, $6::timestamptz)",
+        "additionalFields": {
+          "queryReplacement": "={{ [$json.weekStart, $json.followers, $json.impressions, $json.clicks, $json.engagement, $json.recordedAt] }}"
+        },
+        "options": {}
+      },
+      "id": "save-metrics",
+      "name": "Metrikleri Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [920, 380],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "=📊 *LinkedIn Haftalık İstatistikler*\n\n👥 Takipçi: {{ $('Verileri Düzenle').item.json.followers }}\n👁️ Gösterim: {{ $('Verileri Düzenle').item.json.impressions }}\n🖱️ Tıklama: {{ $('Verileri Düzenle').item.json.clicks }}\n📈 Etkileşim: %{{ $('Verileri Düzenle').item.json.engagement }}\n\n_{{ new Date().toLocaleDateString('tr-TR') }}_",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-report",
+      "name": "Telegram Rapor",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1140, 380],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-cred",
+          "name": "Alo Yönetim Telegram"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cuma 17:00": {
+      "main": [
+        [
+          { "node": "Sayfa İstatistikleri Al", "type": "main", "index": 0 },
+          { "node": "Takipçi Sayısı Al", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Sayfa İstatistikleri Al": {
+      "main": [[{ "node": "Verileri Düzenle", "type": "main", "index": 0 }]]
+    },
+    "Takipçi Sayısı Al": {
+      "main": [[{ "node": "Verileri Düzenle", "type": "main", "index": 0 }]]
+    },
+    "Verileri Düzenle": {
+      "main": [[{ "node": "Metrikleri Kaydet", "type": "main", "index": 0 }]]
+    },
+    "Metrikleri Kaydet": {
+      "main": [[{ "node": "Telegram Rapor", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "linkedin", "istatistik"]
+}

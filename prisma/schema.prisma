@@ -219,3 +219,36 @@ model AuditLog {
   details   String?
   createdAt DateTime @default(now())
 }
+
+// n8n LinkedIn Otomasyon Modelleri
+
+model LinkedInOutreach {
+  id          String    @id @default(cuid())
+  targetName  String
+  targetTitle String?
+  firmName    String?
+  linkedinUrl String
+  message     String
+  sentAt      DateTime  @default(now())
+  accepted    Boolean?
+  followupAt  DateTime?
+}
+
+model LinkedInAdSnapshot {
+  id         String   @id @default(cuid())
+  advertiser String
+  adText     String
+  keyword    String
+  capturedAt DateTime @default(now())
+  isNew      Boolean  @default(true)
+}
+
+model LinkedInMetrics {
+  id          String   @id @default(cuid())
+  weekStart   DateTime
+  followers   Int
+  impressions Int
+  clicks      Int
+  engagement  Float
+  recordedAt  DateTime @default(now())
+}

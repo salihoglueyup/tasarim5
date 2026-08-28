@@ -1,0 +1,126 @@
+{
+  "name": "W7 — Günlük Takip Hatırlatıcı",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 8 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Hafta İçi 08:30",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, type, name, phone, email, subject, \"createdAt\" FROM \"Lead\" WHERE \"isRead\" = false AND \"createdAt\" > NOW() - INTERVAL '3 days' ORDER BY \"createdAt\" DESC LIMIT 20",
+        "options": {}
+      },
+      "id": "postgres-query",
+      "name": "Takip Bekleyen Leadler",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [460, 300],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-count",
+              "leftValue": "={{ $json.length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-has-leads",
+      "name": "Lead Var Mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const leads = $input.all();\nconst lines = leads.map((item, i) => {\n  const l = item.json;\n  const date = new Date(l.createdAt).toLocaleDateString('tr-TR');\n  const typeLabel = { quote: '📋 Teklif', contact: '📞 İletişim', callback: '🔔 Geri Ara', newsletter: '📧 Bülten' }[l.type] || l.type;\n  return `${i+1}. ${typeLabel} — ${l.name || 'İsimsiz'} | ${l.phone || l.email || '-'} | ${date}`;\n});\n\nconst message = `🔔 *Bugün Takip Edilecekler* (${leads.length} lead)\\n\\n` + lines.join('\\n') + `\\n\\n_n8n.aloyonetim.com.tr üzerinden görüntüle_`;\n\nreturn [{ json: { message } }];"
+      },
+      "id": "format-message",
+      "name": "Mesajı Formatla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-notify",
+      "name": "Telegram Bildirim",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1120, 240],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-cred",
+          "name": "Alo Yönetim Telegram"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Hafta İçi 08:30": {
+      "main": [
+        [{ "node": "Takip Bekleyen Leadler", "type": "main", "index": 0 }]
+      ]
+    },
+    "Takip Bekleyen Leadler": {
+      "main": [
+        [{ "node": "Lead Var Mı?", "type": "main", "index": 0 }]
+      ]
+    },
+    "Lead Var Mı?": {
+      "main": [
+        [{ "node": "Mesajı Formatla", "type": "main", "index": 0 }]
+      ]
+    },
+    "Mesajı Formatla": {
+      "main": [
+        [{ "node": "Telegram Bildirim", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "crm", "takip"]
+}

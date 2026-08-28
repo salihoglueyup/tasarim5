@@ -1,0 +1,112 @@
+{
+  "name": "W3 — Teklif Formu Webhook Zenginleştirme",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "yeni-talep",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Yeni Talep Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "yeni-talep"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "{\"ok\":true}",
+        "options": {
+          "responseHeaders": {
+            "entries": [{ "name": "Content-Type", "value": "application/json" }]
+          }
+        }
+      },
+      "id": "respond-ok",
+      "name": "200 OK Döndür",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [460, 160]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.body.data.type }}", "rightValue": "quote", "operator": { "type": "string", "operation": "equals" } }] }, "renameOutput": true, "outputKey": "quote" },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.body.data.type }}", "rightValue": "callback", "operator": { "type": "string", "operation": "equals" } }] }, "renameOutput": true, "outputKey": "callback" }
+          ]
+        },
+        "options": { "fallbackOutput": "extra" }
+      },
+      "id": "switch-type",
+      "name": "Talep Türü",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [460, 380]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst data = body.data || body;\nconst type = data.type || 'bilinmiyor';\nconst typeLabel = { quote: '📋 Teklif Talebi', callback: '🔔 Geri Arama', contact: '📞 İletişim', newsletter: '📧 Bülten' }[type] || type;\n\nreturn [{\n  json: {\n    type,\n    typeLabel,\n    name: data.name || 'İsimsiz',\n    phone: data.phone || '-',\n    email: data.email || '-',\n    subject: data.subject || '-',\n    message: data.message || '-',\n    timestamp: new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })\n  }\n}];"
+      },
+      "id": "parse-payload",
+      "name": "Payload Parse",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v18.0/{{ $env.WHATSAPP_PHONE_NUMBER_ID }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $env.WHATSAPP_TO_NUMBER }}\",\n  \"type\": \"text\",\n  \"text\": {\n    \"body\": \"🚨 YENİ {{ $json.typeLabel.toUpperCase() }}!\\n\\n👤 {{ $json.name }}\\n📞 {{ $json.phone }}\\n📧 {{ $json.email }}\\n\\n📝 Konu: {{ $json.subject }}\\n💬 Mesaj: {{ $json.message.substring(0, 200) }}\\n\\n🕐 {{ $json.timestamp }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "whatsapp-notify",
+      "name": "WhatsApp Bildirim",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Yeni Talep Webhook": {
+      "main": [
+        [
+          { "node": "200 OK Döndür", "type": "main", "index": 0 },
+          { "node": "Talep Türü", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Talep Türü": {
+      "main": [
+        [{ "node": "Payload Parse", "type": "main", "index": 0 }],
+        [{ "node": "Payload Parse", "type": "main", "index": 0 }]
+      ]
+    },
+    "Payload Parse": {
+      "main": [
+        [{ "node": "WhatsApp Bildirim", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "webhook", "whatsapp"]
+}

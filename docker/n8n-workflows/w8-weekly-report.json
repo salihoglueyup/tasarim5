@@ -1,0 +1,139 @@
+{
+  "name": "W8 — Haftalık Performans Raporu (Cuma 17:05)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "5 17 * * 5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cuma 17:05",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT type, COUNT(*) as count FROM \"Lead\" WHERE \"createdAt\" > NOW() - INTERVAL '7 days' GROUP BY type ORDER BY count DESC",
+        "options": {}
+      },
+      "id": "lead-metrics",
+      "name": "Lead Metrikleri",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [460, 240],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT followers, impressions, clicks, engagement FROM \"LinkedInMetrics\" ORDER BY \"recordedAt\" DESC LIMIT 1",
+        "options": {}
+      },
+      "id": "linkedin-metrics",
+      "name": "LinkedIn Son Veri",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [460, 420],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const leads = $('Lead Metrikleri').all();\nconst linkedin = $('LinkedIn Son Veri').first()?.json || {};\n\nconst typeLabels = { quote: 'Teklif', contact: 'İletişim', callback: 'Geri Arama', newsletter: 'Bülten', linkedin_lead: 'LinkedIn Lead' };\n\nconst totalLeads = leads.reduce((sum, item) => sum + parseInt(item.json.count), 0);\n\nconst leadRows = leads.map(item => {\n  const label = typeLabels[item.json.type] || item.json.type;\n  return `<tr><td>${label}</td><td style=\"text-align:center\">${item.json.count}</td></tr>`;\n}).join('');\n\nconst now = new Date().toLocaleDateString('tr-TR');\nconst weekAgo = new Date(Date.now() - 7*24*60*60*1000).toLocaleDateString('tr-TR');\n\nconst html = `\n<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px\">\n<h2 style=\"color:#1e3a5f\">📊 Haftalık Performans Raporu</h2>\n<p style=\"color:#666\">${weekAgo} — ${now}</p>\n\n<h3 style=\"color:#1e3a5f\">Lead Özeti (${totalLeads} toplam)</h3>\n<table style=\"width:100%;border-collapse:collapse\">\n<tr style=\"background:#1e3a5f;color:white\"><th style=\"padding:8px;text-align:left\">Tür</th><th style=\"padding:8px\">Adet</th></tr>\n${leadRows}\n</table>\n\n<h3 style=\"color:#1e3a5f\">LinkedIn İstatistikleri</h3>\n<table style=\"width:100%;border-collapse:collapse\">\n<tr style=\"background:#0077b5;color:white\"><th style=\"padding:8px;text-align:left\">Metrik</th><th style=\"padding:8px\">Değer</th></tr>\n<tr><td style=\"padding:8px\">Takipçi</td><td style=\"padding:8px;text-align:center\">${linkedin.followers || '-'}</td></tr>\n<tr style=\"background:#f5f5f5\"><td style=\"padding:8px\">Gösterim</td><td style=\"padding:8px;text-align:center\">${linkedin.impressions || '-'}</td></tr>\n<tr><td style=\"padding:8px\">Tıklama</td><td style=\"padding:8px;text-align:center\">${linkedin.clicks || '-'}</td></tr>\n<tr style=\"background:#f5f5f5\"><td style=\"padding:8px\">Etkileşim</td><td style=\"padding:8px;text-align:center\">%${linkedin.engagement || '-'}</td></tr>\n</table>\n\n<p style=\"color:#999;font-size:12px;margin-top:20px\">Alo Yönetim n8n Otomasyonu — ${now}</p>\n</body></html>`;\n\nconst telegramText = `📊 *Haftalık Rapor*\\n\\n📋 Toplam Lead: ${totalLeads}\\n${leads.map(l => `• ${typeLabels[l.json.type] || l.json.type}: ${l.json.count}`).join('\\n')}\\n\\n💼 LinkedIn:\\n👥 Takipçi: ${linkedin.followers || '-'}\\n👁️ Gösterim: ${linkedin.impressions || '-'}\\n📈 Etkileşim: %${linkedin.engagement || '-'}`;\n\nreturn [{ json: { html, telegramText, totalLeads } }];"
+      },
+      "id": "build-report",
+      "name": "Rapor Oluştur",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 320]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.resend.com/emails",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.RESEND_API_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"from\": \"{{ $env.LEAD_FROM_EMAIL }}\",\n  \"to\": [\"{{ $env.LEAD_TO_EMAIL }}\"],\n  \"subject\": \"📊 Haftalık Performans Raporu — {{ new Date().toLocaleDateString('tr-TR') }}\",\n  \"html\": {{ JSON.stringify($json.html) }}\n}",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Rapor E-postası Gönder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [920, 240]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "={{ $json.telegramText }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-summary",
+      "name": "Telegram Özet",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [920, 420],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-cred",
+          "name": "Alo Yönetim Telegram"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cuma 17:05": {
+      "main": [
+        [
+          { "node": "Lead Metrikleri", "type": "main", "index": 0 },
+          { "node": "LinkedIn Son Veri", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Lead Metrikleri": {
+      "main": [[{ "node": "Rapor Oluştur", "type": "main", "index": 0 }]]
+    },
+    "LinkedIn Son Veri": {
+      "main": [[{ "node": "Rapor Oluştur", "type": "main", "index": 0 }]]
+    },
+    "Rapor Oluştur": {
+      "main": [
+        [
+          { "node": "Rapor E-postası Gönder", "type": "main", "index": 0 },
+          { "node": "Telegram Özet", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "rapor", "haftalık"]
+}
