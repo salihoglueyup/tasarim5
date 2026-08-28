@@ -261,6 +261,84 @@ export function organizationSchema(): JsonLdObject {
         url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
       },
     ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Alo Yönetim Entegre Tesis ve Mülk Yönetimi Hizmet Kataloğu',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Entegre Tesis Yönetimi',
+            url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: '5188 Lisanslı Özel Güvenlik Yönetimi',
+            url: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Bina & Site Teknik Bakım Onarım',
+            url: `${BASE_URL}/hizmetler/teknik-bakim`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'TSE 13811 Temizlik & Hijyen Hizmetleri',
+            url: `${BASE_URL}/hizmetler/temizlik-ve-hijyen`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Profesyonel Aidat Takibi & Tahsilat',
+            url: `${BASE_URL}/hizmetler/aidat-takibi`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'KMK 634 Hukuk & İcra Danışmanlığı',
+            url: `${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Peyzaj ve Otomatik Bahçe Bakımı',
+            url: `${BASE_URL}/hizmetler/peyzaj-ve-bahce-bakimi`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Yüzme Havuzu Bakımı ve Kimyasal Şartlandırma',
+            url: `${BASE_URL}/hizmetler/havuz-bakimi-ve-hijyen`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Sağlık Bakanlığı Ruhsatlı Haşere İlaçlama',
+            url: `${BASE_URL}/hizmetler/hasere-ve-dezenfeksiyon`,
+          },
+        },
+      ],
+    },
   };
 }
 

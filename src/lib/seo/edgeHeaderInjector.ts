@@ -43,6 +43,10 @@ export function buildHttpLinkHeader(pathname: string, currentLang: string = 'tr'
   const defaultUrl = `${BASE_URL}${barePath === '/' ? '' : barePath}`;
   linkElements.push(`<${defaultUrl}>; rel="alternate"; hreflang="x-default"`);
 
+  // AI & LLM Arama Motoru Bağlam Keşfi (GEO - Generative Engine Optimization)
+  linkElements.push(`<${BASE_URL}/llms.txt>; rel="describedby"; type="text/plain"`);
+  linkElements.push(`<${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld>; rel="alternate"; type="application/ld+json"`);
+
   return linkElements.join(', ');
 }
 
