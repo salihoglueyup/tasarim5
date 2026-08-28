@@ -41,7 +41,7 @@ export function evaluateConditionalGet(
     }
   }
 
-  return {
+    return {
     isNotModified,
     etag: normalizedCurrent,
     headers: {
@@ -49,4 +49,11 @@ export function evaluateConditionalGet(
       'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
     },
   };
+}
+
+/**
+ * Sayfa rotaları ve statik API kaynakları için deterministik ETag üretir.
+ */
+export function generateResourceEtag(pathname: string, versionSeed: string = '2026.08'): string {
+  return generateEtag(pathname, versionSeed);
 }

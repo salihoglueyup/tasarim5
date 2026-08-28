@@ -123,3 +123,66 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
     totalConnectedNodesCount,
   };
 }
+
+/**
+ * 39 İstanbul İlçesi Coğrafi Komşuluk Grafı (Geographic Mesh Linker)
+ */
+export function getAdjacentDistricts(slug: string): string[] {
+  const ADJACENCY_MAP: Record<string, string[]> = {
+    kadikoy: ['uskudar', 'atasehir', 'maltepe'],
+    besiktas: ['sisli', 'sariyer', 'beyoglu'],
+    sisli: ['besiktas', 'kagithane', 'beyoglu', 'eyupsultan'],
+    bakirkoy: ['bahcelievler', 'zeytinburnu', 'kucukcekmece'],
+    atasehir: ['kadikoy', 'umraniye', 'maltepe', 'sancaktepe'],
+    uskudar: ['kadikoy', 'umraniye', 'beykoz'],
+    maltepe: ['kadikoy', 'kartal', 'atasehir'],
+    kartal: ['maltepe', 'pendik', 'sultanbeyli', 'sancaktepe'],
+    pendik: ['kartal', 'tuzla', 'sultanbeyli', 'sile'],
+    tuzla: ['pendik', 'gebze'],
+    basaksehir: ['kucukcekmece', 'bagcilar', 'esenyurt', 'arnavutkoy', 'sultangazi'],
+    beylikduzu: ['esenyurt', 'buyukcekmece', 'avcilar'],
+    sariyer: ['besiktas', 'eyupsultan', 'sisli'],
+    umraniye: ['uskudar', 'atasehir', 'cekmekoy', 'sancaktepe', 'beykoz'],
+    avcilar: ['kucukcekmece', 'beylikduzu', 'esenyurt'],
+    esenyurt: ['beylikduzu', 'avcilar', 'basaksehir', 'buyukcekmece'],
+    bagcilar: ['bahcelievler', 'gungoren', 'kucukcekmece', 'basaksehir'],
+    bahcelievler: ['bakirkoy', 'bagcilar', 'gungoren', 'kucukcekmece'],
+    zeytinburnu: ['bakirkoy', 'fatih', 'eyupsultan', 'gungoren'],
+    fatih: ['zeytinburnu', 'eyupsultan', 'beyoglu'],
+    beyoglu: ['sisli', 'besiktas', 'fatih', 'kagithane'],
+    kagithane: ['sisli', 'beyoglu', 'eyupsultan', 'sariyer'],
+    eyupsultan: ['sariyer', 'gaziosmanpasa', 'fatih', 'sisli'],
+    gaziosmanpasa: ['eyupsultan', 'bayrampasa', 'sultangazi', 'esenler'],
+    bayrampasa: ['fatih', 'eyupsultan', 'zeytinburnu', 'gaziosmanpasa'],
+    esenler: ['bagcilar', 'gungoren', 'gaziosmanpasa', 'bayrampasa'],
+    gungoren: ['zeytinburnu', 'bakirkoy', 'bahcelievler', 'bagcilar'],
+    sultangazi: ['gaziosmanpasa', 'eyupsultan', 'basaksehir'],
+    sancaktepe: ['umraniye', 'atasehir', 'cekmekoy', 'kartal', 'sultanbeyli'],
+    sultanbeyli: ['kartal', 'pendik', 'sancaktepe'],
+    cekmekoy: ['umraniye', 'sancaktepe', 'beykoz', 'sile'],
+    beykoz: ['uskudar', 'umraniye', 'cekmekoy', 'sile'],
+    sile: ['beykoz', 'cekmekoy', 'pendik'],
+    adalar: ['kadikoy', 'maltepe', 'kartal'],
+    buyukcekmece: ['beylikduzu', 'esenyurt', 'catalca', 'silivri'],
+    silivri: ['buyukcekmece', 'catalca'],
+    catalca: ['silivri', 'buyukcekmece', 'arnavutkoy'],
+    arnavutkoy: ['catalca', 'basaksehir', 'eyupsultan'],
+  };
+
+  return ADJACENCY_MAP[slug] || ['kadikoy', 'besiktas', 'bakirkoy'];
+}
+
+export function getAdjacentDistrictMeshLinks(currentDistrictSlug: string, lang: string = 'tr'): SemanticLinkNode[] {
+  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+  const adjacentSlugs = getAdjacentDistricts(currentDistrictSlug);
+
+  return DISTRICTS
+    .filter(d => adjacentSlugs.includes(d.slug))
+    .map(d => ({
+      title: `${d.name} Tesis ve Site Yönetimi`,
+      url: `${BASE_URL}${langPrefix}/bolgeler/${d.slug}/tesis-yonetimi`,
+      anchorText: `${d.name} Tesis Yönetimi`,
+      description: `${d.name} bölgesinde 5188 güvenlik, teknik bakım ve aidat tahsilatı.`,
+      category: 'district' as const,
+    }));
+}
