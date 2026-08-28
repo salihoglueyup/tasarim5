@@ -60,7 +60,7 @@ export default function AdminLogin() {
           <div className="flex flex-col items-center mb-8">
             <div className="w-16 h-16 relative mb-4">
               <Image 
-                src="/images/alo-yonetim-logo.png" 
+                src="/images/logos/new-icon-Photoroom.webp" 
                 alt="Alo Yönetim" 
                 fill 
                 className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" 
