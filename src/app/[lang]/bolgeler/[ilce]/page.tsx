@@ -347,7 +347,19 @@ export default async function DistrictPage({
         {/* Blog & pillar iç linkler */}
         <div className="text-center flex flex-col gap-4">
           <p className="text-sm text-[var(--color-secondary)]">
-            İlgili rehberler:{' '}
+            Kurumsal Hizmetler & Mevzuat:{' '}
+            <Link href="/hizmetler/tesis-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              İstanbul Profesyonel Tesis Yönetimi
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              Rezidans & Site Yönetimi
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hesaplayici" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              Aidat ve Bütçe Hesaplayıcı
+            </Link>{' '}
+            ·{' '}
             <Link href="/blog" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Site Yönetimi Blogu
             </Link>{' '}

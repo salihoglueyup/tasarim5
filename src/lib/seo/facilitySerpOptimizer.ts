@@ -22,24 +22,27 @@ export function getFacilitySerpMeta(lang = 'tr', districtSlug?: string): Facilit
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
 
   if (district) {
-    const title = `${district.name} Tesis Yönetimi — ISO 41001 & 5188 Lisanslı Profesyonel Yönetim`;
-    const description = `${district.name} genelinde apartman, site, plaza ve rezidanslar için ISO 41001 standartlarında entegre tesis yönetimi. 7/24 güvenlik, şeffaf aidat ve %30 maliyet tasarrufu.`;
+    const title = `${district.name} Tesis Yönetimi & Site Yönetimi — %30 Aidat Tasarrufu & 5188 Güvenlik | Alo Yönetim`;
+    const description = `${district.name} genelinde site, apartman ve rezidanslar için profesyonel tesis yönetimi. KMK 634 aidat icra takibi, 5188 lisanslı güvenlik ve %30 maliyet tasarrufu. 48 saatte ücretsiz teklif alın!`;
     const canonicalPath = `/bolgeler/${district.slug}/tesis-yonetimi`;
-    const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent('Tesis Yönetimi')}&title=${encodeURIComponent(`${district.name} Tesis Yönetimi`)}&rating=${encodeURIComponent('★ 4.9 · ' + district.managedProjects + '+ Proje')}`;
+    const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent('Tesis Yönetimi')}&title=${encodeURIComponent(`${district.name} Tesis Yönetimi & Site Yönetimi`)}&rating=${encodeURIComponent('★ 4.9 · ' + district.managedProjects + '+ Proje')}`;
 
     return {
       title,
       description,
-      targetKeyword: `${district.name} tesis yönetimi`,
+      targetKeyword: `${district.name} site yönetimi`,
       keywords: [
-        `${district.name} tesis yönetimi`,
-        `${district.name} profesyonel site yönetimi`,
+        `${district.name} site yönetimi`,
         `${district.name} apartman yönetimi`,
         `${district.name} bina yönetimi`,
-        `${district.name} tesis yönetim şirketleri`,
-        `${district.name} entegre tesis yönetimi`,
+        `${district.name} tesis yönetimi`,
+        `${district.name} profesyonel site yönetimi`,
+        `${district.name} site yönetim şirketleri`,
+        `${district.name} site yönetim firmaları`,
+        `${district.name} aidat takibi`,
+        `${district.name} 5188 güvenlik`,
         'ISO 41001 tesis yönetimi',
-        '5188 güvenlik',
+        'KMK 634 işletme projesi',
       ],
       canonicalPath,
       ogImageUrl,

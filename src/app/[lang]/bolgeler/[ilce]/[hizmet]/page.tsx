@@ -134,46 +134,52 @@ export async function generateMetadata({
   const isSecurity = service.slug === 'guvenlik-yonetimi';
   const isTechnical = service.slug === 'teknik-bakim';
   const isCleaning = service.slug === 'temizlik-ve-hijyen';
+  const isDues = service.slug === 'aidat-takibi';
+  const isLegal = service.slug === 'hukuk-danismanligi';
+  const isPool = service.slug === 'havuz-bakimi';
 
-  let metaTitle = `${service.name} ${district.name} — Profesyonel Tesis Yönetimi`;
-  let metaDesc = `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde ücretsiz keşif, 48 saat içinde şeffaf teklif.`;
+  let metaTitle = `${district.name} ${service.name} — Profesyonel Yönetim & %30 Tasarruf | Alo Yönetim`;
+  let metaDesc = `${district.name}'de ${service.name.toLowerCase()}: ${service.summary} ${neighborhoods} başta olmak üzere tüm mahallelerde 48 saat içinde şeffaf teklif ve ücretsiz keşif.`;
   let serviceKeywords: string[] = [];
 
   if (isFacility) {
-    metaTitle = `${district.name} Tesis Yönetimi & Site Yönetim Şirketi — Alo Yönetim`;
-    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 güvenlik, teknik bakım ve şeffaf KMK aidat tahsilatı. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    metaTitle = `${district.name} Site ve Apartman Yönetimi & Tesis Yönetim Şirketi — Alo Yönetim`;
+    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel site yönetimi, 5188 güvenlik, teknik bakım ve şeffaf KMK aidat tahsilatı. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
     serviceKeywords = [
-      `${district.name} tesis yönetimi`,
       `${district.name} site yönetimi`,
-      `${district.name} bina yönetimi`,
       `${district.name} apartman yönetimi`,
-      `${district.name} tesis yönetim şirketi`,
+      `${district.name} bina yönetimi`,
+      `${district.name} tesis yönetimi`,
+      `${district.name} site yönetim şirketi`,
       `${district.name} site yönetim firmaları`,
-      `${district.name} entegre tesis yönetimi`,
-      `${district.name} profesyonel tesis yönetimi`,
+      `${district.name} profesyonel site yönetimi`,
       `${district.name} kmk site yönetimi`,
+      `${district.name} entegre tesis yönetimi`,
     ];
   } else if (isSecurity) {
-    metaTitle = `${district.name} Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`;
+    metaTitle = `${district.name} Özel Güvenlik Şirketleri & Site Güvenlik Firması — Alo Yönetim`;
     metaDesc = `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
     serviceKeywords = [
       `${district.name} özel güvenlik şirketi`,
-      `${district.name} site güvenliği`,
+      `${district.name} güvenlik şirketleri`,
+      `${district.name} güvenlik firması`,
       `${district.name} güvenlik firmaları`,
+      `${district.name} site güvenliği`,
       `${district.name} apartman güvenliği`,
       `${district.name} 5188 özel güvenlik`,
       `${district.name} güvenlik personeli`,
-      `${district.name} site güvenlik şirketleri`,
       `${district.name} kameralı güvenlik`,
     ];
   } else if (isTechnical) {
-    metaTitle = `${district.name} Bina & Site Teknik Bakım, Asansör & Jeneratör — Alo Yönetim`;
-    metaDesc = `${district.name}'de asansör yeşil etiket muayenesi, jeneratör ATS yük testleri ve kompanzasyon panosu reaktif ceza önleme çözümleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    metaTitle = `${district.name} Asansör Bakım, Arıza & Site Teknik Servisi — Alo Yönetim`;
+    metaDesc = `${district.name}'de asansör arıza, periyodik bakım ve yeşil etiket muayenesi, jeneratör ATS testleri ve bina teknik servis çözümleri. ${neighborhoods} mahallelerinde 45 dk SLA ile hizmet.`;
     serviceKeywords = [
-      `${district.name} site teknik bakım`,
+      `${district.name} asansör arıza`,
+      `${district.name} asansör bakım`,
       `${district.name} asansör bakım firmaları`,
+      `${district.name} asansör periyodik kontrol`,
+      `${district.name} site teknik bakım`,
       `${district.name} jeneratör periyodik bakım`,
-      `${district.name} kompanzasyon takibi`,
       `${district.name} bina teknik servisi`,
       `${district.name} hidrofor arıza servisi`,
     ];
@@ -187,6 +193,36 @@ export async function generateMetadata({
       `${district.name} dağcı cam temizliği`,
       `${district.name} site böcek ilaçlama`,
       `${district.name} otopark zemin yıkama`,
+    ];
+  } else if (isDues) {
+    metaTitle = `${district.name} Aidat Takibi & KMK 634 İcra Tahsilatı — Alo Yönetim`;
+    metaDesc = `${district.name}'de ödenmeyen aidatlar için KMK 634 m.20 icra takibi, %5 gecikme tazminatı ve %98 tahsilat garantili dijital aidat yönetimi. Ücretsiz danışmanlık alın!`;
+    serviceKeywords = [
+      `${district.name} aidat takibi`,
+      `${district.name} aidat`,
+      `${district.name} site aidatı tahsilatı`,
+      `${district.name} aidat icra takibi`,
+      `${district.name} bina aidat programı`,
+      `${district.name} gecikme faizi aidat`,
+    ];
+  } else if (isLegal) {
+    metaTitle = `${district.name} Kat Mülkiyeti Hukuku & Site Yönetimi Avukatı — Alo Yönetim`;
+    metaDesc = `${district.name}'de KMK 634 genel kurul iptali, işletme projesi itirazları ve ilamsız icra takipleri için uzman hukuk danışmanlığı. 48 saatte randevu alın!`;
+    serviceKeywords = [
+      `${district.name} kat mülkiyeti avukatı`,
+      `${district.name} site yönetimi hukuku`,
+      `${district.name} işletme projesi itiraz`,
+      `${district.name} icra dairesi aidat`,
+      `${district.name} kmk 634 dava avukatı`,
+    ];
+  } else if (isPool) {
+    metaTitle = `${district.name} Site Havuz Bakımı, Kimyasal & Hijyen Servisi — Alo Yönetim`;
+    metaDesc = `${district.name}'de Sağlık Bakanlığı onaylı havuz suyu analizi, periyodik filtre temizliği ve havuz kimyasalları yönetimi. Ücretsiz analiz randevusu alın.`;
+    serviceKeywords = [
+      `${district.name} havuz bakım firması`,
+      `${district.name} site havuz bakımı`,
+      `${district.name} havuz kimyasalları`,
+      `${district.name} havuz suyu analizi`,
     ];
   }
 
