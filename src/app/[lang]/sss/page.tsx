@@ -15,12 +15,19 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang as any);
   return buildMetadata({
-    title: dict.sss_title + ' — Alo Yönetim',
-    description: dict.sss_desc,
+    title: 'Sıkça Sorulan Sorular — Site Yönetimi & KMK 634 Rehberi | Alo Yönetim',
+    description: 'Site yönetimi, aidat icra takibi, 5188 özel güvenlik ve KMK 634 hakkında en çok merak edilen 40+ soru ve uzman yanıtları. Hukuki rehberi inceleyin!',
     path: '/sss',
     lang,
+    targetKeyword: 'site yönetimi sıkça sorulan sorular',
+    keywords: [
+      'site yönetimi sss',
+      'apartman yönetimi soruları',
+      'kmk 634 soruları',
+      'aidat ödenmezse ne olur',
+      'yönetici nasıl seçilir',
+    ],
   });
 }
 

@@ -20,8 +20,8 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.contact_meta_title || 'İletişim & Genel Merkez Adres Bilgileri | Alo Yönetim';
-  const description = t.contact_meta_desc || 'İstanbul Kadıköy genel merkezimizden 7/24 kesintisiz müşteri desteği, teklif talepleri ve acil tesis operasyon hattı.';
+  const title = 'İletişim & Genel Merkez — 7/24 Çağrı Merkezi: 0216 550 48 48 | Alo Yönetim';
+  const description = 'Alo Yönetim genel merkez, 7/24 acil teknik servis hattı ve 39 ilçe saha ekipleriyle hemen iletişime geçin. Ücretsiz keşif ve danışmanlık: 0216 550 48 48.';
 
   return buildMetadata({
     title,

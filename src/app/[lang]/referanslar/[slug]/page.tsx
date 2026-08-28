@@ -65,13 +65,34 @@ export async function generateMetadata({
 
   const title = lang === 'en' && ref.title_en ? ref.title_en : lang === 'ru' && ref.title_ru ? ref.title_ru : lang === 'ar' && ref.title_ar ? ref.title_ar : ref.title;
   const location = lang === 'en' && ref.location_en ? ref.location_en : lang === 'ru' && ref.location_ru ? ref.location_ru : lang === 'ar' && ref.location_ar ? ref.location_ar : ref.location;
+  const staticRef = getReferenceBySlug(slug, lang);
+  const units = staticRef?.units ? ` (${staticRef.units})` : '';
+
+  let description = `${location} bölgesindeki ${title}${units} için ISO 41001 entegre tesis yönetimi, 5188 güvenlik ve %30 maliyet tasarrufu sağlayan yönetim başarımız. Detayları inceleyin!`;
+
+  if (lang === 'en') {
+    description = `Property management case study for ${title}${units} in ${location}. ISO 41001 integrated facility management and 30% cost savings by Alo Yönetim.`;
+  } else if (lang === 'ru') {
+    description = `Управление объектом ${title}${units} в ${location}. Комплексное обслуживание по стандарту ISO 41001 и экономия бюджета 30% от Alo Yönetim.`;
+  } else if (lang === 'ar') {
+    description = `دراسة إدارة المرافق لمشروع ${title}${units} في ${location}. إدارة مرافق متكاملة وفق معايير ISO 41001 وتوفير 30% من Alo Yönetim.`;
+  }
 
   return buildMetadata({
-    title: `${title} — ${location} Referansı | Alo Yönetim`,
-    description: `${ref.category} kategorisinde ${location} bölgesinde yönetilen ${title} projemiz. Alo Yönetim profesyonel tesis yönetimi referansları.`,
+    title: `${title} — ${location} Tesis ve Site Yönetimi Referansı | Alo Yönetim`,
+    description,
     path: `/referanslar/${slug}`,
     lang,
-    keywords: [ref.category, location, 'site yönetimi referansı', 'tesis yönetimi projesi'],
+    targetKeyword: `${title.toLowerCase()} yönetimi`,
+    keywords: [
+      title,
+      `${title} yönetimi`,
+      location,
+      `${location} site yönetimi`,
+      'site yönetimi referansı',
+      'tesis yönetimi projesi',
+      '5188 güvenlik referansı',
+    ],
   });
 }
 

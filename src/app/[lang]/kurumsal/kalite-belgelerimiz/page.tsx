@@ -30,8 +30,8 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.certificates_title ? `${t.certificates_title} | Alo Yönetim` : 'Kalite Belgelerimiz ve ISO Akreditasyonlarımız | Alo Yönetim';
-  const description = t.certificates_desc || 'ISO 9001, ISO 14001, ISO 45001, ISO 22301 ve ISO 41001 uluslararası kalite ve yeterlilik sertifikalarımız.';
+  const title = 'Kalite Belgelerimiz & ISO Akreditasyonlarımız — ISO 41001 & 5188 | Alo Yönetim';
+  const description = 'ISO 41001:2018 Tesis Yönetimi, ISO 9001, ISO 14001, ISO 45001 ve 5188 Sayılı Kanun lisanslı kalite ve güvenlik akreditasyonlarımız. Kurumsal belgelerimizi inceleyin!';
 
   return buildMetadata({
     title,

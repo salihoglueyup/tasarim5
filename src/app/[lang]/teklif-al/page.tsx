@@ -15,12 +15,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Ücretsiz Tesis Yönetimi Teklifi Alın — 48 Saat İçinde',
+    title: 'Ücretsiz Tesis ve Site Yönetimi Teklifi Alın — 48 Saatte Şeffaf Fiyat | Alo Yönetim',
     description:
-      'Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifi. 48 saat içinde net fiyat, gizli gider yok.',
+      'Siteniz, plazanınız veya tesisiniz için 48 saat içinde şeffaf yönetim teklifi ve ücretsiz yerinde keşif hizmeti. %30 maliyet tasarrufuyla teklifinizi alın!',
     path: '/teklif-al',
     lang,
-    keywords: ['tesis yönetimi teklif', 'site yönetimi fiyat', 'ücretsiz tesis keşfi', 'apartman yönetimi ücret'],
+    targetKeyword: 'site yönetimi teklif al',
+    keywords: ['tesis yönetimi teklif', 'site yönetimi fiyat', 'ücretsiz tesis keşfi', 'apartman yönetimi teklif', 'site yönetim maliyeti'],
     ogImageType: 'service',
   });
 }

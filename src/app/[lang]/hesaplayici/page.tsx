@@ -16,9 +16,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Aidat & Tesis Bütçesi Hesaplayıcı — Site Yönetim Maliyeti Simülatörü | Alo Yönetim',
+    title: 'Online Aidat & İşletme Bütçesi Hesaplayıcı — KMK 634 Simülatörü | Alo Yönetim',
     description:
-      'Siteniz ve tesisiniz için tahmini aidat, işletme projesi ve yönetim maliyetini hesaplayın. 634 sayılı KMK kapsamında %30 tasarruf potansiyelini görün.',
+      'Sitenizin tahmini işletme bütçesini ve aidat tasarrufunu 60 saniyede KMK 634 standartlarında online hesaplayın. Ücretsiz bütçe simülasyonu başlatın!',
     path: '/hesaplayici',
     lang,
     targetKeyword: 'aidat hesaplama',

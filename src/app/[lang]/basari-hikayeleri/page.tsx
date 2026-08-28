@@ -13,12 +13,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Başarı Hikayelerimiz — Mutlu Sakin ve Yöneticiler',
+    title: 'Başarı Hikayelerimiz & Vaka Analizleri — %35 Tasarruf | Alo Yönetim',
     description:
-      'Alo Yönetim ile çalışan site sakinlerinin ve yöneticilerinin gerçek deneyimleri. Kanıtlanmış sonuçlar, şeffaf yönetim anlayışı.',
+      'Alo Yönetim ile çalışan site, rezidans ve plaza yöneticilerinin gerçek başarı hikayeleri. %35 maliyet tasarrufu ve %99 aidat tahsilatı vaka analizleri.',
     path: '/basari-hikayeleri',
     lang,
-    keywords: ['site yönetimi deneyimler', 'tesis yönetimi başarı', 'apartman yönetimi müşteri görüşleri'],
+    targetKeyword: 'site yönetimi başarı hikayeleri',
+    keywords: [
+      'site yönetimi başarı hikayeleri',
+      'tesis yönetimi vaka analizi',
+      'apartman yönetimi müşteri yorumları',
+      'site yönetimi tasarruf örnekleri',
+    ],
   });
 }
 

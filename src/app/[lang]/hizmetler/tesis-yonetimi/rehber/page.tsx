@@ -17,9 +17,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Tesis Yönetim Şirketi Nasıl Seçilir? Kapsamlı Rehber 2026 | Alo Yönetim',
+    title: 'Tesis & Site Yönetim Şirketi Nasıl Seçilir? — 2026 KMK Rehberi | Alo Yönetim',
     description:
-      'Profesyonel tesis yönetim şirketi seçerken nelere dikkat etmeli? Sözleşme maddeleri, sorulacak sorular, maliyet analizi ve değerlendirme kriterleri. 2026 güncel rehber.',
+      'Site ve tesis yönetim şirketi seçerken dikkat edilmesi gerekenler: Sözleşme maddeleri, KMK 634 devir protokolü, bütçe denetimi ve şeffaflık kriterleri.',
     path: '/hizmetler/tesis-yonetimi/rehber',
     lang,
     ogImageType: 'service',

@@ -32,13 +32,16 @@ export async function generateMetadata({
   if (!term) {
     return buildMetadata({ title: 'Terim Bulunamadı', description: '', path: '/sozluk', lang, noindex: true });
   }
+  const cleanDef = term.definition.replace(/\s+/g, ' ').trim();
+  const description = `${term.term} nedir? ${cleanDef.slice(0, 105)}... KMK 634 kapsamındaki hukuki tanımı ve detaylarını inceleyin!`;
+
   return buildMetadata({
-    title: `${term.term} Nedir? — Site Yönetimi Sözlüğü | Alo Yönetim`,
-    description: term.definition.slice(0, 160),
+    title: `${term.term} Nedir? — Kat Mülkiyeti & Site Yönetimi Sözlüğü | Alo Yönetim`,
+    description,
     path: `/sozluk/${terim}`,
     lang,
-    targetKeyword: `${term.term} nedir`,
-    keywords: [term.term, `${term.term} nedir`, 'tesis yönetimi sözlük', 'kmk terimleri'],
+    targetKeyword: `${term.term.toLowerCase()} nedir`,
+    keywords: [term.term, `${term.term} nedir`, `${term.term} kmk`, 'tesis yönetimi sözlük', 'kat mülkiyeti kanunu terimleri'],
   });
 }
 

@@ -18,9 +18,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Sanayi Tesisi & Fabrika Tesis Yönetimi 2026 | Alo Yönetim İstanbul',
+    title: 'Sanayi Tesisi, OSB & Lojistik Depo Yönetimi — ISO 45001 | Alo Yönetim',
     description:
-      'İstanbul sanayi tesisi ve fabrikalar için ISO 45001 iş güvenliği, ağır teknik bakım, yangın sistemi yönetimi ve %30 tasarruflu perimetre güvenliği.',
+      'OSB, fabrika ve lojistik depolar için ağır vasıta trafik yönetimi, yüksek gerilim trafo bakımı ve endüstriyel güvenlik çözümleri. Teklifinizi alın!',
     path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
     lang,
     ogImageType: 'service',

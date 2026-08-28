@@ -18,9 +18,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Rezidans & Lüks Site Yönetimi 2026 | Alo Yönetim İstanbul',
+    title: 'Rezidans & Lüks Site Yönetimi — Konsiyerj & 5188 Güvenlik | Alo Yönetim',
     description:
-      'İstanbul rezidans ve lüks siteler için 7/24 concierge, VIP güvenlik, havuz & spa yönetimi, asansör bakımı ve %30 tasarruflu şeffaf aidat takibi.',
+      'İstanbul geneli lüks rezidans ve siteler için 7/24 konsiyerj, 5188 lisanslı güvenlik, havuz hijyeni ve %30 tasarruflu şeffaf aidat yönetimi. Teklif alın!',
     path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
     lang,
     ogImageType: 'service',

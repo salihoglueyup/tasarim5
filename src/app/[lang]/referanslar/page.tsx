@@ -17,16 +17,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const titles: Record<string, string> = {
-    tr: 'Referanslarımız — Yönettiğimiz Prestijli Projeler',
-    en: 'Our References — Prestigious Managed Properties',
-    ru: 'Наши проекты и объекты — Alo Yönetim',
-    ar: 'مشاريعنا ومراجعنا المرموقة — ألو للإدارة',
+    tr: 'Referanslarımız — Yönettiğimiz 120+ Prestijli Site ve Plaza | Alo Yönetim',
+    en: 'Our References — 120+ Prestigious Managed Properties in Istanbul',
+    ru: 'Наши объекты — 120+ жилых и коммерческих проектов | Alo Yönetim',
+    ar: 'مشاريعنا — إدارة أكثر من 120 مجمعاً وبرجاً في إسطنبول | ألو للإدارة',
   };
   const descs: Record<string, string> = {
-    tr: 'İstanbul genelinde 120+ apartman, site, rezidans ve plaza yönetim referansımız. Güvenlik, temizlik ve tesis yönetiminde kanıtlanmış başarı.',
-    en: 'Our property management portfolio covering 120+ residential complexes, towers, and commercial plazas across Istanbul.',
-    ru: 'Портфолио управления недвижимостью: более 120 жилых комплексов, башен и бизнес-центров в Стамбуле.',
-    ar: 'محفظة إدارة المرافق والممتلكات لأكثر من 120 مجمعاً سكنياً وتجارياً وبرجاً في إسطنبول.',
+    tr: 'İstanbul genelinde 120+ site, plaza ve rezidans referansımız. ISO 41001 entegre tesis yönetimi, 5188 güvenlik ve %30 aidat tasarrufu. Projelerimizi inceleyin!',
+    en: 'Our property management portfolio covering 120+ residential complexes, towers, and commercial plazas in Istanbul. 30% cost savings & ISO 41001 standards.',
+    ru: 'Портфолио управления недвижимостью: более 120 жилых комплексов, башен и бизнес-центров в Стамбуле. Экономия бюджета 30% и стандарты ISO 41001.',
+    ar: 'محفظة إدارة المرافق والممتلكات لأكثر من 120 مجمعاً سكنياً وتجارياً وبرجاً في إسطنبول مع توفير 30% ومعايير ISO 41001.',
   };
 
   return buildMetadata({
@@ -34,7 +34,14 @@ export async function generateMetadata({
     description: descs[lang] || descs.tr,
     path: '/referanslar',
     lang,
-    keywords: ['site yönetimi referanslar', 'tesis yönetimi projeleri', 'istanbul apartman yönetimi referans', 'rezidans yönetimi'],
+    targetKeyword: 'site yönetimi referansları',
+    keywords: [
+      'site yönetimi referanslar',
+      'tesis yönetimi projeleri',
+      'istanbul apartman yönetimi referans',
+      'rezidans yönetimi referansları',
+      'plaza yönetimi referansları',
+    ],
   });
 }
 
