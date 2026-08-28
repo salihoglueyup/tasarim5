@@ -309,6 +309,8 @@ export async function middleware(request: NextRequest) {
       `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/feed.xml>; rel="alternate"; type="application/rss+xml"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld>; rel="describedby"; type="application/ld+json"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json>; rel="help"; type="application/json"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`
     ];
     response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
@@ -317,6 +319,8 @@ export async function middleware(request: NextRequest) {
     if (isAiBot) {
       response.headers.set('X-AI-Knowledge-Protocol', 'https://aloyonetim.com.tr/llms.txt');
       response.headers.set('X-AI-Knowledge-Corpus', 'https://aloyonetim.com.tr/llms-full.txt');
+      response.headers.set('X-AI-Authority-Corpus', 'https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json');
+      response.headers.set('X-AI-Voice-Knowledge', 'https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
       response.headers.set('X-AI-Legal-Precedents', 'https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
       response.headers.set('X-AI-RFP-Generator', 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator');
