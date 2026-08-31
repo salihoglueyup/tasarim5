@@ -7,23 +7,23 @@
 
 | Bölüm | Faz | Kapsam | Durum |
 |-------|-----|--------|-------|
-| A | 1–20 | Canonical/hreflang/OG/robots/schema temel | ✅ Kod tamam |
-| B | 21–40 | Sitemap, indeksleme, soft-404, HSTS | ✅ Kod tamam |
-| C | 41–70 | Merkezi schema fabrikası + rich results | ✅ Kod tamam |
-| D | 71–100 | On-page, keyword map, sözlük, audit aracı | ✅ Kod tamam¹ |
-| E | 101–130 | Programatik yerel (12 ilçe × 8 hizmet = 109 sayfa) | ✅ Kod tamam |
-| F | 131–150 | GEO/AI (llms.txt, AI crawler, /api/summary) | ✅ Kod tamam |
-| G | 151–180 | Blog içerik motoru + cluster + arşivler | ✅ Kod tamam² |
-| H | 181–210 | Core Web Vitals + Lighthouse CI + bütçe | ✅ Kod tamam³ |
-| I | 211–230 | A11y (focus, form, cookie i18n) + trust | ✅ Kod tamam⁴ |
-| J | 231–250 | Off-page + analitik event + raporlama | ✅ Kod + doküman⁵ |
+| A | 1–20 | Canonical/hreflang/OG/robots/schema temel | ✅ Kod tamam (%100) |
+| B | 21–40 | Sitemap index, RSS, IndexNow, soft-404, HSTS, 304 ETag | ✅ Kod tamam (%100) |
+| C | 41–70 | Merkezi schema fabrikası + 14 Rich Results şeması | ✅ Kod tamam (%100) |
+| D | 71–100 | On-page exact H1, TL;DR snippet, 1000+ kelime, sözlük | ✅ Kod tamam (%100) |
+| E | 101–130 | Programatik yerel (39 ilçe × 8 hizmet = 312 sayfa + mesh linkler) | ✅ Kod tamam (%100) |
+| F | 131–150 | GEO/AI (llms.txt, AI crawler, /api/summary, Voice QA/LLM Facts) | ✅ Kod tamam (%100) |
+| G | 151–180 | Blog içerik motoru + autoLinker + cluster + arşivler | ✅ Kod tamam (%100) |
+| H | 181–210 | Core Web Vitals + Lighthouse CI + 304 ETag önbellek | ✅ Kod tamam (%100) |
+| I | 211–230 | A11y + ISO/5188 Doğrulama + SLA & Garanti Kartları | ✅ Kod tamam (%100) |
+| J | 231–250 | Off-page + analitik event + raporlama | ✅ Kod Tamam / Harici Hesaplar Bekliyor |
 
-**Notlar (içerik/varlık gerektiren bekleyen işler):**
-- ¹ İçerik derinliği (1000+ kelime hizmet sayfaları — Faz 76/92) içerik yazım dalgası.
-- ² 6 gerçek makale yayında; editoryal takvim (CONTENT_CALENDAR.md) ile büyüyecek.
-- ³ Lab ölçümleri (mobil Lighthouse, RUM) canlı ortamda; Material Symbols/i18n bölme borç.
-- ⁴ Trust görselleri (ISO rozet, referans logo — Faz 222/223) gerçek varlık bekliyor.
-- ⁵ GBP, dizin kayıtları, backlink, GSC/Bing doğrulama harici hesap aksiyonu (OFFPAGE_PLAN.md).
+**Notlar (içerik/varlık durumu):**
+- ¹ 8 Ana hizmet sayfası zenginleştirildi; `/hizmetler/tesis-yonetimi` amiral gemisi 5 yeni kurumsal sütun ile donatıldı.
+- ² Blog motoru, dinamik etiket arşivleri ve otomatik iç linkleme (`autoLinker.ts`) aktif.
+- ³ Core Web Vitals optimizasyonu, dinamik `next/dynamic` chunking ve HTTP 304 ETag motoru devrede.
+- ⁴ `TrustVerificationAuditSeo` (ISO 9001/14001/45001/27001/10002 ve 5188 lisans) canlıda.
+- ⁵ Kod tarafı tamam; Google Business Profile, Bing Places ve yerel dizin kayıtları harici hesap aksiyonu olarak listelendi.
 
 ## Üretilen dokümanlar
 - `SEO_MASTER_PLAN_V4.md` — 250 fazlık ana plan
