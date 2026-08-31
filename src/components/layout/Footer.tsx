@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
 import AppBadges from '@/components/ui/AppBadges';
 import { waLink } from '@/lib/cro';
+import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
 
 // Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
 const NewsletterForm = dynamic(() => import('./NewsletterForm'), { ssr: false });
@@ -250,28 +251,55 @@ export default function Footer() {
 
         </div>
 
-        {/* Bölge Dizini & Yerel Hizmetler (Yerel SEO — 56 İlçe Hizmet Ağı) */}
+        {/* Bölge Dizini & Yerel Hizmetler (Yerel SEO — 39 İlçe Hizmet Ağı) */}
         <div className="pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col gap-6">
-          <div className="flex flex-col gap-3">
-            <h3 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
-              {t('footer_service_areas')}
-            </h3>
-            <div className="flex flex-wrap gap-x-2 gap-y-2" role="navigation" aria-label={t('footer_service_areas')}>
-              {DISTRICTS.map((d) => (
-                <Link
-                  key={d.slug}
-                  href={`/bolgeler/${d.slug}`}
-                  className="text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
-                >
-                  {d.name} {t('footer_property_management')}
-                </Link>
-              ))}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-extrabold text-sm uppercase tracking-wider text-gray-900 dark:text-white">
+                {t('footer_service_areas')}
+              </h3>
               <Link
                 href="/bolgeler"
-                className="text-xs font-bold text-slate-900 dark:text-white hover:underline inline-block py-1 px-2"
+                className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline"
               >
-                {t('footer_all_regions')} →
+                {t('footer_all_regions')} (39 İlçe) →
               </Link>
+            </div>
+
+            {/* Anadolu Yakası */}
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                Anadolu Yakası (14 İlçe)
+              </span>
+              <div className="flex flex-wrap gap-x-2 gap-y-1.5 text-xs">
+                {DISTRICTS.filter((d) => d.side === 'Anadolu').map((d) => (
+                  <Link
+                    key={d.slug}
+                    href={`/bolgeler/${d.slug}`}
+                    className="text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors py-0.5 px-1 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                  >
+                    {d.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Avrupa Yakası */}
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                Avrupa Yakası (25 İlçe)
+              </span>
+              <div className="flex flex-wrap gap-x-2 gap-y-1.5 text-xs">
+                {DISTRICTS.filter((d) => d.side === 'Avrupa').map((d) => (
+                  <Link
+                    key={d.slug}
+                    href={`/bolgeler/${d.slug}`}
+                    className="text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors py-0.5 px-1 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
+                  >
+                    {d.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -473,6 +501,27 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[10px] opacity-60">open_in_new</span>
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Resmi Şirket Künyesi & Yasal Kayıt Bilgileri (CANONICAL_NAP) */}
+        <div className="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 text-xs text-slate-600 dark:text-slate-400 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="font-bold text-slate-900 dark:text-white">
+              {CANONICAL_NAP.legal.legalName}
+            </span>
+            <span>•</span>
+            <span>MERSİS: <strong className="text-slate-800 dark:text-slate-200">{CANONICAL_NAP.legal.mersisNumber}</strong></span>
+            <span>•</span>
+            <span>Ticaret Sicil: <strong className="text-slate-800 dark:text-slate-200">{CANONICAL_NAP.legal.tradeRegistryNumber}</strong></span>
+            <span>•</span>
+            <span>V.D.: <strong className="text-slate-800 dark:text-slate-200">{CANONICAL_NAP.legal.taxOffice}</strong></span>
+            <span>•</span>
+            <span>Adres: <strong className="text-slate-800 dark:text-slate-200">{CANONICAL_NAP.address.fullDisplayAddress}</strong></span>
+          </div>
+          <div className="flex items-center gap-2 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>7/24 Nöbetçi Santral: {CANONICAL_NAP.contact.phoneDisplay}</span>
           </div>
         </div>
 
