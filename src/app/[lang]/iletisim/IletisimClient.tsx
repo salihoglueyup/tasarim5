@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { ORG_NAME, ORG_ADDRESS, ORG_GEO, ORG_PHONE } from '@/lib/schemas';
 import { ORG_ADDRESS_DISPLAY, ORG_PHONE_DISPLAY } from '@/lib/constants';
-import { LocalBusinessSeo } from '@/components';
+import { LocalBusinessSeo, NapAuthorityBadgeSeo } from '@/components/seo';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -368,6 +368,11 @@ export default function IletisimClient() {
             </AnimatePresence>
           </div>
         </motion.div>
+      </div>
+
+      {/* DOĞRULANMIŞ KURUMSAL KÜNYE & MERKEZİ NAP ROZETİ (E-E-A-T & Local SEO) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <NapAuthorityBadgeSeo />
       </div>
 
       {/* SIKÇA SORULAN SORULAR BÖLÜMÜ */}
