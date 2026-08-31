@@ -357,6 +357,393 @@ interface CoreWebVitalsTarget {
 
 ---
 
+
+
+---
+
+---
+
+# BÖLÜM H — 🌐 GOOGLE KNOWLEDGE PANEL & VARLIK GRAFİĞİ
+### `src/lib/seo/dualCoreKnowledgePanelEngine.ts`
+> **Faz 106-145 | Öncelik: YÜKSEK**
+> Alo Yönetim markasını Google Knowledge Graph içine yerleştiren Organization varlık sinyal motoru.
+
+---
+
+### H1 — Organizasyon & Marka Varlığı (Faz 106-118)
+
+**Faz 106** `[YENİ]` `src/lib/seo/dualCoreKnowledgePanelEngine.ts` oluştur.
+
+**Faz 107** `[YENİ]` `OrganizationEntityOptions` interface tanımla (legalName, foundingDate, founder, certifications, socialProfiles).
+
+**Faz 108** `[YENİ]` `buildOrganizationSchema()` — Organization + LocalBusiness + ProfessionalService üçlü şema.
+
+**Faz 109** `[ŞEMA]` `knowsAbout` alanı: KMK 634, ISO 41001, Tesis Yönetimi, Aidat Takibi.
+
+**Faz 110** `[ŞEMA]` `hasCredential` — ISO sertifikaları, mesleki yeterlilikler.
+
+**Faz 111** `[ŞEMA]` `memberOf` — Sektörel dernekler ve meslek kuruluşları.
+
+**Faz 112** `[ŞEMA]` `award` — Sektör ödülleri ve müşteri memnuniyet sertifikaları.
+
+**Faz 113** `[YENİ]` `buildPersonSchema(person)` — Kurucu ve uzman profilleri (E-E-A-T için kritik).
+
+**Faz 114** `[YENİ]` `buildAuthorEntitySchema(authorName, expertise)` — Blog yazarı varlık şeması.
+
+**Faz 115** `[ŞEMA]` `sameAs` — Wikidata, LinkedIn, Google Business Profile, TOBB URL'leri.
+
+**Faz 116** `[TEST]` `buildOrganizationSchema()` — @type, name, url, logo, contactPoint doğrula.
+
+**Faz 117** `[TEST]` `sameAs` array'inde en az 3 harici URL bulunduğunu doğrula.
+
+**Faz 118** `[PUSH]` Organizasyon varlık şeması commit'i.
+
+---
+
+### H2 — Pillar Varlık Ağı & Kavramsal Haritalama (Faz 119-131)
+
+**Faz 119** `[YENİ]` `buildConceptEntitySchema(concept, pillar)` — "Site Yönetimi" ve "Tesis Yönetimi" varlık şemaları.
+
+**Faz 120** `[YENİ]` `buildServiceEntitySchema(serviceSlug, pillar)` — Her hizmet için Service varlık şeması.
+
+**Faz 121** `[YENİ]` `buildAreaServedEntitySchema(districtSlug)` — Place+City varlık tanımlaması.
+
+**Faz 122** `[YENİ]` `buildKnowledgeGraphMap(pillar)` — Tüm varlıkları about, provider, areaServed ilişkileri ile bağla.
+
+**Faz 123** `[ŞEMA]` `Event` şeması — Genel Kurul toplantıları için etkinlik varlığı.
+
+**Faz 124** `[ŞEMA]` `LegalService` şeması — Hukuk & İcra Danışmanlığı hizmeti için.
+
+**Faz 125** `[ŞEMA]` `FinancialService` şeması — Aidat Takibi & Bütçe hizmeti için.
+
+**Faz 126** `[YENİ]` `buildWebPageEntitySchema(pageType, pillar)` — WebPage, ServicePage, FAQPage, BlogPosting varlık tanımlaması.
+
+**Faz 127** `[YENİ]` `buildProductEntitySchema(serviceSlug)` — Abonelik tabanlı hizmet paketleri Product şeması.
+
+**Faz 128** `[TEST]` `buildKnowledgeGraphMap('site')` — En az 5 bağlı varlık doğrulaması.
+
+**Faz 129** `[TEST]` `buildServiceEntitySchema('tesis-yonetimi', 'facility')` — provider.@type: Organization içermeli.
+
+**Faz 130** `[TEST]` `buildAreaServedEntitySchema('kadikoy')` — @type: City içermeli.
+
+**Faz 131** `[PUSH]` Varlık ağı & kavramsal haritalama commit'i.
+
+---
+
+### H3 — E-E-A-T Sinyal Üretim Motoru (Faz 132-145)
+
+**Faz 132** `[YENİ]` `buildEEATSignalBundle(pageType, pillar)` — Experience, Expertise, Authoritativeness, Trustworthiness sinyal paketi.
+
+**Faz 133** `[YENİ]` `auditEEATScore(page)` — Sayfanın E-E-A-T puanını hesapla (0-100).
+
+**Faz 134** `[YENİ]` Experience sinyali: Gerçek müşteri vakaları CaseStudy yapısı.
+
+**Faz 135** `[YENİ]` Expertise sinyali: Yazar biyografisi, sertifika URL'leri.
+
+**Faz 136** `[YENİ]` Authoritativeness sinyali: Harici medyada yayımlanan haber atıflar.
+
+**Faz 137** `[YENİ]` Trustworthiness sinyali: HTTPS, NAP tutarlılığı, şikayet sıfır politikası.
+
+**Faz 138** `[DEĞİŞTİR]` `eeatAuditor.ts` — Yeni E-E-A-T sinyal paketini entegre et.
+
+**Faz 139** `[YENİ]` `buildLegalDisclaimerSchema()` — KMK danışmanlığı için yasal uyarı.
+
+**Faz 140** `[YENİ]` `buildCitationList(pillar)` — Akademik ve resmi kaynak veritabanı.
+
+**Faz 141** `[YENİ]` `buildFeaturedExpertProfile(expertSlug)` — Person + ProfessionalRole şeması.
+
+**Faz 142** `[TEST]` `auditEEATScore()` — 70+ puan için en az 3 sinyal bulunmalı.
+
+**Faz 143** `[TEST]` `buildCitationList('facility')` — En az 2 harici URL döndürmeli.
+
+**Faz 144** `[ENTEGRE]` `facilityAuthorityCorpusEngine.ts` E-E-A-T sinyal paketini ekle.
+
+**Faz 145** `[PUSH]` E-E-A-T & Knowledge Panel motoru final commit'i.
+
+---
+
+---
+
+# BÖLÜM I — 🤖 AI OVERVIEWS & LLM ARAMA OPTİMİZASYONU
+### `src/lib/seo/dualCoreAISearchEngine.ts`
+> **Faz 146-195 | Öncelik: YÜKSEK**
+> Google AI Overviews, ChatGPT Search, Perplexity ve Gemini için yapısal veri, RAG bağlam ve alıntı motoru.
+
+---
+
+### I1 — LLM Bağlamsal Alıntı Motoru (Faz 146-160)
+
+**Faz 146** `[YENİ]` `src/lib/seo/dualCoreAISearchEngine.ts` — Ana motor dosyası.
+
+**Faz 147** `[YENİ]` `LLMSnippetSpec` interface (pillar, intent, headline, answer 40-60 kelime, sourceUrl).
+
+**Faz 148** `[YENİ]` `buildLLMContextBundle(pageType, pillar)` — LLM alıntılayabileceği özet metin bloğu.
+
+**Faz 149** `[YENİ]` `buildDefinitionSnippet(term, pillar)` — 40-60 kelimelik kesin cevap bloğu.
+
+**Faz 150** `[YENİ]` Tanım Bankası (20 terim): site yönetimi, tesis yönetimi, aidat, işletme projesi, KMK 634, ISO 41001, genel kurul, yönetim planı, BMS, CMMS, asansör muayenesi, kompanzasyon, LEED, BREEAM, enerji performans sözleşmesi vb.
+
+**Faz 151** `[YENİ]` `buildComparisonSnippet(termA, termB)` — Kıyaslamalı yapı tablosu.
+
+**Faz 152** `[YENİ]` `buildPriceSnippet(serviceSlug, pillar)` — Fiyat aralığı ve etken faktörler.
+
+**Faz 153** `[YENİ]` `buildLegalSnippet(lawCode)` — KMK 634, Kat Mülkiyeti mevzuat özeti.
+
+**Faz 154** `[YENİ]` `buildLocationSnippet(districtSlug, pillar)` — İlçe bazlı hizmet varlığı özeti.
+
+**Faz 155** `[YENİ]` `buildStatisticalFactBundle(pillar)` — İstanbul'da site sayısı, yönetilen m² istatistikleri.
+
+**Faz 156** `[TEST]` `buildDefinitionSnippet()` — 40-60 kelime arasında olduğunu doğrula.
+
+**Faz 157** `[TEST]` `buildComparisonSnippet()` — En az 3 karşılaştırma kriteri döndürmeli.
+
+**Faz 158** `[TEST]` `buildLLMContextBundle()` — intent, answer, sourceUrl içermeli.
+
+**Faz 159** `[ENTEGRE]` `dualCoreVoiceFaqEngine.ts` sesli arama cevaplarını çapraz zenginleştir.
+
+**Faz 160** `[PUSH]` LLM bağlamsal alıntı motoru commit'i.
+
+---
+
+### I2 — Featured Snippet & AI Overviews (Faz 161-175)
+
+**Faz 161** `[YENİ]` `buildFeaturedSnippetCandidate(query, pillar)` — Paragraph/Table/List snippet.
+
+**Faz 162** `[YENİ]` Paragraph Snippet Hedefleri (10 sorgu): site yönetimi şirketi ne iş yapar, tesis yönetimi neleri kapsar, apartman aidatı nasıl hesaplanır, yönetici nasıl seçilir KMK 634, ISO 41001 sertifikası nasıl alınır, aidat toplanmadığında ne yapılır vb.
+
+**Faz 163** `[YENİ]` Table Snippet (5 tablo): tesis yönetim hizmetleri ve fiyatları, istanbul ilçe bazında ücretler, ISO 41001 vs BS 8572 karşılaştırma, site vs tesis yönetimi farkları, aidat gecikme faizi tablosu.
+
+**Faz 164** `[YENİ]` List Snippet (5 liste): site yöneticisinin görevleri, periyodik bakım listesi, aidat tahsil adımları, yönetim planı zorunlu maddeler, plaza güvenlik protokolleri.
+
+**Faz 165** `[YENİ]` `buildAIOverviewContext(queryCategory, pillar)` — Çok kaynaklı özet metin bloklar.
+
+**Faz 166** `[YENİ]` `buildSpeakableMarkup(content)` — Google Asistan speakable CSS selector'ları.
+
+**Faz 167** `[YENİ]` `buildQualityRatings(contentBlock)` — EAT kalite sinyal cümleleri.
+
+**Faz 168** `[DEĞİŞTİR]` `facilityAiSnippetEngine.ts` — Yeni AI Overviews bloklarını entegre et.
+
+**Faz 169** `[TEST]` Paragraph snippet 40-60 kelime arasında olmalı.
+
+**Faz 170** `[TEST]` Table snippet en az 3 satır içermeli.
+
+**Faz 171** `[PUSH]` Featured Snippet & AI Overviews commit'i.
+
+---
+
+### I3 — llms.txt & LLM Kaynak Optimizasyonu (Faz 172-195)
+
+**Faz 172** `[YENİ]` `buildCitationReadyContent(pillar)` — Perplexity/ChatGPT kaynak formatı.
+
+**Faz 173** `[YENİ]` `buildMarkdownExportSpec(pageSlug)` — .md formatında LLM dataset export.
+
+**Faz 174** `[YENİ]` `buildLLMsTextFile()` — llms.txt içeriği: site özeti, hizmet listesi, iletişim, konular.
+
+**Faz 175** `[YENİ]` `buildLLMsFullTextFile()` — llms-full.txt: tüm sayfa tam metin kümesi.
+
+**Faz 176** `[API]` `GET /api/llms.txt` — Dinamik endpoint.
+
+**Faz 177** `[API]` `GET /api/llms-full.txt` — Dinamik endpoint.
+
+**Faz 178** `[YENİ]` `buildAIBotWhitelistRule()` — GPTBot, ClaudeBot, PerplexityBot robots.txt.
+
+**Faz 179** `[YENİ]` `buildRAGChunkingSpec(content, chunkSize)` — 512 token chunking stratejisi.
+
+**Faz 180** `[YENİ]` `buildEmbeddingReadyContent(serviceSlug, pillar)` — Vector embedding normalize metin.
+
+**Faz 181** `[YENİ]` `buildSemanticHTMLSpec(pageType)` — main, article, section, aside kullanım şartnamesi.
+
+**Faz 182** `[YENİ]` `buildConversationalQueryOptimizer(query)` — Sohbet tabanlı sorgu formatı.
+
+**Faz 183** `[YENİ]` `buildKnowledgeBaseEntry(topic, pillar)` — Helpdesk ve chatbot bilgi tabanı maddesi.
+
+**Faz 184** `[TEST]` `buildLLMsTextFile()` — URL, hizmet listesi ve iletişim içermeli.
+
+**Faz 185** `[TEST]` `buildRAGChunkingSpec()` — Chunk 512 token geçmemeli.
+
+**Faz 186** `[TEST]` `buildAIBotWhitelistRule()` — GPTBot ve ClaudeBot Allow direktifi içermeli.
+
+**Faz 187** `[ENTEGRE]` `aiBotTelemetry.ts` — LLM bot ziyaretlerini izle.
+
+**Faz 188** `[ENTEGRE]` `botTracker.ts` — Perplexity, ChatGPT, Gemini ayrı takip.
+
+**Faz 189** `[ÖLÇÜM]` AI kaynak gösterim oranı (Citation Rate) KPI'si.
+
+**Faz 190** `[PROMPT]` Sistem prompt şablonu: Alo Yönetim hakkı bilgi kaynakları.
+
+**Faz 191** `[PROMPT]` RAG bağlamsal prompt — LLM için site özeti ve hizmet açıklaması.
+
+**Faz 192** `[PROMPT]` Chatbot sistem promptu — Müşteri soru-cevap Alo Yönetim expertise'i.
+
+**Faz 193** `[YENİ]` `buildOpenGraphForLLM(pageSlug)` — og:description ve og:image LLM önizleme.
+
+**Faz 194** `[TEST]` `buildConversationalQueryOptimizer()` — Çıktı soru işareti içermeli.
+
+**Faz 195** `[PUSH]` AI Search & LLM motoru final commit'i.
+
+---
+
+---
+
+# BÖLÜM J — 🕵️ RAKİP ANALİZ & BOŞLUK TESPİT MOTORU
+### `src/lib/seo/dualCoreCompetitorAnalyzer.ts`
+> **Faz 196-235 | Öncelik: YÜKSEK**
+> Rakip tesis/site yönetimi şirketlerin SERP görünürlük, keyword örtüşme ve içerik boşluk analizi.
+
+---
+
+### J1 — Rakip Profil & Veri Modeli (Faz 196-208)
+
+**Faz 196** `[YENİ]` `src/lib/seo/dualCoreCompetitorAnalyzer.ts` — Ana motor dosyası.
+
+**Faz 197** `[YENİ]` `CompetitorProfile` interface (domain, pillar, topKeywords, contentGaps, backlinkScore).
+
+**Faz 198** `[YENİ]` Rakip Profil Veritabanı: İstanbul'daki 10 önemli site/tesis yönetim şirketi.
+
+**Faz 199** `[YENİ]` `KeywordGapReport` — Rakibin sahip olduğu, Alo Yönetim'in bulunmadığı keyword listesi.
+
+**Faz 200** `[YENİ]` `ContentGapReport` — Rakibin kapsadığı konu clusterları.
+
+**Faz 201** `[YENİ]` `BacklinkOpportunity` — Rakibin link aldığı domain kesişim analizi.
+
+**Faz 202** `[YENİ]` `SERPOverlapScore` — Alo Yönetim vs rakip SERP örtüşme yüzdesi.
+
+**Faz 203** `[YENİ]` `CompetitorAuditOutput` — Tüm analiz çıktılarını birleştiren üst tip.
+
+**Faz 204** `[TEST]` `CompetitorProfile` zorunlu alanlarını doğrula.
+
+**Faz 205** `[TEST]` Rakip veritabanında en az 5 profil bulunduğunu doğrula.
+
+**Faz 206** `[PUSH]` Rakip profil veri modeli commit'i.
+
+---
+
+### J2 — Keyword Boşluk & Fırsat (Faz 207-220)
+
+**Faz 207** `[YENİ]` `analyzeKeywordGap(competitorId, pillar)` — Rakibin güçlü olduğu bizim olmadığımız kelimeler.
+
+**Faz 208** `[YENİ]` `findQuickWinKeywords(pillar)` — Düşük rekabet, yüksek hacim fırsatlar.
+
+**Faz 209** `[YENİ]` Quick Win Kategorileri: uzun kuyruk hukuk sorgu, hesap makinesi, ilçe+hizmet kombinasyonları.
+
+**Faz 210** `[YENİ]` `rankKeywordsByOpportunityScore(keywords)` — Arama hacmi x (1/rekabet) formülü.
+
+**Faz 211** `[YENİ]` `generateContentBriefFromGap(gapKeyword, pillar)` — Otomatik içerik brifing belgesi.
+
+**Faz 212** `[YENİ]` `mapKeywordToExistingPage(keyword)` — Mevcut sayfa güçlendir vs yeni sayfa karar.
+
+**Faz 213** `[TEST]` `findQuickWinKeywords('site')` en az 5 kelime döndürmeli.
+
+**Faz 214** `[TEST]` `rankKeywordsByOpportunityScore()` azalan sıra döndürmeli.
+
+**Faz 215** `[PUSH]` Keyword boşluk analizi commit'i.
+
+---
+
+### J3 — İçerik & SERP Boşluk Motoru (Faz 216-235)
+
+**Faz 216** `[YENİ]` `analyzeContentGap(competitorId, pillar)` — Konu cluster eksik analizi.
+
+**Faz 217** `[YENİ]` İçerik Boşluk Kategorileri: hukuk blog (KMK 634 Madde 22), sektör istatistik raporlar, karşılaştırma sayfalar, hesap makineleri, vaka çalışmaları.
+
+**Faz 218** `[YENİ]` `generatePillarContentRoadmap(pillar)` — Aylık blog+sayfa üretim takvimi.
+
+**Faz 219** `[YENİ]` `analyzeSERPFeatureGap(keyword)` — Rakibin sahip olduğu rich snippet türleri.
+
+**Faz 220** `[YENİ]` `buildWinningContentSpec(keyword, competitorUrl)` — Rakibi geçmek için içerik şartnamesi.
+
+**Faz 221** `[YENİ]` `analyzeBacklinkGap(competitorId)` — Sektörel site link fırsatları.
+
+**Faz 222** `[YENİ]` `buildOutreachTargetList(pillar)` — GAYRİMENKUL, İSKAV, TODAİE vb hedef listesi.
+
+**Faz 223** `[YENİ]` `monitorSERPPositionChange(keyword, pillar)` — Haftalık pozisyon değişim izleme.
+
+**Faz 224** `[TEST]` `analyzeContentGap()` boş array döndürmemeli.
+
+**Faz 225** `[TEST]` `buildWinningContentSpec()` — minWordCount, requiredSchemas, targetKeyword içermeli.
+
+**Faz 226** `[PUSH]` Rakip analiz motoru final commit'i.
+
+---
+
+---
+
+# BÖLÜM K — 🎥 VİDEO SEO & YOUTUBE OPTİMİZASYON MOTORU
+### `src/lib/seo/dualCoreVideoSeoEngine.ts`
+> **Faz 236-270 | Öncelik: ORTA**
+> YouTube ve web video içeriklerini VideoObject ile indeksleyen, chapter marker ve transcript tabanlı SEO üreten motor.
+
+---
+
+### K1 — VideoObject Şema Motoru (Faz 236-255)
+
+**Faz 236** `[YENİ]` `src/lib/seo/dualCoreVideoSeoEngine.ts` — Ana motor dosyası.
+
+**Faz 237** `[YENİ]` `VideoSeoSpec` interface (videoId, platform, durationISO, thumbnailUrl, chapters, transcript, keywords).
+
+**Faz 238** `[YENİ]` `VideoChapter` interface — Timestamp bazlı bölüm işaretleyicileri.
+
+**Faz 239** `[YENİ]` `buildVideoObjectSchema(spec)` — Schema.org VideoObject JSON-LD.
+
+**Faz 240** `[YENİ]` Video İçerik Planı (10 video): Site Yönetimi Nedir, KMK 634 Apartman Yönetimi, Aidat Hesaplama, Tesis Yönetimi Nedir, ISO 41001 Sertifikası, Kadıköy Site Yönetimi, Asansör Periyodik Bakım, Genel Kurul Nasıl Yapılır, Aidat Borcunda İcra, 5188 Güvenlik.
+
+**Faz 241** `[YENİ]` `buildVideoChapterMarkup(chapters)` — YouTube Description timestamp formatı.
+
+**Faz 242** `[YENİ]` `buildYouTubeOptimizationSpec(videoSpec)` — Başlık, açıklama, etiket SEO şartnamesi.
+
+**Faz 243** `[YENİ]` `buildTranscriptBasedContent(transcript, pillar)` — Transkript'ten blog/FAQ içeriği.
+
+**Faz 244** `[TEST]` `buildVideoObjectSchema()` — name, uploadDate, duration, thumbnailUrl doğrula.
+
+**Faz 245** `[TEST]` `durationISO` ISO 8601 `PT\d+M\d+S` formatına uymalı.
+
+**Faz 246** `[YENİ]` `buildVideoCarouselSchema(videoList)` — ItemList içinde VideoObject carousel.
+
+**Faz 247** `[YENİ]` `buildVideoSiteMapEntry(videoSpec)` — Video sitemap XML entry.
+
+**Faz 248** `[API]` `GET /api/sitemap-video.xml` — Dinamik video sitemap endpoint.
+
+**Faz 249** `[YENİ]` `buildVideoKeyMoments(chapters)` — Google Key Moments Clip şeması.
+
+**Faz 250** `[YENİ]` `embedVideoWithSEO(videoSpec, pageSlug)` — Şema ile birlikte enjeksiyon şablonu.
+
+**Faz 251** `[TEST]` `buildVideoCarouselSchema()` en az 3 video içermeli.
+
+**Faz 252** `[TEST]` `buildVideoSiteMapEntry()` — video:title ve video:thumbnail_loc içermeli.
+
+---
+
+### K2 — YouTube Analytics & Optimizasyon (Faz 253-270)
+
+**Faz 253** `[YENİ]` `buildYouTubeKeywordResearch(topic, pillar)` — YouTube hacim tahmini ve title önerileri.
+
+**Faz 254** `[YENİ]` `buildYouTubeDescriptionTemplate(videoSpec)` — 500+ karakter, 3 CTA, ilgili linkler.
+
+**Faz 255** `[YENİ]` `buildYouTubeTagList(videoSpec)` — Hedef anahtar kelimelerden 10+ tag listesi.
+
+**Faz 256** `[YENİ]` `buildYouTubeCardSpec(videoSpec)` — End screen ve kartlar tıklama optimizasyonu.
+
+**Faz 257** `[YENİ]` `buildPinboardSpec(pillar)` — YouTube Shorts ve Pinterest pin stratejisi.
+
+**Faz 258** `[YENİ]` `analyzeVideoRetentionHotspots(videoSpec)` — Düşük izlenme noktaları bölüm önerisi.
+
+**Faz 259** `[YENİ]` `buildCTAOverlaySpec(videoSpec, ctaType)` — Video içi harekete geçirme overlay.
+
+**Faz 260** `[TEST]` `buildYouTubeDescriptionTemplate()` — 500 karakterden uzun olduğunu doğrula.
+
+**Faz 261** `[TEST]` `buildYouTubeTagList()` — En az 10 tag döndürmeli.
+
+**Faz 262** `[ÖLÇÜM]` YouTube organik gösterim artışı KPI tanımı.
+
+**Faz 263** `[ENTEGRE]` `dualCoreBreadcrumbEngine.ts` — Video sayfası breadcrumb zinciri.
+
+**Faz 264** `[PUSH]` Video SEO motoru final commit'i.
+
+
+---
+
+---
+
 # BÖLÜM L — 📧 E-POSTA OTOMASYONU & SEO ENTEGRASYONU
 ### `src/lib/seo/dualCoreEmailSeoEngine.ts`
 > **Faz 256-305 | Öncelik: ORTA**
