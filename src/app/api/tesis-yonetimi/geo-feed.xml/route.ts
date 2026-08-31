@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
-import { BASE_URL } from '@/lib/constants';
+import { BASE_URL } from '@/lib/seo';
+import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
 
 function escapeXml(str: string): string {
@@ -18,9 +20,10 @@ export async function GET() {
 
   const items = DISTRICTS.map((d) => {
     const url = `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`;
-    const title = `${d.name} Profesyonel Tesis Yönetimi — Alo Yönetim`;
-    const neighborhoods = d.neighborhoods.slice(0, 3).join(', ');
-    const description = `${d.name} (${d.side} Yakası) genelinde ${d.managedProjects}+ aktif projede KMK uyumlu tesis yönetimi, 5188 özel güvenlik, TSE temizlik ve 7/24 teknik bakım. Hizmet verilen mahalleler: ${neighborhoods}. Ortalama %26 işletme tasarrufu.`;
+    const title = `${d.name} Profesyonel Tesis Yönetimi & 7/24 Saha İşletmesi — Alo Yönetim`;
+    const neighborhoods = d.neighborhoods.slice(0, 4).join(', ');
+    const slaMinutes = ['kadikoy', 'uskudar'].includes(d.slug) ? 15 : ['atasehir', 'besiktas', 'sisli'].includes(d.slug) ? 20 : 25;
+    const description = `${d.name} (${d.side} Yakası) genelinde ${d.managedProjects}+ aktif projede KMK 634 uyumlu tesis yönetimi, 5188 özel güvenlik, TSE temizlik ve ${slaMinutes} dakika mobil acil müdahale SLA garantisi. Hizmet verilen mahalleler: ${neighborhoods}.`;
 
     return `
   <item>
@@ -29,17 +32,22 @@ export async function GET() {
     <guid isPermaLink="true">${url}</guid>
     <description><![CDATA[${description}]]></description>
     <pubDate>${lastBuildDate}</pubDate>
-    <category>Profesyonel Tesis Yönetimi</category>
+    <category>Entegre Tesis Yönetimi</category>
     <category>634 Sayılı Kat Mülkiyeti Kanunu</category>
-    <category>${escapeXml(d.name)} ${d.side} Yakası</category>
+    <category>5188 Sayılı Özel Güvenlik Kanunu</category>
+    <category>${escapeXml(d.name)} (${d.side} Yakası)</category>
     <georss:point>${d.geo.lat} ${d.geo.lng}</georss:point>
     <geo:lat>${d.geo.lat}</geo:lat>
     <geo:long>${d.geo.lng}</geo:long>
-    <tesis:district>${escapeXml(d.name)}</tesis:district>
+    <tesis:districtSlug>${d.slug}</tesis:districtSlug>
+    <tesis:districtName>${escapeXml(d.name)}</tesis:districtName>
     <tesis:side>${d.side}</tesis:side>
     <tesis:population>${d.population}</tesis:population>
     <tesis:managedProjects>${d.managedProjects}</tesis:managedProjects>
+    <tesis:slaEmergencyMinutes>${slaMinutes}</tesis:slaEmergencyMinutes>
     <tesis:priority>${d.priority}</tesis:priority>
+    <tesis:canonicalOrg>${escapeXml(CANONICAL_NAP.legal.legalName)}</tesis:canonicalOrg>
+    <tesis:telephone>${CANONICAL_NAP.contact.phoneDisplay}</tesis:telephone>
   </item>`;
   }).join('');
 
@@ -50,17 +58,19 @@ export async function GET() {
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:tesis="https://aloyonetim.com.tr/ns/tesis">
   <channel>
-    <title>Alo Yönetim — İstanbul Tesis Yönetimi İlçe Bazlı GeoRSS Feed</title>
+    <title>Alo Yönetim — İstanbul 39 İlçe Tesis Yönetimi Coğrafi GeoRSS Beslemesi</title>
     <link>${BASE_URL}/hizmetler/tesis-yonetimi</link>
     <atom:link href="${BASE_URL}/api/tesis-yonetimi/geo-feed.xml" rel="self" type="application/rss+xml" />
-    <description>İstanbul genelinde ${DISTRICTS.length} ilçede profesyonel tesis yönetimi, apartman ve site işletmeciliği hizmetleri coğrafi GeoRSS beslemesi. KMK 634, 5188 ve TSE standartlarında.</description>
+    <description>İstanbul genelinde 39 ilçede KMK 634, ISO 41001 ve 5188 standartlarında profesyonel tesis yönetimi, rezidans işletmesi, site ve plaza yönetimi coğrafi koordinat ve hizmet ağı beslemesi.</description>
     <language>tr-TR</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
-    <managingEditor>info@aloyonetim.com.tr (Alo Yönetim)</managingEditor>
-    <webMaster>info@aloyonetim.com.tr</webMaster>
+    <managingEditor>${CANONICAL_NAP.contact.email} (${CANONICAL_NAP.legal.legalName})</managingEditor>
+    <webMaster>${CANONICAL_NAP.contact.email}</webMaster>
+    <copyright>© 2026 ${escapeXml(CANONICAL_NAP.legal.legalName)}. MERSIS: ${CANONICAL_NAP.legal.mersisNumber}</copyright>
     <category>Tesis Yönetimi</category>
+    <category>Rezidans Yönetimi</category>
     <category>Site Yönetimi</category>
-    <category>İstanbul Bölgesel Hizmetler</category>
+    <category>İstanbul 39 İlçe Coğrafi Hizmet Haritası</category>
     <ttl>1440</ttl>
     ${items}
   </channel>

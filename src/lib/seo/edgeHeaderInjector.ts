@@ -1,4 +1,5 @@
 import { BASE_URL, LOCALES, type Locale } from '@/lib/seo';
+import { CANONICAL_NAP } from './napGuardEngine';
 
 export interface EdgeSeoHeaderOptions {
   noindex?: boolean;
@@ -46,6 +47,7 @@ export function buildHttpLinkHeader(pathname: string, currentLang: string = 'tr'
   // AI & LLM Arama Motoru Bağlam Keşfi (GEO - Generative Engine Optimization)
   linkElements.push(`<${BASE_URL}/llms.txt>; rel="describedby"; type="text/plain"`);
   linkElements.push(`<${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld>; rel="alternate"; type="application/ld+json"`);
+  linkElements.push(`<${BASE_URL}/api/tesis-yonetimi/geo-feed.xml>; rel="alternate"; type="application/xml"`);
 
   return linkElements.join(', ');
 }
@@ -74,10 +76,17 @@ export function generateEdgeSeoHeaders(
   lang: string = 'tr',
   options: EdgeSeoHeaderOptions = {}
 ): Record<string, string> {
+  const languageTag = lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : lang === 'ar' ? 'ar-SA' : 'tr-TR';
+
   return {
     'Link': buildHttpLinkHeader(pathname, lang),
     'X-Robots-Tag': buildXRobotsTag(options),
+    'Content-Language': languageTag,
     'X-Content-Type-Options': 'nosniff',
-    'X-SEO-Engine': 'Alo-Yonetim-Edge-SEO-V4',
+    'X-SEO-Engine': 'Alo-Yonetim-Edge-SEO-V5',
+    'X-AI-Citation': `${CANONICAL_NAP.legal.legalName} (${BASE_URL})`,
+    'X-Legal-Entity': `${CANONICAL_NAP.legal.legalName} | MERSIS: ${CANONICAL_NAP.legal.mersisNumber} | ITO: ${CANONICAL_NAP.legal.tradeRegistryNumber}`,
+    'X-NAP-Source': `${BASE_URL}/#organization`,
+    'X-SLA-Guarantee': '15-25 min emergency response across 39 districts',
   };
 }

@@ -1,5 +1,6 @@
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
+import { CANONICAL_NAP } from './napGuardEngine';
 
 export interface FacilityLegalArticle {
   articleNumber: number;
@@ -56,6 +57,10 @@ export interface FacilityAuthorityCorpus {
       regulationName: string;
       mandate: string;
     };
+    executionLaw2004: {
+      lawNumber: number;
+      article68Scope: string;
+    };
   };
   iso41001KpiSystem: FacilityStandardKpi[];
   subSectors: SubSectorAuthorityProfile[];
@@ -92,7 +97,15 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
       topic: 'Ortak Giderlere ve Aidata Katılma Borcu',
       summary: 'Kat malikleri kapıcı, kaloriferci, güvenlik ve ortak alan bakım giderlerine arsa payı oranında katılmakla yükümlüdür.',
-      practicalApplication: 'Gününde ödenmeyen aidatlara aylık %5 gecikme tazminatı ve icra takibi uygulanır.',
+      practicalApplication: 'Gününde ödenmeyen aidatlara aylık %5 gecikme tazminatı ve noter ihtarnamesini takiben icra takibi uygulanır.',
+      officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+    },
+    {
+      articleNumber: 28,
+      lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
+      topic: 'Yönetim Planının Değiştirilmesi',
+      summary: 'Yönetim planı bütün kat maliklerinin beşte dördünün oyuyla değiştirilebilir.',
+      practicalApplication: 'Modern tesis işletim ihtiyaçlarına göre yönetim planı revizyon taslakları hukuk ekibimizce hazırlanır.',
       officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
     },
     {
@@ -104,11 +117,27 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
     },
     {
+      articleNumber: 35,
+      lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
+      topic: 'Yöneticinin Yasal Görev ve Sorumlulukları',
+      summary: 'Yönetici gayrimenkulün gayesine uygun olarak kullanılması, korunması, bakımı ve onarımı için gereken tedbirleri alır.',
+      practicalApplication: 'Teknik servis, asansör yeşil etiket takibi, güvenlik ve sigorta sözleşmeleri yönetici sıfatıyla yürütülür.',
+      officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+    },
+    {
       articleNumber: 37,
       lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
       topic: 'İşletme Projesinin Hazırlanması ve Tebliği',
       summary: 'Yönetici yıllık tahmini gelir-gider bütçesini hazırlar ve tüm kat maliklerine taahhütlü mektupla tebliğ eder.',
       practicalApplication: '7 gün içinde itiraz edilmeyen işletme projesi kesinleşir ve İİK Madde 68 kapsamında ilamsız icra belgesi sayılır.',
+      officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+    },
+    {
+      articleNumber: 38,
+      lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
+      topic: 'Yöneticinin Hesap Verme Sorumluluğu',
+      summary: 'Yönetici, kat maliklerine karşı aynen bir vekil gibi sorumlu olup hesap vermekle yükümlüdür.',
+      practicalApplication: 'Alo Yönetim mobil portalı üzerinden 7/24 şeffaf banka hareketleri ve fatura dökümleri sunulur.',
       officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
     },
     {
@@ -126,28 +155,28 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       standardCode: 'ISO 41001:2018 (Madde 8.1)',
       domain: 'Tesis Operasyonel Süreçleri',
       kpiTitle: 'Reaktif Bakım Yanıt Süresi (Emergency SLA)',
-      benchmarkTarget: '< 30 Dakika',
+      benchmarkTarget: '< 25 Dakika (Kadıköy/Üsküdar 15 Dk)',
       measurementFrequency: 'Gerçek Zamanlı (Real-Time IoT & Helpdesk)',
     },
     {
       standardCode: 'ISO 41001:2018 (Madde 9.1)',
       domain: 'Finansal Performans ve Tasarruf',
       kpiTitle: 'İşletme Bütçesi Sapma Toleransı',
-      benchmarkTarget: '< %3 Sapma',
+      benchmarkTarget: '< %2.5 Sapma',
       measurementFrequency: 'Aylık Yönetim Kurulu Raporlaması',
     },
     {
       standardCode: 'ISO 41001:2018 (Madde 8.2)',
       domain: 'Sürdürülebilirlik & Enerji',
       kpiTitle: 'Ortak Alan Enerji Tüketim Azaltımı',
-      benchmarkTarget: '%25 - %35 Tasarruf',
+      benchmarkTarget: '%20 - %30 Net Tasarruf',
       measurementFrequency: 'Çeyreklik Enerji Analiz Raporu',
     },
     {
       standardCode: 'ISO 41001:2018 (Madde 9.2)',
       domain: 'Kullanıcı Memnuniyeti & Kat Maliki NPS',
       kpiTitle: 'Kat Maliki & Kiracı Memnuniyet Skoru',
-      benchmarkTarget: '> 94 / 100',
+      benchmarkTarget: '> 96 / 100',
       measurementFrequency: 'Yıllık Bağımsız Denetim',
     },
   ];
@@ -213,19 +242,20 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
   }));
 
   return {
-    protocolVersion: '2026.4.1',
-    lastUpdated: '2026-08-28T09:00:00+03:00',
+    protocolVersion: '2026.5.0',
+    lastUpdated: '2026-08-31T14:00:00+03:00',
     authorityEntity: {
-      name: 'Alo Yönetim',
-      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+      name: CANONICAL_NAP.legal.brandName,
+      legalName: CANONICAL_NAP.legal.legalName,
       certifications: [
         'ISO 41001:2018 Tesis Yönetim Sistemi',
         'ISO 9001:2015 Kalite Yönetim Sistemi',
         'ISO 14001:2015 Çevre Yönetim Sistemi',
         'ISO 45001:2018 İş Sağlığı ve Güvenliği',
+        'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
         '5188 Sayılı Kanun Lisanslı Güvenlik Partnerliği'
       ],
-      officialUrl: 'https://aloyonetim.com.tr',
+      officialUrl: BASE_URL,
     },
     legalFramework: {
       kmk634Articles: kmkArticles,
@@ -241,6 +271,10 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       energyPerformanceEkb: {
         regulationName: 'Binalarda Enerji Performansı Yönetmeliği',
         mandate: 'Merkezi ısıtma ve ortak alanlarda Enerji Kimlik Belgesi (EKB) ve yıllık verimlilik denetimi zorunludur.'
+      },
+      executionLaw2004: {
+        lawNumber: 2004,
+        article68Scope: 'Kat Mülkiyeti Kanunu Madde 37 uyarınca kesinleşen işletme projesi İİK 68. madde anlamında borç ikrarı içeren belge niteliğindedir.'
       }
     },
     iso41001KpiSystem: isoKpis,
@@ -248,9 +282,9 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
     districtMatrix,
     provenMetrics: {
       averageCostReductionPercent: 30,
-      activeFacilityPortfolioCount: 120,
+      activeFacilityPortfolioCount: 340,
       technicalSlaResolutionRatePercent: 99.4,
-      duesCollectionEfficiencyRatePercent: 98.6,
+      duesCollectionEfficiencyRatePercent: 99.2,
     },
   };
 }
