@@ -108,7 +108,7 @@
   - [x] `security.txt` ve `manifest.webmanifest` entegrasyonu.
   - [x] IndexNow otomatik bildirim altyapısı.
 - [ ] **Harici Hesap & İnsan Aksiyonları (Yapılması Gerekenler):**
-  - [ ] **1. Google Business Profile (GBP):** `Eğitim Mah. Kasap İsmail Sk. No:15/19, Kadıköy, İstanbul` adresiyle profilin açılması/doğrulanması (Kategori: *Property management company*).
+  - [ ] **1. Google Business Profile (GBP):** `Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul` adresiyle profilin açılması/doğrulanması (Kategori: *Property management company*).
   - [ ] **2. Bing Places & Apple Business Connect:** GBP doğrulaması sonrası profillerin açılması.
   - [ ] **3. Türkiye Yerel Dizin Kayıtları:** Bulurum, Neredekaca, Firmasec, Yandex İşletme ve Sanayi/Ticaret Odası kayıtlarının yapılması.
   - [ ] **4. Google Search Console & Bing Webmaster Tools:** Yeni site haritası index'lerinin (`/sitemap.xml`, `/sitemap-regions.xml`) onaylanması.

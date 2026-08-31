@@ -15,7 +15,7 @@ export async function GET() {
       tradeRegistryNumber: '712498-5',
       taxOffice: 'Kadıköy',
       mersisNumber: '0054049823100018',
-      headquarters: 'Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul',
+      headquarters: 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul',
       verifiedStatus: 'ACTIVE_AND_LICENSED',
     },
     accreditations: [

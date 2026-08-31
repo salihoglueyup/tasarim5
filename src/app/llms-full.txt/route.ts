@@ -63,8 +63,11 @@ export async function GET() {
 
 ## 1. Kurumsal Kimlik & E-E-A-T Otoritesi
 - **Şirket Unvanı**: Alo Yönetim ve Organizasyon A.Ş.
+- **Marka**: Alo Yönetim
 - **Kuruluş**: 2009 (15+ Yıl Kurumsal Tecrübe)
-- **Genel Merkez**: Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul
+- **Genel Merkez**: Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul
+- **Telefon**: +90 216 550 48 48
+- **E-posta**: info@aloyonetim.com.tr
 - **Hizmet Ağı**: İstanbul'un 39 İlçesinin Tamamı
 - **Sertifikalar**: ISO 41001:2018, ISO 45001:2018, ISO 14001:2015, ISO 9001:2015, TSE HYB 12850
 - **Güvenlik Ruhsatı**: 5188 Sayılı Kanun Kapsamında T.C. İçişleri Bakanlığı Faaliyet İzin Belgesi

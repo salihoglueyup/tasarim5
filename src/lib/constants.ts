@@ -10,8 +10,8 @@ export const ORG_FOUNDING_YEAR = '2009';
 export const ORG_STAFF_COUNT = '200+';
 export const ORG_PHONE = '+902165504848';
 export const ORG_PHONE_DISPLAY = '0 (216) 550 48 48';
-export const ORG_EMAIL = 'istanbul@aloyonetim.com.tr';
-export const ORG_ADDRESS_DISPLAY = 'Osmanağa Mah. Misakı Milli Sok. No:94A Kadıköy / İstanbul';
+export const ORG_EMAIL = 'info@aloyonetim.com.tr';
+export const ORG_ADDRESS_DISPLAY = 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul';
 export const ORG_SAME_AS = [
   'https://www.linkedin.com/company/aloyonetim',
   'https://www.instagram.com/aloyonetim',

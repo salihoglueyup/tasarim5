@@ -53,10 +53,10 @@ export async function GET() {
         logo: `${BASE_URL}/icon.png`,
         foundingDate: '2009',
         telephone: '+902165504848',
-        email: 'istanbul@aloyonetim.com.tr',
+        email: 'info@aloyonetim.com.tr',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Osmanağa Mahallesi, Misakı Milli Sokak No:94A',
+          streetAddress: 'Misak-ı Milli Sok. No:94A',
           addressLocality: 'Kadıköy',
           addressRegion: 'İstanbul',
           postalCode: '34714',

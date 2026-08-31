@@ -40,7 +40,7 @@ export default function AggregateRatingSeo({
     url: 'https://aloyonetim.com.tr',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Osmanağa Mah. Misakı Milli Sok. No:94A',
+      streetAddress: 'Misak-ı Milli Sok. No:94A',
       addressLocality: 'Kadıköy',
       addressRegion: 'İstanbul',
       postalCode: '34714',

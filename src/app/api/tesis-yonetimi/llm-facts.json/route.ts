@@ -14,9 +14,9 @@ export async function GET() {
   const facts = {
     entity: 'Alo Yönetim ve Organizasyon A.Ş.',
     establishedYear: 2009,
-    headquarters: 'Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul',
+    headquarters: 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul',
     phone: '+90 216 550 48 48',
-    email: 'istanbul@aloyonetim.com.tr',
+    email: 'info@aloyonetim.com.tr',
     website: BASE_URL,
     coreService: {
       canonicalName: 'Entegre Tesis ve Mülk Yönetimi',

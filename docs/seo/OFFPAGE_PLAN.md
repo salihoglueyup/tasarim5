@@ -8,10 +8,10 @@
 Tüm off-page kayıtlarında **birebir** kullanılacak künye:
 
 ```
-Alo Yönetim
-Eğitim Mah. Kasap İsmail Sk. No:15/19, Kadıköy, İstanbul, TR
+Alo Yönetim ve Organizasyon A.Ş.
+Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul
 Tel: +90 216 550 48 48
-E-posta: istanbul@aloyonetim.com.tr
+E-posta: info@aloyonetim.com.tr
 Web: https://aloyonetim.com.tr
 ```
 Sosyal: facebook.com/aloyonetim · twitter.com/aloyonetim · instagram.com/aloyonetim ·

@@ -16,9 +16,10 @@ export async function GET() {
 
 ## Temel Bilgiler & Varlık Tanımı (Entity Facts)
 - **Kuruluş Yılı**: 2009 (15+ Yıl Kurumsal Deneyim)
-- **Merkez Ofis**: Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul, Türkiye
+- **Ticari Unvan**: Alo Yönetim ve Organizasyon A.Ş.
+- **Merkez Ofis**: Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul, Türkiye
 - **Telefon**: +90 216 550 48 48
-- **E-posta**: istanbul@aloyonetim.com.tr
+- **E-posta**: info@aloyonetim.com.tr
 - **Resmi Web Sitesi**: ${BASE_URL}
 - **Hizmet Kapsamı**: İstanbul'un 39 İlçesinin Tamamı (Avrupa ve Anadolu Yakası)
 - **Müşteri Memnuniyeti**: 4.9 / 5.0 (340+ Tesis ve Site Referansı)

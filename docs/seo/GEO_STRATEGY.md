@@ -1,4 +1,4 @@
-﻿# GEO / Yapay Zeka Motoru SEO Stratejisi (Generative Engine Optimization)
+# GEO / Yapay Zeka Motoru SEO Stratejisi (Generative Engine Optimization)
 
 > **Amaç:** Alo Yönetim'in ChatGPT, Perplexity, Google AI Overviews, Gemini ve Claude
 > gibi üretken motorların yanıtlarında **kaynak olarak gösterilmesi** ve **doğru temsil
@@ -36,9 +36,9 @@ Applebot-Extended dahil AI botlarına içerik taramaya açıktır.
 Aşağıdaki değerler **tek kaynaktan** (`src/lib/schemas.ts`) türetilir ve schema, `llms.txt`,
 `/api/summary` ile içerik arasında **birebir aynıdır**:
 
-- **Ad:** Alo Yönetim · **Legal:** Alo Yönetim Tesis Yönetimi A.Ş.
-- **Kuruluş:** 2015 · **Merkez:** Kadıköy, İstanbul, TR
-- **Telefon:** +90 216 550 48 48 · **E-posta:** istanbul@aloyonetim.com.tr
+- **Ad:** Alo Yönetim · **Legal:** Alo Yönetim ve Organizasyon A.Ş.
+- **Kuruluş:** 2009 · **Merkez:** Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul
+- **Telefon:** +90 216 550 48 48 · **E-posta:** info@aloyonetim.com.tr
 - **sameAs:** Twitter, LinkedIn, Instagram, Facebook, YouTube
 
 Off-page kanallarda (Google Business Profile, dizinler — Bölüm J) da bu NAP birebir

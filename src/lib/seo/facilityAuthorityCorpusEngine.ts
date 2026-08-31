@@ -217,7 +217,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
     lastUpdated: '2026-08-28T09:00:00+03:00',
     authorityEntity: {
       name: 'Alo Yönetim',
-      legalName: 'Alo Yönetim Tesis ve Site Yönetimi A.Ş.',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
       certifications: [
         'ISO 41001:2018 Tesis Yönetim Sistemi',
         'ISO 9001:2015 Kalite Yönetim Sistemi',

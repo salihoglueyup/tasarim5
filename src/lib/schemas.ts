@@ -31,14 +31,14 @@ export const ORG_LEGAL_NAME = 'Alo Yönetim ve Organizasyon A.Ş.';
 export const ORG_LOGO = `${BASE_URL}/icon.png`;
 export const ORG_PHONE = '+902165504848';
 export const ORG_PHONE_DISPLAY = '0216 550 48 48';
-export const ORG_EMAIL = 'istanbul@aloyonetim.com.tr';
+export const ORG_EMAIL = 'info@aloyonetim.com.tr';
 export const ORG_FOUNDING_DATE = '2009';
 export const ORG_PRICE_RANGE = '₺₺';
 
 /** Postal adres (Kadıköy merkez ofis). */
 export const ORG_ADDRESS = {
   '@type': 'PostalAddress',
-  streetAddress: 'Osmanağa Mahallesi, Misakı Milli Sokak No:94A',
+  streetAddress: 'Misak-ı Milli Sok. No:94A',
   addressLocality: 'Kadıköy',
   addressRegion: 'İstanbul',
   postalCode: '34714',
@@ -51,7 +51,7 @@ export const ORG_ADDRESS = {
  * Gerçek adres farklıysa yalnızca burada ve ORG_ADDRESS'te güncellenir.
  */
 export const ORG_ADDRESS_DISPLAY =
-  'Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul';
+  'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul';
 
 /** Coğrafi konum (merkez ofis). */
 export const ORG_GEO = {
