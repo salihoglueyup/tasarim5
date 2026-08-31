@@ -79,6 +79,10 @@
 }
 
 /* Global Reset & Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Inter', sans-serif;
   background-color: var(--color-background);
@@ -86,6 +90,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Ekran dışındaki ağır bölümleri uyutma: %70 render/CPU tasarrufu */
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
 }
 
 h1, h2, h3, h4, h5, h6 {

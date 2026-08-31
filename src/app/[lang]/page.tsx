@@ -151,20 +151,20 @@ export default async function Home({ params }: Props) {
       <JsonLd data={[pageLd, businessLd, videoLd, facilityGraphLd]} />
       <Hero />
       <SeoTextSection />
-      <BentoServices />
-      <IstanbulDuesHeatmapSeo />
-      <WhyUsBentoGrid />
-      <PersonnelDifference />
-      <ComparisonTable />
-      <KMKLawAssistantSeo />
-      <InteractiveProcessSteps />
-      <AppShowcase />
-      <TestimonialSlider dbReferences={dbReferences} />
-      <CertificateBadgeGrid />
-      <Faq dbFaqs={dbFaqs} lang={lang} />
+      <div className="lazy-section"><BentoServices /></div>
+      <div className="lazy-section"><IstanbulDuesHeatmapSeo /></div>
+      <div className="lazy-section"><WhyUsBentoGrid /></div>
+      <div className="lazy-section"><PersonnelDifference /></div>
+      <div className="lazy-section"><ComparisonTable /></div>
+      <div className="lazy-section"><KMKLawAssistantSeo /></div>
+      <div className="lazy-section"><InteractiveProcessSteps /></div>
+      <div className="lazy-section"><AppShowcase /></div>
+      <div className="lazy-section"><TestimonialSlider dbReferences={dbReferences} /></div>
+      <div className="lazy-section"><CertificateBadgeGrid /></div>
+      <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
       
       {/* E-E-A-T Master Mevzuat & İç/Dış Bağlantı Otorite Hub'ı */}
-      <section className="py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      <section className="lazy-section py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <ServiceAuthorityHubSeo
           serviceName="Alo Yönetim Entegre Tesis ve Mülk Yönetim Ekosistemi"
           serviceCategory="Entegre Tesis Yönetimi"

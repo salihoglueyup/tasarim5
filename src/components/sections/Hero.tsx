@@ -13,10 +13,12 @@ export default function Hero() {
   const [isMuted, setIsMuted] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
 
+  const sectionRef = useRef<HTMLElement>(null);
+
   // Yüklenme hızı & LCP Optimizasyonu:
   // - 2.27 MB'lık brand-film.mp4 mobilde (< 1024px) veya yavaş bağlantıda (Save-Data) HİÇ yüklenmez.
   // - Masaüstünde sayfa tamamen yüklendikten (idle) sonra devreye girer.
-  // - LCP elementi her zaman HTML'de anında keşfedilen /images/hero-poster-v5.webp görselidir.
+  // - Sayfa aşağı kaydırıldığında IntersectionObserver ile video duraklatılarak GPU serbest bırakılır.
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.innerWidth < 1024;
@@ -50,6 +52,27 @@ export default function Hero() {
     };
   }, []);
 
+  // Sayfa aşağı kaydırıldığında GPU/CPU tasarrufu için videoyu otomatik duraklat
+  useEffect(() => {
+    if (!showVideo || !sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (videoRef.current) {
+          if (entry.isIntersecting) {
+            videoRef.current.play().catch(() => {});
+          } else {
+            videoRef.current.pause();
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [showVideo]);
+
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
@@ -58,7 +81,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full h-[100vh] min-h-[500px] md:min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-4 sm:pb-6">
+    <section ref={sectionRef} className="relative w-full h-[100vh] min-h-[500px] md:min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-4 sm:pb-6">
       
       {/* Subliminal SEO / Ekran Okuyucu Metni */}
       <div className="sr-only">
