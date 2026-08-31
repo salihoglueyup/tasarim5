@@ -25,6 +25,14 @@ export interface SerpReadinessReport {
 }
 
 const HIGH_PRIORITY_TERMS = [
+  'site yönetimi',
+  'profesyonel site yönetimi',
+  'site yönetim şirketi',
+  'site yönetim şirketleri',
+  'site yönetim firmaları',
+  'apartman ve site yönetimi',
+  'apartman yöneticiliği',
+  'site yöneticiliği',
   'tesis ve mülk hizmetleri',
   'tesis ve mülk yönetimi',
   'tesis yönetimi',
@@ -68,9 +76,9 @@ export function analyzeFacilitySerpReadiness(input: SerpAuditInput): SerpReadine
     }
   }
 
-  if (normalizedTitle.includes('tesis') || normalizedTitle.includes('mülk')) keywordScore += 10;
-  if (normalizedH1.includes('tesis') || normalizedH1.includes('mülk')) keywordScore += 10;
-  if (normalizedDesc.includes('tesis') || normalizedDesc.includes('mülk')) keywordScore += 5;
+  if (normalizedTitle.includes('tesis') || normalizedTitle.includes('mülk') || normalizedTitle.includes('site')) keywordScore += 10;
+  if (normalizedH1.includes('tesis') || normalizedH1.includes('mülk') || normalizedH1.includes('site')) keywordScore += 10;
+  if (normalizedDesc.includes('tesis') || normalizedDesc.includes('mülk') || normalizedDesc.includes('site')) keywordScore += 5;
   if (detectedKeywords.length >= 4) keywordScore += 5;
 
   // 2. Schema Completeness Scoring (Max 25)

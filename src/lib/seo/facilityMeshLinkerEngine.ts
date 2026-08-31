@@ -31,10 +31,10 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
   const currentUrl = `${BASE_URL}${langPrefix}${currentPath.startsWith('/') ? currentPath : `/${currentPath}`}`;
 
   const flagshipHub: SemanticLinkNode = {
-    title: 'Alo Yönetim — Profesyonel Tesis Yönetimi Amiral Gemisi',
+    title: 'Alo Yönetim — Profesyonel Site ve Tesis Yönetimi Amiral Gemisi',
     url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`,
-    anchorText: 'İstanbul Profesyonel Tesis Yönetimi ve Entegre Tesis İşletmeciliği',
-    description: 'ISO 41001 standartlarında 39 ilçede tam kapsamlı tesis, apartman, site ve plaza yönetimi.',
+    anchorText: 'İstanbul Profesyonel Site ve Tesis Yönetimi Şirketi',
+    description: '634 sayılı KMK ve ISO 41001 standartlarında 39 ilçede tam kapsamlı site, apartman, rezidans ve tesis yönetimi.',
     category: 'flagship',
   };
 
@@ -42,7 +42,7 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
     {
       title: 'Rezidans ve Lüks Site Yönetimi',
       url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
-      anchorText: 'Rezidans & Lüks Site Tesis Yönetimi Çözümleri',
+      anchorText: 'Rezidans & Lüks Site Yönetimi Çözümleri',
       description: 'Konsiyerj, 5188 güvenlik ve dijital aidat muhasebesi entegrasyonu.',
       category: 'subsector',
     },
@@ -54,9 +54,9 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
       category: 'subsector',
     },
     {
-      title: 'Toplu Konut ve Uydu Kent Yönetimi',
+      title: 'Toplu Konut ve Mega Site Yönetimi',
       url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi`,
-      anchorText: 'Toplu Konut ve Mega Site İşletme Yönetimi',
+      anchorText: 'Toplu Konut & Mega Site Yönetimi Çözümleri',
       description: 'KMK 66-74 toplu yapı bütçe konsolidasyonu ve geniş yeşil alan bakımı.',
       category: 'subsector',
     },

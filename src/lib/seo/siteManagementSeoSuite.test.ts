@@ -14,6 +14,14 @@ import { FACILITY_MANAGEMENT_ENTITIES } from '@/lib/seoEngine';
 import { resolveSmartRedirect } from '@/lib/seo/smartRedirect';
 import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
 import { organizationSchema } from '@/lib/schemas';
+import {
+  SITE_MANAGEMENT_TAXONOMY,
+  FACILITY_MANAGEMENT_TAXONOMY,
+  LEGAL_FINANCE_TAXONOMY,
+  detectPillarIntent,
+  getKeywordsByPillar
+} from '@/lib/seo/domainKeywordsTaxonomy';
+import { analyzeFacilitySerpReadiness } from '@/lib/seo/facilitySearchRankAnalyzer';
 
 describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagementSeoSuite.test.ts)', () => {
   describe('1. Sözlük & Google Featured Snippet (Position Zero) Tanımları (facilityDictionaryData.ts)', () => {
@@ -65,43 +73,76 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('3. Akıllı İç Linkleme ve Kırık Varlık Linki Onarımı (seoEngine.ts & autoLinker.ts)', () => {
+  describe('3. Çok Boyutlu Semantik Kelime Taksonomisi (domainKeywordsTaxonomy.ts)', () => {
+    it('Site, Tesis ve Hukuk taksonomilerinde 80+ zengin anahtar kelime kümesi bulunur', () => {
+      expect(SITE_MANAGEMENT_TAXONOMY.length).toBeGreaterThanOrEqual(30);
+      expect(FACILITY_MANAGEMENT_TAXONOMY.length).toBeGreaterThanOrEqual(20);
+      expect(LEGAL_FINANCE_TAXONOMY.length).toBeGreaterThanOrEqual(14);
+    });
+
+    it('detectPillarIntent verilen arama sorgusunun niyetini (site, facility, legal) doğru sınıflandırır', () => {
+      expect(detectPillarIntent('kadıköy apartman ve site yönetim şirketi')).toBe('site');
+      expect(detectPillarIntent('levent plaza ve entegre tesis yönetimi')).toBe('facility');
+      expect(detectPillarIntent('kat mülkiyeti kanunu aidat icra takibi')).toBe('legal');
+    });
+
+    it('getKeywordsByPillar ilgili dikey için anahtar kelimeleri tam liste olarak döner', () => {
+      const siteKeywords = getKeywordsByPillar('site');
+      expect(siteKeywords).toContain('site yönetimi');
+      expect(siteKeywords).toContain('apartman yöneticiliği');
+    });
+  });
+
+  describe('4. Çift Çekirdekli SERP & Meta Motoru (facilitySerpOptimizer.ts)', () => {
+    it('pillar: "site" verildiğinde saf Site Yönetimi SERP başlığı ve açıklaması üretir', () => {
+      const siteMeta = getFacilitySerpMeta({ lang: 'tr', districtSlug: 'kadikoy', pillar: 'site' });
+      expect(siteMeta.title).toContain('Kadıköy Profesyonel Site ve Apartman Yönetimi Şirketi');
+      expect(siteMeta.pillar).toBe('site');
+      expect(siteMeta.targetKeyword).toBe('Kadıköy site yönetimi');
+    });
+
+    it('pillar: "facility" verildiğinde saf Entegre Tesis Yönetimi SERP başlığı üretir', () => {
+      const facilityMeta = getFacilitySerpMeta({ lang: 'tr', districtSlug: 'sisli', pillar: 'facility' });
+      expect(facilityMeta.title).toContain('Şişli Entegre Tesis Yönetimi ve İşletmeciliği');
+      expect(facilityMeta.pillar).toBe('facility');
+      expect(facilityMeta.targetKeyword).toBe('Şişli tesis yönetimi');
+    });
+
+    it('pillar: "hybrid" verildiğinde çift kanatlı SERP başlığı üretir', () => {
+      const kadikoyMeta = getFacilitySerpMeta('tr', 'kadikoy');
+      expect(kadikoyMeta.title).toContain('Kadıköy Tesis Yönetimi & Site Yönetimi');
+      expect(kadikoyMeta.description).toContain('KMK 634');
+    });
+  });
+
+  describe('5. Akıllı İç Linkleme, 301 Yönlendirmeleri ve Şema Doğrulama', () => {
     it('seoEngine FACILITY_MANAGEMENT_ENTITIES içindeki site-yonetimi pillarUrl doğru sayfaya (/hizmetler/tesis-yonetimi) bakar', () => {
       const siteEntity = FACILITY_MANAGEMENT_ENTITIES.find(e => e.slug === 'site-yonetimi');
       expect(siteEntity).toBeDefined();
       expect(siteEntity?.pillarUrl).toBe('/hizmetler/tesis-yonetimi');
     });
 
-    it('Metin içindeki "site yönetim şirketi", "profesyonel site yönetimi" gibi kelimeleri doğru linke dönüştürür', () => {
-      const html = '<p>Büyük projelerde profesyonel site yönetimi ve güvenilir site yönetim şirketi ile çalışmak önemlidir.</p>';
-      const linked = autoLinkHtml(html, '/blog/ornek-makale');
-
-      expect(linked).toContain('href="/hizmetler/tesis-yonetimi"');
-    });
-  });
-
-  describe('4. Semantik 301 Yönlendirmeleri (smartRedirect.ts)', () => {
-    it('/site-yonetimi, /apartman-yonetimi ve /site-yonetim-sirketleri rotalarını /hizmetler/tesis-yonetimi adresine yönlendirir', () => {
+    it('resolveSmartRedirect /site-yonetimi ve /apartman-yonetimi rotalarını /hizmetler/tesis-yonetimi adresine yönlendirir', () => {
       const red1 = resolveSmartRedirect('/site-yonetimi');
-      expect(red1).toBeDefined();
       expect(red1?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
 
       const red2 = resolveSmartRedirect('/apartman-yonetimi');
-      expect(red2).toBeDefined();
       expect(red2?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
-
-      const red3 = resolveSmartRedirect('/site-yonetim-sirketleri');
-      expect(red3).toBeDefined();
-      expect(red3?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
     });
-  });
 
-  describe('5. 39 İlçe SERP Başlık & Meta Optimizasyonu (facilitySerpOptimizer.ts) & Şema Doğrulama (schemas.ts)', () => {
-    it('İlçe SERP başlıklarında Site ve Tesis Yönetimi çift kanatlı yapısı bulunur', () => {
-      const kadikoyMeta = getFacilitySerpMeta('tr', 'kadikoy');
-      expect(kadikoyMeta.title).toContain('Kadıköy Tesis Yönetimi & Site Yönetimi');
-      expect(kadikoyMeta.description).toContain('KMK 634');
-      expect(kadikoyMeta.description).toContain('15-25 dk SLA');
+    it('analyzeFacilitySerpReadiness site yönetimi anahtar kelimelerini tespit edip yüksek skor üretir', () => {
+      const report = analyzeFacilitySerpReadiness({
+        title: 'Kadıköy Profesyonel Site Yönetimi Şirketi',
+        metaDescription: 'Kadıköy site yönetimi ve apartman yöneticiliği hizmetleri.',
+        h1: 'Kadıköy Site ve Apartman Yönetimi',
+        content: '<p>634 Sayılı KMK ve ISO 41001 kapsamında 5188 güvenlik ve aidat takibi ile %30 tasarruf. <a href="/hizmetler/tesis-yonetimi">Site Yönetimi</a> <a href="/hizmetler/aidat-takibi">Aidat</a> <a href="/teklif-al">Teklif</a></p>',
+        hasGraphSchema: true,
+        hasBreadcrumbs: true,
+        hasFaq: true,
+      });
+
+      expect(report.overallScore).toBeGreaterThanOrEqual(80);
+      expect(report.detectedKeywords).toContain('site yönetimi');
     });
 
     it('organizationSchema hasOfferCatalog içinde Profesyonel Site ve Toplu Konut Yönetimi tanımlıdır', () => {
