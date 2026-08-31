@@ -191,11 +191,11 @@ const AUTO_LINKS_SORTED = Array.from(UNIQUE_MAP.entries())
   .map(([term, href]) => ({ term, href }))
   .sort((a, b) => b.term.length - a.term.length);
 
-// Regex'ler modül yüklenirken derlenir
+// Regex'ler modül yüklenirken derlenir (Türkçe çekim ekleri toleranslı)
 const AUTO_LINK_ENTRIES = AUTO_LINKS_SORTED.map((link) => ({
   ...link,
   regex: new RegExp(
-    `(?<![<\\/a-zA-Z0-9ğüşıöçâîûĞÜŞİÖÇÂÎÛ])(${escapeRegExp(link.term)})(?![a-zA-Z0-9ğüşıöçâîûĞÜŞİÖÇÂÎÛ>])`,
+    `(?<![<\\/a-zA-Z0-9ğüşıöçâîûĞÜŞİÖÇÂÎÛ])(${escapeRegExp(link.term)}(?:['’]?(?:ı|i|u|ü|a|e|da|de|dan|den|ın|in|un|ün|lar|ler|ları|leri|ların|lerin|ında|inde|ına|ine|yla|yle|tan|ten|nın|nin|nun|nün|ya|ye|yı|yi|yu|yü))?)(?![a-zA-Z0-9ğüşıöçâîûĞÜŞİÖÇÂÎÛ>])`,
     'iu'
   ),
 }));
