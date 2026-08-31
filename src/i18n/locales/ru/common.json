@@ -1224,7 +1224,7 @@
   "serv_clean_name": "Уборка и гигиена",
   "serv_clean_hero_title": "Профессиональная <br/> <span className='text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400'> Уборка и гигиена </span>",
   "serv_fac_name": "Управление объектом",
-  "serv_fac_hero_title": "Профессиональное <br/> <span className='text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400'> Управление объектами </span>",
+  "serv_fac_hero_title": "Профессиональное Управление Объектами <br/> <span className='text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400'> в Стамбуле (ISO 41001) </span>",
   "calc_clean_title": "Рассчитать стоимость уборки",
   "calc_clean_desc": "Мгновенно определите оптимальный бюджет уборщиков и материалов, соответствующий площади вашего объекта.",
   "calc_clean_area": "Площадь объекта (м²)",

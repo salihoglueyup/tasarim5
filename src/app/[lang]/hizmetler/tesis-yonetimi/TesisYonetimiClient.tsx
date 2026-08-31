@@ -12,6 +12,8 @@ import {
   FacilitySubSectorCrossNav,
   ServiceAuthorityHubSeo,
   FacilityMaintenanceScheduleSeo,
+  FacilityManagementCalculatorSeo,
+  IstanbulDuesHeatmapSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -146,6 +148,16 @@ export default function TesisYonetimiClient() {
             </span>
           </div>
 
+          {/* Google 0. Sıra / Featured Snippet Doğrudan Tanım Bloku */}
+          <div className="bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-transparent border-l-4 border-blue-600 dark:border-blue-400 p-5 rounded-r-2xl mb-6 relative z-10">
+            <h2 className="text-base sm:text-lg font-extrabold text-[var(--color-primary)] mb-2 flex items-center gap-2">
+              <span>📌</span> Tesis Yönetimi Nedir?
+            </h2>
+            <p className="text-sm md:text-base text-[var(--color-secondary)] font-medium leading-relaxed">
+              <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi</strong>; konut siteleri, apartmanlar, plazalar ve sanayi tesislerinin <strong>5188 lisanslı güvenlik</strong>, <strong>7/24 teknik bakım</strong>, <strong>endüstriyel temizlik</strong>, <strong>aidat muhasebesi</strong> ve <strong>634 sayılı KMK hukuki danışmanlık</strong> operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir.
+            </p>
+          </div>
+
           {/* Genişletilmiş ve Detaylandırılmış Metin */}
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
@@ -269,6 +281,12 @@ export default function TesisYonetimiClient() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* 1.5. BÖLÜM: İnteraktif Aidat Hesaplayıcı & İstanbul İlçe Tasarruf Isı Haritası */}
+        <div className="space-y-12">
+          <FacilityManagementCalculatorSeo />
+          <IstanbulDuesHeatmapSeo />
         </div>
 
         {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
