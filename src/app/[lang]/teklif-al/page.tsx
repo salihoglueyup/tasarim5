@@ -7,6 +7,7 @@ import { ServiceAuthorityHubSeo } from '@/components/seo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata } from '@/lib/seo';
+import TeklifAlClient from './TeklifAlClient';
 
 export async function generateMetadata({
   params,
@@ -122,17 +123,8 @@ export default function TeklifAl() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-16 flex flex-col items-center text-center gap-6 shadow-2xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold">Teklif formunu şimdi doldurun</h2>
-          <p className="text-slate-300 font-light max-w-xl">
-            Formu doldurmanız yalnızca 1 dakika sürer. Uzman danışmanımız en kısa sürede sizinle
-            iletişime geçer.
-          </p>
-          <QuoteCtaButton className="mt-2 bg-white text-slate-950 font-bold py-4 px-10 rounded-xl hover:bg-slate-100 transition-colors">
-            Teklif Formunu Aç
-          </QuoteCtaButton>
-        </div>
+        {/* Gömülü Teklif & Keşif Formu ve Fiyatlandırma Rehberi */}
+        <TeklifAlClient />
 
         {/* İç linkler */}
         <div className="text-center flex flex-col gap-5">

@@ -480,6 +480,64 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
 
+          {/* Site Yönetimi vs. Tesis Yönetimi ve Şirket Seçim Rehberi (Hedef: "site yönetimi", "site yönetim şirketleri") */}
+          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm flex flex-col gap-8">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+                <span className="material-symbols-outlined text-sm">apartment</span>
+                <span>Site ve Tesis Yönetimi Karşılaştırmalı Rehberi</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
+                Site Yönetimi ile Entegre Tesis Yönetimi Arasındaki Farklar Nelerdir?
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--color-secondary)] mt-2 leading-relaxed font-normal">
+                Geleneksel site yönetimi çoğunlukla sadece aidat toplama ve basit temizlik işlerini kapsarken; <strong>profesyonel tesis yönetimi şirketi</strong> olarak Alo Yönetim, ISO 41001 standartlarında 5188 lisanslı güvenlik, mühendislik destekli önleyici teknik servis, KMK 634 hukuki danışmanlığı ve %99.2 aidat tahsilat garantisini tek elden entegre olarak sunar.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 flex flex-col gap-3">
+                <h3 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <span className="material-symbols-outlined text-amber-500 text-lg">person_off</span>
+                  <span>Geleneksel Apartman & Site Yöneticiliği</span>
+                </h3>
+                <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 leading-relaxed">
+                  <li>• Komşular arası aidat ve para ilişkisinden kaynaklanan huzursuzluklar ve dava riskleri.</li>
+                  <li>• SGK ve kıdem tazminatı yükümlülüklerinin doğrudan kat maliklerinin şahsi sorumluluğunda olması.</li>
+                  <li>• Arıza anında rastgele usta çağırma ve yüksek maliyetli tamir faturaları.</li>
+                  <li>• Kompanzasyon takibi yapılmadığı için ortak elektrik faturasına yansıyan reaktif güç cezaları.</li>
+                </ul>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40 flex flex-col gap-3">
+                <h3 className="font-bold text-base text-blue-900 dark:text-blue-300 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-emerald-500 text-lg">verified</span>
+                  <span>Alo Yönetim Profesyonel Site Yönetim Şirketi</span>
+                </h3>
+                <ul className="text-xs sm:text-sm text-blue-800 dark:text-blue-300/90 space-y-2 leading-relaxed">
+                  <li>• <strong>KMK 634 & İİK 68 Güvencesi:</strong> Şeffaf işletme projesi, 7/24 mobil uygulama ve %99.2 tahsilat başarısı.</li>
+                  <li>• <strong>Sıfır Personel Riski:</strong> Tüm temizlik ve güvenlik personelinin SGK ve kıdem tazminatı güvencemiz altındadır.</li>
+                  <li>• <strong>15-25 Dk Acil SLA:</strong> 39 ilçede nöbetçi mobil teknik ekiplerle anında arıza müdahalesi.</li>
+                  <li>• <strong>%20 - %30 Net Maliyet Tasarrufu:</strong> Toplu tedarik ve önleyici mühendislik bakımı.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-white/10">
+              <div className="text-xs text-slate-500">
+                İstanbul genelinde 340+ seçkin konut sitesi ve rezidans projesinde aktif yönetim güvencesi.
+              </div>
+              <div className="flex items-center gap-3">
+                <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
+                  Toplu Konut & Site Çözümleri →
+                </Link>
+                <Link href="/teklif-al" className="text-xs font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-white/10 px-3.5 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-white/20 transition-colors">
+                  Siteniz İçin Teklif Alın
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {/* Sıkça Sorulan Sorular */}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
             <DynamicFAQ faqs={faqs} title={t('fac_faq_title') || 'Tesis Yönetimi Hakkında Sıkça Sorulan Sorular'} />

@@ -298,6 +298,64 @@ export default function AidatTakibiClient() {
           ))}
         </div>
 
+        {/* Site Aidat Yönetimi ve Yasal İcra Takibi Rehberi (Hedef: "site aidat takibi", "apartman aidat yönetimi", "aidat icra takibi") */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm flex flex-col gap-8">
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
+              <span className="material-symbols-outlined text-sm">balance</span>
+              <span>KMK 634 & İİK 68 Yasal Tahsilat Çerçevesi</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
+              Site Aidat Yönetimi ve Yasal İcra Takibi Süreci Nasıl İşler?
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--color-secondary)] mt-2 leading-relaxed font-normal">
+              Kat Mülkiyeti Kanunu Madde 20 uyarınca tüm kat malikleri ortak gider avansına katılmakla yükümlüdür. Alo Yönetim olarak; komşuluk ilişkilerini zedelemeden, kurumsal nezaket çerçevesinde dijital hatırlatmalar yapar ve geciken alacaklarda <strong>aylık %5 gecikme tazminatını</strong> işleterek hızlı tahsilat sağlarız.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 flex flex-col gap-2">
+              <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs">
+                1
+              </div>
+              <h3 className="font-bold text-sm text-[var(--color-primary)]">Şeffaf Bütçe Tebliği</h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                KMK m.37 uyarınca yıllık işletme projesi hazırlanır ve taahhütlü/imza karşılığı tebliğ edilerek 7 günde kesinleştirilir.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 flex flex-col gap-2">
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xs">
+                2
+              </div>
+              <h3 className="font-bold text-sm text-[var(--color-primary)]">Otomatik Hatırlatma</h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Vadesi gelen aidatlar için sakinlere SMS, WhatsApp ve mobil bildirim gönderilir; 7/24 kredi kartı ile ödeme kolaylığı sağlanır.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 flex flex-col gap-2">
+              <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xs">
+                3
+              </div>
+              <h3 className="font-bold text-sm text-[var(--color-primary)]">Aylık %5 Gecikme Faizi</h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Gününde ödenmeyen aidatlara kanuni zorunluluk gereği aylık %5 gecikme tazminatı tahakkuk ettirilir.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 flex flex-col gap-2">
+              <div className="w-8 h-8 rounded-lg bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs">
+                4
+              </div>
+              <h3 className="font-bold text-sm text-[var(--color-primary)]">İİK 68 İcra Takibi</h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
+                Uzlaşma sağlanamayan durumlarda hukuk departmanımız ilamsız icra takibi başlatarak alacağı faizi ve masraflarıyla tahsil eder.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
