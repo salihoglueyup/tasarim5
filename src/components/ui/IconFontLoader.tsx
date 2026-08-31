@@ -9,28 +9,17 @@ import { useEffect } from 'react';
  * mantığıyla anında ağa indirir ve DOM'a bağlar.
  */
 const HREF =
-  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap';
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap';
 
 export default function IconFontLoader() {
   useEffect(() => {
     if (document.getElementById('material-symbols-css')) return;
 
-    // 1. Ağ öncelikli indirme için preload linki
-    const preloadLink = document.createElement('link');
-    preloadLink.rel = 'preload';
-    preloadLink.as = 'style';
-    preloadLink.href = HREF;
-    document.head.appendChild(preloadLink);
-
-    // 2. Render-blocking yapmayan asenkron stylesheet bağlama (media="print" -> onload="all")
+    // 1. Ağ öncelikli indirme için stylesheet bağlama
     const styleLink = document.createElement('link');
     styleLink.id = 'material-symbols-css';
     styleLink.rel = 'stylesheet';
     styleLink.href = HREF;
-    styleLink.media = 'print';
-    styleLink.onload = () => {
-      styleLink.media = 'all';
-    };
     document.head.appendChild(styleLink);
 
     // Yedek (Fallback): Eğer tarayıcı önbelleğinde vs. onload tetiklenmezse 300ms içinde zorla aktif et

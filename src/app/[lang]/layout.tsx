@@ -165,25 +165,11 @@ export default async function RootLayout({
           fetchPriority="high"
         />
 
-        {/* Non-blocking Async Material Symbols Font (0ms Render Block) */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
-        />
+        {/* Google Material Symbols Font (Reliable Synchronous Render) */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
-          media="print"
-          // @ts-ignore
-          onLoad="this.media='all'"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
-          />
-        </noscript>
 
         {/* Eski ServiceWorker ve PWA önbelleğini temizleme (F5 yenileme tutarlılığı) */}
         <script
