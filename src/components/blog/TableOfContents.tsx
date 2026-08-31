@@ -1,80 +1,135 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { List, ChevronRight } from 'lucide-react';
 
-interface TocItem {
+export interface TocHeading {
   id: string;
   text: string;
   level: number;
 }
 
-export default function TableOfContents() {
-  const [items, setItems] = useState<TocItem[]>([]);
+interface TableOfContentsProps {
+  contentSelector?: string;
+  headings?: TocHeading[];
+  className?: string;
+}
+
+export function TableOfContents({
+  contentSelector = '#article-content',
+  headings: initialHeadings,
+  className = '',
+}: TableOfContentsProps) {
+  const [headings, setHeadings] = useState<TocHeading[]>(initialHeadings || []);
   const [activeId, setActiveId] = useState<string>('');
 
+  // DOM üzerinden H2 ve H3 başlıklarını dinamik ayrıştır
   useEffect(() => {
-    // Select all H2 and H3 elements inside the prose article
-    const elements = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
-    
-    const parsedItems: TocItem[] = elements.map((elem) => {
-      // Use the pre-injected ID from DOMPurify
-      const id = elem.id || '';
-      return {
-        id,
-        text: elem.textContent || '',
-        level: Number(elem.tagName.charAt(1)), // 2 for H2, 3 for H3
-      };
-    }).filter(item => item.id && item.text);
+    if (initialHeadings && initialHeadings.length > 0) {
+      setHeadings(initialHeadings);
+      return;
+    }
 
-    setItems(parsedItems);
+    const container = document.querySelector(contentSelector);
+    if (!container) return;
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
-      
-      for (let i = elements.length - 1; i >= 0; i--) {
-        const element = elements[i] as HTMLElement;
-        if (element.offsetTop <= scrollPosition) {
-          setActiveId(element.id);
-          break;
-        }
+    const elements = container.querySelectorAll('h2, h3');
+    const parsed: TocHeading[] = [];
+
+    elements.forEach((el, index) => {
+      let id = el.id;
+      if (!id) {
+        id = `heading-${index}-${el.textContent
+          ?.toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '')}`;
+        el.id = id;
       }
-    };
+      parsed.push({
+        id,
+        text: el.textContent || '',
+        level: el.tagName === 'H2' ? 2 : 3,
+      });
+    });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setHeadings(parsed);
+  }, [contentSelector, initialHeadings]);
 
-  if (items.length === 0) return null;
+  // IntersectionObserver ile aktif başlığı takip et
+  useEffect(() => {
+    if (headings.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-80px 0px -60% 0px',
+        threshold: 0.1,
+      }
+    );
+
+    headings.forEach((h) => {
+      const el = document.getElementById(h.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [headings]);
+
+  if (headings.length === 0) return null;
 
   return (
-    <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto hidden lg:block custom-scrollbar w-64 shrink-0">
-      <div className="bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-2xl p-6">
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-          <span className="material-symbols-outlined text-[20px]">list_alt</span>
-          Bu Yazıda
-        </h3>
-        <nav className="flex flex-col gap-2">
-          {items.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className={`text-sm transition-colors block ${
-                item.level === 3 ? 'ml-4' : 'font-medium'
-              } ${
-                activeId === item.id
-                  ? 'text-brand-600 dark:text-brand-400 font-bold'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white'
-              }`}
-            >
-              {item.text}
-            </a>
-          ))}
-        </nav>
+    <nav
+      aria-label="Makale İçindekiler Tablosu"
+      className={`p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm ${className}`}
+    >
+      <div className="flex items-center gap-2 pb-3 mb-3 border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold text-sm">
+        <List className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+        <span>İçindekiler</span>
       </div>
-    </div>
+
+      <ul className="space-y-1.5 text-xs">
+        {headings.map((h) => {
+          const isActive = activeId === h.id;
+          return (
+            <li
+              key={h.id}
+              className={`${h.level === 3 ? 'pl-3' : 'pl-0'}`}
+            >
+              <a
+                href={`#${h.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById(h.id);
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setActiveId(h.id);
+                  }
+                }}
+                className={`flex items-start gap-1.5 py-1 rounded transition-colors ${
+                  isActive
+                    ? 'text-blue-600 dark:text-blue-400 font-semibold'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                }`}
+              >
+                <ChevronRight
+                  className={`w-3.5 h-3.5 shrink-0 mt-0.5 transition-transform ${
+                    isActive ? 'rotate-90 text-blue-600 dark:text-blue-400' : 'text-slate-400'
+                  }`}
+                />
+                <span className="leading-snug">{h.text}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
+
+export default TableOfContents;
