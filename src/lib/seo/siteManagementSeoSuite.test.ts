@@ -10,6 +10,10 @@ import {
   getSiteManagementServiceMatrix
 } from '@/data/services';
 import { autoLinkHtml } from '@/lib/autoLinker';
+import { FACILITY_MANAGEMENT_ENTITIES } from '@/lib/seoEngine';
+import { resolveSmartRedirect } from '@/lib/seo/smartRedirect';
+import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
+import { organizationSchema } from '@/lib/schemas';
 
 describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagementSeoSuite.test.ts)', () => {
   describe('1. Sözlük & Google Featured Snippet (Position Zero) Tanımları (facilityDictionaryData.ts)', () => {
@@ -61,7 +65,13 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('3. Akıllı İç Linkleme Motoru (autoLinker.ts)', () => {
+  describe('3. Akıllı İç Linkleme ve Kırık Varlık Linki Onarımı (seoEngine.ts & autoLinker.ts)', () => {
+    it('seoEngine FACILITY_MANAGEMENT_ENTITIES içindeki site-yonetimi pillarUrl doğru sayfaya (/hizmetler/tesis-yonetimi) bakar', () => {
+      const siteEntity = FACILITY_MANAGEMENT_ENTITIES.find(e => e.slug === 'site-yonetimi');
+      expect(siteEntity).toBeDefined();
+      expect(siteEntity?.pillarUrl).toBe('/hizmetler/tesis-yonetimi');
+    });
+
     it('Metin içindeki "site yönetim şirketi", "profesyonel site yönetimi" gibi kelimeleri doğru linke dönüştürür', () => {
       const html = '<p>Büyük projelerde profesyonel site yönetimi ve güvenilir site yönetim şirketi ile çalışmak önemlidir.</p>';
       const linked = autoLinkHtml(html, '/blog/ornek-makale');
@@ -70,7 +80,41 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('4. AI / LLM Grounding & Geo-Feed Protokolleri', () => {
+  describe('4. Semantik 301 Yönlendirmeleri (smartRedirect.ts)', () => {
+    it('/site-yonetimi, /apartman-yonetimi ve /site-yonetim-sirketleri rotalarını /hizmetler/tesis-yonetimi adresine yönlendirir', () => {
+      const red1 = resolveSmartRedirect('/site-yonetimi');
+      expect(red1).toBeDefined();
+      expect(red1?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
+
+      const red2 = resolveSmartRedirect('/apartman-yonetimi');
+      expect(red2).toBeDefined();
+      expect(red2?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
+
+      const red3 = resolveSmartRedirect('/site-yonetim-sirketleri');
+      expect(red3).toBeDefined();
+      expect(red3?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
+    });
+  });
+
+  describe('5. 39 İlçe SERP Başlık & Meta Optimizasyonu (facilitySerpOptimizer.ts) & Şema Doğrulama (schemas.ts)', () => {
+    it('İlçe SERP başlıklarında Site ve Tesis Yönetimi çift kanatlı yapısı bulunur', () => {
+      const kadikoyMeta = getFacilitySerpMeta('tr', 'kadikoy');
+      expect(kadikoyMeta.title).toContain('Kadıköy Tesis Yönetimi & Site Yönetimi');
+      expect(kadikoyMeta.description).toContain('KMK 634');
+      expect(kadikoyMeta.description).toContain('15-25 dk SLA');
+    });
+
+    it('organizationSchema hasOfferCatalog içinde Profesyonel Site ve Toplu Konut Yönetimi tanımlıdır', () => {
+      const org = organizationSchema();
+      const catalog = org.hasOfferCatalog as { itemListElement: Array<{ itemOffered: { name: string; serviceType?: string } }> };
+      expect(catalog).toBeDefined();
+      const siteOffer = catalog.itemListElement.find(item => item.itemOffered.name.includes('Site'));
+      expect(siteOffer).toBeDefined();
+      expect(siteOffer?.itemOffered.serviceType).toBe('Site Yönetimi');
+    });
+  });
+
+  describe('6. AI / LLM Grounding & Geo-Feed Protokolleri', () => {
     it('llms.txt site yönetimi anahtar kelimelerini ve grounding verilerini doğru döner', async () => {
       const res = await getLlmsTxt();
       const text = await res.text();

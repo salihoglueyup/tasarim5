@@ -269,6 +269,16 @@ export function organizationSchema(): JsonLdObject {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
+            name: 'Profesyonel Site ve Toplu Konut Yönetimi',
+            url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
+            serviceType: 'Site Yönetimi',
+            description: '634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında 5188 güvenlik, aidat tahsilatı ve teknik servis hizmetleri.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
             name: 'Entegre Tesis Yönetimi',
             url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
           },

@@ -22,10 +22,10 @@ export function getFacilitySerpMeta(lang = 'tr', districtSlug?: string): Facilit
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
 
   if (district) {
-    const title = `${district.name} Tesis Yönetimi & Site Yönetimi — %30 Aidat Tasarrufu & 5188 Güvenlik | Alo Yönetim`;
-    const description = `${district.name} genelinde site, apartman ve rezidanslar için profesyonel tesis yönetimi. KMK 634 aidat icra takibi, 5188 lisanslı güvenlik ve %30 maliyet tasarrufu. 48 saatte ücretsiz teklif alın!`;
+    const title = `${district.name} Tesis Yönetimi & Site Yönetimi — Profesyonel Yönetim Şirketi | Alo Yönetim`;
+    const description = `${district.name} genelinde apartman, site ve rezidanslar için KMK 634 uyumlu profesyonel site ve tesis yönetimi. 5188 güvenlik, aidat icra takibi ve %30 maliyet tasarrufu ile 15-25 dk SLA güvencesi!`;
     const canonicalPath = `/bolgeler/${district.slug}/tesis-yonetimi`;
-    const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent('Tesis Yönetimi')}&title=${encodeURIComponent(`${district.name} Tesis Yönetimi & Site Yönetimi`)}&rating=${encodeURIComponent('★ 4.9 · ' + district.managedProjects + '+ Proje')}`;
+    const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent('Site ve Tesis Yönetimi')}&title=${encodeURIComponent(`${district.name} Site ve Tesis Yönetimi`)}&rating=${encodeURIComponent('★ 4.9 · ' + district.managedProjects + '+ Proje')}`;
 
     return {
       title,
@@ -39,6 +39,7 @@ export function getFacilitySerpMeta(lang = 'tr', districtSlug?: string): Facilit
         `${district.name} profesyonel site yönetimi`,
         `${district.name} site yönetim şirketleri`,
         `${district.name} site yönetim firmaları`,
+        `${district.name} site yöneticiliği`,
         `${district.name} aidat takibi`,
         `${district.name} 5188 güvenlik`,
         'ISO 41001 tesis yönetimi',
@@ -47,51 +48,56 @@ export function getFacilitySerpMeta(lang = 'tr', districtSlug?: string): Facilit
       canonicalPath,
       ogImageUrl,
       kpis: [
-        { label: 'Yönetilen Proje', value: `${district.managedProjects}+ Tesis` },
-        { label: 'Ortalama Tasarruf', value: '%28' },
-        { label: 'SLA Müdahale', value: '45 Dk' },
-        { label: 'Müşteri Memnuniyeti', value: '%98.5' },
+        { label: 'Yönetilen Proje', value: `${district.managedProjects}+ Site` },
+        { label: 'Ortalama Tasarruf', value: '%30' },
+        { label: 'SLA Müdahale', value: '15-25 Dk' },
+        { label: 'Tahsilat Başarısı', value: '%99.2' },
       ],
     };
   }
 
   // Ana Hub Sayfası
-  let title = 'Tesis Yönetimi İstanbul — ISO 41001 Entegre Tesis Yönetim Şirketi | Alo Yönetim';
-  let description = 'İstanbul genelinde 39 ilçede 400+ tesis referansı. ISO 41001 sertifikalı profesyonel tesis yönetimi, 5188 güvenlik, teknik bakım ve %30 aidat tasarrufu. Teklif alın!';
+  let title = 'Profesyonel Site ve Tesis Yönetimi İstanbul — ISO 41001 & KMK 634 | Alo Yönetim';
+  let description = 'İstanbul genelinde 39 ilçede 340+ konut sitesi ve rezidans referansı. ISO 41001 sertifikalı profesyonel site ve tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %99.2 aidat tahsilat garantisi!';
   let targetKeyword = 'tesis yönetimi';
 
   if (lang === 'en') {
-    title = 'Professional Facility Management Istanbul — ISO 41001 Certified Services';
-    description = 'Integrated facility management across 39 Istanbul districts. ISO 41001 accredited property care, licensed security, technical maintenance, and 30% cost savings.';
-    targetKeyword = 'facility management istanbul';
+    title = 'Professional Property, Site & Facility Management Istanbul — ISO 41001 | Alo Yönetim';
+    description = 'Integrated residential site and facility management across 39 Istanbul districts. ISO 41001 accredited property care, licensed security, and 30% budget savings.';
+    targetKeyword = 'site management istanbul';
   } else if (lang === 'ru') {
-    title = 'Профессиональное Управление Недвижимостью и Объектами в Стамбуле — ISO 41001';
-    description = 'Комплексное управление жилыми и коммерческими объектами в Стамбуле. Лицензированная охрана 5188, техническое обслуживание и экономия бюджета до 30%.';
-    targetKeyword = 'управление недвижимостью стамбул';
+    title = 'Профессиональное Управление Жилыми Комплексами и Объектами в Стамбуле | Alo Yönetim';
+    description = 'Комплексное управление жилыми комплексами и объектами в 39 районах Стамбула. Лицензированная охрана 5188, техническое обслуживание и экономия бюджета до 30%.';
+    targetKeyword = 'управление жилыми комплексами стамбул';
   } else if (lang === 'ar') {
-    title = 'إدارة المرافق والممتلكات المتكاملة في إسطنبول — معايير ISO 41001';
-    description = 'إدارة مجمعات سكنية وأبراج تجارية في 39 منطقة في إسطنبول. أمن وحراسة مرخصة، صيانة فنية وإدارة رسوم دقيقة مع توفير 30% في الميزانية.';
-    targetKeyword = 'إدارة المرافق اسطنبول';
+    title = 'إدارة المجمعات السكنية والمرافق الاحترافية في إسطنبول — معايير ISO 41001 | Alo Yönetim';
+    description = 'إدارة مجمعات سكنية وأبراج في 39 منطقة بإسطنبول. أمن مرخص، صيانة فنية وإدارة مستحقات دقيقة بنسبة تحصيل 99.2% وتوفير 30% بالميزانية.';
+    targetKeyword = 'إدارة المجمعات السكنية اسطنبول';
   }
 
   const canonicalPath = '/hizmetler/tesis-yonetimi';
-  const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Tesis Yönetimi')}&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('ISO 41001 Standartlarında 39 İlçede Entegre Yönetim')}&rating=${encodeURIComponent('★ 4.9 · 400+ Tesis Referansı')}`;
+  const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Site ve Tesis Yönetimi')}&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('ISO 41001 Standartlarında 39 İlçede Entegre Yönetim')}&rating=${encodeURIComponent('★ 4.9 · 340+ Referans Proje')}`;
 
   return {
     title,
     description,
     targetKeyword,
     keywords: [
+      'site yönetimi',
+      'profesyonel site yönetimi',
+      'site yönetim şirketi',
+      'site yönetim şirketleri',
+      'site yönetim firmaları',
+      'apartman ve site yönetimi',
+      'apartman yöneticiliği',
+      'site yöneticiliği',
+      'istanbul site yönetimi',
       'tesis yönetimi',
-      'profesyonel tesis yönetimi',
-      'istanbul tesis yönetimi',
       'entegre tesis yönetimi',
-      'tesis yönetim şirketleri',
-      'tesis yönetim firmaları',
-      'site ve tesis yönetimi',
       'bina ve tesis yönetimi',
       'plaza tesis yönetimi',
       'rezidans tesis yönetimi',
+      'toplu konut yönetimi',
       'ISO 41001 tesis yönetimi',
       'KMK 634 işletme projesi',
     ],

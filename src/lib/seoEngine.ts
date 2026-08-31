@@ -237,7 +237,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
   {
     name: 'Site ve Toplu Yapı Yönetimi',
     slug: 'site-yonetimi',
-    pillarUrl: '/hizmetler/site-yonetimi',
+    pillarUrl: '/hizmetler/tesis-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q1758229',
     variations: [
       'site yönetimi',
