@@ -1,3 +1,8 @@
+import {
+  analyzeDomainSemanticDepth,
+  SemanticDepthReport
+} from './domainSemanticAuditor';
+
 export interface SerpAuditInput {
   title: string;
   metaDescription?: string;
@@ -22,6 +27,7 @@ export interface SerpReadinessReport {
   breakdown: SerpScoreBreakdown;
   detectedKeywords: string[];
   recommendations: string[];
+  semanticDepthReport?: SemanticDepthReport;
 }
 
 const HIGH_PRIORITY_TERMS = [
@@ -122,6 +128,18 @@ export function analyzeFacilitySerpReadiness(input: SerpAuditInput): SerpReadine
     recommendations.push('Alt sektörlere ve Tesis Yönetimi ana hub sayfasına en az 3 iç bağlantı verin.');
   }
 
+  // 5. Semantik LSI & Derinlik Entegrasyonu (Faz 50)
+  const semanticDepthReport = analyzeDomainSemanticDepth({
+    title: input.title,
+    h1: input.h1,
+    metaDescription: input.metaDescription,
+    content: input.content,
+  });
+
+  if (semanticDepthReport.recommendations.length > 0) {
+    recommendations.push(...semanticDepthReport.recommendations.slice(0, 3));
+  }
+
   const overallScore = Math.min(100, keywordScore + schemaScore + topicalScore + internalLinkScore);
 
   const grade =
@@ -146,5 +164,6 @@ export function analyzeFacilitySerpReadiness(input: SerpAuditInput): SerpReadine
     },
     detectedKeywords,
     recommendations,
+    semanticDepthReport,
   };
 }
