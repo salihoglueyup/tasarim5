@@ -27,8 +27,8 @@ export default function BentoServices() {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 15 } },
   };
 
-  // GPU Katman Terfisi (Zero-Jank Scrolling)
-  const cardGpuStyle = { willChange: "transform, opacity", transform: "translateZ(0)" };
+  // GPU Optimizasyonu: Sürekli willChange yerine saf CSS geçişleri
+  const cardGpuStyle = {};
 
   return (
     <section id="hizmetler" className="py-24 sm:py-32 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">

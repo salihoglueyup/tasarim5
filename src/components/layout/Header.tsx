@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/components/ui/Logo';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
@@ -142,13 +142,6 @@ export default function Header() {
   // sayfa başındayken (!isScrolled) daima kristal parlaklığında beyaz navbar render edilir.
   const isTopAndDarkHero = !isScrolled;
 
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsDarkMode(document.documentElement.classList.contains('dark'));
@@ -268,11 +261,6 @@ export default function Header() {
   return (
     <>
       <SiteNavigationSeo links={allLinks} />
-      
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--color-primary)] via-slate-700 to-[var(--color-primary)] z-[60] origin-left"
-        style={{ scaleX, willChange: 'transform' }}
-      />
 
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out font-sans ${

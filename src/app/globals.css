@@ -98,6 +98,11 @@ body {
   contain-intrinsic-size: 1px 600px;
 }
 
+/* Görsel & Medya layout izolasyonu */
+img, video {
+  content-visibility: auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
   letter-spacing: -0.02em;

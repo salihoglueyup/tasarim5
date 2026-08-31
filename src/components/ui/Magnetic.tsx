@@ -56,7 +56,7 @@ export default function Magnetic({ children, strength = 0.2, className = "" }: M
       onMouseEnter={cacheRect}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
-      style={{ x: smoothX, y: smoothY, willChange: "transform" }}
+      style={{ x: smoothX, y: smoothY }}
     >
       {children}
     </motion.div>

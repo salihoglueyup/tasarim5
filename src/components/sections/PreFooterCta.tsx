@@ -2,18 +2,18 @@
 
 import Link from 'next/link';
 import Magnetic from '@/components/ui/Magnetic';
-import { useState, useRef, MouseEvent } from 'react';
+import { useRef, MouseEvent } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 
 export default function PreFooterCta() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-  const [isHovering, setIsHovering] = useState(false);
 
-  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  // Sıfır Re-Render (Zero Re-Render) Hızlandırması: State yerine doğrudan MotionValue!
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const hoverOpacity = useMotionValue(0);
   const background = useMotionTemplate`radial-gradient(circle 400px at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.08), transparent 80%)`;
 
   // Jank önleme: rect'i her mousemove'da değil, hover başında bir kez ölç ve önbelleğe al.
@@ -21,7 +21,7 @@ export default function PreFooterCta() {
 
   const handleMouseEnter = () => {
     if (containerRef.current) rectRef.current = containerRef.current.getBoundingClientRect();
-    setIsHovering(true);
+    hoverOpacity.set(1);
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -37,7 +37,7 @@ export default function PreFooterCta() {
 
   const handleMouseLeave = () => {
     rectRef.current = null;
-    setIsHovering(false);
+    hoverOpacity.set(0);
   };
 
   return (
@@ -51,11 +51,11 @@ export default function PreFooterCta() {
           onMouseLeave={handleMouseLeave}
           className="relative w-full bg-[#2D2D3A] dark:bg-slate-900 border border-slate-700/40 dark:border-slate-800 rounded-[3rem] overflow-hidden px-8 py-24 md:py-32 flex flex-col items-center justify-center text-center shadow-2xl"
         >
-          {/* Spotlight Effect that follows mouse */}
+          {/* Spotlight Effect that follows mouse (Zero Re-render GPU layer) */}
           <motion.div 
-            className="absolute pointer-events-none transition-opacity duration-500 inset-0"
+            className="absolute pointer-events-none transition-opacity duration-300 inset-0"
             style={{
-              opacity: isHovering ? 1 : 0,
+              opacity: hoverOpacity,
               background,
             }}
           />

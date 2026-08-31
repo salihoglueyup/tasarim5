@@ -68,10 +68,9 @@ export default function WhyUsBentoGrid() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {bentoItems.map((item, index) => (
-          <motion.div
+          <div
             key={index}
-            whileHover={{ y: -5 }}
-            className={`${item.span} bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:border-[var(--color-primary)] transition-all relative overflow-hidden group`}
+            className={`${item.span} bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:border-[var(--color-primary)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group`}
           >
             {/* Dekoratif dev ikon (arkaplan) */}
             <div className="absolute -bottom-8 -right-8 text-slate-100 dark:text-slate-800/50 pointer-events-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 z-0">
@@ -91,7 +90,7 @@ export default function WhyUsBentoGrid() {
               <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{item.title}</h3>
               <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">{item.desc}</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
