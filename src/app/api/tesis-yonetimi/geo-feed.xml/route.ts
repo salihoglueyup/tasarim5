@@ -56,8 +56,8 @@ export async function GET() {
     <description>İstanbul genelinde ${DISTRICTS.length} ilçede profesyonel tesis yönetimi, apartman ve site işletmeciliği hizmetleri coğrafi GeoRSS beslemesi. KMK 634, 5188 ve TSE standartlarında.</description>
     <language>tr-TR</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
-    <managingEditor>istanbul@aloyonetim.com.tr (Alo Yönetim)</managingEditor>
-    <webMaster>istanbul@aloyonetim.com.tr</webMaster>
+    <managingEditor>info@aloyonetim.com.tr (Alo Yönetim)</managingEditor>
+    <webMaster>info@aloyonetim.com.tr</webMaster>
     <category>Tesis Yönetimi</category>
     <category>Site Yönetimi</category>
     <category>İstanbul Bölgesel Hizmetler</category>

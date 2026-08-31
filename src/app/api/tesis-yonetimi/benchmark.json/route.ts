@@ -44,7 +44,7 @@ export async function GET() {
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
       telephone: '+902165504848',
-      email: 'istanbul@aloyonetim.com.tr',
+      email: 'info@aloyonetim.com.tr',
     },
     dateModified: new Date().toISOString().split('T')[0],
     license: `${BASE_URL}/kullanim-sartlari`,

@@ -230,8 +230,8 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
       legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
       website: BASE_URL,
       telephone: '+90 216 550 48 48',
-      email: 'istanbul@aloyonetim.com.tr',
-      headquarters: 'Osmanağa Mah. Misakı Milli Sok. No:94A, Kadıköy / İstanbul',
+      email: 'info@aloyonetim.com.tr',
+      headquarters: 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul',
       operationsCenters: [
         { name: 'Anadolu Yakası Operasyon Merkezi', location: 'Kadıköy / İstanbul', coverage: '14 İlçe' },
         { name: 'Avrupa Yakası Operasyon Merkezi', location: 'Şişli & Başakşehir / İstanbul', coverage: '25 İlçe' },
