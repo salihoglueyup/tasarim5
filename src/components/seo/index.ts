@@ -77,4 +77,9 @@ export { default as KeywordAnalysisSeo } from './KeywordAnalysisSeo';
 export { default as BlogSeo } from './BlogSeo';
 export { default as ServiceAuthorityHubSeo } from './ServiceAuthorityHubSeo';
 export { default as FacilityMaintenanceScheduleSeo } from './FacilityMaintenanceScheduleSeo';
+export { default as FacilityBeforeAfterCasesSeo } from './FacilityBeforeAfterCasesSeo';
+export { default as FacilityDownloadableVaultSeo } from './FacilityDownloadableVaultSeo';
+export { default as FacilityDistrictPortfolioSeo } from './FacilityDistrictPortfolioSeo';
+export { default as FacilityCorporateSlaGuaranteesSeo } from './FacilityCorporateSlaGuaranteesSeo';
+export { default as FacilityTransitionTimelineSeo } from './FacilityTransitionTimelineSeo';
 

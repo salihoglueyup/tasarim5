@@ -16,6 +16,11 @@ import {
   IstanbulDuesHeatmapSeo,
   ChecklistAuditSeo,
   TrustVerificationAuditSeo,
+  FacilityBeforeAfterCasesSeo,
+  FacilityDownloadableVaultSeo,
+  FacilityDistrictPortfolioSeo,
+  FacilityCorporateSlaGuaranteesSeo,
+  FacilityTransitionTimelineSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -295,25 +300,33 @@ export default function TesisYonetimiClient() {
         {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
         <FacilitySubSectorCrossNav />
 
-        {/* 3. BÖLÜM: Neden Alo Yönetim? (Bireysel vs Alo Yönetim, ISO Doğrulama & 5188 Güvenlik) */}
+        {/* 3. BÖLÜM: Neden Alo Yönetim? (Bireysel vs Alo Yönetim, ISO Doğrulama, SLA Garantileri & 5188 Güvenlik) */}
         <div className="space-y-12">
           <TrustVerificationAuditSeo />
+          <FacilityCorporateSlaGuaranteesSeo />
           <FacilityComparisonMatrixSeo />
           <FacilityGroupSecurityTrustSeo />
           <FacilityMaintenanceScheduleSeo />
         </div>
 
-        {/* 4. BÖLÜM: Kanıtlanmış Başarı & Müşteri Deneyimi (Vaka Çalışmaları + Yorumlar) */}
+        {/* 4. BÖLÜM: Kanıtlanmış Başarı & Müşteri Deneyimi (Öncesi/Sonrası Vakalar + Testimonials) */}
         <div className="space-y-16">
+          <FacilityBeforeAfterCasesSeo />
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
             <CaseStudySeo />
           </div>
           <FacilityTestimonials />
         </div>
 
-        {/* 5. BÖLÜM: KMK 634 & Hukuki Geçiş Süreci */}
+        {/* 5. BÖLÜM: KMK 634 & Hukuki Geçiş Süreci + İndirilebilir Belge Kasası */}
         <div className="space-y-12">
-          {/* 4 Adımda Geçiş */}
+          {/* 48 Saatte Geçiş Yol Haritası */}
+          <FacilityTransitionTimelineSeo />
+
+          {/* İndirilebilir Resmi Doküman & Şablon Kasası */}
+          <FacilityDownloadableVaultSeo />
+
+          {/* 4 Adımda Geçiş Rehberi */}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
             <HowToSeo 
               name={t('fac_steps_title') || 'Tesis Yönetimine Profesyonel Geçiş Rehberi'}
@@ -394,6 +407,9 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
         </div>
+
+        {/* 5.5. BÖLÜM: 39 İlçe Referans ve Tesis Portföyü */}
+        <FacilityDistrictPortfolioSeo />
 
         {/* 6. BÖLÜM: Bilgi Bankası & SSS (AI Instant Answers + DynamicFAQ) */}
         <div className="space-y-12">
