@@ -14,6 +14,8 @@ import {
   FacilityMaintenanceScheduleSeo,
   FacilityManagementCalculatorSeo,
   IstanbulDuesHeatmapSeo,
+  ChecklistAuditSeo,
+  TrustVerificationAuditSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -283,17 +285,19 @@ export default function TesisYonetimiClient() {
           </div>
         </div>
 
-        {/* 1.5. BÖLÜM: İnteraktif Aidat Hesaplayıcı & İstanbul İlçe Tasarruf Isı Haritası */}
+        {/* 1.5. BÖLÜM: İnteraktif Aidat Hesaplayıcı, İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
         <div className="space-y-12">
           <FacilityManagementCalculatorSeo />
           <IstanbulDuesHeatmapSeo />
+          <ChecklistAuditSeo />
         </div>
 
         {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
         <FacilitySubSectorCrossNav />
 
-        {/* 3. BÖLÜM: Neden Alo Yönetim? (Bireysel vs Alo Yönetim & 5188 Güvenlik Ekosistemi) */}
+        {/* 3. BÖLÜM: Neden Alo Yönetim? (Bireysel vs Alo Yönetim, ISO Doğrulama & 5188 Güvenlik) */}
         <div className="space-y-12">
+          <TrustVerificationAuditSeo />
           <FacilityComparisonMatrixSeo />
           <FacilityGroupSecurityTrustSeo />
           <FacilityMaintenanceScheduleSeo />
