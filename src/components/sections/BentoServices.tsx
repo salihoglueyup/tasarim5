@@ -258,7 +258,7 @@ export default function BentoServices() {
           </div>
         </motion.div>
 
-        {/* Card 6: Tesis & Mülk Yönetimi (Amiral Gemisi Hub Linki) */}
+        {/* Card 6: Site & Tesis Yönetimi (Amiral Gemisi Hub Linki) */}
         <motion.div 
           variants={itemVariants}
           style={cardGpuStyle}
@@ -267,19 +267,38 @@ export default function BentoServices() {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <div className="relative z-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold tracking-wider uppercase mb-4 border border-blue-400/20">
-              <span className="material-symbols-outlined text-sm">star</span>
-              <span>Amiral Gemisi Çözüm</span>
+              <span className="material-symbols-outlined text-sm">apartment</span>
+              <span>Amiral Gemisi — Site & Tesis İşletmesi</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Entegre Tesis ve Mülk Yönetimi</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Profesyonel Site ve Tesis Yönetimi</h3>
             <p className="text-slate-300 leading-relaxed text-sm">
-              634 Sayılı KMK ve ISO 41001 standartlarında güvenlik, temizlik, teknik servis ve aidat takibini tek çatı altında yönetiyor, %30 maliyet tasarrufu sağlıyoruz.
+              İstanbul&apos;un 39 ilçesinde 340+ konut sitesi ve rezidansta 634 Sayılı KMK ve ISO 41001 standartlarında 5188 lisanslı güvenlik, temizlik, önleyici teknik servis ve %99.2 aidat tahsilat garantisi sunuyoruz.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['ISO 41001', 'KMK 634', '%30 Tasarruf', '20 Dk SLA', '39 İlçe'].map(tag => (
+              {['Site Yönetimi', 'Toplu Konut', 'Rezidans', 'KMK 634', '%30 Tasarruf', '15 Dk SLA'].map(tag => (
                 <span key={tag} className="px-3 py-1.5 bg-white/10 text-slate-200 rounded-full text-xs font-semibold border border-white/10">
                   {tag}
                 </span>
               ))}
+            </div>
+
+            {/* Alt Sektörel Hızlı Linkler */}
+            <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-3 text-xs">
+              <Link 
+                href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')}
+                className="text-blue-300 hover:text-white underline decoration-blue-500/50 flex items-center gap-1"
+              >
+                <span>Toplu Konut & Site Çözümleri</span>
+                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+              </Link>
+              <span className="text-slate-600">·</span>
+              <Link 
+                href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')}
+                className="text-blue-300 hover:text-white underline decoration-blue-500/50 flex items-center gap-1"
+              >
+                <span>Rezidans & Lüks Site</span>
+                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+              </Link>
             </div>
           </div>
           <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
@@ -287,7 +306,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/tesis-yonetimi')}
               className="text-sm font-extrabold text-blue-400 hover:text-blue-300 flex items-center gap-2 group/btn"
             >
-              <span>Tesis Yönetimi Detaylı Rehber</span>
+              <span>Site & Tesis Yönetimi Rehberi</span>
               <span className="material-symbols-outlined text-base group-hover/btn:translate-x-1.5 transition-transform">arrow_forward</span>
             </Link>
 
@@ -295,7 +314,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/teklif-al')}
               className="text-xs font-bold text-slate-900 bg-white hover:bg-slate-100 px-4 py-2 rounded-xl transition-colors shadow-sm"
             >
-              Ücretsiz Teklif Al →
+              Siteniz İçin Teklif Alın →
             </Link>
           </div>
         </motion.div>
