@@ -17,11 +17,16 @@ const QuoteContext = createContext<QuoteContextType | undefined>(undefined);
 export function QuoteProvider({ children }: { children: ReactNode }) {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
-  const openQuoteModal = () => setIsQuoteModalOpen(true);
-  const closeQuoteModal = () => setIsQuoteModalOpen(false);
+  const openQuoteModal = React.useCallback(() => setIsQuoteModalOpen(true), []);
+  const closeQuoteModal = React.useCallback(() => setIsQuoteModalOpen(false), []);
+
+  const value = React.useMemo(
+    () => ({ isQuoteModalOpen, openQuoteModal, closeQuoteModal }),
+    [isQuoteModalOpen, openQuoteModal, closeQuoteModal]
+  );
 
   return (
-    <QuoteContext.Provider value={{ isQuoteModalOpen, openQuoteModal, closeQuoteModal }}>
+    <QuoteContext.Provider value={value}>
       {children}
       {isQuoteModalOpen && <QuoteModal onClose={closeQuoteModal} />}
     </QuoteContext.Provider>

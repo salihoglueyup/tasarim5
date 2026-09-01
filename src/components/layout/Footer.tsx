@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { DISTRICTS } from '@/data/districts';
 import dynamic from 'next/dynamic';
 import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
 import AppBadges from '@/components/ui/AppBadges';
@@ -272,7 +271,22 @@ export default function Footer() {
                 Anadolu Yakası (14 İlçe)
               </span>
               <div className="flex flex-wrap gap-x-2 gap-y-1.5 text-xs">
-                {DISTRICTS.filter((d) => d.side === 'Anadolu').map((d) => (
+                {[
+                  { slug: 'kadikoy', name: 'Kadıköy' },
+                  { slug: 'atasehir', name: 'Ataşehir' },
+                  { slug: 'uskudar', name: 'Üsküdar' },
+                  { slug: 'umraniye', name: 'Ümraniye' },
+                  { slug: 'maltepe', name: 'Maltepe' },
+                  { slug: 'kartal', name: 'Kartal' },
+                  { slug: 'pendik', name: 'Pendik' },
+                  { slug: 'tuzla', name: 'Tuzla' },
+                  { slug: 'cekmekoy', name: 'Çekmeköy' },
+                  { slug: 'sancaktepe', name: 'Sancaktepe' },
+                  { slug: 'beykoz', name: 'Beykoz' },
+                  { slug: 'sile', name: 'Şile' },
+                  { slug: 'sultanbeyli', name: 'Sultanbeyli' },
+                  { slug: 'adalar', name: 'Adalar' },
+                ].map((d) => (
                   <Link
                     key={d.slug}
                     href={`/bolgeler/${d.slug}`}
@@ -290,7 +304,33 @@ export default function Footer() {
                 Avrupa Yakası (25 İlçe)
               </span>
               <div className="flex flex-wrap gap-x-2 gap-y-1.5 text-xs">
-                {DISTRICTS.filter((d) => d.side === 'Avrupa').map((d) => (
+                {[
+                  { slug: 'besiktas', name: 'Beşiktaş' },
+                  { slug: 'sisli', name: 'Şişli' },
+                  { slug: 'sariyer', name: 'Sarıyer' },
+                  { slug: 'bakirkoy', name: 'Bakırköy' },
+                  { slug: 'beyoglu', name: 'Beyoğlu' },
+                  { slug: 'fatih', name: 'Fatih' },
+                  { slug: 'zeytinburnu', name: 'Zeytinburnu' },
+                  { slug: 'eyupsultan', name: 'Eyüpsultan' },
+                  { slug: 'gaziosmanpasa', name: 'Gaziosmanpaşa' },
+                  { slug: 'kagithane', name: 'Kağıthane' },
+                  { slug: 'bayrampasa', name: 'Bayrampaşa' },
+                  { slug: 'esenler', name: 'Esenler' },
+                  { slug: 'gungoren', name: 'Güngören' },
+                  { slug: 'bagcilar', name: 'Bağcılar' },
+                  { slug: 'bahcelievler', name: 'Bahçelievler' },
+                  { slug: 'kucukcekmece', name: 'Küçükçekmece' },
+                  { slug: 'basaksehir', name: 'Başakşehir' },
+                  { slug: 'avcilar', name: 'Avcılar' },
+                  { slug: 'esenyurt', name: 'Esenyurt' },
+                  { slug: 'beylikduzu', name: 'Beylikdüzü' },
+                  { slug: 'buyukcekmece', name: 'Büyükçekmece' },
+                  { slug: 'arnavutkoy', name: 'Arnavutköy' },
+                  { slug: 'catalca', name: 'Çatalca' },
+                  { slug: 'silivri', name: 'Silivri' },
+                  { slug: 'sultangazi', name: 'Sultangazi' },
+                ].map((d) => (
                   <Link
                     key={d.slug}
                     href={`/bolgeler/${d.slug}`}

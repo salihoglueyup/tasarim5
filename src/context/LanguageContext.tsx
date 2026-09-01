@@ -48,22 +48,30 @@ export const LanguageProvider = ({ children, initialLang, initialDictionary }: {
     }
   }, [language, transMap]);
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = React.useCallback((lang: Language) => {
     setLanguageState(lang);
     if (typeof window !== 'undefined') {
       localStorage.setItem('app_language', lang);
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     }
-  };
+  }, []);
 
-  const t = (key: keyof typeof translations['tr']): string => {
-    const dictionary = transMap[language] || transMap['tr'];
-    return (dictionary as any)[key] || (transMap['tr'] as any)[key] || String(key);
-  };
+  const t = React.useCallback(
+    (key: keyof typeof translations['tr']): string => {
+      const dictionary = transMap[language] || transMap['tr'];
+      return (dictionary as any)[key] || (transMap['tr'] as any)[key] || String(key);
+    },
+    [language, transMap]
+  );
+
+  const value = React.useMemo(
+    () => ({ language, setLanguage, t }),
+    [language, setLanguage, t]
+  );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

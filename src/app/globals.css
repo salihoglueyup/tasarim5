@@ -96,6 +96,7 @@ body {
 .lazy-section {
   content-visibility: auto;
   contain-intrinsic-size: 1px 600px;
+  contain: layout style paint;
 }
 
 /* Görsel & Medya layout izolasyonu */
