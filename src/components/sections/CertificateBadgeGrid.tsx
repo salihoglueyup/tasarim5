@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function CertificateBadgeGrid() {
@@ -62,10 +61,9 @@ export default function CertificateBadgeGrid() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {certs.map((c, i) => (
-          <motion.div 
+          <div 
             key={i}
-            whileHover={{ y: -5 }}
-            className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 shadow-sm hover:border-[var(--color-primary)] transition-all"
+            className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-4 shadow-sm hover:border-[var(--color-primary)] hover:-translate-y-1.5 transition-all duration-300"
           >
             <div className="flex items-center justify-between">
               <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center">
@@ -77,7 +75,7 @@ export default function CertificateBadgeGrid() {
             </div>
             <h3 className="text-xl font-bold text-[var(--color-primary)]">{c.title}</h3>
             <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">{c.desc}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
 

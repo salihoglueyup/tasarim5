@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 
@@ -30,18 +29,10 @@ export default function LogoTicker({ dbPartners }: { dbPartners?: { name: string
 
       <div className="relative flex w-full overflow-hidden">
         {/* Gradient fades on left and right for smooth entry/exit */}
-        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[var(--color-background)] to-transparent z-10"></div>
-        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[var(--color-background)] to-transparent z-10"></div>
+        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[var(--color-background)] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[var(--color-background)] to-transparent z-10 pointer-events-none"></div>
 
-        <motion.div 
-          className="flex whitespace-nowrap gap-16 md:gap-32 items-center px-16"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ 
-            duration: 30, 
-            ease: "linear", 
-            repeat: Infinity 
-          }}
-        >
+        <div className="flex whitespace-nowrap gap-16 md:gap-32 items-center px-16 animate-marquee">
           {/* We duplicate the list twice to create a seamless infinite loop */}
           {[...brands, ...brands, ...brands, ...brands].map((brand, index) => (
             <div 
@@ -59,7 +50,7 @@ export default function LogoTicker({ dbPartners }: { dbPartners?: { name: string
               )}
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
