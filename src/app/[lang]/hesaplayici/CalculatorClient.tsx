@@ -9,10 +9,10 @@ import CallbackForm from '@/components/cro/CallbackForm';
 import { ChecklistAuditSeo, QuizAuditScoreSeo, ServiceAuthorityHubSeo } from '@/components/seo';
 import FacilityAuditReportModal from '@/components/modals/FacilityAuditReportModal';
 
-import { calculateDues, CalcConfig } from '@/lib/hesaplayici';
+import { calculateDuesLocalized, CalcConfig } from '@/lib/hesaplayici';
 
 export default function CalculatorClient({ initialConfig }: { initialConfig: CalcConfig }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [units, setUnits] = useState<number>(45);
   const [blocks, setBlocks] = useState<number>(3);
   const [elevators, setElevators] = useState<number>(6);
@@ -21,14 +21,21 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
   const [hasGreenSpace, setHasGreenSpace] = useState<boolean>(true);
   const [isAuditModalOpen, setIsAuditModalOpen] = useState<boolean>(false);
 
-  // Aidat tahmini — saf fonksiyon (src/lib/hesaplayici.ts, birim test kapsamında).
-  const { estimatedDuesPerUnit, totalMonthlyBudget, estimatedSavings } = calculateDues({
+  // Faz 165: 4 Dilde Yerelleştirilmiş Aidat ve Bütçe Tahmini
+  const {
+    estimatedDuesPerUnit,
+    totalMonthlyBudget,
+    estimatedSavings,
+    formattedDuesPerUnit,
+    formattedTotalMonthlyBudget,
+    formattedEstimatedSavings,
+  } = calculateDuesLocalized({
     units,
     elevators,
     hasSecurity,
     hasPool,
     hasGreenSpace,
-  }, initialConfig);
+  }, language, initialConfig);
 
   return (
     <>
@@ -339,7 +346,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               <div className="flex flex-col gap-2">
                 <span className="text-gray-300 text-sm font-light">{t('calc_report_dues_label')}</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl md:text-6xl font-bold tracking-tight">₺{estimatedDuesPerUnit.toLocaleString()}</span>
+                  <span className="text-5xl md:text-6xl font-bold tracking-tight">{formattedDuesPerUnit}</span>
                   <span className="text-gray-300 text-lg">{t('calc_report_per_month')}</span>
                 </div>
               </div>
@@ -349,11 +356,11 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               <div className="grid grid-cols-2 gap-6">
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-gray-400">{t('calc_report_budget_label')}</span>
-                  <span className="text-2xl font-bold">₺{totalMonthlyBudget.toLocaleString()}</span>
+                  <span className="text-2xl font-bold">{formattedTotalMonthlyBudget}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-slate-400 font-semibold">{t('calc_report_savings_label')}</span>
-                  <span className="text-2xl font-bold text-slate-400">~₺{estimatedSavings.toLocaleString()}</span>
+                  <span className="text-2xl font-bold text-slate-400">{formattedEstimatedSavings}</span>
                 </div>
               </div>
 

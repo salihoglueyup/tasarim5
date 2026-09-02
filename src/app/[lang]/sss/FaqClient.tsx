@@ -8,6 +8,43 @@ import DOMPurify from 'isomorphic-dompurify';
 import { useLanguage } from '@/context/LanguageContext';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
 
+/**
+ * Faz 164: 4 Dilde SSS Arama ve Filtreleme Motoru
+ */
+export function filterFaqsByLanguage(
+  faqs: any[],
+  query: string,
+  category: string,
+  lang: string = 'tr'
+): any[] {
+  const getLocalized = (item: any, field: string) => {
+    if (lang === 'en' && item[`${field}_en`]) return item[`${field}_en`];
+    if (lang === 'ru' && item[`${field}_ru`]) return item[`${field}_ru`];
+    if (lang === 'ar' && item[`${field}_ar`]) return item[`${field}_ar`];
+    return item[field];
+  };
+
+  const searchLower = (query || '').toLowerCase().trim();
+  const isAll =
+    !category ||
+    category === 'Tümü' ||
+    category === 'all' ||
+    category === 'All' ||
+    category === 'Все' ||
+    category === 'الكل';
+
+  return faqs.filter((faq) => {
+    const matchesCategory = isAll || faq.category === category;
+    if (!matchesCategory) return false;
+
+    if (!searchLower) return true;
+
+    const q = (getLocalized(faq, 'question') || '').toLowerCase();
+    const a = (getLocalized(faq, 'answer') || '').toLowerCase();
+
+    return q.includes(searchLower) || a.includes(searchLower);
+  });
+}
 
 export default function FaqClient({ 
   faqs, 
@@ -61,20 +98,8 @@ export default function FaqClient({
     return translation === `cat_${name}` ? name : translation;
   };
 
-  // Filtreleme mantığı
-  const filteredFaqs = faqs.filter(faq => {
-    const matchesCategory = activeCategory === 'Tümü' || faq.category === activeCategory;
-    const searchLower = searchQuery.toLowerCase();
-    
-    const q = getLocalized(faq, 'question') || '';
-    const a = getLocalized(faq, 'answer') || '';
-    
-    const matchesSearch = 
-      q.toLowerCase().includes(searchLower) || 
-      a.toLowerCase().includes(searchLower);
-    
-    return matchesCategory && matchesSearch;
-  });
+  // Faz 164: 4 Dilde Aranabilir ve Filtrelenebilir SSS Motoru
+  const filteredFaqs = filterFaqsByLanguage(faqs, searchQuery, activeCategory, lang);
 
   return (
     <>

@@ -56,3 +56,42 @@ export function calculateDues(input: CalcInput, config: CalcConfig = defaultCalc
 
   return { estimatedDuesPerUnit, totalMonthlyBudget, estimatedSavings };
 }
+
+export interface LocalizedCalcResult extends CalcResult {
+  formattedDuesPerUnit: string;
+  formattedTotalMonthlyBudget: string;
+  formattedEstimatedSavings: string;
+}
+
+/**
+ * Faz 165: Çok Dilli Aidat ve Bütçe Hesaplayıcı (TR, EN, RU, AR)
+ */
+export function calculateDuesLocalized(
+  input: CalcInput,
+  lang: string = 'tr',
+  config: CalcConfig = defaultCalcConfig
+): LocalizedCalcResult {
+  const result = calculateDues(input, config);
+  const isTr = lang === 'tr';
+  const currencySymbol = '₺';
+
+  // Yabancı dillerde ve Arapça'da doğru sayı ve para biçimlendirmesi
+  const formattedDuesPerUnit = isTr
+    ? `${currencySymbol}${result.estimatedDuesPerUnit.toLocaleString('tr-TR')}`
+    : `${result.estimatedDuesPerUnit.toLocaleString(lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA')} ${currencySymbol}`;
+
+  const formattedTotalMonthlyBudget = isTr
+    ? `${currencySymbol}${result.totalMonthlyBudget.toLocaleString('tr-TR')}`
+    : `${result.totalMonthlyBudget.toLocaleString(lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA')} ${currencySymbol}`;
+
+  const formattedEstimatedSavings = isTr
+    ? `~${currencySymbol}${result.estimatedSavings.toLocaleString('tr-TR')}`
+    : `~${result.estimatedSavings.toLocaleString(lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA')} ${currencySymbol}`;
+
+  return {
+    ...result,
+    formattedDuesPerUnit,
+    formattedTotalMonthlyBudget,
+    formattedEstimatedSavings,
+  };
+}

@@ -226,11 +226,11 @@
 - [x] **Faz 158:** Dil değiştirici bileşeni kullanıldığında kullanıcının bulunduğu sayfa rotasını ve dil karşılığını koruma.
 - [x] **Faz 159:** Dil seçimini `NEXT_LOCALE` çerezi ile kaydedip sonraki ziyaretlerde hatırlama.
 - [x] **Faz 160:** Tarayıcı `Accept-Language` başlığına göre ilk girişte akıllı dil öneri banner'ı sunma.
-- [ ] **Faz 161:** Para birimi ve sayı formatlarını dile göre yerelleştirme (`Intl.NumberFormat('tr-TR')`).
-- [ ] **Faz 162:** Tarih formatlarını dile göre yerelleştirme (`Intl.DateTimeFormat`).
-- [ ] **Faz 163:** Çok dilli site haritası (`sitemap.xml`) içinde her URL için `xhtml:link rel="alternate"` tanımlarını ekleme.
-- [ ] **Faz 164:** SSS bölümünü 4 dilde aranabilir ve filtrelenebilir kılma.
-- [ ] **Faz 165:** Aidat ve bütçe hesaplayıcısını İngilizce ve Arapça dillerinde tam işlevsel hale getirme.
+- [x] **Faz 161:** Para birimi ve sayı formatlarını dile göre yerelleştirme (`Intl.NumberFormat('tr-TR')`).
+- [x] **Faz 162:** Tarih formatlarını dile göre yerelleştirme (`Intl.DateTimeFormat`).
+- [x] **Faz 163:** Çok dilli site haritası (`sitemap.xml`) içinde her URL için `xhtml:link rel="alternate"` tanımlarını ekleme.
+- [x] **Faz 164:** SSS bölümünü 4 dilde aranabilir ve filtrelenebilir kılma.
+- [x] **Faz 165:** Aidat ve bütçe hesaplayıcısını İngilizce ve Arapça dillerinde tam işlevsel hale getirme.
 - [ ] **Faz 166:** Sözlük (`/sozluk`) sayfasını çok dilli terim arama altyapısına kavuşturma.
 - [ ] **Faz 167:** Başarı hikayeleri ve vaka analizlerini çok dilli formata geçirme.
 - [ ] **Faz 168:** KVKK ve Gizlilik Politikası gibi yasal metinlerin İngilizce özet versiyonlarını hazırlama.
