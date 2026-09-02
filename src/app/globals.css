@@ -355,3 +355,26 @@ select:focus-visible {
   contain: layout paint;
 }
 
+/* Faz 151 & Faz 152: Arapça RTL Düzeni ve İkon Yönü Çevirme (Auto-Mirroring) */
+[dir="rtl"] {
+  text-align: right;
+  letter-spacing: normal !important;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+}
+
+/* RTL modunda otomatik yön değiştiren oklar, chevron'lar ve ikonlar (Faz 152) */
+[dir="rtl"] .rtl-flip,
+[dir="rtl"] .rtl-auto-mirror,
+[dir="rtl"] [data-icon-direction="next"],
+[dir="rtl"] .rtl\:rotate-180 {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .group-hover\:translate-x-1 {
+  --tw-translate-x: -0.25rem !important;
+}
+

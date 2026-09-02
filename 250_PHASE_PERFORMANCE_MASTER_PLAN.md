@@ -216,11 +216,11 @@
 ### 🌐 WAVE 7: FAZ 151–175 — Çok Dilli Mimari (i18n), RTL & Tipografi
 *Hedef: 4 dilde (TR, EN, RU, AR) kusursuz kullanıcı deneyimi, sıfır çeviri açığı ve RTL desteği.*
 
-- [ ] **Faz 151:** Arapça (RTL) düzenini Tailwind `rtl:` prefix'leri ve `dir="rtl"` attribute'u ile tüm bileşenlerde test etme.
-- [ ] **Faz 152:** RTL modunda ikonların (oklar, chevron'lar) otomatik yön değiştirmesini sağlama (`rtl:rotate-180`).
-- [ ] **Faz 153:** `x-default` hreflang etiketini tüm sayfalarda varsayılan dil (Türkçe) olarak sabitleme.
-- [ ] **Faz 154:** `common.json` dosyalarındaki (TR, EN, RU, AR) tüm anahtarların eksiksiz olduğunu denetleyen otomatik test yazma.
-- [ ] **Faz 155:** URL slug çevirilerini (`middleware.ts` içindeki `translatedSlugs`) tüm hizmet ve kurumsal sayfalar için tamamlama.
+- [x] **Faz 151:** Arapça (RTL) düzenini Tailwind `rtl:` prefix'leri ve `dir="rtl"` attribute'u ile tüm bileşenlerde test etme.
+- [x] **Faz 152:** RTL modunda ikonların (oklar, chevron'lar) otomatik yön değiştirmesini sağlama (`rtl:rotate-180`).
+- [x] **Faz 153:** `x-default` hreflang etiketini tüm sayfalarda varsayılan dil (Türkçe) olarak sabitleme.
+- [x] **Faz 154:** `common.json` dosyalarındaki (TR, EN, RU, AR) tüm anahtarların eksiksiz olduğunu denetleyen otomatik test yazma.
+- [x] **Faz 155:** URL slug çevirilerini (`middleware.ts` içindeki `translatedSlugs`) tüm hizmet ve kurumsal sayfalar için tamamlama.
 - [ ] **Faz 156:** İngilizce blog yazıları için temel sektör terimleri sözlüğü oluşturma.
 - [ ] **Faz 157:** Rusça ve Arapça sayfaların meta başlık ve açıklamalarını lokal kültüre uygun optimize etme.
 - [ ] **Faz 158:** Dil değiştirici bileşeni kullanıldığında kullanıcının bulunduğu sayfa rotasını ve dil karşılığını koruma.
