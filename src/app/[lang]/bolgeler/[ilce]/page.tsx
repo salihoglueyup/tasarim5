@@ -25,6 +25,7 @@ import {
 import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
+import { getNeighborDistrictLinks } from '@/lib/seo/districtCrossLinker';
 
 // ISR: yüzlerce yerel sayfa için günlük yeniden doğrulama (Faz 120/126).
 export const revalidate = 86400;
@@ -90,7 +91,7 @@ export default async function DistrictPage({
 }: {
   params: Promise<{ lang: string; ilce: string }>;
 }) {
-  const { ilce } = await params;
+  const { lang, ilce } = await params;
   const district = getDistrict(ilce);
   if (!district) notFound();
 
@@ -117,6 +118,8 @@ export default async function DistrictPage({
     path,
     speakableSelectors: ['h1', '.tldr'],
   });
+
+  const neighborLinks = getNeighborDistrictLinks(district.slug, lang);
 
   const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${district.geo.lng - 0.03}%2C${district.geo.lat - 0.02}%2C${district.geo.lng + 0.03}%2C${district.geo.lat + 0.02}&marker=${district.geo.lat}%2C${district.geo.lng}`;
 
@@ -346,6 +349,27 @@ export default async function DistrictPage({
             </a>
           </div>
         </div>
+
+        {/* Faz 145: Çapraz Anlamsal Komşu İlçe Bağlantı Ağı */}
+        {neighborLinks.length > 0 && (
+          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-center sm:text-left">
+              {district.name} Çevresinde Hizmet Verdiğimiz Komşu İlçeler
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {neighborLinks.map((neighbor) => (
+                <Link
+                  key={neighbor.slug}
+                  href={neighbor.href}
+                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/60 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
+                >
+                  <span>{neighbor.name}</span>
+                  <span className="material-symbols-outlined text-[14px] text-blue-500">arrow_forward</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Blog & pillar iç linkler */}
         <div className="text-center flex flex-col gap-4 border-t border-[var(--color-outline)]/40 pt-8">

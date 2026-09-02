@@ -25,18 +25,28 @@ export async function notifyIndexNow(paths: string | string[]): Promise<boolean>
       host,
       key: INDEXNOW_KEY,
       keyLocation: `${BASE_URL}/${INDEXNOW_KEY}.txt`,
-      urlList: fullUrls
+      urlList: fullUrls,
     };
 
-    // Arka planda beklemeden asenkron ping fırlat
-    fetch('https://api.indexnow.org/indexnow', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify(payload)
-    }).catch((err) => {
-      console.error('Auto-IndexNow background ping error:', err);
+    // Faz 141: Bing, Yandex ve IndexNow küresel API uçlarına eşzamanlı bildirim
+    const endpoints = [
+      'https://api.indexnow.org/indexnow',
+      'https://www.bing.com/indexnow',
+      'https://yandex.com/indexnow',
+    ];
+
+    Promise.allSettled(
+      endpoints.map((endpoint) =>
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+          body: JSON.stringify(payload),
+        })
+      )
+    ).catch((err) => {
+      console.error('Auto-IndexNow broadcast ping error:', err);
     });
 
     return true;

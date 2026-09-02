@@ -100,14 +100,16 @@ export default function robots(): MetadataRoute.Robots {
         disallow,
       },
       {
-        // AI yanıt/tarama botları: içerik ve bilgi tabanlarını taramaya açık
+        // Faz 143: AI yanıt/tarama botları için optimize edilmiş crawl-delay ve izinler
         userAgent: AI_BOTS,
         allow,
         disallow,
+        crawlDelay: 1,
       },
     ],
     sitemap: [
       `${BASE_URL}/sitemap.xml`,
+      `${BASE_URL}/news-sitemap.xml`,
       `${BASE_URL}/sitemap-regions.xml`,
       `${BASE_URL}/image-sitemap.xml`,
       `${BASE_URL}/video-sitemap.xml`,

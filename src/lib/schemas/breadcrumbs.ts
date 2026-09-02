@@ -1,19 +1,25 @@
 import type { JsonLdObject } from './constants';
 import { BASE_URL, abs } from './constants';
 
-export const generateBreadcrumbs = (items: { name: string; url: string }[]): JsonLdObject => {
-  const cleanItems = items.filter(Boolean);
-  const lastItem = cleanItems[cleanItems.length - 1];
-  const canonicalId = lastItem ? `${abs(lastItem.url)}#breadcrumb` : undefined;
+export const generateBreadcrumbs = (items: { name?: string; url?: string }[]): JsonLdObject => {
+  const validItems = (items || [])
+    .filter((item) => item && typeof item.name === 'string' && item.name.trim().length > 0)
+    .map((item) => ({
+      name: item.name!.trim(),
+      url: item.url ? abs(item.url) : BASE_URL,
+    }));
+
+  const lastItem = validItems[validItems.length - 1];
+  const canonicalId = lastItem ? `${lastItem.url}#breadcrumb` : undefined;
 
   return {
     '@type': 'BreadcrumbList',
     ...(canonicalId ? { '@id': canonicalId } : {}),
-    itemListElement: cleanItems.map((item, index) => ({
+    itemListElement: validItems.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: abs(item.url),
+      item: item.url,
     })),
   };
 };

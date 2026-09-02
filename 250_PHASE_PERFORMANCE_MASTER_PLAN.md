@@ -200,11 +200,11 @@
 - [x] **Faz 138:** Blog yazılarına 634 Sayılı Kat Mülkiyeti Kanunu ve Yargıtay içtihat referans bağlantılarını otomatik ekleme.
 - [x] **Faz 139:** `news-sitemap.xml` feed'ini son 48 saatteki içeriklerle otomatik güncelleyen rota yazma.
 - [x] **Faz 140:** `video-sitemap.xml` ile video içeriklerinin Google Video aramalarında indekslenmesini sağlama.
-- [ ] **Faz 141:** IndexNow API entegrasyonunu blog yazısı eklendiğinde Bing ve Yandex'e otomatik sinyal gönderecek şekilde yapılandırma.
-- [ ] **Faz 142:** WebSub / PubSubHubbub protokolü ile RSS feed'lerini arama motorlarına anlık duyurma.
-- [ ] **Faz 143:** `robots.txt` dosyasındaki crawl-delay ve crawler izinlerini yapay zeka botlarına optimize etme.
-- [ ] **Faz 144:** Google Search Console için breadcrumb yolu hiyerarşisini kusursuzlaştırma.
-- [ ] **Faz 145:** İlçe sayfaları arasında çapraz anlamsal iç linkleme örgü ağı kurma (Kadıköy -> Ataşehir -> Üsküdar).
+- [x] **Faz 141:** IndexNow API entegrasyonunu blog yazısı eklendiğinde Bing ve Yandex'e otomatik sinyal gönderecek şekilde yapılandırma.
+- [x] **Faz 142:** WebSub / PubSubHubbub protokolü ile RSS feed'lerini arama motorlarına anlık duyurma.
+- [x] **Faz 143:** `robots.txt` dosyasındaki crawl-delay ve crawler izinlerini yapay zeka botlarına optimize etme.
+- [x] **Faz 144:** Google Search Console için breadcrumb yolu hiyerarşisini kusursuzlaştırma.
+- [x] **Faz 145:** İlçe sayfaları arasında çapraz anlamsal iç linkleme örgü ağı kurma (Kadıköy -> Ataşehir -> Üsküdar).
 - [ ] **Faz 146:** Duplicate content riskine karşı tüm varyasyonlarda self-referencing canonical URL kontrolü.
 - [ ] **Faz 147:** `facilityRankSimulator.ts` ile sayfa içi SEO puanlama simülasyonunu çalıştırma.
 - [ ] **Faz 148:** Open Graph `og:locale` ve `og:locale:alternate` etiketlerini 4 dil için eksiksiz üretme.

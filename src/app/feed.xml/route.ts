@@ -54,6 +54,8 @@ export async function GET() {
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>${ORG_NAME} Blog &amp; Bilgi Merkezi</title>
   <subtitle>Profesyonel Tesis Yönetimi, 5188 Özel Güvenlik, KMK Hukuk ve Aidat Tahsilatı Rehberleri</subtitle>
+  <!-- Faz 142: WebSub (PubSubHubbub) Google Hub Tanımları -->
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/" />
   <link href="${BASE_URL}/feed.xml" rel="self" type="application/atom+xml" />
   <link href="${BASE_URL}/blog" />
   <id>${BASE_URL}/blog</id>
@@ -71,6 +73,7 @@ ${entries}
     headers: {
       'Content-Type': 'application/atom+xml; charset=utf-8',
       'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800',
+      Link: `<https://pubsubhubbub.appspot.com/>; rel="hub", <${BASE_URL}/feed.xml>; rel="self"`,
     },
   });
 }
