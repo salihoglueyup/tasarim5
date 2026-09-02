@@ -293,11 +293,11 @@
 - [x] **Faz 213:** Tablolarda `<th>` elemanlarına `scope="col"` ve `scope="row"` nitelikleri ekleme.
 - [x] **Faz 214:** Ekran okuyucuların anlaması için semantik HTML etiketlerini (`<main>`, `<nav>`, `<aside>`, `<article>`, `<header>`, `<footer>`) eksiksiz kullanma.
 - [x] **Faz 215:** Mobil dokunmatik alan boyutlarını kontrol etme (minimum 44x44 CSS pikseli).
-- [ ] **Faz 216:** SVG ikonlara ekran okuyucuların takılmaması için `aria-hidden="true"` ekleme.
-- [ ] **Faz 217:** Sesli içerik veya videolar için altyazı / deşifre metni bağlantısı ekleme.
-- [ ] **Faz 218:** Sayfa dili tanımlamasının (`<html lang="tr">`) dile göre dinamik güncellendiğini doğrulama.
-- [ ] **Faz 219:** Yatay kaydırma (horizontal scroll) alanlarında klavye yön tuşlarıyla gezinti desteği sağlama.
-- [ ] **Faz 220:** İlerleme çubuklarında `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax` kullanma.
+- [x] **Faz 216:** SVG ikonlara ekran okuyucuların takılmaması için `aria-hidden="true"` ekleme.
+- [x] **Faz 217:** Sesli içerik veya videolar için altyazı / deşifre metni bağlantısı ekleme.
+- [x] **Faz 218:** Sayfa dili tanımlamasının (`<html lang="tr">`) dile göre dinamik güncellendiğini doğrulama.
+- [x] **Faz 219:** Yatay kaydırma (horizontal scroll) alanlarında klavye yön tuşlarıyla gezinti desteği sağlama.
+- [x] **Faz 220:** İlerleme çubuklarında `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax` kullanma.
 - [ ] **Faz 221:** Fiyat ve para birimi gösterimlerinde ekran okuyucu için "Türk Lirası" açıklamasını gizli span ile verme.
 - [ ] **Faz 222:** Menü kapatma butonlarına açıkça "Menüyü Kapat" `aria-label`'ı ekleme.
 - [ ] **Faz 223:** Otomatik form doldurma (autocomplete) niteliklerini (`name`, `email`, `tel`) ekleyerek yardımcı teknolojileri destekleme.
