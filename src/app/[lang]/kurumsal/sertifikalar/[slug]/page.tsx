@@ -141,10 +141,13 @@ export default async function CertificatePage({
               href={cert.pdf}
               target="_blank"
               rel="noopener noreferrer"
+              download
+              aria-label={`${cert.name} sertifikasını PDF formatında indir (1.8 MB)`}
               className={`flex items-center justify-center gap-3 bg-gradient-to-r ${cert.color} text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:opacity-90 transition-opacity`}
             >
               <span className="material-symbols-outlined">download</span>
-              Sertifikayı İndir (PDF)
+              <span>Sertifikayı İndir</span>
+              <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-medium ml-1">PDF · 1.8 MB</span>
             </a>
 
             <Link

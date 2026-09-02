@@ -169,11 +169,11 @@
 - [x] **Faz 113:** Görsel yüklemelerinde bulanık önizleme (`placeholder="blur"`) entegrasyonu.
 - [x] **Faz 114:** Harita (Google Maps / Leaflet) iframe'lerini yalnızca kullanıcı harita sekmesini açtığında yükleme.
 - [x] **Faz 115:** YouTube video gömmelerinde hafif cephe (`lite-youtube-embed`) yaklaşımını uygulama (-1 MB JS tasarrufu).
-- [ ] **Faz 116:** PDF doküman indirme bağlantılarına dosya boyutu ve tür rozeti ekleme.
-- [ ] **Faz 117:** OpenGraph dinamik görsel üretimini (`/api/og`) edge runtime'da önbellekli olarak çalıştırma.
-- [ ] **Faz 118:** Sosyal medya paylaşım görsellerini WebP formatında optimize etme.
-- [ ] **Faz 119:** Sayfa içi tüm animasyonlu GIF'leri sessiz döngülü WebM/MP4 formatına dönüştürme.
-- [ ] **Faz 120:** `loading="lazy"` ve `decoding="async"` niteliklerinin below-the-fold tüm görsellerde yer almasını sağlama.
+- [x] **Faz 116:** PDF doküman indirme bağlantılarına dosya boyutu ve tür rozeti ekleme.
+- [x] **Faz 117:** OpenGraph dinamik görsel üretimini (`/api/og`) edge runtime'da önbellekli olarak çalıştırma.
+- [x] **Faz 118:** Sosyal medya paylaşım görsellerini WebP formatında optimize etme.
+- [x] **Faz 119:** Sayfa içi tüm animasyonlu GIF'leri sessiz döngülü WebM/MP4 formatına dönüştürme.
+- [x] **Faz 120:** `loading="lazy"` ve `decoding="async"` niteliklerinin below-the-fold tüm görsellerde yer almasını sağlama.
 - [ ] **Faz 121:** CSS gradyanlarını aşırı katmanlardan arındırıp GPU kompozitörünü rahatlatma.
 - [ ] **Faz 122:** Görsel kırılmalarında (404) şık bir yedek görsel gösteren `ImageFallback` sarmalayıcısı yazma.
 - [ ] **Faz 123:** Görsel CDN veya yerel cache klasörünü otomatik temizleme mekanizması kurma.

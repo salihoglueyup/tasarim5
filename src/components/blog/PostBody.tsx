@@ -32,14 +32,17 @@ export default function PostBody({
   // 2. İçeriği otomatik linkle (self-referencing döngüleri engelleyerek)
   const processedHtml = autoLinkHtml(parsedHtml, currentUrl);
 
-  // 3. Otomatik Alt Etiketi Enjeksiyonu (Görsel SEO)
-  const seoHtml = processedHtml.replace(/<img(?![^>]*alt=)[^>]*>/gi, (match) => { 
+  // 3. Otomatik Alt, loading="lazy" ve decoding="async" Enjeksiyonu (Faz 120: Görsel SEO & LCP)
+  let seoHtml = processedHtml.replace(/<img(?![^>]*alt=)[^>]*>/gi, (match) => { 
     return match.replace('<img', `<img alt="${title}"`); 
   });
+  seoHtml = seoHtml.replace(/<img(?![^>]*loading=)[^>]*>/gi, (match) => {
+    return match.replace('<img', '<img loading="lazy" decoding="async"');
+  });
 
-  // 4. DOMPurify ile güvenli temizlik (class ve id korumalı)
+  // 4. DOMPurify ile güvenli temizlik (class, id, loading ve decoding korumalı)
   const sanitizedHtml = DOMPurify.sanitize(seoHtml, {
-    ADD_ATTR: ['id', 'class', 'target', 'rel', 'title', 'alt', 'src', 'width', 'height'],
+    ADD_ATTR: ['id', 'class', 'target', 'rel', 'title', 'alt', 'src', 'width', 'height', 'loading', 'decoding'],
     ADD_TAGS: ['iframe', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote'],
   });
 

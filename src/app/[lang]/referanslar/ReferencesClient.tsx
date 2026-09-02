@@ -298,7 +298,7 @@ export default function ReferencesClient({
               {[...partners, ...partners].map((partner, idx) => (
                 <div key={idx} className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity cursor-default">
                   {partner.logo ? (
-                    <img src={partner.logo} alt={partner.name} className="h-10 object-contain grayscale hover:grayscale-0 transition-all" />
+                    <img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" />
                   ) : (
                     <span className="text-lg md:text-xl font-extrabold text-[var(--color-heading-text)] tracking-tight px-4 py-2 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm">
                       🏛️ {partner.name}
