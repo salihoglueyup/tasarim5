@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useId } from 'react';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -11,6 +10,17 @@ export interface ModalProps {
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
+const MAX_WIDTH_STYLES = {
+  sm: "max-w-sm",
+  md: "max-w-md",
+  lg: "max-w-lg",
+  xl: "max-w-xl",
+};
+
+/**
+ * Faz 51: Framer Motion'dan arındırılmış, saf donanım hızlandırmalı
+ * CSS animasyonlu, tam erişilebilir (A11y) hafif Modal bileşeni.
+ */
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
@@ -18,64 +28,65 @@ export const Modal: React.FC<ModalProps> = ({
   children,
   maxWidth = 'md',
 }) => {
+  const titleId = useId();
+
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+      }
     };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
 
-  const maxWidthStyles = {
-    sm: "max-w-sm",
-    md: "max-w-md",
-    lg: "max-w-lg",
-    xl: "max-w-xl",
-  };
+  if (!isOpen) return null;
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="absolute inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md"
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className={`relative w-full ${maxWidthStyles[maxWidth]} bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10 p-6 md:p-8 z-10`}
-          >
-            {title && (
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/10">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h3>
-                <button
-                  onClick={onClose}
-                  aria-label="Kapat"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
-                >
-                  <span className="material-symbols-outlined text-lg">close</span>
-                </button>
-              </div>
-            )}
-            <div>{children}</div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={title ? titleId : undefined}
+    >
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className="absolute inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md transition-opacity duration-200 ease-out transform-gpu"
+        aria-hidden="true"
+      />
+
+      {/* Modal Dialog Content */}
+      <div
+        className={`relative w-full ${MAX_WIDTH_STYLES[maxWidth]} bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10 p-6 md:p-8 z-10 transition-all duration-200 ease-out transform-gpu animate-in fade-in zoom-in-95`}
+      >
+        {title && (
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/10">
+            <h3 id={titleId} className="text-xl font-bold text-slate-900 dark:text-white">
+              {title}
+            </h3>
+            <button
+              onClick={onClose}
+              aria-label="Kapat"
+              className="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-lg">close</span>
+            </button>
+          </div>
+        )}
+        <div>{children}</div>
+      </div>
+    </div>
   );
 };
 

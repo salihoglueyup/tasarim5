@@ -92,11 +92,11 @@
 ### 🧩 WAVE 3: FAZ 51–75 — UI Primitifleri, Modal & Island Mimarisi
 *Hedef: UI bileşenlerindeki Framer Motion bağımlılıklarını kaldırıp saf CSS ve sıfır-jank etkileşimler sağlamak.*
 
-- [ ] **Faz 51:** `src/components/ui/Modal.tsx` bileşenini native HTML `<dialog>` veya CSS animasyonlu hafif yapıya geçirme.
-- [ ] **Faz 52:** `QuoteModal.tsx` (31 KB) teklif modalını kullanıcı tıklayana kadar sıfır bundle yüküyle tamamen dinamik import yapma.
-- [ ] **Faz 53:** `SpotlightSearchModal.tsx` (Ctrl+K hızlı arama) klavye navigasyonunu ve arama tepki süresini 10ms altına indirme.
-- [ ] **Faz 54:** `Tooltip.tsx` bileşenini Framer Motion yerine saf CSS `@starting-style` / `opacity` geçişlerine dönüştürme.
-- [ ] **Faz 55:** `Tabs.tsx` sekme geçişlerini CSS tabanlı gösterge çizgisine geçirme.
+- [x] **Faz 51:** `src/components/ui/Modal.tsx` bileşenini native HTML `<dialog>` veya CSS animasyonlu hafif yapıya geçirme.
+- [x] **Faz 52:** `QuoteModal.tsx` (31 KB) teklif modalını kullanıcı tıklayana kadar sıfır bundle yüküyle tamamen dinamik import yapma.
+- [x] **Faz 53:** `SpotlightSearchModal.tsx` (Ctrl+K hızlı arama) klavye navigasyonunu ve arama tepki süresini 10ms altına indirme.
+- [x] **Faz 54:** `Tooltip.tsx` bileşenini Framer Motion yerine saf CSS `@starting-style` / `opacity` geçişlerine dönüştürme.
+- [x] **Faz 55:** `Tabs.tsx` sekme geçişlerini CSS tabanlı gösterge çizgisine geçirme.
 - [ ] **Faz 56:** `QuickCallWidget.tsx` FAB butonunu mobilde GPU katmanında sabit tutarak layout shift'i sıfırlama.
 - [ ] **Faz 57:** `PwaInstallPrompt.tsx` bileşenini deferred prompt ile yalnızca kullanıcı 30 sn sitede kaldıktan sonra yükleme.
 - [ ] **Faz 58:** `CookieConsent.tsx` çerez bildirimini ilk açılışta LCP ve CLS'i engellemeyecek şekilde defer etme.
