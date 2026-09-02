@@ -324,11 +324,11 @@
 - [x] **Faz 238:** Canlıda slow query loglarını izleme mekanizması kurma.
 - [x] **Faz 239:** Web Vitals izleyicisini (`PerformanceObserver`) canlıda sessiz beacon ile analitik sistemine bağlama.
 - [x] **Faz 240:** Dead code elimination: Projede kullanılmayan tüm export, tip ve yardımcı fonksiyonları tespit edip temizleme.
-- [ ] **Faz 241:** Bağımlılık denetimi (Dependency Audit) ile gereksiz veya çakışan kütüphaneleri ayıklama.
-- [ ] **Faz 242:** Node.js bellek sızıntısı ve heap snapshot testleri çalıştırma.
-- [ ] **Faz 243:** Yüksek eşzamanlı istek simülasyonu ile API yanıt sürelerini ve veritabanı stabilitesini ölçme.
-- [ ] **Faz 244:** Çift repo senkronizasyonunu (`origin main` ve `alogroup main`) otomatik doğrulayan script yazma.
-- [ ] **Faz 245:** Docker konteyner yeniden başlatma (restart) testleri yaparak veritabanı ve Redis verilerinin kalıcılığını (persistence) teyit etme.
+- [x] **Faz 241:** Bağımlılık denetimi (Dependency Audit) ile gereksiz veya çakışan kütüphaneleri ayıklama.
+- [x] **Faz 242:** Node.js bellek sızıntısı ve heap snapshot testleri çalıştırma.
+- [x] **Faz 243:** Yüksek eşzamanlı istek simülasyonu ile API yanıt sürelerini ve veritabanı stabilitesini ölçme.
+- [x] **Faz 244:** Çift repo senkronizasyonunu (`origin main` ve `alogroup main`) otomatik doğrulayan script yazma.
+- [x] **Faz 245:** Docker konteyner yeniden başlatma (restart) testleri yaparak veritabanı ve Redis verilerinin kalıcılığını (persistence) teyit etme.
 - [ ] **Faz 246:** Sistem açılışında otomatik Prisma migrate ve DB seed süreçlerinin kararlılığını test etme.
 - [ ] **Faz 247:** 250 Fazlık performans sertifikasyon raporunu otomatik üreten script hazırlama.
 - [ ] **Faz 248:** Tüm test paketlerinin (`392+ Vitest testi`) eksiksiz ve yeşil olduğunu doğrulama.
