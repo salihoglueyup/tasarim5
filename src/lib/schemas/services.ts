@@ -69,7 +69,7 @@ export function localBusinessAreaSchema(opts: {
   aggregateRating?: RatingInput;
 }): JsonLdObject {
   return {
-    '@type': 'ProfessionalService',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
     name: `${ORG_NAME} — ${opts.areaName}`,
     image: ORG_LOGO,
     url: abs(opts.url),

@@ -190,11 +190,11 @@
 - [x] **Faz 128:** Tüm blog yazılarına `Article` + `BlogPosting` + `author` + `publisher` JSON-LD zengin sonuçlarını bağlama.
 - [x] **Faz 129:** `Speakable` şemasını ana sayfa ve hizmet sayfalarındaki sesli asistan arama özetlerine entegre etme.
 - [x] **Faz 130:** Tüm hizmet sayfalarına (`/hizmetler/*`) `Service` ve `OfferCatalog` şemalarını dinamik bağlama.
-- [ ] **Faz 131:** 39 ilçe sayfasına (`/bolgeler/*`) `LocalBusiness` + `GeoCoordinates` + `hasMap` şemalarını enjekte etme.
-- [ ] **Faz 132:** Hesaplayıcı sayfalarına Google'ın sevdiği `HowTo` adım adım şeması ekleme.
-- [ ] **Faz 133:** SSS bölümü olan her sayfada otomatik `FAQPage` şemasının eksiksiz çıkmasını sağlama.
-- [ ] **Faz 134:** Kurumsal sayfalara (`/kurumsal/*`) `AboutPage`, ISO sertifikaları ve TÜRKAK akreditasyon şemaları ekleme.
-- [ ] **Faz 135:** Sözlük sayfasına (`/sozluk`) `DefinedTermSet` ve `DefinedTerm` şemalarını bağlama.
+- [x] **Faz 131:** 39 ilçe sayfasına (`/bolgeler/*`) `LocalBusiness` + `GeoCoordinates` + `hasMap` şemalarını enjekte etme.
+- [x] **Faz 132:** Hesaplayıcı sayfalarına Google'ın sevdiği `HowTo` adım adım şeması ekleme.
+- [x] **Faz 133:** SSS bölümü olan her sayfada otomatik `FAQPage` şemasının eksiksiz çıkmasını sağlama.
+- [x] **Faz 134:** Kurumsal sayfalara (`/kurumsal/*`) `AboutPage`, ISO sertifikaları ve TÜRKAK akreditasyon şemaları ekleme.
+- [x] **Faz 135:** Sözlük sayfasına (`/sozluk`) `DefinedTermSet` ve `DefinedTerm` şemalarını bağlama.
 - [ ] **Faz 136:** Otomatik iç bağlantı örgü ağını (`autoLinker.ts`) `TreeWalker` API ile optimize ederek TBT maliyetini sıfırlama.
 - [ ] **Faz 137:** `eeatAuditor.ts` motorunu genişleterek her sayfada yazar biyografisi, yayın tarihi ve resmi kaynak atıflarını denetleme.
 - [ ] **Faz 138:** Blog yazılarına 634 Sayılı Kat Mülkiyeti Kanunu ve Yargıtay içtihat referans bağlantılarını otomatik ekleme.

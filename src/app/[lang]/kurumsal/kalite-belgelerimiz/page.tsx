@@ -64,8 +64,9 @@ export default async function CertificatesPage({
   ]);
 
   const pageLd = webPageSchema({
-    name: t.certificates_title || 'Kalite Belgelerimiz',
-    description: t.certificates_desc || 'Alo Yönetim kurumsal kalite ve yeterlilik sertifikaları.',
+    type: 'AboutPage',
+    name: t.certificates_title || 'Kalite Belgelerimiz & ISO Akreditasyonlarımız',
+    description: t.certificates_desc || 'Alo Yönetim kurumsal kalite, ISO ve TÜRKAK akreditasyon sertifikaları.',
     path: '/kurumsal/kalite-belgelerimiz',
     speakableSelectors: ['h1', 'p'],
   });

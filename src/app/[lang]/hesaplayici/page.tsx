@@ -4,7 +4,7 @@ import CalculatorClient from './CalculatorClient';
 import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
-import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema, howToSchema } from '@/lib/schemas';
 import { DefinedTermSetSeo } from '@/components/seo';
 
 export const dynamic = 'force-dynamic';
@@ -57,6 +57,25 @@ export default async function HesaplayiciServer() {
     { name: 'Aidat & Bütçe Hesaplayıcı', url: '/hesaplayici' },
   ]);
 
+  const howToLd = howToSchema({
+    name: 'Site Aidatı ve Tesis Bütçesi Nasıl Hesaplanır?',
+    description: '634 Sayılı Kat Mülkiyeti Kanunu ve işletme projesi standartlarına göre daire başı aidat ve tasarruf hesaplama adımları.',
+    steps: [
+      {
+        name: 'Bağımsız Bölüm Sayısını Belirleyin',
+        text: 'Sitenizdeki toplam konut, daire veya dükkan sayısını girerek temel işletme hacmini oluşturun.',
+      },
+      {
+        name: 'Tesis Özelliklerini ve Donatıları Seçin',
+        text: '5188 özel güvenlik, yüzme havuzu, asansör sayısı ve peyzaj yeşil alan büyüklüğü gibi ek operasyonel hizmetleri işaretleyin.',
+      },
+      {
+        name: 'KMK 634 Bütçe Simülasyonunu İnceleyin',
+        text: 'Tahmini aylık toplam bütçeyi, daire başı aidatı ve Alo Yönetim ile %30 tasarruf projeksiyonunu anında görüntüleyin.',
+      },
+    ],
+  });
+
   const webAppLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -87,7 +106,7 @@ export default async function HesaplayiciServer() {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, webAppLd, pageLd]} />
+      <JsonLd data={[breadcrumbLd, webAppLd, howToLd, pageLd]} />
       <CalculatorClient initialConfig={config} />
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20">
         <DefinedTermSetSeo

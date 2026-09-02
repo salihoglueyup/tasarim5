@@ -194,7 +194,7 @@ export function definedTermSetSchema(opts: {
   name: string;
   description: string;
   path: string;
-  terms: { term: string; definition: string }[];
+  terms: { term: string; definition: string; url?: string }[];
 }): JsonLdObject {
   const url = abs(opts.path);
   return {
@@ -203,12 +203,18 @@ export function definedTermSetSchema(opts: {
     name: opts.name,
     description: opts.description,
     url,
-    hasDefinedTerm: opts.terms.map((t) => ({
-      '@type': 'DefinedTerm',
-      name: t.term,
-      description: t.definition,
-      inDefinedTermSet: `${url}#glossary`,
-    })),
+    hasDefinedTerm: opts.terms.map((t) => {
+      const termSlug = encodeURIComponent(t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
+      const termUrl = t.url ? abs(t.url) : `${url}#${termSlug}`;
+      return {
+        '@type': 'DefinedTerm',
+        '@id': termUrl,
+        name: t.term,
+        description: t.definition,
+        url: termUrl,
+        inDefinedTermSet: `${url}#glossary`,
+      };
+    }),
   };
 }
 

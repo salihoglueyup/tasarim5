@@ -1,12 +1,22 @@
 import type { JsonLdObject } from './constants';
 
-export function faqPageSchema(items: { question: string; answer: string }[]): JsonLdObject {
+export function faqPageSchema(items: { question?: string; answer?: string; q?: string; a?: string }[]): JsonLdObject {
+  const validItems = (items || [])
+    .map((i) => ({
+      question: (i.question || i.q || '').trim(),
+      answer: (i.answer || i.a || '').trim(),
+    }))
+    .filter((i) => i.question.length > 0 && i.answer.length > 0);
+
   return {
     '@type': 'FAQPage',
-    mainEntity: items.map((i) => ({
+    mainEntity: validItems.map((i) => ({
       '@type': 'Question',
       name: i.question,
-      acceptedAnswer: { '@type': 'Answer', text: i.answer },
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: i.answer,
+      },
     })),
   };
 }
