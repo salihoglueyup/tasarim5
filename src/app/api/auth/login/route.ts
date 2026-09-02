@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import { encrypt } from '@/lib/auth';
 import { cookies } from 'next/headers';
 import { prisma } from '@/lib/prisma';
-import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
+import { applyApiRateLimit } from '@/lib/security/rateLimiter';
 
 function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for');
@@ -14,10 +14,10 @@ function clientIp(req: NextRequest): string {
 
 export async function POST(request: NextRequest) {
   try {
-    // Brute-Force Koruması (Rate Limiting)
-    pruneBuckets();
-    if (!rateLimit(clientIp(request))) {
-      return NextResponse.json({ error: 'Çok fazla başarısız deneme. Lütfen 1 dakika bekleyin.' }, { status: 429 });
+    // Faz 187: Admin Girişi Brute-Force Koruması (5 dakikada en fazla 5 deneme)
+    const rateLimitRes = await applyApiRateLimit(clientIp(request), 'admin_login_brute_force', 5, 300);
+    if (!rateLimitRes.success) {
+      return NextResponse.json({ error: 'Çok fazla başarısız deneme. Lütfen 5 dakika bekleyin.' }, { status: 429 });
     }
 
     const body = await request.json();

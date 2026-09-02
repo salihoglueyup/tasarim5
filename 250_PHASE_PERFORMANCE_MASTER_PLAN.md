@@ -257,11 +257,11 @@
 - [x] **Faz 183:** Prisma Client bağlantı havuzunu (connection pool) Docker ortamında maksimum 10 bağlantı ile optimize etme.
 - [x] **Faz 184:** Redis bağlantı hatalarında uygulamanın çökmesini engelleyen gracefully degraded fallback'i güçlendirme.
 - [x] **Faz 185:** `next.config.ts` içindeki Content Security Policy (CSP) direktiflerini sıkılaştırma.
-- [ ] **Faz 186:** `dangerouslySetInnerHTML` kullanım alanlarında XSS temizliği (`DOMPurify`) yapıldığını doğrulamak için audit testi yazma.
-- [ ] **Faz 187:** Admin paneli rotalarına (`/admin/*`) JWT token doğrulama ve brute-force koruması ekleme.
-- [ ] **Faz 188:** Şifreleme işlemlerinde güvenli algoritmalar (`bcrypt` / `argon2`) kullanıldığını teyit etme.
-- [ ] **Faz 189:** Hassas ortam değişkenlerinin (`DATABASE_URL`, `JWT_SECRET`) istemci tarafına sızmasını engelleyen env linter yazma.
-- [ ] **Faz 190:** Docker konteyneri içinde Node.js sürecini `root` yerine `nextjs` non-root kullanıcısıyla çalıştırmayı doğrulamak.
+- [x] **Faz 186:** `dangerouslySetInnerHTML` kullanım alanlarında XSS temizliği (`DOMPurify`) yapıldığını doğrulamak için audit testi yazma.
+- [x] **Faz 187:** Admin paneli rotalarına (`/admin/*`) JWT token doğrulama ve brute-force koruması ekleme.
+- [x] **Faz 188:** Şifreleme işlemlerinde güvenli algoritmalar (`bcrypt` / `argon2`) kullanıldığını teyit etme.
+- [x] **Faz 189:** Hassas ortam değişkenlerinin (`DATABASE_URL`, `JWT_SECRET`) istemci tarafına sızmasını engelleyen env linter yazma.
+- [x] **Faz 190:** Docker konteyneri içinde Node.js sürecini `root` yerine `nextjs` non-root kullanıcısıyla çalıştırmayı doğrulamak.
 - [ ] **Faz 191:** HTTP yanıtlarında `X-Powered-By` başlığını gizleme (`poweredByHeader: false`).
 - [ ] **Faz 192:** Dosya yükleme endpoint'ine (`/api/upload`) dosya türü (MIME type) ve boyut limiti (maksimum 5 MB) doğrulaması ekleme.
 - [ ] **Faz 193:** SQL Injection taraması ve statik güvenlik analizi.
