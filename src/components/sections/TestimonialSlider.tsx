@@ -189,6 +189,7 @@ export default function TestimonialSlider({
               width={64}
               height={64}
               sizes="64px"
+              quality={75}
               className="w-16 h-16 rounded-full object-cover border-2 border-slate-900 dark:border-white"
             />
             <div>

@@ -106,7 +106,7 @@ export default function Hero() {
           fetchPriority="high"
           decoding="async"
           sizes="100vw"
-          quality={80}
+          quality={75}
           className="object-cover object-center scale-105 pointer-events-none z-0 transform-gpu"
         />
 
@@ -119,6 +119,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            preload="none"
             aria-hidden="true"
             tabIndex={-1}
             className="w-full h-full object-cover object-center scale-105 pointer-events-none relative z-1 transition-opacity duration-1000 opacity-90 transform-gpu"

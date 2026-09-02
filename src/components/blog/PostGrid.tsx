@@ -8,7 +8,7 @@ export default function PostGrid({ posts }: { posts: any[] }) {
         return (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
             <div className="w-full aspect-[16/9] rounded-[2rem] mb-5 overflow-hidden relative border border-gray-200/50 dark:border-white/10 shadow-sm">
-              <Image src={post.image || '/images/hero-poster-v5.webp'} alt={post.title} width={800} height={450} sizes="(max-width: 768px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src={post.image || '/images/hero-poster-v5.webp'} alt={post.title} width={800} height={450} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px" quality={75} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               {cat && (
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs shadow-sm">
                   {cat.name}

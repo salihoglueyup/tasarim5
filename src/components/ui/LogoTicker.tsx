@@ -41,7 +41,7 @@ export default function LogoTicker({ dbPartners }: { dbPartners?: { name: string
             >
               {brand.logo ? (
                 <div className="relative h-12 w-32">
-                   <Image src={brand.logo} alt={brand.name} fill className="object-contain" />
+                   <Image src={brand.logo} alt={brand.name} fill sizes="(max-width: 768px) 128px, 160px" quality={75} className="object-contain" />
                 </div>
               ) : (
                 <span className="text-xl md:text-2xl font-bold tracking-tight text-[var(--color-primary)]">

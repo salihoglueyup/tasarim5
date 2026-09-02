@@ -154,11 +154,11 @@
 ### 🖼️ WAVE 5: FAZ 101–125 — Medya, AVIF, Font & LCP Kesin Çözümü
 *Hedef: LCP süresini 1.2 saniyenin altına çekmek, tüm medya varlıklarını ultra-kompakt formatlara taşımak.*
 
-- [ ] **Faz 101:** `hero-poster-v5.webp` görselinin AVIF versiyonunu oluşturup `<picture>` veya Next.js Image ile AVIF öncelikli sunma (-40% boyut).
-- [ ] **Faz 102:** Hero görseline `priority={true}` ve `fetchPriority="high"` ekleyerek LCP gecikmesini sıfırlama.
-- [ ] **Faz 103:** Tüm kart ve blog thumbnail görsellerine `sizes` prop'unu doğru tanımlayarak gereksiz büyük çözünürlük indirilmesini engelleme.
-- [ ] **Faz 104:** Görsellerde `quality={75}` varsayılanını belirleyip görsel bozulma olmadan bant genişliğini %30 azaltma.
-- [ ] **Faz 105:** Arka plan videolarında `preload="none"` kullanarak mobilde gereksiz megabaytlarca veri indirilmesini durdurma.
+- [x] **Faz 101:** `hero-poster-v5.webp` görselinin AVIF versiyonunu oluşturup `<picture>` veya Next.js Image ile AVIF öncelikli sunma (-40% boyut).
+- [x] **Faz 102:** Hero görseline `priority={true}` ve `fetchPriority="high"` ekleyerek LCP gecikmesini sıfırlama.
+- [x] **Faz 103:** Tüm kart ve blog thumbnail görsellerine `sizes` prop'unu doğru tanımlayarak gereksiz büyük çözünürlük indirilmesini engelleme.
+- [x] **Faz 104:** Görsellerde `quality={75}` varsayılanını belirleyip görsel bozulma olmadan bant genişliğini %30 azaltma.
+- [x] **Faz 105:** Arka plan videolarında `preload="none"` kullanarak mobilde gereksiz megabaytlarca veri indirilmesini durdurma.
 - [ ] **Faz 106:** Arka plan videolarında kullanıcı "Veri Tasarrufu" (Data Saver) modundaysa videoyu yüklememe.
 - [ ] **Faz 107:** SVG ikonların tümünde `width`, `height` ve `viewBox` niteliklerini sabitleyerek CLS'i önleme.
 - [ ] **Faz 108:** CSS `backdrop-blur-xl` ve `backdrop-blur-2xl` sınıflarını mobil cihazlarda `backdrop-blur-sm` seviyesine çekme (GPU RAM tasarrufu).

@@ -140,7 +140,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
                 <motion.div layout initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }} key={post.slug}>
                   <Link href={`/blog/${post.slug}`} className="group cursor-pointer block">
                     <div className="w-full aspect-[16/9] bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative border border-gray-200/50 shadow-sm">
-                      <Image src={post.image || '/images/hero-poster-v5.webp'} alt={post.title} width={800} height={450} sizes="(max-width: 768px) 100vw, 50vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <Image src={post.image || '/images/hero-poster-v5.webp'} alt={post.title} width={800} height={450} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px" quality={75} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                       <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs shadow-sm">
                         {post.category?.name || 'Kategori Yok'}
                       </div>
