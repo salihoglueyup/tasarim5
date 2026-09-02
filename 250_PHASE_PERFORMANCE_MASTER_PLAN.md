@@ -123,11 +123,11 @@
 ### 🧭 WAVE 4: FAZ 76–100 — Header, Mega Menü & Router Cache Hızlandırması
 *Hedef: Tüm sayfalarda yüklenen 24 KB Header ve 13 KB Mega Menü yükünü dinamik island mimarisine geçirmek.*
 
-- [ ] **Faz 76:** `Header.tsx` (24 KB) içindeki `MegaMenuDropdown.tsx` (13 KB) statik import'unu kullanıcı menünün üzerine gelene kadar lazy-load yapma (-15 KB First Load JS).
-- [ ] **Faz 77:** Header scroll dinleyicisini (`handleScroll`) pasif scroll listener ve `requestAnimationFrame` throttling ile koruma.
-- [ ] **Faz 78:** Header tema değiştiriciyi (Dark/Light Mode) flicker (FOUC) yaratmayacak inline script ile senkronize etme.
-- [ ] **Faz 79:** `MobileMenu.tsx` (9 KB) açılışını GPU kompozitöründe `transform: translateX` ile 120 FPS akıcılığa kavuşturma.
-- [ ] **Faz 80:** Mobil menü açıkken arka plan kaydırmasını (body scroll lock) layout kayması olmadan engelleme.
+- [x] **Faz 76:** `Header.tsx` (24 KB) içindeki `MegaMenuDropdown.tsx` (13 KB) statik import'unu kullanıcı menünün üzerine gelene kadar lazy-load yapma (-15 KB First Load JS).
+- [x] **Faz 77:** Header scroll dinleyicisini (`handleScroll`) pasif scroll listener ve `requestAnimationFrame` throttling ile koruma.
+- [x] **Faz 78:** Header tema değiştiriciyi (Dark/Light Mode) flicker (FOUC) yaratmayacak inline script ile senkronize etme.
+- [x] **Faz 79:** `MobileMenu.tsx` (9 KB) açılışını GPU kompozitöründe `transform: translateX` ile 120 FPS akıcılığa kavuşturma.
+- [x] **Faz 80:** Mobil menü açıkken arka plan kaydırmasını (body scroll lock) layout kayması olmadan engelleme.
 - [ ] **Faz 81:** Next.js App Router `staleTimes` ayarını `next.config.ts` üzerinde yapılandırma (`dynamic: 30s`, `static: 180s`).
 - [ ] **Faz 82:** Rota geçişlerinde prefetch edilen sayfaların istemci belleğinde gereksiz şişmesini önleme.
 - [ ] **Faz 83:** `loading.tsx` dosyasını sayfa yapısıyla birebir örtüşen yüksek kaliteli skeleton layout ile güncelleme.

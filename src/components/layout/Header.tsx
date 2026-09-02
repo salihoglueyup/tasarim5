@@ -15,7 +15,8 @@ import SiteNavigationSeo from '@/components/seo/SiteNavigationSeo';
 // Faz 7, 109: LoginModal sadece butona tıklandığında yüklenir, ilk bundle'ı şişirmez.
 const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
 const MobileMenu = dynamic(() => import('./MobileMenu'), { ssr: false });
-import MegaMenuDropdown from './MegaMenuDropdown';
+// Faz 76: MegaMenuDropdown (13 KB) kullanıcı menünün üzerine gelene kadar lazy-load edilir (-15 KB First Load JS)
+const MegaMenuDropdown = dynamic(() => import('./MegaMenuDropdown'), { ssr: false });
 import useClickOutside from '@/hooks/useClickOutside';
 
 type SubItem = {
@@ -150,6 +151,21 @@ export default function Header() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsDarkMode(document.documentElement.classList.contains('dark'));
+
+      const handleStorage = (e: StorageEvent) => {
+        if (e.key === 'theme') {
+          const isDark = e.newValue === 'dark';
+          setIsDarkMode(isDark);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      };
+
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
     }
   }, []);
 
@@ -224,13 +240,22 @@ export default function Header() {
     };
   }, []);
 
+  // Faz 80: Mobil menü açıkken body scroll kilitleme ve kaydırma çubuğu genişliğini (scrollbar-width) dengeleme
   useEffect(() => {
     if (isMobileMenuOpen) {
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = 'hidden';
+      if (scrollBarWidth > 0) {
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+      }
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     }
-    return () => { document.body.style.overflow = 'unset'; };
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    };
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
