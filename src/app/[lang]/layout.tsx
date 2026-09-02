@@ -36,12 +36,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   adjustFontFallback: true,
 });
 
+// Faz 111: Cairo fontu preload: false yapılır; yalnızca /ar rotasında html class'ına eklenerek TR/EN/RU rotalarına gereksiz font yükü bindirilmez
 const cairo = Cairo({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-cairo",
   display: 'swap',
-  preload: true,
+  preload: false,
   adjustFontFallback: true,
 });
 
@@ -144,7 +145,7 @@ export default async function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} className={`${inter.variable} ${plusJakarta.variable} ${cairo.variable}`}>
+    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} className={`${inter.variable} ${plusJakarta.variable} ${isRtl ? cairo.variable : ''}`}>
       <head>
         {/* v9 Hyper-Speed Resource Hints (Preconnect & DNS-Prefetch) */}
         {EXTERNAL_CDN_HINTS.map((hint, i) => (

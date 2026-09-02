@@ -164,11 +164,11 @@
 - [x] **Faz 108:** CSS `backdrop-blur-xl` ve `backdrop-blur-2xl` sınıflarını mobil cihazlarda `backdrop-blur-sm` seviyesine çekme (GPU RAM tasarrufu).
 - [x] **Faz 109:** Material Symbols font yüklemesinde kullanılan ikonların glif alt-kümesini (font subsetting) çıkarma.
 - [x] **Faz 110:** Inter fontunun yalnızca kullanılan ağırlıklarını (400, 500, 600, 700) yükleme.
-- [ ] **Faz 111:** Arapça dili için Cairo fontunu yalnızca `/ar` rotalarında dinamik olarak yükleme (TR/EN/RU rotalarına yük bindirmeme).
-- [ ] **Faz 112:** Favicon ve web app manifest ikonlarını tek bir optimize dizinde toplama.
-- [ ] **Faz 113:** Görsel yüklemelerinde bulanık önizleme (`placeholder="blur"`) entegrasyonu.
-- [ ] **Faz 114:** Harita (Google Maps / Leaflet) iframe'lerini yalnızca kullanıcı harita sekmesini açtığında yükleme.
-- [ ] **Faz 115:** YouTube video gömmelerinde hafif cephe (`lite-youtube-embed`) yaklaşımını uygulama (-1 MB JS tasarrufu).
+- [x] **Faz 111:** Arapça dili için Cairo fontunu yalnızca `/ar` rotalarında dinamik olarak yükleme (TR/EN/RU rotalarına yük bindirmeme).
+- [x] **Faz 112:** Favicon ve web app manifest ikonlarını tek bir optimize dizinde toplama.
+- [x] **Faz 113:** Görsel yüklemelerinde bulanık önizleme (`placeholder="blur"`) entegrasyonu.
+- [x] **Faz 114:** Harita (Google Maps / Leaflet) iframe'lerini yalnızca kullanıcı harita sekmesini açtığında yükleme.
+- [x] **Faz 115:** YouTube video gömmelerinde hafif cephe (`lite-youtube-embed`) yaklaşımını uygulama (-1 MB JS tasarrufu).
 - [ ] **Faz 116:** PDF doküman indirme bağlantılarına dosya boyutu ve tür rozeti ekleme.
 - [ ] **Faz 117:** OpenGraph dinamik görsel üretimini (`/api/og`) edge runtime'da önbellekli olarak çalıştırma.
 - [ ] **Faz 118:** Sosyal medya paylaşım görsellerini WebP formatında optimize etme.

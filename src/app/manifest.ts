@@ -16,14 +16,21 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0a192f',
     icons: [
       {
+        src: '/favicon/favicon-48.png',
+        type: 'image/png',
+        sizes: '48x48',
+      },
+      {
         src: '/favicon/favicon-192.png',
         type: 'image/png',
         sizes: '192x192',
+        purpose: 'any',
       },
       {
         src: '/favicon/favicon-512.png',
         type: 'image/png',
         sizes: '512x512',
+        purpose: 'maskable',
       },
     ],
     shortcuts: [

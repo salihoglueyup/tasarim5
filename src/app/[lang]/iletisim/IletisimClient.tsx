@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { waLink } from '@/lib/cro';
+import LazyMapFacade from '@/components/ui/LazyMapFacade';
 import {
   Phone,
   Mail,
@@ -532,17 +533,14 @@ export default function IletisimClient() {
             </div>
           </div>
 
-          {/* Harita Embed */}
+          {/* Faz 114: Hafif Harita Cephesi (LazyMapFacade) */}
           <div className="lg:col-span-7 h-[360px] rounded-2xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-800">
-            <iframe
+            <LazyMapFacade
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.649622987158!2d29.0289!3d40.9901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8677a28e833%3A0x6b4026bb4e81561!2zS2FkxLFrw7Z5LCDEsHN0YW5idWw!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
               title="Alo Yönetim Genel Merkez Ofisi Konumu"
+              directMapsUrl={ORG_GOOGLE_BUSINESS_URL}
+              autoLoadOnIntersection={true}
+              className="w-full h-full"
             />
           </div>
 

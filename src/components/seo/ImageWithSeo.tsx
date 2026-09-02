@@ -68,6 +68,11 @@ export default function ImageWithSeo({
     schema.datePublished = datePublished;
   }
 
+  // Faz 113: placeholder="blur" belirtilmişse otomatik hafif blurDataURL ile besle
+  const blurProps = props.placeholder === 'blur' && !props.blurDataURL
+    ? { blurDataURL: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFmMjQzMCIvPjwvc3ZnPg==' }
+    : {};
+
   return (
     <>
       {injectSchema && <JsonLd data={schema} />}
@@ -75,6 +80,7 @@ export default function ImageWithSeo({
         src={src} 
         alt={alt} 
         title={title || alt} 
+        {...blurProps}
         {...props} 
       />
     </>
