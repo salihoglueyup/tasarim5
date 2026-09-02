@@ -56,6 +56,9 @@ export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQPr
                 </span>
                 <span className="ml-4 flex-shrink-0 text-slate-400">
                   <svg
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
                     className={`w-5 h-5 transform transition-transform duration-300 ${isActive ? 'rotate-180 text-blue-500' : ''}`}
                     fill="none"
                     viewBox="0 0 24 24"

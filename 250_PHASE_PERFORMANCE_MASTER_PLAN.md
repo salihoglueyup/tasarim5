@@ -159,11 +159,11 @@
 - [x] **Faz 103:** Tüm kart ve blog thumbnail görsellerine `sizes` prop'unu doğru tanımlayarak gereksiz büyük çözünürlük indirilmesini engelleme.
 - [x] **Faz 104:** Görsellerde `quality={75}` varsayılanını belirleyip görsel bozulma olmadan bant genişliğini %30 azaltma.
 - [x] **Faz 105:** Arka plan videolarında `preload="none"` kullanarak mobilde gereksiz megabaytlarca veri indirilmesini durdurma.
-- [ ] **Faz 106:** Arka plan videolarında kullanıcı "Veri Tasarrufu" (Data Saver) modundaysa videoyu yüklememe.
-- [ ] **Faz 107:** SVG ikonların tümünde `width`, `height` ve `viewBox` niteliklerini sabitleyerek CLS'i önleme.
-- [ ] **Faz 108:** CSS `backdrop-blur-xl` ve `backdrop-blur-2xl` sınıflarını mobil cihazlarda `backdrop-blur-sm` seviyesine çekme (GPU RAM tasarrufu).
-- [ ] **Faz 109:** Material Symbols font yüklemesinde kullanılan ikonların glif alt-kümesini (font subsetting) çıkarma.
-- [ ] **Faz 110:** Inter fontunun yalnızca kullanılan ağırlıklarını (400, 500, 600, 700) yükleme.
+- [x] **Faz 106:** Arka plan videolarında kullanıcı "Veri Tasarrufu" (Data Saver) modundaysa videoyu yüklememe.
+- [x] **Faz 107:** SVG ikonların tümünde `width`, `height` ve `viewBox` niteliklerini sabitleyerek CLS'i önleme.
+- [x] **Faz 108:** CSS `backdrop-blur-xl` ve `backdrop-blur-2xl` sınıflarını mobil cihazlarda `backdrop-blur-sm` seviyesine çekme (GPU RAM tasarrufu).
+- [x] **Faz 109:** Material Symbols font yüklemesinde kullanılan ikonların glif alt-kümesini (font subsetting) çıkarma.
+- [x] **Faz 110:** Inter fontunun yalnızca kullanılan ağırlıklarını (400, 500, 600, 700) yükleme.
 - [ ] **Faz 111:** Arapça dili için Cairo fontunu yalnızca `/ar` rotalarında dinamik olarak yükleme (TR/EN/RU rotalarına yük bindirmeme).
 - [ ] **Faz 112:** Favicon ve web app manifest ikonlarını tek bir optimize dizinde toplama.
 - [ ] **Faz 113:** Görsel yüklemelerinde bulanık önizleme (`placeholder="blur"`) entegrasyonu.

@@ -27,9 +27,12 @@ export default function Hero() {
     if (typeof window === 'undefined') return;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.innerWidth < 1024;
-    const isSaveData = (navigator as any)?.connection?.saveData;
+    const conn = (navigator as any)?.connection;
+    const isSaveData = Boolean(conn?.saveData);
+    const isSlowConnection = conn?.effectiveType === '2g' || conn?.effectiveType === 'slow-2g' || conn?.effectiveType === '3g';
     
-    if (reduceMotion || isMobile || isSaveData) return;
+    // Faz 106: Veri Tasarrufu (Data Saver / saveData) ve yavaş bağlantılarda (2G/3G) video iptal edilir
+    if (reduceMotion || isMobile || isSaveData || isSlowConnection) return;
 
     let done = false;
     const attach = () => {
