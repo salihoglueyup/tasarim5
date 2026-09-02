@@ -927,3 +927,5 @@ export function getReferenceBySlug(slug: string, lang: string = 'tr') {
     testimonialText: lang === 'en' && p.testimonialText_en ? p.testimonialText_en : lang === 'ru' && p.testimonialText_ru ? p.testimonialText_ru : lang === 'ar' && p.testimonialText_ar ? p.testimonialText_ar : p.testimonialText,
   };
 }
+
+export { REFERENCES_META, type ReferenceProjectMeta } from './referencesMetadata';

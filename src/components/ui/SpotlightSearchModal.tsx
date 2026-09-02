@@ -15,7 +15,7 @@ import {
   Command,
   X,
 } from 'lucide-react';
-import { DISTRICTS } from '@/data/districts';
+import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 import { SERVICES } from '@/data/services';
 import { FACILITY_TERMS } from '@/data/facilityDictionaryData';
 import { useLanguage } from '@/context/LanguageContext';
@@ -89,7 +89,7 @@ export default function SpotlightSearchModal() {
     });
 
     // 2. İlçeler (39 İlçe)
-    DISTRICTS.forEach((d) => {
+    DISTRICT_NAMES.forEach((d) => {
       items.push({
         id: `district-${d.slug}`,
         title: `${d.name} Tesis & Site Yönetimi`,

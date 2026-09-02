@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
-import { DISTRICTS } from '@/data/districts';
+import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 
 export default function FacilityRfpDownloadModalSeo() {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,7 +124,7 @@ export default function FacilityRfpDownloadModalSeo() {
                       onChange={(e) => setDistrictSlug(e.target.value)}
                       className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-3 py-2 text-xs text-[var(--color-primary)] focus:outline-none focus:border-slate-500"
                     >
-                      {DISTRICTS.map((d) => (
+                      {DISTRICT_NAMES.map((d) => (
                         <option key={d.slug} value={d.slug}>{d.name}</option>
                       ))}
                     </select>

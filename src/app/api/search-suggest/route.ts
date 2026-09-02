@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
 import { SERVICES } from '@/data/services';
-import { DISTRICTS } from '@/data/districts';
+import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 
 /**
  * OpenSearch & Site-Wide Autocomplete API Endpoint
@@ -102,7 +102,7 @@ export async function GET(req: NextRequest) {
     }
 
     // 2. İlçe & İlçe-Hizmet Kombinasyonu Eşleşmeleri (Districts)
-    for (const district of DISTRICTS) {
+    for (const district of DISTRICT_NAMES) {
       if (district.name.toLowerCase().includes(normalizedQuery)) {
         suggestions.push(`${district.name} Profesyonel Tesis Yönetimi & Site İşletmesi`);
         descriptions.push(`${district.name} bölgesinde 634 KMK uyumlu entegre tesis yönetimi, 5188 güvenlik ve teknik işletme.`);

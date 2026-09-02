@@ -36,12 +36,29 @@ export function parseMarkdownLinks(text: string): string {
   );
 }
 
+// In-Memory Parse Önbelleği (Faz 10 - RAM Optimizasyonu)
+const BLOCK_PARSE_CACHE = new Map<string, string>();
+const MAX_CACHE_SIZE = 500;
+
+export function clearBlockParseCache(): void {
+  BLOCK_PARSE_CACHE.clear();
+}
+
+export function getBlockParseCacheSize(): number {
+  return BLOCK_PARSE_CACHE.size;
+}
+
 /**
  * JSON formatında saklanan blog bloklarını (PostBlock[]) veya ham string girdiyi
  * semantik, modern ve zengin HTML'e dönüştüren çekirdek derleyici motoru.
  */
 export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): string {
   if (!rawContent) return '';
+
+  const cacheKey = typeof rawContent === 'string' ? rawContent : null;
+  if (cacheKey && BLOCK_PARSE_CACHE.has(cacheKey)) {
+    return BLOCK_PARSE_CACHE.get(cacheKey)!;
+  }
 
   let blocks: PostBlock[] = [];
 
@@ -185,5 +202,15 @@ export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): 
     }
   }
 
-  return htmlParts.join('\n\n');
+  const rendered = htmlParts.join('\n\n');
+
+  if (cacheKey) {
+    if (BLOCK_PARSE_CACHE.size >= MAX_CACHE_SIZE) {
+      const oldestKey = BLOCK_PARSE_CACHE.keys().next().value;
+      if (oldestKey) BLOCK_PARSE_CACHE.delete(oldestKey);
+    }
+    BLOCK_PARSE_CACHE.set(cacheKey, rendered);
+  }
+
+  return rendered;
 }

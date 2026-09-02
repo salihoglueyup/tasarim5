@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { renderPostBlocksToHtml, slugifyHeading, parseMarkdownLinks } from './blogBlockParser';
+import {
+  renderPostBlocksToHtml,
+  slugifyHeading,
+  parseMarkdownLinks,
+  clearBlockParseCache,
+  getBlockParseCacheSize,
+} from './blogBlockParser';
 import type { PostBlock } from '@/data/posts';
 
 describe('Blog Blok-HTML Çevirici Motoru (blogBlockParser.ts - Faz 17)', () => {
@@ -61,5 +67,25 @@ describe('Blog Blok-HTML Çevirici Motoru (blogBlockParser.ts - Faz 17)', () => 
     expect(renderPostBlocksToHtml(null)).toBe('');
     expect(renderPostBlocksToHtml(undefined)).toBe('');
     expect(renderPostBlocksToHtml('Düz metin paragrafı')).toContain('<p class="text-slate-700');
+  });
+
+  it('In-memory önbellek katmanı (Faz 10) tekrarlanan çağrılarda önbellekten hızlı yanıt verir', () => {
+    clearBlockParseCache();
+    expect(getBlockParseCacheSize()).toBe(0);
+
+    const testContent = JSON.stringify([
+      { type: 'p', text: 'Önbellek test metni' },
+      { type: 'h2', text: 'Önbellek Test Başlığı' }
+    ]);
+
+    const firstRender = renderPostBlocksToHtml(testContent);
+    expect(getBlockParseCacheSize()).toBe(1);
+
+    const secondRender = renderPostBlocksToHtml(testContent);
+    expect(secondRender).toBe(firstRender);
+    expect(getBlockParseCacheSize()).toBe(1);
+
+    clearBlockParseCache();
+    expect(getBlockParseCacheSize()).toBe(0);
   });
 });

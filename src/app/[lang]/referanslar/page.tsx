@@ -6,7 +6,7 @@ import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import ReferencesClient from './ReferencesClient';
 import redis from '@/lib/redis';
 import { buildMetadata } from '@/lib/seo';
-import { getReferencesList, PARTNERS_DATA } from '@/data/references';
+import { getReferencesList, PARTNERS_DATA } from '@/data/referencesMetadata';
 
 export const revalidate = 3600;
 
@@ -70,6 +70,21 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
         prisma.reference.findMany({
           where: { published: true },
           orderBy: { order: 'asc' },
+          select: {
+            id: true,
+            title: true,
+            title_en: true,
+            title_ru: true,
+            title_ar: true,
+            slug: true,
+            category: true,
+            units: true,
+            location: true,
+            location_en: true,
+            location_ru: true,
+            location_ar: true,
+            image: true,
+          },
         }),
         prisma.partner.findMany({
           orderBy: { order: 'asc' },

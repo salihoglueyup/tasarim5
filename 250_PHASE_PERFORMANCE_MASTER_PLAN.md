@@ -34,12 +34,12 @@
 - [x] **Faz 2:** `site-haritasi`, `blog`, `kategori`, `etiket` ve `yazar` sayfalarında `POSTS_META` import'una geçildi.
 - [x] **Faz 3:** `prisma.post.findMany` sorgularında `select` projeksiyonu uygulanarak devasa `content` sütunu liste sayfalarından çıkarıldı.
 - [x] **Faz 4:** `blog/[slug]/page.tsx` içindeki gereksiz 4 statik dil sözlüğü import'u kaldırıldı, in-memory `getDictionary`'ye bağlandı.
-- [ ] **Faz 5:** `src/data/districts.ts` (54 KB) dosyasını Avrupa ve Anadolu yakası mikro modüllerine bölme.
-- [ ] **Faz 6:** `src/data/references.ts` (52 KB) dosyasını sayfalama ve lazy-fetch uyumlu yapıya geçirme.
-- [ ] **Faz 7:** `src/data/dictionary.ts` (20 KB) sözlük terimlerini harf indeksli lazy modüllere ayırma.
-- [ ] **Faz 8:** `src/lib/schemas.ts` (61 KB) monolitini şema türlerine göre modüler hale getirme.
-- [ ] **Faz 9:** `src/lib/seoEngine.ts` (42 KB) motorunu mikro modüllere bölerek tree-shaking verimini artırma.
-- [ ] **Faz 10:** Blog yazılarının markdown/HTML bloklarını parse eden `blogBlockParser.ts` için önbellek katmanı kurma.
+- [x] **Faz 5:** `src/data/districts.ts` (54 KB) dosyasını Avrupa ve Anadolu yakası mikro modüllerine bölme.
+- [x] **Faz 6:** `src/data/references.ts` (52 KB) dosyasını sayfalama ve lazy-fetch uyumlu yapıya geçirme.
+- [x] **Faz 7:** `src/data/dictionary.ts` (20 KB) sözlük terimlerini harf indeksli lazy modüllere ayırma.
+- [x] **Faz 8:** `src/lib/schemas.ts` (61 KB) monolitini şema türlerine göre modüler hale getirme.
+- [x] **Faz 9:** `src/lib/seoEngine.ts` (42 KB) motorunu mikro modüllere bölerek tree-shaking verimini artırma.
+- [x] **Faz 10:** Blog yazılarının markdown/HTML bloklarını parse eden `blogBlockParser.ts` için önbellek katmanı kurma.
 - [ ] **Faz 11:** Statik veri dosyalarında JSON serialization/deserialization döngülerini minimuma indirme.
 - [ ] **Faz 12:** Yazar profilleri (`authors.ts`) ve referans ilişkilerini hafifletme.
 - [ ] **Faz 13:** Global statik objeleri freeze (`Object.freeze`) ederek runtime bellek sızıntılarını önleme.

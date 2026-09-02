@@ -6,8 +6,9 @@ import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
 import { SERVICES } from '@/data/services';
-import { DISTRICTS } from '@/data/districts';
-import { CATEGORIES, POSTS_META } from '@/data/posts';
+import { DISTRICT_NAMES } from '@/data/districtsMetadata';
+import { POSTS_META } from '@/data/postsMetadata';
+import { CATEGORIES } from '@/data/posts';
 
 export const revalidate = 3600;
 
@@ -119,7 +120,7 @@ export default async function SiteHaritasiPage({
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Hizmet Bölgelerimiz</h2>
             <ul className="space-y-2 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700">
-              {DISTRICTS.map((d) => (
+              {DISTRICT_NAMES.map((d) => (
                 <li key={d.slug}>
                   <Link href={`/bolgeler/${d.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
                     {d.name} Tesis Yönetimi

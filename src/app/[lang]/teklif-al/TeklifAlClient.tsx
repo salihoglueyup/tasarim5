@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
-import { DISTRICTS } from '@/data/districts';
 import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
 import { waLink } from '@/lib/cro';
 import { motion, AnimatePresence } from 'framer-motion';
+import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 
 export default function TeklifAlClient() {
   const { t, language } = useLanguage();
@@ -140,7 +140,7 @@ export default function TeklifAlClient() {
                   onChange={(e) => setDistrict(e.target.value)}
                   className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  {DISTRICTS.map((d) => (
+                  {DISTRICT_NAMES.map((d) => (
                     <option key={d.slug} value={d.name} className="dark:bg-slate-900">
                       {d.name} ({d.side})
                     </option>

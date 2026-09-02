@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SERVICES } from '@/data/services';
-import { DISTRICTS } from '@/data/districts';
+import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 import JsonLd from './JsonLd';
 
 export interface SearchResultItem {
@@ -31,11 +31,11 @@ export default function GlobalSpotlightSearchSeo() {
       description: s.summary,
       icon: s.icon || 'home_repair_service'
     })),
-    ...DISTRICTS.map((d) => ({
+    ...DISTRICT_NAMES.map((d) => ({
       title: `${d.name} Tesis Yönetimi`,
       category: 'Bölge' as const,
       url: `/bolgeler/${d.slug}`,
-      description: `${d.side} Yakası — ${d.intro.slice(0, 80)}...`,
+      description: `${d.side} Yakası profesyonel tesis ve site yönetimi hizmetleri.`,
       icon: 'location_on'
     })),
     {

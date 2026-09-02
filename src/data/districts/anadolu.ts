@@ -1,0 +1,267 @@
+import type { District } from './types';
+
+export const ANADOLU_DISTRICTS: District[] = [
+  // ==========================================
+  // ANADOLU YAKASI (14 İLÇE)
+  // ==========================================
+  {
+    slug: 'kadikoy',
+    name: 'Kadıköy',
+    side: 'Anadolu',
+    population: 467000,
+    geo: { lat: 40.9833, lng: 29.0333 },
+    neighborhoods: ['Caddebostan', 'Moda', 'Fenerbahçe', 'Göztepe', 'Bostancı', 'Suadiye'],
+    intro:
+      "Anadolu Yakası`nın kültürel ve ticari kalbi Kadıköy; sahil hattındaki prestijli rezidanslardan Moda'nın tarihi apartmanlarına kadar geniş bir konut dokusuna sahiptir. Yüksek daire yoğunluğu ve karma yapı stoğu, profesyonel ve şeffaf tesis yönetimini kritik hale getirir.",
+    localNeeds: [
+      'Sahil şeridi rezidanslarında 7/24 güvenlik ve concierge',
+      'Tarihi Moda apartmanlarında değer koruyucu teknik bakım',
+      'Yoğun sosyal donatılı sitelerde havuz ve peyzaj yönetimi',
+    ],
+    managedProjects: 48,
+    priority: 1,
+    neighborhoodData: [
+      { slug: 'moda', name: 'Moda', geo: { lat: 40.9845, lng: 29.024 }, intro: 'Moda, Kadıköy\'ün en prestijli ve tarihi mahallesi olup 19. yüzyıldan kalma Rum ve Rum apartmanları ile çevrilidir. Yüksek kira potansiyeli ve değer koruma odaklı profesyonel tesis yönetimi talebi sürekli artmaktadır.', characteristics: ['tarihi apartman stoğu', 'yüksek kira değeri', 'kültürel miras'] },
+      { slug: 'caddebostan', name: 'Caddebostan', geo: { lat: 40.9619, lng: 29.0614 }, intro: 'Caddebostan sahil hattı ve modern rezidanslarıyla Kadıköy\'ün en gözde semtlerinden biridir. Yüksek katlı sitelerde havuz, kapalı otopark ve concierge yönetimi öne çıkan ihtiyaçlardandır.', characteristics: ['sahil rezidansları', 'havuzlu siteler', 'üst segment yaşam'] },
+      { slug: 'fenerbahce', name: 'Fenerbahçe', geo: { lat: 40.9715, lng: 29.038 }, intro: 'Fenerbahçe yarımadası, deniz manzaralı villa ve rezidansların yoğunlaştığı, İstanbul\'un en değerli konut lokasyonlarından biridir. Güvenlik, peyzaj ve özel deniz tesisi yönetimi kritik öneme sahiptir.', characteristics: ['villa ve rezidans', 'yat limanı yakını', 'premium güvenlik'] },
+      { slug: 'goztepe', name: 'Göztepe', geo: { lat: 40.9763, lng: 29.0635 }, intro: 'Göztepe, orta-üst segment konutları ve karma yapı stoğuyla Kadıköy\'ün köklü semtlerinden biridir. Aidat yönetimi ve teknik bakım hizmetlerine olan talep özellikle eski yapılarda yüksektir.', characteristics: ['karma konut dokusu', 'eski-yeni karışık yapı', 'teknik bakım odaklı'] },
+      { slug: 'bostanci', name: 'Bostancı', geo: { lat: 40.9582, lng: 29.0803 }, intro: 'Bostancı, sahil şeridi, vapur iskelesi ve alışveriş merkezi yakınlığıyla hareketli bir ticari ve konut bölgesidir. Karma kullanımlı binalarda bütünleşik tesis yönetimi giderek önem kazanmaktadır.', characteristics: ['vapur iskelesi yakını', 'ticari-konut karma', 'yüksek trafik'] },
+      { slug: 'suadiye', name: 'Suadiye', geo: { lat: 40.9547, lng: 29.0903 }, intro: 'Suadiye, sahil hattındaki butik siteleri ve üst gelir grubuna yönelik lüks rezidanslarıyla tanınmaktadır. Sezonluk havuz bakımı, güvenlik ve peyzaj hizmetleri yoğun talep görmektedir.', characteristics: ['lüks sahil siteleri', 'sezonluk havuz', 'butik yönetim'] },
+    ],
+  },
+  {
+    slug: 'atasehir',
+    name: 'Ataşehir',
+    side: 'Anadolu',
+    population: 425000,
+    geo: { lat: 40.9925, lng: 29.1267 },
+    neighborhoods: ['Barbaros', 'Batı Ataşehir', 'Küçükbakkalköy', 'İçerenköy', 'Ferhatpaşa'],
+    intro:
+      "İstanbul Finans Merkezi'ne ev sahipliği yapan Ataşehir, yüksek katlı modern rezidansların ve büyük ölçekli sitelerin yoğunlaştığı bir ilçedir. Kurumsal yapı stoğu, ölçeklenebilir aidat yönetimi ve entegre hizmet paketleri gerektirir.",
+    localNeeds: [
+      'Yüksek katlı rezidanslarda asansör ve jeneratör periyodik bakımı',
+      'Büyük sitelerde dijital aidat takibi ve bütçe şeffaflığı',
+      'Ofis-konut karma projelerde profesyonel güvenlik yönetimi',
+    ],
+    managedProjects: 41,
+    priority: 1,
+    neighborhoodData: [
+      { slug: 'barbaros', name: 'Barbaros', geo: { lat: 40.9925, lng: 29.12 }, intro: 'Barbaros, Ataşehir\'in kalbinde konumlanan modern konut ve ofis alanlarının yoğunlaştığı semttir. Finans merkezi yakınlığı, kurumsal kiracı profiline uygun profesyonel tesis yönetimini zorunlu kılar.', characteristics: ['finans merkezi yakını', 'ofis-konut karma', 'kurumsal kiracı profili'] },
+      { slug: 'bati-atasehir', name: 'Batı Ataşehir', geo: { lat: 40.9985, lng: 29.1085 }, intro: 'Batı Ataşehir, büyük ölçekli kapalı site projelerinin yoğunlaştığı, alışveriş merkezleri ve sosyal donatılara yakın bir yaşam alanıdır. Geniş ortak alanlar ve havuzlu siteler detaylı tesis yönetimi gerektirir.', characteristics: ['geniş kapalı siteler', 'havuzlu kompleksler', 'alışveriş merkezi yakını'] },
+      { slug: 'kucukbakkalkoy', name: 'Küçükbakkalköy', geo: { lat: 40.983, lng: 29.135 }, intro: 'Küçükbakkalköy, Ataşehir\'in gelişmekte olan lojistik ve konut bölgelerinden biridir. Orta-üst segment sitelerde aidat düzeni ve teknik bakım servisleri öne çıkan ihtiyaçlardandır.', characteristics: ['gelişmekte olan bölge', 'orta-üst segment', 'aidat yönetimi odaklı'] },
+      { slug: 'icerenkoyu', name: 'İçerenköy', geo: { lat: 40.969, lng: 29.137 }, intro: 'İçerenköy, modern villa ve sitelerin teknoloji parkıyla iç içe geçtiği, İstanbul\'un tercih edilen konut lokasyonlarından biridir. Özel güvenlik ve akıllı ev entegrasyonu yönetimi talebi güçlüdür.', characteristics: ['villa siteleri', 'teknoloji parkı yakını', 'akıllı bina sistemleri'] },
+      { slug: 'ferhatpasa', name: 'Ferhatpaşa', geo: { lat: 40.977, lng: 29.148 }, intro: 'Ferhatpaşa, orta ölçekli toplu konutların ve gelişmekte olan rezidans projelerinin öne çıktığı sakin bir semttir. Düzenli bakım, enerji verimliliği ve şeffaf aidat yönetimi yaygın talepler arasındadır.', characteristics: ['toplu konut projeleri', 'enerji verimliliği odaklı', 'sakin yerleşim'] },
+    ],
+  },
+  {
+    slug: 'uskudar',
+    name: 'Üsküdar',
+    side: 'Anadolu',
+    population: 535000,
+    geo: { lat: 41.0233, lng: 29.015 },
+    neighborhoods: ['Acıbadem', 'Altunizade', 'Kuzguncuk', 'Çengelköy', 'Kısıklı'],
+    intro:
+      "Boğaz manzaralı yamaçları ve tarihi dokusuyla Üsküdar, butik sitelerden geniş yerleşkelere uzanan çeşitli bir konut yapısına sahiptir. Eğimli araziler ve yeşil alanlar, uzmanlık gerektiren peyzaj ve teknik bakım hizmetlerini öne çıkarır.",
+    localNeeds: [
+      'Boğaz manzaralı sitelerde peyzaj ve bahçe bakımı',
+      'Eğimli parsellerde altyapı ve teknik bakım',
+      'Karma tarihi/modern yapılarda uyumlu yönetim planı',
+    ],
+    managedProjects: 33,
+    priority: 1,
+  },
+  {
+    slug: 'umraniye',
+    name: 'Ümraniye',
+    side: 'Anadolu',
+    population: 740000,
+    geo: { lat: 41.0167, lng: 29.1167 },
+    neighborhoods: ['Çakmak', 'Atatürk', 'İnkılap', 'Tepeüstü', 'Finanskent'],
+    intro:
+      "İstanbul'un en kalabalık ilçelerinden Ümraniye, geniş toplu konut alanları ve yeni finans yerleşkeleriyle öne çıkar. Yüksek nüfus yoğunluğu, ölçeklenebilir ve maliyet-etkin tesis yönetimi çözümleri gerektirir.",
+    localNeeds: [
+      'Kalabalık sitelerde verimli atık ve hijyen yönetimi',
+      'Toplu konutlarda toplu satın alma ile maliyet optimizasyonu',
+      'Geniş yerleşkelerde devriyeli güvenlik hizmeti',
+    ],
+    managedProjects: 35,
+    priority: 2,
+  },
+  {
+    slug: 'maltepe',
+    name: 'Maltepe',
+    side: 'Anadolu',
+    population: 520000,
+    geo: { lat: 40.935, lng: 29.15 },
+    neighborhoods: ['Bağlarbaşı', 'Cevizli', 'Küçükyalı', 'Fındıklı', 'Altayçeşme'],
+    intro:
+      "Sahil dolgu alanı ve geniş yaşam projeleriyle hızla gelişen Maltepe, yeni nesil markalı konutların yoğunlaştığı bir ilçedir. Büyük ölçekli siteler, entegre güvenlik ve düzenli hijyen yönetimini zorunlu kılar.",
+    localNeeds: [
+      'Sahil projelerinde geniş ortak alan temizliği',
+      'Markalı sitelerde entegre kamera ve güvenlik yönetimi',
+      'Yeni yapı stoğunda garanti takipli teknik işletme',
+    ],
+    managedProjects: 29,
+    priority: 2,
+  },
+  {
+    slug: 'kartal',
+    name: 'Kartal',
+    side: 'Anadolu',
+    population: 470000,
+    geo: { lat: 40.888, lng: 29.19 },
+    neighborhoods: ['Yakacık', 'Soğanlık', 'Cevizli', 'Orhantepe', 'Uğur Mumcu'],
+    intro:
+      "Kentsel dönüşümün en yoğun yaşandığı ilçelerden Kartal, eski yapı stoğunun yerini büyük konut projelerine bıraktığı dinamik bir bölgedir. Yeni sitelerde kuruluş aşamasından itibaren profesyonel yönetim talebi yüksektir.",
+    localNeeds: [
+      'Kentsel dönüşüm sonrası yeni sitelerde ilk yönetim kurulumu',
+      'Büyük bloklu projelerde aidat ve demirbaş düzeni',
+      'Yoğun otopark alanlarında güvenlik ve erişim kontrolü',
+    ],
+    managedProjects: 26,
+    priority: 2,
+  },
+  {
+    slug: 'pendik',
+    name: 'Pendik',
+    side: 'Anadolu',
+    population: 750000,
+    geo: { lat: 40.8744, lng: 29.2347 },
+    neighborhoods: ['Kurtköy', 'Yenişehir', 'Batı', 'Çamlık', 'Kaynarca', 'Güzelyalı'],
+    intro:
+      "Sabiha Gökçen Havalimanı aksı ve Kurtköy-Yenişehir bölgesindeki modern villa-rezidans projeleriyle Pendik, hızla büyüyen stratejik bir merkezdir. Geniş sosyal alanlı toplu konutlar, profesyonel tesis işletmesi ve 7/24 güvenlik gerektirir.",
+    localNeeds: [
+      'Kurtköy ve Yenişehir villa/rezidans projelerinde 7/24 özel güvenlik',
+      'Büyük ölçekli site yerleşkelerinde merkezi aidat ve bütçe yönetimi',
+      'Sosyal tesis, havuz ve geniş peyzaj alanlarının düzenli bakımı',
+    ],
+    managedProjects: 38,
+    priority: 1,
+    neighborhoodData: [
+      { slug: 'kurtkoy', name: 'Kurtköy', geo: { lat: 40.9025, lng: 29.2694 }, intro: 'Kurtköy, Sabiha Gökçen Havalimanı yakınındaki villa siteleri ve lüks konut projeleriyle Pendik\'in en prestijli mahallesidir. 7/24 güvenlik, havuz ve geniş peyzaj alanı yönetimi yoğun talep görmektedir.', characteristics: ['villa siteleri', 'havalimanı yakını', '7/24 güvenlik'] },
+      { slug: 'yenisehir', name: 'Yenişehir', geo: { lat: 40.876, lng: 29.255 }, intro: 'Yenişehir, planlı yapılaşması ve modern site kompleksleriyle Pendik\'te hızla gelişen bir yerleşim alanıdır. Büyük ölçekli sitelerde aidat yönetimi ve entegre teknik işletme talebi artmaktadır.', characteristics: ['planlı yerleşim', 'modern site kompleksleri', 'büyük ölçek'] },
+      { slug: 'kaynarca', name: 'Kaynarca', geo: { lat: 40.889, lng: 29.238 }, intro: 'Kaynarca, orta ölçekli site ve apartman projelerinin yoğunlaştığı, hızla büyüyen bir Pendik mahallesDir. Teknik bakım sürekliliği ve şeffaf aidat yönetimi öne çıkan ihtiyaçlardandır.', characteristics: ['orta ölçek konutlar', 'büyüyen bölge', 'aidat yönetimi'] },
+      { slug: 'guzelyali', name: 'Güzelyalı', geo: { lat: 40.876, lng: 29.285 }, intro: 'Güzelyalı, deniz kıyısı ve sahil hattı boyunca uzanan konut alanlarıyla Pendik\'in değer kazanan bölgesidir. Deniz etkisine karşı teknik bakım ve peyzaj hizmetleri kritik öneme sahiptir.', characteristics: ['sahil hattı', 'deniz etkisi bakım', 'değer artışı bölgesi'] },
+      { slug: 'bati-pendik', name: 'Batı', geo: { lat: 40.87, lng: 29.22 }, intro: 'Batı Pendik, ilçe merkezine yakın konumuyla ulaşım avantajlı, orta-büyük ölçekli konut alanlarının yer aldığı bir mahalledir. Profesyonel güvenlik ve teknik bakım hizmetlerine yönelik talep güçlüdür.', characteristics: ['merkezi konum', 'toplu konut', 'güvenlik odaklı'] },
+    ],
+  },
+  {
+    slug: 'cekmekoy',
+    name: 'Çekmeköy',
+    side: 'Anadolu',
+    population: 295000,
+    geo: { lat: 41.0353, lng: 29.1764 },
+    neighborhoods: ['Mimar Sinan', 'Taşdelen', 'Merkez', 'Çamlık', 'Ömerli', 'Alemdağ'],
+    intro:
+      "Doğayla iç içe villa yerleşkeleri ve modern az katlı aile siteleriyle Çekmeköy, Anadolu Yakası'nın nezih yaşam alanlarındandır. Geniş yeşil alanlar, havuz bakımı ve güvenli çocuk oyun alanları öncelikli yönetim ihtiyaçlarıdır.",
+    localNeeds: [
+      'Geniş bahçeli villa sitelerinde uzman peyzaj ve budama hizmeti',
+      'Açık/kapalı yüzme havuzlarında kimyasal ve hijyen yönetimi',
+      'Aile odaklı sitelerde çevre kamera ve perimetre güvenliği',
+    ],
+    managedProjects: 32,
+    priority: 1,
+  },
+  {
+    slug: 'sancaktepe',
+    name: 'Sancaktepe',
+    side: 'Anadolu',
+    population: 480000,
+    geo: { lat: 40.9903, lng: 29.2278 },
+    neighborhoods: ['Samandıra', 'Sarıgazi', 'Yenidoğan', 'Meclis', 'Eyüp Sultan', 'Emek'],
+    intro:
+      "Yeni metro hatları ve markalı konut projeleriyle parlayan Sancaktepe, genç ve dinamik bir yapı stoğuna sahiptir. Çok bloklu sitelerde şeffaf aidat tahsilatı ve enerji verimliliği odaklı tesis bakımı talep görmektedir.",
+    localNeeds: [
+      'Markalı çok bloklu konutlarda şeffaf bütçe ve aidat icra takibi',
+      'Merkezi hidrofor, asansör ve yangın söndürme sistemleri periyodik kontrolü',
+      'Giriş turnike ve plaka tanıma sistemleri entegrasyonu',
+    ],
+    managedProjects: 25,
+    priority: 2,
+  },
+  {
+    slug: 'beykoz',
+    name: 'Beykoz',
+    side: 'Anadolu',
+    population: 245000,
+    geo: { lat: 41.1175, lng: 29.1006 },
+    neighborhoods: ['Acarkent', 'Kavacık', 'Göksu', 'Paşabahçe', 'Kanlıca', 'Çavuşbaşı'],
+    intro:
+      "Acarkent gibi Türkiye'nin en büyük müstakil yerleşkelerine ve Boğaz yalılarına ev sahipliği yapan Beykoz, üst segment tesis yönetim uzmanlığı ister. Geniş arazi güvenliği, özel teknik işletme ve prestijli yönetim standarttır.",
+    localNeeds: [
+      'Mega villa kentlerinde 5188 silahlı/silahsız özel güvenlik devriyesi',
+      'Orman sınırı mülklerde haşere kontrolü ve peyzaj drenaj yönetimi',
+      'Kavacık plazalarında akıllı bina otomasyonu ve teknik işletme',
+    ],
+    managedProjects: 34,
+    priority: 1,
+  },
+  {
+    slug: 'tuzla',
+    name: 'Tuzla',
+    side: 'Anadolu',
+    population: 285000,
+    geo: { lat: 40.8167, lng: 29.3 },
+    neighborhoods: ['Mercan', 'Postane', 'Aydınlı', 'İstasyon', 'Tepeören', 'Şifa'],
+    intro:
+      "Mercan sahil villalarından Tepeören müstakil yerleşkelerine, tersane ve organize sanayi bölgelerine kadar Tuzla, karma ve çok yönlü bir yönetim sahasıdır. Deniz etkisi korozyon bakımı ve yüksek güvenlik talep edilir.",
+    localNeeds: [
+      'Mercan ve Tepeören villa sitelerinde özel güvenlik ve konsiyerj',
+      'Sahil hattında deniz korozyonuna karşı koruyucu teknik bakım',
+      'Sanayi-konut karma bölgelerinde endüstriyel hijyen ve dezenfeksiyon',
+    ],
+    managedProjects: 27,
+    priority: 2,
+  },
+  {
+    slug: 'sultanbeyli',
+    name: 'Sultanbeyli',
+    side: 'Anadolu',
+    population: 360000,
+    geo: { lat: 40.9667, lng: 29.2667 },
+    neighborhoods: ['Abdurrahmangazi', 'Fatih', 'Hasanpaşa', 'Battalgazi', 'Mehmet Akif'],
+    intro:
+      "Kentsel yenilemenin ivme kazandığı Sultanbeyli'de yeni konut blokları ve ticaret alanları modern işletme modellerine geçmektedir. Ortak giderlerin adil bölüşümü ve hukuki danışmanlık öne çıkan unsurlardır.",
+    localNeeds: [
+      'Yeni apartman yönetimlerinde KMK 634 uyumlu işletme projesi hazırlığı',
+      'Geciken aidatlarda profesyonel uzlaşma ve icra takip danışmanlığı',
+      'Asansör periyodik yeşil etiket muayene ve bakım takibi',
+    ],
+    managedProjects: 18,
+    priority: 3,
+  },
+  {
+    slug: 'sile',
+    name: 'Şile',
+    side: 'Anadolu',
+    population: 43000,
+    geo: { lat: 41.1758, lng: 29.6133 },
+    neighborhoods: ['Merkez', 'Kumbaba', 'Ağva', 'Çavuş', 'Balibey'],
+    intro:
+      "Karadeniz sahilindeki yazlık siteleri ve butik müstakil villalarıyla Şile, dönemsel ve mevsimlik yönetim modelleri gerektirir. Kış aylarında mülk güvenliği ve koruyucu teknik bakım büyük önem taşır.",
+    localNeeds: [
+      'Yazlık sitelerde kış izolasyonu ve periyodik mülk güvenliği kontrolleri',
+      'Sezon öncesi havuz temizliği, klorlama ve su kalitesi sertifikasyonu',
+      'Geniş bahçe alanlarında fırtına sonrası peyzaj onarımı ve budama',
+    ],
+    managedProjects: 16,
+    priority: 3,
+  },
+  {
+    slug: 'adalar',
+    name: 'Adalar',
+    side: 'Anadolu',
+    population: 17000,
+    geo: { lat: 40.8764, lng: 29.0911 },
+    neighborhoods: ['Büyükada', 'Heybeliada', 'Burgazada', 'Kınalıada', 'Nizam'],
+    intro:
+      "Tarihi köşkleri, ahşap konakları ve araç trafiğine kapalı butik dokusuyla Adalar, özel lojistik ve hassas koruma gerektiren bir yönetim bölgesidir. Tarihi yapıların değer koruyucu bakımı uzmanlık ister.",
+    localNeeds: [
+      'Tarihi tescilli ahşap ve kagir yapılarda uzman restoratif teknik bakım',
+      'Lojistik kısıtlı adalarda planlı malzeme ve temizlik kimyasalı tedariki',
+      'Ada genelinde yangın ve acil durum önleme eylem protokolleri',
+    ],
+    managedProjects: 14,
+    priority: 3,
+  },
+];

@@ -6,12 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import PageHeader from '@/components/layout/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
-import trDict from '@/i18n/locales/tr/common.json';
-import enDict from '@/i18n/locales/en/common.json';
-import ruDict from '@/i18n/locales/ru/common.json';
-import arDict from '@/i18n/locales/ar/common.json';
-
-const dictionaries: Record<string, Record<string, string>> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
+import { getDictionary } from '@/lib/i18n';
 
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -51,7 +46,8 @@ export default async function TermPage({
   params: Promise<{ lang: string; terim: string }>;
 }) {
   const { lang, terim } = await params;
-  const t = (key: string) => dictionaries[lang]?.[key] ?? dictionaries['tr'][key] ?? key;
+  const dict = await getDictionary(lang);
+  const t = (key: string) => dict[key] ?? key;
   const term = slugToTerm(terim);
   if (!term) notFound();
 

@@ -337,6 +337,22 @@ export function termToSlug(term: string): string {
     .replace(/-+/g, '-');
 }
 
+// O(1) slug ve alfabetik harf indeks haritaları (Faz 7)
+export const TERMS_BY_SLUG: Map<string, Term> = new Map(
+  TERMS.map((t) => [termToSlug(t.term), t])
+);
+
+export const TERMS_BY_LETTER: Record<string, Term[]> = TERMS.reduce((acc, t) => {
+  const firstChar = t.term.charAt(0).toLocaleUpperCase('tr-TR');
+  if (!acc[firstChar]) acc[firstChar] = [];
+  acc[firstChar].push(t);
+  return acc;
+}, {} as Record<string, Term[]>);
+
 export function slugToTerm(slug: string): Term | undefined {
-  return TERMS.find((t) => termToSlug(t.term) === slug);
+  return TERMS_BY_SLUG.get(slug);
+}
+
+export function getTermsByLetter(letter: string): Term[] {
+  return TERMS_BY_LETTER[letter.toLocaleUpperCase('tr-TR')] || [];
 }
