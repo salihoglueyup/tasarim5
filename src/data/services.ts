@@ -11,12 +11,29 @@ export interface ServiceFaqSnippet {
   a: string;
 }
 
+export type ServiceCategory =
+  | 'flagship'
+  | 'financial'
+  | 'security'
+  | 'cleaning'
+  | 'technical'
+  | 'landscaping'
+  | 'pool'
+  | 'pest_control'
+  | 'legal';
+
 export type ServiceDef = {
   slug: string;
   /** Tam ad — ör. "Güvenlik Yönetimi". */
   name: string;
   /** Kısa ad (başlık/etiket) — ör. "Güvenlik". */
   shortName: string;
+  /** Hizmet hiyerarşik kategorisi (Faz 17). */
+  category?: ServiceCategory;
+  /** Üst hizmet slug'ı (Amiral gemisi tesis yönetimi için null). */
+  parentSlug?: string | null;
+  /** Varsa bağlı alt hizmetlerin slug dizisi. */
+  subServices?: string[];
   icon: string;
   /** 1-2 cümlelik özet (yerel şablonda başlık altı). */
   summary: string;
@@ -49,6 +66,18 @@ export const SERVICES: ServiceDef[] = [
     slug: 'tesis-yonetimi',
     name: 'Tesis Yönetimi',
     shortName: 'Tesis Yönetimi',
+    category: 'flagship',
+    parentSlug: null,
+    subServices: [
+      'aidat-takibi',
+      'guvenlik-yonetimi',
+      'temizlik-ve-hijyen',
+      'teknik-bakim',
+      'peyzaj-ve-bahce-bakimi',
+      'havuz-bakimi-ve-hijyen',
+      'hasere-ve-dezenfeksiyon',
+      'hukuk-ve-icra-danismanligi',
+    ],
     icon: 'apartment',
     summary:
       'Aidat takibinden bütçe planlamasına, 5188 güvenlikten teknik bakıma tüm ortak alan işletmesini şeffaf ve dijital olarak yöneten entegre tesis yönetimi.',
@@ -417,14 +446,46 @@ export const SERVICES: ServiceDef[] = [
 // Global statik objeyi mühürle (Faz 13 - Runtime Bellek Sızıntısı Koruması)
 Object.freeze(SERVICES);
 
+// O(1) lookup haritası (Faz 17)
+export const SERVICES_BY_SLUG = new Map<string, ServiceDef>(
+  SERVICES.map((s) => [s.slug, s])
+);
+
 export const SERVICE_SLUGS = SERVICES.map((s) => s.slug);
 
 export function getService(slug: string): ServiceDef | undefined {
-  return SERVICES.find((s) => s.slug === slug);
+  return SERVICES_BY_SLUG.get(slug);
 }
 
 export function isValidService(slug: string): boolean {
-  return SERVICE_SLUGS.includes(slug);
+  return SERVICES_BY_SLUG.has(slug);
+}
+
+/**
+ * Belirtilen hizmetin üst hizmetini (parent) döndürür (Faz 17).
+ */
+export function getParentService(slug: string): ServiceDef | undefined {
+  const s = SERVICES_BY_SLUG.get(slug);
+  if (!s || !s.parentSlug) return undefined;
+  return SERVICES_BY_SLUG.get(s.parentSlug);
+}
+
+/**
+ * Belirtilen hizmetin alt hizmetlerini döndürür (Faz 17).
+ */
+export function getChildServices(slug: string): ServiceDef[] {
+  const s = SERVICES_BY_SLUG.get(slug);
+  if (!s || !s.subServices) return [];
+  return s.subServices
+    .map((subSlug) => SERVICES_BY_SLUG.get(subSlug))
+    .filter((child): child is ServiceDef => Boolean(child));
+}
+
+/**
+ * Kategoriye göre filtrelenmiş hizmetleri döndürür (Faz 17).
+ */
+export function getServicesByCategory(category: ServiceCategory): ServiceDef[] {
+  return SERVICES.filter((s) => s.category === category);
 }
 
 export function getServiceKmkArticles(slug: string): string[] {

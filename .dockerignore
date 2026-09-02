@@ -10,3 +10,14 @@ README.md
 .env.test.local
 .env.production.local
 docker/data
+
+# Faz 18: Taslak (Drafts) ve Test Dosyalarının İzolasyonu
+src/data/drafts/
+**/drafts/**
+**/*.draft.ts
+**/*.draft.tsx
+**/*.test.ts
+**/*.test.tsx
+tests/
+coverage/
+.system_generated/

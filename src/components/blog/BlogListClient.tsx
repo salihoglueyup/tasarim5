@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 import { parseTags } from '@/lib/jsonSafe';
+import { createBlogSearchIndex, searchInBlogIndex } from '@/lib/blogSearchIndex';
 
 const PAGE_SIZE = 6;
 
@@ -30,22 +31,13 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
+  // Faz 20: Tek seferlik normalize edilmiş arama indeksi
+  const searchIndex = useMemo(() => createBlogSearchIndex(posts), [posts]);
+
+  // Ultra hızlı, Türkçe karakter duyarsız arama
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return posts.filter((p) => {
-      const catOk = activeCategory === 'all' || p.category?.slug === activeCategory;
-      
-      const tags = parseTags(p.tags);
-      
-      const qOk =
-        !q ||
-        p.title.toLowerCase().includes(q) ||
-        (p.description && p.description.toLowerCase().includes(q)) ||
-        (tags.length > 0 && tags.some((tag: string) => tag.toLowerCase().includes(q)));
-        
-      return catOk && qOk;
-    });
-  }, [posts, activeCategory, query]);
+    return searchInBlogIndex(searchIndex, query, activeCategory);
+  }, [searchIndex, query, activeCategory]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const current = Math.min(page, totalPages);

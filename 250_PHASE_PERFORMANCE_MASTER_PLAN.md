@@ -45,11 +45,11 @@
 - [x] **Faz 13:** Global statik objeleri freeze (`Object.freeze`) ederek runtime bellek sızıntılarını önleme.
 - [x] **Faz 14:** Node.js process bellek ayak izini analiz etme (`process.memoryUsage()`).
 - [x] **Faz 15:** Blog içeriği için Redis cache TTL politikasını 24 saat olarak yapılandırma.
-- [ ] **Faz 16:** İlçe sayfaları veri katmanında yalnızca ilgili ilçenin koordinat ve demografik verisinin çekilmesini sağlama.
-- [ ] **Faz 17:** Hizmet veri seti (`services.ts`) için tip tanımlarını ve alt hizmet hiyerarşisini optimize etme.
-- [ ] **Faz 18:** `drafts/` klasöründeki taslakların üretim bundle'ına sızmadığını `.dockerignore` ile garanti altına alma.
-- [ ] **Faz 19:** Prisma veritabanı ile statik veri fallback'i arasındaki hibrit katmanı senkronize etme.
-- [ ] **Faz 20:** Blog arama fonksiyonunda tam metin taraması yerine normalize edilmiş arama indeksi kullanma.
+- [x] **Faz 16:** İlçe sayfaları veri katmanında yalnızca ilgili ilçenin koordinat ve demografik verisinin çekilmesini sağlama.
+- [x] **Faz 17:** Hizmet veri seti (`services.ts`) için tip tanımlarını ve alt hizmet hiyerarşisini optimize etme.
+- [x] **Faz 18:** `drafts/` klasöründeki taslakların üretim bundle'ına sızmadığını `.dockerignore` ile garanti altına alma.
+- [x] **Faz 19:** Prisma veritabanı ile statik veri fallback'i arasındaki hibrit katmanı senkronize etme.
+- [x] **Faz 20:** Blog arama fonksiyonunda tam metin taraması yerine normalize edilmiş arama indeksi kullanma.
 - [ ] **Faz 21:** Site haritası için minimal slug + modifiedDate projeksiyonu oluşturma.
 - [ ] **Faz 22:** `facilityDictionaryData.ts` ve `kmkLawData.ts` veri setlerini sözlük mimarisiyle birleştirme.
 - [ ] **Faz 23:** RFP generator veri setini (`rfpGeneratorData.ts`) talep anında yükleme.
