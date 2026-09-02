@@ -329,8 +329,8 @@
 - [x] **Faz 243:** Yüksek eşzamanlı istek simülasyonu ile API yanıt sürelerini ve veritabanı stabilitesini ölçme.
 - [x] **Faz 244:** Çift repo senkronizasyonunu (`origin main` ve `alogroup main`) otomatik doğrulayan script yazma.
 - [x] **Faz 245:** Docker konteyner yeniden başlatma (restart) testleri yaparak veritabanı ve Redis verilerinin kalıcılığını (persistence) teyit etme.
-- [ ] **Faz 246:** Sistem açılışında otomatik Prisma migrate ve DB seed süreçlerinin kararlılığını test etme.
-- [ ] **Faz 247:** 250 Fazlık performans sertifikasyon raporunu otomatik üreten script hazırlama.
-- [ ] **Faz 248:** Tüm test paketlerinin (`392+ Vitest testi`) eksiksiz ve yeşil olduğunu doğrulama.
-- [ ] **Faz 249:** Canlı ortamda curl ile ana sayfa, API ve sağlık endpoint'lerinin yanıt sürelerini ölçme.
-- [ ] **Faz 250:** Nihai performans sonuçlarını dokümante edip 250 fazlık master planı başarıyla kapatma! 🏁
+- [x] **Faz 246:** Sistem açılışında otomatik Prisma migrate ve DB seed süreçlerinin kararlılığını test etme.
+- [x] **Faz 247:** 250 Fazlık performans sertifikasyon raporunu otomatik üreten script hazırlama.
+- [x] **Faz 248:** Tüm test paketlerinin (`392+ Vitest testi`) eksiksiz ve yeşil olduğunu doğrulama.
+- [x] **Faz 249:** Canlı ortamda curl ile ana sayfa, API ve sağlık endpoint'lerinin yanıt sürelerini ölçme.
+- [x] **Faz 250:** Nihai performans sonuçlarını dokümante edip 250 fazlık master planı başarıyla kapatma! 🏁
