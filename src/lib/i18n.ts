@@ -7,6 +7,14 @@ const dictionaries: Record<string, () => Promise<any>> = {
   ar: () => import('@/i18n/locales/ar/common.json').then((module) => module.default),
 };
 
+const dictionaryCache: Record<string, any> = {};
+
 export const getDictionary = async (locale: string) => {
-  return dictionaries[locale]?.() ?? dictionaries.tr();
+  const targetLocale = dictionaries[locale] ? locale : 'tr';
+  if (dictionaryCache[targetLocale]) {
+    return dictionaryCache[targetLocale];
+  }
+  const dict = await (dictionaries[targetLocale]?.() ?? dictionaries.tr());
+  dictionaryCache[targetLocale] = dict;
+  return dict;
 };

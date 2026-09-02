@@ -1,5 +1,6 @@
 import type { JsonLdObject } from '@/lib/schemas';
 import { graph } from '@/lib/schemas';
+import { minifyJsonLd } from '@/lib/seo/schemaMinifier';
 
 /**
  * Tek JSON-LD render bileşeni (SEO V4 Faz 41).
@@ -53,7 +54,7 @@ export default function JsonLd({ data }: { data: JsonLdObject | JsonLdObject[] }
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
+      dangerouslySetInnerHTML={{ __html: minifyJsonLd(payload) }}
     />
   );
 }

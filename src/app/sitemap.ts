@@ -20,7 +20,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     const [dbPosts, dbCategories, dbAuthors, dbReferences, dbSectoral] = await Promise.all([
-      prisma.post.findMany({ where: { published: true }, select: { slug: true, dateModified: true } }),
+      prisma.post.findMany({
+        where: { published: true },
+        select: { slug: true, dateModified: true, tags: true }
+      }),
       prisma.category.findMany({ select: { slug: true, updatedAt: true } }),
       prisma.author.findMany({ select: { slug: true, updatedAt: true } }),
       prisma.reference.findMany({ where: { published: true }, select: { slug: true, updatedAt: true } }),
@@ -33,8 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     references = dbReferences;
     sectoralSolutions = dbSectoral;
 
-    const postsWithTags = await prisma.post.findMany({ where: { published: true }, select: { tags: true } });
-    postsWithTags.forEach((p) => {
+    dbPosts.forEach((p) => {
       try {
         const parsed = typeof p.tags === 'string' ? JSON.parse(p.tags) : p.tags;
         if (Array.isArray(parsed)) parsed.forEach((t: string) => tagsSet.add(t));
