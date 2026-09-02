@@ -366,6 +366,7 @@ export default function IletisimClient() {
                         {...register('name')}
                         id="name"
                         type="text"
+                        autoComplete="name"
                         aria-invalid={Boolean(errors.name)}
                         aria-describedby={errors.name ? 'name-error' : undefined}
                         placeholder="Örn: Ahmet Yılmaz"
@@ -386,6 +387,7 @@ export default function IletisimClient() {
                         {...register('phone')}
                         id="phone"
                         type="tel"
+                        autoComplete="tel"
                         aria-invalid={Boolean(errors.phone)}
                         aria-describedby={errors.phone ? 'phone-error' : undefined}
                         placeholder="05XX XXX XX XX"
@@ -409,6 +411,7 @@ export default function IletisimClient() {
                         {...register('email')}
                         id="email"
                         type="email"
+                        autoComplete="email"
                         aria-invalid={Boolean(errors.email)}
                         aria-describedby={errors.email ? 'email-error' : undefined}
                         placeholder="ahmet@ornek.com"

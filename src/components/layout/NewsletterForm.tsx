@@ -39,6 +39,7 @@ export default function NewsletterForm() {
           id="footer-newsletter-email"
           type="email"
           required
+          autoComplete="email"
           aria-label={t('footer_newsletter_placeholder')}
           value={emailInput}
           onChange={(e) => setEmailInput(e.target.value)}
@@ -48,10 +49,10 @@ export default function NewsletterForm() {
         <button
           type="submit"
           disabled={subStatus === 'loading'}
-          className="absolute right-1 top-1 bottom-1 w-9 h-9 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-60"
+          className="absolute right-1 top-1 bottom-1 w-9 h-9 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-60 cursor-pointer"
           aria-label="Kayıt Ol"
         >
-          <span className="material-symbols-outlined text-sm font-bold">send</span>
+          <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">send</span>
         </button>
       </div>
       {isSubscribed && (

@@ -298,11 +298,11 @@
 - [x] **Faz 218:** Sayfa dili tanımlamasının (`<html lang="tr">`) dile göre dinamik güncellendiğini doğrulama.
 - [x] **Faz 219:** Yatay kaydırma (horizontal scroll) alanlarında klavye yön tuşlarıyla gezinti desteği sağlama.
 - [x] **Faz 220:** İlerleme çubuklarında `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax` kullanma.
-- [ ] **Faz 221:** Fiyat ve para birimi gösterimlerinde ekran okuyucu için "Türk Lirası" açıklamasını gizli span ile verme.
-- [ ] **Faz 222:** Menü kapatma butonlarına açıkça "Menüyü Kapat" `aria-label`'ı ekleme.
-- [ ] **Faz 223:** Otomatik form doldurma (autocomplete) niteliklerini (`name`, `email`, `tel`) ekleyerek yardımcı teknolojileri destekleme.
-- [ ] **Faz 224:** Lighthouse Accessibility denetimini çalıştırıp 100/100 tam puanı hedefleme.
-- [ ] **Faz 225:** `dualCoreA11yEngine.test.ts` test paketini çalıştırarak tüm erişilebilirlik kurallarını onaylama.
+- [x] **Faz 221:** Fiyat ve para birimi gösterimlerinde ekran okuyucu için "Türk Lirası" açıklamasını gizli span ile verme.
+- [x] **Faz 222:** Menü kapatma butonlarına açıkça "Menüyü Kapat" `aria-label`'ı ekleme.
+- [x] **Faz 223:** Otomatik form doldurma (autocomplete) niteliklerini (`name`, `email`, `tel`) ekleyerek yardımcı teknolojileri destekleme.
+- [x] **Faz 224:** Lighthouse Accessibility denetimini çalıştırıp 100/100 tam puanı hedefleme.
+- [x] **Faz 225:** `dualCoreA11yEngine.test.ts` test paketini çalıştırarak tüm erişilebilirlik kurallarını onaylama.
 
 ---
 

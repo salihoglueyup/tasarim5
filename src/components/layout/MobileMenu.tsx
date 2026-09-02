@@ -121,8 +121,18 @@ export default function MobileMenu({
 
       {/* Faz 97: dvh kullanımı ile mobil adres çubuğu açılıp kapandığında zıplamayan 120 FPS çekmece */}
       <div 
-        className="fixed inset-y-0 right-0 w-full max-w-sm h-[100dvh] max-h-[100dvh] bg-white dark:bg-slate-950 backdrop-blur-2xl shadow-2xl flex flex-col pt-24 px-6 overflow-y-auto pb-12 transition-transform duration-300 ease-out transform-gpu will-change-transform animate-in slide-in-from-right"
+        className="fixed inset-y-0 right-0 w-full max-w-sm h-[100dvh] max-h-[100dvh] bg-white dark:bg-slate-950 backdrop-blur-2xl shadow-2xl flex flex-col pt-24 px-6 overflow-y-auto pb-12 transition-transform duration-300 ease-out transform-gpu will-change-transform animate-in slide-in-from-right relative"
       >
+        {/* Faz 222: Menü Kapatma Butonu */}
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Menüyü Kapat"
+          className="absolute top-6 right-6 p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
+        >
+          <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
+        </button>
+
         <nav className="flex flex-col gap-2 mt-4">
           {menuItems.map((item) => (
             <div 
