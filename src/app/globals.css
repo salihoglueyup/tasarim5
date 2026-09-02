@@ -106,15 +106,28 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Ekran dışındaki ağır bölümleri uyutma: %70 render/CPU tasarrufu */
+/* Faz 48: Ekran dışındaki bölümleri uyutma ve layout izolasyonu (120 FPS Sıfır-Jank) */
 .lazy-section {
   content-visibility: auto;
-  contain-intrinsic-size: 1px 600px;
+  contain-intrinsic-size: 0px 580px;
   contain: layout style paint;
 }
 
-/* Görsel & Medya layout izolasyonu */
-img, video {
+.lazy-section-tall {
+  content-visibility: auto;
+  contain-intrinsic-size: 0px 850px;
+  contain: layout style paint;
+}
+
+.lazy-section-compact {
+  content-visibility: auto;
+  contain-intrinsic-size: 0px 380px;
+  contain: layout style paint;
+}
+
+/* Görsel & Medya layout izolasyonu - LCP ve öncelikli görseller hariç tutulur */
+img:not([priority]):not([fetchpriority="high"]),
+video:not([autoplay]) {
   content-visibility: auto;
 }
 

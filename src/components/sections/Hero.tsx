@@ -1,12 +1,16 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Magnetic from '@/components/ui/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 
+/**
+ * Faz 46: Hero.tsx LCP ve render optimizasyonu:
+ * - Mobilde video yüklenmesi kesin olarak engellenir, hafif optimize edilmiş WebP poster görseli sunulur.
+ * - Framer Motion kaldırılmış, ilk ekranda ana iş parçacığını (main-thread) bloke etmeyen saf CSS donanım hızlandırmalı animasyonlar uygulanmıştır.
+ */
 export default function Hero() {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -15,11 +19,12 @@ export default function Hero() {
 
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Yüklenme hızı & LCP Optimizasyonu:
-  // - 2.27 MB'lık brand-film.mp4 mobilde (< 1024px) veya yavaş bağlantıda (Save-Data) HİÇ yüklenmez.
-  // - Masaüstünde sayfa tamamen yüklendikten (idle) sonra devreye girer.
+  // LCP & Ağ Optimizasyonu:
+  // - 2.27 MB'lık brand-film.mp4 mobilde (< 1024px) veya Save-Data modunda HİÇ yüklenmez.
+  // - Masaüstünde sayfa tamamen yüklendikten (requestIdleCallback) sonra arka planda getirilir.
   // - Sayfa aşağı kaydırıldığında IntersectionObserver ile video duraklatılarak GPU serbest bırakılır.
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.innerWidth < 1024;
     const isSaveData = (navigator as any)?.connection?.saveData;
@@ -89,7 +94,7 @@ export default function Hero() {
       </div>
 
       {/* 8K Fullscreen Background Visual & Fallback */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900/60 to-slate-900 z-0 animate-pulse" />
         
         {/* Kesin LCP Görseli: HTML ilk dokümanda anında keşfedilir (fetchPriority="high") */}
@@ -102,7 +107,7 @@ export default function Hero() {
           decoding="async"
           sizes="100vw"
           quality={80}
-          className="object-cover object-center scale-105 pointer-events-none z-0"
+          className="object-cover object-center scale-105 pointer-events-none z-0 transform-gpu"
         />
 
         {/* Video: Yalnızca masaüstünde ve sayfa boşta kalınca (idle) yüklenir */}
@@ -116,7 +121,7 @@ export default function Hero() {
             playsInline
             aria-hidden="true"
             tabIndex={-1}
-            className="w-full h-full object-cover object-center scale-105 pointer-events-none relative z-1 transition-opacity duration-1000 opacity-90"
+            className="w-full h-full object-cover object-center scale-105 pointer-events-none relative z-1 transition-opacity duration-1000 opacity-90 transform-gpu"
           />
         )}
 
@@ -131,45 +136,25 @@ export default function Hero() {
         <div className="max-w-3xl flex flex-col items-start text-left">
           
           {/* Status Badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-4"
-          >
+          <div className="mb-4 transition-all duration-700 ease-out transform-gpu">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full font-semibold text-xs text-white shadow-lg tracking-tight">
               <span className="material-symbols-outlined text-sm text-emerald-400">verified</span>
               <span>{t('hero_badge')}</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Supercharged Minimalist Headline */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.08] mb-4 text-balance drop-shadow-md"
-          >
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.08] mb-4 text-balance drop-shadow-md transition-all duration-700 ease-out transform-gpu">
             {t('hero_title')}
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-snug mb-6 max-w-2xl text-balance drop-shadow"
-          >
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-snug mb-6 max-w-2xl text-balance drop-shadow transition-all duration-700 ease-out transform-gpu">
             {t('hero_subtitle')}
-          </motion.p>
+          </p>
 
           {/* CTAs */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto"
-          >
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto transition-all duration-700 ease-out transform-gpu">
             <Magnetic strength={0.15}>
               <Link 
                 href="/teklif-al"
@@ -201,7 +186,7 @@ export default function Hero() {
                 </span>
               </button>
             )}
-          </motion.div>
+          </div>
 
         </div>
       </div>

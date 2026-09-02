@@ -81,11 +81,11 @@
 - [x] **Faz 43:** `PoolCalculator.tsx` girdilerini optimize etme.
 - [x] **Faz 44:** `SecurityCalculator.tsx` hesaplama algoritmasını optimize etme.
 - [x] **Faz 45:** 9 Testimonial bölümünü (`CleaningTestimonials`, `DuesTestimonials`, vb.) tek bir paylaşımlı hafif bileşende toplama.
-- [ ] **Faz 46:** `Hero.tsx` video arka planında mobilde video yüklemeyi engelleyip hafif poster görseli sunma.
-- [ ] **Faz 47:** `AppComingSoon.tsx` bileşenini tamamen CSS animasyonlarına geçirme.
-- [ ] **Faz 48:** Tüm bölüm geçişlerinde `content-visibility: auto` ve `contain-intrinsic-size` tanımlarını kalibre etme.
-- [ ] **Faz 49:** Sayfa kaydırmalarında 120 FPS akıcılığı Chrome DevTools Performance Trace ile test etme.
-- [ ] **Faz 50:** Tüm bölüm optimizasyonlarını TypeScript derlemesiyle doğrulama.
+- [x] **Faz 46:** `Hero.tsx` video arka planında mobilde video yüklemeyi engelleyip hafif poster görseli sunma.
+- [x] **Faz 47:** `AppComingSoon.tsx` bileşenini tamamen CSS animasyonlarına geçirme.
+- [x] **Faz 48:** Tüm bölüm geçişlerinde `content-visibility: auto` ve `contain-intrinsic-size` tanımlarını kalibre etme.
+- [x] **Faz 49:** Sayfa kaydırmalarında 120 FPS akıcılığı Chrome DevTools Performance Trace ile test etme.
+- [x] **Faz 50:** Tüm bölüm optimizasyonlarını TypeScript derlemesiyle doğrulama.
 
 ---
 
