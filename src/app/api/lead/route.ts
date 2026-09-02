@@ -1,7 +1,8 @@
 import type { NextRequest } from 'next/server';
 import { validateLead } from '@/lib/leads/validate';
 import { dispatchLead } from '@/lib/leads/dispatch';
-import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
+import { checkBotSubmission } from '@/lib/security/botProtection';
+import { applyApiRateLimit } from '@/lib/security/rateLimiter';
 
 /**
  * Lead alım uç noktası (Fonksiyonel Katman Track 1).
@@ -25,20 +26,15 @@ export async function POST(req: NextRequest) {
     return Response.json({ ok: false, errorKey: 'lead_error_invalid' }, { status: 400 });
   }
 
-  // 1) Honeypot — gizli `company` alanı doluysa bot; sessizce başarı taklidi yap.
-  if (typeof body.company === 'string' && body.company.trim().length > 0) {
+  // Faz 177: Bot Koruması (Honeypot + Zaman Damgası) — Bot ise sessizce başarı taklidi yap
+  const botCheck = checkBotSubmission(body);
+  if (botCheck.isBot) {
     return Response.json({ ok: true, channels: [] });
   }
 
-  // 2) Min-süre — form açılışından <2 sn içinde gönderim bot şüphesi.
-  const elapsed = Number(body.elapsedMs);
-  if (Number.isFinite(elapsed) && elapsed > 0 && elapsed < 2000) {
-    return Response.json({ ok: true, channels: [] });
-  }
-
-  // 3) IP rate-limit.
-  pruneBuckets();
-  if (!rateLimit(clientIp(req))) {
+  // Faz 176: Kayan Pencereli Rate Limiting (Dakikada maks 10 lead gönderimi)
+  const rateLimitRes = await applyApiRateLimit(clientIp(req), 'lead_submission', 10, 60);
+  if (!rateLimitRes.success) {
     return Response.json({ ok: false, errorKey: 'lead_error_rate' }, { status: 429 });
   }
 

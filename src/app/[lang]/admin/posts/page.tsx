@@ -4,12 +4,26 @@ import DeletePostButton from './DeletePostButton';
 
 export default async function AdminPosts({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
+  // Faz 180: PostgreSQL sorgularında SELECT * yerine yalnızca gerekli alanları çekme (ağır content alanını hariç tutma)
   const posts = await prisma.post.findMany({
     orderBy: { datePublished: 'desc' },
-    include: {
-      category: true,
-      author: true,
-    }
+    select: {
+      id: true,
+      title: true,
+      slug: true,
+      published: true,
+      datePublished: true,
+      category: {
+        select: {
+          name: true,
+        },
+      },
+      author: {
+        select: {
+          name: true,
+        },
+      },
+    },
   });
 
   return (

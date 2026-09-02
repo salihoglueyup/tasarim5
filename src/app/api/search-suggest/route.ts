@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL, localizedUrl } from '@/lib/seo';
 import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
+import { createETagResponse } from '@/lib/security/etag';
 import { SERVICES } from '@/data/services';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 
@@ -192,7 +193,8 @@ export async function GET(req: NextRequest) {
       ]);
     }
 
-    return NextResponse.json(
+    return createETagResponse(
+      req,
       [
         q,
         suggestions.slice(0, 8),
@@ -200,9 +202,7 @@ export async function GET(req: NextRequest) {
         urls.slice(0, 8)
       ],
       {
-        headers: {
-          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-        }
+        cacheControl: 'public, s-maxage=3600, stale-while-revalidate=86400',
       }
     );
 

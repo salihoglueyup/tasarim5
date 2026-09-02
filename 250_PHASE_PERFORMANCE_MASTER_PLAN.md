@@ -247,11 +247,11 @@
 ### 🔒 WAVE 8: FAZ 176–200 — Güvenlik, Rate Limiting & Veritabanı Performansı
 *Hedef: Sıfır güvenlik açığı, DoS koruması, ETag önbellekleme ve optimize PostgreSQL sorguları.*
 
-- [ ] **Faz 176:** API endpoint'lerine Redis tabanlı sliding-window Rate Limiting middleware ekleme (dakikada 60 istek sınırı).
-- [ ] **Faz 177:** İletişim ve teklif formu API'lerine bot koruması (Honeypot + zaman damgası kontrolü) ekleme.
-- [ ] **Faz 178:** Form gönderimlerinde CSRF token koruma katmanı oluşturma.
-- [ ] **Faz 179:** Veri getiren API endpoint'lerine ETag başlığı ekleyerek değişmeyen yanıtlarda `304 Not Modified` ile veri transferini sıfırlama.
-- [ ] **Faz 180:** PostgreSQL sorgularında `SELECT *` kullanımını tamamen kaldırıp yalnızca gerekli sütunları (`select: { id, title }`) çekme.
+- [x] **Faz 176:** API endpoint'lerine Redis tabanlı sliding-window Rate Limiting middleware ekleme (dakikada 60 istek sınırı).
+- [x] **Faz 177:** İletişim ve teklif formu API'lerine bot koruması (Honeypot + zaman damgası kontrolü) ekleme.
+- [x] **Faz 178:** Form gönderimlerinde CSRF token koruma katmanı oluşturma.
+- [x] **Faz 179:** Veri getiren API endpoint'lerine ETag başlığı ekleyerek değişmeyen yanıtlarda `304 Not Modified` ile veri transferini sıfırlama.
+- [x] **Faz 180:** PostgreSQL sorgularında `SELECT *` kullanımını tamamen kaldırıp yalnızca gerekli sütunları (`select: { id, title }`) çekme.
 - [ ] **Faz 181:** PostgreSQL üzerinde sık filtrelenen alanlara (`slug`, `published`, `category`, `createdAt`) Prisma index'leri ekleme.
 - [ ] **Faz 182:** N+1 veritabanı sorgusu oluşturabilecek ilişkisel sorguları `include` yerine optimize `findMany` + `in` ile çözme.
 - [ ] **Faz 183:** Prisma Client bağlantı havuzunu (connection pool) Docker ortamında maksimum 10 bağlantı ile optimize etme.

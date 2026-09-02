@@ -14,18 +14,30 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
     prisma.partner.count(),
   ]);
 
+  // Faz 180: PostgreSQL sorgularında SELECT * yerine yalnızca gerekli alanları çekme
   const latestPosts = await prisma.post.findMany({
     orderBy: { datePublished: 'desc' },
     take: 5,
-    include: {
-      author: true,
-      category: true,
-    }
+    select: {
+      id: true,
+      title: true,
+      published: true,
+      category: {
+        select: {
+          name: true,
+        },
+      },
+    },
   });
 
   const latestFaqs = await prisma.faq.findMany({
     orderBy: { createdAt: 'desc' },
     take: 5,
+    select: {
+      id: true,
+      question: true,
+      category: true,
+    },
   });
 
   const stats = [
