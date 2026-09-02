@@ -205,11 +205,11 @@
 - [x] **Faz 143:** `robots.txt` dosyasındaki crawl-delay ve crawler izinlerini yapay zeka botlarına optimize etme.
 - [x] **Faz 144:** Google Search Console için breadcrumb yolu hiyerarşisini kusursuzlaştırma.
 - [x] **Faz 145:** İlçe sayfaları arasında çapraz anlamsal iç linkleme örgü ağı kurma (Kadıköy -> Ataşehir -> Üsküdar).
-- [ ] **Faz 146:** Duplicate content riskine karşı tüm varyasyonlarda self-referencing canonical URL kontrolü.
-- [ ] **Faz 147:** `facilityRankSimulator.ts` ile sayfa içi SEO puanlama simülasyonunu çalıştırma.
-- [ ] **Faz 148:** Open Graph `og:locale` ve `og:locale:alternate` etiketlerini 4 dil için eksiksiz üretme.
-- [ ] **Faz 149:** Twitter Cards için `summary_large_image` etiketlerini doğrula.
-- [ ] **Faz 150:** Vitest ile tüm SEO ve şema testlerini (`dualCoreRichResultEngine.test.ts`, vb.) %100 başarılı geçirme.
+- [x] **Faz 146:** Duplicate content riskine karşı tüm varyasyonlarda self-referencing canonical URL kontrolü.
+- [x] **Faz 147:** `facilityRankSimulator.ts` ile sayfa içi SEO puanlama simülasyonunu çalıştırma.
+- [x] **Faz 148:** Open Graph `og:locale` ve `og:locale:alternate` etiketlerini 4 dil için eksiksiz üretme.
+- [x] **Faz 149:** Twitter Cards için `summary_large_image` etiketlerini doğrula.
+- [x] **Faz 150:** Vitest ile tüm SEO ve şema testlerini (`dualCoreRichResultEngine.test.ts`, vb.) %100 başarılı geçirme.
 
 ---
 

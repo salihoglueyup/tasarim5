@@ -69,10 +69,43 @@ export function sanitizeCanonicalUrl(url: string, allowedParams: string[] = []):
 
     keysToDelete.forEach((key) => parsed.searchParams.delete(key));
     const cleanSearch = parsed.searchParams.toString();
-    return `${parsed.origin}${parsed.pathname}${cleanSearch ? `?${cleanSearch}` : ''}`;
+    const cleanPath = parsed.pathname === '/' ? '/' : parsed.pathname.replace(/\/+$/, '');
+    return `${parsed.origin}${cleanPath}${cleanSearch ? `?${cleanSearch}` : ''}`;
   } catch {
     return url;
   }
+}
+
+/**
+ * Faz 146: Kopya İçerik (Duplicate Content) Riskine Karşı
+ * Self-Referencing Canonical URL Doğrulama Motoru.
+ */
+export function validateCanonicalUrl(
+  candidateUrl: string,
+  expectedPath: string,
+  lang: string = DEFAULT_LOCALE
+): { isValid: boolean; normalizedCanonical: string; issues: string[] } {
+  const issues: string[] = [];
+  const expectedCanonical = localizedUrl(expectedPath, normalizeLocale(lang));
+
+  if (!candidateUrl || !candidateUrl.startsWith('http')) {
+    issues.push('Kanonik URL mutlak (absolute) HTTPS protokolü ile başlamalıdır.');
+  }
+
+  const clean = sanitizeCanonicalUrl(candidateUrl);
+  if (clean !== candidateUrl) {
+    issues.push('Kanonik URL üzerinde takip/kampanya parametresi tespit edildi ve temizlendi.');
+  }
+
+  if (clean !== expectedCanonical) {
+    issues.push(`Self-referencing uyuşmazlığı: Beklenen "${expectedCanonical}", gelen "${candidateUrl}".`);
+  }
+
+  return {
+    isValid: issues.length === 0,
+    normalizedCanonical: expectedCanonical,
+    issues,
+  };
 }
 
 /**
