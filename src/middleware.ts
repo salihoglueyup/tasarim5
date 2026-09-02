@@ -355,6 +355,9 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // Faz 191: HTTP yanıtlarında X-Powered-By başlığını kesin olarak gizle
+  response.headers.delete('x-powered-by');
+
   return response;
 }
 

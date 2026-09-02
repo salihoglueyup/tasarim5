@@ -262,11 +262,11 @@
 - [x] **Faz 188:** Şifreleme işlemlerinde güvenli algoritmalar (`bcrypt` / `argon2`) kullanıldığını teyit etme.
 - [x] **Faz 189:** Hassas ortam değişkenlerinin (`DATABASE_URL`, `JWT_SECRET`) istemci tarafına sızmasını engelleyen env linter yazma.
 - [x] **Faz 190:** Docker konteyneri içinde Node.js sürecini `root` yerine `nextjs` non-root kullanıcısıyla çalıştırmayı doğrulamak.
-- [ ] **Faz 191:** HTTP yanıtlarında `X-Powered-By` başlığını gizleme (`poweredByHeader: false`).
-- [ ] **Faz 192:** Dosya yükleme endpoint'ine (`/api/upload`) dosya türü (MIME type) ve boyut limiti (maksimum 5 MB) doğrulaması ekleme.
-- [ ] **Faz 193:** SQL Injection taraması ve statik güvenlik analizi.
-- [ ] **Faz 194:** Veritabanı yedekleme betiğini (`scripts/backup-db.sh`) oluşturma.
-- [ ] **Faz 195:** Uptime izleme servisi için `/api/health` yanıt formatını SLA standartlarına bağlama.
+- [x] **Faz 191:** HTTP yanıtlarında `X-Powered-By` başlığını gizleme (`poweredByHeader: false`).
+- [x] **Faz 192:** Dosya yükleme endpoint'ine (`/api/upload`) dosya türü (MIME type) ve boyut limiti (maksimum 5 MB) doğrulaması ekleme.
+- [x] **Faz 193:** SQL Injection taraması ve statik güvenlik analizi.
+- [x] **Faz 194:** Veritabanı yedekleme betiğini (`scripts/backup-db.sh`) oluşturma.
+- [x] **Faz 195:** Uptime izleme servisi için `/api/health` yanıt formatını SLA standartlarına bağlama.
 - [ ] **Faz 196:** Log dosyalarının diski doldurmasını önlemek için Docker json-file log rotation (max-size: 10m) yapılandırma.
 - [ ] **Faz 197:** Graceful shutdown sırasında açıkta kalan DB ve Redis bağlantılarını temiz kapatma (`SIGTERM` dinleyicisi).
 - [ ] **Faz 198:** Güvenlik başlıklarının (HSTS, nosniff, frame-ancestors) canlı sunucuda curl ile doğrulanması.
