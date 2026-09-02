@@ -2,8 +2,9 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 
-describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 60)', () => {
+describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 65)', () => {
   const uiDir = path.resolve(process.cwd(), 'src/components/ui');
+  const hooksDir = path.resolve(process.cwd(), 'src/hooks');
 
   it('Modal.tsx Framer Motion içermez ve A11y role="dialog" taşır (Faz 51)', () => {
     const modalContent = fs.readFileSync(path.join(uiDir, 'Modal.tsx'), 'utf-8');
@@ -74,5 +75,37 @@ describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 60)', () => {
     expect(accordionContent).toContain('grid-rows-[1fr]');
     expect(accordionContent).toContain('grid-rows-[0fr]');
     expect(accordionContent).toContain('aria-expanded');
+  });
+
+  it('Button.tsx Framer Motion whileTap içermez ve saf CSS :active kullanır (Faz 61)', () => {
+    const buttonContent = fs.readFileSync(path.join(uiDir, 'Button.tsx'), 'utf-8');
+    expect(buttonContent).not.toContain("from 'framer-motion'");
+    expect(buttonContent).toContain('active:scale-[0.97]');
+    expect(buttonContent).toContain('transform-gpu');
+  });
+
+  it('Card.tsx Framer Motion wrapper içermez ve saf CSS hover kullanır (Faz 62)', () => {
+    const cardContent = fs.readFileSync(path.join(uiDir, 'Card.tsx'), 'utf-8');
+    expect(cardContent).not.toContain("from 'framer-motion'");
+    expect(cardContent).toContain('transform-gpu');
+  });
+
+  it('FramerLazyProvider.tsx Framer Motion LazyMotion kök yükünü kaldırır (Faz 63)', () => {
+    const providerContent = fs.readFileSync(path.join(uiDir, 'FramerLazyProvider.tsx'), 'utf-8');
+    expect(providerContent).not.toContain("from 'framer-motion'");
+    expect(providerContent).toContain('<>{children}</>');
+  });
+
+  it('Modal.tsx Escape tuşu ve odak geri yükleme (focus restoration) uygular (Faz 64)', () => {
+    const modalContent = fs.readFileSync(path.join(uiDir, 'Modal.tsx'), 'utf-8');
+    expect(modalContent).toContain('previousActiveElement');
+    expect(modalContent).toContain('focus()');
+    expect(modalContent).toContain("'Escape'");
+  });
+
+  it('useClickOutside hook pasif pointerdown ile dropdown menüleri optimize eder (Faz 65)', () => {
+    const hookContent = fs.readFileSync(path.join(hooksDir, 'useClickOutside.ts'), 'utf-8');
+    expect(hookContent).toContain('pointerdown');
+    expect(hookContent).toContain('passive: true');
   });
 });

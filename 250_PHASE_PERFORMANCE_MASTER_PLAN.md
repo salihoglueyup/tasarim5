@@ -102,11 +102,11 @@
 - [x] **Faz 58:** `CookieConsent.tsx` çerez bildirimini ilk açılışta LCP ve CLS'i engellemeyecek şekilde defer etme.
 - [x] **Faz 59:** `Magnetic.tsx` bileşenini mobilde ve dokunmatik ekranlarda otomatik devre dışı bırakma.
 - [x] **Faz 60:** `Accordion.tsx` primitifini `grid-template-rows: 0fr -> 1fr` CSS transition modeline geçirme.
-- [ ] **Faz 61:** `Button.tsx` bileşenindeki gereksiz Framer Motion `whileTap` efektlerini saf CSS `:active` ile değiştirme.
-- [ ] **Faz 62:** `Card.tsx` bileşenindeki `motion.div` wrapper'ını kaldırıp CSS hover sınıflarına bağlama.
-- [ ] **Faz 63:** `FramerLazyProvider.tsx` bileşeninin gerekliliğini değerlendirip gereksizse kaldırma.
-- [ ] **Faz 64:** Modallarda Escape tuşuna basıldığında kapanma ve odak geri yükleme (focus restoration) ekleme.
-- [ ] **Faz 65:** Dropdown menülerde tıklandığında dışarı tıklama (click-outside) dinleyicisini optimize etme.
+- [x] **Faz 61:** `Button.tsx` bileşenindeki gereksiz Framer Motion `whileTap` efektlerini saf CSS `:active` ile değiştirme.
+- [x] **Faz 62:** `Card.tsx` bileşenindeki `motion.div` wrapper'ını kaldırıp CSS hover sınıflarına bağlama.
+- [x] **Faz 63:** `FramerLazyProvider.tsx` bileşeninin gerekliliğini değerlendirip gereksizse kaldırma.
+- [x] **Faz 64:** Modallarda Escape tuşuna basıldığında kapanma ve odak geri yükleme (focus restoration) ekleme.
+- [x] **Faz 65:** Dropdown menülerde tıklandığında dışarı tıklama (click-outside) dinleyicisini optimize etme.
 - [ ] **Faz 66:** Form girdi elemanlarında (`input`, `select`, `textarea`) focus halkası (focus-visible) stillerini standartlaştırma.
 - [ ] **Faz 67:** Form validasyon hatalarında layout kaymasını önlemek için sabit min-height uygulama.
 - [ ] **Faz 68:** UI bileşenlerinde dinamik class birleştirmeleri (`cn`, `clsx`, `tailwind-merge`) için memoization.

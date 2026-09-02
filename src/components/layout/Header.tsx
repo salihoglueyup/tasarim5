@@ -16,6 +16,7 @@ import SiteNavigationSeo from '@/components/seo/SiteNavigationSeo';
 const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
 const MobileMenu = dynamic(() => import('./MobileMenu'), { ssr: false });
 import MegaMenuDropdown from './MegaMenuDropdown';
+import useClickOutside from '@/hooks/useClickOutside';
 
 type SubItem = {
   nameKey: keyof typeof translations['tr'];
@@ -137,6 +138,10 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const lastScrollYRef = useRef(0);
+  const headerContainerRef = useRef<HTMLElement>(null);
+
+  // Faz 65: Dropdown menüler açıkken dışarı tıklandığında menüyü pasif pointerdown ile kapat
+  useClickOutside(headerContainerRef, () => setHoveredMenu(null), Boolean(hoveredMenu));
 
   // Tüm sayfalarda hero alanları ultra-premium koyu slate gradyanına sahip olduğu için
   // sayfa başındayken (!isScrolled) daima kristal parlaklığında beyaz navbar render edilir.
@@ -263,6 +268,7 @@ export default function Header() {
       <SiteNavigationSeo links={allLinks} />
 
       <header 
+        ref={headerContainerRef}
         className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out font-sans ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         } ${

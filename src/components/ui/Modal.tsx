@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useId } from 'react';
+import React, { useEffect, useId, useRef } from 'react';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -18,8 +18,8 @@ const MAX_WIDTH_STYLES = {
 };
 
 /**
- * Faz 51: Framer Motion'dan arındırılmış, saf donanım hızlandırmalı
- * CSS animasyonlu, tam erişilebilir (A11y) hafif Modal bileşeni.
+ * Faz 51 & Faz 64: Framer Motion'dan arındırılmış, saf donanım hızlandırmalı
+ * CSS animasyonlu, tam erişilebilir (A11y), Escape dinleyicili ve odak geri yüklemeli (Focus Restoration) Modal.
  */
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -29,9 +29,13 @@ export const Modal: React.FC<ModalProps> = ({
   maxWidth = 'md',
 }) => {
   const titleId = useId();
+  const previousActiveElement = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
+
+    // Faz 64: Açılmadan önceki aktif elemanı kaydet
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -47,6 +51,10 @@ export const Modal: React.FC<ModalProps> = ({
     return () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
+      // Faz 64: Modal kapandığında odağı önceki elemana iade et (Focus Restoration)
+      if (previousActiveElement.current && typeof previousActiveElement.current.focus === 'function') {
+        previousActiveElement.current.focus();
+      }
     };
   }, [isOpen, onClose]);
 
