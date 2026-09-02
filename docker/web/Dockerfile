@@ -7,10 +7,10 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat python3 make g++ openssl
 WORKDIR /app
 
-# Install dependencies
+# Install dependencies (Faz 234: BuildKit cache mount for npm)
 COPY package.json package-lock.json* ./
 ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN npm ci --no-audit --no-fund
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -22,10 +22,10 @@ COPY . .
 ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 RUN npx prisma generate
 
-# Build Next.js
+# Build Next.js (Faz 234: BuildKit cache mount for .next/cache)
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV JWT_SECRET="dummy_secret_for_build"
-RUN npm run build
+RUN --mount=type=cache,target=/app/.next/cache npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner

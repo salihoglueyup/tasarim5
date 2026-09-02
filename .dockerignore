@@ -11,7 +11,7 @@ README.md
 .env.production.local
 docker/data
 
-# Faz 18: Taslak (Drafts) ve Test Dosyalarının İzolasyonu
+# Faz 18 & Faz 235: Taslak, Test ve Gereksiz Dosyaların İzolasyonu (Minimal Build Context)
 src/data/drafts/
 **/drafts/**
 **/*.draft.ts
@@ -20,4 +20,16 @@ src/data/drafts/
 **/*.test.tsx
 tests/
 coverage/
+playwright-report/
+test-results/
 .system_generated/
+.agents/
+.github/
+.vscode/
+.idea/
+docs/
+*.md
+!README.md
+*.log
+docker/data
+.tempmediaStorage/

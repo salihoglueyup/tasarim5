@@ -314,11 +314,11 @@
 - [x] **Faz 228:** Playwright ile kritik kullanıcı akışlarını (Ana sayfa gezintisi, Teklif Alma Formu gönderimi) kapsayan E2E test suite'i kurma.
 - [x] **Faz 229:** Playwright ile dil değiştirme ve rota doğruluğu E2E testi yazma.
 - [x] **Faz 230:** Playwright ile mobil görünüm (iPhone / Android) emülasyon testleri çalıştırma.
-- [ ] **Faz 231:** GitHub Actions CI pipeline oluşturma: Her commit/PR'da `tsc --noEmit`, `vitest run` ve lint çalıştırma.
-- [ ] **Faz 232:** Bundle boyutu bütçesi (Bundle Size Budget) belirleme; First Load JS 180 KB'ı geçerse CI'da uyarı verme.
-- [ ] **Faz 233:** Lighthouse CI (LHCI) entegrasyonu ile otomatik performans gerileme (regression) testleri kurma.
-- [ ] **Faz 234:** Docker derleme süresini kısaltmak için BuildKit önbellek mekanizmasını optimize etme.
-- [ ] **Faz 235:** `.dockerignore` dosyasını temizleyip build context boyutunu minimuma indirme.
+- [x] **Faz 231:** GitHub Actions CI pipeline oluşturma: Her commit/PR'da `tsc --noEmit`, `vitest run` ve lint çalıştırma.
+- [x] **Faz 232:** Bundle boyutu bütçesi (Bundle Size Budget) belirleme; First Load JS 180 KB'ı geçerse CI'da uyarı verme.
+- [x] **Faz 233:** Lighthouse CI (LHCI) entegrasyonu ile otomatik performans gerileme (regression) testleri kurma.
+- [x] **Faz 234:** Docker derleme süresini kısaltmak için BuildKit önbellek mekanizmasını optimize etme.
+- [x] **Faz 235:** `.dockerignore` dosyasını temizleyip build context boyutunu minimuma indirme.
 - [ ] **Faz 236:** Canlı sunucu için Nginx ters vekil (reverse proxy) yapılandırmasında Brotli ve Gzip sıkıştırma seviyelerini optimize etme.
 - [ ] **Faz 237:** Statik varlıklar için 1 yıllık `Cache-Control: public, max-age=31536000, immutable` HTTP başlıklarını doğrulama.
 - [ ] **Faz 238:** Canlıda slow query loglarını izleme mekanizması kurma.
