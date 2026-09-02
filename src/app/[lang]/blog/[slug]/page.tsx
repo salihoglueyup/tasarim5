@@ -20,7 +20,7 @@ import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngi
 import type { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n';
 
-import { POSTS, CATEGORIES } from '@/data/posts';
+import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
 import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
 import { redis, CACHE_TTL } from '@/lib/redis';
 
@@ -192,15 +192,41 @@ export default async function BlogDetail({
   const author = post.author;
   const category = post.category;
   
-  const related = await prisma.post.findMany({
+  let related: any[] = await prisma.post.findMany({
     where: { 
       categoryId: post.categoryId, 
       id: { not: post.id },
       published: true 
     },
     take: 3,
-    orderBy: { datePublished: 'desc' }
+    orderBy: { datePublished: 'desc' },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      description: true,
+      image: true,
+      datePublished: true,
+      author: { select: { name: true } },
+      category: { select: { name: true, slug: true } },
+    },
   }).catch(() => []);
+
+  // Faz 24: Veritabanı boşsa veya offline ise hafif statik metadata ile doldur
+  if (!related || related.length === 0) {
+    related = POSTS_META.filter((p) => p.slug !== post.slug && (p.category === post.categoryId || !post.categoryId))
+      .slice(0, 3)
+      .map((p, idx) => ({
+        id: `static-rel-${idx}`,
+        slug: p.slug,
+        title: p.title,
+        description: p.description,
+        image: p.image,
+        datePublished: new Date(p.datePublished),
+        author: { name: 'Alo Yönetim' },
+        category: { name: p.category, slug: p.category },
+      }));
+  }
 
   const [prevPost, nextPost] = await Promise.all([
     prisma.post.findFirst({

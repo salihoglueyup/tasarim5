@@ -326,6 +326,15 @@ export const TERMS: Term[] = [
   },
 ];
 
+// Global statik objeyi mühürle (Faz 13)
+Object.freeze(TERMS);
+
+import { FACILITY_TERMS, type FacilityDictionaryTerm } from './facilityDictionaryData';
+import { KMK_LAW_INDEX, type KmkArticleItem } from './kmkLawData';
+
+export { FACILITY_TERMS, type FacilityDictionaryTerm } from './facilityDictionaryData';
+export { KMK_LAW_INDEX, type KmkArticleItem } from './kmkLawData';
+
 export function termToSlug(term: string): string {
   return term
     .toLowerCase()
@@ -355,4 +364,37 @@ export function slugToTerm(slug: string): Term | undefined {
 
 export function getTermsByLetter(letter: string): Term[] {
   return TERMS_BY_LETTER[letter.toLocaleUpperCase('tr-TR')] || [];
+}
+
+/**
+ * Birleşik sözlük külliyatı (Faz 22).
+ * Genel terimler, tesis yönetimi standartları ve KMK kanun maddelerini tek şemada birleştirir.
+ */
+export function getUnifiedDictionaryEntries() {
+  const base = TERMS.map((t) => ({
+    title: t.term,
+    slug: termToSlug(t.term),
+    description: t.definition,
+    type: 'GENEL_TERIM' as const,
+    link: t.link?.href || `/sozluk/${termToSlug(t.term)}`,
+  }));
+
+  const facility = FACILITY_TERMS.map((f) => ({
+    title: f.name,
+    slug: f.termCode,
+    description: f.description,
+    type: 'TESIS_STANDART' as const,
+    link: f.canonicalUrl,
+    legalBasis: f.legalBasis,
+  }));
+
+  const kmk = KMK_LAW_INDEX.map((k) => ({
+    title: `KMK Madde ${k.articleNumber}: ${k.title}`,
+    slug: `kmk-madde-${k.articleNumber}`,
+    description: `${k.summary} (Uygulama: ${k.practicalApplication})`,
+    type: 'KMK_KANUN' as const,
+    link: k.legalAnchor,
+  }));
+
+  return [...base, ...facility, ...kmk];
 }

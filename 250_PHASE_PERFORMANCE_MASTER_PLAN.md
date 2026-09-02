@@ -50,11 +50,11 @@
 - [x] **Faz 18:** `drafts/` klasöründeki taslakların üretim bundle'ına sızmadığını `.dockerignore` ile garanti altına alma.
 - [x] **Faz 19:** Prisma veritabanı ile statik veri fallback'i arasındaki hibrit katmanı senkronize etme.
 - [x] **Faz 20:** Blog arama fonksiyonunda tam metin taraması yerine normalize edilmiş arama indeksi kullanma.
-- [ ] **Faz 21:** Site haritası için minimal slug + modifiedDate projeksiyonu oluşturma.
-- [ ] **Faz 22:** `facilityDictionaryData.ts` ve `kmkLawData.ts` veri setlerini sözlük mimarisiyle birleştirme.
-- [ ] **Faz 23:** RFP generator veri setini (`rfpGeneratorData.ts`) talep anında yükleme.
-- [ ] **Faz 24:** Blog detay sayfalarında `RelatedArticles` sorgusunu lightweight slug eşleşmesiyle hafifletme.
-- [ ] **Faz 25:** Veri katmanı değişikliklerinin TypeScript doğrulaması (`tsc --noEmit`) ve 392 testin %100 onaylanması.
+- [x] **Faz 21:** Site haritası için minimal slug + modifiedDate projeksiyonu oluşturma.
+- [x] **Faz 22:** `facilityDictionaryData.ts` ve `kmkLawData.ts` veri setlerini sözlük mimarisiyle birleştirme.
+- [x] **Faz 23:** RFP generator veri setini (`rfpGeneratorData.ts`) talep anında yükleme.
+- [x] **Faz 24:** Blog detay sayfalarında `RelatedArticles` sorgusunu lightweight slug eşleşmesiyle hafifletme.
+- [x] **Faz 25:** Veri katmanı değişikliklerinin TypeScript doğrulaması (`tsc --noEmit`) ve 392 testin %100 onaylanması.
 
 ---
 

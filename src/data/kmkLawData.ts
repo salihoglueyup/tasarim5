@@ -75,3 +75,6 @@ export const KMK_LAW_INDEX: KmkArticleItem[] = [
     legalAnchor: `${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi#kmk-madde-41`,
   },
 ];
+
+// Global statik objeyi mühürle (Faz 13/22)
+Object.freeze(KMK_LAW_INDEX);

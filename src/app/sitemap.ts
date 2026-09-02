@@ -3,6 +3,9 @@ import { BASE_URL, buildLanguageAlternates, localizedUrl, LOCALES } from '@/lib/
 import { prisma } from '@/lib/prisma';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
+import { POSTS_META, CATEGORIES } from '@/data/posts';
+import { AUTHOR_SLUGS } from '@/data/authors';
+import { REFERENCES_META } from '@/data/referencesMetadata';
 import { parseTags } from '@/lib/jsonSafe';
 
 export const dynamic = 'force-dynamic';
@@ -42,6 +45,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   } catch (err) {
     console.warn('sitemap.ts: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
+  }
+
+  // Faz 21: Minimal slug + dateModified projeksiyonu (Veritabanı offline fallback garantisi)
+  if (posts.length === 0) {
+    posts = POSTS_META.map((p) => ({
+      slug: p.slug,
+      dateModified: new Date(p.dateModified || p.datePublished),
+    }));
+    POSTS_META.forEach((p) => {
+      p.tags.forEach((t) => tagsSet.add(t));
+    });
+  }
+
+  if (categories.length === 0) {
+    categories = CATEGORIES.map((c) => ({
+      slug: c.slug,
+      updatedAt: new Date('2026-02-24T20:00:00.000Z'),
+    }));
+  }
+
+  if (authors.length === 0) {
+    authors = AUTHOR_SLUGS.map((slug) => ({
+      slug,
+      updatedAt: new Date('2026-02-24T20:00:00.000Z'),
+    }));
+  }
+
+  if (references.length === 0) {
+    references = REFERENCES_META.map((r) => ({
+      slug: r.slug,
+      updatedAt: new Date('2026-02-24T20:00:00.000Z'),
+    }));
   }
 
   // En son blog güncelleme tarihi

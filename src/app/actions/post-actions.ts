@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { assertAdmin } from '@/lib/auth';
 import { notifyIndexNow } from '@/lib/indexnow-auto';
+import { POSTS_META } from '@/data/postsMetadata';
 
 export async function deletePost(id: string, lang: string) {
   try {
@@ -102,14 +103,23 @@ export async function savePost(id: string, data: any, lang: string) {
 
 export async function getRelatedPosts(pillar: string) {
   try {
-    return await prisma.post.findMany({
+    const posts = await prisma.post.findMany({
       where: { pillar, published: true },
       take: 4,
       orderBy: { datePublished: 'desc' },
-      select: { slug: true, title: true, description: true }
+      select: { slug: true, title: true, description: true },
     });
+    if (posts && posts.length > 0) return posts;
   } catch (error) {
-    console.error('getRelatedPosts failed:', error);
-    return [];
+    // DB offline/hata durumunda statik hafif metadataya düş
   }
+
+  // Faz 24: Lightweight slug & pillar eşleşmesi fallback'i
+  return POSTS_META.filter((p) => p.pillar === pillar)
+    .slice(0, 4)
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+    }));
 }

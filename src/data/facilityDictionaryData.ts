@@ -135,3 +135,6 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     canonicalUrl: `${BASE_URL}/sozluk#demirbas-fonu`,
   },
 ];
+
+// Global statik objeyi mühürle (Faz 13/22)
+Object.freeze(FACILITY_TERMS);

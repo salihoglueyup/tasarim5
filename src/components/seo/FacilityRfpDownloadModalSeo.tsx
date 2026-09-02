@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
@@ -25,15 +25,20 @@ export default function FacilityRfpDownloadModalSeo() {
     );
   };
 
-  const rfpDoc = generateFacilityRfpDocument({
-    districtSlug,
-    units,
-    blocks,
-    facilityName: facilityName || undefined,
-    servicesNeeded: selectedServices,
-  });
+  // Faz 23: Yalnızca talep anında (modal açıkken) doküman oluştur
+  const rfpDoc = useMemo(() => {
+    if (!isOpen) return null;
+    return generateFacilityRfpDocument({
+      districtSlug,
+      units,
+      blocks,
+      facilityName: facilityName || undefined,
+      servicesNeeded: selectedServices,
+    });
+  }, [isOpen, districtSlug, units, blocks, facilityName, selectedServices]);
 
   const handleCopy = () => {
+    if (!rfpDoc) return;
     navigator.clipboard.writeText(rfpDoc.fullText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -174,7 +179,7 @@ export default function FacilityRfpDownloadModalSeo() {
 
                 {/* Document Preview Box */}
                 <div className="bg-[var(--color-surface-variant)] rounded-2xl p-5 border border-[var(--color-outline)]/60 font-mono text-[11px] leading-relaxed text-[var(--color-primary)] max-h-80 overflow-y-auto select-all whitespace-pre-line custom-scrollbar">
-                  {rfpDoc.fullText}
+                  {rfpDoc?.fullText || ''}
                 </div>
               </div>
 
@@ -194,6 +199,7 @@ export default function FacilityRfpDownloadModalSeo() {
                   </button>
                   <button
                     onClick={() => {
+                      if (!rfpDoc) return;
                       const blob = new Blob([rfpDoc.fullText], { type: 'text/plain;charset=utf-8' });
                       const url = URL.createObjectURL(blob);
                       const a = document.createElement('a');
