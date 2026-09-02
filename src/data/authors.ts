@@ -1,6 +1,7 @@
 /**
- * Blog yazarları (SEO Master Plan V4 — Bölüm G, Faz 159/94 — E-E-A-T).
+ * Blog yazarları (SEO Master Plan V4 — Bölüm G, Faz 159/94 — E-E-A-T & Faz 12 Optimizasyonu).
  * Her makale bir yazara bağlanır; yazar arşiv sayfaları Person schema üretir.
+ * O(1) indexed lookup haritası ile hızlı erişim sağlanır.
  */
 
 export type Author = {
@@ -10,9 +11,28 @@ export type Author = {
   bio: string;
   expertise: string[];
   sameAs?: string[];
+  image?: string;
 };
 
+export type AuthorMeta = Pick<Author, 'slug' | 'name' | 'title' | 'image'>;
+
 export const AUTHORS: Author[] = [
+  {
+    slug: 'eyup-salihoglu',
+    name: 'Eyüp Salihoğlu',
+    title: 'Kurucu & Tesis Yönetim Danışmanı',
+    bio: 'Alo Yönetim kurucusu ve baş danışmanı. 15+ yılı aşkın süredir İstanbul genelinde entegre tesis yönetimi, 634 KMK hukuki süreçleri ve dijital mülk operasyonları yönetmektedir.',
+    expertise: ['Entegre Tesis Yönetimi', '634 KMK Hukuku', 'Mali Bütçe & Denetim', 'Dijital Bina Yönetimi'],
+    sameAs: ['https://www.linkedin.com/company/aloyonetim'],
+  },
+  {
+    slug: 'alo-yonetim',
+    name: 'Alo Yönetim Araştırma Kurulu',
+    title: 'Kurumsal Bilgi & Araştırma Masası',
+    bio: 'Alo Yönetim tesis yöneticileri, bina mühendisleri ve hukuk danışmanlarından oluşan uzman ortak araştırma ve rehber yayın kurulu.',
+    expertise: ['Tesis Yönetim Standartları', 'ISO 41001', 'Bina Güvenliği', 'Enerji Verimliliği'],
+    sameAs: ['https://aloyonetim.com.tr'],
+  },
   {
     slug: 'ahmet-yilmaz',
     name: 'Av. Ahmet Yılmaz',
@@ -39,8 +59,45 @@ export const AUTHORS: Author[] = [
   },
 ];
 
+// Global statik objeyi mühürle (Faz 13 - Runtime Bellek Sızıntısı Koruması)
+Object.freeze(AUTHORS);
+
+// O(1) slug lookup indeksi
+export const AUTHORS_BY_SLUG = new Map<string, Author>(
+  AUTHORS.map((a) => [a.slug, a])
+);
+
 export const AUTHOR_SLUGS = AUTHORS.map((a) => a.slug);
 
+/**
+ * Slug değerine göre O(1) sürede yazarı getirir.
+ */
 export function getAuthor(slug: string): Author | undefined {
-  return AUTHORS.find((a) => a.slug === slug);
+  return AUTHORS_BY_SLUG.get(slug);
+}
+
+/**
+ * Yazar slug'ının geçerli olup olmadığını doğrular.
+ */
+export function isValidAuthor(slug: string): boolean {
+  return AUTHORS_BY_SLUG.has(slug);
+}
+
+/**
+ * Yazar adını hızlıca döndürür, bulunamazsa varsayılan kurumsal adı döner.
+ */
+export function getAuthorName(slug: string): string {
+  return AUTHORS_BY_SLUG.get(slug)?.name || 'Alo Yönetim';
+}
+
+/**
+ * Yazar listesi için hafif metadata projeksiyonu döndürür.
+ */
+export function getAuthorsMeta(): AuthorMeta[] {
+  return AUTHORS.map(({ slug, name, title, image }) => ({
+    slug,
+    name,
+    title,
+    image,
+  }));
 }

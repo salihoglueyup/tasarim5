@@ -3,6 +3,7 @@ import { BASE_URL, buildLanguageAlternates, localizedUrl, LOCALES } from '@/lib/
 import { prisma } from '@/lib/prisma';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
+import { parseTags } from '@/lib/jsonSafe';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 saat önbellek
@@ -37,10 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     sectoralSolutions = dbSectoral;
 
     dbPosts.forEach((p) => {
-      try {
-        const parsed = typeof p.tags === 'string' ? JSON.parse(p.tags) : p.tags;
-        if (Array.isArray(parsed)) parsed.forEach((t: string) => tagsSet.add(t));
-      } catch {}
+      parseTags(p.tags).forEach((t: string) => tagsSet.add(t));
     });
   } catch (err) {
     console.warn('sitemap.ts: Database fetch fallback triggered:', err instanceof Error ? err.message : err);

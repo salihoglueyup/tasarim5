@@ -11,6 +11,7 @@ import { prisma } from '@/lib/prisma';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 import { POSTS_META, CATEGORIES } from '@/data/posts';
+import { getAuthor } from '@/data/authors';
 
 export const dynamicParams = true;
 export const revalidate = 86400;
@@ -39,10 +40,11 @@ export async function generateMetadata({
   const { lang, yazar } = await params;
   let author = await prisma.author.findUnique({ where: { slug: yazar } }).catch(() => null);
   if (!author) {
-    if (yazar === 'eyup-salihoglu' || yazar === 'alo-yonetim') {
+    const staticA = getAuthor(yazar);
+    if (staticA) {
       author = {
-        name: 'Eyüp Salihoğlu',
-        bio: 'Tesis Yönetimi ve Kat Mülkiyeti Kanunu Uzmanı',
+        name: staticA.name,
+        bio: staticA.bio,
       } as any;
     }
   }
@@ -66,14 +68,15 @@ export default async function AuthorArchive({
   const { yazar } = await params;
   let author = await prisma.author.findUnique({ where: { slug: yazar } }).catch(() => null);
   if (!author) {
-    if (yazar === 'eyup-salihoglu' || yazar === 'alo-yonetim') {
+    const staticA = getAuthor(yazar);
+    if (staticA) {
       author = {
-        id: yazar,
-        slug: yazar,
-        name: 'Eyüp Salihoğlu',
-        avatar: '/images/eyup-salihoglu.webp',
-        role: 'Kurucu Genel Müdür & Tesis Yönetimi Danışmanı',
-        bio: '15 yılı aşkın süredir İstanbul genelinde 200+ toplu konut, rezidans ve iş merkezinin entegre tesis yönetimi, 5188 özel güvenlik ve KMK hukuk danışmanlığını yürütmektedir.',
+        id: staticA.slug,
+        slug: staticA.slug,
+        name: staticA.name,
+        avatar: staticA.image || '/images/eyup-salihoglu.webp',
+        role: staticA.title,
+        bio: staticA.bio,
       } as any;
     }
   }

@@ -22,6 +22,9 @@ export const DISTRICTS: District[] = [
   ...AVRUPA_DISTRICTS,
 ];
 
+// Global statik objeyi mühürle (Faz 13 - Runtime Bellek Sızıntısı Koruması)
+Object.freeze(DISTRICTS);
+
 export const DISTRICT_SLUGS = DISTRICTS.map((d) => d.slug);
 
 export function getDistrict(slug: string): District | undefined {

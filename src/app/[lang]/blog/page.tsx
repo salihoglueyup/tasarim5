@@ -10,9 +10,9 @@ import ItemListSeo from '@/components/seo/ItemListSeo';
 import { BASE_URL, buildMetadata } from '@/lib/seo';
 
 import { POSTS_META, CATEGORIES } from '@/data/posts';
-import { redis } from '@/lib/redis';
+import { redis, CACHE_TTL } from '@/lib/redis';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 saat ISR (Faz 15)
 
 export async function generateMetadata({
   params,
@@ -81,10 +81,10 @@ export default async function Blog() {
     finalCategories = dbCategories;
 
     if (finalPosts.length > 0) {
-      redis.setex(cacheKeyPosts, 3600, JSON.stringify(finalPosts)).catch(() => {});
+      redis.setex(cacheKeyPosts, CACHE_TTL.BLOG, JSON.stringify(finalPosts)).catch(() => {});
     }
     if (finalCategories.length > 0) {
-      redis.setex(cacheKeyCats, 3600, JSON.stringify(finalCategories)).catch(() => {});
+      redis.setex(cacheKeyCats, CACHE_TTL.BLOG, JSON.stringify(finalCategories)).catch(() => {});
     }
   }
 

@@ -2785,3 +2785,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T20:00:00.000Z"
   }
 ];
+
+// Global statik objeyi mühürle (Faz 13 - Runtime Bellek Sızıntısı Koruması)
+Object.freeze(POSTS_META);
+

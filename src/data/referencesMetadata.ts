@@ -840,6 +840,10 @@ export const REFERENCES_META: ReferenceProjectMeta[] = [
   }
 ];
 
+// Global statik objeyi mühürle (Faz 13 - Runtime Bellek Sızıntısı Koruması)
+Object.freeze(REFERENCES_META);
+
+
 export function getReferencesList(lang: string = 'tr') {
   return REFERENCES_META.map(p => ({
     id: p.id,

@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
+import { parseTags } from '@/lib/jsonSafe';
 
 const PAGE_SIZE = 6;
 
@@ -34,10 +35,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
     return posts.filter((p) => {
       const catOk = activeCategory === 'all' || p.category?.slug === activeCategory;
       
-      let tags = p.tags || [];
-      if (typeof tags === 'string') {
-        try { tags = JSON.parse(tags); } catch { tags = []; }
-      }
+      const tags = parseTags(p.tags);
       
       const qOk =
         !q ||

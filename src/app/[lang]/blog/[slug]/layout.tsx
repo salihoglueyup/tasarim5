@@ -4,6 +4,8 @@ import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
 import { POSTS } from '@/data/posts';
 
+import { parseTags } from '@/lib/jsonSafe';
+
 interface BlogDetailLayoutProps {
   children: React.ReactNode;
   params: Promise<{ lang: string; slug: string }>;
@@ -14,43 +16,49 @@ export async function generateMetadata({
 }: Omit<BlogDetailLayoutProps, 'children'>): Promise<Metadata> {
   const { lang, slug } = await params;
   
+  // Try DB first
   let post = await prisma.post.findUnique({
-    where: { slug }
+    where: { slug },
+    include: {
+      category: true,
+      author: true,
+    },
   }).catch(() => null);
 
+  // Fallback to static data
   if (!post) {
-    const staticP = POSTS.find((p) => p.slug === slug);
-    if (staticP) {
+    const staticPost = POSTS.find((p) => p.slug === slug);
+    if (staticPost) {
       post = {
-        title: staticP.title,
-        description: staticP.description,
+        ...staticPost,
+        id: staticPost.slug,
+        title_en: null,
+        title_ru: null,
+        title_ar: null,
+        description_en: null,
+        description_ru: null,
+        description_ar: null,
+        content_en: null,
+        content_ru: null,
+        content_ar: null,
+        authorId: staticPost.author,
+        categoryId: staticPost.category,
+        views: 0,
         published: true,
-        datePublished: new Date(staticP.datePublished),
-        dateModified: new Date(staticP.dateModified || staticP.datePublished),
-        image: staticP.image,
-        tags: JSON.stringify(staticP.tags),
+        tags: staticPost.tags,
+        datePublished: new Date(staticPost.datePublished),
+        dateModified: new Date(staticPost.dateModified || staticPost.datePublished),
+        category: { id: staticPost.category, slug: staticPost.category, name: staticPost.category, description: null },
+        author: { id: staticPost.author, slug: staticPost.author, name: staticPost.author, bio: null, image: null },
       } as any;
     }
   }
 
-  if (!post || !post.published) {
-    return buildMetadata({
-      title: 'Sayfa Bulunamadı',
-      description: 'Aradığınız blog yazısı bulunamadı.',
-      path: `/blog/${slug}`,
-      lang,
-      noindex: true,
-    });
+  if (!post) {
+    return {};
   }
 
-  // Convert tags string to array
-  let tags: string[] = [];
-  try {
-    tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
-    if (!Array.isArray(tags)) tags = [];
-  } catch (e) {
-    tags = [];
-  }
+  const tags = parseTags(post.tags);
 
   const baseMetadata = buildMetadata({
     title: `${post.title} | Alo Yönetim Blog`,

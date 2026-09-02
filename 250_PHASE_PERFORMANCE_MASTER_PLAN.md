@@ -40,11 +40,11 @@
 - [x] **Faz 8:** `src/lib/schemas.ts` (61 KB) monolitini şema türlerine göre modüler hale getirme.
 - [x] **Faz 9:** `src/lib/seoEngine.ts` (42 KB) motorunu mikro modüllere bölerek tree-shaking verimini artırma.
 - [x] **Faz 10:** Blog yazılarının markdown/HTML bloklarını parse eden `blogBlockParser.ts` için önbellek katmanı kurma.
-- [ ] **Faz 11:** Statik veri dosyalarında JSON serialization/deserialization döngülerini minimuma indirme.
-- [ ] **Faz 12:** Yazar profilleri (`authors.ts`) ve referans ilişkilerini hafifletme.
-- [ ] **Faz 13:** Global statik objeleri freeze (`Object.freeze`) ederek runtime bellek sızıntılarını önleme.
-- [ ] **Faz 14:** Node.js process bellek ayak izini analiz etme (`process.memoryUsage()`).
-- [ ] **Faz 15:** Blog içeriği için Redis cache TTL politikasını 24 saat olarak yapılandırma.
+- [x] **Faz 11:** Statik veri dosyalarında JSON serialization/deserialization döngülerini minimuma indirme.
+- [x] **Faz 12:** Yazar profilleri (`authors.ts`) ve referans ilişkilerini hafifletme.
+- [x] **Faz 13:** Global statik objeleri freeze (`Object.freeze`) ederek runtime bellek sızıntılarını önleme.
+- [x] **Faz 14:** Node.js process bellek ayak izini analiz etme (`process.memoryUsage()`).
+- [x] **Faz 15:** Blog içeriği için Redis cache TTL politikasını 24 saat olarak yapılandırma.
 - [ ] **Faz 16:** İlçe sayfaları veri katmanında yalnızca ilgili ilçenin koordinat ve demografik verisinin çekilmesini sağlama.
 - [ ] **Faz 17:** Hizmet veri seti (`services.ts`) için tip tanımlarını ve alt hizmet hiyerarşisini optimize etme.
 - [ ] **Faz 18:** `drafts/` klasöründeki taslakların üretim bundle'ına sızmadığını `.dockerignore` ile garanti altına alma.

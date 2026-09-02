@@ -13,6 +13,7 @@ import {
   blogPostingSchema,
   webPageSchema,
 } from '@/lib/schemas';
+import { parseTags } from '@/lib/jsonSafe';
 import BlogFAQExtractor from '@/components/seo/BlogFAQExtractor';
 import { LOCALES, buildMetadata, BASE_URL } from '@/lib/seo';
 import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
@@ -21,9 +22,10 @@ import { getDictionary } from '@/lib/i18n';
 
 import { POSTS, CATEGORIES } from '@/data/posts';
 import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
+import { redis, CACHE_TTL } from '@/lib/redis';
 
 export const dynamicParams = true;
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 saat ISR (Faz 15)
 
 export async function generateStaticParams() {
   try {
@@ -83,14 +85,7 @@ export async function generateMetadata({
     datePublished: post.datePublished.toISOString(),
     dateModified: post.dateModified?.toISOString() ?? post.datePublished.toISOString(),
     authorName: post.author?.name ?? 'Alo Yönetim',
-    keywords: (() => {
-      try {
-        const t = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
-        return Array.isArray(t) ? t : [];
-      } catch {
-        return [];
-      }
-    })(),
+    keywords: parseTags(post.tags),
   });
 }
 
@@ -111,10 +106,28 @@ export default async function BlogDetail({
   const dict = await getDictionary(lang);
   const t = (key: string) => dict?.[key] || key;
   
-  let post = await prisma.post.findUnique({
-    where: { slug },
-    include: { author: true, category: true }
-  }).catch(() => null);
+  const cacheKeyPost = `blog_post_detail_${slug}`;
+  let post: any = null;
+
+  try {
+    const cachedPost = await redis.get(cacheKeyPost);
+    if (cachedPost) {
+      post = JSON.parse(cachedPost);
+    }
+  } catch {
+    // Redis offline / error fallback
+  }
+
+  if (!post) {
+    post = await prisma.post.findUnique({
+      where: { slug },
+      include: { author: true, category: true }
+    }).catch(() => null);
+
+    if (post) {
+      redis.setex(cacheKeyPost, CACHE_TTL.BLOG, JSON.stringify(post)).catch(() => {});
+    }
+  }
 
   if (!post) {
     const staticP = POSTS.find((p) => p.slug === slug);
@@ -208,13 +221,7 @@ export default async function BlogDetail({
     }).catch(() => null),
   ]);
 
-  let tags: string[] = [];
-  try {
-    tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags;
-    if (!Array.isArray(tags)) tags = [];
-  } catch (e) {
-    tags = [];
-  }
+  const tags = parseTags(post.tags);
 
   const renderedHtml = renderPostBlocksToHtml(post.content || '');
   const plainText = (renderedHtml || '').replace(/<[^>]*>?/gm, '');
@@ -299,7 +306,7 @@ export default async function BlogDetail({
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-6 text-sm text-slate-500">
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center font-bold text-xs">
-                {(author?.name ?? 'AY').split(' ').map((w) => w[0]).slice(0, 2).join('')}
+                {(author?.name ?? 'AY').split(' ').map((w: string) => w[0]).slice(0, 2).join('')}
               </span>
               <div>
                 <div className="font-bold text-slate-900 dark:text-white">
