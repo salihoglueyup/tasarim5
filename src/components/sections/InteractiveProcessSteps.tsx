@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function InteractiveProcessSteps() {
   const [activeStep, setActiveStep] = useState(0);
+  const [, startTransition] = useTransition();
   const { t } = useLanguage();
 
   const steps = [
@@ -72,7 +73,11 @@ export default function InteractiveProcessSteps() {
         {steps.map((s, idx) => (
           <button
             key={idx}
-            onClick={() => setActiveStep(idx)}
+            onClick={() => {
+              startTransition(() => {
+                setActiveStep(idx);
+              });
+            }}
             className={`px-5 py-3 rounded-2xl text-sm font-bold transition-all flex items-center gap-2 shrink-0 snap-center ${
               activeStep === idx
                 ? 'bg-[var(--color-primary)] text-white shadow-lg scale-105'

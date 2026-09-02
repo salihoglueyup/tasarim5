@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useTransition } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import JsonLd from '@/components/seo/JsonLd';
 import { faqPageSchema } from '@/lib/schemas';
@@ -34,9 +33,11 @@ export default function Faq({
   lang?: string;
 }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [searchInput, setSearchInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [, startTransition] = useTransition();
   const { t } = useLanguage();
 
   const fallbackFaqs: FaqItem[] = useMemo(
@@ -129,7 +130,9 @@ export default function Faq({
   );
 
   const toggleFaq = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    startTransition(() => {
+      setActiveIndex((prev) => (prev === index ? null : index));
+    });
   };
 
   const copyQuestionLink = (text: string, index: number) => {
@@ -173,15 +176,26 @@ export default function Faq({
             <Search className="w-5 h-5 text-slate-400 shrink-0 mr-3" />
             <input
               type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchInput}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSearchInput(val);
+                startTransition(() => {
+                  setSearchQuery(val);
+                });
+              }}
               placeholder="Sorularda veya yanıtlarda anında arama yapın (örn: aidat, asansör, güvenlik)..."
               className="w-full bg-transparent text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none text-sm md:text-base font-normal"
             />
-            {searchQuery && (
+            {searchInput && (
               <button
                 type="button"
-                onClick={() => setSearchQuery('')}
+                onClick={() => {
+                  setSearchInput('');
+                  startTransition(() => {
+                    setSearchQuery('');
+                  });
+                }}
                 className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
                 aria-label="Aramayı temizle"
               >
@@ -200,8 +214,10 @@ export default function Faq({
                 key={cat.id}
                 type="button"
                 onClick={() => {
-                  setActiveCategory(cat.id);
-                  setActiveIndex(null);
+                  startTransition(() => {
+                    setActiveCategory(cat.id);
+                    setActiveIndex(null);
+                  });
                 }}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                   isSelected
@@ -249,54 +265,51 @@ export default function Faq({
                     >
                       {qText}
                     </span>
-                    <motion.div
-                      animate={{ rotate: isActive ? 45 : 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="w-9 h-9 rounded-full border border-[var(--color-outline)] flex items-center justify-center flex-shrink-0 ml-2 group-hover:bg-[var(--color-surface)]"
+                    <div
+                      className={`w-9 h-9 rounded-full border border-[var(--color-outline)] flex items-center justify-center flex-shrink-0 ml-2 group-hover:bg-[var(--color-surface)] transition-transform duration-300 ${
+                        isActive ? 'rotate-45' : ''
+                      }`}
                     >
                       <span className="material-symbols-outlined text-[var(--color-primary)] text-xl">
                         add
                       </span>
-                    </motion.div>
+                    </div>
                   </button>
 
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <div className="pb-6 pr-6 text-slate-600 dark:text-slate-300 leading-relaxed text-base font-normal">
-                          <div dangerouslySetInnerHTML={{ __html: aText }} />
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                      isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="pb-6 pr-6 text-slate-600 dark:text-slate-300 leading-relaxed text-base font-normal">
+                        <div dangerouslySetInnerHTML={{ __html: aText }} />
 
-                          {/* Soru Paylaş / Kopyala Butonu */}
-                          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
-                            <button
-                              type="button"
-                              onClick={() => copyQuestionLink(qText, index)}
-                              className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
-                            >
-                              {isCopied ? (
-                                <>
-                                  <Check className="w-3.5 h-3.5 text-emerald-500" />
-                                  <span className="text-emerald-500 font-medium">
-                                    Bağlantı Kopyalandı
-                                  </span>
-                                </>
-                              ) : (
-                                <>
-                                  <Copy className="w-3.5 h-3.5" />
-                                  <span>Sorunun Linkini Kopyala</span>
-                                </>
-                              )}
-                            </button>
-                          </div>
+                        {/* Soru Paylaş / Kopyala Butonu */}
+                        <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => copyQuestionLink(qText, index)}
+                            className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                          >
+                            {isCopied ? (
+                              <>
+                                <Check className="w-3.5 h-3.5 text-emerald-500" />
+                                <span className="text-emerald-500 font-medium">
+                                  Bağlantı Kopyalandı
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="w-3.5 h-3.5" />
+                                <span>Sorunun Linkini Kopyala</span>
+                              </>
+                            )}
+                          </button>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })

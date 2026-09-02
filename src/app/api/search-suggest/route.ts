@@ -174,12 +174,19 @@ export async function GET(req: NextRequest) {
       ]);
     }
 
-    return NextResponse.json([
-      q,
-      suggestions.slice(0, 8),
-      descriptions.slice(0, 8),
-      urls.slice(0, 8)
-    ]);
+    return NextResponse.json(
+      [
+        q,
+        suggestions.slice(0, 8),
+        descriptions.slice(0, 8),
+        urls.slice(0, 8)
+      ],
+      {
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        }
+      }
+    );
 
   } catch (error) {
     console.error('OpenSearch API Error:', error);

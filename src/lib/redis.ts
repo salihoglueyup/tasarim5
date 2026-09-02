@@ -28,4 +28,12 @@ redis.on('error', (err) => {
   console.warn('Redis bağlantı uyarısı (Önbellek atlanıyor):', err.message);
 });
 
+// Faz 60: Standartlaştırılmış Önbellek Süreleri (TTL Politikası)
+export const CACHE_TTL = {
+  SHORT_TERM: 60 * 5, // 5 dakika (dinamik/hızlı değişen veriler)
+  HOURLY: 60 * 60, // 1 saat (sık sorgulanan API verileri)
+  DAILY: 60 * 60 * 24, // 24 saat (ilçe, hizmet, hesaplayıcı verileri)
+  WEEKLY: 60 * 60 * 24 * 7, // 7 gün (sitemap, şema ve statik yapılar)
+} as const;
+
 export default redis;

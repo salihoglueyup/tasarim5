@@ -208,17 +208,39 @@ export default async function RootLayout({
         <link rel="author" href="/humans.txt" />
         
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
-        {/* Faz 25: 0ms Speculation Rules API (Chrome) */}
+        {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation) */}
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
+              prefetch: [
+                {
+                  where: {
+                    and: [
+                      {
+                        or: [
+                          { href_matches: "/*/hizmetler*" },
+                          { href_matches: "/*/hakkimizda" },
+                          { href_matches: "/*/iletisim" },
+                          { href_matches: "/*/hesaplayici" },
+                          { href_matches: "/*/teklif-al" },
+                          { href_matches: "/*/sss" },
+                          { href_matches: "/*/referanslar" }
+                        ]
+                      },
+                      { not: { href_matches: "/*/admin*" } }
+                    ]
+                  },
+                  eagerness: "eager"
+                }
+              ],
               prerender: [
                 {
                   where: {
                     and: [
                       { href_matches: "/*" },
-                      { not: { href_matches: "/*\\?*" } }
+                      { not: { href_matches: "/*\\?*" } },
+                      { not: { href_matches: "/*/admin*" } }
                     ]
                   },
                   eagerness: "moderate"
