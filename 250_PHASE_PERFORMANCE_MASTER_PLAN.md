@@ -319,11 +319,11 @@
 - [x] **Faz 233:** Lighthouse CI (LHCI) entegrasyonu ile otomatik performans gerileme (regression) testleri kurma.
 - [x] **Faz 234:** Docker derleme süresini kısaltmak için BuildKit önbellek mekanizmasını optimize etme.
 - [x] **Faz 235:** `.dockerignore` dosyasını temizleyip build context boyutunu minimuma indirme.
-- [ ] **Faz 236:** Canlı sunucu için Nginx ters vekil (reverse proxy) yapılandırmasında Brotli ve Gzip sıkıştırma seviyelerini optimize etme.
-- [ ] **Faz 237:** Statik varlıklar için 1 yıllık `Cache-Control: public, max-age=31536000, immutable` HTTP başlıklarını doğrulama.
-- [ ] **Faz 238:** Canlıda slow query loglarını izleme mekanizması kurma.
-- [ ] **Faz 239:** Web Vitals izleyicisini (`PerformanceObserver`) canlıda sessiz beacon ile analitik sistemine bağlama.
-- [ ] **Faz 240:** Dead code elimination: Projede kullanılmayan tüm export, tip ve yardımcı fonksiyonları tespit edip temizleme.
+- [x] **Faz 236:** Canlı sunucu için Nginx ters vekil (reverse proxy) yapılandırmasında Brotli ve Gzip sıkıştırma seviyelerini optimize etme.
+- [x] **Faz 237:** Statik varlıklar için 1 yıllık `Cache-Control: public, max-age=31536000, immutable` HTTP başlıklarını doğrulama.
+- [x] **Faz 238:** Canlıda slow query loglarını izleme mekanizması kurma.
+- [x] **Faz 239:** Web Vitals izleyicisini (`PerformanceObserver`) canlıda sessiz beacon ile analitik sistemine bağlama.
+- [x] **Faz 240:** Dead code elimination: Projede kullanılmayan tüm export, tip ve yardımcı fonksiyonları tespit edip temizleme.
 - [ ] **Faz 241:** Bağımlılık denetimi (Dependency Audit) ile gereksiz veya çakışan kütüphaneleri ayıklama.
 - [ ] **Faz 242:** Node.js bellek sızıntısı ve heap snapshot testleri çalıştırma.
 - [ ] **Faz 243:** Yüksek eşzamanlı istek simülasyonu ile API yanıt sürelerini ve veritabanı stabilitesini ölçme.
