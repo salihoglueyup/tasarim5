@@ -130,10 +130,10 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: string }> | { lang: string };
+  params: Promise<{ lang: string }>;
 }>) {
   // Await params to ensure compatibility with Next.js 15
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await params;
   const lang = resolvedParams?.lang || 'tr';
   const isRtl = lang === 'ar';
 
