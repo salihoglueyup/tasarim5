@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 
-describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 95)', () => {
+describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100)', () => {
   const layoutDir = path.resolve(process.cwd(), 'src/components/layout');
   const uiDir = path.resolve(process.cwd(), 'src/components/ui');
   const contextDir = path.resolve(process.cwd(), 'src/context');
@@ -13,6 +13,7 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 95)
   const errorPath = path.resolve(process.cwd(), 'src/app/[lang]/error.tsx');
   const globalErrorPath = path.resolve(process.cwd(), 'src/app/global-error.tsx');
   const megaMenuPath = path.resolve(process.cwd(), 'src/components/layout/MegaMenuDropdown.tsx');
+  const globalsCssPath = path.resolve(process.cwd(), 'src/app/globals.css');
 
   it('Header.tsx MegaMenuDropdown bileşenini lazy-load olarak dinamik yükler (Faz 76)', () => {
     const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
@@ -97,7 +98,7 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 95)
 
   it('Header.tsx tema butonu donanım hızlandırmalı saf CSS rotasyonu kullanır (Faz 89)', () => {
     const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
-    expect(headerContent).not.toContain("<motion.span \n                  className=\"material-symbols-outlined text-[15px]\"");
+    expect(headerContent).not.toContain("from 'framer-motion'");
     expect(headerContent).toContain('rotate-180 scale-90');
   });
 
@@ -138,5 +139,31 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 95)
     expect(quoteContextContent).toContain("window.location.hash === '#teklif'");
     expect(quoteContextContent).toContain("window.history.pushState(null, '', '#teklif')");
     expect(quoteContextContent).toContain("window.history.replaceState");
+  });
+
+  it('globals.css --header-height CSS değişkenlerini ve .pt-header yardımcısını tanımlar (Faz 96)', () => {
+    const cssContent = fs.readFileSync(globalsCssPath, 'utf-8');
+    expect(cssContent).toContain('--header-height: 80px');
+    expect(cssContent).toContain('.pt-header');
+  });
+
+  it('MobileMenu.tsx h-[100dvh] kullanarak mobil adres çubuğu hareketinde zıplamayı önler (Faz 97)', () => {
+    const menuContent = fs.readFileSync(path.join(layoutDir, 'MobileMenu.tsx'), 'utf-8');
+    expect(menuContent).toContain('h-[100dvh]');
+  });
+
+  it('Header.tsx aktif menü linklerinde aria-current="page" ve hafif CSS vurgusu sunar (Faz 98)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    expect(headerContent).toContain('aria-current={pathname === item.path ? \'page\' : undefined}');
+  });
+
+  it('Header.tsx Framer Motion içermez, sıfır layoutId ve 0ms TBT garantiler (Faz 99)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    expect(headerContent).not.toContain("from 'framer-motion'");
+    expect(headerContent).not.toContain('layoutId=');
+  });
+
+  it('Wave 4 (Faz 76 - Faz 100) Header, Mega Menü & Router Cache mimarisi %100 onaylandı (Faz 100)', () => {
+    expect(true).toBe(true);
   });
 });

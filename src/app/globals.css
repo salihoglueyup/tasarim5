@@ -49,6 +49,25 @@
   --font-body-lg: Inter, sans-serif;
   --font-label-caps: Inter, sans-serif;
   --font-body-md: Inter, sans-serif;
+
+  /* Faz 96: Header yüksekliği standardı */
+  --header-height: 80px;
+  --header-height-mobile: 72px;
+}
+
+:root {
+  --header-height: 80px;
+  --header-height-mobile: 72px;
+}
+
+.pt-header {
+  padding-top: var(--header-height);
+}
+
+@media (max-width: 1024px) {
+  .pt-header {
+    padding-top: var(--header-height-mobile);
+  }
 }
 
 /* Dark Mode Token Overrides (Ultra-Lüks Obsidian & Slate Titanium) */

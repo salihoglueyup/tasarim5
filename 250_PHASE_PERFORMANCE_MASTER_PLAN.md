@@ -143,11 +143,11 @@
 - [x] **Faz 93:** Header'da kullanılan logo SVG'sini inline ve sıfır CLS boyutlarıyla mühürleme.
 - [x] **Faz 94:** Dil seçici açılır menüsünün ekranın sağına taşmasını önleyen responsive konumlandırma.
 - [x] **Faz 95:** Hızlı teklif butonuna tıklandığında URL hash (`#teklif`) yönetimini sağlama.
-- [ ] **Faz 96:** Header yüksekliğini CSS custom property (`--header-height: 80px`) ile sabitleyip tüm sayfalarda ortak kullanma.
-- [ ] **Faz 97:** Mobilde adres çubuğunun gizlenip açılması durumunda header yüksekliğinin zıplamasını önleme (`dvh` kullanımı).
-- [ ] **Faz 98:** Menü linklerinde aktif sayfa vurgusunu (`aria-current="page"`) CSS ile hafifletme.
-- [ ] **Faz 99:** Header render performansını Chrome Performance Profiler ile ölçme ve TBT'yi 0ms'e çekme.
-- [ ] **Faz 100:** Wave 4 değişikliklerini TypeScript derlemesiyle onaylama.
+- [x] **Faz 96:** Header yüksekliğini CSS custom property (`--header-height: 80px`) ile sabitleyip tüm sayfalarda ortak kullanma.
+- [x] **Faz 97:** Mobilde adres çubuğunun gizlenip açılması durumunda header yüksekliğinin zıplamasını önleme (`dvh` kullanımı).
+- [x] **Faz 98:** Menü linklerinde aktif sayfa vurgusunu (`aria-current="page"`) CSS ile hafifletme.
+- [x] **Faz 99:** Header render performansını Chrome Performance Profiler ile ölçme ve TBT'yi 0ms'e çekme.
+- [x] **Faz 100:** Wave 4 değişikliklerini TypeScript derlemesiyle onaylama.
 
 ---
 

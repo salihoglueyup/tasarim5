@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/components/ui/Logo';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion } from 'framer-motion';
 import Magnetic from '@/components/ui/Magnetic';
 import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
@@ -318,10 +317,8 @@ export default function Header() {
                 onMouseEnter={() => setHoveredMenu(item.nameKey)}
               >
                 {hoveredMenu === item.nameKey && (
-                  <motion.div
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-slate-100/90 dark:bg-white/10 rounded-xl border border-slate-200/50 dark:border-white/10 -z-10"
-                    transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                  <div
+                    className="absolute inset-0 bg-slate-100/90 dark:bg-white/10 rounded-xl border border-slate-200/50 dark:border-white/10 -z-10 animate-in fade-in zoom-in-95 duration-150 transform-gpu"
                   />
                 )}
                 
@@ -357,11 +354,12 @@ export default function Header() {
                   <Link 
                     href={getLocalizedPath(item.path!)} 
                     prefetch={['/', '/hizmetler/tesis-yonetimi', '/hesaplayici', '/iletisim'].includes(item.path!)}
+                    aria-current={pathname === item.path ? 'page' : undefined}
                     className={`relative z-10 text-[13px] xl:text-[13.5px] font-semibold tracking-[-0.01em] transition-colors duration-200 whitespace-nowrap ${
                       isTopAndDarkHero 
-                        ? 'text-white/95 hover:text-white' 
+                        ? (pathname === item.path ? 'text-white font-bold underline underline-offset-8 decoration-2 decoration-blue-400' : 'text-white/95 hover:text-white')
                         : pathname === item.path
-                          ? 'text-[var(--color-primary)] dark:text-white' 
+                          ? 'text-blue-600 dark:text-blue-400 font-bold' 
                           : 'text-slate-800 dark:text-white/90 hover:text-[var(--color-primary)] dark:hover:text-white'
                     }`}
                   >

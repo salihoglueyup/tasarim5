@@ -119,9 +119,9 @@ export default function MobileMenu({
         aria-hidden="true"
       />
 
-      {/* 120 FPS GPU Hızlandırmalı Çekmece */}
+      {/* Faz 97: dvh kullanımı ile mobil adres çubuğu açılıp kapandığında zıplamayan 120 FPS çekmece */}
       <div 
-        className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-slate-950 backdrop-blur-2xl shadow-2xl flex flex-col pt-24 px-6 overflow-y-auto pb-12 transition-transform duration-300 ease-out transform-gpu will-change-transform animate-in slide-in-from-right"
+        className="fixed inset-y-0 right-0 w-full max-w-sm h-[100dvh] max-h-[100dvh] bg-white dark:bg-slate-950 backdrop-blur-2xl shadow-2xl flex flex-col pt-24 px-6 overflow-y-auto pb-12 transition-transform duration-300 ease-out transform-gpu will-change-transform animate-in slide-in-from-right"
       >
         <nav className="flex flex-col gap-2 mt-4">
           {menuItems.map((item) => (
