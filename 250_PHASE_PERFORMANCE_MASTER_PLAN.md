@@ -252,11 +252,11 @@
 - [x] **Faz 178:** Form gönderimlerinde CSRF token koruma katmanı oluşturma.
 - [x] **Faz 179:** Veri getiren API endpoint'lerine ETag başlığı ekleyerek değişmeyen yanıtlarda `304 Not Modified` ile veri transferini sıfırlama.
 - [x] **Faz 180:** PostgreSQL sorgularında `SELECT *` kullanımını tamamen kaldırıp yalnızca gerekli sütunları (`select: { id, title }`) çekme.
-- [ ] **Faz 181:** PostgreSQL üzerinde sık filtrelenen alanlara (`slug`, `published`, `category`, `createdAt`) Prisma index'leri ekleme.
-- [ ] **Faz 182:** N+1 veritabanı sorgusu oluşturabilecek ilişkisel sorguları `include` yerine optimize `findMany` + `in` ile çözme.
-- [ ] **Faz 183:** Prisma Client bağlantı havuzunu (connection pool) Docker ortamında maksimum 10 bağlantı ile optimize etme.
-- [ ] **Faz 184:** Redis bağlantı hatalarında uygulamanın çökmesini engelleyen gracefully degraded fallback'i güçlendirme.
-- [ ] **Faz 185:** `next.config.ts` içindeki Content Security Policy (CSP) direktiflerini sıkılaştırma.
+- [x] **Faz 181:** PostgreSQL üzerinde sık filtrelenen alanlara (`slug`, `published`, `category`, `createdAt`) Prisma index'leri ekleme.
+- [x] **Faz 182:** N+1 veritabanı sorgusu oluşturabilecek ilişkisel sorguları `include` yerine optimize `findMany` + `in` ile çözme.
+- [x] **Faz 183:** Prisma Client bağlantı havuzunu (connection pool) Docker ortamında maksimum 10 bağlantı ile optimize etme.
+- [x] **Faz 184:** Redis bağlantı hatalarında uygulamanın çökmesini engelleyen gracefully degraded fallback'i güçlendirme.
+- [x] **Faz 185:** `next.config.ts` içindeki Content Security Policy (CSP) direktiflerini sıkılaştırma.
 - [ ] **Faz 186:** `dangerouslySetInnerHTML` kullanım alanlarında XSS temizliği (`DOMPurify`) yapıldığını doğrulamak için audit testi yazma.
 - [ ] **Faz 187:** Admin paneli rotalarına (`/admin/*`) JWT token doğrulama ve brute-force koruması ekleme.
 - [ ] **Faz 188:** Şifreleme işlemlerinde güvenli algoritmalar (`bcrypt` / `argon2`) kullanıldığını teyit etme.

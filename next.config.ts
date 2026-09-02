@@ -350,6 +350,7 @@ const nextConfig: NextConfig = {
           //   (nonce'a geçiş ayrı iş). Analytics (GA/GTM/Clarity/Meta) script host'ları allowlist'te.
           // - connect-src/img-src: analytics beacon host'ları eklendi ki prod'da bloklanmasın.
           // - frame-ancestors 'none' + upgrade-insecure-requests eklendi (clickjacking + HTTP→HTTPS).
+          // Faz 185: Sıkılaştırılmış İçerik Güvenlik Politikası (Tightened Content Security Policy)
           {
             key: 'Content-Security-Policy',
             value: [
@@ -358,16 +359,17 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' data: https://fonts.gstatic.com",
               "img-src 'self' blob: data: https://images.unsplash.com https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://www.clarity.ms https://c.bing.com https://www.facebook.com",
+              "media-src 'self' blob: data:",
               "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com https://connect.facebook.net",
               "worker-src 'self' blob:",
+              "child-src 'self' blob: https://www.youtube.com",
               "frame-src 'self' https://www.youtube.com https://www.google.com https://www.google.com.tr https://maps.google.com",
+              "manifest-src 'self'",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
               "frame-ancestors 'none'",
-              // Not: `upgrade-insecure-requests` bilinçli olarak eklenmedi — nginx/cPanel deploy'u
-              // HTTP-only olduğunda tüm alt kaynakları https'e yükseltip bozardı. HTTPS zorlaması
-              // zaten HSTS (Strict-Transport-Security) ile yapılıyor.
+              ...(process.env.NODE_ENV === 'production' ? ["upgrade-insecure-requests"] : []),
             ].join('; '),
           },
           // v9 Hyper-Speed Early Hints (Preconnect & DNS prefetch in HTTP response headers)

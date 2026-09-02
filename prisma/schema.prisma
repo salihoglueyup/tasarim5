@@ -81,6 +81,10 @@ model Post {
   published      Boolean  @default(false)
   datePublished  DateTime @default(now())
   dateModified   DateTime @updatedAt
+
+  @@index([published, datePublished(sort: Desc)])
+  @@index([categoryId, published])
+  @@index([authorId, published])
 }
 
 model Faq {
@@ -97,6 +101,8 @@ model Faq {
   order       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([category, order])
 }
 
 model Reference {
@@ -138,6 +144,10 @@ model Reference {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([published, order])
+  @@index([category, published])
+  @@index([isSuccessStory, published])
 }
 
 model Partner {
@@ -160,6 +170,9 @@ model Lead {
   meta      String? // JSON string
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
+
+  @@index([type, createdAt(sort: Desc)])
+  @@index([isRead, createdAt(sort: Desc)])
 }
 
 model CalculatorConfig {
