@@ -1,46 +1,50 @@
+import React from 'react';
+import Skeleton from '@/components/ui/Skeleton';
+
+/**
+ * Faz 83: Next.js App Router sayfa yapısıyla birebir örtüşen,
+ * GPU hızlandırmalı CSS shimmer iskeletine sahip yüksek kaliteli `loading.tsx`.
+ */
 export default function Loading() {
   return (
     <div 
-      className="min-h-[75vh] w-full flex flex-col items-center justify-center p-6 bg-[var(--color-background)] relative overflow-hidden"
-      style={{ transform: "translateZ(0)" }}
+      className="min-h-[85vh] w-full flex flex-col p-6 max-w-7xl mx-auto space-y-10 pt-28 font-sans"
+      aria-label="Sayfa yükleniyor"
     >
-      {/* Arkaplan İkincil Parlama Efekti (GPU İzoleli) */}
-      <div 
-        className="absolute w-[400px] h-[400px] bg-gradient-to-tr from-blue-600/10 via-cyan-500/10 to-transparent rounded-full blur-3xl pointer-events-none"
-        style={{ transform: "translateZ(0)", willChange: "transform" }}
-      />
+      {/* Breadcrumb & Üst Etiket İskeleti */}
+      <div className="flex items-center gap-2">
+        <Skeleton variant="rectangular" className="h-5 w-24" />
+        <span className="text-slate-300 dark:text-slate-700">/</span>
+        <Skeleton variant="rectangular" className="h-5 w-36" />
+      </div>
 
-      {/* Merkez Logo ve Pulsing Yükleniyor Halka Efekti */}
-      <div className="relative flex flex-col items-center justify-center z-10 max-w-2xl w-full mx-auto space-y-8 animate-pulse">
-        {/* İskelet Başlık */}
-        <div className="w-48 h-8 bg-slate-200 dark:bg-slate-800/80 rounded-full mx-auto shadow-inner" />
-        <div className="w-3/4 h-12 bg-slate-300 dark:bg-slate-800 rounded-2xl mx-auto shadow-inner" />
-        <div className="w-1/2 h-6 bg-slate-200 dark:bg-slate-800/60 rounded-xl mx-auto" />
+      {/* Hero Başlık & Alt Başlık İskeleti */}
+      <div className="space-y-4 max-w-3xl">
+        <Skeleton variant="rectangular" className="h-7 w-32 rounded-full" />
+        <Skeleton variant="rectangular" className="h-12 w-4/5 rounded-2xl" />
+        <Skeleton variant="rectangular" className="h-6 w-3/5 rounded-xl" />
+      </div>
 
-        {/* İskelet Kart Izgarası */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full pt-8">
-          <div className="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-800/50 p-6 flex flex-col justify-between">
-            <div className="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800" />
-            <div className="space-y-2">
-              <div className="w-2/3 h-5 bg-slate-200 dark:bg-slate-800 rounded-lg" />
-              <div className="w-full h-3 bg-slate-200/60 dark:bg-slate-800/60 rounded" />
-            </div>
+      {/* Hero Aksiyon Butonları İskeleti */}
+      <div className="flex flex-wrap items-center gap-4 pt-2">
+        <Skeleton variant="rectangular" className="h-12 w-40 rounded-xl" />
+        <Skeleton variant="rectangular" className="h-12 w-32 rounded-xl" />
+      </div>
+
+      {/* 3'lü Hizmet / İçerik Kart Izgarası İskeleti */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full pt-8">
+        {[1, 2, 3].map((card) => (
+          <div 
+            key={card}
+            className="p-6 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/40 space-y-4 shadow-sm"
+          >
+            <Skeleton variant="rectangular" className="h-12 w-12 rounded-2xl" />
+            <Skeleton variant="rectangular" className="h-6 w-3/4 rounded-lg" />
+            <Skeleton variant="text" />
+            <Skeleton variant="text" />
+            <Skeleton variant="rectangular" className="h-4 w-2/3 rounded-md pt-2" />
           </div>
-          <div className="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-800/50 p-6 flex flex-col justify-between">
-            <div className="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800" />
-            <div className="space-y-2">
-              <div className="w-3/4 h-5 bg-slate-200 dark:bg-slate-800 rounded-lg" />
-              <div className="w-full h-3 bg-slate-200/60 dark:bg-slate-800/60 rounded" />
-            </div>
-          </div>
-          <div className="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-800/50 p-6 flex flex-col justify-between">
-            <div className="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800" />
-            <div className="space-y-2">
-              <div className="w-1/2 h-5 bg-slate-200 dark:bg-slate-800 rounded-lg" />
-              <div className="w-full h-3 bg-slate-200/60 dark:bg-slate-800/60 rounded" />
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

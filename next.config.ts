@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
   },
   experimental: {
+    // Faz 81 & Faz 82: App Router staleTimes ile istemci belleği şişmesini önleme ve hızlı geri/ileri navigasyonu
+    staleTimes: {
+      dynamic: 30,
+      static: 180,
+    },
     optimizePackageImports: [
       'framer-motion',
       '@next/third-parties',

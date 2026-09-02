@@ -128,11 +128,11 @@
 - [x] **Faz 78:** Header tema değiştiriciyi (Dark/Light Mode) flicker (FOUC) yaratmayacak inline script ile senkronize etme.
 - [x] **Faz 79:** `MobileMenu.tsx` (9 KB) açılışını GPU kompozitöründe `transform: translateX` ile 120 FPS akıcılığa kavuşturma.
 - [x] **Faz 80:** Mobil menü açıkken arka plan kaydırmasını (body scroll lock) layout kayması olmadan engelleme.
-- [ ] **Faz 81:** Next.js App Router `staleTimes` ayarını `next.config.ts` üzerinde yapılandırma (`dynamic: 30s`, `static: 180s`).
-- [ ] **Faz 82:** Rota geçişlerinde prefetch edilen sayfaların istemci belleğinde gereksiz şişmesini önleme.
-- [ ] **Faz 83:** `loading.tsx` dosyasını sayfa yapısıyla birebir örtüşen yüksek kaliteli skeleton layout ile güncelleme.
-- [ ] **Faz 84:** `not-found.tsx` sayfasına kullanıcıların aradıkları içeriği bulabilmeleri için popüler hizmetler ve arama motoru ekleme.
-- [ ] **Faz 85:** `error.tsx` bileşenini minimal hata raporlama ve tek tıkla yeniden deneme ("Tekrar Dene") butonuyla donatma.
+- [x] **Faz 81:** Next.js App Router `staleTimes` ayarını `next.config.ts` üzerinde yapılandırma (`dynamic: 30s`, `static: 180s`).
+- [x] **Faz 82:** Rota geçişlerinde prefetch edilen sayfaların istemci belleğinde gereksiz şişmesini önleme.
+- [x] **Faz 83:** `loading.tsx` dosyasını sayfa yapısıyla birebir örtüşen yüksek kaliteli skeleton layout ile güncelleme.
+- [x] **Faz 84:** `not-found.tsx` sayfasına kullanıcıların aradıkları içeriği bulabilmeleri için popüler hizmetler ve arama motoru ekleme.
+- [x] **Faz 85:** `error.tsx` bileşenini minimal hata raporlama ve tek tıkla yeniden deneme ("Tekrar Dene") butonuyla donatma.
 - [ ] **Faz 86:** `global-error.tsx` dosyasını kritik layout çökmelerini kurtaracak yalın HTML formatına getirme.
 - [ ] **Faz 87:** Next.js `optimizePackageImports` listesine tüm yaygın paketleri ekleme (`lucide-react`, `clsx`, vb.).
 - [ ] **Faz 88:** Navigasyon linklerinde `prefetch={true}` kullanımını yalnızca en kritik 4 ana sayfa linkiyle sınırlama.
