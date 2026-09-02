@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 type LoginModalProps = {
   isOpen: boolean;
@@ -13,6 +14,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'sakin' | 'yonetici'>('sakin');
   const [mounted, setMounted] = useState(false);
+  const trapRef = useFocusTrap<HTMLDivElement>(isOpen, onClose);
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setMounted(true));
@@ -44,8 +46,9 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             className="absolute inset-0 bg-slate-900/60 backdrop-blur-md cursor-pointer"
           />
 
-          {/* Modal Container */}
+          {/* Modal Container with Focus Trap */}
           <motion.div 
+            ref={trapRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="login-modal-title"

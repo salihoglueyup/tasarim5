@@ -166,7 +166,11 @@ export default function FaqClient({
                   }`}
                 >
                   <button
+                    id={`faq-button-${faq.id}`}
+                    type="button"
                     onClick={() => setOpenIndex(isOpen ? null : faq.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${faq.id}`}
                     className="w-full p-6 md:p-8 text-left flex items-start sm:items-center justify-between gap-6 cursor-pointer group"
                   >
                     <span 
@@ -178,7 +182,7 @@ export default function FaqClient({
                     <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                       isOpen ? 'bg-brand-500 text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 group-hover:bg-brand-500/10 group-hover:text-brand-500'
                     }`}>
-                      <span className="material-symbols-outlined">
+                      <span className="material-symbols-outlined" aria-hidden="true">
                         {isOpen ? 'remove' : 'add'}
                       </span>
                     </div>
@@ -187,6 +191,9 @@ export default function FaqClient({
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
+                        id={`faq-panel-${faq.id}`}
+                        role="region"
+                        aria-labelledby={`faq-button-${faq.id}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

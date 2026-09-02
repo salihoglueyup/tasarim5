@@ -278,11 +278,11 @@
 ### ♿ WAVE 9: FAZ 201–225 — Erişilebilirlik (A11y) & WCAG AA Uyumluluğu
 *Hedef: Engelli kullanıcılar, ekran okuyucular ve klavye gezintisi için kusursuz erişilebilirlik skoru (100/100).*
 
-- [ ] **Faz 201:** Tüm interaktif buton ve linklerde açıklayıcı `aria-label` tanımlarını eksiksiz tamamlama.
-- [ ] **Faz 202:** Tüm sayfalarda en başa `#main-content` atlama bağlantısı (Skip Navigation Link) ekleme.
-- [ ] **Faz 203:** Sayfa başlık hiyerarşisini (`h1` -> `h2` -> `h3`) denetleme; her sayfada tek bir `h1` olduğunu garanti etme.
-- [ ] **Faz 204:** Modallarda odak tuzağı (Focus Trap) ekleyerek Tab tuşunun modal dışına kaçmasını engelleme.
-- [ ] **Faz 205:** Dropdown ve akordeonlarda `aria-expanded="true/false"` ve `aria-controls` eşleşmelerini tamamlama.
+- [x] **Faz 201:** Tüm interaktif buton ve linklerde açıklayıcı `aria-label` tanımlarını eksiksiz tamamlama.
+- [x] **Faz 202:** Tüm sayfalarda en başa `#main-content` atlama bağlantısı (Skip Navigation Link) ekleme.
+- [x] **Faz 203:** Sayfa başlık hiyerarşisini (`h1` -> `h2` -> `h3`) denetleme; her sayfada tek bir `h1` olduğunu garanti etme.
+- [x] **Faz 204:** Modallarda odak tuzağı (Focus Trap) ekleyerek Tab tuşunun modal dışına kaçmasını engelleme.
+- [x] **Faz 205:** Dropdown ve akordeonlarda `aria-expanded="true/false"` ve `aria-controls` eşleşmelerini tamamlama.
 - [ ] **Faz 206:** Tüm form alanlarına kalıcı `<label>` ve `htmlFor` ilişkilendirmesi ekleme.
 - [ ] **Faz 207:** Form hata mesajlarını ekran okuyuculara anında duyurmak için `aria-live="polite"` ve `aria-invalid="true"` kullanma.
 - [ ] **Faz 208:** Görsellerdeki tüm `alt` niteliklerini denetleme; dekoratif görsellere `alt=""` ve `aria-hidden="true"` ekleme.
