@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation';
 import ItemListSeo from '@/components/seo/ItemListSeo';
 import { BASE_URL, buildMetadata } from '@/lib/seo';
 
-import { POSTS, CATEGORIES } from '@/data/posts';
+import { POSTS_META, CATEGORIES } from '@/data/posts';
 import { redis } from '@/lib/redis';
 
 export const revalidate = 3600;
@@ -52,7 +52,27 @@ export default async function Blog() {
       prisma.post.findMany({
         where: { published: true },
         orderBy: { datePublished: 'desc' },
-        include: { category: true }
+        select: {
+          id: true,
+          slug: true,
+          title: true,
+          description: true,
+          title_en: true,
+          title_ru: true,
+          title_ar: true,
+          description_en: true,
+          description_ru: true,
+          description_ar: true,
+          tldr: true,
+          image: true,
+          published: true,
+          categoryId: true,
+          authorId: true,
+          tags: true,
+          datePublished: true,
+          dateModified: true,
+          category: true,
+        },
       }).catch(() => []),
       prisma.category.findMany().catch(() => []),
     ]);
@@ -69,7 +89,7 @@ export default async function Blog() {
   }
 
   if (finalPosts.length === 0) {
-    finalPosts = POSTS.map((p, idx) => ({
+    finalPosts = POSTS_META.map((p, idx) => ({
       id: `static-${idx}`,
       slug: p.slug,
       title: p.title,
@@ -81,10 +101,6 @@ export default async function Blog() {
       description_ru: null,
       description_ar: null,
       summary: p.tldr,
-      content: JSON.stringify(p.content),
-      content_en: null,
-      content_ru: null,
-      content_ar: null,
       image: p.image,
       published: true,
       categoryId: p.category,

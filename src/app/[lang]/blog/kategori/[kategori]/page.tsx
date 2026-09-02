@@ -8,7 +8,7 @@ import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas'
 import { prisma } from '@/lib/prisma';
 
 
-import { CATEGORIES, POSTS } from '@/data/posts';
+import { CATEGORIES, POSTS_META } from '@/data/posts';
 
 export const dynamicParams = true;
 export const revalidate = 3600;
@@ -77,12 +77,24 @@ export default async function CategoryArchive({
 
   let posts = await prisma.post.findMany({
     where: { categoryId: cat.id, published: true },
-    include: { category: true },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      description: true,
+      image: true,
+      datePublished: true,
+      dateModified: true,
+      category: true,
+      tags: true,
+      authorId: true,
+      published: true,
+    },
     orderBy: { datePublished: 'desc' }
   }).catch(() => []);
 
   if (posts.length === 0) {
-    posts = POSTS.filter((p) => p.category === kategori).map((p, idx) => ({
+    posts = POSTS_META.filter((p) => p.category === kategori).map((p, idx) => ({
       id: `static-${idx}`,
       slug: p.slug,
       title: p.title,

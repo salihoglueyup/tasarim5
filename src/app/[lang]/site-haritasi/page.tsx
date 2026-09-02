@@ -7,7 +7,7 @@ import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
-import { CATEGORIES, POSTS } from '@/data/posts';
+import { CATEGORIES, POSTS_META } from '@/data/posts';
 
 export const revalidate = 3600;
 
@@ -43,7 +43,7 @@ export default async function SiteHaritasiPage({
   const posts: Array<{ slug: string; title: string }> =
     dbPosts.length > 0
       ? (dbPosts as any)
-      : POSTS.map((p) => ({ slug: p.slug, title: p.title }));
+      : POSTS_META.map((p) => ({ slug: p.slug, title: p.title }));
   
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },

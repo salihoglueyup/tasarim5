@@ -10,7 +10,7 @@ import { generateBreadcrumbs, webPageSchema, JsonLdObject, authorPersonSchema } 
 import { prisma } from '@/lib/prisma';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
-import { POSTS, CATEGORIES } from '@/data/posts';
+import { POSTS_META, CATEGORIES } from '@/data/posts';
 
 export const dynamicParams = true;
 export const revalidate = 86400;
@@ -81,12 +81,24 @@ export default async function AuthorArchive({
 
   let posts = await prisma.post.findMany({
     where: { authorId: author.id, published: true },
-    include: { category: true },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      description: true,
+      image: true,
+      datePublished: true,
+      dateModified: true,
+      category: true,
+      tags: true,
+      authorId: true,
+      published: true,
+    },
     orderBy: { datePublished: 'desc' },
   }).catch(() => []);
 
   if (posts.length === 0) {
-    posts = POSTS.map((p, idx) => ({
+    posts = POSTS_META.map((p, idx) => ({
       id: `static-${idx}`,
       slug: p.slug,
       title: p.title,

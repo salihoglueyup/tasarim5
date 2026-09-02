@@ -67,6 +67,8 @@ export type Post = {
   content: PostBlock[];
 };
 
+export { POSTS_META, type PostMeta } from './postsMetadata';
+
 export const POSTS: Post[] = [
   {
     "slug": "tesis-yonetimi-nedir-kapsami-ve-iso-41001-standartlari",

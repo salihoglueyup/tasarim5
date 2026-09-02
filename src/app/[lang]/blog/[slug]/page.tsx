@@ -17,15 +17,10 @@ import BlogFAQExtractor from '@/components/seo/BlogFAQExtractor';
 import { LOCALES, buildMetadata, BASE_URL } from '@/lib/seo';
 import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
 import type { Metadata } from 'next';
-import trDict from '@/i18n/locales/tr/common.json';
-import enDict from '@/i18n/locales/en/common.json';
-import ruDict from '@/i18n/locales/ru/common.json';
-import arDict from '@/i18n/locales/ar/common.json';
+import { getDictionary } from '@/lib/i18n';
 
 import { POSTS, CATEGORIES } from '@/data/posts';
 import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
-
-const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
 export const dynamicParams = true;
 export const revalidate = 3600;
@@ -113,7 +108,8 @@ export default async function BlogDetail({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { slug, lang } = await params;
-  const t = (key: string) => dictionaries[lang]?.[key] || dictionaries['tr'][key] || key;
+  const dict = await getDictionary(lang);
+  const t = (key: string) => dict?.[key] || key;
   
   let post = await prisma.post.findUnique({
     where: { slug },
