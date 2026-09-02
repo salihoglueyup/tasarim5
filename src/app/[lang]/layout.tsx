@@ -13,6 +13,7 @@ import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
 import arDict from '@/i18n/locales/ar/common.json';
 import DynamicBreadcrumb from '@/components/seo/DynamicBreadcrumb';
+import LanguageSuggestionBanner from '@/components/ui/LanguageSuggestionBanner';
 
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
@@ -295,6 +296,8 @@ export default async function RootLayout({
           <QuoteProvider>
             <FramerLazyProvider>
               <ClientWidgets />
+              {/* Faz 160: Akıllı Dil Öneri Banner'ı */}
+              <LanguageSuggestionBanner currentLang={lang} />
               <SmoothScroll>
                 <NavigationWrapper>
                   {children}

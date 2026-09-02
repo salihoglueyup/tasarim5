@@ -221,11 +221,11 @@
 - [x] **Faz 153:** `x-default` hreflang etiketini tüm sayfalarda varsayılan dil (Türkçe) olarak sabitleme.
 - [x] **Faz 154:** `common.json` dosyalarındaki (TR, EN, RU, AR) tüm anahtarların eksiksiz olduğunu denetleyen otomatik test yazma.
 - [x] **Faz 155:** URL slug çevirilerini (`middleware.ts` içindeki `translatedSlugs`) tüm hizmet ve kurumsal sayfalar için tamamlama.
-- [ ] **Faz 156:** İngilizce blog yazıları için temel sektör terimleri sözlüğü oluşturma.
-- [ ] **Faz 157:** Rusça ve Arapça sayfaların meta başlık ve açıklamalarını lokal kültüre uygun optimize etme.
-- [ ] **Faz 158:** Dil değiştirici bileşeni kullanıldığında kullanıcının bulunduğu sayfa rotasını ve dil karşılığını koruma.
-- [ ] **Faz 159:** Dil seçimini `NEXT_LOCALE` çerezi ile kaydedip sonraki ziyaretlerde hatırlama.
-- [ ] **Faz 160:** Tarayıcı `Accept-Language` başlığına göre ilk girişte akıllı dil öneri banner'ı sunma.
+- [x] **Faz 156:** İngilizce blog yazıları için temel sektör terimleri sözlüğü oluşturma.
+- [x] **Faz 157:** Rusça ve Arapça sayfaların meta başlık ve açıklamalarını lokal kültüre uygun optimize etme.
+- [x] **Faz 158:** Dil değiştirici bileşeni kullanıldığında kullanıcının bulunduğu sayfa rotasını ve dil karşılığını koruma.
+- [x] **Faz 159:** Dil seçimini `NEXT_LOCALE` çerezi ile kaydedip sonraki ziyaretlerde hatırlama.
+- [x] **Faz 160:** Tarayıcı `Accept-Language` başlığına göre ilk girişte akıllı dil öneri banner'ı sunma.
 - [ ] **Faz 161:** Para birimi ve sayı formatlarını dile göre yerelleştirme (`Intl.NumberFormat('tr-TR')`).
 - [ ] **Faz 162:** Tarih formatlarını dile göre yerelleştirme (`Intl.DateTimeFormat`).
 - [ ] **Faz 163:** Çok dilli site haritası (`sitemap.xml`) içinde her URL için `xhtml:link rel="alternate"` tanımlarını ekleme.

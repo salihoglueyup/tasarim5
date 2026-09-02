@@ -51,10 +51,26 @@ export function getFacilitySerpMeta(
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
 
   if (district) {
-    const title = getPillarTitleTemplate(pillar, district.name);
-    const description = getPillarDescriptionTemplate(pillar, district.name);
+    let title = getPillarTitleTemplate(pillar, district.name);
+    let description = getPillarDescriptionTemplate(pillar, district.name);
+    let targetKeyword = pillar === 'facility' ? `${district.name} tesis yönetimi` : `${district.name} site yönetimi`;
+
+    // Faz 157: EN, RU ve AR için kültürel ve yerel arama niyetine göre optimize edilmiş meta etiketleri
+    if (lang === 'en') {
+      title = `Professional Property & Facility Management in ${district.name}, Istanbul | Alo Yönetim`;
+      description = `Integrated residential site and facility management across ${district.name}, Istanbul. ISO 41001 accredited services, 24/7 security, and 30% savings.`;
+      targetKeyword = `${district.name} property management istanbul`;
+    } else if (lang === 'ru') {
+      title = `Управление Жилыми Комплексами и Объектами в ${district.name}, Стамбул | Alo Yönetim`;
+      description = `Комплексное управление жилыми комплексами и зданиями в районе ${district.name}, Стамбул. Лицензированная охрана, технический сервис и экономия бюджета 30%.`;
+      targetKeyword = `управление недвижимостью ${district.name.toLowerCase()} стамбул`;
+    } else if (lang === 'ar') {
+      title = `إدارة المجمعات السكنية والمرافق في ${district.name} إسطنبول | Alo Yönetim`;
+      description = `خدمات إدارة المجمعات السكنية والأبراج الاحترافية في منطقة ${district.name} بإسطنبول. أمن مرخص 5188، صيانة فنية وتحصيل مستحقات بنسبة 99.2%.`;
+      targetKeyword = `إدارة المجمعات ${district.name} اسطنبول`;
+    }
+
     const canonicalPath = `/bolgeler/${district.slug}/tesis-yonetimi`;
-    const targetKeyword = pillar === 'facility' ? `${district.name} tesis yönetimi` : `${district.name} site yönetimi`;
     const ogServiceTitle = pillar === 'facility' ? 'Entegre Tesis Yönetimi' : 'Site ve Tesis Yönetimi';
     const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent(ogServiceTitle)}&title=${encodeURIComponent(title)}&rating=${encodeURIComponent('★ 4.9 · ' + district.managedProjects + '+ Proje')}`;
 

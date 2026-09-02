@@ -220,12 +220,18 @@ export async function middleware(request: NextRequest) {
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // Ziyaretçi ana sayfaya geldiyse ve locale yoksa auto-detect yap
-  if (pathname === '/' && !request.cookies.has('NEXT_LOCALE')) {
-    const detectedLocale = getLocale(request);
-    if (detectedLocale !== defaultLocale) {
-      const redirectUrl = new URL(`/${detectedLocale}`, request.url);
-      return NextResponse.redirect(redirectUrl);
+  // Faz 159 & Faz 160: NEXT_LOCALE çerezi varsa hatırla, yoksa Accept-Language ile yönlendir
+  if (pathname === '/') {
+    const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
+    if (cookieLocale && cookieLocale !== defaultLocale && locales.includes(cookieLocale)) {
+      return NextResponse.redirect(new URL(`/${cookieLocale}`, request.url));
+    }
+
+    if (!cookieLocale) {
+      const detectedLocale = getLocale(request);
+      if (detectedLocale !== defaultLocale) {
+        return NextResponse.redirect(new URL(`/${detectedLocale}`, request.url));
+      }
     }
   }
 
