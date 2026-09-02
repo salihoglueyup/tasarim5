@@ -192,6 +192,44 @@ select:focus-visible,
   cursor: auto;
 }
 
+/* Faz 66: Form girdi elemanlarında standartlaştırılmış focus-visible halkası ve yumuşak halo */
+input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 1px !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15) !important;
+  border-color: #3b82f6 !important;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.dark input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+.dark textarea:focus-visible,
+.dark select:focus-visible {
+  outline: 2px solid #60a5fa !important;
+  outline-offset: 1px !important;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2) !important;
+  border-color: #60a5fa !important;
+}
+
+/* Faz 67: Form validasyon hata alanlarında layout shift (CLS) engelleme */
+.form-error-slot {
+  min-height: 1.25rem;
+  transition: opacity 0.15s ease-out;
+}
+
+/* Faz 70: Mobil dokunmatik ekranlarda (pointer: coarse) buton dokunma hedeflerinin min 44-48px sabitlemesi */
+@media (pointer: coarse) {
+  button:not(.touch-target-exempt),
+  a[role="button"]:not(.touch-target-exempt),
+  input[type="button"]:not(.touch-target-exempt),
+  input[type="submit"]:not(.touch-target-exempt) {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+}
+
 /*
   Hareket azaltma (SEO V4 Faz 202/203/204): kullanıcı prefers-reduced-motion
   belirttiyse animasyon/geçiş/otomatik kaydırmayı en aza indir (INP + erişilebilirlik).

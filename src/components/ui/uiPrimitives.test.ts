@@ -1,10 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import { cn } from '@/lib/utils';
 
-describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 65)', () => {
+describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 70)', () => {
   const uiDir = path.resolve(process.cwd(), 'src/components/ui');
   const hooksDir = path.resolve(process.cwd(), 'src/hooks');
+  const cssPath = path.resolve(process.cwd(), 'src/app/globals.css');
 
   it('Modal.tsx Framer Motion içermez ve A11y role="dialog" taşır (Faz 51)', () => {
     const modalContent = fs.readFileSync(path.join(uiDir, 'Modal.tsx'), 'utf-8');
@@ -107,5 +109,39 @@ describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 65)', () => {
     const hookContent = fs.readFileSync(path.join(hooksDir, 'useClickOutside.ts'), 'utf-8');
     expect(hookContent).toContain('pointerdown');
     expect(hookContent).toContain('passive: true');
+  });
+
+  it('globals.css form girdi elemanlarında standart focus-visible halkası içerir (Faz 66)', () => {
+    const cssContent = fs.readFileSync(cssPath, 'utf-8');
+    expect(cssContent).toContain('input:not([type="checkbox"]):not([type="radio"]):focus-visible');
+    expect(cssContent).toContain('outline: 2px solid #3b82f6');
+  });
+
+  it('globals.css form hata alanlarında min-height CLS koruması içerir (Faz 67)', () => {
+    const cssContent = fs.readFileSync(cssPath, 'utf-8');
+    expect(cssContent).toContain('.form-error-slot');
+    expect(cssContent).toContain('min-height: 1.25rem');
+  });
+
+  it('utils.ts memoized cn fonksiyonu sınıfları doğru birleştirir ve önbelleğe alır (Faz 68)', () => {
+    const res1 = cn('p-4', 'text-white', { 'bg-blue-500': true, 'hidden': false });
+    expect(res1).toBe('p-4 text-white bg-blue-500');
+    // Tekrar çağrıldığında cache'ten döner
+    const res2 = cn('p-4', 'text-white', { 'bg-blue-500': true, 'hidden': false });
+    expect(res2).toBe(res1);
+  });
+
+  it('Toast.tsx saf CSS animasyonlu bildirim sistemi sunar (Faz 69)', () => {
+    const toastContent = fs.readFileSync(path.join(uiDir, 'Toast.tsx'), 'utf-8');
+    expect(toastContent).not.toContain("from 'framer-motion'");
+    expect(toastContent).toContain('role="status"');
+    expect(toastContent).toContain('transform-gpu');
+  });
+
+  it('globals.css mobil dokunmatik ekranlar için min 44-48px touch target sabitlemesi içerir (Faz 70)', () => {
+    const cssContent = fs.readFileSync(cssPath, 'utf-8');
+    expect(cssContent).toContain('@media (pointer: coarse)');
+    expect(cssContent).toContain('min-height: 44px');
+    expect(cssContent).toContain('touch-action: manipulation');
   });
 });

@@ -107,11 +107,11 @@
 - [x] **Faz 63:** `FramerLazyProvider.tsx` bileşeninin gerekliliğini değerlendirip gereksizse kaldırma.
 - [x] **Faz 64:** Modallarda Escape tuşuna basıldığında kapanma ve odak geri yükleme (focus restoration) ekleme.
 - [x] **Faz 65:** Dropdown menülerde tıklandığında dışarı tıklama (click-outside) dinleyicisini optimize etme.
-- [ ] **Faz 66:** Form girdi elemanlarında (`input`, `select`, `textarea`) focus halkası (focus-visible) stillerini standartlaştırma.
-- [ ] **Faz 67:** Form validasyon hatalarında layout kaymasını önlemek için sabit min-height uygulama.
-- [ ] **Faz 68:** UI bileşenlerinde dinamik class birleştirmeleri (`cn`, `clsx`, `tailwind-merge`) için memoization.
-- [ ] **Faz 69:** Toast bildirimleri sistemini CSS tabanlı animasyonlarla donatma.
-- [ ] **Faz 70:** Mobil cihazlarda buton dokunma hedeflerini minimum 48x48 piksel olarak sabitleme.
+- [x] **Faz 66:** Form girdi elemanlarında (`input`, `select`, `textarea`) focus halkası (focus-visible) stillerini standartlaştırma.
+- [x] **Faz 67:** Form validasyon hatalarında layout kaymasını önlemek için sabit min-height uygulama.
+- [x] **Faz 68:** UI bileşenlerinde dinamik class birleştirmeleri (`cn`, `clsx`, `tailwind-merge`) için memoization.
+- [x] **Faz 69:** Toast bildirimleri sistemini CSS tabanlı animasyonlarla donatma.
+- [x] **Faz 70:** Mobil cihazlarda buton dokunma hedeflerini minimum 48x48 piksel olarak sabitleme.
 - [ ] **Faz 71:** Skeleton yükleme iskeletlerini shimmer CSS efektiyle hafifletme.
 - [ ] **Faz 72:** UI ikonlarının SVG boyutlarını ve viewBox tanımlarını optimize etme.
 - [ ] **Faz 73:** Breadcrumb navigasyonunda tıklanabilir alanları genişletme.
