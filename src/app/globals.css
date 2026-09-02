@@ -423,3 +423,61 @@ textarea:focus-visible {
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25) !important;
 }
 
+/* Faz 212: WCAG 2.1 AA Yüksek Kontrast Desteği (prefers-contrast: more) */
+@media (prefers-contrast: more) {
+  :root {
+    --color-outline: #000000;
+  }
+
+  body {
+    color: #000000 !important;
+  }
+
+  .dark body {
+    color: #ffffff !important;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    border-color: #000000 !important;
+  }
+
+  .dark button,
+  .dark a,
+  .dark input,
+  .dark select,
+  .dark textarea {
+    border-color: #ffffff !important;
+  }
+
+  .border,
+  [class*="border-"] {
+    border-width: 2px !important;
+    border-color: currentColor !important;
+  }
+
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: none !important;
+    outline: 2px solid currentColor !important;
+  }
+}
+
+/* Faz 215: WCAG 2.5.5 Mobil Dokunmatik Alan Boyutu (Target Size: min 44x44px) */
+@media (pointer: coarse) {
+  button,
+  a[role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+

@@ -61,11 +61,11 @@ export default function ComparisonTableSeo() {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-slate-900 text-white dark:bg-white dark:text-slate-950">
-                <th className="text-left p-4 font-bold w-1/3">Kriter</th>
-                <th className="text-left p-4 font-bold text-brand-300 dark:text-brand-600">
+                <th scope="col" className="text-left p-4 font-bold w-1/3">Kriter</th>
+                <th scope="col" className="text-left p-4 font-bold text-brand-300 dark:text-brand-600">
                   ✓ Alo Yönetim (Profesyonel)
                 </th>
-                <th className="text-left p-4 font-bold text-slate-300 dark:text-slate-500">
+                <th scope="col" className="text-left p-4 font-bold text-slate-300 dark:text-slate-500">
                   Bireysel Yönetici
                 </th>
               </tr>
@@ -78,9 +78,9 @@ export default function ComparisonTableSeo() {
                     ? 'bg-[var(--color-surface)]'
                     : 'bg-slate-50 dark:bg-white/[0.02]'}
                 >
-                  <td className="p-4 font-semibold text-[var(--color-primary)] border-b border-[var(--color-outline)]/30 align-top">
+                  <th scope="row" className="p-4 font-semibold text-[var(--color-primary)] border-b border-[var(--color-outline)]/30 align-top text-left">
                     {row.criteria}
-                  </td>
+                  </th>
                   <td className="p-4 text-[var(--color-secondary)] border-b border-[var(--color-outline)]/30 align-top">
                     <div className="flex items-start gap-2">
                       <span className="text-green-500 font-bold mt-0.5 shrink-0">✓</span>

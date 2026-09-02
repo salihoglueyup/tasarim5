@@ -288,11 +288,11 @@
 - [x] **Faz 208:** Görsellerdeki tüm `alt` niteliklerini denetleme; dekoratif görsellere `alt=""` ve `aria-hidden="true"` ekleme.
 - [x] **Faz 209:** Tüm metin ve arka plan renk kombinasyonlarını WCAG AA (minimum 4.5:1 kontrast) seviyesine getirme.
 - [x] **Faz 210:** Focus durumunda mavi odak halkasını (`focus-visible:ring-2`) tüm klavye gezintilerinde belirgin kılma.
-- [ ] **Faz 211:** `@media (prefers-reduced-motion: reduce)` sorgusu ile tüm animasyonları ve geçişleri sıfırlayan global kural yazma.
-- [ ] **Faz 212:** `@media (prefers-contrast: more)` desteği ile yüksek kontrast isteyen kullanıcılara kenarlık ve metin keskinliği sunma.
-- [ ] **Faz 213:** Tablolarda `<th>` elemanlarına `scope="col"` ve `scope="row"` nitelikleri ekleme.
-- [ ] **Faz 214:** Ekran okuyucuların anlaması için semantik HTML etiketlerini (`<main>`, `<nav>`, `<aside>`, `<article>`, `<header>`, `<footer>`) eksiksiz kullanma.
-- [ ] **Faz 215:** Mobil dokunmatik alan boyutlarını kontrol etme (minimum 44x44 CSS pikseli).
+- [x] **Faz 211:** `@media (prefers-reduced-motion: reduce)` sorgusu ile tüm animasyonları ve geçişleri sıfırlayan global kural yazma.
+- [x] **Faz 212:** `@media (prefers-contrast: more)` desteği ile yüksek kontrast isteyen kullanıcılara kenarlık ve metin keskinliği sunma.
+- [x] **Faz 213:** Tablolarda `<th>` elemanlarına `scope="col"` ve `scope="row"` nitelikleri ekleme.
+- [x] **Faz 214:** Ekran okuyucuların anlaması için semantik HTML etiketlerini (`<main>`, `<nav>`, `<aside>`, `<article>`, `<header>`, `<footer>`) eksiksiz kullanma.
+- [x] **Faz 215:** Mobil dokunmatik alan boyutlarını kontrol etme (minimum 44x44 CSS pikseli).
 - [ ] **Faz 216:** SVG ikonlara ekran okuyucuların takılmaması için `aria-hidden="true"` ekleme.
 - [ ] **Faz 217:** Sesli içerik veya videolar için altyazı / deşifre metni bağlantısı ekleme.
 - [ ] **Faz 218:** Sayfa dili tanımlamasının (`<html lang="tr">`) dile göre dinamik güncellendiğini doğrulama.
