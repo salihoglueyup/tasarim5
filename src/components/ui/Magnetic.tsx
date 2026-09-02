@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 interface MagneticProps {
@@ -9,13 +9,28 @@ interface MagneticProps {
   className?: string;
 }
 
+/**
+ * Faz 59: Magnetic bileşeninin mobilde ve dokunmatik ekranlarda
+ * (pointer: coarse / touch / <768px) otomatik devre dışı bırakılması.
+ * Dokunmatik ekranlarda sıfır JS listener ile saf DOM elemanı döndürülür.
+ */
 export default function Magnetic({ children, strength = 0.2, className = "" }: MagneticProps) {
+  const [isTouch, setIsTouch] = useState(true); // SSR varsayılanı hafif pass-through
   const ref = useRef<HTMLDivElement>(null);
-  // Jank önleme: rect'i her mousemove'da okumak yerine hover başında bir kez ölç ve önbelleğe al.
-  // Böylece sıcak yolda (mousemove) senkron layout okuması (getBoundingClientRect) kalkar.
   const rectRef = useRef<DOMRect | null>(null);
 
-  // Sıfır Re-Render (Zero Re-Render) Hızlandırması (v6): State yerine doğrudan MotionValue!
+  useEffect(() => {
+    const checkTouch = () => {
+      const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+      const isSmallScreen = window.innerWidth < 768;
+      setIsTouch(isCoarse || isSmallScreen);
+    };
+
+    checkTouch();
+    window.addEventListener('resize', checkTouch);
+    return () => window.removeEventListener('resize', checkTouch);
+  }, []);
+
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
 
@@ -24,11 +39,12 @@ export default function Magnetic({ children, strength = 0.2, className = "" }: M
   const smoothY = useSpring(rawY, springConfig);
 
   const cacheRect = () => {
+    if (isTouch) return;
     if (ref.current) rectRef.current = ref.current.getBoundingClientRect();
   };
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
-    // rect önbellekte yoksa (ör. onMouseEnter kaçırıldıysa) tembel oku.
+    if (isTouch) return;
     let rect = rectRef.current;
     if (!rect) {
       if (!ref.current) return;
@@ -38,16 +54,20 @@ export default function Magnetic({ children, strength = 0.2, className = "" }: M
     const middleX = e.clientX - (rect.left + rect.width / 2);
     const middleY = e.clientY - (rect.top + rect.height / 2);
 
-    // React state tetiklenmeden doğrudan GPU animasyon motoruna iletilir!
     rawX.set(middleX * strength);
     rawY.set(middleY * strength);
   };
 
   const reset = () => {
+    if (isTouch) return;
     rectRef.current = null;
     rawX.set(0);
     rawY.set(0);
   };
+
+  if (isTouch) {
+    return <div className={`relative inline-flex ${className}`}>{children}</div>;
+  }
 
   return (
     <motion.div

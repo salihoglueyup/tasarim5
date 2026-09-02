@@ -97,11 +97,11 @@
 - [x] **Faz 53:** `SpotlightSearchModal.tsx` (Ctrl+K hızlı arama) klavye navigasyonunu ve arama tepki süresini 10ms altına indirme.
 - [x] **Faz 54:** `Tooltip.tsx` bileşenini Framer Motion yerine saf CSS `@starting-style` / `opacity` geçişlerine dönüştürme.
 - [x] **Faz 55:** `Tabs.tsx` sekme geçişlerini CSS tabanlı gösterge çizgisine geçirme.
-- [ ] **Faz 56:** `QuickCallWidget.tsx` FAB butonunu mobilde GPU katmanında sabit tutarak layout shift'i sıfırlama.
-- [ ] **Faz 57:** `PwaInstallPrompt.tsx` bileşenini deferred prompt ile yalnızca kullanıcı 30 sn sitede kaldıktan sonra yükleme.
-- [ ] **Faz 58:** `CookieConsent.tsx` çerez bildirimini ilk açılışta LCP ve CLS'i engellemeyecek şekilde defer etme.
-- [ ] **Faz 59:** `Magnetic.tsx` bileşenini mobilde ve dokunmatik ekranlarda otomatik devre dışı bırakma.
-- [ ] **Faz 60:** `Accordion.tsx` primitifini `grid-template-rows: 0fr -> 1fr` CSS transition modeline geçirme.
+- [x] **Faz 56:** `QuickCallWidget.tsx` FAB butonunu mobilde GPU katmanında sabit tutarak layout shift'i sıfırlama.
+- [x] **Faz 57:** `PwaInstallPrompt.tsx` bileşenini deferred prompt ile yalnızca kullanıcı 30 sn sitede kaldıktan sonra yükleme.
+- [x] **Faz 58:** `CookieConsent.tsx` çerez bildirimini ilk açılışta LCP ve CLS'i engellemeyecek şekilde defer etme.
+- [x] **Faz 59:** `Magnetic.tsx` bileşenini mobilde ve dokunmatik ekranlarda otomatik devre dışı bırakma.
+- [x] **Faz 60:** `Accordion.tsx` primitifini `grid-template-rows: 0fr -> 1fr` CSS transition modeline geçirme.
 - [ ] **Faz 61:** `Button.tsx` bileşenindeki gereksiz Framer Motion `whileTap` efektlerini saf CSS `:active` ile değiştirme.
 - [ ] **Faz 62:** `Card.tsx` bileşenindeki `motion.div` wrapper'ını kaldırıp CSS hover sınıflarına bağlama.
 - [ ] **Faz 63:** `FramerLazyProvider.tsx` bileşeninin gerekliliğini değerlendirip gereksizse kaldırma.
