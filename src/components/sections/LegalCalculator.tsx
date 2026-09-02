@@ -1,26 +1,26 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import Link from 'next/link';
 import CalculatorLeadForm from './CalculatorLeadForm';
 
+/**
+ * Faz 40: LegalCalculator form elemanlarının ve sonuç gösteriminin sadeleştirilmesi,
+ * Framer Motion bağımlılığının kaldırılarak saf donanım hızlandırmalı CSS transition'a geçirilmesi.
+ */
 export default function LegalCalculator() {
   const { t } = useLanguage();
   const [debtAmount, setDebtAmount] = useState(50000);
-  const [isCalculated, setIsCalculated] = useState(false);
 
-  // Fake logic: Legal collection rate is generally around 15% + court fees, but for demo:
-  // Recovery is 100% of principal + interest. Alo Yönetim takes a fixed fee from debtor, so cost to management is ZERO!
+  // KMK ve İcra: Tahsilat süreci borçludan karşılanır, yönetime maliyet 0 TL
   const costToManagement = 0;
-  const recoveredAmount = debtAmount * 1.09; // Add 9% legal interest
+  const recoveredAmount = debtAmount * 1.09; // %9 yasal faiz ve gecikme tazminatı
 
   return (
     <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
       {/* Decorative BG - Slate/Titanium Theme */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
       
       <div className="relative z-10 flex flex-col lg:flex-row gap-12">
         
@@ -34,14 +34,16 @@ export default function LegalCalculator() {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-[var(--color-primary)]">{t('calc_legal_debt')}</label>
+                <label htmlFor="legal-calc-debt" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_legal_debt')}</label>
                 <span className="text-lg font-black text-slate-700 dark:text-slate-300">₺{debtAmount.toLocaleString('tr-TR')}</span>
               </div>
               <input 
+                id="legal-calc-debt"
+                aria-label="Toplam İcralık Aidat Alacağı"
                 type="range" 
                 min="10000" max="1000000" step="10000"
                 value={debtAmount}
-                onChange={(e) => { setDebtAmount(parseInt(e.target.value)); setIsCalculated(true); }}
+                onChange={(e) => setDebtAmount(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
               <div className="flex justify-between text-xs text-gray-400 font-medium">
@@ -66,20 +68,10 @@ export default function LegalCalculator() {
           
           <span className="text-slate-300 text-sm font-bold tracking-wider uppercase mb-4">{t('calc_legal_recovery')}</span>
           
-          {isCalculated ? (
-            <motion.div 
-              key={recoveredAmount}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="text-4xl md:text-5xl font-black text-white mb-2"
-            >
-              ₺{Math.round(recoveredAmount).toLocaleString('tr-TR')}
-            </motion.div>
-          ) : (
-            <div className="text-4xl md:text-5xl font-black text-white mb-2">
-              ₺{Math.round(recoveredAmount).toLocaleString('tr-TR')}
-            </div>
-          )}
+          {/* Faz 40: Sıfır-Jank Donanımsal Sayı Gösterimi */}
+          <div className="text-4xl md:text-5xl font-black text-white mb-2 transition-all duration-200 transform-gpu">
+            ₺{Math.round(recoveredAmount).toLocaleString('tr-TR')}
+          </div>
           
           <span className="text-xs text-slate-400 mb-8 font-medium">{t('calc_legal_included')}</span>
           

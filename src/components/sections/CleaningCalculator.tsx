@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import Link from 'next/link';
 import CalculatorLeadForm from './CalculatorLeadForm';
 
+/**
+ * Faz 36: CleaningCalculator içindeki motion.div animasyonlarının
+ * saf donanım hızlandırmalı CSS transition'a dönüştürülmesi (Zero-Jank Slider Scrubbing).
+ */
 export default function CleaningCalculator() {
   const { t } = useLanguage();
   const [area, setArea] = useState(5000);
-  const [isCalculated, setIsCalculated] = useState(false);
 
-  // Fake logic: 1 cleaner per 2000m2. 1 cleaner = 35,000 TL
+  // 1 temizlik personeli / 2000m2. 1 personel = 35,000 TL
   const recommendedStaff = Math.max(1, Math.ceil(area / 2000));
   const baseCost = 35000;
   const totalCost = recommendedStaff * baseCost;
@@ -19,8 +20,8 @@ export default function CleaningCalculator() {
   return (
     <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
       {/* Decorative BG - Slate/Titanium Theme */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
       
       <div className="relative z-10 flex flex-col lg:flex-row gap-12">
         
@@ -43,7 +44,7 @@ export default function CleaningCalculator() {
                 type="range" 
                 min="500" max="25000" step="500"
                 value={area}
-                onChange={(e) => { setArea(parseInt(e.target.value)); setIsCalculated(true); }}
+                onChange={(e) => setArea(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
               <div className="flex justify-between text-xs text-gray-400 font-medium">
@@ -68,20 +69,10 @@ export default function CleaningCalculator() {
           
           <span className="text-slate-300 text-sm font-bold tracking-wider uppercase mb-4">{t('calc_est_budget')}</span>
           
-          {isCalculated ? (
-            <motion.div 
-              key={totalCost}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="text-4xl md:text-5xl font-black text-white mb-2"
-            >
-              ₺{totalCost.toLocaleString('tr-TR')}
-            </motion.div>
-          ) : (
-            <div className="text-4xl md:text-5xl font-black text-white mb-2">
-              ₺{totalCost.toLocaleString('tr-TR')}
-            </div>
-          )}
+          {/* Faz 36: Sıfır-Jank Donanımsal Sayı Gösterimi */}
+          <div className="text-4xl md:text-5xl font-black text-white mb-2 transition-all duration-200 transform-gpu">
+            ₺{totalCost.toLocaleString('tr-TR')}
+          </div>
           
           <span className="text-xs text-gray-400 mb-8">{t('calc_disclaimer_cleaning')}</span>
           

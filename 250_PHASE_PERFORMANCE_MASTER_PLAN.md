@@ -71,11 +71,11 @@
 - [x] **Faz 33:** `ComparisonTable.tsx` bileşenini tamamen saf React Server Component (RSC) yapma.
 - [x] **Faz 34:** `PersonnelDifference.tsx` üzerindeki gereksiz `useClient` direktifini ve animasyonları sadeleştirme.
 - [x] **Faz 35:** `PreFooterCta.tsx` üzerindeki mouse listener'ı mobil cihazlarda tamamen devre dışı bırakma.
-- [ ] **Faz 36:** 9 Hesaplayıcıdan `CleaningCalculator.tsx` içindeki animasyonları CSS transition'a geçirme.
-- [ ] **Faz 37:** `DuesCalculator.tsx` hesaplama formunu zero-jank hale getirme.
-- [ ] **Faz 38:** `FacilityCalculator.tsx` (10 KB) bileşenini hafifletme ve form geçişlerini optimize etme.
-- [ ] **Faz 39:** `LandscapeCalculator.tsx` içindeki Framer Motion bağımlılıklarını kaldırma.
-- [ ] **Faz 40:** `LegalCalculator.tsx` form elemanlarını ve sonuç gösterimini sadeleştirme.
+- [x] **Faz 36:** 9 Hesaplayıcıdan `CleaningCalculator.tsx` içindeki animasyonları CSS transition'a geçirme.
+- [x] **Faz 37:** `DuesCalculator.tsx` hesaplama formunu zero-jank hale getirme.
+- [x] **Faz 38:** `FacilityCalculator.tsx` (10 KB) bileşenini hafifletme ve form geçişlerini optimize etme.
+- [x] **Faz 39:** `LandscapeCalculator.tsx` içindeki Framer Motion bağımlılıklarını kaldırma.
+- [x] **Faz 40:** `LegalCalculator.tsx` form elemanlarını ve sonuç gösterimini sadeleştirme.
 - [ ] **Faz 41:** `MaintenanceCalculator.tsx` hesaplama motorunu ana iş parçacığını tıkamayacak şekilde refactor etme.
 - [ ] **Faz 42:** `PestControlCalculator.tsx` form alanlarını CSS tabanlı durumlara bağlama.
 - [ ] **Faz 43:** `PoolCalculator.tsx` girdilerini optimize etme.

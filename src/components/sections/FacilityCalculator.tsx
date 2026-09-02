@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import CalculatorLeadForm from './CalculatorLeadForm';
 
@@ -14,6 +13,12 @@ const FACILITY_TYPES = [
   { id: 'sanayi' as FacilityType, label: 'Sanayi & Fabrika', multiplier: 1.75, baseDues: 4500, icon: 'factory' },
 ];
 
+Object.freeze(FACILITY_TYPES);
+
+/**
+ * Faz 38: FacilityCalculator bileşeninin Framer Motion'dan arındırılması,
+ * hafifletilmesi ve form slider geçişlerinin sıfır-jank GPU CSS'e taşınması.
+ */
 export default function FacilityCalculator() {
   const { t } = useLanguage();
   const [facilityType, setFacilityType] = useState<FacilityType>('site');
@@ -36,8 +41,8 @@ export default function FacilityCalculator() {
   return (
     <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
       {/* Decorative BG */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/5 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
 
       <div className="relative z-10 flex flex-col lg:flex-row gap-12">
         {/* Left Side: Interactive Controls */}
@@ -68,7 +73,7 @@ export default function FacilityCalculator() {
                     key={ft.id}
                     type="button"
                     onClick={() => setFacilityType(ft.id)}
-                    className={`p-3 rounded-2xl border text-left transition-all flex flex-col gap-1 cursor-pointer ${
+                    className={`p-3 rounded-2xl border text-left transition-all flex flex-col gap-1 cursor-pointer transform-gpu ${
                       isSelected
                         ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm font-bold'
                         : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-secondary)] hover:border-slate-400'
@@ -161,14 +166,10 @@ export default function FacilityCalculator() {
             Yıllık Tahmini Net Tasarrufunuz
           </span>
 
-          <motion.div
-            key={yearlySavings}
-            initial={{ scale: 0.85, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-300 mb-1"
-          >
+          {/* Faz 38: Sıfır-Jank Donanımsal GPU Sayı Gösterimi */}
+          <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-300 mb-1 transition-all duration-200 transform-gpu">
             ₺{yearlySavings.toLocaleString('tr-TR')}
-          </motion.div>
+          </div>
 
           <span className="text-[11px] text-[var(--color-tertiary)] mb-6">
             Aylık ortalama ₺{monthlySavings.toLocaleString('tr-TR')} bütçe avantajı
