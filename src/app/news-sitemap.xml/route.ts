@@ -57,14 +57,24 @@ export async function GET() {
     }
   } catch (err) {
     console.warn('news-sitemap.xml: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
-    posts = [
-      {
-        slug: 'tesis-yonetiminde-kmk-634-ve-iso-41001-standartlari',
-        title: 'Tesis Yönetiminde KMK 634 ve ISO 41001 Standartları',
+    try {
+      const { POSTS } = await import('@/data/posts');
+      posts = POSTS.slice(0, 10).map((p) => ({
+        slug: p.slug,
+        title: p.title,
         datePublished: new Date(),
-        tags: 'tesis yönetimi, kmk 634, iso 41001',
-      },
-    ];
+        tags: p.category || 'Tesis Yönetimi',
+      }));
+    } catch {
+      posts = [
+        {
+          slug: 'tesis-yonetiminde-kmk-634-ve-iso-41001-standartlari',
+          title: 'Tesis Yönetiminde KMK 634 ve ISO 41001 Standartları',
+          datePublished: new Date(),
+          tags: 'tesis yönetimi, kmk 634, iso 41001',
+        },
+      ];
+    }
   }
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;

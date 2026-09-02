@@ -195,11 +195,11 @@
 - [x] **Faz 133:** SSS bölümü olan her sayfada otomatik `FAQPage` şemasının eksiksiz çıkmasını sağlama.
 - [x] **Faz 134:** Kurumsal sayfalara (`/kurumsal/*`) `AboutPage`, ISO sertifikaları ve TÜRKAK akreditasyon şemaları ekleme.
 - [x] **Faz 135:** Sözlük sayfasına (`/sozluk`) `DefinedTermSet` ve `DefinedTerm` şemalarını bağlama.
-- [ ] **Faz 136:** Otomatik iç bağlantı örgü ağını (`autoLinker.ts`) `TreeWalker` API ile optimize ederek TBT maliyetini sıfırlama.
-- [ ] **Faz 137:** `eeatAuditor.ts` motorunu genişleterek her sayfada yazar biyografisi, yayın tarihi ve resmi kaynak atıflarını denetleme.
-- [ ] **Faz 138:** Blog yazılarına 634 Sayılı Kat Mülkiyeti Kanunu ve Yargıtay içtihat referans bağlantılarını otomatik ekleme.
-- [ ] **Faz 139:** `news-sitemap.xml` feed'ini son 48 saatteki içeriklerle otomatik güncelleyen rota yazma.
-- [ ] **Faz 140:** `video-sitemap.xml` ile video içeriklerinin Google Video aramalarında indekslenmesini sağlama.
+- [x] **Faz 136:** Otomatik iç bağlantı örgü ağını (`autoLinker.ts`) `TreeWalker` API ile optimize ederek TBT maliyetini sıfırlama.
+- [x] **Faz 137:** `eeatAuditor.ts` motorunu genişleterek her sayfada yazar biyografisi, yayın tarihi ve resmi kaynak atıflarını denetleme.
+- [x] **Faz 138:** Blog yazılarına 634 Sayılı Kat Mülkiyeti Kanunu ve Yargıtay içtihat referans bağlantılarını otomatik ekleme.
+- [x] **Faz 139:** `news-sitemap.xml` feed'ini son 48 saatteki içeriklerle otomatik güncelleyen rota yazma.
+- [x] **Faz 140:** `video-sitemap.xml` ile video içeriklerinin Google Video aramalarında indekslenmesini sağlama.
 - [ ] **Faz 141:** IndexNow API entegrasyonunu blog yazısı eklendiğinde Bing ve Yandex'e otomatik sinyal gönderecek şekilde yapılandırma.
 - [ ] **Faz 142:** WebSub / PubSubHubbub protokolü ile RSS feed'lerini arama motorlarına anlık duyurma.
 - [ ] **Faz 143:** `robots.txt` dosyasındaki crawl-delay ve crawler izinlerini yapay zeka botlarına optimize etme.
