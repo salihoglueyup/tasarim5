@@ -2,13 +2,15 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 
-describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 85)', () => {
+describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 90)', () => {
   const layoutDir = path.resolve(process.cwd(), 'src/components/layout');
   const appLayoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const nextConfigPath = path.resolve(process.cwd(), 'next.config.ts');
   const loadingPath = path.resolve(process.cwd(), 'src/app/[lang]/loading.tsx');
   const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/not-found.tsx');
   const errorPath = path.resolve(process.cwd(), 'src/app/[lang]/error.tsx');
+  const globalErrorPath = path.resolve(process.cwd(), 'src/app/global-error.tsx');
+  const megaMenuPath = path.resolve(process.cwd(), 'src/components/layout/MegaMenuDropdown.tsx');
 
   it('Header.tsx MegaMenuDropdown bileşenini lazy-load olarak dinamik yükler (Faz 76)', () => {
     const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
@@ -68,5 +70,38 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 85)
     expect(errorContent).toContain('error.digest');
     expect(errorContent).toContain('handleRetry');
     expect(errorContent).toContain('Destek Hattı');
+  });
+
+  it('global-error.tsx sıfır bağımlılıklı saf HTML layout çökme kurtarıcısı sunar (Faz 86)', () => {
+    const globalErrorContent = fs.readFileSync(globalErrorPath, 'utf-8');
+    expect(globalErrorContent).toContain('<html lang="tr">');
+    expect(globalErrorContent).toContain('Tekrar Dene · Try Again');
+    expect(globalErrorContent).toContain('error.digest');
+  });
+
+  it('next.config.ts optimizePackageImports listesinde yaygın paketleri içerir (Faz 87)', () => {
+    const nextConfigContent = fs.readFileSync(nextConfigPath, 'utf-8');
+    expect(nextConfigContent).toContain('react-hook-form');
+    expect(nextConfigContent).toContain('zod');
+    expect(nextConfigContent).toContain('jose');
+  });
+
+  it('Header.tsx ve MegaMenuDropdown prefetch={true} kullanımını kritik rotalarla sınırlar (Faz 88)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const megaMenuContent = fs.readFileSync(megaMenuPath, 'utf-8');
+    expect(headerContent).toContain("prefetch={['/', '/hizmetler/tesis-yonetimi', '/hesaplayici', '/iletisim'].includes(item.path!)}");
+    expect(megaMenuContent).toContain("prefetch={subItem.path === '/hizmetler/tesis-yonetimi'}");
+  });
+
+  it('Header.tsx tema butonu donanım hızlandırmalı saf CSS rotasyonu kullanır (Faz 89)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    expect(headerContent).not.toContain("<motion.span \n                  className=\"material-symbols-outlined text-[15px]\"");
+    expect(headerContent).toContain('rotate-180 scale-90');
+  });
+
+  it('Header.tsx klavye odak yönetimini onKeyDown ile destekler (Faz 90)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    expect(headerContent).toContain("e.key === 'Enter'");
+    expect(headerContent).toContain("e.key === 'Escape'");
   });
 });

@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
       dynamic: 30,
       static: 180,
     },
+    // Faz 87: optimizePackageImports ile barrel export şişkinliğini önleme
     optimizePackageImports: [
       'framer-motion',
       '@next/third-parties',
@@ -41,7 +42,13 @@ const nextConfig: NextConfig = {
       'clsx',
       'tailwind-merge',
       'canvas-confetti',
-      'ioredis'
+      'ioredis',
+      'react-hook-form',
+      'zod',
+      'jose',
+      '@hookform/resolvers',
+      '@tiptap/react',
+      '@tiptap/starter-kit'
     ],
   },
   images: {

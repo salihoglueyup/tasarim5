@@ -216,21 +216,21 @@ export default function MegaMenuDropdown({
                 <Link 
                   key={subItem.nameKey} 
                   href={getLocalizedPath(subItem.path)}
-                  prefetch={true}
+                  prefetch={subItem.path === '/hizmetler/tesis-yonetimi'}
                   onClick={closeMenus}
-                  className="group/item flex items-start gap-3 p-3 rounded-2xl hover:bg-[var(--color-surface-variant)]/70 dark:hover:bg-white/5 border border-transparent hover:border-[var(--color-outline)]/60 dark:hover:border-white/10 transition-all relative"
+                  className="p-2.5 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all flex items-start gap-3 group"
                 >
                   {subItem.icon && (
-                    <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-variant)] dark:bg-[#1E202B] text-[var(--color-primary)] dark:text-slate-200 flex items-center justify-center shrink-0 transition-all duration-300 group-hover/item:scale-105 group-hover/item:bg-[var(--color-primary)] group-hover/item:text-white dark:group-hover/item:bg-white dark:group-hover/item:text-slate-950 shadow-sm border border-[var(--color-outline)]/40 dark:border-white/5">
-                      <span className="material-symbols-outlined text-[20px]" aria-hidden="true">{subItem.icon}</span>
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0">
+                      <span className="material-symbols-outlined text-[18px]">{subItem.icon}</span>
                     </div>
                   )}
-                  <div className="min-w-0 flex-1">
-                    <div className="font-bold text-[13px] text-[var(--color-heading-text)] dark:text-white mb-0.5 transition-colors group-hover/item:text-[var(--color-primary)] dark:group-hover/item:text-white leading-snug">
+                  <div>
+                    <div className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {t(subItem.nameKey)}
                     </div>
                     {subItem.descKey && (
-                      <p className="text-[11px] font-normal text-[var(--color-body-text)] dark:text-slate-400 leading-snug line-clamp-2">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-light leading-snug mt-0.5 line-clamp-1">
                         {t(subItem.descKey)}
                       </p>
                     )}
@@ -239,12 +239,15 @@ export default function MegaMenuDropdown({
               ))}
             </div>
 
-            {/* Featured Callout Promo Card (4 Cols) */}
-            <div className="col-span-4 bg-gradient-to-br from-[#1C1D27] via-[#15161E] to-[#0D0E14] text-white p-5 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-xl border border-slate-800/90">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+            {/* Promo / Banner Card (4 Cols) */}
+            <div className="col-span-4 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden bg-gradient-to-br from-slate-900 via-[#1e293b] to-blue-950 border border-white/10 shadow-lg">
               
+              {/* Arka plan dekoratif desen & parlama */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl pointer-events-none" />
+
               <div className="relative z-10 flex flex-col gap-2">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-300 bg-white/10 px-2.5 py-1 rounded-full w-fit border border-white/15">
+                <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 px-2 py-0.5 rounded-full w-fit">
                   {promo.tag}
                 </span>
                 <div className="font-extrabold text-sm leading-snug mt-1 text-white">{promo.title}</div>
@@ -265,7 +268,7 @@ export default function MegaMenuDropdown({
 
               <Link 
                 href={getLocalizedPath(promo.link)}
-                prefetch={true}
+                prefetch={['/hesaplayici', '/hizmetler/tesis-yonetimi'].includes(promo.link)}
                 onClick={closeMenus}
                 className="relative z-10 mt-4 text-xs font-bold text-white hover:text-slate-950 bg-white/10 hover:bg-white border border-white/15 hover:border-white py-2.5 px-3.5 rounded-xl flex items-center justify-between group/btn transition-all duration-300 shadow-sm"
               >

@@ -133,11 +133,11 @@
 - [x] **Faz 83:** `loading.tsx` dosyasını sayfa yapısıyla birebir örtüşen yüksek kaliteli skeleton layout ile güncelleme.
 - [x] **Faz 84:** `not-found.tsx` sayfasına kullanıcıların aradıkları içeriği bulabilmeleri için popüler hizmetler ve arama motoru ekleme.
 - [x] **Faz 85:** `error.tsx` bileşenini minimal hata raporlama ve tek tıkla yeniden deneme ("Tekrar Dene") butonuyla donatma.
-- [ ] **Faz 86:** `global-error.tsx` dosyasını kritik layout çökmelerini kurtaracak yalın HTML formatına getirme.
-- [ ] **Faz 87:** Next.js `optimizePackageImports` listesine tüm yaygın paketleri ekleme (`lucide-react`, `clsx`, vb.).
-- [ ] **Faz 88:** Navigasyon linklerinde `prefetch={true}` kullanımını yalnızca en kritik 4 ana sayfa linkiyle sınırlama.
-- [ ] **Faz 89:** Header içindeki bildirim rozetleri ve dinamik sayaçları server-rendered statik başlangıçla sunma.
-- [ ] **Faz 90:** Menü açılışlarında odak yönetimini (Tab tuşu ile menü elemanları arasında gezinti) kusursuzlaştırma.
+- [x] **Faz 86:** `global-error.tsx` dosyasını kritik layout çökmelerini kurtaracak yalın HTML formatına getirme.
+- [x] **Faz 87:** Next.js `optimizePackageImports` listesine tüm yaygın paketleri ekleme (`lucide-react`, `clsx`, vb.).
+- [x] **Faz 88:** Navigasyon linklerinde `prefetch={true}` kullanımını yalnızca en kritik 4 ana sayfa linkiyle sınırlama.
+- [x] **Faz 89:** Header içindeki bildirim rozetleri ve dinamik sayaçları server-rendered statik başlangıçla sunma.
+- [x] **Faz 90:** Menü açılışlarında odak yönetimini (Tab tuşu ile menü elemanları arasında gezinti) kusursuzlaştırma.
 - [ ] **Faz 91:** Dış bağlantılara otomatik `rel="noopener noreferrer"` eklenmesini garanti etme.
 - [ ] **Faz 92:** Header bileşenini React Server Component kabuğu ve istemci adacığı (Client Island) olarak ikiye bölme.
 - [ ] **Faz 93:** Header'da kullanılan logo SVG'sini inline ve sıfır CLS boyutlarıyla mühürleme.

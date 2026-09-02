@@ -326,28 +326,37 @@ export default function Header() {
                 )}
                 
                 {item.subItems ? (
-                  <div 
-                    role="button"
+                  <button 
+                    type="button"
+                    onClick={() => setHoveredMenu(hoveredMenu === item.nameKey ? null : item.nameKey)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        setHoveredMenu(item.nameKey);
+                      } else if (e.key === 'Escape') {
+                        setHoveredMenu(null);
+                      }
+                    }}
                     aria-expanded={hoveredMenu === item.nameKey}
                     aria-haspopup="true"
-                    className={`cursor-pointer relative z-10 text-[13px] xl:text-[13.5px] font-semibold tracking-[-0.01em] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap ${
+                    className={`cursor-pointer relative z-10 text-[13px] xl:text-[13.5px] font-semibold tracking-[-0.01em] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap bg-transparent border-0 p-0 text-left ${
                     isTopAndDarkHero 
                       ? 'text-white/95 hover:text-white' 
                       : hoveredMenu === item.nameKey || item.subItems.some(sub => pathname.startsWith(sub.path))
                         ? 'text-[var(--color-primary)] dark:text-white' 
                         : 'text-slate-800 dark:text-white/90 hover:text-[var(--color-primary)] dark:hover:text-white'
                   }`}>
-                    {t(item.nameKey)}
+                    <span>{t(item.nameKey)}</span>
                     <span aria-hidden="true" className={`material-symbols-outlined text-[15px] transition-transform duration-300 ${
                       isTopAndDarkHero ? 'text-white/80' : 'text-slate-400 dark:text-slate-400'
                     } ${hoveredMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)] dark:text-white' : ''}`}>
                       expand_more
                     </span>
-                  </div>
+                  </button>
                 ) : (
                   <Link 
                     href={getLocalizedPath(item.path!)} 
-                    prefetch={true}
+                    prefetch={['/', '/hizmetler/tesis-yonetimi', '/hesaplayici', '/iletisim'].includes(item.path!)}
                     className={`relative z-10 text-[13px] xl:text-[13.5px] font-semibold tracking-[-0.01em] transition-colors duration-200 whitespace-nowrap ${
                       isTopAndDarkHero 
                         ? 'text-white/95 hover:text-white' 
@@ -447,15 +456,14 @@ export default function Header() {
                 className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white/30 dark:hover:bg-white/10 transition-colors cursor-pointer"
                 aria-label="Temayı Değiştir"
               >
-                <motion.span 
-                  className="material-symbols-outlined text-[15px]"
+                <span 
+                  className={`material-symbols-outlined text-[15px] transition-transform duration-300 transform-gpu ${
+                    isDarkMode ? 'rotate-180 scale-90' : 'rotate-0 scale-100'
+                  }`}
                   aria-hidden="true"
-                  initial={false}
-                  animate={{ rotate: isDarkMode ? 180 : 0, scale: isDarkMode ? 0.85 : 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 >
                   {isDarkMode ? 'light_mode' : 'dark_mode'}
-                </motion.span>
+                </span>
               </button>
             </div>
 
