@@ -310,10 +310,10 @@
 *Hedef: Sürekli entegrasyon, Playwright E2E testleri, otomatik performans bütçeleri ve kusursuz canlı operasyon.*
 
 - [x] **Faz 226:** A/B test framework'ü birim testleri (`ab-test.test.ts`) oluşturuldu.
-- [ ] **Faz 227:** Vitest birim test kapsamını tüm API rotalarını (`/api/calculator`, `/api/health`, `/api/lead`, vb.) kapsayacak şekilde genişletme.
-- [ ] **Faz 228:** Playwright ile kritik kullanıcı akışlarını (Ana sayfa gezintisi, Teklif Alma Formu gönderimi) kapsayan E2E test suite'i kurma.
-- [ ] **Faz 229:** Playwright ile dil değiştirme ve rota doğruluğu E2E testi yazma.
-- [ ] **Faz 230:** Playwright ile mobil görünüm (iPhone / Android) emülasyon testleri çalıştırma.
+- [x] **Faz 227:** Vitest birim test kapsamını tüm API rotalarını (`/api/calculator`, `/api/health`, `/api/lead`, vb.) kapsayacak şekilde genişletme.
+- [x] **Faz 228:** Playwright ile kritik kullanıcı akışlarını (Ana sayfa gezintisi, Teklif Alma Formu gönderimi) kapsayan E2E test suite'i kurma.
+- [x] **Faz 229:** Playwright ile dil değiştirme ve rota doğruluğu E2E testi yazma.
+- [x] **Faz 230:** Playwright ile mobil görünüm (iPhone / Android) emülasyon testleri çalıştırma.
 - [ ] **Faz 231:** GitHub Actions CI pipeline oluşturma: Her commit/PR'da `tsc --noEmit`, `vitest run` ve lint çalıştırma.
 - [ ] **Faz 232:** Bundle boyutu bütçesi (Bundle Size Budget) belirleme; First Load JS 180 KB'ı geçerse CI'da uyarı verme.
 - [ ] **Faz 233:** Lighthouse CI (LHCI) entegrasyonu ile otomatik performans gerileme (regression) testleri kurma.
