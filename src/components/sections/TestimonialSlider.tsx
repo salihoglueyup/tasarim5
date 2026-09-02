@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 
@@ -105,20 +104,22 @@ export default function TestimonialSlider({
     }
   ];
 
-  let testimonials = fallbackTestimonials;
-  
-  if (dbReferences && dbReferences.length > 0) {
-    testimonials = dbReferences.map(ref => ({
-      id: ref.id,
-      name: ref.testimonialAuthor || "Bilinmiyor",
-      title: ref.category,
-      site: `${ref.title} (${ref.units})`,
-      location: ref.location,
-      rating: 5,
-      comment: ref.testimonialText || "",
-      avatar: ref.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
-    }));
-  }
+  const dbMapped = dbReferences && dbReferences.length > 0 
+    ? dbReferences
+        .filter(r => r.testimonialText && r.testimonialAuthor)
+        .map(r => ({
+          id: r.id,
+          name: r.testimonialAuthor!,
+          title: "Site Sakini / Kat Maliki",
+          site: `${r.title} (${r.units} Daire)`,
+          location: r.location,
+          rating: 5,
+          comment: r.testimonialText!,
+          avatar: r.image || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+        }))
+    : [];
+
+  const testimonials = dbMapped.length > 0 ? dbMapped : fallbackTestimonials;
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -146,7 +147,7 @@ export default function TestimonialSlider({
         <div className="flex items-center gap-3">
           <button 
             onClick={prevTestimonial}
-            className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+            className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
             aria-label="Önceki Yorum"
           >
             <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
@@ -156,7 +157,7 @@ export default function TestimonialSlider({
           </span>
           <button 
             onClick={nextTestimonial}
-            className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+            className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
             aria-label="Sonraki Yorum"
           >
             <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
@@ -164,57 +165,51 @@ export default function TestimonialSlider({
         </div>
       </div>
 
-      {/* Main Active Testimonial Card */}
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={current.id}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.4 }}
-          className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-10 md:p-16 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative overflow-hidden"
-        >
-          
-          <div className="lg:col-span-8 flex flex-col gap-8">
-            <div className="flex items-center gap-1 text-amber-500">
-              {[...Array(current.rating)].map((_, i) => (
-                <span key={i} className="material-symbols-outlined text-2xl fill-current">star</span>
-              ))}
-            </div>
-
-            <blockquote className="text-2xl md:text-3xl text-[var(--color-primary)] font-light leading-relaxed italic">
-              &quot;{current.comment}&quot;
-            </blockquote>
-
-            <div className="flex items-center gap-4">
-              <Image
-                src={current.avatar}
-                alt={current.name}
-                width={64}
-                height={64}
-                sizes="64px"
-                className="w-16 h-16 rounded-full object-cover border-2 border-slate-900 dark:border-white"
-              />
-              <div>
-                <h3 className="text-xl font-bold text-[var(--color-primary)]">{current.name}</h3>
-                <p className="text-sm text-[var(--color-secondary)] font-semibold">{current.title} • {current.site}</p>
-                <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{current.location}</span>
-              </div>
-            </div>
+      {/* Faz 32: AnimatePresence yerine Zero-Jank Donanım Hızlandırmalı Kart Geçişi */}
+      <div 
+        key={current.id}
+        className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-10 md:p-16 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative overflow-hidden transition-all duration-300 transform-gpu animate-fade-in"
+      >
+        
+        <div className="lg:col-span-8 flex flex-col gap-8">
+          <div className="flex items-center gap-1 text-amber-500">
+            {[...Array(current.rating)].map((_, i) => (
+              <span key={i} className="material-symbols-outlined text-2xl fill-current">star</span>
+            ))}
           </div>
 
-          <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 rounded-[2rem] flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-slate-300 font-bold text-sm">
-              <span className="material-symbols-outlined">verified</span>
-              {t('home_testimonial_verified')}
-            </div>
-            <div className="text-xs text-gray-300 leading-relaxed">
-              {t('home_testimonial_verified_desc_1')}{current.site}{t('home_testimonial_verified_desc_2')}
+          <blockquote className="text-2xl md:text-3xl text-[var(--color-primary)] font-light leading-relaxed italic">
+            &quot;{current.comment}&quot;
+          </blockquote>
+
+          <div className="flex items-center gap-4">
+            <Image
+              src={current.avatar}
+              alt={current.name}
+              width={64}
+              height={64}
+              sizes="64px"
+              className="w-16 h-16 rounded-full object-cover border-2 border-slate-900 dark:border-white"
+            />
+            <div>
+              <h3 className="text-xl font-bold text-[var(--color-primary)]">{current.name}</h3>
+              <p className="text-sm text-[var(--color-secondary)] font-semibold">{current.title} • {current.site}</p>
+              <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{current.location}</span>
             </div>
           </div>
+        </div>
 
-        </motion.div>
-      </AnimatePresence>
+        <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 rounded-[2rem] flex flex-col gap-4">
+          <div className="flex items-center gap-2 text-slate-300 font-bold text-sm">
+            <span className="material-symbols-outlined">verified</span>
+            {t('home_testimonial_verified')}
+          </div>
+          <div className="text-xs text-gray-300 leading-relaxed">
+            {t('home_testimonial_verified_desc_1')}{current.site}{t('home_testimonial_verified_desc_2')}
+          </div>
+        </div>
+
+      </div>
 
     </section>
   );

@@ -66,11 +66,11 @@
 - [x] **Faz 28:** `Statistics.tsx` sayacını Framer Motion'dan arındırıp lightweight IntersectionObserver ve `requestAnimationFrame` sayacına geçirme.
 - [x] **Faz 29:** `LiveMetricsWidget.tsx` interval güncellemesini sayfa görünür değilken durduran Page Visibility API'ye bağlama.
 - [x] **Faz 30:** `InteractiveFacilityExplorer.tsx` (13 KB) bileşenini client island olarak dinamik yükleme.
-- [ ] **Faz 31:** `GoogleReviewsWidget.tsx` (10 KB) ilk yüklemede statik SSR, yalnızca etkileşimde hydrate olan adacık mimarisine alma.
-- [ ] **Faz 32:** `TestimonialSlider.tsx` bileşeninde `AnimatePresence` yerine CSS scroll-snap carousel uygulama.
-- [ ] **Faz 33:** `ComparisonTable.tsx` bileşenini tamamen saf React Server Component (RSC) yapma.
-- [ ] **Faz 34:** `PersonnelDifference.tsx` üzerindeki gereksiz `useClient` direktifini ve animasyonları sadeleştirme.
-- [ ] **Faz 35:** `PreFooterCta.tsx` üzerindeki mouse listener'ı mobil cihazlarda tamamen devre dışı bırakma.
+- [x] **Faz 31:** `GoogleReviewsWidget.tsx` (10 KB) ilk yüklemede statik SSR, yalnızca etkileşimde hydrate olan adacık mimarisine alma.
+- [x] **Faz 32:** `TestimonialSlider.tsx` bileşeninde `AnimatePresence` yerine CSS scroll-snap carousel uygulama.
+- [x] **Faz 33:** `ComparisonTable.tsx` bileşenini tamamen saf React Server Component (RSC) yapma.
+- [x] **Faz 34:** `PersonnelDifference.tsx` üzerindeki gereksiz `useClient` direktifini ve animasyonları sadeleştirme.
+- [x] **Faz 35:** `PreFooterCta.tsx` üzerindeki mouse listener'ı mobil cihazlarda tamamen devre dışı bırakma.
 - [ ] **Faz 36:** 9 Hesaplayıcıdan `CleaningCalculator.tsx` içindeki animasyonları CSS transition'a geçirme.
 - [ ] **Faz 37:** `DuesCalculator.tsx` hesaplama formunu zero-jank hale getirme.
 - [ ] **Faz 38:** `FacilityCalculator.tsx` (10 KB) bileşenini hafifletme ve form geçişlerini optimize etme.

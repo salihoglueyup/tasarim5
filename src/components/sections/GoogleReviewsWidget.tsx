@@ -1,93 +1,93 @@
-"use client";
-
-import { motion } from 'framer-motion';
-import { useLanguage } from '@/context/LanguageContext';
 import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
 import JsonLd from '@/components/seo/JsonLd';
 
+const reviews = [
+  {
+    author: "Hakan Yılmaz",
+    rating: 5,
+    date: "2 hafta önce",
+    district: "Kadıköy / Moda",
+    service: "Rezidans Tesis Yönetimi",
+    text: "Alo Yönetim ile çalışmaya başladığımızdan beri sitemizin güvenlik ve temizlik sorunları tamamen çözüldü. Özellikle aidat takiplerindeki şeffaflıkları bizi çok rahatlattı. Kesinlikle tavsiye ederim.",
+    avatar: "H",
+    color: "bg-blue-600"
+  },
+  {
+    author: "Zeynep Kaya",
+    rating: 5,
+    date: "1 ay önce",
+    district: "Ataşehir / Batı",
+    service: "5188 Özel Güvenlik",
+    text: "Site yönetimi konusunda gerçekten profesyoneller. Hukuki süreçleri çok hızlı yönetiyorlar ve teknik arızalara anında müdahale ediyorlar. Yönetim derdinden kurtulduk.",
+    avatar: "Z",
+    color: "bg-emerald-600"
+  },
+  {
+    author: "Mehmet Demir",
+    rating: 5,
+    date: "3 ay önce",
+    district: "Beşiktaş / Levent",
+    service: "Plaza & Şeffaf Aidat",
+    text: "Yıllardır farklı firmalarla çalıştık ama Alo Yönetim gibisini görmedik. Tesis yönetiminde yeni bir standart belirlemişler. Mobil uygulamaları sayesinde her şeyi şeffaf olarak görebiliyoruz.",
+    avatar: "M",
+    color: "bg-indigo-600"
+  },
+  {
+    author: "Ayşe Çelik",
+    rating: 5,
+    date: "4 ay önce",
+    district: "Sarıyer / Maslak",
+    service: "Teknik Bakım & Peyzaj",
+    text: "Havuz bakımı ve peyzaj hizmetleri mükemmel. Sitemiz artık çok daha prestijli görünüyor. 7/24 nöbetçi teknik ekiplerinin hızlı müdahalesi takdire şayan. Tüm ekibe teşekkürler.",
+    avatar: "A",
+    color: "bg-rose-600"
+  }
+];
+
+Object.freeze(reviews);
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: CANONICAL_NAP.legal.legalName,
+  telephone: CANONICAL_NAP.contact.phoneE164,
+  url: 'https://aloyonetim.com.tr',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: CANONICAL_NAP.address.streetAddress,
+    addressLocality: CANONICAL_NAP.address.addressLocality,
+    addressRegion: CANONICAL_NAP.address.addressRegion,
+    postalCode: CANONICAL_NAP.address.postalCode,
+    addressCountry: CANONICAL_NAP.address.addressCountry
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: 4.9,
+    reviewCount: 156,
+    bestRating: 5,
+    worstRating: 1
+  },
+  review: reviews.map((r) => ({
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: r.author
+    },
+    datePublished: '2026-06-15',
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: r.rating,
+      bestRating: 5
+    },
+    reviewBody: r.text
+  }))
+};
+
+/**
+ * Faz 31: GoogleReviewsWidget'ın saf React Server Component (RSC) dönüşümü.
+ * Sıfır client-side hydration, sıfır framer-motion JS yükü, anında statik SSR ve SEO JsonLd.
+ */
 export default function GoogleReviewsWidget() {
-  const { t } = useLanguage();
-
-  const reviews = [
-    {
-      author: "Hakan Yılmaz",
-      rating: 5,
-      date: "2 hafta önce",
-      district: "Kadıköy / Moda",
-      service: "Rezidans Tesis Yönetimi",
-      text: "Alo Yönetim ile çalışmaya başladığımızdan beri sitemizin güvenlik ve temizlik sorunları tamamen çözüldü. Özellikle aidat takiplerindeki şeffaflıkları bizi çok rahatlattı. Kesinlikle tavsiye ederim.",
-      avatar: "H",
-      color: "bg-blue-600"
-    },
-    {
-      author: "Zeynep Kaya",
-      rating: 5,
-      date: "1 ay önce",
-      district: "Ataşehir / Batı",
-      service: "5188 Özel Güvenlik",
-      text: "Site yönetimi konusunda gerçekten profesyoneller. Hukuki süreçleri çok hızlı yönetiyorlar ve teknik arızalara anında müdahale ediyorlar. Yönetim derdinden kurtulduk.",
-      avatar: "Z",
-      color: "bg-emerald-600"
-    },
-    {
-      author: "Mehmet Demir",
-      rating: 5,
-      date: "3 ay önce",
-      district: "Beşiktaş / Levent",
-      service: "Plaza & Şeffaf Aidat",
-      text: "Yıllardır farklı firmalarla çalıştık ama Alo Yönetim gibisini görmedik. Tesis yönetiminde yeni bir standart belirlemişler. Mobil uygulamaları sayesinde her şeyi şeffaf olarak görebiliyoruz.",
-      avatar: "M",
-      color: "bg-indigo-600"
-    },
-    {
-      author: "Ayşe Çelik",
-      rating: 5,
-      date: "4 ay önce",
-      district: "Sarıyer / Maslak",
-      service: "Teknik Bakım & Peyzaj",
-      text: "Havuz bakımı ve peyzaj hizmetleri mükemmel. Sitemiz artık çok daha prestijli görünüyor. 7/24 nöbetçi teknik ekiplerinin hızlı müdahalesi takdire şayan. Tüm ekibe teşekkürler.",
-      avatar: "A",
-      color: "bg-rose-600"
-    }
-  ];
-
-  const reviewSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: CANONICAL_NAP.legal.legalName,
-    telephone: CANONICAL_NAP.contact.phoneE164,
-    url: 'https://aloyonetim.com.tr',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: CANONICAL_NAP.address.streetAddress,
-      addressLocality: CANONICAL_NAP.address.addressLocality,
-      addressRegion: CANONICAL_NAP.address.addressRegion,
-      postalCode: CANONICAL_NAP.address.postalCode,
-      addressCountry: CANONICAL_NAP.address.addressCountry
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: 4.9,
-      reviewCount: 156,
-      bestRating: 5,
-      worstRating: 1
-    },
-    review: reviews.map((r) => ({
-      '@type': 'Review',
-      author: {
-        '@type': 'Person',
-        name: r.author
-      },
-      datePublished: '2026-06-15',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: r.rating,
-        bestRating: 5
-      },
-      reviewBody: r.text
-    }))
-  };
-
   return (
     <section className="py-24 px-6 relative overflow-hidden bg-white dark:bg-[#0a0a0a]">
       <JsonLd data={reviewSchema} />
@@ -101,12 +101,7 @@ export default function GoogleReviewsWidget() {
       <div className="max-w-[var(--spacing-container-max)] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-800 dark:text-slate-200 text-sm font-semibold mb-6 border border-slate-200 dark:border-white/10"
-            >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-800 dark:text-slate-200 text-sm font-semibold mb-6 border border-slate-200 dark:border-white/10">
               <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -114,26 +109,14 @@ export default function GoogleReviewsWidget() {
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
               <span>Doğrulanmış Google Haritalar Değerlendirmeleri</span>
-            </motion.div>
+            </div>
             
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
-            >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
               Müşterilerimiz ve Kat Malikleri <span className="text-blue-600 dark:text-blue-400">Ne Diyor?</span>
-            </motion.h2>
+            </h2>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex items-center gap-4 bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-lg border border-slate-100 dark:border-white/5"
-          >
+          <div className="flex items-center gap-4 bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-lg border border-slate-100 dark:border-white/5">
             <div className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tighter">4.9</div>
             <div>
               <div className="flex items-center gap-1 text-[#FBBC04] text-xl mb-0.5" aria-label="5 üzerinden 4.9 yıldız">
@@ -141,19 +124,15 @@ export default function GoogleReviewsWidget() {
               </div>
               <div className="text-xs text-slate-500 font-medium tracking-wide uppercase">150+ Doğrulanmış Yorum</div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Reviews 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
           {reviews.map((review, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 + 0.2 }}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-7 shadow-sm border border-slate-200 dark:border-white/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-3xl p-7 shadow-sm border border-slate-200 dark:border-white/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -188,7 +167,7 @@ export default function GoogleReviewsWidget() {
                 </div>
                 
                 <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  "{review.text}"
+                  &quot;{review.text}&quot;
                 </p>
               </div>
 
@@ -196,7 +175,7 @@ export default function GoogleReviewsWidget() {
                 <span className="material-symbols-outlined text-sm">verified</span>
                 <span>Doğrulanmış Kat Maliki Değerlendirmesi</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -220,7 +199,7 @@ export default function GoogleReviewsWidget() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-sm shrink-0"
           >
-            <span>Google Haritalar'da İnceleyin</span>
+            <span>Google Haritalar&apos;da İnceleyin</span>
             <span className="material-symbols-outlined text-sm">open_in_new</span>
           </a>
         </div>
