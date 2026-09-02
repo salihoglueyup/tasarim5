@@ -342,3 +342,16 @@ select:focus-visible {
   vertical-align: middle;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
+
+/* Faz 121: CSS Gradyanlarını Aşırı Katmanlardan Arındırma & GPU Kompozitörünü Rahatlatma */
+.gpu-compositor-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: paint;
+}
+
+.gradient-clean {
+  background-attachment: scroll;
+  contain: layout paint;
+}
+

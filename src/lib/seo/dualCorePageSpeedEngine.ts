@@ -30,6 +30,19 @@ export const CWV_BENCHMARK_TARGETS: CoreWebVitalsTarget = {
   FCP_ms: 1800,
 };
 
+// Faz 124: Wave 5 Ultra-Performans Hedefleri (LCP < 1.2s)
+export const CWV_ULTRA_TARGETS: CoreWebVitalsTarget = {
+  LCP_ms: 1200,
+  INP_ms: 100,
+  CLS_score: 0.02,
+  TTFB_ms: 200,
+  FCP_ms: 800,
+};
+
+export function validateLcpTarget(measuredLcpMs: number, targetMs: number = 1200): boolean {
+  return measuredLcpMs <= targetMs;
+}
+
 export type PageSpeedGrade = 'PASS' | 'NEEDS_IMPROVEMENT' | 'FAIL';
 
 export interface ResourceHint {
