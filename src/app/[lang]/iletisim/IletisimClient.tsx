@@ -351,7 +351,7 @@ export default function IletisimClient() {
                   />
 
                   {errorKey && (
-                    <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-sm text-red-600 dark:text-red-300">
+                    <div role="alert" aria-live="assertive" className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-sm text-red-600 dark:text-red-300">
                       {errorKey}
                     </div>
                   )}
@@ -366,6 +366,8 @@ export default function IletisimClient() {
                         {...register('name')}
                         id="name"
                         type="text"
+                        aria-invalid={Boolean(errors.name)}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
                         placeholder="Örn: Ahmet Yılmaz"
                         className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.name
@@ -373,7 +375,7 @@ export default function IletisimClient() {
                             : 'border-slate-200 dark:border-slate-700 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.name && <span className="text-xs text-red-500 font-medium">{errors.name.message}</span>}
+                      {errors.name && <span id="name-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.name.message}</span>}
                     </div>
 
                     <div className="flex flex-col gap-1.5">
@@ -384,6 +386,8 @@ export default function IletisimClient() {
                         {...register('phone')}
                         id="phone"
                         type="tel"
+                        aria-invalid={Boolean(errors.phone)}
+                        aria-describedby={errors.phone ? 'phone-error' : undefined}
                         placeholder="05XX XXX XX XX"
                         className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.phone
@@ -391,7 +395,7 @@ export default function IletisimClient() {
                             : 'border-slate-200 dark:border-slate-700 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.phone && <span className="text-xs text-red-500 font-medium">{errors.phone.message}</span>}
+                      {errors.phone && <span id="phone-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.phone.message}</span>}
                     </div>
                   </div>
 
@@ -405,6 +409,8 @@ export default function IletisimClient() {
                         {...register('email')}
                         id="email"
                         type="email"
+                        aria-invalid={Boolean(errors.email)}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
                         placeholder="ahmet@ornek.com"
                         className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.email
@@ -412,7 +418,7 @@ export default function IletisimClient() {
                             : 'border-slate-200 dark:border-slate-700 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.email && <span className="text-xs text-red-500 font-medium">{errors.email.message}</span>}
+                      {errors.email && <span id="email-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.email.message}</span>}
                     </div>
 
                     <div className="flex flex-col gap-1.5">
@@ -423,6 +429,8 @@ export default function IletisimClient() {
                         <select
                           {...register('subject')}
                           id="subject"
+                          aria-invalid={Boolean(errors.subject)}
+                          aria-describedby={errors.subject ? 'subject-error' : undefined}
                           className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 transition-all appearance-none cursor-pointer ${
                             errors.subject
                               ? 'border-red-500 focus:ring-red-500/20'
@@ -439,7 +447,7 @@ export default function IletisimClient() {
                         </select>
                         <ChevronDown className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                       </div>
-                      {errors.subject && <span className="text-xs text-red-500 font-medium">{errors.subject.message}</span>}
+                      {errors.subject && <span id="subject-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.subject.message}</span>}
                     </div>
                   </div>
 
@@ -457,6 +465,8 @@ export default function IletisimClient() {
                       {...register('message')}
                       id="message"
                       rows={4}
+                      aria-invalid={Boolean(errors.message)}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
                       placeholder="Apartman/Site adı, bağımsız bölüm sayısı ve ihtiyaçlarınızı kısaca özetleyiniz..."
                       className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 transition-all resize-none ${
                         errors.message
@@ -464,7 +474,7 @@ export default function IletisimClient() {
                           : 'border-slate-200 dark:border-slate-700 focus:border-amber-500 focus:ring-amber-500/20'
                       }`}
                     />
-                    {errors.message && <span className="text-xs text-red-500 font-medium">{errors.message.message}</span>}
+                    {errors.message && <span id="message-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.message.message}</span>}
                   </div>
 
                   {/* Gönder Butonu */}

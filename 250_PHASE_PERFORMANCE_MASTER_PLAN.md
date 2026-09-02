@@ -283,11 +283,11 @@
 - [x] **Faz 203:** Sayfa başlık hiyerarşisini (`h1` -> `h2` -> `h3`) denetleme; her sayfada tek bir `h1` olduğunu garanti etme.
 - [x] **Faz 204:** Modallarda odak tuzağı (Focus Trap) ekleyerek Tab tuşunun modal dışına kaçmasını engelleme.
 - [x] **Faz 205:** Dropdown ve akordeonlarda `aria-expanded="true/false"` ve `aria-controls` eşleşmelerini tamamlama.
-- [ ] **Faz 206:** Tüm form alanlarına kalıcı `<label>` ve `htmlFor` ilişkilendirmesi ekleme.
-- [ ] **Faz 207:** Form hata mesajlarını ekran okuyuculara anında duyurmak için `aria-live="polite"` ve `aria-invalid="true"` kullanma.
-- [ ] **Faz 208:** Görsellerdeki tüm `alt` niteliklerini denetleme; dekoratif görsellere `alt=""` ve `aria-hidden="true"` ekleme.
-- [ ] **Faz 209:** Tüm metin ve arka plan renk kombinasyonlarını WCAG AA (minimum 4.5:1 kontrast) seviyesine getirme.
-- [ ] **Faz 210:** Focus durumunda mavi odak halkasını (`focus-visible:ring-2`) tüm klavye gezintilerinde belirgin kılma.
+- [x] **Faz 206:** Tüm form alanlarına kalıcı `<label>` ve `htmlFor` ilişkilendirmesi ekleme.
+- [x] **Faz 207:** Form hata mesajlarını ekran okuyuculara anında duyurmak için `aria-live="polite"` ve `aria-invalid="true"` kullanma.
+- [x] **Faz 208:** Görsellerdeki tüm `alt` niteliklerini denetleme; dekoratif görsellere `alt=""` ve `aria-hidden="true"` ekleme.
+- [x] **Faz 209:** Tüm metin ve arka plan renk kombinasyonlarını WCAG AA (minimum 4.5:1 kontrast) seviyesine getirme.
+- [x] **Faz 210:** Focus durumunda mavi odak halkasını (`focus-visible:ring-2`) tüm klavye gezintilerinde belirgin kılma.
 - [ ] **Faz 211:** `@media (prefers-reduced-motion: reduce)` sorgusu ile tüm animasyonları ve geçişleri sıfırlayan global kural yazma.
 - [ ] **Faz 212:** `@media (prefers-contrast: more)` desteği ile yüksek kontrast isteyen kullanıcılara kenarlık ve metin keskinliği sunma.
 - [ ] **Faz 213:** Tablolarda `<th>` elemanlarına `scope="col"` ve `scope="row"` nitelikleri ekleme.
