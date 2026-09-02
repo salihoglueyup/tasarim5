@@ -34,8 +34,8 @@ WORKDIR /app
 # Install OpenSSL for Prisma to work properly in Alpine
 RUN apk add --no-cache openssl
 
-# Prisma CLI ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz (migrate/push için) — COPY öncesi önbelleklenir
-RUN npm install -g prisma@7.9.1 dotenv
+# Prisma CLI, tsx ve config bağımlılıklarını global olarak kurup yollarını belirliyoruz (migrate/push/seed için) — COPY öncesi önbelleklenir
+RUN npm install -g prisma@7.9.1 dotenv tsx
 ENV NODE_PATH="/usr/local/lib/node_modules"
 
 ENV NODE_ENV production

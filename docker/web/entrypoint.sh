@@ -49,9 +49,9 @@ if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
     });
   " 2>/dev/null || echo "YES")
 
-  if [ "$NEED_SEED" = "YES" ]; then
-    echo "🌱 [Alo Yönetim] Veritabanı boş tespit edildi, otomatik Master Seed çalıştırılıyor..."
-    npx tsx prisma/seed.ts || echo "⚠️ Otomatik seed sırasında uyarı oluştu."
+  if [ "$NEED_SEED" = "YES" ] || [ "$FORCE_SEED" = "true" ]; then
+    echo "🌱 [Alo Yönetim] Master Seed çalıştırılıyor (Bloglar, Referanslar, Markalar, SSS)..."
+    tsx prisma/seed.ts || npx tsx prisma/seed.ts || echo "⚠️ Otomatik seed sırasında uyarı oluştu."
   else
     echo "✨ Veritabanı içerikleri mevcut, seed adımı atlandı."
   fi
