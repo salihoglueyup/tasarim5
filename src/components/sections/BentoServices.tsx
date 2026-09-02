@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, Variants } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 
@@ -11,24 +10,6 @@ export default function BentoServices() {
     if (!path) return '/';
     return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
   };
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 15 } },
-  };
-
-  // GPU Optimizasyonu: Sürekli willChange yerine saf CSS geçişleri
-  const cardGpuStyle = {};
 
   return (
     <section id="hizmetler" className="py-24 sm:py-32 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
@@ -46,20 +27,11 @@ export default function BentoServices() {
         </p>
       </div>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-4 gap-6"
-      >
+      {/* Faz 26: Sıfır-Jank GPU CSS Grid Yapısı */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         
         {/* Card 1: Güvenlik (Large) */}
-        <motion.div 
-          variants={itemVariants}
-          style={cardGpuStyle}
-          className="md:col-span-2 md:row-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between"
-        >
+        <div className="md:col-span-2 md:row-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu relative overflow-hidden group flex flex-col justify-between">
           <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-colors pointer-events-none" style={{ transform: "translateZ(0)" }} />
           <div>
             <div className="flex items-center justify-between mb-6">
@@ -110,14 +82,10 @@ export default function BentoServices() {
               Maliyet Hesapla →
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Card 2: Temizlik */}
-        <motion.div 
-          variants={itemVariants}
-          style={cardGpuStyle}
-          className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between"
-        >
+        <div className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]">cleaning_services</span>
@@ -152,14 +120,10 @@ export default function BentoServices() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Card 3: Aidat & Finans */}
-        <motion.div 
-          variants={itemVariants}
-          style={cardGpuStyle}
-          className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between"
-        >
+        <div className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4">account_balance_wallet</span>
             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card3_title')}</h3>
@@ -183,14 +147,10 @@ export default function BentoServices() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Card 4: Hukuk */}
-        <motion.div 
-          variants={itemVariants}
-          style={cardGpuStyle}
-          className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between"
-        >
+        <div className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4">gavel</span>
             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card4_title')}</h3>
@@ -198,7 +158,7 @@ export default function BentoServices() {
               {t('home_bento_card4_desc')}
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {['KMK 634', 'İcra & İhtar', 'Dava Takibi', 'Genel Kurul'].map(tag => (
+              {['634 KMK', 'İcra Takibi', 'Genel Kurul', 'Dava Takibi'].map(tag => (
                 <span key={tag} className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-[11px] font-semibold border border-slate-200 dark:border-slate-700">
                   {tag}
                 </span>
@@ -214,14 +174,10 @@ export default function BentoServices() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Card 5: Teknik Bakım */}
-        <motion.div 
-          variants={itemVariants}
-          style={cardGpuStyle}
-          className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between"
-        >
+        {/* Card 5: Teknik Servis */}
+        <div className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]">engineering</span>
@@ -256,14 +212,10 @@ export default function BentoServices() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Card 6: Site & Tesis Yönetimi (Amiral Gemisi Hub Linki) */}
-        <motion.div 
-          variants={itemVariants}
-          style={cardGpuStyle}
-          className="md:col-span-2 bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white rounded-[2.5rem] p-8 sm:p-10 border border-slate-700 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between"
-        >
+        <div className="md:col-span-2 bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white rounded-[2.5rem] p-8 sm:p-10 border border-slate-700 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform-gpu relative overflow-hidden group flex flex-col justify-between">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <div className="relative z-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold tracking-wider uppercase mb-4 border border-blue-400/20">
@@ -317,9 +269,9 @@ export default function BentoServices() {
               Siteniz İçin Teklif Alın →
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-      </motion.div>
+      </div>
 
     </section>
   );

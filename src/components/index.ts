@@ -64,6 +64,7 @@ export { default as SeoTextSection } from './sections/SeoTextSection';
 export { default as RelatedServices } from './sections/RelatedServices';
 export { default as PersonnelDifference } from './sections/PersonnelDifference';
 export { default as InteractiveFacilityExplorer } from './sections/InteractiveFacilityExplorer';
+export { default as DynamicInteractiveFacilityExplorer } from './sections/DynamicInteractiveFacilityExplorer';
 export { default as FacilityAuditReportModal } from './modals/FacilityAuditReportModal';
 
 // SEO Components

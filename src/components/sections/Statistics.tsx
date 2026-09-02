@@ -1,45 +1,81 @@
 "use client";
 
-import { useInView, useMotionValue, animate } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
-// Sayaç bileşeni: 0'dan hedefe animasyon.
-// Jank önleme (v10): Her frame React setState yerine MotionValue + animate kullanılır ve sayı
-// doğrudan DOM'a (textContent) yazılır — böylece 2sn boyunca ~120 re-render tamamen kalkar.
-function Counter({ value, suffix = "", duration = 2 }: { value: number, suffix?: string, duration?: number }) {
+/**
+ * Faz 28: Framer Motion'dan arındırılmış, saf IntersectionObserver ve
+ * requestAnimationFrame (RAF) tabanlı sıfır-jank sayaç bileşeni.
+ * React re-render'ı tetiklemeden doğrudan DOM textContent'e yazar.
+ */
+function Counter({ value, suffix = "", duration = 1800 }: { value: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-  const count = useMotionValue(0);
 
   useEffect(() => {
-    if (!inView) return;
-
     const node = ref.current;
-    const write = (v: number) => {
-      if (node) node.textContent = `${Math.floor(v)}${suffix}`;
-    };
+    if (!node) return;
 
-    // Faz 98, 201: Hareket azaltma tercihi varsa animasyonsuz anında göster
+    // Kullanıcı hareket azaltma tercih ettiyse doğrudan hedef değeri göster
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      write(value);
+      node.textContent = `${value}${suffix}`;
       return;
     }
 
-    // ease: easeOut (1 - (1-t)^4) ile aynı his; onUpdate DOM'a yazar, React'e dokunmaz.
-    const controls = animate(count, value, {
-      duration,
-      ease: [0.25, 1, 0.5, 1],
-      onUpdate: write,
-    });
+    let animationFrameId: number;
+    let observer: IntersectionObserver | null = null;
+    let started = false;
 
-    return () => controls.stop();
-  }, [inView, value, duration, suffix, count]);
+    const startCounting = () => {
+      if (started) return;
+      started = true;
 
-  // İlk render (SSR/hydration) için başlangıç değeri; animasyon DOM'u ele geçirir.
+      const startTime = performance.now();
+
+      const updateCount = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Cubic ease-out eğrisi: 1 - (1 - t)^3
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeOut * value);
+
+        if (node) {
+          node.textContent = `${current}${suffix}`;
+        }
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(updateCount);
+        } else if (node) {
+          node.textContent = `${value}${suffix}`;
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(updateCount);
+    };
+
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            startCounting();
+            if (observer) observer.disconnect();
+          }
+        },
+        { rootMargin: '0px 0px -50px 0px' }
+      );
+      observer.observe(node);
+    } else {
+      startCounting();
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [value, suffix, duration]);
+
   return (
     <span ref={ref}>
-      {0}
-      {suffix}
+      0{suffix}
     </span>
   );
 }
@@ -48,7 +84,10 @@ export default function Statistics() {
   return (
     <section className="py-24 border-y border-[var(--color-outline)]/30 bg-[var(--color-surface)] relative overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-5xl bg-gradient-to-r from-transparent via-[var(--color-outline)]/20 to-transparent opacity-50 blur-3xl pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-5xl bg-gradient-to-r from-transparent via-[var(--color-outline)]/20 to-transparent opacity-50 blur-3xl pointer-events-none transform-gpu" 
+        style={{ transform: "translateZ(0)" }} 
+      />
 
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 text-center divide-x-0 md:divide-x divide-[var(--color-outline)]/50">

@@ -78,6 +78,8 @@ const FACILITY_HOTSPOTS: Hotspot[] = [
   }
 ];
 
+Object.freeze(FACILITY_HOTSPOTS);
+
 export default function InteractiveFacilityExplorer() {
   const [activeHotspot, setActiveHotspot] = useState<Hotspot>(FACILITY_HOTSPOTS[0]);
 

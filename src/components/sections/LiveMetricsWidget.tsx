@@ -1,10 +1,40 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function LiveMetricsWidget() {
   const { t } = useLanguage();
+  const [pulse, setPulse] = useState(false);
+
+  // Faz 29: Sayfa görünür değilken arka plan interval/animasyonunu durduran Page Visibility API entegrasyonu
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null;
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        if (!intervalId) {
+          intervalId = setInterval(() => {
+            setPulse((prev) => !prev);
+          }, 4000);
+        }
+      } else {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+    };
+
+    // İlk açılışta başlat
+    handleVisibility();
+
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibility);
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, []);
 
   const metrics = [
     { value: "45.000+", label: t('home_metric_1_label'), icon: "domain", sub: t('home_metric_1_sub') },
@@ -24,8 +54,8 @@ export default function LiveMetricsWidget() {
           <div>
             <div className="flex items-center gap-2 text-slate-300 font-bold text-xs uppercase tracking-widest bg-slate-500/20 px-4 py-1.5 rounded-full w-fit mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-300"></span>
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 ${pulse ? 'opacity-75' : 'opacity-40'}`}></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
               {t('home_metrics_badge')}
             </div>
@@ -34,12 +64,12 @@ export default function LiveMetricsWidget() {
           <span className="text-sm text-gray-300 font-light">{t('home_metrics_desc')}</span>
         </div>
 
+        {/* Faz 29: GPU Donanım Hızlandırmalı CSS Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {metrics.map((m, i) => (
-            <motion.div 
+            <div 
               key={i}
-              whileHover={{ y: -5 }}
-              className="bg-white/5 border border-white/10 p-8 rounded-[2rem] flex flex-col gap-4 backdrop-blur-sm"
+              className="bg-white/5 border border-white/10 p-8 rounded-[2rem] flex flex-col gap-4 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300 transform-gpu"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/10 text-slate-200 flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl">{m.icon}</span>
@@ -49,7 +79,7 @@ export default function LiveMetricsWidget() {
                 <div className="text-base font-semibold text-gray-200">{m.label}</div>
                 <div className="text-xs text-gray-400 font-light mt-1">{m.sub}</div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

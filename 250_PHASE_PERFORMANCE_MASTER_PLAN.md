@@ -61,11 +61,11 @@
 ### 🎨 WAVE 2: FAZ 26–50 — Section Bileşenleri & Sıfır-Jank GPU Dönüşümü
 *Hedef: Ana sayfadaki tüm Framer Motion JS yükünü sıfırlayıp saf donanım hızlandırmalı CSS'e geçmek.*
 
-- [ ] **Faz 26:** `BentoServices.tsx` (17 KB) içindeki 8 karttan `motion.div` kaldırıp saf CSS grid ve donanımsal hover geçişlerine geçme.
-- [ ] **Faz 27:** `Timeline.tsx` içindeki `useScroll` + `useTransform` sürekli main-thread döngüsünü kaldırıp CSS animasyonuna dönüştürme.
-- [ ] **Faz 28:** `Statistics.tsx` sayacını Framer Motion'dan arındırıp lightweight IntersectionObserver ve `requestAnimationFrame` sayacına geçirme.
-- [ ] **Faz 29:** `LiveMetricsWidget.tsx` interval güncellemesini sayfa görünür değilken durduran Page Visibility API'ye bağlama.
-- [ ] **Faz 30:** `InteractiveFacilityExplorer.tsx` (13 KB) bileşenini client island olarak dinamik yükleme.
+- [x] **Faz 26:** `BentoServices.tsx` (17 KB) içindeki 8 karttan `motion.div` kaldırıp saf CSS grid ve donanımsal hover geçişlerine geçme.
+- [x] **Faz 27:** `Timeline.tsx` içindeki `useScroll` + `useTransform` sürekli main-thread döngüsünü kaldırıp CSS animasyonuna dönüştürme.
+- [x] **Faz 28:** `Statistics.tsx` sayacını Framer Motion'dan arındırıp lightweight IntersectionObserver ve `requestAnimationFrame` sayacına geçirme.
+- [x] **Faz 29:** `LiveMetricsWidget.tsx` interval güncellemesini sayfa görünür değilken durduran Page Visibility API'ye bağlama.
+- [x] **Faz 30:** `InteractiveFacilityExplorer.tsx` (13 KB) bileşenini client island olarak dinamik yükleme.
 - [ ] **Faz 31:** `GoogleReviewsWidget.tsx` (10 KB) ilk yüklemede statik SSR, yalnızca etkileşimde hydrate olan adacık mimarisine alma.
 - [ ] **Faz 32:** `TestimonialSlider.tsx` bileşeninde `AnimatePresence` yerine CSS scroll-snap carousel uygulama.
 - [ ] **Faz 33:** `ComparisonTable.tsx` bileşenini tamamen saf React Server Component (RSC) yapma.

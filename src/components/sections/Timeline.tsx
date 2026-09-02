@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from 'framer-motion';
-
 const steps = [
   {
     title: "Ücretsiz Keşif ve Analiz",
@@ -43,8 +39,9 @@ export default function Timeline() {
         <div className="relative pl-8 md:pl-0">
           
           {/* Background Gradient Line */}
-          <div className="absolute top-0 left-[39px] md:left-1/2 md:-translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[var(--color-primary)] via-slate-400 to-[var(--color-outline)]/40 rounded-full"></div>
+          <div className="absolute top-0 left-[39px] md:left-1/2 md:-translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[var(--color-primary)] via-slate-400 to-[var(--color-outline)]/40 rounded-full" />
 
+          {/* Faz 27: Zero-Jank Saf CSS Timeline Adımları */}
           <div className="flex flex-col gap-16 md:gap-24">
             {steps.map((step, index) => {
               const isEven = index % 2 === 0;
@@ -58,19 +55,13 @@ export default function Timeline() {
 
                   {/* Content Container */}
                   <div className={`w-full md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'} pl-6 md:pl-0`}>
-                    <motion.div 
-                      initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5 }}
-                      className="bg-[var(--color-surface)] p-8 rounded-[2rem] border border-[var(--color-outline)] shadow-sm hover:shadow-md transition-shadow"
-                    >
+                    <div className="bg-[var(--color-surface)] p-8 rounded-[2rem] border border-[var(--color-outline)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 transform-gpu">
                       <div className="text-sm font-bold text-[var(--color-secondary)] mb-2">Adım 0{index + 1}</div>
                       <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{step.title}</h3>
                       <p className="text-[var(--color-secondary)] leading-relaxed">
                         {step.description}
                       </p>
-                    </motion.div>
+                    </div>
                   </div>
                   
                 </div>
