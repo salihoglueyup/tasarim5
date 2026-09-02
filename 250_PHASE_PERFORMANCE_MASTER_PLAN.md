@@ -112,11 +112,11 @@
 - [x] **Faz 68:** UI bileşenlerinde dinamik class birleştirmeleri (`cn`, `clsx`, `tailwind-merge`) için memoization.
 - [x] **Faz 69:** Toast bildirimleri sistemini CSS tabanlı animasyonlarla donatma.
 - [x] **Faz 70:** Mobil cihazlarda buton dokunma hedeflerini minimum 48x48 piksel olarak sabitleme.
-- [ ] **Faz 71:** Skeleton yükleme iskeletlerini shimmer CSS efektiyle hafifletme.
-- [ ] **Faz 72:** UI ikonlarının SVG boyutlarını ve viewBox tanımlarını optimize etme.
-- [ ] **Faz 73:** Breadcrumb navigasyonunda tıklanabilir alanları genişletme.
-- [ ] **Faz 74:** Sayfalama (Pagination) bileşenini client-side yerine URL searchParams tabanlı SSR'a bağlama.
-- [ ] **Faz 75:** UI primitifleri birim testlerini (`vitest`) çalıştırma.
+- [x] **Faz 71:** Skeleton yükleme iskeletlerini shimmer CSS efektiyle hafifletme.
+- [x] **Faz 72:** UI ikonlarının SVG boyutlarını ve viewBox tanımlarını optimize etme.
+- [x] **Faz 73:** Breadcrumb navigasyonunda tıklanabilir alanları genişletme.
+- [x] **Faz 74:** Sayfalama (Pagination) bileşenini client-side yerine URL searchParams tabanlı SSR'a bağlama.
+- [x] **Faz 75:** UI primitifleri birim testlerini (`vitest`) çalıştırma.
 
 ---
 

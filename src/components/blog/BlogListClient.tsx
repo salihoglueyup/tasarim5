@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 import { parseTags } from '@/lib/jsonSafe';
 import { createBlogSearchIndex, searchInBlogIndex } from '@/lib/blogSearchIndex';
+import Pagination from '@/components/ui/Pagination';
 
 const PAGE_SIZE = 6;
 
@@ -25,6 +26,11 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
   useEffect(() => {
     const q = searchParams.get('q');
     if (q) setQuery(q);
+    const p = searchParams.get('page');
+    if (p) {
+      const parsed = parseInt(p, 10);
+      if (!isNaN(parsed) && parsed > 0) setPage(parsed);
+    }
   }, [searchParams]);
 
   const [page, setPage] = useState(1);
@@ -163,37 +169,8 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
           </div>
         )}
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-2 mt-16">
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={current === 1}
-              className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center disabled:opacity-40 hover:bg-slate-50 dark:hover:bg-white/5"
-              aria-label="Önceki sayfa"
-            >
-              <span className="material-symbols-outlined text-lg">arrow_back</span>
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
-              <button
-                key={n}
-                onClick={() => setPage(n)}
-                aria-current={current === n ? 'page' : undefined}
-                className={`w-10 h-10 rounded-full text-sm font-bold transition-colors ${current === n ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950' : 'border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5'}`}
-              >
-                {n}
-              </button>
-            ))}
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={current === totalPages}
-              className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center disabled:opacity-40 hover:bg-slate-50 dark:hover:bg-white/5"
-              aria-label="Sonraki sayfa"
-            >
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-            </button>
-          </div>
-        )}
+        {/* Pagination (Faz 74: URL searchParams ve SSR dostu semantik sayfalama) */}
+        <Pagination currentPage={current} totalPages={totalPages} onPageChange={setPage} />
       </section>
     </>
   );
