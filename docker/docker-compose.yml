@@ -1,8 +1,16 @@
+# Faz 196: Log dosyalarının diski doldurmasını önlemek için json-file log rotation
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   postgres:
     image: postgres:15-alpine
     container_name: aloyonetim-postgres
     restart: unless-stopped
+    logging: *default-logging
     env_file:
       - path: ../.env
         required: false
@@ -33,6 +41,7 @@ services:
     image: redis:alpine
     container_name: aloyonetim-redis
     restart: unless-stopped
+    logging: *default-logging
     env_file:
       - path: ../.env
         required: false
@@ -61,6 +70,7 @@ services:
       dockerfile: docker/web/Dockerfile
     container_name: aloyonetim-web
     restart: unless-stopped
+    logging: *default-logging
     env_file:
       - path: ../.env
         required: false
@@ -98,6 +108,7 @@ services:
     image: docker.n8n.io/n8nio/n8n
     container_name: aloyonetim-n8n
     restart: unless-stopped
+    logging: *default-logging
     env_file:
       - path: ../.env
         required: false
@@ -138,6 +149,7 @@ services:
       dockerfile: docker/web/Dockerfile
     container_name: aloyonetim-prisma-studio
     restart: unless-stopped
+    logging: *default-logging
     env_file:
       - path: ../.env
         required: false

@@ -267,11 +267,11 @@
 - [x] **Faz 193:** SQL Injection taraması ve statik güvenlik analizi.
 - [x] **Faz 194:** Veritabanı yedekleme betiğini (`scripts/backup-db.sh`) oluşturma.
 - [x] **Faz 195:** Uptime izleme servisi için `/api/health` yanıt formatını SLA standartlarına bağlama.
-- [ ] **Faz 196:** Log dosyalarının diski doldurmasını önlemek için Docker json-file log rotation (max-size: 10m) yapılandırma.
-- [ ] **Faz 197:** Graceful shutdown sırasında açıkta kalan DB ve Redis bağlantılarını temiz kapatma (`SIGTERM` dinleyicisi).
-- [ ] **Faz 198:** Güvenlik başlıklarının (HSTS, nosniff, frame-ancestors) canlı sunucuda curl ile doğrulanması.
-- [ ] **Faz 199:** `npm audit` çalıştırarak bilinen güvenlik açıklarını temizleme.
-- [ ] **Faz 200:** Güvenlik ve DB katmanının birim testlerle doğrulanması.
+- [x] **Faz 196:** Log dosyalarının diski doldurmasını önlemek için Docker json-file log rotation (max-size: 10m) yapılandırma.
+- [x] **Faz 197:** Graceful shutdown sırasında açıkta kalan DB ve Redis bağlantılarını temiz kapatma (`SIGTERM` dinleyicisi).
+- [x] **Faz 198:** Güvenlik başlıklarının (HSTS, nosniff, frame-ancestors) canlı sunucuda curl ile doğrulanması.
+- [x] **Faz 199:** `npm audit` çalıştırarak bilinen güvenlik açıklarını temizleme.
+- [x] **Faz 200:** Güvenlik ve DB katmanının birim testlerle doğrulanması.
 
 ---
 
