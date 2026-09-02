@@ -63,7 +63,7 @@ export function blogPostingSchema(opts: {
       }
     : { '@type': 'Person', name: opts.authorName ?? `${ORG_NAME} Editör Ekibi` };
   return {
-    '@type': 'BlogPosting',
+    '@type': ['Article', 'BlogPosting'],
     headline: opts.headline,
     description: opts.description,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },

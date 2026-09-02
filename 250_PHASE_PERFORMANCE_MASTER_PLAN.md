@@ -185,11 +185,11 @@
 ### 🔍 WAVE 6: FAZ 126–150 — Arama Motoru Otoritesi, AI Snippets & E-E-A-T
 *Hedef: Google ve LLM (ChatGPT, Perplexity, Claude, Gemini) aramalarında 1 numaralı otorite olmak.*
 
-- [ ] **Faz 126:** `api/tesis-yonetimi/ai-snippets.json` endpoint'ini güncel sektörel gerçeklerle zenginleştirme.
-- [ ] **Faz 127:** `llms.txt` ve `llms-full.txt` dosyalarını AI crawler'ların (GPTBot, ClaudeBot, PerplexityBot) tam anlayacağı yapılandırılmış metinle donatma.
-- [ ] **Faz 128:** Tüm blog yazılarına `Article` + `BlogPosting` + `author` + `publisher` JSON-LD zengin sonuçlarını bağlama.
-- [ ] **Faz 129:** `Speakable` şemasını ana sayfa ve hizmet sayfalarındaki sesli asistan arama özetlerine entegre etme.
-- [ ] **Faz 130:** Tüm hizmet sayfalarına (`/hizmetler/*`) `Service` ve `OfferCatalog` şemalarını dinamik bağlama.
+- [x] **Faz 126:** `api/tesis-yonetimi/ai-snippets.json` endpoint'ini güncel sektörel gerçeklerle zenginleştirme.
+- [x] **Faz 127:** `llms.txt` ve `llms-full.txt` dosyalarını AI crawler'ların (GPTBot, ClaudeBot, PerplexityBot) tam anlayacağı yapılandırılmış metinle donatma.
+- [x] **Faz 128:** Tüm blog yazılarına `Article` + `BlogPosting` + `author` + `publisher` JSON-LD zengin sonuçlarını bağlama.
+- [x] **Faz 129:** `Speakable` şemasını ana sayfa ve hizmet sayfalarındaki sesli asistan arama özetlerine entegre etme.
+- [x] **Faz 130:** Tüm hizmet sayfalarına (`/hizmetler/*`) `Service` ve `OfferCatalog` şemalarını dinamik bağlama.
 - [ ] **Faz 131:** 39 ilçe sayfasına (`/bolgeler/*`) `LocalBusiness` + `GeoCoordinates` + `hasMap` şemalarını enjekte etme.
 - [ ] **Faz 132:** Hesaplayıcı sayfalarına Google'ın sevdiği `HowTo` adım adım şeması ekleme.
 - [ ] **Faz 133:** SSS bölümü olan her sayfada otomatik `FAQPage` şemasının eksiksiz çıkmasını sağlama.

@@ -33,24 +33,27 @@ export function serviceSchema(opts: {
     ...(opts.priceRange ? { priceRange: opts.priceRange } : {}),
     provider: { '@id': LOCALBUSINESS_ID },
     areaServed: { '@type': 'State', name: 'İstanbul' },
-    ...(opts.offers && opts.offers.length
-      ? {
-          hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: opts.offerCatalogName ?? `${opts.serviceType} Hizmetleri`,
-            itemListElement: opts.offers.map((o) => ({
-              '@type': 'Offer',
-              priceCurrency: 'TRY',
-              availability: 'https://schema.org/InStock',
-              itemOffered: {
-                '@type': 'Service',
-                name: o.name,
-                ...(o.description ? { description: o.description } : {}),
-              },
-            })),
-          },
-        }
-      : {}),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: opts.offerCatalogName ?? `${opts.serviceType} Hizmet ve Çözüm Kataloğu`,
+      itemListElement: (opts.offers && opts.offers.length
+        ? opts.offers
+        : [
+            { name: `${opts.serviceType} Keşif & Danışmanlık`, description: 'Yerinde ücretsiz fizibilite ve teknik durum tespiti.' },
+            { name: `7/24 Operasyonel ${opts.serviceType}`, description: 'Sözleşmeli ve SLA garantili kurumsal hizmet yönetimi.' },
+            { name: `${opts.serviceType} Denetim & Raporlama`, description: 'Mobil uygulama üzerinden anlık denetim ve şeffaf tutanaklar.' },
+          ]
+      ).map((o) => ({
+        '@type': 'Offer',
+        priceCurrency: 'TRY',
+        availability: 'https://schema.org/InStock',
+        itemOffered: {
+          '@type': 'Service',
+          name: o.name,
+          ...(o.description ? { description: o.description } : {}),
+        },
+      })),
+    },
   };
 }
 

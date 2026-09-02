@@ -100,6 +100,7 @@ ${dictionaryList}
 ---
 
 ## 7. Doğrudan API Bağlantıları
+- AI Snippets: ${BASE_URL}/api/tesis-yonetimi/ai-snippets.json
 - JSON-LD Graph: ${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld
 - Fact-Sheet: ${BASE_URL}/api/tesis-yonetimi/llm-facts.json
 - Canlı RSS XML: ${BASE_URL}/api/tesis-yonetimi/feed.xml
