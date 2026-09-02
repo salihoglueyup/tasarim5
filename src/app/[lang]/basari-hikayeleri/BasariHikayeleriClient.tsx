@@ -6,9 +6,16 @@ import JsonLd from '@/components/seo/JsonLd';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function BasariHikayeleriClient({ stories }: { stories: any[] }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  // DB'den veri varsa onu kullan, yoksa fallback olarak çeviriden gelen veriyi kullan
+  const getStoryField = (story: any, field: string) => {
+    if (language === 'en' && story[`${field}_en`]) return story[`${field}_en`];
+    if (language === 'ru' && story[`${field}_ru`]) return story[`${field}_ru`];
+    if (language === 'ar' && story[`${field}_ar`]) return story[`${field}_ar`];
+    return story[field];
+  };
+
+  // Faz 167: Çok Dilli Başarı Hikayeleri & Vaka Analizleri
   const cases = stories && stories.length > 0 ? stories.map(s => {
     let parsedStats = [];
     try {
@@ -16,9 +23,9 @@ export default function BasariHikayeleriClient({ stories }: { stories: any[] }) 
     } catch(e) {}
     
     return {
-      title: s.title,
-      tag: s.category || t('case_1_tag'),
-      desc: s.content || s.testimonialText || t('case_1_desc'),
+      title: getStoryField(s, 'title'),
+      tag: getStoryField(s, 'category') || t('case_1_tag'),
+      desc: getStoryField(s, 'content') || getStoryField(s, 'testimonialText') || t('case_1_desc'),
       stats: parsedStats.map((st: any) => `${st.label}: ${st.value}`)
     }
   }) : [

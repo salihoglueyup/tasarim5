@@ -35,23 +35,23 @@ export function getTermCategory(t: TermItem): CategoryConfig {
   const termLower = t.term.toLowerCase();
   const text = (t.term + ' ' + t.definition).toLowerCase();
 
-  // 1. Terim başlığına özel doğrudan eşleşme
-  if (termLower.includes('aidat') || termLower.includes('bütçe') || termLower.includes('avans') || termLower.includes('demirbaş') || termLower.includes('finans') || termLower.includes('tazminat') || termLower.includes('pay ölçer')) {
+  // 1. Terim başlığına özel doğrudan eşleşme (TR & EN)
+  if (termLower.includes('aidat') || termLower.includes('bütçe') || termLower.includes('avans') || termLower.includes('demirbaş') || termLower.includes('finans') || termLower.includes('tazminat') || termLower.includes('pay ölçer') || termLower.includes('dues') || termLower.includes('budget') || termLower.includes('fund') || termLower.includes('financial')) {
     return CATEGORIES[3]; // finans
   }
-  if (termLower.includes('temizlik') || termLower.includes('hijyen') || termLower.includes('su deposu') || termLower.includes('havuz') || termLower.includes('ilaçlama') || termLower.includes('peyzaj') || termLower.includes('atık')) {
+  if (termLower.includes('temizlik') || termLower.includes('hijyen') || termLower.includes('su deposu') || termLower.includes('havuz') || termLower.includes('ilaçlama') || termLower.includes('peyzaj') || termLower.includes('atık') || termLower.includes('cleaning') || termLower.includes('hygiene')) {
     return CATEGORIES[5]; // hijyen
   }
-  if (termLower.includes('güvenlik') || termLower.includes('5188') || termLower.includes('cctv') || termLower.includes('kamera') || termLower.includes('nizamiye') || termLower.includes('pts') || termLower.includes('devriye') || termLower.includes('ögi')) {
+  if (termLower.includes('güvenlik') || termLower.includes('5188') || termLower.includes('cctv') || termLower.includes('kamera') || termLower.includes('nizamiye') || termLower.includes('pts') || termLower.includes('devriye') || termLower.includes('ögi') || termLower.includes('security') || termLower.includes('surveillance')) {
     return CATEGORIES[2]; // guvenlik
   }
-  if (termLower.includes('kmk') || termLower.includes('kat mülkiyeti') || termLower.includes('arsa payı') || termLower.includes('kat irtifakı') || termLower.includes('yönetim planı') || termLower.includes('icra') || termLower.includes('genel kurul') || termLower.includes('ibra') || termLower.includes('sığınak') || termLower.includes('hazirun') || termLower.includes('toplu yapı') || termLower.includes('ortak alan')) {
+  if (termLower.includes('kmk') || termLower.includes('kat mülkiyeti') || termLower.includes('arsa payı') || termLower.includes('kat irtifakı') || termLower.includes('yönetim planı') || termLower.includes('icra') || termLower.includes('genel kurul') || termLower.includes('ibra') || termLower.includes('sığınak') || termLower.includes('hazirun') || termLower.includes('toplu yapı') || termLower.includes('ortak alan') || termLower.includes('law') || termLower.includes('condominium') || termLower.includes('assembly') || termLower.includes('bylaws')) {
     return CATEGORIES[1]; // kmk
   }
-  if (termLower.includes('asansör') || termLower.includes('jeneratör') || termLower.includes('hidrofor') || termLower.includes('bakım') || termLower.includes('bms') || termLower.includes('otomasyon') || termLower.includes('yangın') || termLower.includes('kompanzasyon') || termLower.includes('termal') || termLower.includes('enerji')) {
+  if (termLower.includes('asansör') || termLower.includes('jeneratör') || termLower.includes('hidrofor') || termLower.includes('bakım') || termLower.includes('bms') || termLower.includes('otomasyon') || termLower.includes('yangın') || termLower.includes('kompanzasyon') || termLower.includes('termal') || termLower.includes('enerji') || termLower.includes('maintenance') || termLower.includes('elevator') || termLower.includes('preventive')) {
     return CATEGORIES[4]; // teknik
   }
-  if (termLower.includes('tesis') || termLower.includes('sla') || termLower.includes('tse') || termLower.includes('iso') || termLower.includes('iskan') || termLower.includes('denetçi')) {
+  if (termLower.includes('tesis') || termLower.includes('sla') || termLower.includes('tse') || termLower.includes('iso') || termLower.includes('iskan') || termLower.includes('denetçi') || termLower.includes('facility')) {
     return CATEGORIES[6]; // tesis
   }
 

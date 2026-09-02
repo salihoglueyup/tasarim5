@@ -5,10 +5,23 @@ import Link from 'next/link';
 import { DefinedTermSetSeo } from '@/components';
 import { VoiceSearchSpeakableSeo } from '@/components/seo';
 import { TERMS } from '@/data/dictionary';
+import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 
 export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Faz 166: Çok Dilli Sözlük Terim Arama Altyapısı
+  const activeTerms = React.useMemo(() => {
+    if (lang === 'en') {
+      return ENGLISH_TERMS.map((e) => ({
+        term: e.term,
+        definition: `${e.definition} (Turkish: ${e.turkishEquivalent})`,
+        link: e.link,
+      }));
+    }
+    return TERMS;
+  }, [lang]);
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -99,7 +112,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
             name="Site ve Tesis Yönetimi Sözlüğü"
             description="Kat malikleri ve site yöneticileri için yasal ve operasyonel terimler sözlüğü."
             path="/sozluk"
-            terms={TERMS}
+            terms={activeTerms}
           />
         </div>
       </section>

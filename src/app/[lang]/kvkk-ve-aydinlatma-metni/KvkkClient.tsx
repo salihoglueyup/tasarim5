@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import TableOfContents from '@/components/blog/TableOfContents';
 import LegalPageSeo from '@/components/seo/LegalPageSeo';
+import LegalEnglishSummary from '@/components/legal/LegalEnglishSummary';
 
 export default function KvkkClient() {
   const { t, language } = useLanguage();
@@ -36,6 +37,9 @@ export default function KvkkClient() {
                 Son Güncelleme: 1 Ağustos 2026
               </span>
             </div>
+
+            {/* Faz 168: KVKK İngilizce Özet Versiyonu */}
+            <LegalEnglishSummary type="kvkk" lang={language} />
 
             <div className="prose prose-lg dark:prose-invert max-w-none text-[var(--color-secondary)] pt-12 md:pt-8">
               {sections.map((i) => {

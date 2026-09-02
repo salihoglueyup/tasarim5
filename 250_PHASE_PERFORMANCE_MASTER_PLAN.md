@@ -231,11 +231,11 @@
 - [x] **Faz 163:** Çok dilli site haritası (`sitemap.xml`) içinde her URL için `xhtml:link rel="alternate"` tanımlarını ekleme.
 - [x] **Faz 164:** SSS bölümünü 4 dilde aranabilir ve filtrelenebilir kılma.
 - [x] **Faz 165:** Aidat ve bütçe hesaplayıcısını İngilizce ve Arapça dillerinde tam işlevsel hale getirme.
-- [ ] **Faz 166:** Sözlük (`/sozluk`) sayfasını çok dilli terim arama altyapısına kavuşturma.
-- [ ] **Faz 167:** Başarı hikayeleri ve vaka analizlerini çok dilli formata geçirme.
-- [ ] **Faz 168:** KVKK ve Gizlilik Politikası gibi yasal metinlerin İngilizce özet versiyonlarını hazırlama.
-- [ ] **Faz 169:** Dil bazlı tipografi satır yüksekliği (`leading`) ayarlarını Arapça için optimize etme.
-- [ ] **Faz 170:** Çerez izin modalını 4 dilde yerelleştirme.
+- [x] **Faz 166:** Sözlük (`/sozluk`) sayfasını çok dilli terim arama altyapısına kavuşturma.
+- [x] **Faz 167:** Başarı hikayeleri ve vaka analizlerini çok dilli formata geçirme.
+- [x] **Faz 168:** KVKK ve Gizlilik Politikası gibi yasal metinlerin İngilizce özet versiyonlarını hazırlama.
+- [x] **Faz 169:** Dil bazlı tipografi satır yüksekliği (`leading`) ayarlarını Arapça için optimize etme.
+- [x] **Faz 170:** Çerez izin modalını 4 dilde yerelleştirme.
 - [ ] **Faz 171:** Arama önerileri (`/api/search-suggest`) API'sine dil parametresi ekleyip dile göre öneri sunma.
 - [ ] **Faz 172:** Form hata ve doğrulama mesajlarını çok dilli hale getirme.
 - [ ] **Faz 173:** 404 sayfasını kullanıcının seçili dilinde gösterme.
