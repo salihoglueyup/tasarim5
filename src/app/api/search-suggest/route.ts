@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { BASE_URL } from '@/lib/seo';
+import { BASE_URL, localizedUrl } from '@/lib/seo';
 import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
 import { SERVICES } from '@/data/services';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
@@ -75,6 +75,9 @@ export async function GET(req: NextRequest) {
 
   const { searchParams } = new URL(req.url);
   const q = searchParams.get('q');
+  // Faz 171: Dile göre arama önerisi (lang parametresi)
+  const rawLang = searchParams.get('lang') || 'tr';
+  const lang = (['tr', 'en', 'ru', 'ar'].includes(rawLang) ? rawLang : 'tr') as 'tr' | 'en' | 'ru' | 'ar';
 
   if (!q || q.trim().length < 2) {
     return NextResponse.json([q || '', [], [], []]);
@@ -96,7 +99,7 @@ export async function GET(req: NextRequest) {
       ) {
         suggestions.push(`${service.name} — Alo Yönetim`);
         descriptions.push(service.summary);
-        urls.push(`${BASE_URL}${service.pillar}`);
+        urls.push(localizedUrl(service.pillar, lang));
         if (suggestions.length >= 3) break;
       }
     }
@@ -106,17 +109,17 @@ export async function GET(req: NextRequest) {
       if (district.name.toLowerCase().includes(normalizedQuery)) {
         suggestions.push(`${district.name} Profesyonel Tesis Yönetimi & Site İşletmesi`);
         descriptions.push(`${district.name} bölgesinde 634 KMK uyumlu entegre tesis yönetimi, 5188 güvenlik ve teknik işletme.`);
-        urls.push(`${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi`);
+        urls.push(localizedUrl(`/bolgeler/${district.slug}/tesis-yonetimi`, lang));
 
         // Güvenlik veya aidat kelimesi geçiyorsa direkt o hizmeti de öner
         if (normalizedQuery.includes('güvenlik') || normalizedQuery.includes('guvenlik')) {
           suggestions.push(`${district.name} Özel Güvenlik Şirketi & Site Güvenliği`);
           descriptions.push(`5188 lisanslı güvenlik personeli, PTS ve 7/24 devriye hizmeti.`);
-          urls.push(`${BASE_URL}/bolgeler/${district.slug}/guvenlik-yonetimi`);
+          urls.push(localizedUrl(`/bolgeler/${district.slug}/guvenlik-yonetimi`, lang));
         } else {
           suggestions.push(`${district.name} Tüm Hizmetler & Yerel Rehber`);
           descriptions.push(`${district.name} bölgesindeki tüm yönetim, güvenlik, temizlik ve teknik bakım hizmetlerimiz.`);
-          urls.push(`${BASE_URL}/bolgeler/${district.slug}`);
+          urls.push(localizedUrl(`/bolgeler/${district.slug}`, lang));
         }
         if (suggestions.length >= 5) break;
       }
@@ -128,10 +131,11 @@ export async function GET(req: NextRequest) {
         tool.title.toLowerCase().includes(normalizedQuery) ||
         tool.description.toLowerCase().includes(normalizedQuery)
       ) {
-        if (!urls.includes(tool.url)) {
+        const localToolUrl = localizedUrl(tool.url.replace(BASE_URL, ''), lang);
+        if (!urls.includes(localToolUrl)) {
           suggestions.push(tool.title);
           descriptions.push(tool.description);
-          urls.push(tool.url);
+          urls.push(localToolUrl);
         }
         if (suggestions.length >= 6) break;
       }
@@ -161,16 +165,30 @@ export async function GET(req: NextRequest) {
     for (const post of posts) {
       suggestions.push(post.title);
       descriptions.push(post.description || '');
-      urls.push(`${BASE_URL}/blog/${post.slug}`);
+      urls.push(localizedUrl(`/blog/${post.slug}`, lang));
     }
 
     // 5. Fallback (Hiçbir sonuç yoksa genel arama yönlendirmesi)
     if (suggestions.length === 0) {
+      let fallbackPrompt = `"${q}" ile ilgili tüm sonuçları ve hizmetleri gör`;
+      let fallbackDesc = `Alo Yönetim bilgi merkezinde ${q} için detaylı arama yapın`;
+
+      if (lang === 'en') {
+        fallbackPrompt = `View all results and services for "${q}"`;
+        fallbackDesc = `Search Alo Yönetim knowledge center for ${q}`;
+      } else if (lang === 'ru') {
+        fallbackPrompt = `Посмотреть все результаты для "${q}"`;
+        fallbackDesc = `Поиск по базе знаний Alo Yönetim для ${q}`;
+      } else if (lang === 'ar') {
+        fallbackPrompt = `عرض جميع النتائج والخدمات لـ "${q}"`;
+        fallbackDesc = `ابحث في مركز معارف Alo Yönetim عن ${q}`;
+      }
+
       return NextResponse.json([
         q,
-        [`"${q}" ile ilgili tüm sonuçları ve hizmetleri gör`],
-        [`Alo Yönetim bilgi merkezinde ${q} için detaylı arama yapın`],
-        [`${BASE_URL}/blog?q=${encodeURIComponent(q)}`]
+        [fallbackPrompt],
+        [fallbackDesc],
+        [`${localizedUrl('/blog', lang)}?q=${encodeURIComponent(q)}`]
       ]);
     }
 

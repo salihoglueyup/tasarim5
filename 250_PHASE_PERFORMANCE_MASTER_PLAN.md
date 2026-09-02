@@ -236,11 +236,11 @@
 - [x] **Faz 168:** KVKK ve Gizlilik Politikası gibi yasal metinlerin İngilizce özet versiyonlarını hazırlama.
 - [x] **Faz 169:** Dil bazlı tipografi satır yüksekliği (`leading`) ayarlarını Arapça için optimize etme.
 - [x] **Faz 170:** Çerez izin modalını 4 dilde yerelleştirme.
-- [ ] **Faz 171:** Arama önerileri (`/api/search-suggest`) API'sine dil parametresi ekleyip dile göre öneri sunma.
-- [ ] **Faz 172:** Form hata ve doğrulama mesajlarını çok dilli hale getirme.
-- [ ] **Faz 173:** 404 sayfasını kullanıcının seçili dilinde gösterme.
-- [ ] **Faz 174:** Çok dilli rotalar için birim testleri (`dualCoreMultiLangEngine.test.ts`) çalıştırma.
-- [ ] **Faz 175:** TypeScript tip doğrulaması ile i18n anahtar güvenliğini onaylama.
+- [x] **Faz 171:** Arama önerileri (`/api/search-suggest`) API'sine dil parametresi ekleyip dile göre öneri sunma.
+- [x] **Faz 172:** Form hata ve doğrulama mesajlarını çok dilli hale getirme.
+- [x] **Faz 173:** 404 sayfasını kullanıcının seçili dilinde gösterme.
+- [x] **Faz 174:** Çok dilli rotalar için birim testleri (`dualCoreMultiLangEngine.test.ts`) çalıştırma.
+- [x] **Faz 175:** TypeScript tip doğrulaması ile i18n anahtar güvenliğini onaylama.
 
 ---
 
