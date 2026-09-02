@@ -12,8 +12,10 @@ export const ORG_PHONE = '+902165504848';
 export const ORG_PHONE_DISPLAY = '0 (216) 550 48 48';
 export const ORG_EMAIL = 'info@aloyonetim.com.tr';
 export const ORG_ADDRESS_DISPLAY = 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul';
+export const ORG_GOOGLE_BUSINESS_URL = 'https://share.google/QhxZalRCJ9xKCn38n';
 export const ORG_SAME_AS = [
   'https://www.linkedin.com/company/aloyonetim',
   'https://www.instagram.com/aloyonetim',
-  'https://www.facebook.com/aloyonetim'
+  'https://www.facebook.com/aloyonetim',
+  'https://share.google/QhxZalRCJ9xKCn38n'
 ];
