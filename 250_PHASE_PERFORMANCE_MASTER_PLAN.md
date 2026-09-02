@@ -76,11 +76,11 @@
 - [x] **Faz 38:** `FacilityCalculator.tsx` (10 KB) bileşenini hafifletme ve form geçişlerini optimize etme.
 - [x] **Faz 39:** `LandscapeCalculator.tsx` içindeki Framer Motion bağımlılıklarını kaldırma.
 - [x] **Faz 40:** `LegalCalculator.tsx` form elemanlarını ve sonuç gösterimini sadeleştirme.
-- [ ] **Faz 41:** `MaintenanceCalculator.tsx` hesaplama motorunu ana iş parçacığını tıkamayacak şekilde refactor etme.
-- [ ] **Faz 42:** `PestControlCalculator.tsx` form alanlarını CSS tabanlı durumlara bağlama.
-- [ ] **Faz 43:** `PoolCalculator.tsx` girdilerini optimize etme.
-- [ ] **Faz 44:** `SecurityCalculator.tsx` hesaplama algoritmasını optimize etme.
-- [ ] **Faz 45:** 9 Testimonial bölümünü (`CleaningTestimonials`, `DuesTestimonials`, vb.) tek bir paylaşımlı hafif bileşende toplama.
+- [x] **Faz 41:** `MaintenanceCalculator.tsx` hesaplama motorunu ana iş parçacığını tıkamayacak şekilde refactor etme.
+- [x] **Faz 42:** `PestControlCalculator.tsx` form alanlarını CSS tabanlı durumlara bağlama.
+- [x] **Faz 43:** `PoolCalculator.tsx` girdilerini optimize etme.
+- [x] **Faz 44:** `SecurityCalculator.tsx` hesaplama algoritmasını optimize etme.
+- [x] **Faz 45:** 9 Testimonial bölümünü (`CleaningTestimonials`, `DuesTestimonials`, vb.) tek bir paylaşımlı hafif bileşende toplama.
 - [ ] **Faz 46:** `Hero.tsx` video arka planında mobilde video yüklemeyi engelleyip hafif poster görseli sunma.
 - [ ] **Faz 47:** `AppComingSoon.tsx` bileşenini tamamen CSS animasyonlarına geçirme.
 - [ ] **Faz 48:** Tüm bölüm geçişlerinde `content-visibility: auto` ve `contain-intrinsic-size` tanımlarını kalibre etme.

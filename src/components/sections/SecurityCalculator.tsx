@@ -1,27 +1,28 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import Link from 'next/link';
 import CalculatorLeadForm from './CalculatorLeadForm';
 
+/**
+ * Faz 44: SecurityCalculator hesaplama algoritmasının ve arayüzünün optimize edilmesi,
+ * Framer Motion kaldırılıp donanım hızlandırmalı CSS geçişlerine geçilmesi.
+ */
 export default function SecurityCalculator() {
   const { t } = useLanguage();
   const [personnel, setPersonnel] = useState(2);
   const [cameras, setCameras] = useState(10);
-  const [isCalculated, setIsCalculated] = useState(false);
 
-  // Fake base pricing logic (can be adjusted later)
-  const basePersonnelCost = 35000; // per personnel per month
-  const baseCameraCost = 500; // maintenance per camera per month
+  // 5188 Özel Güvenlik maliyeti: Personel başı 35.000 TL + kamera başı 500 TL periyodik CCTV bakımı
+  const basePersonnelCost = 35000;
+  const baseCameraCost = 500;
   const totalCost = (personnel * basePersonnelCost) + (cameras * baseCameraCost);
 
   return (
     <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
       {/* Decorative BG */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu" style={{ transform: "translateZ(0)" }} />
       
       <div className="relative z-10 flex flex-col lg:flex-row gap-12">
         
@@ -44,7 +45,7 @@ export default function SecurityCalculator() {
                 type="range" 
                 min="1" max="20" step="1"
                 value={personnel}
-                onChange={(e) => { setPersonnel(parseInt(e.target.value)); setIsCalculated(true); }}
+                onChange={(e) => setPersonnel(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
             </div>
@@ -60,7 +61,7 @@ export default function SecurityCalculator() {
                 type="range" 
                 min="0" max="100" step="5"
                 value={cameras}
-                onChange={(e) => { setCameras(parseInt(e.target.value)); setIsCalculated(true); }}
+                onChange={(e) => setCameras(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
             </div>
@@ -73,20 +74,10 @@ export default function SecurityCalculator() {
           
           <span className="text-slate-300 text-sm font-bold tracking-wider uppercase mb-4">{t('calc_est_budget')}</span>
           
-          {isCalculated ? (
-            <motion.div 
-              key={totalCost}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="text-4xl md:text-5xl font-black text-white mb-2"
-            >
-              ₺{totalCost.toLocaleString('tr-TR')}
-            </motion.div>
-          ) : (
-            <div className="text-4xl md:text-5xl font-black text-white mb-2">
-              ₺{totalCost.toLocaleString('tr-TR')}
-            </div>
-          )}
+          {/* Faz 44: Sıfır-Jank GPU CSS Sayı Gösterimi */}
+          <div className="text-4xl md:text-5xl font-black text-white mb-2 transition-all duration-200 transform-gpu">
+            ₺{totalCost.toLocaleString('tr-TR')}
+          </div>
           
           <span className="text-xs text-gray-400 mb-8">{t('calc_disclaimer_standard')}</span>
           
