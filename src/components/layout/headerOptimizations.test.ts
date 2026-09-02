@@ -2,8 +2,10 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 
-describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 90)', () => {
+describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 95)', () => {
   const layoutDir = path.resolve(process.cwd(), 'src/components/layout');
+  const uiDir = path.resolve(process.cwd(), 'src/components/ui');
+  const contextDir = path.resolve(process.cwd(), 'src/context');
   const appLayoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const nextConfigPath = path.resolve(process.cwd(), 'next.config.ts');
   const loadingPath = path.resolve(process.cwd(), 'src/app/[lang]/loading.tsx');
@@ -103,5 +105,38 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 90)
     const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
     expect(headerContent).toContain("e.key === 'Enter'");
     expect(headerContent).toContain("e.key === 'Escape'");
+  });
+
+  it('ExternalLink.tsx dış bağlantılarda rel="noopener noreferrer" ve target="_blank" garantiler (Faz 91)', () => {
+    const externalLinkContent = fs.readFileSync(path.join(uiDir, 'ExternalLink.tsx'), 'utf-8');
+    expect(externalLinkContent).toContain('noopener noreferrer');
+    expect(externalLinkContent).toContain('target = \'_blank\'');
+  });
+
+  it('Header.tsx ağır modal ve menüleri Client Island olarak izole eder (Faz 92)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    expect(headerContent).toContain("dynamic(() => import('./LoginModal')");
+    expect(headerContent).toContain("dynamic(() => import('./MobileMenu')");
+    expect(headerContent).toContain("dynamic(() => import('./MegaMenuDropdown')");
+  });
+
+  it('Logo.tsx sabit 48x48 piksel boyutları ve aspect-square ile CLS=0 garantiler (Faz 93)', () => {
+    const logoContent = fs.readFileSync(path.join(uiDir, 'Logo.tsx'), 'utf-8');
+    expect(logoContent).toContain('aspect-square');
+    expect(logoContent).toContain("width={48}");
+    expect(logoContent).toContain("height={48}");
+  });
+
+  it('Header.tsx dil seçici açılır menüsünün taşmasını önleyen responsive ve RTL konumlandırma içerir (Faz 94)', () => {
+    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    expect(headerContent).toContain('rtl:right-auto rtl:left-0');
+    expect(headerContent).toContain('max-w-[calc(100vw-1rem)]');
+  });
+
+  it('QuoteContext.tsx URL hash (#teklif) ve deep-link yönetimini destekler (Faz 95)', () => {
+    const quoteContextContent = fs.readFileSync(path.join(contextDir, 'QuoteContext.tsx'), 'utf-8');
+    expect(quoteContextContent).toContain("window.location.hash === '#teklif'");
+    expect(quoteContextContent).toContain("window.history.pushState(null, '', '#teklif')");
+    expect(quoteContextContent).toContain("window.history.replaceState");
   });
 });

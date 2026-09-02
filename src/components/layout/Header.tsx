@@ -413,7 +413,7 @@ export default function Header() {
                 </button>
 
                 {hoveredMenu === 'language' && (
-                  <div className="absolute top-full right-0 pt-2 z-[70]">
+                  <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 pt-2 z-[70] max-w-[calc(100vw-1rem)]">
                     <div className={`w-28 backdrop-blur-xl border rounded-xl shadow-xl overflow-hidden py-1 ${
                       isTopAndDarkHero 
                         ? 'bg-slate-900/95 border-white/20 text-white' 

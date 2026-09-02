@@ -138,11 +138,11 @@
 - [x] **Faz 88:** Navigasyon linklerinde `prefetch={true}` kullanımını yalnızca en kritik 4 ana sayfa linkiyle sınırlama.
 - [x] **Faz 89:** Header içindeki bildirim rozetleri ve dinamik sayaçları server-rendered statik başlangıçla sunma.
 - [x] **Faz 90:** Menü açılışlarında odak yönetimini (Tab tuşu ile menü elemanları arasında gezinti) kusursuzlaştırma.
-- [ ] **Faz 91:** Dış bağlantılara otomatik `rel="noopener noreferrer"` eklenmesini garanti etme.
-- [ ] **Faz 92:** Header bileşenini React Server Component kabuğu ve istemci adacığı (Client Island) olarak ikiye bölme.
-- [ ] **Faz 93:** Header'da kullanılan logo SVG'sini inline ve sıfır CLS boyutlarıyla mühürleme.
-- [ ] **Faz 94:** Dil seçici açılır menüsünün ekranın sağına taşmasını önleyen responsive konumlandırma.
-- [ ] **Faz 95:** Hızlı teklif butonuna tıklandığında URL hash (`#teklif`) yönetimini sağlama.
+- [x] **Faz 91:** Dış bağlantılara otomatik `rel="noopener noreferrer"` eklenmesini garanti etme.
+- [x] **Faz 92:** Header bileşenini React Server Component kabuğu ve istemci adacığı (Client Island) olarak ikiye bölme.
+- [x] **Faz 93:** Header'da kullanılan logo SVG'sini inline ve sıfır CLS boyutlarıyla mühürleme.
+- [x] **Faz 94:** Dil seçici açılır menüsünün ekranın sağına taşmasını önleyen responsive konumlandırma.
+- [x] **Faz 95:** Hızlı teklif butonuna tıklandığında URL hash (`#teklif`) yönetimini sağlama.
 - [ ] **Faz 96:** Header yüksekliğini CSS custom property (`--header-height: 80px`) ile sabitleyip tüm sayfalarda ortak kullanma.
 - [ ] **Faz 97:** Mobilde adres çubuğunun gizlenip açılması durumunda header yüksekliğinin zıplamasını önleme (`dvh` kullanımı).
 - [ ] **Faz 98:** Menü linklerinde aktif sayfa vurgusunu (`aria-current="page"`) CSS ile hafifletme.

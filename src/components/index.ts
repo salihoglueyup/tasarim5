@@ -34,6 +34,7 @@ export { default as TldrBlock } from './ui/TldrBlock';
 export { ToastProvider, useToast } from './ui/Toast';
 export { default as Skeleton } from './ui/Skeleton';
 export { default as Pagination } from './ui/Pagination';
+export { default as ExternalLink } from './ui/ExternalLink';
 
 // Modal Components
 export { default as PortalModal } from './modals/PortalModal';

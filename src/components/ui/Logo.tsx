@@ -13,16 +13,16 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
       {/* 
         Pure Transparent Background Eagle Emblem Logo (new-icon-Photoroom.webp)
       */}
-      <div className="relative h-12 w-12 flex-shrink-0">
+      <div className="relative h-12 w-12 aspect-square flex-shrink-0" style={{ width: '48px', height: '48px' }}>
         <Image
           src="/images/logos/new-icon-Photoroom.webp"
           alt="Alo Yönetim Logo"
-          fill
-          sizes="48px"
+          width={48}
+          height={48}
           priority={true}
           fetchPriority="high"
           quality={75}
-          className={`object-contain transition-all duration-300 ${
+          className={`object-contain transition-all duration-300 w-12 h-12 ${
             isWhite 
               ? 'filter brightness-0 invert drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]' 
               : 'drop-shadow-sm'
