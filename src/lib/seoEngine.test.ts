@@ -529,6 +529,15 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
       const credentialNames = (org.hasCredential as any[]).map((c) => c.name);
       expect(credentialNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
       expect(credentialNames.some((n: string) => n.includes('5188'))).toBe(true);
+
+      // Faz 91: Varlık taksonomisi (additionalType)
+      expect(org.additionalType).toBeDefined();
+      expect((org.additionalType as string[]).some((t) => t.includes('Facility_management'))).toBe(true);
+
+      // Faz 95: Sektörel dernek ve meslek odası üyelikleri (memberOf)
+      expect(org.memberOf).toBeDefined();
+      expect((org.memberOf as any[]).some((m) => m.name.includes('TRFMA'))).toBe(true);
+      expect((org.memberOf as any[]).some((m) => m.name.includes('İTO'))).toBe(true);
     });
 
     it('aiAssistantSchema ProfilePage yerine AboutPage döndürür (GSC 21 sayfa hatası engelleme)', () => {

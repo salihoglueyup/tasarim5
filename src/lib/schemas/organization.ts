@@ -41,6 +41,11 @@ export function organizationSchema(): JsonLdObject {
     image: { '@id': LOGO_ID },
     foundingDate: ORG_FOUNDING_DATE,
     slogan: 'Profesyonel Mülk ve Tesis Yönetimi',
+    // Faz 91: Google Varlık Taksonomisi Eşleştirmesi (Facility & Property Management)
+    additionalType: [
+      'https://en.wikipedia.org/wiki/Facility_management',
+      'https://en.wikipedia.org/wiki/Property_management',
+    ],
     description: 'İstanbul Kadıköy merkezli, Türkiye\'nin en güvenilir, şeffaf, yenilikçi ve yasalara %100 uygun çalışan profesyonel tesis ve site yönetim şirketidir. Güvenlik, temizlik, teknik bakım ve aidat icra takibi hizmetlerini tek çatı altında sunar.',
     disambiguatingDescription: 'Alo Yönetim, Türkiye genelinde site, apartman, rezidans ve ticari tesisler için entegre yönetim, özel güvenlik, profesyonel temizlik, teknik işletim ve aidat tahsilat süreçlerini yürüten lider tesis yönetim şirketidir.',
     numberOfEmployees: { '@type': 'QuantitativeValue', value: '200+' },
@@ -100,6 +105,19 @@ export function organizationSchema(): JsonLdObject {
       'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
       'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
       'TSE Hizmet Yeterlilik Belgesi',
+    ],
+    // Faz 95: Sektörel Dernek ve Meslek Odası Üyelikleri (TRFMA & İTO)
+    memberOf: [
+      {
+        '@type': 'Organization',
+        name: 'TRFMA (Türkiye Tesis Yönetim Derneği)',
+        url: 'https://trfma.org.tr',
+      },
+      {
+        '@type': 'Organization',
+        name: 'İTO (İstanbul Ticaret Odası)',
+        url: 'https://www.ito.org.tr',
+      },
     ],
     hasCredential: [
       {
