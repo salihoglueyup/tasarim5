@@ -27,12 +27,21 @@ export async function generateMetadata({
   });
 }
 
-export default function Bolgeler() {
+export default async function Bolgeler({
+  params,
+}: {
+  params?: Promise<{ lang: string }>;
+}) {
+  const { lang = 'tr' } = (await params) || {};
   const sides: ('Anadolu' | 'Avrupa')[] = ['Anadolu', 'Avrupa'];
 
+  const homeLabels: Record<string, string> = { tr: 'Anasayfa', en: 'Home', ru: 'Главная', ar: 'الرئيسية' };
+  const regionsLabels: Record<string, string> = { tr: 'Bölgeler', en: 'Regions', ru: 'Районы', ar: 'المناطق' };
+  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Bölgeler', url: '/bolgeler' },
+    { name: homeLabels[lang] || 'Anasayfa', url: langPrefix || '/' },
+    { name: regionsLabels[lang] || 'Bölgeler', url: `${langPrefix}/bolgeler` },
   ]);
 
   const itemListLd: JsonLdObject = {

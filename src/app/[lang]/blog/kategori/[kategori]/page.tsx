@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
-import { PostGrid } from '@/components';;
+import { PostGrid } from '@/components';
 import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
@@ -47,8 +47,15 @@ export async function generateMetadata({
   if (!cat) {
     return buildMetadata({ title: 'Kategori Bulunamadı', description: 'Kategori bulunamadı.', path: `/blog/kategori/${kategori}`, lang, noindex: true });
   }
+
+  const title = lang === 'en' 
+    ? `${cat.name} Articles & Facility Guide — Alo Management Blog`
+    : lang === 'ru'
+    ? `${cat.name} Статьи и Руководство — Блог | Alo Yonetim`
+    : `${cat.name} Makaleleri ve Uzman Rehberi — Blog | Alo Yönetim`;
+
   return buildMetadata({
-    title: `${cat.name} — Blog`,
+    title,
     description: cat.description,
     path: `/blog/kategori/${kategori}`,
     lang,
@@ -60,7 +67,7 @@ export default async function CategoryArchive({
 }: {
   params: Promise<{ lang: string; kategori: string }>;
 }) {
-  const { kategori } = await params;
+  const { lang, kategori } = await params;
   
   let cat = await prisma.category.findUnique({ 
     where: { slug: kategori } 
@@ -111,11 +118,14 @@ export default async function CategoryArchive({
   }
   
   const path = `/blog/kategori/${kategori}`;
+  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+  const homeLabels: Record<string, string> = { tr: 'Anasayfa', en: 'Home', ru: 'Главная', ar: 'الرئيسية' };
+  const blogLabels: Record<string, string> = { tr: 'Blog', en: 'Blog', ru: 'Блог', ar: 'المدونة' };
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Blog', url: '/blog' },
-    { name: cat.name, url: path },
+    { name: homeLabels[lang] || 'Anasayfa', url: langPrefix || '/' },
+    { name: blogLabels[lang] || 'Blog', url: `${langPrefix}/blog` },
+    { name: cat.name, url: `${langPrefix}${path}` },
   ]);
   const listLd: JsonLdObject = {
     '@type': 'ItemList',

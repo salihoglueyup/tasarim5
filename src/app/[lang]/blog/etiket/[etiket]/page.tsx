@@ -16,9 +16,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang, etiket } = await params;
   const decoded = decodeURIComponent(etiket);
+  const title = lang === 'en'
+    ? `${decoded} Articles & Facility Guides | Alo Management Blog`
+    : lang === 'ru'
+    ? `${decoded} Статьи и Руководства | Alo Yonetim Blog`
+    : `${decoded} Makaleleri ve Tesis Rehberi | Alo Yönetim Blog`;
+
   return buildMetadata({
-    title: `${decoded} Etiketi — Blog`,
-    description: `${decoded} ile ilgili güncel yazılarımız.`,
+    title,
+    description: `${decoded} konusu hakkında güncel mevzuat, site yönetimi ve pratik rehber makaleleri.`,
     path: `/blog/etiket/${etiket}`,
     lang,
   });
@@ -29,7 +35,7 @@ export default async function TagArchive({
 }: {
   params: Promise<{ lang: string; etiket: string }>;
 }) {
-  const { etiket } = await params;
+  const { lang, etiket } = await params;
   const decoded = decodeURIComponent(etiket);
 
   let posts = await prisma.post.findMany({
@@ -73,11 +79,14 @@ export default async function TagArchive({
   }
 
   const path = `/blog/etiket/${etiket}`;
+  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+  const homeLabels: Record<string, string> = { tr: 'Anasayfa', en: 'Home', ru: 'Главная', ar: 'الرئيسية' };
+  const blogLabels: Record<string, string> = { tr: 'Blog', en: 'Blog', ru: 'Блог', ar: 'المدونة' };
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Blog', url: '/blog' },
-    { name: `#${decoded}`, url: path },
+    { name: homeLabels[lang] || 'Anasayfa', url: langPrefix || '/' },
+    { name: blogLabels[lang] || 'Blog', url: `${langPrefix}/blog` },
+    { name: `#${decoded}`, url: `${langPrefix}${path}` },
   ]);
   const listLd: JsonLdObject = {
     '@type': 'ItemList',

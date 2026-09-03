@@ -65,7 +65,7 @@ export default async function AuthorArchive({
 }: {
   params: Promise<{ lang: string; yazar: string }>;
 }) {
-  const { yazar } = await params;
+  const { lang, yazar } = await params;
   let author = await prisma.author.findUnique({ where: { slug: yazar } }).catch(() => null);
   if (!author) {
     const staticA = getAuthor(yazar);
@@ -118,11 +118,14 @@ export default async function AuthorArchive({
   }
 
   const path = `/blog/yazar/${yazar}`;
+  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+  const homeLabels: Record<string, string> = { tr: 'Anasayfa', en: 'Home', ru: 'Главная', ar: 'الرئيسية' };
+  const blogLabels: Record<string, string> = { tr: 'Blog', en: 'Blog', ru: 'Блог', ar: 'المدونة' };
 
   const breadcrumbs = [
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Blog', url: '/blog' },
-    { name: author.name, url: path },
+    { name: homeLabels[lang] || 'Anasayfa', url: langPrefix || '/' },
+    { name: blogLabels[lang] || 'Blog', url: `${langPrefix}/blog` },
+    { name: author.name, url: `${langPrefix}${path}` },
   ];
 
   const listLd: JsonLdObject = {
