@@ -22,6 +22,7 @@ export function serviceSchema(opts: {
   offers?: OfferItem[];
   sameAs?: string;
   priceRange?: string;
+  industry?: string;
 }): JsonLdObject {
   return {
     '@type': 'Service',
@@ -30,6 +31,7 @@ export function serviceSchema(opts: {
     url: abs(opts.path),
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.sameAs ? { sameAs: opts.sameAs } : {}),
+    ...(opts.industry ? { industry: opts.industry } : {}),
     priceRange: opts.priceRange ?? '₺₺',
     provider: { '@id': LOCALBUSINESS_ID },
     areaServed: { '@type': 'State', name: 'İstanbul' },
@@ -54,6 +56,30 @@ export function serviceSchema(opts: {
         },
       })),
     },
+  };
+}
+
+// Faz 70: Sektörel Çözümler İçin B2BService ve Hedef Industry Şeması
+export function b2bServiceSchema(opts: {
+  serviceType: string;
+  path: string;
+  description?: string;
+  industry?: string;
+  offers?: OfferItem[];
+}): JsonLdObject {
+  return {
+    '@type': ['Service', 'B2BService'],
+    serviceType: opts.serviceType,
+    name: opts.serviceType,
+    url: abs(opts.path),
+    industry: opts.industry ?? 'Tesis ve Gayrimenkul Yönetimi',
+    ...(opts.description ? { description: opts.description } : {}),
+    provider: { '@id': ORG_ID },
+    areaServed: { '@type': 'State', name: 'İstanbul' },
+    audience: {
+      '@type': 'BusinessAudience',
+      audienceType: 'Site Yönetimleri, Plaza Malikleri ve Gayrimenkul Yatırımcıları'
+    }
   };
 }
 

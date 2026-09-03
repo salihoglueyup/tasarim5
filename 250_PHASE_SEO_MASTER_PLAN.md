@@ -46,12 +46,12 @@
 - [x] **Faz 14:** H2 ve H3 başlıklarının ardışık semantik derinliğini (H1 -> H2 -> H3 sırası atlanmadan) DOM seviyesinde denetleme.
 - [x] **Faz 15:** Arama motorlarının içeriği hızlı parse etmesi için kritik sayfalara TL;DR (Özet) kutularını zorunlu kılma.
 - [ ] **Faz 16:** Sayfa içi anahtar kelime yoğunluğunu (Keyword Density) %1.5 - %2.5 doğal eşiğinde tutma (Keyword stuffing engelleme).
-- [ ] **Faz 17:** Çerez ve KVKK banner'larının arama motoru botlarının ilk ekran okumasını engellemeyecek DOM sıralamasında render edilmesi.
+- [x] **Faz 17:** Çerez ve KVKK banner'larının arama motoru botlarının ilk ekran okumasını engellemeyecek DOM sıralamasında render edilmesi.
 - [x] **Faz 18:** Tablolar ve veri listeleri için semantik `<caption>`, `<thead>`, `<tbody>` etiket kullanımını zorunlu kılma.
 - [x] **Faz 19:** URL yapılarında alt çizgi (`_`) yerine daima tire (`-`) kullanılmasını ve küçük harf zorunluluğunu garanti etme.
 - [ ] **Faz 20:** URL slug uzunluklarını maksimum 4-5 kelime ile sınırlandırarak tarama dostu tutma.
 - [x] **Faz 21:** Sayfalardaki telefon (`tel:`) ve e-posta (`mailto:`) bağlantılarına standart RFC formatı kazandırma.
-- [ ] **Faz 22:** Sayfa içi form elementlerinin `<label for="...">` etiketleriyle tam eşleşmesini ve erişilebilirlik skorunu güvenceye alma.
+- [x] **Faz 22:** Sayfa içi form elementlerinin `<label for="...">` etiketleriyle tam eşleşmesini ve erişilebilirlik skorunu güvenceye alma.
 - [ ] **Faz 23:** Renk kontrast oranlarının (WCAG AAA standardı) metin taranabilirliğini artıracak seviyede tutulması.
 - [x] **Faz 24:** Favicon ve PWA ikon setinin (`16x16`, `32x32`, `48x48`, `192x192`, `512x512`) tüm arama motoru botları için doğrulanması.
 - [ ] **Faz 25:** Sayfa içi CSS ve JS bundle boyutunun HTML dokümanı başına maksimum 180 KB First Load JS ile sınırlandırılması.
@@ -104,16 +104,16 @@
 - [x] **Faz 60:** ISO sertifikalarımızın PDF belgeleri için `DigitalDocument` şeması oluşturma.
 - [x] **Faz 61:** Sözlük terimleri için `DefinedTermSet` ve `DefinedTerm` şemalarını devreye alma.
 - [x] **Faz 62:** Kurumsal referans projelerimiz için `ItemList` ve `Place` şemaları bağlama.
-- [ ] **Faz 63:** Hero videosu için süre (`duration`), yükleme tarihi ve transkript içeren `VideoObject` şeması tanımlama.
+- [x] **Faz 63:** Hero videosu için süre (`duration`), yükleme tarihi ve transkript içeren `VideoObject` şeması tanımlama.
 - [ ] **Faz 64:** Müşteri yorumları için `Review` şeması ile gerçek kişi ve puan dağılımını zenginleştirme.
 - [x] **Faz 65:** Yönetici ve kurucu profilleri için `Person` ve `alumniOf`, `knowsAbout` şemaları oluşturma.
 - [x] **Faz 66:** Acil teknik servis ve 7/24 operasyon için `OpeningHoursSpecification` şemasını 7/24 olarak yapılandırma.
 - [x] **Faz 67:** Hizmet verilen 39 ilçeyi temsil eden `areaServed: { "@type": "AdministrativeArea" }` tanımlarını eksiksiz bağlama.
 - [x] **Faz 68:** Şirket genel merkez adresi için resmi `PostalAddress` standartlarını (Kadıköy, İstanbul, PK: 34710) mühürleme.
 - [x] **Faz 69:** Google Rich Results Test aracında sıfır hata ve sıfır uyarı veren otomatik CI/CD schema linter'ı (`schema-lint.ts`) çalıştırma.
-- [ ] **Faz 70:** Sektörel çözümlerimiz için `B2BService` ve hedef sektör (`industry`) şemaları tanımlama.
+- [x] **Faz 70:** Sektörel çözümlerimiz için `B2BService` ve hedef sektör (`industry`) şemaları tanımlama.
 - [x] **Faz 71:** Asansör yeşil etiket ve periyodik bakım süreçleri için `HowTo` adımlı zengin rehber şeması ekleme.
-- [ ] **Faz 72:** Genel kurul ve kat malikleri toplantıları için `Event` şeması altyapısı hazırlama.
+- [x] **Faz 72:** Genel kurul ve kat malikleri toplantıları için `Event` şeması altyapısı hazırlama.
 - [x] **Faz 73:** İstihdam ve kariyer sayfası için `JobPosting` şemasını aktif hale getirme.
 - [x] **Faz 74:** Tüm JSON-LD çıktılarını `minifyJsonLd` motoruyla sıkıştırarak HTML payload'ını %25 hafifletme.
 - [x] **Faz 75:** Çok dilli sayfalarda şemaların `inLanguage` niteliğini aktif dile göre dinamik belirleme.

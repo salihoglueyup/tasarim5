@@ -10,6 +10,7 @@ import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
 import { resolveSiloRedirect } from '@/lib/seo/siloRedirector';
 import { calculateFacilityBudget } from '@/data/facilityBudgetData';
 import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
+import { b2bServiceSchema } from '@/lib/schemas/services';
 
 describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları (Faz 7)', () => {
   beforeEach(() => {
@@ -136,4 +137,21 @@ describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları (Faz 7)'
       expect(result.targetPath).toBe('/sektorel-cozumler/rezidans-yonetimi');
     });
   });
+
+  describe('B2B Hizmet ve Hedef Sektör Şeması (b2bServiceSchema - Faz 70)', () => {
+    it('B2BService ve BusinessAudience şema yapısını eksiksiz üretir', () => {
+      const schema = b2bServiceSchema({
+        serviceType: 'Plaza & İş Merkezi Tesis Yönetimi',
+        path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+        description: 'Kurumsal iş merkezleri için entegre tesis ve teknik işletme çözümleri.',
+        industry: 'Gayrimenkul ve Plaza Yönetimi',
+      });
+
+      expect(schema['@type']).toContain('B2BService');
+      expect(schema.industry).toBe('Gayrimenkul ve Plaza Yönetimi');
+      expect(schema.areaServed).toEqual({ '@type': 'State', name: 'İstanbul' });
+      expect(schema.audience).toBeDefined();
+    });
+  });
 });
+
