@@ -137,6 +137,19 @@ export const AREA_SERVED_GEOCIRCLE = {
   geoRadius: '45000',
 } as const;
 
+/** İstanbul'un 39 ilçesini temsil eden AdministrativeArea tanımları (Faz 67). */
+export const ISTANBUL_39_DISTRICTS_ADMIN_AREAS = [
+  'Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler', 'Bakırköy', 'Başakşehir',
+  'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü', 'Beyoğlu', 'Büyükçekmece', 'Çatalca', 'Çekmeköy',
+  'Esenler', 'Esenyurt', 'Eyüpsultan', 'Fatih', 'Gaziosmanpaşa', 'Güngören', 'Kadıköy', 'Kağıthane',
+  'Kartal', 'Küçükçekmece', 'Maltepe', 'Pendik', 'Sancaktepe', 'Sarıyer', 'Silivri', 'Sultanbeyli',
+  'Sultangazi', 'Şile', 'Şişli', 'Tuzla', 'Ümraniye', 'Üsküdar', 'Zeytinburnu'
+].map((d) => ({
+  '@type': 'AdministrativeArea',
+  name: `${d}, İstanbul`,
+  containedInPlace: { '@type': 'AdministrativeArea', name: 'İstanbul' }
+}));
+
 /** Departman bazlı iletişim noktaları (Faz 61 — ContactPoint). */
 export const ORG_CONTACT_POINTS = [
   {

@@ -155,11 +155,15 @@ export function webPageSchema(opts: {
   name?: string;
   description?: string;
   path: string;
+  lang?: string;
   speakableSelectors?: string[];
   hasPart?: string[];
   mainEntity?: JsonLdObject;
 }): JsonLdObject {
   const url = abs(opts.path);
+  const detectedLang = opts.lang || (opts.path.startsWith('/en') ? 'en-US' : opts.path.startsWith('/ru') ? 'ru-RU' : opts.path.startsWith('/ar') ? 'ar-SA' : 'tr-TR');
+  const inLanguage = detectedLang.includes('-') ? detectedLang : (detectedLang === 'en' ? 'en-US' : detectedLang === 'ru' ? 'ru-RU' : detectedLang === 'ar' ? 'ar-SA' : 'tr-TR');
+
   return {
     '@type': opts.type ?? 'WebPage',
     '@id': `${url}#webpage`,
@@ -168,7 +172,7 @@ export function webPageSchema(opts: {
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.mainEntity ? { mainEntity: opts.mainEntity } : {}),
     isPartOf: { '@id': WEBSITE_ID },
-    inLanguage: 'tr-TR',
+    inLanguage,
     ...(opts.hasPart && opts.hasPart.length
       ? {
           hasPart: opts.hasPart.map(p => ({

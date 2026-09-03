@@ -100,15 +100,15 @@
 - [x] **Faz 56:** `FAQPage` şemasını tüm hizmet, ilçe ve genel SSS sayfalarına temiz HTML metinleriyle bağlama.
 - [x] **Faz 57:** `WebSite` şeması içine Google Sitelinks Searchbox (`SearchAction`) entegrasyonu sağlama.
 - [x] **Faz 58:** Hizmet şemalarına (`Service`) kesin `priceRange: "₺₺"` ve `hasOfferCatalog` fiyat teklif katalogları ekleme.
-- [ ] **Faz 59:** Blog yazıları için `Article` şemasında `author`, `publisher`, `datePublished` ve `dateModified` alanlarını ISO-8601 UTC olarak sabitleme.
+- [x] **Faz 59:** Blog yazıları için `Article` şemasında `author`, `publisher`, `datePublished` ve `dateModified` alanlarını ISO-8601 UTC olarak sabitleme.
 - [ ] **Faz 60:** ISO sertifikalarımızın PDF belgeleri için `DigitalDocument` şeması oluşturma.
-- [ ] **Faz 61:** Sözlük terimleri için `DefinedTermSet` ve `DefinedTerm` şemalarını devreye alma.
-- [ ] **Faz 62:** Kurumsal referans projelerimiz için `ItemList` ve `Place` şemaları bağlama.
+- [x] **Faz 61:** Sözlük terimleri için `DefinedTermSet` ve `DefinedTerm` şemalarını devreye alma.
+- [x] **Faz 62:** Kurumsal referans projelerimiz için `ItemList` ve `Place` şemaları bağlama.
 - [ ] **Faz 63:** Hero videosu için süre (`duration`), yükleme tarihi ve transkript içeren `VideoObject` şeması tanımlama.
 - [ ] **Faz 64:** Müşteri yorumları için `Review` şeması ile gerçek kişi ve puan dağılımını zenginleştirme.
 - [x] **Faz 65:** Yönetici ve kurucu profilleri için `Person` ve `alumniOf`, `knowsAbout` şemaları oluşturma.
 - [x] **Faz 66:** Acil teknik servis ve 7/24 operasyon için `OpeningHoursSpecification` şemasını 7/24 olarak yapılandırma.
-- [ ] **Faz 67:** Hizmet verilen 39 ilçeyi temsil eden `areaServed: { "@type": "AdministrativeArea" }` tanımlarını eksiksiz bağlama.
+- [x] **Faz 67:** Hizmet verilen 39 ilçeyi temsil eden `areaServed: { "@type": "AdministrativeArea" }` tanımlarını eksiksiz bağlama.
 - [ ] **Faz 68:** Şirket genel merkez adresi için resmi `PostalAddress` standartlarını (Kadıköy, İstanbul, PK: 34710) mühürleme.
 - [ ] **Faz 69:** Google Rich Results Test aracında sıfır hata ve sıfır uyarı veren otomatik CI/CD schema linter'ı (`schema-lint.ts`) çalıştırma.
 - [ ] **Faz 70:** Sektörel çözümlerimiz için `B2BService` ve hedef sektör (`industry`) şemaları tanımlama.
@@ -116,7 +116,7 @@
 - [ ] **Faz 72:** Genel kurul ve kat malikleri toplantıları için `Event` şeması altyapısı hazırlama.
 - [ ] **Faz 73:** İstihdam ve kariyer sayfası için `JobPosting` şemasını aktif hale getirme.
 - [ ] **Faz 74:** Tüm JSON-LD çıktılarını `minifyJsonLd` motoruyla sıkıştırarak HTML payload'ını %25 hafifletme.
-- [ ] **Faz 75:** Çok dilli sayfalarda şemaların `inLanguage` niteliğini aktif dile göre dinamik belirleme.
+- [x] **Faz 75:** Çok dilli sayfalarda şemaların `inLanguage` niteliğini aktif dile göre dinamik belirleme.
 
 ---
 

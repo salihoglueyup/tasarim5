@@ -17,6 +17,7 @@ import {
   GROUP_COMPANIES,
   ORG_KNOWS_ABOUT,
   AREA_SERVED_GEOCIRCLE,
+  ISTANBUL_39_DISTRICTS_ADMIN_AREAS,
   ORG_CONTACT_POINTS,
   BASE_URL,
   abs,
@@ -289,7 +290,7 @@ export function professionalServiceSchema(opts?: {
     hasMap: 'https://www.google.com/maps?q=Alo+Yönetim+Kadıköy',
     areaServed: opts?.areaServed
       ? (typeof opts.areaServed === 'string' ? { '@type': 'AdministrativeArea', name: opts.areaServed } : opts.areaServed)
-      : AREA_SERVED_GEOCIRCLE,
+      : [{ '@type': 'AdministrativeArea', name: 'İstanbul' }, ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS, AREA_SERVED_GEOCIRCLE],
     parentOrganization: { '@id': ORG_ID },
     knowsAbout: opts?.knowsAbout ?? [
       { '@type': 'Thing', name: 'Tesis Yönetimi (Facility Management)', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },

@@ -62,6 +62,17 @@ export function blogPostingSchema(opts: {
         ...(opts.author.knowsAbout ? { knowsAbout: opts.author.knowsAbout } : {})
       }
     : { '@type': 'Person', name: opts.authorName ?? `${ORG_NAME} Editör Ekibi` };
+
+  const formatIsoUtc = (dateStr?: string): string => {
+    if (!dateStr) return new Date().toISOString();
+    try {
+      const d = new Date(dateStr);
+      return isNaN(d.getTime()) ? dateStr : d.toISOString();
+    } catch {
+      return dateStr;
+    }
+  };
+
   return {
     '@type': ['Article', 'BlogPosting'],
     headline: opts.headline,
@@ -69,8 +80,8 @@ export function blogPostingSchema(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     url,
     ...(opts.image ? { image: abs(opts.image) } : {}),
-    datePublished: opts.datePublished,
-    dateModified: opts.dateModified ?? opts.datePublished,
+    datePublished: formatIsoUtc(opts.datePublished),
+    dateModified: formatIsoUtc(opts.dateModified ?? opts.datePublished),
     ...(opts.section ? { articleSection: opts.section } : {}),
     ...(opts.keywords && opts.keywords.length ? { keywords: opts.keywords.join(', ') } : {}),
     ...(opts.timeRequired ? { timeRequired: opts.timeRequired } : {}),

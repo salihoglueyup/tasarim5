@@ -159,9 +159,31 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
     description: headerContent.desc,
   });
 
+  const itemListLd = {
+    '@type': 'ItemList',
+    name: `${headerContent.title} — Yönetilen Tesis Portföyü`,
+    description: headerContent.desc,
+    numberOfItems: (projects || []).length,
+    itemListElement: (projects || []).slice(0, 30).map((proj: any, idx: number) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'Place',
+        name: proj.title || proj.name,
+        description: proj.testimonialText || `${proj.category || 'Tesis Yönetimi'} referans projesi. ${proj.units || ''}`,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: proj.location || 'İstanbul',
+          addressRegion: 'İstanbul',
+          addressCountry: 'TR',
+        },
+      },
+    })),
+  };
+
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, itemListLd]} />
       <PageHeader 
         title={headerContent.title} 
         description={headerContent.desc} 
