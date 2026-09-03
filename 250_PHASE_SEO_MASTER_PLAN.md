@@ -268,10 +268,10 @@
 - [x] **Faz 194:** Altbilgideki (Footer) 39 ilçe listesini iki yakaya (Anadolu / Avrupa) ayırarak temiz sütunlar halinde bağlama.
 - [x] **Faz 195:** Sayfa içinde tıklanamayan veya javascript bağımlı sahte linklerin taranabilir `<a href="...">` etiketine dönüştürülmesi.
 - [x] **Faz 196:** Eski ve silinmiş sayfaların bıraktığı kırık iç bağlantıları düzenli tarayan haftalık cron görevini aktif etme.
-- [ ] **Faz 197:** İç linklerin kullanıcılar tarafından tıklanma oranını (Click-Through) ölçen Google Analytics etkinlikleri kurma.
+- [x] **Faz 197:** İç linklerin kullanıcılar tarafından tıklanma oranını (Click-Through) ölçen Google Analytics etkinlikleri kurma.
 - [x] **Faz 198:** En yüksek PageRank değerine sahip ana sayfadan en stratejik 5 amiral gemisi hizmete doğrudan link akışı sağlama.
-- [ ] **Faz 199:** Başarı hikayeleri sayfalarından ilgili ilçe ve hizmet sayfalarına karşılıklı referans köprüsü kurma.
-- [ ] **Faz 200:** Sayfa başına toplam iç bağlantı sayısını 100 link sınırının altında tutarak tarama verimini koruma.
+- [x] **Faz 199:** Başarı hikayeleri sayfalarından ilgili ilçe ve hizmet sayfalarına karşılıklı referans köprüsü kurma.
+- [x] **Faz 200:** Sayfa başına toplam iç bağlantı sayısını 100 link sınırının altında tutarak tarama verimini koruma.
 
 ---
 
@@ -286,7 +286,7 @@
 - [x] **Faz 206:** Tüm blog makalelerinin altına "Hukuki İnceleme Yapan Uzman" (Reviewed By) künyesi ekleme.
 - [x] **Faz 207:** Makalelerin son güncellenme tarihini (`Updated on...`) şeffaf bir şekilde okuyucuya ve botlara gösterme.
 - [x] **Faz 208:** İletişim sayfasında şirketin resmi vergi kimlik numarası, kayıtlı olduğu oda ve MERSİS numarasını şeffafça yayınlama.
-- [ ] **Faz 209:** Gerçek site yöneticisi ve kat maliki video referanslarını VideoObject şemasıyla zenginleştirme.
+- [x] **Faz 209:** Gerçek site yöneticisi ve kat maliki video referanslarını VideoObject şemasıyla zenginleştirme.
 - [ ] **Faz 210:** Kurumsal Hakkımızda sayfasında yönetim kurulu ve departman müdürlerinin fotoğraflı özgeçmişlerini sunma.
 - [x] **Faz 211:** Teklif alma formunda (`/teklif-al`) güven mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza) ile dönüşüm oranını artırma.
 - [x] **Faz 212:** KMK Hukuk süreçlerinde emsal Yargıtay kararlarına atıfta bulunarak hukuki derinliği belgeleme.
@@ -295,7 +295,7 @@
 - [ ] **Faz 215:** Kullanıcıların kolayca geri bildirim ve şikayet iletebileceği ISO 10002 Müşteri Memnuniyeti formunu öne çıkarma.
 - [ ] **Faz 216:** Şirket genel merkezinin fiziksel ofis, operasyon merkezi ve araç filosunun yüksek çözünürlüklü fotoğraflarını sunma.
 - [x] **Faz 217:** 48 saatte şeffaf bütçe teklifi garantisini dönüşüm odaklı mikro rozetlerle tüm hizmetlere yerleştirme.
-- [ ] **Faz 218:** Sitede yer alan tüm hesaplayıcıların formüllerini KMK 634 resmi hesaplama cetvellerine dayandırma.
+- [x] **Faz 218:** Sitede yer alan tüm hesaplayıcıların formüllerini KMK 634 resmi hesaplama cetvellerine dayandırma.
 - [ ] **Faz 219:** Sektörel ödüller, plaketler ve teşekkür belgeleri için özel bir dijital başarı vitrini oluşturma.
 - [x] **Faz 220:** Mobil cihazlarda arama ve WhatsApp iletişim butonlarını başparmak erişim bölgesinde (Thumb Zone) sabitleme.
 - [ ] **Faz 221:** Form gönderimlerinde kullanıcıya SMS/E-posta ile anında takip kodu üreten güven mekanizması sağlama.
