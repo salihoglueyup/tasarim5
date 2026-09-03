@@ -51,9 +51,8 @@ export default async function HakkimizdaPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
-    { name: t.nav_about || 'Hakkımızda', url: '/hakkimizda' }
+    { name: t.nav_home || 'Anasayfa', url: lang === 'tr' ? '/' : `/${lang}` },
+    { name: t.about_title || t.nav_about || 'Hakkımızda', url: lang === 'tr' ? '/hakkimizda' : `/${lang}/hakkimizda` }
   ]);
 
   const pageLd = webPageSchema({

@@ -1,7 +1,7 @@
 Contact: mailto:security@aloyonetim.com.tr
 Contact: tel:+902165504848
 Expires: 2027-08-14T00:00:00.000Z
-Acknowledgments: https://aloyonetim.com.tr/tr/iletisim
+Acknowledgments: https://aloyonetim.com.tr/iletisim
 Preferred-Languages: tr, en
 Canonical: https://aloyonetim.com.tr/.well-known/security.txt
-Policy: https://aloyonetim.com.tr/tr/gizlilik-politikasi
+Policy: https://aloyonetim.com.tr/gizlilik-politikasi

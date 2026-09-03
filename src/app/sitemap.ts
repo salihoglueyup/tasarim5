@@ -7,6 +7,7 @@ import { POSTS_META, CATEGORIES } from '@/data/posts';
 import { AUTHOR_SLUGS } from '@/data/authors';
 import { REFERENCES_META } from '@/data/referencesMetadata';
 import { parseTags } from '@/lib/jsonSafe';
+import { TERMS, termToSlug } from '@/data/dictionary';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 saat önbellek
@@ -216,6 +217,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     makeItems(`/referanslar/${r.slug}`, 0.7, 'monthly', r.updatedAt.toISOString())
   );
 
+  const dictionaryRoutes: MetadataRoute.Sitemap = TERMS.flatMap((t) =>
+    makeItems(`/sozluk/${termToSlug(t.term)}`, 0.65, 'monthly')
+  );
+
   return [
     ...staticRoutes,
     ...districtRoutes,
@@ -227,5 +232,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...authorRoutes,
     ...tagRoutes,
     ...referenceRoutes,
+    ...dictionaryRoutes,
   ];
 }

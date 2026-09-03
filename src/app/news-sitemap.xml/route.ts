@@ -83,7 +83,6 @@ export async function GET() {
   for (const post of posts) {
     const pubDate = new Date(post.datePublished).toISOString();
     const loc = `${BASE_URL}/blog/${post.slug}`;
-    const keywords = post.tags || 'tesis yönetimi, site yönetimi, kmk 634, aidat';
 
     xml += `  <url>\n`;
     xml += `    <loc>${loc}</loc>\n`;
@@ -94,7 +93,6 @@ export async function GET() {
     xml += `      </news:publication>\n`;
     xml += `      <news:publication_date>${pubDate}</news:publication_date>\n`;
     xml += `      <news:title>${escapeXml(post.title)}</news:title>\n`;
-    xml += `      <news:keywords>${escapeXml(keywords)}</news:keywords>\n`;
     xml += `    </news:news>\n`;
     xml += `  </url>\n`;
   }

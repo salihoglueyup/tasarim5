@@ -1,5 +1,5 @@
 import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import FaqClient from './FaqClient';
@@ -71,8 +71,8 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
   );
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: dict.sss_title, url: '/sss' }
+    { name: dict.nav_home || 'Anasayfa', url: lang === 'tr' ? '/' : `/${lang}` },
+    { name: dict.sss_title || 'Sıkça Sorulan Sorular', url: lang === 'tr' ? '/sss' : `/${lang}/sss` }
   ]);
 
   const pageLd = webPageSchema({

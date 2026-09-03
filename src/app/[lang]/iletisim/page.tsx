@@ -48,8 +48,8 @@ export default async function IletisimPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.contact_title || 'İletişim', url: '/iletisim' }
+    { name: t.nav_home || 'Anasayfa', url: lang === 'tr' ? '/' : `/${lang}` },
+    { name: t.contact_title || 'İletişim', url: lang === 'tr' ? '/iletisim' : `/${lang}/iletisim` }
   ]);
 
   const contactPageLd = webPageSchema({
