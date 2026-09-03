@@ -193,15 +193,15 @@
 - [x] **Faz 131:** Blog yazar arşivinde (`blog/yazar/[yazar]`) çok dilli breadcrumb ve profil yönlendirmesini bağlama.
 - [x] **Faz 132:** Blog etiket sayfalarında (`blog/etiket/[etiket]`) çok dilli breadcrumb yapısını kurma.
 - [x] **Faz 133:** `middleware.ts` içindeki `translatedSlugs` haritası ile tüm hizmet ve kurumsal sayfaları 4 dilde anlamsal URL'lere yönlendirme.
-- [ ] **Faz 134:** Arapça sayfalar için tüm layout'ta tam RTL (`dir="rtl"`) ve semantik CSS akışını sağlama.
+- [x] **Faz 134:** Arapça sayfalar için tüm layout'ta tam RTL (`dir="rtl"`) ve semantik CSS akışını sağlama.
 - [ ] **Faz 135:** İngilizce sayfaların SERP meta başlık ve açıklamalarını yabancı yatırımcı ve expat kitlesine göre optimize etme.
 - [ ] **Faz 136:** Rusça sayfaları Yandex arama motoru optimizasyon kriterlerine (Yandex Webmaster, Turbo sayfaları) tam uyumlu kılma.
 - [ ] **Faz 137:** Körfez ve Orta Doğu gayrimenkul yatırımcıları için Arapça rezidans yönetim rehberleri yayınlama.
 - [ ] **Faz 138:** `sitemap.xml` içinde 4 dilin tüm çapraz hreflang eşleşmelerini XML düğümü olarak listeleme.
-- [ ] **Faz 139:** Para birimi ve sayı formatlarını seçilen dile göre dinamik yerelleştirme (`Intl.NumberFormat`).
-- [ ] **Faz 140:** Tarih ve saat göstergelerini ilgili dilin resmi formatına göre basma (`Intl.DateTimeFormat`).
+- [x] **Faz 139:** Para birimi ve sayı formatlarını seçilen dile göre dinamik yerelleştirme (`Intl.NumberFormat`).
+- [x] **Faz 140:** Tarih ve saat göstergelerini ilgili dilin resmi formatına göre basma (`Intl.DateTimeFormat`).
 - [ ] **Faz 141:** Dil değiştirildiğinde kullanıcının bulunduğu sayfanın tam çeviri slug karşılığına yönlenmesini sağlama.
-- [ ] **Faz 142:** Kullanıcının dil tercihini `NEXT_LOCALE` çerezi ile hatırlayıp sonraki girişlerde kesintisiz sunma.
+- [x] **Faz 142:** Kullanıcının dil tercihini `NEXT_LOCALE` çerezi ile hatırlayıp sonraki girişlerde kesintisiz sunma.
 - [ ] **Faz 143:** Tarayıcının `Accept-Language` başlığını analiz ederek ilk ziyarette nazik bir dil öneri kutusu çıkarma.
 - [ ] **Faz 144:** Hukuki ve mevzuat metinlerinin (KVKK, Gizlilik) uluslararası geçerlilikte İngilizce özetlerini yayınlama.
 - [ ] **Faz 145:** Uluslararası telefon kodu seçimi (`+90`, `+971`, `+7`, `+44`) ile yabancı yatırımcı form dönüşümünü artırma.
@@ -209,7 +209,7 @@
 - [ ] **Faz 147:** 404 Hata Sayfasını kullanıcının o anki dilinde anlamlı navigasyon önerileriyle sunma.
 - [ ] **Faz 148:** Çok dilli blog yazıları arasında `hreflang` çapraz eşleştirmesini veritabanı ID'si üzerinden dinamik kurma.
 - [ ] **Faz 149:** Yabancı dildeki hizmet sayfalarında Türkiye'de mülk edinen yabancılara yönelik yasal haklar kılavuzu sunma.
-- [ ] **Faz 150:** 4 dilde hreflang doğruluğunu denetleyen otomatik test paketini (`dualCoreMultiLangEngine.test.ts`) sürekli çalıştırma.
+- [x] **Faz 150:** 4 dilde hreflang doğruluğunu denetleyen otomatik test paketini (`dualCoreMultiLangEngine.test.ts`) sürekli çalıştırma.
 
 ---
 

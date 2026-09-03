@@ -255,6 +255,14 @@ export async function middleware(request: NextRequest) {
   // URL Çevirilerini Rewrite Etme (Örn: /en/services/facility-management -> /en/hizmetler/tesis-yonetimi)
   const currentLocale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
   if (currentLocale && currentLocale !== defaultLocale) {
+    if (request.cookies.get('NEXT_LOCALE')?.value !== currentLocale) {
+      response.cookies.set('NEXT_LOCALE', currentLocale, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 365,
+        sameSite: 'lax',
+      });
+    }
+
     const segments = pathname.split('/').filter(Boolean); // ["en", "services", "facility-management"]
     if (segments.length > 1) {
       const fullSubPath = segments.slice(1).join('/');
