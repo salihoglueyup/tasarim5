@@ -290,16 +290,16 @@
 - [ ] **Faz 210:** Kurumsal Hakkımızda sayfasında yönetim kurulu ve departman müdürlerinin fotoğraflı özgeçmişlerini sunma.
 - [x] **Faz 211:** Teklif alma formunda (`/teklif-al`) güven mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza) ile dönüşüm oranını artırma.
 - [x] **Faz 212:** KMK Hukuk süreçlerinde emsal Yargıtay kararlarına atıfta bulunarak hukuki derinliği belgeleme.
-- [ ] **Faz 213:** Asansör bakımı ve teknik denetimlerde TSE ve MMO akredite mühendis onay belgelerini sergileme.
+- [x] **Faz 213:** Asansör bakımı ve teknik denetimlerde TSE ve MMO akredite mühendis onay belgelerini sergileme.
 - [x] **Faz 214:** Gizlilik Politikası, Çerez Politikası ve Kullanım Şartları sayfalarını en güncel 2026 mevzuatına göre güncelleme.
-- [ ] **Faz 215:** Kullanıcıların kolayca geri bildirim ve şikayet iletebileceği ISO 10002 Müşteri Memnuniyeti formunu öne çıkarma.
+- [x] **Faz 215:** Kullanıcıların kolayca geri bildirim ve şikayet iletebileceği ISO 10002 Müşteri Memnuniyeti formunu öne çıkarma.
 - [ ] **Faz 216:** Şirket genel merkezinin fiziksel ofis, operasyon merkezi ve araç filosunun yüksek çözünürlüklü fotoğraflarını sunma.
 - [x] **Faz 217:** 48 saatte şeffaf bütçe teklifi garantisini dönüşüm odaklı mikro rozetlerle tüm hizmetlere yerleştirme.
 - [x] **Faz 218:** Sitede yer alan tüm hesaplayıcıların formüllerini KMK 634 resmi hesaplama cetvellerine dayandırma.
-- [ ] **Faz 219:** Sektörel ödüller, plaketler ve teşekkür belgeleri için özel bir dijital başarı vitrini oluşturma.
+- [x] **Faz 219:** Sektörel ödüller, plaketler ve teşekkür belgeleri için özel bir dijital başarı vitrini oluşturma.
 - [x] **Faz 220:** Mobil cihazlarda arama ve WhatsApp iletişim butonlarını başparmak erişim bölgesinde (Thumb Zone) sabitleme.
-- [ ] **Faz 221:** Form gönderimlerinde kullanıcıya SMS/E-posta ile anında takip kodu üreten güven mekanizması sağlama.
-- [ ] **Faz 222:** Şirketin sıfır atık ve sürdürülebilirlik ilkelerini belgeleyen kurumsal raporları yayınlama.
+- [x] **Faz 221:** Form gönderimlerinde kullanıcıya SMS/E-posta ile anında takip kodu üreten güven mekanizması sağlama.
+- [x] **Faz 222:** Şirketin sıfır atık ve sürdürülebilirlik ilkelerini belgeleyen kurumsal raporları yayınlama.
 - [ ] **Faz 223:** Basında Alo Yönetim haber ve röportajlarını yetkili basın linkleriyle referanslama.
 - [ ] **Faz 224:** Sitedeki içeriklerin editoryal politika ve doğruluk ilkelerini açıklayan "Yayın İlkeleri" sayfası ekleme.
 - [ ] **Faz 225:** Google E-E-A-T denetim kontrol listesindeki tüm 45 kriterin periyodik testini tamamlama.
