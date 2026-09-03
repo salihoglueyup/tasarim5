@@ -22,6 +22,7 @@ import {
   BASE_URL,
   abs,
 } from './constants';
+import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
 
 export function organizationSchema(): JsonLdObject {
   return {
@@ -43,7 +44,19 @@ export function organizationSchema(): JsonLdObject {
     description: 'İstanbul Kadıköy merkezli, Türkiye\'nin en güvenilir, şeffaf, yenilikçi ve yasalara %100 uygun çalışan profesyonel tesis ve site yönetim şirketidir. Güvenlik, temizlik, teknik bakım ve aidat icra takibi hizmetlerini tek çatı altında sunar.',
     disambiguatingDescription: 'Alo Yönetim, Türkiye genelinde site, apartman, rezidans ve ticari tesisler için entegre yönetim, özel güvenlik, profesyonel temizlik, teknik işletim ve aidat tahsilat süreçlerini yürüten lider tesis yönetim şirketidir.',
     numberOfEmployees: { '@type': 'QuantitativeValue', value: '200+' },
+    taxID: CANONICAL_NAP.legal.mersisNumber,
+    vatID: `TR${CANONICAL_NAP.legal.mersisNumber}`,
+    identifier: [
+      { '@type': 'PropertyValue', name: 'MERSİS Numarası', value: CANONICAL_NAP.legal.mersisNumber },
+      { '@type': 'PropertyValue', name: 'Ticaret Sicil No', value: CANONICAL_NAP.legal.tradeRegistryNumber },
+      { '@type': 'PropertyValue', name: 'Vergi Dairesi', value: CANONICAL_NAP.legal.taxOffice },
+      { '@type': 'PropertyValue', name: 'Özel Güvenlik İzin Belge No', value: CANONICAL_NAP.legal.securityPermitNumber },
+    ],
     address: ORG_ADDRESS,
+    hasMap: [
+      CANONICAL_NAP.geo.googleMapsPlaceUrl,
+      CANONICAL_NAP.geo.openStreetMapUrl,
+    ],
     areaServed: { '@type': 'City', name: 'İstanbul' },
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
@@ -287,7 +300,10 @@ export function professionalServiceSchema(opts?: {
     ...(opts?.description ? { description: opts.description } : {}),
     address: ORG_ADDRESS,
     geo: ORG_GEO,
-    hasMap: 'https://www.google.com/maps?q=Alo+Yönetim+Kadıköy',
+    hasMap: [
+      CANONICAL_NAP.geo.googleMapsPlaceUrl,
+      CANONICAL_NAP.geo.openStreetMapUrl,
+    ],
     areaServed: opts?.areaServed
       ? (typeof opts.areaServed === 'string' ? { '@type': 'AdministrativeArea', name: opts.areaServed } : opts.areaServed)
       : [{ '@type': 'AdministrativeArea', name: 'İstanbul' }, ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS, AREA_SERVED_GEOCIRCLE],

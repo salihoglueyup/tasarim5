@@ -133,10 +133,10 @@
 - [x] **Faz 83:** `constants.ts` içindeki `ORG_SAME_AS` dizisine doğrulanmış Facebook, LinkedIn, X, Instagram ve YouTube profillerini ekleme.
 - [ ] **Faz 84:** Google Knowledge Graph API üzerinden şirket varlık ID'sini (Entity ID) sorgulama ve izleme.
 - [ ] **Faz 85:** Tesis yönetimi sektöründeki anahtar kavramlar ile şirket kimliğini çift yönlü ilişkilendiren `entity-graph.jsonld` derleme.
-- [ ] **Faz 86:** Resmi kurum bağlantılarına (`mevzuat.gov.tr`, `istanbul.gov.tr`, `resmigazete.gov.tr`) bağlamsal dış otorite linkleri verme.
-- [ ] **Faz 87:** Yazar profillerine sektördeki deneyim ve sertifikaları gösteren `hasCredential` varlıkları ekleme.
-- [ ] **Faz 88:** Kurumsal kimlikte MERSİS numarası, Vergi Dairesi ve Sicil No bilgilerini şeffaf şekilde işaretleme.
-- [ ] **Faz 89:** Sektörel sözlük (`/sozluk`) terimlerini Wikipedia ve Vikisözlük maddeleriyle çapraz referanslama.
+- [x] **Faz 86:** Resmi kurum bağlantılarına (`mevzuat.gov.tr`, `istanbul.gov.tr`, `resmigazete.gov.tr`) bağlamsal dış otorite linkleri verme.
+- [x] **Faz 87:** Yazar profillerine sektördeki deneyim ve sertifikaları gösteren `hasCredential` varlıkları ekleme.
+- [x] **Faz 88:** Kurumsal kimlikte MERSİS numarası, Vergi Dairesi ve Sicil No bilgilerini şeffaf şekilde işaretleme.
+- [x] **Faz 89:** Sektörel sözlük (`/sozluk`) terimlerini Wikipedia ve Vikisözlük maddeleriyle çapraz referanslama.
 - [ ] **Faz 90:** Anahtar teslim site yönetimi adımlarını görsel infografiklerle destekleyip görsel varlık grafiğine kaydetme.
 - [ ] **Faz 91:** Google'ın markamızı bir "Tesis ve Gayrimenkul Yönetim Şirketi" olarak sınıflamasını sağlayan taksonomi haritası çıkarma.
 - [ ] **Faz 92:** Blog makalelerinde geçen özel terimlere (`kompanzasyon panosu`, `arsa payı`) anında sözlük popup'ı bağlama.
@@ -145,7 +145,7 @@
 - [ ] **Faz 95:** Sektörel dernek ve meslek odaları (TRFMA vb.) üyeliklerini kurumsal varlık şemasına entegre etme.
 - [ ] **Faz 96:** Rakip analizlerinde topikal otorite boşluklarını (Content Gap) tespit eden otomatik araç çalıştırma.
 - [ ] **Faz 97:** Kat malikleri ve yöneticiler için hazırlanan KMK rehberlerini indirilebilir otorite dokümanı olarak sunma.
-- [ ] **Faz 98:** Şirket genel merkez binasının coğrafi varlık koordinatlarını OpenStreetMap ve Wikidata ile eşleştirme.
+- [x] **Faz 98:** Şirket genel merkez binasının coğrafi varlık koordinatlarını OpenStreetMap ve Wikidata ile eşleştirme.
 - [ ] **Faz 99:** Sektörel vaka analizlerinde (Case Studies) gerçek problem-çözüm-tasarruf metriklerini belgeleme.
 - [ ] **Faz 100:** Google Knowledge Graph doğrulama testlerini tamamlayarak bilgi paneli başvuru hazırlığını bitirme.
 

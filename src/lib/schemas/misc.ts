@@ -198,7 +198,7 @@ export function definedTermSetSchema(opts: {
   name: string;
   description: string;
   path: string;
-  terms: { term: string; definition: string; url?: string }[];
+  terms: { term: string; definition: string; url?: string; sameAs?: string }[];
 }): JsonLdObject {
   const url = abs(opts.path);
   return {
@@ -217,6 +217,7 @@ export function definedTermSetSchema(opts: {
         description: t.definition,
         url: termUrl,
         inDefinedTermSet: `${url}#glossary`,
+        ...(t.sameAs ? { sameAs: t.sameAs } : {}),
       };
     }),
   };

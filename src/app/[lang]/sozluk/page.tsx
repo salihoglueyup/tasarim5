@@ -76,6 +76,7 @@ export default async function SozlukPage({
       term: t.term,
       definition: t.definition,
       url: `/sozluk#${t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+      sameAs: t.sameAs,
     })),
     ...kmkTerms,
   ];

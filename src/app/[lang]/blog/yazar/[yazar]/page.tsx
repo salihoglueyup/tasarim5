@@ -138,11 +138,13 @@ export default async function AuthorArchive({
     })),
   };
 
+  const staticAuthor = getAuthor(author.slug);
   const authorLd = authorPersonSchema({
     slug: author.slug,
     name: author.name,
     bio: author.bio,
     avatar: author.avatar,
+    credentials: staticAuthor?.credentials,
   });
 
   const pageLd = webPageSchema({
