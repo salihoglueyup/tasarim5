@@ -140,7 +140,7 @@
 - [x] **Faz 90:** Anahtar teslim site yönetimi adımlarını görsel infografiklerle destekleyip görsel varlık grafiğine kaydetme.
 - [x] **Faz 91:** Google'ın markamızı bir "Tesis ve Gayrimenkul Yönetim Şirketi" olarak sınıflamasını sağlayan taksonomi haritası çıkarma.
 - [x] **Faz 92:** Blog makalelerinde geçen özel terimlere (`kompanzasyon panosu`, `arsa payı`) anında sözlük popup'ı bağlama.
-- [ ] **Faz 93:** Kurumsal web sitesinde basın bültenleri ve medya kiti bölümünü yapılandırılmış formatta sunma.
+- [x] **Faz 93:** Kurumsal web sitesinde basın bültenleri ve medya kiti bölümünü yapılandırılmış formatta sunma.
 - [x] **Faz 94:** Kurucu ve yöneticilerin sektörel makalelerini ve yayınlarını profil sayfalarına bağlama.
 - [x] **Faz 95:** Sektörel dernek ve meslek odaları (TRFMA vb.) üyeliklerini kurumsal varlık şemasına entegre etme.
 - [x] **Faz 96:** Rakip analizlerinde topikal otorite boşluklarını (Content Gap) tespit eden otomatik araç çalıştırma.
@@ -172,7 +172,7 @@
 - [x] **Faz 116:** İlçe sayfalarında yerel belediye zabıta ve çevre müdürlüğü mevzuat linklerine atıfta bulunma.
 - [x] **Faz 117:** Google İşletme Profili (Google Business Profile) ile web sitesi NAP (Name, Address, Phone) tutarlılığını garanti altına alma.
 - [x] **Faz 118:** Mobil aramalarda kullanıcının konumuna en yakın saha ofisini hesaplayan uç nokta (`/api/geo/nearest-facility-hub`) entegrasyonu.
-- [ ] **Faz 119:** Yerel rehber siteleri ve sektörel İstanbul dizinleri için optimize edilmiş yerel tanıtım metinleri hazırlama.
+- [x] **Faz 119:** Yerel rehber siteleri ve sektörel İstanbul dizinleri için optimize edilmiş yerel tanıtım metinleri hazırlama.
 - [x] **Faz 120:** İlçe sayfalarında kentsel dönüşüm ve yeni teslim toplu konutlara özel yönetim danışmanlığı modülü sunma.
 - [x] **Faz 121:** Her ilçenin deprem ve acil durum tahliye planlama rehberini yerel SEO içeriği olarak sağlama.
 - [x] **Faz 122:** İlçe bazında yerel anahtar kelime hacimlerini (Search Volume) 3 ayda bir güncelleyen dinamik taksonomi motoru bağlama.
@@ -300,8 +300,8 @@
 - [x] **Faz 220:** Mobil cihazlarda arama ve WhatsApp iletişim butonlarını başparmak erişim bölgesinde (Thumb Zone) sabitleme.
 - [x] **Faz 221:** Form gönderimlerinde kullanıcıya SMS/E-posta ile anında takip kodu üreten güven mekanizması sağlama.
 - [x] **Faz 222:** Şirketin sıfır atık ve sürdürülebilirlik ilkelerini belgeleyen kurumsal raporları yayınlama.
-- [ ] **Faz 223:** Basında Alo Yönetim haber ve röportajlarını yetkili basın linkleriyle referanslama.
-- [ ] **Faz 224:** Sitedeki içeriklerin editoryal politika ve doğruluk ilkelerini açıklayan "Yayın İlkeleri" sayfası ekleme.
+- [x] **Faz 223:** Basında Alo Yönetim haber ve röportajlarını yetkili basın linkleriyle referanslama.
+- [x] **Faz 224:** Sitedeki içeriklerin editoryal politika ve doğruluk ilkelerini açıklayan "Yayın İlkeleri" sayfası ekleme.
 - [x] **Faz 225:** Google E-E-A-T denetim kontrol listesindeki tüm 45 kriterin periyodik testini tamamlama.
 
 ---
@@ -318,7 +318,7 @@
 - [x] **Faz 232:** Interaction to Next Paint (INP) gecikmesini 50ms altında tutmak için tüm arama ve filtreleri `useTransition` ile sarmalama.
 - [x] **Faz 233:** Largest Contentful Paint (LCP) süresini 1.2 saniyenin altında tutmak için kritik fontları `preload` ile çekme.
 - [x] **Faz 234:** Kullanılmayan CSS ve JS kodlarını temizleyen gelişmiş Tree-Shaking optimizasyonu uygulama.
-- [ ] **Faz 235:** Googlebot ve Bingbot'un sunucudaki CPU tüketimini izleyen `/api/admin/bot-telemetry` servisini aktif etme.
+- [x] **Faz 235:** Googlebot ve Bingbot'un sunucudaki CPU tüketimini izleyen `/api/admin/bot-telemetry` servisini aktif etme.
 - [ ] **Faz 236:** Günlük olarak kırık linkleri, sitemap doğruluğunu ve index durumunu denetleyen `/api/cron/seo-patrol` cron servisi kurma.
 - [x] **Faz 237:** 404 sayfasına kullanıcının aradığı terime en yakın 3 sayfayı öneren akıllı hata kurtarma bileşeni ekleme.
 - [x] **Faz 238:** Next.js ISR (Incremental Static Regeneration) ile popüler sayfaların önbelleğini arka planda 24 saatte bir otomatik tazeleme.
