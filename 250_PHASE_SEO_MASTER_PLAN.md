@@ -101,7 +101,7 @@
 - [x] **Faz 57:** `WebSite` şeması içine Google Sitelinks Searchbox (`SearchAction`) entegrasyonu sağlama.
 - [x] **Faz 58:** Hizmet şemalarına (`Service`) kesin `priceRange: "₺₺"` ve `hasOfferCatalog` fiyat teklif katalogları ekleme.
 - [x] **Faz 59:** Blog yazıları için `Article` şemasında `author`, `publisher`, `datePublished` ve `dateModified` alanlarını ISO-8601 UTC olarak sabitleme.
-- [ ] **Faz 60:** ISO sertifikalarımızın PDF belgeleri için `DigitalDocument` şeması oluşturma.
+- [x] **Faz 60:** ISO sertifikalarımızın PDF belgeleri için `DigitalDocument` şeması oluşturma.
 - [x] **Faz 61:** Sözlük terimleri için `DefinedTermSet` ve `DefinedTerm` şemalarını devreye alma.
 - [x] **Faz 62:** Kurumsal referans projelerimiz için `ItemList` ve `Place` şemaları bağlama.
 - [ ] **Faz 63:** Hero videosu için süre (`duration`), yükleme tarihi ve transkript içeren `VideoObject` şeması tanımlama.
@@ -112,9 +112,9 @@
 - [x] **Faz 68:** Şirket genel merkez adresi için resmi `PostalAddress` standartlarını (Kadıköy, İstanbul, PK: 34710) mühürleme.
 - [x] **Faz 69:** Google Rich Results Test aracında sıfır hata ve sıfır uyarı veren otomatik CI/CD schema linter'ı (`schema-lint.ts`) çalıştırma.
 - [ ] **Faz 70:** Sektörel çözümlerimiz için `B2BService` ve hedef sektör (`industry`) şemaları tanımlama.
-- [ ] **Faz 71:** Asansör yeşil etiket ve periyodik bakım süreçleri için `HowTo` adımlı zengin rehber şeması ekleme.
+- [x] **Faz 71:** Asansör yeşil etiket ve periyodik bakım süreçleri için `HowTo` adımlı zengin rehber şeması ekleme.
 - [ ] **Faz 72:** Genel kurul ve kat malikleri toplantıları için `Event` şeması altyapısı hazırlama.
-- [ ] **Faz 73:** İstihdam ve kariyer sayfası için `JobPosting` şemasını aktif hale getirme.
+- [x] **Faz 73:** İstihdam ve kariyer sayfası için `JobPosting` şemasını aktif hale getirme.
 - [x] **Faz 74:** Tüm JSON-LD çıktılarını `minifyJsonLd` motoruyla sıkıştırarak HTML payload'ını %25 hafifletme.
 - [x] **Faz 75:** Çok dilli sayfalarda şemaların `inLanguage` niteliğini aktif dile göre dinamik belirleme.
 
@@ -132,7 +132,7 @@
 - [x] **Faz 82:** Footer'daki YouTube kanalına `rel="me noopener noreferrer"` ekleyerek kurumsal sosyal otoriteyi doğrulama.
 - [x] **Faz 83:** `constants.ts` içindeki `ORG_SAME_AS` dizisine doğrulanmış Facebook, LinkedIn, X, Instagram ve YouTube profillerini ekleme.
 - [ ] **Faz 84:** Google Knowledge Graph API üzerinden şirket varlık ID'sini (Entity ID) sorgulama ve izleme.
-- [ ] **Faz 85:** Tesis yönetimi sektöründeki anahtar kavramlar ile şirket kimliğini çift yönlü ilişkilendiren `entity-graph.jsonld` derleme.
+- [x] **Faz 85:** Tesis yönetimi sektöründeki anahtar kavramlar ile şirket kimliğini çift yönlü ilişkilendiren `entity-graph.jsonld` derleme.
 - [x] **Faz 86:** Resmi kurum bağlantılarına (`mevzuat.gov.tr`, `istanbul.gov.tr`, `resmigazete.gov.tr`) bağlamsal dış otorite linkleri verme.
 - [x] **Faz 87:** Yazar profillerine sektördeki deneyim ve sertifikaları gösteren `hasCredential` varlıkları ekleme.
 - [x] **Faz 88:** Kurumsal kimlikte MERSİS numarası, Vergi Dairesi ve Sicil No bilgilerini şeffaf şekilde işaretleme.
@@ -146,7 +146,7 @@
 - [ ] **Faz 96:** Rakip analizlerinde topikal otorite boşluklarını (Content Gap) tespit eden otomatik araç çalıştırma.
 - [ ] **Faz 97:** Kat malikleri ve yöneticiler için hazırlanan KMK rehberlerini indirilebilir otorite dokümanı olarak sunma.
 - [x] **Faz 98:** Şirket genel merkez binasının coğrafi varlık koordinatlarını OpenStreetMap ve Wikidata ile eşleştirme.
-- [ ] **Faz 99:** Sektörel vaka analizlerinde (Case Studies) gerçek problem-çözüm-tasarruf metriklerini belgeleme.
+- [x] **Faz 99:** Sektörel vaka analizlerinde (Case Studies) gerçek problem-çözüm-tasarruf metriklerini belgeleme.
 - [ ] **Faz 100:** Google Knowledge Graph doğrulama testlerini tamamlayarak bilgi paneli başvuru hazırlığını bitirme.
 
 ---
