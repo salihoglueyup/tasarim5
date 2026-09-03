@@ -287,13 +287,13 @@
 - [x] **Faz 207:** Makalelerin son güncellenme tarihini (`Updated on...`) şeffaf bir şekilde okuyucuya ve botlara gösterme.
 - [x] **Faz 208:** İletişim sayfasında şirketin resmi vergi kimlik numarası, kayıtlı olduğu oda ve MERSİS numarasını şeffafça yayınlama.
 - [x] **Faz 209:** Gerçek site yöneticisi ve kat maliki video referanslarını VideoObject şemasıyla zenginleştirme.
-- [ ] **Faz 210:** Kurumsal Hakkımızda sayfasında yönetim kurulu ve departman müdürlerinin fotoğraflı özgeçmişlerini sunma.
+- [x] **Faz 210:** Kurumsal Hakkımızda sayfasında yönetim kurulu ve departman müdürlerinin fotoğraflı özgeçmişlerini sunma.
 - [x] **Faz 211:** Teklif alma formunda (`/teklif-al`) güven mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza) ile dönüşüm oranını artırma.
 - [x] **Faz 212:** KMK Hukuk süreçlerinde emsal Yargıtay kararlarına atıfta bulunarak hukuki derinliği belgeleme.
 - [x] **Faz 213:** Asansör bakımı ve teknik denetimlerde TSE ve MMO akredite mühendis onay belgelerini sergileme.
 - [x] **Faz 214:** Gizlilik Politikası, Çerez Politikası ve Kullanım Şartları sayfalarını en güncel 2026 mevzuatına göre güncelleme.
 - [x] **Faz 215:** Kullanıcıların kolayca geri bildirim ve şikayet iletebileceği ISO 10002 Müşteri Memnuniyeti formunu öne çıkarma.
-- [ ] **Faz 216:** Şirket genel merkezinin fiziksel ofis, operasyon merkezi ve araç filosunun yüksek çözünürlüklü fotoğraflarını sunma.
+- [x] **Faz 216:** Şirket genel merkezinin fiziksel ofis, operasyon merkezi ve araç filosunun yüksek çözünürlüklü fotoğraflarını sunma.
 - [x] **Faz 217:** 48 saatte şeffaf bütçe teklifi garantisini dönüşüm odaklı mikro rozetlerle tüm hizmetlere yerleştirme.
 - [x] **Faz 218:** Sitede yer alan tüm hesaplayıcıların formüllerini KMK 634 resmi hesaplama cetvellerine dayandırma.
 - [x] **Faz 219:** Sektörel ödüller, plaketler ve teşekkür belgeleri için özel bir dijital başarı vitrini oluşturma.
@@ -314,13 +314,13 @@
 - [x] **Faz 228:** `edgeHeaderInjector.ts` ile `X-Robots-Tag: max-snippet:-1, max-image-preview:large, max-video-preview:-1` başlığı basma.
 - [x] **Faz 229:** HTTP yanıtlarında sunucu sürümünü gizleyen `response.headers.delete('x-powered-by')` güvenlik temizliği.
 - [x] **Faz 230:** 94 test paketinde 628 birim ve entegrasyon testinin her commit öncesi firesiz geçmesini doğrulama.
-- [ ] **Faz 231:** Cumulative Layout Shift (CLS) skorunu tam 0 seviyesinde tutmak için tüm görsel ve videolara `aspect-ratio` tanımlama.
-- [ ] **Faz 232:** Interaction to Next Paint (INP) gecikmesini 50ms altında tutmak için tüm arama ve filtreleri `useTransition` ile sarmalama.
+- [x] **Faz 231:** Cumulative Layout Shift (CLS) skorunu tam 0 seviyesinde tutmak için tüm görsel ve videolara `aspect-ratio` tanımlama.
+- [x] **Faz 232:** Interaction to Next Paint (INP) gecikmesini 50ms altında tutmak için tüm arama ve filtreleri `useTransition` ile sarmalama.
 - [x] **Faz 233:** Largest Contentful Paint (LCP) süresini 1.2 saniyenin altında tutmak için kritik fontları `preload` ile çekme.
 - [ ] **Faz 234:** Kullanılmayan CSS ve JS kodlarını temizleyen gelişmiş Tree-Shaking optimizasyonu uygulama.
 - [ ] **Faz 235:** Googlebot ve Bingbot'un sunucudaki CPU tüketimini izleyen `/api/admin/bot-telemetry` servisini aktif etme.
 - [ ] **Faz 236:** Günlük olarak kırık linkleri, sitemap doğruluğunu ve index durumunu denetleyen `/api/cron/seo-patrol` cron servisi kurma.
-- [ ] **Faz 237:** 404 sayfasına kullanıcının aradığı terime en yakın 3 sayfayı öneren akıllı hata kurtarma bileşeni ekleme.
+- [x] **Faz 237:** 404 sayfasına kullanıcının aradığı terime en yakın 3 sayfayı öneren akıllı hata kurtarma bileşeni ekleme.
 - [x] **Faz 238:** Next.js ISR (Incremental Static Regeneration) ile popüler sayfaların önbelleğini arka planda 24 saatte bir otomatik tazeleme.
 - [x] **Faz 239:** Redis bağlantısı kopsa dahi arama motorlarına kesintisiz statik veri sunan Fallback katmanını güvenceye alma.
 - [ ] **Faz 240:** DNS yanıt süresini Cloudflare DNSSEC ve CNAME flattening ile 20ms seviyesine indirme.
