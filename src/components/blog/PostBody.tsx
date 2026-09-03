@@ -34,12 +34,15 @@ export default function PostBody({
   // 2. İçeriği otomatik linkle (self-referencing döngüleri ve dil silosunu koruyarak)
   const processedHtml = autoLinkHtml(parsedHtml, currentUrl, 8, locale);
 
-  // 3. Otomatik Alt, loading="lazy" ve decoding="async" Enjeksiyonu (Faz 120: Görsel SEO & LCP)
+  // 3. Otomatik Alt, Boyut, loading="lazy" ve decoding="async" Enjeksiyonu (Faz 11: Görsel CLS/SEO)
   let seoHtml = processedHtml.replace(/<img(?![^>]*alt=)[^>]*>/gi, (match) => { 
     return match.replace('<img', `<img alt="${title}"`); 
   });
   seoHtml = seoHtml.replace(/<img(?![^>]*loading=)[^>]*>/gi, (match) => {
     return match.replace('<img', '<img loading="lazy" decoding="async"');
+  });
+  seoHtml = seoHtml.replace(/<img(?![^>]*width=)[^>]*>/gi, (match) => {
+    return match.replace('<img', '<img width="1200" height="675"');
   });
 
   // 4. DOMPurify ile güvenli temizlik (class, id, loading ve decoding korumalı)

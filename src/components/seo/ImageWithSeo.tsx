@@ -73,6 +73,9 @@ export default function ImageWithSeo({
     ? { blurDataURL: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFmMjQzMCIvPjwvc3ZnPg==' }
     : {};
 
+  // Faz 12: İlk ekran kahraman görselleri için LCP fetchPriority desteği
+  const lcpProps = props.priority ? { priority: true, fetchPriority: 'high' as const } : {};
+
   return (
     <>
       {injectSchema && <JsonLd data={schema} />}
@@ -82,6 +85,7 @@ export default function ImageWithSeo({
         title={title || alt} 
         {...blurProps}
         {...props} 
+        {...lcpProps}
       />
     </>
   );

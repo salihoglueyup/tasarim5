@@ -187,10 +187,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 1.5. URL NORMALIZATION (SEO Faz 5: Lowercase enforcement)
-  if (pathname !== pathname.toLowerCase()) {
+  // 1.5. URL NORMALIZATION (SEO Faz 5 & Faz 19: Lowercase & Underscore-to-Hyphen enforcement)
+  const normalizedPath = pathname.toLowerCase().replace(/_/g, '-');
+  if (pathname !== normalizedPath) {
     const url = request.nextUrl.clone();
-    url.pathname = url.pathname.toLowerCase();
+    url.pathname = normalizedPath;
     return NextResponse.redirect(url, 301);
   }
 

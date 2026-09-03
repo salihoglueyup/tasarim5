@@ -153,6 +153,15 @@ export function analyzeHeadingStructure(content: string): HeadingStructureReport
     issues.push('H2 alt başlıklarında hedef sektörel anahtar kelimeler (Tesis, Güvenlik, Bakım vb.) geçmiyor.');
   }
 
+  // Faz 14: Ardışık başlık hiyerarşisi kontrolü (H1 -> H3 atlaması olmadan H1 -> H2 -> H3 sırasının korunması)
+  let lastLevel = 0;
+  for (const h of headings) {
+    if (lastLevel > 0 && h.level > lastLevel + 1) {
+      issues.push(`Başlık sırası atlandı: H${lastLevel} seviyesinden doğrudan H${h.level} seviyesine geçildi ("${h.text}"). Hiyerarşi H1 -> H2 -> H3 şeklinde ardışık olmalıdır.`);
+    }
+    lastLevel = h.level;
+  }
+
   return {
     isValid: issues.length === 0,
     h1Count,

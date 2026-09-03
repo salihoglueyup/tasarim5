@@ -40,15 +40,15 @@
 - [x] **Faz 8:** Sayfa içi meta açıklamalarının (`meta description`) 140-155 karakter aralığında ve net bir eylem çağrısı (CTA) içermesini sağlama.
 - [x] **Faz 9:** Canonical etiketlerinin (`rel="canonical"`) her sayfada mutlak URL (`https://aloyonetim.com.tr/...`) olarak basılmasını denetleme.
 - [x] **Faz 10:** Dinamik OpenGraph ve Twitter kart görsellerini `/api/og` Edge endpoint'i üzerinden 1200x630 piksel 200 OK olarak servis etme.
-- [ ] **Faz 11:** Makale içeriklerindeki tüm `<img>` etiketlerine otomatik `width`, `height`, `loading="lazy"` ve `decoding="async"` enjeksiyonunu genişletme.
-- [ ] **Faz 12:** İlk ekran (Above-the-fold) kritik kahraman görsellerine `fetchpriority="high"` ve `loading="eager"` atama.
+- [x] **Faz 11:** Makale içeriklerindeki tüm `<img>` etiketlerine otomatik `width`, `height`, `loading="lazy"` ve `decoding="async"` enjeksiyonunu genişletme.
+- [x] **Faz 12:** İlk ekran (Above-the-fold) kritik kahraman görsellerine `fetchpriority="high"` ve `loading="eager"` atama.
 - [ ] **Faz 13:** Metin içeriklerinde Flesch-Kincaid okunabilirlik skorunu Türkçe morfolojiye göre optimize etme.
-- [ ] **Faz 14:** H2 ve H3 başlıklarının ardışık semantik derinliğini (H1 -> H2 -> H3 sırası atlanmadan) DOM seviyesinde denetleme.
-- [ ] **Faz 15:** Arama motorlarının içeriği hızlı parse etmesi için kritik sayfalara TL;DR (Özet) kutularını zorunlu kılma.
+- [x] **Faz 14:** H2 ve H3 başlıklarının ardışık semantik derinliğini (H1 -> H2 -> H3 sırası atlanmadan) DOM seviyesinde denetleme.
+- [x] **Faz 15:** Arama motorlarının içeriği hızlı parse etmesi için kritik sayfalara TL;DR (Özet) kutularını zorunlu kılma.
 - [ ] **Faz 16:** Sayfa içi anahtar kelime yoğunluğunu (Keyword Density) %1.5 - %2.5 doğal eşiğinde tutma (Keyword stuffing engelleme).
 - [ ] **Faz 17:** Çerez ve KVKK banner'larının arama motoru botlarının ilk ekran okumasını engellemeyecek DOM sıralamasında render edilmesi.
 - [ ] **Faz 18:** Tablolar ve veri listeleri için semantik `<caption>`, `<thead>`, `<tbody>` etiket kullanımını zorunlu kılma.
-- [ ] **Faz 19:** URL yapılarında alt çizgi (`_`) yerine daima tire (`-`) kullanılmasını ve küçük harf zorunluluğunu garanti etme.
+- [x] **Faz 19:** URL yapılarında alt çizgi (`_`) yerine daima tire (`-`) kullanılmasını ve küçük harf zorunluluğunu garanti etme.
 - [ ] **Faz 20:** URL slug uzunluklarını maksimum 4-5 kelime ile sınırlandırarak tarama dostu tutma.
 - [ ] **Faz 21:** Sayfalardaki telefon (`tel:`) ve e-posta (`mailto:`) bağlantılarına standart RFC formatı kazandırma.
 - [ ] **Faz 22:** Sayfa içi form elementlerinin `<label for="...">` etiketleriyle tam eşleşmesini ve erişilebilirlik skorunu güvenceye alma.

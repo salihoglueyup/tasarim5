@@ -375,13 +375,13 @@ export default async function BlogDetail({
             />
           </div>
 
-          {/* TL;DR */}
-          {post.tldr && (
+          {/* TL;DR (Faz 15: Tüm makaleler için AI ve hızlı okuma garantili özet kutusu) */}
+          {(post.tldr || post.description || post.summary) && (
               <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
                 <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">{t('blog_summary')}</div>
-                  <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr}</p>
+                  <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr || post.description || post.summary}</p>
                 </div>
               </aside>
           )}
