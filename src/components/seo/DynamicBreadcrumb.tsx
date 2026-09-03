@@ -89,8 +89,28 @@ export default function DynamicBreadcrumb() {
 
   if (breadcrumbSegments.length === 0) return null;
 
+  // Özel sayfa bazlı breadcrumb şeması olan rotalarda çakışmayı ve çift BreadcrumbList uyarısını önle
+  const firstSlug = breadcrumbSegments[0];
+  if (
+    firstSlug === 'admin' ||
+    (firstSlug === 'blog' && breadcrumbSegments.length > 1) ||
+    (firstSlug === 'bolgeler' && breadcrumbSegments.length > 1) ||
+    (firstSlug === 'hizmetler' && breadcrumbSegments.length > 1)
+  ) {
+    return null;
+  }
+
+  const homeLabels: Record<string, string> = {
+    tr: 'Ana Sayfa',
+    en: 'Home',
+    ru: 'Главная',
+    ar: 'الرئيسية',
+  };
+  const currentLang = hasLang ? segments[0] : 'tr';
+  const homeName = homeLabels[currentLang] || 'Ana Sayfa';
+
   const items = [
-    { name: 'Ana Sayfa', url: `${langPrefix}` || '/' }
+    { name: homeName, url: `${langPrefix}` || '/' }
   ];
 
   let currentPath = langPrefix;

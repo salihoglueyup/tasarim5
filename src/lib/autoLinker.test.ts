@@ -39,4 +39,11 @@ describe('Gelişmiş Otomatik İç Linkleme Motoru (autoLinker.ts)', () => {
     // /hizmetler/tesis-yonetimi linki eklenmemeli
     expect(output).not.toContain('<a href="/hizmetler/tesis-yonetimi"');
   });
+
+  it('Farklı bir dil (en/ru/ar) verildiğinde iç linkleri ilgili dil önekiyle bağlar', () => {
+    const input = '<p>Rezidans tesis yönetimi hizmetlerimiz mevcuttur.</p>';
+    const output = autoLinkHtml(input, '/en/blog/facility-article', 4, 'en');
+
+    expect(output).toContain('<a href="/en/hizmetler/tesis-yonetimi/rezidans-site-yonetimi"');
+  });
 });

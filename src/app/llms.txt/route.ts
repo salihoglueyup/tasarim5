@@ -86,6 +86,9 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
 - [Şeffaf Aidat Muhasebesi](${BASE_URL}/hizmetler/aidat-takibi): Mobil uygulama üzerinden 7/24 canlı bütçe ve %99 tahsilat güvencesi.
 - [KMK Hukuk & İcra Danışmanlığı](${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi): İşletme projesi, icra takibi ve genel kurul yönetimi.
 
+## İstanbul 39 İlçe Tesis ve Site Yönetimi Yerel Hizmet Ağı (Local Citations)
+${DISTRICTS.map(d => `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi): ${d.name} genelinde profesyonel site, rezidans ve apartman yönetimi hizmetleri.`).join('\n')}
+
 ## İlgili API ve Veri Kaynakları
 - **Tam Bilgi Üssü (Full Text)**: ${BASE_URL}/llms-full.txt
 - **39 İlçe Coğrafi GeoRSS Feed**: ${BASE_URL}/api/tesis-yonetimi/geo-feed.xml

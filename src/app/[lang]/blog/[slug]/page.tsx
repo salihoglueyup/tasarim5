@@ -387,7 +387,7 @@ export default async function BlogDetail({
           )}
 
           {/* Body with smart cross-linking */}
-          <PostBody htmlContent={post.content} title={post.title} currentUrl={path} />
+          <PostBody htmlContent={post.content} title={post.title} currentUrl={path} locale={lang} />
 
           {/* AI Search Key Facts & Quantitative Signals */}
           {keyFacts.length > 0 && (

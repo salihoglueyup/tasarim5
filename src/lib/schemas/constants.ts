@@ -105,6 +105,9 @@ export const ORG_KNOWS_ABOUT = [
   { '@type': 'Thing', name: 'Bina Otomasyon ve Yönetim Sistemleri', sameAs: 'https://www.wikidata.org/wiki/Q895066' },
   { '@type': 'Thing', name: 'İşletme Bütçesi ve Finansal Aidat Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1670988' },
   { '@type': 'Thing', name: 'Peyzaj ve Bahçe Bakımı', sameAs: 'https://www.wikidata.org/wiki/Q47844' },
+  { '@type': 'Thing', name: 'İcra ve İflas Kanunu (İİK 68)', sameAs: 'https://www.wikidata.org/wiki/Q6085270' },
+  { '@type': 'Thing', name: 'Enerji Verimliliği ve Bina Yalıtımı', sameAs: 'https://www.wikidata.org/wiki/Q381156' },
+  { '@type': 'Thing', name: 'Yangın Güvenliği ve Acil Durum Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1065908' },
   'Tesis yönetimi',
   'Site yönetimi',
   'Apartman yönetimi',
@@ -116,9 +119,12 @@ export const ORG_KNOWS_ABOUT = [
   'Profesyonel temizlik ve hijyen',
   'Teknik bakım ve enerji optimizasyonu',
   'Aidat tahsilatı ve icra takibi',
+  'İcra ve İflas Kanunu (İİK 68)',
   'Peyzaj ve bahçe bakımı',
   'Havuz bakımı ve su analizi',
   'Haşere ve böcek ilaçlama',
+  'Çatı GES ve Güneş Enerjisi',
+  'Yangın ve acil durum tahliyesi',
 ];
 
 /**

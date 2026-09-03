@@ -21,16 +21,18 @@ export default function PostBody({
   htmlContent,
   title = 'Alo Yönetim',
   currentUrl,
+  locale,
 }: {
   htmlContent: string;
   title?: string;
   currentUrl?: string;
+  locale?: string;
 }) {
   // 1. JSON bloklarını veya ham metni semantik zengin HTML'e dönüştür
   const parsedHtml = renderPostBlocksToHtml(htmlContent);
 
-  // 2. İçeriği otomatik linkle (self-referencing döngüleri engelleyerek)
-  const processedHtml = autoLinkHtml(parsedHtml, currentUrl);
+  // 2. İçeriği otomatik linkle (self-referencing döngüleri ve dil silosunu koruyarak)
+  const processedHtml = autoLinkHtml(parsedHtml, currentUrl, 8, locale);
 
   // 3. Otomatik Alt, loading="lazy" ve decoding="async" Enjeksiyonu (Faz 120: Görsel SEO & LCP)
   let seoHtml = processedHtml.replace(/<img(?![^>]*alt=)[^>]*>/gi, (match) => { 

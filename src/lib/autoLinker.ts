@@ -225,9 +225,15 @@ export const AUTO_LINKS = AUTO_LINKS_SORTED;
 export function autoLinkHtml(
   html: string,
   currentUrl?: string,
-  maxLinks: number = 8
+  maxLinks: number = 8,
+  locale: string = 'tr'
 ): string {
   if (!html) return '';
+
+  const detectedLocale =
+    locale !== 'tr'
+      ? locale
+      : currentUrl?.match(/^\/(en|ru|ar)(\/|$)/)?.[1] || 'tr';
 
   const normalizedCurrentUrl = currentUrl ? currentUrl.replace(/\/+$/, '') : '';
   const usedTerms = new Set<string>();
@@ -261,13 +267,21 @@ export function autoLinkHtml(
       if (insertedCount >= maxLinks) break;
       if (usedTerms.has(entry.term)) continue;
 
+      const targetHref = detectedLocale === 'tr' ? entry.href : `/${detectedLocale}${entry.href}`;
+
       // Kendine link vermeyi engelle
-      if (normalizedCurrentUrl && (entry.href === normalizedCurrentUrl || entry.href === `${normalizedCurrentUrl}/`)) {
+      if (
+        normalizedCurrentUrl &&
+        (targetHref === normalizedCurrentUrl ||
+          targetHref === `${normalizedCurrentUrl}/` ||
+          entry.href === normalizedCurrentUrl ||
+          entry.href === `${normalizedCurrentUrl}/`)
+      ) {
         continue;
       }
 
       // Aynı hedefe çok fazla link verilmesini sınırla
-      if (usedUrls.has(entry.href)) continue;
+      if (usedUrls.has(targetHref)) continue;
 
       // Faz 136: Hızlı alt dize denetimi (TreeWalker O(1) ön kontrolü - TBT maliyetini %95 düşürür)
       if (!lowerChunk.includes(entry.term)) continue;
@@ -275,9 +289,9 @@ export function autoLinkHtml(
       if (entry.regex.test(textChunk)) {
         textChunk = textChunk.replace(entry.regex, (m) => {
           usedTerms.add(entry.term);
-          usedUrls.add(entry.href);
+          usedUrls.add(targetHref);
           insertedCount++;
-          return `<a href="${entry.href}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-amber-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
+          return `<a href="${targetHref}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-amber-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
         });
       }
     }

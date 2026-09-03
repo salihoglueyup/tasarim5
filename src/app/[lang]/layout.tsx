@@ -128,6 +128,17 @@ export const metadata: Metadata = {
     ],
     shortcut: '/favicon-32.png',
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Alo Yönetim',
+  },
+  formatDetection: {
+    telephone: false,
+    date: false,
+    address: false,
+    email: false,
+  },
 };
 
 export const viewport: Viewport = {
