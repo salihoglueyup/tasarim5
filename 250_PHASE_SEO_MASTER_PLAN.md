@@ -258,16 +258,16 @@
 - [x] **Faz 184:** Kurumsal ortaklık ve grup şirket bağlantılarında `rel="sponsored"` veya açık tanımlama kullanma.
 - [x] **Faz 185:** "Ekmek Kırıntısı" (Breadcrumb) navigasyonunun kullanıcı ve bot için her zaman tıklanabilir DOM linki üretmesini sağlama.
 - [x] **Faz 186:** Yetim Sayfa (Orphan Page) denetimi yaparak hiçbir sayfanın iç linksiz kalmamasını garanti etme.
-- [ ] **Faz 187:** Header mega menüsündeki link hiyerarşisini en kritik hizmetleri en üstte tutacak şekilde ağırlıklandırma.
+- [x] **Faz 187:** Header mega menüsündeki link hiyerarşisini en kritik hizmetleri en üstte tutacak şekilde ağırlıklandırma.
 - [x] **Faz 188:** Blog içeriklerinden doğrudan teklif alma (`/teklif-al`) ve bütçe hesaplayıcıya (`/hesaplayici`) bağlamsal CTA köprüleri kurma.
 - [x] **Faz 189:** İlçe sayfalarından doğrudan ilgili ilçedeki güvenlik, temizlik ve teknik bakım alt hizmetlerine çapraz linkler verme.
 - [x] **Faz 190:** Sözlük terim tanımları içinden ilgili kanun maddelerine ve hizmet sayfalarına çift yönlü köprü bağlama.
 - [x] **Faz 191:** Sayfa içi uzun makalelerde içindekiler tablosu (`TableOfContentsSeo`) ile pürüzsüz bölüm içi çapa (Anchor) linkleri sunma.
-- [ ] **Faz 192:** Çapa metinlerinin (Anchor Text) "buraya tıklayın" yerine semantik anahtar kelimeler ("Apartman Aidat Tahsilatı") içermesini zorunlu kılma.
-- [ ] **Faz 193:** Dahili arama kutusu önerilerinde doğrudan en çok okunan rehber sayfalarını öne çıkarma.
+- [x] **Faz 192:** Çapa metinlerinin (Anchor Text) "buraya tıklayın" yerine semantik anahtar kelimeler ("Apartman Aidat Tahsilatı") içermesini zorunlu kılma.
+- [x] **Faz 193:** Dahili arama kutusu önerilerinde doğrudan en çok okunan rehber sayfalarını öne çıkarma.
 - [x] **Faz 194:** Altbilgideki (Footer) 39 ilçe listesini iki yakaya (Anadolu / Avrupa) ayırarak temiz sütunlar halinde bağlama.
-- [ ] **Faz 195:** Sayfa içinde tıklanamayan veya javascript bağımlı sahte linklerin taranabilir `<a href="...">` etiketine dönüştürülmesi.
-- [ ] **Faz 196:** Eski ve silinmiş sayfaların bıraktığı kırık iç bağlantıları düzenli tarayan haftalık cron görevini aktif etme.
+- [x] **Faz 195:** Sayfa içinde tıklanamayan veya javascript bağımlı sahte linklerin taranabilir `<a href="...">` etiketine dönüştürülmesi.
+- [x] **Faz 196:** Eski ve silinmiş sayfaların bıraktığı kırık iç bağlantıları düzenli tarayan haftalık cron görevini aktif etme.
 - [ ] **Faz 197:** İç linklerin kullanıcılar tarafından tıklanma oranını (Click-Through) ölçen Google Analytics etkinlikleri kurma.
 - [x] **Faz 198:** En yüksek PageRank değerine sahip ana sayfadan en stratejik 5 amiral gemisi hizmete doğrudan link akışı sağlama.
 - [ ] **Faz 199:** Başarı hikayeleri sayfalarından ilgili ilçe ve hizmet sayfalarına karşılıklı referans köprüsü kurma.
