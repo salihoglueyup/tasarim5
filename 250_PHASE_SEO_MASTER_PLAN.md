@@ -237,9 +237,9 @@
 - [x] **Faz 169:** Arama motoru botlarının IP bloklarını doğrulayan (Reverse DNS Lookup) ve sahte botları filtreleyen middleware kalkanı kurma.
 - [x] **Faz 170:** Haftalık olarak tüm siteyi baştan sona tarayıp kırık bağlantı (404) raporu üreten iç spider betiği (`audit_seo_deep.cjs`) çalıştırma.
 - [x] **Faz 171:** URL'lerin sonundaki eğik çizgi (`trailing slash`) tutarlılığını zorunlu kılarak çift içerik (Duplicate Content) riskini sıfırlama.
-- [ ] **Faz 172:** HTTPS yönlendirmesinin HTTP/3 ve HSTS Preload ile sıfır gecikmeli gerçekleşmesini temin etme.
-- [ ] **Faz 173:** Log kayıtlarında Googlebot tarama sıklığını ve en çok ziyaret edilen sayfaları raporlayan bot analiz paneli kurma.
-- [ ] **Faz 174:** Güncellenmeyen eski blog yazılarını arşivleyip en güncel mevzuat yazısına 301 yönlendirmesiyle konsolide etme.
+- [x] **Faz 172:** HTTPS yönlendirmesinin HTTP/3 ve HSTS Preload ile sıfır gecikmeli gerçekleşmesini temin etme.
+- [x] **Faz 173:** Log kayıtlarında Googlebot tarama sıklığını ve en çok ziyaret edilen sayfaları raporlayan bot analiz paneli kurma.
+- [x] **Faz 174:** Güncellenmeyen eski blog yazılarını arşivleyip en güncel mevzuat yazısına 301 yönlendirmesiyle konsolide etme.
 - [x] **Faz 175:** Sayfa değişikliklerinde sitemap içindeki `<lastmod>` zaman damgasının tam UTC saniye hassasiyetinde güncellenmesini sağlama.
 
 ---
@@ -255,9 +255,9 @@
 - [x] **Faz 181:** Kök Hizmet (Pillar Page) ile alt hizmet sayfaları arasında hiyerarşik Topic Cluster iç linkleme ağını güçlendirme.
 - [x] **Faz 182:** İlgili makaleler (`RelatedArticles`) bileşenini etiket ve kategori bazlı semantik eşleşmeyle zenginleştirme.
 - [x] **Faz 183:** Dış sitelere verilen bağlantılarda güvenlik için `rel="noopener noreferrer"`, editoryal olmayan linklerde `rel="nofollow"` standardı sağlama.
-- [ ] **Faz 184:** Kurumsal ortaklık ve grup şirket bağlantılarında `rel="sponsored"` veya açık tanımlama kullanma.
+- [x] **Faz 184:** Kurumsal ortaklık ve grup şirket bağlantılarında `rel="sponsored"` veya açık tanımlama kullanma.
 - [x] **Faz 185:** "Ekmek Kırıntısı" (Breadcrumb) navigasyonunun kullanıcı ve bot için her zaman tıklanabilir DOM linki üretmesini sağlama.
-- [ ] **Faz 186:** Yetim Sayfa (Orphan Page) denetimi yaparak hiçbir sayfanın iç linksiz kalmamasını garanti etme.
+- [x] **Faz 186:** Yetim Sayfa (Orphan Page) denetimi yaparak hiçbir sayfanın iç linksiz kalmamasını garanti etme.
 - [ ] **Faz 187:** Header mega menüsündeki link hiyerarşisini en kritik hizmetleri en üstte tutacak şekilde ağırlıklandırma.
 - [x] **Faz 188:** Blog içeriklerinden doğrudan teklif alma (`/teklif-al`) ve bütçe hesaplayıcıya (`/hesaplayici`) bağlamsal CTA köprüleri kurma.
 - [x] **Faz 189:** İlçe sayfalarından doğrudan ilgili ilçedeki güvenlik, temizlik ve teknik bakım alt hizmetlerine çapraz linkler verme.
