@@ -197,16 +197,16 @@
 - [ ] **Faz 135:** İngilizce sayfaların SERP meta başlık ve açıklamalarını yabancı yatırımcı ve expat kitlesine göre optimize etme.
 - [ ] **Faz 136:** Rusça sayfaları Yandex arama motoru optimizasyon kriterlerine (Yandex Webmaster, Turbo sayfaları) tam uyumlu kılma.
 - [ ] **Faz 137:** Körfez ve Orta Doğu gayrimenkul yatırımcıları için Arapça rezidans yönetim rehberleri yayınlama.
-- [ ] **Faz 138:** `sitemap.xml` içinde 4 dilin tüm çapraz hreflang eşleşmelerini XML düğümü olarak listeleme.
+- [x] **Faz 138:** `sitemap.xml` içinde 4 dilin tüm çapraz hreflang eşleşmelerini XML düğümü olarak listeleme.
 - [x] **Faz 139:** Para birimi ve sayı formatlarını seçilen dile göre dinamik yerelleştirme (`Intl.NumberFormat`).
 - [x] **Faz 140:** Tarih ve saat göstergelerini ilgili dilin resmi formatına göre basma (`Intl.DateTimeFormat`).
-- [ ] **Faz 141:** Dil değiştirildiğinde kullanıcının bulunduğu sayfanın tam çeviri slug karşılığına yönlenmesini sağlama.
+- [x] **Faz 141:** Dil değiştirildiğinde kullanıcının bulunduğu sayfanın tam çeviri slug karşılığına yönlenmesini sağlama.
 - [x] **Faz 142:** Kullanıcının dil tercihini `NEXT_LOCALE` çerezi ile hatırlayıp sonraki girişlerde kesintisiz sunma.
 - [ ] **Faz 143:** Tarayıcının `Accept-Language` başlığını analiz ederek ilk ziyarette nazik bir dil öneri kutusu çıkarma.
 - [ ] **Faz 144:** Hukuki ve mevzuat metinlerinin (KVKK, Gizlilik) uluslararası geçerlilikte İngilizce özetlerini yayınlama.
-- [ ] **Faz 145:** Uluslararası telefon kodu seçimi (`+90`, `+971`, `+7`, `+44`) ile yabancı yatırımcı form dönüşümünü artırma.
+- [x] **Faz 145:** Uluslararası telefon kodu seçimi (`+90`, `+971`, `+7`, `+44`) ile yabancı yatırımcı form dönüşümünü artırma.
 - [ ] **Faz 146:** Çok dilli sayfalarda görsel alt metinlerinin (`alt="..."`) de ilgili dilde çevrilmiş olmasını sağlama.
-- [ ] **Faz 147:** 404 Hata Sayfasını kullanıcının o anki dilinde anlamlı navigasyon önerileriyle sunma.
+- [x] **Faz 147:** 404 Hata Sayfasını kullanıcının o anki dilinde anlamlı navigasyon önerileriyle sunma.
 - [ ] **Faz 148:** Çok dilli blog yazıları arasında `hreflang` çapraz eşleştirmesini veritabanı ID'si üzerinden dinamik kurma.
 - [ ] **Faz 149:** Yabancı dildeki hizmet sayfalarında Türkiye'de mülk edinen yabancılara yönelik yasal haklar kılavuzu sunma.
 - [x] **Faz 150:** 4 dilde hreflang doğruluğunu denetleyen otomatik test paketini (`dualCoreMultiLangEngine.test.ts`) sürekli çalıştırma.
@@ -227,7 +227,7 @@
 - [x] **Faz 159:** İçerik güncellemelerinde Bing ve Yandex IndexNow API'sini otomatik arka planda tetikleme.
 - [x] **Faz 160:** Google PubSubHubbub (WebSub Hub) entegrasyonu ile RSS güncellemelerini anında Google'a pingleme.
 - [x] **Faz 161:** `news-sitemap.xml` içinden Google News spesifikasyonunda kaldırılan eski `<news:keywords>` etiketini temizleme.
-- [ ] **Faz 162:** Google Search Console API entegrasyonu ile yeni eklenen sayfaları anında URL Inspection üzerinden bildirme.
+- [x] **Faz 162:** Google Search Console API entegrasyonu ile yeni eklenen sayfaları anında URL Inspection üzerinden bildirme.
 - [x] **Faz 163:** Tarama bütçesi koruyucusu (`crawlBudgetDefender.ts`) ile sahte arama parametrelerini (`?filter=`, `?sort=`) botlara engelleme.
 - [x] **Faz 164:** Önemli sayfaların HTTP başlıklarına `Last-Modified` ve `ETag` ekleyerek `304 Not Modified` ile sunucu yükünü %60 azaltma.
 - [ ] **Faz 165:** Arama motorlarının sitenin en derin sayfasına maksimum 3 tıklamayla ulaşmasını sağlayan sığ derinlik (Crawl Depth < 3) mimarisi kurma.

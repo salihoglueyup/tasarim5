@@ -399,20 +399,33 @@ export default function IletisimClient() {
                       <label htmlFor="phone" className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                         Telefon Numaranız <span className="text-amber-500">*</span>
                       </label>
-                      <input
-                        {...register('phone')}
-                        id="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        aria-invalid={Boolean(errors.phone)}
-                        aria-describedby={errors.phone ? 'phone-error' : undefined}
-                        placeholder="05XX XXX XX XX"
-                        className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 transition-all ${
-                          errors.phone
-                            ? 'border-red-500 focus:ring-red-500/20'
-                            : 'border-slate-200 dark:border-slate-700 focus:border-amber-500 focus:ring-amber-500/20'
-                        }`}
-                      />
+                      <div className="flex gap-2">
+                        <select
+                          aria-label="Ülke Telefon Kodu"
+                          defaultValue="+90"
+                          className="px-2.5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-xs font-semibold focus:outline-none focus:border-amber-500 transition-all shrink-0 cursor-pointer"
+                        >
+                          <option value="+90">🇹🇷 +90</option>
+                          <option value="+971">🇦🇪 +971</option>
+                          <option value="+7">🇷🇺 +7</option>
+                          <option value="+44">🇬🇧 +44</option>
+                          <option value="+1">🇺🇸 +1</option>
+                        </select>
+                        <input
+                          {...register('phone')}
+                          id="phone"
+                          type="tel"
+                          autoComplete="tel"
+                          aria-invalid={Boolean(errors.phone)}
+                          aria-describedby={errors.phone ? 'phone-error' : undefined}
+                          placeholder="5XX XXX XX XX"
+                          className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 transition-all ${
+                            errors.phone
+                              ? 'border-red-500 focus:ring-red-500/20'
+                              : 'border-slate-200 dark:border-slate-700 focus:border-amber-500 focus:ring-amber-500/20'
+                          }`}
+                        />
+                      </div>
                       {errors.phone && <span id="phone-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.phone.message}</span>}
                     </div>
                   </div>
