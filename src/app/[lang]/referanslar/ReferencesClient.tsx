@@ -475,7 +475,7 @@ export default function ReferencesClient({
 
           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full md:w-auto">
             <a
-              href="tel:02165504848"
+              href="tel:+902165504848"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-100 dark:bg-white/10 text-[var(--color-heading-text)] font-extrabold text-sm hover:bg-slate-200 dark:hover:bg-white/20 transition-all border border-slate-300 dark:border-white/10"
             >
               <span className="material-symbols-outlined text-emerald-500 text-lg" aria-hidden="true">call</span>

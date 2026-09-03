@@ -160,7 +160,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-gray-900 dark:text-white text-xs">{t('footer_customer_service')}</span>
-                <a href="tel:02165504848" className="text-xs font-bold text-[var(--color-primary)] dark:text-white hover:underline">0216 550 48 48</a>
+                <a href="tel:+902165504848" className="text-xs font-bold text-[var(--color-primary)] dark:text-white hover:underline">0216 550 48 48</a>
               </div>
             </div>
 

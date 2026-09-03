@@ -193,6 +193,45 @@ export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): 
         break;
       }
 
+      case 'table': {
+        const headers: string[] = Array.isArray((block as any).headers) ? (block as any).headers : [];
+        const rows: string[][] = Array.isArray((block as any).rows) ? (block as any).rows : [];
+        const caption = (block as any).caption
+          ? `<caption class="text-xs text-slate-500 dark:text-slate-400 py-2 text-left caption-bottom font-medium">${parseMarkdownLinks((block as any).caption)}</caption>`
+          : '';
+
+        const thHtml = headers
+          .map(
+            (h) =>
+              `<th class="px-4 py-3 bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-left text-sm border-b border-slate-200 dark:border-white/10">${parseMarkdownLinks(h)}</th>`
+          )
+          .join('');
+        const theadHtml = headers.length > 0 ? `<thead><tr>${thHtml}</tr></thead>` : '';
+
+        const tbodyHtml = rows
+          .map((row) => {
+            const tdHtml = (Array.isArray(row) ? row : [])
+              .map(
+                (cell) =>
+                  `<td class="px-4 py-3 border-b border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-300 text-sm">${parseMarkdownLinks(cell)}</td>`
+              )
+              .join('');
+            return `<tr>${tdHtml}</tr>`;
+          })
+          .join('\n');
+
+        htmlParts.push(
+          `<div class="my-8 overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
+            <table class="w-full border-collapse text-left">
+              ${caption}
+              ${theadHtml}
+              <tbody class="divide-y divide-slate-100 dark:divide-white/5">${tbodyHtml}</tbody>
+            </table>
+          </div>`
+        );
+        break;
+      }
+
       default:
         // Diğer blok tipleri için güvenli fallback
         if ((block as any).text) {

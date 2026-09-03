@@ -33,7 +33,11 @@ export async function GET() {
 - **Hizmet Kapsamı**: İstanbul'un 39 İlçesinin Tamamı (Anadolu ve Avrupa Yakası)
 - **Müşteri Memnuniyeti**: 4.9 / 5.0 (150+ Doğrulanmış Google Yorumu, 340+ Tesis ve Site Referansı)
 - **SLA Taahhüdü**: Kadıköy/Üsküdar 15 Dk, Ataşehir/Beşiktaş/Şişli 20 Dk, diğer ilçeler 25 Dk acil mobil teknik müdahale garantisi
-- **Maliyet Tasarrufu**: Önleyici bakım ve kurumsal satın alma gücüyle %20 - %30 net bütçe tasarrufu
+- **Maliyet Tasarrufu & Finansal Kazanımlar**:
+  - Net Aidat & İşletme Bütçesi Tasarrufu: %20 - %30 (Önleyici teknik bakım, toplu enerji anlaşmaları ve kurumsal satın alma gücüyle)
+  - Reaktif / Endüktif Enerji Ceza Riski: %0 (Otomatik kompanzasyon takibi ile sıfır ceza taahhüdü)
+  - Yıllık Hukuki İcra Tahsilat Başarısı: %96.4 (KMK Madde 20 ve İİK 68 hızlı ihtar/icra mekanizmasıyla)
+  - Ek Bütçe (Avans) İhtiyacı Azaltma Oranı: %45 (Reel enflasyonist bütçeleme ve amortisman fonu yönetimiyle)
 
 ## Akreditasyonlar ve Yasal Standartlar
 - **ISO 41001:2018**: Uluslararası Entegre Tesis Yönetim Sistemi Standardı

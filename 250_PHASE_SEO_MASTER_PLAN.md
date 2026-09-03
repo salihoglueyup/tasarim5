@@ -47,13 +47,13 @@
 - [x] **Faz 15:** Arama motorlarının içeriği hızlı parse etmesi için kritik sayfalara TL;DR (Özet) kutularını zorunlu kılma.
 - [ ] **Faz 16:** Sayfa içi anahtar kelime yoğunluğunu (Keyword Density) %1.5 - %2.5 doğal eşiğinde tutma (Keyword stuffing engelleme).
 - [ ] **Faz 17:** Çerez ve KVKK banner'larının arama motoru botlarının ilk ekran okumasını engellemeyecek DOM sıralamasında render edilmesi.
-- [ ] **Faz 18:** Tablolar ve veri listeleri için semantik `<caption>`, `<thead>`, `<tbody>` etiket kullanımını zorunlu kılma.
+- [x] **Faz 18:** Tablolar ve veri listeleri için semantik `<caption>`, `<thead>`, `<tbody>` etiket kullanımını zorunlu kılma.
 - [x] **Faz 19:** URL yapılarında alt çizgi (`_`) yerine daima tire (`-`) kullanılmasını ve küçük harf zorunluluğunu garanti etme.
 - [ ] **Faz 20:** URL slug uzunluklarını maksimum 4-5 kelime ile sınırlandırarak tarama dostu tutma.
-- [ ] **Faz 21:** Sayfalardaki telefon (`tel:`) ve e-posta (`mailto:`) bağlantılarına standart RFC formatı kazandırma.
+- [x] **Faz 21:** Sayfalardaki telefon (`tel:`) ve e-posta (`mailto:`) bağlantılarına standart RFC formatı kazandırma.
 - [ ] **Faz 22:** Sayfa içi form elementlerinin `<label for="...">` etiketleriyle tam eşleşmesini ve erişilebilirlik skorunu güvenceye alma.
 - [ ] **Faz 23:** Renk kontrast oranlarının (WCAG AAA standardı) metin taranabilirliğini artıracak seviyede tutulması.
-- [ ] **Faz 24:** Favicon ve PWA ikon setinin (`16x16`, `32x32`, `48x48`, `192x192`, `512x512`) tüm arama motoru botları için doğrulanması.
+- [x] **Faz 24:** Favicon ve PWA ikon setinin (`16x16`, `32x32`, `48x48`, `192x192`, `512x512`) tüm arama motoru botları için doğrulanması.
 - [ ] **Faz 25:** Sayfa içi CSS ve JS bundle boyutunun HTML dokümanı başına maksimum 180 KB First Load JS ile sınırlandırılması.
 
 ---
@@ -67,10 +67,10 @@
 - [x] **Faz 29:** `src/middleware.ts` üzerinden yapay zeka botlarına özel `X-AI-Knowledge-Protocol` ve `X-AI-Authority-Corpus` edge HTTP başlıkları basma.
 - [x] **Faz 30:** `robots.ts` içinde GPTBot, PerplexityBot, ClaudeBot, Applebot-Extended gibi 13 büyük AI botuna açık tarama izni verme.
 - [ ] **Faz 31:** Perplexity ve Claude aramalarında alıntılanma olasılığını %80 artıran "Doğrudan İstatistik & Sayısal Veri Blokları" (Key Facts) oluşturma.
-- [ ] **Faz 32:** Tesis yönetimi maliyet tasarruf oranlarını (%30 aidat tasarrufu, %0 reaktif ceza) yapılandırılmış metin olarak LLM'lere sunma.
+- [x] **Faz 32:** Tesis yönetimi maliyet tasarruf oranlarını (%30 aidat tasarrufu, %0 reaktif ceza) yapılandırılmış metin olarak LLM'lere sunma.
 - [ ] **Faz 33:** `/api/ai/facility-agent-context.json` endpoint'i üzerinden yapay zeka ajanlarına makine tarafından okunabilir JSON-LD bağlamı sağlama.
 - [ ] **Faz 34:** LLM yanıtlarında halüsinasyonu önlemek için resmi Kat Mülkiyeti Kanunu madde numaralarını (KMK m.20, m.35, m.42) kaynaklı sunma.
-- [ ] **Faz 35:** Sesli arama motorları (Google Assistant, Siri) için Speakable spesifikasyonuna uygun sesli yanıt özetleri (`VoiceSearchSpeakableSeo`) üretme.
+- [x] **Faz 35:** Sesli arama motorları (Google Assistant, Siri) için Speakable spesifikasyonuna uygun sesli yanıt özetleri (`VoiceSearchSpeakableSeo`) üretme.
 - [ ] **Faz 36:** Yandex Alice ve yerel sesli asistanlar için Rusça ve Arapça AI özetleri hazırlama.
 - [ ] **Faz 37:** Yapay zeka crawler'larının tarama sıklığını izleyen özel analitik telemetrisi (`aiBotTelemetry.ts`) kurma.
 - [ ] **Faz 38:** RAG (Retrieval-Augmented Generation) sistemleri için parçalanmış markdown semantik blokları (`facilityKnowledgeCorpus.ts`) derleme.

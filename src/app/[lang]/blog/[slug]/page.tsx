@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
 import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
-import { BlogArticleEcosystemSeo } from '@/components/seo';
+import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
 import TableOfContents from '@/components/blog/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
@@ -316,6 +316,12 @@ export default async function BlogDetail({
   return (
     <>
       <JsonLd data={[breadcrumbLd, articleLd, pageLd]} />
+      <VoiceSearchSpeakableSeo
+        pageUrl={path}
+        lang={lang}
+        question={post.title}
+        directAnswer={post.tldr || post.description || post.summary}
+      />
       {renderedHtml && <BlogFAQExtractor htmlContent={renderedHtml} />}
       <ReadingProgress />
       <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">

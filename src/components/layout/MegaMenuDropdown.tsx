@@ -256,7 +256,7 @@ export default function MegaMenuDropdown({
                 </p>
                 {item.nameKey === 'nav_contact_media' && (
                   <a
-                    href="tel:02165504848"
+                    href="tel:+902165504848"
                     className="inline-flex items-center gap-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-3 py-1.5 rounded-xl transition-colors mt-2 w-fit shadow-sm"
                   >
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
