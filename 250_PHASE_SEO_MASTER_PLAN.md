@@ -317,7 +317,7 @@
 - [x] **Faz 231:** Cumulative Layout Shift (CLS) skorunu tam 0 seviyesinde tutmak için tüm görsel ve videolara `aspect-ratio` tanımlama.
 - [x] **Faz 232:** Interaction to Next Paint (INP) gecikmesini 50ms altında tutmak için tüm arama ve filtreleri `useTransition` ile sarmalama.
 - [x] **Faz 233:** Largest Contentful Paint (LCP) süresini 1.2 saniyenin altında tutmak için kritik fontları `preload` ile çekme.
-- [ ] **Faz 234:** Kullanılmayan CSS ve JS kodlarını temizleyen gelişmiş Tree-Shaking optimizasyonu uygulama.
+- [x] **Faz 234:** Kullanılmayan CSS ve JS kodlarını temizleyen gelişmiş Tree-Shaking optimizasyonu uygulama.
 - [ ] **Faz 235:** Googlebot ve Bingbot'un sunucudaki CPU tüketimini izleyen `/api/admin/bot-telemetry` servisini aktif etme.
 - [ ] **Faz 236:** Günlük olarak kırık linkleri, sitemap doğruluğunu ve index durumunu denetleyen `/api/cron/seo-patrol` cron servisi kurma.
 - [x] **Faz 237:** 404 sayfasına kullanıcının aradığı terime en yakın 3 sayfayı öneren akıllı hata kurtarma bileşeni ekleme.
@@ -328,10 +328,10 @@
 - [ ] **Faz 242:** Web Vitals metriklerini gerçek kullanıcı deneyimiyle (RUM) toplayan `/api/analytics/vitals` uç noktasını güçlendirme.
 - [x] **Faz 243:** Sayfa yönlendirmelerinde tarayıcı ön yüklemesini yöneten Speculation Rules API'yi moderate seviyesinde tutma.
 - [x] **Faz 244:** Tüm API uç noktalarında CORS politikalarını sadece izinli alan adlarıyla sınırlandırarak veri güvenliğini sağlama.
-- [ ] **Faz 245:** SSL sertifikasının TLS 1.3 ve güçlü şifreleme paketleriyle (ChaCha20, AES-GCM) çalıştığını doğrulama.
-- [ ] **Faz 246:** Arama motoru örümceklerine sunulan HTML kaynak kodunun boyutunu (HTML Minification) optimize etme.
-- [ ] **Faz 247:** Görsellerin modern AVIF ve WebP formatlarında içerik pazarlığı (Content Negotiation) ile sunulmasını garanti etme.
-- [ ] **Faz 248:** Sayfa üzerindeki üçüncü taraf komut dosyalarının (GTM, Pixel) ana iş parçacığını (Main Thread) tıkamasını önleme.
+- [x] **Faz 245:** SSL sertifikasının TLS 1.3 ve güçlü şifreleme paketleriyle (ChaCha20, AES-GCM) çalıştığını doğrulama.
+- [x] **Faz 246:** Arama motoru örümceklerine sunulan HTML kaynak kodunun boyutunu (HTML Minification) optimize etme.
+- [x] **Faz 247:** Görsellerin modern AVIF ve WebP formatlarında içerik pazarlığı (Content Negotiation) ile sunulmasını garanti etme.
+- [x] **Faz 248:** Sayfa üzerindeki üçüncü taraf komut dosyalarının (GTM, Pixel) ana iş parçacığını (Main Thread) tıkamasını önleme.
 - [ ] **Faz 249:** GitHub Actions CI/CD hattına otomatik Lighthouse CI (LHCI) denetimi ekleyerek SEO puanının 100/100 kalmasını zorunlu kılma.
 - [x] **Faz 250:** Her yeni dağıtımda (Deployment) arama motoru indeksleme durumunu, çift uzak depo senkronizasyonunu ve tüm sistem sağlığını raporlama.
 
