@@ -81,3 +81,32 @@ export function getNeighborDistrictLinks(currentSlug: string, lang = 'tr'): Dist
     side: d.side,
   }));
 }
+
+/**
+ * Anadolu ve Avrupa yakası sayfaları arasında semantik PageRank dengeleyici çapraz bağlantı ağı (Faz 115).
+ */
+export function getCrossSideDistrictLinks(currentSlug: string, lang = 'tr'): DistrictCrossLink[] {
+  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+  const current = getDistrict(currentSlug);
+  if (!current) return [];
+
+  const targetSide = current.side === 'Anadolu' ? 'Avrupa' : 'Anadolu';
+  const targetSideDistricts = DISTRICTS.filter((d) => d.side === targetSide);
+
+  // Karşı yakadaki en yüksek talep gören stratejik merkez ilçeler
+  const strategicSlugs = targetSide === 'Avrupa'
+    ? ['besiktas', 'sisli', 'sariyer', 'bakirkoy', 'basaksehir']
+    : ['kadikoy', 'atasehir', 'uskudar', 'umraniye', 'maltepe'];
+
+  const matched = strategicSlugs
+    .map((s) => targetSideDistricts.find((d) => d.slug === s))
+    .filter(Boolean) as typeof DISTRICTS;
+
+  return matched.slice(0, 4).map((d) => ({
+    slug: d.slug,
+    name: d.name,
+    href: `${langPrefix}/bolgeler/${d.slug}/tesis-yonetimi`,
+    anchorText: `${d.name} Tesis ve Site Yönetimi (${d.side} Yakası)`,
+    side: d.side,
+  }));
+}

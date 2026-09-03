@@ -83,7 +83,7 @@ export function localBusinessAreaSchema(opts: {
       latitude: opts.geo.lat,
       longitude: opts.geo.lng,
     },
-    hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(opts.areaName)}`,
+    hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(opts.areaName)}&cid=11823908234123984`,
     areaServed: { '@type': 'AdministrativeArea', name: `${opts.areaName}, İstanbul` },
     parentOrganization: { '@id': ORG_ID },
     openingHoursSpecification: [

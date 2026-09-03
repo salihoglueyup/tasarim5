@@ -24,8 +24,7 @@ import {
 } from '@/lib/schemas';
 import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts';
 import { SERVICES } from '@/data/services';
-import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
-import { getNeighborDistrictLinks } from '@/lib/seo/districtCrossLinker';
+import { getNeighborDistrictLinks, getCrossSideDistrictLinks } from '@/lib/seo/districtCrossLinker';
 
 // ISR: yüzlerce yerel sayfa için günlük yeniden doğrulama (Faz 120/126).
 export const revalidate = 86400;
@@ -52,6 +51,10 @@ function districtFaqs(name: string, needs: string[]) {
     {
       question: `${name}'de yönetim değişikliği süreci nasıl işler?`,
       answer: `Öncelikle ${name}'deki sitenizde ücretsiz keşif yaparız; ardından mevcut yönetim planı ve demirbaş devrini tutanakla alır, 48 saat içinde şeffaf teklifimizi sunarız. En yoğun ihtiyacınız ${needs[0]?.toLowerCase() || 'güvenlik ve aidat yönetimi'} ise sürecin merkezine bunu koyarız.`,
+    },
+    {
+      question: `${name}'de sitelerde ve toplu konutlarda karşılaşılan en kritik operasyonel zorluklar nelerdir?`,
+      answer: `${name} bölgesindeki toplu yapılarda en sık karşılaşılan dinamikler: ${needs.slice(0, 3).join(', ')}. Alo Yönetim, ${name}'deki yerel saha ekipleri ve 7/24 acil mobil müdahale filosuyla bu yerel dinamiklere özel operasyon planları uygulamaktadır.`,
     },
   ];
 }
@@ -120,6 +123,7 @@ export default async function DistrictPage({
   });
 
   const neighborLinks = getNeighborDistrictLinks(district.slug, lang);
+  const crossSideLinks = getCrossSideDistrictLinks(district.slug, lang);
 
   const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${district.geo.lng - 0.03}%2C${district.geo.lat - 0.02}%2C${district.geo.lng + 0.03}%2C${district.geo.lat + 0.02}&marker=${district.geo.lat}%2C${district.geo.lng}`;
 
@@ -365,6 +369,27 @@ export default async function DistrictPage({
                 >
                   <span>{neighbor.name}</span>
                   <span className="material-symbols-outlined text-[14px] text-blue-500" aria-hidden="true">arrow_forward</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Faz 115: Anadolu ve Avrupa Yakası Çapraz PageRank Dengeleyici Ağ */}
+        {crossSideLinks.length > 0 && (
+          <div className="p-6 rounded-2xl bg-blue-50/50 dark:bg-slate-900/30 border border-blue-200/50 dark:border-blue-500/10">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-center sm:text-left">
+              İstanbul Genelinde Hizmet Ağımız ({district.side === 'Anadolu' ? 'Avrupa' : 'Anadolu'} Yakası Merkezleri)
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {crossSideLinks.map((cross) => (
+                <Link
+                  key={cross.slug}
+                  href={cross.href}
+                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-blue-200/40 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
+                >
+                  <span>{cross.name}</span>
+                  <span className="material-symbols-outlined text-[14px] text-blue-500" aria-hidden="true">explore</span>
                 </Link>
               ))}
             </div>

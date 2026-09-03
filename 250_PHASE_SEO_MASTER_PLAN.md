@@ -164,19 +164,19 @@
 - [ ] **Faz 108:** Kadıköy, Ataşehir, Beşiktaş, Üsküdar gibi öncelikli ilçeler için mahalle bazlı alt sayfaları (`/bolgeler/[ilce]/mahalleler/[mahalle]`) haritaya bağlama.
 - [ ] **Faz 109:** 39 ilçe için ortalama site aidat endeksi ve metrekare karşılaştırma matrisini (`DistrictComparisonMatrixSeo`) her sayfada dinamik kılma.
 - [ ] **Faz 110:** İlçe sayfalarında o ilçede yönettiğimiz sitelerden gerçek referans görselleri ve anonim vaka özetleri sergileme.
-- [ ] **Faz 111:** İlçeler arası coğrafi sınır yakınlığına göre komşu ilçe öneri motorunu (`getNeighborDistrictLinks`) güçlendirme.
-- [ ] **Faz 112:** İlçe bazlı özel sıkça sorulan sorular (Örn: "Kadıköy'de tarihi binalarda site yönetimi nasıl yapılır?") üretme.
+- [x] **Faz 111:** İlçeler arası coğrafi sınır yakınlığına göre komşu ilçe öneri motorunu (`getNeighborDistrictLinks`) güçlendirme.
+- [x] **Faz 112:** İlçe bazlı özel sıkça sorulan sorular (Örn: "Kadıköy'de tarihi binalarda site yönetimi nasıl yapılır?") üretme.
 - [ ] **Faz 113:** Coğrafi arama motorları için 39 ilçenin tam sınırlarını içeren GeoJSON feed'i (`/api/geo/districts.geojson`) yayınlama.
 - [ ] **Faz 114:** Google Earth ve GIS haritaları için KML formatında kapsam haritası (`/api/geo/istanbul.kml`) sunma.
-- [ ] **Faz 115:** Anadolu ve Avrupa yakası sayfaları arasında semantik PageRank dengeleyici çapraz bağlantı ağı kurma.
+- [x] **Faz 115:** Anadolu ve Avrupa yakası sayfaları arasında semantik PageRank dengeleyici çapraz bağlantı ağı kurma.
 - [ ] **Faz 116:** İlçe sayfalarında yerel belediye zabıta ve çevre müdürlüğü mevzuat linklerine atıfta bulunma.
-- [ ] **Faz 117:** Google İşletme Profili (Google Business Profile) ile web sitesi NAP (Name, Address, Phone) tutarlılığını garanti altına alma.
+- [x] **Faz 117:** Google İşletme Profili (Google Business Profile) ile web sitesi NAP (Name, Address, Phone) tutarlılığını garanti altına alma.
 - [ ] **Faz 118:** Mobil aramalarda kullanıcının konumuna en yakın saha ofisini hesaplayan uç nokta (`/api/geo/nearest-facility-hub`) entegrasyonu.
 - [ ] **Faz 119:** Yerel rehber siteleri ve sektörel İstanbul dizinleri için optimize edilmiş yerel tanıtım metinleri hazırlama.
 - [ ] **Faz 120:** İlçe sayfalarında kentsel dönüşüm ve yeni teslim toplu konutlara özel yönetim danışmanlığı modülü sunma.
 - [ ] **Faz 121:** Her ilçenin deprem ve acil durum tahliye planlama rehberini yerel SEO içeriği olarak sağlama.
 - [ ] **Faz 122:** İlçe bazında yerel anahtar kelime hacimlerini (Search Volume) 3 ayda bir güncelleyen dinamik taksonomi motoru bağlama.
-- [ ] **Faz 123:** İlçe sayfalarında `hasMap` URL'lerini doğrudan resmi Google Maps CID (Customer ID) parametresiyle eşitleme.
+- [x] **Faz 123:** İlçe sayfalarında `hasMap` URL'lerini doğrudan resmi Google Maps CID (Customer ID) parametresiyle eşitleme.
 - [ ] **Faz 124:** Yerel kullanıcı yorumlarını ilçe sayfalarında filtreleyerek `LocalBusiness` yorum şemasına dahil etme.
 - [ ] **Faz 125:** 39 ilçenin tamamının yerel sıralama konumlarını haftalık denetleyen otomatik rank-tracker çalıştırma.
 
