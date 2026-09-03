@@ -187,8 +187,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 1.5. URL NORMALIZATION (SEO Faz 5 & Faz 19: Lowercase & Underscore-to-Hyphen enforcement)
-  const normalizedPath = pathname.toLowerCase().replace(/_/g, '-');
+  // 1.5. URL NORMALIZATION (SEO Faz 5, Faz 19 & Faz 171: Lowercase, Hyphen & Trailing Slash Stripping)
+  let normalizedPath = pathname.toLowerCase().replace(/_/g, '-');
+  if (normalizedPath.length > 1 && normalizedPath.endsWith('/')) {
+    normalizedPath = normalizedPath.slice(0, -1);
+  }
   if (pathname !== normalizedPath) {
     const url = request.nextUrl.clone();
     url.pathname = normalizedPath;

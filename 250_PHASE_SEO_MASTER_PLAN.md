@@ -228,19 +228,19 @@
 - [x] **Faz 160:** Google PubSubHubbub (WebSub Hub) entegrasyonu ile RSS güncellemelerini anında Google'a pingleme.
 - [x] **Faz 161:** `news-sitemap.xml` içinden Google News spesifikasyonunda kaldırılan eski `<news:keywords>` etiketini temizleme.
 - [ ] **Faz 162:** Google Search Console API entegrasyonu ile yeni eklenen sayfaları anında URL Inspection üzerinden bildirme.
-- [ ] **Faz 163:** Tarama bütçesi koruyucusu (`crawlBudgetDefender.ts`) ile sahte arama parametrelerini (`?filter=`, `?sort=`) botlara engelleme.
-- [ ] **Faz 164:** Önemli sayfaların HTTP başlıklarına `Last-Modified` ve `ETag` ekleyerek `304 Not Modified` ile sunucu yükünü %60 azaltma.
+- [x] **Faz 163:** Tarama bütçesi koruyucusu (`crawlBudgetDefender.ts`) ile sahte arama parametrelerini (`?filter=`, `?sort=`) botlara engelleme.
+- [x] **Faz 164:** Önemli sayfaların HTTP başlıklarına `Last-Modified` ve `ETag` ekleyerek `304 Not Modified` ile sunucu yükünü %60 azaltma.
 - [ ] **Faz 165:** Arama motorlarının sitenin en derin sayfasına maksimum 3 tıklamayla ulaşmasını sağlayan sığ derinlik (Crawl Depth < 3) mimarisi kurma.
 - [ ] **Faz 166:** `sitemap-index.xml` ana dizini üzerinden alt haritaları (sayfalar, bölgeler, hizmetler, blog, sözlük) modüler bölme.
-- [ ] **Faz 167:** Botların gereksiz form ve arama sonuç sayfalarını tarayarak bütçe harcamasını engelleyen `disallow` optimizasyonu yapma.
+- [x] **Faz 167:** Botların gereksiz form ve arama sonuç sayfalarını tarayarak bütçe harcamasını engelleyen `disallow` optimizasyonu yapma.
 - [ ] **Faz 168:** Sunucu yanıt süresini (TTFB) Edge CDN önbelleği ile 150ms altına indirme.
 - [ ] **Faz 169:** Arama motoru botlarının IP bloklarını doğrulayan (Reverse DNS Lookup) ve sahte botları filtreleyen middleware kalkanı kurma.
 - [ ] **Faz 170:** Haftalık olarak tüm siteyi baştan sona tarayıp kırık bağlantı (404) raporu üreten iç spider betiği (`audit_seo_deep.cjs`) çalıştırma.
-- [ ] **Faz 171:** URL'lerin sonundaki eğik çizgi (`trailing slash`) tutarlılığını zorunlu kılarak çift içerik (Duplicate Content) riskini sıfırlama.
+- [x] **Faz 171:** URL'lerin sonundaki eğik çizgi (`trailing slash`) tutarlılığını zorunlu kılarak çift içerik (Duplicate Content) riskini sıfırlama.
 - [ ] **Faz 172:** HTTPS yönlendirmesinin HTTP/3 ve HSTS Preload ile sıfır gecikmeli gerçekleşmesini temin etme.
 - [ ] **Faz 173:** Log kayıtlarında Googlebot tarama sıklığını ve en çok ziyaret edilen sayfaları raporlayan bot analiz paneli kurma.
 - [ ] **Faz 174:** Güncellenmeyen eski blog yazılarını arşivleyip en güncel mevzuat yazısına 301 yönlendirmesiyle konsolide etme.
-- [ ] **Faz 175:** Sayfa değişikliklerinde sitemap içindeki `<lastmod>` zaman damgasının tam UTC saniye hassasiyetinde güncellenmesini sağlama.
+- [x] **Faz 175:** Sayfa değişikliklerinde sitemap içindeki `<lastmod>` zaman damgasının tam UTC saniye hassasiyetinde güncellenmesini sağlama.
 
 ---
 
