@@ -193,7 +193,7 @@ export default async function AuthorArchive({
               </p>
             )}
             <div className="flex items-center gap-2 text-sm text-slate-500 mt-1">
-              <span className="material-symbols-outlined text-base">article</span>
+              <span className="material-symbols-outlined text-base" aria-hidden="true">article</span>
               <span>{posts.length} makale yayınlandı</span>
             </div>
           </div>
@@ -210,7 +210,7 @@ export default async function AuthorArchive({
             { icon: 'eco', label: 'Sürdürülebilirlik', desc: 'Enerji verimliliği ve yeşil bina standartları.' },
           ].map((exp) => (
             <div key={exp.label} className="flex flex-col gap-2 p-5 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl">
-              <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl">{exp.icon}</span>
+              <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl" aria-hidden="true">{exp.icon}</span>
               <div className="font-bold text-sm text-[var(--color-primary)]">{exp.label}</div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">{exp.desc}</p>
             </div>

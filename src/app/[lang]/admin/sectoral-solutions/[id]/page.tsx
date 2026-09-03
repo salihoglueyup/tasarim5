@@ -20,7 +20,7 @@ export default async function EditSectoralSolutionPage({ params }: { params: Pro
           href={`/${lang}/admin/sectoral-solutions`}
           className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
         >
-          <span className="material-symbols-outlined text-xl">arrow_back</span>
+          <span className="material-symbols-outlined text-xl" aria-hidden="true">arrow_back</span>
         </Link>
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">

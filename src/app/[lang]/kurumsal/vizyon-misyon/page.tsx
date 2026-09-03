@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Vizyon & Misyonumuz — Akıllı ve Şeffaf Tesis Yönetimi | Alo Yönetim';
+  const title = 'Vizyon ve Misyonumuz — Şeffaf Tesis Yönetimi | Alo Yönetim';
   const description = 'Yapay zeka destekli bina otomasyonu, %30 maliyet tasarrufu ve sakin memnuniyeti odaklı entegre tesis yönetimi vizyonumuz. Kurumsal değerlerimizi inceleyin!';
 
   return buildMetadata({

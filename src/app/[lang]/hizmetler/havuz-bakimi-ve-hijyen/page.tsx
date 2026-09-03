@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Site & Rezidans Havuz Bakımı — Sağlık Bakanlığı Onaylı Hijyen | Alo Yönetim';
+  const title = 'Site ve Rezidans Havuz Bakımı & Hijyen Servisi | Alo Yönetim';
   const description = 'Site ve rezidanslar için günlük klor-pH ölçümü, filtre ters yıkama ve sertifikalı operatörlü havuz bakımı. Sağlık Bakanlığı standartlarında periyodik analiz.';
 
   return buildMetadata({

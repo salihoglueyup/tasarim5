@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Sürdürülebilirlik & Yeşil Tesis Yönetimi — ISO 14001 & ESG | Alo Yönetim';
+  const title = 'Sürdürülebilirlik ve Yeşil Tesis Yönetimi | Alo Yönetim';
   const description = 'Sitelerde sıfır atık, gri su geri kazanımı, GES çatı güneş enerjisi ve ISO 14001 çevre yönetim standartlarımız. Yeşil bina çözümlerimizi inceleyin!';
 
   return buildMetadata({

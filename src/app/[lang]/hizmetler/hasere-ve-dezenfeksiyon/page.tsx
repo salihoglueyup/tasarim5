@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Apartman & Site Haşere İlaçlama — Sağlık Bakanlığı Ruhsatlı | Alo Yönetim';
+  const title = 'Apartman ve Site Haşere İlaçlama Hizmeti | Alo Yönetim';
   const description = 'Site, apartman ve tesisler için Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle kokusuz böcek, fare ve kemirgen ilaçlama hizmeti. Randevu: 0216 550 48 48.';
 
   return buildMetadata({

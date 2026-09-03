@@ -127,7 +127,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
     return (
       <div className="p-8 flex items-center justify-center min-h-[400px]">
         <div className="flex flex-col items-center gap-3">
-          <span className="material-symbols-outlined text-4xl text-brand-500 animate-spin">
+          <span className="material-symbols-outlined text-4xl text-brand-500 animate-spin" aria-hidden="true">
             refresh
           </span>
           <span className="text-sm font-medium text-slate-500">SEO Sağlık Raporu Yükleniyor...</span>
@@ -184,7 +184,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
           }`}
         >
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-lg">
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">
               {syncResult.success ? 'check_circle' : 'error'}
             </span>
             <span className="font-semibold">{syncResult.message}</span>
@@ -208,7 +208,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
         <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-5 shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">SEO Sağlık Skoru</span>
-            <span className="material-symbols-outlined text-emerald-500">verified</span>
+            <span className="material-symbols-outlined text-emerald-500" aria-hidden="true">verified</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-black text-slate-900 dark:text-white">%{data.score}</span>
@@ -219,7 +219,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
         <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-5 shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">İndekslenebilir Sayfa</span>
-            <span className="material-symbols-outlined text-brand-500">layers</span>
+            <span className="material-symbols-outlined text-brand-500" aria-hidden="true">layers</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-black text-slate-900 dark:text-white">{data.totalPages}</span>
@@ -230,7 +230,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
         <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-5 shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">İlçe × Hizmet Matrisi</span>
-            <span className="material-symbols-outlined text-purple-500">location_on</span>
+            <span className="material-symbols-outlined text-purple-500" aria-hidden="true">location_on</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-black text-slate-900 dark:text-white">{data.districtServiceCombinations}</span>
@@ -241,7 +241,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
         <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-5 shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">301 Yönlendirme Kalkanı</span>
-            <span className="material-symbols-outlined text-amber-500">shield</span>
+            <span className="material-symbols-outlined text-amber-500" aria-hidden="true">shield</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-black text-slate-900 dark:text-white">{data.redirects301.length}</span>
@@ -256,7 +256,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold flex items-center gap-1">
-                <span className="material-symbols-outlined text-xs">auto_awesome</span>
+                <span className="material-symbols-outlined text-xs" aria-hidden="true">auto_awesome</span>
                 <span>Canlı Motor</span>
               </span>
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -390,7 +390,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-full py-12 text-center text-slate-400 text-xs">
-                <span className="material-symbols-outlined text-3xl mb-2 text-slate-300">insights</span>
+                <span className="material-symbols-outlined text-3xl mb-2 text-slate-300" aria-hidden="true">insights</span>
                 <span>Sol taraftaki bilgileri düzenleyip &ldquo;Anlık SEO Denetimi Yap&rdquo; butonuna basın.</span>
               </div>
             )}
@@ -402,7 +402,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
       <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-6 shadow-xs">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-brand-500">account_tree</span>
+            <span className="material-symbols-outlined text-brand-500" aria-hidden="true">account_tree</span>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               Aktif Site Haritaları & Protokol Uç Noktaları
             </h3>
@@ -441,7 +441,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
                       className="inline-flex items-center gap-1 text-slate-500 hover:text-brand-500 transition-colors font-medium"
                     >
                       <span>Aç</span>
-                      <span className="material-symbols-outlined text-sm">open_in_new</span>
+                      <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
                     </a>
                   </td>
                 </tr>
@@ -455,7 +455,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
       <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-6 shadow-xs">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-amber-500">security</span>
+            <span className="material-symbols-outlined text-amber-500" aria-hidden="true">security</span>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               301 Kalıcı Yönlendirme Kalkanı (Eski Sıralamaları Koruma)
             </h3>

@@ -80,7 +80,7 @@ export default async function CertificatePage({
             {/* Badge + başlık */}
             <div className="flex items-center gap-4">
               <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-lg shrink-0`}>
-                <span className="material-symbols-outlined text-white text-3xl">{cert.icon}</span>
+                <span className="material-symbols-outlined text-white text-3xl" aria-hidden="true">{cert.icon}</span>
               </div>
               <div>
                 <p className={`text-xs font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r ${cert.color}`}>
@@ -116,7 +116,7 @@ export default async function CertificatePage({
                 href={cert.relatedPath}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
               >
-                <span className="material-symbols-outlined text-base">link</span>
+                <span className="material-symbols-outlined text-base" aria-hidden="true">link</span>
                 İlgili hizmetimizi inceleyin
               </Link>
             )}
@@ -127,7 +127,7 @@ export default async function CertificatePage({
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl overflow-hidden shadow-sm">
               <div className="bg-slate-100 dark:bg-slate-800 px-5 py-3 flex items-center justify-between">
                 <span className="text-xs font-semibold text-[var(--color-secondary)]">Sertifika Önizlemesi</span>
-                <span className="material-symbols-outlined text-sm text-[var(--color-tertiary)]">picture_as_pdf</span>
+                <span className="material-symbols-outlined text-sm text-[var(--color-tertiary)]" aria-hidden="true">picture_as_pdf</span>
               </div>
               <iframe
                 src={`${cert.pdf}#view=FitH`}
@@ -145,7 +145,7 @@ export default async function CertificatePage({
               aria-label={`${cert.name} sertifikasını PDF formatında indir (1.8 MB)`}
               className={`flex items-center justify-center gap-3 bg-gradient-to-r ${cert.color} text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:opacity-90 transition-opacity`}
             >
-              <span className="material-symbols-outlined">download</span>
+              <span className="material-symbols-outlined" aria-hidden="true">download</span>
               <span>Sertifikayı İndir</span>
               <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-medium ml-1">PDF · 1.8 MB</span>
             </a>
@@ -154,7 +154,7 @@ export default async function CertificatePage({
               href="/kurumsal/kalite-belgelerimiz"
               className="flex items-center justify-center gap-2 bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] font-semibold py-3 px-6 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors text-sm"
             >
-              <span className="material-symbols-outlined text-base">arrow_back</span>
+              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
               Tüm Belgeler
             </Link>
           </div>
@@ -173,7 +173,7 @@ export default async function CertificatePage({
                 className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-white/10 rounded-2xl p-5 flex items-center gap-4 hover:shadow-md transition-shadow group"
               >
                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${c.color} flex items-center justify-center shrink-0`}>
-                  <span className="material-symbols-outlined text-white text-xl">{c.icon}</span>
+                  <span className="material-symbols-outlined text-white text-xl" aria-hidden="true">{c.icon}</span>
                 </div>
                 <div>
                   <p className="text-xs font-bold text-[var(--color-tertiary)]">{c.name}</p>

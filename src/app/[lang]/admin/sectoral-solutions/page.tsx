@@ -43,7 +43,7 @@ export default async function AdminSectoralSolutions({ params }: { params: Promi
                     </span>
                   </td>
                   <td className="p-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-slate-400">{sol.icon}</span>
+                    <span className="material-symbols-outlined text-slate-400" aria-hidden="true">{sol.icon}</span>
                     <div className="font-medium text-slate-900 dark:text-gray-200 group-hover:text-[var(--color-primary)] transition-colors">{sol.title}</div>
                   </td>
                   <td className="p-4">

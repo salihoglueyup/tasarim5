@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'İletişim & Genel Merkez — 7/24 Çağrı Merkezi: 0216 550 48 48 | Alo Yönetim';
+  const title = 'İletişim & 7/24 Tesis Destek Hattı | Alo Yönetim';
   const description = 'Alo Yönetim genel merkez, 7/24 acil teknik servis hattı ve 39 ilçe saha ekipleriyle hemen iletişime geçin. Ücretsiz keşif ve danışmanlık: 0216 550 48 48.';
 
   return buildMetadata({

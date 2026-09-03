@@ -25,7 +25,7 @@ export default function MarkReadButton({ id, lang, isRead }: { id: string, lang:
       }`}
       title={isRead ? "Okunmadı Olarak İşaretle" : "Okundu Olarak İşaretle"}
     >
-      <span className="material-symbols-outlined text-sm">
+      <span className="material-symbols-outlined text-sm" aria-hidden="true">
         {isRead ? 'mark_email_read' : 'mail'}
       </span>
     </button>

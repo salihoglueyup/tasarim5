@@ -45,8 +45,8 @@ export default async function AdminLeads({ params }: { params: Promise<{ lang: s
                   </td>
                   <td className="p-4">
                     <div className="flex flex-col gap-1 text-xs text-slate-600 dark:text-gray-400">
-                      {lead.phone && <div className="flex items-center gap-1"><span className="material-symbols-outlined text-[14px]">call</span> {lead.phone}</div>}
-                      {lead.email && <div className="flex items-center gap-1"><span className="material-symbols-outlined text-[14px]">mail</span> {lead.email}</div>}
+                      {lead.phone && <div className="flex items-center gap-1"><span className="material-symbols-outlined text-[14px]" aria-hidden="true">call</span> {lead.phone}</div>}
+                      {lead.email && <div className="flex items-center gap-1"><span className="material-symbols-outlined text-[14px]" aria-hidden="true">mail</span> {lead.email}</div>}
                       {!lead.phone && !lead.email && <span>Belirtilmemiş</span>}
                     </div>
                   </td>

@@ -70,7 +70,7 @@ export default async function AdminReferences({ params }: { params: Promise<{ la
                   <td className="p-4">
                     {ref.isSuccessStory ? (
                       <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-500/20">
-                        <span className="material-symbols-outlined text-[14px]">star</span>
+                        <span className="material-symbols-outlined text-[14px]" aria-hidden="true">star</span>
                         Başarı Hikayesi
                       </span>
                     ) : (

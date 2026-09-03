@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Ücretsiz Tesis ve Site Yönetimi Teklifi Alın — 48 Saatte Şeffaf Fiyat | Alo Yönetim',
+    title: 'Ücretsiz Tesis ve Site Yönetimi Teklifi Alın | Alo Yönetim',
     description:
       'Siteniz, plazanınız veya tesisiniz için 48 saat içinde şeffaf yönetim teklifi ve ücretsiz yerinde keşif hizmeti. %30 maliyet tasarrufuyla teklifinizi alın!',
     path: '/teklif-al',
@@ -113,7 +113,7 @@ export default function TeklifAl() {
               className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-sm"
             >
               <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center shadow-lg">
-                <span className="material-symbols-outlined text-3xl">{s.icon}</span>
+                <span className="material-symbols-outlined text-3xl" aria-hidden="true">{s.icon}</span>
               </div>
               <h2 className="text-xl font-bold text-[var(--color-primary)]">{s.title}</h2>
               <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">

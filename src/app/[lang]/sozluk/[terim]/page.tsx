@@ -128,7 +128,7 @@ export default async function TermPage({
                 href={term.link.href}
                 className="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:opacity-95 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm shadow-md"
               >
-                <span className="material-symbols-outlined text-base">arrow_forward</span>
+                <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
                 {term.link.label}
               </Link>
             </div>
@@ -177,7 +177,7 @@ export default async function TermPage({
               className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/40 transition-colors flex flex-col gap-1 group"
             >
               <span className="text-xs text-[var(--color-tertiary)] flex items-center gap-1">
-                <span className="material-symbols-outlined text-sm">arrow_back</span> Önceki
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_back</span> Önceki
               </span>
               <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 line-clamp-1">{prevTerm.term}</span>
             </Link>
@@ -188,7 +188,7 @@ export default async function TermPage({
               className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/40 transition-colors flex flex-col items-end gap-1 group"
             >
               <span className="text-xs text-[var(--color-tertiary)] flex items-center gap-1">
-                Sonraki <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                Sonraki <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </span>
               <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 line-clamp-1">{nextTerm.term}</span>
             </Link>
@@ -201,7 +201,7 @@ export default async function TermPage({
             href="/sozluk"
             className="inline-flex items-center gap-2 text-sm text-[var(--color-tertiary)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
           >
-            <span className="material-symbols-outlined text-base">menu_book</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">menu_book</span>
             Tüm sözlüğe dön
           </Link>
         </div>

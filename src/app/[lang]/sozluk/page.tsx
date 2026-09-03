@@ -24,7 +24,7 @@ export async function generateMetadata({
   const t = await getDictionary(lang);
 
   return buildMetadata({
-    title: 'Site ve Tesis Yönetimi Sözlüğü — KMK & 5188 Terimleri | Alo Yönetim',
+    title: 'Site ve Tesis Yönetimi Sözlüğü — KMK Terimleri | Alo Yönetim',
     description:
       'Aidat, demirbaş, işletme projesi, 634 sayılı KMK ve 5188 özel güvenlik mevzuat terimleri sözlüğü. Kat malikleri ve yöneticiler için açık yasal tanımlar.',
     path: '/sozluk',

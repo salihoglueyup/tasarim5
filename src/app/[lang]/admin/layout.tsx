@@ -128,10 +128,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                       <span className="mr-3">{item.icon}</span>
                       <span className="font-medium text-sm">{item.name}</span>
                     </div>
-                    <span 
-                      className="material-symbols-outlined text-lg text-slate-400 transition-transform duration-300"
+                    <span className="material-symbols-outlined text-lg text-slate-400 transition-transform duration-300"
                       style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}
-                    >
+                     aria-hidden="true">
                       expand_more
                     </span>
                   </button>

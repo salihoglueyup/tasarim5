@@ -27,6 +27,8 @@ const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/KMKLawAssistan
 const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/ServiceAuthorityHubSeo'), { ssr: true });
 
 
+export const revalidate = 3600;
+
 type Props = {
   params: Promise<{ lang: string }>;
 };
@@ -131,7 +133,7 @@ export default async function Home({ params }: Props) {
   const videoLd = videoObjectSchema({
     name: t.video_ld_name || 'Alo Yönetim Tanıtım Filmi',
     description: t.video_ld_desc || 'Profesyonel mülk ve tesis yönetimi hizmetlerimizi tanıtan kurumsal filmimiz.',
-    thumbnailUrl: '/images/hero-poster.webp',
+    thumbnailUrl: '/images/hero-poster-v5.webp',
     contentUrl: '/video/brand-film.mp4',
     uploadDate: '2026-01-15T08:00:00+03:00',
     duration: 'PT1M30S',

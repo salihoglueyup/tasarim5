@@ -63,28 +63,28 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
             href={`/${lang}/admin/seo-health`} 
             className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-4 py-2.5 rounded-xl transition-all font-bold text-sm shadow-md"
           >
-            <span className="material-symbols-outlined text-lg">rocket_launch</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">rocket_launch</span>
             SEO & IndexNow
           </Link>
           <Link 
             href={`/${lang}/admin/posts/new`} 
             className="flex items-center gap-2 bg-white dark:bg-white/[0.05] hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-brand-500 text-slate-700 dark:text-white px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-500 transition-all font-medium text-sm shadow-sm"
           >
-            <span className="material-symbols-outlined text-lg">edit_document</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">edit_document</span>
             Yeni Yazı
           </Link>
           <Link 
             href={`/${lang}/admin/faqs/new`} 
             className="flex items-center gap-2 bg-white dark:bg-white/[0.05] hover:bg-accent-50 hover:text-accent-600 dark:hover:bg-accent-500 text-slate-700 dark:text-white px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-accent-300 dark:hover:border-accent-500 transition-all font-medium text-sm shadow-sm"
           >
-            <span className="material-symbols-outlined text-lg">help</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">help</span>
             Yeni S.S.S
           </Link>
           <Link 
             href={`/${lang}/admin/authors/new`} 
             className="flex items-center gap-2 bg-white dark:bg-white/[0.05] hover:bg-slate-50 hover:text-slate-600 dark:hover:bg-slate-500 text-slate-700 dark:text-white px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-slate-500 transition-all font-medium text-sm shadow-sm"
           >
-            <span className="material-symbols-outlined text-lg">person_add</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">person_add</span>
             Yeni Yazar
           </Link>
         </div>
@@ -111,7 +111,7 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
         <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm dark:shadow-none backdrop-blur-sm flex flex-col">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="material-symbols-outlined text-brand-500 dark:text-brand-400">article</span>
+              <span className="material-symbols-outlined text-brand-500 dark:text-brand-400" aria-hidden="true">article</span>
               Son Yazılar
             </h2>
             <Link href={`/${lang}/admin/posts`} className="text-sm text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors">Tümü &rarr;</Link>
@@ -166,7 +166,7 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
         <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm dark:shadow-none backdrop-blur-sm flex flex-col">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="material-symbols-outlined text-accent-500 dark:text-accent-400">help</span>
+              <span className="material-symbols-outlined text-accent-500 dark:text-accent-400" aria-hidden="true">help</span>
               Son Eklenen S.S.S
             </h2>
             <Link href={`/${lang}/admin/faqs`} className="text-sm text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">Tümü &rarr;</Link>

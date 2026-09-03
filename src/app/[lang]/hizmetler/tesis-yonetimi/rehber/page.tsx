@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Tesis & Site Yönetim Şirketi Nasıl Seçilir? — 2026 KMK Rehberi | Alo Yönetim',
+    title: 'Tesis ve Site Yönetim Şirketi Seçim Rehberi | Alo Yönetim',
     description:
       'Site ve tesis yönetim şirketi seçerken dikkat edilmesi gerekenler: Sözleşme maddeleri, KMK 634 devir protokolü, bütçe denetimi ve şeffaflık kriterleri.',
     path: '/hizmetler/tesis-yonetimi/rehber',

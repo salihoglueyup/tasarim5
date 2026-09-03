@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Kalite Politikamız — ISO 41001 & ISO 9001 Standartları | Alo Yönetim';
+  const title = 'Kalite Politikamız — ISO 41001 Standartları | Alo Yönetim';
   const description = 'ISO 9001, ISO 41001, ISO 45001 ve 5188 Sayılı Kanun lisanslarıyla sıfır hata ve %100 sakin memnuniyeti ilkelerimiz. Kalite taahhütlerimizi inceleyin!';
 
   return buildMetadata({

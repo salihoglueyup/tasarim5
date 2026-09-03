@@ -189,7 +189,7 @@ export default async function SectoralSolutionDetailPage({
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 md:p-12 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-2xl">{solution.icon || 'domain'}</span>
+                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{solution.icon || 'domain'}</span>
                 </span>
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
@@ -208,7 +208,7 @@ export default async function SectoralSolutionDetailPage({
 
               {solution.kpiTag && (
                 <div className="mt-8 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center gap-3">
-                  <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl">trending_up</span>
+                  <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl" aria-hidden="true">trending_up</span>
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">Kanıtlanmış Sektörel KPI</span>
                     <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-200">{solution.kpiTag}</p>
@@ -221,13 +221,13 @@ export default async function SectoralSolutionDetailPage({
             {features.length > 0 && (
               <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 md:p-12 shadow-sm">
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-blue-600 dark:text-blue-400">task_alt</span>
+                  <span className="material-symbols-outlined text-blue-600 dark:text-blue-400" aria-hidden="true">task_alt</span>
                   Öne Çıkan Standartlarımız ve Hizmet Kapsamı
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
-                      <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-lg shrink-0 mt-0.5">check_circle</span>
+                      <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-lg shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
                       <span className="text-sm text-[var(--color-secondary)] font-medium">{feature}</span>
                     </div>
                   ))}
@@ -254,7 +254,7 @@ export default async function SectoralSolutionDetailPage({
                   href="/teklif-al"
                   className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-950 font-bold py-4 rounded-2xl transition-all shadow-lg hover:scale-105 active:scale-95 text-sm"
                 >
-                  <span className="material-symbols-outlined text-lg">description</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">description</span>
                   <span>Ücretsiz Teklif İste</span>
                 </Link>
               </div>
@@ -274,7 +274,7 @@ export default async function SectoralSolutionDetailPage({
                 className="text-xs text-blue-600 dark:text-blue-400 font-bold hover:underline flex items-center gap-1"
               >
                 <span>Tüm Sektörel Çözümleri Gör</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
           </div>
@@ -292,22 +292,22 @@ export default async function SectoralSolutionDetailPage({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/hizmetler/tesis-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
-              <span className="material-symbols-outlined text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">corporate_fare</span>
+              <span className="material-symbols-outlined text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" aria-hidden="true">corporate_fare</span>
               <span className="font-bold text-sm text-[var(--color-primary)]">Entegre Tesis Yönetimi</span>
               <span className="text-xs text-[var(--color-secondary)]">ISO 41001 standartlarında 360° operasyonel işletme.</span>
             </Link>
             <Link href="/hizmetler/guvenlik-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
-              <span className="material-symbols-outlined text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">shield</span>
+              <span className="material-symbols-outlined text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" aria-hidden="true">shield</span>
               <span className="font-bold text-sm text-[var(--color-primary)]">5188 Lisanslı Özel Güvenlik</span>
               <span className="text-xs text-[var(--color-secondary)]">Valilik izinli, PTS/CCTV ve 7/24 devriye kalkanı.</span>
             </Link>
             <Link href="/hizmetler/aidat-takibi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
-              <span className="material-symbols-outlined text-2xl text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">payments</span>
+              <span className="material-symbols-outlined text-2xl text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" aria-hidden="true">payments</span>
               <span className="font-bold text-sm text-[var(--color-primary)]">Aidat & Finans Takibi</span>
               <span className="text-xs text-[var(--color-secondary)]">KMK m.20 şeffaf bilanço ve ilamsız icra takibi.</span>
             </Link>
             <Link href="/hizmetler/teknik-bakim" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
-              <span className="material-symbols-outlined text-2xl text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform">engineering</span>
+              <span className="material-symbols-outlined text-2xl text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" aria-hidden="true">engineering</span>
               <span className="font-bold text-sm text-[var(--color-primary)]">Teknik Bakım & Asansör</span>
               <span className="text-xs text-[var(--color-secondary)]">MMO yeşil etiket ve %0 kompanzasyon ceza güvencesi.</span>
             </Link>

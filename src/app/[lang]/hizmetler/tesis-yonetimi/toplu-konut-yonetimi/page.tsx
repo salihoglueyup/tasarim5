@@ -18,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Toplu Konut & Mega Site Yönetimi — KMK 66-74 Bütçe & Bakım | Alo Yönetim',
+    title: 'Toplu Konut ve Mega Site Yönetimi Hizmeti | Alo Yönetim',
     description:
       '500+ konutluk siteler ve toplu yapılarda merkezi işletme projesi, geniş peyzaj ve %30 aidat tasarruflu profesyonel yönetim. 48 saatte teklif alın!',
     path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',

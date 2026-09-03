@@ -31,7 +31,7 @@ export default function LeadMessageModal({ lead }: { lead: any }) {
         <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-white/10">
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">Mesaj Detayı</h3>
           <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors">
-            <span className="material-symbols-outlined">close</span>
+            <span className="material-symbols-outlined" aria-hidden="true">close</span>
           </button>
         </div>
         

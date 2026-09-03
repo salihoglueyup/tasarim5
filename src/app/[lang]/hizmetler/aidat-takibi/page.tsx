@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Profesyonel Aidat Takibi & Tahsilat Yönetimi — KMK 634 m.20 | Alo Yönetim';
+  const title = 'Profesyonel Aidat Takibi ve Tahsilat Yönetimi | Alo Yönetim';
   const description = 'Site ve apartmanlar için %99 tahsilat garantili dijital aidat takip sistemi. Kredi kartıyla online ödeme, otomatik banka entegrasyonu ve yasal icra takibi.';
 
   return buildMetadata({

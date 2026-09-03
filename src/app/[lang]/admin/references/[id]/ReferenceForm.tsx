@@ -238,7 +238,7 @@ export default function ReferenceForm({ reference, lang, isNew }: any) {
 
             <div className="flex items-center justify-between p-4 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-xl mt-4">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-amber-600 dark:text-amber-400">star</span>
+                <span className="material-symbols-outlined text-amber-600 dark:text-amber-400" aria-hidden="true">star</span>
                 <div>
                   <h3 className="text-sm font-bold text-amber-800 dark:text-amber-300">Başarı Hikayesi mi?</h3>
                   <p className="text-xs text-amber-700/70 dark:text-amber-400/70">Bu proje Başarı Hikayeleri sayfasında listelenir.</p>

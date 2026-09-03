@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Sektörel Tesis Yönetimi Çözümleri — Rezidans, AVM, OSB | Alo Yönetim',
+    title: 'Sektörel Tesis ve Bina Yönetimi Çözümleri | Alo Yönetim',
     description:
       'Rezidans, AVM, karma yaşam ve sanayi tesislerine özel ISO 41001 entegre yönetim çözümleri. Sektörünüze özel süreçler ve kanıtlanmış KPI başarıları.',
     path: '/sektorel-cozumler',

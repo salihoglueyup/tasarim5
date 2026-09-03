@@ -16,7 +16,7 @@ export async function generateMetadata({
 }) {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Sıkça Sorulan Sorular — Site Yönetimi & KMK 634 Rehberi | Alo Yönetim',
+    title: 'Sıkça Sorulan Sorular & KMK 634 Rehberi | Alo Yönetim',
     description: 'Site yönetimi, aidat icra takibi, 5188 özel güvenlik ve KMK 634 hakkında en çok merak edilen 40+ soru ve uzman yanıtları. Hukuki rehberi inceleyin!',
     path: '/sss',
     lang,

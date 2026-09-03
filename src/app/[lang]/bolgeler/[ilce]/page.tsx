@@ -155,7 +155,7 @@ export default async function DistrictPage({
             <ul className="flex flex-col gap-3 mt-2">
               {district.localNeeds.map((need) => (
                 <li key={need} className="flex items-start gap-3 text-sm text-[var(--color-secondary)]">
-                  <span className="material-symbols-outlined text-slate-600 text-lg shrink-0">check_circle</span>
+                  <span className="material-symbols-outlined text-slate-600 text-lg shrink-0" aria-hidden="true">check_circle</span>
                   {need}
                 </li>
               ))}
@@ -204,7 +204,7 @@ export default async function DistrictPage({
                 href={`/bolgeler/${district.slug}/${s.slug}`}
                 className="group bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-7 flex flex-col gap-3 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
               >
-                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white">{s.icon}</span>
+                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white" aria-hidden="true">{s.icon}</span>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">
                   {s.shortName} — {district.name}
                 </h3>
@@ -241,7 +241,7 @@ export default async function DistrictPage({
                 href={`/bolgeler/${district.slug}/mahalleler`}
                 className="text-sm text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1"
               >
-                Tümünü gör <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                Tümünü gör <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -364,7 +364,7 @@ export default async function DistrictPage({
                   className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/60 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
                 >
                   <span>{neighbor.name}</span>
-                  <span className="material-symbols-outlined text-[14px] text-blue-500">arrow_forward</span>
+                  <span className="material-symbols-outlined text-[14px] text-blue-500" aria-hidden="true">arrow_forward</span>
                 </Link>
               ))}
             </div>

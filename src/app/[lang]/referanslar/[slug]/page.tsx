@@ -260,7 +260,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             <Breadcrumbs items={breadcrumbs} />
           </div>
           <Link href={lang === 'tr' ? '/referanslar' : `/${lang}/referanslar`} className="inline-flex items-center text-sm font-bold text-white/80 hover:text-white mb-8 transition-colors bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20 hover:bg-white/20">
-            <span className="material-symbols-outlined text-lg mr-2">arrow_back</span>
+            <span className="material-symbols-outlined text-lg mr-2" aria-hidden="true">arrow_back</span>
             {currentDict.back}
           </Link>
           
@@ -271,7 +271,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
                   {project.category}
                 </span>
                 <span className="bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[16px]">apartment</span>
+                  <span className="material-symbols-outlined text-[16px]" aria-hidden="true">apartment</span>
                   {project.units}
                 </span>
               </div>
@@ -281,14 +281,14 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
               </h1>
               
               <div className="flex items-center gap-2 text-white/90 font-medium text-lg drop-shadow-md">
-                <span className="material-symbols-outlined text-emerald-400">location_on</span>
+                <span className="material-symbols-outlined text-emerald-400" aria-hidden="true">location_on</span>
                 {localizedLocation}
               </div>
             </div>
 
             {/* Proje İkonu */}
             <div className="hidden md:flex w-24 h-24 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl items-center justify-center shrink-0">
-               <span className="material-symbols-outlined text-white text-[40px]">apartment</span>
+               <span className="material-symbols-outlined text-white text-[40px]" aria-hidden="true">apartment</span>
             </div>
           </div>
         </div>
@@ -311,7 +311,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             {gallery.length > 0 && (
               <div className="space-y-8">
                 <h3 className="text-3xl font-black text-[var(--color-heading-text)] flex items-center gap-3">
-                  <span className="material-symbols-outlined text-emerald-500">photo_library</span>
+                  <span className="material-symbols-outlined text-emerald-500" aria-hidden="true">photo_library</span>
                   {currentDict.galleryTitle}
                 </h3>
                 {/* Asimetrik Grid */}
@@ -343,7 +343,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
                 </div>
                 
                 <div className="relative z-10">
-                  <span className="material-symbols-outlined text-emerald-400 text-5xl mb-6 block">format_quote</span>
+                  <span className="material-symbols-outlined text-emerald-400 text-5xl mb-6 block" aria-hidden="true">format_quote</span>
                   <p className="text-xl md:text-2xl font-medium text-white mb-10 leading-relaxed drop-shadow-sm">
                     {localizedTestimonial}
                   </p>
@@ -372,7 +372,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
                 <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
                 
                 <h3 className="text-xl font-black mb-8 flex items-center gap-3">
-                  <span className="material-symbols-outlined text-emerald-400">bar_chart</span>
+                  <span className="material-symbols-outlined text-emerald-400" aria-hidden="true">bar_chart</span>
                   {currentDict.statsTitle}
                 </h3>
                 <div className="grid grid-cols-2 gap-4 relative z-10">
@@ -390,13 +390,13 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             {services.length > 0 && (
               <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-[2.5rem] p-8 shadow-xl">
                 <h3 className="text-xl font-black text-[var(--color-heading-text)] mb-6 flex items-center gap-3">
-                  <span className="material-symbols-outlined text-emerald-500">verified</span>
+                  <span className="material-symbols-outlined text-emerald-500" aria-hidden="true">verified</span>
                   {currentDict.servicesTitle}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {services.map((service: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-2.5 bg-slate-50 dark:bg-[#1E202B] text-[var(--color-heading-text)] font-bold px-4 py-3 rounded-2xl border border-slate-200 dark:border-white/10 hover:border-slate-400 transition-all text-sm w-full">
-                      <span className="material-symbols-outlined text-emerald-500 text-[20px]">check_circle</span>
+                      <span className="material-symbols-outlined text-emerald-500 text-[20px]" aria-hidden="true">check_circle</span>
                       {service}
                     </div>
                   ))}
@@ -415,7 +415,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
                 
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-500 group-hover:-translate-y-4">
                   <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20 shadow-lg">
-                    <span className="material-symbols-outlined text-3xl text-white">location_on</span>
+                    <span className="material-symbols-outlined text-3xl text-white" aria-hidden="true">location_on</span>
                   </div>
                   <p className="text-white font-extrabold text-lg mb-1">{currentDict.mapTitle}</p>
                   <p className="text-xs text-slate-400 font-mono bg-black/40 px-3 py-1 rounded-full">{project.coordinates}</p>

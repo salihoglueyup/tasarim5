@@ -26,7 +26,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Kat Mülkiyeti Hukuku & Aidat İcra Danışmanlığı — KMK 634 | Alo Yönetim';
+  const title = 'KMK Kat Mülkiyeti Hukuku ve İcra Danışmanlığı | Alo Yönetim';
   const description = 'KMK 634 kapsamında geciken aidatlar için ilamsız icra takibi, %5 gecikme tazminatı tahsili ve genel kurul hukuki danışmanlığı. Avukat destekli şeffaf süreç.';
 
   return buildMetadata({

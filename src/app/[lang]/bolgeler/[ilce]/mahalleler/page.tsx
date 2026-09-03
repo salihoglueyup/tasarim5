@@ -120,7 +120,7 @@ export default async function NeighborhoodsHubPage({
             href={`/bolgeler/${ilce}`}
             className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 transition-colors"
           >
-            <span className="material-symbols-outlined text-base">arrow_back</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
             {district.name} ilçe ana sayfasına dön
           </Link>
         </div>

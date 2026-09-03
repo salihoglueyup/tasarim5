@@ -482,7 +482,7 @@ export default async function BlogDetail({
               {prevPost ? (
                 <Link href={`/blog/${prevPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-start text-left">
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    <span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform" aria-hidden="true">arrow_back</span>
                     Önceki Yazı
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{prevPost.title}</span>
@@ -493,7 +493,7 @@ export default async function BlogDetail({
                 <Link href={`/blog/${nextPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-end text-right">
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
                     Sonraki Yazı
-                    <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{nextPost.title}</span>
                 </Link>

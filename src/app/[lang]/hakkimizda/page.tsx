@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Hakkımızda — 15+ Yıllık Tecrübe, 120+ Proje & Kurumsal Yönetim | Alo Yönetim';
+  const title = 'Hakkımızda — 15+ Yıl Kurumsal Tesis Yönetimi | Alo Yönetim';
   const description = 'Alo Yönetim ve Organizasyon A.Ş. hakkında: 15+ yıl tecrübe, 120+ proje, ISO 41001 & 5188 lisanslı güvenlik ile İstanbul\'un lider tesis yönetim şirketi.';
 
   return buildMetadata({

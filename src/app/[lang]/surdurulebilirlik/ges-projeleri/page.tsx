@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Çatı GES Güneş Enerjisi & Amortisman Hesaplama — Siteler İçin | Alo Yönetim';
+  const title = 'Siteler İçin Çatı GES ve Güneş Enerjisi | Alo Yönetim';
   const description = 'Sitelerde ortak alan elektrik faturasını %70 düşüren çatı tipi güneş enerjisi (GES) fizibilite, amortisman hesaplama ve anahtar teslim kurulum. Teklif alın!';
 
   return buildMetadata({

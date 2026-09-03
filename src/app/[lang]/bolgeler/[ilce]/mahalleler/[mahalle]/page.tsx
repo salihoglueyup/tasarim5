@@ -165,7 +165,7 @@ export default async function NeighborhoodPage({
               href="/teklif-al"
               className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
             >
-              <span className="material-symbols-outlined text-base">request_quote</span>
+              <span className="material-symbols-outlined text-base" aria-hidden="true">request_quote</span>
               Ücretsiz Keşif Talep Et
             </Link>
           </div>
@@ -183,7 +183,7 @@ export default async function NeighborhoodPage({
                 href={`/bolgeler/${ilce}/${service.slug}`}
                 className="group flex items-start gap-4 p-6 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl hover:border-brand-500/50 transition-colors"
               >
-                <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5">
+                <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5" aria-hidden="true">
                   {service.icon ?? 'check_circle'}
                 </span>
                 <div>
@@ -202,7 +202,7 @@ export default async function NeighborhoodPage({
                 href={`/bolgeler/${ilce}/${service.slug}`}
                 className="group flex items-start gap-4 p-6 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl hover:border-brand-500/50 transition-colors"
               >
-                <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5">
+                <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5" aria-hidden="true">
                   {service.icon ?? 'check_circle'}
                 </span>
                 <div>
@@ -232,7 +232,7 @@ export default async function NeighborhoodPage({
             href={`/bolgeler/${ilce}`}
             className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition-colors"
           >
-            <span className="material-symbols-outlined text-base">arrow_back</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
             {district.name} ilçe sayfasına dön
           </Link>
           <span className="text-slate-300">·</span>
@@ -240,7 +240,7 @@ export default async function NeighborhoodPage({
             href={`/bolgeler/${ilce}/mahalleler`}
             className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition-colors"
           >
-            <span className="material-symbols-outlined text-base">location_on</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">location_on</span>
             Tüm {district.name} mahalleleri
           </Link>
         </div>

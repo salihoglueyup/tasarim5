@@ -71,7 +71,7 @@ export default function Bolgeler() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">map</span>
+              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">map</span>
               <span>Özet Rehber: İstanbul Geneli Yerel Tesis ve Site Yönetimi Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -108,12 +108,12 @@ export default function Bolgeler() {
               ,{' '}
               <a href="https://istanbul.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 İstanbul Valiliği 5188 Özel Güvenlik Komisyonu İzinleri
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
               <a href="https://www.ibb.istanbul" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 İBB ve İlçe Belediyeleri Zabıta/Çevre Yönetmelikleri
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               {' '}ve TMMOB Makina Mühendisleri Odası (MMO) asansör yeşil etiket mevzuatlarına tam entegredir.
             </p>
@@ -190,7 +190,7 @@ export default function Bolgeler() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">timer</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">timer</span>
                 </span>
                 <span>45 Dakika SLA Müdahale</span>
               </div>
@@ -202,7 +202,7 @@ export default function Bolgeler() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">trending_down</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
                 </span>
                 <span>%30 Yerel Tedarik Avantajı</span>
               </div>
@@ -214,7 +214,7 @@ export default function Bolgeler() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">shield</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">shield</span>
                 </span>
                 <span>7/24 Süpervizör Teftişi</span>
               </div>
@@ -240,7 +240,7 @@ export default function Bolgeler() {
                   className="group bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-7 flex flex-col gap-3 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-slate-900 dark:text-white">location_on</span>
+                    <span className="material-symbols-outlined text-slate-900 dark:text-white" aria-hidden="true">location_on</span>
                     <h3 className="text-xl font-bold text-[var(--color-primary)]">
                       {d.name}
                     </h3>

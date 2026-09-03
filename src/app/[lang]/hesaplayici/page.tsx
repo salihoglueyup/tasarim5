@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Online Aidat & İşletme Bütçesi Hesaplayıcı — KMK 634 Simülatörü | Alo Yönetim',
+    title: 'Online Aidat ve İşletme Bütçesi Hesaplayıcı | Alo Yönetim',
     description:
       'Sitenizin tahmini işletme bütçesini ve aidat tasarrufunu 60 saniyede KMK 634 standartlarında online hesaplayın. Ücretsiz bütçe simülasyonu başlatın!',
     path: '/hesaplayici',

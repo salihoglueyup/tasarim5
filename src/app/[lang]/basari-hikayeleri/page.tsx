@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Başarı Hikayelerimiz & Vaka Analizleri — %35 Tasarruf | Alo Yönetim',
+    title: 'Başarı Hikayelerimiz ve Vaka Analizleri | Alo Yönetim',
     description:
       'Alo Yönetim ile çalışan site, rezidans ve plaza yöneticilerinin gerçek başarı hikayeleri. %35 maliyet tasarrufu ve %99 aidat tahsilatı vaka analizleri.',
     path: '/basari-hikayeleri',

@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Site & Tesis Peyzaj ve Bahçe Bakımı — Ziraat Mühendisliği | Alo Yönetim';
+  const title = 'Site ve Tesis Peyzaj & Bahçe Bakım Yönetimi | Alo Yönetim';
   const description = 'Siteler için 4 mevsim periyodik çim biçme, ağaç budama, gübreleme ve akıllı otomatik sulama bakımı. Ziraat mühendisi denetimli profesyonel peyzaj hizmeti.';
 
   return buildMetadata({
