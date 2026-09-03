@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -131,7 +132,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                       <div className="flex flex-col gap-1.5">
                         <div className="flex items-center justify-between pl-1">
                           <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest">{t('login_resident_pass')}</label>
-                          <a href="#" className="text-xs text-slate-900 dark:text-white font-bold underline hover:opacity-80">{t('login_forgot_password')}</a>
+                          <Link href="/iletisim" onClick={onClose} className="text-xs text-slate-900 dark:text-white font-bold underline hover:opacity-80">{t('login_forgot_password')}</Link>
                         </div>
                         <div className="relative">
                           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" aria-hidden="true">lock</span>

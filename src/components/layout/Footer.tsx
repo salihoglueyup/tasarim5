@@ -17,6 +17,11 @@ export default function Footer() {
   const { t, language } = useLanguage();
   const [istanbulTime, setIstanbulTime] = useState("");
 
+  const getLocalizedPath = (path: string) => {
+    if (!path) return '/';
+    return language === 'tr' ? path : `/${language}${path === '/' ? '' : path}`;
+  };
+
   useEffect(() => {
     const updateTime = () => {
       if (typeof document !== 'undefined' && document.hidden) return;
@@ -52,7 +57,7 @@ export default function Footer() {
           
           {/* Column 1: Brand Info & App Links (4 Cols) */}
           <div className="lg:col-span-4 flex flex-col gap-6 pr-2">
-            <Link href={language === 'tr' ? '/' : `/${language}`} prefetch={true} className="inline-block" aria-label="Alo Yönetim Anasayfa">
+            <Link href={getLocalizedPath('/')} prefetch={true} className="inline-block" aria-label="Alo Yönetim Anasayfa">
               <Logo />
             </Link>
 
@@ -83,7 +88,7 @@ export default function Footer() {
               ].map((item) => (
                 <Link 
                   key={item.nameKey} 
-                  href={item.path} 
+                  href={getLocalizedPath(item.path)} 
                   prefetch={true}
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
@@ -115,7 +120,7 @@ export default function Footer() {
               ].map((item) => (
                 <Link 
                   key={item.nameKey} 
-                  href={item.path} 
+                  href={getLocalizedPath(item.path)} 
                   prefetch={true}
                   className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[var(--color-primary)] dark:hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
@@ -258,7 +263,7 @@ export default function Footer() {
                 {t('footer_service_areas')}
               </h3>
               <Link
-                href="/bolgeler"
+                href={getLocalizedPath('/bolgeler')}
                 className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline"
               >
                 {t('footer_all_regions')} (39 İlçe) →
@@ -289,7 +294,7 @@ export default function Footer() {
                 ].map((d) => (
                   <Link
                     key={d.slug}
-                    href={`/bolgeler/${d.slug}`}
+                    href={getLocalizedPath(`/bolgeler/${d.slug}`)}
                     className="text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors py-0.5 px-1 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
                   >
                     {d.name}
@@ -333,7 +338,7 @@ export default function Footer() {
                 ].map((d) => (
                   <Link
                     key={d.slug}
-                    href={`/bolgeler/${d.slug}`}
+                    href={getLocalizedPath(`/bolgeler/${d.slug}`)}
                     className="text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors py-0.5 px-1 rounded hover:bg-slate-200/50 dark:hover:bg-white/5"
                   >
                     {d.name}
@@ -348,17 +353,17 @@ export default function Footer() {
               Tesis & Mülk Yönetimi Çözümleri
             </h4>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-gray-500 dark:text-gray-400">
-              <Link href="/hizmetler/tesis-yonetimi" className="font-semibold text-slate-900 dark:text-white hover:underline inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">İstanbul Tesis Yönetimi & Entegre İşletme</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi')} className="font-semibold text-slate-900 dark:text-white hover:underline inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">İstanbul Tesis Yönetimi & Entegre İşletme</Link>
               <span>•</span>
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Rezidans & Lüks Site Yönetimi</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Rezidans & Lüks Site Yönetimi</Link>
               <span>•</span>
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Plaza & İş Merkezi Yönetimi</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/plaza-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Plaza & İş Merkezi Yönetimi</Link>
               <span>•</span>
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Toplu Konut & TOKİ Yönetimi</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Toplu Konut & TOKİ Yönetimi</Link>
               <span>•</span>
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sanayi & Fabrika Tesis Yönetimi</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sanayi & Fabrika Tesis Yönetimi</Link>
               <span>•</span>
-              <Link href="/hizmetler/tesis-yonetimi/rehber" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis Yönetim Şirketi Seçim Rehberi</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rehber')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis Yönetim Şirketi Seçim Rehberi</Link>
             </div>
           </div>
 
@@ -367,29 +372,29 @@ export default function Footer() {
               Popüler Bölgesel Çözümler
             </h4>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-gray-500 dark:text-gray-400">
-              <Link href="/bolgeler/kadikoy/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Kadıköy Aidat Takibi</Link>
+              <Link href={getLocalizedPath('/bolgeler/kadikoy/aidat-takibi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Kadıköy Aidat Takibi</Link>
               <span>•</span>
-              <Link href="/bolgeler/atasehir/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Ataşehir Güvenlik Yönetimi</Link>
+              <Link href={getLocalizedPath('/bolgeler/atasehir/guvenlik-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Ataşehir Güvenlik Yönetimi</Link>
               <span>•</span>
-              <Link href="/bolgeler/uskudar/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Üsküdar Tesis Yönetimi</Link>
+              <Link href={getLocalizedPath('/bolgeler/uskudar/tesis-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Üsküdar Tesis Yönetimi</Link>
               <span>•</span>
-              <Link href="/bolgeler/besiktas/hukuk-ve-icra-danismanligi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Beşiktaş Hukuk & İcra</Link>
+              <Link href={getLocalizedPath('/bolgeler/besiktas/hukuk-ve-icra-danismanligi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Beşiktaş Hukuk & İcra</Link>
               <span>•</span>
-              <Link href="/bolgeler/sisli/temizlik-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Şişli Temizlik ve Hijyen</Link>
+              <Link href={getLocalizedPath('/bolgeler/sisli/temizlik-ve-hijyen')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Şişli Temizlik ve Hijyen</Link>
               <span>•</span>
-              <Link href="/bolgeler/bakirkoy/teknik-bakim" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Bakırköy Teknik Bakım</Link>
+              <Link href={getLocalizedPath('/bolgeler/bakirkoy/teknik-bakim')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Bakırköy Teknik Bakım</Link>
               <span>•</span>
-              <Link href="/bolgeler/basaksehir/havuz-bakimi-ve-hijyen" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Başakşehir Havuz Bakımı</Link>
+              <Link href={getLocalizedPath('/bolgeler/basaksehir/havuz-bakimi-ve-hijyen')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Başakşehir Havuz Bakımı</Link>
               <span>•</span>
-              <Link href="/bolgeler/maltepe/peyzaj-ve-bahce-bakimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Maltepe Peyzaj Bakımı</Link>
+              <Link href={getLocalizedPath('/bolgeler/maltepe/peyzaj-ve-bahce-bakimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Maltepe Peyzaj Bakımı</Link>
               <span>•</span>
-              <Link href="/bolgeler/umraniye/hasere-ve-dezenfeksiyon" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Ümraniye Haşere İlaçlama</Link>
+              <Link href={getLocalizedPath('/bolgeler/umraniye/hasere-ve-dezenfeksiyon')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Ümraniye Haşere İlaçlama</Link>
               <span>•</span>
-              <Link href="/bolgeler/sariyer/guvenlik-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sarıyer Özel Güvenlik</Link>
+              <Link href={getLocalizedPath('/bolgeler/sariyer/guvenlik-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sarıyer Özel Güvenlik</Link>
               <span>•</span>
-              <Link href="/bolgeler/beylikduzu/aidat-takibi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Beylikdüzü Aidat Takibi</Link>
+              <Link href={getLocalizedPath('/bolgeler/beylikduzu/aidat-takibi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Beylikdüzü Aidat Takibi</Link>
               <span>•</span>
-              <Link href="/bolgeler/kartal/tesis-yonetimi" className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Kartal Tesis Yönetimi</Link>
+              <Link href={getLocalizedPath('/bolgeler/kartal/tesis-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Kartal Tesis Yönetimi</Link>
             </div>
           </div>
 
@@ -574,7 +579,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={language === 'en' ? '/en/kullanim-sartlari' : '/kullanim-sartlari'} className="hover:underline">{t('footer_terms')}</Link> | <Link href={language === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi'} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={language === 'en' ? '/en/cerez-politikasi' : '/cerez-politikasi'} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={language === 'en' ? '/en/kvkk-ve-aydinlatma-metni' : '/kvkk-ve-aydinlatma-metni'} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={language === 'en' ? '/en/sozluk' : '/sozluk'} className="hover:underline">KMK & Tesis Sözlüğü</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-amber-600 dark:text-amber-400 font-medium">RSS Bülteni</Link> | <Link href={language === 'en' ? '/en/site-haritasi' : '/site-haritasi'} className="hover:underline font-bold text-slate-900 dark:text-white">{t('footer_sitemap')}</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={getLocalizedPath('/kullanim-sartlari')} className="hover:underline">{t('footer_terms')}</Link> | <Link href={getLocalizedPath('/gizlilik-politikasi')} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={getLocalizedPath('/cerez-politikasi')} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={getLocalizedPath('/kvkk-ve-aydinlatma-metni')} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={getLocalizedPath('/sozluk')} className="hover:underline">KMK & Tesis Sözlüğü</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-amber-600 dark:text-amber-400 font-medium">RSS Bülteni</Link> | <Link href={getLocalizedPath('/site-haritasi')} className="hover:underline font-bold text-slate-900 dark:text-white">{t('footer_sitemap')}</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-gray-700 dark:text-gray-300">

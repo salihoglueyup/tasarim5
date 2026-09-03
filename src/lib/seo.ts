@@ -276,7 +276,7 @@ export function buildMetadata({
       ? images
       : [
           {
-            url: `${localizedUrl('/og', locale)}?${ogParams}`,
+            url: `${BASE_URL}/api/og?${ogParams}`,
             width: 1200,
             height: 630,
             alt: title,

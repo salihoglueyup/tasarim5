@@ -332,6 +332,18 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/og',
+        destination: '/api/og',
+      },
+      {
+        source: '/:lang(en|ru|ar)/og',
+        destination: '/api/og',
+      },
+    ];
+  },
   async headers() {
     return [
       {
