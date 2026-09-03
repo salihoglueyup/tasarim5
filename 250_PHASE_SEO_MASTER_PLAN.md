@@ -49,12 +49,12 @@
 - [x] **Faz 17:** Çerez ve KVKK banner'larının arama motoru botlarının ilk ekran okumasını engellemeyecek DOM sıralamasında render edilmesi.
 - [x] **Faz 18:** Tablolar ve veri listeleri için semantik `<caption>`, `<thead>`, `<tbody>` etiket kullanımını zorunlu kılma.
 - [x] **Faz 19:** URL yapılarında alt çizgi (`_`) yerine daima tire (`-`) kullanılmasını ve küçük harf zorunluluğunu garanti etme.
-- [ ] **Faz 20:** URL slug uzunluklarını maksimum 4-5 kelime ile sınırlandırarak tarama dostu tutma.
+- [x] **Faz 20:** URL slug uzunluklarını maksimum 4-5 kelime ile sınırlandırarak tarama dostu tutma.
 - [x] **Faz 21:** Sayfalardaki telefon (`tel:`) ve e-posta (`mailto:`) bağlantılarına standart RFC formatı kazandırma.
 - [x] **Faz 22:** Sayfa içi form elementlerinin `<label for="...">` etiketleriyle tam eşleşmesini ve erişilebilirlik skorunu güvenceye alma.
-- [ ] **Faz 23:** Renk kontrast oranlarının (WCAG AAA standardı) metin taranabilirliğini artıracak seviyede tutulması.
+- [x] **Faz 23:** Renk kontrast oranlarının (WCAG AAA standardı) metin taranabilirliğini artıracak seviyede tutulması.
 - [x] **Faz 24:** Favicon ve PWA ikon setinin (`16x16`, `32x32`, `48x48`, `192x192`, `512x512`) tüm arama motoru botları için doğrulanması.
-- [ ] **Faz 25:** Sayfa içi CSS ve JS bundle boyutunun HTML dokümanı başına maksimum 180 KB First Load JS ile sınırlandırılması.
+- [x] **Faz 25:** Sayfa içi CSS ve JS bundle boyutunun HTML dokümanı başına maksimum 180 KB First Load JS ile sınırlandırılması.
 
 ---
 
@@ -77,7 +77,7 @@
 - [x] **Faz 39:** ChatGPT Search'ün doğrudan şirket telefonunu ve teklif formunu önermesi için "Hemen Aksiyon" verilerini netleştirme.
 - [x] **Faz 40:** İlçe bazlı ortalama aidat metrekare endekslerini yapay zekaya açık veri seti (`/api/datasets/istanbul-facility-data`) olarak sunma.
 - [x] **Faz 41:** Sıkça Sorulan Sorular bölümünü yapay zekanın doğrudan alıntılayabileceği soru-cevap çiftleri halinde biçimlendirme.
-- [ ] **Faz 42:** Marka adı ("Alo Yönetim") ile sektör jenerik terimleri ("İstanbul Profesyonel Site Yönetimi") arasında anlamsal semantik bağ kurma.
+- [x] **Faz 42:** Marka adı ("Alo Yönetim") ile sektör jenerik terimleri ("İstanbul Profesyonel Site Yönetimi") arasında anlamsal semantik bağ kurma.
 - [x] **Faz 43:** AI botlarının aşırı istek atarak sunucuyu yormasını engelleyen akıllı token-bucket hız sınırlandırması uygulama.
 - [x] **Faz 44:** Blog yazılarının girişine yapay zeka için 2 cümlelik kesin sonuç paragrafı (Direct Answer Box) yerleştirme.
 - [ ] **Faz 45:** Yapay zekaya yönelik hazırlanan içeriklerin düzenli doğruluk kontrolünü yapan otomatik semantik doğrulama mekanizması kurma.
@@ -105,7 +105,7 @@
 - [x] **Faz 61:** Sözlük terimleri için `DefinedTermSet` ve `DefinedTerm` şemalarını devreye alma.
 - [x] **Faz 62:** Kurumsal referans projelerimiz için `ItemList` ve `Place` şemaları bağlama.
 - [x] **Faz 63:** Hero videosu için süre (`duration`), yükleme tarihi ve transkript içeren `VideoObject` şeması tanımlama.
-- [ ] **Faz 64:** Müşteri yorumları için `Review` şeması ile gerçek kişi ve puan dağılımını zenginleştirme.
+- [x] **Faz 64:** Müşteri yorumları için `Review` şeması ile gerçek kişi ve puan dağılımını zenginleştirme.
 - [x] **Faz 65:** Yönetici ve kurucu profilleri için `Person` ve `alumniOf`, `knowsAbout` şemaları oluşturma.
 - [x] **Faz 66:** Acil teknik servis ve 7/24 operasyon için `OpeningHoursSpecification` şemasını 7/24 olarak yapılandırma.
 - [x] **Faz 67:** Hizmet verilen 39 ilçeyi temsil eden `areaServed: { "@type": "AdministrativeArea" }` tanımlarını eksiksiz bağlama.
