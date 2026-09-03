@@ -252,8 +252,8 @@
 - [x] **Faz 178:** Aynı sayfada aynı hedefe mükerrer link verilmesini engelleyen `usedUrls` set kontrolü uygulama.
 - [x] **Faz 179:** Sayfa başına maksimum otomatik link sayısını (varsayılan: 8) sınırlayarak aşırı link kirliliğini önleme.
 - [x] **Faz 180:** Login modalındaki sahte `href="#"` linkini `<Link href="/iletisim">` ile değiştirerek ölü fragment'ı temizleme.
-- [ ] **Faz 181:** Kök Hizmet (Pillar Page) ile alt hizmet sayfaları arasında hiyerarşik Topic Cluster iç linkleme ağını güçlendirme.
-- [ ] **Faz 182:** İlgili makaleler (`RelatedArticles`) bileşenini etiket ve kategori bazlı semantik eşleşmeyle zenginleştirme.
+- [x] **Faz 181:** Kök Hizmet (Pillar Page) ile alt hizmet sayfaları arasında hiyerarşik Topic Cluster iç linkleme ağını güçlendirme.
+- [x] **Faz 182:** İlgili makaleler (`RelatedArticles`) bileşenini etiket ve kategori bazlı semantik eşleşmeyle zenginleştirme.
 - [x] **Faz 183:** Dış sitelere verilen bağlantılarda güvenlik için `rel="noopener noreferrer"`, editoryal olmayan linklerde `rel="nofollow"` standardı sağlama.
 - [ ] **Faz 184:** Kurumsal ortaklık ve grup şirket bağlantılarında `rel="sponsored"` veya açık tanımlama kullanma.
 - [x] **Faz 185:** "Ekmek Kırıntısı" (Breadcrumb) navigasyonunun kullanıcı ve bot için her zaman tıklanabilir DOM linki üretmesini sağlama.
@@ -262,14 +262,14 @@
 - [x] **Faz 188:** Blog içeriklerinden doğrudan teklif alma (`/teklif-al`) ve bütçe hesaplayıcıya (`/hesaplayici`) bağlamsal CTA köprüleri kurma.
 - [x] **Faz 189:** İlçe sayfalarından doğrudan ilgili ilçedeki güvenlik, temizlik ve teknik bakım alt hizmetlerine çapraz linkler verme.
 - [x] **Faz 190:** Sözlük terim tanımları içinden ilgili kanun maddelerine ve hizmet sayfalarına çift yönlü köprü bağlama.
-- [ ] **Faz 191:** Sayfa içi uzun makalelerde içindekiler tablosu (`TableOfContentsSeo`) ile pürüzsüz bölüm içi çapa (Anchor) linkleri sunma.
+- [x] **Faz 191:** Sayfa içi uzun makalelerde içindekiler tablosu (`TableOfContentsSeo`) ile pürüzsüz bölüm içi çapa (Anchor) linkleri sunma.
 - [ ] **Faz 192:** Çapa metinlerinin (Anchor Text) "buraya tıklayın" yerine semantik anahtar kelimeler ("Apartman Aidat Tahsilatı") içermesini zorunlu kılma.
 - [ ] **Faz 193:** Dahili arama kutusu önerilerinde doğrudan en çok okunan rehber sayfalarını öne çıkarma.
-- [ ] **Faz 194:** Altbilgideki (Footer) 39 ilçe listesini iki yakaya (Anadolu / Avrupa) ayırarak temiz sütunlar halinde bağlama.
+- [x] **Faz 194:** Altbilgideki (Footer) 39 ilçe listesini iki yakaya (Anadolu / Avrupa) ayırarak temiz sütunlar halinde bağlama.
 - [ ] **Faz 195:** Sayfa içinde tıklanamayan veya javascript bağımlı sahte linklerin taranabilir `<a href="...">` etiketine dönüştürülmesi.
 - [ ] **Faz 196:** Eski ve silinmiş sayfaların bıraktığı kırık iç bağlantıları düzenli tarayan haftalık cron görevini aktif etme.
 - [ ] **Faz 197:** İç linklerin kullanıcılar tarafından tıklanma oranını (Click-Through) ölçen Google Analytics etkinlikleri kurma.
-- [ ] **Faz 198:** En yüksek PageRank değerine sahip ana sayfadan en stratejik 5 amiral gemisi hizmete doğrudan link akışı sağlama.
+- [x] **Faz 198:** En yüksek PageRank değerine sahip ana sayfadan en stratejik 5 amiral gemisi hizmete doğrudan link akışı sağlama.
 - [ ] **Faz 199:** Başarı hikayeleri sayfalarından ilgili ilçe ve hizmet sayfalarına karşılıklı referans köprüsü kurma.
 - [ ] **Faz 200:** Sayfa başına toplam iç bağlantı sayısını 100 link sınırının altında tutarak tarama verimini koruma.
 
