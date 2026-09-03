@@ -14,7 +14,8 @@ export type PostBlock =
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'quote'; text: string }
-  | { type: 'cta'; text: string; href: string; label: string };
+  | { type: 'cta'; text: string; href: string; label: string }
+  | { type: 'table'; headers?: string[]; rows?: string[][]; caption?: string };
 
 export type Category = { slug: string; name: string; description: string };
 

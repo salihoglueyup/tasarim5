@@ -39,3 +39,6 @@ jobs:
 
       - name: Bundle Size Budget Verification (Faz 232)
         run: node scripts/check-bundle-budget.js
+
+      - name: Lighthouse CI SEO 100/100 Configuration Verification (Faz 249)
+        run: node -e "const c = require('./lighthouserc.seo.json'); if (c.ci.assert.assertions['categories:seo'][1].minScore < 1.0) process.exit(1); console.log('LHCI 100/100 SEO rule verified');"

@@ -25,6 +25,7 @@ import {
 import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { getNeighborDistrictLinks, getCrossSideDistrictLinks } from '@/lib/seo/districtCrossLinker';
+import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
 
 // ISR: yüzlerce yerel sayfa için günlük yeniden doğrulama (Faz 120/126).
 export const revalidate = 86400;
