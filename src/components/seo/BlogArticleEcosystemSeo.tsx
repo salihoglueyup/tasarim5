@@ -166,6 +166,28 @@ export default function BlogArticleEcosystemSeo({
           )}
         </div>
       </div>
+
+      {/* Faz 188: Blog Makalelerinden Doğrudan /teklif-al ve /hesaplayici CTA Köprüsü */}
+      <div className="mt-6 pt-5 border-t border-slate-200/80 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+          <span className="material-symbols-outlined text-amber-500 text-base" aria-hidden="true">calculate</span>
+          <span>Binanız veya tesisiniz için özel maliyet projeksiyonu çıkarın:</span>
+        </div>
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <Link
+            href="/hesaplayici"
+            className="flex-1 sm:flex-none text-center px-3.5 py-2 rounded-xl bg-slate-200/80 hover:bg-slate-300 dark:bg-white/10 dark:hover:bg-white/15 text-slate-800 dark:text-slate-200 text-xs font-semibold transition-all"
+          >
+            Bütçe & Aidat Hesapla
+          </Link>
+          <Link
+            href="/teklif-al"
+            className="flex-1 sm:flex-none text-center px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-sm"
+          >
+            Hızlı Teklif Al →
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

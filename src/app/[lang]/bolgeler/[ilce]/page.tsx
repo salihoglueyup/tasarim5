@@ -399,9 +399,21 @@ export default async function DistrictPage({
         {/* Blog & pillar iç linkler */}
         <div className="text-center flex flex-col gap-4 border-t border-[var(--color-outline)]/40 pt-8">
           <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
-            Kurumsal Hizmetler & Mevzuat:{' '}
+            {district.name} Hizmet Çözümleri & Mevzuat:{' '}
             <Link href="/hizmetler/tesis-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              İstanbul Tesis Yönetimi
+              {district.name} Tesis Yönetimi
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hizmetler/guvenlik-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              {district.name} 5188 Güvenlik Hizmetleri
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hizmetler/temizlik-ve-hijyen" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              {district.name} Temizlik & Hijyen
+            </Link>{' '}
+            ·{' '}
+            <Link href="/hizmetler/teknik-bakim" className="text-slate-900 dark:text-white font-semibold hover:underline">
+              {district.name} Teknik Bakım & Onarım
             </Link>{' '}
             ·{' '}
             <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
@@ -410,14 +422,6 @@ export default async function DistrictPage({
             ·{' '}
             <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
               Rezidans & Site Yönetimi
-            </Link>{' '}
-            ·{' '}
-            <Link href="/hizmetler/guvenlik-yonetimi" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              5188 Özel Güvenlik Hizmetleri
-            </Link>{' '}
-            ·{' '}
-            <Link href="/hizmetler/teknik-bakim" className="text-slate-900 dark:text-white font-semibold hover:underline">
-              Asansör & Teknik Bakım
             </Link>{' '}
             ·{' '}
             <Link href="/hesaplayici" className="text-slate-900 dark:text-white font-semibold hover:underline">

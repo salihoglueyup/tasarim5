@@ -254,14 +254,14 @@
 - [x] **Faz 180:** Login modalındaki sahte `href="#"` linkini `<Link href="/iletisim">` ile değiştirerek ölü fragment'ı temizleme.
 - [ ] **Faz 181:** Kök Hizmet (Pillar Page) ile alt hizmet sayfaları arasında hiyerarşik Topic Cluster iç linkleme ağını güçlendirme.
 - [ ] **Faz 182:** İlgili makaleler (`RelatedArticles`) bileşenini etiket ve kategori bazlı semantik eşleşmeyle zenginleştirme.
-- [ ] **Faz 183:** Dış sitelere verilen bağlantılarda güvenlik için `rel="noopener noreferrer"`, editoryal olmayan linklerde `rel="nofollow"` standardı sağlama.
+- [x] **Faz 183:** Dış sitelere verilen bağlantılarda güvenlik için `rel="noopener noreferrer"`, editoryal olmayan linklerde `rel="nofollow"` standardı sağlama.
 - [ ] **Faz 184:** Kurumsal ortaklık ve grup şirket bağlantılarında `rel="sponsored"` veya açık tanımlama kullanma.
-- [ ] **Faz 185:** "Ekmek Kırıntısı" (Breadcrumb) navigasyonunun kullanıcı ve bot için her zaman tıklanabilir DOM linki üretmesini sağlama.
+- [x] **Faz 185:** "Ekmek Kırıntısı" (Breadcrumb) navigasyonunun kullanıcı ve bot için her zaman tıklanabilir DOM linki üretmesini sağlama.
 - [ ] **Faz 186:** Yetim Sayfa (Orphan Page) denetimi yaparak hiçbir sayfanın iç linksiz kalmamasını garanti etme.
 - [ ] **Faz 187:** Header mega menüsündeki link hiyerarşisini en kritik hizmetleri en üstte tutacak şekilde ağırlıklandırma.
-- [ ] **Faz 188:** Blog içeriklerinden doğrudan teklif alma (`/teklif-al`) ve bütçe hesaplayıcıya (`/hesaplayici`) bağlamsal CTA köprüleri kurma.
-- [ ] **Faz 189:** İlçe sayfalarından doğrudan ilgili ilçedeki güvenlik, temizlik ve teknik bakım alt hizmetlerine çapraz linkler verme.
-- [ ] **Faz 190:** Sözlük terim tanımları içinden ilgili kanun maddelerine ve hizmet sayfalarına çift yönlü köprü bağlama.
+- [x] **Faz 188:** Blog içeriklerinden doğrudan teklif alma (`/teklif-al`) ve bütçe hesaplayıcıya (`/hesaplayici`) bağlamsal CTA köprüleri kurma.
+- [x] **Faz 189:** İlçe sayfalarından doğrudan ilgili ilçedeki güvenlik, temizlik ve teknik bakım alt hizmetlerine çapraz linkler verme.
+- [x] **Faz 190:** Sözlük terim tanımları içinden ilgili kanun maddelerine ve hizmet sayfalarına çift yönlü köprü bağlama.
 - [ ] **Faz 191:** Sayfa içi uzun makalelerde içindekiler tablosu (`TableOfContentsSeo`) ile pürüzsüz bölüm içi çapa (Anchor) linkleri sunma.
 - [ ] **Faz 192:** Çapa metinlerinin (Anchor Text) "buraya tıklayın" yerine semantik anahtar kelimeler ("Apartman Aidat Tahsilatı") içermesini zorunlu kılma.
 - [ ] **Faz 193:** Dahili arama kutusu önerilerinde doğrudan en çok okunan rehber sayfalarını öne çıkarma.
