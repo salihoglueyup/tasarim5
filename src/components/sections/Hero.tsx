@@ -117,16 +117,19 @@ export default function Hero() {
         {showVideo && (
           <video
             ref={videoRef}
-            src="/video/brand-film.mp4"
             autoPlay
             loop
             muted
             playsInline
             preload="none"
+            poster="/images/hero-poster-v5.webp"
             aria-hidden="true"
             tabIndex={-1}
             className="w-full h-full object-cover object-center scale-105 pointer-events-none relative z-1 transition-opacity duration-1000 opacity-90 transform-gpu"
-          />
+          >
+            <source src="/video/brand-film.webm" type="video/webm" />
+            <source src="/video/brand-film.mp4" type="video/mp4" />
+          </video>
         )}
 
         {/* Deep Vignette Overlay */}
@@ -142,7 +145,7 @@ export default function Hero() {
           {/* Status Badge */}
           <div className="mb-4 transition-all duration-700 ease-out transform-gpu">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full font-semibold text-xs text-white shadow-lg tracking-tight">
-              <span className="material-symbols-outlined text-sm text-emerald-400">verified</span>
+              <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">verified</span>
               <span>{t('hero_badge')}</span>
             </div>
           </div>
@@ -165,7 +168,7 @@ export default function Hero() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-slate-950 font-bold text-xs sm:text-sm tracking-tight shadow-xl hover:bg-slate-100 transition-all group"
               >
                 <span>{t('hero_cta_primary')}</span>
-                <span className="material-symbols-outlined text-sm sm:text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                <span className="material-symbols-outlined text-sm sm:text-base group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
               </Link>
             </Magnetic>
 
@@ -185,7 +188,7 @@ export default function Hero() {
                 aria-label={isMuted ? "Sesi Aç" : "Sesi Kapat"}
                 className="hidden sm:flex w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all cursor-pointer shadow-lg"
               >
-                <span className="material-symbols-outlined text-lg">
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">
                   {isMuted ? 'volume_off' : 'volume_up'}
                 </span>
               </button>

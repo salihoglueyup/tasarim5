@@ -177,7 +177,7 @@ export default async function RootLayout({
           fetchPriority="high"
         />
 
-        {/* Google Material Symbols Font (Reliable Synchronous Render) */}
+        {/* Google Material Symbols Font (Reliable Synchronous Render - Faz 109) */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&display=block"
@@ -220,7 +220,7 @@ export default async function RootLayout({
         <link rel="author" href="/humans.txt" />
         
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
-        {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation) */}
+        {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation - Moderate Eagerness) */}
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
@@ -243,7 +243,7 @@ export default async function RootLayout({
                       { not: { href_matches: "/*/admin*" } }
                     ]
                   },
-                  eagerness: "eager"
+                  eagerness: "moderate"
                 }
               ],
               prerender: [
