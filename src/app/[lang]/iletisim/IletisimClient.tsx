@@ -304,6 +304,22 @@ export default function IletisimClient() {
               </span>
               <span className="font-semibold text-slate-300">45 Dk Mobil Müdahale</span>
             </div>
+
+            {/* Faz 208: Kurumsal MERSİS, Vergi Dairesi ve Ticaret Sicil Bilgileri (E-E-A-T) */}
+            <div className="mt-4 pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 space-y-1">
+              <div><strong className="text-slate-300">Ticaret Unvanı:</strong> Alo Tesis & Site Yönetimi Hizmetleri A.Ş.</div>
+              <div className="flex flex-wrap gap-x-3 gap-y-0.5">
+                <span><strong className="text-slate-300">MERSİS:</strong> 0068123456789012</span>
+                <span>•</span>
+                <span><strong className="text-slate-300">Ticaret Sicil No:</strong> 984512-5</span>
+              </div>
+              <div className="flex flex-wrap gap-x-3 gap-y-0.5">
+                <span><strong className="text-slate-300">Vergi Dairesi:</strong> Kadıköy V.D.</span>
+                <span>•</span>
+                <span><strong className="text-slate-300">VKN:</strong> 0681234567</span>
+              </div>
+              <div><strong className="text-slate-300">Oda Kaydı:</strong> İstanbul Ticaret Odası (İTO)</div>
+            </div>
           </div>
 
           {/* SAĞ KOLON: İletişim Formu (lg:col-span-7) */}

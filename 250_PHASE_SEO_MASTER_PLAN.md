@@ -283,13 +283,13 @@
 - [x] **Faz 203:** Yazar profilleri (`AuthorArchive`) ile içerik üreticilerinin uzmanlık ve biyografilerini ProfilePage şemasıyla bağlama.
 - [x] **Faz 204:** 7/24 Acil Müdahale ve Operasyon Merkezi rozetleri ile güvenilirlik sinyalini canlı tutma.
 - [x] **Faz 205:** Sosyal kanıt akışı (`SocialProofTickerSeo`) ile anlık yönetilen bağımsız bölüm ve memnuniyet oranlarını sergileme.
-- [ ] **Faz 206:** Tüm blog makalelerinin altına "Hukuki İnceleme Yapan Uzman" (Reviewed By) künyesi ekleme.
-- [ ] **Faz 207:** Makalelerin son güncellenme tarihini (`Updated on...`) şeffaf bir şekilde okuyucuya ve botlara gösterme.
-- [ ] **Faz 208:** İletişim sayfasında şirketin resmi vergi kimlik numarası, kayıtlı olduğu oda ve MERSİS numarasını şeffafça yayınlama.
+- [x] **Faz 206:** Tüm blog makalelerinin altına "Hukuki İnceleme Yapan Uzman" (Reviewed By) künyesi ekleme.
+- [x] **Faz 207:** Makalelerin son güncellenme tarihini (`Updated on...`) şeffaf bir şekilde okuyucuya ve botlara gösterme.
+- [x] **Faz 208:** İletişim sayfasında şirketin resmi vergi kimlik numarası, kayıtlı olduğu oda ve MERSİS numarasını şeffafça yayınlama.
 - [ ] **Faz 209:** Gerçek site yöneticisi ve kat maliki video referanslarını VideoObject şemasıyla zenginleştirme.
 - [ ] **Faz 210:** Kurumsal Hakkımızda sayfasında yönetim kurulu ve departman müdürlerinin fotoğraflı özgeçmişlerini sunma.
 - [ ] **Faz 211:** Teklif alma formunda (`/teklif-al`) güven mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza) ile dönüşüm oranını artırma.
-- [ ] **Faz 212:** KMK Hukuk süreçlerinde emsal Yargıtay kararlarına atıfta bulunarak hukuki derinliği belgeleme.
+- [x] **Faz 212:** KMK Hukuk süreçlerinde emsal Yargıtay kararlarına atıfta bulunarak hukuki derinliği belgeleme.
 - [ ] **Faz 213:** Asansör bakımı ve teknik denetimlerde TSE ve MMO akredite mühendis onay belgelerini sergileme.
 - [ ] **Faz 214:** Gizlilik Politikası, Çerez Politikası ve Kullanım Şartları sayfalarını en güncel 2026 mevzuatına göre güncelleme.
 - [ ] **Faz 215:** Kullanıcıların kolayca geri bildirim ve şikayet iletebileceği ISO 10002 Müşteri Memnuniyeti formunu öne çıkarma.
@@ -297,7 +297,7 @@
 - [ ] **Faz 217:** 48 saatte şeffaf bütçe teklifi garantisini dönüşüm odaklı mikro rozetlerle tüm hizmetlere yerleştirme.
 - [ ] **Faz 218:** Sitede yer alan tüm hesaplayıcıların formüllerini KMK 634 resmi hesaplama cetvellerine dayandırma.
 - [ ] **Faz 219:** Sektörel ödüller, plaketler ve teşekkür belgeleri için özel bir dijital başarı vitrini oluşturma.
-- [ ] **Faz 220:** Mobil cihazlarda arama ve WhatsApp iletişim butonlarını başparmak erişim bölgesinde (Thumb Zone) sabitleme.
+- [x] **Faz 220:** Mobil cihazlarda arama ve WhatsApp iletişim butonlarını başparmak erişim bölgesinde (Thumb Zone) sabitleme.
 - [ ] **Faz 221:** Form gönderimlerinde kullanıcıya SMS/E-posta ile anında takip kodu üreten güven mekanizması sağlama.
 - [ ] **Faz 222:** Şirketin sıfır atık ve sürdürülebilirlik ilkelerini belgeleyen kurumsal raporları yayınlama.
 - [ ] **Faz 223:** Basında Alo Yönetim haber ve röportajlarını yetkili basın linkleriyle referanslama.

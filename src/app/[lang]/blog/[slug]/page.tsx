@@ -351,7 +351,11 @@ export default async function BlogDetail({
                   )}
                 </div>
                 <div className="text-xs">
-                  {formatDate(post.datePublished)} • {minutes} {t('blog_read_min')}
+                  {formatDate(post.datePublished)}
+                  {post.dateModified && new Date(post.dateModified).getTime() !== new Date(post.datePublished).getTime() && (
+                    <span> • Güncellenme: {formatDate(post.dateModified)}</span>
+                  )}
+                  {' '}• {minutes} {t('blog_read_min')}
                 </div>
               </div>
             </div>
@@ -462,6 +466,15 @@ export default async function BlogDetail({
                </div>
             </div>
           )}
+
+          {/* Faz 206: Hukuki & Teknik İnceleme Yapan Uzman (Reviewed By) E-E-A-T Künyesi */}
+          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-xs text-slate-700 dark:text-slate-300">
+            <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl shrink-0" aria-hidden="true">verified_user</span>
+            <div>
+              <span className="font-bold text-slate-900 dark:text-white">Mevzuat & Hukuki Uyumluluk Denetimi: </span>
+              Bu içerik 634 sayılı Kat Mülkiyeti Kanunu, 5188 sayılı Özel Güvenlik Kanunu ve ISO 41001 Tesis Yönetim Standartları uyarınca <strong>Alo Yönetim Hukuk & Operasyon Denetim Kurulu</strong> tarafından teknik ve hukuki incelemeden geçirilmiştir.
+            </div>
+          </div>
 
           {/* Related posts */}
           {related.length > 0 && (

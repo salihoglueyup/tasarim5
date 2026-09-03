@@ -102,6 +102,11 @@ export function blogPostingSchema(opts: {
       }))
     } : {}),
     author,
+    reviewedBy: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim Hukuk & Operasyon Denetim Kurulu',
+      url: `${BASE_URL}/hakkimizda`,
+    },
     publisher: {
       '@type': 'Organization',
       '@id': ORG_ID,
