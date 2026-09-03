@@ -230,12 +230,12 @@
 - [x] **Faz 162:** Google Search Console API entegrasyonu ile yeni eklenen sayfaları anında URL Inspection üzerinden bildirme.
 - [x] **Faz 163:** Tarama bütçesi koruyucusu (`crawlBudgetDefender.ts`) ile sahte arama parametrelerini (`?filter=`, `?sort=`) botlara engelleme.
 - [x] **Faz 164:** Önemli sayfaların HTTP başlıklarına `Last-Modified` ve `ETag` ekleyerek `304 Not Modified` ile sunucu yükünü %60 azaltma.
-- [ ] **Faz 165:** Arama motorlarının sitenin en derin sayfasına maksimum 3 tıklamayla ulaşmasını sağlayan sığ derinlik (Crawl Depth < 3) mimarisi kurma.
-- [ ] **Faz 166:** `sitemap-index.xml` ana dizini üzerinden alt haritaları (sayfalar, bölgeler, hizmetler, blog, sözlük) modüler bölme.
+- [x] **Faz 165:** Arama motorlarının sitenin en derin sayfasına maksimum 3 tıklamayla ulaşmasını sağlayan sığ derinlik (Crawl Depth < 3) mimarisi kurma.
+- [x] **Faz 166:** `sitemap-index.xml` ana dizini üzerinden alt haritaları (sayfalar, bölgeler, hizmetler, blog, sözlük) modüler bölme.
 - [x] **Faz 167:** Botların gereksiz form ve arama sonuç sayfalarını tarayarak bütçe harcamasını engelleyen `disallow` optimizasyonu yapma.
-- [ ] **Faz 168:** Sunucu yanıt süresini (TTFB) Edge CDN önbelleği ile 150ms altına indirme.
-- [ ] **Faz 169:** Arama motoru botlarının IP bloklarını doğrulayan (Reverse DNS Lookup) ve sahte botları filtreleyen middleware kalkanı kurma.
-- [ ] **Faz 170:** Haftalık olarak tüm siteyi baştan sona tarayıp kırık bağlantı (404) raporu üreten iç spider betiği (`audit_seo_deep.cjs`) çalıştırma.
+- [x] **Faz 168:** Sunucu yanıt süresini (TTFB) Edge CDN önbelleği ile 150ms altına indirme.
+- [x] **Faz 169:** Arama motoru botlarının IP bloklarını doğrulayan (Reverse DNS Lookup) ve sahte botları filtreleyen middleware kalkanı kurma.
+- [x] **Faz 170:** Haftalık olarak tüm siteyi baştan sona tarayıp kırık bağlantı (404) raporu üreten iç spider betiği (`audit_seo_deep.cjs`) çalıştırma.
 - [x] **Faz 171:** URL'lerin sonundaki eğik çizgi (`trailing slash`) tutarlılığını zorunlu kılarak çift içerik (Duplicate Content) riskini sıfırlama.
 - [ ] **Faz 172:** HTTPS yönlendirmesinin HTTP/3 ve HSTS Preload ile sıfır gecikmeli gerçekleşmesini temin etme.
 - [ ] **Faz 173:** Log kayıtlarında Googlebot tarama sıklığını ve en çok ziyaret edilen sayfaları raporlayan bot analiz paneli kurma.
