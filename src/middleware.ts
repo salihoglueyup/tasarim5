@@ -220,14 +220,17 @@ export async function middleware(request: NextRequest) {
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // Faz 159 & Faz 160: NEXT_LOCALE çerezi varsa hatırla, yoksa Accept-Language ile yönlendir
+  // Faz 159 & Faz 160: NEXT_LOCALE çerezi varsa hatırla, yoksa Accept-Language ile yönlendir (Botlar hariç)
+  const isCrawler = /Googlebot|bingbot|YandexBot|DuckDuckBot|Baiduspider|GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek|SEOptimer|Lighthouse|HeadlessChrome|bot|crawl|spider/i.test(userAgent);
+
   if (pathname === '/') {
     const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
     if (cookieLocale && cookieLocale !== defaultLocale && locales.includes(cookieLocale)) {
       return NextResponse.redirect(new URL(`/${cookieLocale}`, request.url));
     }
 
-    if (!cookieLocale) {
+    // Arama motorları ve denetim botları yönlendirilmez; doğrudan canonical '/' içeriğini alır (Faz 161).
+    if (!cookieLocale && !isCrawler) {
       const detectedLocale = getLocale(request);
       if (detectedLocale !== defaultLocale) {
         return NextResponse.redirect(new URL(`/${detectedLocale}`, request.url));

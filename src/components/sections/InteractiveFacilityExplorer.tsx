@@ -93,7 +93,7 @@ export default function InteractiveFacilityExplorer() {
         {/* Bölüm Başlığı */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/20 dark:border-white/20 text-slate-900 dark:text-slate-100 text-xs font-black uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm">apartment</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">apartment</span>
             İnteraktif Akıllı Tesis Keşfi
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
@@ -112,7 +112,7 @@ export default function InteractiveFacilityExplorer() {
             
             {/* Tesis İllüstrasyon Çerçevesi */}
             <div className="relative w-full max-w-md h-80 sm:h-96 border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center p-6 bg-slate-50/60 dark:bg-slate-950/60 backdrop-blur-sm">
-              <span className="material-symbols-outlined text-7xl sm:text-8xl text-slate-300 dark:text-slate-700/60 mb-3 animate-pulse">
+              <span className="material-symbols-outlined text-7xl sm:text-8xl text-slate-300 dark:text-slate-700/60 mb-3 animate-pulse" aria-hidden="true">
                 domain
               </span>
               <div className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest text-center">
@@ -137,7 +137,7 @@ export default function InteractiveFacilityExplorer() {
                     }`}
                     title={spot.title}
                   >
-                    <span className="material-symbols-outlined text-base sm:text-lg">
+                    <span className="material-symbols-outlined text-base sm:text-lg" aria-hidden="true">
                       {spot.icon}
                     </span>
                     {/* Yanıp sönen dalga efekti */}
@@ -172,7 +172,7 @@ export default function InteractiveFacilityExplorer() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="p-3 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-500/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-2xl">{activeHotspot.icon}</span>
+                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{activeHotspot.icon}</span>
                 </span>
                 <div>
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
@@ -194,7 +194,7 @@ export default function InteractiveFacilityExplorer() {
 
             {/* SLA Taahhüdü */}
             <div className="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 shadow-2xs">
-              <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0">
+              <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0" aria-hidden="true">
                 verified_user
               </span>
               <div>
@@ -215,7 +215,7 @@ export default function InteractiveFacilityExplorer() {
               <div className="grid grid-cols-1 gap-2">
                 {activeHotspot.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-700 dark:text-slate-200 p-2.5 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-2xs">
-                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm">
+                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm" aria-hidden="true">
                       check_circle
                     </span>
                     <span className="font-medium">{feat}</span>
@@ -227,11 +227,11 @@ export default function InteractiveFacilityExplorer() {
             {/* CTA */}
             <div className="pt-2 flex items-center gap-3">
               <a
-                href="/tr/hizmetler"
+                href="/hizmetler"
                 className="w-full py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs sm:text-sm hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:scale-105"
               >
                 <span>Hizmet Detaylarını İncele</span>
-                <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
 

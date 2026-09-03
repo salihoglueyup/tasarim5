@@ -41,17 +41,17 @@ export default function GlobalNotFound() {
           className="flex flex-col sm:flex-row gap-4"
         >
           <Link 
-            href="/tr" 
+            href="/" 
             className="bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white font-semibold py-3 px-8 rounded-full transition-colors flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm">home</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">home</span>
             Anasayfaya Dön
           </Link>
           <Link 
-            href="/tr/hizmetler" 
+            href="/hizmetler" 
             className="bg-white dark:bg-white/10 text-slate-800 dark:text-white border border-slate-200 dark:border-white/20 hover:bg-slate-50 dark:hover:bg-white/20 font-semibold py-3 px-8 rounded-full transition-colors flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm">grid_view</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">grid_view</span>
             Hizmetlerimizi İncele
           </Link>
         </motion.div>

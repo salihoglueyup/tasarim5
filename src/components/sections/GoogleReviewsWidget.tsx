@@ -172,7 +172,7 @@ export default function GoogleReviewsWidget() {
               </div>
 
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
-                <span className="material-symbols-outlined text-sm">verified</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
                 <span>Doğrulanmış Kat Maliki Değerlendirmesi</span>
               </div>
             </div>
@@ -196,11 +196,11 @@ export default function GoogleReviewsWidget() {
           <a
             href={CANONICAL_NAP.geo.googleMapsPlaceUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-sm shrink-0"
           >
             <span>Google Haritalar&apos;da İnceleyin</span>
-            <span className="material-symbols-outlined text-sm">open_in_new</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
           </a>
         </div>
       </div>
