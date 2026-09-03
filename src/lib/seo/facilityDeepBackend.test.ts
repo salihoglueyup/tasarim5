@@ -3,6 +3,7 @@ import {
   detectAndLogAiCrawler,
   getAiCrawlerAnalytics,
   clearAiCrawlerLogsForTesting,
+  checkAiCrawlerRateLimit,
 } from '@/lib/seo/aiBotTelemetry';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
@@ -47,6 +48,14 @@ describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları (Faz 7)'
         '/'
       );
       expect(humanResult.isAiBot).toBe(false);
+    });
+
+    it('AI botları için token-bucket hız sınırlandırması uygular (Faz 43)', () => {
+      const ip = '198.51.100.22';
+      const bot = 'GPTBot';
+      const firstCheck = checkAiCrawlerRateLimit(ip, bot);
+      expect(firstCheck.allowed).toBe(true);
+      expect(firstCheck.remainingTokens).toBeLessThan(120);
     });
   });
 

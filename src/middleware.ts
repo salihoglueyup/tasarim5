@@ -5,7 +5,7 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { buildHttpLinkHeader, buildXRobotsTag } from './lib/seo/edgeHeaderInjector';
 import { analyzeCrawlBudget } from './lib/seo/crawlBudgetDefender';
-import { detectAndLogAiCrawler } from './lib/seo/aiBotTelemetry';
+import { detectAndLogAiCrawler, checkAiCrawlerRateLimit } from './lib/seo/aiBotTelemetry';
 import { buildFacilityEdgeHeaders, generateFacilityContentHash } from './lib/seo/facilityEdgeOptimizer';
 import { recordBotCrawlEvent } from './lib/seo/facilityBotAuditLog';
 
@@ -164,8 +164,21 @@ export async function middleware(request: NextRequest) {
     return new NextResponse('Forbidden', { status: 403, headers: { 'Content-Type': 'text/plain' } });
   }
 
-  // 0.5. AI BOT & LLM TELEMETRY LOGGING (GPTBot, ClaudeBot, Perplexity, DeepSeek)
-  detectAndLogAiCrawler(userAgent, pathname, clientIp, 200);
+  // 0.5. AI BOT & LLM TELEMETRY & TOKEN-BUCKET RATE LIMITING (Faz 37 & Faz 43)
+  const aiDetection = detectAndLogAiCrawler(userAgent, pathname, clientIp, 200);
+  if (aiDetection.isAiBot && aiDetection.botName) {
+    const rateCheck = checkAiCrawlerRateLimit(clientIp, aiDetection.botName);
+    if (!rateCheck.allowed) {
+      return new NextResponse('Too Many Requests from AI Crawler', {
+        status: 429,
+        headers: {
+          'Content-Type': 'text/plain',
+          'Retry-After': '60',
+          'X-AI-RateLimit': 'Exceeded',
+        },
+      });
+    }
+  }
 
   // 1. MEŞRU STATİK DOSYA VE API KONTROLÜ
   if (

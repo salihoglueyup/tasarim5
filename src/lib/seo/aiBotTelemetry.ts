@@ -115,4 +115,39 @@ export function getAiCrawlerAnalytics(): AiCrawlerStats {
  */
 export function clearAiCrawlerLogsForTesting(): void {
   aiHitBuffer.length = 0;
+  aiTokenBuckets.clear();
+}
+
+/**
+ * Faz 43: AI botlarının aşırı istek atarak sunucuyu yormasını engelleyen akıllı token-bucket hız sınırlandırması.
+ * Dakikada IP/bot başına izin verilen maksimum istek kapasitesi: 120, dolum hızı: saniyede 2 token.
+ */
+interface TokenBucket {
+  tokens: number;
+  lastRefill: number;
+}
+const aiTokenBuckets = new Map<string, TokenBucket>();
+const BUCKET_CAPACITY = 120;
+const REFILL_RATE_PER_SEC = 2;
+
+export function checkAiCrawlerRateLimit(ip: string, botName: string): { allowed: boolean; remainingTokens: number } {
+  const key = `${ip}_${botName}`;
+  const now = Date.now();
+  let bucket = aiTokenBuckets.get(key);
+
+  if (!bucket) {
+    bucket = { tokens: BUCKET_CAPACITY, lastRefill: now };
+    aiTokenBuckets.set(key, bucket);
+  } else {
+    const elapsedSeconds = (now - bucket.lastRefill) / 1000;
+    bucket.tokens = Math.min(BUCKET_CAPACITY, bucket.tokens + elapsedSeconds * REFILL_RATE_PER_SEC);
+    bucket.lastRefill = now;
+  }
+
+  if (bucket.tokens >= 1) {
+    bucket.tokens -= 1;
+    return { allowed: true, remainingTokens: Math.floor(bucket.tokens) };
+  }
+
+  return { allowed: false, remainingTokens: 0 };
 }

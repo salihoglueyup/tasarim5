@@ -76,9 +76,9 @@
 - [x] **Faz 38:** RAG (Retrieval-Augmented Generation) sistemleri için parçalanmış markdown semantik blokları (`facilityKnowledgeCorpus.ts`) derleme.
 - [ ] **Faz 39:** ChatGPT Search'ün doğrudan şirket telefonunu ve teklif formunu önermesi için "Hemen Aksiyon" verilerini netleştirme.
 - [x] **Faz 40:** İlçe bazlı ortalama aidat metrekare endekslerini yapay zekaya açık veri seti (`/api/datasets/istanbul-facility-data`) olarak sunma.
-- [ ] **Faz 41:** Sıkça Sorulan Sorular bölümünü yapay zekanın doğrudan alıntılayabileceği soru-cevap çiftleri halinde biçimlendirme.
+- [x] **Faz 41:** Sıkça Sorulan Sorular bölümünü yapay zekanın doğrudan alıntılayabileceği soru-cevap çiftleri halinde biçimlendirme.
 - [ ] **Faz 42:** Marka adı ("Alo Yönetim") ile sektör jenerik terimleri ("İstanbul Profesyonel Site Yönetimi") arasında anlamsal semantik bağ kurma.
-- [ ] **Faz 43:** AI botlarının aşırı istek atarak sunucuyu yormasını engelleyen akıllı token-bucket hız sınırlandırması uygulama.
+- [x] **Faz 43:** AI botlarının aşırı istek atarak sunucuyu yormasını engelleyen akıllı token-bucket hız sınırlandırması uygulama.
 - [x] **Faz 44:** Blog yazılarının girişine yapay zeka için 2 cümlelik kesin sonuç paragrafı (Direct Answer Box) yerleştirme.
 - [ ] **Faz 45:** Yapay zekaya yönelik hazırlanan içeriklerin düzenli doğruluk kontrolünü yapan otomatik semantik doğrulama mekanizması kurma.
 - [ ] **Faz 46:** Perplexity'de listelenen kaynak URL'lerimizin tıklanma oranını izlemek için UTM parametreli GEO etiketleme yapısı tasarlama.
@@ -109,13 +109,13 @@
 - [x] **Faz 65:** Yönetici ve kurucu profilleri için `Person` ve `alumniOf`, `knowsAbout` şemaları oluşturma.
 - [x] **Faz 66:** Acil teknik servis ve 7/24 operasyon için `OpeningHoursSpecification` şemasını 7/24 olarak yapılandırma.
 - [x] **Faz 67:** Hizmet verilen 39 ilçeyi temsil eden `areaServed: { "@type": "AdministrativeArea" }` tanımlarını eksiksiz bağlama.
-- [ ] **Faz 68:** Şirket genel merkez adresi için resmi `PostalAddress` standartlarını (Kadıköy, İstanbul, PK: 34710) mühürleme.
-- [ ] **Faz 69:** Google Rich Results Test aracında sıfır hata ve sıfır uyarı veren otomatik CI/CD schema linter'ı (`schema-lint.ts`) çalıştırma.
+- [x] **Faz 68:** Şirket genel merkez adresi için resmi `PostalAddress` standartlarını (Kadıköy, İstanbul, PK: 34710) mühürleme.
+- [x] **Faz 69:** Google Rich Results Test aracında sıfır hata ve sıfır uyarı veren otomatik CI/CD schema linter'ı (`schema-lint.ts`) çalıştırma.
 - [ ] **Faz 70:** Sektörel çözümlerimiz için `B2BService` ve hedef sektör (`industry`) şemaları tanımlama.
 - [ ] **Faz 71:** Asansör yeşil etiket ve periyodik bakım süreçleri için `HowTo` adımlı zengin rehber şeması ekleme.
 - [ ] **Faz 72:** Genel kurul ve kat malikleri toplantıları için `Event` şeması altyapısı hazırlama.
 - [ ] **Faz 73:** İstihdam ve kariyer sayfası için `JobPosting` şemasını aktif hale getirme.
-- [ ] **Faz 74:** Tüm JSON-LD çıktılarını `minifyJsonLd` motoruyla sıkıştırarak HTML payload'ını %25 hafifletme.
+- [x] **Faz 74:** Tüm JSON-LD çıktılarını `minifyJsonLd` motoruyla sıkıştırarak HTML payload'ını %25 hafifletme.
 - [x] **Faz 75:** Çok dilli sayfalarda şemaların `inLanguage` niteliğini aktif dile göre dinamik belirleme.
 
 ---
