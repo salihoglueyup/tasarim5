@@ -10,8 +10,8 @@
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://aloyonetim.com.tr/favicon.ico</Image>
   <Image width="192" height="192" type="image/png">https://aloyonetim.com.tr/favicon/favicon-192.png</Image>
-  <Url type="text/html" template="https://aloyonetim.com.tr/tr/blog?q={searchTerms}"/>
+  <Url type="text/html" template="https://aloyonetim.com.tr/blog?q={searchTerms}"/>
   <Url type="application/x-suggestions+json" rel="suggestions" template="https://aloyonetim.com.tr/api/search-suggest?q={searchTerms}"/>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://aloyonetim.com.tr/opensearch.xml" />
-  <moz:SearchForm>https://aloyonetim.com.tr/tr/blog</moz:SearchForm>
+  <moz:SearchForm>https://aloyonetim.com.tr/blog</moz:SearchForm>
 </OpenSearchDescription>

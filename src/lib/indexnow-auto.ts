@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/lib/constants';
+import { publishWebSubPing } from '@/lib/seo/webSubPinger';
 
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'aloyonetim-indexnow-key';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'b42e617d3a2e4e10b171a7d6abdf93e5';
 
 /**
  * Otomatik IndexNow Bildirim Motoru (Auto-IndexNow)
@@ -48,6 +49,9 @@ export async function notifyIndexNow(paths: string | string[]): Promise<boolean>
     ).catch((err) => {
       console.error('Auto-IndexNow broadcast ping error:', err);
     });
+
+    // Google PubSubHubbub (WebSub) anlık besleme bildirimi
+    publishWebSubPing().catch(() => {});
 
     return true;
   } catch (error) {

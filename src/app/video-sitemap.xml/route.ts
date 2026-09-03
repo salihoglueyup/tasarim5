@@ -21,7 +21,7 @@ export async function GET() {
   const videoEntries = [
     {
       pageUrl: `${BASE_URL}/`,
-      thumbnailLoc: `${BASE_URL}/images/hero-poster.webp`,
+      thumbnailLoc: `${BASE_URL}/images/hero-poster-v5.webp`,
       title: 'Alo Yönetim — Profesyonel Tesis ve Site Yönetimi Tanıtım Filmi',
       description: 'İstanbul Kadıköy merkezli 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 güvenlik ve teknik bakım hizmetlerimizin tanıtım filmi.',
       contentLoc: `${BASE_URL}/video/brand-film.mp4`,
@@ -49,7 +49,7 @@ export async function GET() {
     },
     {
       pageUrl: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
-      thumbnailLoc: `${BASE_URL}/images/hero-poster.webp`,
+      thumbnailLoc: `${BASE_URL}/images/hero-poster-v5.webp`,
       title: '5188 Sayılı Kanun Kapsamında Fiziki Güvenlik ve CCTV İzleme',
       description: 'T.C. İçişleri Bakanlığı ve Valilik izinli lisanslı özel güvenlik görevlileri, 7/24 devriye ve kamera denetim süreçleri.',
       contentLoc: `${BASE_URL}/video/security-operations.mp4`,

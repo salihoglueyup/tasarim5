@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 
-export const dynamic = 'force-static';
-export const revalidate = 2592000; // 30 gün
+import fs from 'fs';
+import path from 'path';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 86400;
 
 const CERTIFICATES = [
   {
@@ -10,13 +13,6 @@ const CERTIFICATES = [
     name: 'Doğaya Saygı Sertifikası — Çevreye Duyarlı Hizmet',
     pdf: '/certificates/dogaya-saygi.pdf',
     page: '/kurumsal/sertifikalar/dogaya-saygi',
-    lastmod: '2026-01-01',
-  },
-  {
-    slug: 'iso-9001',
-    name: 'ISO 9001:2015 Kalite Yönetim Sistemi Belgesi',
-    pdf: '/certificates/iso-9001.pdf',
-    page: '/kurumsal/kalite-belgelerimiz',
     lastmod: '2026-01-01',
   },
   {
@@ -31,13 +27,6 @@ const CERTIFICATES = [
     name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
     pdf: '/certificates/iso-45001.pdf',
     page: '/kurumsal/sertifikalar/iso-45001',
-    lastmod: '2026-01-01',
-  },
-  {
-    slug: 'iso-27001',
-    name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-    pdf: '/certificates/iso-27001.pdf',
-    page: '/kurumsal/kalite-belgelerimiz',
     lastmod: '2026-01-01',
   },
   {
@@ -122,13 +111,16 @@ export async function GET() {
   xml += `  </url>\n`;
 
   for (const cert of CERTIFICATES) {
-    // PDF doğrudan indexlensin
-    xml += `  <url>\n`;
-    xml += `    <loc>${BASE_URL}${cert.pdf}</loc>\n`;
-    xml += `    <lastmod>${cert.lastmod}</lastmod>\n`;
-    xml += `    <changefreq>yearly</changefreq>\n`;
-    xml += `    <priority>0.6</priority>\n`;
-    xml += `  </url>\n`;
+    const fullPdfPath = path.join(process.cwd(), 'public', cert.pdf);
+    if (fs.existsSync(fullPdfPath)) {
+      // PDF doğrudan indexlensin
+      xml += `  <url>\n`;
+      xml += `    <loc>${BASE_URL}${cert.pdf}</loc>\n`;
+      xml += `    <lastmod>${cert.lastmod}</lastmod>\n`;
+      xml += `    <changefreq>yearly</changefreq>\n`;
+      xml += `    <priority>0.6</priority>\n`;
+      xml += `  </url>\n`;
+    }
 
     // HTML landing page
     xml += `  <url>\n`;

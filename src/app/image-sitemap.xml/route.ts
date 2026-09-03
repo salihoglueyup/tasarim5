@@ -53,7 +53,7 @@ export async function GET() {
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}/kurumsal/kalite-belgelerimiz</loc>\n`;
     xml += `    <image:image>\n`;
-    xml += `      <image:loc>${BASE_URL}/images/iso-41001-certificate.webp</image:loc>\n`;
+    xml += `      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n`;
     xml += `      <image:title>ISO 41001:2018 Uluslararası Tesis Yönetim Sertifikası — Alo Yönetim</image:title>\n`;
     xml += `      <image:caption>TÜRKAK ve ISO akreditasyonlu profesyonel tesis yönetimi ve kalite sertifikalarımız</image:caption>\n`;
     xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
@@ -65,7 +65,7 @@ export async function GET() {
       xml += `  <url>\n`;
       xml += `    <loc>${BASE_URL}${service.pillar}</loc>\n`;
       xml += `    <image:image>\n`;
-      xml += `      <image:loc>${BASE_URL}/og</image:loc>\n`;
+      xml += `      <image:loc>${BASE_URL}/api/og</image:loc>\n`;
       xml += `      <image:title>${escapeXml(service.name)} — Alo Yönetim Tesis Yönetimi</image:title>\n`;
       xml += `      <image:caption>${escapeXml(service.summary)}</image:caption>\n`;
       xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
@@ -79,7 +79,7 @@ export async function GET() {
       xml += `  <url>\n`;
       xml += `    <loc>${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi</loc>\n`;
       xml += `    <image:image>\n`;
-      xml += `      <image:loc>${BASE_URL}/og?title=${encodeURIComponent(district.name + ' Tesis Yönetimi')}&type=local</image:loc>\n`;
+      xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(district.name + ' Tesis Yönetimi')}&type=local</image:loc>\n`;
       xml += `      <image:title>${escapeXml(district.name)} Tesis Yönetimi &amp; Site İşletmeciliği</image:title>\n`;
       xml += `      <image:caption>${escapeXml(district.name)} genelinde ISO 41001 standartlarında profesyonel tesis ve site yönetimi</image:caption>\n`;
       xml += `      <image:geo_location>${escapeXml(district.name)}, İstanbul, Türkiye</image:geo_location>\n`;
