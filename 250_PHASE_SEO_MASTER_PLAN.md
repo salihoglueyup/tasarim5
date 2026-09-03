@@ -42,10 +42,10 @@
 - [x] **Faz 10:** Dinamik OpenGraph ve Twitter kart görsellerini `/api/og` Edge endpoint'i üzerinden 1200x630 piksel 200 OK olarak servis etme.
 - [x] **Faz 11:** Makale içeriklerindeki tüm `<img>` etiketlerine otomatik `width`, `height`, `loading="lazy"` ve `decoding="async"` enjeksiyonunu genişletme.
 - [x] **Faz 12:** İlk ekran (Above-the-fold) kritik kahraman görsellerine `fetchpriority="high"` ve `loading="eager"` atama.
-- [ ] **Faz 13:** Metin içeriklerinde Flesch-Kincaid okunabilirlik skorunu Türkçe morfolojiye göre optimize etme.
+- [x] **Faz 13:** Metin içeriklerinde Flesch-Kincaid okunabilirlik skorunu Türkçe morfolojiye göre optimize etme.
 - [x] **Faz 14:** H2 ve H3 başlıklarının ardışık semantik derinliğini (H1 -> H2 -> H3 sırası atlanmadan) DOM seviyesinde denetleme.
 - [x] **Faz 15:** Arama motorlarının içeriği hızlı parse etmesi için kritik sayfalara TL;DR (Özet) kutularını zorunlu kılma.
-- [ ] **Faz 16:** Sayfa içi anahtar kelime yoğunluğunu (Keyword Density) %1.5 - %2.5 doğal eşiğinde tutma (Keyword stuffing engelleme).
+- [x] **Faz 16:** Sayfa içi anahtar kelime yoğunluğunu (Keyword Density) %1.5 - %2.5 doğal eşiğinde tutma (Keyword stuffing engelleme).
 - [x] **Faz 17:** Çerez ve KVKK banner'larının arama motoru botlarının ilk ekran okumasını engellemeyecek DOM sıralamasında render edilmesi.
 - [x] **Faz 18:** Tablolar ve veri listeleri için semantik `<caption>`, `<thead>`, `<tbody>` etiket kullanımını zorunlu kılma.
 - [x] **Faz 19:** URL yapılarında alt çizgi (`_`) yerine daima tire (`-`) kullanılmasını ve küçük harf zorunluluğunu garanti etme.
@@ -80,12 +80,12 @@
 - [x] **Faz 42:** Marka adı ("Alo Yönetim") ile sektör jenerik terimleri ("İstanbul Profesyonel Site Yönetimi") arasında anlamsal semantik bağ kurma.
 - [x] **Faz 43:** AI botlarının aşırı istek atarak sunucuyu yormasını engelleyen akıllı token-bucket hız sınırlandırması uygulama.
 - [x] **Faz 44:** Blog yazılarının girişine yapay zeka için 2 cümlelik kesin sonuç paragrafı (Direct Answer Box) yerleştirme.
-- [ ] **Faz 45:** Yapay zekaya yönelik hazırlanan içeriklerin düzenli doğruluk kontrolünü yapan otomatik semantik doğrulama mekanizması kurma.
-- [ ] **Faz 46:** Perplexity'de listelenen kaynak URL'lerimizin tıklanma oranını izlemek için UTM parametreli GEO etiketleme yapısı tasarlama.
+- [x] **Faz 45:** Yapay zekaya yönelik hazırlanan içeriklerin düzenli doğruluk kontrolünü yapan otomatik semantik doğrulama mekanizması kurma.
+- [x] **Faz 46:** Perplexity'de listelenen kaynak URL'lerimizin tıklanma oranını izlemek için UTM parametreli GEO etiketleme yapısı tasarlama.
 - [x] **Faz 47:** ISO 41001 standartlarının uygulama adımlarını numaralandırılmış liste formatında LLM'lere servis etme.
 - [x] **Faz 48:** 5188 sayılı Özel Güvenlik Kanunu Valilik başvuru sürecini aşama aşama özetleyen birincil AI veri kılavuzu sunma.
 - [x] **Faz 49:** Toplu konutlarda genel kurul divan yönetimi prosedürünü yapay zeka modellerine hukuki dayanaklarıyla aktarma.
-- [ ] **Faz 50:** AI arama motorlarının marka itibar skorunu (Sentiment Score) ölçen periyodik analiz şablonu oluşturma.
+- [x] **Faz 50:** AI arama motorlarının marka itibar skorunu (Sentiment Score) ölçen periyodik analiz şablonu oluşturma.
 
 ---
 
