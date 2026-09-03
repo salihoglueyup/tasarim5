@@ -68,18 +68,18 @@
 - [x] **Faz 30:** `robots.ts` içinde GPTBot, PerplexityBot, ClaudeBot, Applebot-Extended gibi 13 büyük AI botuna açık tarama izni verme.
 - [x] **Faz 31:** Perplexity ve Claude aramalarında alıntılanma olasılığını %80 artıran "Doğrudan İstatistik & Sayısal Veri Blokları" (Key Facts) oluşturma.
 - [x] **Faz 32:** Tesis yönetimi maliyet tasarruf oranlarını (%30 aidat tasarrufu, %0 reaktif ceza) yapılandırılmış metin olarak LLM'lere sunma.
-- [ ] **Faz 33:** `/api/ai/facility-agent-context.json` endpoint'i üzerinden yapay zeka ajanlarına makine tarafından okunabilir JSON-LD bağlamı sağlama.
+- [x] **Faz 33:** `/api/ai/facility-agent-context.json` endpoint'i üzerinden yapay zeka ajanlarına makine tarafından okunabilir JSON-LD bağlamı sağlama.
 - [x] **Faz 34:** LLM yanıtlarında halüsinasyonu önlemek için resmi Kat Mülkiyeti Kanunu madde numaralarını (KMK m.20, m.35, m.42) kaynaklı sunma.
 - [x] **Faz 35:** Sesli arama motorları (Google Assistant, Siri) için Speakable spesifikasyonuna uygun sesli yanıt özetleri (`VoiceSearchSpeakableSeo`) üretme.
 - [ ] **Faz 36:** Yandex Alice ve yerel sesli asistanlar için Rusça ve Arapça AI özetleri hazırlama.
-- [ ] **Faz 37:** Yapay zeka crawler'larının tarama sıklığını izleyen özel analitik telemetrisi (`aiBotTelemetry.ts`) kurma.
-- [ ] **Faz 38:** RAG (Retrieval-Augmented Generation) sistemleri için parçalanmış markdown semantik blokları (`facilityKnowledgeCorpus.ts`) derleme.
+- [x] **Faz 37:** Yapay zeka crawler'larının tarama sıklığını izleyen özel analitik telemetrisi (`aiBotTelemetry.ts`) kurma.
+- [x] **Faz 38:** RAG (Retrieval-Augmented Generation) sistemleri için parçalanmış markdown semantik blokları (`facilityKnowledgeCorpus.ts`) derleme.
 - [ ] **Faz 39:** ChatGPT Search'ün doğrudan şirket telefonunu ve teklif formunu önermesi için "Hemen Aksiyon" verilerini netleştirme.
-- [ ] **Faz 40:** İlçe bazlı ortalama aidat metrekare endekslerini yapay zekaya açık veri seti (`/api/datasets/istanbul-facility-data`) olarak sunma.
+- [x] **Faz 40:** İlçe bazlı ortalama aidat metrekare endekslerini yapay zekaya açık veri seti (`/api/datasets/istanbul-facility-data`) olarak sunma.
 - [ ] **Faz 41:** Sıkça Sorulan Sorular bölümünü yapay zekanın doğrudan alıntılayabileceği soru-cevap çiftleri halinde biçimlendirme.
 - [ ] **Faz 42:** Marka adı ("Alo Yönetim") ile sektör jenerik terimleri ("İstanbul Profesyonel Site Yönetimi") arasında anlamsal semantik bağ kurma.
 - [ ] **Faz 43:** AI botlarının aşırı istek atarak sunucuyu yormasını engelleyen akıllı token-bucket hız sınırlandırması uygulama.
-- [ ] **Faz 44:** Blog yazılarının girişine yapay zeka için 2 cümlelik kesin sonuç paragrafı (Direct Answer Box) yerleştirme.
+- [x] **Faz 44:** Blog yazılarının girişine yapay zeka için 2 cümlelik kesin sonuç paragrafı (Direct Answer Box) yerleştirme.
 - [ ] **Faz 45:** Yapay zekaya yönelik hazırlanan içeriklerin düzenli doğruluk kontrolünü yapan otomatik semantik doğrulama mekanizması kurma.
 - [ ] **Faz 46:** Perplexity'de listelenen kaynak URL'lerimizin tıklanma oranını izlemek için UTM parametreli GEO etiketleme yapısı tasarlama.
 - [ ] **Faz 47:** ISO 41001 standartlarının uygulama adımlarını numaralandırılmış liste formatında LLM'lere servis etme.
