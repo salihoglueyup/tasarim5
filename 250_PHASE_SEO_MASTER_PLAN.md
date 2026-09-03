@@ -131,7 +131,7 @@
 - [x] **Faz 81:** ISO 9001, ISO 14001, ISO 45001 ve ISO 27001 kalite standartlarını varlık grafiğine bağlama.
 - [x] **Faz 82:** Footer'daki YouTube kanalına `rel="me noopener noreferrer"` ekleyerek kurumsal sosyal otoriteyi doğrulama.
 - [x] **Faz 83:** `constants.ts` içindeki `ORG_SAME_AS` dizisine doğrulanmış Facebook, LinkedIn, X, Instagram ve YouTube profillerini ekleme.
-- [ ] **Faz 84:** Google Knowledge Graph API üzerinden şirket varlık ID'sini (Entity ID) sorgulama ve izleme.
+- [x] **Faz 84:** Google Knowledge Graph API üzerinden şirket varlık ID'sini (Entity ID) sorgulama ve izleme.
 - [x] **Faz 85:** Tesis yönetimi sektöründeki anahtar kavramlar ile şirket kimliğini çift yönlü ilişkilendiren `entity-graph.jsonld` derleme.
 - [x] **Faz 86:** Resmi kurum bağlantılarına (`mevzuat.gov.tr`, `istanbul.gov.tr`, `resmigazete.gov.tr`) bağlamsal dış otorite linkleri verme.
 - [x] **Faz 87:** Yazar profillerine sektördeki deneyim ve sertifikaları gösteren `hasCredential` varlıkları ekleme.
@@ -162,16 +162,16 @@
 - [x] **Faz 106:** İlçe sayfalarında `EmergencyServiceBadgeSeo` ve `SocialProofTickerSeo` ile yerel güven kanıtı oluşturma.
 - [x] **Faz 107:** `bolgeler/page.tsx` ana sayfasını çok dilli parametrelere ve dinamik breadcrumb'a kavuşturma.
 - [ ] **Faz 108:** Kadıköy, Ataşehir, Beşiktaş, Üsküdar gibi öncelikli ilçeler için mahalle bazlı alt sayfaları (`/bolgeler/[ilce]/mahalleler/[mahalle]`) haritaya bağlama.
-- [ ] **Faz 109:** 39 ilçe için ortalama site aidat endeksi ve metrekare karşılaştırma matrisini (`DistrictComparisonMatrixSeo`) her sayfada dinamik kılma.
+- [x] **Faz 109:** 39 ilçe için ortalama site aidat endeksi ve metrekare karşılaştırma matrisini (`DistrictComparisonMatrixSeo`) her sayfada dinamik kılma.
 - [ ] **Faz 110:** İlçe sayfalarında o ilçede yönettiğimiz sitelerden gerçek referans görselleri ve anonim vaka özetleri sergileme.
 - [x] **Faz 111:** İlçeler arası coğrafi sınır yakınlığına göre komşu ilçe öneri motorunu (`getNeighborDistrictLinks`) güçlendirme.
 - [x] **Faz 112:** İlçe bazlı özel sıkça sorulan sorular (Örn: "Kadıköy'de tarihi binalarda site yönetimi nasıl yapılır?") üretme.
-- [ ] **Faz 113:** Coğrafi arama motorları için 39 ilçenin tam sınırlarını içeren GeoJSON feed'i (`/api/geo/districts.geojson`) yayınlama.
-- [ ] **Faz 114:** Google Earth ve GIS haritaları için KML formatında kapsam haritası (`/api/geo/istanbul.kml`) sunma.
+- [x] **Faz 113:** Coğrafi arama motorları için 39 ilçenin tam sınırlarını içeren GeoJSON feed'i (`/api/geo/districts.geojson`) yayınlama.
+- [x] **Faz 114:** Google Earth ve GIS haritaları için KML formatında kapsam haritası (`/api/geo/istanbul.kml`) sunma.
 - [x] **Faz 115:** Anadolu ve Avrupa yakası sayfaları arasında semantik PageRank dengeleyici çapraz bağlantı ağı kurma.
 - [ ] **Faz 116:** İlçe sayfalarında yerel belediye zabıta ve çevre müdürlüğü mevzuat linklerine atıfta bulunma.
 - [x] **Faz 117:** Google İşletme Profili (Google Business Profile) ile web sitesi NAP (Name, Address, Phone) tutarlılığını garanti altına alma.
-- [ ] **Faz 118:** Mobil aramalarda kullanıcının konumuna en yakın saha ofisini hesaplayan uç nokta (`/api/geo/nearest-facility-hub`) entegrasyonu.
+- [x] **Faz 118:** Mobil aramalarda kullanıcının konumuna en yakın saha ofisini hesaplayan uç nokta (`/api/geo/nearest-facility-hub`) entegrasyonu.
 - [ ] **Faz 119:** Yerel rehber siteleri ve sektörel İstanbul dizinleri için optimize edilmiş yerel tanıtım metinleri hazırlama.
 - [ ] **Faz 120:** İlçe sayfalarında kentsel dönüşüm ve yeni teslim toplu konutlara özel yönetim danışmanlığı modülü sunma.
 - [ ] **Faz 121:** Her ilçenin deprem ve acil durum tahliye planlama rehberini yerel SEO içeriği olarak sağlama.
