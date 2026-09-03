@@ -141,9 +141,9 @@
 - [x] **Faz 91:** Google'ın markamızı bir "Tesis ve Gayrimenkul Yönetim Şirketi" olarak sınıflamasını sağlayan taksonomi haritası çıkarma.
 - [x] **Faz 92:** Blog makalelerinde geçen özel terimlere (`kompanzasyon panosu`, `arsa payı`) anında sözlük popup'ı bağlama.
 - [ ] **Faz 93:** Kurumsal web sitesinde basın bültenleri ve medya kiti bölümünü yapılandırılmış formatta sunma.
-- [ ] **Faz 94:** Kurucu ve yöneticilerin sektörel makalelerini ve yayınlarını profil sayfalarına bağlama.
+- [x] **Faz 94:** Kurucu ve yöneticilerin sektörel makalelerini ve yayınlarını profil sayfalarına bağlama.
 - [x] **Faz 95:** Sektörel dernek ve meslek odaları (TRFMA vb.) üyeliklerini kurumsal varlık şemasına entegre etme.
-- [ ] **Faz 96:** Rakip analizlerinde topikal otorite boşluklarını (Content Gap) tespit eden otomatik araç çalıştırma.
+- [x] **Faz 96:** Rakip analizlerinde topikal otorite boşluklarını (Content Gap) tespit eden otomatik araç çalıştırma.
 - [x] **Faz 97:** Kat malikleri ve yöneticiler için hazırlanan KMK rehberlerini indirilebilir otorite dokümanı olarak sunma.
 - [x] **Faz 98:** Şirket genel merkez binasının coğrafi varlık koordinatlarını OpenStreetMap ve Wikidata ile eşleştirme.
 - [x] **Faz 99:** Sektörel vaka analizlerinde (Case Studies) gerçek problem-çözüm-tasarruf metriklerini belgeleme.
@@ -173,12 +173,12 @@
 - [x] **Faz 117:** Google İşletme Profili (Google Business Profile) ile web sitesi NAP (Name, Address, Phone) tutarlılığını garanti altına alma.
 - [x] **Faz 118:** Mobil aramalarda kullanıcının konumuna en yakın saha ofisini hesaplayan uç nokta (`/api/geo/nearest-facility-hub`) entegrasyonu.
 - [ ] **Faz 119:** Yerel rehber siteleri ve sektörel İstanbul dizinleri için optimize edilmiş yerel tanıtım metinleri hazırlama.
-- [ ] **Faz 120:** İlçe sayfalarında kentsel dönüşüm ve yeni teslim toplu konutlara özel yönetim danışmanlığı modülü sunma.
+- [x] **Faz 120:** İlçe sayfalarında kentsel dönüşüm ve yeni teslim toplu konutlara özel yönetim danışmanlığı modülü sunma.
 - [x] **Faz 121:** Her ilçenin deprem ve acil durum tahliye planlama rehberini yerel SEO içeriği olarak sağlama.
-- [ ] **Faz 122:** İlçe bazında yerel anahtar kelime hacimlerini (Search Volume) 3 ayda bir güncelleyen dinamik taksonomi motoru bağlama.
+- [x] **Faz 122:** İlçe bazında yerel anahtar kelime hacimlerini (Search Volume) 3 ayda bir güncelleyen dinamik taksonomi motoru bağlama.
 - [x] **Faz 123:** İlçe sayfalarında `hasMap` URL'lerini doğrudan resmi Google Maps CID (Customer ID) parametresiyle eşitleme.
 - [x] **Faz 124:** Yerel kullanıcı yorumlarını ilçe sayfalarında filtreleyerek `LocalBusiness` yorum şemasına dahil etme.
-- [ ] **Faz 125:** 39 ilçenin tamamının yerel sıralama konumlarını haftalık denetleyen otomatik rank-tracker çalıştırma.
+- [x] **Faz 125:** 39 ilçenin tamamının yerel sıralama konumlarını haftalık denetleyen otomatik rank-tracker çalıştırma.
 
 ---
 
