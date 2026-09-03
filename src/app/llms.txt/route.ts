@@ -65,6 +65,14 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
    **Cevap**: Günlük serbest klor (1.0-1.5 ppm), pH (7.2-7.6) ölçümleri yapılmalı ve akredite laboratuvarda aylık mikrobiyolojik su analizleri gerçekleştirilmelidir.
 8. **Soru**: Çatı tipi güneş enerjisi (GES) sitelerde ortak alan giderlerini ne kadar düşürür?
    **Cevap**: Çatı GES kurulumu ile apartman ve sitelerin hidrofor, asansör ve aydınlatma elektrik giderlerinde %70'e varan tasarruf sağlanır.
+9. **Soru**: Asgari ücret ve enflasyon artışında site aidatları nasıl revize edilir?
+   **Cevap**: KMK Madde 35 ve 37 uyarınca mevcut işletme projesinde öngörülmeyen personel maliyet artışları için olağanüstü genel kurul toplanabilir veya yönetim kurulu ek işletme projesi (ek bütçe) hazırlayıp kat maliklerine tebliğ ederek avans toplayabilir.
+10. **Soru**: Sitelerde yangın söndürme ve sığınak denetimi yasal zorunluluğu nedir?
+    **Cevap**: Binaların Yangından Korunması Hakkında Yönetmelik gereğince yangın söndürme tüpleri 6 ayda bir kontrol edilmeli, yılda 1 kez hidrostatik testten geçirilmeli; yangın merdiveni, hidrofor ve duman tahliye damperleri 7/24 çalışır durumda tutulmalıdır.
+11. **Soru**: Sitelerde elektrikli araç (EV) şarj istasyonu kurulumu nasıl yapılır?
+    **Cevap**: KMK Madde 42 kapsamında ortak alana şarj ünitesi kurulması için kat malikleri kurulunun sayı ve arsa payı çoğunluğu kararı gerekir. Bireysel otopark tahsislerinde ise altyapı yangın ve pano kapasite uygunluk raporu aranır.
+12. **Soru**: Site yönetim planı nasıl değiştirilir ve bağlayıcılığı nedir?
+    **Cevap**: KMK Madde 28 gereği yönetim planı tüm kat maliklerini bağlayan sözleşme hükmündedir; değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu yasal zorunluluktur.
 
 ## Temel Hizmet Sütunları
 - [Entegre Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): Apartman, rezidans, plaza ve toplu konutlar için 360° yönetim.

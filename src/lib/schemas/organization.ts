@@ -47,6 +47,13 @@ export function organizationSchema(): JsonLdObject {
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
     contactPoint: ORG_CONTACT_POINTS,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '340',
+      bestRating: '5',
+      worstRating: '1',
+    },
     subOrganization: GROUP_COMPANIES.map((company) => ({
       '@type': 'Organization',
       name: company.name,
