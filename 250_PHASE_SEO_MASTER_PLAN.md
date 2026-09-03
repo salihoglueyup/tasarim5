@@ -66,10 +66,10 @@
 - [x] **Faz 28:** 39 İstanbul ilçesinin doğrudan yerel tesis yönetimi endpoint'lerini (`/bolgeler/[ilce]/tesis-yonetimi`) AI alıntı dizinine (Local Citations) ekleme.
 - [x] **Faz 29:** `src/middleware.ts` üzerinden yapay zeka botlarına özel `X-AI-Knowledge-Protocol` ve `X-AI-Authority-Corpus` edge HTTP başlıkları basma.
 - [x] **Faz 30:** `robots.ts` içinde GPTBot, PerplexityBot, ClaudeBot, Applebot-Extended gibi 13 büyük AI botuna açık tarama izni verme.
-- [ ] **Faz 31:** Perplexity ve Claude aramalarında alıntılanma olasılığını %80 artıran "Doğrudan İstatistik & Sayısal Veri Blokları" (Key Facts) oluşturma.
+- [x] **Faz 31:** Perplexity ve Claude aramalarında alıntılanma olasılığını %80 artıran "Doğrudan İstatistik & Sayısal Veri Blokları" (Key Facts) oluşturma.
 - [x] **Faz 32:** Tesis yönetimi maliyet tasarruf oranlarını (%30 aidat tasarrufu, %0 reaktif ceza) yapılandırılmış metin olarak LLM'lere sunma.
 - [ ] **Faz 33:** `/api/ai/facility-agent-context.json` endpoint'i üzerinden yapay zeka ajanlarına makine tarafından okunabilir JSON-LD bağlamı sağlama.
-- [ ] **Faz 34:** LLM yanıtlarında halüsinasyonu önlemek için resmi Kat Mülkiyeti Kanunu madde numaralarını (KMK m.20, m.35, m.42) kaynaklı sunma.
+- [x] **Faz 34:** LLM yanıtlarında halüsinasyonu önlemek için resmi Kat Mülkiyeti Kanunu madde numaralarını (KMK m.20, m.35, m.42) kaynaklı sunma.
 - [x] **Faz 35:** Sesli arama motorları (Google Assistant, Siri) için Speakable spesifikasyonuna uygun sesli yanıt özetleri (`VoiceSearchSpeakableSeo`) üretme.
 - [ ] **Faz 36:** Yandex Alice ve yerel sesli asistanlar için Rusça ve Arapça AI özetleri hazırlama.
 - [ ] **Faz 37:** Yapay zeka crawler'larının tarama sıklığını izleyen özel analitik telemetrisi (`aiBotTelemetry.ts`) kurma.
@@ -99,15 +99,15 @@
 - [x] **Faz 55:** 39 ilçe yerel açılış sayfasına `LocalBusiness` ve `ProfessionalService` birleşik şeması bağlama.
 - [x] **Faz 56:** `FAQPage` şemasını tüm hizmet, ilçe ve genel SSS sayfalarına temiz HTML metinleriyle bağlama.
 - [x] **Faz 57:** `WebSite` şeması içine Google Sitelinks Searchbox (`SearchAction`) entegrasyonu sağlama.
-- [ ] **Faz 58:** Hizmet şemalarına (`Service`) kesin `priceRange: "₺₺"` ve `hasOfferCatalog` fiyat teklif katalogları ekleme.
+- [x] **Faz 58:** Hizmet şemalarına (`Service`) kesin `priceRange: "₺₺"` ve `hasOfferCatalog` fiyat teklif katalogları ekleme.
 - [ ] **Faz 59:** Blog yazıları için `Article` şemasında `author`, `publisher`, `datePublished` ve `dateModified` alanlarını ISO-8601 UTC olarak sabitleme.
 - [ ] **Faz 60:** ISO sertifikalarımızın PDF belgeleri için `DigitalDocument` şeması oluşturma.
 - [ ] **Faz 61:** Sözlük terimleri için `DefinedTermSet` ve `DefinedTerm` şemalarını devreye alma.
 - [ ] **Faz 62:** Kurumsal referans projelerimiz için `ItemList` ve `Place` şemaları bağlama.
 - [ ] **Faz 63:** Hero videosu için süre (`duration`), yükleme tarihi ve transkript içeren `VideoObject` şeması tanımlama.
 - [ ] **Faz 64:** Müşteri yorumları için `Review` şeması ile gerçek kişi ve puan dağılımını zenginleştirme.
-- [ ] **Faz 65:** Yönetici ve kurucu profilleri için `Person` ve `alumniOf`, `knowsAbout` şemaları oluşturma.
-- [ ] **Faz 66:** Acil teknik servis ve 7/24 operasyon için `OpeningHoursSpecification` şemasını 7/24 olarak yapılandırma.
+- [x] **Faz 65:** Yönetici ve kurucu profilleri için `Person` ve `alumniOf`, `knowsAbout` şemaları oluşturma.
+- [x] **Faz 66:** Acil teknik servis ve 7/24 operasyon için `OpeningHoursSpecification` şemasını 7/24 olarak yapılandırma.
 - [ ] **Faz 67:** Hizmet verilen 39 ilçeyi temsil eden `areaServed: { "@type": "AdministrativeArea" }` tanımlarını eksiksiz bağlama.
 - [ ] **Faz 68:** Şirket genel merkez adresi için resmi `PostalAddress` standartlarını (Kadıköy, İstanbul, PK: 34710) mühürleme.
 - [ ] **Faz 69:** Google Rich Results Test aracında sıfır hata ve sıfır uyarı veren otomatik CI/CD schema linter'ı (`schema-lint.ts`) çalıştırma.

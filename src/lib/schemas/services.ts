@@ -30,7 +30,7 @@ export function serviceSchema(opts: {
     url: abs(opts.path),
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.sameAs ? { sameAs: opts.sameAs } : {}),
-    ...(opts.priceRange ? { priceRange: opts.priceRange } : {}),
+    priceRange: opts.priceRange ?? '₺₺',
     provider: { '@id': LOCALBUSINESS_ID },
     areaServed: { '@type': 'State', name: 'İstanbul' },
     hasOfferCatalog: {

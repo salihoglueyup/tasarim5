@@ -68,7 +68,15 @@ export function organizationSchema(): JsonLdObject {
       url: BASE_URL,
       sameAs: [
         'https://www.linkedin.com/in/eyup-salihoglu/',
-      ]
+      ],
+      worksFor: { '@id': ORG_ID },
+      knowsAbout: [
+        'Tesis Yönetimi (Facility Management)',
+        '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
+        'ISO 41001 Entegre Tesis Yönetim Standardı',
+        'Toplu Yapı & Site Yönetim Stratejileri',
+        'Bina Otomasyonu ve Enerji Verimliliği',
+      ],
     },
     award: [
       'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
@@ -292,14 +300,21 @@ export function professionalServiceSchema(opts?: {
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
+        opens: '08:30',
+        closes: '18:30',
       },
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: 'Saturday',
         opens: '09:00',
         closes: '14:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+        description: '7/24 Kesintisiz Acil Mobil Teknik Servis & Güvenlik Operasyon Merkezi',
       },
     ],
     ...(opts?.aggregateRating

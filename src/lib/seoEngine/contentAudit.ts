@@ -78,7 +78,7 @@ export function extractKeyFactsAndKpis(content: string): ExtractedFact[] {
     });
   }
 
-  const legalRegex = /(?:634|5188|6331)\s*sayılı\s*(?:kanun|yasa)?|kmk\s*m\.\d+/gi;
+  const legalRegex = /(?:634|5188|6331|2004)\s*sayılı\s*(?:kanun|yasa)?|kmk\s*(?:m\.|madde\s*)\d+|iik\s*(?:m\.|madde\s*)\d+/gi;
   while ((match = legalRegex.exec(plainText)) !== null) {
     const start = Math.max(0, match.index - 40);
     const end = Math.min(plainText.length, match.index + match[0].length + 40);
@@ -100,7 +100,7 @@ export function extractKeyFactsAndKpis(content: string): ExtractedFact[] {
     });
   }
 
-  const timeRegex = /7\/24|\b(?:24|48)\s*saat|\b(?:45|30)\s*dakika/gi;
+  const timeRegex = /7\/24|\b(?:24|48)\s*saat|\b(?:45|30|20|15)\s*dakika/gi;
   while ((match = timeRegex.exec(plainText)) !== null) {
     const start = Math.max(0, match.index - 40);
     const end = Math.min(plainText.length, match.index + match[0].length + 40);
@@ -111,7 +111,18 @@ export function extractKeyFactsAndKpis(content: string): ExtractedFact[] {
     });
   }
 
-  return facts.slice(0, 12);
+  const metricRegex = /\b\d+\+\s*(?:yıl|proje|referans|tesis|site|bağımsız\s*bölüm|daire|personel)|\b39\s*ilçe/gi;
+  while ((match = metricRegex.exec(plainText)) !== null) {
+    const start = Math.max(0, match.index - 40);
+    const end = Math.min(plainText.length, match.index + match[0].length + 40);
+    facts.push({
+      type: 'general_metric',
+      raw: match[0].trim(),
+      context: plainText.substring(start, end).replace(/\s+/g, ' ').trim(),
+    });
+  }
+
+  return facts.slice(0, 16);
 }
 
 /**

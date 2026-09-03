@@ -293,10 +293,22 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
           practicalApplicationInFacilityManagement: 'Kat malikleri kurulu genel kurul kararıyla profesyonel tesis yönetim şirketi olan Alo Yönetim’e tam temsil ve işletme yetkisi verir.',
         },
         {
+          articleNumber: 'Madde 35',
+          title: 'Yöneticinin Görevleri ve Hukuki Sorumluluğu',
+          officialPrinciple: 'Kat malikleri kurulunca verilen kararların yerine getirilmesi, anagayrimenkulün korunması, bakımı ve onarımı için gereken tedbirlerin alınması, avans ve giderlerin toplanması, defterlerin tutulması ve dava/icra takipleri yöneticinin yasal görevidir.',
+          practicalApplicationInFacilityManagement: 'Alo Yönetim tüm tesislerde kanuni temsilci sıfatıyla işletme defterlerini noter tasdikli tutar, aidat tahsilatını dijitalleştirir ve periyodik teknik bakım planlarını eksiksiz yürütür.',
+        },
+        {
           articleNumber: 'Madde 37',
           title: 'İşletme Projesinin Yapılması ve Kesinleşmesi',
           officialPrinciple: 'Kat malikleri kurulunca kabul edilmiş bir işletme projesi yoksa, yönetici gecikmeksizin bir işletme projesi yapar. Bu proje kat maliklerine taahhütlü mektupla veya imza karşılığı bildirilir. Bildirimden başlayarak yedi gün içinde projeye itiraz edilmezse proje kesinleşir.',
           practicalApplicationInFacilityManagement: 'Kesinleşen işletme projesi, İcra ve İflas Kanununun 68 inci maddesinin 1 inci fıkrasında belirtilen belgelerden sayılır ve borçluya doğrudan ilamsız icra takibi açılabilir.',
+        },
+        {
+          articleNumber: 'Madde 42',
+          title: 'Faydalı Yenilik ve İlaveler (EV Şarj İstasyonları & Güneş Enerjisi)',
+          officialPrinciple: 'Ortak yerlerin düzgünleştirilmesi veya bunlardan faydalanmanın daha rahat hale getirilmesine ilişkin yenilik ve ilaveler, kat maliklerinin sayı ve arsa payı çoğunluğu ile verecekleri karar üzerine yapılır. Engellilerin yaşamı için gerekli tadilatlar ve elektrikli araç şarj istasyonu gibi teknik donanımlar bu madde kapsamında projelendirilir.',
+          practicalApplicationInFacilityManagement: 'Alo Yönetim, sitelerde kapalı otopark elektrikli araç (EV) şarj istasyonu kurulumlarını, yangın güvenlik ve şebeke altyapı raporlarıyla genel kurul çoğunluk onayına sunarak anahtar teslim yönetir.',
         },
       ],
     },
