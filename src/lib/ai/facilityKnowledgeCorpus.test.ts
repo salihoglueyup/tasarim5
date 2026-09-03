@@ -32,6 +32,23 @@ describe('Tesis Yönetimi AI / RAG Bilgi Üssü & Blog Entegrasyonu (facilityKno
     // 5. Yasal Hesaplama Formülleri
     expect(corpus.calculationFormulas.length).toBeGreaterThanOrEqual(2);
     expect(corpus.calculationFormulas.some((f) => f.formula.includes('Birim Aidat'))).toBe(true);
+
+    // 6. Faz 39: Doğrudan Aksiyon Verileri (Direct Actions)
+    expect(corpus.directActionItems.length).toBeGreaterThanOrEqual(3);
+    expect(corpus.directActionItems.some((a) => a.actionType === 'Phone')).toBe(true);
+    expect(corpus.directActionItems.some((a) => a.actionType === 'Form')).toBe(true);
+
+    // 7. Faz 47: ISO 41001 Uygulama Adımları
+    expect(corpus.iso41001ExecutionSteps).toHaveLength(7);
+    expect(corpus.iso41001ExecutionSteps[0].deliverable).toBeDefined();
+
+    // 8. Faz 48: 5188 Güvenlik İzin Süreci
+    expect(corpus.security5188PermitSteps).toHaveLength(6);
+    expect(corpus.security5188PermitSteps.some((p) => p.authority.includes('Valiliği'))).toBe(true);
+
+    // 9. Faz 49: KMK Genel Kurul Divan Prosedürü
+    expect(corpus.generalAssemblyProcedureKMK).toHaveLength(7);
+    expect(corpus.generalAssemblyProcedureKMK.some((g) => g.legalArticle.includes('KMK'))).toBe(true);
   });
 
   it('İngilizce parametresi verildiğinde ilgili alanları dil uyumlu üretir', async () => {

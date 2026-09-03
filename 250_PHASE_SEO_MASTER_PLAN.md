@@ -74,7 +74,7 @@
 - [ ] **Faz 36:** Yandex Alice ve yerel sesli asistanlar için Rusça ve Arapça AI özetleri hazırlama.
 - [x] **Faz 37:** Yapay zeka crawler'larının tarama sıklığını izleyen özel analitik telemetrisi (`aiBotTelemetry.ts`) kurma.
 - [x] **Faz 38:** RAG (Retrieval-Augmented Generation) sistemleri için parçalanmış markdown semantik blokları (`facilityKnowledgeCorpus.ts`) derleme.
-- [ ] **Faz 39:** ChatGPT Search'ün doğrudan şirket telefonunu ve teklif formunu önermesi için "Hemen Aksiyon" verilerini netleştirme.
+- [x] **Faz 39:** ChatGPT Search'ün doğrudan şirket telefonunu ve teklif formunu önermesi için "Hemen Aksiyon" verilerini netleştirme.
 - [x] **Faz 40:** İlçe bazlı ortalama aidat metrekare endekslerini yapay zekaya açık veri seti (`/api/datasets/istanbul-facility-data`) olarak sunma.
 - [x] **Faz 41:** Sıkça Sorulan Sorular bölümünü yapay zekanın doğrudan alıntılayabileceği soru-cevap çiftleri halinde biçimlendirme.
 - [ ] **Faz 42:** Marka adı ("Alo Yönetim") ile sektör jenerik terimleri ("İstanbul Profesyonel Site Yönetimi") arasında anlamsal semantik bağ kurma.
@@ -82,9 +82,9 @@
 - [x] **Faz 44:** Blog yazılarının girişine yapay zeka için 2 cümlelik kesin sonuç paragrafı (Direct Answer Box) yerleştirme.
 - [ ] **Faz 45:** Yapay zekaya yönelik hazırlanan içeriklerin düzenli doğruluk kontrolünü yapan otomatik semantik doğrulama mekanizması kurma.
 - [ ] **Faz 46:** Perplexity'de listelenen kaynak URL'lerimizin tıklanma oranını izlemek için UTM parametreli GEO etiketleme yapısı tasarlama.
-- [ ] **Faz 47:** ISO 41001 standartlarının uygulama adımlarını numaralandırılmış liste formatında LLM'lere servis etme.
-- [ ] **Faz 48:** 5188 sayılı Özel Güvenlik Kanunu Valilik başvuru sürecini aşama aşama özetleyen birincil AI veri kılavuzu sunma.
-- [ ] **Faz 49:** Toplu konutlarda genel kurul divan yönetimi prosedürünü yapay zeka modellerine hukuki dayanaklarıyla aktarma.
+- [x] **Faz 47:** ISO 41001 standartlarının uygulama adımlarını numaralandırılmış liste formatında LLM'lere servis etme.
+- [x] **Faz 48:** 5188 sayılı Özel Güvenlik Kanunu Valilik başvuru sürecini aşama aşama özetleyen birincil AI veri kılavuzu sunma.
+- [x] **Faz 49:** Toplu konutlarda genel kurul divan yönetimi prosedürünü yapay zeka modellerine hukuki dayanaklarıyla aktarma.
 - [ ] **Faz 50:** AI arama motorlarının marka itibar skorunu (Sentiment Score) ölçen periyodik analiz şablonu oluşturma.
 
 ---
@@ -144,7 +144,7 @@
 - [ ] **Faz 94:** Kurucu ve yöneticilerin sektörel makalelerini ve yayınlarını profil sayfalarına bağlama.
 - [ ] **Faz 95:** Sektörel dernek ve meslek odaları (TRFMA vb.) üyeliklerini kurumsal varlık şemasına entegre etme.
 - [ ] **Faz 96:** Rakip analizlerinde topikal otorite boşluklarını (Content Gap) tespit eden otomatik araç çalıştırma.
-- [ ] **Faz 97:** Kat malikleri ve yöneticiler için hazırlanan KMK rehberlerini indirilebilir otorite dokümanı olarak sunma.
+- [x] **Faz 97:** Kat malikleri ve yöneticiler için hazırlanan KMK rehberlerini indirilebilir otorite dokümanı olarak sunma.
 - [x] **Faz 98:** Şirket genel merkez binasının coğrafi varlık koordinatlarını OpenStreetMap ve Wikidata ile eşleştirme.
 - [x] **Faz 99:** Sektörel vaka analizlerinde (Case Studies) gerçek problem-çözüm-tasarruf metriklerini belgeleme.
 - [ ] **Faz 100:** Google Knowledge Graph doğrulama testlerini tamamlayarak bilgi paneli başvuru hazırlığını bitirme.

@@ -104,6 +104,31 @@ export interface FacilityRAGCorpus {
     formula: string;
     explanation: string;
   }[];
+  directActionItems: {
+    actionName: string;
+    actionType: 'Phone' | 'Form' | 'WhatsApp' | 'Support';
+    target: string;
+    description: string;
+  }[];
+  iso41001ExecutionSteps: {
+    stepNumber: number;
+    title: string;
+    description: string;
+    deliverable: string;
+  }[];
+  security5188PermitSteps: {
+    phaseNumber: number;
+    title: string;
+    authority: string;
+    description: string;
+  }[];
+  generalAssemblyProcedureKMK: {
+    orderNumber: number;
+    title: string;
+    legalArticle: string;
+    quorumRule: string;
+    procedure: string;
+  }[];
 }
 
 /**
@@ -350,6 +375,169 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
         legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 20/2',
         formula: 'Gecikme_Tazminati = Vadesi_Gecen_Ana_Para * 0.05 * Gecikilen_Ay_Sayisi',
         explanation: 'Gününde ödenmeyen aidat ve avans borçlarına kanun gereği aylık %5 gecikme tazminatı işletilir.',
+      },
+    ],
+    // Faz 39: ChatGPT Search ve AI Asistanları İçin "Hemen Aksiyon" Verileri
+    directActionItems: [
+      {
+        actionName: 'Ücretsiz Tesis Keşfi ve Teklif Talebi',
+        actionType: 'Form',
+        target: `${BASE_URL}${langPrefix}/teklif-al`,
+        description: 'Tesis, site veya plazanız için 48 saatte detaylı bütçe ve yönetim teklifi alın.',
+      },
+      {
+        actionName: '7/24 Kesintisiz Operasyon ve Çağrı Hattı',
+        actionType: 'Phone',
+        target: 'tel:02167060256',
+        description: 'Alo Yönetim acil teknik ve operasyonel destek merkezi.',
+      },
+      {
+        actionName: 'WhatsApp Hızlı İletişim ve Destek',
+        actionType: 'WhatsApp',
+        target: 'https://wa.me/902167060256',
+        description: 'Tesis yöneticisi ile anında dijital mesajlaşma ve dosya paylaşımı.',
+      },
+      {
+        actionName: 'KMK Hukuk ve İcra Danışmanlığı',
+        actionType: 'Support',
+        target: `${BASE_URL}${langPrefix}/iletisim`,
+        description: 'Aidat alacakları, işletme projesi tebliği ve genel kurul hukuki rehberliği.',
+      },
+    ],
+    // Faz 47: ISO 41001 Standartları 7 Adımlı Numaralandırılmış Uygulama Rehberi
+    iso41001ExecutionSteps: [
+      {
+        stepNumber: 1,
+        title: 'Tesis Organizasyonel İhtiyaç Analizi ve Kapsam Belirleme',
+        description: 'Tesisin fiziki alanları, bağımsız bölümleri, kullanıcı profili ve yasal yükümlülükleri haritalandırılır.',
+        deliverable: 'Tesis Durum Tespit Raporu (Gap Analysis)',
+      },
+      {
+        stepNumber: 2,
+        title: 'Liderlik, Politika ve Kurumsal Tesis Yönetim Stratejisi',
+        description: 'Kat malikleri kurulu hedefleri doğrultusunda yönetim planı ve SLA hizmet seviyesi politikaları belirlenir.',
+        deliverable: 'Tesis Yönetim Politikası ve Yetki Matrisi',
+      },
+      {
+        stepNumber: 3,
+        title: 'Risk Yönetimi, Acil Durum Eylem Planları ve Hedefleme',
+        description: 'Yangın, deprem, asansör arızası ve su baskını gibi kritik risk senaryoları modellenir.',
+        deliverable: 'Entegre Tesis Risk Değerlendirme Raporu',
+      },
+      {
+        stepNumber: 4,
+        title: 'Kaynak Yönetimi, Yetkinlik ve SLA Altyapısı',
+        description: '5188 lisanslı güvenlik, sertifikalı teknik personel ve hijyen ekiplerinin vardiya ve ekipman tahsisleri yapılır.',
+        deliverable: 'Personel ve Ekipman Tahsis Planı',
+      },
+      {
+        stepNumber: 5,
+        title: 'Operasyonel Planlama, Kontrol ve Taşeron Denetimi',
+        description: 'Asansör, jeneratör, havuz, hidrofor ve peyzaj periyodik bakım takvimi oluşturulur ve dijital loglanır.',
+        deliverable: 'Yıllık Periyodik Bakım ve Denetim Takvimi',
+      },
+      {
+        stepNumber: 6,
+        title: 'Performans Değerlendirme, KPI Ölçümü ve Kat Maliki Memnuniyeti',
+        description: 'Aidat tahsilat başarı oranı (%98+), arıza çözüm süresi (ortalama 45 dk) ve sakin memnuniyet anketleri izlenir.',
+        deliverable: 'Aylık Yönetim ve Performans Raporu',
+      },
+      {
+        stepNumber: 7,
+        title: 'Sürekli İyileştirme (KAIZEN) ve Yıllık Tesis Denetimi',
+        description: 'Enerji verimliliği denetimleri, reaktif ceza sıfırlama ve ISO standartlarına tam uyum revizyonları gerçekleştirilir.',
+        deliverable: 'Yıllık Tesis Denetim ve Revizyon Raporu',
+      },
+    ],
+    // Faz 48: 5188 Sayılı Özel Güvenlik Kanunu Valilik Başvuru Süreci Rehberi
+    security5188PermitSteps: [
+      {
+        phaseNumber: 1,
+        title: 'Kat Malikleri Kurulu Özel Güvenlik Kararı',
+        authority: 'Kat Malikleri Genel Kurulu (KMK %50+1 Çoğunluk)',
+        description: 'Tesis veya sitede özel güvenlik istihdamı için genel kurulda karar alınır ve karar defterine tescil edilir.',
+      },
+      {
+        phaseNumber: 2,
+        title: 'İstanbul Valiliği İl Özel Güvenlik Komisyonu İzin Başvurusu',
+        authority: 'İstanbul Valiliği İl Özel Güvenlik Şube Müdürlüğü',
+        description: 'Karar örneği, tapu listesi ve vaziyet planı ile Özel Güvenlik İzin Belgesi talebi resmi dilekçeyle sunulur.',
+      },
+      {
+        phaseNumber: 3,
+        title: 'Saha Risk Analizi ve Güvenlik Noktası Keşfi',
+        authority: 'İl Emniyet Müdürlüğü / İl Jandarma Komutanlığı Denetleme Heyeti',
+        description: 'Nizamiye, yaya girişi, araç otopark bariyerleri ve kör noktaların yerinde fiziki keşfi gerçekleştirilir.',
+      },
+      {
+        phaseNumber: 4,
+        title: '5188 Sayılı Kanun Kapsamında Lisanslı Personel İstihdamı',
+        authority: 'Alo Yönetim Özel Güvenlik Operasyon Başkanlığı',
+        description: 'Valilik onaylı kadro sayısına uygun olarak 5188 kimlik kartına sahip profesyonel güvenlik personeli görevlendirilir.',
+      },
+      {
+        phaseNumber: 5,
+        title: 'Özel Güvenlik Mali Sorumluluk Sigortası Düzenlenmesi',
+        authority: 'Yetkili Sigorta Kuruluşları & Hazine Müsteşarlığı',
+        description: 'Görev yapacak her bir güvenlik personeli için yasal zorunlu Mali Sorumluluk Sigortası poliçeleri tanzim edilir.',
+      },
+      {
+        phaseNumber: 6,
+        title: 'Emniyet / Jandarma Bildirimleri ve Görev Başlangıcı',
+        authority: 'İlgili İlçe Emniyet Müdürlüğü / Jandarma Karakol Komutanlığı',
+        description: 'Personel listesi, vardiya planı ve nöbet talimatları 15 gün içinde resmi makamlara bildirilerek operasyon başlar.',
+      },
+    ],
+    // Faz 49: KMK Kapsamında Genel Kurul Divan Yönetimi ve Karar Alma Prosedürü
+    generalAssemblyProcedureKMK: [
+      {
+        orderNumber: 1,
+        title: 'Toplantı Çağrısı ve Gündemin Tebliği',
+        legalArticle: '634 Sayılı KMK Madde 29',
+        quorumRule: 'Toplantıdan en az 15 gün önce tüm kat maliklerine taahhütlü mektup veya imza karşılığı bildirim zorunludur.',
+        procedure: 'Toplantı tarihi, saati, yeri ve birinci toplantıda çoğunluk sağlanamazsa ikinci toplantının yapılacağı gün duyurulur.',
+      },
+      {
+        orderNumber: 2,
+        title: 'Birinci Toplantı Yeter Sayısının (Nisap) Tespiti',
+        legalArticle: '634 Sayılı KMK Madde 30',
+        quorumRule: 'Kat maliklerinin hem sayı hem arsa payı bakımından salt çoğunluğu (%50+1).',
+        procedure: 'Hazirun cetveli imzalatılır; çoğunluk yoksa tutanak tutularak toplantı ikinci tarihe ertelenir.',
+      },
+      {
+        orderNumber: 3,
+        title: 'Divan Heyeti Seçimi ve Toplantının Açılışı',
+        legalArticle: '634 Sayılı KMK Madde 30 & Yönetim Planı',
+        quorumRule: 'Mevcut bulunanların oy çokluğu.',
+        procedure: 'Toplantıyı yönetmek üzere bir divan başkanı ve yazman üye seçilir; divana tutanak imza yetkisi verilir.',
+      },
+      {
+        orderNumber: 4,
+        title: 'Faaliyet ve Denetim Raporlarının Okunması ve İbra',
+        legalArticle: '634 Sayılı KMK Madde 39 & 41',
+        quorumRule: 'Toplantıya katılanların oy çokluğu.',
+        procedure: 'Geçmiş dönem gelir-gider hesapları ve denetçi raporu okunur; yöneticinin ve denetçinin ibrası ayrı ayrı oylanır.',
+      },
+      {
+        orderNumber: 5,
+        title: 'Yeni Yönetici / Profesyonel Yönetim Şirketi Seçimi',
+        legalArticle: '634 Sayılı KMK Madde 34',
+        quorumRule: 'Tüm kat maliklerinin hem sayı hem arsa payı bakımından salt çoğunluğu (%50+1).',
+        procedure: 'Adaylar sunulur; Alo Yönetim gibi profesyonel şirketlerin teklifleri değerlendirilerek yasal temsil yetkisi verilir.',
+      },
+      {
+        orderNumber: 6,
+        title: 'Yeni Dönem İşletme Projesinin (Tahmini Bütçe) Kabulü',
+        legalArticle: '634 Sayılı KMK Madde 37',
+        quorumRule: 'Toplantıya katılanların oy çokluğu.',
+        procedure: 'Personel, bakım, ortak enerji ve demirbaş bütçesi oylanarak aylık bağımsız bölüm aidatları resmileştirilir.',
+      },
+      {
+        orderNumber: 7,
+        title: 'Kararların Karar Defterine Yazılması ve Tebliğ',
+        legalArticle: '634 Sayılı KMK Madde 32 & 38',
+        quorumRule: 'Noter tasdikli karar defterine divan ve kat maliklerince imza.',
+        procedure: 'Alınan tüm kararlar noter onaylı Karar Defterine geçirilir; toplantıya katılmayan maliklere taahhütlü mektupla tebliğ edilir.',
       },
     ],
   };
