@@ -115,7 +115,7 @@ export default function InteractiveProcessSteps() {
           </div>
 
           <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-10 rounded-[2.5rem] flex flex-col items-center justify-center text-center gap-4">
-            <span className="material-symbols-outlined text-6xl text-slate-300">
+            <span className="material-symbols-outlined text-6xl text-slate-300" aria-hidden="true">
               {steps[activeStep].icon}
             </span>
             <div className="font-bold text-lg">{t('home_process_step_label')} {steps[activeStep].step} / 6</div>

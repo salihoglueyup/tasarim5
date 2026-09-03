@@ -60,7 +60,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
             
             {/* Rozet */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-200 text-xs font-extrabold tracking-wide shadow-sm">
-              <span className="material-symbols-outlined text-[15px] text-amber-400">menu_book</span>
+              <span className="material-symbols-outlined text-[15px] text-amber-400" aria-hidden="true">menu_book</span>
               <span>RESMİ KMK 634 & 5188 MEVZUAT KÜTÜPHANESİ</span>
             </div>
 
@@ -138,7 +138,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:border-purple-500/40 transition-colors">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl">gavel</span>
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">gavel</span>
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">Yönetim Planı Hiyerarşisi</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
@@ -147,14 +147,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/hukuk-ve-icra-danismanligi" className="mt-4 text-xs font-bold text-purple-600 hover:underline flex items-center gap-1">
                 <span>Hukuki Destek</span>
-                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                <span className="material-symbols-outlined text-[13px]" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
 
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:border-blue-500/40 transition-colors">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl">account_balance_wallet</span>
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">account_balance_wallet</span>
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">Aidat & KMK m.20 Takibi</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
@@ -163,14 +163,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/aidat-takibi" className="mt-4 text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
                 <span>Aidat Tahsilatı</span>
-                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                <span className="material-symbols-outlined text-[13px]" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
 
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:border-emerald-500/40 transition-colors">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl">shield</span>
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">shield</span>
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">5188 Lisanslı Özel Güvenlik</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
@@ -179,14 +179,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/guvenlik-yonetimi" className="mt-4 text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1">
                 <span>5188 Güvenlik</span>
-                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                <span className="material-symbols-outlined text-[13px]" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
 
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:border-amber-500/40 transition-colors">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl">engineering</span>
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">engineering</span>
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">İşletme vs Demirbaş Ayrımı</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
@@ -195,7 +195,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/teknik-bakim" className="mt-4 text-xs font-bold text-amber-600 hover:underline flex items-center gap-1">
                 <span>Teknik Bakım</span>
-                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                <span className="material-symbols-outlined text-[13px]" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
 
@@ -297,7 +297,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
           <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/15">
-            <span className="material-symbols-outlined text-sm">verified</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
             <span>SIFIR HUKUKİ RİSK & %100 ŞEFFAFLIK</span>
           </div>
 
@@ -315,14 +315,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               className="bg-white text-slate-950 hover:bg-slate-100 font-extrabold text-xs md:text-sm py-3.5 px-7 rounded-2xl shadow-lg transition-all active:scale-95 flex items-center gap-2"
             >
               <span>Ücretsiz Keşif & Teklif İsteyin</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
 
             <Link
               href="/hesaplayici"
               className="bg-white/10 hover:bg-white/20 text-white border border-white/15 font-bold text-xs md:text-sm py-3.5 px-6 rounded-2xl transition-all active:scale-95 flex items-center gap-2"
             >
-              <span className="material-symbols-outlined text-sm">calculate</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">calculate</span>
               <span>Aidat Bütçesi Simüle Et</span>
             </Link>
           </div>

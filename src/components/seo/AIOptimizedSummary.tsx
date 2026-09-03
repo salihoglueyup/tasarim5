@@ -57,14 +57,14 @@ export default function AIOptimizedSummary({
       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">
-            <span className="material-symbols-outlined text-lg">auto_awesome</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">auto_awesome</span>
           </div>
           <span className="text-xs font-black uppercase tracking-widest text-blue-600 dark:text-blue-400">
             Hızlı Özet & Temel Standartlar
           </span>
         </div>
         <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1 bg-white/80 dark:bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-200/50 dark:border-white/10">
-          <span className="material-symbols-outlined text-xs text-emerald-500">verified</span>
+          <span className="material-symbols-outlined text-xs text-emerald-500" aria-hidden="true">verified</span>
           Doğrulanmış Bilgi
         </span>
       </div>
@@ -91,7 +91,7 @@ export default function AIOptimizedSummary({
                 key={i}
                 className="ai-takeaway-item flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 bg-white/60 dark:bg-white/5 p-2.5 rounded-xl border border-slate-200/40 dark:border-white/5"
               >
-                <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5">
+                <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5" aria-hidden="true">
                   check_circle
                 </span>
                 <span>{takeaway}</span>

@@ -270,7 +270,7 @@ export default function Faq({
                         isActive ? 'rotate-45' : ''
                       }`}
                     >
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-xl">
+                      <span className="material-symbols-outlined text-[var(--color-primary)] text-xl" aria-hidden="true">
                         add
                       </span>
                     </div>

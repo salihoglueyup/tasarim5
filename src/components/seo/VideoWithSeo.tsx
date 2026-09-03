@@ -79,7 +79,7 @@ export default function VideoWithSeo({
             
             {/* Oynat Butonu */}
             <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-brand-500 transition-all">
-              <span className="material-symbols-outlined text-3xl md:text-4xl translate-x-0.5">
+              <span className="material-symbols-outlined text-3xl md:text-4xl translate-x-0.5" aria-hidden="true">
                 play_arrow
               </span>
             </div>

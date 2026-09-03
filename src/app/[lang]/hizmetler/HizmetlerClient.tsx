@@ -121,19 +121,19 @@ export default function HizmetlerClient() {
         {/* SLA Guarantee Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           <div className="bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 rounded-3xl flex flex-col gap-3 shadow-lg">
-            <span className="material-symbols-outlined text-3xl text-slate-300">timer</span>
+            <span className="material-symbols-outlined text-3xl text-slate-300" aria-hidden="true">timer</span>
             <div className="text-2xl font-bold">{t('services_sla_1_title')}</div>
             <p className="text-xs text-gray-300 font-light">{t('services_sla_1_desc')}</p>
           </div>
 
           <div className="bg-gradient-to-br from-slate-800 to-slate-950 text-white p-8 rounded-3xl flex flex-col gap-3 shadow-lg">
-            <span className="material-symbols-outlined text-3xl text-slate-300">verified_user</span>
+            <span className="material-symbols-outlined text-3xl text-slate-300" aria-hidden="true">verified_user</span>
             <div className="text-2xl font-bold">{t('services_sla_2_title')}</div>
             <p className="text-xs text-gray-300 font-light">{t('services_sla_2_desc')}</p>
           </div>
 
           <div className="bg-gradient-to-br from-purple-900 to-[#231536] text-white p-8 rounded-3xl flex flex-col gap-3 shadow-lg">
-            <span className="material-symbols-outlined text-3xl text-purple-400">trending_down</span>
+            <span className="material-symbols-outlined text-3xl text-purple-400" aria-hidden="true">trending_down</span>
             <div className="text-2xl font-bold">{t('services_sla_3_title')}</div>
             <p className="text-xs text-gray-300 font-light">{t('services_sla_3_desc')}</p>
           </div>
@@ -166,7 +166,7 @@ export default function HizmetlerClient() {
             >
               <div className="flex flex-col gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-2xl">{service.icon}</span>
+                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{service.icon}</span>
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-3 py-1 rounded-full w-fit">
                   {service.category}
@@ -179,7 +179,7 @@ export default function HizmetlerClient() {
                 <span className="text-[10px] font-bold text-gray-500">{service.stats}</span>
                 <Link href={service.link} className="text-xs font-bold text-slate-900 dark:text-white hover:underline flex items-center gap-1">
                   {t('serv_btn_detail')}
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                 </Link>
               </div>
             </motion.div>

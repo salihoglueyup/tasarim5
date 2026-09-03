@@ -93,7 +93,7 @@ export default function FacilityTransitionTimelineSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm">schedule</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">schedule</span>
           <span>Sıfır Kesinti & Pürüzsüz Entegrasyon</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -144,7 +144,7 @@ export default function FacilityTransitionTimelineSeo() {
             <div className="pt-3 border-t border-[var(--color-outline)]/40">
               <span className="text-[10px] text-slate-500 block uppercase font-bold tracking-wider">Çıktı Belgesi:</span>
               <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 mt-0.5">
-                <span className="material-symbols-outlined text-sm">verified</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
                 {step.deliverable}
               </span>
             </div>

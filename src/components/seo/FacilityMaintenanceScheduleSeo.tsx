@@ -99,7 +99,7 @@ export default function FacilityMaintenanceScheduleSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-          <span className="material-symbols-outlined text-[16px]">engineering</span>
+          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">engineering</span>
           E-E-A-T Mühendislik Standardı
         </div>
         <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -128,7 +128,7 @@ export default function FacilityMaintenanceScheduleSeo() {
                   : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-[16px]">{cat.icon}</span>
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">{cat.icon}</span>
               <span>{cat.label}</span>
             </button>
           ))}
@@ -145,7 +145,7 @@ export default function FacilityMaintenanceScheduleSeo() {
             <div className="space-y-4">
               <div className="flex items-center justify-between gap-2">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-2xl">{task.icon}</span>
+                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{task.icon}</span>
                 </div>
                 <span className="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[var(--color-primary)]">
                   {task.period}
@@ -157,7 +157,7 @@ export default function FacilityMaintenanceScheduleSeo() {
                   {task.system}
                 </h4>
                 <p className="text-[11px] text-[var(--color-tertiary)] mt-1 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px]">gavel</span>
+                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">gavel</span>
                   <span>{task.legalBasis}</span>
                 </p>
               </div>

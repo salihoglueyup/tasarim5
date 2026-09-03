@@ -64,7 +64,7 @@ export default function MevzuatReferenceSeo({
       >
         {/* Arka Plan Hukuk Terazisi İkonu */}
         <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none z-0">
-          <span className="material-symbols-outlined" style={{ fontSize: '12rem' }}>
+          <span className="material-symbols-outlined" style={{ fontSize: '12rem' }} aria-hidden="true">
             gavel
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function MevzuatReferenceSeo({
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-white/10 pb-4 mb-4">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
-                <span className="material-symbols-outlined text-lg">policy</span>
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">policy</span>
               </div>
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
@@ -91,7 +91,7 @@ export default function MevzuatReferenceSeo({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-lg border border-slate-200 dark:border-white/10 transition-colors shadow-sm"
               title="Kanun metnini kopyala"
             >
-              <span className="material-symbols-outlined text-sm">
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
                 {copied ? 'check' : 'content_copy'}
               </span>
               <span>{copied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>
@@ -113,7 +113,7 @@ export default function MevzuatReferenceSeo({
           {/* Uzman Hukuki Yorumu */}
           {uzmanYorumu && (
             <div className="mt-4 pt-4 border-t border-slate-200/60 dark:border-white/5 flex items-start gap-3">
-              <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-lg shrink-0 mt-0.5">
+              <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-lg shrink-0 mt-0.5" aria-hidden="true">
                 verified
               </span>
               <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light">

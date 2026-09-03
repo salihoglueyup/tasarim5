@@ -189,7 +189,7 @@ export default function GlobalSpotlightSearchSeo() {
           >
             {/* Input Bar */}
             <div className="p-5 border-b border-slate-100 dark:border-white/10 flex items-center gap-3.5 bg-slate-50/50 dark:bg-slate-950/40">
-              <span className="material-symbols-outlined text-2xl text-slate-400 dark:text-slate-400">search</span>
+              <span className="material-symbols-outlined text-2xl text-slate-400 dark:text-slate-400" aria-hidden="true">search</span>
               <input
                 ref={inputRef}
                 type="text"
@@ -208,7 +208,7 @@ export default function GlobalSpotlightSearchSeo() {
                 className="p-2 hover:bg-slate-200 dark:hover:bg-white/10 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
                 title="Kapat (Esc)"
               >
-                <span className="material-symbols-outlined text-xl">close</span>
+                <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
               </button>
             </div>
 
@@ -216,7 +216,7 @@ export default function GlobalSpotlightSearchSeo() {
             <div className="overflow-y-auto p-4 space-y-2 flex-1">
               {filteredResults.length === 0 ? (
                 <div className="py-12 text-center text-slate-400 space-y-2">
-                  <span className="material-symbols-outlined text-4xl text-slate-400">search_off</span>
+                  <span className="material-symbols-outlined text-4xl text-slate-400" aria-hidden="true">search_off</span>
                   <p className="text-sm font-medium text-slate-600 dark:text-slate-400">"{query}" ile ilgili sonuç bulunamadı.</p>
                   <p className="text-xs text-slate-400">
                     Örnek aramalar: <em>Kadıköy, Aidat, Güvenlik, Asansör, KMK 20, GES</em>
@@ -244,7 +244,7 @@ export default function GlobalSpotlightSearchSeo() {
                             : 'bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
                         }`}
                       >
-                        <span className="material-symbols-outlined text-xl">
+                        <span className="material-symbols-outlined text-xl" aria-hidden="true">
                           {item.icon}
                         </span>
                       </div>
@@ -298,7 +298,7 @@ export default function GlobalSpotlightSearchSeo() {
                 </span>
               </div>
               <span className="text-slate-700 dark:text-slate-300 font-bold flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm">manage_search</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">manage_search</span>
                 <span>Alo Yönetim Akıllı Arama</span>
               </span>
             </div>

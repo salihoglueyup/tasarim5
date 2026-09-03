@@ -108,7 +108,7 @@ export default function FaqClient({
         {/* Search Bar */}
         <div className="relative mb-6 max-w-2xl mx-auto">
           <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-            <span className="material-symbols-outlined text-[var(--color-secondary)]">search</span>
+            <span className="material-symbols-outlined text-[var(--color-secondary)]" aria-hidden="true">search</span>
           </div>
           <input 
             type="text" 
@@ -151,7 +151,7 @@ export default function FaqClient({
       <div className="flex flex-col gap-4">
         {filteredFaqs.length === 0 ? (
           <div className="text-center py-12 text-slate-500">
-            <span className="material-symbols-outlined text-5xl mb-4 opacity-50">search_off</span>
+            <span className="material-symbols-outlined text-5xl mb-4 opacity-50" aria-hidden="true">search_off</span>
             <p className="text-lg">{t('sss_not_found')}</p>
           </div>
         ) : (
@@ -217,7 +217,7 @@ export default function FaqClient({
                   onClick={() => setVisibleCount(prev => prev + 20)}
                   className="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-700 dark:text-slate-200 rounded-full shadow-sm hover:shadow-md transition-all font-semibold flex items-center gap-2 group"
                 >
-                  <span className="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+                  <span className="material-symbols-outlined group-hover:translate-y-1 transition-transform" aria-hidden="true">expand_more</span>
                   {t('sss_load_more')}
                 </button>
               </div>

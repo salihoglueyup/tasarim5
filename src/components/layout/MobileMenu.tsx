@@ -168,7 +168,7 @@ export default function MobileMenu({
                             onClick={onClose}
                             className="text-lg text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white flex items-center gap-3 font-medium transition-colors"
                           >
-                            {sub.icon && <span className="material-symbols-outlined text-[18px] opacity-50">{sub.icon}</span>}
+                            {sub.icon && <span className="material-symbols-outlined text-[18px] opacity-50" aria-hidden="true">{sub.icon}</span>}
                             <span>{t(sub.nameKey)}</span>
                           </Link>
                         ))}
@@ -221,7 +221,7 @@ export default function MobileMenu({
         {/* Mobil Tema Değiştirici */}
         <div className="mt-4 flex items-center justify-between p-3 rounded-2xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center gap-2.5">
-            <span className="material-symbols-outlined text-slate-700 dark:text-slate-200">
+            <span className="material-symbols-outlined text-slate-700 dark:text-slate-200" aria-hidden="true">
               {isDarkMode ? 'dark_mode' : 'light_mode'}
             </span>
             <span className="text-xs font-bold text-slate-900 dark:text-white">
@@ -245,7 +245,7 @@ export default function MobileMenu({
             className="flex items-center justify-center gap-2 w-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-lg font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform cursor-pointer"
           >
             <span>{t('btn_get_quote')}</span>
-            <span className="material-symbols-outlined">arrow_forward</span>
+            <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
           </button>
         </div>
       </div>

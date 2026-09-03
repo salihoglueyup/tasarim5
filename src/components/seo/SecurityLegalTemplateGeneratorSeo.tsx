@@ -170,7 +170,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/40">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <span className="material-symbols-outlined text-sm">gavel</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">gavel</span>
             5188 Mevzuat & Hukuk Portalı
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -278,7 +278,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
             onClick={handleCopy}
             className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white font-sans font-bold px-3 py-1.5 rounded-lg transition-colors shadow-sm"
           >
-            <span className="material-symbols-outlined text-sm">
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">
               {isCopied ? 'check' : 'content_copy'}
             </span>
             <span>{isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>
@@ -293,7 +293,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
       {/* Trust Footnote */}
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-emerald-500 text-base">verified</span>
+          <span className="material-symbols-outlined text-emerald-500 text-base" aria-hidden="true">verified</span>
           <span>5188 Sayılı Kanun ve T.C. İçişleri Bakanlığı Mevzuatına %100 Uygundur.</span>
         </div>
         <p>Valilik ruhsatlandırma ve operasyonel süreç danışmanlığı için bize ulaşabilirsiniz.</p>

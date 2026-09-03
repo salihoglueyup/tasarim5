@@ -105,7 +105,7 @@ export default function DistrictCleaningAuditTableSeo({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm">sanitizer</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">sanitizer</span>
             {districtName} Tesis Hijyen & Temizlik Matrisi
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)]">
@@ -164,7 +164,7 @@ export default function DistrictCleaningAuditTableSeo({
               <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
                 <td className="py-4 px-4 font-semibold text-[var(--color-primary)]">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-teal-600 text-base shrink-0">check_circle</span>
+                    <span className="material-symbols-outlined text-teal-600 text-base shrink-0" aria-hidden="true">check_circle</span>
                     <span>{row.item}</span>
                   </div>
                 </td>
@@ -195,7 +195,7 @@ export default function DistrictCleaningAuditTableSeo({
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all shadow-md shadow-teal-600/20 shrink-0"
         >
           <span>{districtName} İçin Temizlik Teklifi Al</span>
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
         </Link>
       </div>
     </div>

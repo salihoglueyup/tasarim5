@@ -81,7 +81,7 @@ export default function TesisYonetimiRehberClient() {
           <ul className="space-y-4">
             {CHECKLIST.map((c) => (
               <li key={c.item} className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-emerald-400 text-xl mt-0.5 flex-shrink-0">{c.icon}</span>
+                <span className="material-symbols-outlined text-emerald-400 text-xl mt-0.5 flex-shrink-0" aria-hidden="true">{c.icon}</span>
                 <span className="text-[var(--color-text-secondary)]">{c.item}</span>
               </li>
             ))}
@@ -90,7 +90,7 @@ export default function TesisYonetimiRehberClient() {
             <p className="text-violet-300 font-semibold mb-2">Alo Yönetim Bu Listedeki Tüm Kriterleri Karşılıyor</p>
             <p className="text-sm text-slate-400">ISO 9001, ISO 45001, 5188 ve TSE belgeli; şeffaf sözleşme; aylık raporlama; 45 dk SLA taahhüdü.</p>
             <Link href="/teklif-al" className="mt-4 inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-white font-bold py-2.5 px-6 rounded-xl transition-all">
-              Ücretsiz Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              Ücretsiz Teklif Al <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function TesisYonetimiRehberClient() {
               { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi Tesisi', icon: 'factory', color: 'orange' },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="flex flex-col items-center gap-3 p-6 border border-[var(--color-outline)]/60 rounded-2xl hover:border-brand-500/40 text-center transition-all group">
-                <span className="material-symbols-outlined text-4xl text-brand-500 group-hover:scale-110 transition-transform">{item.icon}</span>
+                <span className="material-symbols-outlined text-4xl text-brand-500 group-hover:scale-110 transition-transform" aria-hidden="true">{item.icon}</span>
                 <span className="text-sm font-semibold text-[var(--color-text-primary)]">{item.label}</span>
                 <span className="text-xs text-[var(--color-text-muted)]">Detaylı incele →</span>
               </Link>

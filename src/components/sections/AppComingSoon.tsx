@@ -26,7 +26,7 @@ export default function AppComingSoon() {
       {/* Hero */}
       <section className="flex-1 flex flex-col items-center justify-center text-center px-[var(--spacing-gutter)] pt-32 pb-20">
         <span className="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-8 transition-all duration-300 transform-gpu">
-          <span className="material-symbols-outlined text-sm">schedule</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">schedule</span>
           {t('app_soon_badge')}
         </span>
 
@@ -53,7 +53,7 @@ export default function AppComingSoon() {
               className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-2xl opacity-50 cursor-not-allowed select-none"
               title={t('app_soon_badge')}
             >
-              <span className="material-symbols-outlined text-2xl text-slate-300">{p.icon}</span>
+              <span className="material-symbols-outlined text-2xl text-slate-300" aria-hidden="true">{p.icon}</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-amber-300 font-bold">{t('app_soon_badge')}</span>
                 <span className="text-sm font-bold">{p.label}</span>
@@ -77,7 +77,7 @@ export default function AppComingSoon() {
               className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col gap-3 backdrop-blur-sm hover:scale-[1.02] hover:bg-white/10 transition-all duration-300 transform-gpu"
             >
               <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-slate-200">{f.icon}</span>
+                <span className="material-symbols-outlined text-slate-200" aria-hidden="true">{f.icon}</span>
               </div>
               <h3 className="font-bold text-sm text-white">{t(f.titleKey as any)}</h3>
               <p className="text-xs text-slate-400 font-light leading-relaxed">{t(f.descKey as any)}</p>
@@ -94,7 +94,7 @@ export default function AppComingSoon() {
           className="inline-flex items-center gap-2 bg-white text-slate-950 font-bold px-8 py-3.5 rounded-xl hover:bg-slate-100 transition-colors shadow-lg"
         >
           {t('app_soon_cta_link')}
-          <span className="material-symbols-outlined text-base">arrow_forward</span>
+          <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
         </Link>
       </section>
     </div>

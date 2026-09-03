@@ -44,7 +44,7 @@ export default function CalculatorLeadForm({ serviceName, calcDetails, buttonTex
         className="w-full bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-6 rounded-xl transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-white/10"
       >
         {buttonText || t('calc_btn_free_discovery')}
-        <span className="material-symbols-outlined text-sm">arrow_forward</span>
+        <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
       </button>
     );
   }
@@ -52,7 +52,7 @@ export default function CalculatorLeadForm({ serviceName, calcDetails, buttonTex
   if (status === 'success') {
     return (
       <div className="w-full bg-blue-500/20 text-blue-300 font-bold py-4 px-6 rounded-xl text-center flex flex-col items-center gap-2 border border-blue-500/30">
-        <span className="material-symbols-outlined text-3xl text-blue-400">check_circle</span>
+        <span className="material-symbols-outlined text-3xl text-blue-400" aria-hidden="true">check_circle</span>
         Talebiniz Alındı!
       </div>
     );

@@ -21,7 +21,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]">hub</span>
+            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">hub</span>
             Tesis & Mülk Yönetimi Sektörel Çözüm Ağı
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -34,7 +34,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
           className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 shrink-0"
         >
           <span>Ana Tesis Yönetimi Hub&apos;ı</span>
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
         </Link>
       </div>
 
@@ -54,7 +54,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
             >
               <div>
                 <div className="w-10 h-10 rounded-xl bg-slate-900/5 dark:bg-white/10 text-slate-800 dark:text-slate-200 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-xl">{sub.icon}</span>
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">{sub.icon}</span>
                 </div>
                 <h4 className="text-sm font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-1.5">
                   {sub.name}
@@ -66,7 +66,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
 
               <div className="pt-3 mt-3 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-[11px] font-semibold text-[var(--color-primary)]">
                 <span>{isCurrent ? 'Aktif Sayfa' : 'İncele'}</span>
-                <span className="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                <span className="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
               </div>
             </Link>
           );

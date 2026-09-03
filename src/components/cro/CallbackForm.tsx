@@ -46,7 +46,7 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
   if (status === 'success') {
     return (
       <div role="status" aria-live="polite" className={`${wrapClass} items-center text-center`}>
-        <span className="material-symbols-outlined text-3xl text-slate-800 dark:text-white">check_circle</span>
+        <span className="material-symbols-outlined text-3xl text-slate-800 dark:text-white" aria-hidden="true">check_circle</span>
         <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('cro_callback_success')}</p>
       </div>
     );
@@ -104,7 +104,7 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
         disabled={status === 'loading'}
         className="w-full bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900 font-bold text-sm py-3 rounded-xl shadow-md hover:opacity-95 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
-        <span className="material-symbols-outlined text-[18px]">call</span>
+        <span className="material-symbols-outlined text-[18px]" aria-hidden="true">call</span>
         {status === 'loading' ? t('cro_callback_sending') : t('cro_callback_btn')}
       </button>
     </form>

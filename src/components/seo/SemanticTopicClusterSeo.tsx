@@ -62,7 +62,7 @@ export default function SemanticTopicClusterSeo({
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">hub</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">hub</span>
               Semantik Konu Kümeleri & Rehber Ağı
             </span>
           </div>
@@ -136,7 +136,7 @@ export default function SemanticTopicClusterSeo({
                 <span className="text-sm font-bold text-[var(--color-primary)] group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {s.name}
                 </span>
-                <span className="material-symbols-outlined text-sm text-[var(--color-secondary)] group-hover:translate-x-1 transition-transform">
+                <span className="material-symbols-outlined text-sm text-[var(--color-secondary)] group-hover:translate-x-1 transition-transform" aria-hidden="true">
                   arrow_forward
                 </span>
               </div>
@@ -168,7 +168,7 @@ export default function SemanticTopicClusterSeo({
                   {d.side} Yakası
                 </span>
               </div>
-              <span className="material-symbols-outlined text-xs text-[var(--color-secondary)] group-hover:translate-x-0.5 transition-transform">
+              <span className="material-symbols-outlined text-xs text-[var(--color-secondary)] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">
                 chevron_right
               </span>
             </Link>
@@ -188,7 +188,7 @@ export default function SemanticTopicClusterSeo({
                 <span className="px-2.5 py-0.5 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-[10px] font-bold">
                   {g.tag}
                 </span>
-                <span className="material-symbols-outlined text-sm text-[var(--color-secondary)] group-hover:translate-x-1 transition-transform">
+                <span className="material-symbols-outlined text-sm text-[var(--color-secondary)] group-hover:translate-x-1 transition-transform" aria-hidden="true">
                   arrow_forward
                 </span>
               </div>
@@ -212,7 +212,7 @@ export default function SemanticTopicClusterSeo({
                 <span className="px-2.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-[10px] font-bold">
                   {c.tag}
                 </span>
-                <span className="material-symbols-outlined text-sm text-[var(--color-secondary)] group-hover:translate-x-1 transition-transform">
+                <span className="material-symbols-outlined text-sm text-[var(--color-secondary)] group-hover:translate-x-1 transition-transform" aria-hidden="true">
                   arrow_forward
                 </span>
               </div>

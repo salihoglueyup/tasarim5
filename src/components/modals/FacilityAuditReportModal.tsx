@@ -51,7 +51,7 @@ export default function FacilityAuditReportModal({
         {/* Modal Başlık Çubuğu */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/50 print:hidden">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-xl">assessment</span>
+            <span className="material-symbols-outlined text-primary text-xl" aria-hidden="true">assessment</span>
             <span className="text-sm font-bold text-white uppercase tracking-wider">
               Tesis Sağlık & Tasarruf Karne Raporu
             </span>
@@ -60,7 +60,7 @@ export default function FacilityAuditReportModal({
             onClick={onClose}
             className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
-            <span className="material-symbols-outlined text-lg">close</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">close</span>
           </button>
         </div>
 
@@ -179,7 +179,7 @@ export default function FacilityAuditReportModal({
               className="w-full py-3.5 bg-primary text-slate-950 font-extrabold rounded-xl text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-xl shadow-primary/20 mt-4"
             >
               <span>Resmi Denetim Raporunu Üret</span>
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
+              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
             </button>
           </form>
         ) : (
@@ -260,7 +260,7 @@ export default function FacilityAuditReportModal({
             {/* Önerilen Aksiyon Planı */}
             <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
               <div className="text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm">lightbulb</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">lightbulb</span>
                 Alo Yönetim Uzman Önerileri
               </div>
               <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
@@ -284,15 +284,15 @@ export default function FacilityAuditReportModal({
                   onClick={handlePrint}
                   className="px-4 py-2.5 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-700 transition-all flex items-center gap-1.5 flex-1 sm:flex-initial justify-center"
                 >
-                  <span className="material-symbols-outlined text-sm">print</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">print</span>
                   <span>PDF / Yazdır</span>
                 </button>
                 <a
-                  href="/tr/teklif-al"
+                  href="/teklif-al"
                   className="px-5 py-2.5 bg-primary text-slate-950 rounded-xl text-xs font-extrabold hover:brightness-110 transition-all flex items-center gap-1.5 flex-1 sm:flex-initial justify-center shadow-lg shadow-primary/20"
                 >
                   <span>Resmi Teklif Al</span>
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                 </a>
               </div>
             </div>

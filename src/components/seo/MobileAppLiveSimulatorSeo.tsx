@@ -43,7 +43,7 @@ export default function MobileAppLiveSimulatorSeo() {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm">smartphone</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">smartphone</span>
           <span>İnteraktif Sakin & Yönetici Deneyimi</span>
         </div>
         <h3 className="text-3xl md:text-4xl font-extrabold text-white">
@@ -68,7 +68,7 @@ export default function MobileAppLiveSimulatorSeo() {
             }`}
           >
             <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-2xl">credit_card</span>
+              <span className="material-symbols-outlined text-2xl" aria-hidden="true">credit_card</span>
             </div>
             <div>
               <h4 className="text-base font-bold text-white mb-0.5">1. Tek Tıkla Aidat & Masraf Ödeme</h4>
@@ -87,7 +87,7 @@ export default function MobileAppLiveSimulatorSeo() {
             }`}
           >
             <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-2xl">home_repair_service</span>
+              <span className="material-symbols-outlined text-2xl" aria-hidden="true">home_repair_service</span>
             </div>
             <div>
               <h4 className="text-base font-bold text-white mb-0.5">2. Fotoğraflı Arıza & Teknik Takip</h4>
@@ -106,7 +106,7 @@ export default function MobileAppLiveSimulatorSeo() {
             }`}
           >
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-2xl">how_to_vote</span>
+              <span className="material-symbols-outlined text-2xl" aria-hidden="true">how_to_vote</span>
             </div>
             <div>
               <h4 className="text-base font-bold text-white mb-0.5">3. Dijital Genel Kurul & Karar Oylama</h4>
@@ -125,7 +125,7 @@ export default function MobileAppLiveSimulatorSeo() {
             }`}
           >
             <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-2xl">local_police</span>
+              <span className="material-symbols-outlined text-2xl" aria-hidden="true">local_police</span>
             </div>
             <div>
               <h4 className="text-base font-bold text-white mb-0.5">4. Ziyaretçi & Plaka Tanıma (PTS)</h4>
@@ -202,7 +202,7 @@ export default function MobileAppLiveSimulatorSeo() {
                         2. Kat kabin kapısında sürtünme sesi mevcut.
                       </p>
                       <div className="flex items-center gap-1 text-[10px] text-amber-400">
-                        <span className="material-symbols-outlined text-xs">schedule</span>
+                        <span className="material-symbols-outlined text-xs" aria-hidden="true">schedule</span>
                         <span>Durum: {ticketSent ? 'Teknik Ekip Yönlendirildi' : 'Kayıt Açıldı'}</span>
                       </div>
                     </div>
@@ -284,7 +284,7 @@ export default function MobileAppLiveSimulatorSeo() {
                   onClick={() => setActiveScreen('aidat')}
                   className={`flex flex-col items-center gap-1 ${activeScreen === 'aidat' ? 'text-blue-400' : 'text-slate-500'}`}
                 >
-                  <span className="material-symbols-outlined text-base">receipt_long</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">receipt_long</span>
                   <span className="text-[9px]">Aidat</span>
                 </button>
 
@@ -292,7 +292,7 @@ export default function MobileAppLiveSimulatorSeo() {
                   onClick={() => setActiveScreen('ariza')}
                   className={`flex flex-col items-center gap-1 ${activeScreen === 'ariza' ? 'text-amber-400' : 'text-slate-500'}`}
                 >
-                  <span className="material-symbols-outlined text-base">build</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">build</span>
                   <span className="text-[9px]">Arıza</span>
                 </button>
 
@@ -300,7 +300,7 @@ export default function MobileAppLiveSimulatorSeo() {
                   onClick={() => setActiveScreen('oylama')}
                   className={`flex flex-col items-center gap-1 ${activeScreen === 'oylama' ? 'text-emerald-400' : 'text-slate-500'}`}
                 >
-                  <span className="material-symbols-outlined text-base">how_to_vote</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">how_to_vote</span>
                   <span className="text-[9px]">Oylama</span>
                 </button>
 
@@ -308,7 +308,7 @@ export default function MobileAppLiveSimulatorSeo() {
                   onClick={() => setActiveScreen('guvenlik')}
                   className={`flex flex-col items-center gap-1 ${activeScreen === 'guvenlik' ? 'text-purple-400' : 'text-slate-500'}`}
                 >
-                  <span className="material-symbols-outlined text-base">shield</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">shield</span>
                   <span className="text-[9px]">Güvenlik</span>
                 </button>
               </div>

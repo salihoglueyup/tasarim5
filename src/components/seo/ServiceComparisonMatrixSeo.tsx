@@ -108,13 +108,13 @@ export default function ServiceComparisonMatrixSeo({
                   </td>
                   <td className="p-4 md:p-5 text-slate-500 dark:text-slate-400 font-light">
                     <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5">close</span>
+                      <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5" aria-hidden="true">close</span>
                       <span>{row.traditional}</span>
                     </div>
                   </td>
                   <td className="p-4 md:p-5 text-slate-800 dark:text-slate-200 font-medium bg-emerald-500/5">
                     <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5">check_circle</span>
+                      <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
                       <span>{row.aloYonetim}</span>
                     </div>
                   </td>

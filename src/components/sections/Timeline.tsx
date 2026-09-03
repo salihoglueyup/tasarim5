@@ -50,7 +50,7 @@ export default function Timeline() {
                   
                   {/* Timeline Dot */}
                   <div className="absolute left-[-40px] md:left-1/2 md:-translate-x-1/2 w-12 h-12 bg-[var(--color-surface)] border-2 border-[var(--color-primary)] rounded-full flex items-center justify-center z-20 shadow-sm">
-                    <span className="material-symbols-outlined text-[var(--color-primary)] text-xl">{step.icon}</span>
+                    <span className="material-symbols-outlined text-[var(--color-primary)] text-xl" aria-hidden="true">{step.icon}</span>
                   </div>
 
                   {/* Content Container */}

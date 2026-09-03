@@ -71,7 +71,7 @@ export default function InstantAnswerCardSeo({
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
         <div className="flex items-center gap-2.5">
           <span className="px-3.5 py-1.5 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">stars</span>
+            <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">stars</span>
             Google 0. Sıra Doğrudan Cevap
           </span>
           <span className="px-3 py-1 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] rounded-full text-xs font-medium">
@@ -84,7 +84,7 @@ export default function InstantAnswerCardSeo({
           className="px-3.5 py-1.5 bg-[var(--color-surface-variant)] hover:border-slate-400 border border-[var(--color-outline)] rounded-xl text-xs font-semibold text-[var(--color-primary)] flex items-center gap-1.5 transition-colors cursor-pointer"
           title="Cevabı ve mevzuat maddesini kopyala"
         >
-          <span className="material-symbols-outlined text-sm">
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">
             {copied ? 'check' : 'content_copy'}
           </span>
           <span>{copied ? 'Kopyalandı!' : 'Özeti Kopyala'}</span>
@@ -113,7 +113,7 @@ export default function InstantAnswerCardSeo({
           <ul className="space-y-2">
             {bulletPoints.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm text-[var(--color-secondary)]">
-                <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm mt-0.5 shrink-0">
+                <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm mt-0.5 shrink-0" aria-hidden="true">
                   check_circle
                 </span>
                 <span>{item}</span>
@@ -126,11 +126,11 @@ export default function InstantAnswerCardSeo({
       {/* Trust Footer */}
       <div className="pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--color-secondary)] relative z-10">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">gavel</span>
+          <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">gavel</span>
           <span>Mevzuat Dayanağı: <strong className="text-[var(--color-primary)]">{lawArticle}</strong></span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-slate-500">verified_user</span>
+          <span className="material-symbols-outlined text-sm text-slate-500" aria-hidden="true">verified_user</span>
           <span>Doğrulayan: <span className="text-[var(--color-primary)] font-medium">{verifiedBy}</span> ({lastUpdated})</span>
         </div>
       </div>

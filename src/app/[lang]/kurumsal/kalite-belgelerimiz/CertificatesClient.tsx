@@ -100,7 +100,7 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
             className="w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md flex items-center justify-center shrink-0 mb-6 group-hover:scale-110 transition-transform duration-300"
             style={{ transform: "translateZ(30px)" }}
           >
-            <span className="material-symbols-outlined text-2xl">{cert.icon}</span>
+            <span className="material-symbols-outlined text-2xl" aria-hidden="true">{cert.icon}</span>
           </div>
 
           <div className="flex-grow flex flex-col justify-end w-full" style={{ transform: "translateZ(20px)" }}>
@@ -119,7 +119,7 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
               className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
             >
               <span>Detayları İncele</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function CertificatesClient() {
             {/* Başlık & Rozetler */}
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-                <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">verified</span>
+                <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">verified</span>
                 <span>Özet Rehber: Tesis Yönetiminde Uluslararası ISO Kalite Standartları ve Yetki Belgeleri</span>
               </div>
               <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -186,17 +186,17 @@ export default function CertificatesClient() {
                 Kalite güvence sistemimiz;{' '}
                 <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                   ISO 41001:2018 (Uluslararası Tesis Yönetimi Standardı)
-                  <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
                 </a>
                 ,{' '}
                 <a href="https://www.iso.org/iso-9001-quality-management.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                   ISO 9001:2015 Kalite Yönetim Sistemi
-                  <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
                 </a>
                 ,{' '}
                 <a href="https://www.tse.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                   TSE Hizmet Yeri Yeterlilik Belgesi
-                  <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
                 </a>
                 {' '}ve 5188 Sayılı Kanun Valilik Özel Güvenlik Şirketi Faaliyet İzin Belgesi ile tam yetkilendirilmiştir.
               </p>
@@ -269,7 +269,7 @@ export default function CertificatesClient() {
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                   <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-lg">verified</span>
+                    <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
                   </span>
                   <span>%100 Akredite Operasyon</span>
                 </div>
@@ -281,7 +281,7 @@ export default function CertificatesClient() {
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                   <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-lg">gavel</span>
+                    <span className="material-symbols-outlined text-lg" aria-hidden="true">gavel</span>
                   </span>
                   <span>Sıfır Hukuki Risk</span>
                 </div>
@@ -293,7 +293,7 @@ export default function CertificatesClient() {
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                   <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-lg">domain</span>
+                    <span className="material-symbols-outlined text-lg" aria-hidden="true">domain</span>
                   </span>
                   <span>Mülk Değer Koruması</span>
                 </div>

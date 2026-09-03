@@ -167,7 +167,7 @@ export default function ChecklistAuditSeo({
                     }`}
                   >
                     {isChecked && (
-                      <span className="material-symbols-outlined text-sm font-bold">check</span>
+                      <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">check</span>
                     )}
                   </div>
                 </div>

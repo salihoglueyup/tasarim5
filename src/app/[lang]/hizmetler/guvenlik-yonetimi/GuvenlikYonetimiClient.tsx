@@ -154,7 +154,7 @@ export default function GuvenlikYonetimiClient() {
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('sec_banner_box_btn') || 'Ücretsiz Güvenlik Keşfi'} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('sec_banner_box_btn') || 'Ücretsiz Güvenlik Keşfi'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
           </motion.div>
@@ -177,7 +177,7 @@ export default function GuvenlikYonetimiClient() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">verified_user</span>
+              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">verified_user</span>
               <span>Özet Rehber: 5188 Lisanslı Özel Güvenlik Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -210,12 +210,12 @@ export default function GuvenlikYonetimiClient() {
               Güvenlik operasyonlarımız;{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
               <a href="https://www.egm.gov.tr/ozelguvenlik" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 Emniyet Genel Müdürlüğü Özel Güvenlik Denetleme Standartları
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
               <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -288,7 +288,7 @@ export default function GuvenlikYonetimiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">verified</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
                 </span>
                 <span>%100 Valilik İzni & Yasal Güvence</span>
               </div>
@@ -300,7 +300,7 @@ export default function GuvenlikYonetimiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">timer</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">timer</span>
                 </span>
                 <span>45 Dakika SLA Acil Müdahale</span>
               </div>
@@ -312,7 +312,7 @@ export default function GuvenlikYonetimiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">security</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">security</span>
                 </span>
                 <span>Sıfır Hukuki Risk & Tam Sigorta</span>
               </div>
@@ -348,7 +348,7 @@ export default function GuvenlikYonetimiClient() {
               >
                 <div className={`absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br ${f.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-full blur-2xl`} />
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform relative z-10`}>
-                  <span className="material-symbols-outlined text-3xl">{f.icon}</span>
+                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">{f.icon}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[var(--color-primary)] relative z-10">{f.title}</h3>
                 <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed relative z-10">{f.desc}</p>
@@ -371,7 +371,7 @@ export default function GuvenlikYonetimiClient() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
           <div className="space-y-4 max-w-2xl relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-bold text-blue-600 dark:text-blue-400">
-              <span className="material-symbols-outlined text-sm">school</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">school</span>
               <span>Kendi Akademimizde Yetişen Uzman Kadro</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight leading-tight">
@@ -394,7 +394,7 @@ export default function GuvenlikYonetimiClient() {
               className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 flex items-center gap-3 text-sm"
             >
               <span>Akademi Müfredatını İnceleyin</span>
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
+              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
         </div>

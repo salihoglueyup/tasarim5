@@ -94,7 +94,7 @@ export default function PreFooterCta() {
                 className="bg-white text-slate-950 px-10 py-5 rounded-full font-extrabold text-lg hover:bg-slate-100 hover:scale-105 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)] flex items-center gap-3 group cursor-pointer"
               >
                 {t('home_cta_btn')}
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
               </Link>
             </Magnetic>
           </div>

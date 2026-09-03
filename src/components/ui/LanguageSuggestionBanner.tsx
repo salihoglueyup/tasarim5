@@ -95,7 +95,7 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-blue-400 text-xl">language</span>
+          <span className="material-symbols-outlined text-blue-400 text-xl" aria-hidden="true">language</span>
           <span className="text-xs font-bold uppercase tracking-wider text-blue-300">{msg.langName}</span>
         </div>
         <button
@@ -103,7 +103,7 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
           className="text-slate-400 hover:text-white p-1 rounded-lg transition-colors"
           aria-label="Kapat"
         >
-          <span className="material-symbols-outlined text-base leading-none">close</span>
+          <span className="material-symbols-outlined text-base leading-none" aria-hidden="true">close</span>
         </button>
       </div>
 

@@ -33,12 +33,12 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
               onClick={onClose}
               className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:text-black dark:hover:text-white transition-colors"
             >
-              <span className="material-symbols-outlined text-xl">close</span>
+              <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
             </button>
 
             <div className="flex flex-col gap-6">
               <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
-                <span className="material-symbols-outlined text-3xl">domain</span>
+                <span className="material-symbols-outlined text-3xl" aria-hidden="true">domain</span>
               </div>
 
               <div>

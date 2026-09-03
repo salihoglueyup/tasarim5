@@ -116,7 +116,7 @@ export default function AidatTakibiClient() {
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote') || 'Teklif Alın'} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                {t('btn_get_quote') || 'Teklif Alın'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
           </motion.div>
@@ -139,7 +139,7 @@ export default function AidatTakibiClient() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400">payments</span>
+              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">payments</span>
               <span>Özet Rehber: Profesyonel Aidat ve Finans Yönetimi Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -172,12 +172,12 @@ export default function AidatTakibiClient() {
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
                 KMK Madde 37 (İşletme Projesi Tebliği)
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
                 2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               {' '}ve Bankacılık Düzenleme ve Denetleme Kurumu (BDDK) onaylı 256-bit SSL şifrelemeli sanal POS altyapısıyla yürütülür.
             </p>
@@ -250,7 +250,7 @@ export default function AidatTakibiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">trending_up</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_up</span>
                 </span>
                 <span>%99 Ortalama Tahsilat Başarısı</span>
               </div>
@@ -262,7 +262,7 @@ export default function AidatTakibiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">gavel</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">gavel</span>
                 </span>
                 <span>%100 KMK 634 Mevzuat Güvencesi</span>
               </div>
@@ -274,7 +274,7 @@ export default function AidatTakibiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">visibility</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">visibility</span>
                 </span>
                 <span>7/24 Canlı Şeffaf Denetim</span>
               </div>
@@ -290,7 +290,7 @@ export default function AidatTakibiClient() {
           {duesPoints.map((p, i) => (
             <Card key={i} variant="glow" className="p-10 flex flex-col gap-4">
               <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl">{p.icon}</span>
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{p.icon}</span>
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{p.title}</h3>
               <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{p.desc}</p>
@@ -302,7 +302,7 @@ export default function AidatTakibiClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm flex flex-col gap-8">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
-              <span className="material-symbols-outlined text-sm">balance</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">balance</span>
               <span>KMK 634 & İİK 68 Yasal Tahsilat Çerçevesi</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">

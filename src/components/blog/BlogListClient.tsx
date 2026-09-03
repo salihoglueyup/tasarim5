@@ -66,7 +66,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
           <div className="relative z-10 flex-1">
             <div className="flex items-center gap-2 text-slate-300 font-bold text-xs uppercase tracking-widest bg-slate-500/10 px-4 py-1.5 rounded-full w-fit mb-4">
-              <span className="material-symbols-outlined text-sm">mail</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">mail</span>
               {t('blog_nl_tag') || 'Haber Bülteni'}
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t('blog_nl_title') || 'Gelişmelerden Haberdar Olun'}</h2>
@@ -90,7 +90,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
               }`}
             >
               {subscribed ? (
-                <><span className="material-symbols-outlined">check_circle</span> {t('blog_nl_success') || 'Kayıt Başarılı!'}</>
+                <><span className="material-symbols-outlined" aria-hidden="true">check_circle</span> {t('blog_nl_success') || 'Kayıt Başarılı!'}</>
               ) : (
                 t('blog_nl_btn') || 'Abone Ol'
               )}
@@ -102,7 +102,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto min-h-[600px]">
         {/* Search */}
         <div className="max-w-xl mx-auto mb-8 relative">
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true">search</span>
           <input
             type="search"
             value={query}
@@ -147,7 +147,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
                     </div>
                     <div className="flex items-center gap-4 mb-3 text-gray-500 font-light text-sm">
                       <span className="flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[16px]">calendar_today</span>
+                        <span className="material-symbols-outlined text-[16px]" aria-hidden="true">calendar_today</span>
                         {formatDate(post.datePublished)}
                       </span>
                     </div>
@@ -164,7 +164,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
 
         {filtered.length === 0 && (
           <div className="text-center py-20 text-gray-500">
-            <span className="material-symbols-outlined text-4xl mb-3">inbox</span>
+            <span className="material-symbols-outlined text-4xl mb-3" aria-hidden="true">inbox</span>
             <p>Aramanıza uygun yazı bulunamadı.</p>
           </div>
         )}

@@ -188,7 +188,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400">domain_add</span>
+              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">domain_add</span>
               <span>Özet Rehber: Sektörel Tesis Yönetimi ve Tipolojiye Özel İşletme Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -225,7 +225,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
               Sektörel operasyonlarımız;{' '}
               <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 ISO 41001:2018 Uluslararası Tesis Yönetimi Standardı
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
               <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -234,7 +234,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Kanunu
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               {' '}ve 6331 Sayılı İş Sağlığı ve Güvenliği (İSG) mevzuatlarına tam entegre olarak icra edilir.
             </p>
@@ -311,7 +311,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">trending_down</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
                 </span>
                 <span>%30 Net Bütçe Tasarrufu</span>
               </div>
@@ -323,7 +323,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">verified</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
                 </span>
                 <span>%100 Tipolojiye Özel SLA</span>
               </div>
@@ -335,7 +335,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">shield_person</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">shield_person</span>
                 </span>
                 <span>7/24 Şeffaf Denetim</span>
               </div>
@@ -359,7 +359,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                     : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-xl">{s.icon}</span>
+                <span className="material-symbols-outlined text-xl" aria-hidden="true">{s.icon}</span>
                 <span>{s.title}</span>
               </button>
             ))}
@@ -378,7 +378,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
               <div className="lg:col-span-7 flex flex-col gap-6">
                 <div className="flex items-center gap-3">
                   <span className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-2xl">{currentSector.icon}</span>
+                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">{currentSector.icon}</span>
                   </span>
                   <span className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 border border-slate-500/20 px-4 py-1.5 rounded-full">
                     {currentSector.kpi}
@@ -394,7 +394,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {currentSector.features.map((feat: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10 text-xs font-semibold text-[var(--color-primary)]">
-                      <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0">check_circle</span>
+                      <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">check_circle</span>
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -403,7 +403,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
                 <div className="flex items-center gap-2 text-slate-300 text-xs font-bold uppercase tracking-widest">
-                  <span className="material-symbols-outlined text-sm">stars</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">stars</span>
                   {t('sector_specialty_tag')}
                 </div>
 
@@ -417,7 +417,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                   className="w-full bg-white text-slate-950 font-bold py-4 px-6 rounded-2xl text-center text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md flex items-center justify-center gap-2 mt-2"
                 >
                   {currentSector.title} {t('sector_quote_for_sector')}
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                 </Link>
               </div>
             </motion.div>
@@ -458,7 +458,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-slate-300">shield</span>
+                  <span className="material-symbols-outlined text-sm text-slate-300" aria-hidden="true">shield</span>
                   {t('sector_est_sec')}
                 </span>
                 <span className="text-2xl font-bold text-slate-300">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
@@ -467,7 +467,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-slate-300">cleaning_services</span>
+                  <span className="material-symbols-outlined text-sm text-slate-300" aria-hidden="true">cleaning_services</span>
                   {t('sector_est_clean')}
                 </span>
                 <span className="text-2xl font-bold text-slate-300">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
@@ -476,7 +476,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-amber-400">build</span>
+                  <span className="material-symbols-outlined text-sm text-amber-400" aria-hidden="true">build</span>
                   {t('sector_est_tech')}
                 </span>
                 <span className="text-2xl font-bold text-amber-400">{estimatedTechnical} {t('sector_est_tech_val').replace('Personel', '').trim() || t('sector_est_tech_val')}</span>
@@ -485,7 +485,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
                 <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-purple-400">badge</span>
+                  <span className="material-symbols-outlined text-sm text-purple-400" aria-hidden="true">badge</span>
                   {t('sector_est_mgr')}
                 </span>
                 <span className="text-2xl font-bold text-purple-400">{estimatedManager} {t('sector_est_mgr_val').replace('Müdür', '').trim() || t('sector_est_mgr_val')}</span>
@@ -506,7 +506,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
-                    <span className="material-symbols-outlined text-3xl">{s.icon}</span>
+                    <span className="material-symbols-outlined text-3xl" aria-hidden="true">{s.icon}</span>
                   </div>
                   <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 px-3 py-1 rounded-full">
                     {s.kpi}
@@ -518,7 +518,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 <div className="flex flex-col gap-2 pt-2">
                   {s.features.map((f: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-300">
-                      <span className="material-symbols-outlined text-slate-900 dark:text-white text-sm">check_circle</span>
+                      <span className="material-symbols-outlined text-slate-900 dark:text-white text-sm" aria-hidden="true">check_circle</span>
                       <span>{f}</span>
                     </div>
                   ))}
@@ -527,7 +527,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <Link href="/teklif-al" className="w-fit bg-[var(--color-primary)] text-white font-bold py-3 px-6 rounded-xl text-xs hover:opacity-95 transition-opacity flex items-center gap-2">
                 {t('sector_get_quote')}
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
           ))}
@@ -547,7 +547,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} aria-hidden="true">
                     expand_more
                   </span>
                 </button>

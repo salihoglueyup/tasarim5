@@ -49,7 +49,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
       title={title}
       className={`p-1.5 rounded-lg flex items-center justify-center transition-colors ${isActive ? activeClass : inactiveClass} disabled:opacity-50`}
     >
-      <span className="material-symbols-outlined text-[20px]">{icon}</span>
+      <span className="material-symbols-outlined text-[20px]" aria-hidden="true">{icon}</span>
     </button>
   );
 
@@ -65,7 +65,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
       <Btn onClick={() => editor.chain().focus().toggleHighlight().run()} isActive={editor.isActive('highlight')} icon="format_ink_highlighter" title="Vurgula" />
       
       <div className="flex items-center ml-1 relative group cursor-pointer">
-         <span className="material-symbols-outlined text-[20px] text-slate-600 dark:text-gray-400 mr-1 p-1">format_color_text</span>
+         <span className="material-symbols-outlined text-[20px] text-slate-600 dark:text-gray-400 mr-1 p-1" aria-hidden="true">format_color_text</span>
          <input
           type="color"
           onInput={event => editor.chain().focus().setColor((event.target as HTMLInputElement).value).run()}

@@ -24,7 +24,7 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="material-symbols-outlined text-[16px]">gavel</span>
+            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
             634 KMK & Yargıtay Emsal Karar Kütüphanesi
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -44,7 +44,7 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full sm:w-64 bg-[var(--color-surface-variant)] border border-[var(--color-outline)] rounded-xl px-4 py-2 pl-9 text-xs text-[var(--color-primary)] placeholder-slate-400 focus:outline-none focus:border-slate-500"
           />
-          <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-slate-400">
+          <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-slate-400" aria-hidden="true">
             search
           </span>
         </div>
@@ -126,7 +126,7 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
 
                 {/* Alo Yönetim Operational Guarantee */}
                 <div className="p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-950/20 border border-emerald-500/20 flex items-start gap-3">
-                  <span className="material-symbols-outlined text-emerald-500 text-xl shrink-0 mt-0.5">
+                  <span className="material-symbols-outlined text-emerald-500 text-xl shrink-0 mt-0.5" aria-hidden="true">
                     verified_user
                   </span>
                   <div>
@@ -142,7 +142,7 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
                 {/* Official Legislation & Outbound Verification Links */}
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-2 text-[var(--color-secondary)]">
-                    <span className="material-symbols-outlined text-[15px]">verified</span>
+                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">verified</span>
                     <span>Resmi Mevzuat Dayanağı: <strong>{activeItem.kmkArticle}</strong></span>
                   </div>
 
@@ -155,7 +155,7 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
                       title="T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi — 634 Sayılı KMK"
                     >
                       <span>Mevzuat.gov.tr</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span className="material-symbols-outlined text-[13px]" aria-hidden="true">open_in_new</span>
                     </a>
                     <span className="text-[var(--color-outline)]">•</span>
                     <a
@@ -166,7 +166,7 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
                       title="T.C. Yargıtay Başkanlığı Karar Arama Portalı"
                     >
                       <span>Yargıtay İlamı Sorgula</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span className="material-symbols-outlined text-[13px]" aria-hidden="true">open_in_new</span>
                     </a>
                   </div>
                 </div>

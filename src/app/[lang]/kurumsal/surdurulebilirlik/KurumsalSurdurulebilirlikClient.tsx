@@ -38,7 +38,7 @@ export default function KurumsalSurdurulebilirlikClient() {
           {ecoPoints.map((p, i) => (
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col gap-4 shadow-sm">
               <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 flex items-center justify-center font-bold">
-                <span className="material-symbols-outlined text-2xl">eco</span>
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">eco</span>
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{p.title}</h3>
               <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{p.desc}</p>

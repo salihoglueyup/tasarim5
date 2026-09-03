@@ -63,7 +63,7 @@ export default function NeighborhoodDirectorySeo({
       >
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-8 h-8 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-lg">location_on</span>
+            <span className="material-symbols-outlined text-lg" aria-hidden="true">location_on</span>
           </div>
           <div>
             <h3 className="text-base md:text-lg font-bold text-[var(--color-primary)]">

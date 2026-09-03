@@ -37,7 +37,7 @@ export default function SitemapClient({ data, highlights }: Props) {
       <div className="w-full max-w-2xl mx-auto relative -mt-6">
         <div className="relative group">
           <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-            <span className="material-symbols-outlined text-slate-400 group-focus-within:text-brand-500 transition-colors">
+            <span className="material-symbols-outlined text-slate-400 group-focus-within:text-brand-500 transition-colors" aria-hidden="true">
               search
             </span>
           </div>
@@ -55,7 +55,7 @@ export default function SitemapClient({ data, highlights }: Props) {
       {searchTerm === '' && highlights.length > 0 && (
         <div className="bg-gradient-to-br from-brand-50 to-brand-100 dark:from-brand-900/20 dark:to-brand-900/5 border border-brand-200 dark:border-brand-500/20 rounded-3xl p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <span className="material-symbols-outlined text-brand-500">star</span>
+            <span className="material-symbols-outlined text-brand-500" aria-hidden="true">star</span>
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">Popüler Sayfalar</h2>
           </div>
           <div className="flex flex-wrap gap-4">
@@ -66,7 +66,7 @@ export default function SitemapClient({ data, highlights }: Props) {
                 className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-semibold hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 shadow-sm hover:shadow-md transition-all flex items-center gap-2"
               >
                 {link.name}
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
             ))}
           </div>
@@ -96,10 +96,9 @@ export default function SitemapClient({ data, highlights }: Props) {
                       {category.links.length}
                     </span>
                   </h2>
-                  <span
-                    className="material-symbols-outlined text-[var(--color-secondary)] transition-transform duration-300"
+                  <span className="material-symbols-outlined text-[var(--color-secondary)] transition-transform duration-300"
                     style={{ transform: openCategories[category.title] ? 'rotate(180deg)' : 'rotate(0)' }}
-                  >
+                   aria-hidden="true">
                     expand_more
                   </span>
                 </button>
@@ -131,7 +130,7 @@ export default function SitemapClient({ data, highlights }: Props) {
             ))
           ) : (
             <div className="col-span-full py-20 text-center flex flex-col items-center gap-4">
-              <span className="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-700">search_off</span>
+              <span className="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-700" aria-hidden="true">search_off</span>
               <p className="text-lg text-[var(--color-secondary)] font-medium">"{searchTerm}" için sonuç bulunamadı.</p>
               <button onClick={() => setSearchTerm('')} className="text-brand-500 font-semibold hover:underline">
                 Aramayı Temizle

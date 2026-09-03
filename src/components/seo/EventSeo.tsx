@@ -57,7 +57,7 @@ export default function EventSeo({
         
         {/* Dekoratif Takvim İkonu */}
         <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none z-0">
-          <span className="material-symbols-outlined" style={{ fontSize: '10rem' }}>
+          <span className="material-symbols-outlined" style={{ fontSize: '10rem' }} aria-hidden="true">
             event
           </span>
         </div>
@@ -72,12 +72,12 @@ export default function EventSeo({
         <div className="flex-1 flex flex-col gap-2 relative z-10">
           <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
             <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[1rem]">schedule</span>
+              <span className="material-symbols-outlined text-[1rem]" aria-hidden="true">schedule</span>
               {startTime} - {endTime}
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[1rem]">location_on</span>
+              <span className="material-symbols-outlined text-[1rem]" aria-hidden="true">location_on</span>
               {locationName}
             </span>
           </div>
@@ -94,7 +94,7 @@ export default function EventSeo({
             className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-900 dark:text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm"
           >
             Kayıt Ol
-            <span className="material-symbols-outlined text-[1rem]">arrow_forward</span>
+            <span className="material-symbols-outlined text-[1rem]" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
       </div>

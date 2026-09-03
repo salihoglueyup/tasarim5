@@ -165,7 +165,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
       {/* Header */}
       <div className="relative z-10 mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 mb-3">
-          <span className="material-symbols-outlined text-sm">cleaning_services</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">cleaning_services</span>
           <span>TSE 13811 & İSG HİJYEN DENETİM MOTORU</span>
         </div>
         <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -236,7 +236,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs md:text-sm shadow-md hover:shadow-lg transition-all hover:scale-[1.02]"
             >
               <span>Ücretsiz Hijyen Keşfi ve Teklif Al</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
         </div>

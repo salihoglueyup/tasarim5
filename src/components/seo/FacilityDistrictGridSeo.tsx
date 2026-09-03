@@ -37,7 +37,7 @@ export default function FacilityDistrictGridSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold tracking-wider uppercase mb-3">
-            <span className="material-symbols-outlined text-sm">hub</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">hub</span>
             39 İlçe Tesis Yönetimi ve Aidat Endeksi
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -82,7 +82,7 @@ export default function FacilityDistrictGridSeo() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full sm:w-56 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/70 rounded-xl px-4 py-2 pl-9 text-xs text-[var(--color-primary)] placeholder-slate-400 focus:outline-none focus:border-slate-500 transition-colors"
             />
-            <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-slate-400">
+            <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-slate-400" aria-hidden="true">
               search
             </span>
           </div>
@@ -113,7 +113,7 @@ export default function FacilityDistrictGridSeo() {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <h3 className="text-base font-bold text-[var(--color-primary)] transition-colors flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px] text-[var(--color-secondary)]">
+                        <span className="material-symbols-outlined text-[18px] text-[var(--color-secondary)]" aria-hidden="true">
                           location_on
                         </span>
                         {d.name}
@@ -144,12 +144,12 @@ export default function FacilityDistrictGridSeo() {
                     {/* Bottom Action Footer */}
                     <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--color-primary)] transition-colors">
                       <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold">
-                        <span className="material-symbols-outlined text-[14px]">trending_down</span>
+                        <span className="material-symbols-outlined text-[14px]" aria-hidden="true">trending_down</span>
                         %{dues.savingsRate} Tasarruf
                       </span>
                       <span className="inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
                         İncele
-                        <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+                        <span className="material-symbols-outlined text-[14px]" aria-hidden="true">chevron_right</span>
                       </span>
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function FacilityDistrictGridSeo() {
       {/* Footer Info */}
       <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[16px]">verified</span>
+          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[16px]" aria-hidden="true">verified</span>
           Tüm veriler İstanbul 39 ilçe güncel KMK işletme projeleri ve saha denetimleriyle doğrulanmıştır.
         </div>
         <div className="font-semibold text-[var(--color-primary)]">

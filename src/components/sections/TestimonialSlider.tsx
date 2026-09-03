@@ -202,7 +202,7 @@ export default function TestimonialSlider({
 
         <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 rounded-[2rem] flex flex-col gap-4">
           <div className="flex items-center gap-2 text-slate-300 font-bold text-sm">
-            <span className="material-symbols-outlined">verified</span>
+            <span className="material-symbols-outlined" aria-hidden="true">verified</span>
             {t('home_testimonial_verified')}
           </div>
           <div className="text-xs text-gray-300 leading-relaxed">

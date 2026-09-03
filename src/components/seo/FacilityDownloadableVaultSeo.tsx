@@ -116,7 +116,7 @@ export default function FacilityDownloadableVaultSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm">folder_open</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">folder_open</span>
           <span>Resmi Tesis Doküman & Şablon Kasası</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -130,7 +130,7 @@ export default function FacilityDownloadableVaultSeo() {
       {/* Notification */}
       {downloadedDoc && (
         <div className="mb-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm flex items-center gap-3 animate-fade-in">
-          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-lg">download_done</span>
+          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-lg" aria-hidden="true">download_done</span>
           <span><strong>{downloadedDoc}</strong> başarıyla indirildi.</span>
         </div>
       )}
@@ -148,7 +148,7 @@ export default function FacilityDownloadableVaultSeo() {
                   {doc.category}
                 </span>
                 <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 px-2 py-0.5 rounded">
-                  <span className="material-symbols-outlined text-[13px]">description</span>
+                  <span className="material-symbols-outlined text-[13px]" aria-hidden="true">description</span>
                   {doc.format} · {doc.size}
                 </span>
               </div>
@@ -172,7 +172,7 @@ export default function FacilityDownloadableVaultSeo() {
                 onClick={() => handleDownload(doc)}
                 className="w-full py-2.5 px-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
               >
-                <span className="material-symbols-outlined text-sm">download</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
                 <span>Şablonu İndir ({doc.format})</span>
               </button>
             </div>
@@ -183,7 +183,7 @@ export default function FacilityDownloadableVaultSeo() {
       {/* Footer Info */}
       <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <span className="flex items-center gap-1.5">
-          <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400">verified_user</span>
+          <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified_user</span>
           Tüm şablonlar hukuk müşavirliğimiz tarafından 2026 güncel mevzuatına göre revize edilmiştir.
         </span>
         <span className="font-mono text-[11px]">Telif & Lisans: Alo Yönetim A.Ş. Açık Kaynak Şablon Kütüphanesi</span>

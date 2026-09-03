@@ -71,14 +71,14 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
                     : 'bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white'
                 }`}
               >
-                <span className="material-symbols-outlined">{service.icon}</span>
+                <span className="material-symbols-outlined" aria-hidden="true">{service.icon}</span>
               </div>
               <div className="flex flex-col">
                 <span className={`font-bold group-hover:opacity-80 transition-opacity ${isSpecial ? 'text-blue-600 dark:text-blue-400' : 'text-[var(--color-primary)]'}`}>
                   {(t as any)(service.nameKey) || service.nameKey}
                 </span>
                 <span className="text-xs text-[var(--color-secondary)] mt-1 flex items-center gap-1">
-                  {t('related_services_inspect')} <span className="material-symbols-outlined text-[10px]">arrow_forward</span>
+                  {t('related_services_inspect')} <span className="material-symbols-outlined text-[10px]" aria-hidden="true">arrow_forward</span>
                 </span>
               </div>
             </Link>

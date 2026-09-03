@@ -105,7 +105,7 @@ export default function DistrictTechnicalAuditTableSeo({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm">engineering</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">engineering</span>
             {districtName} Mühendislik & Teknik Standartlar Matrisi
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)]">
@@ -164,7 +164,7 @@ export default function DistrictTechnicalAuditTableSeo({
               <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
                 <td className="py-4 px-4 font-semibold text-[var(--color-primary)]">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-blue-500 text-base shrink-0">check_circle</span>
+                    <span className="material-symbols-outlined text-blue-500 text-base shrink-0" aria-hidden="true">check_circle</span>
                     <span>{row.item}</span>
                   </div>
                 </td>
@@ -195,7 +195,7 @@ export default function DistrictTechnicalAuditTableSeo({
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-600/20 shrink-0"
         >
           <span>{districtName} İçin Teknik Bakım Teklifi Al</span>
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
         </Link>
       </div>
     </div>

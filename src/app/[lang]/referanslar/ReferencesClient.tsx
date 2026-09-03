@@ -102,7 +102,7 @@ const ProjectCard = ({ project, isLarge, lang, router }: { project: Project; isL
           {project.clientLogo ? (
             <Image src={project.clientLogo} alt="Logo" fill className="object-cover" />
           ) : (
-            <span className="material-symbols-outlined text-white text-[24px]">apartment</span>
+            <span className="material-symbols-outlined text-white text-[24px]" aria-hidden="true">apartment</span>
           )}
         </div>
       </div>
@@ -131,13 +131,13 @@ const ProjectCard = ({ project, isLarge, lang, router }: { project: Project; isL
                 {project.title}
               </h3>
               <div className="flex items-center gap-1.5 text-sm text-slate-300 font-medium drop-shadow-md">
-                <span className="material-symbols-outlined text-[16px] text-emerald-400">location_on</span>
+                <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">location_on</span>
                 {project.location}
               </div>
             </div>
 
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white text-slate-950 flex items-center justify-center shrink-0 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 shadow-xl group-hover:rotate-45">
-              <span className="material-symbols-outlined text-[20px] sm:text-[24px] font-bold">arrow_outward</span>
+              <span className="material-symbols-outlined text-[20px] sm:text-[24px] font-bold" aria-hidden="true">arrow_outward</span>
             </div>
           </div>
         </div>
@@ -282,7 +282,7 @@ export default function ReferencesClient({
         <section className="py-12 border-b border-[var(--color-outline)]/40 overflow-hidden bg-[var(--color-surface-variant)]/40 dark:bg-[#12131A]/60">
           <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] mb-6 text-center">
             <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest flex items-center justify-center gap-2">
-              <span className="material-symbols-outlined text-sm text-emerald-500">verified</span>
+              <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">verified</span>
               {currentDict.partnersTitle}
             </span>
           </div>
@@ -318,7 +318,7 @@ export default function ReferencesClient({
           
           {/* Search Box */}
           <div className="relative w-full md:w-96">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true">search</span>
             <input
               type="text"
               placeholder={currentDict.searchPlaceholder}
@@ -331,7 +331,7 @@ export default function ReferencesClient({
                 onClick={() => setSearchQuery('')}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-white"
               >
-                <span className="material-symbols-outlined text-sm">close</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">close</span>
               </button>
             )}
           </div>
@@ -372,7 +372,7 @@ export default function ReferencesClient({
 
           {/* Metrics Counter */}
           <div className="hidden lg:flex items-center gap-2 text-xs font-bold bg-slate-100 dark:bg-white/10 text-[var(--color-heading-text)] px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
-            <span className="material-symbols-outlined text-base text-emerald-500">verified</span>
+            <span className="material-symbols-outlined text-base text-emerald-500" aria-hidden="true">verified</span>
             <span>{filteredProjects.length} {currentDict.showing}</span>
           </div>
         </div>
@@ -415,7 +415,7 @@ export default function ReferencesClient({
         
         {filteredProjects.length === 0 && (
           <div className="text-center py-24 text-[var(--color-secondary)] space-y-2 bg-[var(--color-surface)] dark:bg-[#15161E] rounded-[2.5rem] border border-[var(--color-outline)]/60 dark:border-white/10 p-12">
-            <span className="material-symbols-outlined text-5xl mb-2 opacity-50 block text-slate-400">search_off</span>
+            <span className="material-symbols-outlined text-5xl mb-2 opacity-50 block text-slate-400" aria-hidden="true">search_off</span>
             <p className="font-bold text-xl text-[var(--color-heading-text)]">{currentDict.noResults}</p>
             <p className="text-sm text-slate-400">{currentDict.noResultsDesc}</p>
           </div>
@@ -478,7 +478,7 @@ export default function ReferencesClient({
               href="tel:02165504848"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-100 dark:bg-white/10 text-[var(--color-heading-text)] font-extrabold text-sm hover:bg-slate-200 dark:hover:bg-white/20 transition-all border border-slate-300 dark:border-white/10"
             >
-              <span className="material-symbols-outlined text-emerald-500 text-lg">call</span>
+              <span className="material-symbols-outlined text-emerald-500 text-lg" aria-hidden="true">call</span>
               <span>{currentDict.ctaCall}</span>
             </a>
             
@@ -487,7 +487,7 @@ export default function ReferencesClient({
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-extrabold text-sm hover:scale-105 transition-all shadow-lg shadow-slate-900/20"
             >
               <span>{currentDict.ctaBtn}</span>
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
             </button>
           </div>
         </div>

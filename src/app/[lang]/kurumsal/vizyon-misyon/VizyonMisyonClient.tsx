@@ -71,7 +71,7 @@ export default function VizyonMisyonClient() {
               <motion.div variants={itemVariants} className="relative group p-10 md:p-14 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-[3rem] shadow-xl shadow-brand-500/5 hover:shadow-brand-500/10 transition-all duration-500">
                 <div className="absolute top-8 right-8 text-8xl material-symbols-outlined text-brand-500/10 rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-all duration-700">visibility</div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 font-semibold mb-8">
-                  <span className="material-symbols-outlined text-sm">rocket_launch</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">rocket_launch</span>
                   Vizyonumuz
                 </div>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] mb-6">{t('vision_head')}</h2>
@@ -88,7 +88,7 @@ export default function VizyonMisyonClient() {
               <motion.div variants={itemVariants} className="relative group p-10 md:p-14 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-[3rem] shadow-xl shadow-slate-500/5 hover:shadow-slate-500/10 transition-all duration-500 mt-12 lg:mt-24">
                 <div className="absolute top-8 right-8 text-8xl material-symbols-outlined text-slate-500/10 -rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-all duration-700">flag</div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-500/10 text-slate-600 dark:text-slate-400 font-semibold mb-8">
-                  <span className="material-symbols-outlined text-sm">target</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">target</span>
                   Misyonumuz
                 </div>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] mb-6">{t('mission_head')}</h2>
@@ -133,7 +133,7 @@ export default function VizyonMisyonClient() {
                 {values.map((val, idx) => (
                   <div key={idx} className={`p-10 rounded-[2.5rem] bg-gradient-to-br ${val.color} border border-slate-200 dark:border-white/5 hover:-translate-y-2 transition-all duration-300 group`}>
                     <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-lg mb-8 text-slate-800 dark:text-white group-hover:scale-110 transition-transform">
-                      <span className="material-symbols-outlined text-3xl">{val.icon}</span>
+                      <span className="material-symbols-outlined text-3xl" aria-hidden="true">{val.icon}</span>
                     </div>
                     <h4 className="text-2xl font-bold text-[var(--color-primary)] mb-4">{val.title}</h4>
                     <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">{val.desc}</p>

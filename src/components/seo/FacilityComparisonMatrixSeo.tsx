@@ -123,7 +123,7 @@ export default function FacilityComparisonMatrixSeo({ className = "" }: { classN
           className="px-6 py-3.5 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-md shrink-0"
         >
           <span>Ücretsiz Bütçe Analizi İsteyin</span>
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
         </Link>
       </div>
 
@@ -143,19 +143,19 @@ export default function FacilityComparisonMatrixSeo({ className = "" }: { classN
                 <td className="py-5 px-4 font-bold text-[var(--color-primary)] align-top">
                   <div>{row.criteria}</div>
                   <div className="text-[11px] font-mono text-[var(--color-tertiary)] font-normal mt-1.5 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[12px]">gavel</span>
+                    <span className="material-symbols-outlined text-[12px]" aria-hidden="true">gavel</span>
                     {row.lawReference}
                   </div>
                 </td>
                 <td className="py-5 px-4 text-xs font-light text-[var(--color-secondary)] bg-rose-500/5 dark:bg-rose-950/20 border border-rose-500/20 rounded-xl align-top">
                   <div className="flex items-start gap-2">
-                    <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5">cancel</span>
+                    <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5" aria-hidden="true">cancel</span>
                     <span>{row.individualManagement.text}</span>
                   </div>
                 </td>
                 <td className="py-5 px-4 text-xs font-medium text-[var(--color-primary)] bg-emerald-500/5 dark:bg-emerald-950/20 rounded-xl align-top border border-emerald-500/30">
                   <div className="flex items-start gap-2">
-                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base shrink-0 mt-0.5">check_circle</span>
+                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
                     <span>{row.aloYonetimIntegrated.text}</span>
                   </div>
                 </td>

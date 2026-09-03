@@ -69,7 +69,7 @@ export default function GeoTargetAreaSeo({
           </div>
 
           <div className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-bold border border-emerald-500/20">
-            <span className="material-symbols-outlined text-sm">map</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">map</span>
             <span>{DISTRICTS.length} İlçe & İstanbul Geneli</span>
           </div>
         </div>

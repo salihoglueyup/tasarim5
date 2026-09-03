@@ -63,13 +63,13 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
               onClick={onClose}
               className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 rounded-full text-slate-500 dark:text-gray-300 transition-colors z-20"
             >
-              <span className="material-symbols-outlined text-lg">close</span>
+              <span className="material-symbols-outlined text-lg" aria-hidden="true">close</span>
             </button>
 
             {/* Header Content */}
             <div className="pt-10 pb-6 px-8 text-center border-b border-slate-100 dark:border-white/5">
               <div className="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-200 dark:border-white/10">
-                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white">
+                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white" aria-hidden="true">
                   {activeTab === 'sakin' ? 'vpn_key' : 'admin_panel_settings'}
                 </span>
               </div>
@@ -119,7 +119,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                       <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">{t('login_resident_tc')}</label>
                         <div className="relative">
-                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">person</span>
+                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" aria-hidden="true">person</span>
                           <input 
                             type="text" 
                             required
@@ -134,7 +134,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                           <a href="#" className="text-xs text-slate-900 dark:text-white font-bold underline hover:opacity-80">{t('login_forgot_password')}</a>
                         </div>
                         <div className="relative">
-                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
+                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" aria-hidden="true">lock</span>
                           <input 
                             type="password" 
                             required
@@ -149,7 +149,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                       <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">{t('login_admin_code')}</label>
                         <div className="relative">
-                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">badge</span>
+                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" aria-hidden="true">badge</span>
                           <input 
                             type="text" 
                             required
@@ -161,7 +161,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                       <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-700 dark:text-gray-300 uppercase tracking-widest pl-1">{t('login_admin_pass')}</label>
                         <div className="relative">
-                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">key</span>
+                          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" aria-hidden="true">key</span>
                           <input 
                             type="password" 
                             required
@@ -178,7 +178,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     className="w-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold py-3.5 rounded-xl shadow-lg hover:shadow-slate-900/25 dark:hover:shadow-white/20 transition-all mt-4 flex items-center justify-center gap-2"
                   >
                     {t('login_btn')}
-                    <span className="material-symbols-outlined text-lg">login</span>
+                    <span className="material-symbols-outlined text-lg" aria-hidden="true">login</span>
                   </button>
 
                 </motion.form>
@@ -188,7 +188,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             {/* Footer Area */}
             <div className="bg-slate-50 dark:bg-slate-800/50 p-5 text-center text-xs text-slate-500 dark:text-gray-400 font-light border-t border-slate-100 dark:border-white/5">
               <span className="flex items-center justify-center gap-1">
-                <span className="material-symbols-outlined text-[14px]">shield_lock</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">shield_lock</span>
                 {t('login_secure_ssl')}
               </span>
             </div>

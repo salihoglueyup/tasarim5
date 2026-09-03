@@ -234,7 +234,7 @@ export default function TeklifAlClient() {
         {/* Fiyatlandırma Rehberi Kartı */}
         <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white p-8 sm:p-10 rounded-[3rem] border border-slate-700 shadow-xl flex flex-col gap-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-slate-200 text-xs font-bold tracking-wider uppercase w-fit">
-            <span className="material-symbols-outlined text-sm text-emerald-400">payments</span>
+            <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">payments</span>
             <span>Şeffaf Fiyatlandırma</span>
           </div>
 
@@ -285,7 +285,7 @@ export default function TeklifAlClient() {
             href={`tel:${CANONICAL_NAP.contact.phoneE164}`}
             className="text-lg font-black text-slate-900 dark:text-white hover:text-blue-600 transition-colors flex items-center gap-2"
           >
-            <span className="material-symbols-outlined text-blue-600">call</span>
+            <span className="material-symbols-outlined text-blue-600" aria-hidden="true">call</span>
             <span>{CANONICAL_NAP.contact.phoneDisplay}</span>
           </a>
 
@@ -295,7 +295,7 @@ export default function TeklifAlClient() {
             rel="noopener noreferrer"
             className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm"
           >
-            <span className="material-symbols-outlined text-base">chat</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
             <span>WhatsApp ile Anında Teklif İsteyin</span>
           </a>
         </div>

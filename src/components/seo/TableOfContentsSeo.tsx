@@ -130,7 +130,7 @@ export default function TableOfContentsSeo({
         {/* Header */}
         <div className="flex items-center justify-between gap-4 mb-4 text-[var(--color-primary)] font-bold text-base">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl">
+            <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl" aria-hidden="true">
               toc
             </span>
             <h3>{title}</h3>
@@ -145,7 +145,7 @@ export default function TableOfContentsSeo({
               className="p-1 text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors"
               title={isCollapsed ? 'Genişlet' : 'Daralt'}
             >
-              <span className="material-symbols-outlined text-sm">
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
                 {isCollapsed ? 'expand_more' : 'expand_less'}
               </span>
             </button>
@@ -181,7 +181,7 @@ export default function TableOfContentsSeo({
                     className="opacity-0 group-hover:opacity-100 p-1 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity ml-1"
                     title="Bölüm linkini kopyala"
                   >
-                    <span className="material-symbols-outlined text-xs">
+                    <span className="material-symbols-outlined text-xs" aria-hidden="true">
                       {copiedId === item.id ? 'check' : 'link'}
                     </span>
                   </button>

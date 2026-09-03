@@ -73,7 +73,7 @@ export default function WhyUsBentoGrid() {
           >
             {/* Dekoratif dev ikon (arkaplan) */}
             <div className="absolute -bottom-8 -right-8 text-slate-100 dark:text-slate-800/50 pointer-events-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 z-0">
-              <span className="material-symbols-outlined" style={{ fontSize: '180px' }}>{item.icon}</span>
+              <span className="material-symbols-outlined" style={{ fontSize: '180px' }} aria-hidden="true">{item.icon}</span>
             </div>
 
             <div className="flex items-center justify-between relative z-10">
@@ -81,7 +81,7 @@ export default function WhyUsBentoGrid() {
                 {item.tag}
               </span>
               <div className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{item.icon}</span>
               </div>
             </div>
 

@@ -67,7 +67,7 @@ export default function CertificateBadgeGrid() {
           >
             <div className="flex items-center justify-between">
               <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl">{c.icon}</span>
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{c.icon}</span>
               </div>
               <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-xs px-3 py-1 rounded-full">
                 {c.code}

@@ -112,7 +112,7 @@ export default function TrustVerificationAuditSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">verified</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
               E-E-A-T Güvenilirlik & Akreditasyon Mührü
             </span>
           </div>
@@ -129,7 +129,7 @@ export default function TrustVerificationAuditSeo() {
           className="px-5 py-3 bg-slate-900 text-white dark:bg-white dark:text-slate-950 hover:opacity-90 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all shrink-0 self-start md:self-auto shadow-md hover:scale-105"
         >
           <span>Tüm Belgeleri Gör & İndir</span>
-          <span className="material-symbols-outlined text-xs">arrow_forward</span>
+          <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
         </Link>
       </div>
 
@@ -189,7 +189,7 @@ export default function TrustVerificationAuditSeo() {
             onClick={() => handleVerify(active.certNumber)}
             className="w-full md:w-auto px-6 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-xl hover:scale-105"
           >
-            <span className="material-symbols-outlined text-sm font-bold">qr_code_scanner</span>
+            <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">qr_code_scanner</span>
             <span>Sertifikayı Canlı Doğrula</span>
           </button>
 

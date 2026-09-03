@@ -29,7 +29,7 @@ export default function DistrictSecurityClusterSeo() {
     <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-          <span className="material-symbols-outlined text-sm">location_on</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">location_on</span>
           <span>İstanbul Geneli Yerel Güvenlik Operasyonları</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight">
@@ -52,7 +52,7 @@ export default function DistrictSecurityClusterSeo() {
                 <span className="font-extrabold text-[var(--color-primary)] text-base group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">
                   {dist.name}
                 </span>
-                <span className="material-symbols-outlined text-sm text-slate-400 group-hover:translate-x-1 transition-transform">
+                <span className="material-symbols-outlined text-sm text-slate-400 group-hover:translate-x-1 transition-transform" aria-hidden="true">
                   arrow_forward
                 </span>
               </div>

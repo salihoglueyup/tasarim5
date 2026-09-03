@@ -101,7 +101,7 @@ export default function EmergencyPreparednessAuditSeo() {
         {/* Başlık */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm">emergency</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">emergency</span>
             Bina Afet & Acil Durum Güvenlik Denetimi
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -163,7 +163,7 @@ export default function EmergencyPreparednessAuditSeo() {
                         : 'border border-slate-700 bg-slate-800 text-transparent'
                     }`}
                   >
-                    <span className="material-symbols-outlined text-sm font-bold">check</span>
+                    <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">check</span>
                   </div>
 
                   <div className="space-y-1">
@@ -192,11 +192,11 @@ export default function EmergencyPreparednessAuditSeo() {
             </p>
           </div>
           <a
-            href="/tr/iletisim"
+            href="/iletisim"
             className="px-5 py-2.5 bg-rose-500 text-white font-bold rounded-xl text-xs sm:text-sm hover:brightness-110 transition-all flex-shrink-0 flex items-center gap-1.5 shadow-lg shadow-rose-500/25"
           >
             <span>Ücretsiz Afet Keşfi Talep Et</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
 

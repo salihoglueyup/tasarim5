@@ -55,7 +55,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400">calculate</span>
+              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">calculate</span>
               <span>Özet Rehber: Profesyonel Tesis & Site Aidat Bütçesi Nasıl Hesaplanır?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -96,7 +96,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
                 2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               {' '}ve ISO 41001 Entegre Tesis Maliyet Yönetimi standartlarına tam uyumlu olarak yapılandırılmıştır.
             </p>
@@ -173,7 +173,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">trending_down</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
                 </span>
                 <span>%30 Net Bütçe Tasarrufu</span>
               </div>
@@ -185,7 +185,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">verified</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
                 </span>
                 <span>%100 KMK 37 Uyumlu Bilanço</span>
               </div>
@@ -197,7 +197,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg">smartphone</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">smartphone</span>
                 </span>
                 <span>7/24 Canlı Mobil Takip</span>
               </div>
@@ -214,7 +214,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           <div className="lg:col-span-7 bg-[var(--color-surface)] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/50 shadow-sm flex flex-col gap-10">
             
             <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center gap-3">
-              <span className="material-symbols-outlined text-slate-900 dark:text-white text-3xl">tune</span>
+              <span className="material-symbols-outlined text-slate-900 dark:text-white text-3xl" aria-hidden="true">tune</span>
               {t('calc_params_title')}
             </h2>
 
@@ -277,7 +277,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white">shield</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white" aria-hidden="true">shield</span>
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_sec')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_sec_desc')}</div>
@@ -293,7 +293,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white">pool</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white" aria-hidden="true">pool</span>
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_pool')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_pool_desc')}</div>
@@ -309,7 +309,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
               <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white">park</span>
+                  <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white" aria-hidden="true">park</span>
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_green')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_green_desc')}</div>
@@ -334,7 +334,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl flex flex-col gap-8 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                <span className="material-symbols-outlined text-9xl">calculate</span>
+                <span className="material-symbols-outlined text-9xl" aria-hidden="true">calculate</span>
               </div>
 
               <div className="flex items-center gap-3">
@@ -365,7 +365,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               </div>
 
               <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex items-start gap-3">
-                <span className="material-symbols-outlined text-slate-400 shrink-0 mt-0.5">verified</span>
+                <span className="material-symbols-outlined text-slate-400 shrink-0 mt-0.5" aria-hidden="true">verified</span>
                 <p className="text-xs text-gray-200 leading-relaxed">
                   {t('calc_report_info')}
                 </p>
@@ -377,7 +377,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                   className="flex-1 bg-white text-slate-950 hover:bg-gray-100 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-lg text-sm"
                 >
                   {t('calc_btn_quote')}
-                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
                 </Link>
 
                 <button 
@@ -385,7 +385,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                   className="bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-300 font-bold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
                   title="Resmi PDF Tesis Sağlık ve Tasarruf Karnesi Oluştur"
                 >
-                  <span className="material-symbols-outlined text-base">assessment</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">assessment</span>
                   <span>PDF Raporu Al</span>
                 </button>
               </div>
@@ -394,7 +394,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                 onClick={() => setIsAuditModalOpen(true)}
                 className="w-full py-3 bg-gradient-to-r from-blue-600/20 via-slate-800 to-blue-600/20 hover:brightness-125 border border-blue-500/30 rounded-2xl text-xs font-extrabold text-blue-300 flex items-center justify-center gap-2 transition-all"
               >
-                <span className="material-symbols-outlined text-sm text-blue-400">verified</span>
+                <span className="material-symbols-outlined text-sm text-blue-400" aria-hidden="true">verified</span>
                 <span>Yönetim Kurulu İçin Resmi Tasarruf Karnesi Üret</span>
               </button>
 

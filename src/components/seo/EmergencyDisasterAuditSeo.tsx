@@ -120,7 +120,7 @@ export default function EmergencyDisasterAuditSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">emergency</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">emergency</span>
               AFAD & Yangın Yönetmeliği Uyum Denetimi
             </span>
           </div>
@@ -169,7 +169,7 @@ export default function EmergencyDisasterAuditSeo() {
                 }`}
               >
                 {isChecked && (
-                  <span className="material-symbols-outlined text-base font-bold">check</span>
+                  <span className="material-symbols-outlined text-base font-bold" aria-hidden="true">check</span>
                 )}
               </div>
 

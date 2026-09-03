@@ -69,7 +69,7 @@ export default function HowToSeo({ name, description, steps, className = "" }: H
           {/* Detailed Content UI */}
           <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-[2rem] p-8 md:p-10 shadow-sm relative overflow-hidden flex flex-col justify-center min-h-[300px]">
              <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-                <span className="material-symbols-outlined" style={{ fontSize: '12rem' }}>
+                <span className="material-symbols-outlined" style={{ fontSize: '12rem' }} aria-hidden="true">
                   info
                 </span>
              </div>

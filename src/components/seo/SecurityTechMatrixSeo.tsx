@@ -85,7 +85,7 @@ export default function SecurityTechMatrixSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm">memory</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">memory</span>
             <span>Yeni Nesil Güvenlik Teknolojileri</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight">
@@ -106,7 +106,7 @@ export default function SecurityTechMatrixSeo() {
               <div>
                 <div className="flex justify-between items-start mb-4">
                   <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">{item.icon}</span>
                   </div>
                   <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-slate-300">
                     {item.badge}
@@ -127,7 +127,7 @@ export default function SecurityTechMatrixSeo() {
               <div className="mt-5 pt-4 border-t border-gray-200/60 dark:border-white/5 space-y-1.5">
                 {item.specs.map((spec, sIdx) => (
                   <div key={sIdx} className="flex items-center gap-2 text-[11px] text-[var(--color-secondary)]">
-                    <span className="material-symbols-outlined text-xs text-slate-500">check</span>
+                    <span className="material-symbols-outlined text-xs text-slate-500" aria-hidden="true">check</span>
                     <span>{spec}</span>
                   </div>
                 ))}

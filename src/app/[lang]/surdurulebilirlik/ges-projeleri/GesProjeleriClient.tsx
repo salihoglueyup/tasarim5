@@ -136,7 +136,7 @@ export default function GesProjeleriClient() {
           {gesPoints.map((p, i) => (
             <Card key={i} variant="glow" className="p-10 flex flex-col gap-4">
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl">{p.icon}</span>
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{p.icon}</span>
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{p.title}</h3>
               <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{p.desc}</p>
@@ -155,7 +155,7 @@ export default function GesProjeleriClient() {
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5 cursor-pointer"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-amber-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}>
+                  <span className="material-symbols-outlined text-amber-600 transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} aria-hidden="true">
                     expand_more
                   </span>
                 </button>

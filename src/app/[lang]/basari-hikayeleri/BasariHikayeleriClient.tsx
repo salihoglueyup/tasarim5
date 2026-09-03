@@ -83,7 +83,7 @@ export default function BasariHikayeleriClient({ stories }: { stories: any[] }) 
               <div className="flex flex-col gap-4 bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10 flex-1">
                 {c.stats.map((s: string, idx: number) => (
                   <div key={idx} className="flex items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
-                    <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0">bar_chart</span>
+                    <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bar_chart</span>
                     {s}
                   </div>
                 ))}

@@ -110,7 +110,7 @@ export default function GuvenlikAkademisiClient() {
                <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-red-500/20 transition-colors" />
                <div className="flex items-center justify-between w-full mb-8 relative z-10">
                  <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-gray-200 dark:border-slate-700">
-                   <span className="material-symbols-outlined text-3xl text-red-600">local_police</span>
+                   <span className="material-symbols-outlined text-3xl text-red-600" aria-hidden="true">local_police</span>
                  </div>
                  <span className="text-xs font-bold text-red-600 bg-red-50 dark:bg-red-500/10 px-4 py-2 rounded-full uppercase tracking-wider">{t('aca_group_c1_badge')}</span>
                </div>
@@ -119,7 +119,7 @@ export default function GuvenlikAkademisiClient() {
                  {t('aca_group_c1_desc')}
                </p>
                <div className="flex items-center gap-2 text-red-600 font-bold text-sm uppercase tracking-widest relative z-10 group-hover:translate-x-2 transition-transform">
-                 İncele <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                 İncele <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
                </div>
             </a>
 
@@ -128,7 +128,7 @@ export default function GuvenlikAkademisiClient() {
                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-colors" />
                <div className="flex items-center justify-between w-full mb-8 relative z-10">
                  <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-gray-200 dark:border-slate-700">
-                   <span className="material-symbols-outlined text-3xl text-blue-600">security</span>
+                   <span className="material-symbols-outlined text-3xl text-blue-600" aria-hidden="true">security</span>
                  </div>
                  <span className="text-xs font-bold text-blue-600 bg-blue-50 dark:bg-blue-500/10 px-4 py-2 rounded-full uppercase tracking-wider">{t('aca_group_c2_badge')}</span>
                </div>
@@ -137,7 +137,7 @@ export default function GuvenlikAkademisiClient() {
                  {t('aca_group_c2_desc')}
                </p>
                <div className="flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest relative z-10 group-hover:translate-x-2 transition-transform">
-                 İncele <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                 İncele <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
                </div>
             </a>
           </div>
@@ -172,7 +172,7 @@ export default function GuvenlikAkademisiClient() {
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
                       <div className="flex items-center gap-4">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${f.color} shadow-lg ${isActive ? 'scale-110' : ''} transition-transform`}>
-                          <span className="material-symbols-outlined">{f.icon}</span>
+                          <span className="material-symbols-outlined" aria-hidden="true">{f.icon}</span>
                         </div>
                         <div>
                           <div className="text-xs font-bold text-slate-900 dark:text-white mb-1">{t('aca_cur_mod')} 0{i + 1}</div>

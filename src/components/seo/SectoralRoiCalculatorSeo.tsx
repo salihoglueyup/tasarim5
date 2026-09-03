@@ -77,7 +77,7 @@ export default function SectoralRoiCalculatorSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">trending_up</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">trending_up</span>
               3 Yıllık Sektörel ROI & Tasarruf Matrisi
             </span>
           </div>
@@ -202,7 +202,7 @@ export default function SectoralRoiCalculatorSeo() {
             className="w-full py-3.5 px-6 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-105"
           >
             <span>{current.title} İçin Resmi Teklif İste</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
           </Link>
         </div>
 

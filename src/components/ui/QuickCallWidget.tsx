@@ -44,7 +44,7 @@ export default function QuickCallWidget() {
                 onClick={() => setView('menu')}
                 className="flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors self-start cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_back</span>
                 {t('cro_callback_open')}
               </button>
               <CallbackForm variant="inline" meta={{ kaynak: 'hizli-widget' }} />
@@ -69,7 +69,7 @@ export default function QuickCallWidget() {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">search</span>
+                    <span className="material-symbols-outlined text-xl group-hover:scale-110 transition-transform" aria-hidden="true">search</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-400 transition-colors">
@@ -96,7 +96,7 @@ export default function QuickCallWidget() {
                 className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors group"
               >
                 <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-slate-700 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-lg">call</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">call</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-slate-900 dark:text-white">Genel Müdürlük</span>
@@ -117,7 +117,7 @@ export default function QuickCallWidget() {
                 className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors group"
               >
                 <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-lg">chat</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">chat</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-slate-900 dark:text-white">WhatsApp Canlı Destek</span>
@@ -131,7 +131,7 @@ export default function QuickCallWidget() {
                 className="flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left group cursor-pointer"
               >
                 <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-lg">phone_callback</span>
+                  <span className="material-symbols-outlined text-lg" aria-hidden="true">phone_callback</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-slate-900 dark:text-white">{t('cro_callback_open')}</span>
@@ -150,7 +150,7 @@ export default function QuickCallWidget() {
                 }}
                 className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-slate-950 text-white dark:bg-white dark:text-slate-950 text-xs font-extrabold shadow-lg hover:opacity-95 transition-all mt-1 cursor-pointer"
               >
-                <span className="material-symbols-outlined text-sm">request_quote</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">request_quote</span>
                 <span>Hızlı Teklif Al</span>
               </button>
             </>

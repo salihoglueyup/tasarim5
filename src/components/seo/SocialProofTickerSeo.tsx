@@ -70,7 +70,7 @@ export default function SocialProofTickerSeo({
         <div className="flex items-center gap-3 overflow-hidden">
           {/* Canlı Radar İkonu */}
           <div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-base animate-pulse">
+            <span className="material-symbols-outlined text-base animate-pulse" aria-hidden="true">
               {currentEvent.icon || 'bolt'}
             </span>
           </div>

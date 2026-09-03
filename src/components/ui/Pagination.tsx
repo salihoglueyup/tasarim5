@@ -48,14 +48,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
           aria-label="Önceki sayfa"
         >
-          <span className="material-symbols-outlined text-lg">arrow_back</span>
+          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
         </Link>
       ) : (
         <span 
           aria-disabled="true"
           className="w-10 h-10 rounded-full border border-slate-200/50 dark:border-white/5 flex items-center justify-center opacity-40 cursor-not-allowed"
         >
-          <span className="material-symbols-outlined text-lg">arrow_back</span>
+          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
         </span>
       )}
 
@@ -87,14 +87,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
           aria-label="Sonraki sayfa"
         >
-          <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
         </Link>
       ) : (
         <span 
           aria-disabled="true"
           className="w-10 h-10 rounded-full border border-slate-200/50 dark:border-white/5 flex items-center justify-center opacity-40 cursor-not-allowed"
         >
-          <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
         </span>
       )}
     </nav>

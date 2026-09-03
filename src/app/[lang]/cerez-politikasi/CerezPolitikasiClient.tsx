@@ -32,7 +32,7 @@ export default function CerezPolitikasiClient() {
           <div className="bg-[var(--color-surface)] p-8 md:p-16 rounded-[2.5rem] border border-[var(--color-outline)]/50 shadow-sm relative">
             <div className="absolute top-8 right-8 md:top-12 md:right-12">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-xs font-medium text-slate-600 dark:text-slate-400">
-                <span className="material-symbols-outlined text-[14px]">update</span>
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">update</span>
                 Son Güncelleme: 1 Ağustos 2026
               </span>
             </div>

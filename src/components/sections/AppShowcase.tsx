@@ -56,7 +56,7 @@ export default function AppShowcase() {
 
           <div className="flex flex-wrap gap-4 pt-4">
             <div className="bg-white/10 px-6 py-3 rounded-2xl flex items-center gap-3 border border-white/10">
-              <span className="material-symbols-outlined text-2xl text-slate-300">phone_iphone</span>
+              <span className="material-symbols-outlined text-2xl text-slate-300" aria-hidden="true">phone_iphone</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-gray-400">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">App Store</span>
@@ -64,7 +64,7 @@ export default function AppShowcase() {
             </div>
 
             <div className="bg-white/10 px-6 py-3 rounded-2xl flex items-center gap-3 border border-white/10">
-              <span className="material-symbols-outlined text-2xl text-slate-300">android</span>
+              <span className="material-symbols-outlined text-2xl text-slate-300" aria-hidden="true">android</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-gray-400">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">Google Play</span>
@@ -81,7 +81,7 @@ export default function AppShowcase() {
               className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col gap-3 backdrop-blur-sm hover:scale-[1.02] hover:bg-white/10 transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-xl bg-white/10 text-slate-200 flex items-center justify-center">
-                <span className="material-symbols-outlined">{f.icon}</span>
+                <span className="material-symbols-outlined" aria-hidden="true">{f.icon}</span>
               </div>
               <h3 className="font-bold text-base text-white">{f.title}</h3>
               <p className="text-xs text-gray-300 font-light leading-relaxed">{f.desc}</p>

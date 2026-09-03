@@ -67,7 +67,7 @@ export default function LiveMetricBadgeSeo({
           >
             {m.icon && (
               <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-xl">{m.icon}</span>
+                <span className="material-symbols-outlined text-xl" aria-hidden="true">{m.icon}</span>
               </div>
             )}
             <div className="text-2xl md:text-3xl font-black text-[var(--color-primary)] tracking-tight">

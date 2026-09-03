@@ -163,7 +163,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm">radar</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">radar</span>
             <span>İnteraktif 5188 Güvenlik & Risk Analiz Testi</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight">
@@ -194,7 +194,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                     isChecked ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950' : 'border border-gray-300 dark:border-white/20'
                   }`}>
-                    {isChecked && <span className="material-symbols-outlined text-base">check</span>}
+                    {isChecked && <span className="material-symbols-outlined text-base" aria-hidden="true">check</span>}
                   </div>
                   
                   <div className="flex-1">
@@ -213,7 +213,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                       {crit.desc}
                     </p>
                     <div className="inline-flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-2 bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">
-                      <span className="material-symbols-outlined text-xs">gavel</span>
+                      <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
                       <span>{crit.lawRef}</span>
                     </div>
                   </div>
@@ -275,7 +275,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
               className="w-full bg-white hover:bg-slate-100 text-slate-950 font-bold py-3.5 px-5 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-xs"
             >
               <span>{evalData.ctaText}</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
 
             <span className="text-[10px] text-gray-400 block">

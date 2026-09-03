@@ -119,7 +119,7 @@ export default function SurdurulebilirlikClient() {
 
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
                 <div className="w-20 h-20 rounded-3xl bg-white/15 flex items-center justify-center shrink-0 shadow-lg">
-                  <span className="material-symbols-outlined text-4xl text-white">solar_power</span>
+                  <span className="material-symbols-outlined text-4xl text-white" aria-hidden="true">solar_power</span>
                 </div>
                 <div className="flex-1">
                   <span className="text-xs font-bold tracking-widest uppercase text-emerald-200 mb-2 block">
@@ -133,7 +133,7 @@ export default function SurdurulebilirlikClient() {
                 <div className="shrink-0">
                   <span className="inline-flex items-center gap-2 bg-white text-emerald-800 font-bold px-6 py-3 rounded-xl text-sm shadow-lg transition-transform group-hover:translate-x-1">
                     {t('sust_hub_ges_btn')}
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
                   </span>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function SurdurulebilirlikClient() {
                 <div
                   className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-md`}
                 >
-                  <span className="material-symbols-outlined text-white text-2xl">{cert.icon}</span>
+                  <span className="material-symbols-outlined text-white text-2xl" aria-hidden="true">{cert.icon}</span>
                 </div>
                 <div>
                   <p className={`text-[10px] font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r ${cert.color} mb-1`}>
@@ -183,7 +183,7 @@ export default function SurdurulebilirlikClient() {
                   </p>
                 </div>
                 <span className="text-[11px] text-slate-400 flex items-center gap-1 mt-auto">
-                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
                   Belgeyi Gör
                 </span>
               </motion.a>
@@ -196,7 +196,7 @@ export default function SurdurulebilirlikClient() {
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
             >
               {t('sust_hub_certs_link')}
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
+              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
         </div>

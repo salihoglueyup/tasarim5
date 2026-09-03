@@ -100,7 +100,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
 
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-sm">cleaning_services</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">cleaning_services</span>
           TSE HYB Onaylı Hijyen Standartları Oluşturucu
         </div>
         <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
@@ -225,7 +225,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         {/* Günlük */}
         <div className="p-5 rounded-2xl bg-teal-50/50 dark:bg-teal-950/20 border border-teal-200 dark:border-teal-900/50 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-extrabold text-sm">
-            <span className="material-symbols-outlined text-base">today</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">today</span>
             <span>GÜNLÜK GÖREVLER (Hergün)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
@@ -241,7 +241,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         {/* Haftalık */}
         <div className="p-5 rounded-2xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-extrabold text-sm">
-            <span className="material-symbols-outlined text-base">calendar_view_week</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">calendar_view_week</span>
             <span>HAFTALIK GÖREVLER (Haftada 1-2)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
@@ -257,7 +257,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         {/* Aylık */}
         <div className="p-5 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
-            <span className="material-symbols-outlined text-base">pest_control</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">pest_control</span>
             <span>AYLIK & BİYOSİDAL İLAÇLAMA</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
@@ -278,7 +278,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             onClick={handleCopy}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 text-white text-xs font-bold transition-all shadow-sm"
           >
-            <span className="material-symbols-outlined text-sm">
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">
               {copied ? 'check' : 'content_copy'}
             </span>
             <span>{copied ? 'Çizelge Kopyalandı!' : 'Çizelgeyi Kopyala (Yönetim Panosu)'}</span>
@@ -290,7 +290,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             href={`/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all shadow-md shadow-teal-600/20"
           >
-            <span className="material-symbols-outlined text-sm">handshake</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">handshake</span>
             <span>{districtName} İçin Profesyonel Personel & Temizlik Teklifi</span>
           </Link>
         </div>

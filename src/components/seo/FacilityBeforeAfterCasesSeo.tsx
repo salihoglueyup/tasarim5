@@ -154,7 +154,7 @@ export default function FacilityBeforeAfterCasesSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm">trending_up</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">trending_up</span>
           <span>Kanıtlanmış Gerçek KPI & Tasarruf Sonuçları</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -191,12 +191,12 @@ export default function FacilityBeforeAfterCasesSeo() {
             <h4 className="text-lg sm:text-xl font-bold text-[var(--color-primary)]">{activeCase.title}</h4>
             <div className="flex items-center gap-3 text-xs text-[var(--color-secondary)] mt-1">
               <span className="flex items-center gap-1 font-medium">
-                <span className="material-symbols-outlined text-[15px]">location_on</span>
+                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">location_on</span>
                 {activeCase.location}
               </span>
               <span>•</span>
               <span className="flex items-center gap-1 font-medium">
-                <span className="material-symbols-outlined text-[15px]">domain</span>
+                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">domain</span>
                 {activeCase.scale}
               </span>
             </div>
@@ -213,7 +213,7 @@ export default function FacilityBeforeAfterCasesSeo() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-rose-600 dark:text-rose-400">
-                  <span className="material-symbols-outlined text-base">cancel</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">cancel</span>
                   Bireysel / Eski Yönetim Dönemi
                 </span>
                 <span className="text-xs font-mono font-bold text-rose-600 dark:text-rose-400 bg-rose-100 dark:bg-rose-900/50 px-2.5 py-1 rounded-md">
@@ -247,7 +247,7 @@ export default function FacilityBeforeAfterCasesSeo() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                  <span className="material-symbols-outlined text-base">check_circle</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">check_circle</span>
                   Alo Yönetim Entegre İşletme Modeli
                 </span>
                 <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/50 px-2.5 py-1 rounded-md">

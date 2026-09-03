@@ -504,7 +504,7 @@ export default function Header() {
                 isTopAndDarkHero ? 'text-white' : 'text-slate-900 dark:text-white'
               }`}
             >
-              <span className="material-symbols-outlined text-[24px]">
+              <span className="material-symbols-outlined text-[24px]" aria-hidden="true">
                 {isMobileMenuOpen ? 'close' : 'menu'}
               </span>
             </button>

@@ -167,7 +167,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
         {/* Üst Başlık & Badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-semibold tracking-wide uppercase">
-            <span className="material-symbols-outlined text-sm">precision_manufacturing</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">precision_manufacturing</span>
             TMMOB & Sanayi Bakanlığı Mevzuat Uyum Radarı
           </div>
           <span className="text-xs text-slate-400 font-mono">
@@ -236,14 +236,14 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 href="/teklif-al?hizmet=teknik-bakim&utm_source=technical_radar"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/30 hover:scale-[1.02]"
               >
-                <span className="material-symbols-outlined text-base">engineering</span>
+                <span className="material-symbols-outlined text-base" aria-hidden="true">engineering</span>
                 Ücretsiz 48 Saatlik Teknik Keşif İste
               </Link>
               <a
                 href="tel:02165504848"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all border border-slate-700"
               >
-                <span className="material-symbols-outlined text-base">call</span>
+                <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
                 0216 550 48 48
               </a>
             </div>
@@ -284,7 +284,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 <div className={`mt-0.5 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border transition-all ${
                   isChecked ? 'bg-blue-500 border-blue-400 text-white' : 'border-slate-700 bg-slate-800 text-transparent'
                 }`}>
-                  <span className="material-symbols-outlined text-sm font-bold">check</span>
+                  <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">check</span>
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center justify-between gap-2">
@@ -302,7 +302,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                     {c.desc}
                   </p>
                   <span className="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-xs">gavel</span>
+                    <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
                     {c.lawRef}
                   </span>
                 </div>
@@ -314,7 +314,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
         {/* Bilgilendirme Dipnotu */}
         <div className="mt-6 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
           <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-blue-400">info</span>
+            <span className="material-symbols-outlined text-sm text-blue-400" aria-hidden="true">info</span>
             TMMOB Makina ve Elektrik Mühendisleri Odası denetim prensipleri esas alınmıştır.
           </span>
           <span className="font-mono text-[11px] text-slate-500">

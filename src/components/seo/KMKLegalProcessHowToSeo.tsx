@@ -133,7 +133,7 @@ export default function KMKLegalProcessHowToSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">account_tree</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">account_tree</span>
               Google HowTo Şemalı Yasal Süreç Motoru
             </span>
           </div>
@@ -213,7 +213,7 @@ export default function KMKLegalProcessHowToSeo() {
             <div className="pt-3 border-t border-gray-200/60 dark:border-white/10 space-y-1.5 text-[11px] text-[var(--color-secondary)]">
               {step.criticalPoints.map((pt, pIdx) => (
                 <div key={pIdx} className="flex items-start gap-1.5">
-                  <span className="material-symbols-outlined text-xs text-emerald-500 shrink-0 mt-0.5">
+                  <span className="material-symbols-outlined text-xs text-emerald-500 shrink-0 mt-0.5" aria-hidden="true">
                     check
                   </span>
                   <span>{pt}</span>

@@ -65,7 +65,7 @@ export default function InteractiveCostSimulatorSeo() {
           className="px-5 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all hover:scale-105 shrink-0 self-start md:self-auto shadow-md"
         >
           <span>Ücretsiz İşletme Projesi Keşfi</span>
-          <span className="material-symbols-outlined text-xs">arrow_forward</span>
+          <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
         </Link>
       </div>
 
@@ -127,7 +127,7 @@ export default function InteractiveCostSimulatorSeo() {
                   : 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-white/10 text-[var(--color-secondary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-xl">shield</span>
+              <span className="material-symbols-outlined text-xl" aria-hidden="true">shield</span>
               <span className="text-xs">7/24 Özel Güvenlik</span>
             </button>
 
@@ -139,7 +139,7 @@ export default function InteractiveCostSimulatorSeo() {
                   : 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-white/10 text-[var(--color-secondary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-xl">elevator</span>
+              <span className="material-symbols-outlined text-xl" aria-hidden="true">elevator</span>
               <span className="text-xs">Çift Asansör & Jeneratör</span>
             </button>
 
@@ -151,7 +151,7 @@ export default function InteractiveCostSimulatorSeo() {
                   : 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-white/10 text-[var(--color-secondary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-xl">mode_heat</span>
+              <span className="material-symbols-outlined text-xl" aria-hidden="true">mode_heat</span>
               <span className="text-xs">Merkezi Payölçer</span>
             </button>
           </div>

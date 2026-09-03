@@ -136,7 +136,7 @@ export default function FacilityManagementCalculatorSeo({
           <div className="bg-gradient-to-br from-brand-600 to-indigo-700 text-white rounded-2xl p-6 shadow-xl flex flex-col justify-between h-full">
             <div>
               <div className="flex items-center gap-2 text-brand-200 text-xs font-semibold mb-3">
-                <span className="material-symbols-outlined text-sm">calculate</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">calculate</span>
                 <span>Tahmini Aylık Bütçe Simülasyonu</span>
               </div>
 

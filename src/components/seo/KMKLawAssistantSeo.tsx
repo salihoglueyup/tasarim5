@@ -151,7 +151,7 @@ export default function KMKLawAssistantSeo() {
         {/* Başlık Bölümü */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm">gavel</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">gavel</span>
             KMK 634 & 5188 Yasal Mevzuat Rehberi
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
@@ -169,7 +169,7 @@ export default function KMKLawAssistantSeo() {
               Kat Mülkiyeti Kanunu ve mevzuat maddesi ara
             </label>
             <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
-              <span className="material-symbols-outlined">search</span>
+              <span className="material-symbols-outlined" aria-hidden="true">search</span>
             </span>
             <input
               id="kmk-search-input"
@@ -188,7 +188,7 @@ export default function KMKLawAssistantSeo() {
                 onClick={() => setSearchQuery('')}
                 className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-700 dark:hover:text-white"
               >
-                <span className="material-symbols-outlined text-sm">close</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">close</span>
               </button>
             )}
           </div>
@@ -214,7 +214,7 @@ export default function KMKLawAssistantSeo() {
         <div className="space-y-4">
           {filteredItems.length === 0 ? (
             <div className="text-center py-12 bg-white dark:bg-slate-900/50 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800">
-              <span className="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500 mb-2">policy</span>
+              <span className="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500 mb-2" aria-hidden="true">policy</span>
               <p className="text-slate-600 dark:text-slate-400">Aradığınız kriterlere uygun yasal madde bulunamadı.</p>
               <button
                 onClick={() => {
@@ -271,7 +271,7 @@ export default function KMKLawAssistantSeo() {
                       {/* Özet Hüküm */}
                       <div className="p-4 bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-800/30 rounded-2xl">
                         <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-sm">verified</span>
+                          <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
                           Yasal Hüküm Özeti
                         </div>
                         <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
@@ -283,7 +283,7 @@ export default function KMKLawAssistantSeo() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/60 rounded-2xl space-y-1.5">
                           <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                            <span className="material-symbols-outlined text-sm">menu_book</span>
+                            <span className="material-symbols-outlined text-sm" aria-hidden="true">menu_book</span>
                             Kanun Metni ({item.lawName})
                           </div>
                           <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed italic">
@@ -293,7 +293,7 @@ export default function KMKLawAssistantSeo() {
 
                         <div className="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/60 rounded-2xl space-y-1.5">
                           <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
-                            <span className="material-symbols-outlined text-sm">account_balance</span>
+                            <span className="material-symbols-outlined text-sm" aria-hidden="true">account_balance</span>
                             Yargıtay Emsal Kararı
                           </div>
                           <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
@@ -304,7 +304,7 @@ export default function KMKLawAssistantSeo() {
 
                       {/* Alo Yönetim Uzman Çözümü */}
                       <div className="p-4.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 rounded-2xl flex items-start gap-3 shadow-md">
-                        <span className="material-symbols-outlined text-blue-400 dark:text-blue-600 text-xl mt-0.5 flex-shrink-0">
+                        <span className="material-symbols-outlined text-blue-400 dark:text-blue-600 text-xl mt-0.5 flex-shrink-0" aria-hidden="true">
                           task_alt
                         </span>
                         <div className="space-y-1">
@@ -333,11 +333,11 @@ export default function KMKLawAssistantSeo() {
             </p>
           </div>
           <a
-            href="/tr/hizmetler/hukuk-ve-icra-danismanligi"
+            href="/hizmetler/hukuk-ve-icra-danismanligi"
             className="px-6 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs sm:text-sm hover:opacity-95 transition-all flex-shrink-0 flex items-center gap-2 shadow-md hover:shadow-xl hover:scale-105"
           >
             <span>Hukuki Danışmanlık Al</span>
-            <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+            <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
       </div>

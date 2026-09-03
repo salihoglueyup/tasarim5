@@ -72,7 +72,7 @@ export default function LiveMetricsWidget() {
               className="bg-white/5 border border-white/10 p-8 rounded-[2rem] flex flex-col gap-4 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300 transform-gpu"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/10 text-slate-200 flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl">{m.icon}</span>
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{m.icon}</span>
               </div>
               <div>
                 <div className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">{m.value}</div>

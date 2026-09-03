@@ -90,7 +90,7 @@ export default function SecurityTrustBadgeGridSeo({
       <section className={`my-10 ${className}`}>
         <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full text-xs font-bold mb-2">
-            <span className="material-symbols-outlined text-sm">lock</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">lock</span>
             <span>%100 Yasal Uygunluk & Sıfır Hukuki Risk</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
@@ -109,7 +109,7 @@ export default function SecurityTrustBadgeGridSeo({
             >
               <div>
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
-                  <span className="material-symbols-outlined text-xl">{badge.icon}</span>
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">{badge.icon}</span>
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block">
                   {badge.authority}
@@ -123,7 +123,7 @@ export default function SecurityTrustBadgeGridSeo({
               </div>
 
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                <span className="material-symbols-outlined text-sm">verified</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
                 <span>{badge.licenseNo}</span>
               </div>
             </div>

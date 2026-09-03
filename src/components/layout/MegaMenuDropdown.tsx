@@ -222,7 +222,7 @@ export default function MegaMenuDropdown({
                 >
                   {subItem.icon && (
                     <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0">
-                      <span className="material-symbols-outlined text-[18px]">{subItem.icon}</span>
+                      <span className="material-symbols-outlined text-[18px]" aria-hidden="true">{subItem.icon}</span>
                     </div>
                   )}
                   <div>
@@ -260,7 +260,7 @@ export default function MegaMenuDropdown({
                     className="inline-flex items-center gap-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-3 py-1.5 rounded-xl transition-colors mt-2 w-fit shadow-sm"
                   >
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="material-symbols-outlined text-[15px]">call</span>
+                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">call</span>
                     <span>0216 550 48 48</span>
                   </a>
                 )}

@@ -70,7 +70,7 @@ export default function RezidansYonetimiClient() {
             {FEATURES.map((f, i) => (
               <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
                 className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-6 hover:border-amber-400/40 transition-all">
-                <span className="material-symbols-outlined text-amber-400 text-3xl mb-3 block">{f.icon}</span>
+                <span className="material-symbols-outlined text-amber-400 text-3xl mb-3 block" aria-hidden="true">{f.icon}</span>
                 <h3 className="font-bold text-[var(--color-text-primary)] mb-2">{f.title}</h3>
                 <p className="text-sm text-[var(--color-text-muted)]">{f.desc}</p>
               </motion.div>
@@ -102,7 +102,7 @@ export default function RezidansYonetimiClient() {
               { href: '/hizmetler/tesis-yonetimi/rehber', label: 'Tesis Yönetimi Rehberi', icon: 'menu_book' },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="flex items-center gap-3 p-4 border border-[var(--color-outline)]/60 rounded-xl hover:border-brand-500/40 transition-all">
-                <span className="material-symbols-outlined text-brand-500">{item.icon}</span>
+                <span className="material-symbols-outlined text-brand-500" aria-hidden="true">{item.icon}</span>
                 <span className="text-sm font-semibold text-[var(--color-text-primary)]">{item.label}</span>
               </Link>
             ))}

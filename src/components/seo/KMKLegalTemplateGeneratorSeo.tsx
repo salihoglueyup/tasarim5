@@ -133,7 +133,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">gavel</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">gavel</span>
               Resmi KMK 634 Hukuki Şablon Jeneratörü
             </span>
           </div>
@@ -274,7 +274,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
         <div className="lg:col-span-7 flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm text-indigo-500">description</span>
+              <span className="material-symbols-outlined text-sm text-indigo-500" aria-hidden="true">description</span>
               Canlı Metin Önizlemesi
             </span>
 
@@ -283,7 +283,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
                 onClick={handleCopy}
                 className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
               >
-                <span className="material-symbols-outlined text-sm">
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">
                   {isCopied ? 'check' : 'content_copy'}
                 </span>
                 <span>{isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>
@@ -294,7 +294,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
                 className="px-3.5 py-1.5 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-[var(--color-primary)] rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all"
                 title="TXT olarak indir"
               >
-                <span className="material-symbols-outlined text-sm">download</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
                 <span>İndir</span>
               </button>
             </div>

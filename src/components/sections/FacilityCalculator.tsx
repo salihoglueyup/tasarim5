@@ -49,7 +49,7 @@ export default function FacilityCalculator() {
         <div className="flex-1 space-y-8">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-2 border border-slate-900/10 dark:border-white/10">
-              <span className="material-symbols-outlined text-[16px]">calculate</span>
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">calculate</span>
               Canlı Bütçe & Tasarruf Simülatörü
             </div>
             <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -79,7 +79,7 @@ export default function FacilityCalculator() {
                         : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-secondary)] hover:border-slate-400'
                     }`}
                   >
-                    <span className="material-symbols-outlined text-xl">{ft.icon}</span>
+                    <span className="material-symbols-outlined text-xl" aria-hidden="true">{ft.icon}</span>
                     <span className="text-xs font-bold">{ft.label}</span>
                   </button>
                 );
@@ -158,7 +158,7 @@ export default function FacilityCalculator() {
         {/* Right Side: Result & CTA */}
         <div className="lg:w-96 flex flex-col justify-center items-center bg-[var(--color-surface-variant)] p-8 rounded-[2.5rem] shadow-sm text-center relative border border-[var(--color-outline)]/80">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold tracking-wide uppercase mb-3 border border-emerald-500/20">
-            <span className="material-symbols-outlined text-[14px]">trending_down</span>
+            <span className="material-symbols-outlined text-[14px]" aria-hidden="true">trending_down</span>
             %30 Net Maliyet Tasarrufu
           </div>
 

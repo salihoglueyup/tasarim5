@@ -87,13 +87,13 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                   {t('home_comparison_left_sub', 'Kurumsal & Dijital & %100 Şeffaf')}
                 </span>
               </div>
-              <span className="material-symbols-outlined text-4xl text-emerald-400">verified</span>
+              <span className="material-symbols-outlined text-4xl text-emerald-400" aria-hidden="true">verified</span>
             </div>
 
             <div className="flex flex-col gap-4">
               {DEFAULT_ROWS.map((row, i) => (
                 <div key={i} className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
-                  <span className="material-symbols-outlined text-emerald-400 shrink-0 mt-0.5 text-lg">check_circle</span>
+                  <span className="material-symbols-outlined text-emerald-400 shrink-0 mt-0.5 text-lg" aria-hidden="true">check_circle</span>
                   <div>
                     <h4 className="font-bold text-white text-sm mb-1">{row.title}</h4>
                     <p className="text-xs text-gray-300 font-light leading-relaxed">{row.alo}</p>
@@ -123,13 +123,13 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                   {t('home_comparison_right_sub', 'Eski Usul & Denetimsiz & Yüksek Risk')}
                 </span>
               </div>
-              <span className="material-symbols-outlined text-4xl text-rose-500">warning</span>
+              <span className="material-symbols-outlined text-4xl text-rose-500" aria-hidden="true">warning</span>
             </div>
 
             <div className="flex flex-col gap-4">
               {DEFAULT_ROWS.map((row, i) => (
                 <div key={i} className="flex items-start gap-3 bg-rose-50/40 dark:bg-rose-950/20 p-4 rounded-2xl border border-rose-200/50 dark:border-rose-900/30">
-                  <span className="material-symbols-outlined text-rose-500 shrink-0 mt-0.5 text-lg">cancel</span>
+                  <span className="material-symbols-outlined text-rose-500 shrink-0 mt-0.5 text-lg" aria-hidden="true">cancel</span>
                   <div>
                     <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{row.title}</h4>
                     <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{row.trad}</p>

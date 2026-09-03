@@ -115,7 +115,7 @@ export default function FacilityDistrictPortfolioSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm">location_city</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">location_city</span>
           <span>İstanbul Geneli 400+ Aktif Tesis Referansı</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -173,7 +173,7 @@ export default function FacilityDistrictPortfolioSeo() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="text-base font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-indigo-500 text-lg">domain</span>
+                  <span className="material-symbols-outlined text-indigo-500 text-lg" aria-hidden="true">domain</span>
                   {item.name}
                 </h4>
                 <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
@@ -204,7 +204,7 @@ export default function FacilityDistrictPortfolioSeo() {
                 className="w-full py-2 px-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-1 group-hover:border-indigo-500/40"
               >
                 <span>{item.name} Hizmet Detayı</span>
-                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
           </div>

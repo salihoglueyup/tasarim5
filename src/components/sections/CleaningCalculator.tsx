@@ -54,7 +54,7 @@ export default function CleaningCalculator() {
             </div>
             
             <div className="flex items-center gap-4 bg-slate-50 dark:bg-zinc-900 p-4 rounded-2xl border border-gray-200 dark:border-zinc-800">
-               <span className="material-symbols-outlined text-slate-500 text-3xl">groups</span>
+               <span className="material-symbols-outlined text-slate-500 text-3xl" aria-hidden="true">groups</span>
                <div>
                  <p className="text-xs text-gray-500">{t('calc_clean_optimum')}</p>
                  <p className="text-lg font-bold text-slate-800 dark:text-white">{recommendedStaff} Profesyonel</p>
