@@ -288,13 +288,13 @@
 - [x] **Faz 208:** İletişim sayfasında şirketin resmi vergi kimlik numarası, kayıtlı olduğu oda ve MERSİS numarasını şeffafça yayınlama.
 - [ ] **Faz 209:** Gerçek site yöneticisi ve kat maliki video referanslarını VideoObject şemasıyla zenginleştirme.
 - [ ] **Faz 210:** Kurumsal Hakkımızda sayfasında yönetim kurulu ve departman müdürlerinin fotoğraflı özgeçmişlerini sunma.
-- [ ] **Faz 211:** Teklif alma formunda (`/teklif-al`) güven mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza) ile dönüşüm oranını artırma.
+- [x] **Faz 211:** Teklif alma formunda (`/teklif-al`) güven mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza) ile dönüşüm oranını artırma.
 - [x] **Faz 212:** KMK Hukuk süreçlerinde emsal Yargıtay kararlarına atıfta bulunarak hukuki derinliği belgeleme.
 - [ ] **Faz 213:** Asansör bakımı ve teknik denetimlerde TSE ve MMO akredite mühendis onay belgelerini sergileme.
-- [ ] **Faz 214:** Gizlilik Politikası, Çerez Politikası ve Kullanım Şartları sayfalarını en güncel 2026 mevzuatına göre güncelleme.
+- [x] **Faz 214:** Gizlilik Politikası, Çerez Politikası ve Kullanım Şartları sayfalarını en güncel 2026 mevzuatına göre güncelleme.
 - [ ] **Faz 215:** Kullanıcıların kolayca geri bildirim ve şikayet iletebileceği ISO 10002 Müşteri Memnuniyeti formunu öne çıkarma.
 - [ ] **Faz 216:** Şirket genel merkezinin fiziksel ofis, operasyon merkezi ve araç filosunun yüksek çözünürlüklü fotoğraflarını sunma.
-- [ ] **Faz 217:** 48 saatte şeffaf bütçe teklifi garantisini dönüşüm odaklı mikro rozetlerle tüm hizmetlere yerleştirme.
+- [x] **Faz 217:** 48 saatte şeffaf bütçe teklifi garantisini dönüşüm odaklı mikro rozetlerle tüm hizmetlere yerleştirme.
 - [ ] **Faz 218:** Sitede yer alan tüm hesaplayıcıların formüllerini KMK 634 resmi hesaplama cetvellerine dayandırma.
 - [ ] **Faz 219:** Sektörel ödüller, plaketler ve teşekkür belgeleri için özel bir dijital başarı vitrini oluşturma.
 - [x] **Faz 220:** Mobil cihazlarda arama ve WhatsApp iletişim butonlarını başparmak erişim bölgesinde (Thumb Zone) sabitleme.
@@ -321,13 +321,13 @@
 - [ ] **Faz 235:** Googlebot ve Bingbot'un sunucudaki CPU tüketimini izleyen `/api/admin/bot-telemetry` servisini aktif etme.
 - [ ] **Faz 236:** Günlük olarak kırık linkleri, sitemap doğruluğunu ve index durumunu denetleyen `/api/cron/seo-patrol` cron servisi kurma.
 - [ ] **Faz 237:** 404 sayfasına kullanıcının aradığı terime en yakın 3 sayfayı öneren akıllı hata kurtarma bileşeni ekleme.
-- [ ] **Faz 238:** Next.js ISR (Incremental Static Regeneration) ile popüler sayfaların önbelleğini arka planda 24 saatte bir otomatik tazeleme.
+- [x] **Faz 238:** Next.js ISR (Incremental Static Regeneration) ile popüler sayfaların önbelleğini arka planda 24 saatte bir otomatik tazeleme.
 - [x] **Faz 239:** Redis bağlantısı kopsa dahi arama motorlarına kesintisiz statik veri sunan Fallback katmanını güvenceye alma.
 - [ ] **Faz 240:** DNS yanıt süresini Cloudflare DNSSEC ve CNAME flattening ile 20ms seviyesine indirme.
 - [x] **Faz 241:** Arama motorlarının JavaScript çalıştırmasına gerek kalmadan tüm kritik içeriği SSR (Server-Side Rendering) ile teslim etme.
 - [ ] **Faz 242:** Web Vitals metriklerini gerçek kullanıcı deneyimiyle (RUM) toplayan `/api/analytics/vitals` uç noktasını güçlendirme.
 - [x] **Faz 243:** Sayfa yönlendirmelerinde tarayıcı ön yüklemesini yöneten Speculation Rules API'yi moderate seviyesinde tutma.
-- [ ] **Faz 244:** Tüm API uç noktalarında CORS politikalarını sadece izinli alan adlarıyla sınırlandırarak veri güvenliğini sağlama.
+- [x] **Faz 244:** Tüm API uç noktalarında CORS politikalarını sadece izinli alan adlarıyla sınırlandırarak veri güvenliğini sağlama.
 - [ ] **Faz 245:** SSL sertifikasının TLS 1.3 ve güçlü şifreleme paketleriyle (ChaCha20, AES-GCM) çalıştığını doğrulama.
 - [ ] **Faz 246:** Arama motoru örümceklerine sunulan HTML kaynak kodunun boyutunu (HTML Minification) optimize etme.
 - [ ] **Faz 247:** Görsellerin modern AVIF ve WebP formatlarında içerik pazarlığı (Content Negotiation) ile sunulmasını garanti etme.

@@ -224,6 +224,26 @@ export default function TeklifAlClient() {
             >
               {status === 'loading' ? 'Teklif Talebi İletiliyor...' : 'Ücretsiz Keşif & Teklif Raporu İste →'}
             </button>
+
+            {/* Faz 211: CRO & E-E-A-T Güven Mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza, 48 Saat Rapor) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 border-t border-slate-200 dark:border-white/10 text-[11px] text-slate-500 dark:text-slate-400 font-medium text-center">
+              <div className="flex items-center justify-center gap-1">
+                <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">lock</span>
+                <span>256-Bit SSL</span>
+              </div>
+              <div className="flex items-center justify-center gap-1">
+                <span className="material-symbols-outlined text-sm text-blue-500" aria-hidden="true">shield</span>
+                <span>5188 Lisanslı</span>
+              </div>
+              <div className="flex items-center justify-center gap-1">
+                <span className="material-symbols-outlined text-sm text-purple-500" aria-hidden="true">gavel</span>
+                <span>KVKK Korumalı</span>
+              </div>
+              <div className="flex items-center justify-center gap-1">
+                <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">schedule</span>
+                <span>48s Rapor</span>
+              </div>
+            </div>
           </form>
         )}
       </div>
