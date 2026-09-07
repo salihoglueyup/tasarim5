@@ -28,7 +28,8 @@ export default function GeoTargetAreaSeo({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Alo Yönetim ve Organizasyon A.Ş.',
+    name: 'Alo Yönetim',
+    legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
     url: BASE_URL,
     areaServed: DISTRICTS.map((d) => ({
       '@type': 'AdministrativeArea',

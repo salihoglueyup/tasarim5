@@ -32,7 +32,7 @@ export async function GET() {
       publicationDate: '2026-01-15T08:00:00+03:00',
       familyFriendly: 'yes',
       requiresSubscription: 'no',
-      uploader: 'Alo Yönetim ve Organizasyon A.Ş.',
+      uploader: 'Alo Yönetim',
       category: 'Tesis Yönetimi',
       tags: ['tesis yönetimi', 'site yönetimi', 'özel güvenlik', '5188', 'apartman yönetimi', 'iso 41001'],
     },

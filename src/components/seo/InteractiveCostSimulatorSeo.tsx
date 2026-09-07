@@ -36,7 +36,8 @@ export default function InteractiveCostSimulatorSeo() {
     description: 'Kat Mülkiyeti Kanunu Madde 20 uyarınca bağımsız bölümlere düşen yasal aidat ve işletme projesi masraf dağıtım hesaplayıcısı.',
     provider: {
       '@type': 'Organization',
-      name: 'Alo Yönetim ve Organizasyon A.Ş.'
+      name: 'Alo Yönetim',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.'
     }
   };
 

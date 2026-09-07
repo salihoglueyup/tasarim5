@@ -50,7 +50,8 @@ export default function SocialProofTickerSeo({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Alo Yönetim ve Organizasyon A.Ş.',
+    name: 'Alo Yönetim',
+    legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
     url: BASE_URL,
     interactionStatistic: [
       {

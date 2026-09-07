@@ -269,8 +269,8 @@ export function webSiteSchema(): JsonLdObject {
   return {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
-    name: 'Alo Yönetim Tesis ve Site Yönetimi',
-    alternateName: ['Alo Yönetim', 'Alo Yonetim', 'Alo Yönetim A.Ş.'],
+    name: ORG_NAME,
+    alternateName: [ORG_LEGAL_NAME, 'Alo Yönetim Tesis ve Site Yönetimi', 'Alo Yonetim'],
     url: BASE_URL,
     publisher: { '@id': ORG_ID },
     inLanguage: ['tr-TR', 'en-US', 'ru-RU', 'ar-SA'],

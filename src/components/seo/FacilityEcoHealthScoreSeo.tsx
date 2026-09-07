@@ -33,7 +33,8 @@ export default function FacilityEcoHealthScoreSeo() {
     description: 'Site ve tesis çatılarında Güneş Enerjisi Santrali (GES) ve LED otomasyonu ile sağlanacak yıllık elektrik ve aidat tasarrufu simülatörü.',
     provider: {
       '@type': 'Organization',
-      name: 'Alo Yönetim ve Organizasyon A.Ş.'
+      name: 'Alo Yönetim',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.'
     }
   };
 

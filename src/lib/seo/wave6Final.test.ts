@@ -80,7 +80,7 @@ describe('Wave 6 Final: Faz 146 - Faz 150 Kanonik URL Kontrolü, SERP Sıralama 
 
     expect(meta.twitter).toBeDefined();
     expect((meta.twitter as any)?.card).toBe('summary_large_image');
-    expect(meta.twitter?.title).toBe('Özel Güvenlik Yönetimi');
+    expect(meta.twitter?.title).toBe('Özel Güvenlik Yönetimi | Alo Yönetim');
     expect(meta.twitter?.description).toBe('5188 sayılı kanun kapsamında profesyonel güvenlik.');
     expect(meta.twitter?.images).toBeDefined();
   });

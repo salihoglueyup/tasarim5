@@ -311,7 +311,7 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
         targetKeyword: 'tesis yönetimi',
       });
 
-      expect(meta.title).toBe('Tesis Yönetimi İstanbul');
+      expect(meta.title).toBe('Tesis Yönetimi İstanbul | Alo Yönetim');
       expect(meta.alternates?.canonical).toBe('https://aloyonetim.com.tr/hizmetler/tesis-yonetimi');
       expect(meta.keywords).toContain('tesis yönetimi');
 
@@ -321,7 +321,7 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
 
       expect(meta.other?.['geo.region']).toBe('TR-34');
       expect(meta.other?.['geo.placename']).toContain('Kadıköy');
-      expect(meta.other?.['DC.title']).toBe('Tesis Yönetimi İstanbul');
+      expect(meta.other?.['DC.title']).toBe('Tesis Yönetimi İstanbul | Alo Yönetim');
     });
 
     it('sanitizeCanonicalUrl takip ve UTM parametrelerini temizler', () => {

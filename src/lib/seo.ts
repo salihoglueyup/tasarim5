@@ -237,6 +237,35 @@ export type BuildMetadataArgs = {
 };
 
 /**
+ * Marka başlığı formatlayıcı (Alo Yönetim Tek Marka Standardı).
+ * - Çift marka eklerini ("| Alo Yönetim | Alo Yönetim") temizler.
+ * - Hantal tüzel ad eklerini ("— Alo Yönetim ve Organizasyon A.Ş.") temizler.
+ * - Başlık sonunda tek ve standart " | Alo Yönetim" olmasını garanti eder.
+ * - Anasayfa gibi doğrudan marka içeren başlıkları ("Alo Yönetim — ...") korur.
+ */
+export function formatBrandTitle(title: string, brand: string = 'Alo Yönetim'): string {
+  if (!title) return brand;
+  let clean = title.trim();
+
+  // 1. Tüzel unvan veya eski uzun marka eklerini temizle
+  clean = clean.replace(/\s*[-—–|]\s*Alo Yönetim ve Organizasyon A\.Ş\.?/gi, '');
+  clean = clean.replace(/\s*[-—–|]\s*Alo Yönetim Tesis Yönetimi/gi, '');
+
+  // 2. Sondaki tek veya çoklu "| Alo Yönetim" / "— Alo Yönetim" eklerini ayıkla
+  while (/\s*[-—–|]\s*Alo Yönetim\s*$/i.test(clean)) {
+    clean = clean.replace(/\s*[-—–|]\s*Alo Yönetim\s*$/i, '').trim();
+  }
+
+  // 3. Başlık zaten doğrudan marka ile başlıyorsa (örn. anasayfa başlıkları)
+  if (clean === brand || clean.startsWith(brand + ' —') || clean.startsWith(brand + ' |') || clean.startsWith(brand + ' -')) {
+    return clean;
+  }
+
+  // 4. Temizlenmiş sayfa konusunun ardına tek ve standart marka ekini yerleştir
+  return clean ? `${clean} | ${brand}` : brand;
+}
+
+/**
  * Sayfa metadata'sı üretir. Canonical + hreflang + OG + Twitter + Googlebot gelişmiş direktifleri dahil.
  */
 export function buildMetadata({
@@ -254,6 +283,7 @@ export function buildMetadata({
   authorName,
   targetKeyword,
 }: BuildMetadataArgs): Metadata {
+  const resolvedTitle = formatBrandTitle(title);
   const locale = normalizeLocale(lang);
   const canonical = localizedUrl(path, locale);
 
@@ -270,7 +300,7 @@ export function buildMetadata({
   const resolvedOgType: 'default' | 'service' | 'local' | 'article' =
     ogImageType ?? (ogType === 'article' ? 'article' : 'default');
 
-  const ogParams = new URLSearchParams({ title, type: resolvedOgType }).toString();
+  const ogParams = new URLSearchParams({ title: resolvedTitle, type: resolvedOgType }).toString();
   const resolvedImages =
     images && images.length
       ? images
@@ -279,13 +309,13 @@ export function buildMetadata({
             url: `${BASE_URL}/api/og?${ogParams}`,
             width: 1200,
             height: 630,
-            alt: title,
+            alt: resolvedTitle,
           },
         ];
 
   return {
     metadataBase: new URL(BASE_URL),
-    title,
+    title: resolvedTitle,
     description,
     keywords: resolvedKeywords,
     alternates: {
@@ -298,7 +328,7 @@ export function buildMetadata({
       alternateLocale: Object.values(OG_LOCALE_MAP).filter((l) => l !== (OG_LOCALE_MAP[locale] || 'tr_TR')),
       url: canonical,
       siteName: SITE_NAME,
-      title,
+      title: resolvedTitle,
       description,
       images: resolvedImages,
       ...(ogType === 'article' && datePublished
@@ -311,7 +341,7 @@ export function buildMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: resolvedTitle,
       description,
       images: resolvedImages,
     },
@@ -340,7 +370,7 @@ export function buildMetadata({
       'rating': 'general',
       'revisit-after': '3 days',
       'X-Topical-Domain': 'Facility and Property Management',
-      'DC.title': title,
+      'DC.title': resolvedTitle,
       'DC.description': description,
       'DC.creator': authorName || SITE_NAME,
       'DC.language': locale,

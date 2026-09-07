@@ -3,6 +3,7 @@ import {
   ORG_ID,
   LOCALBUSINESS_ID,
   ORG_NAME,
+  ORG_LEGAL_NAME,
   ORG_LOGO,
   ORG_PHONE,
   ORG_EMAIL,
@@ -195,7 +196,8 @@ export function districtSecurityServiceSchema({
     provider: {
       '@type': 'Corporation',
       '@id': ORG_ID,
-      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      name: ORG_NAME,
+      legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
       hasCredential: [
@@ -300,7 +302,8 @@ export function districtTechnicalServiceSchema(opts: {
     provider: {
       '@type': 'Corporation',
       '@id': ORG_ID,
-      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      name: ORG_NAME,
+      legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
       hasCredential: [
@@ -405,7 +408,8 @@ export function districtCleaningServiceSchema(opts: {
     provider: {
       '@type': 'Corporation',
       '@id': ORG_ID,
-      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      name: ORG_NAME,
+      legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
       hasCredential: [
@@ -520,7 +524,8 @@ export function districtFacilityServiceSchema(opts: {
     provider: {
       '@type': 'Corporation',
       '@id': ORG_ID,
-      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      name: ORG_NAME,
+      legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
       hasCredential: [
