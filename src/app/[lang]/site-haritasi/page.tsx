@@ -80,10 +80,15 @@ export default async function SiteHaritasiPage({
               <li><Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Anasayfa</Link></li>
               <li><Link href="/kurumsal/hakkimizda" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Hakkımızda</Link></li>
               <li><Link href="/kurumsal/vizyon-misyon" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Vizyon & Misyon</Link></li>
+              <li><Link href="/kurumsal/kalite-belgelerimiz" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Kalite Belgelerimiz & Akreditasyonlar</Link></li>
               <li><Link href="/iletisim" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">İletişim</Link></li>
               <li><Link href="/sss" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Sıkça Sorulan Sorular</Link></li>
+              <li><Link href="/sozluk" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">KMK & Tesis Sözlüğü</Link></li>
+              <li><Link href="/hesaplayici" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Akıllı Aidat Hesaplayıcı</Link></li>
+              <li><Link href="/guvenlik-akademisi" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">5188 Güvenlik Akademisi</Link></li>
               <li><Link href="/referanslar" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Referanslarımız</Link></li>
               <li><Link href="/app" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Mobil Uygulamamız</Link></li>
+              <li><a href="/sitemap-index.xml" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline">XML Sitemap Index (GSC Tek Link) →</a></li>
             </ul>
           </div>
 

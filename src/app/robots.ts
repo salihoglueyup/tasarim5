@@ -117,8 +117,9 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
-    // Yalnızca standart arama motoru XML sitemap'leri listelenir (Feed ve API'lar hariç tutulur)
+    // Master Sitemap Index tek link ve standart alt sitemap listesi
     sitemap: [
+      `${BASE_URL}/sitemap-index.xml`,
       `${BASE_URL}/sitemap.xml`,
       `${BASE_URL}/sitemap-regions.xml`,
       `${BASE_URL}/image-sitemap.xml`,
