@@ -31,13 +31,15 @@ export function buildHttpLinkHeader(pathname: string, currentLang: string = 'tr'
     `<${canonicalUrl}>; rel="canonical"`,
   ];
 
-  // Alternatif diller için Hreflang Link başlıkları
+  // Alternatif diller için Hreflang Link başlıkları (ISO 639-1 ve BCP 47 bölgesel eşleşmeler)
   LOCALES.forEach((lang) => {
     const langUrl = lang === 'tr'
       ? `${BASE_URL}${barePath === '/' ? '' : barePath}`
       : `${BASE_URL}/${lang}${barePath === '/' ? '' : barePath}`;
     
     linkElements.push(`<${langUrl}>; rel="alternate"; hreflang="${lang}"`);
+    const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
+    linkElements.push(`<${langUrl}>; rel="alternate"; hreflang="${regionalTag}"`);
   });
 
   // x-default (Türkçe ana sürüm)

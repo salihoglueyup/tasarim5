@@ -65,6 +65,8 @@ export default function robots(): MetadataRoute.Robots {
     '/video-sitemap.xml',
     '/document-sitemap.xml',
     '/news-sitemap.xml',
+    '/sitemap-index.xml',
+    '/sitemap.xml',
     '/sitemap-regions.xml',
     '/rss.xml',
     '/feed.xml',

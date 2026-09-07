@@ -19,8 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Site Haritası',
-    description: 'Alo Yönetim web sitesindeki tüm sayfalara ve hizmetlere bu sayfadan ulaşabilirsiniz.',
+    title: 'Site Haritası — Tüm Hizmetler ve Bölge Sayfaları',
+    description: 'Alo Yönetim bünyesindeki tüm hizmetler, kurumsal bilgi sayfaları, hesaplayıcılar ve 39 İstanbul ilçesinin tesis yönetimi sayfalarına hızlı erişim haritası.',
     path: '/site-haritasi',
     lang,
   });

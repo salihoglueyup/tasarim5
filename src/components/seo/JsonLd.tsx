@@ -11,12 +11,24 @@ import { minifyJsonLd } from '@/lib/seo/schemaMinifier';
  *
  * Not: Client bileşenlerde de güvenle kullanılır (yalnız <script> döndürür).
  */
-export default function JsonLd({ data }: { data: JsonLdObject | JsonLdObject[] }) {
-  const payload = Array.isArray(data)
-    ? graph(...data)
-    : '@graph' in data || '@context' in data
-      ? data
-      : { '@context': 'https://schema.org', ...data };
+export default function JsonLd({
+  data,
+}: {
+  data: JsonLdObject | null | undefined | (JsonLdObject | null | undefined)[];
+}) {
+  if (!data) return null;
+
+  const validNodes = Array.isArray(data)
+    ? data.filter((node): node is JsonLdObject => Boolean(node && typeof node === 'object' && Object.keys(node).length > 0))
+    : [data];
+
+  if (validNodes.length === 0) return null;
+
+  const payload = Array.isArray(data) || validNodes.length > 1
+    ? graph(...validNodes)
+    : '@graph' in validNodes[0] || '@context' in validNodes[0]
+      ? validNodes[0]
+      : { '@context': 'https://schema.org', ...validNodes[0] };
 
   // SEO Validator (Linter) - Sadece Geliştirme Ortamında Çalışır
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {

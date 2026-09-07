@@ -322,10 +322,18 @@ export function aiAssistantSchema(): JsonLdObject {
  * Birden fazla node'u tek bir `@graph` altında paketler (Faz 34/57 — @id grafiği).
  * `@context` yalnız bir kez, en üstte yer alır.
  */
-export function graph(...nodes: JsonLdObject[]): JsonLdObject {
+export function graph(...nodes: (JsonLdObject | null | undefined)[]): JsonLdObject {
+  const cleanNodes = nodes
+    .filter((n): n is JsonLdObject => Boolean(n && typeof n === 'object' && Object.keys(n).length > 0))
+    .map((n) => {
+      const copy = { ...n };
+      delete copy['@context'];
+      return copy;
+    });
+
   return {
     '@context': 'https://schema.org',
-    '@graph': nodes,
+    '@graph': cleanNodes,
   };
 }
 

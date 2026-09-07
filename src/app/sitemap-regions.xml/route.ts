@@ -29,6 +29,8 @@ export async function GET() {
     for (const lang of LOCALES) {
       const altUrl = lang === 'tr' ? `${BASE_URL}${hub.path}` : `${BASE_URL}/${lang}${hub.path}`;
       xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>\n`;
+      const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
+      xml += `    <xhtml:link rel="alternate" hreflang="${regionalTag}" href="${altUrl}"/>\n`;
     }
     xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${hub.path}"/>\n`;
     xml += `  </url>\n`;
@@ -47,6 +49,8 @@ export async function GET() {
     for (const lang of LOCALES) {
       const altUrl = lang === 'tr' ? `${BASE_URL}${pagePath}` : `${BASE_URL}/${lang}${pagePath}`;
       xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>\n`;
+      const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
+      xml += `    <xhtml:link rel="alternate" hreflang="${regionalTag}" href="${altUrl}"/>\n`;
     }
     xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pagePath}"/>\n`;
     xml += `  </url>\n`;

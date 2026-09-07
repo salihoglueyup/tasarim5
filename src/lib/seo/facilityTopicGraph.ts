@@ -223,9 +223,19 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         },
       ],
     },
-    // Değerlendirme Puanı (E-E-A-T)
+    // Değerlendirme Puanı (E-E-A-T & Google Rich Results)
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'Service',
+        name: 'Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi',
+        url: serviceUrl,
+        provider: {
+          '@type': 'Organization',
+          name: ORG_NAME,
+          url: BASE_URL,
+        },
+      },
       ratingValue: '4.9',
       reviewCount: '340',
       bestRating: '5',

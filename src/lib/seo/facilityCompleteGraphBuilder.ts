@@ -133,6 +133,11 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     priceRange: '₺₺',
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'Service',
+        name: 'Alo Yönetim Profesyonel Entegre Tesis Yönetimi',
+        url: canonicalUrl,
+      },
       ratingValue: 4.9,
       reviewCount: 312,
       bestRating: 5,
@@ -496,6 +501,11 @@ export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGrap
       : ['https://www.wikidata.org/wiki/Q1391515'],
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'Service',
+        name: `${options.name} | Alo Yönetim`,
+        url: canonicalUrl,
+      },
       ratingValue: 4.9,
       reviewCount: 148,
       bestRating: 5,
@@ -715,6 +725,11 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
     ],
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'Service',
+        name: `${options.districtName} Tesis ve Mülk Yönetimi | Alo Yönetim`,
+        url: canonicalUrl,
+      },
       ratingValue: 4.9,
       reviewCount: 94,
       bestRating: 5,

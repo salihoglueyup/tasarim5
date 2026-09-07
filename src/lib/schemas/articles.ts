@@ -79,7 +79,7 @@ export function blogPostingSchema(opts: {
     description: opts.description,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     url,
-    ...(opts.image ? { image: abs(opts.image) } : {}),
+    image: abs(opts.image || '/images/hero-poster-v5.webp'),
     datePublished: formatIsoUtc(opts.datePublished),
     dateModified: formatIsoUtc(opts.dateModified ?? opts.datePublished),
     ...(opts.section ? { articleSection: opts.section } : {}),

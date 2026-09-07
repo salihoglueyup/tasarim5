@@ -342,6 +342,11 @@ export function buildLocalBusinessSchema(options: LocalBusinessRichOptions = { p
     sameAs: [...CANONICAL_NAP.sameAs],
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'ProfessionalService',
+        name: brandTitle,
+        url: BASE_URL,
+      },
       ratingValue: aggRating.ratingValue,
       reviewCount: aggRating.reviewCount,
       bestRating: aggRating.bestRating || 5,
@@ -423,6 +428,11 @@ export function buildDistrictLocalBusinessSchema(districtSlug: string, pillar: D
     },
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'LocalBusiness',
+        name: `${district.name} ${pillar === 'facility' ? 'Tesis Yönetimi' : 'Site Yönetimi'} — ${CANONICAL_NAP.legal.brandName}`,
+        url: `${BASE_URL}/bolgeler/${district.slug}/${pillar === 'facility' ? 'tesis-yonetimi' : 'site-yonetimi'}`,
+      },
       ratingValue: 4.9,
       reviewCount: 42,
       bestRating: 5,
