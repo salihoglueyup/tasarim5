@@ -8,7 +8,7 @@ export async function GET() {
   const lastBuildDate = new Date().toUTCString();
 
   const itemsXml = DISTRICTS.map((d) => {
-    const itemUrl = `${BASE_URL}/tr/bolgeler/${d.slug}/tesis-yonetimi`;
+    const itemUrl = `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`;
     const title = `${d.name} Profesyonel Tesis Yönetimi & Site İşletmeciliği — Alo Yönetim`;
     const neighborhoodsList = d.neighborhoods.slice(0, 4).join(', ');
     const description = `<![CDATA[

@@ -5,13 +5,13 @@ import { autoLinkHtml } from '@/lib/autoLinker';
 
 describe('Mevcut Dosyalar Tesis Yönetimi Entegrasyon Testleri (Faz 6)', () => {
   describe('robots.ts Yapılandırması', () => {
-    it('Yeni video sitemap, bölgesel sitemap ve RSS feed haritalarını içerir', () => {
+    it('Yeni video sitemap, bölgesel sitemap ve ana sitemap haritalarını içerir', () => {
       const robotsResult = robots();
       const sitemaps = (robotsResult.sitemap as string[]) || [];
 
+      expect(sitemaps.some((s) => s.includes('/sitemap.xml'))).toBe(true);
       expect(sitemaps.some((s) => s.includes('/sitemap-regions.xml'))).toBe(true);
       expect(sitemaps.some((s) => s.includes('/video-sitemap.xml'))).toBe(true);
-      expect(sitemaps.some((s) => s.includes('/feed/tesis-yonetimi.xml'))).toBe(true);
     });
 
     it('Faz 1-4 Tesis Yönetimi açık veri ve API endpointlerine izin verir', () => {

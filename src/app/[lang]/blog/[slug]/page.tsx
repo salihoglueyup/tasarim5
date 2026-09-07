@@ -423,7 +423,7 @@ export default async function BlogDetail({
               {tags.map((tag: string) => (
                 <Link
                   key={tag}
-                  href={`/blog/etiket/${encodeURIComponent(tag)}`}
+                  href={`/blog/etiket/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
                   className="text-xs bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full px-3 py-1.5 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-950 transition-colors"
                 >
                   #{tag}

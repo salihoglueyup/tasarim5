@@ -8,7 +8,7 @@ export async function GET() {
   const lastBuildDate = new Date().toUTCString();
 
   const itemsXml = DISTRICTS.map((d) => {
-    const itemUrl = `${BASE_URL}/tr/bolgeler/${d.slug}/guvenlik-yonetimi`;
+    const itemUrl = `${BASE_URL}/bolgeler/${d.slug}/guvenlik-yonetimi`;
     const title = `${d.name} 5188 Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`;
     const neighborhoodsList = d.neighborhoods.slice(0, 4).join(', ');
     const description = `<![CDATA[

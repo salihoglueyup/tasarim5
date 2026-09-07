@@ -41,18 +41,55 @@ export async function generateMetadata({
     return buildMetadata({ title: 'Mahalle Bulunamadı', description: '', path: `/bolgeler/${ilce}`, lang, noindex: true });
   }
 
+  let title = `${neighborhood.name}, ${district.name} Tesis Yönetimi | Alo Yönetim`;
+  let description = `${neighborhood.name} mahallesinde profesyonel tesis yönetimi, site güvenliği, teknik bakım ve aidat hizmetleri. ${neighborhood.intro.split('.')[0]}.`;
+  let targetKeyword = `${neighborhood.name} tesis yönetimi`;
+  let keywords = [
+    `${neighborhood.name} tesis yönetimi`,
+    `${neighborhood.name} site yönetimi`,
+    `${district.name} ${neighborhood.name} apartman yönetimi`,
+    `${neighborhood.name} güvenlik yönetimi`,
+  ];
+
+  if (lang === 'en') {
+    title = `${neighborhood.name}, ${district.name} Facility & Property Management | Alo Yönetim`;
+    description = `Professional residential and commercial facility management, 5188 site security, cleaning, and technical maintenance in ${neighborhood.name}, ${district.name}, Istanbul.`;
+    targetKeyword = `${neighborhood.name} facility management`;
+    keywords = [
+      `${neighborhood.name} facility management`,
+      `${neighborhood.name} property management`,
+      `${district.name} building management`,
+      `${neighborhood.name} site security`,
+    ];
+  } else if (lang === 'ru') {
+    title = `Управление объектами в ${neighborhood.name}, ${district.name} | Alo Yönetim`;
+    description = `Профессиональное управление жилыми комплексами, охрана 5188, клининг и техническое обслуживание в ${neighborhood.name}, ${district.name}, Стамбул.`;
+    targetKeyword = `управление объектами ${neighborhood.name}`;
+    keywords = [
+      `управление объектами ${neighborhood.name}`,
+      `управление недвижимостью ${district.name}`,
+      `охрана жилых комплексов ${neighborhood.name}`,
+      `обслуживание зданий ${district.name}`,
+    ];
+  } else if (lang === 'ar') {
+    title = `إدارة المرافق في ${neighborhood.name}، ${district.name} | Alo Yönetim`;
+    description = `خدمات إدارة المرافق والمجمعات السكنية، الأمن الفندقي 5188، والصيانة الفنية في حي ${neighborhood.name}، ${district.name}، إسطنبول.`;
+    targetKeyword = `إدارة المرافق ${neighborhood.name}`;
+    keywords = [
+      `إدارة المرافق ${neighborhood.name}`,
+      `إدارة العقارات ${district.name}`,
+      `أمن المجمعات السكنية ${neighborhood.name}`,
+      `صيانة المباني ${district.name}`,
+    ];
+  }
+
   return buildMetadata({
-    title: `${neighborhood.name}, ${district.name} Tesis Yönetimi | Alo Yönetim`,
-    description: `${neighborhood.name} mahallesinde profesyonel tesis yönetimi, site güvenliği, teknik bakım ve aidat hizmetleri. ${neighborhood.intro.split('.')[0]}.`,
+    title,
+    description,
     path: `/bolgeler/${ilce}/mahalleler/${mahalle}`,
     lang,
-    targetKeyword: `${neighborhood.name} tesis yönetimi`,
-    keywords: [
-      `${neighborhood.name} tesis yönetimi`,
-      `${neighborhood.name} site yönetimi`,
-      `${district.name} ${neighborhood.name} apartman yönetimi`,
-      `${neighborhood.name} güvenlik yönetimi`,
-    ],
+    targetKeyword,
+    keywords,
   });
 }
 

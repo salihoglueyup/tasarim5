@@ -16,15 +16,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang, etiket } = await params;
   const decoded = decodeURIComponent(etiket);
+  const label = decoded.replace(/-/g, ' ');
+
   const title = lang === 'en'
-    ? `${decoded} Articles & Facility Guides | Alo Management Blog`
+    ? `${label} Articles & Facility Guides | Alo Management Blog`
     : lang === 'ru'
-    ? `${decoded} Статьи и Руководства | Alo Yonetim Blog`
-    : `${decoded} Makaleleri ve Tesis Rehberi | Alo Yönetim Blog`;
+    ? `${label} Статьи и Руководства | Alo Yonetim Blog`
+    : lang === 'ar'
+    ? `مقالات ودليل ${label} | مدونة Alo Management`
+    : `${label} Makaleleri ve Tesis Rehberi | Alo Yönetim Blog`;
+
+  const description = lang === 'en'
+    ? `Latest insights, facility management practices and legal guides about ${label}.`
+    : lang === 'ru'
+    ? `Актуальные статьи, правила управления объектами и полезные руководства по теме ${label}.`
+    : lang === 'ar'
+    ? `أحدث الرؤى والممارسات في إدارة المرافق والأدلة القانونية حول ${label}.`
+    : `${label} konusu hakkında güncel mevzuat, site yönetimi ve pratik rehber makaleleri.`;
 
   return buildMetadata({
     title,
-    description: `${decoded} konusu hakkında güncel mevzuat, site yönetimi ve pratik rehber makaleleri.`,
+    description,
     path: `/blog/etiket/${etiket}`,
     lang,
   });
@@ -37,11 +49,15 @@ export default async function TagArchive({
 }) {
   const { lang, etiket } = await params;
   const decoded = decodeURIComponent(etiket);
+  const normalizedSpaces = decoded.replace(/-/g, ' ');
 
   let posts = await prisma.post.findMany({
     where: { 
       published: true,
-      tags: { contains: decoded }
+      OR: [
+        { tags: { contains: decoded } },
+        { tags: { contains: normalizedSpaces } },
+      ],
     },
     select: {
       id: true,
@@ -60,8 +76,14 @@ export default async function TagArchive({
   }).catch(() => []);
 
   if (posts.length === 0) {
+    const q1 = decoded.toLowerCase();
+    const q2 = normalizedSpaces.toLowerCase();
     posts = POSTS_META.filter((p) =>
-      p.tags.some((t) => t.toLowerCase().includes(decoded.toLowerCase()))
+      p.tags.some((t) => {
+        const tagLower = t.toLowerCase();
+        const tagHyphen = tagLower.replace(/\s+/g, '-');
+        return tagLower.includes(q1) || tagLower.includes(q2) || tagHyphen.includes(q1);
+      })
     ).map((p, idx) => ({
       id: `static-${idx}`,
       slug: p.slug,
@@ -83,10 +105,12 @@ export default async function TagArchive({
   const homeLabels: Record<string, string> = { tr: 'Anasayfa', en: 'Home', ru: 'Главная', ar: 'الرئيسية' };
   const blogLabels: Record<string, string> = { tr: 'Blog', en: 'Blog', ru: 'Блог', ar: 'المدونة' };
 
+  const displayTag = normalizedSpaces;
+
   const breadcrumbLd = generateBreadcrumbs([
     { name: homeLabels[lang] || 'Anasayfa', url: langPrefix || '/' },
     { name: blogLabels[lang] || 'Blog', url: `${langPrefix}/blog` },
-    { name: `#${decoded}`, url: `${langPrefix}${path}` },
+    { name: `#${displayTag}`, url: `${langPrefix}${path}` },
   ]);
   const listLd: JsonLdObject = {
     '@type': 'ItemList',
@@ -99,15 +123,15 @@ export default async function TagArchive({
   };
   const pageLd = webPageSchema({
     type: 'CollectionPage',
-    name: `${decoded} — Etiket`,
-    description: `${decoded} etiketindeki yazılar.`,
+    name: `${displayTag} — ${blogLabels[lang] || 'Blog'}`,
+    description: `${displayTag} etiketindeki yazılar.`,
     path,
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, listLd]} />
-      <PageHeader title={`#${decoded}`} description={`${decoded} etiketi altındaki tüm makalelerimiz.`} />
+      <PageHeader title={`#${displayTag}`} description={`${displayTag} etiketi altındaki tüm makalelerimiz.`} />
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <PostGrid posts={posts} />
       </section>

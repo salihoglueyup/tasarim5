@@ -78,6 +78,7 @@ export default function robots(): MetadataRoute.Robots {
   ];
 
   // Özel/teknik, oturum, form ve exploit deneme yolları botlara kapalıdır
+  // GSC Crawl Bloat & Parametre Patlaması Kalkanı (Faz 251: Teklif Al & UTM & Query Disallow)
   const disallow = [
     '/admin',
     '/api/admin',
@@ -86,9 +87,16 @@ export default function robots(): MetadataRoute.Robots {
     '/api/lead',
     '/api/upload',
     '/api/seed-referanslar',
+    '/teklif-al?*',
+    '/*?*hizmet=*',
+    '/*?*bolge=*',
+    '/*?*skor=*',
     '/*?*filter=*',
     '/*?*sort=*',
     '/*?*utm_*',
+    '/*?*fbclid=*',
+    '/*?*gclid=*',
+    '/*?*source=*',
     '/_next/',
     '/@fs/',
     '/.*',
@@ -115,6 +123,7 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
+    // Yalnızca standart arama motoru XML sitemap'leri listelenir (Feed ve API'lar hariç tutulur)
     sitemap: [
       `${BASE_URL}/sitemap.xml`,
       `${BASE_URL}/news-sitemap.xml`,
@@ -122,11 +131,6 @@ export default function robots(): MetadataRoute.Robots {
       `${BASE_URL}/image-sitemap.xml`,
       `${BASE_URL}/video-sitemap.xml`,
       `${BASE_URL}/document-sitemap.xml`,
-      `${BASE_URL}/feed/tesis-yonetimi.xml`,
-      `${BASE_URL}/api/facility/districts-feed.xml`,
-      `${BASE_URL}/api/security/districts-feed.xml`,
-      `${BASE_URL}/rss.xml`,
-      `${BASE_URL}/feed.xml`,
     ],
     host: BASE_URL,
   };

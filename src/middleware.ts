@@ -180,6 +180,14 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // 0. CANONICAL HOST REDIRECT (Faz 252: www -> non-www kalıcı 301 yönlendirmesi)
+  const host = request.headers.get('host') || '';
+  if (host.startsWith('www.')) {
+    const nonWwwHost = host.replace(/^www\./, '');
+    const targetUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, `https://${nonWwwHost}`);
+    return NextResponse.redirect(targetUrl, 301);
+  }
+
   // 1. MEŞRU STATİK DOSYA VE API KONTROLÜ
   if (
     pathname.startsWith('/_next') ||
@@ -200,12 +208,27 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 1.5. URL NORMALIZATION (SEO Faz 5, Faz 19 & Faz 171: Lowercase, Hyphen & Trailing Slash Stripping)
-  let normalizedPath = pathname.toLowerCase().replace(/_/g, '-');
+  // 1.5. URL NORMALIZATION (SEO Faz 5, Faz 19, Faz 171 & Faz 252: Lowercase, Hyphen, Space & Typo Stripping)
+  let rawDecoded = pathname;
+  try {
+    rawDecoded = decodeURIComponent(pathname);
+  } catch {
+    // Malformed URI durumunda orijinali koru
+  }
+
+  let normalizedPath = rawDecoded
+    .toLowerCase()
+    .replace(/_/g, '-')
+    .replace(/[\s%20]+/g, '-')
+    .replace(/sahıntepe/g, 'sahintepe')
+    .replace(/mehterçesme/g, 'mehtercesme')
+    .replace(/yenıkoy/g, 'yenikoy');
+
   if (normalizedPath.length > 1 && normalizedPath.endsWith('/')) {
     normalizedPath = normalizedPath.slice(0, -1);
   }
-  if (pathname !== normalizedPath) {
+
+  if (pathname !== normalizedPath && rawDecoded !== normalizedPath) {
     const url = request.nextUrl.clone();
     url.pathname = normalizedPath;
     return NextResponse.redirect(url, 301);
