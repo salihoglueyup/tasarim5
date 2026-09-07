@@ -3,7 +3,7 @@ import { BASE_URL } from '@/lib/constants';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'aloyonetim-indexnow-key';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'b42e617d3a2e4e10b171a7d6abdf93e5';
 
 export async function GET() {
   const sitemaps = [

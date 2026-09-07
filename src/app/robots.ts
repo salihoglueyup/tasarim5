@@ -75,6 +75,7 @@ export default function robots(): MetadataRoute.Robots {
     '/opensearch.xml',
     '/.well-known/security.txt',
     '/.well-known/traffic-advice',
+    '/_next/static/',
   ];
 
   // Özel/teknik, oturum, form ve exploit deneme yolları botlara kapalıdır

@@ -197,5 +197,52 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(text).toContain('<image:loc>');
     });
   });
+
+  describe('9. robots.txt Next.js Statik Dosya (_next/static/) İzni', () => {
+    it('Googlebot için /_next/static/ yolu açıkça izin verilmiş olmalıdır', async () => {
+      const robotsFn = (await import('@/app/robots')).default;
+      const config = robotsFn();
+      const rules = Array.isArray(config.rules) ? config.rules : [config.rules];
+      const wildcardRule = rules.find((r: any) => r.userAgent === '*');
+      expect(wildcardRule).toBeDefined();
+      expect((wildcardRule as any).allow).toContain('/_next/static/');
+    });
+  });
+
+  describe('10. Kök Layout googleBot max-image-preview ve Snippet İzinleri', () => {
+    it('metadata.robots içinde googleBot max-image-preview large ve sınırsız snippet tanımlı olmalıdır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const layoutContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/layout.tsx'), 'utf-8');
+      expect(layoutContent).toContain('googleBot: {');
+      expect(layoutContent).toContain("'max-image-preview': 'large'");
+      expect(layoutContent).toContain("'max-snippet': -1");
+    });
+  });
+
+  describe('11. Evrensel Google HTML Dosyası Doğrulama Motoru ve Link Header', () => {
+    it('middleware /google[token].html isteğinde HTTP 200 ve geçerli doğrulama metni dönmelidir', async () => {
+      process.env.JWT_SECRET = 'test_jwt_secret_key_for_vitest_runner_2026';
+      const { middleware } = await import('@/middleware');
+      const { NextRequest } = await import('next/server');
+      const req = new NextRequest('https://aloyonetim.com.tr/google1234567890abcdef.html');
+      const res = await middleware(req);
+      expect(res.status).toBe(200);
+      const text = await res.text();
+      expect(text).toBe('google-site-verification: google1234567890abcdef.html');
+    });
+
+    it('middleware Link header içinde sitemap-index.xml bulunmalıdır', async () => {
+      process.env.JWT_SECRET = 'test_jwt_secret_key_for_vitest_runner_2026';
+      const { middleware } = await import('@/middleware');
+      const { NextRequest } = await import('next/server');
+      const req = new NextRequest('https://aloyonetim.com.tr/hizmetler');
+      const res = await middleware(req);
+      const linkHeader = res.headers.get('Link');
+      expect(linkHeader).toBeDefined();
+      expect(linkHeader).toContain('sitemap-index.xml');
+    });
+  });
 });
+
 

@@ -188,6 +188,18 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(targetUrl, 301);
   }
 
+  // 0.9. GOOGLE SEARCH CONSOLE HTML DOSYA DOĞRULAMA MOTORU
+  if (/^\/google[a-z0-9_-]+\.html$/i.test(pathname)) {
+    const filename = pathname.replace(/^\//, '');
+    return new NextResponse(`google-site-verification: ${filename}`, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'public, max-age=86400',
+      },
+    });
+  }
+
   // 1. MEŞRU STATİK DOSYA VE API KONTROLÜ
   if (
     pathname.startsWith('/_next') ||
@@ -278,18 +290,15 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  if (pathnameIsMissingLocale) {
-    const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-    return NextResponse.rewrite(newUrl);
-  }
-
   // Locale var. /tr prefix'i kullanılıyorsa ana sayfaya at (Canonical için 301 kalıcı yönlendirme)
   if (pathname.startsWith('/tr/') || pathname === '/tr') {
     const newPathname = pathname.replace(/^\/tr/, '') || '/';
     return NextResponse.redirect(new URL(newPathname, request.url), 301);
   }
 
-  let response = NextResponse.next();
+  let response = pathnameIsMissingLocale
+    ? NextResponse.rewrite(new URL(`/${defaultLocale}${pathname}`, request.url))
+    : NextResponse.next();
 
   // URL Çevirilerini Rewrite Etme (Örn: /en/services/facility-management -> /en/hizmetler/tesis-yonetimi)
   const currentLocale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
@@ -384,6 +393,7 @@ export async function middleware(request: NextRequest) {
     // RFC 8288 standardında Link Header Enjeksiyonu
     const httpLinkHeader = buildHttpLinkHeader(pathname, currentLocale || defaultLocale);
     const extraLinks = [
+      `<https://aloyonetim.com.tr/sitemap-index.xml>; rel="sitemap"`,
       `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/feed.xml>; rel="alternate"; type="application/rss+xml"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld>; rel="describedby"; type="application/ld+json"`,

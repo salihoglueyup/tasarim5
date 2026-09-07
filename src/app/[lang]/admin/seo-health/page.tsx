@@ -38,6 +38,7 @@ export default function AdminSeoHealthPage() {
   const [syncResult, setSyncResult] = useState<{ success: boolean; message: string; count?: number } | null>(null);
 
   // Canlı Teşhis Stüdyosu State'leri
+  const [inspectUrl, setInspectUrl] = useState('https://aloyonetim.com.tr/hizmetler/tesis-yonetimi');
   const [auditTitle, setAuditTitle] = useState('Profesyonel Tesis Yönetimi İstanbul | 7/24 Alo Yönetim');
   const [auditDesc, setAuditDesc] = useState('İstanbul genelinde profesyonel tesis yönetimi, 5188 güvenlik ve şeffaf KMK aidat takibi. Ücretsiz keşif için hemen arayın.');
   const [auditKeyword, setAuditKeyword] = useState('tesis yönetimi');
@@ -202,7 +203,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
             <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
           </a>
           <a
-            href="https://search.google.com/test/rich-results?url=https%3A%2F%2Faloyonetim.com"
+            href="https://search.google.com/test/rich-results?url=https%3A%2F%2Faloyonetim.com.tr"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all shadow-sm"
@@ -211,7 +212,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
             <span className="material-symbols-outlined text-xs" aria-hidden="true">schema</span>
           </a>
           <a
-            href="https://validator.schema.org/#url=https%3A%2F%2Faloyonetim.com"
+            href="https://validator.schema.org/#url=https%3A%2F%2Faloyonetim.com.tr"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all shadow-sm"
@@ -220,7 +221,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
             <span className="material-symbols-outlined text-xs" aria-hidden="true">verified_user</span>
           </a>
           <a
-            href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Faloyonetim.com"
+            href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Faloyonetim.com.tr"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all shadow-sm"
@@ -228,6 +229,75 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
             <span>PageSpeed</span>
             <span className="material-symbols-outlined text-xs" aria-hidden="true">speed</span>
           </a>
+        </div>
+      </div>
+
+      {/* CANLI GOOGLE URL DENETİM VE TEST SİMÜLATÖRÜ */}
+      <div className="bg-white dark:bg-zinc-900 border border-blue-500/20 rounded-3xl p-5 shadow-xs">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-blue-500" aria-hidden="true">search_check</span>
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+              Google Search Console Canlı URL Denetim & Test Simülatörü
+            </h3>
+          </div>
+          <div className="flex flex-wrap items-center gap-1 text-[11px]">
+            <span className="text-slate-400 font-semibold mr-1">Hızlı Seç:</span>
+            {[
+              { label: 'Ana Sayfa', url: 'https://aloyonetim.com.tr' },
+              { label: 'Tesis Yönetimi', url: 'https://aloyonetim.com.tr/hizmetler/tesis-yonetimi' },
+              { label: 'Güvenlik', url: 'https://aloyonetim.com.tr/hizmetler/guvenlik-yonetimi' },
+              { label: 'Kadıköy', url: 'https://aloyonetim.com.tr/bolgeler/kadikoy/tesis-yonetimi' },
+              { label: 'Master Index', url: 'https://aloyonetim.com.tr/sitemap-index.xml' },
+            ].map((quick) => (
+              <button
+                key={quick.url}
+                onClick={() => setInspectUrl(quick.url)}
+                className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-slate-300 font-medium cursor-pointer transition-colors"
+              >
+                {quick.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-stretch gap-2">
+          <input
+            type="text"
+            value={inspectUrl}
+            onChange={(e) => setInspectUrl(e.target.value)}
+            placeholder="https://aloyonetim.com.tr/..."
+            className="flex-1 text-xs p-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-zinc-800 text-slate-900 dark:text-white font-mono"
+          />
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            <a
+              href={`https://search.google.com/search-console/inspect?resource_id=${encodeURIComponent('https://aloyonetim.com.tr/')}&id=${encodeURIComponent(inspectUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all shadow-sm"
+            >
+              <span>GSC URL Denetimi</span>
+              <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+            </a>
+            <a
+              href={`https://search.google.com/test/rich-results?url=${encodeURIComponent(inspectUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all"
+            >
+              <span>Zengin Sonuç Testi</span>
+              <span className="material-symbols-outlined text-xs" aria-hidden="true">schema</span>
+            </a>
+            <a
+              href={`https://validator.schema.org/#url=${encodeURIComponent(inspectUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all"
+            >
+              <span>Schema Doğrula</span>
+              <span className="material-symbols-outlined text-xs" aria-hidden="true">verified</span>
+            </a>
+          </div>
         </div>
       </div>
 
