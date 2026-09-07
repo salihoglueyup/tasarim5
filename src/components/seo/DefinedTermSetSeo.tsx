@@ -96,6 +96,16 @@ export default function DefinedTermSetSeo({
   const [activeCategory, setActiveCategory] = useState<TermCategory>("all");
   const [copiedTerm, setCopiedTerm] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q') || params.get('search');
+      if (q && q.trim()) {
+        setSearchTerm(q.trim());
+      }
+    }
+  }, []);
+
   const schema = definedTermSetSchema({
     name,
     description,

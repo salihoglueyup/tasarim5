@@ -48,6 +48,10 @@ export default function AggregateRatingSeo({
     },
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': itemReviewed['@type'] || 'ProfessionalService',
+        name: itemReviewed.name || 'Alo Yönetim Mülk ve Tesis Yönetimi',
+      },
       ratingValue,
       reviewCount,
       bestRating,

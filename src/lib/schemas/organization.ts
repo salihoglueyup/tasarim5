@@ -80,6 +80,11 @@ export function organizationSchema(): JsonLdObject {
     contactPoint: ORG_CONTACT_POINTS,
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'Organization',
+        name: ORG_NAME,
+        url: BASE_URL,
+      },
       ratingValue: '4.9',
       reviewCount: '340',
       bestRating: '5',
@@ -377,6 +382,11 @@ export function professionalServiceSchema(opts?: {
       ? {
           aggregateRating: {
             '@type': 'AggregateRating',
+            itemReviewed: {
+              '@type': 'ProfessionalService',
+              name: opts?.name ?? ORG_NAME,
+              url: path,
+            },
             ratingValue: opts.aggregateRating.ratingValue,
             reviewCount: opts.aggregateRating.reviewCount,
             bestRating: '5',
@@ -386,6 +396,11 @@ export function professionalServiceSchema(opts?: {
       : {
           aggregateRating: {
             '@type': 'AggregateRating',
+            itemReviewed: {
+              '@type': 'ProfessionalService',
+              name: opts?.name ?? ORG_NAME,
+              url: path,
+            },
             ratingValue: '4.9',
             reviewCount: '150',
             bestRating: '5',

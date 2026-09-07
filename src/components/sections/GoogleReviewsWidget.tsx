@@ -49,7 +49,8 @@ Object.freeze(reviews);
 const reviewSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: CANONICAL_NAP.legal.legalName,
+  name: CANONICAL_NAP.legal.brandName,
+  legalName: CANONICAL_NAP.legal.legalName,
   telephone: CANONICAL_NAP.contact.phoneE164,
   url: 'https://aloyonetim.com.tr',
   address: {
@@ -62,6 +63,11 @@ const reviewSchema = {
   },
   aggregateRating: {
     '@type': 'AggregateRating',
+    itemReviewed: {
+      '@type': 'ProfessionalService',
+      name: CANONICAL_NAP.legal.brandName,
+      url: 'https://aloyonetim.com.tr',
+    },
     ratingValue: 4.9,
     reviewCount: 156,
     bestRating: 5,

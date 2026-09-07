@@ -65,4 +65,21 @@ describe('Türkiye Coğrafi Hedefleme (Geo-Targeting) & SEO Doğrulama Paketi', 
       expect(content).toContain('/feed.xml');
     });
   });
+
+  describe('5. Google Rich Results Test & Sıfır Hata Şema Doğrulaması', () => {
+    it('organizationSchema aggregateRating içinde geçerli itemReviewed nesnesi bulunmalı', () => {
+      const org = organizationSchema() as any;
+      expect(org.aggregateRating).toBeDefined();
+      expect(org.aggregateRating.itemReviewed).toBeDefined();
+      expect(org.aggregateRating.itemReviewed['@type']).toBe('Organization');
+      expect(org.aggregateRating.itemReviewed.name).toBe('Alo Yönetim');
+    });
+
+    it('professionalServiceSchema aggregateRating içinde geçerli itemReviewed nesnesi bulunmalı', () => {
+      const ps = professionalServiceSchema() as any;
+      expect(ps.aggregateRating).toBeDefined();
+      expect(ps.aggregateRating.itemReviewed).toBeDefined();
+      expect(ps.aggregateRating.itemReviewed['@type']).toBe('ProfessionalService');
+    });
+  });
 });

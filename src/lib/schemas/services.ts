@@ -35,7 +35,14 @@ export function serviceSchema(opts: {
     ...(opts.industry ? { industry: opts.industry } : {}),
     priceRange: opts.priceRange ?? '₺₺',
     provider: { '@id': LOCALBUSINESS_ID },
-    areaServed: { '@type': 'State', name: 'İstanbul' },
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'Türkiye',
+        sameAs: 'https://tr.wikipedia.org/wiki/T%C3%BCrkiye',
+      },
+      { '@type': 'AdministrativeArea', name: 'İstanbul' },
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: opts.offerCatalogName ?? `${opts.serviceType} Hizmet ve Çözüm Kataloğu`,
@@ -131,6 +138,11 @@ export function localBusinessAreaSchema(opts: {
       ? {
           aggregateRating: {
             '@type': 'AggregateRating',
+            itemReviewed: {
+              '@type': 'LocalBusiness',
+              name: `${ORG_NAME} — ${opts.areaName}`,
+              url: abs(opts.url),
+            },
             ratingValue: opts.aggregateRating.ratingValue,
             reviewCount: opts.aggregateRating.reviewCount,
             bestRating: '5',
@@ -140,6 +152,11 @@ export function localBusinessAreaSchema(opts: {
       : {
           aggregateRating: {
             '@type': 'AggregateRating',
+            itemReviewed: {
+              '@type': 'LocalBusiness',
+              name: `${ORG_NAME} — ${opts.areaName}`,
+              url: abs(opts.url),
+            },
             ratingValue: '4.9',
             reviewCount: '120',
             bestRating: '5',

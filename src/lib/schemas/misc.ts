@@ -32,6 +32,11 @@ export function reviewsWithRating(opts: {
     address: ORG_ADDRESS,
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'LocalBusiness',
+        name: ORG_NAME,
+        url: BASE_URL,
+      },
       ratingValue: opts.ratingValue,
       reviewCount: opts.reviews.length.toString(),
       bestRating: '5',
