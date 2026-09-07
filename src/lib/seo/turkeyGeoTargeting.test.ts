@@ -82,4 +82,39 @@ describe('Türkiye Coğrafi Hedefleme (Geo-Targeting) & SEO Doğrulama Paketi', 
       expect(ps.aggregateRating.itemReviewed['@type']).toBe('ProfessionalService');
     });
   });
+
+  describe('6. Google Featured Snippet (0. Sıra) & KMK Doğrudan Cevap Motoru', () => {
+    it('KMK_LAW_INDEX içindeki tüm maddeler doğrudan arama sorusu ve kesin cevap içermeli', async () => {
+      const { KMK_LAW_INDEX } = await import('@/data/kmkLawData');
+      expect(KMK_LAW_INDEX.length).toBeGreaterThanOrEqual(8);
+
+      for (const item of KMK_LAW_INDEX) {
+        expect(item.featuredSnippetQuestion).toBeDefined();
+        expect(item.featuredSnippetQuestion.length).toBeGreaterThan(10);
+        expect(item.directSnippetAnswer).toBeDefined();
+        expect(item.directSnippetAnswer.length).toBeGreaterThan(40);
+      }
+
+      const madde20 = KMK_LAW_INDEX.find((i) => i.articleNumber === 20);
+      expect(madde20?.directSnippetAnswer).toContain('%5');
+
+      const madde34 = KMK_LAW_INDEX.find((i) => i.articleNumber === 34);
+      expect(madde34?.directSnippetAnswer).toContain('çift çoğunluk');
+
+      const madde37 = KMK_LAW_INDEX.find((i) => i.articleNumber === 37);
+      expect(madde37?.directSnippetAnswer).toContain('7 gün');
+    });
+
+    it('robots.txt allow listesi noindex feed linklerini barındırmamalı', async () => {
+      const robotsFn = (await import('@/app/robots')).default;
+      const config = robotsFn();
+      const userAgentRules = Array.isArray(config.rules) ? config.rules : [config.rules];
+      const allAllows = userAgentRules.flatMap((r) =>
+        Array.isArray(r.allow) ? r.allow : r.allow ? [r.allow] : []
+      );
+
+      expect(allAllows).not.toContain('/api/facility/districts-feed.xml');
+      expect(allAllows).not.toContain('/api/security/districts-feed.xml');
+    });
+  });
 });

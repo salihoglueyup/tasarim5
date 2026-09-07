@@ -44,25 +44,38 @@ export default function InstantAnswerCardSeo({
 
   const schemaData = {
     '@context': 'https://schema.org',
-    '@type': 'Question',
-    name: question,
-    text: question,
-    answerCount: 1,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: `${shortAnswer} ${bulletPoints.join(' ')}`,
-      author: {
-        '@type': 'Organization',
-        name: 'Alo Yönetim'
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${shortAnswer} ${bulletPoints ? bulletPoints.join(' ') : ''}`.trim(),
+          author: {
+            '@type': 'Organization',
+            name: 'Alo Yönetim',
+          },
+          datePublished: '2026-01-01',
+          dateModified: new Date().toISOString(),
+        },
       },
-      datePublished: '2026-01-01',
-      dateModified: new Date().toISOString()
-    }
+    ],
+  };
+
+  const speakableData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.featured-snippet-question', '.featured-snippet-answer'],
+    },
   };
 
   return (
     <div className="my-10 bg-[var(--color-surface)] text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/80 shadow-sm relative overflow-hidden">
       <JsonLd data={schemaData} />
+      <JsonLd data={speakableData} />
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] pointer-events-none rounded-full" />
@@ -92,14 +105,14 @@ export default function InstantAnswerCardSeo({
       </div>
 
       {/* Question */}
-      <h3 className="text-xl md:text-2xl font-extrabold text-[var(--color-primary)] mb-4 leading-snug relative z-10 flex items-start gap-3">
+      <h3 className="featured-snippet-question text-xl md:text-2xl font-extrabold text-[var(--color-primary)] mb-4 leading-snug relative z-10 flex items-start gap-3">
         <span className="text-slate-400 font-serif text-2xl md:text-3xl leading-none select-none">Q:</span>
         <span>{question}</span>
       </h3>
 
       {/* Direct Featured Snippet Paragraph */}
       <div className="bg-[var(--color-surface-variant)] border-l-4 border-slate-900 dark:border-white p-5 rounded-r-2xl mb-6 relative z-10">
-        <p className="text-sm md:text-base text-[var(--color-primary)] leading-relaxed font-normal">
+        <p className="featured-snippet-answer text-sm md:text-base text-[var(--color-primary)] leading-relaxed font-normal">
           {shortAnswer}
         </p>
       </div>
