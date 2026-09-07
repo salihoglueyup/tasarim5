@@ -145,6 +145,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly', lastMod: now },
     { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly', lastMod: now },
     { path: '/istihdam-koprusu', priority: 0.6, changeFreq: 'monthly', lastMod: now },
+    { path: '/app', priority: 0.7, changeFreq: 'monthly', lastMod: now },
     { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly', lastMod: now },
     { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly', lastMod: now },
     { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly', lastMod: now },

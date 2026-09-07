@@ -62,7 +62,19 @@ export function organizationSchema(): JsonLdObject {
       CANONICAL_NAP.geo.googleMapsPlaceUrl,
       CANONICAL_NAP.geo.openStreetMapUrl,
     ],
-    areaServed: { '@type': 'City', name: 'İstanbul' },
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'Türkiye',
+        sameAs: 'https://tr.wikipedia.org/wiki/T%C3%BCrkiye',
+      },
+      {
+        '@type': 'City',
+        name: 'İstanbul',
+        sameAs: 'https://tr.wikipedia.org/wiki/%C4%B0stanbul',
+      },
+      ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS,
+    ],
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
     contactPoint: ORG_CONTACT_POINTS,
@@ -324,7 +336,16 @@ export function professionalServiceSchema(opts?: {
     ],
     areaServed: opts?.areaServed
       ? (typeof opts.areaServed === 'string' ? { '@type': 'AdministrativeArea', name: opts.areaServed } : opts.areaServed)
-      : [{ '@type': 'AdministrativeArea', name: 'İstanbul' }, ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS, AREA_SERVED_GEOCIRCLE],
+      : [
+          {
+            '@type': 'Country',
+            name: 'Türkiye',
+            sameAs: 'https://tr.wikipedia.org/wiki/T%C3%BCrkiye',
+          },
+          { '@type': 'AdministrativeArea', name: 'İstanbul' },
+          ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS,
+          AREA_SERVED_GEOCIRCLE,
+        ],
     parentOrganization: { '@id': ORG_ID },
     knowsAbout: opts?.knowsAbout ?? [
       { '@type': 'Thing', name: 'Tesis Yönetimi (Facility Management)', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },

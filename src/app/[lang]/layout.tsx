@@ -139,6 +139,13 @@ export const metadata: Metadata = {
     address: false,
     email: false,
   },
+  other: {
+    'geo.region': 'TR-34',
+    'geo.placename': 'Kadıköy, İstanbul, Türkiye',
+    'geo.position': '40.9922;29.0287',
+    'ICBM': '40.9922, 29.0287',
+    'content-language': 'tr-TR',
+  },
 };
 
 export const viewport: Viewport = {
@@ -220,11 +227,9 @@ export default async function RootLayout({
           }}
         />
 
-        {/* Blog RSS & Atom & GeoRSS beslemeleri */}
+        {/* Blog RSS & Atom beslemeleri */}
         <link rel="alternate" type="application/rss+xml" title="Alo Yönetim RSS 2.0" href="/rss.xml" />
         <link rel="alternate" type="application/atom+xml" title="Alo Yönetim Atom 1.0" href="/feed.xml" />
-        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim Tesis Yönetimi GeoRSS" href="/api/facility/districts-feed.xml" />
-        <link rel="alternate" type="application/rss+xml" title="Alo Yönetim 5188 Güvenlik GeoRSS" href="/api/security/districts-feed.xml" />
         
         {/* OpenSearch & Humans.txt */}
         <link rel="search" type="application/opensearchdescription+xml" title="Alo Yönetim" href="/opensearch.xml" />
