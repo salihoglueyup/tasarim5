@@ -79,7 +79,7 @@ export async function GET() {
       xml += `  <url>\n`;
       xml += `    <loc>${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi</loc>\n`;
       xml += `    <image:image>\n`;
-      xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(district.name + ' Tesis Yönetimi')}&type=local</image:loc>\n`;
+      xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(district.name + ' Tesis Yönetimi')}&amp;type=local</image:loc>\n`;
       xml += `      <image:title>${escapeXml(district.name)} Tesis Yönetimi &amp; Site İşletmeciliği</image:title>\n`;
       xml += `      <image:caption>${escapeXml(district.name)} genelinde ISO 41001 standartlarında profesyonel tesis ve site yönetimi</image:caption>\n`;
       xml += `      <image:geo_location>${escapeXml(district.name)}, İstanbul, Türkiye</image:geo_location>\n`;

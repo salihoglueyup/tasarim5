@@ -8,6 +8,7 @@ import { AUTHOR_SLUGS } from '@/data/authors';
 import { REFERENCES_META } from '@/data/referencesMetadata';
 import { parseTags } from '@/lib/jsonSafe';
 import { TERMS, termToSlug } from '@/data/dictionary';
+import { CERTIFICATES } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 saat önbellek
@@ -221,6 +222,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     makeItems(`/sozluk/${termToSlug(t.term)}`, 0.65, 'monthly')
   );
 
+  const certificateRoutes: MetadataRoute.Sitemap = CERTIFICATES.flatMap((c) =>
+    makeItems(`/kurumsal/sertifikalar/${c.slug}`, 0.65, 'monthly', `${c.datePublished}T00:00:00.000Z`)
+  );
+
   return [
     ...staticRoutes,
     ...districtRoutes,
@@ -233,5 +238,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...tagRoutes,
     ...referenceRoutes,
     ...dictionaryRoutes,
+    ...certificateRoutes,
   ];
 }

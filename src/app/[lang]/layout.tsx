@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://aloyonetim.com.tr"),
   title: {
     default: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi & Entegre Tesis İşletmeciliği",
-    template: "%s | Alo Yönetim Tesis Yönetimi"
+    template: "%s"
   },
   description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. 400+ tesis referansı ile %30 tasarruf güvencesi.",
   keywords: [

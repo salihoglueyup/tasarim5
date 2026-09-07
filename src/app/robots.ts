@@ -78,15 +78,11 @@ export default function robots(): MetadataRoute.Robots {
   ];
 
   // Özel/teknik, oturum, form ve exploit deneme yolları botlara kapalıdır
-  // GSC Crawl Bloat & Parametre Patlaması Kalkanı (Faz 251: Teklif Al & UTM & Query Disallow)
+  // GSC Crawl Bloat & Parametre Patlaması Kalkanı (Faz 251 & Faz 254: Teklif Al, API & Query Disallow)
   const disallow = [
     '/admin',
-    '/api/admin',
-    '/api/auth',
-    '/api/calculator',
-    '/api/lead',
-    '/api/upload',
-    '/api/seed-referanslar',
+    '/api/',
+    '/~offline',
     '/teklif-al?*',
     '/*?*hizmet=*',
     '/*?*bolge=*',
@@ -126,11 +122,11 @@ export default function robots(): MetadataRoute.Robots {
     // Yalnızca standart arama motoru XML sitemap'leri listelenir (Feed ve API'lar hariç tutulur)
     sitemap: [
       `${BASE_URL}/sitemap.xml`,
-      `${BASE_URL}/news-sitemap.xml`,
       `${BASE_URL}/sitemap-regions.xml`,
       `${BASE_URL}/image-sitemap.xml`,
       `${BASE_URL}/video-sitemap.xml`,
       `${BASE_URL}/document-sitemap.xml`,
+      `${BASE_URL}/news-sitemap.xml`,
     ],
     host: BASE_URL,
   };

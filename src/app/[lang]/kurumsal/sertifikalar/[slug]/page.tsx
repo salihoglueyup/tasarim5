@@ -8,10 +8,14 @@ import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib
 import { CERTIFICATES, getCertificate } from '@/data/certificates';
 import PreFooterCta from '@/components/sections/PreFooterCta';
 
+import { LOCALES } from '@/lib/seo';
+
 export const revalidate = 2592000; // 30 gün
 
 export function generateStaticParams() {
-  return CERTIFICATES.map((c) => ({ slug: c.slug }));
+  return LOCALES.flatMap((lang) =>
+    CERTIFICATES.map((c) => ({ lang, slug: c.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -23,9 +27,23 @@ export async function generateMetadata({
   const cert = getCertificate(slug);
   if (!cert) return buildMetadata({ title: 'Bulunamadı', description: '', path: '/kurumsal/sertifikalar', lang, noindex: true });
 
+  let title = `${cert.name} — ${cert.subtitle} | Alo Yönetim`;
+  let description = `${cert.description} Akreditasyon ve denetim: ${cert.issuer}.`;
+
+  if (lang === 'en') {
+    title = `${cert.name} — ${cert.subtitle} | Alo Management`;
+    description = `Official corporate accreditation: ${cert.description} Audited and certified by ${cert.issuer}.`;
+  } else if (lang === 'ru') {
+    title = `${cert.name} — ${cert.subtitle} | Сертификат Alo Yonetim`;
+    description = `Официальная корпоративная сертификация: ${cert.description} Аудитор: ${cert.issuer}.`;
+  } else if (lang === 'ar') {
+    title = `${cert.name} — ${cert.subtitle} | شهادة Alo Management`;
+    description = `شهادة الاعتماد المؤسسي: ${cert.description} الجهة المانحة: ${cert.issuer}.`;
+  }
+
   return buildMetadata({
-    title: `${cert.name} — ${cert.subtitle} | Alo Yönetim`,
-    description: cert.description,
+    title,
+    description,
     path: `/kurumsal/sertifikalar/${cert.slug}`,
     lang,
     keywords: cert.keywords,

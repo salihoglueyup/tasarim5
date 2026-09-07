@@ -20,14 +20,26 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'İletişim & 7/24 Tesis Destek Hattı | Alo Yönetim';
-  const description = 'Alo Yönetim genel merkez, 7/24 acil teknik servis hattı ve 39 ilçe saha ekipleriyle hemen iletişime geçin. Ücretsiz keşif ve danışmanlık: 0216 550 48 48.';
+  let title = 'İletişim & 7/24 Tesis Destek Hattı | Alo Yönetim';
+  let description = 'Alo Yönetim genel merkez, 7/24 acil teknik servis hattı ve 39 ilçe saha ekipleriyle hemen iletişime geçin. Ücretsiz keşif ve danışmanlık: 0216 550 48 48.';
+
+  if (lang === 'en') {
+    title = 'Contact Us & 24/7 Facility Support Line | Alo Management';
+    description = 'Contact Alo Management headquarters, 24/7 emergency response line and mobile field technicians across 39 districts of Istanbul: +90 216 550 48 48.';
+  } else if (lang === 'ru') {
+    title = 'Контакты и Круглосуточная Поддержка Объектов | Alo Yonetim';
+    description = 'Свяжитесь с центральным офисом Alo Yonetim, круглосуточной аварийной службой и мобильными бригадами в Стамбуле: +90 216 550 48 48.';
+  } else if (lang === 'ar') {
+    title = 'اتصل بنا وخط الدعم الفني للمرافق 24/7 | Alo Management';
+    description = 'تواصل مع المقر الرئيسي لشركة Alo Management وخط الاستجابة للطوارئ 24/7 وفرق العمل الميدانية في إسطنبول: 48 48 550 0216.';
+  }
 
   return buildMetadata({
     title,
     description,
     path: '/iletisim',
     lang,
+    targetKeyword: lang === 'en' ? 'alo management contact' : lang === 'ru' ? 'контакты alo yonetim' : 'alo yönetim iletişim',
     ogImageType: 'default',
     keywords: [
       'alo yönetim iletişim',

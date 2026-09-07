@@ -3,16 +3,35 @@ import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 import { ORG_NAME } from '@/lib/schemas';
 
+import { POSTS_META, CATEGORIES } from '@/data/posts';
+
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // Saatte bir tazele
 
 export async function GET() {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    orderBy: { datePublished: 'desc' },
-    take: 40,
-    include: { author: true, category: true }
-  });
+  let posts: any[] = [];
+  try {
+    posts = await prisma.post.findMany({
+      where: { published: true },
+      orderBy: { datePublished: 'desc' },
+      take: 40,
+      include: { author: true, category: true }
+    });
+  } catch (err) {
+    console.warn('rss.xml: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
+  }
+
+  if (posts.length === 0) {
+    posts = POSTS_META.slice(0, 40).map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+      image: p.image,
+      datePublished: new Date(p.datePublished),
+      category: CATEGORIES.find((c) => c.slug === p.category) || { name: 'Tesis Yönetimi' },
+      author: { name: 'Alo Yönetim Uzman Masası', slug: 'alo-yonetim' },
+    }));
+  }
 
   const generateRssItem = (post: any) => {
     const imageUrl = post.image

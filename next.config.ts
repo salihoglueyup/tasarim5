@@ -388,7 +388,7 @@ const nextConfig: NextConfig = {
           { key: 'Link', value: getLinkHeaderString() },
         ],
       },
-      // Teknik dosyalar — Google tarafından HTML sayfa gibi indexlenmesin.
+      // Teknik dosyalar ve dahili API'lar — Google tarafından HTML sayfa gibi indexlenmesin.
       {
         source: '/(feed|rss)\\.xml',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
@@ -398,7 +398,11 @@ const nextConfig: NextConfig = {
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
       {
-        source: '/image-sitemap.xml',
+        source: '/~offline',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/api/:path*',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
       {

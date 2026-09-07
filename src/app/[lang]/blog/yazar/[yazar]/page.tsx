@@ -51,9 +51,23 @@ export async function generateMetadata({
   if (!author) {
     return buildMetadata({ title: 'Yazar Bulunamadı', description: '', path: `/blog/yazar/${yazar}`, lang, noindex: true });
   }
+  let title = `${author.name} — Tesis Yönetimi Yazarı | Alo Yönetim Blog`;
+  let description = author.bio ?? `${author.name}, Alo Yönetim bünyesinde tesis yönetimi, KMK hukuku ve site güvenliği konularında uzman içerikler üretiyor.`;
+
+  if (lang === 'en') {
+    title = `${author.name} — Facility Management Author & Expert | Alo Management Blog`;
+    description = `${author.name} is a certified facility management, condominium law and property security expert author at Alo Management.`;
+  } else if (lang === 'ru') {
+    title = `${author.name} — Эксперт по Управлению Объектами | Alo Yonetim Blog`;
+    description = `${author.name} — эксперт и автор блога Alo Yonetim по вопросам управления недвижимостью, законодательства KMK 634 и безопасности.`;
+  } else if (lang === 'ar') {
+    title = `${author.name} — كاتب وخبير إدارة المرافق | مدونة Alo Management`;
+    description = `${author.name} هو كاتب وخبير في إدارة المرافق والتشريعات العقارية وأنظمة الأمن في مدونة Alo Management.`;
+  }
+
   return buildMetadata({
-    title: `${author.name} — Tesis Yönetimi Yazarı | Alo Yönetim Blog`,
-    description: author.bio ?? `${author.name}, Alo Yönetim bünyesinde tesis yönetimi, KMK hukuku ve site güvenliği konularında uzman içerikler üretiyor.`,
+    title,
+    description,
     path: `/blog/yazar/${yazar}`,
     lang,
     keywords: ['tesis yönetimi uzmanı', 'site yönetimi yazar', author.name],

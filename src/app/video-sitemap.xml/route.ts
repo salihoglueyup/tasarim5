@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 
+import fs from 'fs';
+import path from 'path';
+
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Günde bir yenile (ISR)
 
@@ -33,40 +36,19 @@ export async function GET() {
       category: 'Tesis Yönetimi',
       tags: ['tesis yönetimi', 'site yönetimi', 'özel güvenlik', '5188', 'apartman yönetimi', 'iso 41001'],
     },
-    {
-      pageUrl: `${BASE_URL}/hizmetler/tesis-yonetimi`,
-      thumbnailLoc: `${BASE_URL}/images/hero-poster-v5.webp`,
-      title: 'Entegre Tesis Yönetimi ve İşletme Projesi Prosedürleri',
-      description: '634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 kapsamında yıllık işletme bütçesi hazırlığı ve %30 tasarruf modeli.',
-      contentLoc: `${BASE_URL}/video/facility-overview.mp4`,
-      duration: 120,
-      publicationDate: '2026-02-01T10:00:00+03:00',
-      familyFriendly: 'yes',
-      requiresSubscription: 'no',
-      uploader: 'Alo Yönetim Operasyon Kurulu',
-      category: 'Tesis Yönetimi',
-      tags: ['entegre tesis yönetimi', 'işletme projesi', 'kmk 634', 'bütçe tasarrufu'],
-    },
-    {
-      pageUrl: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
-      thumbnailLoc: `${BASE_URL}/images/hero-poster-v5.webp`,
-      title: '5188 Sayılı Kanun Kapsamında Fiziki Güvenlik ve CCTV İzleme',
-      description: 'T.C. İçişleri Bakanlığı ve Valilik izinli lisanslı özel güvenlik görevlileri, 7/24 devriye ve kamera denetim süreçleri.',
-      contentLoc: `${BASE_URL}/video/security-operations.mp4`,
-      duration: 75,
-      publicationDate: '2026-02-10T12:00:00+03:00',
-      familyFriendly: 'yes',
-      requiresSubscription: 'no',
-      uploader: 'Alo Yönetim Güvenlik Masası',
-      category: 'Özel Güvenlik',
-      tags: ['özel güvenlik şirketi', '5188 güvenlik', 'cctv kamera', 'site emniyeti'],
-    },
   ];
+
+  // Yalnızca sunucuda fiziksel olarak var olan video dosyaları sitemap listesine eklenir (404 önleme)
+  const validVideoEntries = videoEntries.filter((v) => {
+    const relativePath = v.contentLoc.replace(BASE_URL, '').replace(/^\/+/, '');
+    const diskPath = path.join(process.cwd(), 'public', relativePath);
+    return fs.existsSync(diskPath);
+  });
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n`;
 
-  for (const v of videoEntries) {
+  for (const v of validVideoEntries) {
     xml += `  <url>\n`;
     xml += `    <loc>${v.pageUrl}</loc>\n`;
     xml += `    <video:video>\n`;

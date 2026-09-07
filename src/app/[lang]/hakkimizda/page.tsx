@@ -20,15 +20,26 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Hakkımızda — 15+ Yıl Kurumsal Tesis Yönetimi | Alo Yönetim';
-  const description = 'Alo Yönetim ve Organizasyon A.Ş. hakkında: 15+ yıl tecrübe, 120+ proje, ISO 41001 & 5188 lisanslı güvenlik ile İstanbul\'un lider tesis yönetim şirketi.';
+  let title = 'Hakkımızda — 15+ Yıl Kurumsal Tesis Yönetimi | Alo Yönetim';
+  let description = 'Alo Yönetim ve Organizasyon A.Ş. hakkında: 15+ yıl tecrübe, 340+ seçkin proje, ISO 41001 & 5188 lisanslı güvenlik ile İstanbul\'un lider tesis yönetim şirketi.';
+
+  if (lang === 'en') {
+    title = 'About Us — 15+ Years Corporate Facility Management | Alo Management';
+    description = 'About Alo Management: 15+ years experience, 340+ premier projects, ISO 41001 & Law 5188 licensed security leader in Istanbul.';
+  } else if (lang === 'ru') {
+    title = 'О нас — 15+ лет корпоративного управления объектами | Alo Yonetim';
+    description = 'Об Alo Yonetim: 15+ лет опыта, 340+ объектов, ISO 41001 и лицензированная охрана 5188 — лидер управления недвижимостью в Стамбуле.';
+  } else if (lang === 'ar') {
+    title = 'من نحن — 15+ عاماً من الريادة في إدارة المرافق | Alo Management';
+    description = 'عن شركة Alo Management: خبرة 15+ عاماً، 340+ مشروعاً، معايير ISO 41001 وترخيص أمني 5188 في إسطنبول.';
+  }
 
   return buildMetadata({
     title,
     description,
     path: '/hakkimizda',
     lang,
-    targetKeyword: 'alo yönetim hakkında',
+    targetKeyword: lang === 'en' ? 'about alo management' : lang === 'ru' ? 'об alo yonetim' : 'alo yönetim hakkında',
     ogImageType: 'default',
     keywords: [
       'alo yönetim hakkında',

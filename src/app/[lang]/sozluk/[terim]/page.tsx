@@ -6,6 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import PageHeader from '@/components/layout/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
+import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';
 
 export const revalidate = 86400;
@@ -28,10 +29,29 @@ export async function generateMetadata({
     return buildMetadata({ title: 'Terim Bulunamadı', description: '', path: '/sozluk', lang, noindex: true });
   }
   const cleanDef = term.definition.replace(/\s+/g, ' ').trim();
-  const description = `${term.term} nedir? ${cleanDef.slice(0, 105)}... KMK 634 kapsamındaki hukuki tanımı ve detaylarını inceleyin!`;
+  let title = `${term.term} Nedir? — Kat Mülkiyeti & Site Yönetimi Sözlüğü | Alo Yönetim`;
+  let description = `${term.term} nedir? ${cleanDef.slice(0, 105)}... KMK 634 kapsamındaki hukuki tanımı ve detaylarını inceleyin!`;
+
+  if (lang === 'en') {
+    const enTerm = ENGLISH_TERMS.find(
+      (e) => e.turkishEquivalent.toLowerCase().includes(term.term.toLowerCase()) || term.term.toLowerCase().includes(e.turkishEquivalent.toLowerCase())
+    );
+    title = enTerm 
+      ? `${enTerm.term} (What is ${term.term}?) | Alo Management Dictionary`
+      : `What is ${term.term}? — Property & Facility Management Dictionary | Alo Management`;
+    description = enTerm 
+      ? enTerm.definition 
+      : `${term.term} in Turkish Condominium Law (KMK 634): ${cleanDef.slice(0, 120)}... Explore property and facility management legal terms.`;
+  } else if (lang === 'ru') {
+    title = `Что такое ${term.term}? — Словарь по Управлению Недвижимостью | Alo Yonetim`;
+    description = `Юридическое определение ${term.term} в законодательстве Турции (KMK 634): ${cleanDef.slice(0, 120)}... Справочник по управлению объектами.`;
+  } else if (lang === 'ar') {
+    title = `ما هو ${term.term}؟ — قاموس إدارة المرافق والعقارات | Alo Management`;
+    description = `التعريف القانوني لمصطلح ${term.term} بموجب قانون الملكية المشتركة التركي KMK 634: ${cleanDef.slice(0, 120)}... دليل إدارة المرافق.`;
+  }
 
   return buildMetadata({
-    title: `${term.term} Nedir? — Kat Mülkiyeti & Site Yönetimi Sözlüğü | Alo Yönetim`,
+    title,
     description,
     path: `/sozluk/${terim}`,
     lang,

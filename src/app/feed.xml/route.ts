@@ -2,12 +2,13 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 import { ORG_NAME } from '@/lib/schemas';
+import { POSTS_META, CATEGORIES } from '@/data/posts';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // Saatte bir tazele
 
 function escapeXml(unsafe: string) {
-  return unsafe.replace(/[<>&'"]/g, function (c) {
+  return (unsafe || '').replace(/[<>&'"]/g, function (c) {
     switch (c) {
       case '<': return '&lt;';
       case '>': return '&gt;';
@@ -20,12 +21,28 @@ function escapeXml(unsafe: string) {
 }
 
 export async function GET() {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    include: { category: true, author: true },
-    orderBy: { datePublished: 'desc' },
-    take: 30
-  });
+  let posts: any[] = [];
+  try {
+    posts = await prisma.post.findMany({
+      where: { published: true },
+      include: { category: true, author: true },
+      orderBy: { datePublished: 'desc' },
+      take: 30
+    });
+  } catch (err) {
+    console.warn('feed.xml: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
+  }
+
+  if (posts.length === 0) {
+    posts = POSTS_META.slice(0, 30).map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+      datePublished: new Date(p.datePublished),
+      category: CATEGORIES.find((c) => c.slug === p.category) || { name: 'Tesis Yönetimi' },
+      author: { name: 'Alo Yönetim Uzman Masası' },
+    }));
+  }
 
   const latestUpdated = posts.length > 0 && posts[0].datePublished
     ? new Date(posts[0].datePublished).toISOString()

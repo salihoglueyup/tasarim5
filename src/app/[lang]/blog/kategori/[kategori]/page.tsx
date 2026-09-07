@@ -52,11 +52,21 @@ export async function generateMetadata({
     ? `${cat.name} Articles & Facility Guide — Alo Management Blog`
     : lang === 'ru'
     ? `${cat.name} Статьи и Руководство — Блог | Alo Yonetim`
+    : lang === 'ar'
+    ? `مقالات ودليل ${cat.name} — مدونة | Alo Management`
     : `${cat.name} Makaleleri ve Uzman Rehberi — Blog | Alo Yönetim`;
+
+  const description = lang === 'en'
+    ? `Expert articles, legal condominium regulations and facility practices in ${cat.name}.`
+    : lang === 'ru'
+    ? `Экспертные статьи, правила управления объектами и законодательство KMK в разделе ${cat.name}.`
+    : lang === 'ar'
+    ? `مقالات الخبراء واللوائح القانونية وأدلة إدارة المرافق في قسم ${cat.name}.`
+    : (cat.description || `${cat.name} kategorisindeki en güncel site ve tesis yönetimi makaleleri.`);
 
   return buildMetadata({
     title,
-    description: cat.description,
+    description,
     path: `/blog/kategori/${kategori}`,
     lang,
   });
