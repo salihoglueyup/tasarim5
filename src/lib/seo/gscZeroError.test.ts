@@ -8,9 +8,11 @@ import {
 import {
   buildLocalBusinessSchema,
   buildDistrictLocalBusinessSchema,
+  buildServiceReviewPage,
 } from './dualCoreRichResultEngine';
 import { faqPageSchema } from '../schemas/faq';
 import { blogPostingSchema } from '../schemas/articles';
+import { siteNavigationSchema } from '../schemas/breadcrumbs';
 import { graph } from '../schemas/misc';
 import { buildHttpLinkHeader } from './edgeHeaderInjector';
 import { BASE_URL } from '../seo';
@@ -148,4 +150,52 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(header).toContain('hreflang="x-default"');
     });
   });
+
+  describe('6. SiteNavigationElement ItemList Formatı', () => {
+    it('siteNavigationSchema tekil string dizisi yerine Schema.org ItemList ve SiteNavigationElement üretmelidir', () => {
+      const links = [
+        { name: 'Ana Sayfa', url: '/' },
+        { name: 'Hizmetler', url: '/hizmetler' },
+        { name: 'Tesis Yönetimi', url: '/hizmetler/tesis-yonetimi' },
+      ];
+      const navSchema = siteNavigationSchema(links);
+      expect(navSchema['@type']).toBe('ItemList');
+      expect(Array.isArray((navSchema as any).itemListElement)).toBe(true);
+      expect((navSchema as any).itemListElement.length).toBe(3);
+
+      const first = (navSchema as any).itemListElement[0];
+      expect(first['@type']).toBe('SiteNavigationElement');
+      expect(first.position).toBe(1);
+      expect(first.name).toBe('Ana Sayfa');
+      expect(first.url).toBe(`${BASE_URL}/`);
+      expect(typeof first.name).toBe('string');
+      expect(typeof first.url).toBe('string');
+    });
+  });
+
+  describe('7. buildServiceReviewPage Product aggregateRating itemReviewed', () => {
+    it('buildServiceReviewPage aggregateRating içinde geçerli itemReviewed bulunmalıdır', () => {
+      const reviewSchema = buildServiceReviewPage('tesis-yonetimi', 'facility');
+      expect(reviewSchema['@type']).toBe('Product');
+      const agg = (reviewSchema as any).aggregateRating;
+      expect(agg).toBeDefined();
+      expect(agg.itemReviewed).toBeDefined();
+      expect(agg.itemReviewed['@type']).toBe('Product');
+      expect(agg.itemReviewed.name).toBe(reviewSchema.name);
+    });
+  });
+
+  describe('8. image-sitemap.xml 500 Hatası Önleme ve 200 OK Güvencesi', () => {
+    it('GET fonksiyonu 500 atmadan her durumda 200 OK ve geçerli XML dönmelidir', async () => {
+      const { GET } = await import('@/app/image-sitemap.xml/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const text = await res.text();
+      expect(text).toContain('<?xml version="1.0" encoding="UTF-8"?>');
+      expect(text).toContain('<urlset');
+      expect(text).toContain('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"');
+      expect(text).toContain('<image:loc>');
+    });
+  });
 });
+

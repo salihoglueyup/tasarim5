@@ -21,6 +21,12 @@ export default function MobileAppLiveSimulatorSeo() {
     description: 'Site sakinleri ve yöneticiler için 7/24 online aidat ödeme, arıza bildirimi ve oylama mobil uygulaması.',
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'MobileApplication',
+        name: 'Alo Yönetim Sakin & Yönetici Mobil Paneli',
+        operatingSystem: 'iOS, Android',
+        applicationCategory: 'BusinessApplication'
+      },
       ratingValue: '4.9',
       reviewCount: '450',
       bestRating: '5',

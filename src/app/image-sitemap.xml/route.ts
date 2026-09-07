@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
+import { POSTS_META } from '@/data/postsMetadata';
+import { REFERENCES_META } from '@/data/referencesMetadata';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // Günde bir yenile (ISR)
@@ -22,17 +24,45 @@ function escapeXml(unsafe: string) {
 
 export async function GET() {
   try {
-    // Görselli tüm blog yazılarını çek
-    const posts = await prisma.post.findMany({
-      where: { published: true, image: { not: null } },
-      select: { slug: true, image: true, title: true }
-    });
+    let posts: { slug: string; image: string | null; title: string }[] = [];
+    let references: { slug: string; image: string | null; title: string }[] = [];
 
-    // Görselli tüm referansları çek
-    const references = await prisma.reference.findMany({
-      where: { published: true, image: { not: null } },
-      select: { slug: true, image: true, title: true }
-    });
+    // Görselli tüm blog yazılarını çek (DB sorgusu)
+    try {
+      posts = await prisma.post.findMany({
+        where: { published: true, image: { not: null } },
+        select: { slug: true, image: true, title: true }
+      });
+    } catch (err) {
+      console.warn('Image Sitemap: Post DB fallback to static metadata:', err);
+    }
+
+    // Görselli tüm referansları çek (DB sorgusu)
+    try {
+      references = await prisma.reference.findMany({
+        where: { published: true, image: { not: null } },
+        select: { slug: true, image: true, title: true }
+      });
+    } catch (err) {
+      console.warn('Image Sitemap: Reference DB fallback to static metadata:', err);
+    }
+
+    // DB boş veya ulaşılamazsa offline statik veri katmanını devreye sok
+    if (!posts || posts.length === 0) {
+      posts = POSTS_META.filter((p) => Boolean(p.image)).map((p) => ({
+        slug: p.slug,
+        image: p.image,
+        title: p.title,
+      }));
+    }
+
+    if (!references || references.length === 0) {
+      references = REFERENCES_META.filter((r) => Boolean(r.image) && r.published !== false).map((r) => ({
+        slug: r.slug,
+        image: r.image,
+        title: r.title,
+      }));
+    }
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
@@ -131,7 +161,14 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error('Image Sitemap Error:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    console.error('Image Sitemap Critical Fallback:', error);
+    const fallbackXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n  <url>\n    <loc>${BASE_URL}/</loc>\n    <image:image>\n      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n      <image:title>Alo Yönetim Profesyonel Tesis ve Mülk Yönetimi</image:title>\n    </image:image>\n  </url>\n</urlset>`;
+    return new NextResponse(fallbackXml, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, s-maxage=3600',
+      },
+    });
   }
 }

@@ -7,7 +7,9 @@ const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'aloyonetim-indexnow-key';
 
 export async function GET() {
   const sitemaps = [
-    { name: 'Ana Site Haritası', path: '/sitemap.xml', type: 'XML Sitemap', status: 'Active' },
+    { name: 'Ana Site Haritası Dizini (Master Index)', path: '/sitemap-index.xml', type: 'XML Sitemap Index', status: 'Active' },
+    { name: 'Temel Sayfalar & Hizmetler Haritası', path: '/sitemap.xml', type: 'XML Sitemap', status: 'Active' },
+    { name: '39 İlçe & Bölgesel Hreflang Haritası', path: '/sitemap-regions.xml', type: 'XML Regional Hreflang', status: 'Active' },
     { name: 'Görsel & Geo Site Haritası', path: '/image-sitemap.xml', type: 'XML Images', status: 'Active' },
     { name: 'Belge & 5188 Yasal Şablon Haritası', path: '/document-sitemap.xml', type: 'XML Documents', status: 'Active' },
     { name: 'Tarayıcı OpenSearch Protokolü', path: '/opensearch.xml', type: 'OpenSearch 1.1', status: 'Active' },
@@ -26,11 +28,11 @@ export async function GET() {
   ];
 
   const redirects301 = [
-    { source: '/site-apartman-guvenligi', destination: '/tr/hizmetler/guvenlik-yonetimi', rank: 'Rank #1 (Google)', status: 'Active' },
-    { source: '/guvenlik-kursu-egitimi', destination: '/tr/guvenlik-akademisi', rank: 'Rank #3 (Google)', status: 'Active' },
-    { source: '/ev-ofis-temizligi', destination: '/tr/hizmetler/temizlik-ve-hijyen', rank: 'Rank #7 (Google)', status: 'Active' },
-    { source: '/tag/:tag*', destination: '/tr/blog', rank: 'Toplu Etiketler', status: 'Active' },
-    { source: '/:path*.html', destination: '/tr', rank: 'Eski Statik HTML', status: 'Active' }
+    { source: '/site-apartman-guvenligi', destination: '/hizmetler/guvenlik-yonetimi', rank: 'Rank #1 (Google)', status: 'Active' },
+    { source: '/guvenlik-kursu-egitimi', destination: '/guvenlik-akademisi', rank: 'Rank #3 (Google)', status: 'Active' },
+    { source: '/ev-ofis-temizligi', destination: '/hizmetler/temizlik-ve-hijyen', rank: 'Rank #7 (Google)', status: 'Active' },
+    { source: '/tag/:tag*', destination: '/blog', rank: 'Toplu Etiketler', status: 'Active' },
+    { source: '/:path*.html', destination: '/', rank: 'Eski Statik HTML', status: 'Active' }
   ];
 
   const totalDistricts = DISTRICTS.length;
@@ -73,7 +75,11 @@ export async function POST(request: Request) {
       `${BASE_URL}/kurumsal/surdurulebilirlik`,
       `${BASE_URL}/sss`,
       `${BASE_URL}/sozluk`,
-      `${BASE_URL}/blog`
+      `${BASE_URL}/blog`,
+      `${BASE_URL}/sitemap-index.xml`,
+      `${BASE_URL}/sitemap.xml`,
+      `${BASE_URL}/sitemap-regions.xml`,
+      `${BASE_URL}/image-sitemap.xml`
     ];
 
     // 9 Temel Hizmet

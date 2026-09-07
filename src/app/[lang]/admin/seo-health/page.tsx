@@ -174,6 +174,63 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
         </button>
       </div>
 
+      {/* Google Search Console & Canlı Doğrulama Hızlı Erişim Çubuğu */}
+      <div className="bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-brand-600/10 border border-blue-500/20 rounded-3xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-500 shrink-0">
+            <span className="material-symbols-outlined text-xl" aria-hidden="true">travel_explore</span>
+          </div>
+          <div>
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span>Google Arama & Canlı Doğrulama Araçları</span>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-500 font-extrabold uppercase">GSC Doğrudan</span>
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Master Index (/sitemap-index.xml) ve yapılandırılmış veri testlerini Google araçlarıyla anında doğrulayın.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+          <a
+            href="https://search.google.com/search-console"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all shadow-sm"
+          >
+            <span>Search Console</span>
+            <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+          </a>
+          <a
+            href="https://search.google.com/test/rich-results?url=https%3A%2F%2Faloyonetim.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all shadow-sm"
+          >
+            <span>Zengin Sonuçlar</span>
+            <span className="material-symbols-outlined text-xs" aria-hidden="true">schema</span>
+          </a>
+          <a
+            href="https://validator.schema.org/#url=https%3A%2F%2Faloyonetim.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all shadow-sm"
+          >
+            <span>Schema.org</span>
+            <span className="material-symbols-outlined text-xs" aria-hidden="true">verified_user</span>
+          </a>
+          <a
+            href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Faloyonetim.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all shadow-sm"
+          >
+            <span>PageSpeed</span>
+            <span className="material-symbols-outlined text-xs" aria-hidden="true">speed</span>
+          </a>
+        </div>
+      </div>
+
       {/* IndexNow Sonuç Bildirimi */}
       {syncResult && (
         <div

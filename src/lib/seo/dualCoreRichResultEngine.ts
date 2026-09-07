@@ -896,10 +896,12 @@ export function buildServiceReviewPage(serviceSlug: string, pillar: DomainPillar
   const other = reviews.filter((r) => r.serviceSlug && r.serviceSlug !== serviceSlug);
   const active = matching.length >= 3 ? matching : [...matching, ...other].slice(0, 5);
 
+  const productName = `Alo Yönetim — ${pillar === 'facility' ? 'Kurumsal Tesis Yönetimi' : 'Profesyonel Site Yönetimi'}`;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: `Alo Yönetim — ${pillar === 'facility' ? 'Kurumsal Tesis Yönetimi' : 'Profesyonel Site Yönetimi'}`,
+    name: productName,
     description: 'İstanbul geneli 7/24 teknik, güvenlik, temizlik ve aidat takip yönetim hizmet paketi.',
     brand: {
       '@type': 'Brand',
@@ -907,6 +909,10 @@ export function buildServiceReviewPage(serviceSlug: string, pillar: DomainPillar
     },
     aggregateRating: {
       '@type': 'AggregateRating',
+      itemReviewed: {
+        '@type': 'Product',
+        name: productName,
+      },
       ratingValue: 4.9,
       reviewCount: active.length + (pillar === 'facility' ? 60 : 180),
       bestRating: 5,

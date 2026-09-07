@@ -28,10 +28,18 @@ export const generateBreadcrumbs = (items: { name?: string; url?: string }[]): J
 // SiteNavigationElement (Site Haritası)
 // ---------------------------------------------------------------------------
 export function siteNavigationSchema(links: { name: string; url: string }[]): JsonLdObject {
+  const validLinks = (links || []).filter(
+    (l) => l && typeof l.name === 'string' && l.name.trim().length > 0 && typeof l.url === 'string'
+  );
+
   return {
-    '@type': 'SiteNavigationElement',
-    name: links.map((l) => l.name),
-    url: links.map((l) => abs(l.url)),
+    '@type': 'ItemList',
+    itemListElement: validLinks.map((link, index) => ({
+      '@type': 'SiteNavigationElement',
+      position: index + 1,
+      name: link.name.trim(),
+      url: abs(link.url),
+    })),
   };
 }
 

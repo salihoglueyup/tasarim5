@@ -20,7 +20,14 @@ export async function deletePost(id: string, lang: string) {
     revalidatePath('/api/ai/facility-agent-context.json');
 
     if (targetPost?.slug) {
-      notifyIndexNow([`/blog/${targetPost.slug}`, '/blog', '/sitemap.xml', '/api/ai/facility-agent-context.json']);
+      notifyIndexNow([
+        `/blog/${targetPost.slug}`,
+        '/blog',
+        '/sitemap-index.xml',
+        '/sitemap.xml',
+        '/image-sitemap.xml',
+        '/api/ai/facility-agent-context.json',
+      ]);
     }
 
     return { success: true };
@@ -86,9 +93,16 @@ export async function savePost(id: string, data: any, lang: string) {
     revalidatePath(`/${lang}/blog`);
     revalidatePath('/api/ai/facility-agent-context.json');
     
-    // Arama motorlarına ve AI botlarına anında otomatik bildirim gönder
     if (post?.slug && post?.published) {
-      notifyIndexNow([`/blog/${post.slug}`, '/blog', '/sitemap.xml', '/feed.xml', '/api/ai/facility-agent-context.json']);
+      notifyIndexNow([
+        `/blog/${post.slug}`,
+        '/blog',
+        '/sitemap-index.xml',
+        '/sitemap.xml',
+        '/image-sitemap.xml',
+        '/feed.xml',
+        '/api/ai/facility-agent-context.json',
+      ]);
     }
 
     return { success: true, post };
