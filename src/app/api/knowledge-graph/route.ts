@@ -206,7 +206,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/ld+json; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     }
   });
 }

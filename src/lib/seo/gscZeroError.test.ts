@@ -1901,4 +1901,50 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.schema.mainEntity.hasCredential.length).toBeGreaterThanOrEqual(3);
     });
   });
+
+  describe('80. ai-knowledge API Enterprise RAG Bilgi Bankası ve Robots Başlıkları', () => {
+    it('GET isteğinde şirket profili, ISO akreditasyonları, ilçe ve hizmet verileri döner', async () => {
+      const { GET } = await import('@/app/api/ai-knowledge/route');
+
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await res.json();
+      expect(data.meta.purpose).toContain('LLMO & AI Search');
+      expect(data.company.name).toBe('Alo Yönetim');
+      expect(data.company.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.company.accreditations.length).toBeGreaterThanOrEqual(4);
+      expect(data.facilityManagementFramework).toBeDefined();
+      expect(data.districts.length).toBe(39);
+      expect(data.services.length).toBeGreaterThanOrEqual(6);
+    });
+  });
+
+  describe('81. knowledge-graph API Unified Semantic Graph ve Robots Başlıkları', () => {
+    it('GET isteğinde application/ld+json, Corporation, AboutPage ve zengin robots başlığı döner', async () => {
+      const { GET } = await import('@/app/api/knowledge-graph/route');
+
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await res.json();
+      expect(data['@context']).toBe('https://schema.org');
+      expect(data['@graph']).toBeDefined();
+
+      const corpNode = data['@graph'].find((n: any) => n['@type'] === 'Corporation');
+      expect(corpNode).toBeDefined();
+      expect(corpNode.name).toBe('Alo Yönetim');
+      expect(corpNode.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+
+      const aboutNode = data['@graph'].find((n: any) => n['@type'] === 'AboutPage');
+      expect(aboutNode).toBeDefined();
+      expect(aboutNode.name).toContain('AI Assistant');
+    });
+  });
 });
