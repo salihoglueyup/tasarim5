@@ -36,7 +36,7 @@ export async function GET() {
       duesServiceUrl: `${BASE_URL}/bolgeler/${d.slug}/aidat-takibi`,
       neighborhoods: d.neighborhoods,
       localNeeds: d.localNeeds,
-      phone: '+90 216 755 35 35',
+      phone: '+90 216 550 48 48',
       provider: 'Alo Yönetim ve Organizasyon A.Ş.'
     }
   }));

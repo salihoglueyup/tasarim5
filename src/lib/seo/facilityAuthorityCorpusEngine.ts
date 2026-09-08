@@ -257,7 +257,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
         '5188 Sayılı Kanun Lisanslı Güvenlik Partnerliği'
       ],
       officialUrl: BASE_URL,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
     },
     legalFramework: {
       kmk634Articles: kmkArticles,

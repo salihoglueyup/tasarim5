@@ -112,7 +112,7 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
           name: 'Alo Yönetim',
           legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
           url: BASE_URL,
-          telephone: '+90 216 755 35 35',
+          telephone: '+90 216 550 48 48',
         },
       },
     })),

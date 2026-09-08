@@ -17,7 +17,7 @@ export async function GET(req: Request) {
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
       logo: `${BASE_URL}/images/logo.png`,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
     },
     itemListElement: KMK_LAW_INDEX.map((item, index) => ({
       '@type': 'ListItem',

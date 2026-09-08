@@ -18,7 +18,7 @@ export function GET() {
       'İstanbul Kadıköy merkezli, ISO sertifikalı (9001, 14001, 45001, 27001, 10002) profesyonel mülk ve tesis yönetimi şirketi. Güvenlik, temizlik, teknik bakım, peyzaj, havuz, ilaçlama ve aidat/hukuk icra yönetimi.',
     url: BASE_URL,
     foundingDate: '2009',
-    telephone: '+90 216 755 35 35',
+    telephone: '+90 216 550 48 48',
     email: ORG_EMAIL,
     address: ORG_ADDRESS,
     geo: ORG_GEO,

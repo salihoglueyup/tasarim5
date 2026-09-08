@@ -105,7 +105,7 @@ export function compareFacilityDistricts(
       '@type': 'LocalBusiness',
       name: `Alo Yönetim ${d.name} Tesis Yönetimi`,
       url: d.canonicalUrl,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
       priceRange: '₺₺',
       currenciesAccepted: 'TRY',
       parentOrganization: {

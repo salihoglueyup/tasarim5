@@ -186,7 +186,7 @@ Bakım firması, mevzuata uygun bakım yapmadığı takdirde oluşabilecek idari
       name: 'Alo Yönetim',
       legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
       logo: `${BASE_URL}/images/logo.png`
     },
     dataset: filteredTemplates.map(t => ({

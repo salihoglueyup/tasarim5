@@ -64,7 +64,7 @@ export async function GET() {
       name: ORG_NAME,
       legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
       email: ORG_EMAIL,
       address: ORG_ADDRESS,
       logo: `${BASE_URL}/images/logo.png`

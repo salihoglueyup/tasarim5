@@ -109,7 +109,7 @@ Haklarınız için KVKK 11. Madde kapsamında Site Yönetimimize yazılı olarak
       name: 'Alo Yönetim',
       legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
       logo: `${BASE_URL}/images/logo.png`
     },
     dataset: filtered.map(t => ({

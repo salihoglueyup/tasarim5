@@ -21,7 +21,7 @@ export async function GET() {
         legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
         id: ORG_ID,
         website: BASE_URL,
-        telephone: '+90 216 755 35 35',
+        telephone: '+90 216 550 48 48',
         logo: `${BASE_URL}/images/logo.png`,
         primaryPillar: 'Tesis Yönetimi',
         standard: 'ISO 41001:2018',

@@ -21,7 +21,7 @@ export async function GET() {
         <p><strong>Yaka:</strong> ${d.side} Yakası</p>
         <p><strong>Yönetilen Proje:</strong> ${d.managedProjects}+ Tesis / Site</p>
         <p><strong>Öne Çıkan Mahalleler:</strong> ${d.neighborhoods.join(', ')}</p>
-        <p><strong>Telefon:</strong> +90 216 755 35 35</p>
+        <p><strong>Telefon:</strong> +90 216 550 48 48</p>
         <p><a href="${BASE_URL}/bolgeler/${d.slug}">İlçe Detay Sayfası</a> | <a href="${BASE_URL}/bolgeler/${d.slug}/guvenlik-yonetimi">5188 Güvenlik Hizmetleri</a></p>
       ]]></description>
       <Point>

@@ -354,7 +354,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
       logo: `${BASE_URL}/images/logo.png`,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
     },
     hasDefinedTerm: snippets.map((s) => ({
       '@type': 'DefinedTerm',

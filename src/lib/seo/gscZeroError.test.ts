@@ -565,7 +565,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.schema['@type']).toBe('AboutPage');
       const entity = data.schema.mainEntity;
       expect(entity['@type']).toBe('Organization');
-      expect(entity.telephone).toBe('+90 216 755 35 35');
+      expect(entity.telephone).toBe('+90 216 550 48 48');
       expect(entity.address.addressLocality).toBe('Kadıköy');
       expect(entity.address.addressCountry).toBe('TR');
       expect(entity.hasCredential.length).toBeGreaterThanOrEqual(3);
@@ -615,7 +615,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const about = res?.schema.about as any[];
       expect(about).toBeDefined();
       expect(about[0]['@type']).toBe('LocalBusiness');
-      expect(about[0].telephone).toBe('+90 216 755 35 35');
+      expect(about[0].telephone).toBe('+90 216 550 48 48');
       expect(about[0].address.addressLocality).toBe('Kadıköy');
 
       const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
@@ -1331,7 +1331,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAll['@type']).toBe('Dataset');
       expect(dataAll.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
       expect(dataAll.creator.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataAll.creator.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.creator.telephone).toBe('+90 216 550 48 48');
       expect(dataAll.spatialCoverage.name).toBe('İstanbul, Türkiye');
       expect(dataAll.spatialCoverage.geo.latitude).toBe(41.0082);
       expect(dataAll.temporalCoverage).toBe('2026');
@@ -1408,7 +1408,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data['@type']).toBe('DefinedTerm');
       expect(data.provider.name).toBe('Alo Yönetim');
       expect(data.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.provider.telephone).toBe('+90 216 755 35 35');
+      expect(data.provider.telephone).toBe('+90 216 550 48 48');
       expect(data.provider.knowsAbout).toContain('634 Sayılı Kat Mülkiyeti Kanunu (KMK)');
 
       // subServices 6 hizmetin tamamında Wikidata URI (sameAs) olmalı
@@ -1444,7 +1444,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAll['@type']).toBe('DefinedTermSet');
       expect(dataAll.inLanguage).toBe('tr-TR');
       expect(dataAll.publisher.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataAll.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.publisher.telephone).toBe('+90 216 550 48 48');
       expect(dataAll.numberOfItems).toBeGreaterThanOrEqual(10);
       expect(dataAll.hasDefinedTerm.length).toBe(dataAll.numberOfItems);
 
@@ -1486,7 +1486,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAll.speakableSchemaJsonLd.speakable.inLanguage).toBe('tr');
 
       const firstAnswer = dataAll.speakableSchemaJsonLd.mainEntity[0].acceptedAnswer;
-      expect(firstAnswer.author.telephone).toBe('+90 216 755 35 35');
+      expect(firstAnswer.author.telephone).toBe('+90 216 550 48 48');
       expect(firstAnswer.author.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
 
       // 2. Hukuki Niyet Filtresi (?intent=legal)
@@ -1546,7 +1546,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAll['@type']).toBe('DataCatalog');
       expect(dataAll.inLanguage).toBe('tr-TR');
       expect(dataAll.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataAll.provider.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.provider.telephone).toBe('+90 216 550 48 48');
       expect(dataAll.templates.length).toBeGreaterThanOrEqual(4);
       expect(dataAll.dataset.length).toBe(dataAll.templates.length);
 
@@ -1631,7 +1631,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataGet.schema.inLanguage).toBe('tr-TR');
       expect(dataGet.schema.publisher['@type']).toBe('Organization');
       expect(dataGet.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataGet.schema.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataGet.schema.publisher.telephone).toBe('+90 216 550 48 48');
       expect(dataGet.schema.publisher.logo).toContain('/images/logo.png');
 
       // 2. POST İsteği
@@ -1673,7 +1673,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(corpus.protocolVersion).toBeDefined();
       expect(corpus.authorityEntity.name).toBe('Alo Yönetim');
       expect(corpus.authorityEntity.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(corpus.authorityEntity.telephone).toBe('+90 216 755 35 35');
+      expect(corpus.authorityEntity.telephone).toBe('+90 216 550 48 48');
       expect(corpus.authorityEntity.certifications.length).toBeGreaterThanOrEqual(5);
 
       // Yasal Çerçeve ve İlçe Matrisi Doğrulaması
@@ -1699,7 +1699,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataTr.schema['@type']).toBe('Table');
       expect(dataTr.schema.inLanguage).toBe('tr-TR');
       expect(dataTr.schema.about[0]['@type']).toBe('LocalBusiness');
-      expect(dataTr.schema.about[0].telephone).toBe('+90 216 755 35 35');
+      expect(dataTr.schema.about[0].telephone).toBe('+90 216 550 48 48');
       expect(dataTr.duesDifferenceM2).toBeGreaterThanOrEqual(0);
 
       // 2. İngilizce lokalizasyon kıyaslaması (?lang=en)
@@ -1727,7 +1727,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAll.schema['@type']).toBe('Dataset');
       expect(dataAll.schema.inLanguage).toBe('tr-TR');
       expect(dataAll.schema.creator.name).toBe('Alo Yönetim');
-      expect(dataAll.schema.creator.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.schema.creator.telephone).toBe('+90 216 550 48 48');
       expect(dataAll.schema.creator.logo).toContain('/images/logo.png');
       expect(dataAll.schema.spatialCoverage.sameAs).toBe('https://www.wikidata.org/wiki/Q406');
       expect(dataAll.districts.length).toBe(39);
@@ -1757,7 +1757,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataTr.schema['@type']).toBe('DefinedTermSet');
       expect(dataTr.schema.inLanguage).toBe('tr-TR');
       expect(dataTr.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataTr.schema.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataTr.schema.publisher.telephone).toBe('+90 216 550 48 48');
       expect(dataTr.schema.publisher.logo).toContain('/images/logo.png');
       expect(dataTr.snippets.length).toBeGreaterThanOrEqual(4);
 
@@ -1784,7 +1784,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       const data = await res.json();
       expect(data.entity).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.phone).toBe('+90 216 755 35 35');
+      expect(data.phone).toBe('+90 216 550 48 48');
       expect(data.coreService.standards.length).toBeGreaterThanOrEqual(5);
       expect(data.coreService.standards).toContain('ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)');
       expect(data.districtDuesBenchmarks39.length).toBe(39);
@@ -1806,7 +1806,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const dataTr = await resTr.json();
       expect(dataTr.publisher).toBeDefined();
       expect(dataTr.publisher.name).toBe('Alo Yönetim');
-      expect(dataTr.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataTr.publisher.telephone).toBe('+90 216 550 48 48');
       expect(dataTr.publisher.logo).toContain('/images/logo.png');
       expect(dataTr.qaCollection.length).toBeGreaterThanOrEqual(3);
       expect(dataTr.qaCollection[0].schema['@type']).toBe('SpeakableSpecification');
@@ -1842,7 +1842,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(orgNode).toBeDefined();
       expect(orgNode.name).toBe('Alo Yönetim');
       expect(orgNode.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(orgNode.telephone).toBe('+90 216 755 35 35');
+      expect(orgNode.telephone).toBe('+90 216 550 48 48');
       expect(orgNode.hasCredential.length).toBeGreaterThanOrEqual(3);
 
       // Yargıtay emsal kararları düğümü kontrolü (Q1549429)
@@ -1872,7 +1872,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.schema['@type']).toBe('ItemList');
       expect(data.schema.inLanguage).toBe('tr-TR');
       expect(data.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.schema.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(data.schema.publisher.telephone).toBe('+90 216 550 48 48');
       expect(data.schema.publisher.logo).toContain('/images/logo.png');
       expect(data.articles.length).toBeGreaterThanOrEqual(8);
     });
@@ -1896,7 +1896,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       // Schema.org AboutPage & Kurumsal NAP kontrolleri
       expect(data.schema['@type']).toBe('AboutPage');
       expect(data.schema.inLanguage).toBe('tr-TR');
-      expect(data.schema.mainEntity.telephone).toBe('+90 216 755 35 35');
+      expect(data.schema.mainEntity.telephone).toBe('+90 216 550 48 48');
       expect(data.schema.mainEntity.logo).toContain('/images/logo.png');
       expect(data.schema.mainEntity.hasCredential.length).toBeGreaterThanOrEqual(3);
     });
@@ -1966,7 +1966,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.spatialCoverage.name).toContain('İstanbul');
       expect(data.creator.name).toBe('Alo Yönetim');
       expect(data.creator.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.creator.telephone).toBe('+90 216 755 35 35');
+      expect(data.creator.telephone).toBe('+90 216 550 48 48');
       expect(data.creator.logo).toContain('/images/logo.png');
       expect(data.data.length).toBe(39);
       expect(data.data[0].districtId).toBeDefined();
@@ -1990,7 +1990,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAll.inLanguage).toBe('tr-TR');
       expect(dataAll.publisher.name).toBe('Alo Yönetim');
       expect(dataAll.publisher.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataAll.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.publisher.telephone).toBe('+90 216 550 48 48');
       expect(dataAll.publisher.logo).toContain('/images/logo.png');
       expect(dataAll.hasDefinedTerm.length).toBeGreaterThan(0);
 
@@ -2012,7 +2012,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const dataSummary = await resSummary.json();
       expect(dataSummary.name).toBe('Alo Yönetim');
       expect(dataSummary.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataSummary.telephone).toBe('+90 216 755 35 35');
+      expect(dataSummary.telephone).toBe('+90 216 550 48 48');
       expect(dataSummary.certifications.length).toBeGreaterThanOrEqual(5);
       expect(dataSummary.serviceAreas.length).toBe(39);
     });
@@ -2068,7 +2068,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const dataCoverage = await resCoverage.json();
       expect(dataCoverage.type).toBe('FeatureCollection');
       expect(dataCoverage.metadata.organization).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataCoverage.metadata.contactPhone).toBe('+90 216 755 35 35');
+      expect(dataCoverage.metadata.contactPhone).toBe('+90 216 550 48 48');
       expect(dataCoverage.features.length).toBe(39);
       expect(dataCoverage.features[0].properties.serviceLevelAgreement.emergencyResponseTimeMinutes).toBeGreaterThan(0);
 
@@ -2084,7 +2084,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataDistricts.type).toBe('FeatureCollection');
       expect(dataDistricts.metadata.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
       expect(dataDistricts.features.length).toBe(39);
-      expect(dataDistricts.features[0].properties.phone).toBe('+90 216 755 35 35');
+      expect(dataDistricts.features[0].properties.phone).toBe('+90 216 550 48 48');
       expect(dataDistricts.features[0].properties.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
     });
   });
@@ -2104,7 +2104,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataSec['@type']).toBe('DataCatalog');
       expect(dataSec.inLanguage).toBe('tr-TR');
       expect(dataSec.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataSec.provider.telephone).toBe('+90 216 755 35 35');
+      expect(dataSec.provider.telephone).toBe('+90 216 550 48 48');
       expect(dataSec.provider.logo).toContain('/images/logo.png');
       expect(dataSec.dataset.length).toBeGreaterThanOrEqual(3);
       expect(dataSec.dataset[0]['@type']).toBe('DigitalDocument');
@@ -2123,7 +2123,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataFac['@type']).toBe('DataCatalog');
       expect(dataFac.inLanguage).toBe('tr-TR');
       expect(dataFac.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataFac.provider.telephone).toBe('+90 216 755 35 35');
+      expect(dataFac.provider.telephone).toBe('+90 216 550 48 48');
       expect(dataFac.dataset.length).toBeGreaterThanOrEqual(4);
       expect(dataFac.dataset[0]['@type']).toBe('DigitalDocument');
       expect(dataFac.templates.length).toBeGreaterThanOrEqual(4);
@@ -2169,7 +2169,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const kmlText = await resKml.text();
       expect(kmlText).toContain('<kml xmlns="http://www.opengis.net/kml/2.2">');
       expect(kmlText).toContain('<Placemark id="district-kadikoy">');
-      expect(kmlText).toContain('+90 216 755 35 35');
+      expect(kmlText).toContain('+90 216 550 48 48');
     });
   });
 
@@ -2187,7 +2187,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const dataFac = await resFac.json();
       expect(dataFac.organization.name).toBe('Alo Yönetim');
       expect(dataFac.organization.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataFac.organization.telephone).toBe('+90 216 755 35 35');
+      expect(dataFac.organization.telephone).toBe('+90 216 550 48 48');
       expect(dataFac.organization.standard).toBe('ISO 41001:2018');
       expect(dataFac.entities.length).toBeGreaterThan(0);
       expect(dataFac.topicCluster).toBeDefined();

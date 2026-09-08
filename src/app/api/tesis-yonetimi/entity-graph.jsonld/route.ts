@@ -54,7 +54,7 @@ export async function GET() {
         url: BASE_URL,
         logo: `${BASE_URL}/icon.png`,
         foundingDate: '2009',
-        telephone: '+90 216 755 35 35',
+        telephone: '+90 216 550 48 48',
         email: 'info@aloyonetim.com.tr',
         publishingPrinciples: `${BASE_URL}/hakkimizda`,
         knowsAbout: [

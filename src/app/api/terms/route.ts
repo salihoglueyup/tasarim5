@@ -36,7 +36,7 @@ export async function GET(request: Request) {
       name: ORG_NAME,
       legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
-      telephone: '+90 216 755 35 35',
+      telephone: '+90 216 550 48 48',
       logo: `${BASE_URL}/images/logo.png`
     },
     hasDefinedTerm: filtered.map((item, index) => ({
