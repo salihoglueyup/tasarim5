@@ -86,6 +86,7 @@ export async function GET(req: Request) {
       name: 'İstanbul 39 İlçe Tesis Yönetimi ve Aidat Açık Veri İndeksi 2026',
       description: 'İstanbul genelindeki 39 ilçenin konut başına ortalama m² aidat piyasa verileri ve profesyonel tesis yönetimi ile sağlanan tasarruf oranları.',
       url: `${BASE_URL}/api/tesis-yonetimi/dues-index.json`,
+      inLanguage: 'tr-TR',
       license: 'https://creativecommons.org/licenses/by-sa/4.0/',
       isAccessibleForFree: true,
       temporalCoverage: '2026',
@@ -110,6 +111,8 @@ export async function GET(req: Request) {
         name: 'Alo Yönetim',
         legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
+        logo: `${BASE_URL}/images/logo.png`,
+        telephone: '+90 216 755 35 35',
       },
       distribution: [
         {
@@ -137,7 +140,7 @@ export async function GET(req: Request) {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       'Access-Control-Allow-Origin': '*',
-      'X-Robots-Tag': 'all',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }

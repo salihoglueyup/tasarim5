@@ -615,14 +615,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const about = res?.schema.about as any[];
       expect(about).toBeDefined();
       expect(about[0]['@type']).toBe('LocalBusiness');
-      expect(about[0].telephone).toBe('+90 216 550 48 48');
+      expect(about[0].telephone).toBe('+90 216 755 35 35');
       expect(about[0].address.addressLocality).toBe('Kadıköy');
 
       const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
       const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas');
       const apiRes = await GET(req as any);
       expect(apiRes.status).toBe(200);
-      expect(apiRes.headers.get('X-Robots-Tag')).toBe('all');
+      expect(apiRes.headers.get('X-Robots-Tag')).toContain('all');
     });
   });
 
@@ -877,7 +877,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
       const res = await GET(req);
       expect(res.status).toBe(200);
-      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      expect(res.headers.get('X-Robots-Tag')).toContain('all');
       expect(res.headers.get('Content-Type')).toContain('application/json');
 
       const data = await res.json();
@@ -1680,6 +1680,65 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(corpus.legalFramework.kmk634Articles.length).toBeGreaterThanOrEqual(5);
       expect(corpus.districtMatrix.length).toBeGreaterThan(0);
       expect(corpus.provenMetrics.activeFacilityPortfolioCount).toBeGreaterThan(0);
+    });
+  });
+
+  describe('72. compare-districts API İlçe Karşılaştırma, Table Şeması ve Kurumsal NAP', () => {
+    it('GET isteğinde Table şeması, güncel NAP telefonu ve X-Robots-Tag döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
+
+      // 1. Varsayılan Türkçe kıyaslama (Kadıköy vs Beşiktaş)
+      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas');
+      const resTr = await GET(reqTr as any);
+      expect(resTr.status).toBe(200);
+      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataTr = await resTr.json();
+      expect(dataTr.districts.length).toBe(2);
+      expect(dataTr.schema['@type']).toBe('Table');
+      expect(dataTr.schema.inLanguage).toBe('tr-TR');
+      expect(dataTr.schema.about[0]['@type']).toBe('LocalBusiness');
+      expect(dataTr.schema.about[0].telephone).toBe('+90 216 755 35 35');
+      expect(dataTr.duesDifferenceM2).toBeGreaterThanOrEqual(0);
+
+      // 2. İngilizce lokalizasyon kıyaslaması (?lang=en)
+      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas&lang=en');
+      const resEn = await GET(reqEn as any);
+      expect(resEn.status).toBe(200);
+      const dataEn = await resEn.json();
+      expect(dataEn.schema.inLanguage).toBe('en');
+      expect(dataEn.seoSummaryParagraph).toContain('Comparing facility management');
+    });
+  });
+
+  describe('73. dues-index.json API Dataset Şeması, Kurumsal NAP ve Yaka Filtreleme', () => {
+    it('GET isteğinde Dataset şeması, kurumsal telefon/logo ve bölgesel filtreleme doğrulanır', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
+
+      // 1. Tüm ilçeler
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resAll.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataAll = await resAll.json();
+      expect(dataAll.schema['@type']).toBe('Dataset');
+      expect(dataAll.schema.inLanguage).toBe('tr-TR');
+      expect(dataAll.schema.creator.name).toBe('Alo Yönetim');
+      expect(dataAll.schema.creator.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.schema.creator.logo).toContain('/images/logo.png');
+      expect(dataAll.schema.spatialCoverage.sameAs).toBe('https://www.wikidata.org/wiki/Q406');
+      expect(dataAll.districts.length).toBe(39);
+
+      // 2. Anadolu yakası filtresi (?side=anadolu)
+      const reqSide = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?side=anadolu');
+      const resSide = await GET(reqSide);
+      expect(resSide.status).toBe(200);
+      const dataSide = await resSide.json();
+      expect(dataSide.istanbulSummary.filteredSide).toBe('anadolu');
+      expect(dataSide.districts.every((d: any) => d.side === 'Anadolu Yakası')).toBe(true);
     });
   });
 });

@@ -100,11 +100,12 @@ export function compareFacilityDistricts(
     '@type': 'Table',
     name: schemaName,
     description: seoSummary,
+    inLanguage: normalizedLang === 'tr' ? 'tr-TR' : normalizedLang,
     about: mapped.map((d) => ({
       '@type': 'LocalBusiness',
       name: `Alo Yönetim ${d.name} Tesis Yönetimi`,
       url: d.canonicalUrl,
-      telephone: '+90 216 550 48 48',
+      telephone: '+90 216 755 35 35',
       priceRange: '₺₺',
       currenciesAccepted: 'TRY',
       parentOrganization: {
