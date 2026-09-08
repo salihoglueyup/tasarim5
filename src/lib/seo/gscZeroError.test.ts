@@ -1194,6 +1194,46 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(voiceData.qaCollection[0].schema['@type']).toBe('SpeakableSpecification');
     });
   });
+
+  describe('59. legal-precedents.json Yargıtay Wikidata (Q1549429) & KMK Madde Filtreleme', () => {
+    it('Legislation şemasında Yargıtay Wikidata bağı (Q1549429) döner; X-Robots-Tag all ve article filtresini sağlar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
+
+      // 1. Varsayılan tüm emsal kararlar ve Yargıtay Otorite bağı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toBe('all');
+      expect(resAll.headers.get('Content-Type')).toContain('application/json');
+
+      const dataAll = await resAll.json();
+      expect(dataAll.precedents.length).toBeGreaterThanOrEqual(4);
+      expect(dataAll.schema['@type']).toBe('ItemList');
+
+      const firstItem = dataAll.schema.itemListElement[0].item;
+      expect(firstItem['@type']).toBe('Legislation');
+      expect(firstItem.inLanguage).toBe('tr');
+      expect(firstItem.legislationPassedBy).toBeDefined();
+      expect(firstItem.legislationPassedBy.name).toBe('T.C. Yargıtay Başkanlığı');
+      expect(firstItem.legislationPassedBy.sameAs).toBe('https://www.wikidata.org/wiki/Q1549429');
+
+      // 2. KMK Madde 20 Filtresi (Aidat Gecikme ve Asansör)
+      const reqArt20 = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json?article=20');
+      const resArt20 = await GET(reqArt20);
+      const dataArt20 = await resArt20.json();
+      expect(dataArt20.metadata.filteredArticle).toBe('20');
+      expect(dataArt20.precedents.length).toBeGreaterThan(0);
+      expect(dataArt20.precedents.every((p: any) => p.kmkArticle.includes('20'))).toBe(true);
+
+      // 3. KMK Madde 19 Filtresi (Cam Balkon)
+      const reqArt19 = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json?article=19');
+      const resArt19 = await GET(reqArt19);
+      const dataArt19 = await resArt19.json();
+      expect(dataArt19.metadata.filteredArticle).toBe('19');
+      expect(dataArt19.precedents.length).toBe(1);
+      expect(dataArt19.precedents[0].subject).toContain('Cam Balkon');
+    });
+  });
 });
 
 
