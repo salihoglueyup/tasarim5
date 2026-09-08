@@ -46,8 +46,8 @@ describe('5 Derin Arka Plan (Backend) SEO Motoru Testleri', () => {
     it('İlçeye özel hiper-yerel FAQPage şeması ve sorular üretir', () => {
       const kadikoyFaq = synthesizeDistrictFacilityFaq('kadikoy');
       expect(kadikoyFaq.districtName).toBe('Kadıköy');
-      expect(kadikoyFaq.faqs.length).toBeGreaterThanOrEqual(3);
-      expect(kadikoyFaq.schema['@type']).toBe('FAQPage');
+      expect(kadikoyFaq.schema).not.toBeNull();
+      expect(kadikoyFaq.schema?.['@type']).toBe('FAQPage');
 
       const basaksehirFaq = synthesizeDistrictFacilityFaq('basaksehir');
       expect(basaksehirFaq.districtName).toBe('Başakşehir');

@@ -60,6 +60,8 @@ export async function GET() {
         marketAverageM2: `₺${dues.avgDuesM2}`,
         aloYonetimOptimizedM2: `₺${dues.aloDuesM2}`,
         savingsRate: `%${dues.savingsRate}`,
+        districtHubUrl: `${BASE_URL}/bolgeler/${d.slug}`,
+        facilityManagementUrl: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
         url: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
       };
     }),

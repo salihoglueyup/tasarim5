@@ -60,7 +60,7 @@ describe('5 İleri Düzey Backend SEO Motoru Testleri (Wave 5)', () => {
       expect(result.nearestDistrict.name).toBe('Kadıköy');
       expect(result.distanceKm).toBeLessThan(5);
       expect(result.estimatedSlaMinutes).toBeLessThanOrEqual(45);
-      expect(result.schema['@type']).toBe('Place');
+      expect(result.schema['@type']).toBe('LocalBusiness');
     });
   });
 

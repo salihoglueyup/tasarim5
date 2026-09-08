@@ -25,6 +25,7 @@ export async function GET() {
       <description><![CDATA[İstanbul ${d.name} ilçesinde ISO 41001 standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %${dues.savingsRate} maliyet tasarruflu aidat muhasebesi.]]></description>
       <category>Tesis Yönetimi</category>
       <category>${d.name}</category>
+      <enclosure url="${BASE_URL}/images/hero-poster-v5.webp" type="image/webp" length="102400" />
     </item>`;
   }).join('\n');
 
@@ -38,6 +39,7 @@ export async function GET() {
       <description><![CDATA[${p.court} kararı: ${p.rulingSummary} - ${p.bindingPrecedentText}]]></description>
       <category>KMK 634</category>
       <category>Yargıtay Emsal Kararları</category>
+      <enclosure url="${BASE_URL}/images/hero-poster-v5.webp" type="image/webp" length="102400" />
     </item>`;
   }).join('\n');
 

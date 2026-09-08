@@ -20,6 +20,9 @@ export interface NearestHubResult {
     '@context': string;
     '@type': string;
     name: string;
+    telephone: string;
+    url: string;
+    priceRange: string;
     geo: {
       '@type': string;
       latitude: number;
@@ -91,8 +94,11 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
     emergencyHotline: '+90 (216) 550 48 48',
     schema: {
       '@context': 'https://schema.org',
-      '@type': 'Place',
+      '@type': 'LocalBusiness',
       name: `Alo Yönetim ${nearestDistrict.name} Tesis Operasyon Merkezi`,
+      telephone: '+90 216 550 48 48',
+      url: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`,
+      priceRange: '₺₺',
       geo: {
         '@type': 'GeoCoordinates',
         latitude: nearestDistrict.geo.lat,

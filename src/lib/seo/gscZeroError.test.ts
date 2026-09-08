@@ -373,6 +373,55 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(getLocalizedPath('/bolgeler/kadikoy', 'ar')).toBe('/ar/bolgeler/kadikoy');
     });
   });
+
+  describe('19. facilityFaqSynthesizer Merkezi faqPageSchema Entegrasyonu', () => {
+    it('39 ilçe için üretilen SSS nesnesi geçerli FAQPage şeması içermelidir', async () => {
+      const { synthesizeDistrictFacilityFaq } = await import('./facilityFaqSynthesizer');
+      const result = synthesizeDistrictFacilityFaq('kadikoy');
+      expect(result.schema).not.toBeNull();
+      expect(result.schema?.['@type']).toBe('FAQPage');
+      expect(Array.isArray((result.schema as any)?.mainEntity)).toBe(true);
+      expect((result.schema as any)?.mainEntity.length).toBeGreaterThanOrEqual(3);
+    });
+  });
+
+  describe('20. edgeGeoResolver LocalBusiness Şeması ve Yerel Nitelikler', () => {
+    it('en yakın merkez şeması LocalBusiness olmalı, telefon ve fiyat aralığı içermelidir', async () => {
+      const { findNearestFacilityHub } = await import('./edgeGeoResolver');
+      const hub = findNearestFacilityHub(40.99, 29.02);
+      expect(hub.schema['@type']).toBe('LocalBusiness');
+      expect(hub.schema.telephone).toBe('+90 216 550 48 48');
+      expect(hub.schema.priceRange).toBe('₺₺');
+      expect(hub.schema.url).toContain('/bolgeler/kadikoy/tesis-yonetimi');
+    });
+  });
+
+  describe('21. api/tesis-yonetimi/feed.xml Enclosure Görsel Koruması', () => {
+    it('GET fonksiyonu tüm öğelerde geçerli enclosure görsel etiketi üretmelidir', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/feed.xml/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const xml = await res.text();
+      expect(xml).toContain('<enclosure');
+      expect(xml).toContain('hero-poster-v5.webp');
+    });
+  });
+
+  describe('22. api/tesis-yonetimi/llm-facts.json Çift Kanallı İlçe Rotaları', () => {
+    it('GET fonksiyonu 39 ilçe için hem ana iniş hem tesis yönetimi linklerini sunmalıdır', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const data = await res.json();
+      expect(Array.isArray(data.districtDuesBenchmarks39)).toBe(true);
+      expect(data.districtDuesBenchmarks39.length).toBe(39);
+      const first = data.districtDuesBenchmarks39[0];
+      expect(first.districtHubUrl).toBeDefined();
+      expect(first.facilityManagementUrl).toBeDefined();
+      expect(first.districtHubUrl).toContain('/bolgeler/');
+      expect(first.facilityManagementUrl).toContain('/tesis-yonetimi');
+    });
+  });
 });
 
 

@@ -1,4 +1,6 @@
 import { getDistrict } from '@/data/districts';
+import { faqPageSchema } from '@/lib/schemas/faq';
+import type { JsonLdObject } from '@/lib/schemas/constants';
 
 export interface SynthesizedFaqItem {
   question: string;
@@ -11,18 +13,7 @@ export interface SynthesizedDistrictFaqResult {
   districtSlug: string;
   facilityContext: string;
   faqs: SynthesizedFaqItem[];
-  schema: {
-    '@context': string;
-    '@type': string;
-    mainEntity: Array<{
-      '@type': string;
-      name: string;
-      acceptedAnswer: {
-        '@type': string;
-        text: string;
-      };
-    }>;
-  };
+  schema: JsonLdObject | null;
 }
 
 /**
@@ -82,18 +73,7 @@ export function synthesizeDistrictFacilityFaq(
     topic: 'KMK_634',
   });
 
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.answer,
-      },
-    })),
-  };
+  const schema = faqPageSchema(faqs);
 
   return {
     districtName: dName,
