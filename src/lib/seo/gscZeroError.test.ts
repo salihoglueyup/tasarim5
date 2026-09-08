@@ -904,7 +904,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 2. voice-qa Content-Type
       const { GET: getVoice } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
-      const voiceRes = await getVoice();
+      const voiceReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json');
+      const voiceRes = await getVoice(voiceReq);
       expect(voiceRes.status).toBe(200);
       expect(voiceRes.headers.get('Content-Type')).toContain('application/json');
 
@@ -1144,6 +1145,53 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataEn.coreService.canonicalUrl).toBe('https://aloyonetim.com.tr/en/hizmetler/tesis-yonetimi');
       expect(dataEn.coreService.slaCommitment).toContain('45 minutes');
       expect(dataEn.coreService.activeCoverage).toContain('39 Districts');
+    });
+  });
+
+  describe('57. facilityAiSnippetEngine Çok Dilli Destek & Schema Zenginleştirmesi', () => {
+    it('TR ve EN dillerinde snippet üretir ve DefinedTermSet şeması sunar', async () => {
+      const { generateFacilityAiSnippets } = await import('./facilityAiSnippetEngine');
+
+      // 1. Türkçe Varsayılan
+      const trPayload = generateFacilityAiSnippets('tr');
+      expect(trPayload.totalSnippets).toBe(7);
+      expect(trPayload.snippets[0].queryIntent).toContain('Tesis Yönetimi');
+      expect(trPayload.schema).toBeDefined();
+      expect(trPayload.schema?.['@type']).toBe('DefinedTermSet');
+      expect(trPayload.schema?.name).toContain('Tesis Yönetimi Bilgi ve AI Overviews');
+
+      // 2. İngilizce AI Overviews
+      const enPayload = generateFacilityAiSnippets('en');
+      expect(enPayload.totalSnippets).toBe(7);
+      expect(enPayload.snippets[0].queryIntent).toContain('What is Facility Management');
+      expect(enPayload.snippets[0].directSummaryText).toContain('Facility management is');
+      expect(enPayload.snippets[0].citationAnchorUrl).toContain('/en/hizmetler/tesis-yonetimi');
+      expect(enPayload.schema?.['@type']).toBe('DefinedTermSet');
+      expect(enPayload.schema?.name).toContain('Facility Management Knowledge');
+    });
+  });
+
+  describe('58. ai-snippets.json ve voice-qa.json API Çok Dilli İstek Desteği', () => {
+    it('ai-snippets.json ve voice-qa.json uç noktaları lang parametresine göre yerel dilde yanıt verir', async () => {
+      // 1. ai-snippets.json İngilizce
+      const { GET: getAiSnippets } = await import('@/app/api/tesis-yonetimi/ai-snippets.json/route');
+      const aiReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/ai-snippets.json?lang=en');
+      const aiRes = await getAiSnippets(aiReq);
+      expect(aiRes.status).toBe(200);
+      const aiData = await aiRes.json();
+      expect(aiData.totalSnippets).toBe(7);
+      expect(aiData.snippets[0].queryIntent).toContain('What is Facility Management');
+      expect(aiData.schema['@type']).toBe('DefinedTermSet');
+
+      // 2. voice-qa.json İngilizce
+      const { GET: getVoice } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
+      const voiceReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json?lang=en');
+      const voiceRes = await getVoice(voiceReq);
+      expect(voiceRes.status).toBe(200);
+      const voiceData = await voiceRes.json();
+      expect(voiceData.qaCollection.length).toBeGreaterThan(0);
+      expect(voiceData.qaCollection[0].schema.inLanguage).toBe('en');
+      expect(voiceData.qaCollection[0].schema['@type']).toBe('SpeakableSpecification');
     });
   });
 });

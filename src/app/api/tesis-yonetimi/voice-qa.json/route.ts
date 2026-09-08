@@ -8,9 +8,22 @@ export const revalidate = 86400;
  * Sesli Arama & Voice AI Soru-Cevap API'si (/api/tesis-yonetimi/voice-qa.json)
  * Google Assistant, Siri ve Alexa için Speakable JSON-LD verileri sunar.
  */
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const payload = synthesizeFacilityVoiceQA();
+    let lang: 'tr' | 'en' | 'ru' | 'ar' = 'tr';
+    if (req && req.url) {
+      try {
+        const { searchParams } = new URL(req.url);
+        const l = searchParams.get('lang');
+        if (l && ['tr', 'en', 'ru', 'ar'].includes(l.toLowerCase())) {
+          lang = l.toLowerCase() as any;
+        }
+      } catch {
+        // noop
+      }
+    }
+
+    const payload = synthesizeFacilityVoiceQA(lang);
     return NextResponse.json(payload, {
       status: 200,
       headers: {

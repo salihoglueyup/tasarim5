@@ -7,9 +7,19 @@ export const revalidate = 86400;
 /**
  * Google AI Overviews & SGE Yapılandırılmış Snippet API'si (/api/tesis-yonetimi/ai-snippets.json)
  */
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const payload = generateFacilityAiSnippets();
+    let lang = 'tr';
+    if (req && req.url) {
+      try {
+        const { searchParams } = new URL(req.url);
+        lang = searchParams.get('lang') || 'tr';
+      } catch {
+        // noop
+      }
+    }
+
+    const payload = generateFacilityAiSnippets(lang);
     return NextResponse.json(payload, {
       status: 200,
       headers: {
