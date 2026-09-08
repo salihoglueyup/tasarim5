@@ -336,11 +336,12 @@ select:focus-visible {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  font-feature-settings: 'liga';
-  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga', 'rlig';
+  -webkit-font-feature-settings: 'liga', 'rlig';
   -webkit-font-smoothing: antialiased;
   vertical-align: middle;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
 }
 
 /* Faz 121: CSS Gradyanlarını Aşırı Katmanlardan Arındırma & GPU Kompozitörünü Rahatlatma */

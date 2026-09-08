@@ -9,7 +9,7 @@ type LanguageContextType = {
   t: (key: keyof typeof translations['tr']) => string;
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children, initialLang, initialDictionary }: { children: React.ReactNode, initialLang?: string, initialDictionary?: any }) => {
   const [language, setLanguageState] = useState<Language>((initialLang as Language) || 'tr');
