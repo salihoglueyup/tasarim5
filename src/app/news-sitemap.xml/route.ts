@@ -58,11 +58,11 @@ export async function GET() {
   } catch (err) {
     console.warn('news-sitemap.xml: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
     try {
-      const { POSTS } = await import('@/data/posts');
-      posts = POSTS.slice(0, 10).map((p) => ({
+      const { POSTS_META } = await import('@/data/posts');
+      posts = POSTS_META.slice(0, 10).map((p) => ({
         slug: p.slug,
         title: p.title,
-        datePublished: new Date(),
+        datePublished: new Date(p.datePublished),
         tags: p.category || 'Tesis Yönetimi',
       }));
     } catch {

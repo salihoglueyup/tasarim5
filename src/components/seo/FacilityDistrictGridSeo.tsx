@@ -13,7 +13,7 @@ export default function FacilityDistrictGridSeo() {
 
   const getLocalizedPath = (path: string) => {
     if (!path) return '/';
-    return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
+    return language && language !== 'tr' ? `/${language}${path === '/' ? '' : path}` : path;
   };
 
   const filteredDistricts = useMemo(() => {

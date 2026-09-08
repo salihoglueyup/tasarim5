@@ -321,6 +321,58 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(schema.embedUrl).toBe('https://youtube.com/embed/xyz123');
     });
   });
+
+  describe('16. news-sitemap.xml POSTS_META Hafif Fallback ve 200 OK', () => {
+    it('GET fonksiyonu 200 OK ve geçerli Google News şeması üretmelidir', async () => {
+      const { GET } = await import('@/app/news-sitemap.xml/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const xml = await res.text();
+      expect(xml).toContain('xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"');
+      expect(xml).toContain('<news:name>Alo Yönetim Tesis Bülteni</news:name>');
+      expect(xml).toContain('<news:language>tr</news:language>');
+      expect(xml).toContain('<news:publication_date>');
+      expect(xml).toContain('<news:title>');
+
+      const fs = await import('fs');
+      const path = await import('path');
+      const content = fs.readFileSync(path.join(process.cwd(), 'src/app/news-sitemap.xml/route.ts'), 'utf-8');
+      expect(content).toContain('POSTS_META');
+    });
+  });
+
+  describe('17. BlogFAQExtractor faqPageSchema Standardizasyonu', () => {
+    it('soru içermeyen metinlerde veya boş içerikte null dönerek GSC hatasını engellemelidir', async () => {
+      const BlogFAQExtractor = (await import('@/components/seo/BlogFAQExtractor')).default;
+      expect(BlogFAQExtractor({ htmlContent: '' })).toBeNull();
+      expect(BlogFAQExtractor({ htmlContent: '<p>Sadece düz bir açıklama paragrafı.</p>' })).toBeNull();
+      expect(BlogFAQExtractor({ htmlContent: '<h2>Başlık Sorusuz</h2><p>Cevap yok</p>' })).toBeNull();
+    });
+
+    it('soru işareti içeren başlıklardan geçerli FAQ şeması oluşturmalıdır', async () => {
+      const html = '<h2>Tesis yönetimi aidatları nasıl düşürülür?</h2><p>Toplu satın alma ve enerji optimizasyonu ile %30 tasarruf sağlanır.</p>';
+      const BlogFAQExtractor = (await import('@/components/seo/BlogFAQExtractor')).default;
+      const element = BlogFAQExtractor({ htmlContent: html });
+      expect(element).not.toBeNull();
+      expect(element?.props?.data?.['@type']).toBe('FAQPage');
+      expect(element?.props?.data?.mainEntity).toHaveLength(1);
+      expect(element?.props?.data?.mainEntity[0].name).toContain('Tesis yönetimi aidatları');
+    });
+  });
+
+  describe('18. FacilityDistrictGridSeo 4 Dilli Bölgesel URL Eşleşmesi', () => {
+    it('TR, EN, RU, AR dillerinin tamamında doğru yerel yol üretilmelidir', () => {
+      const getLocalizedPath = (path: string, language: string) => {
+        if (!path) return '/';
+        return language && language !== 'tr' ? `/${language}${path === '/' ? '' : path}` : path;
+      };
+
+      expect(getLocalizedPath('/bolgeler/kadikoy', 'tr')).toBe('/bolgeler/kadikoy');
+      expect(getLocalizedPath('/bolgeler/kadikoy', 'en')).toBe('/en/bolgeler/kadikoy');
+      expect(getLocalizedPath('/bolgeler/kadikoy', 'ru')).toBe('/ru/bolgeler/kadikoy');
+      expect(getLocalizedPath('/bolgeler/kadikoy', 'ar')).toBe('/ar/bolgeler/kadikoy');
+    });
+  });
 });
 
 

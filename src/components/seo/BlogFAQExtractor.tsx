@@ -1,9 +1,17 @@
 import JsonLd from './JsonLd';
+import { faqPageSchema } from '@/lib/schemas';
 
 interface BlogFAQExtractorProps {
   htmlContent: string;
 }
 
+/**
+ * Blog Gövdesinden Dinamik SSS (FAQPage) Çıkarıcı
+ * 
+ * Makale içindeki soru başlıklarını (H2/H3 ?) ve takip eden paragrafları
+ * tespit ederek Google Zengin Sonuçlar uyumlu FAQPage şemasına dönüştürür.
+ * Geçersiz/boş soru-cevap durumunda null dönerek GSC uyarılarını engeller.
+ */
 export default function BlogFAQExtractor({ htmlContent }: BlogFAQExtractorProps) {
   if (!htmlContent) return null;
 
@@ -11,7 +19,7 @@ export default function BlogFAQExtractor({ htmlContent }: BlogFAQExtractorProps)
   // hemen ardındaki <p> etiketini yakalayan Regex.
   const regex = /<h[23][^>]*>(.*?\?)<\/h[23]>[\s\S]*?<p[^>]*>(.*?)<\/p>/gi;
   
-  const faqs = [];
+  const faqs: { question: string; answer: string }[] = [];
   let match;
 
   while ((match = regex.exec(htmlContent)) !== null) {
@@ -24,20 +32,8 @@ export default function BlogFAQExtractor({ htmlContent }: BlogFAQExtractorProps)
     }
   }
 
-  if (faqs.length === 0) return null;
-
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
+  const schema = faqPageSchema(faqs);
+  if (!schema) return null;
 
   return <JsonLd data={schema} />;
 }
