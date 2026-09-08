@@ -30,10 +30,14 @@ export async function GET(request: Request) {
     name: `${ORG_NAME} Tesis Yönetimi, KMK Hukuk ve 5188 Güvenlik Terimleri Sözlüğü`,
     description: 'Site ve apartman yönetimi, Kat Mülkiyeti Kanunu (KMK 634), 5188 sayılı Özel Güvenlik Kanunu ve aidat takibi hukuki terimler kütüphanesi.',
     url: `${BASE_URL}/sozluk`,
+    inLanguage: 'tr-TR',
     publisher: {
       '@type': 'Corporation',
       name: ORG_NAME,
-      url: BASE_URL
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: '+90 216 755 35 35',
+      logo: `${BASE_URL}/images/logo.png`
     },
     hasDefinedTerm: filtered.map((item, index) => ({
       '@type': 'DefinedTerm',
@@ -50,7 +54,8 @@ export async function GET(request: Request) {
     headers: {
       'Content-Type': 'application/ld+json; charset=utf-8',
       'Cache-Control': 'public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large'
     }
   });
 }

@@ -1947,4 +1947,74 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(aboutNode.name).toContain('AI Assistant');
     });
   });
+
+  describe('82. istanbul-facility-data API Google Dataset Search, Wikidata Q406 ve Robots Başlıkları', () => {
+    it('GET isteğinde application/ld+json, Dataset şeması, Wikidata Q406 ve kurumsal NAP döner', async () => {
+      const { GET } = await import('@/app/api/datasets/istanbul-facility-data/route');
+
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await res.json();
+      expect(data['@context']).toBe('https://schema.org');
+      expect(data['@type']).toBe('Dataset');
+      expect(data.inLanguage).toBe('tr-TR');
+      expect(data.spatialCoverage.sameAs).toBe('https://www.wikidata.org/wiki/Q406');
+      expect(data.spatialCoverage.name).toContain('İstanbul');
+      expect(data.creator.name).toBe('Alo Yönetim');
+      expect(data.creator.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.creator.telephone).toBe('+90 216 755 35 35');
+      expect(data.creator.logo).toContain('/images/logo.png');
+      expect(data.data.length).toBe(39);
+      expect(data.data[0].districtId).toBeDefined();
+      expect(data.data[0].managedProjects).toBeGreaterThan(0);
+    });
+  });
+
+  describe('83. terms API DefinedTermSet Sözlük ve summary API CORS/Robots Başlıkları', () => {
+    it('terms ve summary uç noktalarında standartlaştırılmış şema, kurumsal NAP ve robots başlıkları döner', async () => {
+      // 1. terms API Genel Çağrı
+      const { GET: getTerms } = await import('@/app/api/terms/route');
+      const reqAll = new Request('https://aloyonetim.com.tr/api/terms');
+      const resAll = await getTerms(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(resAll.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resAll.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataAll = await resAll.json();
+      expect(dataAll['@type']).toBe('DefinedTermSet');
+      expect(dataAll.inLanguage).toBe('tr-TR');
+      expect(dataAll.publisher.name).toBe('Alo Yönetim');
+      expect(dataAll.publisher.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataAll.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.publisher.logo).toContain('/images/logo.png');
+      expect(dataAll.hasDefinedTerm.length).toBeGreaterThan(0);
+
+      // 2. terms API Arama Sorgusu Filtresi (?q=aidat)
+      const reqQ = new Request('https://aloyonetim.com.tr/api/terms?q=aidat');
+      const resQ = await getTerms(reqQ);
+      expect(resQ.status).toBe(200);
+      const dataQ = await resQ.json();
+      expect(dataQ.hasDefinedTerm.length).toBeGreaterThan(0);
+
+      // 3. summary API Makine-Okur JSON
+      const { GET: getSummary } = await import('@/app/api/summary/route');
+      const resSummary = await getSummary();
+      expect(resSummary.status).toBe(200);
+      expect(resSummary.headers.get('Content-Type')).toContain('application/json');
+      expect(resSummary.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resSummary.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataSummary = await resSummary.json();
+      expect(dataSummary.name).toBe('Alo Yönetim');
+      expect(dataSummary.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataSummary.telephone).toBe('+90 216 755 35 35');
+      expect(dataSummary.certifications.length).toBeGreaterThanOrEqual(5);
+      expect(dataSummary.serviceAreas.length).toBe(39);
+    });
+  });
 });

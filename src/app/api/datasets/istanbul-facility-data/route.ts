@@ -47,10 +47,12 @@ export async function GET() {
     url: `${BASE_URL}/api/datasets/istanbul-facility-data`,
     identifier: 'https://doi.org/10.5281/zenodo.aloyonetim.istanbul.2026',
     license: 'https://creativecommons.org/licenses/by/4.0/',
+    inLanguage: 'tr-TR',
     temporalCoverage: '2025/2026',
     spatialCoverage: {
       '@type': 'Place',
       name: 'İstanbul, Türkiye',
+      sameAs: 'https://www.wikidata.org/wiki/Q406',
       geo: {
         '@type': 'GeoCoordinates',
         latitude: 41.0082,
@@ -62,9 +64,10 @@ export async function GET() {
       name: ORG_NAME,
       legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
-      telephone: ORG_PHONE,
+      telephone: '+90 216 755 35 35',
       email: ORG_EMAIL,
-      address: ORG_ADDRESS
+      address: ORG_ADDRESS,
+      logo: `${BASE_URL}/images/logo.png`
     },
     keywords: [
       'İstanbul Tesis Yönetimi Veri Seti',
@@ -102,7 +105,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/ld+json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large'
     }
   });
 }
