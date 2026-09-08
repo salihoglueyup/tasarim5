@@ -23,6 +23,20 @@ export interface NearestHubResult {
     telephone: string;
     url: string;
     priceRange: string;
+    currenciesAccepted?: string;
+    parentOrganization?: {
+      '@type': string;
+      '@id': string;
+      name: string;
+      legalName: string;
+      url: string;
+    };
+    openingHoursSpecification?: {
+      '@type': string;
+      dayOfWeek: string[];
+      opens: string;
+      closes: string;
+    };
     geo: {
       '@type': string;
       latitude: number;
@@ -99,6 +113,28 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
       telephone: '+90 216 550 48 48',
       url: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`,
       priceRange: '₺₺',
+      currenciesAccepted: 'TRY',
+      parentOrganization: {
+        '@type': 'Organization',
+        '@id': `${BASE_URL}/#organization`,
+        name: 'Alo Yönetim',
+        legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+        url: BASE_URL,
+      },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday',
+        ],
+        opens: '00:00',
+        closes: '23:59',
+      },
       geo: {
         '@type': 'GeoCoordinates',
         latitude: nearestDistrict.geo.lat,

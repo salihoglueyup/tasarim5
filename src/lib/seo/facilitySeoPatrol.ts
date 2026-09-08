@@ -150,17 +150,11 @@ export function runFacilitySeoPatrol(): SeoPatrolReport {
  * Faz 236: Sitemap bütünlüğünü doğrular.
  */
 export function auditSitemapIntegrity(): SitemapAuditResult {
+  const servicePillars = SERVICES.map((s) => s.pillar);
   const allRoutes = [
     '/',
     '/hizmetler',
-    '/hizmetler/tesis-yonetimi',
-    '/hizmetler/guvenlik-yonetimi',
-    '/hizmetler/temizlik-yonetimi',
-    '/hizmetler/teknik-yonetim',
-    '/hizmetler/hukuk-yonetimi',
-    '/hizmetler/muhasebe-finans',
-    '/hizmetler/havuz-bakimi',
-    '/hizmetler/peyzaj-bahce',
+    ...servicePillars,
     '/blog',
     '/iletisim',
     '/hakkimizda',
@@ -189,17 +183,11 @@ export function auditSitemapIntegrity(): SitemapAuditResult {
  */
 export function auditInternalLinks(): BrokenLinksAuditResult {
   // Proje içi tüm kritik hedef yolların listesi
+  const servicePillars = SERVICES.map((s) => s.pillar);
   const validKnownRoutes = new Set([
     '/',
     '/hizmetler',
-    '/hizmetler/tesis-yonetimi',
-    '/hizmetler/guvenlik-yonetimi',
-    '/hizmetler/temizlik-yonetimi',
-    '/hizmetler/teknik-yonetim',
-    '/hizmetler/hukuk-yonetimi',
-    '/hizmetler/muhasebe-finans',
-    '/hizmetler/havuz-bakimi',
-    '/hizmetler/peyzaj-bahce',
+    ...servicePillars,
     '/blog',
     '/iletisim',
     '/hakkimizda',

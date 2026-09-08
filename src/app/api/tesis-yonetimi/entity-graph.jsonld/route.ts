@@ -48,12 +48,20 @@ export async function GET() {
       {
         '@type': 'Organization',
         '@id': `${BASE_URL}/#organization`,
-        name: 'Alo Yönetim ve Organizasyon A.Ş.',
+        name: 'Alo Yönetim',
+        legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+        alternateName: ['Alo Yönetim', 'Alo Tesis Yönetimi', 'Alo Yönetim A.Ş.'],
         url: BASE_URL,
         logo: `${BASE_URL}/icon.png`,
         foundingDate: '2009',
         telephone: '+902165504848',
         email: 'info@aloyonetim.com.tr',
+        publishingPrinciples: `${BASE_URL}/hakkimizda`,
+        knowsAbout: [
+          'https://www.wikidata.org/wiki/Q1273919', // Entegre Tesis Yönetimi
+          'https://www.wikidata.org/wiki/Q1391515', // Gayrimenkul / Mülk Yönetimi
+          'https://www.wikidata.org/wiki/Q11440',   // Özel Güvenlik
+        ],
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Misak-ı Milli Sok. No:94A',

@@ -15,6 +15,8 @@ describe('5 Ana Sayfa Tesis Yönetimi SEO Entegrasyon Testleri (Wave 6)', () => 
       const hubResult = findNearestFacilityHub(40.9901, 29.0290);
       expect(hubResult.estimatedSlaMinutes).toBeGreaterThanOrEqual(25);
       expect(hubResult.estimatedSlaMinutes).toBeLessThanOrEqual(45);
+      expect(hubResult.schema.parentOrganization?.name).toBe('Alo Yönetim');
+      expect(hubResult.schema.parentOrganization?.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
 
       const authorityGraph = generateVerifiedAuthorityGraph();
       expect(authorityGraph['@type']).toBe('Organization');

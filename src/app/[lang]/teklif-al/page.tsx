@@ -87,18 +87,25 @@ export default function TeklifAl() {
     },
   };
 
-  const contactPointLd = {
+  const organizationLd = {
     '@context': 'https://schema.org',
-    '@type': 'ContactPoint',
-    telephone: '+90-216-550-48-48',
-    contactType: 'sales and quotation',
-    areaServed: 'TR',
-    availableLanguage: ['Turkish', 'English', 'Russian', 'Arabic'],
+    '@type': 'Organization',
+    '@id': 'https://aloyonetim.com.tr/#organization',
+    name: 'Alo Yönetim',
+    legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+    url: 'https://aloyonetim.com.tr',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+90-216-550-48-48',
+      contactType: 'sales and quotation',
+      areaServed: 'TR',
+      availableLanguage: ['Turkish', 'English', 'Russian', 'Arabic'],
+    },
   };
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, quoteActionLd, contactPointLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, quoteActionLd, organizationLd]} />
       <PageHeader
         title="Ücretsiz Teklif Alın"
         description="Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifini 48 saat içinde alın. Gizli gider yok, taahhüt yok."

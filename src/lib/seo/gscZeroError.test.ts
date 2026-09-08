@@ -689,6 +689,57 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.distanceKm).toBeGreaterThanOrEqual(0);
     });
   });
+
+  describe('40. entity-graph.jsonld Kurumsal Knowledge Graph Doğrulaması', () => {
+    it('GET isteği 200 döner ve Organization düğümünde marka, yasal unvan ve knowsAbout içerir', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/entity-graph.jsonld/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      const data = await res.json();
+      expect(data['@context']).toBe('https://schema.org');
+      const org = data['@graph'].find((node: any) => node['@type'] === 'Organization');
+      expect(org).toBeDefined();
+      expect(org.name).toBe('Alo Yönetim');
+      expect(org.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(org.knowsAbout).toContain('https://www.wikidata.org/wiki/Q1273919');
+      expect(org.publishingPrinciples).toContain('/hakkimizda');
+    });
+  });
+
+  describe('41. edgeGeoResolver LocalBusiness ve ParentOrganization Hiyerarşisi', () => {
+    it('findNearestFacilityHub LocalBusiness içinde parentOrganization, TRY ve 7/24 çalışma saatleri sunar', async () => {
+      const { findNearestFacilityHub } = await import('@/lib/seo/edgeGeoResolver');
+      const hubResult = findNearestFacilityHub(41.0082, 28.9784);
+      expect(hubResult.schema['@type']).toBe('LocalBusiness');
+      expect(hubResult.schema.currenciesAccepted).toBe('TRY');
+      expect(hubResult.schema.parentOrganization?.['@type']).toBe('Organization');
+      expect(hubResult.schema.parentOrganization?.name).toBe('Alo Yönetim');
+      expect(hubResult.schema.parentOrganization?.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(hubResult.schema.openingHoursSpecification?.dayOfWeek.length).toBe(7);
+      expect(hubResult.schema.openingHoursSpecification?.opens).toBe('00:00');
+    });
+  });
+
+  describe('42. facilitySeoPatrol Dinamik Hizmet ve Kırık Link Denetimi', () => {
+    it('Sitemap ve iç link denetimleri dinamik hizmet yolları ile %100 temiz sonuç üretir', async () => {
+      const { auditSitemapIntegrity, auditInternalLinks } = await import('@/lib/seo/facilitySeoPatrol');
+      const sitemapAudit = auditSitemapIntegrity();
+      expect(sitemapAudit.status).toBe('VALID');
+      expect(sitemapAudit.missingCanonicalCount).toBe(0);
+
+      const linkAudit = auditInternalLinks();
+      expect(linkAudit.status).toBe('CLEAN');
+      expect(linkAudit.brokenLinksFound).toBe(0);
+      expect(linkAudit.linkHealthScore).toBe(100);
+
+      const { GET } = await import('@/app/api/cron/seo-patrol/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+    });
+  });
 });
 
 
