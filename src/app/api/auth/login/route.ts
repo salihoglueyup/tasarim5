@@ -13,18 +13,24 @@ function clientIp(req: NextRequest): string {
 }
 
 export async function POST(request: NextRequest) {
+  const standardHeaders = {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Cache-Control': 'private, no-cache, no-store',
+    'X-Robots-Tag': 'noindex, nofollow',
+  };
+
   try {
     // Faz 187: Admin Girişi Brute-Force Koruması (5 dakikada en fazla 5 deneme)
     const rateLimitRes = await applyApiRateLimit(clientIp(request), 'admin_login_brute_force', 5, 300);
     if (!rateLimitRes.success) {
-      return NextResponse.json({ error: 'Çok fazla başarısız deneme. Lütfen 5 dakika bekleyin.' }, { status: 429 });
+      return NextResponse.json({ error: 'Çok fazla başarısız deneme. Lütfen 5 dakika bekleyin.' }, { status: 429, headers: standardHeaders });
     }
 
     const body = await request.json();
     const { email, password } = body;
 
     if (!email || !password) {
-      return NextResponse.json({ error: 'Email ve şifre gereklidir.' }, { status: 400 });
+      return NextResponse.json({ error: 'Email ve şifre gereklidir.' }, { status: 400, headers: standardHeaders });
     }
 
     const user = await prisma.user.findUnique({
@@ -32,13 +38,13 @@ export async function POST(request: NextRequest) {
     });
 
     if (!user) {
-      return NextResponse.json({ error: 'Geçersiz email veya şifre.' }, { status: 401 });
+      return NextResponse.json({ error: 'Geçersiz email veya şifre.' }, { status: 401, headers: standardHeaders });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      return NextResponse.json({ error: 'Geçersiz email veya şifre.' }, { status: 401 });
+      return NextResponse.json({ error: 'Geçersiz email veya şifre.' }, { status: 401, headers: standardHeaders });
     }
 
     // Create session
@@ -59,9 +65,12 @@ export async function POST(request: NextRequest) {
       maxAge: 60 * 60 * 24, // 24 hours
     });
 
-    return NextResponse.json({ success: true, user: { id: user.id, email: user.email, role: user.role } });
+    return NextResponse.json(
+      { success: true, user: { id: user.id, email: user.email, role: user.role } },
+      { status: 200, headers: standardHeaders }
+    );
   } catch (error) {
     console.error('Login error:', error);
-    return NextResponse.json({ error: 'Bir hata oluştu.' }, { status: 500 });
+    return NextResponse.json({ error: 'Bir hata oluştu.' }, { status: 500, headers: standardHeaders });
   }
 }

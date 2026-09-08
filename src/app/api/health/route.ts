@@ -79,8 +79,10 @@ export async function GET() {
   return NextResponse.json(responsePayload, {
     status: isHealthy ? 200 : 503,
     headers: {
+      'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'no-store, no-cache, must-revalidate',
       'X-SLA-Status': isHealthy ? 'OPERATIONAL' : 'DEGRADED',
+      'X-Robots-Tag': 'noindex, nofollow',
     },
   });
 }

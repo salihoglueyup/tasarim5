@@ -26,10 +26,14 @@ export async function decrypt(input: string): Promise<any> {
 }
 
 export async function getSession() {
-  const cookieStore = await cookies();
-  const session = cookieStore.get('admin_session')?.value;
-  if (!session) return null;
-  return await decrypt(session);
+  try {
+    const cookieStore = await cookies();
+    const session = cookieStore.get('admin_session')?.value;
+    if (!session) return null;
+    return await decrypt(session);
+  } catch {
+    return null;
+  }
 }
 
 /**

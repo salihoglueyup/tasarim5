@@ -131,6 +131,7 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Cache-Control': 'private, no-cache, no-store',
+        'X-Robots-Tag': 'noindex, nofollow',
       },
     }
   );

@@ -52,6 +52,13 @@ export async function GET() {
     componentsCount: 37,
     indexNowKey: INDEXNOW_KEY,
     lastAuditDate: new Date().toISOString()
+  }, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'private, no-cache, no-store',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
   });
 }
 
@@ -120,11 +127,25 @@ export async function POST(request: Request) {
       statusText: response.statusText,
       submittedCount: coreUrls.length,
       sampleUrls: coreUrls.slice(0, 5)
+    }, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'private, no-cache, no-store',
+        'X-Robots-Tag': 'noindex, nofollow',
+      },
     });
   } catch (error: any) {
     return NextResponse.json({
       success: false,
       error: error.message || 'IndexNow gönderimi sırasında hata oluştu.'
-    }, { status: 500 });
+    }, {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'private, no-cache, no-store',
+        'X-Robots-Tag': 'noindex, nofollow',
+      },
+    });
   }
 }

@@ -62,7 +62,8 @@ export async function GET(request: NextRequest) {
     status: 200,
     headers: {
       'Cache-Control': 'no-store, max-age=0',
-      'Content-Type': 'application/json; charset=utf-8'
+      'Content-Type': 'application/json; charset=utf-8',
+      'X-Robots-Tag': 'noindex, nofollow',
     }
   });
 }

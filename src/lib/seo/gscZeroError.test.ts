@@ -2313,4 +2313,97 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataCalc.savingsRate).toBeDefined();
     });
   });
+
+  describe('92. Admin ve Telemetri Uç Noktalarında noindex ve Private Cache Güvencesi', () => {
+    it('admin seo-health, seo-status, bot-tracker, telemetry, ai-logs, warm-cache ve indexnow-bulk noindex döner', async () => {
+      // 1. seo-health API
+      const { GET: getSeoHealth } = await import('@/app/api/admin/seo-health/route');
+      const resSeoHealth = await getSeoHealth();
+      expect(resSeoHealth.status).toBe(200);
+      expect(resSeoHealth.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resSeoHealth.headers.get('Cache-Control')).toContain('no-store');
+
+      // 2. seo-status API
+      const { GET: getSeoStatus } = await import('@/app/api/admin/seo-status/route');
+      const resSeoStatus = await getSeoStatus();
+      expect(resSeoStatus.status).toBe(200);
+      expect(resSeoStatus.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resSeoStatus.headers.get('Cache-Control')).toContain('no-store');
+
+      // 3. bot-tracker API
+      const { GET: getBotTracker } = await import('@/app/api/admin/bot-tracker/route');
+      const reqTracker = new Request('https://aloyonetim.com.tr/api/admin/bot-tracker');
+      const resTracker = await getBotTracker(reqTracker as any);
+      expect(resTracker.status).toBe(200);
+      expect(resTracker.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resTracker.headers.get('Cache-Control')).toContain('no-store');
+
+      // 4. bot-telemetry API
+      const { GET: getBotTelemetry } = await import('@/app/api/admin/bot-telemetry/route');
+      const resTelemetry = await getBotTelemetry();
+      expect(resTelemetry.status).toBe(200);
+      expect(resTelemetry.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resTelemetry.headers.get('Cache-Control')).toContain('no-store');
+
+      // 5. ai-crawler-logs API
+      const { GET: getAiCrawlerLogs } = await import('@/app/api/admin/ai-crawler-logs/route');
+      const resAiLogs = await getAiCrawlerLogs();
+      expect(resAiLogs.status).toBe(200);
+      expect(resAiLogs.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resAiLogs.headers.get('Cache-Control')).toContain('no-store');
+
+      // 6. warm-facility-cache API
+      const { GET: getWarmCache } = await import('@/app/api/admin/warm-facility-cache/route');
+      const resWarm = await getWarmCache();
+      expect(resWarm.status).toBe(200);
+      expect(resWarm.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resWarm.headers.get('Cache-Control')).toContain('no-store');
+
+      // 7. indexnow-bulk API
+      const { GET: getIndexNowBulk } = await import('@/app/api/admin/indexnow-bulk/route');
+      const resIndexNow = await getIndexNowBulk();
+      expect(resIndexNow.status).toBe(200);
+      expect(resIndexNow.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resIndexNow.headers.get('Cache-Control')).toContain('no-store');
+    });
+  });
+
+  describe('93. Health, RUM Vitals, Auth ve Upload Uç Noktalarında noindex Standartları', () => {
+    it('health, vitals, logout ve upload uç noktaları noindex başlığı ve güvenli önbellekleme döner', async () => {
+      // 1. health API (RFC 8485 / Tier-3 SLA)
+      const { GET: getHealth } = await import('@/app/api/health/route');
+      const resHealth = await getHealth();
+      expect(resHealth.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resHealth.headers.get('Content-Type')).toContain('application/json');
+      expect(resHealth.headers.get('Cache-Control')).toContain('no-store');
+
+      // 2. analytics vitals API (RUM Core Web Vitals)
+      const { GET: getVitals } = await import('@/app/api/analytics/vitals/route');
+      const resVitals = await getVitals();
+      expect(resVitals.status).toBe(200);
+      expect(resVitals.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resVitals.headers.get('Content-Type')).toContain('application/json');
+      expect(resVitals.headers.get('Cache-Control')).toContain('no-store');
+
+      // 3. auth logout API
+      const { POST: postLogout } = await import('@/app/api/auth/logout/route');
+      const resLogout = await postLogout();
+      expect(resLogout.status).toBe(200);
+      expect(resLogout.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resLogout.headers.get('Content-Type')).toContain('application/json');
+      expect(resLogout.headers.get('Cache-Control')).toContain('no-store');
+
+      // 4. upload API (Yetkisiz çağrıda 401 + noindex)
+      const { POST: postUpload } = await import('@/app/api/upload/route');
+      const reqUpload = new Request('https://aloyonetim.com.tr/api/upload', {
+        method: 'POST',
+      });
+      const resUpload = await postUpload(reqUpload);
+      expect(resUpload.status).toBe(401);
+      expect(resUpload.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resUpload.headers.get('Content-Type')).toContain('application/json');
+      expect(resUpload.headers.get('Cache-Control')).toContain('no-store');
+    });
+  });
 });
+

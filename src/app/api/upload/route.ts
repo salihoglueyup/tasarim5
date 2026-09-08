@@ -5,18 +5,30 @@ import { assertAdmin } from '@/lib/auth';
 import { validateUploadedFile, MIME_TO_EXT } from '@/lib/security/fileUploadValidator';
 
 export async function POST(request: Request) {
+  const standardHeaders = {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Cache-Control': 'private, no-cache, no-store',
+    'X-Robots-Tag': 'noindex, nofollow',
+  };
+
   try {
     // 1. Yetki Kontrolü (Sadece ADMIN rolü yükleyebilir)
     const session = await assertAdmin();
     if (!session) {
-      return NextResponse.json({ success: false, error: 'Yetkisiz erişim. Sadece yöneticiler dosya yükleyebilir.' }, { status: 401 });
+      return NextResponse.json(
+        { success: false, error: 'Yetkisiz erişim. Sadece yöneticiler dosya yükleyebilir.' },
+        { status: 401, headers: standardHeaders }
+      );
     }
 
     const data = await request.formData();
     const file: File | null = data.get('file') as unknown as File;
 
     if (!file) {
-      return NextResponse.json({ success: false, error: 'Dosya bulunamadı.' }, { status: 400 });
+      return NextResponse.json(
+        { success: false, error: 'Dosya bulunamadı.' },
+        { status: 400, headers: standardHeaders }
+      );
     }
 
     const bytes = await file.arrayBuffer();
@@ -25,7 +37,10 @@ export async function POST(request: Request) {
     // Faz 192: Dosya Yükleme Boyut (maks 5MB), MIME ve Magic-Byte Doğrulaması
     const validation = validateUploadedFile(file.size, file.type, buffer);
     if (!validation.valid) {
-      return NextResponse.json({ success: false, error: validation.error }, { status: 400 });
+      return NextResponse.json(
+        { success: false, error: validation.error },
+        { status: 400, headers: standardHeaders }
+      );
     }
 
     // 5. Güvenli dosya adı: client'ın adı KULLANILMAZ; uzantı MIME'den türetilir.
@@ -41,9 +56,15 @@ export async function POST(request: Request) {
     await writeFile(path, buffer);
     const fileUrl = `/uploads/${filename}`;
 
-    return NextResponse.json({ success: true, url: fileUrl });
+    return NextResponse.json(
+      { success: true, url: fileUrl },
+      { status: 200, headers: standardHeaders }
+    );
   } catch (error) {
     console.error('Error uploading file:', error);
-    return NextResponse.json({ success: false, error: 'Dosya yüklenirken sunucu hatası oluştu.' }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: 'Dosya yüklenirken sunucu hatası oluştu.' },
+      { status: 500, headers: standardHeaders }
+    );
   }
 }
