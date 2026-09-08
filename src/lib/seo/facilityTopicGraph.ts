@@ -19,15 +19,60 @@ import {
  * olduğunu hiyerarşik varlık düğümleriyle (Entity Nodes) kanıtlar.
  */
 
+interface LocalizedTopicGraphContent {
+  name: string;
+  serviceType: string;
+  description: string;
+  catalogName: string;
+  serviceOutput: string;
+}
+
+const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
+  tr: {
+    name: 'Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi',
+    serviceType: 'Profesyonel Site ve Entegre Tesis Yönetimi',
+    description:
+      'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için ISO 41001 standartlarında 7/24 güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
+    catalogName: 'Alo Yönetim Tesis Yönetimi Paketleri ve Sektörel Çözümleri',
+    serviceOutput: '%25-35 Ortak Bütçe Tasarrufu, %99.2 Aidat Tahsilat Başarısı, Sıfır Hukuki Risk ve 7/24 Kesintisiz Güvenlik',
+  },
+  en: {
+    name: 'Alo Yönetim Professional Property & Integrated Facility Management',
+    serviceType: 'Professional Property & Integrated Facility Management',
+    description:
+      'ISO 41001 certified professional facility management across Istanbul for apartments, residential complexes, business towers, and industrial estates encompassing 24/7 security, cleaning, technical maintenance, transparent dues accounting, and legal consulting.',
+    catalogName: 'Alo Yönetim Facility Management Packages and Sectoral Solutions',
+    serviceOutput: '25-35% Common Budget Savings, 99.2% Dues Collection Success, Zero Legal Risk, and 24/7 Uninterrupted Security',
+  },
+  ru: {
+    name: 'Alo Yönetim Профессиональное Управление Недвижимостью и Объектами',
+    serviceType: 'Профессиональное Управление Недвижимостью и Объектами',
+    description:
+      'Профессиональное управление объектами недвижимости в Стамбуле по стандарту ISO 41001 для жилых комплексов, резиденций и бизнес-центров: круглосуточная охрана, уборка, техническое обслуживание, прозрачный учет взносов и юридический консалтинг.',
+    catalogName: 'Пакеты услуг и отраслевые решения по управлению объектами Alo Yönetim',
+    serviceOutput: 'Экономия общего бюджета 25-35%, 99.2% успешный сбор взносов, нулевой юридический риск и круглосуточная безопасность',
+  },
+  ar: {
+    name: 'Alo Yönetim إدارة العقارات والمرافق المتكاملة الاحترافية',
+    serviceType: 'إدارة العقارات والمرافق المتكاملة الاحترافية',
+    description:
+      'إدارة مرافق احترافية معتمدة وفق معايير ISO 41001 في جميع أنحاء إسطنبول للمجمعات السكنية والأبراج التجارية والمنشآت الصناعية تشمل الأمن على مدار الساعة والتنظيف والصيانة الفنية والمحاسبة القانونية الشفافة للرسوم.',
+    catalogName: 'باقات وحلول إدارة المرافق القطاعية من Alo Yönetim',
+    serviceOutput: 'توفير 25-35% من الميزانية المشتركة، نجاح تحصيل الرسوم بنسبة 99.2%، صفر مخاطر قانونية وأمن مستمر 24/7',
+  },
+};
+
 export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
-  const langPrefix = lang === 'tr' ? '' : `/${lang}`;
+  const normalizedLang = (lang || 'tr').toLowerCase();
+  const loc = TOPIC_GRAPH_LOCALES[normalizedLang] || TOPIC_GRAPH_LOCALES.tr;
+  const langPrefix = normalizedLang === 'tr' ? '' : `/${normalizedLang}`;
   const serviceUrl = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${BASE_URL}/#service-facility-management`,
-    name: 'Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi',
+    name: loc.name,
     alternateName: [
       'Site Yönetimi',
       'Profesyonel Site Yönetimi',
@@ -40,9 +85,8 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       'Site ve Tesis İşletmeciliği',
       'Facility Management Istanbul',
     ],
-    serviceType: 'Profesyonel Site ve Entegre Tesis Yönetimi',
-    description:
-      'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için ISO 41001 standartlarında 7/24 güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
+    serviceType: loc.serviceType,
+    description: loc.description,
     url: serviceUrl,
     mainEntityOfPage: serviceUrl,
     sameAs: [
@@ -62,7 +106,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
     },
     serviceOutput: {
       '@type': 'Thing',
-      name: '%25-35 Ortak Bütçe Tasarrufu, %99.2 Aidat Tahsilat Başarısı, Sıfır Hukuki Risk ve 7/24 Kesintisiz Güvenlik',
+      name: loc.serviceOutput,
     },
     // ISO ve Yasal Standartlar (Topikal Otorite)
     hasCredential: [
@@ -179,10 +223,12 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
     // Sektörel Çözümler Kataloğu
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Alo Yönetim Tesis Yönetimi Paketleri ve Sektörel Çözümleri',
+      name: loc.catalogName,
       itemListElement: [
         {
           '@type': 'Offer',
+          priceCurrency: 'TRY',
+          availability: 'https://schema.org/InStock',
           itemOffered: {
             '@type': 'Service',
             name: 'Rezidans ve Lüks Konut Tesis Yönetimi',
@@ -191,6 +237,8 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         },
         {
           '@type': 'Offer',
+          priceCurrency: 'TRY',
+          availability: 'https://schema.org/InStock',
           itemOffered: {
             '@type': 'Service',
             name: 'Plaza, İş Merkezi ve Ofis Kuleleri Tesis Yönetimi',
@@ -199,6 +247,8 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         },
         {
           '@type': 'Offer',
+          priceCurrency: 'TRY',
+          availability: 'https://schema.org/InStock',
           itemOffered: {
             '@type': 'Service',
             name: 'Büyük Ölçekli Site ve Toplu Yapı Tesis Yönetimi',
@@ -207,6 +257,8 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         },
         {
           '@type': 'Offer',
+          priceCurrency: 'TRY',
+          availability: 'https://schema.org/InStock',
           itemOffered: {
             '@type': 'Service',
             name: 'Sanayi, Fabrika ve Lojistik Tesisleri Yönetimi',
@@ -215,6 +267,8 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         },
         {
           '@type': 'Offer',
+          priceCurrency: 'TRY',
+          availability: 'https://schema.org/InStock',
           itemOffered: {
             '@type': 'Service',
             name: 'Tesis Yönetimi Seçim ve Geçiş Rehberi',
@@ -228,7 +282,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       '@type': 'AggregateRating',
       itemReviewed: {
         '@type': 'Service',
-        name: 'Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi',
+        name: loc.name,
         url: serviceUrl,
         provider: {
           '@type': 'Organization',
@@ -238,6 +292,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       },
       ratingValue: '4.9',
       reviewCount: '340',
+      ratingCount: '340',
       bestRating: '5',
       worstRating: '1',
     },

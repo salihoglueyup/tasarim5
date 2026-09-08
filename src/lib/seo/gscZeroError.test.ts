@@ -1043,6 +1043,48 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAr.schema.name).toContain('مقارنة إدارة المرافق والرسوم 2026');
     });
   });
+
+  describe('54. facilityTopicGraph Çok Dilli Şema ve OfferCatalog/AggregateRating Standartları', () => {
+    it('TR, EN, RU, AR dillerinde yerelleştirilmiş Service şeması ve geçerli Offer/Rating alanları üretmelidir', () => {
+      // 1. Türkçe Varsayılan
+      const graphTr = generateFacilityManagementGraph('tr') as any;
+      expect(graphTr.name).toBe('Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi');
+      expect(graphTr.serviceType).toBe('Profesyonel Site ve Entegre Tesis Yönetimi');
+      expect(graphTr.hasOfferCatalog.name).toBe('Alo Yönetim Tesis Yönetimi Paketleri ve Sektörel Çözümleri');
+
+      // 2. İngilizce
+      const graphEn = generateFacilityManagementGraph('en') as any;
+      expect(graphEn.name).toBe('Alo Yönetim Professional Property & Integrated Facility Management');
+      expect(graphEn.serviceType).toBe('Professional Property & Integrated Facility Management');
+      expect(graphEn.hasOfferCatalog.name).toBe('Alo Yönetim Facility Management Packages and Sectoral Solutions');
+      expect(graphEn.url).toContain('/en/hizmetler/tesis-yonetimi');
+
+      // 3. Rusça
+      const graphRu = generateFacilityManagementGraph('ru') as any;
+      expect(graphRu.name).toContain('Профессиональное Управление');
+      expect(graphRu.hasOfferCatalog.name).toContain('Пакеты услуг');
+
+      // 4. Arapça
+      const graphAr = generateFacilityManagementGraph('ar') as any;
+      expect(graphAr.name).toContain('إدارة العقارات');
+      expect(graphAr.hasOfferCatalog.name).toContain('باقات وحلول');
+
+      // 5. OfferCatalog Standardı (priceCurrency & availability)
+      expect(graphTr.hasOfferCatalog.itemListElement.length).toBe(5);
+      for (const offer of graphTr.hasOfferCatalog.itemListElement) {
+        expect(offer['@type']).toBe('Offer');
+        expect(offer.priceCurrency).toBe('TRY');
+        expect(offer.availability).toBe('https://schema.org/InStock');
+      }
+
+      // 6. AggregateRating Standardı (reviewCount & ratingCount)
+      expect(graphTr.aggregateRating).toBeDefined();
+      expect(graphTr.aggregateRating.ratingValue).toBe('4.9');
+      expect(graphTr.aggregateRating.reviewCount).toBe('340');
+      expect(graphTr.aggregateRating.ratingCount).toBe('340');
+      expect(graphEn.aggregateRating.itemReviewed.name).toBe(graphEn.name);
+    });
+  });
 });
 
 
