@@ -2239,4 +2239,78 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataRank.hubScore).toBeDefined();
     });
   });
+
+  describe('90. facility-agent-context.json AI RAG API Robots ve CORS Standardizasyonu', () => {
+    it('GET isteğinde kurumsal yetki, RAG bağlamı, CORS ve robots başlıkları döner', async () => {
+      const { GET } = await import('@/app/api/ai/facility-agent-context.json/route');
+
+      // 1. Türkçe varsayılan istek
+      const reqTr = new Request('https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
+      const resTr = await GET(reqTr as any);
+      expect(resTr.status).toBe(200);
+      expect(resTr.headers.get('Content-Type')).toContain('application/json');
+      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      expect(resTr.headers.get('X-AI-Context-Type')).toBe('Ground-Truth-RAG-Knowledge-Corpus');
+
+      const dataTr = await resTr.json();
+      expect(dataTr.entity).toBeDefined();
+      expect(dataTr.entity.name).toBe('Alo Yönetim');
+      expect(dataTr.entity.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataTr.entity.telephone).toBe('+90 216 550 48 48');
+      expect(dataTr.legalFrameworkKMK634).toBeDefined();
+      expect(dataTr.districtMatrix.length).toBe(39);
+
+      // 2. İngilizce lokalizasyon isteği (?lang=en)
+      const reqEn = new Request('https://aloyonetim.com.tr/api/ai/facility-agent-context.json?lang=en');
+      const resEn = await GET(reqEn as any);
+      expect(resEn.status).toBe(200);
+      const dataEn = await resEn.json();
+      expect(dataEn.entity.name).toBe('Alo Yönetim');
+      expect(dataEn.districtMatrix.length).toBe(39);
+      expect(dataEn.districtMatrix[0].canonicalUrl).toContain('/en/bolgeler/');
+    });
+  });
+
+  describe('91. search-suggest, reviews ve calculator API CORS & Robots Güvencesi', () => {
+    it('search-suggest, reviews ve calculator uç noktalarında CORS ve robots başlıkları döner', async () => {
+      // 1. search-suggest API (OpenSearch Formatı)
+      const { GET: getSearchSuggest } = await import('@/app/api/search-suggest/route');
+      const reqSearch = new Request('https://aloyonetim.com.tr/api/search-suggest?q=guvenlik');
+      const resSearch = await getSearchSuggest(reqSearch as any);
+      expect(resSearch.status).toBe(200);
+      expect(resSearch.headers.get('Content-Type')).toContain('application/json');
+      expect(resSearch.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resSearch.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataSearch = await resSearch.json();
+      expect(Array.isArray(dataSearch)).toBe(true);
+      expect(dataSearch[0]).toBe('guvenlik');
+      expect(dataSearch[1].length).toBeGreaterThan(0);
+
+      // 2. reviews API (Google Places Ratings)
+      const { GET: getReviews } = await import('@/app/api/reviews/route');
+      const resReviews = await getReviews();
+      expect(resReviews.status).toBe(200);
+      expect(resReviews.headers.get('Content-Type')).toContain('application/json');
+      expect(resReviews.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resReviews.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataReviews = await resReviews.json();
+      expect(dataReviews.ratingValue).toBeDefined();
+      expect(dataReviews.reviewCount).toBeDefined();
+
+      // 3. calculator API (Tesis Yönetimi Maliyet Parametreleri)
+      const { GET: getCalculator } = await import('@/app/api/calculator/route');
+      const resCalc = await getCalculator();
+      expect(resCalc.status).toBe(200);
+      expect(resCalc.headers.get('Content-Type')).toContain('application/json');
+      expect(resCalc.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resCalc.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataCalc = await resCalc.json();
+      expect(dataCalc.baseCostPerUnit).toBeDefined();
+      expect(dataCalc.savingsRate).toBeDefined();
+    });
+  });
 });

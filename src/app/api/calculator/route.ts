@@ -17,8 +17,22 @@ export async function GET() {
       savingsRate: configRecord.savingsRate,
     } : defaultCalcConfig;
 
-    return NextResponse.json(config);
+    const standardHeaders = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+    };
+
+    return NextResponse.json(config, { headers: standardHeaders });
   } catch (error) {
-    return NextResponse.json(defaultCalcConfig);
+    return NextResponse.json(defaultCalcConfig, {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+      },
+    });
   }
 }

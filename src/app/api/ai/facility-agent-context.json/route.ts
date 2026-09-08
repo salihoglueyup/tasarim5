@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
         'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, OPTIONS',
-        'X-Robots-Tag': 'all',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
         'X-AI-Context-Type': 'Ground-Truth-RAG-Knowledge-Corpus',
       },
     });

@@ -4,6 +4,13 @@ import redis from '@/lib/redis';
 // API route to fetch Google Places reviews and rating dynamically.
 // This supports the Dynamic LocalBusiness Schema for SEO.
 export async function GET() {
+  const standardHeaders = {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
+    'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+    'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+  };
+
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACES_PLACE_ID;
 
@@ -12,7 +19,7 @@ export async function GET() {
       ratingValue: '4.9',
       reviewCount: '150',
       source: 'mock_missing_env'
-    });
+    }, { headers: standardHeaders });
   }
 
   const cacheKey = `gmb_reviews_${placeId}`;
@@ -20,7 +27,7 @@ export async function GET() {
   try {
     const cached = await redis.get(cacheKey);
     if (cached) {
-      return NextResponse.json({ ...JSON.parse(cached), source: 'cache' });
+      return NextResponse.json({ ...JSON.parse(cached), source: 'cache' }, { headers: standardHeaders });
     }
   } catch (err) {
     console.error('Redis cache error for GMB reviews:', err);
@@ -52,7 +59,7 @@ export async function GET() {
         console.error('Redis set error for GMB reviews:', err);
       }
       
-      return NextResponse.json({ ...payload, source: 'api' });
+      return NextResponse.json({ ...payload, source: 'api' }, { headers: standardHeaders });
     }
     
     // Fallback if data structure is unexpected
@@ -60,7 +67,7 @@ export async function GET() {
       ratingValue: '4.9',
       reviewCount: '150',
       source: 'mock_invalid_response'
-    });
+    }, { headers: standardHeaders });
     
   } catch (error) {
     console.error('Error fetching Google Places data:', error);
@@ -68,6 +75,6 @@ export async function GET() {
       ratingValue: '4.9',
       reviewCount: '150',
       source: 'mock_error'
-    });
+    }, { headers: standardHeaders });
   }
 }

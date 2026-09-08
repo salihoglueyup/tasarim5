@@ -80,8 +80,14 @@ export async function GET(req: NextRequest) {
   const rawLang = searchParams.get('lang') || 'tr';
   const lang = (['tr', 'en', 'ru', 'ar'].includes(rawLang) ? rawLang : 'tr') as 'tr' | 'en' | 'ru' | 'ar';
 
+  const standardHeaders = {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
+    'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+  };
+
   if (!q || q.trim().length < 2) {
-    return NextResponse.json([q || '', [], [], []]);
+    return NextResponse.json([q || '', [], [], []], { headers: standardHeaders });
   }
 
   const normalizedQuery = q.toLowerCase().trim();
@@ -190,7 +196,7 @@ export async function GET(req: NextRequest) {
         [fallbackPrompt],
         [fallbackDesc],
         [`${localizedUrl('/blog', lang)}?q=${encodeURIComponent(q)}`]
-      ]);
+      ], { headers: standardHeaders });
     }
 
     return createETagResponse(
@@ -203,11 +209,12 @@ export async function GET(req: NextRequest) {
       ],
       {
         cacheControl: 'public, s-maxage=3600, stale-while-revalidate=86400',
+        headers: standardHeaders,
       }
     );
 
   } catch (error) {
     console.error('OpenSearch API Error:', error);
-    return NextResponse.json([q, [], [], []]);
+    return NextResponse.json([q, [], [], []], { headers: standardHeaders });
   }
 }
