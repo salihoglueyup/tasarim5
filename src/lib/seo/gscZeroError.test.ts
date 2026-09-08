@@ -971,6 +971,78 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(postData.compression.savedBytes).toBeGreaterThan(0);
     });
   });
+
+  describe('52. facilityDistrictComparator Çok Dilli ve GeoCoordinates/parentOrganization Desteği', () => {
+    it('TR, EN, RU, AR dillerinde lokalize özet ve GeoCoordinates/parentOrganization şeması üretmelidir', async () => {
+      const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
+
+      // 1. Türkçe Varsayılan
+      const resTr = compareFacilityDistricts(['kadikoy', 'besiktas'], 'tr');
+      expect(resTr).toBeDefined();
+      expect(resTr?.seoSummaryParagraph).toContain('İstanbul genelinde');
+      expect(resTr?.schema.name).toContain('Tesis Yönetimi ve Aidat Karşılaştırması 2026');
+
+      // 2. İngilizce
+      const resEn = compareFacilityDistricts(['kadikoy', 'besiktas'], 'en');
+      expect(resEn?.seoSummaryParagraph).toContain('Comparing facility management');
+      expect(resEn?.schema.name).toContain('Facility Management & Dues Comparison 2026');
+
+      // 3. Rusça
+      const resRu = compareFacilityDistricts(['kadikoy', 'besiktas'], 'ru');
+      expect(resRu?.seoSummaryParagraph).toContain('Сравнивая индексы');
+      expect(resRu?.schema.name).toContain('Сравнение управления объектами');
+
+      // 4. Arapça
+      const resAr = compareFacilityDistricts(['kadikoy', 'besiktas'], 'ar');
+      expect(resAr?.seoSummaryParagraph).toContain('مقارنة مؤشرات');
+      expect(resAr?.schema.name).toContain('مقارنة إدارة المرافق والرسوم 2026');
+
+      // 5. LocalBusiness Schema Zenginleştirmesi (Geo & parentOrganization)
+      const about = resEn?.schema.about as any[];
+      expect(about).toBeDefined();
+      expect(about.length).toBe(2);
+
+      const kadikoyBusiness = about[0];
+      expect(kadikoyBusiness['@type']).toBe('LocalBusiness');
+      expect(kadikoyBusiness.currenciesAccepted).toBe('TRY');
+      expect(kadikoyBusiness.parentOrganization['@type']).toBe('Organization');
+      expect(kadikoyBusiness.parentOrganization['@id']).toBe('https://aloyonetim.com.tr/#organization');
+      expect(kadikoyBusiness.parentOrganization.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(kadikoyBusiness.geo['@type']).toBe('GeoCoordinates');
+      expect(typeof kadikoyBusiness.geo.latitude).toBe('number');
+      expect(typeof kadikoyBusiness.geo.longitude).toBe('number');
+
+      // District modeline geo aktarımı kontrolü
+      expect(resEn?.districts[0].geo?.lat).toBeDefined();
+      expect(resEn?.districts[0].geo?.lng).toBeDefined();
+    });
+  });
+
+  describe('53. compare-districts API Çok Dilli İstek Desteği', () => {
+    it('lang parametresi ile yapılan API isteklerinde ilgili dilde özet ve şema döndürmelidir', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
+
+      // İngilizce API isteği
+      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas&lang=en');
+      const resEn = await GET(reqEn as any);
+      expect(resEn.status).toBe(200);
+      const dataEn = await resEn.json();
+
+      expect(dataEn.seoSummaryParagraph).toContain('Comparing facility management');
+      expect(dataEn.schema.name).toContain('Facility Management & Dues Comparison 2026');
+      expect(dataEn.schema.about[0].geo.latitude).toBeDefined();
+      expect(dataEn.schema.about[0].parentOrganization.name).toBe('Alo Yönetim');
+
+      // Arapça API isteği
+      const reqAr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas&lang=ar');
+      const resAr = await GET(reqAr as any);
+      expect(resAr.status).toBe(200);
+      const dataAr = await resAr.json();
+
+      expect(dataAr.seoSummaryParagraph).toContain('مقارنة مؤشرات');
+      expect(dataAr.schema.name).toContain('مقارنة إدارة المرافق والرسوم 2026');
+    });
+  });
 });
 
 

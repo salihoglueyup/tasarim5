@@ -12,11 +12,12 @@ export async function GET(req: NextRequest) {
     const d1 = searchParams.get('d1') || searchParams.get('district1') || 'kadikoy';
     const d2 = searchParams.get('d2') || searchParams.get('district2') || 'besiktas';
     const d3 = searchParams.get('d3') || searchParams.get('district3');
+    const lang = searchParams.get('lang') || 'tr';
 
     const slugs = [d1, d2];
     if (d3) slugs.push(d3);
 
-    const result = compareFacilityDistricts(slugs);
+    const result = compareFacilityDistricts(slugs, lang);
 
     if (!result) {
       return NextResponse.json({ error: 'Comparison failed' }, { status: 400 });
