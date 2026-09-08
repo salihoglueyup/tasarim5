@@ -1394,6 +1394,78 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataAidat.jsonLd.mainEntity.length).toBe(dataAidat.faqs.length);
     });
   });
+
+  describe('64. knowledge.json Semantik Bilgi Bankası Otoritesi & API Kataloğu', () => {
+    it('DefinedTerm şemasında kurumsal NAP, Wikidata subServices ve API envanteri sunar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/knowledge.json/route');
+
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-Robots-Tag')).toContain('all');
+      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
+
+      const data = await res.json();
+      expect(data['@type']).toBe('DefinedTerm');
+      expect(data.provider.name).toBe('Alo Yönetim');
+      expect(data.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.provider.telephone).toBe('+90 216 755 35 35');
+      expect(data.provider.knowsAbout).toContain('634 Sayılı Kat Mülkiyeti Kanunu (KMK)');
+
+      // subServices 6 hizmetin tamamında Wikidata URI (sameAs) olmalı
+      expect(data.subServices.length).toBe(6);
+      data.subServices.forEach((service: any) => {
+        expect(service['@type']).toBe('Service');
+        expect(service.sameAs).toBeDefined();
+        expect(service.sameAs).toMatch(/^https:\/\/www\.wikidata\.org\/wiki\/Q\d+/);
+      });
+
+      // API Envanteri doğrulaması
+      expect(data.apiEndpoints).toBeDefined();
+      expect(data.apiEndpoints.dictionary).toContain('/api/tesis-yonetimi/dictionary.json');
+      expect(data.apiEndpoints.definitions).toContain('/api/tesis-yonetimi/definitions.json');
+      expect(data.apiEndpoints.legalPrecedents).toContain('/api/tesis-yonetimi/legal-precedents.json');
+      expect(data.apiEndpoints.aiSnippets).toContain('/api/tesis-yonetimi/ai-snippets.json');
+      expect(data.apiEndpoints.voiceQa).toContain('/api/tesis-yonetimi/voice-qa.json');
+    });
+  });
+
+  describe('65. definitions.json Terimler Sözlüğü Dinamik Harf & Arama Filtrelemesi', () => {
+    it('DefinedTermSet şeması, inLanguage tr-TR, harf ve arama filtresi sağlar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/definitions.json/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/definitions.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+      expect(resAll.headers.get('Content-Type')).toContain('application/ld+json');
+
+      const dataAll = await resAll.json();
+      expect(dataAll['@type']).toBe('DefinedTermSet');
+      expect(dataAll.inLanguage).toBe('tr-TR');
+      expect(dataAll.publisher.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataAll.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.numberOfItems).toBeGreaterThanOrEqual(10);
+      expect(dataAll.hasDefinedTerm.length).toBe(dataAll.numberOfItems);
+
+      // 2. Harfe göre filtre (?letter=A)
+      const reqA = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/definitions.json?letter=A');
+      const resA = await GET(reqA);
+      const dataA = await resA.json();
+      expect(dataA.numberOfItems).toBeGreaterThan(0);
+      expect(dataA.hasDefinedTerm.every((t: any) => t.name.startsWith('A') || t.name.startsWith('a'))).toBe(true);
+
+      // 3. Arama filtresi (?q=aidat)
+      const reqQ = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/definitions.json?q=aidat');
+      const resQ = await GET(reqQ);
+      const dataQ = await resQ.json();
+      expect(dataQ.numberOfItems).toBeGreaterThan(0);
+      expect(dataQ.hasDefinedTerm.every((t: any) =>
+        t.name.toLowerCase().includes('aidat') ||
+        t.description.toLowerCase().includes('aidat')
+      )).toBe(true);
+    });
+  });
 });
 
 
