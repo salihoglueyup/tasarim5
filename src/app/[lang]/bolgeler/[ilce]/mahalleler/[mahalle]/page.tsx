@@ -141,7 +141,7 @@ export default async function NeighborhoodPage({
     name: `Alo Yönetim — ${neighborhood.name} Tesis Yönetimi`,
     description: neighborhood.intro,
     url: `${BASE_URL}${path}`,
-    telephone: '+90 216 XXX XX XX',
+    telephone: '+90 216 550 48 48',
     areaServed: [
       {
         '@type': 'AdministrativeArea',
