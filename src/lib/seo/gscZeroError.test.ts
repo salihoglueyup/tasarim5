@@ -684,7 +684,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const req = new Request('https://aloyonetim.com.tr/api/geo/nearest-facility-hub?lat=40.99&lng=29.02');
       const res = await GET(req as any);
       expect(res.status).toBe(200);
-      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      expect(res.headers.get('X-Robots-Tag')).toContain('all');
       const data = await res.json();
       expect(data.nearestDistrict.name).toContain('Kadıköy');
       expect(data.distanceKm).toBeGreaterThanOrEqual(0);
@@ -2015,6 +2015,77 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataSummary.telephone).toBe('+90 216 755 35 35');
       expect(dataSummary.certifications.length).toBeGreaterThanOrEqual(5);
       expect(dataSummary.serviceAreas.length).toBe(39);
+    });
+  });
+
+  describe('84. nap-profile Canlı NAP Doğrulama & Yerel SEO Otorite API\'si ve Robots Başlıkları', () => {
+    it('nap-profile uç noktası tüm formatlarında (json, jsonld, geojson) doğrulanmış NAP ve robots başlıkları sunar', async () => {
+      const { GET } = await import('@/app/api/seo/nap-profile/route');
+
+      // 1. Varsayılan JSON profil
+      const reqDefault = new Request('https://aloyonetim.com.tr/api/seo/nap-profile');
+      const resDefault = await GET(reqDefault);
+      expect(resDefault.status).toBe(200);
+      expect(resDefault.headers.get('Content-Type')).toContain('application/json');
+      expect(resDefault.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resDefault.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      expect(resDefault.headers.get('X-NAP-Status')).toBe('VERIFIED');
+
+      const dataDefault = await resDefault.json();
+      expect(dataDefault.status).toBe('SUCCESS');
+      expect(dataDefault.verified).toBe(true);
+      expect(dataDefault.nap.legal.brandName).toBe('Alo Yönetim');
+      expect(dataDefault.nap.legal.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataDefault.nap.contact.phoneE164).toBe('+902165504848');
+
+      // 2. format=jsonld
+      const reqJsonLd = new Request('https://aloyonetim.com.tr/api/seo/nap-profile?format=jsonld');
+      const resJsonLd = await GET(reqJsonLd);
+      expect(resJsonLd.status).toBe(200);
+      expect(resJsonLd.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(resJsonLd.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      // 3. format=geojson
+      const reqGeoJson = new Request('https://aloyonetim.com.tr/api/seo/nap-profile?format=geojson');
+      const resGeoJson = await GET(reqGeoJson);
+      expect(resGeoJson.status).toBe(200);
+      expect(resGeoJson.headers.get('Content-Type')).toContain('application/geo+json');
+      expect(resGeoJson.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+    });
+  });
+
+  describe('85. facility-coverage.geojson & districts.geojson RFC 7946 Standartları ve Kurumsal NAP', () => {
+    it('facility-coverage ve districts GeoJSON rotaları RFC 7946, kurumsal telefon ve robots başlığı döner', async () => {
+      // 1. facility-coverage.geojson
+      const { GET: getCoverage } = await import('@/app/api/geo/facility-coverage.geojson/route');
+      const resCoverage = await getCoverage();
+      expect(resCoverage.status).toBe(200);
+      expect(resCoverage.headers.get('Content-Type')).toContain('application/geo+json');
+      expect(resCoverage.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resCoverage.headers.get('X-Geo-Standard')).toBe('RFC-7946-GeoJSON');
+      expect(resCoverage.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataCoverage = await resCoverage.json();
+      expect(dataCoverage.type).toBe('FeatureCollection');
+      expect(dataCoverage.metadata.organization).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataCoverage.metadata.contactPhone).toBe('+90 216 755 35 35');
+      expect(dataCoverage.features.length).toBe(39);
+      expect(dataCoverage.features[0].properties.serviceLevelAgreement.emergencyResponseTimeMinutes).toBeGreaterThan(0);
+
+      // 2. districts.geojson
+      const { GET: getDistricts } = await import('@/app/api/geo/districts.geojson/route');
+      const resDistricts = await getDistricts();
+      expect(resDistricts.status).toBe(200);
+      expect(resDistricts.headers.get('Content-Type')).toContain('application/geo+json');
+      expect(resDistricts.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resDistricts.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataDistricts = await resDistricts.json();
+      expect(dataDistricts.type).toBe('FeatureCollection');
+      expect(dataDistricts.metadata.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataDistricts.features.length).toBe(39);
+      expect(dataDistricts.features[0].properties.phone).toBe('+90 216 755 35 35');
+      expect(dataDistricts.features[0].properties.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
     });
   });
 });

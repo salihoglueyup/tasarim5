@@ -87,7 +87,7 @@ export async function GET() {
       totalDistrictsCovered: DISTRICTS.length,
       scope: 'İstanbul (39 İlçe)',
       standard: 'ISO 41001:2018 Facility Management Spatial Grid',
-      contactPhone: '+902165504848',
+      contactPhone: '+90 216 755 35 35',
       officialWebsite: BASE_URL,
     },
     features,
@@ -100,6 +100,7 @@ export async function GET() {
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
       'X-Geo-Standard': 'RFC-7946-GeoJSON',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }

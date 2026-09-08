@@ -36,7 +36,7 @@ export async function GET() {
       duesServiceUrl: `${BASE_URL}/bolgeler/${d.slug}/aidat-takibi`,
       neighborhoods: d.neighborhoods,
       localNeeds: d.localNeeds,
-      phone: '+902165504848',
+      phone: '+90 216 755 35 35',
       provider: 'Alo Yönetim ve Organizasyon A.Ş.'
     }
   }));
@@ -65,7 +65,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/geo+json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large'
     }
   });
 }

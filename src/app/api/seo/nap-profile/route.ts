@@ -26,6 +26,7 @@ export async function GET(request: Request) {
         'Content-Type': 'application/geo+json; charset=utf-8',
         'Cache-Control': 'public, max-age=86400, s-maxage=86400',
         'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     });
   }
@@ -37,6 +38,7 @@ export async function GET(request: Request) {
         'Content-Type': 'application/ld+json; charset=utf-8',
         'Cache-Control': 'public, max-age=86400, s-maxage=86400',
         'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     });
   }
@@ -60,6 +62,7 @@ export async function GET(request: Request) {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400',
       'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       'X-NAP-Status': validation.isValid ? 'VERIFIED' : 'INVALID',
     },
   });
