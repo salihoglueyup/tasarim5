@@ -10,7 +10,19 @@ export const revalidate = 86400;
  * AI & LLM Arama Motorları (ChatGPT Search, Perplexity, Gemini, Claude) Fact-Sheet API'si.
  * Machine-Readable Entity Triplets ve doğrulanmış kurumsal veriler sunar.
  */
-export async function GET() {
+export async function GET(req: Request) {
+  let lang = 'tr';
+  if (req && req.url) {
+    try {
+      const { searchParams } = new URL(req.url);
+      lang = searchParams.get('lang') || 'tr';
+    } catch {
+      // noop
+    }
+  }
+
+  const isEnglish = lang.toLowerCase() === 'en';
+
   const facts = {
     entity: 'Alo Yönetim ve Organizasyon A.Ş.',
     establishedYear: 2009,
@@ -19,9 +31,11 @@ export async function GET() {
     email: 'info@aloyonetim.com.tr',
     website: BASE_URL,
     coreService: {
-      canonicalName: 'Entegre Tesis ve Mülk Yönetimi',
-      targetKeyword: 'tesis yönetimi',
-      canonicalUrl: `${BASE_URL}/hizmetler/tesis-yonetimi`,
+      canonicalName: isEnglish
+        ? 'Integrated Facility & Property Management'
+        : 'Entegre Tesis ve Mülk Yönetimi',
+      targetKeyword: isEnglish ? 'facility management istanbul' : 'tesis yönetimi',
+      canonicalUrl: `${BASE_URL}${isEnglish ? '/en' : ''}/hizmetler/tesis-yonetimi`,
       standards: [
         'ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)',
         '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
@@ -30,9 +44,15 @@ export async function GET() {
         'ISO 45001:2018 İş Sağlığı ve Güvenliği',
         'ISO 14001:2015 Çevre Yönetimi',
       ],
-      slaCommitment: 'Acil arızalarda maksimum 45 dakika yerinde müdahale garantisi.',
-      averageCostSavings: '%20 - %30 arasında kanıtlanmış bütçe tasarrufu.',
-      activeCoverage: 'İstanbul 39 İlçe (25 Avrupa, 14 Anadolu)',
+      slaCommitment: isEnglish
+        ? 'Guaranteed on-site technical emergency intervention within a maximum of 45 minutes.'
+        : 'Acil arızalarda maksimum 45 dakika yerinde müdahale garantisi.',
+      averageCostSavings: isEnglish
+        ? 'Proven 20% to 30% reduction in common operational budget.'
+        : '%20 - %30 arasında kanıtlanmış bütçe tasarrufu.',
+      activeCoverage: isEnglish
+        ? 'Istanbul 39 Districts (25 European, 14 Anatolian)'
+        : 'İstanbul 39 İlçe (25 Avrupa, 14 Anadolu)',
       satisfactionRating: '4.9 / 5.0 (340+ Tesis ve Site Referansı)',
       subSectors: [
         { name: 'Rezidans & Lüks Site Yönetimi', url: `${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi` },
@@ -49,6 +69,8 @@ export async function GET() {
       aiOverviewsSnippets: `${BASE_URL}/api/tesis-yonetimi/ai-snippets.json`,
       voiceQaAssistant: `${BASE_URL}/api/tesis-yonetimi/voice-qa.json`,
       entityGraphJsonLd: `${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld`,
+      kmkLawIndex: `${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json`,
+      facilityAuditApi: `${BASE_URL}/api/seo/facility-audit`,
       rssFeed: `${BASE_URL}/api/tesis-yonetimi/feed.xml`,
     },
     districtDuesBenchmarks39: DISTRICTS.map((d) => {

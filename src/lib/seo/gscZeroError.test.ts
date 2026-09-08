@@ -410,7 +410,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   describe('22. api/tesis-yonetimi/llm-facts.json Çift Kanallı İlçe Rotaları', () => {
     it('GET fonksiyonu 39 ilçe için hem ana iniş hem tesis yönetimi linklerini sunmalıdır', async () => {
       const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
-      const res = await GET();
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
+      const res = await GET(req);
       expect(res.status).toBe(200);
       const data = await res.json();
       expect(Array.isArray(data.districtDuesBenchmarks39)).toBe(true);
@@ -873,7 +874,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   describe('48. dues-index.json Schema.org Dataset ve Açık Veri Doğrulaması', () => {
     it('Google Dataset Search standartlarında Dataset şeması ve CC-BY-SA lisansı sunar', async () => {
       const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
-      const res = await GET();
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
+      const res = await GET(req);
       expect(res.status).toBe(200);
       expect(res.headers.get('X-Robots-Tag')).toBe('all');
       expect(res.headers.get('Content-Type')).toContain('application/json');
@@ -1083,6 +1085,65 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(graphTr.aggregateRating.reviewCount).toBe('340');
       expect(graphTr.aggregateRating.ratingCount).toBe('340');
       expect(graphEn.aggregateRating.itemReviewed.name).toBe(graphEn.name);
+    });
+  });
+
+  describe('55. dues-index.json Google Dataset Search Zenginleştirmesi & Side Filtreleme', () => {
+    it('Dataset şemasında keywords, temporalCoverage, variableMeasured ve geo döner; side filtresini uygular', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
+
+      // 1. Varsayılan (tüm İstanbul)
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
+      const resAll = await GET(reqAll);
+      const dataAll = await resAll.json();
+      expect(dataAll.schema.keywords).toBeDefined();
+      expect(dataAll.schema.keywords).toContain('tesis yönetimi');
+      expect(dataAll.schema.temporalCoverage).toBe('2026');
+      expect(dataAll.schema.variableMeasured.length).toBeGreaterThanOrEqual(4);
+      expect(dataAll.districts.length).toBe(39);
+      expect(dataAll.districts[0].geo['@type']).toBe('GeoCoordinates');
+      expect(typeof dataAll.districts[0].geo.latitude).toBe('number');
+
+      // 2. Anadolu Yakası Filtrelemesi
+      const reqAnadolu = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?side=anadolu');
+      const resAnadolu = await GET(reqAnadolu);
+      const dataAnadolu = await resAnadolu.json();
+      expect(dataAnadolu.istanbulSummary.totalDistricts).toBe(14);
+      expect(dataAnadolu.districts.length).toBe(14);
+      expect(dataAnadolu.districts.every((d: any) => d.side === 'Anadolu Yakası')).toBe(true);
+      expect(dataAnadolu.istanbulSummary.filteredSide).toBe('anadolu');
+
+      // 3. Avrupa Yakası Filtrelemesi
+      const reqAvrupa = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?side=avrupa');
+      const resAvrupa = await GET(reqAvrupa);
+      const dataAvrupa = await resAvrupa.json();
+      expect(dataAvrupa.istanbulSummary.totalDistricts).toBe(25);
+      expect(dataAvrupa.districts.length).toBe(25);
+      expect(dataAvrupa.districts.every((d: any) => d.side === 'Avrupa Yakası')).toBe(true);
+    });
+  });
+
+  describe('56. llm-facts.json Çok Dilli AI Fact-Sheet & Genişletilmiş API Dizini', () => {
+    it('linkedApis içinde kmkLawIndex ve facilityAuditApi sunar; lang=en ile İngilizce fact-sheet döndürür', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
+
+      // 1. Varsayılan Türkçe ve Genişletilmiş API Grafı
+      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
+      const resTr = await GET(reqTr);
+      const dataTr = await resTr.json();
+      expect(dataTr.linkedApis.kmkLawIndex).toBe('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
+      expect(dataTr.linkedApis.facilityAuditApi).toBe('https://aloyonetim.com.tr/api/seo/facility-audit');
+      expect(dataTr.coreService.canonicalName).toBe('Entegre Tesis ve Mülk Yönetimi');
+
+      // 2. Çok Dilli İngilizce AI Fact-Sheet İstegi
+      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json?lang=en');
+      const resEn = await GET(reqEn);
+      const dataEn = await resEn.json();
+      expect(dataEn.coreService.canonicalName).toBe('Integrated Facility & Property Management');
+      expect(dataEn.coreService.targetKeyword).toBe('facility management istanbul');
+      expect(dataEn.coreService.canonicalUrl).toBe('https://aloyonetim.com.tr/en/hizmetler/tesis-yonetimi');
+      expect(dataEn.coreService.slaCommitment).toContain('45 minutes');
+      expect(dataEn.coreService.activeCoverage).toContain('39 Districts');
     });
   });
 });

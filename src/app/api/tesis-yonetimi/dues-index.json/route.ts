@@ -10,11 +10,31 @@ export const revalidate = 86400; // 24 saat ISR
  * Gazeteciler, gayrimenkul veri analistleri, emlak portalları ve arama motorları için
  * İstanbul'un 39 ilçesindeki m² aidat piyasa verilerini ve Alo Yönetim tasarruf oranlarını yayınlar.
  */
-export async function GET() {
-  const anatolianDistricts = DISTRICTS.filter((d) => d.side === 'Anadolu');
-  const europeanDistricts = DISTRICTS.filter((d) => d.side === 'Avrupa');
+export async function GET(req: Request) {
+  let sideFilter: string | null = null;
+  if (req && req.url) {
+    try {
+      const { searchParams } = new URL(req.url);
+      sideFilter = searchParams.get('side');
+    } catch {
+      // noop
+    }
+  }
 
-  const districtData = DISTRICTS.map((d) => {
+  let selectedDistricts = DISTRICTS;
+  if (sideFilter) {
+    const norm = sideFilter.toLowerCase();
+    if (norm === 'anadolu') {
+      selectedDistricts = DISTRICTS.filter((d) => d.side === 'Anadolu');
+    } else if (norm === 'avrupa') {
+      selectedDistricts = DISTRICTS.filter((d) => d.side === 'Avrupa');
+    }
+  }
+
+  const anatolianDistricts = selectedDistricts.filter((d) => d.side === 'Anadolu');
+  const europeanDistricts = selectedDistricts.filter((d) => d.side === 'Avrupa');
+
+  const districtData = selectedDistricts.map((d) => {
     const dues = getDistrictDues(d.slug);
     return {
       district: d.name,
@@ -26,18 +46,23 @@ export async function GET() {
       savingsPercentage: dues.savingsRate,
       annualSavingsEstimatedFor100Units: Math.round(dues.avgDuesM2 * 100 * (dues.savingsRate / 100) * 12 * 80),
       canonicalUrl: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: d.geo.lat,
+        longitude: d.geo.lng,
+      },
     };
   });
 
-  const avgMarketIstanbul = Math.round(
-    districtData.reduce((sum, d) => sum + d.marketAverageM2Dues, 0) / districtData.length
-  );
-  const avgAloIstanbul = Math.round(
-    districtData.reduce((sum, d) => sum + d.aloYonetimOptimizedM2Dues, 0) / districtData.length
-  );
-  const avgSavingsRate = Math.round(
-    districtData.reduce((sum, d) => sum + d.savingsPercentage, 0) / districtData.length
-  );
+  const avgMarketIstanbul = districtData.length
+    ? Math.round(districtData.reduce((sum, d) => sum + d.marketAverageM2Dues, 0) / districtData.length)
+    : 0;
+  const avgAloIstanbul = districtData.length
+    ? Math.round(districtData.reduce((sum, d) => sum + d.aloYonetimOptimizedM2Dues, 0) / districtData.length)
+    : 0;
+  const avgSavingsRate = districtData.length
+    ? Math.round(districtData.reduce((sum, d) => sum + d.savingsPercentage, 0) / districtData.length)
+    : 0;
 
   const payload = {
     title: 'İstanbul 39 İlçe Tesis Yönetimi ve Aidat Açık Veri İndeksi 2026',
@@ -46,12 +71,13 @@ export async function GET() {
     lastUpdated: new Date().toISOString(),
     methodology: '634 Sayılı KMK m.20 ve ISO 41001 standartlarında 340+ aktif yönetilen proje ve bölge saha analizleri.',
     istanbulSummary: {
-      totalDistricts: DISTRICTS.length,
+      totalDistricts: selectedDistricts.length,
       anatolianCount: anatolianDistricts.length,
       europeanCount: europeanDistricts.length,
       istanbulAverageMarketDuesM2: `₺${avgMarketIstanbul}`,
       istanbulAverageAloOptimizedDuesM2: `₺${avgAloIstanbul}`,
       averageCostSavingsRate: `%${avgSavingsRate}`,
+      filteredSide: sideFilter || 'All',
     },
     districts: districtData,
     schema: {
@@ -62,6 +88,22 @@ export async function GET() {
       url: `${BASE_URL}/api/tesis-yonetimi/dues-index.json`,
       license: 'https://creativecommons.org/licenses/by-sa/4.0/',
       isAccessibleForFree: true,
+      temporalCoverage: '2026',
+      keywords: [
+        'tesis yönetimi',
+        'aidat endeksi',
+        'istanbul aidat ortalamaları',
+        'apartman ve site yönetimi',
+        'facility management dues istanbul',
+        'konut aidat raporu 2026',
+        'kat mülkiyeti kanunu',
+      ],
+      variableMeasured: [
+        'Piyasa Ortalama Aidat (TL/m²)',
+        'Alo Yönetim Optimize Aidat (TL/m²)',
+        'Maliyet Tasarruf Oranı (%)',
+        'İlçe Nüfusu',
+      ],
       creator: {
         '@type': 'Organization',
         '@id': `${BASE_URL}/#organization`,
