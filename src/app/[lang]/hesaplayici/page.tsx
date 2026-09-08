@@ -84,6 +84,16 @@ export default async function HesaplayiciServer() {
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'All',
     browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'TRY',
+    },
+    featureList: [
+      'KMK 634 standartlarında bütçe simülasyonu',
+      '5188 özel güvenlik ve temizlik maliyet hesaplama',
+      'Yüzde 30 kanıtlanmış aidat tasarruf projeksiyonu',
+    ],
     potentialAction: {
       '@type': 'CalculateAction',
       target: {

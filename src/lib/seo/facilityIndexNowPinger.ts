@@ -43,8 +43,9 @@ export function buildFacilityIndexNowPayload(apiKey: string = 'b42e617d3a2e4e10b
     urlList.push(`${BASE_URL}/hizmetler/tesis-yonetimi/${sub}`);
   });
 
-  // 3. 39 İlçe Tesis Yönetimi Spoke URL'leri
+  // 3. 39 İlçe Hub ve Tesis Yönetimi Spoke URL'leri
   DISTRICTS.forEach((d) => {
+    urlList.push(`${BASE_URL}/bolgeler/${d.slug}`);
     urlList.push(`${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`);
   });
 

@@ -108,6 +108,9 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
     { endpoint: '/api/tesis-yonetimi/compare-districts', purpose: '39 İlçe Çapraz Aidat Kıyaslama API', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/ai-snippets.json', purpose: 'Google AI Overviews (SGE) Snippet Motoru', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/voice-qa.json', purpose: 'Sesli Asistan (Google/Siri/Alexa) Speakable API', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/tesis-yonetimi/llm-facts.json', purpose: 'AI/LLM Arama Motorları İçin Kurumsal Bilgi Seti', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/tesis-yonetimi/kmk-law-index.json', purpose: '634 Sayılı KMK Açık Veri Mevzuat İndeksi', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/tesis-yonetimi/feed.xml', purpose: 'Tesis Yönetimi ve Emsal Kararlar Canlı RSS Beslemesi', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/seo/bot-analytics', purpose: 'Canlı Bot Telemetrisi & 304 Önbellek İzleyici', status: 'ACTIVE_AND_HEALTHY' },
   ];
 

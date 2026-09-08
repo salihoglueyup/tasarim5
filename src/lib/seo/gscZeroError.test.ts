@@ -422,6 +422,56 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(first.facilityManagementUrl).toContain('/tesis-yonetimi');
     });
   });
+
+  describe('23. facilityIndexNowPinger 39 İlçe Hub & Spoke URL Kapsamı', () => {
+    it('IndexNow yükü hem ilçe ana sayfası hem tesis yönetimi linklerini içermelidir', async () => {
+      const { buildFacilityIndexNowPayload } = await import('./facilityIndexNowPinger');
+      const payload = buildFacilityIndexNowPayload();
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/bolgeler/kadikoy');
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/bolgeler/kadikoy/tesis-yonetimi');
+      expect(payload.urlList.length).toBeGreaterThanOrEqual(80);
+    });
+  });
+
+  describe('24. facilityAutonomousAuditor Genişletilmiş Açık Veri & AI Raporu', () => {
+    it('otonom denetleyici tüm AI ve mevzuat API uç noktalarını raporlamalıdır', async () => {
+      const { runFacilityAutonomousAudit } = await import('./facilityAutonomousAuditor');
+      const report = runFacilityAutonomousAudit();
+      expect(report.overallSeoHealthScore).toBeGreaterThanOrEqual(90);
+      const endpoints = report.apiHealthStatus.map((e) => e.endpoint);
+      expect(endpoints).toContain('/api/tesis-yonetimi/llm-facts.json');
+      expect(endpoints).toContain('/api/tesis-yonetimi/kmk-law-index.json');
+      expect(endpoints).toContain('/api/tesis-yonetimi/feed.xml');
+    });
+  });
+
+  describe('25. hesaplayici/page.tsx WebApplication Şema Standartları', () => {
+    it('hesaplayıcı sayfasında ücretsiz offer ve özellik listesi bulunmalıdır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const content = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hesaplayici/page.tsx'), 'utf-8');
+      expect(content).toContain("'WebApplication'");
+      expect(content).toContain("price: '0'");
+      expect(content).toContain("priceCurrency: 'TRY'");
+      expect(content).toContain('featureList');
+      expect(content).toContain('CalculateAction');
+    });
+  });
+
+  describe('26. kmk-law-index.json Legislation Mevzuat ve Otorite Şeması', () => {
+    it('GET fonksiyonu mevzuat dilini ve TBMM otorite nesnesini sunmalıdır', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/kmk-law-index.json/route');
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
+      const res = await GET(req);
+      expect(res.status).toBe(200);
+      const data = await res.json();
+      expect(data.schema['@type']).toBe('ItemList');
+      const firstLegislation = data.schema.itemListElement[0].item;
+      expect(firstLegislation['@type']).toBe('Legislation');
+      expect(firstLegislation.inLanguage).toBe('tr');
+      expect(firstLegislation.legislationPassedBy.name).toContain('TBMM');
+    });
+  });
 });
 
 

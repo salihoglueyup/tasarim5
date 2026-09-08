@@ -19,6 +19,11 @@ export async function GET(req: Request) {
         legislationIdentifier: `634 Sayılı Kanun Madde ${item.articleNumber}`,
         legislationType: 'Kanun Maddesi',
         legislationJurisdiction: 'TR',
+        inLanguage: 'tr',
+        legislationPassedBy: {
+          '@type': 'GovernmentOrganization',
+          name: 'Türkiye Büyük Millet Meclisi (TBMM)',
+        },
         url: item.legalAnchor,
         abstract: item.summary,
       },
