@@ -74,6 +74,43 @@ export async function GET() {
         '@type': 'Organization',
         name: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
+        telephone: '+90 216 550 48 48',
+        email: 'info@aloyonetim.com.tr',
+        taxID: '0054049823100018',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Osmanağa, Misak-ı Milli Sok. No:94A',
+          addressLocality: 'Kadıköy',
+          addressRegion: 'İstanbul',
+          postalCode: '34714',
+          addressCountry: 'TR',
+        },
+        hasCredential: [
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
+            recognizedBy: {
+              '@type': 'GovernmentOrganization',
+              name: 'T.C. İçişleri Bakanlığı / İstanbul Valiliği',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'TSE HYB 12850 Hizmet Yeri Yeterlilik Belgesi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'Türk Standardları Enstitüsü (TSE)',
+            },
+          },
+        ],
       },
     },
   };

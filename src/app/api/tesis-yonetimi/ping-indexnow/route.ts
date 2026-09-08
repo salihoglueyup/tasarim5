@@ -9,7 +9,13 @@ export const dynamic = 'force-dynamic';
 export async function POST() {
   try {
     const result = await submitFacilityIndexNow();
-    return NextResponse.json(result, { status: 200 });
+    return NextResponse.json(result, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'no-store, max-age=0',
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    });
   } catch (error) {
     return NextResponse.json(
       { error: 'IndexNow push failed', details: error instanceof Error ? error.message : String(error) },
@@ -19,6 +25,19 @@ export async function POST() {
 }
 
 export async function GET() {
-  const result = await submitFacilityIndexNow();
-  return NextResponse.json(result, { status: 200 });
+  try {
+    const result = await submitFacilityIndexNow();
+    return NextResponse.json(result, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'no-store, max-age=0',
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'IndexNow push failed', details: error instanceof Error ? error.message : String(error) },
+      { status: 500 }
+    );
+  }
 }

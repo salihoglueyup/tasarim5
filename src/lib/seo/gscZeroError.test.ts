@@ -533,7 +533,64 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resultMulti).toBe(true);
     });
   });
+
+  describe('31. facilityVoiceAiSynthesizer 4 Dilli Speakable Soru-Cevap Kapsamı', () => {
+    it('sesli asistan motoru TR, EN, RU ve AR dillerinde SpeakableSpecification üretmelidir', async () => {
+      const { synthesizeFacilityVoiceQA } = await import('./facilityVoiceAiSynthesizer');
+      const payload = synthesizeFacilityVoiceQA();
+      expect(payload.supportedLanguages).toEqual(['tr', 'en', 'ru', 'ar']);
+      expect(payload.qaCollection.length).toBeGreaterThanOrEqual(6);
+
+      const languages = payload.qaCollection.map((q) => q.lang);
+      expect(languages).toContain('tr');
+      expect(languages).toContain('en');
+      expect(languages).toContain('ru');
+      expect(languages).toContain('ar');
+
+      payload.qaCollection.forEach((item) => {
+        expect(item.schema['@type']).toBe('SpeakableSpecification');
+        expect(item.spokenQuestion.length).toBeGreaterThan(10);
+        expect(item.spokenAnswer.length).toBeGreaterThan(15);
+      });
+    });
+  });
+
+  describe('32. verify-credentials E-E-A-T Kurumsal Şema Doğrulaması', () => {
+    it('GET fonksiyonu resmi Kadıköy adresini, telefonunu ve ISO akreditasyonlarını sunmalıdır', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/verify-credentials/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const data = await res.json();
+      expect(data.schema['@type']).toBe('AboutPage');
+      const entity = data.schema.mainEntity;
+      expect(entity['@type']).toBe('Organization');
+      expect(entity.telephone).toBe('+90 216 550 48 48');
+      expect(entity.address.addressLocality).toBe('Kadıköy');
+      expect(entity.address.addressCountry).toBe('TR');
+      expect(entity.hasCredential.length).toBeGreaterThanOrEqual(3);
+    });
+  });
+
+  describe('33. ping-indexnow API Rotası Telemetri ve Güvencesi', () => {
+    it('GET ve POST istekleri 200 dönmeli ve no-store başlığı ile 80+ URL iletmelidir', async () => {
+      const { GET, POST } = await import('@/app/api/tesis-yonetimi/ping-indexnow/route');
+      const resGet = await GET();
+      expect(resGet.status).toBe(200);
+      expect(resGet.headers.get('Cache-Control')).toContain('no-store');
+      const dataGet = await resGet.json();
+      expect(dataGet.success).toBe(true);
+      expect(dataGet.totalUrlsSubmitted).toBeGreaterThanOrEqual(80);
+
+      const resPost = await POST();
+      expect(resPost.status).toBe(200);
+      expect(resPost.headers.get('Cache-Control')).toContain('no-store');
+      const dataPost = await resPost.json();
+      expect(dataPost.success).toBe(true);
+      expect(dataPost.totalUrlsSubmitted).toBeGreaterThanOrEqual(80);
+    });
+  });
 });
+
 
 
 

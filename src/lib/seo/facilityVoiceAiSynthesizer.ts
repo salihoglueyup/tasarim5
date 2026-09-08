@@ -80,6 +80,34 @@ export function synthesizeFacilityVoiceQA(): VoiceAiSynthesizerPayload {
         xpath: ['/html/head/title'],
       },
     },
+    {
+      id: 'voice-ru-definition',
+      lang: 'ru',
+      spokenQuestion: "Что включает в себя профессиональное управление объектами в Стамбуле?",
+      spokenAnswer: "Компания Alo Management предоставляет комплексное управление объектами по стандарту ISO 41001: лицензированную охрану 5188, техническое обслуживание, клининг и прозрачную бухгалтерию взносов со скидкой 30%.",
+      wordCount: 26,
+      readingDurationSeconds: 6,
+      intent: 'definition',
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'SpeakableSpecification',
+        xpath: ['/html/head/title'],
+      },
+    },
+    {
+      id: 'voice-ar-definition',
+      lang: 'ar',
+      spokenQuestion: "ما هي خدمات إدارة المرافق الاحترافية في إسطنبول؟",
+      spokenAnswer: "تقدم شركة ألو للإدارة خدمات متكاملة بمعايير آيزو 41001 تشمل الأمن المرخص 5188، والصيانة الدورية للمصاعد، والنظافة، مع خفض 30% من رسوم العائدات الشهرية.",
+      wordCount: 24,
+      readingDurationSeconds: 5,
+      intent: 'definition',
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'SpeakableSpecification',
+        xpath: ['/html/head/title'],
+      },
+    },
   ];
 
   return {
