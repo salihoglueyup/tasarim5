@@ -33,10 +33,13 @@ describe('Tesis Yönetimi Faz 3 İleri Düzey Backend SEO Motorları', () => {
 
       expect(payload.host).toBe('aloyonetim.com.tr');
       expect(payload.key).toBe('test-key');
-      expect(payload.urlList.length).toBeGreaterThanOrEqual(44); // 39 ilçe + hub dilleri + alt sektörler
+      expect(payload.urlList.length).toBeGreaterThanOrEqual(90);
 
       const kadikoyUrl = payload.urlList.find((u) => u.includes('/bolgeler/kadikoy/tesis-yonetimi'));
       expect(kadikoyUrl).toBeDefined();
+
+      const aidatUrl = payload.urlList.find((u) => u.includes('/hizmetler/aidat-takibi'));
+      expect(aidatUrl).toBeDefined();
     });
   });
 

@@ -1,5 +1,6 @@
 import { BASE_URL, LOCALES } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
+import { SERVICES } from '@/data/services';
 
 export interface IndexNowPayload {
   host: string;
@@ -49,19 +50,12 @@ export function buildFacilityIndexNowPayload(apiKey: string = 'b42e617d3a2e4e10b
     urlList.push(`${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`);
   });
 
-  // 4. Çekirdek Hizmetler (8 Hizmet URL'si)
-  const coreServices = [
-    'guvenlik-yonetimi',
-    'teknik-bakim',
-    'temizlik-ve-hijyen',
-    'aidat-takibi',
-    'hukuk-ve-icra-danismanligi',
-    'peyzaj-ve-bahce-bakimi',
-    'havuz-bakimi-ve-hijyen',
-    'hasere-ve-dezenfeksiyon',
-  ];
-  coreServices.forEach((service) => {
-    urlList.push(`${BASE_URL}/hizmetler/${service}`);
+  // 4. Çekirdek Hizmetler (Dinamik Pillar Rotaları)
+  SERVICES.forEach((service) => {
+    const serviceUrl = `${BASE_URL}${service.pillar}`;
+    if (!urlList.includes(serviceUrl)) {
+      urlList.push(serviceUrl);
+    }
   });
 
   return {

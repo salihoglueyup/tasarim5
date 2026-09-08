@@ -836,6 +836,39 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(postData.isValid).toBe(true);
     });
   });
+
+  describe('46. facilityAutonomousAuditor Genişletilmiş API Envanteri ve Sağlık Raporu', () => {
+    it('15 açık veri/SEO API ucunu ve %100 sağlık durumunu doğrular', async () => {
+      const { runFacilityAutonomousAudit } = await import('@/lib/seo/facilityAutonomousAuditor');
+      const report = runFacilityAutonomousAudit();
+
+      expect(report.apiHealthStatus.length).toBe(15);
+      expect(report.overallSeoHealthScore).toBeGreaterThanOrEqual(80);
+      expect(report.apiHealthStatus.every((a) => a.status === 'ACTIVE_AND_HEALTHY')).toBe(true);
+
+      const entityGraphEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('entity-graph.jsonld'));
+      expect(entityGraphEndpoint).toBeDefined();
+
+      const nearestHubEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('nearest-facility-hub'));
+      expect(nearestHubEndpoint).toBeDefined();
+    });
+  });
+
+  describe('47. facilityIndexNowPinger Dinamik Senkronizasyon ve facility-audit Başlıkları', () => {
+    it('IndexNow dinamik hizmetleri içerir ve facility-audit noindex, no-store başlığı döner', async () => {
+      const { buildFacilityIndexNowPayload } = await import('@/lib/seo/facilityIndexNowPinger');
+      const payload = buildFacilityIndexNowPayload();
+      expect(payload.urlList.length).toBeGreaterThanOrEqual(90);
+
+      const { GET } = await import('@/app/api/seo/facility-audit/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      const data = await res.json();
+      expect(data.totalDistrictsAudited).toBe(39);
+    });
+  });
 });
 
 

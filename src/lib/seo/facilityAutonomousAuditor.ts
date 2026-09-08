@@ -112,6 +112,11 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
     { endpoint: '/api/tesis-yonetimi/kmk-law-index.json', purpose: '634 Sayılı KMK Açık Veri Mevzuat İndeksi', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/feed.xml', purpose: 'Tesis Yönetimi ve Emsal Kararlar Canlı RSS Beslemesi', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/seo/bot-analytics', purpose: 'Canlı Bot Telemetrisi & 304 Önbellek İzleyici', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/tesis-yonetimi/entity-graph.jsonld', purpose: 'Linked Data Knowledge Graph Varlık Ağı', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/geo/nearest-facility-hub', purpose: 'LocalBusiness Geo SLA & En Yakın Merkez Motoru', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/seo/verify-authority', purpose: 'E-E-A-T Otorite ve Yasal Akreditasyon Doğrulama', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/admin/schema-lint', purpose: 'Schema.org Linter & Çoklu Düğüm Doğrulama API', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/seo/facility-rank-score', purpose: 'Çok Dilli SERP Potansiyeli ve CTR Simülatörü', status: 'ACTIVE_AND_HEALTHY' },
   ];
 
   return {
