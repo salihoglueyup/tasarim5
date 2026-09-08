@@ -589,7 +589,60 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataPost.totalUrlsSubmitted).toBeGreaterThanOrEqual(80);
     });
   });
+
+  describe('34. FacilityDistrictGridSeo Çok Dilli UI Metinleri', () => {
+    it('bileşen kaynak kodunda TR, EN, RU ve AR dilleri için UI_TEXT tanımlı olmalıdır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const content = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/FacilityDistrictGridSeo.tsx'),
+        'utf-8'
+      );
+      expect(content).toContain('UI_TEXT');
+      expect(content).toContain('badge:');
+      expect(content).toContain('searchPlaceholder:');
+      expect(content).toContain('marketAvg:');
+      expect(content).toContain('aloManagement:');
+    });
+  });
+
+  describe('35. facilityDistrictComparator LocalBusiness Şema Zenginleştirmesi', () => {
+    it('kıyaslama motoru ve API rotası LocalBusiness ve telefon/adres nesneleri sunmalıdır', async () => {
+      const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
+      const res = compareFacilityDistricts(['kadikoy', 'besiktas']);
+      expect(res).toBeDefined();
+      const about = res?.schema.about as any[];
+      expect(about).toBeDefined();
+      expect(about[0]['@type']).toBe('LocalBusiness');
+      expect(about[0].telephone).toBe('+90 216 550 48 48');
+      expect(about[0].address.addressLocality).toBe('Kadıköy');
+
+      const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas');
+      const apiRes = await GET(req as any);
+      expect(apiRes.status).toBe(200);
+      expect(apiRes.headers.get('X-Robots-Tag')).toBe('all');
+    });
+  });
+
+  describe('36. facilitySerpRankSimulator ve facility-rank-score Çok Dilli Destek', () => {
+    it('simülasyon motoru ve API rotası çok dilli parametreleri başarıyla değerlendirmelidir', async () => {
+      const { runFacilitySerpRankSimulation } = await import('./facilitySerpRankSimulator');
+      const reportEn = runFacilitySerpRankSimulation('en');
+      expect(reportEn.overallAverageRankPotential).toBeGreaterThan(0);
+      expect(reportEn.districtScores.length).toBe(39);
+
+      const { GET } = await import('@/app/api/seo/facility-rank-score/route');
+      const req = new Request('https://aloyonetim.com.tr/api/seo/facility-rank-score?lang=en');
+      const res = await GET(req);
+      expect(res.status).toBe(200);
+      const data = await res.json();
+      expect(data.districtScores.length).toBe(39);
+      expect(data.overallAverageRankPotential).toBeGreaterThan(0);
+    });
+  });
 });
+
 
 
 

@@ -6,9 +6,11 @@ export const dynamic = 'force-dynamic';
 /**
  * Tesis Yönetimi Canlı SERP & Rank Skoru Simülasyon API'si (/api/seo/facility-rank-score)
  */
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const report = runFacilitySerpRankSimulation();
+    const { searchParams } = new URL(req.url);
+    const lang = searchParams.get('lang') || 'tr';
+    const report = runFacilitySerpRankSimulation(lang);
     return NextResponse.json(report, {
       status: 200,
       headers: {

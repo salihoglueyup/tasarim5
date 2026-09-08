@@ -25,8 +25,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(result, {
       status: 200,
       headers: {
+        'Content-Type': 'application/json; charset=utf-8',
         'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
         'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all',
       },
     });
   } catch (error) {

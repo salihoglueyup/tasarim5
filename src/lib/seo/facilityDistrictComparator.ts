@@ -73,9 +73,17 @@ export function compareFacilityDistricts(slugs: string[]): DistrictComparisonRes
     name: `${mapped.map((d) => d.name).join(' vs ')} Tesis Yönetimi ve Aidat Karşılaştırması 2026`,
     description: seoSummary,
     about: mapped.map((d) => ({
-      '@type': 'Place',
-      name: `${d.name}, İstanbul`,
+      '@type': 'LocalBusiness',
+      name: `Alo Yönetim ${d.name} Tesis Yönetimi`,
       url: d.canonicalUrl,
+      telephone: '+90 216 550 48 48',
+      priceRange: '₺₺',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: d.name,
+        addressRegion: 'İstanbul',
+        addressCountry: 'TR',
+      },
     })),
   };
 

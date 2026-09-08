@@ -87,12 +87,12 @@ export function calculateIntentCoverage(text: string) {
 /**
  * Tüm 39 İlçe ve Hub Sayfasının Google 1. Sıra Potansiyelini Simüle Eder.
  */
-export function runFacilitySerpRankSimulation(): SerpRankSimulationReport {
+export function runFacilitySerpRankSimulation(lang: string = 'tr'): SerpRankSimulationReport {
   const districtScores: SerpScoreItem[] = [];
   let totalRankPotential = 0;
 
   for (const d of DISTRICTS) {
-    const meta = getFacilitySerpMeta('tr', d.slug);
+    const meta = getFacilitySerpMeta(lang, d.slug);
     const combined = `${meta.title} ${meta.description}`;
 
     const ctr = calculateCtrScore(meta.title, meta.description);
@@ -118,7 +118,7 @@ export function runFacilitySerpRankSimulation(): SerpRankSimulationReport {
   }
 
   // Hub Sayfası Skoru
-  const hubMeta = getFacilitySerpMeta('tr');
+  const hubMeta = getFacilitySerpMeta(lang);
   const hubCombined = `${hubMeta.title} ${hubMeta.description}`;
   const hubCtr = calculateCtrScore(hubMeta.title, hubMeta.description);
   const hubIntent = calculateIntentCoverage(hubCombined);
