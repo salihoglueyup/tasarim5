@@ -36,7 +36,7 @@ export async function GET() {
   const generateRssItem = (post: any) => {
     const imageUrl = post.image
       ? (post.image.startsWith('http') ? post.image : `${BASE_URL}${post.image.startsWith('/') ? '' : '/'}${post.image}`)
-      : `${BASE_URL}/og`;
+      : `${BASE_URL}/images/hero-poster-v5.webp`;
 
     return `
     <item>

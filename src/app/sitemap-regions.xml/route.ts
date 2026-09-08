@@ -36,24 +36,30 @@ export async function GET() {
     xml += `  </url>\n`;
   }
 
-  // 39 İlçe Tesis Yönetimi Sayfaları (Anadolu & Avrupa)
+  // 39 İlçe Ana İniş Sayfaları ve Tesis Yönetimi Rotaları (Anadolu & Avrupa)
   const allRegionDistricts = [...anadoluDistricts, ...avrupaDistricts];
 
   for (const district of allRegionDistricts) {
-    const pagePath = `/bolgeler/${district.slug}/tesis-yonetimi`;
-    xml += `  <url>\n`;
-    xml += `    <loc>${BASE_URL}${pagePath}</loc>\n`;
-    xml += `    <lastmod>${now}</lastmod>\n`;
-    xml += `    <changefreq>daily</changefreq>\n`;
-    xml += `    <priority>0.85</priority>\n`;
-    for (const lang of LOCALES) {
-      const altUrl = lang === 'tr' ? `${BASE_URL}${pagePath}` : `${BASE_URL}/${lang}${pagePath}`;
-      xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>\n`;
-      const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
-      xml += `    <xhtml:link rel="alternate" hreflang="${regionalTag}" href="${altUrl}"/>\n`;
+    const districtRoutes = [
+      { path: `/bolgeler/${district.slug}`, priority: '0.90', changefreq: 'daily' },
+      { path: `/bolgeler/${district.slug}/tesis-yonetimi`, priority: '0.85', changefreq: 'daily' },
+    ];
+
+    for (const route of districtRoutes) {
+      xml += `  <url>\n`;
+      xml += `    <loc>${BASE_URL}${route.path}</loc>\n`;
+      xml += `    <lastmod>${now}</lastmod>\n`;
+      xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
+      xml += `    <priority>${route.priority}</priority>\n`;
+      for (const lang of LOCALES) {
+        const altUrl = lang === 'tr' ? `${BASE_URL}${route.path}` : `${BASE_URL}/${lang}${route.path}`;
+        xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>\n`;
+        const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
+        xml += `    <xhtml:link rel="alternate" hreflang="${regionalTag}" href="${altUrl}"/>\n`;
+      }
+      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${route.path}"/>\n`;
+      xml += `  </url>\n`;
     }
-    xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pagePath}"/>\n`;
-    xml += `  </url>\n`;
   }
 
   xml += `</urlset>`;

@@ -12,6 +12,7 @@ interface VideoWithSeoProps {
   uploadDate: string; // ISO 8601, örn: "2026-01-15"
   duration?: string; // ISO 8601 duration, örn: "PT2M30S"
   embedUrl?: string; // Video URL'si veya YouTube embed linki
+  contentUrl?: string; // Doğrudan video stream/mp4 bağlantısı
   author?: string;
   className?: string;
 }
@@ -29,6 +30,7 @@ export default function VideoWithSeo({
   uploadDate,
   duration = "PT2M0S",
   embedUrl = "",
+  contentUrl = "",
   author = "Alo Yönetim",
   className = ""
 }: VideoWithSeoProps) {
@@ -47,6 +49,7 @@ export default function VideoWithSeo({
     uploadDate,
     duration,
     ...(embedUrl ? { embedUrl } : {}),
+    ...(contentUrl ? { contentUrl } : {}),
     author: {
       '@type': 'Organization',
       name: author,

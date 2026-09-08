@@ -12,8 +12,8 @@ import {
 } from './dualCoreRichResultEngine';
 import { faqPageSchema } from '../schemas/faq';
 import { blogPostingSchema } from '../schemas/articles';
-import { siteNavigationSchema } from '../schemas/breadcrumbs';
-import { graph } from '../schemas/misc';
+import { siteNavigationSchema, generateBreadcrumbs } from '../schemas/breadcrumbs';
+import { graph, videoObjectSchema } from '../schemas/misc';
 import { buildHttpLinkHeader } from './edgeHeaderInjector';
 import { BASE_URL } from '../seo';
 
@@ -241,6 +241,84 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const linkHeader = res.headers.get('Link');
       expect(linkHeader).toBeDefined();
       expect(linkHeader).toContain('sitemap-index.xml');
+    });
+  });
+
+  describe('12. sitemap-regions.xml 39 İlçe Ana İniş & Tesis Yönetimi Rotaları', () => {
+    it('GET fonksiyonu hem ilçe hub hem tesis yönetimi sayfalarını tam hreflang ile üretmelidir', async () => {
+      const { GET } = await import('@/app/sitemap-regions.xml/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const xml = await res.text();
+      expect(xml).toContain('<loc>https://aloyonetim.com.tr/bolgeler/kadikoy</loc>');
+      expect(xml).toContain('<loc>https://aloyonetim.com.tr/bolgeler/kadikoy/tesis-yonetimi</loc>');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="tr"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="tr-TR"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="en"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="en-US"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ru"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ru-RU"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ar"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ar-SA"');
+      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="x-default"');
+    });
+  });
+
+  describe('13. generateBreadcrumbs Google Rich Results Tekil Öğe Kalkanı', () => {
+    it('2 elemandan az liste verildiğinde null dönmeli ve tekil öğe uyarısını engellemelidir', () => {
+      expect(generateBreadcrumbs([])).toBeNull();
+      expect(generateBreadcrumbs([{ name: 'Ana Sayfa', url: '/' }])).toBeNull();
+      expect(generateBreadcrumbs([{ name: '', url: '/' }])).toBeNull();
+    });
+
+    it('2 veya daha fazla geçerli eleman olduğunda tam BreadcrumbList üretmelidir', () => {
+      const result = generateBreadcrumbs([
+        { name: 'Ana Sayfa', url: '/' },
+        { name: 'Bölgeler', url: '/bolgeler' },
+        { name: 'Kadıköy', url: '/bolgeler/kadikoy' },
+      ]);
+      expect(result).not.toBeNull();
+      expect(result?.['@type']).toBe('BreadcrumbList');
+      expect(Array.isArray((result as any).itemListElement)).toBe(true);
+      expect((result as any).itemListElement.length).toBe(3);
+      expect((result as any).itemListElement[2].name).toBe('Kadıköy');
+    });
+  });
+
+  describe('14. rss.xml Enclosure Görselinde 404 Koruması', () => {
+    it('GET fonksiyonu /og kırık linki yerine geçerli görsel URL üretmelidir', async () => {
+      const { GET } = await import('@/app/rss.xml/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const xml = await res.text();
+      expect(xml).not.toContain('url="https://aloyonetim.com.tr/og"');
+      expect(xml).toContain('<enclosure');
+
+      const fs = await import('fs');
+      const path = await import('path');
+      const routeContent = fs.readFileSync(path.join(process.cwd(), 'src/app/rss.xml/route.ts'), 'utf-8');
+      expect(routeContent).toContain('hero-poster-v5.webp');
+      expect(routeContent).not.toContain("`${BASE_URL}/og`");
+    });
+  });
+
+  describe('15. videoObjectSchema Google Video Snippet Standartları', () => {
+    it('thumbnailUrl dizi formatında olmalı ve contentUrl / embedUrl desteklenmelidir', () => {
+      const schema = videoObjectSchema({
+        name: 'Tesis Yönetimi Tanıtım',
+        description: 'Video açıklaması',
+        thumbnailUrl: '/images/video-thumb.webp',
+        contentUrl: 'https://aloyonetim.com.tr/media/intro.mp4',
+        embedUrl: 'https://youtube.com/embed/xyz123',
+        uploadDate: '2026-01-15',
+        duration: 'PT2M30S',
+      });
+
+      expect(schema['@type']).toBe('VideoObject');
+      expect(Array.isArray(schema.thumbnailUrl)).toBe(true);
+      expect((schema.thumbnailUrl as string[])[0]).toBe('https://aloyonetim.com.tr/images/video-thumb.webp');
+      expect(schema.contentUrl).toBe('https://aloyonetim.com.tr/media/intro.mp4');
+      expect(schema.embedUrl).toBe('https://youtube.com/embed/xyz123');
     });
   });
 });

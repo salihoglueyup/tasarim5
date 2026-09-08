@@ -134,17 +134,23 @@ export function jobPostingSchema(opts: {
 export function videoObjectSchema(opts: {
   name: string;
   description: string;
-  thumbnailUrl: string;
-  contentUrl: string;
+  thumbnailUrl: string | string[];
+  contentUrl?: string;
+  embedUrl?: string;
   uploadDate: string;
   duration?: string;
 }): JsonLdObject {
+  const thumbArray = Array.isArray(opts.thumbnailUrl)
+    ? opts.thumbnailUrl.map(abs)
+    : [abs(opts.thumbnailUrl)];
+
   return {
     '@type': 'VideoObject',
     name: opts.name,
     description: opts.description,
-    thumbnailUrl: abs(opts.thumbnailUrl),
-    contentUrl: abs(opts.contentUrl),
+    thumbnailUrl: thumbArray,
+    ...(opts.contentUrl ? { contentUrl: abs(opts.contentUrl) } : {}),
+    ...(opts.embedUrl ? { embedUrl: abs(opts.embedUrl) } : {}),
     uploadDate: opts.uploadDate,
     ...(opts.duration ? { duration: opts.duration } : {}),
     publisher: { '@id': ORG_ID },

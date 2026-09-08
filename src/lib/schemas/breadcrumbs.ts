@@ -1,13 +1,18 @@
 import type { JsonLdObject } from './constants';
 import { BASE_URL, abs } from './constants';
 
-export const generateBreadcrumbs = (items: { name?: string; url?: string }[]): JsonLdObject => {
+export const generateBreadcrumbs = (items: { name?: string; url?: string }[]): JsonLdObject | null => {
   const validItems = (items || [])
     .filter((item) => item && typeof item.name === 'string' && item.name.trim().length > 0)
     .map((item) => ({
       name: item.name!.trim(),
       url: item.url ? abs(item.url) : BASE_URL,
     }));
+
+  // Google Zengin Sonuçlar (Rich Results) kuralı: Kırıntı listesi en az 2 öğe içermelidir
+  if (validItems.length < 2) {
+    return null;
+  }
 
   const lastItem = validItems[validItems.length - 1];
   const canonicalId = lastItem ? `${lastItem.url}#breadcrumb` : undefined;
