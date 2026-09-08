@@ -27,7 +27,7 @@ export async function GET(req: Request) {
     entity: 'Alo Yönetim ve Organizasyon A.Ş.',
     establishedYear: 2009,
     headquarters: 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul',
-    phone: '+90 216 550 48 48',
+    phone: '+90 216 755 35 35',
     email: 'info@aloyonetim.com.tr',
     website: BASE_URL,
     coreService: {
@@ -99,9 +99,10 @@ export async function GET(req: Request) {
   return NextResponse.json(facts, {
     status: 200,
     headers: {
+      'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       'Access-Control-Allow-Origin': '*',
-      'X-Robots-Tag': 'all, max-snippet:-1',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }

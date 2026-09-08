@@ -1741,4 +1741,54 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataSide.districts.every((d: any) => d.side === 'Anadolu Yakası')).toBe(true);
     });
   });
+
+  describe('74. ai-snippets.json API DefinedTermSet Şeması, Kurumsal NAP ve Çok Dilli Destek', () => {
+    it('GET isteğinde DefinedTermSet şeması, kurumsal telefon/logo ve çok dilli snippet döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/ai-snippets.json/route');
+
+      // 1. Türkçe varsayılan istek
+      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/ai-snippets.json');
+      const resTr = await GET(reqTr);
+      expect(resTr.status).toBe(200);
+      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataTr = await resTr.json();
+      expect(dataTr.schema['@type']).toBe('DefinedTermSet');
+      expect(dataTr.schema.inLanguage).toBe('tr-TR');
+      expect(dataTr.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataTr.schema.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataTr.schema.publisher.logo).toContain('/images/logo.png');
+      expect(dataTr.snippets.length).toBeGreaterThanOrEqual(4);
+
+      // 2. İngilizce lokalizasyon isteği (?lang=en)
+      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/ai-snippets.json?lang=en');
+      const resEn = await GET(reqEn);
+      expect(resEn.status).toBe(200);
+      const dataEn = await resEn.json();
+      expect(dataEn.schema.inLanguage).toBe('en');
+      expect(dataEn.snippets[0].directSummaryText).toContain('Facility management is');
+    });
+  });
+
+  describe('75. llm-facts.json API AI-Readiness, Doğrulanmış NAP ve Robots Başlıkları', () => {
+    it('GET isteğinde kurumsal kimlik, telefon, standartlar ve ilçe benchmark listesi döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
+
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
+      const res = await GET(req);
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await res.json();
+      expect(data.entity).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.phone).toBe('+90 216 755 35 35');
+      expect(data.coreService.standards.length).toBeGreaterThanOrEqual(5);
+      expect(data.coreService.standards).toContain('ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)');
+      expect(data.districtDuesBenchmarks39.length).toBe(39);
+      expect(data.linkedApis.aiOverviewsSnippets).toContain('/api/tesis-yonetimi/ai-snippets.json');
+    });
+  });
 });

@@ -348,6 +348,14 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
       ? 'Direct fact-checked definitions and legal precedents for facility management in Istanbul.'
       : 'İstanbul genelinde tesis yönetimi, aidat mevzuatı ve teknik standartlar için doğrulanmış doğrudan yanıt tanımları.',
     url: `${BASE_URL}${isEnglish ? '/en' : ''}/api/tesis-yonetimi/ai-snippets.json`,
+    inLanguage: isEnglish ? 'en' : 'tr-TR',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      logo: `${BASE_URL}/images/logo.png`,
+      telephone: '+90 216 755 35 35',
+    },
     hasDefinedTerm: snippets.map((s) => ({
       '@type': 'DefinedTerm',
       name: s.queryIntent,
