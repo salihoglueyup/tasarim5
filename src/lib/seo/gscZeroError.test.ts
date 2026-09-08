@@ -740,6 +740,102 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(res.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
     });
   });
+
+  describe('43. schemaLinter Genişletilmiş Tip Denetimleri (ItemList, Breadcrumb, Organization)', () => {
+    it('ItemList boş dizi koruması ve Organization zorunlu alanlarını doğrular', async () => {
+      const { lintSchemaOrgObject } = await import('@/lib/seo/schemaLinter');
+
+      // Boş ItemList hatası
+      const emptyItemList = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: [],
+      };
+      const emptyReport = lintSchemaOrgObject(emptyItemList);
+      expect(emptyReport.isValid).toBe(false);
+      expect(emptyReport.issues.some((i) => i.message.includes('Missing field itemListElement'))).toBe(true);
+
+      // Dolu ItemList başarısı
+      const validItemList = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Adım 1' }],
+      };
+      const validItemReport = lintSchemaOrgObject(validItemList);
+      expect(validItemReport.isValid).toBe(true);
+
+      // Organization doğrulaması
+      const validOrg = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Alo Yönetim',
+        legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+        url: 'https://aloyonetim.com.tr',
+        logo: 'https://aloyonetim.com.tr/icon.png',
+      };
+      const orgReport = lintSchemaOrgObject(validOrg);
+      expect(orgReport.isValid).toBe(true);
+      expect(orgReport.googleRichResultsCompliant).toBe(true);
+    });
+  });
+
+  describe('44. schemaLinter lintSchemaGraph Çoklu Düğüm ve @graph Denetimi', () => {
+    it('Birleşik @graph ağacındaki tüm düğümleri tek tek denetler ve genel skor üretir', async () => {
+      const { lintSchemaGraph } = await import('@/lib/seo/schemaLinter');
+
+      const graphPayload = {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Organization',
+            name: 'Alo Yönetim',
+            url: 'https://aloyonetim.com.tr',
+          },
+          {
+            '@type': 'Service',
+            name: 'Tesis Yönetimi',
+            serviceType: 'Entegre Tesis Yönetimi',
+          },
+        ],
+      };
+
+      const report = lintSchemaGraph(graphPayload);
+      expect(report.totalNodes).toBe(2);
+      expect(report.validNodes).toBe(2);
+      expect(report.isGraphValid).toBe(true);
+      expect(report.overallScore).toBeGreaterThanOrEqual(80);
+    });
+  });
+
+  describe('45. admin/schema-lint API Rotası Çoklu Destek ve noindex Başlığı', () => {
+    it('GET ve POST istekleri 200, noindex başlığı ve geçerli denetim raporu döner', async () => {
+      const { GET, POST } = await import('@/app/api/admin/schema-lint/route');
+
+      // GET benchmark
+      const getRes = await GET();
+      expect(getRes.status).toBe(200);
+      expect(getRes.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      const getData = await getRes.json();
+      expect(getData.graphReport.isGraphValid).toBe(true);
+
+      // POST @graph payload
+      const postReq = new Request('https://aloyonetim.com.tr/api/admin/schema-lint', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'LocalBusiness',
+          name: 'Alo Yönetim Kadıköy',
+          address: { '@type': 'PostalAddress', addressLocality: 'Kadıköy' },
+        }),
+      });
+      const postRes = await POST(postReq as any);
+      expect(postRes.status).toBe(200);
+      expect(postRes.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      const postData = await postRes.json();
+      expect(postData.isValid).toBe(true);
+    });
+  });
 });
 
 

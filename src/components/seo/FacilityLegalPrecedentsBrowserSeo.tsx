@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
+import JsonLd from '@/components/seo/JsonLd';
 
 export default function FacilityLegalPrecedentsBrowserSeo() {
   const [activeTab, setActiveTab] = useState<string>(YARGITAY_LEGAL_PRECEDENTS[0]?.id || '');
@@ -18,8 +19,35 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
   const activeItem =
     YARGITAY_LEGAL_PRECEDENTS.find((p) => p.id === activeTab) || YARGITAY_LEGAL_PRECEDENTS[0];
 
+  const precedentsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Tesis Yönetimi Yargıtay Emsal Kararları ve 634 KMK Hukuki İçtihatları',
+    description: 'Aidat borcu, asansör ortak giderleri, yönetici sorumluluğu ve mimari tadilat ihtilaflarında bağlayıcı yüksek mahkeme içtihatları.',
+    numberOfItems: YARGITAY_LEGAL_PRECEDENTS.length,
+    itemListElement: YARGITAY_LEGAL_PRECEDENTS.map((p, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Legislation',
+        '@id': `https://aloyonetim.com.tr/hizmetler/tesis-yonetimi#${p.id}`,
+        name: p.subject,
+        legislationType: 'Court Precedent',
+        legislationIdentifier: `${p.docketNumber} / ${p.decisionNumber}`,
+        datePublished: p.decisionDate,
+        legislationPassedBy: {
+          '@type': 'GovernmentOrganization',
+          name: p.court,
+          sameAs: 'https://www.wikidata.org/wiki/Q1544458',
+        },
+      },
+    })),
+  };
+
   return (
-    <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
+    <>
+      <JsonLd data={precedentsSchema} />
+      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
@@ -176,5 +204,6 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
         </div>
       </div>
     </div>
-  );
+  </>
+);
 }
