@@ -112,7 +112,7 @@ export default async function TagArchive({
     { name: blogLabels[lang] || 'Blog', url: `${langPrefix}/blog` },
     { name: `#${displayTag}`, url: `${langPrefix}${path}` },
   ]);
-  const listLd: JsonLdObject = {
+  const listLd: JsonLdObject | null = posts.length > 0 ? {
     '@type': 'ItemList',
     itemListElement: posts.map((p: any, i: number) => ({
       '@type': 'ListItem',
@@ -120,7 +120,7 @@ export default async function TagArchive({
       name: p.title,
       url: `${BASE_URL}/blog/${p.slug}`,
     })),
-  };
+  } : null;
   const pageLd = webPageSchema({
     type: 'CollectionPage',
     name: `${displayTag} — ${blogLabels[lang] || 'Blog'}`,
@@ -130,7 +130,7 @@ export default async function TagArchive({
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, listLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, listLd].filter(Boolean) as JsonLdObject[]} />
       <PageHeader title={`#${displayTag}`} description={`${displayTag} etiketi altındaki tüm makalelerimiz.`} />
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <PostGrid posts={posts} />

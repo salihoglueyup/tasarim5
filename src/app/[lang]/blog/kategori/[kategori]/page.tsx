@@ -137,15 +137,15 @@ export default async function CategoryArchive({
     { name: blogLabels[lang] || 'Blog', url: `${langPrefix}/blog` },
     { name: cat.name, url: `${langPrefix}${path}` },
   ]);
-  const listLd: JsonLdObject = {
+  const listLd: JsonLdObject | null = posts.length > 0 ? {
     '@type': 'ItemList',
     itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `${BASE_URL}/blog/${p.slug}` })),
-  };
+  } : null;
   const pageLd = webPageSchema({ type: 'CollectionPage', name: `${cat.name} — Blog`, description: cat.description, path });
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, listLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, listLd].filter(Boolean) as JsonLdObject[]} />
       <PageHeader title={cat.name} description={cat.description} />
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <PostGrid posts={posts} />

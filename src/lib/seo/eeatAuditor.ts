@@ -60,9 +60,9 @@ export function generateVerifiedAuthorityGraph() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Alo Yönetim ve Organizasyon A.Ş.',
+    name: 'Alo Yönetim',
     url: BASE_URL,
-    legalName: 'Alo Yönetim Tesis ve Mülk İşletme Hizmetleri A.Ş.',
+    legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
     taxID: '0680458921',
     vatID: 'TR0680458921',
     foundingDate: '2016-04-12',

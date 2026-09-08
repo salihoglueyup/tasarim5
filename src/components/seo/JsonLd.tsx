@@ -18,9 +18,18 @@ export default function JsonLd({
 }) {
   if (!data) return null;
 
-  const validNodes = Array.isArray(data)
-    ? data.filter((node): node is JsonLdObject => Boolean(node && typeof node === 'object' && Object.keys(node).length > 0))
-    : [data];
+  const isNodeValid = (node: unknown): node is JsonLdObject => {
+    if (!node || typeof node !== 'object' || Object.keys(node).length === 0) return false;
+    // GSC Empty ItemList guard: boş itemListElement içeren şemaları filtrele
+    const n = node as Record<string, unknown>;
+    if (n['@type'] === 'ItemList' && Array.isArray(n.itemListElement) && n.itemListElement.length === 0) {
+      return false;
+    }
+    return true;
+  };
+
+  const rawList = Array.isArray(data) ? data : [data];
+  const validNodes = rawList.filter(isNodeValid);
 
   if (validNodes.length === 0) return null;
 

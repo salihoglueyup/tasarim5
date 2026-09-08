@@ -641,7 +641,56 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.overallAverageRankPotential).toBeGreaterThan(0);
     });
   });
+
+  describe('37. JsonLd Evrensel Boş ItemList Kalkanı', () => {
+    it('boş itemListElement içeren şemaları filtrelemeli ve null dönmelidir', async () => {
+      const JsonLd = (await import('@/components/seo/JsonLd')).default;
+      const elementEmpty = JsonLd({
+        data: { '@type': 'ItemList', itemListElement: [] } as any,
+      });
+      expect(elementEmpty).toBeNull();
+
+      const elementValid = JsonLd({
+        data: {
+          '@type': 'ItemList',
+          itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Test' }],
+        } as any,
+      });
+      expect(elementValid).not.toBeNull();
+    });
+  });
+
+  describe('38. eeatAuditor ve verify-authority Marka ve Şirket Unvanı Standardı', () => {
+    it('resmi şirket adı ve marka adı standartlarına uygun olmalı ve X-Robots-Tag taşımalıdır', async () => {
+      const { generateVerifiedAuthorityGraph } = await import('./eeatAuditor');
+      const graph = generateVerifiedAuthorityGraph();
+      expect(graph.name).toBe('Alo Yönetim');
+      expect(graph.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+
+      const { GET } = await import('@/app/api/seo/verify-authority/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      const data = await res.json();
+      expect(data.schema.name).toBe('Alo Yönetim');
+      expect(data.schema.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+    });
+  });
+
+  describe('39. nearest-facility-hub API Rotası Başlık ve Telemetrisi', () => {
+    it('GET isteği 200, X-Robots-Tag all ve en yakın operasyon merkezini dönmelidir', async () => {
+      const { GET } = await import('@/app/api/geo/nearest-facility-hub/route');
+      const req = new Request('https://aloyonetim.com.tr/api/geo/nearest-facility-hub?lat=40.99&lng=29.02');
+      const res = await GET(req as any);
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      const data = await res.json();
+      expect(data.nearestDistrict.name).toContain('Kadıköy');
+      expect(data.distanceKm).toBeGreaterThanOrEqual(0);
+    });
+  });
 });
+
 
 
 

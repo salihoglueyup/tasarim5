@@ -20,6 +20,7 @@ export async function GET(request: NextRequest) {
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
       'X-Geo-Resolver': 'Alo-Yonetim-Edge-Proximity-Engine',
+      'X-Robots-Tag': 'all',
     },
   });
 }
