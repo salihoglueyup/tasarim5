@@ -1315,6 +1315,85 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(tseCredential.sameAs).toBe('https://www.wikidata.org/wiki/Q12812282');
     });
   });
+
+  describe('62. benchmark.json Google Dataset Search Şeması & Bölge Filtreleme', () => {
+    it('Google Dataset Search standartlarında Dataset şeması, CC-BY-SA lisansı ve dinamik ilçe filtresi sağlar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/benchmark.json/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/benchmark.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+      expect(resAll.headers.get('X-Dataset-Name')).toBe('Istanbul-Facility-Benchmark-Index');
+
+      const dataAll = await resAll.json();
+      expect(dataAll['@type']).toBe('Dataset');
+      expect(dataAll.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
+      expect(dataAll.creator.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataAll.creator.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.spatialCoverage.name).toBe('İstanbul, Türkiye');
+      expect(dataAll.spatialCoverage.geo.latitude).toBe(41.0082);
+      expect(dataAll.temporalCoverage).toBe('2026');
+      expect(dataAll.data.districts.length).toBe(39);
+
+      // 2. Anadolu Yakası Filtresi (?side=anadolu)
+      const reqAnadolu = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/benchmark.json?side=anadolu');
+      const resAnadolu = await GET(reqAnadolu);
+      const dataAnadolu = await resAnadolu.json();
+      expect(dataAnadolu.data.appliedFilter.side).toBe('anadolu');
+      expect(dataAnadolu.data.districts.length).toBe(14);
+      expect(dataAnadolu.data.districts.every((d: any) => d.side === 'Anadolu')).toBe(true);
+
+      // 3. Tekil İlçe Filtresi (?district=kadikoy)
+      const reqKadikoy = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/benchmark.json?district=kadikoy');
+      const resKadikoy = await GET(reqKadikoy);
+      const dataKadikoy = await resKadikoy.json();
+      expect(dataKadikoy.data.appliedFilter.district).toBe('kadikoy');
+      expect(dataKadikoy.data.districts.length).toBe(1);
+      expect(dataKadikoy.data.districts[0].districtSlug).toBe('kadikoy');
+    });
+  });
+
+  describe('63. faq.json FAQPage Şeması, Kategori Grubu ve Arama Filtreleme', () => {
+    it('FAQPage Schema.org nesnesi, inLanguage tr-TR ve dinamik group/q filtreleme sunar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/faq.json/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/faq.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+
+      const dataAll = await resAll.json();
+      expect(dataAll.meta.totalQuestions).toBeGreaterThanOrEqual(30);
+      expect(dataAll.faqs.length).toBe(dataAll.meta.totalQuestions);
+      expect(dataAll.jsonLd['@type']).toBe('FAQPage');
+      expect(dataAll.jsonLd.inLanguage).toBe('tr-TR');
+      expect(dataAll.jsonLd.mainEntity.length).toBe(dataAll.faqs.length);
+
+      // 2. Kategori Grubu Filtresi (?group=maliyet)
+      const reqMaliyet = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/faq.json?group=maliyet');
+      const resMaliyet = await GET(reqMaliyet);
+      const dataMaliyet = await resMaliyet.json();
+      expect(dataMaliyet.meta.appliedFilter.group).toBe('maliyet');
+      expect(dataMaliyet.faqs.length).toBeGreaterThan(0);
+      expect(dataMaliyet.faqs.every((f: any) => f.group === 'maliyet')).toBe(true);
+      expect(dataMaliyet.jsonLd.mainEntity.length).toBe(dataMaliyet.faqs.length);
+
+      // 3. Metin Arama Filtresi (?q=aidat)
+      const reqAidat = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/faq.json?q=aidat');
+      const resAidat = await GET(reqAidat);
+      const dataAidat = await resAidat.json();
+      expect(dataAidat.meta.appliedFilter.q).toBe('aidat');
+      expect(dataAidat.faqs.length).toBeGreaterThan(0);
+      expect(dataAidat.faqs.every((f: any) =>
+        f.question.toLowerCase().includes('aidat') ||
+        f.answer.toLowerCase().includes('aidat')
+      )).toBe(true);
+      expect(dataAidat.jsonLd.mainEntity.length).toBe(dataAidat.faqs.length);
+    });
+  });
 });
 
 

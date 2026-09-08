@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { BASE_URL } from '@/lib/constants';
+import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // 24 saat önbellek
 
 /**
@@ -12,8 +12,41 @@ export const revalidate = 86400; // 24 saat önbellek
  * İstanbul'un 39 ilçesinde mülk tiplerine göre tesis yönetimi ortalama maliyetleri,
  * tasarruf oranları, ISO 41001 SLA taahhütleri ve piyasa endekslerini standart JSON formatında sunar.
  */
-export async function GET() {
-  const districtBenchmarks = DISTRICTS.map((d, index) => {
+export async function GET(req: Request) {
+  let sideFilter: string | null = null;
+  let districtFilter: string | null = null;
+
+  if (req && req.url) {
+    try {
+      const { searchParams } = new URL(req.url);
+      sideFilter = searchParams.get('side');
+      districtFilter = searchParams.get('district');
+    } catch {
+      // noop
+    }
+  }
+
+  let selectedDistricts = DISTRICTS;
+
+  if (sideFilter) {
+    const cleanSide = sideFilter.trim().toLowerCase();
+    if (cleanSide === 'anadolu' || cleanSide === 'anatolian') {
+      selectedDistricts = selectedDistricts.filter((d) => d.side === 'Anadolu');
+    } else if (cleanSide === 'avrupa' || cleanSide === 'european') {
+      selectedDistricts = selectedDistricts.filter((d) => d.side === 'Avrupa');
+    }
+  }
+
+  if (districtFilter) {
+    const cleanDist = districtFilter.trim().toLowerCase();
+    selectedDistricts = selectedDistricts.filter(
+      (d) =>
+        d.slug.toLowerCase() === cleanDist ||
+        d.name.toLowerCase() === cleanDist
+    );
+  }
+
+  const districtBenchmarks = selectedDistricts.map((d, index) => {
     const isAnadolu = d.side === 'Anadolu';
     const baseCostM2 = isAnadolu ? (d.priority === 1 ? 48.5 : 36.0) : (d.priority === 1 ? 52.5 : 40.0);
     const savingsPercent = 22 + (index % 12);
@@ -35,27 +68,58 @@ export async function GET() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
-    name: `İstanbul ${DISTRICTS.length} İlçe Tesis Yönetimi Sektör Kıyaslama ve Maliyet Tasarruf Veri Seti (2026)`,
+    name: `İstanbul ${selectedDistricts.length} İlçe Tesis Yönetimi Sektör Kıyaslama ve Maliyet Tasarruf Veri Seti (2026)`,
     description:
-      `İstanbul genelindeki ${DISTRICTS.length} ilçede rezidans, plaza, site, AVM ve sanayi tesislerine yönelik ISO 41001 uyumlu tesis yönetimi m² maliyetleri, bütçe tasarruf analizleri ve SLA süreleri.`,
+      `İstanbul genelindeki ${selectedDistricts.length} ilçede rezidans, plaza, site, AVM ve sanayi tesislerine yönelik ISO 41001 uyumlu tesis yönetimi m² maliyetleri, bütçe tasarruf analizleri ve SLA süreleri.`,
     url: `${BASE_URL}/api/tesis-yonetimi/benchmark.json`,
+    keywords: [
+      'Tesis Yönetimi',
+      'Site Yönetimi Maliyetleri',
+      'Aidat Tasarrufu',
+      'ISO 41001',
+      'İstanbul İlçe Benchmark',
+      'KMK 634 Bütçe Yönetimi',
+    ],
+    temporalCoverage: '2026',
+    spatialCoverage: {
+      '@type': 'Place',
+      name: 'İstanbul, Türkiye',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 41.0082,
+        longitude: 28.9784,
+      },
+    },
+    distribution: [
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${BASE_URL}/api/tesis-yonetimi/benchmark.json`,
+      },
+    ],
     creator: {
       '@type': 'Corporation',
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
-      telephone: '+902165504848',
+      telephone: '+90 216 755 35 35',
       email: 'info@aloyonetim.com.tr',
     },
     dateModified: new Date().toISOString().split('T')[0],
-    license: `${BASE_URL}/kullanim-sartlari`,
+    license: 'https://creativecommons.org/licenses/by-sa/4.0/',
     data: {
       overview: {
-        coverage: 'İstanbul (39 İlçe)',
+        coverage: sideFilter ? `İstanbul (${sideFilter})` : 'İstanbul (39 İlçe)',
         totalManagedProjects: '400+ Tesis ve Site',
         averageCostSavings: '%28.4',
         emergencyResponseTime: '45 Dakika',
         clientRetentionRate: '%96.8',
         qualityStandard: 'ISO 41001:2018 & TSE HYB 12850',
+      },
+      appliedFilter: {
+        side: sideFilter,
+        district: districtFilter,
+        filteredDistrictsCount: selectedDistricts.length,
+        totalDistrictsCount: DISTRICTS.length,
       },
       propertyTypes: [
         {
@@ -125,6 +189,8 @@ export async function GET() {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
       'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+      'X-Dataset-Name': 'Istanbul-Facility-Benchmark-Index',
     },
   });
 }

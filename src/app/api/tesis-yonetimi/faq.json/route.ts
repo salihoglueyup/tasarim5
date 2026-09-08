@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import { BASE_URL } from '@/lib/constants';
+import { BASE_URL } from '@/lib/seo';
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
 
 const FAQS = [
@@ -236,14 +237,46 @@ const FAQS = [
   },
 ];
 
-export async function GET() {
+export async function GET(req: Request) {
+  let groupFilter: string | null = null;
+  let queryFilter: string | null = null;
+
+  if (req && req.url) {
+    try {
+      const { searchParams } = new URL(req.url);
+      groupFilter = searchParams.get('group');
+      queryFilter = searchParams.get('q');
+    } catch {
+      // noop
+    }
+  }
+
+  let filteredFaqs = FAQS;
+
+  if (groupFilter) {
+    const cleanGroup = groupFilter.trim().toLowerCase();
+    filteredFaqs = filteredFaqs.filter((faq) =>
+      faq.group.toLowerCase() === cleanGroup
+    );
+  }
+
+  if (queryFilter) {
+    const cleanQ = queryFilter.trim().toLowerCase();
+    filteredFaqs = filteredFaqs.filter(
+      (faq) =>
+        faq.question.toLowerCase().includes(cleanQ) ||
+        faq.answer.toLowerCase().includes(cleanQ)
+    );
+  }
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${BASE_URL}/hizmetler/tesis-yonetimi#faq`,
     name: 'Tesis Yönetimi Sıkça Sorulan Sorular',
     url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
-    mainEntity: FAQS.map((faq) => ({
+    inLanguage: 'tr-TR',
+    mainEntity: filteredFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -256,20 +289,28 @@ export async function GET() {
   const response = {
     meta: {
       title: 'Tesis Yönetimi SSS — Alo Yönetim',
-      description: `${FAQS.length} soru-cevap: maliyet, süreç, hukuki, teknik ve sektörel tesis yönetimi sorularına kapsamlı yanıtlar.`,
+      description: `${filteredFaqs.length} soru-cevap: maliyet, süreç, hukuki, teknik ve sektörel tesis yönetimi sorularına kapsamlı yanıtlar.`,
       totalQuestions: FAQS.length,
+      totalFiltered: filteredFaqs.length,
+      appliedFilter: {
+        group: groupFilter,
+        q: queryFilter,
+      },
       groups: ['genel', 'maliyet', 'surec', 'hukuki', 'teknik', 'sektoral', 'bolgesel', 'kalite'],
       lastUpdated: new Date().toISOString().split('T')[0],
       sourceUrl: `${BASE_URL}/hizmetler/tesis-yonetimi`,
     },
     jsonLd,
-    faqs: FAQS,
+    faqs: filteredFaqs,
   };
 
-  return Response.json(response, {
+  return NextResponse.json(response, {
+    status: 200,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }
