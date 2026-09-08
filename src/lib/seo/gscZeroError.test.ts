@@ -914,6 +914,63 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(botRes.headers.get('Content-Type')).toContain('application/json');
     });
   });
+
+  describe('50. schemaMinifier Boş ItemList Koruması ve Script Güvenliği', () => {
+    it('Boş ItemList nesnelerini tamamen budar ve < karakterini u003c ile maskeler', async () => {
+      const { cleanJsonLd, minifyJsonLd } = await import('@/lib/seo/schemaMinifier');
+
+      // 1. Boş ItemList budama
+      const emptyItemList = { '@type': 'ItemList', itemListElement: [] };
+      expect(cleanJsonLd(emptyItemList)).toBeNull();
+
+      // 2. Dizi içinde boş ItemList ve geçerli şema
+      const mixedArray = [
+        { '@type': 'ItemList', itemListElement: [] },
+        { '@type': 'Service', name: 'Entegre Tesis Yönetimi' },
+      ];
+      const cleanedArray = cleanJsonLd(mixedArray) as any[];
+      expect(cleanedArray.length).toBe(1);
+      expect(cleanedArray[0]['@type']).toBe('Service');
+
+      // 3. XSS ve HTML Script etiket güvenliği (\u003c maskelemesi)
+      const dirtyScriptText = {
+        name: '</script><script>alert("xss")</script>',
+      };
+      const minified = minifyJsonLd(dirtyScriptText);
+      expect(minified).not.toContain('</script>');
+      expect(minified).toContain('\\u003c/script\\u003e');
+    });
+  });
+
+  describe('51. admin/schema-lint API Sıkıştırma Telemetrisi', () => {
+    it('GET ve POST isteklerinde şema sıkıştırma ve bayt tasarrufu telemetrisi döner', async () => {
+      const { GET, POST } = await import('@/app/api/admin/schema-lint/route');
+
+      // GET telemetrisi
+      const getRes = await GET();
+      const getData = await getRes.json();
+      expect(getData.compression).toBeDefined();
+      expect(getData.compression.savedBytes).toBeGreaterThan(0);
+      expect(getData.compression.savingsPercentage).toBeGreaterThan(0);
+
+      // POST telemetrisi
+      const postReq = new Request('https://aloyonetim.com.tr/api/admin/schema-lint', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Site ve Tesis Yönetimi',
+          description: 'ISO 41001 standartlarında hizmetler.',
+        }),
+      });
+      const postRes = await POST(postReq as any);
+      const postData = await postRes.json();
+      expect(postData.compression).toBeDefined();
+      expect(postData.compression.minifiedBytes).toBeGreaterThan(0);
+      expect(postData.compression.savedBytes).toBeGreaterThan(0);
+    });
+  });
 });
 
 

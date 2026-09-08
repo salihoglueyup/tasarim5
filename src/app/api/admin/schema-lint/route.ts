@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { lintSchemaOrgObject, lintSchemaGraph } from '@/lib/seo/schemaLinter';
+import { minifyJsonLd, calculateSchemaCompressionSavings } from '@/lib/seo/schemaMinifier';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +16,11 @@ export async function POST(request: NextRequest) {
     const isGraph = Array.isArray(body) || (body && Array.isArray(body['@graph']));
     const report = isGraph ? lintSchemaGraph(body) : lintSchemaOrgObject(body);
 
-    return NextResponse.json(report, { status: 200, headers: RESPONSE_HEADERS });
+    const minified = minifyJsonLd(body);
+    const originalFormatted = JSON.stringify(body, null, 2);
+    const compression = calculateSchemaCompressionSavings(originalFormatted, minified);
+
+    return NextResponse.json({ ...report, compression }, { status: 200, headers: RESPONSE_HEADERS });
   } catch (error: any) {
     return NextResponse.json(
       { error: 'Invalid JSON schema payload', message: error?.message },
@@ -57,12 +62,16 @@ export async function GET() {
   };
 
   const graphReport = lintSchemaGraph(sampleGraph);
+  const minified = minifyJsonLd(sampleGraph);
+  const originalFormatted = JSON.stringify(sampleGraph, null, 2);
+  const compression = calculateSchemaCompressionSavings(originalFormatted, minified);
 
   return NextResponse.json(
     {
       status: 'success',
       reportTitle: 'Alo Yönetim Schema.org Linter Benchmark (Multi-Node Graph)',
       graphReport,
+      compression,
     },
     { status: 200, headers: RESPONSE_HEADERS }
   );
