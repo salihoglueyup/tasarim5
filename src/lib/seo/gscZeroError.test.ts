@@ -1530,6 +1530,83 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(xmlAnadolu).not.toContain('<tesis:districtSlug>sisli</tesis:districtSlug>');
     });
   });
+
+  describe('68. legal-templates Açık Veri Şablonları, DigitalDocument Şeması & Arama Filtreleme', () => {
+    it('DataCatalog şeması, inLanguage tr-TR, HowToStep adımları ve ?id= / ?q= filtrelerini sunar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/legal-templates/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-templates');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+      expect(resAll.headers.get('Content-Type')).toContain('application/json');
+
+      const dataAll = await resAll.json();
+      expect(dataAll['@type']).toBe('DataCatalog');
+      expect(dataAll.inLanguage).toBe('tr-TR');
+      expect(dataAll.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataAll.provider.telephone).toBe('+90 216 755 35 35');
+      expect(dataAll.templates.length).toBeGreaterThanOrEqual(4);
+      expect(dataAll.dataset.length).toBe(dataAll.templates.length);
+
+      // 2. ID ile tekil şablon filtresi (?id=isletme-projesi-sablonu)
+      const reqId = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-templates?id=isletme-projesi-sablonu');
+      const resId = await GET(reqId);
+      const dataId = await resId.json();
+      expect(dataId.appliedFilter.id).toBe('isletme-projesi-sablonu');
+      expect(dataId.templates.length).toBe(1);
+      expect(dataId.dataset[0]['@type']).toBe('DigitalDocument');
+      expect(dataId.dataset[0].hasPart.length).toBeGreaterThanOrEqual(3);
+      expect(dataId.dataset[0].hasPart[0]['@type']).toBe('HowToStep');
+
+      // 3. Arama sorgusu filtresi (?q=aidat)
+      const reqQ = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-templates?q=aidat');
+      const resQ = await GET(reqQ);
+      const dataQ = await resQ.json();
+      expect(dataQ.appliedFilter.q).toBe('aidat');
+      expect(dataQ.templates.length).toBeGreaterThan(0);
+      expect(dataQ.templates.every((t: any) =>
+        t.title.toLowerCase().includes('aidat') ||
+        t.description.toLowerCase().includes('aidat') ||
+        t.legalBasis.toLowerCase().includes('aidat')
+      )).toBe(true);
+    });
+  });
+
+  describe('69. calculate-budget API Bütçe Simülasyonu & PriceSpecification Şeması', () => {
+    it('GET ve POST isteklerinde PriceSpecification nesnesi ve X-Robots-Tag all döner', async () => {
+      const { GET, POST } = await import('@/app/api/tesis-yonetimi/calculate-budget/route');
+
+      // 1. GET hesaplama
+      const reqGet = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget?units=50&facilityType=site&district=kadikoy');
+      const resGet = await GET(reqGet as any);
+      expect(resGet.status).toBe(200);
+      expect(resGet.headers.get('X-Robots-Tag')).toContain('all');
+
+      const dataGet = await resGet.json();
+      expect(dataGet.priceSpecification).toBeDefined();
+      expect(dataGet.priceSpecification['@type']).toBe('PriceSpecification');
+      expect(dataGet.priceSpecification.priceCurrency).toBe('TRY');
+      expect(dataGet.priceSpecification.price).toBeGreaterThan(0);
+      expect(dataGet.schema['@type']).toBe('CalculateAction');
+
+      // 2. POST hesaplama
+      const reqPost = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ units: 80, facilityType: 'residence', district: 'besiktas' }),
+      });
+      const resPost = await POST(reqPost as any);
+      expect(resPost.status).toBe(200);
+      expect(resPost.headers.get('X-Robots-Tag')).toContain('all');
+
+      const dataPost = await resPost.json();
+      expect(dataPost.priceSpecification).toBeDefined();
+      expect(dataPost.priceSpecification['@type']).toBe('PriceSpecification');
+      expect(dataPost.priceSpecification.price).toBeGreaterThan(0);
+    });
+  });
 });
 
 

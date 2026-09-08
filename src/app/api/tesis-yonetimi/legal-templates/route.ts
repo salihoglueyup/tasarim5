@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { BASE_URL } from '@/lib/constants';
+import { BASE_URL } from '@/lib/seo';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // 24 saat önbellek
 
 /**
@@ -11,8 +11,21 @@ export const revalidate = 86400; // 24 saat önbellek
  * "işletme projesi şablonu", "genel kurul karar tutanağı" gibi yüksek dönüşümlü
  * aramalarda Schema.org DigitalDocument ve HowTo zengin snippet'leri sunar.
  */
-export async function GET() {
-  const templates = [
+export async function GET(req: Request) {
+  let idFilter: string | null = null;
+  let queryFilter: string | null = null;
+
+  if (req && req.url) {
+    try {
+      const { searchParams } = new URL(req.url);
+      idFilter = searchParams.get('id');
+      queryFilter = searchParams.get('q');
+    } catch {
+      // noop
+    }
+  }
+
+  const allTemplates = [
     {
       id: 'isletme-projesi-sablonu',
       title: '634 Sayılı KMK Madde 37 Uyumlu Yıllık İşletme Projesi ve Tahmini Bütçe Şablonu',
@@ -97,6 +110,23 @@ export async function GET() {
     },
   ];
 
+  let filteredTemplates = allTemplates;
+
+  if (idFilter) {
+    const cleanId = idFilter.trim().toLowerCase();
+    filteredTemplates = filteredTemplates.filter((t) => t.id.toLowerCase() === cleanId);
+  }
+
+  if (queryFilter) {
+    const cleanQ = queryFilter.trim().toLowerCase();
+    filteredTemplates = filteredTemplates.filter(
+      (t) =>
+        t.title.toLowerCase().includes(cleanQ) ||
+        t.description.toLowerCase().includes(cleanQ) ||
+        t.legalBasis.toLowerCase().includes(cleanQ)
+    );
+  }
+
   const data = {
     '@context': 'https://schema.org',
     '@type': 'DataCatalog',
@@ -104,12 +134,34 @@ export async function GET() {
     description:
       'Apartman, site, plaza ve tesis yöneticileri için 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 uyumlu resmi işletme projesi, sözleşme, karar tutanağı ve ihtarname şablonları.',
     url: `${BASE_URL}/api/tesis-yonetimi/legal-templates`,
+    inLanguage: 'tr-TR',
     provider: {
-      '@type': 'Corporation',
-      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      '@type': 'Organization',
+      name: 'Alo Yönetim',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
+      logo: `${BASE_URL}/images/logo.png`,
+      telephone: '+90 216 755 35 35',
     },
-    templates,
+    dataset: filteredTemplates.map((t) => ({
+      '@type': 'DigitalDocument',
+      name: t.title,
+      description: t.description,
+      encodingFormat: 'application/json',
+      url: t.downloadUrl,
+      hasPart: t.howToSteps.map((step, idx) => ({
+        '@type': 'HowToStep',
+        position: idx + 1,
+        text: step,
+      })),
+    })),
+    appliedFilter: {
+      id: idFilter,
+      q: queryFilter,
+      filteredCount: filteredTemplates.length,
+      totalCount: allTemplates.length,
+    },
+    templates: filteredTemplates,
     lastUpdated: new Date().toISOString().split('T')[0],
   };
 
@@ -119,6 +171,7 @@ export async function GET() {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
       'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }
