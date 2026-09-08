@@ -23,7 +23,7 @@ export async function GET() {
         'Access-Control-Allow-Origin': '*',
         'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
         'X-EEAT-Auditor': 'Alo-Yonetim-Verified-Enterprise-Authority',
-        'X-Robots-Tag': 'all',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     }
   );

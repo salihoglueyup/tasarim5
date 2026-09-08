@@ -18,8 +18,11 @@ export async function GET() {
     {
       organization: {
         name: ORG_NAME,
+        legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
         id: ORG_ID,
         website: BASE_URL,
+        telephone: '+90 216 755 35 35',
+        logo: `${BASE_URL}/images/logo.png`,
         primaryPillar: 'Tesis Yönetimi',
         standard: 'ISO 41001:2018',
         knowsAbout: ORG_KNOWS_ABOUT,
@@ -31,8 +34,11 @@ export async function GET() {
     },
     {
       headers: {
+        'Content-Type': 'application/json; charset=utf-8',
         'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+        'Access-Control-Allow-Origin': '*',
         'X-Topical-Engine': 'Alo-Yonetim-SEO-V4',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     }
   );

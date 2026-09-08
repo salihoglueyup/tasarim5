@@ -671,7 +671,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const { GET } = await import('@/app/api/seo/verify-authority/route');
       const res = await GET();
       expect(res.status).toBe(200);
-      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      expect(res.headers.get('X-Robots-Tag')).toContain('all');
       const data = await res.json();
       expect(data.schema.name).toBe('Alo Yönetim');
       expect(data.schema.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
@@ -2170,6 +2170,73 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(kmlText).toContain('<kml xmlns="http://www.opengis.net/kml/2.2">');
       expect(kmlText).toContain('<Placemark id="district-kadikoy">');
       expect(kmlText).toContain('+90 216 755 35 35');
+    });
+  });
+
+  describe('88. facility-knowledge ve verify-authority API Kurumsal Otorite ve Robots Başlıkları', () => {
+    it('facility-knowledge ve verify-authority uç noktaları kurumsal kimlik, E-E-A-T ve robots başlıkları sunar', async () => {
+      // 1. facility-knowledge
+      const { GET: getFacilityKnowledge } = await import('@/app/api/seo/facility-knowledge/route');
+      const resFac = await getFacilityKnowledge();
+      expect(resFac.status).toBe(200);
+      expect(resFac.headers.get('Content-Type')).toContain('application/json');
+      expect(resFac.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resFac.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      expect(resFac.headers.get('X-Topical-Engine')).toBe('Alo-Yonetim-SEO-V4');
+
+      const dataFac = await resFac.json();
+      expect(dataFac.organization.name).toBe('Alo Yönetim');
+      expect(dataFac.organization.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataFac.organization.telephone).toBe('+90 216 755 35 35');
+      expect(dataFac.organization.standard).toBe('ISO 41001:2018');
+      expect(dataFac.entities.length).toBeGreaterThan(0);
+      expect(dataFac.topicCluster).toBeDefined();
+
+      // 2. verify-authority
+      const { GET: getVerifyAuthority } = await import('@/app/api/seo/verify-authority/route');
+      const resAuth = await getVerifyAuthority();
+      expect(resAuth.status).toBe(200);
+      expect(resAuth.headers.get('Content-Type')).toContain('application/json');
+      expect(resAuth.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resAuth.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataAuth = await resAuth.json();
+      expect(dataAuth.status).toBe('verified');
+      expect(dataAuth.authorityScore).toBeGreaterThanOrEqual(90);
+      expect(dataAuth.schema.name).toBe('Alo Yönetim');
+      expect(dataAuth.schema.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+    });
+  });
+
+  describe('89. intent-match ve facility-rank-score API Semantik Arama ve Telemetri Standartları', () => {
+    it('intent-match ve facility-rank-score uç noktaları CORS, robots başlığı ve telemetri sunar', async () => {
+      // 1. intent-match
+      const { GET: getIntentMatch } = await import('@/app/api/seo/intent-match/route');
+      const reqIntent = new Request('https://aloyonetim.com.tr/api/seo/intent-match?q=aidat+yonetimi+fiyatlari');
+      const resIntent = await getIntentMatch(reqIntent as any);
+      expect(resIntent.status).toBe(200);
+      expect(resIntent.headers.get('Content-Type')).toContain('application/json');
+      expect(resIntent.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resIntent.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      expect(resIntent.headers.get('X-Intent-Classifier')).toBe('Alo-Yonetim-Semantic-Intent-Engine');
+
+      const dataIntent = await resIntent.json();
+      expect(dataIntent.intent).toBeDefined();
+      expect(dataIntent.confidenceScore).toBeGreaterThan(0);
+
+      // 2. facility-rank-score
+      const { GET: getRankScore } = await import('@/app/api/seo/facility-rank-score/route');
+      const reqRank = new Request('https://aloyonetim.com.tr/api/seo/facility-rank-score');
+      const resRank = await getRankScore(reqRank);
+      expect(resRank.status).toBe(200);
+      expect(resRank.headers.get('Content-Type')).toContain('application/json');
+      expect(resRank.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resRank.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataRank = await resRank.json();
+      expect(dataRank.overallAverageRankPotential).toBeGreaterThan(0);
+      expect(dataRank.totalDistrictsSimulated).toBe(39);
+      expect(dataRank.hubScore).toBeDefined();
     });
   });
 });

@@ -14,7 +14,10 @@ export async function GET(req: Request) {
     return NextResponse.json(report, {
       status: 200,
       headers: {
+        'Content-Type': 'application/json; charset=utf-8',
         'Cache-Control': 'no-store, max-age=0',
+        'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     });
   } catch (error) {

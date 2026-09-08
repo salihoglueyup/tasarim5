@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
       'X-Intent-Classifier': 'Alo-Yonetim-Semantic-Intent-Engine',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }
