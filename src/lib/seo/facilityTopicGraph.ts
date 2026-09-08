@@ -164,6 +164,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         credentialCategory: 'Technical Service Standard',
         name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
         url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
+        sameAs: 'https://www.wikidata.org/wiki/Q12812282',
       },
     ],
     // 8 Alt Uzmanlık Servisi (Spokes) ile Hiyerarşik Bağlantı
@@ -172,41 +173,49 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
         '@type': 'Service',
         name: '5188 Lisanslı Özel Güvenlik Yönetimi',
         url: `${BASE_URL}${langPrefix}/hizmetler/guvenlik-yonetimi`,
+        sameAs: 'https://www.wikidata.org/wiki/Q11024344',
       },
       {
         '@type': 'Service',
         name: 'Profesyonel Ortak Alan Temizliği ve Hijyen',
         url: `${BASE_URL}${langPrefix}/hizmetler/temizlik-ve-hijyen`,
+        sameAs: 'https://www.wikidata.org/wiki/Q38782',
       },
       {
         '@type': 'Service',
         name: 'Önleyici Teknik Bakım, Asansör & Jeneratör İşletmesi',
         url: `${BASE_URL}${langPrefix}/hizmetler/teknik-bakim`,
+        sameAs: 'https://www.wikidata.org/wiki/Q42848',
       },
       {
         '@type': 'Service',
         name: 'Dijital Aidat Takibi & Şeffaf Bütçe Muhasebesi',
         url: `${BASE_URL}${langPrefix}/hizmetler/aidat-takibi`,
+        sameAs: 'https://www.wikidata.org/wiki/Q4116214',
       },
       {
         '@type': 'Service',
         name: 'Kat Mülkiyeti Kanunu (KMK 634) Hukuki Danışmanlık ve İcra Takibi',
         url: `${BASE_URL}${langPrefix}/hizmetler/hukuk-ve-icra-danismanligi`,
+        sameAs: 'https://www.wikidata.org/wiki/Q1489069',
       },
       {
         '@type': 'Service',
         name: '4 Mevsim Profesyonel Peyzaj ve Bahçe Bakımı',
         url: `${BASE_URL}${langPrefix}/hizmetler/peyzaj-ve-bahce-bakimi`,
+        sameAs: 'https://www.wikidata.org/wiki/Q328786',
       },
       {
         '@type': 'Service',
         name: 'TSE Standartlarında Yüzme Havuzu Bakımı ve Hijyeni',
         url: `${BASE_URL}${langPrefix}/hizmetler/havuz-bakimi-ve-hijyen`,
+        sameAs: 'https://www.wikidata.org/wiki/Q309995',
       },
       {
         '@type': 'Service',
         name: 'Sağlık Bakanlığı Onaylı Biyosidal Haşere İlaçlama',
         url: `${BASE_URL}${langPrefix}/hizmetler/hasere-ve-dezenfeksiyon`,
+        sameAs: 'https://www.wikidata.org/wiki/Q1058252',
       },
     ],
     // Hizmet Verilen 39 İlçe

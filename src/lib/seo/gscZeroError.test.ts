@@ -1234,6 +1234,87 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataArt19.precedents[0].subject).toContain('Cam Balkon');
     });
   });
+
+  describe('60. dictionary.json Dinamik Arama, Kategori Filtreleme & DefinedTermSet Şeması', () => {
+    it('Genel çağrıda DefinedTermSet şeması, X-Robots-Tag all ve zengin publisher bilgisi döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/dictionary.json/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dictionary.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+      expect(resAll.headers.get('Content-Type')).toContain('application/json');
+
+      const dataAll = await resAll.json();
+      expect(dataAll.metadata.totalTerms).toBeGreaterThanOrEqual(14);
+      expect(dataAll.terms.length).toBe(dataAll.metadata.totalTerms);
+      expect(dataAll.schema['@type']).toBe('DefinedTermSet');
+      expect(dataAll.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataAll.schema.publisher.knowsAbout).toContain('Kat Mülkiyeti Kanunu');
+      expect(dataAll.schema.hasDefinedTerm.length).toBe(dataAll.terms.length);
+
+      // Her terimin DefinedTerm şeması ve wikidataUri bağı olmalı
+      const sampleTerm = dataAll.schema.hasDefinedTerm.find((t: any) => t.termCode === 'site-yonetimi');
+      expect(sampleTerm).toBeDefined();
+      expect(sampleTerm['@type']).toBe('DefinedTerm');
+      expect(sampleTerm.sameAs).toBe('https://www.wikidata.org/wiki/Q108846399');
+
+      // 2. Kategori filtresi: ?category=Hukuk
+      const reqCat = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dictionary.json?category=Hukuk');
+      const resCat = await GET(reqCat);
+      const dataCat = await resCat.json();
+      expect(dataCat.metadata.appliedFilter.category).toBe('Hukuk');
+      expect(dataCat.terms.length).toBeGreaterThan(0);
+      expect(dataCat.terms.every((t: any) => t.category.includes('Hukuk'))).toBe(true);
+      expect(dataCat.schema.hasDefinedTerm.length).toBe(dataCat.terms.length);
+
+      // 3. Arama sorgusu filtresi: ?q=aidat
+      const reqQ = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dictionary.json?q=aidat');
+      const resQ = await GET(reqQ);
+      const dataQ = await resQ.json();
+      expect(dataQ.metadata.appliedFilter.q).toBe('aidat');
+      expect(dataQ.terms.length).toBeGreaterThan(0);
+      expect(dataQ.terms.every((t: any) =>
+        t.name.toLowerCase().includes('aidat') ||
+        t.description.toLowerCase().includes('aidat') ||
+        (t.legalBasis && t.legalBasis.toLowerCase().includes('aidat'))
+      )).toBe(true);
+
+      // 4. Tekil terim filtresi: ?term=isletme-projesi
+      const reqTerm = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dictionary.json?term=isletme-projesi');
+      const resTerm = await GET(reqTerm);
+      const dataTerm = await resTerm.json();
+      expect(dataTerm.metadata.totalFiltered).toBe(1);
+      expect(dataTerm.terms[0].termCode).toBe('isletme-projesi');
+      expect(dataTerm.schema.hasDefinedTerm[0].sameAs).toBe('https://www.wikidata.org/wiki/Q41267');
+    });
+  });
+
+  describe('61. facilityTopicGraph 8 Alt Hizmet & Akreditasyon Wikidata Otorite Doğrulaması', () => {
+    it('isRelatedTo altındaki 8 alt servisin ve TSE akreditasyonunun resmi Wikidata bağlantılarını doğrular', async () => {
+      const { generateFacilityManagementGraph } = await import('@/lib/seo/facilityTopicGraph');
+
+      const graph = generateFacilityManagementGraph('tr') as any;
+
+      // 8 alt hizmetin hepsi sameAs Wikidata URI içermelidir
+      expect(graph.isRelatedTo).toHaveLength(8);
+      graph.isRelatedTo.forEach((subService: any) => {
+        expect(subService['@type']).toBe('Service');
+        expect(subService.sameAs).toBeDefined();
+        expect(subService.sameAs).toMatch(/^https:\/\/www\.wikidata\.org\/wiki\/Q\d+/);
+      });
+
+      // Özel Güvenlik Q11024344
+      const securityService = graph.isRelatedTo.find((s: any) => s.url.includes('/guvenlik-yonetimi'));
+      expect(securityService.sameAs).toBe('https://www.wikidata.org/wiki/Q11024344');
+
+      // TSE HYB 12850 Belgesi Q12812282
+      const tseCredential = graph.hasCredential.find((c: any) => c.name.includes('TSE HYB 12850'));
+      expect(tseCredential).toBeDefined();
+      expect(tseCredential.sameAs).toBe('https://www.wikidata.org/wiki/Q12812282');
+    });
+  });
 });
 
 

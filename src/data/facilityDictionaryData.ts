@@ -26,6 +26,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Hukuk & Mevzuat',
     description: 'Yönetim planı; KMK Madde 28 uyarınca ana gayrimenkulün yönetim tarzını, kullanma maksat ve şeklini, yönetici ve denetçilerin yetkilerini ve tüm kat maliklerini bağlayan kuralları düzenleyen resmi sözleşme hükmündeki ana belgedir.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 28',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q629571',
     canonicalUrl: `${BASE_URL}/sozluk#yonetim-plani`,
   },
   {
@@ -34,6 +35,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Hukuk & Mevzuat',
     description: 'Site yönetim kurulu; kat malikleri genel kurulunda hem sayı hem arsa payı çoğunluğu ile (KMK m.34) seçilen, sitenin idari, mali, güvenlik ve teknik işletmesini yürüten yasal icra organıdır.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 34 & 35',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q192934',
     canonicalUrl: `${BASE_URL}/sozluk#site-yonetim-kurulu`,
   },
   {
@@ -42,6 +44,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Hukuk & Mevzuat',
     description: 'Toplu yapı yönetimi; bir veya birden çok imar parseli üzerinde yer alan, ortak altyapı ve sosyal tesisleri paylaşan büyük ölçekli ve çok bloklu sitelerin KMK 66-74 maddeleri uyarınca blok ve temsilciler kurulu ile yönetilmesidir.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 66 - 74',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q3243176',
     canonicalUrl: `${BASE_URL}/sozluk#toplu-yapi-yonetimi`,
   },
   {
@@ -50,6 +53,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Finans & Muhasebe',
     description: 'Bir sitenin veya tesisin bir takvim yılı boyunca tahmini gelir ve giderlerini, her bağımsız bölüme düşecek aidat miktarını ve demirbaş avanslarını gösteren, 7 günde kesinleşerek İİK 68 kapsamında resmi belge sayılan bütçedir.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 37 & İİK Madde 68',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q41267',
     canonicalUrl: `${BASE_URL}/sozluk#isletme-projesi`,
   },
   {
@@ -67,6 +71,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Hukuk & Mevzuat',
     description: 'Ana gayrimenkuldeki tüm bağımsız bölüm maliklerinin katılımıyla oluşan, sitenin en yetkili karar organıdır. Yılda en az bir kez toplanarak yöneticiyi seçer ve işletme projesini onaylar.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 27 - 33',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q3243176',
     canonicalUrl: `${BASE_URL}/sozluk#kat-malikleri-kurulu`,
   },
   {
@@ -75,6 +80,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Finans & Muhasebe',
     description: 'Gider veya aidat avans payını zamanında ödemeyen kat malikine, kanun gereği gecikilen her gün için aylık yüzde 5 (%5) oranında tahakkuk ettirilen yasal faizdir.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 20/2',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q131454',
     canonicalUrl: `${BASE_URL}/sozluk#gecikme-tazminati`,
   },
   {
@@ -92,6 +98,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Güvenlik & İSG',
     description: 'T.C. İçişleri Bakanlığı ve Valilik izinleriyle tesislerde fiziki koruma, CCTV kamera kontrolü, x-ray denetimi ve devriye hizmetlerini yürüten yasal güvenlik organizasyonudur.',
     legalBasis: '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q11024344',
     canonicalUrl: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
   },
   {
@@ -100,6 +107,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Teknik İşletim',
     description: 'Tesisin şebekeden çektiği endüktif ve kapasitif reaktif enerjiyi dengeleyerek elektrik faturalarına reaktif ceza bedeli yansımasını engelleyen teknik sistemdir.',
     legalBasis: 'EPDK Elektrik Piyasası Dağıtım Yönetmeliği',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q832448',
     canonicalUrl: `${BASE_URL}/hizmetler/teknik-bakim`,
   },
   {
@@ -108,6 +116,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Teknik İşletim',
     description: 'Akredite A tipi muayene kuruluşları tarafından yapılan yıllık periyodik kontrollerde asansörün can ve mal güvenliği açısından kusursuz olduğunu belgeleyen resmi sertifikadır.',
     legalBasis: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q132911',
     canonicalUrl: `${BASE_URL}/hizmetler/teknik-bakim`,
   },
   {
@@ -116,6 +125,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Kalite & Yönetim',
     description: 'Türk Standardları Enstitüsü tarafından bina ve tesis yönetim şirketlerinin teknik altyapı, personel yetkinliği ve hizmet kalitesini belgeleyen ulusal standarttır.',
     legalBasis: 'Türk Standardları Enstitüsü Hizmet Yeri Yeterlilik Standardı',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q12812282',
     canonicalUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
   },
   {
@@ -124,6 +134,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Kalite & Yönetim',
     description: 'Tesis yönetiminde acil arızalara müdahale süresi (örn: 15-25 dakika), temizlik periyotları ve güvenlik devriye frekanslarını yazılı sözleşme garantisine bağlayan taahhüttür.',
     legalBasis: 'Hizmet Seviyesi Sözleşmesi (SLA) & ISO 41001',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q853516',
     canonicalUrl: `${BASE_URL}/hizmetler/tesis-yonetimi`,
   },
   {
@@ -132,6 +143,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     category: 'Finans & Muhasebe',
     description: 'Asansör değişimi, çatı izolasyonu, boya ve büyük teknik yenilemeler için kat maliklerinden toplanan ve yalnızca ana yapı yatırımlarında kullanılan birikim fonudur.',
     legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 20 & 37',
+    wikidataUri: 'https://www.wikidata.org/wiki/Q2145652',
     canonicalUrl: `${BASE_URL}/sozluk#demirbas-fonu`,
   },
 ];
