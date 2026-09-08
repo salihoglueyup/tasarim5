@@ -472,6 +472,68 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(firstLegislation.legislationPassedBy.name).toContain('TBMM');
     });
   });
+
+  describe('27. robots.ts AI Bot Genişletmesi ve Açık Veri İzinleri', () => {
+    it('robots.ts Amazonbot, Meta-ExternalAgent ve KMK açık veri yollarını içermelidir', async () => {
+      const robotsFn = (await import('@/app/robots')).default;
+      const config = robotsFn();
+      const userAgentRules = Array.isArray(config.rules) ? config.rules : [config.rules];
+      const aiRule = userAgentRules.find((r) => Array.isArray(r.userAgent) && r.userAgent.includes('Amazonbot'));
+      expect(aiRule).toBeDefined();
+      expect(aiRule?.userAgent).toContain('Meta-ExternalAgent');
+      expect(aiRule?.userAgent).toContain('Bytespider');
+
+      const allAllows = userAgentRules.flatMap((r) =>
+        Array.isArray(r.allow) ? r.allow : r.allow ? [r.allow] : []
+      );
+      expect(allAllows).toContain('/api/tesis-yonetimi/kmk-law-index.json');
+      expect(allAllows).toContain('/api/tesis-yonetimi/authority-corpus.json');
+      expect(allAllows).toContain('/api/tesis-yonetimi/voice-knowledge.json');
+    });
+  });
+
+  describe('28. middleware.ts Link Headers ve Akıllı Bot Telemetrisi', () => {
+    it('middleware.ts içinde parseBotName ve KMK açık veri link başlıkları tanımlı olmalıdır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const content = fs.readFileSync(path.join(process.cwd(), 'src/middleware.ts'), 'utf-8');
+      expect(content).toContain('parseBotName');
+      expect(content).toContain('/api/tesis-yonetimi/kmk-law-index.json');
+      expect(content).toContain('/api/tesis-yonetimi/llm-facts.json');
+      expect(content).toContain('X-AI-KMK-Law-Index');
+      expect(content).toContain('X-AI-Facts');
+    });
+  });
+
+  describe('29. feed.xml WebSub Google Hub Entegrasyonu', () => {
+    it('tesis-yonetimi feed.xml resmi WebSub Hub ve HTTP Link başlığı sunmalıdır', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/feed.xml/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      const text = await res.text();
+      expect(text).toContain('rel="hub"');
+      expect(text).toContain('https://pubsubhubbub.appspot.com/');
+      const linkHeader = res.headers.get('Link');
+      expect(linkHeader).toBeDefined();
+      expect(linkHeader).toContain('rel="hub"');
+      expect(linkHeader).toContain('rel="self"');
+    });
+  });
+
+  describe('30. webSubPinger Çoklu Besleme Bildirim Desteği', () => {
+    it('publishWebSubPing parametresiz ve dizi ile çağrıldığında başarıyla çözülmelidir', async () => {
+      const { publishWebSubPing } = await import('./webSubPinger');
+      const resultDefault = await publishWebSubPing();
+      expect(resultDefault).toBe(true);
+
+      const resultMulti = await publishWebSubPing([
+        'https://aloyonetim.com.tr/feed.xml',
+        'https://aloyonetim.com.tr/api/tesis-yonetimi/feed.xml',
+      ]);
+      expect(resultMulti).toBe(true);
+    });
+  });
 });
+
 
 

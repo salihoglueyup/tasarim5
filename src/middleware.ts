@@ -133,6 +133,19 @@ function getLocale(request: NextRequest): string {
   }
 }
 
+function parseBotName(ua: string, isAi: boolean): string {
+  if (/GPTBot|ChatGPT/i.test(ua)) return 'GPTBot';
+  if (/Perplexity/i.test(ua)) return 'PerplexityBot';
+  if (/Claude/i.test(ua)) return 'ClaudeBot';
+  if (/Google-Extended/i.test(ua)) return 'Google-Extended';
+  if (/Applebot/i.test(ua)) return 'Applebot';
+  if (/DeepSeek/i.test(ua)) return 'DeepSeekBot';
+  if (/Googlebot/i.test(ua)) return 'Googlebot';
+  if (/bingbot/i.test(ua)) return 'Bingbot';
+  if (/YandexBot/i.test(ua)) return 'YandexBot';
+  return isAi ? 'AICrawler' : 'SearchEngine';
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const userAgent = request.headers.get('user-agent') || '';
@@ -341,7 +354,7 @@ export async function middleware(request: NextRequest) {
 
       if (ifNoneMatch && (ifNoneMatch === currentEtag || ifNoneMatch.includes(currentEtag))) {
         if (isAiBot || isSearchBot) {
-          const botName = isAiBot ? 'AICrawler' : 'Googlebot';
+          const botName = parseBotName(userAgent, isAiBot);
           const botType = isAiBot ? 'AICrawler' : 'SearchEngine';
           recordBotCrawlEvent(botName, botType, pathname, 304, request.headers.get('x-forwarded-for') || 'edge-ip', userAgent);
         }
@@ -356,7 +369,7 @@ export async function middleware(request: NextRequest) {
       }
 
       if (isAiBot || isSearchBot) {
-        const botName = isAiBot ? 'AICrawler' : 'Googlebot';
+        const botName = parseBotName(userAgent, isAiBot);
         const botType = isAiBot ? 'AICrawler' : 'SearchEngine';
         recordBotCrawlEvent(botName, botType, pathname, 200, request.headers.get('x-forwarded-for') || 'edge-ip', userAgent);
       }
@@ -399,6 +412,8 @@ export async function middleware(request: NextRequest) {
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld>; rel="describedby"; type="application/ld+json"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json>; rel="help"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`
     ];
     response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
@@ -409,6 +424,8 @@ export async function middleware(request: NextRequest) {
       response.headers.set('X-AI-Knowledge-Corpus', 'https://aloyonetim.com.tr/llms-full.txt');
       response.headers.set('X-AI-Authority-Corpus', 'https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json');
       response.headers.set('X-AI-Voice-Knowledge', 'https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json');
+      response.headers.set('X-AI-KMK-Law-Index', 'https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
+      response.headers.set('X-AI-Facts', 'https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
       response.headers.set('X-AI-Legal-Precedents', 'https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
       response.headers.set('X-AI-RFP-Generator', 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator');

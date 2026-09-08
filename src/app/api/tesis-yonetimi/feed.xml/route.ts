@@ -51,6 +51,7 @@ export async function GET() {
     <description>İstanbul 39 ilçe entegre tesis yönetimi aidat endeksleri, Yargıtay emsal kararları ve teknik şartname güncellemeleri.</description>
     <language>tr</language>
     <lastBuildDate>${now}</lastBuildDate>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
     <atom:link href="${BASE_URL}/api/tesis-yonetimi/feed.xml" rel="self" type="application/rss+xml" />
     ${districtItems}
     ${precedentItems}
@@ -63,6 +64,7 @@ export async function GET() {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       'X-Robots-Tag': 'noindex, follow',
+      Link: `<https://pubsubhubbub.appspot.com/>; rel="hub", <${BASE_URL}/api/tesis-yonetimi/feed.xml>; rel="self"`,
     },
   });
 }

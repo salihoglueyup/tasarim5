@@ -23,6 +23,9 @@ const AI_BOTS = [
   'Applebot-Extended',
   'cohere-ai',
   'DeepSeekBot',
+  'Amazonbot',
+  'Meta-ExternalAgent',
+  'Bytespider',
 ];
 
 export default function robots(): MetadataRoute.Robots {
@@ -34,6 +37,9 @@ export default function robots(): MetadataRoute.Robots {
     '/api/tesis-yonetimi/calculate-budget',
     '/api/tesis-yonetimi/dictionary.json',
     '/api/tesis-yonetimi/legal-precedents.json',
+    '/api/tesis-yonetimi/kmk-law-index.json',
+    '/api/tesis-yonetimi/authority-corpus.json',
+    '/api/tesis-yonetimi/voice-knowledge.json',
     '/api/tesis-yonetimi/rfp-generator',
     '/api/tesis-yonetimi/feed.xml',
     '/api/tesis-yonetimi/llm-facts.json',

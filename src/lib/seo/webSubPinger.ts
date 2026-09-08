@@ -6,21 +6,26 @@ import { BASE_URL } from '@/lib/seo';
  * Yeni bir blog yazısı veya RSS içeriği yayınlandığında Google PubSubHubbub Hub'ına
  * anında HTTP POST atarak arama botlarının beklemeden beslemeyi taramasını sağlar.
  */
-export async function publishWebSubPing(feedUrl: string = `${BASE_URL}/feed.xml`): Promise<boolean> {
+export async function publishWebSubPing(
+  feedUrls: string | string[] = [`${BASE_URL}/feed.xml`, `${BASE_URL}/api/tesis-yonetimi/feed.xml`]
+): Promise<boolean> {
   try {
-    const params = new URLSearchParams();
-    params.append('hub.mode', 'publish');
-    params.append('hub.url', feedUrl);
+    const urls = Array.isArray(feedUrls) ? feedUrls : [feedUrls];
+    for (const feedUrl of urls) {
+      const params = new URLSearchParams();
+      params.append('hub.mode', 'publish');
+      params.append('hub.url', feedUrl);
 
-    fetch('https://pubsubhubbub.appspot.com/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params.toString(),
-    }).catch((err) => {
-      console.error('WebSub ping background fetch error:', err);
-    });
+      fetch('https://pubsubhubbub.appspot.com/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params.toString(),
+      }).catch((err) => {
+        console.error('WebSub ping background fetch error:', err);
+      });
+    }
 
     return true;
   } catch (error) {
