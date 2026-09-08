@@ -869,6 +869,51 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.totalDistrictsAudited).toBe(39);
     });
   });
+
+  describe('48. dues-index.json Schema.org Dataset ve Açık Veri Doğrulaması', () => {
+    it('Google Dataset Search standartlarında Dataset şeması ve CC-BY-SA lisansı sunar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+
+      const data = await res.json();
+      expect(data.schema).toBeDefined();
+      expect(data.schema['@type']).toBe('Dataset');
+      expect(data.schema.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
+      expect(data.schema.creator.name).toBe('Alo Yönetim');
+      expect(data.schema.creator.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.schema.spatialCoverage.name).toBe('İstanbul');
+      expect(data.schema.distribution[0].encodingFormat).toBe('application/json');
+    });
+  });
+
+  describe('49. kmk-law-index.json TBMM Wikidata Bağı ve API Başlık Standardizasyonu', () => {
+    it('TBMM Q640108 Wikidata bağını, voice-qa ve bot-analytics başlıklarını doğrular', async () => {
+      // 1. kmk-law-index TBMM Wikidata ve X-Robots-Tag
+      const { GET: getKmk } = await import('@/app/api/tesis-yonetimi/kmk-law-index.json/route');
+      const kmkReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
+      const kmkRes = await getKmk(kmkReq);
+      expect(kmkRes.status).toBe(200);
+      expect(kmkRes.headers.get('X-Robots-Tag')).toBe('all');
+      const kmkData = await kmkRes.json();
+      expect(kmkData.schema.itemListElement[0].item.legislationPassedBy.sameAs).toContain('Q640108');
+
+      // 2. voice-qa Content-Type
+      const { GET: getVoice } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
+      const voiceRes = await getVoice();
+      expect(voiceRes.status).toBe(200);
+      expect(voiceRes.headers.get('Content-Type')).toContain('application/json');
+
+      // 3. bot-analytics noindex
+      const { GET: getBot } = await import('@/app/api/seo/bot-analytics/route');
+      const botRes = await getBot();
+      expect(botRes.status).toBe(200);
+      expect(botRes.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(botRes.headers.get('Content-Type')).toContain('application/json');
+    });
+  });
 });
 
 

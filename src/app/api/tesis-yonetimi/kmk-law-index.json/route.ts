@@ -23,6 +23,7 @@ export async function GET(req: Request) {
         legislationPassedBy: {
           '@type': 'GovernmentOrganization',
           name: 'Türkiye Büyük Millet Meclisi (TBMM)',
+          sameAs: 'https://www.wikidata.org/wiki/Q640108',
         },
         url: item.legalAnchor,
         abstract: item.summary,
@@ -48,6 +49,7 @@ export async function GET(req: Request) {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*',
       'X-KMK-Index': 'KMK-634-Facility-Management-Law-Graph',
+      'X-Robots-Tag': 'all',
     },
     cacheControl: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
   });

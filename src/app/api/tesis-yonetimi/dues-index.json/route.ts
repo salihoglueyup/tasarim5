@@ -54,6 +54,39 @@ export async function GET() {
       averageCostSavingsRate: `%${avgSavingsRate}`,
     },
     districts: districtData,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Dataset',
+      name: 'İstanbul 39 İlçe Tesis Yönetimi ve Aidat Açık Veri İndeksi 2026',
+      description: 'İstanbul genelindeki 39 ilçenin konut başına ortalama m² aidat piyasa verileri ve profesyonel tesis yönetimi ile sağlanan tasarruf oranları.',
+      url: `${BASE_URL}/api/tesis-yonetimi/dues-index.json`,
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      isAccessibleForFree: true,
+      creator: {
+        '@type': 'Organization',
+        '@id': `${BASE_URL}/#organization`,
+        name: 'Alo Yönetim',
+        legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+        url: BASE_URL,
+      },
+      distribution: [
+        {
+          '@type': 'DataDownload',
+          encodingFormat: 'application/json',
+          contentUrl: `${BASE_URL}/api/tesis-yonetimi/dues-index.json`,
+        },
+      ],
+      spatialCoverage: {
+        '@type': 'Place',
+        name: 'İstanbul',
+        sameAs: 'https://www.wikidata.org/wiki/Q406',
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 41.0082,
+          longitude: 28.9784,
+        },
+      },
+    },
   };
 
   return NextResponse.json(payload, {

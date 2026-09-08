@@ -255,6 +255,7 @@ export default async function RootLayout({
                       {
                         or: [
                           { href_matches: "/*/hizmetler*" },
+                          { href_matches: "/*/bolgeler*" },
                           { href_matches: "/*/hakkimizda" },
                           { href_matches: "/*/iletisim" },
                           { href_matches: "/*/hesaplayici" },
