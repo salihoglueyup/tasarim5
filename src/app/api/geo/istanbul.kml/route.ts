@@ -9,7 +9,7 @@ export const revalidate = 86400; // 24 saat önbellek
  * OpenGIS KML (Keyhole Markup Language) Regional Map API (/api/geo/istanbul.kml)
  * 
  * Google Earth, Google Haritalar Botları ve GIS arama motorları için
- * Alo Yönetim'in İstanbul genelindeki 48 ilçe tesis ve güvenlik masası konumlarını
+ * Alo Yönetim'in İstanbul genelindeki 39 ilçe tesis ve güvenlik masası konumlarını
  * KML formatında sunar.
  */
 export async function GET() {
@@ -21,7 +21,7 @@ export async function GET() {
         <p><strong>Yaka:</strong> ${d.side} Yakası</p>
         <p><strong>Yönetilen Proje:</strong> ${d.managedProjects}+ Tesis / Site</p>
         <p><strong>Öne Çıkan Mahalleler:</strong> ${d.neighborhoods.join(', ')}</p>
-        <p><strong>Telefon:</strong> 0216 550 48 48</p>
+        <p><strong>Telefon:</strong> +90 216 755 35 35</p>
         <p><a href="${BASE_URL}/bolgeler/${d.slug}">İlçe Detay Sayfası</a> | <a href="${BASE_URL}/bolgeler/${d.slug}/guvenlik-yonetimi">5188 Güvenlik Hizmetleri</a></p>
       ]]></description>
       <Point>
@@ -44,7 +44,8 @@ ${placemarks}
       'Content-Type': 'application/vnd.google-earth.kml+xml; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
       'Content-Disposition': 'inline; filename="istanbul-aloyonetim.kml"',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     }
   });
 }

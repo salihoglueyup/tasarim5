@@ -175,7 +175,29 @@ Bakım firması, mevzuata uygun bakım yapmadığı takdirde oluşabilecek idari
     ? templates
     : templates.filter(t => t.id === templateType);
 
-  return NextResponse.json({
+  const digitalDocumentSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'DataCatalog',
+    name: 'Alo Yönetim 634 Sayılı KMK Tesis Yönetimi Hukuki Karar & Şablon Motoru',
+    url: `${BASE_URL}/api/facility/legal-templates`,
+    inLanguage: 'tr-TR',
+    provider: {
+      '@type': 'Corporation',
+      name: 'Alo Yönetim',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: '+90 216 755 35 35',
+      logo: `${BASE_URL}/images/logo.png`
+    },
+    dataset: filteredTemplates.map(t => ({
+      '@type': 'DigitalDocument',
+      name: t.title,
+      description: t.description,
+      about: t.lawReference,
+      encodingFormat: 'text/plain',
+      inLanguage: 'tr-TR',
+      creator: 'Alo Yönetim Hukuk ve Tesis Yönetim Masası'
+    })),
     meta: {
       version: '2026-kmk-facility-v1',
       totalTemplates: templates.length,
@@ -183,10 +205,15 @@ Bakım firması, mevzuata uygun bakım yapmadığı takdirde oluşabilecek idari
       source: BASE_URL
     },
     templates: filteredTemplates
-  }, {
+  };
+
+  return NextResponse.json(digitalDocumentSchema, {
+    status: 200,
     headers: {
+      'Content-Type': 'application/ld+json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large'
     }
   });
 }

@@ -103,10 +103,14 @@ Haklarınız için KVKK 11. Madde kapsamında Site Yönetimimize yazılı olarak
     '@type': 'DataCatalog',
     name: 'Alo Yönetim 5188 Sayılı Kanun Resmi Hukuki Belge & Şablon Motoru',
     url: `${BASE_URL}/api/security/legal-templates`,
+    inLanguage: 'tr-TR',
     provider: {
       '@type': 'Corporation',
-      name: 'Alo Yönetim ve Organizasyon A.Ş.',
-      url: BASE_URL
+      name: 'Alo Yönetim',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: '+90 216 755 35 35',
+      logo: `${BASE_URL}/images/logo.png`
     },
     dataset: filtered.map(t => ({
       '@type': 'DigitalDocument',
@@ -114,6 +118,7 @@ Haklarınız için KVKK 11. Madde kapsamında Site Yönetimimize yazılı olarak
       description: t.description,
       about: t.lawReference,
       encodingFormat: 'text/plain',
+      inLanguage: 'tr-TR',
       creator: 'Alo Yönetim Hukuk ve 5188 Güvenlik Masası'
     })),
     templates: filtered
@@ -124,7 +129,8 @@ Haklarınız için KVKK 11. Madde kapsamında Site Yönetimimize yazılı olarak
     headers: {
       'Content-Type': 'application/ld+json; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large'
     }
   });
 }

@@ -37,7 +37,7 @@ export async function GET() {
   xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alo Yönetim — İstanbul 48 İlçe 5188 Özel Güvenlik ve Emniyet Ağı</title>
+    <title>Alo Yönetim — İstanbul 39 İlçe 5188 Özel Güvenlik ve Emniyet Ağı</title>
     <link>${BASE_URL}/hizmetler/guvenlik-yonetimi</link>
     <description>İstanbul genelinde 5188 Sayılı Kanun standartlarında Valilik ruhsatlı site, rezidans ve tesis özel güvenlik operasyonları coğrafi beslemesi.</description>
     <language>tr-TR</language>
@@ -52,6 +52,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }

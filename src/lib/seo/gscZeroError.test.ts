@@ -2088,4 +2088,88 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataDistricts.features[0].properties.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
     });
   });
+
+  describe('86. security & facility legal-templates API DigitalDocument Şemaları ve Kurumsal NAP', () => {
+    it('güvenlik ve tesis hukuki şablon uç noktaları DigitalDocument şeması, inLanguage ve kurumsal NAP döner', async () => {
+      // 1. security legal-templates
+      const { GET: getSecurityTemplates } = await import('@/app/api/security/legal-templates/route');
+      const reqSec = new Request('https://aloyonetim.com.tr/api/security/legal-templates');
+      const resSec = await getSecurityTemplates(reqSec as any);
+      expect(resSec.status).toBe(200);
+      expect(resSec.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(resSec.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resSec.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataSec = await resSec.json();
+      expect(dataSec['@type']).toBe('DataCatalog');
+      expect(dataSec.inLanguage).toBe('tr-TR');
+      expect(dataSec.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataSec.provider.telephone).toBe('+90 216 755 35 35');
+      expect(dataSec.provider.logo).toContain('/images/logo.png');
+      expect(dataSec.dataset.length).toBeGreaterThanOrEqual(3);
+      expect(dataSec.dataset[0]['@type']).toBe('DigitalDocument');
+      expect(dataSec.dataset[0].inLanguage).toBe('tr-TR');
+
+      // 2. facility legal-templates
+      const { GET: getFacilityTemplates } = await import('@/app/api/facility/legal-templates/route');
+      const reqFac = new Request('https://aloyonetim.com.tr/api/facility/legal-templates');
+      const resFac = await getFacilityTemplates(reqFac as any);
+      expect(resFac.status).toBe(200);
+      expect(resFac.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(resFac.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resFac.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataFac = await resFac.json();
+      expect(dataFac['@type']).toBe('DataCatalog');
+      expect(dataFac.inLanguage).toBe('tr-TR');
+      expect(dataFac.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataFac.provider.telephone).toBe('+90 216 755 35 35');
+      expect(dataFac.dataset.length).toBeGreaterThanOrEqual(4);
+      expect(dataFac.dataset[0]['@type']).toBe('DigitalDocument');
+      expect(dataFac.templates.length).toBeGreaterThanOrEqual(4);
+    });
+  });
+
+  describe('87. facility & security districts-feed.xml GeoRSS ve istanbul.kml GIS Standartları', () => {
+    it('GeoRSS beslemeleri ve KML uç noktası geçerli coğrafi etiketler, kurumsal telefon ve robots başlığı sunar', async () => {
+      // 1. facility districts-feed.xml
+      const { GET: getFacilityFeed } = await import('@/app/api/facility/districts-feed.xml/route');
+      const resFacFeed = await getFacilityFeed();
+      expect(resFacFeed.status).toBe(200);
+      expect(resFacFeed.headers.get('Content-Type')).toContain('application/xml');
+      expect(resFacFeed.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resFacFeed.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const xmlFac = await resFacFeed.text();
+      expect(xmlFac).toContain('<rss version="2.0"');
+      expect(xmlFac).toContain('xmlns:georss="http://www.georss.org/georss"');
+      expect(xmlFac).toContain('<georss:point>');
+      expect(xmlFac).toContain('Kadıköy');
+
+      // 2. security districts-feed.xml
+      const { GET: getSecurityFeed } = await import('@/app/api/security/districts-feed.xml/route');
+      const resSecFeed = await getSecurityFeed();
+      expect(resSecFeed.status).toBe(200);
+      expect(resSecFeed.headers.get('Content-Type')).toContain('application/xml');
+      expect(resSecFeed.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resSecFeed.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const xmlSec = await resSecFeed.text();
+      expect(xmlSec).toContain('İstanbul 39 İlçe 5188 Özel Güvenlik');
+      expect(xmlSec).toContain('<georss:point>');
+
+      // 3. istanbul.kml
+      const { GET: getKml } = await import('@/app/api/geo/istanbul.kml/route');
+      const resKml = await getKml();
+      expect(resKml.status).toBe(200);
+      expect(resKml.headers.get('Content-Type')).toContain('application/vnd.google-earth.kml+xml');
+      expect(resKml.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resKml.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const kmlText = await resKml.text();
+      expect(kmlText).toContain('<kml xmlns="http://www.opengis.net/kml/2.2">');
+      expect(kmlText).toContain('<Placemark id="district-kadikoy">');
+      expect(kmlText).toContain('+90 216 755 35 35');
+    });
+  });
 });
