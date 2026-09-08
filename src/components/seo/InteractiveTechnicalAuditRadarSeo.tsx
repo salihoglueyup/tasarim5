@@ -240,7 +240,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 Ücretsiz 48 Saatlik Teknik Keşif İste
               </Link>
               <a
-                href="tel:02165504848"
+                href="tel:+902165504848"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all border border-slate-700"
               >
                 <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>

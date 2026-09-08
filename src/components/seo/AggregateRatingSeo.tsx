@@ -36,7 +36,7 @@ export default function AggregateRatingSeo({
     '@type': 'ProfessionalService',
     name: itemReviewed.name || 'Alo Yönetim Mülk ve Tesis Yönetimi',
     image: 'https://aloyonetim.com.tr/images/logos/new-icon-transparent-hd.png',
-    telephone: '0216 550 48 48',
+    telephone: '+90 216 550 48 48',
     url: 'https://aloyonetim.com.tr',
     address: {
       '@type': 'PostalAddress',

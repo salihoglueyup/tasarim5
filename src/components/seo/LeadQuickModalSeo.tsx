@@ -90,7 +90,7 @@ export default function LeadQuickModalSeo() {
     mainEntity: {
       '@type': 'FinancialService',
       name: 'Alo Yönetim Tesis Teklifi',
-      telephone: '+90-216-550-4848'
+      telephone: '+90 216 550 48 48'
     }
   };
 
@@ -129,7 +129,7 @@ export default function LeadQuickModalSeo() {
 
                 <div className="pt-4 flex flex-col gap-2.5">
                   <a
-                    href="https://wa.me/905325504848?text=Merhaba,%20site%20yonetimi%20icin%20hizli%20teklif%20almak%20istiyorum."
+                    href="https://wa.me/902165504848?text=Merhaba,%20site%20yonetimi%20icin%20hizli%20teklif%20almak%20istiyorum."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-all"

@@ -96,7 +96,7 @@ export default function TeklifAl() {
     url: 'https://aloyonetim.com.tr',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+90-216-550-48-48',
+      telephone: '+90 216 550 48 48',
       contactType: 'sales and quotation',
       areaServed: 'TR',
       availableLanguage: ['Turkish', 'English', 'Russian', 'Arabic'],

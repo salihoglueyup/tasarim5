@@ -388,13 +388,13 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
       {
         actionName: '7/24 Kesintisiz Operasyon ve Çağrı Hattı',
         actionType: 'Phone',
-        target: 'tel:02167060256',
+        target: 'tel:+902165504848',
         description: 'Alo Yönetim acil teknik ve operasyonel destek merkezi.',
       },
       {
         actionName: 'WhatsApp Hızlı İletişim ve Destek',
         actionType: 'WhatsApp',
-        target: 'https://wa.me/902167060256',
+        target: 'https://wa.me/902165504848',
         description: 'Tesis yöneticisi ile anında dijital mesajlaşma ve dosya paylaşımı.',
       },
       {
