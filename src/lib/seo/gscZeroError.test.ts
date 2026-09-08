@@ -697,7 +697,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const res = await GET();
       expect(res.status).toBe(200);
       expect(res.headers.get('Content-Type')).toContain('application/ld+json');
-      expect(res.headers.get('X-Robots-Tag')).toBe('all');
+      expect(res.headers.get('X-Robots-Tag')).toContain('all');
       const data = await res.json();
       expect(data['@context']).toBe('https://schema.org');
       const org = data['@graph'].find((node: any) => node['@type'] === 'Organization');
@@ -1789,6 +1789,70 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.coreService.standards).toContain('ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)');
       expect(data.districtDuesBenchmarks39.length).toBe(39);
       expect(data.linkedApis.aiOverviewsSnippets).toContain('/api/tesis-yonetimi/ai-snippets.json');
+    });
+  });
+
+  describe('76. voice-qa.json API SpeakableSpecification Şeması, Kurumsal NAP ve Çok Dilli Sesli Sentez', () => {
+    it('GET isteğinde SpeakableSpecification şeması, kurumsal telefon/logo ve çok dilli sesli yanıt döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
+
+      // 1. Türkçe varsayılan istek
+      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json');
+      const resTr = await GET(reqTr);
+      expect(resTr.status).toBe(200);
+      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataTr = await resTr.json();
+      expect(dataTr.publisher).toBeDefined();
+      expect(dataTr.publisher.name).toBe('Alo Yönetim');
+      expect(dataTr.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataTr.publisher.logo).toContain('/images/logo.png');
+      expect(dataTr.qaCollection.length).toBeGreaterThanOrEqual(3);
+      expect(dataTr.qaCollection[0].schema['@type']).toBe('SpeakableSpecification');
+      expect(dataTr.qaCollection[0].schema.inLanguage).toBe('tr');
+
+      // 2. İngilizce lokalizasyon isteği (?lang=en)
+      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json?lang=en');
+      const resEn = await GET(reqEn);
+      expect(resEn.status).toBe(200);
+      const dataEn = await resEn.json();
+      expect(dataEn.supportedLanguages).toContain('en');
+      expect(dataEn.qaCollection[0].lang).toBe('en');
+      expect(dataEn.qaCollection[0].spokenAnswer).toContain('Alo Management');
+    });
+  });
+
+  describe('77. entity-graph.jsonld Master Entity Graph, Yargıtay Q1549429 ve Kurumsal NAP', () => {
+    it('GET isteğinde application/ld+json, kurumsal telefon, Yargıtay Q1549429 ve ilçe düğümleri döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/entity-graph.jsonld/route');
+
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await res.json();
+      expect(data['@context']).toBe('https://schema.org');
+      expect(data['@graph']).toBeDefined();
+
+      // Kurumsal Organizasyon düğümü kontrolü
+      const orgNode = data['@graph'].find((n: any) => n['@type'] === 'Organization');
+      expect(orgNode).toBeDefined();
+      expect(orgNode.name).toBe('Alo Yönetim');
+      expect(orgNode.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(orgNode.telephone).toBe('+90 216 755 35 35');
+      expect(orgNode.hasCredential.length).toBeGreaterThanOrEqual(3);
+
+      // Yargıtay emsal kararları düğümü kontrolü (Q1549429)
+      const legislationNode = data['@graph'].find((n: any) => n['@type'] === 'Legislation');
+      expect(legislationNode).toBeDefined();
+      expect(legislationNode.legislationPassedBy.sameAs).toBe('https://www.wikidata.org/wiki/Q1549429');
+
+      // İlçe idari alan düğümleri kontrolü (39 ilçe)
+      const districtNodes = data['@graph'].filter((n: any) => n['@type'] === 'AdministrativeArea');
+      expect(districtNodes.length).toBe(39);
     });
   });
 });

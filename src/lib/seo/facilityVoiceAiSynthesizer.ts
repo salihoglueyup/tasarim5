@@ -16,6 +16,14 @@ export interface VoiceAiSynthesizerPayload {
   timestamp: string;
   supportedLanguages: string[];
   totalVoiceAnswers: number;
+  publisher?: {
+    '@type': 'Organization';
+    name: string;
+    legalName: string;
+    url: string;
+    telephone: string;
+    logo: string;
+  };
   qaCollection: VoiceQaItem[];
 }
 
@@ -125,6 +133,14 @@ export function synthesizeFacilityVoiceQA(
     timestamp: new Date().toISOString(),
     supportedLanguages: filterLang ? [filterLang] : ['tr', 'en', 'ru', 'ar'],
     totalVoiceAnswers: filtered.length,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim',
+      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      telephone: '+90 216 755 35 35',
+      logo: `${BASE_URL}/images/logo.png`,
+    },
     qaCollection: filtered,
   };
 }

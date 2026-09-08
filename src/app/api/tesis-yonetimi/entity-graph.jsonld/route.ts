@@ -36,7 +36,7 @@ export async function GET() {
     legislationPassedBy: {
       '@type': 'GovernmentOrganization',
       name: p.court,
-      sameAs: 'https://www.wikidata.org/wiki/Q1544458', // Yargıtay Wikidata
+      sameAs: 'https://www.wikidata.org/wiki/Q1549429', // Yargıtay Wikidata (T.C. Yargıtay Başkanlığı)
     },
     legislationIdentifier: `${p.docketNumber} / ${p.decisionNumber}`,
     datePublished: p.decisionDate,
@@ -54,7 +54,7 @@ export async function GET() {
         url: BASE_URL,
         logo: `${BASE_URL}/icon.png`,
         foundingDate: '2009',
-        telephone: '+902165504848',
+        telephone: '+90 216 755 35 35',
         email: 'info@aloyonetim.com.tr',
         publishingPrinciples: `${BASE_URL}/hakkimizda`,
         knowsAbout: [
@@ -122,7 +122,7 @@ export async function GET() {
       'Content-Type': 'application/ld+json; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       'Access-Control-Allow-Origin': '*',
-      'X-Robots-Tag': 'all',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }
