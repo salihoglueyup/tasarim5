@@ -51,10 +51,13 @@ export function generateFacilityRfpDocument(config: RfpConfig) {
     name: `${facilityName} — Profesyonel Tesis Yönetimi Teknik İhale Şartnamesi (RFP)`,
     description: `${district.name} ${units} bağımsız bölümlü tesis için ISO 41001 ve KMK 634 standartlarında hazırlanmış resmi ihale ve yönetim şartnamesi.`,
     url: `${BASE_URL}/api/tesis-yonetimi/rfp-generator`,
+    inLanguage: 'tr-TR',
     publisher: {
       '@type': 'Organization',
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
+      logo: `${BASE_URL}/images/logo.png`,
+      telephone: '+90 216 755 35 35',
     },
     about: [
       { '@type': 'Thing', name: 'Tesis Yönetimi Şartnamesi' },

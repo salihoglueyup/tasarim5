@@ -1607,10 +1607,79 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataPost.priceSpecification.price).toBeGreaterThan(0);
     });
   });
+
+  describe('70. rfp-generator API DigitalDocument Şeması, Kurumsal NAP ve X-Robots-Tag', () => {
+    it('GET ve POST isteklerinde DigitalDocument şeması, NAP bilgileri ve X-Robots-Tag all döner', async () => {
+      const { GET, POST } = await import('@/app/api/tesis-yonetimi/rfp-generator/route');
+
+      // 1. GET İsteği
+      const reqGet = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator?facilityName=Kalamis+Marina+Sitesi&units=120&blocks=4&district=kadikoy');
+      const resGet = await GET(reqGet as any);
+      expect(resGet.status).toBe(200);
+      expect(resGet.headers.get('Content-Type')).toContain('application/json');
+      expect(resGet.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resGet.headers.get('X-Robots-Tag')).toContain('all');
+
+      const dataGet = await resGet.json();
+      expect(dataGet.facilityName).toBe('Kalamis Marina Sitesi');
+      expect(dataGet.units).toBe(120);
+      expect(dataGet.blocks).toBe(4);
+      expect(dataGet.sections.length).toBeGreaterThanOrEqual(4);
+
+      // Schema.org DigitalDocument & Kurumsal NAP kontrolleri
+      expect(dataGet.schema['@type']).toBe('DigitalDocument');
+      expect(dataGet.schema.inLanguage).toBe('tr-TR');
+      expect(dataGet.schema.publisher['@type']).toBe('Organization');
+      expect(dataGet.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(dataGet.schema.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(dataGet.schema.publisher.logo).toContain('/images/logo.png');
+
+      // 2. POST İsteği
+      const reqPost = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          facilityName: 'Akatlar Konakları',
+          units: 45,
+          blocks: 3,
+          district: 'besiktas',
+          services: ['guvenlik', 'temizlik', 'teknik'],
+        }),
+      });
+      const resPost = await POST(reqPost as any);
+      expect(resPost.status).toBe(200);
+      expect(resPost.headers.get('X-Robots-Tag')).toContain('all');
+
+      const dataPost = await resPost.json();
+      expect(dataPost.facilityName).toBe('Akatlar Konakları');
+      expect(dataPost.districtName).toBe('Beşiktaş');
+      expect(dataPost.schema['@type']).toBe('DigitalDocument');
+      expect(dataPost.fullText).toContain('Akatlar Konakları');
+    });
+  });
+
+  describe('71. authority-corpus.json Master Knowledge Corpus Bütünlüğü ve CORS/Robots Başlıkları', () => {
+    it('GET isteğinde ISO 41001 ve KMK 634 külliyatı, CORS ve zengin robots başlıkları döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/authority-corpus.json/route');
+
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json');
+      const res = await GET(req);
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Topical-Authority')).toContain('ISO 41001 & KMK 634');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const corpus = await res.json();
+      expect(corpus.protocolVersion).toBeDefined();
+      expect(corpus.authorityEntity.name).toBe('Alo Yönetim');
+      expect(corpus.authorityEntity.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(corpus.authorityEntity.telephone).toBe('+90 216 755 35 35');
+      expect(corpus.authorityEntity.certifications.length).toBeGreaterThanOrEqual(5);
+
+      // Yasal Çerçeve ve İlçe Matrisi Doğrulaması
+      expect(corpus.legalFramework.kmk634Articles.length).toBeGreaterThanOrEqual(5);
+      expect(corpus.districtMatrix.length).toBeGreaterThan(0);
+      expect(corpus.provenMetrics.activeFacilityPortfolioCount).toBeGreaterThan(0);
+    });
+  });
 });
-
-
-
-
-
-

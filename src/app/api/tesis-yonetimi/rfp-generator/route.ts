@@ -20,6 +20,7 @@ export async function GET(request: NextRequest) {
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
       'X-RFP-Generator': 'Alo-Yonetim-Facility-RFP-Engine-v1',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }
@@ -34,9 +35,25 @@ export async function POST(request: NextRequest) {
       districtSlug: body.district || 'kadikoy',
       servicesNeeded: body.services || ['guvenlik', 'temizlik', 'teknik', 'muhasebe'],
     });
-    return NextResponse.json(rfp, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*' } });
+    return NextResponse.json(rfp, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+        'X-RFP-Generator': 'Alo-Yonetim-Facility-RFP-Engine-v1',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+      },
+    });
   } catch {
     const defaultRfp = generateFacilityRfpDocument({ facilityName: 'Örnek Site', units: 60, blocks: 2, districtSlug: 'kadikoy', servicesNeeded: ['guvenlik', 'temizlik', 'teknik', 'muhasebe'] });
-    return NextResponse.json(defaultRfp, { status: 200 });
+    return NextResponse.json(defaultRfp, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+      },
+    });
   }
 }

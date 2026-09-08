@@ -13,9 +13,10 @@ export async function GET(request: Request) {
     status: 200,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
       'X-Topical-Authority': 'ISO 41001 & KMK 634 Master Knowledge Corpus',
-      'X-Robots-Tag': 'all, max-snippet:-1',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }

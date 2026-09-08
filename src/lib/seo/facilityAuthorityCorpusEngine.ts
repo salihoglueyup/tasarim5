@@ -45,6 +45,7 @@ export interface FacilityAuthorityCorpus {
     legalName: string;
     certifications: string[];
     officialUrl: string;
+    telephone?: string;
   };
   legalFramework: {
     kmk634Articles: FacilityLegalArticle[];
@@ -256,6 +257,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
         '5188 Sayılı Kanun Lisanslı Güvenlik Partnerliği'
       ],
       officialUrl: BASE_URL,
+      telephone: '+90 216 755 35 35',
     },
     legalFramework: {
       kmk634Articles: kmkArticles,
