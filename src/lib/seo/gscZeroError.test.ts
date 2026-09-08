@@ -1466,6 +1466,70 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       )).toBe(true);
     });
   });
+
+  describe('66. voice-knowledge.json Sesli Arama, Speakable Şeması & Intent Filtreleme', () => {
+    it('SpeakableSpecification şeması, inLanguage ve niyet bazlı soru filtreleme sunar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/voice-knowledge.json/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+      expect(resAll.headers.get('X-Voice-Search-Protocol')).toBe('Speakable-v1');
+
+      const dataAll = await resAll.json();
+      expect(dataAll.totalQuestionsCount).toBeGreaterThanOrEqual(5);
+      expect(dataAll.speakableSchemaJsonLd['@type']).toBe('QAPage');
+      expect(dataAll.speakableSchemaJsonLd.inLanguage).toBe('tr');
+      expect(dataAll.speakableSchemaJsonLd.speakable['@type']).toBe('SpeakableSpecification');
+      expect(dataAll.speakableSchemaJsonLd.speakable.inLanguage).toBe('tr');
+
+      const firstAnswer = dataAll.speakableSchemaJsonLd.mainEntity[0].acceptedAnswer;
+      expect(firstAnswer.author.telephone).toBe('+90 216 755 35 35');
+      expect(firstAnswer.author.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+
+      // 2. Hukuki Niyet Filtresi (?intent=legal)
+      const reqLegal = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json?intent=legal');
+      const resLegal = await GET(reqLegal);
+      const dataLegal = await resLegal.json();
+      expect(dataLegal.appliedIntent).toBe('legal');
+      expect(dataLegal.questions.length).toBeGreaterThan(0);
+      expect(dataLegal.questions.every((q: any) => q.queryIntent === 'legal')).toBe(true);
+      expect(dataLegal.totalQuestionsCount).toBe(dataLegal.questions.length);
+    });
+  });
+
+  describe('67. geo-feed.xml GeoRSS Bölge Beslemesi & X-Robots-Tag Güvencesi', () => {
+    it('GeoRSS XML şeması, georss:point etiketleri, X-Robots-Tag all ve ?side=anadolu filtresi sunar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/geo-feed.xml/route');
+
+      // 1. Genel parametresiz çağrı
+      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml');
+      const resAll = await GET(reqAll);
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('Content-Type')).toContain('application/xml');
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
+
+      const xmlAll = await resAll.text();
+      expect(xmlAll).toContain('<rss version="2.0"');
+      expect(xmlAll).toContain('xmlns:georss="http://www.georss.org/georss"');
+      expect(xmlAll).toContain('<georss:point>');
+      expect(xmlAll).toContain('<tesis:districtSlug>kadikoy</tesis:districtSlug>');
+      expect(xmlAll).toContain('<tesis:districtSlug>besiktas</tesis:districtSlug>');
+
+      // 2. Anadolu Yakası Filtresi (?side=anadolu)
+      const reqAnadolu = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml?side=anadolu');
+      const resAnadolu = await GET(reqAnadolu);
+      expect(resAnadolu.status).toBe(200);
+
+      const xmlAnadolu = await resAnadolu.text();
+      expect(xmlAnadolu).toContain('<tesis:districtSlug>kadikoy</tesis:districtSlug>');
+      expect(xmlAnadolu).toContain('<tesis:districtSlug>uskudar</tesis:districtSlug>');
+      expect(xmlAnadolu).not.toContain('<tesis:districtSlug>besiktas</tesis:districtSlug>');
+      expect(xmlAnadolu).not.toContain('<tesis:districtSlug>sisli</tesis:districtSlug>');
+    });
+  });
 });
 
 

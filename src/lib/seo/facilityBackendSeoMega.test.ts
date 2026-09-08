@@ -56,7 +56,7 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
 
   describe('39 İlçe Dinamik GeoRSS XML Feed (/api/tesis-yonetimi/geo-feed.xml)', () => {
     it('Geçerli GeoRSS XML üretir ve 39 ilçeyi kapsar', async () => {
-      const res = await getGeoFeed();
+      const res = await getGeoFeed(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml'));
       expect(res.status).toBe(200);
 
       const xmlText = await res.text();

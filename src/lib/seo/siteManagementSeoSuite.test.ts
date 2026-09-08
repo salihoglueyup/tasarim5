@@ -165,7 +165,7 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
 
     it('geo-feed.xml 39 ilçede site ve tesis yönetimi verilerini barındırır', async () => {
-      const res = await getGeoFeed();
+      const res = await getGeoFeed(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml'));
       const xml = await res.text();
       expect(xml).toContain('Tesis Yönetimi');
       expect(xml).toContain('Kadıköy');

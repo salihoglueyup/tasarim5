@@ -15,10 +15,31 @@ function escapeXml(str: string): string {
     .replace(/'/g, '&apos;');
 }
 
-export async function GET() {
+export async function GET(req: Request) {
+  let sideFilter: string | null = null;
+
+  if (req && req.url) {
+    try {
+      const { searchParams } = new URL(req.url);
+      sideFilter = searchParams.get('side');
+    } catch {
+      // noop
+    }
+  }
+
+  let selectedDistricts = DISTRICTS;
+  if (sideFilter) {
+    const cleanSide = sideFilter.trim().toLowerCase();
+    if (cleanSide === 'anadolu' || cleanSide === 'anatolian') {
+      selectedDistricts = selectedDistricts.filter((d) => d.side === 'Anadolu');
+    } else if (cleanSide === 'avrupa' || cleanSide === 'european') {
+      selectedDistricts = selectedDistricts.filter((d) => d.side === 'Avrupa');
+    }
+  }
+
   const lastBuildDate = new Date().toUTCString();
 
-  const items = DISTRICTS.map((d) => {
+  const items = selectedDistricts.map((d) => {
     const url = `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`;
     const title = `${d.name} Profesyonel Tesis Yönetimi & 7/24 Saha İşletmesi — Alo Yönetim`;
     const neighborhoods = d.neighborhoods.slice(0, 4).join(', ');
@@ -58,10 +79,10 @@ export async function GET() {
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:tesis="https://aloyonetim.com.tr/ns/tesis">
   <channel>
-    <title>Alo Yönetim — İstanbul 39 İlçe Tesis Yönetimi Coğrafi GeoRSS Beslemesi</title>
+    <title>Alo Yönetim — İstanbul ${selectedDistricts.length} İlçe Tesis Yönetimi Coğrafi GeoRSS Beslemesi</title>
     <link>${BASE_URL}/hizmetler/tesis-yonetimi</link>
     <atom:link href="${BASE_URL}/api/tesis-yonetimi/geo-feed.xml" rel="self" type="application/rss+xml" />
-    <description>İstanbul genelinde 39 ilçede KMK 634, ISO 41001 ve 5188 standartlarında profesyonel tesis yönetimi, rezidans işletmesi, site ve plaza yönetimi coğrafi koordinat ve hizmet ağı beslemesi.</description>
+    <description>İstanbul genelinde ${selectedDistricts.length} ilçede KMK 634, ISO 41001 ve 5188 standartlarında profesyonel tesis yönetimi, rezidans işletmesi, site ve plaza yönetimi coğrafi koordinat ve hizmet ağı beslemesi.</description>
     <language>tr-TR</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <managingEditor>${CANONICAL_NAP.contact.email} (${CANONICAL_NAP.legal.legalName})</managingEditor>
@@ -70,7 +91,7 @@ export async function GET() {
     <category>Tesis Yönetimi</category>
     <category>Rezidans Yönetimi</category>
     <category>Site Yönetimi</category>
-    <category>İstanbul 39 İlçe Coğrafi Hizmet Haritası</category>
+    <category>İstanbul Coğrafi Hizmet Haritası</category>
     <ttl>1440</ttl>
     ${items}
   </channel>
@@ -81,6 +102,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1',
     },
   });
 }

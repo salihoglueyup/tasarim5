@@ -14,6 +14,7 @@ export interface VoiceKnowledgeGraph {
   totalQuestionsCount: number;
   lastUpdated: string;
   canonicalSource: string;
+  appliedIntent?: string;
   questions: VoiceSearchQAItem[];
   speakableSchemaJsonLd: Record<string, any>;
 }
@@ -24,11 +25,11 @@ export interface VoiceKnowledgeGraph {
  * Google Featured Snippet (0. Sıra), Sesli Asistanlar (Google Assistant, Siri)
  * ve LLM Arama Motorları için optimize edilmiş doğrudan, net ve otoriter yanıtlar üretir.
  */
-export function buildFacilityVoiceKnowledge(lang: string = 'tr'): VoiceKnowledgeGraph {
+export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: string): VoiceKnowledgeGraph {
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
   const canonicalSource = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
 
-  const questions: VoiceSearchQAItem[] = [
+  const allQuestions: VoiceSearchQAItem[] = [
     {
       id: 'kmk-yonetici-aidat-muafiyeti',
       queryIntent: 'legal',
@@ -85,10 +86,17 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr'): VoiceKnowledge
     },
   ];
 
+  let questions = allQuestions;
+  if (filterIntent) {
+    const cleanIntent = filterIntent.trim().toLowerCase();
+    questions = allQuestions.filter((q) => q.queryIntent.toLowerCase() === cleanIntent);
+  }
+
   const speakableSchemaJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'QAPage',
     '@id': `${canonicalSource}#voice-qa`,
+    inLanguage: lang,
     mainEntity: questions.map((q) => ({
       '@type': 'Question',
       name: q.voiceQuery,
@@ -102,12 +110,15 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr'): VoiceKnowledge
         author: {
           '@type': 'Organization',
           name: 'Alo Yönetim',
+          legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
           url: BASE_URL,
+          telephone: '+90 216 755 35 35',
         },
       },
     })),
     speakable: {
       '@type': 'SpeakableSpecification',
+      inLanguage: lang,
       xpath: [
         "/html/head/title",
         "/html/head/meta[@name='description']/@content",
@@ -120,6 +131,7 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr'): VoiceKnowledge
     totalQuestionsCount: questions.length,
     lastUpdated: '2026-08-28T09:00:00+03:00',
     canonicalSource,
+    appliedIntent: filterIntent,
     questions,
     speakableSchemaJsonLd,
   };
