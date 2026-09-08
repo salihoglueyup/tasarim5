@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/lib/seo';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 import { createETagResponse } from '@/lib/security/etag';
 
@@ -10,6 +11,14 @@ export async function GET(req: Request) {
     '@type': 'ItemList',
     name: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Tesis Yönetimi Mevzuat İndeksi',
     description: 'Site ve apartman işletmeciliğini düzenleyen 634 sayılı KMK yasa maddeleri, cezalar ve uygulama kılavuzu.',
+    inLanguage: 'tr-TR',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      logo: `${BASE_URL}/images/logo.png`,
+      telephone: '+90 216 755 35 35',
+    },
     itemListElement: KMK_LAW_INDEX.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -49,7 +58,7 @@ export async function GET(req: Request) {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*',
       'X-KMK-Index': 'KMK-634-Facility-Management-Law-Graph',
-      'X-Robots-Tag': 'all',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
     cacheControl: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
   });

@@ -565,7 +565,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.schema['@type']).toBe('AboutPage');
       const entity = data.schema.mainEntity;
       expect(entity['@type']).toBe('Organization');
-      expect(entity.telephone).toBe('+90 216 550 48 48');
+      expect(entity.telephone).toBe('+90 216 755 35 35');
       expect(entity.address.addressLocality).toBe('Kadıköy');
       expect(entity.address.addressCountry).toBe('TR');
       expect(entity.hasCredential.length).toBeGreaterThanOrEqual(3);
@@ -898,7 +898,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const kmkReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
       const kmkRes = await getKmk(kmkReq);
       expect(kmkRes.status).toBe(200);
-      expect(kmkRes.headers.get('X-Robots-Tag')).toBe('all');
+      expect(kmkRes.headers.get('X-Robots-Tag')).toContain('all');
       const kmkData = await kmkRes.json();
       expect(kmkData.schema.itemListElement[0].item.legislationPassedBy.sameAs).toContain('Q640108');
 
@@ -1853,6 +1853,52 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       // İlçe idari alan düğümleri kontrolü (39 ilçe)
       const districtNodes = data['@graph'].filter((n: any) => n['@type'] === 'AdministrativeArea');
       expect(districtNodes.length).toBe(39);
+    });
+  });
+
+  describe('78. kmk-law-index.json API ItemList Şeması, Kurumsal NAP ve Genişletilmiş Robots Başlıkları', () => {
+    it('GET isteğinde ItemList şeması, kurumsal telefon/logo ve TBMM Wikidata bağı döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/kmk-law-index.json/route');
+
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
+      const res = await GET(req);
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      expect(res.headers.get('ETag')).toBeDefined();
+
+      const data = await res.json();
+      expect(data.schema['@type']).toBe('ItemList');
+      expect(data.schema.inLanguage).toBe('tr-TR');
+      expect(data.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.schema.publisher.telephone).toBe('+90 216 755 35 35');
+      expect(data.schema.publisher.logo).toContain('/images/logo.png');
+      expect(data.articles.length).toBeGreaterThanOrEqual(8);
+    });
+  });
+
+  describe('79. verify-credentials API AboutPage Şeması, Kurumsal Akreditasyonlar ve Doğrulanmış NAP', () => {
+    it('GET isteğinde ISO 41001 sertifikası, 5188 lisansı, kurumsal telefon ve AboutPage şeması döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/verify-credentials/route');
+
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await res.json();
+      expect(data.organization.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(data.organization.verifiedStatus).toBe('ACTIVE_AND_LICENSED');
+      expect(data.accreditations.length).toBeGreaterThanOrEqual(5);
+
+      // Schema.org AboutPage & Kurumsal NAP kontrolleri
+      expect(data.schema['@type']).toBe('AboutPage');
+      expect(data.schema.inLanguage).toBe('tr-TR');
+      expect(data.schema.mainEntity.telephone).toBe('+90 216 755 35 35');
+      expect(data.schema.mainEntity.logo).toContain('/images/logo.png');
+      expect(data.schema.mainEntity.hasCredential.length).toBeGreaterThanOrEqual(3);
     });
   });
 });

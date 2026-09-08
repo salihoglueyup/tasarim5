@@ -70,11 +70,13 @@ export async function GET() {
       '@type': 'AboutPage',
       name: 'Alo Yönetim Resmi Lisans ve Akreditasyon Doğrulama Merkezi',
       url: `${BASE_URL}/api/tesis-yonetimi/verify-credentials`,
+      inLanguage: 'tr-TR',
       mainEntity: {
         '@type': 'Organization',
         name: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
-        telephone: '+90 216 550 48 48',
+        logo: `${BASE_URL}/images/logo.png`,
+        telephone: '+90 216 755 35 35',
         email: 'info@aloyonetim.com.tr',
         taxID: '0054049823100018',
         address: {
@@ -121,7 +123,7 @@ export async function GET() {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       'Access-Control-Allow-Origin': '*',
-      'X-Robots-Tag': 'all',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }
