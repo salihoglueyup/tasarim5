@@ -25,8 +25,8 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Bina ve Site Teknik Bakım Hizmetleri | Alo Yönetim';
-  const description = 'Asansör yeşil etiket muayenesi, jeneratör, hidrofor ve kompanzasyon panosu bakımı. 7/24 kesintisiz mobil teknik servis ve %0 reaktif ceza güvencesi.';
+  const title = 'Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim';
+  const description = 'MMO ve TSE A Tipi asansör yeşil etiket muayenesi, jeneratör senkronizasyon, kompanzasyon sıfır reaktif ceza ve 45 dk SLA acil teknik servis güvencesi.';
 
   return buildMetadata({
     title,

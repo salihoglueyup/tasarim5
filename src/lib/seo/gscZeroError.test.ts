@@ -4110,6 +4110,70 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(clientContent).not.toContain('<FacilityManagementCalculatorSeo />');
     });
   });
+
+  describe('128. Wave 59: Tesis & Dikey Hizmet Hubları ve 39 İlçe Yerel SEO Zirvesi', () => {
+    it('KMK Hukuk ve Aidat İcra Danışmanlığı Mega Hub\'ı FacilityLegalPrecedentsBrowserSeo, Yönetici Sorumluluk Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/HukukVeIcraDanismanligiClient.tsx'), 'utf8');
+      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/page.tsx'), 'utf8');
+
+      expect(clientContent).toContain('<FacilityLegalPrecedentsBrowserSeo');
+      expect(clientContent).toContain('Kat Mülkiyeti Hukuku ve Yargıtay Emsal Kararları Masası');
+      expect(clientContent).toContain('KMK m.38 Şahsi Tazminat Kalkanı');
+      expect(clientContent).toContain('TCK m.155 Mali Suç Güvencesi');
+      expect(clientContent).toContain('Kusursuz İbra & Sıfır İptal Riski');
+
+      expect(pageContent).toContain('KMK 634 Hukuk & Aidat İcra Danışmanlığı — İlamsız Takip & %5 Faiz | Alo Yönetim');
+      expect(pageContent).toContain('Örnek No: 7 ilamsız icra takibi');
+    });
+
+    it('5188 Özel Güvenlik Sayfası Valilik İzin & Komisyon Protokolü, Kıdem Tazminatı Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/GuvenlikYonetimiClient.tsx'), 'utf8');
+      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/page.tsx'), 'utf8');
+
+      expect(clientContent).toContain('5188 Sayılı Kanun');
+      expect(clientContent).toContain('Valilik İzin & Komisyon Protokolü');
+      expect(clientContent).toContain('Genel Kurul Kararı');
+      expect(clientContent).toContain('Komisyon Başvurusu');
+      expect(clientContent).toContain('Valilik İzin Belgesi (ÖGİ)');
+      expect(clientContent).toContain('%100 Alo Yönetim Bordro Güvencesi');
+      expect(clientContent).toContain('6331 İSG & İş Kazası Kalkanı');
+
+      expect(pageContent).toContain('5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim');
+      expect(pageContent).toContain('Valilik komisyon izinli özel güvenlik şirketi');
+    });
+
+    it('Bina ve Site Teknik Bakım Sayfası Asansör Yeşil Etiket Protokolü, 365 Günlük PPM Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/TeknikBakimClient.tsx'), 'utf8');
+      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/page.tsx'), 'utf8');
+
+      expect(clientContent).toContain('Asansör İşletme Yönetmeliği');
+      expect(clientContent).toContain('Yeşil Etiket Protokolü');
+      expect(clientContent).toContain('MMO / TSE A Tipi Akredite Muayene Garantisi');
+      expect(clientContent).toContain('45 Dk Acil Servis SLA');
+      expect(clientContent).toContain('365 Günlük Mühendislik Kalkanı');
+      expect(clientContent).toContain('%0 Reaktif Elektrik Cezası');
+
+      expect(pageContent).toContain('Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim');
+      expect(pageContent).toContain('MMO ve TSE A Tipi asansör yeşil etiket muayenesi');
+    });
+
+    it('39 İlçe Yerel Landing Page Ağı (/bolgeler/[ilce]) Üçlü Yasal Koruma Kalkanı (KMK, 5188, Yeşil Etiket/SLA) ile Zenginleştirilmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const districtContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'), 'utf8');
+
+      expect(districtContent).toContain('Üçlü Yasal Koruma Kalkanı');
+      expect(districtContent).toContain('KMK 634 & Hızlı İcra Takibi');
+      expect(districtContent).toContain('5188 Valilik İzinli Güvenlik');
+      expect(districtContent).toContain('A Tipi Yeşil Etiket & 45 Dk SLA');
+    });
+  });
 });
 
 

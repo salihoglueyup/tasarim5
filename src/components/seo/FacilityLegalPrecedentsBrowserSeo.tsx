@@ -5,7 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import JsonLd from '@/components/seo/JsonLd';
 
-export default function FacilityLegalPrecedentsBrowserSeo() {
+interface FacilityLegalPrecedentsBrowserSeoProps {
+  basePath?: string;
+  title?: string;
+  badge?: string;
+  subtitle?: string;
+}
+
+export default function FacilityLegalPrecedentsBrowserSeo({
+  basePath = '/hizmetler/tesis-yonetimi',
+  title,
+  badge = '634 KMK & Yargıtay Emsal Karar Kütüphanesi',
+  subtitle = 'Aidat borcu, asansör ortak giderleri, yönetici seçimi ve mimari tadilat ihtilaflarında bağlayıcı yüksek mahkeme kararları.',
+}: FacilityLegalPrecedentsBrowserSeoProps = {}) {
   const [activeTab, setActiveTab] = useState<string>(YARGITAY_LEGAL_PRECEDENTS[0]?.id || '');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -19,18 +31,20 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
   const activeItem =
     YARGITAY_LEGAL_PRECEDENTS.find((p) => p.id === activeTab) || YARGITAY_LEGAL_PRECEDENTS[0];
 
+  const displayTitle = title || 'Tesis Yönetimi Hukuk ve Yargıtay İçtihatları';
+
   const precedentsSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Tesis Yönetimi Yargıtay Emsal Kararları ve 634 KMK Hukuki İçtihatları',
-    description: 'Aidat borcu, asansör ortak giderleri, yönetici sorumluluğu ve mimari tadilat ihtilaflarında bağlayıcı yüksek mahkeme içtihatları.',
+    name: `${displayTitle} ve 634 KMK Hukuki İçtihatları`,
+    description: subtitle,
     numberOfItems: YARGITAY_LEGAL_PRECEDENTS.length,
     itemListElement: YARGITAY_LEGAL_PRECEDENTS.map((p, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       item: {
         '@type': 'Legislation',
-        '@id': `https://aloyonetim.com.tr/hizmetler/tesis-yonetimi#${p.id}`,
+        '@id': `https://aloyonetim.com.tr${basePath}#${p.id}`,
         name: p.subject,
         legislationType: 'Court Precedent',
         legislationIdentifier: `${p.docketNumber} / ${p.decisionNumber}`,
@@ -53,13 +67,19 @@ export default function FacilityLegalPrecedentsBrowserSeo() {
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
-            634 KMK & Yargıtay Emsal Karar Kütüphanesi
+            {badge}
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Tesis Yönetimi Hukuk ve <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Yargıtay İçtihatları</span>
+            {title ? (
+              title
+            ) : (
+              <>
+                Tesis Yönetimi Hukuk ve <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Yargıtay İçtihatları</span>
+              </>
+            )}
           </h2>
           <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
-            Aidat borcu, asansör ortak giderleri, yönetici seçimi ve mimari tadilat ihtilaflarında bağlayıcı yüksek mahkeme kararları.
+            {subtitle}
           </p>
         </div>
 

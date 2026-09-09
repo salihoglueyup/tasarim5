@@ -299,6 +299,114 @@ export default function TeknikBakimClient() {
         {/* Teknik Bakım Uyumluluk Radarı */}
         <InteractiveTechnicalAuditRadarSeo districtName="İstanbul" />
 
+        {/* MMO & TSE A Tipi Asansör Yeşil Etiket Muayene Protokolü */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
+                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">verified</span>
+                MMO / TSE A Tipi Akredite Muayene Garantisi
+              </div>
+              <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
+                Asansör İşletme Yönetmeliği <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400">Yeşil Etiket Protokolü</span>
+              </h2>
+              <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
+                Bakanlık mevzuatı uyarınca asansörlerinizin mühürlenmesini, sarı/kırmızı etiket cezalarını ve yönetici cezai sorumluluklarını sıfırlayan mühendislik süreci.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700/60 shrink-0">
+              Mühürlenme Riski: %0
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10">
+            {[
+              {
+                step: "01",
+                title: "Ön Muayene & Eksik Tespiti",
+                desc: "Yetkili makina mühendislerimiz A Tipi muayene öncesinde fren, paraşüt bloğu, halat ve kuyu boşluğunu test ederek eksikleri giderir.",
+                icon: "checklist",
+              },
+              {
+                step: "02",
+                title: "A Tipi Kuruluş Randevusu",
+                desc: "İlgili belediyenin protokol imzaladığı MMO veya TSE heyetiyle resmi muayene günü koordine edilir ve teste refakat edilir.",
+                icon: "calendar_month",
+              },
+              {
+                step: "03",
+                title: "Yeşil Etiket Tescili",
+                desc: "Kusursuzluk kriterleri karşılanarak yeşil etiket kabin içine iliştirilir, dijital bakım sicil defterine işlenir.",
+                icon: "verified",
+              },
+              {
+                step: "04",
+                title: "45 Dk Acil Servis SLA",
+                desc: "Asansörde kalma veya arıza durumunda 7/24 mobil nöbetçi teknik servisimiz en geç 45 dakikada kabin kurtarmasını tamamlar.",
+                icon: "alarm_on",
+              }
+            ].map((s, idx) => (
+              <div key={idx} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-3 relative group hover:border-emerald-500/50 transition-colors">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 tracking-wider">AŞAMA {s.step}</span>
+                  <span className="material-symbols-outlined text-lg text-slate-400 group-hover:text-emerald-500 transition-colors" aria-hidden="true">{s.icon}</span>
+                </div>
+                <h3 className="font-bold text-sm text-[var(--color-primary)]">{s.title}</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed font-light">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 365 Günlük Önleyici Bakım (PPM) & Reaktif Ceza Kalkanı */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">precision_manufacturing</span>
+              Planlı Önleyici Bakım (PPM) & Enerji Güvencesi
+            </div>
+            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight mb-4">
+              Tesisler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">365 Günlük Mühendislik Kalkanı</span>
+            </h2>
+            <p className="text-slate-300 text-sm md:text-base max-w-3xl leading-relaxed mb-8">
+              Arıza oluştuktan sonra tamir etmek yerine, kestirimci ölçümler ve periyodik mühendislik testleri ile arızayı önceden engelliyoruz. Kompanzasyon panolarınızı 7/24 izleyerek elektrik faturalarındaki reaktif güç cezalarını sıfırlıyoruz.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">energy_savings_leaf</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">%0 Reaktif Elektrik Cezası</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Kondansatör kademe testleri ve akıllı reaktif güç rölesi takibi ile Bedaş/Ayedaş faturalarında reaktif ceza sıfırlama garantisi.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">sync_alt</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">Senkron Jeneratör & Trafo</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Elektrik kesintisinde 8 saniyede otomatik transfer panosu (ATS) devreye alma, haftalık yüksüz test çalıştırması ve yakıt filtre bakımı.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">water_drop</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">Hidrofor & Yangın Pompaları</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Membran azot basınç optimizasyonu, mekanik salmastra kaçak denetimi ve joker yangın pompalarının haftalık otomatik basınç testleri.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* AI Overviews & Position Zero Snippet Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <InstantAnswerCardSeo

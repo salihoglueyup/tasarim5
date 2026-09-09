@@ -284,6 +284,58 @@ export default async function DistrictPage({
           <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} />
         </div>
 
+        {/* İlçe Operasyonel Mükemmellik & Yasal Standartlar */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-800 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 space-y-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 bg-white/10 px-3.5 py-1 rounded-full border border-white/10">
+                  {district.name} Bölge Standartları
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-white mt-2">
+                  {district.name} Genelinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-cyan-400">Üçlü Yasal Koruma Kalkanı</span>
+                </h2>
+              </div>
+              <span className="text-xs font-mono text-slate-300 bg-white/5 border border-white/10 px-4 py-2 rounded-xl shrink-0">
+                {district.managedProjects}+ Proje Güvencesi
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">gavel</span>
+                </div>
+                <h3 className="text-base font-bold text-white">KMK 634 & Hızlı İcra Takibi</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {district.name}&apos;deki sitelerde geciken aidat alacakları için noter ihtarnamesi, ilamsız icra ve aylık %5 gecikme tazminatının tahsili.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">verified_user</span>
+                </div>
+                <h3 className="text-base font-bold text-white">5188 Valilik İzinli Güvenlik</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  İlçe Emniyet Müdürlüğü koordinasyonu, 7/24 RFID devriye tur kontrolü ve yöneticilere %100 kıdem tazminatı koruma kalkanı.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">engineering</span>
+                </div>
+                <h3 className="text-base font-bold text-white">A Tipi Yeşil Etiket & 45 Dk SLA</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {district.name} sınırları içinde asansör muayenelerinde %100 yeşil etiket tescili ve acil durumlarda 45 dakika içinde yerinde müdahale.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
         <ServiceAuthorityHubSeo
           serviceName={`${district.name} Tesis ve Site Yönetimi`}

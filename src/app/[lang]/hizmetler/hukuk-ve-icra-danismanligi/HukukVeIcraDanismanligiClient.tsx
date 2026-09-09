@@ -12,6 +12,7 @@ import LegalTestimonials from '@/components/sections/LegalTestimonials';
 import KMKLawAssistantSeo from '@/components/seo/KMKLawAssistantSeo';
 import KMKLegalProcessHowToSeo from '@/components/seo/KMKLegalProcessHowToSeo';
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/KMKLegalTemplateGeneratorSeo';
+import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
 
@@ -296,6 +297,63 @@ export default function HukukVeIcraDanismanligiClient() {
 
         {/* KMK Yasal Süreç & İcra HowTo Yol Haritası */}
         <KMKLegalProcessHowToSeo />
+
+        {/* Yargıtay Emsal Kararları & KMK İçtihat Masası */}
+        <FacilityLegalPrecedentsBrowserSeo
+          basePath="/hizmetler/hukuk-ve-icra-danismanligi"
+          badge="634 KMK & Yargıtay Hukuk Genel Kurulu Emsalleri"
+          title="Kat Mülkiyeti Hukuku ve Yargıtay Emsal Kararları Masası"
+          subtitle="Aidat borcu ilamsız icra takibi, asansör ortak gider muafiyet iddiaları, yönetici şahsi sorumluluğu ve genel kurul iptal davalarında bağlayıcı Yargıtay kararları."
+        />
+
+        {/* Yönetim Kurulu Cezai ve Şahsi Sorumluluk Kalkanı (KMK m.38 & TCK) */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">security</span>
+              Yönetici & Denetçi Yasal Güvencesi
+            </div>
+            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight mb-4">
+              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Cezai ve Şahsi Sorumluluk Kalkanı</span>
+            </h2>
+            <p className="text-slate-300 text-sm md:text-base max-w-3xl leading-relaxed mb-8">
+              Amatör site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıyadır. Alo Yönetim hukuk müşavirliği bu riskleri %100 bertaraf eder.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">shield</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">KMK m.38 Şahsi Tazminat Kalkanı</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Yöneticinin vekil gibi sorumlu olması ilkesi gereği doğabilecek tüm maddi zarar iddiaları profesyonel sigortamız ve avukatlarımızca karşılanır.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">verified_user</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">TCK m.155 Mali Suç Güvencesi</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Çift imzalı dijital onay, bağımsız mali müşavir denetimi ve şeffaf banka entegrasyonu ile güveni kötüye kullanma isnatları imkansız kılınır.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">fact_check</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">Kusursuz İbra & Sıfır İptal Riski</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Genel kurul çağrısı, taahhütlü tebligatlar ve hazirun cetveli noter usulünde hazırlanarak Sulh Hukuk Mahkemesi iptal davaları önlenir.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* KMK 634 Karar & İhtarname Şablonu Jeneratörü */}
         <KMKLegalTemplateGeneratorSeo />

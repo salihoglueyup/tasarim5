@@ -451,6 +451,120 @@ export default function GuvenlikYonetimiClient() {
         {/* 5188 Yasal Dilekçe & Karar Defteri Şablonu Oluşturucu */}
         <SecurityLegalTemplateGeneratorSeo />
 
+        {/* Valilik 5188 Özel Güvenlik Komisyonu İzin Protokolü */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
+                <span className="material-symbols-outlined text-[16px] text-blue-600 dark:text-blue-400" aria-hidden="true">policy</span>
+                T.C. İçişleri Bakanlığı & Valilik Süreci
+              </div>
+              <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
+                5188 Sayılı Kanun <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Valilik İzin & Komisyon Protokolü</span>
+              </h2>
+              <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
+                Sitenizde yasal olarak özel güvenlik istihdam edilebilmesi için İl Özel Güvenlik Komisyonu nezdinde tamamlanması zorunlu 5 resmi adım.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700/60 shrink-0">
+              Ortalama Süre: 15-21 İş Günü
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
+            {[
+              {
+                step: "01",
+                title: "Genel Kurul Kararı",
+                desc: "KMK uyarınca kat malikleri kurulunda güvenlik hizmeti alınmasına dair salt çoğunlukla karar alınır ve karar defterine işlenir.",
+                icon: "how_to_reg",
+              },
+              {
+                step: "02",
+                title: "Komisyon Başvurusu",
+                desc: "İl Valiliği Özel Güvenlik Komisyonu Başkanlığı'na site adına resmi dilekçe, tapu kayıtları ve mimari vaziyet planı sunulur.",
+                icon: "domain_verification",
+              },
+              {
+                step: "03",
+                title: "Saha & Emniyet Keşfi",
+                desc: "İl Emniyet Müdürlüğü / İl Jandarma Komutanlığı yetkilileri siteyi yerinde inceleyerek güvenlik noktası uygunluk raporu tanzim eder.",
+                icon: "location_searching",
+              },
+              {
+                step: "04",
+                title: "Valilik İzin Belgesi (ÖGİ)",
+                desc: "Valilik Makamı oluru ile sitenize özel 'Özel Güvenlik İzin Belgesi' tahsis edilir ve yasal personel sayısı belirlenir.",
+                icon: "verified",
+              },
+              {
+                step: "05",
+                title: "Personel & Göreve Başlama",
+                desc: "Sabıkasız, 5188 kimlikli personel göreve başlar; Mali Mesuliyet Sigortası poliçesi Valilik ve EGM sistemine tescil edilir.",
+                icon: "shield_person",
+              }
+            ].map((s, idx) => (
+              <div key={idx} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-3 relative group hover:border-blue-500/50 transition-colors">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-blue-600 dark:text-blue-400 tracking-wider">ADIM {s.step}</span>
+                  <span className="material-symbols-outlined text-lg text-slate-400 group-hover:text-blue-500 transition-colors" aria-hidden="true">{s.icon}</span>
+                </div>
+                <h3 className="font-bold text-sm text-[var(--color-primary)]">{s.title}</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed font-light">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Yönetim Kurulu Kıdem Tazminatı & İş Hukuku Sorumluluk Kalkanı */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">verified_user</span>
+              4857 Sayılı İş Kanunu Güvencesi
+            </div>
+            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight mb-4">
+              Site Yönetimleri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Kıdem Tazminatı & Sorumluluk Kalkanı</span>
+            </h2>
+            <p className="text-slate-300 text-sm md:text-base max-w-3xl leading-relaxed mb-8">
+              Kendi bünyesinde doğrudan güvenlik veya bekçi çalıştıran sitelerde kat malikleri; biriken yüz binlerce liralık kıdem tazminatı, fazla mesai davaları ve iş kazası rücularında şahsi mal varlıklarıyla müteselsilen sorumludur. Alo Yönetim ile bu risklerin tamamı sıfırlanır.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">payments</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">%100 Alo Yönetim Bordro Güvencesi</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Tüm güvenlik personeli şirketimizin resmi bordrosundadır. Kıdem, ihbar, yıllık izin ve SGK yükümlülükleri tamamen şirketimize aittir.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">health_and_safety</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">6331 İSG & İş Kazası Kalkanı</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  İşyeri hekimi, İSG uzmanı, risk analizi ve zorunlu eğitimler şirketimiz koordinasyonundadır; yöneticilere cezai dava açılamaz.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">verified</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">Zorunlu Mali Mesuliyet Sigortası</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  5188 sayılı Kanun Madde 21 gereğince her personel için üçüncü şahıslara verilebilecek zararlara karşı kapsamlı sigorta teminatı sağlanır.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />
 
