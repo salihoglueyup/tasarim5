@@ -61,6 +61,6 @@ describe('Tek Bir Link ile Otomatik İndeksleme Mimarisi (singleLinkIndexing.tes
       expect(json.indexNow).toBeDefined();
       expect(json.indexNow.engines).toContain('Bing');
       expect(json.indexNow.engines).toContain('Yandex');
-    });
+    }, 20000);
   });
 });

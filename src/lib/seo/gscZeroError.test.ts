@@ -3106,6 +3106,88 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(res.enrichedHtml).toContain('href="/hizmetler/teknik-bakim"');
     });
   });
+
+  describe('110. schemaLinter HowTo, WebSite, JobPosting, Speakable ve Rating GSC Zengin Sonuç Validasyonu', () => {
+    it('Yeni şema tiplerini kurallara göre tam puan veya uygun hata ile doğrular', async () => {
+      const { lintSchemaOrgObject } = await import('@/lib/seo/schemaLinter');
+
+      // Geçerli HowTo ve eksik adım kontrolü
+      const validHowTo = {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'Site ve Apartman Yönetimi Devir Süreci',
+        step: [
+          { '@type': 'HowToStep', name: 'Karar Alma', text: 'Genel kurulda profesyonel yönetime geçiş kararı alınır.' },
+          { '@type': 'HowToStep', name: 'Devir Teslim', text: 'Eski yönetimden evrak ve kasa tutanakla devralınır.' },
+        ],
+      };
+      const howToReport = lintSchemaOrgObject(validHowTo);
+      expect(howToReport.isValid).toBe(true);
+      expect(howToReport.googleRichResultsCompliant).toBe(true);
+
+      const invalidHowTo = {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        step: [],
+      };
+      const invalidHowToReport = lintSchemaOrgObject(invalidHowTo);
+      expect(invalidHowToReport.isValid).toBe(false);
+      expect(invalidHowToReport.issues.some((i) => i.field === 'name')).toBe(true);
+      expect(invalidHowToReport.issues.some((i) => i.field === 'step')).toBe(true);
+
+      // JobPosting ve SpeakableSpecification doğrulaması
+      const jobReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Tesis Müdürü',
+        description: 'ISO 41001 deneyimli lüks site ve tesis müdürü.',
+        datePosted: '2026-09-01',
+        hiringOrganization: { '@type': 'Organization', name: 'Alo Yönetim' },
+      });
+      expect(jobReport.isValid).toBe(true);
+
+      const speakableReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'SpeakableSpecification',
+        xpath: ['/html/head/title'],
+      });
+      expect(speakableReport.isValid).toBe(true);
+
+      const invalidSpeakable = {
+        '@context': 'https://schema.org',
+        '@type': 'SpeakableSpecification',
+      };
+      expect(lintSchemaOrgObject(invalidSpeakable).isValid).toBe(false);
+
+      // AggregateRating doğrulaması
+      const ratingReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'AggregateRating',
+        ratingValue: 4.95,
+        reviewCount: 320,
+      });
+      expect(ratingReport.isValid).toBe(true);
+      expect(ratingReport.score).toBe(100);
+    });
+  });
+
+  describe('111. facilityAutonomousSeoAuditor ve schemaLinter Entegre Denetimi', () => {
+    it('Otonom denetçi şema linter doğrulamasıyla A+ skoru ve zenginlik onayı üretir', async () => {
+      const { auditFacilityPageSeoHealth } = await import('./facilityAutonomousSeoAuditor');
+      const report = auditFacilityPageSeoHealth('tr');
+
+      expect(report.overallScore).toBeGreaterThanOrEqual(95);
+      expect(report.grade).toBe('A+');
+      expect(report.checklists.length).toBe(5);
+
+      const schemaCheck = report.checklists.find((c) => c.category === 'schema_richness');
+      expect(schemaCheck).toBeDefined();
+      expect(schemaCheck?.status).toBe('passed');
+      expect(schemaCheck?.score).toBe(20);
+      expect(schemaCheck?.details).toContain('Linter Skoru');
+      expect(schemaCheck?.details).toContain('Başarılı');
+    });
+  });
 });
 
 

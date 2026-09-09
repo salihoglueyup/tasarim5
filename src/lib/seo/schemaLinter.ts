@@ -182,6 +182,90 @@ export function lintSchemaOrgObject(schema: any): SchemaLintReport {
       }
       break;
     }
+
+    case 'HowTo': {
+      if (!schema.name) {
+        issues.push({ field: 'name', message: 'HowTo rehber başlığı (name) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      const steps = schema.step || schema.itemListElement;
+      if (!Array.isArray(steps) || steps.length === 0) {
+        issues.push({ field: 'step', message: 'HowTo şemasında en az 1 adım (step) bulunmalıdır', severity: 'ERROR' });
+        score -= 40;
+      } else {
+        steps.forEach((s: any, i: number) => {
+          if (!s.name && !s.text) {
+            issues.push({ field: `step[${i}]`, message: 'HowTo adımında isim (name) veya metin (text) zorunludur', severity: 'ERROR' });
+            score -= 10;
+          }
+        });
+      }
+      break;
+    }
+
+    case 'WebSite': {
+      if (!schema.name && !schema.headline) {
+        issues.push({ field: 'name', message: 'WebSite adı (name) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!schema.url) {
+        issues.push({ field: 'url', message: 'WebSite adresi (url) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      break;
+    }
+
+    case 'SpeakableSpecification': {
+      if (!schema.xpath && !schema.cssSelector) {
+        issues.push({ field: 'xpath', message: 'SpeakableSpecification şemasında xpath veya cssSelector zorunludur', severity: 'ERROR' });
+        score -= 40;
+      }
+      break;
+    }
+
+    case 'JobPosting': {
+      if (!schema.title) {
+        issues.push({ field: 'title', message: 'İş ilanı başlığı (title) zorunludur', severity: 'ERROR' });
+        score -= 25;
+      }
+      if (!schema.description) {
+        issues.push({ field: 'description', message: 'İş ilanı açıklaması (description) zorunludur', severity: 'ERROR' });
+        score -= 25;
+      }
+      if (!schema.datePosted) {
+        issues.push({ field: 'datePosted', message: 'İlan yayın tarihi (datePosted) zorunludur', severity: 'ERROR' });
+        score -= 20;
+      }
+      if (!schema.hiringOrganization) {
+        issues.push({ field: 'hiringOrganization', message: 'İşveren kurum (hiringOrganization) zorunludur', severity: 'ERROR' });
+        score -= 20;
+      }
+      break;
+    }
+
+    case 'Review': {
+      if (!schema.itemReviewed) {
+        issues.push({ field: 'itemReviewed', message: 'Değerlendirilen nesne (itemReviewed) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!schema.reviewRating && !schema.reviewBody) {
+        issues.push({ field: 'reviewRating', message: 'Değerlendirme puanı (reviewRating) veya yorum metni zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      break;
+    }
+
+    case 'AggregateRating': {
+      if (typeof schema.ratingValue !== 'number' && typeof schema.ratingValue !== 'string') {
+        issues.push({ field: 'ratingValue', message: 'Ortalama puan (ratingValue) zorunludur', severity: 'ERROR' });
+        score -= 35;
+      }
+      if (typeof schema.reviewCount !== 'number' && typeof schema.ratingCount !== 'number') {
+        issues.push({ field: 'reviewCount', message: 'Yorum sayısı (reviewCount veya ratingCount) zorunludur', severity: 'ERROR' });
+        score -= 35;
+      }
+      break;
+    }
   }
 
   const hasErrors = issues.some((i) => i.severity === 'ERROR');

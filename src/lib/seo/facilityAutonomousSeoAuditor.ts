@@ -1,6 +1,7 @@
 import { buildFacilityCompleteGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import { generateFacilityMeshLinks } from '@/lib/seo/facilityMeshLinkerEngine';
 import { buildFacilityVoiceKnowledge } from '@/lib/seo/facilityVoiceKnowledgeEngine';
+import { lintSchemaGraph } from '@/lib/seo/schemaLinter';
 
 export interface SeoAuditCheckItem {
   name: string;
@@ -66,16 +67,17 @@ export function auditFacilityPageSeoHealth(lang: string = 'tr'): FacilitySeoAudi
     details: '634 Sayılı KMK, 5188 Sayılı Kanun ve 8 resmi ISO/TSE akreditasyon standardı doğrudan resmi citation node olarak bağlandı.',
   });
 
-  // 4. Structured Data & Schema.org Graph Richness
+  // 4. Structured Data & Schema.org Graph Richness & Linter Validation
   const schemaNodeCount = (schemaGraph as any)['@graph']?.length || 0;
-  const isSchemaRich = schemaNodeCount >= 8;
+  const schemaLintReport = lintSchemaGraph(schemaGraph);
+  const isSchemaRich = schemaNodeCount >= 8 && schemaLintReport.isGraphValid;
   checklists.push({
-    name: 'Schema.org @graph Knowledge Graph Zenginliği',
+    name: 'Schema.org @graph Knowledge Graph Zenginliği & Linter Doğrulaması',
     category: 'schema_richness',
     score: isSchemaRich ? 20 : 15,
     maxScore: 20,
     status: isSchemaRich ? 'passed' : 'warning',
-    details: `${schemaNodeCount} adet linked-data varlığı (Corporation, Service, FAQPage, HowTo, QAPage, DigitalDocument) doğrulandı.`,
+    details: `${schemaNodeCount} adet linked-data varlığı (Corporation, Service, FAQPage, HowTo, QAPage, DigitalDocument) doğrulandı. Linter Skoru: ${schemaLintReport.overallScore}/100, Google Rich Results Geçerliliği: ${schemaLintReport.isGraphValid ? 'Başarılı' : 'Uyarı'}.`,
   });
 
   // 5. Voice Search & Speakable Direct Answers

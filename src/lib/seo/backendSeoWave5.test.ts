@@ -52,6 +52,58 @@ describe('5 İleri Düzey Backend SEO Motoru Testleri (Wave 5)', () => {
       expect(report.isValid).toBe(false);
       expect(report.googleRichResultsCompliant).toBe(false);
     });
+
+    it('HowTo, WebSite, JobPosting, SpeakableSpecification ve AggregateRating tiplerini doğrular', () => {
+      // Geçerli HowTo
+      const howToReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'Site Yönetimi Seçim Rehberi',
+        step: [
+          { '@type': 'HowToStep', name: 'İhtiyaç Belirleme', text: 'Sitenin güvenlik ve teknik ihtiyaçlarını analiz edin.' },
+          { '@type': 'HowToStep', name: 'Teklif Toplama', text: 'Yetkili firmalardan şartnameye uygun teklif isteyin.' },
+        ],
+      });
+      expect(howToReport.isValid).toBe(true);
+      expect(howToReport.googleRichResultsCompliant).toBe(true);
+
+      // Geçerli WebSite
+      const webSiteReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Alo Yönetim',
+        url: 'https://aloyonetim.com.tr',
+      });
+      expect(webSiteReport.isValid).toBe(true);
+
+      // Geçerli JobPosting
+      const jobReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Özel Güvenlik Görevlisi',
+        description: '5188 kimlikli lüks rezidans özel güvenlik personeli.',
+        datePosted: '2026-09-01',
+        hiringOrganization: { '@type': 'Organization', name: 'Alo Yönetim' },
+      });
+      expect(jobReport.isValid).toBe(true);
+
+      // Geçerli SpeakableSpecification
+      const speakableReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'SpeakableSpecification',
+        xpath: ['/html/head/title', '/html/body/main/p[1]'],
+      });
+      expect(speakableReport.isValid).toBe(true);
+
+      // Geçerli AggregateRating
+      const ratingReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'AggregateRating',
+        ratingValue: 4.9,
+        reviewCount: 148,
+      });
+      expect(ratingReport.isValid).toBe(true);
+    });
   });
 
   describe('Edge Geo Proximity Tesis Hub Çözücü (edgeGeoResolver.ts)', () => {
