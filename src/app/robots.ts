@@ -31,6 +31,8 @@ const AI_BOTS = [
 export default function robots(): MetadataRoute.Robots {
   const allow = [
     '/',
+    '/openapi.json',
+    '/api/openapi.json',
     '/api/ai-knowledge',
     '/api/knowledge-graph',
     '/api/ai/facility-agent-context.json',

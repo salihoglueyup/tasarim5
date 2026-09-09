@@ -100,6 +100,12 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
 ${DISTRICTS.map(d => `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi): ${d.name} genelinde profesyonel site, rezidans ve apartman yönetimi hizmetleri.`).join('\n')}
 
 ## İlgili API ve Veri Kaynakları
+- **OpenAPI 3.1.0 Şartnamesi (Açık Veri API)**: ${BASE_URL}/openapi.json
+- **OpenAPI API Ağ Geçidi**: ${BASE_URL}/api/openapi.json
+- **Yargıtay Emsal Kararları API**: ${BASE_URL}/api/tesis-yonetimi/legal-precedents.json
+- **B2B Tesis Şartnamesi (RFP) API**: ${BASE_URL}/api/tesis-yonetimi/rfp-generator
+- **KMK 634 Kanun Maddeleri Dizini**: ${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json
+- **39 İlçe Aidat Endeksi API**: ${BASE_URL}/api/tesis-yonetimi/dues-index.json
 - **Tam Bilgi Üssü (Full Text)**: ${BASE_URL}/llms-full.txt
 - **39 İlçe Coğrafi GeoRSS Feed**: ${BASE_URL}/api/tesis-yonetimi/geo-feed.xml
 - **Tesis Yönetimi RSS Bülteni**: ${BASE_URL}/feed/tesis-yonetimi.xml

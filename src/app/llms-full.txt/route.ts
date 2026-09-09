@@ -113,6 +113,12 @@ ${dictionaryList}
 ---
 
 ## 8. Doğrudan API ve Veri Kaynakları
+- OpenAPI 3.1.0 Şartnamesi: ${BASE_URL}/openapi.json
+- OpenAPI API Ağ Geçidi: ${BASE_URL}/api/openapi.json
+- Yargıtay Emsal Kararları API: ${BASE_URL}/api/tesis-yonetimi/legal-precedents.json
+- B2B Tesis Şartnamesi (RFP) API: ${BASE_URL}/api/tesis-yonetimi/rfp-generator
+- KMK 634 Kanun Maddeleri API: ${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json
+- 39 İlçe Aidat Endeksi API: ${BASE_URL}/api/tesis-yonetimi/dues-index.json
 - AI RAG Ground-Truth Context: ${BASE_URL}/api/ai/facility-agent-context.json
 - AI Snippets: ${BASE_URL}/api/tesis-yonetimi/ai-snippets.json
 - JSON-LD Graph: ${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld

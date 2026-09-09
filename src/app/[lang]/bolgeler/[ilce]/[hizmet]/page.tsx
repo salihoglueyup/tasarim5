@@ -17,6 +17,8 @@ import {
   InteractiveFacilityAuditRadarSeo,
   FacilityLegalTemplateGeneratorSeo,
   DistrictElevatorMaintenanceSeo,
+  FacilityRfpDownloadModalSeo,
+  FacilitySubSectorCrossNav,
 } from '@/components/seo';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
@@ -466,7 +468,7 @@ export default async function ServiceDistrictPage({
           </p>
         </div>
 
-        {/* Tesis Yönetimi Hizmeti için Özel Denetim Matrisi & Radar & Hukuk Jeneratörü */}
+        {/* Tesis Yönetimi Hizmeti için Özel Denetim Matrisi & Radar & Hukuk Jeneratörü & B2B Şartname & Silo Ağı */}
         {isFacility && (
           <div className="flex flex-col gap-12">
             <DistrictFacilityAuditTableSeo
@@ -481,6 +483,23 @@ export default async function ServiceDistrictPage({
             />
             <InteractiveFacilityAuditRadarSeo districtName={district.name} />
             <FacilityLegalTemplateGeneratorSeo />
+
+            {/* B2B Tesis Şartnamesi (RFP) İndirme Modalı */}
+            <div className="bg-[var(--color-surface)] border border-emerald-500/30 rounded-3xl p-8 sm:p-10 shadow-lg text-center">
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-1.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/40">
+                {district.name} B2B Tesis Şartnamesi
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3 mb-2">
+                {district.name} Siteleri İçin Profesyonel Tesis Yönetim Şartnamesi İndirin
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-secondary)] max-w-2xl mx-auto mb-6">
+                {district.name} genelindeki siteler, rezidanslar ve ticari binalar için KMK m.34 divan protokolü, 5188 güvenlik planı ve teknik bakım şartname taslağını ücretsiz edinin.
+              </p>
+              <FacilityRfpDownloadModalSeo />
+            </div>
+
+            {/* 5'li Alt Sektör Silo Ağı Çapraz Gezintisi */}
+            <FacilitySubSectorCrossNav />
           </div>
         )}
 

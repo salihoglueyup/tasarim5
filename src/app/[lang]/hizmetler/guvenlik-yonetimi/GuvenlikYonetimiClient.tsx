@@ -189,20 +189,20 @@ export default function GuvenlikYonetimiClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">5188 Lisanslı Özel Güvenlik Hizmeti</strong>;{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                konut siteleri ve toplu yapılar
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                toplu konut tesisleri ve mega siteler
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                çok katlı lüks rezidanslar
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                rezidans ve lüks yaşam kuleleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                iş merkezleri ve kurumsal plazalar
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                plaza ve ticari iş merkezleri
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                endüstriyel tesis ve fabrikaların
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                sanayi tesisleri ve lojistik depoların
               </Link>{' '}
               can, mal ve bilgi güvenliğini sağlamak amacıyla T.C. İçişleri Bakanlığı ve İl Valilikleri denetiminde yürütülen profesyonel koruma disiplinidir. Geleneksel ve yetkisiz kapıcı/bekçi modelinin aksine 5188 lisanslı güvenlik; kimlik sorgulama, üst/araç detektör araması, suçüstü yakalama, tahliye yönetimi ve genel kolluk (Polis/Jandarma) ile anlık koordinasyon sağlama gibi yasal ve adli yetkilerle donatılmıştır.
             </p>

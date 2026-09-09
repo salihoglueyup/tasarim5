@@ -4244,7 +4244,100 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(rehberClient).toContain('<FacilitySubSectorCrossNav currentSlug="rehber" />');
     });
   });
+
+  describe('130. Wave 61: Tesis Yönetimi Açık Veri & OpenAPI 3.1 Protokolü, 39 İlçe Silo Ağı ve Kanonik Bağlantı Zirvesi', () => {
+    it('/openapi.json ve /api/openapi.json rotaları OpenAPI 3.1.0 spesifikasyonunu ve CORS/Robots başlıklarını döner', async () => {
+      const { GET: getRoot } = await import('@/app/openapi.json/route');
+      const { GET: getApi } = await import('@/app/api/openapi.json/route');
+
+      const resRoot = await getRoot();
+      expect(resRoot.status).toBe(200);
+      expect(resRoot.headers.get('Content-Type')).toContain('application/json');
+      expect(resRoot.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resRoot.headers.get('X-OpenAPI-Version')).toBe('3.1.0');
+      expect(resRoot.headers.get('X-Robots-Tag')).toContain('all');
+
+      const dataRoot = await resRoot.json();
+      expect(dataRoot.openapi).toBe('3.1.0');
+      expect(dataRoot.info.title).toContain('Tesis Yönetimi');
+      expect(dataRoot.paths['/api/tesis-yonetimi/legal-precedents.json']).toBeDefined();
+      expect(dataRoot.paths['/api/tesis-yonetimi/rfp-generator']).toBeDefined();
+      expect(dataRoot.paths['/api/tesis-yonetimi/kmk-law-index.json']).toBeDefined();
+      expect(dataRoot.paths['/api/tesis-yonetimi/dues-index.json']).toBeDefined();
+      expect(dataRoot.paths['/api/tesis-yonetimi/authority-corpus.json']).toBeDefined();
+
+      const resApi = await getApi();
+      expect(resApi.status).toBe(200);
+      const dataApi = await resApi.json();
+      expect(dataApi.openapi).toBe('3.1.0');
+    });
+
+    it('robots.ts, llms.txt ve llms-full.txt OpenAPI 3.1 spesifikasyonuna erişim izni ve bağlantı verir', async () => {
+      const { default: robots } = await import('@/app/robots');
+      const robotsResult = robots();
+      const allowList = Array.isArray(robotsResult.rules)
+        ? robotsResult.rules.flatMap((r: any) => (Array.isArray(r.allow) ? r.allow : [r.allow]))
+        : (Array.isArray((robotsResult.rules as any)?.allow) ? (robotsResult.rules as any).allow : [(robotsResult.rules as any)?.allow]);
+
+      expect(allowList).toContain('/openapi.json');
+      expect(allowList).toContain('/api/openapi.json');
+
+      const { GET: getLlms } = await import('@/app/llms.txt/route');
+      const resLlms = await getLlms();
+      const textLlms = await resLlms.text();
+      expect(textLlms).toContain('/openapi.json');
+      expect(textLlms).toContain('/api/openapi.json');
+
+      const { GET: getLlmsFull } = await import('@/app/llms-full.txt/route');
+      const resLlmsFull = await getLlmsFull();
+      const textLlmsFull = await resLlmsFull.text();
+      expect(textLlmsFull).toContain('/openapi.json');
+    });
+
+    it('39 İlçe Tesis Yönetimi sayfası FacilityRfpDownloadModalSeo ve FacilitySubSectorCrossNav içerir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const districtServicePage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx'),
+        'utf8'
+      );
+      expect(districtServicePage).toContain('FacilityRfpDownloadModalSeo');
+      expect(districtServicePage).toContain('FacilitySubSectorCrossNav');
+      expect(districtServicePage).toContain('B2B Tesis Şartnamesi');
+    });
+
+    it('Dikey hizmet sayfalarında doğrudan kanonik /hizmetler/tesis-yonetimi/* alt sektör linkleri kullanılır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const securityClient = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/GuvenlikYonetimiClient.tsx'),
+        'utf8'
+      );
+      const technicalClient = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/TeknikBakimClient.tsx'),
+        'utf8'
+      );
+      const legalClient = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/HukukVeIcraDanismanligiClient.tsx'),
+        'utf8'
+      );
+
+      expect(securityClient).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+      expect(securityClient).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
+      expect(securityClient).toContain('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
+      expect(securityClient).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
+
+      expect(technicalClient).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+      expect(technicalClient).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
+
+      expect(legalClient).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+      expect(legalClient).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
+    });
+  });
 });
+
 
 
 
