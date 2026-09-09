@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
 
@@ -197,23 +198,69 @@ export default function SanayiTesisiYonetimiClient() {
           <DynamicFAQ faqs={FAQS} title="Sanayi Tesisi Yönetimi — Sık Sorulan Sorular" />
         </div>
 
-        {/* İlgili Sayfalar */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-8">
-          <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">Diğer Sektörel Tesis Yönetimi Çözümleri</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', label: 'Plaza & Ofis Yönetimi', icon: 'business' },
-              { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans & Lüks Site Yönetimi', icon: 'apartment' },
-              { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', label: 'Toplu Konut & Site Yönetimi', icon: 'domain' },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} className="flex items-center gap-3 p-4 border border-[var(--color-outline)]/60 rounded-xl hover:border-orange-500/40 transition-all">
-                <span className="material-symbols-outlined text-orange-500" aria-hidden="true">{item.icon}</span>
-                <span className="text-sm font-semibold text-[var(--color-text-primary)]">{item.label}</span>
-              </Link>
-            ))}
-          </div>
+        {/* RFP / Şartname Hazırlama CTA & İndirme Modal */}
+        <div className="bg-[var(--color-surface)] border border-orange-500/30 rounded-3xl p-8 sm:p-10 shadow-lg text-center">
+          <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-widest bg-orange-50 dark:bg-orange-950/40 px-3.5 py-1.5 rounded-full border border-orange-200/60 dark:border-orange-800/40">
+            Endüstriyel İhale & Tesis Şartnamesi
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3 mb-2">
+            Fabrika & Sanayi Tesisiniz İçin Yönetim Şartnamesi İndirin
+          </h2>
+          <p className="text-xs sm:text-sm text-[var(--color-secondary)] max-w-2xl mx-auto mb-6">
+            ISO 45001 İSG kontrol maddeleri, 34.5 kV OG trafo bakım sözleşme taslağı ve MOTAT atık yönetim tablosunu içeren şartnameyi ücretsiz edinin.
+          </p>
+          <FacilityRfpDownloadModalSeo />
         </div>
+
+        {/* 4'lü Alt Sektör Silo Ağı Çapraz Gezinti */}
+        <FacilitySubSectorCrossNav currentSlug="sanayi-tesisi-yonetimi" />
       </section>
+
+      {/* Mevzuat & Hukuki Dayanak Otorite Hub */}
+      <ServiceAuthorityHubSeo
+        serviceName="Sanayi Tesisi & Fabrika Tesis Yönetimi"
+        serviceCategory="Endüstriyel Tesis & Fabrika İşletmesi"
+        lawReferences={[
+          {
+            title: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi",
+            sourceName: "TSE & Uluslararası Standardizasyon Örgütü",
+            url: "https://www.tse.org.tr",
+            badge: "ISO 45001",
+            description: "Fabrika, atölye ve depolarda sıfır iş kazası hedefli KKD denetimleri, risk analizi ve acil durum tatbikatları."
+          },
+          {
+            title: "Çalışanların Patlayıcı Ortamların Tehlikelerinden Korunması (ATEX 137)",
+            sourceName: "T.C. Çalışma ve Sosyal Güvenlik Bakanlığı",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=18395&MevzuatTur=7&MevzuatTertip=5",
+            badge: "ATEX 137",
+            description: "Yanıcı toz, solvent ve gaz ortamlarında patlamadan korunma dokümanı ve ex-proof ekipman periyodik kontrolleri."
+          },
+          {
+            title: "Elektrik Kuvvetli Akım Tesisleri Yönetmeliği (34.5 kV)",
+            sourceName: "T.C. Enerji ve Tabii Kaynaklar Bakanlığı & EMO",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4986&MevzuatTur=7&MevzuatTertip=5",
+            badge: "34.5 kV OG",
+            description: "Orta gerilim trafo merkezleri işletme sorumluluğu, trafo yağı delinme testi ve sıfır reaktif ceza garantisi."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "atex-patlamadan-korunma-dokumani",
+            term: "ATEX Patlamadan Korunma Dokümanı",
+            summary: "Sanayi tesislerinde parlayıcı gaz, buhar ve toz patlamalarını önlemek için hazırlanan yasal teknik rapordur."
+          },
+          {
+            slug: "orta-gerilim-trafo-kompanzasyon",
+            term: "34.5 kV OG Trafo & Kompanzasyon",
+            summary: "Fabrikalarda reaktif enerji cezasını %0'a indiren ve trafo bakımını üstlenen yüksek gerilim mühendislik hizmetidir."
+          },
+          {
+            slug: "motat-tehlikeli-atik-yonetimi",
+            term: "MOTAT & Sıfır Atık Yönetimi",
+            summary: "Bakanlık onaylı Mobil Atık Takip Sistemi ile endüstriyel tehlikeli atıkların bertaraf ve geri dönüşüm sürecidir."
+          }
+        ]}
+      />
 
       <SeoTextSection titleKey="tesis_seo_title" p1Key="tesis_seo_p1" p2Key="tesis_seo_p2" />
       <RelatedServices currentPath="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" />

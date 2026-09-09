@@ -9,6 +9,7 @@ import {
   InteractiveFacilityAuditRadarSeo,
   FacilityComparisonMatrixSeo,
   FacilityDownloadableVaultSeo,
+  FacilitySubSectorCrossNav,
 } from '@/components/seo';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
@@ -201,31 +202,8 @@ export default function TesisYonetimiRehberClient() {
           <FacilityDownloadableVaultSeo />
         </div>
 
-        {/* 7. BÖLÜM: Mülk Tipine Göre Tesis Yönetimi Sektörel Köprüler */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8">
-          <h2 className="text-xl font-bold text-[var(--color-primary)] mb-6 text-center">
-            Yöneteceğiniz Gayrimenkul Tipine Göre Özel Çözümler
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans & Lüks Site', desc: '7/24 Concierge, Vale ve Havuz Hijyeni', icon: 'apartment', color: 'amber' },
-              { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', label: 'Plaza & Ofis Binası', desc: 'Yangın Otomasyonu, 3x Jeneratör, Chiller', icon: 'business', color: 'blue' },
-              { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', label: 'Toplu Konut & Site', desc: 'KMK 34 Çift Çoğunluk, 3 Vardiya Güvenlik', icon: 'domain', color: 'emerald' },
-              { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi Tesisi & Fabrika', desc: 'ISO 45001, ATEX, 34.5 kV OG Trafo', icon: 'factory', color: 'orange' },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex flex-col items-center gap-2 p-6 border border-[var(--color-outline)]/60 rounded-2xl hover:border-indigo-500/50 hover:shadow-md text-center transition-all group bg-[var(--color-surface-variant)]"
-              >
-                <span className="material-symbols-outlined text-4xl text-indigo-500 group-hover:scale-110 transition-transform" aria-hidden="true">{item.icon}</span>
-                <span className="text-sm font-bold text-[var(--color-primary)] mt-1">{item.label}</span>
-                <span className="text-xs text-[var(--color-secondary)]">{item.desc}</span>
-                <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-2">Detaylı İncele →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* 7. BÖLÜM: 5'li Alt Sektör Silo Ağı & Bölgesel Hub Çapraz Gezintisi */}
+        <FacilitySubSectorCrossNav currentSlug="rehber" />
 
         {/* 8. BÖLÜM: Sık Sorulan Sorular */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">

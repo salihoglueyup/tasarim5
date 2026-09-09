@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
 
 const OPERATIONAL_PILLARS = [
   {
@@ -192,28 +193,63 @@ export default function RezidansYonetimiClient() {
           </div>
         </div>
 
+        {/* B2B Şartname (RFP) İndirici */}
+        <FacilityRfpDownloadModalSeo />
+
         {/* FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <DynamicFAQ faqs={FAQS} title="Rezidans Tesis Yönetimi — Sık Sorulan Sorular" />
         </div>
 
-        {/* İlgili Sayfalar */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-8">
-          <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">Diğer Sektörel Tesis Yönetimi Çözümleri</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', label: 'Plaza & Ofis Yönetimi', icon: 'business' },
-              { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', label: 'Toplu Konut & Site Yönetimi', icon: 'domain' },
-              { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi & Fabrika Yönetimi', icon: 'factory' },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} className="flex items-center gap-3 p-4 border border-[var(--color-outline)]/60 rounded-xl hover:border-amber-500/40 transition-all">
-                <span className="material-symbols-outlined text-amber-500" aria-hidden="true">{item.icon}</span>
-                <span className="text-sm font-semibold text-[var(--color-text-primary)]">{item.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Tesis Yönetimi Alt Sektör Silo Ağı */}
+        <FacilitySubSectorCrossNav currentSlug="rezidans-site-yonetimi" />
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Rezidans ve Lüks Site Tesis Yönetimi"
+        serviceCategory="Lüks Gayrimenkul & Rezidans İşletmesi"
+        lawReferences={[
+          {
+            title: "ISO 41001:2018 Uluslararası Tesis Yönetim Standardı",
+            sourceName: "TSE & Uluslararası Standardizasyon Örgütü",
+            url: "https://www.tse.org.tr",
+            badge: "ISO 41001",
+            description: "Çok katlı kulelerde ve lüks rezidanslarda 5 yıldızlı otel konforunda konsiyerj, vale ve entegre tesis işletmesi standardı."
+          },
+          {
+            title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK)",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+            badge: "KMK 634",
+            description: "Rezidanslarda ortak alanların korunması, yönetim planı hükümleri ve KMK m.20 gereğince aidatların zamanında tahsili."
+          },
+          {
+            title: "5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun",
+            sourceName: "T.C. İçişleri Bakanlığı & Valilik",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
+            badge: "5188 Sayılı Kanun",
+            description: "Kule lobi nizamiyesi, turnike kartlı/biyometrik geçiş, akıllı PTS otopark ve 7/24 CCTV izleme güvenliği."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "rezidans-concierge-hizmeti",
+            term: "7/24 Rezidans Concierge & Vale",
+            summary: "Rezidans sakinlerine özel kurye emaneti, misafir karşılama ve garantili vale otopark koordinasyonudur."
+          },
+          {
+            slug: "kapali-devre-cctv-pts-guvenlik",
+            term: "Akıllı PTS & Plaka Tanıma",
+            summary: "Site ve kule otopark girişlerinde misafir ve abone araçların otomatik bariyer açılışı ve güvenliğidir."
+          },
+          {
+            slug: "rezidans-ortak-gider-yonetimi",
+            term: "Rezidans Aidat & İcra Takibi",
+            summary: "Online tahsilat, otomatik SMS hatırlatma ve geciken aidatlar için KMK m.20 yasal gecikme tazminatı işletimidir."
+          }
+        ]}
+      />
 
       <SeoTextSection titleKey="tesis_seo_title" p1Key="tesis_seo_p1" p2Key="tesis_seo_p2" />
       <RelatedServices currentPath="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" />

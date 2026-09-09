@@ -4174,7 +4174,78 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(districtContent).toContain('A Tipi Yeşil Etiket & 45 Dk SLA');
     });
   });
+
+  describe('129. Wave 60: Tesis Yönetimi Odaklı Alt Sektör Silo Ağı ve B2B Dönüşüm Zirvesi', () => {
+    it('Dört alt sektör sayfasının meta başlıklarında "Tesis Yönetimi" anahtar kelimesi önceliklendirilmiştir (front-loaded)', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const plazaPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/page.tsx'), 'utf8');
+      const rezidansPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/page.tsx'), 'utf8');
+      const topluKonutPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/page.tsx'), 'utf8');
+      const sanayiPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/page.tsx'), 'utf8');
+
+      expect(plazaPage).toContain('Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi | Alo Yönetim');
+      expect(rezidansPage).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti | Alo Yönetim');
+      expect(topluKonutPage).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim');
+      expect(sanayiPage).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim');
+    });
+
+    it('Tüm alt sektör istemcileri FacilityRfpDownloadModalSeo ve FacilitySubSectorCrossNav bileşenlerini entegre etmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const plazaClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx'), 'utf8');
+      const rezidansClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/RezidansYonetimiClient.tsx'), 'utf8');
+      const topluKonutClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx'), 'utf8');
+      const sanayiClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx'), 'utf8');
+
+      expect(plazaClient).toContain('<FacilityRfpDownloadModalSeo />');
+      expect(plazaClient).toContain('<FacilitySubSectorCrossNav currentSlug="plaza-yonetimi" />');
+
+      expect(rezidansClient).toContain('<FacilityRfpDownloadModalSeo />');
+      expect(rezidansClient).toContain('<FacilitySubSectorCrossNav currentSlug="rezidans-site-yonetimi" />');
+
+      expect(topluKonutClient).toContain('<FacilityRfpDownloadModalSeo />');
+      expect(topluKonutClient).toContain('<FacilitySubSectorCrossNav currentSlug="toplu-konut-yonetimi" />');
+
+      expect(sanayiClient).toContain('<FacilityRfpDownloadModalSeo />');
+      expect(sanayiClient).toContain('<FacilitySubSectorCrossNav currentSlug="sanayi-tesisi-yonetimi" />');
+    });
+
+    it('Tüm alt sektör sayfaları sektöre özel ServiceAuthorityHubSeo mevzuat ve sözlük kalkanına sahiptir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const plazaClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx'), 'utf8');
+      const rezidansClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/RezidansYonetimiClient.tsx'), 'utf8');
+      const topluKonutClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx'), 'utf8');
+      const sanayiClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx'), 'utf8');
+
+      expect(plazaClient).toContain('Plaza ve İş Merkezi Tesis Yönetimi');
+      expect(plazaClient).toContain('Binaların Yangından Korunması Hakkında Yönetmelik');
+
+      expect(rezidansClient).toContain('Rezidans ve Lüks Site Tesis Yönetimi');
+      expect(rezidansClient).toContain('5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun');
+
+      expect(topluKonutClient).toContain('Toplu Konut & Mega Site Tesis Yönetimi');
+      expect(topluKonutClient).toContain('634 Sayılı Kat Mülkiyeti Kanunu (KMK m.34 & m.37)');
+
+      expect(sanayiClient).toContain('Sanayi Tesisi & Fabrika Tesis Yönetimi');
+      expect(sanayiClient).toContain('ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi');
+      expect(sanayiClient).toContain('Elektrik Kuvvetli Akım Tesisleri Yönetmeliği (34.5 kV)');
+    });
+
+    it('Tesis Yönetimi Rehberi (/rehber) 5li alt sektör silo ağı ve popüler ilçe hublarına 2 yönlü PageRank akışı sağlar', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const rehberClient = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/TesisYonetimiRehberClient.tsx'), 'utf8');
+      expect(rehberClient).toContain('<FacilitySubSectorCrossNav currentSlug="rehber" />');
+    });
+  });
 });
+
 
 
 

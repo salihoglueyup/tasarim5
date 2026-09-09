@@ -18,14 +18,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Sanayi Tesisi, OSB ve Lojistik Depo Yönetimi | Alo Yönetim',
+    title: 'Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim',
     description:
-      'OSB, fabrika ve lojistik depolar için ağır vasıta trafik yönetimi, yüksek gerilim trafo bakımı ve endüstriyel güvenlik çözümleri. Teklifinizi alın!',
+      'OSB, fabrika ve lojistik depolar için ISO 45001 İSG ve ISO 41001 standartlarında entegre tesis yönetimi, 34.5 kV trafo bakımı ve endüstriyel güvenlik.',
     path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
     lang,
     ogImageType: 'service',
     keywords: [
       'sanayi tesis yönetimi',
+      'tesis yönetimi sanayi',
       'fabrika tesis yönetimi',
       'endüstriyel tesis yönetimi',
       'ISO 45001 tesis yönetimi',

@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
 
@@ -206,23 +207,69 @@ export default function TopluKonutYonetimiClient() {
           <DynamicFAQ faqs={FAQS} title="Toplu Konut & Site Yönetimi — Sık Sorulan Sorular" />
         </div>
 
-        {/* İlgili Sayfalar */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-8">
-          <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">Diğer Sektörel Tesis Yönetimi Çözümleri</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans & Lüks Site Yönetimi', icon: 'apartment' },
-              { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', label: 'Plaza & Ofis Yönetimi', icon: 'business' },
-              { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi & Fabrika Yönetimi', icon: 'factory' },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} className="flex items-center gap-3 p-4 border border-[var(--color-outline)]/60 rounded-xl hover:border-emerald-500/40 transition-all">
-                <span className="material-symbols-outlined text-emerald-500" aria-hidden="true">{item.icon}</span>
-                <span className="text-sm font-semibold text-[var(--color-text-primary)]">{item.label}</span>
-              </Link>
-            ))}
-          </div>
+        {/* RFP / Şartname Hazırlama CTA & İndirme Modal */}
+        <div className="bg-[var(--color-surface)] border border-emerald-500/30 rounded-3xl p-8 sm:p-10 shadow-lg text-center">
+          <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-1.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/40">
+            Toplu Yapı İhale & Yönetici Değişimi
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3 mb-2">
+            Mega Siteniz İçin Profesyonel Tesis Yönetim Şartnamesi İndirin
+          </h2>
+          <p className="text-xs sm:text-sm text-[var(--color-secondary)] max-w-2xl mx-auto mb-6">
+            KMK m.34 çift çoğunluk tutanağı, 5188 güvenlik vardiya planı ve ortak gider bütçe şablonunu içeren şartname taslağını ücretsiz edinin.
+          </p>
+          <FacilityRfpDownloadModalSeo />
         </div>
+
+        {/* 4'lü Alt Sektör Silo Ağı Çapraz Gezinti */}
+        <FacilitySubSectorCrossNav currentSlug="toplu-konut-yonetimi" />
       </section>
+
+      {/* Mevzuat & Hukuki Dayanak Otorite Hub */}
+      <ServiceAuthorityHubSeo
+        serviceName="Toplu Konut & Mega Site Tesis Yönetimi"
+        serviceCategory="Toplu Konut & Çok Bloklu Site İşletmesi"
+        lawReferences={[
+          {
+            title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK m.34 & m.37)",
+            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+            badge: "KMK 634",
+            description: "Toplu yapılarda sayı ve arsa payı çift çoğunluğu ile yönetici seçimi, kesinleşen işletme projesi ve aidat tahsilat takvimi."
+          },
+          {
+            title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
+            sourceName: "TSE & Uluslararası Standardizasyon Örgütü",
+            url: "https://www.tse.org.tr",
+            badge: "ISO 41001",
+            description: "Mega sitelerde ölçek ekonomisi, toplu tedarik avantajları ve ortak alan teknik altyapısının sürdürülebilir işletimi."
+          },
+          {
+            title: "Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği",
+            sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=25804&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Asansör Bakım",
+            description: "Çok katlı bloklarda yeşil etiket yıllık periyodik muayene, 7/24 asansör kurtarma servisi ve mekanik güvenlik."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "toplu-yapi-cift-cogunluk-kmk",
+            term: "Toplu Yapı Çift Çoğunluk Kuralı",
+            summary: "KMK m.34 uyarınca 200+ konutlu sitelerde yönetici seçiminde aranan hem kat maliki sayısı hem de arsa payı çoğunluğudur."
+          },
+          {
+            slug: "isletme-projesi-ve-gecikme-tazminati",
+            term: "KMK m.37 İşletme Projesi & %5 Faiz",
+            summary: "Site bütçesinin kesinleşmesi sonrası ödenmeyen aidatlara aylık %5 yasal gecikme tazminatı uygulanmasıdır."
+          },
+          {
+            slug: "frekans-konvertorlu-hidrofor-otomasyonu",
+            term: "Merkezi Hidrofor & Dalgıç Pompa",
+            summary: "Geniş peyzaj ve yüksek katlara kesintisiz basınçlı su sağlayan enerji tasarruflu hidrofor ve kuyu otomasyonudur."
+          }
+        ]}
+      />
 
       <SeoTextSection titleKey="tesis_seo_title" p1Key="tesis_seo_p1" p2Key="tesis_seo_p2" />
       <RelatedServices currentPath="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" />

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
 
 const OPERATIONAL_PILLARS = [
   {
@@ -192,28 +193,63 @@ export default function PlazaYonetimiClient() {
           </div>
         </div>
 
+        {/* B2B Şartname (RFP) İndirici */}
+        <FacilityRfpDownloadModalSeo />
+
         {/* FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <DynamicFAQ faqs={FAQS} title="Plaza Tesis Yönetimi — Sık Sorulan Sorular" />
         </div>
 
-        {/* İlgili Sayfalar */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-8">
-          <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">Diğer Sektörel Çözümler</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans & Lüks Site', icon: 'apartment' },
-              { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', label: 'Toplu Konut & Site Yönetimi', icon: 'domain' },
-              { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi & Fabrika Yönetimi', icon: 'factory' },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} className="flex items-center gap-3 p-4 border border-[var(--color-outline)]/60 rounded-xl hover:border-brand-500/40 transition-all">
-                <span className="material-symbols-outlined text-brand-500" aria-hidden="true">{item.icon}</span>
-                <span className="text-sm font-semibold text-[var(--color-text-primary)]">{item.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Tesis Yönetimi Alt Sektör Silo Ağı */}
+        <FacilitySubSectorCrossNav currentSlug="plaza-yonetimi" />
       </section>
+
+      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      <ServiceAuthorityHubSeo
+        serviceName="Plaza ve İş Merkezi Tesis Yönetimi"
+        serviceCategory="Ticari Gayrimenkul İşletmesi"
+        lawReferences={[
+          {
+            title: "ISO 41001:2018 Tesis Yönetim Sistemi",
+            sourceName: "TSE & Uluslararası Standartlar Teşkilatı",
+            url: "https://www.tse.org.tr",
+            badge: "ISO 41001",
+            description: "A+ ofis kuleleri ve plazalarda operasyonel verimlilik, SLA sürekliliği ve kurumsal hizmet kalitesi standartları."
+          },
+          {
+            title: "Binaların Yangından Korunması Hakkında Yönetmelik",
+            sourceName: "T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
+            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=11736&MevzuatTur=7&MevzuatTertip=5",
+            badge: "Yangın Yönetmeliği",
+            description: "Plazalarda duman tahliye damperleri, yangın merdiveni basınçlandırma ve haftalık otomatik yangın hidrofor testleri."
+          },
+          {
+            title: "EPDK Elektrik Piyasası Tarifeler Yönetmeliği (Kompanzasyon)",
+            sourceName: "Enerji Piyasası Düzenleme Kurumu (EPDK)",
+            url: "https://www.epdk.gov.tr",
+            badge: "EPDK Standartları",
+            description: "Kurulu gücü 50 kVA üzerindeki ticari binalarda reaktif/kapasitif sınır aşımlarını engelleyerek %0 ceza garantisi."
+          }
+        ]}
+        glossaryTerms={[
+          {
+            slug: "plaza-hvac-otomasyonu",
+            term: "Plaza HVAC & BMS Otomasyonu",
+            summary: "Chiller, soğutma kuleleri ve fancoil ünitelerinin merkezi bina yönetim yazılımı üzerinden 7/24 izlenmesidir."
+          },
+          {
+            slug: "senkron-jenerator-isletmesi",
+            term: "Senkron Jeneratör Yük Paylaşımı",
+            summary: "Şebeke kesintisinde 8-12 saniye içinde paralel devreye giren jeneratörlerle plazada kesintisiz enerji sağlanmasıdır."
+          },
+          {
+            slug: "ortak-gider-kalorimetre-paylasimi",
+            term: "Isıtma/Soğutma Kalorimetre Paylaşımı",
+            summary: "Merkezi sistem enerji tüketiminin M-Bus alt sayaçlar üzerinden kiracılara adil ve yasal faturalandırılmasıdır."
+          }
+        ]}
+      />
 
       <SeoTextSection titleKey="tesis_seo_title" p1Key="tesis_seo_p1" p2Key="tesis_seo_p2" />
       <RelatedServices currentPath="/hizmetler/tesis-yonetimi/plaza-yonetimi" />

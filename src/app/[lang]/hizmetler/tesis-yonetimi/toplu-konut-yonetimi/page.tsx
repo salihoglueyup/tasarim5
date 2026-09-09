@@ -18,14 +18,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Toplu Konut ve Mega Site Yönetimi Hizmeti | Alo Yönetim',
+    title: 'Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim',
     description:
-      '500+ konutluk siteler ve toplu yapılarda merkezi işletme projesi, geniş peyzaj ve %30 aidat tasarruflu profesyonel yönetim. 48 saatte teklif alın!',
+      '500+ konutluk siteler ve toplu yapılarda ISO 41001 standartlarında entegre tesis yönetimi, merkezi işletme projesi ve %30 aidat tasarrufu. 48 saatte teklif alın!',
     path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
     lang,
     ogImageType: 'service',
     keywords: [
-      'toplu konut yönetimi',
+      'toplu konut tesis yönetimi',
+      'tesis yönetimi toplu konut',
+      'mega site tesis yönetimi',
       'TOKİ site yönetimi',
       'büyük site yönetimi',
       'toplu konut aidat yönetimi',

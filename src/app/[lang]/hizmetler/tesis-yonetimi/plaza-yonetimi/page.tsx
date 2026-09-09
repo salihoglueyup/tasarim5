@@ -18,9 +18,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Plaza ve İş Merkezi Tesis Yönetimi Şirketi | Alo Yönetim',
+    title: 'Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi | Alo Yönetim',
     description:
-      'İstanbul geneli A+ plazalar ve iş merkezleri için HVAC otomasyonu, turnike güvenliği ve enerji tasarrufu odaklı entegre tesis yönetimi. 48 saatte teklif alın!',
+      'İstanbul geneli A+ plazalar ve iş merkezleri için HVAC otomasyonu, 3x senkron jeneratör, turnike güvenliği ve enerji tasarrufu odaklı entegre tesis yönetimi.',
     path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
     lang,
     ogImageType: 'service',
