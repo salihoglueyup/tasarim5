@@ -548,6 +548,11 @@ export function districtFacilityServiceSchema(opts: {
       hasCredential: [
         {
           '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
           name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
           credentialCategory: 'QualityCertification'
         },
@@ -559,6 +564,16 @@ export function districtFacilityServiceSchema(opts: {
         {
           '@type': 'EducationalOccupationalCredential',
           name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
+          credentialCategory: 'QualityCertification'
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
           credentialCategory: 'QualityCertification'
         },
         {

@@ -36,6 +36,13 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
+        name: 'Tesis Yönetimi',
+        short_name: 'Tesis Yönetimi',
+        description: 'ISO 41001 Entegre Tesis ve Site Yönetimi',
+        url: '/hizmetler/tesis-yonetimi',
+        icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
+      },
+      {
         name: 'Aidat Hesapla',
         short_name: 'Hesapla',
         description: 'Aidat ve yönetim gideri hesaplama',
@@ -47,6 +54,13 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: 'Hizmetler',
         description: 'Tesis ve Mülk Yönetimi Hizmetleri',
         url: '/hizmetler',
+        icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'KMK & Tesis Sözlüğü',
+        short_name: 'Sözlük',
+        description: 'Kat Mülkiyeti ve Tesis Terimleri Rehberi',
+        url: '/sozluk',
         icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
       },
       {

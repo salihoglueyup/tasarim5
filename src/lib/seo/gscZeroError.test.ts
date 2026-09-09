@@ -2772,7 +2772,81 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(patrolReport.brokenLinkAudit.brokenLinksFound).toBe(0);
     });
   });
+
+  describe('100. Evrensel 8 Akreditasyon Şema Paritesi Güvencesi', () => {
+    it('organizationSchema, credentialSchema ve districtFacilityServiceSchema 8 akreditasyonu eksiksiz sunar', async () => {
+      // 1. organizationSchema
+      const { organizationSchema, credentialSchema } = await import('@/lib/schemas/organization');
+      const org = organizationSchema();
+      expect(Array.isArray(org.hasCredential)).toBe(true);
+      expect((org.hasCredential as any[]).length).toBe(8);
+
+      const orgCredNames = (org.hasCredential as any[]).map((c) => c.name);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('5188'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+
+      // 2. credentialSchema
+      const credList = credentialSchema();
+      expect(credList['@type']).toBe('ItemList');
+      expect((credList.itemListElement as any[]).length).toBe(8);
+      const listCredNames = (credList.itemListElement as any[]).map((i) => i.item.name);
+      expect(listCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(listCredNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+      expect(listCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+
+      // 3. districtFacilityServiceSchema (39 ilçe için referans kontrol)
+      const { districtFacilityServiceSchema } = await import('@/lib/schemas/services');
+      const distSchema = districtFacilityServiceSchema({
+        districtName: 'Kadıköy',
+        path: '/bolgeler/kadikoy/tesis-yonetimi',
+        geo: { lat: 40.99, lng: 29.03 },
+      });
+      expect(distSchema['@type']).toBe('ProfessionalService');
+      const providerCreds = (distSchema.provider as any).hasCredential;
+      expect(Array.isArray(providerCreds)).toBe(true);
+      expect(providerCreds.length).toBe(8);
+      const providerCredNames = providerCreds.map((c: any) => c.name);
+      expect(providerCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(providerCredNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+      expect(providerCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+      expect(providerCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+    });
+  });
+
+  describe('101. Manifest PWA Kısayolları ve İlçe Kıyaslama Şema Zenginleştirmesi', () => {
+    it('manifest.ts Tesis Yönetimi ve Sözlük kısayollarını sunar; comparator şeması 8 akreditasyon içerir', async () => {
+      // 1. manifest.ts kontrolü
+      const { default: manifest } = await import('@/app/manifest');
+      const manifestData = manifest();
+      expect(manifestData.name).toContain('Alo Yönetim');
+      expect(Array.isArray(manifestData.shortcuts)).toBe(true);
+      const shortcutUrls = (manifestData.shortcuts as any[]).map((s) => s.url);
+      expect(shortcutUrls).toContain('/hizmetler/tesis-yonetimi');
+      expect(shortcutUrls).toContain('/sozluk');
+      expect(shortcutUrls).toContain('/hesaplayici');
+
+      // 2. compareFacilityDistricts kontrolü
+      const { compareFacilityDistricts } = await import('@/lib/seo/facilityDistrictComparator');
+      const comparison = compareFacilityDistricts(['kadikoy', 'besiktas'], 'tr');
+      expect(comparison).toBeDefined();
+      expect(comparison?.schema['@type']).toBe('Table');
+      const aboutBusinesses = (comparison?.schema as any).about;
+      expect(aboutBusinesses.length).toBe(2);
+      expect(aboutBusinesses[0].parentOrganization.hasCredential.length).toBe(8);
+      const compCredNames = aboutBusinesses[0].parentOrganization.hasCredential.map((c: any) => c.name);
+      expect(compCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(compCredNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+      expect(compCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+    });
+  });
 });
+
 
 
 
