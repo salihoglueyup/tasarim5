@@ -33,6 +33,21 @@ export const FACILITY_LINKING_TARGETS: Array<{
   { keyword: 'sanayi tesisi ve fabrika yönetimi', targetPath: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', priority: 80 },
   { keyword: 'sanayi tesisi yönetimi', targetPath: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', priority: 75 },
   { keyword: 'tesis yönetimi seçim rehberi', targetPath: '/hizmetler/tesis-yonetimi/rehber', priority: 70 },
+
+  // 9 Temel Hizmet Ekosistemi (PageRank ve Topikal Otorite Dağıtımı)
+  { keyword: 'aidat takibi ve bütçe yönetimi', targetPath: '/hizmetler/aidat-takibi', priority: 85 },
+  { keyword: 'aidat takibi', targetPath: '/hizmetler/aidat-takibi', priority: 75 },
+  { keyword: '5188 özel güvenlik yönetimi', targetPath: '/hizmetler/guvenlik-yonetimi', priority: 85 },
+  { keyword: 'özel güvenlik yönetimi', targetPath: '/hizmetler/guvenlik-yonetimi', priority: 75 },
+  { keyword: 'periyodik teknik bakım ve onarım', targetPath: '/hizmetler/teknik-bakim', priority: 85 },
+  { keyword: 'teknik bakım ve onarım', targetPath: '/hizmetler/teknik-bakim', priority: 75 },
+  { keyword: 'ortak alan temizliği ve hijyen', targetPath: '/hizmetler/temizlik-ve-hijyen', priority: 85 },
+  { keyword: 'temizlik ve hijyen hizmetleri', targetPath: '/hizmetler/temizlik-ve-hijyen', priority: 75 },
+  { keyword: 'kat mülkiyeti hukuk ve icra danışmanlığı', targetPath: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 85 },
+  { keyword: 'hukuk ve icra danışmanlığı', targetPath: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 75 },
+  { keyword: 'peyzaj ve bahçe bakımı', targetPath: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 80 },
+  { keyword: 'havuz bakımı ve hijyen', targetPath: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 80 },
+  { keyword: 'haşere ve dezenfeksiyon hizmetleri', targetPath: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 80 },
 ];
 
 /**

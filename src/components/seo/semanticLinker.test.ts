@@ -51,4 +51,53 @@ describe('SemanticLinker Doğal Dil ve İç Link Güvencesi (Tekrarsız Linkleme
     const htmlEmpty = renderToStaticMarkup(React.createElement(SemanticLinker, { text: '' }));
     expect(htmlEmpty).toBe('<span></span>');
   });
+
+  it('İstanbul 39 ilçesinden örnek ilçeleri doğru bölge sayfalarına bağlar', () => {
+    const text =
+      'Pendik, Tuzla, Beykoz ve Fatih bölgelerindeki tesisler ile Kağıthane ve Esenyurt sitelerinde yönetim hizmeti veriyoruz.';
+
+    const html = renderToStaticMarkup(React.createElement(SemanticLinker, { text, maxLinks: 6 }));
+
+    expect(html).toContain('href="/bolgeler/pendik"');
+    expect(html).toContain('href="/bolgeler/tuzla"');
+    expect(html).toContain('href="/bolgeler/beykoz"');
+    expect(html).toContain('href="/bolgeler/fatih"');
+    expect(html).toContain('href="/bolgeler/kagithane"');
+    expect(html).toContain('href="/bolgeler/esenyurt"');
+  });
+
+  it('Yeni sözlük terimlerini doğru sözlük slug rotalarına bağlar', () => {
+    const text =
+      'Sitede kat malikleri kurulu toplantısında yeni yönetim planı oylanmış ve enerji kimlik belgesi için bütçe onaylanmıştır.';
+
+    const html = renderToStaticMarkup(React.createElement(SemanticLinker, { text, maxLinks: 4 }));
+
+    expect(html).toContain('href="/sozluk/kat-malikleri-kurulu"');
+    expect(html).toContain('href="/sozluk/yonetim-plani"');
+    expect(html).toContain('href="/sozluk/enerji-kimlik-belgesi-ekb"');
+  });
+
+  it('Sektörel çözümler ve kurumsal bağlantıları başarıyla bağlar', () => {
+    const text =
+      'Kurumumuz sektörel çözümler sunarken detaylar için hakkımızda sayfasını inceleyebilir veya iletişim kanallarımızdan bize ulaşabilirsiniz.';
+
+    const html = renderToStaticMarkup(React.createElement(SemanticLinker, { text, maxLinks: 3 }));
+
+    expect(html).toContain('href="/sektorel-cozumler"');
+    expect(html).toContain('href="/hakkimizda"');
+    expect(html).toContain('href="/iletisim"');
+  });
+
+  it('maxLinks sınırına kesinlikle uyar (daha fazla eşleşme olsa bile sınırı aşmaz)', () => {
+    const text =
+      'Kadıköy, Beşiktaş, Şişli, Üsküdar, Maltepe, Kartal ve Pendik genelinde profesyonel tesis yönetimi hizmeti.';
+
+    const htmlLimit2 = renderToStaticMarkup(React.createElement(SemanticLinker, { text, maxLinks: 2 }));
+    const linksCount2 = (htmlLimit2.match(/<a /g) || []).length;
+    expect(linksCount2).toBe(2);
+
+    const htmlLimit3 = renderToStaticMarkup(React.createElement(SemanticLinker, { text, maxLinks: 3 }));
+    const linksCount3 = (htmlLimit3.match(/<a /g) || []).length;
+    expect(linksCount3).toBe(3);
+  });
 });

@@ -3018,6 +3018,94 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(linkReport.linkAuthorityScore).toBeGreaterThanOrEqual(85);
     });
   });
+
+  describe('108. SemanticLinker 39 İlçe Silo Ağı ve Sözlük Külliyatı Entegrasyonu', () => {
+    it('LINK_DICTIONARY tüm 39 ilçeyi, sözlük ve kurumsal rotaları barındırır ve hatasız render eder', async () => {
+      const React = await import('react');
+      const { renderToStaticMarkup } = await import('react-dom/server');
+      const { LINK_DICTIONARY, default: SemanticLinker } = await import('@/components/seo/SemanticLinker');
+      const { DISTRICTS } = await import('@/data/districts');
+
+      // 39 ilçenin tamamı LINK_DICTIONARY içinde bulunmalıdır
+      for (const d of DISTRICTS) {
+        const hasDistrict = LINK_DICTIONARY.some((entry) => entry.url === `/bolgeler/${d.slug}`);
+        expect(hasDistrict).toBe(true);
+      }
+
+      // Temel sözlük rotaları bulunmalıdır
+      const requiredDictionaryUrls = [
+        '/sozluk/kat-mulkiyeti-kanunu-kmk',
+        '/sozluk/kat-malikleri-kurulu',
+        '/sozluk/yonetim-plani',
+        '/sozluk/isletme-projesi',
+        '/sozluk/site-isletme-butcesi',
+        '/sozluk/5188-sayili-kanun',
+        '/sozluk/ozel-guvenlik-izni-ogi',
+        '/sozluk/ozel-guvenlik-kimlik-karti',
+        '/sozluk/ortak-alan',
+        '/sozluk/denetci',
+        '/sozluk/bina-otomasyon-sistemi-bms',
+        '/sozluk/plaka-tanima-sistemi-pts',
+        '/sozluk/enerji-kimlik-belgesi-ekb',
+        '/sozluk/iskan-yapi-kullanma-izin-belgesi',
+        '/sozluk/hazirun-cetveli',
+        '/sozluk/atik-yonetimi-ve-sifir-atik-belgesi',
+      ];
+
+      for (const dictUrl of requiredDictionaryUrls) {
+        const hasDict = LINK_DICTIONARY.some((entry) => entry.url === dictUrl);
+        expect(hasDict).toBe(true);
+      }
+
+      // Sektörel ve kurumsal rotalar bulunmalıdır
+      expect(LINK_DICTIONARY.some((entry) => entry.url === '/sektorel-cozumler')).toBe(true);
+      expect(LINK_DICTIONARY.some((entry) => entry.url === '/hakkimizda')).toBe(true);
+      expect(LINK_DICTIONARY.some((entry) => entry.url === '/iletisim')).toBe(true);
+
+      // React statik render doğrulaması
+      const sampleText = 'Tuzla ve Çekmeköy sitelerinde kat malikleri kurulu kararıyla yönetim planı güncellenmiştir.';
+      const rendered = renderToStaticMarkup(React.createElement(SemanticLinker, { text: sampleText, maxLinks: 4 }));
+      expect(rendered).toContain('href="/bolgeler/tuzla"');
+      expect(rendered).toContain('href="/bolgeler/cekmekoy"');
+      expect(rendered).toContain('href="/sozluk/kat-malikleri-kurulu"');
+      expect(rendered).toContain('href="/sozluk/yonetim-plani"');
+    });
+  });
+
+  describe('109. facilityInternalLinkingOptimizer 9 Ana Hizmet ve Alt Sektör PageRank Hedefleri', () => {
+    it('FACILITY_LINKING_TARGETS 9 temel hizmetin tamamını içerir ve optimize linkler üretir', async () => {
+      const {
+        FACILITY_LINKING_TARGETS,
+        optimizeInternalFacilityLinks,
+      } = await import('./facilityInternalLinkingOptimizer');
+
+      const coreServicePaths = [
+        '/hizmetler/tesis-yonetimi',
+        '/hizmetler/aidat-takibi',
+        '/hizmetler/guvenlik-yonetimi',
+        '/hizmetler/teknik-bakim',
+        '/hizmetler/temizlik-ve-hijyen',
+        '/hizmetler/hukuk-ve-icra-danismanligi',
+        '/hizmetler/peyzaj-ve-bahce-bakimi',
+        '/hizmetler/havuz-bakimi-ve-hijyen',
+        '/hizmetler/hasere-ve-dezenfeksiyon',
+      ];
+
+      for (const servicePath of coreServicePaths) {
+        const found = FACILITY_LINKING_TARGETS.some((t) => t.targetPath === servicePath);
+        expect(found).toBe(true);
+      }
+
+      // Blog metni içinde 9 ana hizmetten örneklerin dofollow linklenmesi
+      const blogText =
+        'Tesislerde düzenli aidat takibi, 5188 özel güvenlik yönetimi ve periyodik teknik bakım ve onarım süreçleri aksatılmamalıdır.';
+      const res = optimizeInternalFacilityLinks(blogText, '/blog/ornek-rehber', 5, 'tr');
+      expect(res.injectedLinksCount).toBeGreaterThanOrEqual(3);
+      expect(res.enrichedHtml).toContain('href="/hizmetler/aidat-takibi"');
+      expect(res.enrichedHtml).toContain('href="/hizmetler/guvenlik-yonetimi"');
+      expect(res.enrichedHtml).toContain('href="/hizmetler/teknik-bakim"');
+    });
+  });
 });
 
 
