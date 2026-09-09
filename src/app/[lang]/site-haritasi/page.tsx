@@ -56,11 +56,13 @@ export default async function SiteHaritasiPage({
     path: '/site-haritasi',
   });
 
-  const SECTORAL_SOLUTIONS = [
-    { slug: 'rezidans', title: 'Rezidans' },
-    { slug: 'avm', title: 'AVM' },
-    { slug: 'sanayi', title: 'Sanayi ve Fabrika' },
-    { slug: 'toplukonut', title: 'Toplu Konut ve Site' }
+  const FACILITY_MANAGEMENT_SOLUTIONS = [
+    { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', title: 'Plaza & İş Merkezi Yönetimi' },
+    { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', title: 'Rezidans & Lüks Site Yönetimi' },
+    { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', title: 'Toplu Konut & TOKİ Yönetimi' },
+    { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', title: 'Sanayi & Fabrika Tesis Yönetimi' },
+    { href: '/hizmetler/tesis-yonetimi/rehber', title: 'Tesis Yönetim Şirketi Seçim Rehberi' },
+    { href: '/hizmetler/tesis-yonetimi/acik-veri', title: 'Tesis Yönetimi Açık Veri & API Portalı' },
   ];
 
   return (
@@ -84,6 +86,8 @@ export default async function SiteHaritasiPage({
               <li><Link href="/iletisim" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">İletişim</Link></li>
               <li><Link href="/sss" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Sıkça Sorulan Sorular</Link></li>
               <li><Link href="/sozluk" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">KMK & Tesis Sözlüğü</Link></li>
+              <li><Link href="/hizmetler/tesis-yonetimi/rehber" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors font-medium">Tesis Yönetimi Seçim Rehberi</Link></li>
+              <li><Link href="/hizmetler/tesis-yonetimi/acik-veri" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors font-medium">Açık Veri & API Portalı</Link></li>
               <li><Link href="/hesaplayici" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Akıllı Aidat Hesaplayıcı</Link></li>
               <li><Link href="/guvenlik-akademisi" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">5188 Güvenlik Akademisi</Link></li>
               <li><Link href="/referanslar" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Referanslarımız</Link></li>
@@ -107,17 +111,22 @@ export default async function SiteHaritasiPage({
             </ul>
           </div>
 
-          {/* Sektörel Çözümler */}
+          {/* Tesis ve Mülk Yönetimi Çözümleri */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Sektörel Çözümler</h2>
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Tesis & Mülk Yönetimi</h2>
             <ul className="space-y-2">
-              {SECTORAL_SOLUTIONS.map((s) => (
-                <li key={s.slug}>
-                  <Link href={`/sektorel-cozumler/${s.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
-                    {s.title} Yönetimi
+              {FACILITY_MANAGEMENT_SOLUTIONS.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                    {s.title}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a href="/openapi.json" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline">
+                  OpenAPI 3.1 Şartnamesi (JSON) →
+                </a>
+              </li>
             </ul>
           </div>
 

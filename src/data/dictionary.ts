@@ -362,6 +362,43 @@ export const TERMS: Term[] = [
       'Çatı baz istasyonu, kapıcı dairesi veya otopark gibi ortak yerlerin üçüncü kişilere kiralanabilmesi için kat maliklerinin tamamının (%100 oybirliği) rızasının gerektiği yasal kuraldır.',
     link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Ortak alan kiralama hukuku' },
   },
+  {
+    term: 'Toplu Yapı Yönetimi (KMK 66-74)',
+    definition:
+      'Birden çok parsel üzerinde kurulu veya ortak altyapı/sosyal tesislere sahip sitelerde blok yönetimleri ve temsilciler kurulu mekanizmasıyla yürütülen kurumsal yönetim modelidir.',
+    link: { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', label: 'Toplu konut ve site yönetimi' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'Plaza Tesis Yönetimi & Ortak Gider Paylaşımı',
+    definition:
+      'A+ iş merkezlerinde iklimlendirme (HVAC), resepsiyon, turnike geçiş güvenliği ve ortak enerji giderlerinin kiracılar ve malikler arasında bağımsız bölüm metrekareleri ve kullanım katsayılarına göre paylaştırılmasıdır.',
+    link: { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi', label: 'Plaza ve iş merkezi yönetimi' },
+  },
+  {
+    term: 'Rezidans & Lüks Site Yönetimi Standartları',
+    definition:
+      '7/24 konsiyerj, vale, teknik acil müdahale, kapalı havuz-spa hijyeni ve VIP güvenlik standartlarının entegre yazılımla yönetildiği yüksek standartlı konut işletmeciliğidir.',
+    link: { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans ve lüks site yönetimi' },
+  },
+  {
+    term: 'Endüstriyel Tesis & OSB Yönetimi',
+    definition:
+      'Fabrika, lojistik depo ve organize sanayi tesislerinde yangın hidrofor hatları, trafo-kompanzasyon bakımı, arıtma tesisi işletimi ve tehlikeli atık protokollerinin 6331 İSG mevzuatına göre yönetilmesidir.',
+    link: { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', label: 'Sanayi tesisi yönetimi' },
+  },
+  {
+    term: 'Tesis Yönetimi İhale Şartnamesi (RFP)',
+    definition:
+      'Site genel kurulları veya yönetim kurullarının profesyonel tesis yönetim şirketi seçimi öncesinde teknik, idari, hukuki ve güvenlik kriterlerini belirlediği teklif alma şartnamesidir.',
+    link: { href: '/hizmetler/tesis-yonetimi/rehber', label: 'Tesis yönetimi ihale rehberi' },
+  },
+  {
+    term: 'Tesis Yönetimi Açık Veri Standartları (Open Data)',
+    definition:
+      'Sektörel SLA, enerji tüketimi (ISO 50001), norm kadro ve bütçe kalemlerinin şeffaflık amacıyla makine taranabilir (JSON/OpenAPI) standartlarla kamuya açılmasıdır.',
+    link: { href: '/hizmetler/tesis-yonetimi/acik-veri', label: 'Tesis açık veri portalı' },
+  },
 ];
 
 // Global statik objeyi mühürle (Faz 13)

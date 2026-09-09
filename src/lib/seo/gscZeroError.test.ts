@@ -4336,6 +4336,115 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(legalClient).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
     });
   });
+
+  describe('131. Wave 62: Tesis Yönetimi Açık Veri Portalı, Navigasyon & Site Haritası Kanonik Zirvesi ve Sözlük Ağı', () => {
+    it('Header MENU_ITEMS içinde nav_tools_library altında Tesis Yönetimi Rehberi ve Açık Veri Portalı eksiksiz yer alır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const headerContent = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/layout/Header.tsx'),
+        'utf8'
+      );
+
+      expect(headerContent).toContain("path: '/hizmetler/tesis-yonetimi/rehber'");
+      expect(headerContent).toContain("path: '/hizmetler/tesis-yonetimi/acik-veri'");
+      expect(headerContent).toContain("nameKey: 'nav_facility_guide'");
+      expect(headerContent).toContain("nameKey: 'nav_facility_open_data'");
+    });
+
+    it('Tüm dillerde (tr, en, ru, ar) nav_facility_guide ve nav_facility_open_data çeviri anahtarları tanımlıdır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const tr = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8'));
+      const en = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/en/common.json'), 'utf8'));
+      const ru = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/ru/common.json'), 'utf8'));
+      const ar = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/ar/common.json'), 'utf8'));
+
+      expect(tr.nav_facility_guide).toBe('Tesis Yönetimi Rehberi');
+      expect(tr.nav_facility_open_data).toBe('Tesis Açık Veri & API');
+
+      expect(en.nav_facility_guide).toBe('Facility Management Guide');
+      expect(en.nav_facility_open_data).toBe('Facility Open Data & API');
+
+      expect(ru.nav_facility_guide).toBe('Руководство по управлению объектами');
+      expect(ru.nav_facility_open_data).toBe('Открытые данные и API');
+
+      expect(ar.nav_facility_guide).toBe('دليل إدارة المرافق');
+      expect(ar.nav_facility_open_data).toBe('بيانات المرافق المفتوحة وAPI');
+    });
+
+    it('HTML Site Haritası (/site-haritasi) doğrudan kanonik 4 alt sektör, rehber, açık veri ve OpenAPI bağlantılarını içerir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const sitemapPage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/site-haritasi/page.tsx'),
+        'utf8'
+      );
+
+      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
+      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
+      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
+      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/rehber');
+      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/acik-veri');
+      expect(sitemapPage).toContain('/openapi.json');
+      expect(sitemapPage).not.toContain('/sektorel-cozumler/rezidans');
+    });
+
+    it('Footer bileşeni Tesis Açık Veri Portalı ve OpenAPI 3.1 JSON linklerini barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const footerContent = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/layout/Footer.tsx'),
+        'utf8'
+      );
+
+      expect(footerContent).toContain('/hizmetler/tesis-yonetimi/acik-veri');
+      expect(footerContent).toContain('/openapi.json');
+    });
+
+    it('sitemap.ts dosyasında /hizmetler/tesis-yonetimi/acik-veri rotası 0.9 öncelik ile yer alır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const sitemapTs = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/sitemap.ts'),
+        'utf8'
+      );
+
+      expect(sitemapTs).toContain("{ path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly', lastMod: now }");
+    });
+
+    it('Tesis Açık Veri Portalı (acik-veri/page.tsx) Dataset, WebPage ve Breadcrumbs şemalarını eksiksiz tanımlar', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const acikVeriPage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/acik-veri/page.tsx'),
+        'utf8'
+      );
+
+      expect(acikVeriPage).toContain("'@type': 'Dataset'");
+      expect(acikVeriPage).toContain('/api/tesis-yonetimi/kpi-benchmarks.json');
+      expect(acikVeriPage).toContain('/api/tesis-yonetimi/legal-precedents.json');
+      expect(acikVeriPage).toContain('/api/tesis-yonetimi/energy-benchmarks.json');
+      expect(acikVeriPage).toContain('/openapi.json');
+    });
+
+    it('Sözlük terimleri (dictionary.ts) tesis yönetimi alt sektörlerine ve açık veri portalına bağlamsal linkler içerir', async () => {
+      const { TERMS } = await import('@/data/dictionary');
+
+      const topluYapi = TERMS.find((t) => t.term === 'Toplu Yapı Yönetimi (KMK 66-74)');
+      expect(topluYapi).toBeDefined();
+      expect(topluYapi?.link?.href).toBe('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
+
+      const plaza = TERMS.find((t) => t.term === 'Plaza Tesis Yönetimi & Ortak Gider Paylaşımı');
+      expect(plaza).toBeDefined();
+      expect(plaza?.link?.href).toBe('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+
+      const acikVeri = TERMS.find((t) => t.term === 'Tesis Yönetimi Açık Veri Standartları (Open Data)');
+      expect(acikVeri).toBeDefined();
+      expect(acikVeri?.link?.href).toBe('/hizmetler/tesis-yonetimi/acik-veri');
+    });
+  });
 });
 
 

@@ -364,6 +364,10 @@ export default function Footer() {
               <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Sanayi & Fabrika Tesis Yönetimi</Link>
               <span>•</span>
               <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rehber')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis Yönetim Şirketi Seçim Rehberi</Link>
+              <span>•</span>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/acik-veri')} className="hover:text-slate-900 dark:hover:text-white inline-block py-1 px-1.5 rounded hover:bg-slate-200/50 dark:hover:bg-white/5">Tesis Açık Veri Portalı & API</Link>
+              <span>•</span>
+              <a href="/openapi.json" target="_blank" rel="noopener noreferrer" className="font-mono text-emerald-600 dark:text-emerald-400 hover:underline inline-block py-1 px-1.5 rounded" title="OpenAPI 3.1.0 JSON Spesifikasyonu">OpenAPI 3.1 JSON</a>
             </div>
           </div>
 
