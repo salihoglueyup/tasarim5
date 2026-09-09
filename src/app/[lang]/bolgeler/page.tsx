@@ -4,6 +4,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
 import IstanbulDuesHeatmapSeo from '@/components/seo/IstanbulDuesHeatmapSeo';
 import DistrictComparisonMatrixSeo from '@/components/seo/DistrictComparisonMatrixSeo';
+import IstanbulInteractiveDistrictMapSeo from '@/components/seo/IstanbulInteractiveDistrictMapSeo';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 
@@ -234,6 +235,7 @@ export default async function Bolgeler({
           </div>
         </div>
 
+        <IstanbulInteractiveDistrictMapSeo />
         <IstanbulDuesHeatmapSeo />
         <DistrictComparisonMatrixSeo />
         {sides.map((side) => (

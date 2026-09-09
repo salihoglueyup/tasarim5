@@ -18,6 +18,7 @@ export async function GET() {
   const regionalHubs = [
     { path: '/bolgeler', priority: '0.9', changefreq: 'daily' },
     { path: '/hizmetler/tesis-yonetimi', priority: '1.0', changefreq: 'daily' },
+    { path: '/hizmetler/tesis-yonetimi/acik-veri', priority: '0.9', changefreq: 'weekly' },
   ];
 
   for (const hub of regionalHubs) {

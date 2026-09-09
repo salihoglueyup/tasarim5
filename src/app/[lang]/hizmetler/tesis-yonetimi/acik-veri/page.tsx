@@ -106,6 +106,12 @@ export default async function AcikVeriPage({
         encodingFormat: 'application/json',
         contentUrl: `${BASE_URL}/api/tesis-yonetimi/energy-benchmarks.json`,
       },
+      {
+        '@type': 'DataDownload',
+        name: 'İstanbul 39 İlçe Tesis Yönetimi Saha Ağı (RFC 7946 GeoJSON)',
+        encodingFormat: 'application/geo+json',
+        contentUrl: `${BASE_URL}/api/tesis-yonetimi/istanbul-districts.geojson`,
+      },
     ],
   };
 

@@ -287,6 +287,39 @@ export function generateOpenApiSpec() {
           },
         },
       },
+      '/api/tesis-yonetimi/istanbul-districts.geojson': {
+        get: {
+          tags: ['Coğrafi Harita & Yerel Saha Ağı'],
+          summary: 'İstanbul 39 İlçe Tesis Yönetimi Saha Ağı (RFC 7946 GeoJSON)',
+          description: 'İstanbul genelinde 39 ilçe için GPS merkez koordinatları, SLA müdahale süreleri, aktif yönetilen projeler ve kanonik bölge bağlantıları.',
+          operationId: 'getIstanbulDistrictsGeoJson',
+          parameters: [
+            {
+              name: 'side',
+              in: 'query',
+              required: false,
+              description: 'Yaka filtresi (anadolu veya avrupa)',
+              schema: { type: 'string', enum: ['anadolu', 'avrupa'] },
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'RFC 7946 standardında GeoJSON FeatureCollection verisi.',
+              content: {
+                'application/geo+json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      type: { type: 'string', example: 'FeatureCollection' },
+                      features: { type: 'array' },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     },
   };
 }

@@ -52,6 +52,8 @@ export default function robots(): MetadataRoute.Robots {
     '/api/tesis-yonetimi/dues-index.json',
     '/api/tesis-yonetimi/verify-credentials',
     '/api/tesis-yonetimi/ai-snippets.json',
+    '/api/tesis-yonetimi/istanbul-districts.geojson',
+    '/api/tesis-yonetimi/geo-feed.xml',
     '/api/geo/facility-coverage.geojson',
     '/api/geo/districts.geojson',
     '/api/geo/istanbul.kml',

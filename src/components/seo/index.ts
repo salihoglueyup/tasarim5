@@ -85,5 +85,7 @@ export { default as FacilityTransitionTimelineSeo } from './FacilityTransitionTi
 export { default as DistrictElevatorMaintenanceSeo } from './DistrictElevatorMaintenanceSeo';
 export { default as FacilityOperationalPillarsSeo } from './FacilityOperationalPillarsSeo';
 export { default as FacilityBudgetStaffSimulatorSeo } from './FacilityBudgetStaffSimulatorSeo';
+export { default as DistrictMapFacadeSeo } from './DistrictMapFacadeSeo';
+export { default as IstanbulInteractiveDistrictMapSeo } from './IstanbulInteractiveDistrictMapSeo';
 export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
 

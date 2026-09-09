@@ -4445,6 +4445,111 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(acikVeri?.link?.href).toBe('/hizmetler/tesis-yonetimi/acik-veri');
     });
   });
+
+  describe('132. Wave 63: Haritalar Zirvesi, 39 İlçe Saha Haritası, Harita Cephesi & RFC 7946 GeoJSON API', () => {
+    it('GET /api/tesis-yonetimi/istanbul-districts.geojson geçerli RFC 7946 GeoJSON döner ve 39 ilçeyi kapsar', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/istanbul-districts.geojson/route');
+
+      // 1. Tüm ilçeler (39 İlçe)
+      const resAll = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/istanbul-districts.geojson'));
+      expect(resAll.status).toBe(200);
+      expect(resAll.headers.get('Content-Type')).toContain('application/geo+json');
+      expect(resAll.headers.get('X-GeoJSON-Version')).toBe('RFC-7946');
+
+      const jsonAll = await resAll.json();
+      expect(jsonAll.type).toBe('FeatureCollection');
+      expect(jsonAll.features).toHaveLength(39);
+
+      // Kadıköy kontrolü
+      const kadikoy = jsonAll.features.find((f: any) => f.id === 'kadikoy');
+      expect(kadikoy).toBeDefined();
+      expect(kadikoy.geometry.type).toBe('Point');
+      expect(kadikoy.geometry.coordinates).toEqual([29.0333, 40.9833]); // [lng, lat]
+      expect(kadikoy.properties.districtName).toBe('Kadıköy');
+      expect(kadikoy.properties.side).toBe('Anadolu');
+      expect(kadikoy.properties.slaMinutes).toBe(30);
+      expect(kadikoy.properties.facilityManagementUrl).toBe('https://aloyonetim.com.tr/bolgeler/kadikoy/tesis-yonetimi');
+
+      // 2. Anadolu Yakası Filtresi (14 İlçe)
+      const resAnadolu = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/istanbul-districts.geojson?side=anadolu'));
+      const jsonAnadolu = await resAnadolu.json();
+      expect(jsonAnadolu.features).toHaveLength(14);
+      expect(jsonAnadolu.features.every((f: any) => f.properties.side === 'Anadolu')).toBe(true);
+
+      // 3. Avrupa Yakası Filtresi (25 İlçe)
+      const resAvrupa = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/istanbul-districts.geojson?side=avrupa'));
+      const jsonAvrupa = await resAvrupa.json();
+      expect(jsonAvrupa.features).toHaveLength(25);
+      expect(jsonAvrupa.features.every((f: any) => f.properties.side === 'Avrupa')).toBe(true);
+    });
+
+    it('DistrictMapFacadeSeo bileşeni mevcuttur ve ilçe iniş sayfasına monte edilmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const facadeFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/DistrictMapFacadeSeo.tsx'),
+        'utf8'
+      );
+      expect(facadeFile).toContain('google.com/maps/dir/?api=1');
+      expect(facadeFile).toContain('maps.apple.com/?daddr=');
+      expect(facadeFile).toContain('Nöbetçi Saha Ekibi');
+
+      const districtPage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'),
+        'utf8'
+      );
+      expect(districtPage).toContain('<DistrictMapFacadeSeo');
+      expect(districtPage).not.toContain('<iframe');
+    });
+
+    it('IstanbulInteractiveDistrictMapSeo bileşeni mevcuttur ve /bolgeler sayfasına monte edilmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const mapFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/IstanbulInteractiveDistrictMapSeo.tsx'),
+        'utf8'
+      );
+      expect(mapFile).toContain('İstanbul 39 İlçe Saha & Harita Ağı');
+      expect(mapFile).toContain('Anadolu (14)');
+      expect(mapFile).toContain('Avrupa (25)');
+      expect(mapFile).toContain('/api/tesis-yonetimi/istanbul-districts.geojson');
+
+      const bolgelerPage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/bolgeler/page.tsx'),
+        'utf8'
+      );
+      expect(bolgelerPage).toContain('<IstanbulInteractiveDistrictMapSeo />');
+    });
+
+    it('OpenAPI 3.1 spesifikasyonu ve robots.ts GeoJSON harita API servisini tam olarak destekler', async () => {
+      const { generateOpenApiSpec } = await import('@/lib/seo/openApiSpec');
+      const spec = generateOpenApiSpec();
+
+      expect(spec.paths['/api/tesis-yonetimi/istanbul-districts.geojson']).toBeDefined();
+      expect(spec.paths['/api/tesis-yonetimi/istanbul-districts.geojson'].get.summary).toContain('RFC 7946 GeoJSON');
+
+      const fs = await import('fs');
+      const path = await import('path');
+      const robotsContent = fs.readFileSync(path.join(process.cwd(), 'src/app/robots.ts'), 'utf8');
+
+      expect(robotsContent).toContain("'/api/tesis-yonetimi/istanbul-districts.geojson'");
+      expect(robotsContent).toContain("'/api/tesis-yonetimi/geo-feed.xml'");
+    });
+
+    it('sitemap-regions.xml bölgesel tesis yönetimi ve açık veri portalı yollarını içerir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const regionsSitemap = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/sitemap-regions.xml/route.ts'),
+        'utf8'
+      );
+
+      expect(regionsSitemap).toContain("path: '/hizmetler/tesis-yonetimi/acik-veri'");
+      expect(regionsSitemap).toContain("path: '/bolgeler'");
+    });
+  });
 });
 
 

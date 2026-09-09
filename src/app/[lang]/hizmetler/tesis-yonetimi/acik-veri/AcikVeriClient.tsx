@@ -275,6 +275,62 @@ const API_ENDPOINTS: ApiEndpointInfo[] = [
       2
     ),
   },
+  {
+    id: 'istanbul-districts-geojson',
+    name: 'İstanbul 39 İlçe Tesis Yönetimi Saha Ağı (RFC 7946 GeoJSON)',
+    category: 'Coğrafi Harita & Yerel Saha Ağı',
+    path: '/api/tesis-yonetimi/istanbul-districts.geojson',
+    description: 'İstanbul genelinde 39 ilçenin GPS merkez koordinatları, SLA acil müdahale süreleri (30-45 dk), aktif yönetilen proje sayıları ve doğrudan ilçe tesis yönetimi bağlantıları.',
+    updateFrequency: 'Haftalık Güncellenir',
+    icon: 'map',
+    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/istanbul-districts.geojson" -H "Accept: application/geo+json"`,
+    fields: [
+      { name: 'type', type: 'string', desc: 'GeoJSON tipi (FeatureCollection)' },
+      { name: 'features', type: 'array', desc: '39 ilçenin Point geometrileri ve operasyonel özellikleri' },
+      { name: 'coordinates', type: '[lng, lat]', desc: 'RFC 7946 standardında GPS koordinatları' },
+      { name: 'slaMinutes', type: 'number', desc: 'İlçeye özel ortalama SLA müdahale süresi (dakika)' },
+    ],
+    sampleJson: JSON.stringify(
+      {
+        type: "FeatureCollection",
+        metadata: {
+          title: "Alo Yönetim İstanbul 39 İlçe Tesis Yönetimi Saha Ağı",
+          license: "https://opendatacommons.org/licenses/by/1-0/",
+          totalFeatures: 39
+        },
+        features: [
+          {
+            type: "Feature",
+            id: "kadikoy",
+            geometry: { type: "Point", coordinates: [29.0333, 40.9833] },
+            properties: {
+              districtName: "Kadıköy",
+              side: "Anadolu",
+              managedProjects: 48,
+              slaMinutes: 30,
+              emergencyResponseTime: "30 Dakika",
+              facilityManagementUrl: `${BASE_URL}/bolgeler/kadikoy/tesis-yonetimi`
+            }
+          },
+          {
+            type: "Feature",
+            id: "besiktas",
+            geometry: { type: "Point", coordinates: [29.0067, 41.0422] },
+            properties: {
+              districtName: "Beşiktaş",
+              side: "Avrupa",
+              managedProjects: 39,
+              slaMinutes: 30,
+              emergencyResponseTime: "30 Dakika",
+              facilityManagementUrl: `${BASE_URL}/bolgeler/besiktas/tesis-yonetimi`
+            }
+          }
+        ]
+      },
+      null,
+      2
+    ),
+  },
 ];
 
 export default function AcikVeriClient({ lang }: { lang: string }) {
@@ -300,11 +356,11 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
               <span className="material-symbols-outlined text-[15px]" aria-hidden="true">api</span>
-              OpenAPI 3.1.0 Şartnamesi
+              OpenAPI 3.1.0 & GeoJSON
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              7 Açık Kamu API&apos;si Canlı
+              8 Açık Kamu API & Harita Servisi Canlı
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">
               <span className="material-symbols-outlined text-[15px]" aria-hidden="true">lock_open</span>
@@ -400,7 +456,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                 RESTful Veri Servisleri
               </span>
               <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                7 Temel Tesis Yönetimi Açık API Uç Noktası
+                8 Temel Tesis Yönetimi & Harita API Uç Noktası
               </h2>
             </div>
             <span className="text-xs font-mono text-slate-500 dark:text-slate-400">

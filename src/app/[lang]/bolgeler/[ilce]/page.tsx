@@ -11,6 +11,7 @@ import {
   SocialProofTickerSeo,
   DistrictNeighborhoodDuesTableSeo,
   DistrictSecuritySpotlightSeo,
+  DistrictMapFacadeSeo,
   ServiceAuthorityHubSeo,
 } from '@/components/seo';
 
@@ -125,8 +126,6 @@ export default async function DistrictPage({
 
   const neighborLinks = getNeighborDistrictLinks(district.slug, lang);
   const crossSideLinks = getCrossSideDistrictLinks(district.slug, lang);
-
-  const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${district.geo.lng - 0.03}%2C${district.geo.lat - 0.02}%2C${district.geo.lng + 0.03}%2C${district.geo.lat + 0.02}&marker=${district.geo.lat}%2C${district.geo.lng}`;
 
   return (
     <>
@@ -269,15 +268,15 @@ export default async function DistrictPage({
           </div>
         )}
 
-        {/* Harita (lazy) */}
-        <div className="rounded-[2.5rem] overflow-hidden border border-[var(--color-outline)]/60">
-          <iframe
-            title={`${district.name} konum haritası`}
-            src={mapSrc}
-            loading="lazy"
-            className="w-full h-80 border-0"
-          />
-        </div>
+        {/* İlçe Tesis Yönetimi Saha & Harita Cephesi (Wave 63) */}
+        <DistrictMapFacadeSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          side={district.side as 'Anadolu' | 'Avrupa'}
+          geo={district.geo}
+          managedProjects={district.managedProjects}
+          neighborhoodCount={district.neighborhoods.length}
+        />
 
         {/* Yerel SSS */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12">
