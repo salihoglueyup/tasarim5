@@ -21,6 +21,8 @@ import {
   FacilityDistrictPortfolioSeo,
   FacilityCorporateSlaGuaranteesSeo,
   FacilityTransitionTimelineSeo,
+  FacilityOperationalPillarsSeo,
+  FacilityBudgetStaffSimulatorSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -290,8 +292,12 @@ export default function TesisYonetimiClient() {
           </div>
         </div>
 
-        {/* 1.5. BÖLÜM: İnteraktif Aidat Hesaplayıcı, İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
+        {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
+        <FacilityOperationalPillarsSeo />
+
+        {/* 1.5. BÖLÜM: İnteraktif Aidat Hesaplayıcı, Kadro Simülatörü, İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
         <div className="space-y-12">
+          <FacilityBudgetStaffSimulatorSeo />
           <FacilityManagementCalculatorSeo />
           <IstanbulDuesHeatmapSeo />
           <ChecklistAuditSeo />
@@ -407,9 +413,6 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
         </div>
-
-        {/* 5.5. BÖLÜM: 39 İlçe Referans ve Tesis Portföyü */}
-        <FacilityDistrictPortfolioSeo />
 
         {/* 6. BÖLÜM: Bilgi Bankası & SSS (AI Instant Answers + DynamicFAQ) */}
         <div className="space-y-12">

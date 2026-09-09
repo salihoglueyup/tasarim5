@@ -98,6 +98,24 @@ const PORTFOLIO_DATA: DistrictPortfolioHighlight[] = [
     savingAvg: '%30 Tasarruf'
   },
   {
+    slug: 'maltepe',
+    name: 'Maltepe',
+    side: 'anadolu',
+    managedCount: 44,
+    sampleProjects: ['Süreyyapaşa Konutları', 'Dragos Sahil Kuleleri', 'Başıbüyük Siteleri', 'Altayçeşme Blokları'],
+    features: ['Geniş Peyzaj & Sulama Otomasyonu', '5188 Özel Güvenlik & PTS', 'Şeffaf KMK İşletme Bütçesi'],
+    savingAvg: '%29 Tasarruf'
+  },
+  {
+    slug: 'tuzla',
+    name: 'Tuzla',
+    side: 'anadolu',
+    managedCount: 35,
+    sampleProjects: ['Tuzla Kimyacılar OSB Tesisleri', 'Deri OSB Fabrikaları', 'İstasyon Rezidansları', 'Aydınlı Konut Projeleri'],
+    features: ['ISO 45001 & ATEX Uyumluluğu', '34.5 kV OG Trafo & Kompanzasyon', 'MOTAT Tehlikeli Atık Yönetimi'],
+    savingAvg: '%33 Tasarruf'
+  },
+  {
     slug: 'arnavutkoy',
     name: 'Arnavutköy',
     side: 'avrupa',

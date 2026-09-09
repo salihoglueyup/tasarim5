@@ -21,19 +21,37 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const t = await getDictionary(lang);
-  const serpMeta = getFacilitySerpMeta(lang);
+  const serpMeta = getFacilitySerpMeta({ lang, pillar: 'facility' });
 
-  const title = t.serv_fac_meta_title || serpMeta.title;
-  const description = t.serv_fac_meta_desc || serpMeta.description;
+  // Wave 57: CTR Boost & Ön Yüklemeli Tesis Yönetimi Başlık Şablonu (Pozisyon 53 -> İlk 10)
+  const title = lang === 'tr'
+    ? 'Tesis Yönetimi Şirketleri — Entegre Tesis İşletmesi & Ücretsiz Keşif | Alo Yönetim'
+    : t.serv_fac_meta_title || serpMeta.title;
+
+  const description = lang === 'tr'
+    ? "İstanbul genelinde rezidans, plaza, site ve sanayi tesisleri için ISO 41001 standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik ve %30 tasarruf. Hemen keşif randevusu alın."
+    : t.serv_fac_meta_desc || serpMeta.description;
 
   return buildMetadata({
     title,
     description,
     path: serpMeta.canonicalPath,
     lang,
-    targetKeyword: serpMeta.targetKeyword,
+    targetKeyword: 'tesis yönetimi',
     ogImageType: 'service',
-    keywords: serpMeta.keywords,
+    keywords: [
+      'tesis yönetimi',
+      'tesis yönetim şirketleri',
+      'entegre tesis yönetimi',
+      'istanbul tesis yönetimi',
+      'tesis işletmeciliği',
+      'plaza tesis yönetimi',
+      'rezidans tesis yönetimi',
+      'bina ve tesis yönetimi',
+      'iso 41001 tesis yönetimi',
+      'tesis yönetim firmaları',
+      ...serpMeta.keywords,
+    ],
   });
 }
 

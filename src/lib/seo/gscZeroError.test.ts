@@ -3987,6 +3987,85 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(DistrictElevatorMaintenanceSeo).toBeDefined();
     });
   });
+
+  describe('126. Wave 57: Tesis Yönetimi Mega Derinleştirme, Operasyonel Sektör Matrisi & Kadro Simülatörü', () => {
+    it('FacilityOperationalPillarsSeo ve FacilityBudgetStaffSimulatorSeo bileşenleri dışa aktarılmıştır ve geçerlidir', async () => {
+      const { FacilityOperationalPillarsSeo, FacilityBudgetStaffSimulatorSeo } = await import('@/components/seo');
+      expect(FacilityOperationalPillarsSeo).toBeDefined();
+      expect(FacilityBudgetStaffSimulatorSeo).toBeDefined();
+    });
+
+    it('TesisYonetimiClient.tsx içinde yeni bileşenler entegre edilmiştir ve yinelenen portföy bileşeni bulunmaz', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'), 'utf8');
+
+      expect(clientContent).toContain('<FacilityOperationalPillarsSeo />');
+      expect(clientContent).toContain('<FacilityBudgetStaffSimulatorSeo />');
+
+      // Duplicate FacilityDistrictPortfolioSeo olmamalı (sadece tek bir yerde kullanılmalı)
+      const portfolioMatches = clientContent.match(/<FacilityDistrictPortfolioSeo\s*\/>/g);
+      expect(portfolioMatches?.length).toBe(1);
+    });
+
+    it('tesis-yonetimi/page.tsx başlığı front-loaded ve yüksek CTR formatına sahiptir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/page.tsx'), 'utf8');
+
+      expect(pageContent).toContain('Tesis Yönetimi Şirketleri — Entegre Tesis İşletmesi & Ücretsiz Keşif | Alo Yönetim');
+      expect(pageContent).toContain('İstanbul genelinde rezidans, plaza, site ve sanayi tesisleri için ISO 41001 standartlarında entegre tesis yönetimi');
+    });
+
+    it('4 alt sektör sayfasının tümü (Rezidans, Plaza, Toplu Konut, Sanayi) operasyonel derinliğe ve yasal standartlara sahiptir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      // 1. Rezidans
+      const rezidansContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/RezidansYonetimiClient.tsx'), 'utf8');
+      expect(rezidansContent).toContain('Vale & VIP Kapalı Otopark Yönetimi');
+      expect(rezidansContent).toContain('7/24 Concierge & Lobi Karşılama');
+      expect(rezidansContent).toContain('UHF RFID Plaka Tanıma & Turnike Geçişi');
+      expect(rezidansContent).toContain('Sağlık Bakanlığı Su Hijyeni');
+      expect(rezidansContent).toContain('%99.2 Aidat Tahsilat Garantisi');
+
+      // 2. Plaza
+      const plazaContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx'), 'utf8');
+      expect(plazaContent).toContain('Adresli Yangın Otomasyonu & Duman Tahliyesi');
+      expect(plazaContent).toContain('3x Senkron Jeneratör & Kesintisiz Güç');
+      expect(plazaContent).toContain('HVAC Merkezi İklimlendirme & Chiller Bakımı');
+      expect(plazaContent).toContain('Ortak Alan Enerji Dağıtımı & Alt Sayaç Okuma');
+      expect(plazaContent).toContain('%0 Reaktif Ceza');
+
+      // 3. Toplu Konut
+      const topluKonutContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx'), 'utf8');
+      expect(topluKonutContent).toContain('KMK m.34 Yönetici Seçimi & Çift Çoğunluk');
+      expect(topluKonutContent).toContain('KMK m.20 İcra Takibi & Aylık %5 Gecikme Faizi');
+      expect(topluKonutContent).toContain('5188 Lisanslı 3 Vardiya 7/24 Devriye Güvenliği');
+      expect(topluKonutContent).toContain('Merkezi Sulama, Hidrofor & Dalgıç Pompa');
+      expect(topluKonutContent).toContain('%25-33 Aidat Tasarrufu');
+
+      // 4. Sanayi Tesisi
+      const sanayiContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx'), 'utf8');
+      expect(sanayiContent).toContain('ISO 45001 İSG & ATEX Patlamadan Korunma');
+      expect(sanayiContent).toContain('34.5 kV OG Trafo & Kompanzasyon (%0 Ceza)');
+      expect(sanayiContent).toContain('Ağır Endüstriyel Epoksi Zemin & Drenaj Bakımı');
+      expect(sanayiContent).toContain('Kantar, Hızlı PVC Kapı & Yükleme Körüğü');
+      expect(sanayiContent).toContain('ISO 14001 Tehlikeli Atık & Sıfır Atık Yönetimi');
+    });
+
+    it('FacilityDistrictPortfolioSeo bileşeni Kartal korozyon, Başakşehir mega site, Maltepe ve Tuzla OSB referanslarını barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const portfolioContent = fs.readFileSync(path.join(process.cwd(), 'src/components/seo/FacilityDistrictPortfolioSeo.tsx'), 'utf8');
+
+      expect(portfolioContent).toContain('Sahil Korozyonuna Karşı Asansör & Cephe Bakımı');
+      expect(portfolioContent).toContain('Bahçeşehir Mega Siteleri');
+      expect(portfolioContent).toContain('Maltepe');
+      expect(portfolioContent).toContain('Tuzla Kimyacılar OSB Tesisleri');
+      expect(portfolioContent).toContain('ISO 45001 & ATEX Uyumluluğu');
+    });
+  });
 });
 
 
