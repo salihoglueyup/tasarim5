@@ -2893,6 +2893,73 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(duesEntity?.variations.some((v) => v.includes('iso 10002'))).toBe(true);
     });
   });
+
+  describe('104. facilityCompleteGraphBuilder Amiral Gemisi, Alt Sektör ve İlçe Şemalarında 8 Akreditasyon Paritesi', () => {
+    it('Primary, SubSector ve District şemalarında hem Organization hem Service düğümleri 8 akreditasyon içerir', async () => {
+      const {
+        buildFacilityCompleteGraphSchema,
+        buildFacilitySubSectorGraphSchema,
+        buildDistrictFacilityGraphSchema,
+      } = await import('./facilityCompleteGraphBuilder');
+
+      // 1. Primary Graph
+      const primaryGraph = buildFacilityCompleteGraphSchema({ lang: 'tr' });
+      const pNodes = (primaryGraph as any)['@graph'];
+      const pOrg = pNodes.find((n: any) => n['@type'] === 'Corporation');
+      const pService = pNodes.find((n: any) => n['@type'] === 'Service');
+      expect(pOrg.hasCredential.length).toBe(8);
+      expect(pService.hasCredential.length).toBe(8);
+
+      // 2. SubSector Graph
+      const subGraph = buildFacilitySubSectorGraphSchema({
+        lang: 'tr',
+        subSectorSlug: 'rezidans-site-yonetimi',
+        name: 'Rezidans & Lüks Site Yönetimi',
+        description: 'Lüks rezidans yönetimi',
+      });
+      const sNodes = (subGraph as any)['@graph'];
+      const sOrg = sNodes.find((n: any) => n['@type'] === 'Corporation');
+      const sService = sNodes.find((n: any) => n['@type'] === 'Service');
+      expect(sOrg.hasCredential.length).toBe(8);
+      expect(sService.hasCredential.length).toBe(8);
+
+      // 3. District Graph
+      const distGraph = buildDistrictFacilityGraphSchema({
+        lang: 'tr',
+        districtSlug: 'kadikoy',
+        districtName: 'Kadıköy',
+      });
+      const dNodes = (distGraph as any)['@graph'];
+      const dOrg = dNodes.find((n: any) => n['@type'] === 'Corporation');
+      const dService = dNodes.find((n: any) => n['@type'] === 'Service');
+      expect(dOrg.hasCredential.length).toBe(8);
+      expect(dService.hasCredential.length).toBe(8);
+    });
+  });
+
+  describe('105. facilityVoiceAiSynthesizer Publisher ve ORG_KNOWS_ABOUT 8 Standart Bütünlüğü', () => {
+    it('Voice QA publisher nesnesi 8 akreditasyon içerir ve ORG_KNOWS_ABOUT ISO 10002/TSE HYB barındırır', async () => {
+      const { synthesizeFacilityVoiceQA } = await import('./facilityVoiceAiSynthesizer');
+      const voiceData = synthesizeFacilityVoiceQA();
+
+      expect(voiceData.publisher?.hasCredential).toBeDefined();
+      expect(voiceData.publisher?.hasCredential?.length).toBe(8);
+
+      const credNames = voiceData.publisher?.hasCredential?.map((c) => c.name) || [];
+      expect(credNames.some((n) => n.includes('ISO 41001'))).toBe(true);
+      expect(credNames.some((n) => n.includes('ISO 27001'))).toBe(true);
+      expect(credNames.some((n) => n.includes('ISO 10002'))).toBe(true);
+      expect(credNames.some((n) => n.includes('TSE HYB'))).toBe(true);
+
+      const { ORG_KNOWS_ABOUT } = await import('@/lib/schemas');
+      expect(
+        ORG_KNOWS_ABOUT.some((k: any) => typeof k === 'object' && k.name?.includes('ISO 10002'))
+      ).toBe(true);
+      expect(
+        ORG_KNOWS_ABOUT.some((k: any) => typeof k === 'object' && k.name?.includes('TSE HYB 12850'))
+      ).toBe(true);
+    });
+  });
 });
 
 

@@ -23,6 +23,60 @@ export interface FacilityCompleteGraphOptions {
 }
 
 /**
+ * 8 Resmi Akreditasyon ve Lisans Standardı (E-E-A-T & Knowledge Graph Paritesi)
+ */
+export const FACILITY_COMPLETE_GRAPH_CREDENTIALS = [
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'International Standard',
+    name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
+    sameAs: 'https://www.wikidata.org/wiki/Q108846399',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Quality Management',
+    name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+    sameAs: 'https://www.wikidata.org/wiki/Q11029',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Environmental Management',
+    name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
+    sameAs: 'https://www.wikidata.org/wiki/Q832444',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Occupational Health and Safety',
+    name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+    sameAs: 'https://www.wikidata.org/wiki/Q25052309',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Information Security',
+    name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
+    sameAs: 'https://www.wikidata.org/wiki/Q831623',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Customer Satisfaction',
+    name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
+    sameAs: 'https://www.wikidata.org/wiki/Q11029',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'TSE Standard',
+    name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
+    sameAs: 'https://www.wikidata.org/wiki/Q1391515',
+  },
+  {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Official License',
+    name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
+    sameAs: 'https://www.wikidata.org/wiki/Q11440',
+  },
+];
+
+/**
  * Tesis Yönetimi Birleşik Schema.org @graph Knowledge Graph Jeneratörü.
  * 
  * Google Knowledge Graph, Bing ve AI Arama Motorları (Google SGE, Gemini, Perplexity)
@@ -67,6 +121,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
+    hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     areaServed: {
       '@type': 'City',
       name: 'İstanbul',
@@ -152,31 +207,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       priceValidUntil: '2027-12-31',
       description: 'Daire başı aylık entegre yönetim, güvenlik, temizlik ve teknik bakım birim maliyet aralığı.',
     },
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'International Standard',
-        name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
-        sameAs: 'https://www.wikidata.org/wiki/Q108846399',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Quality Management',
-        name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-        sameAs: 'https://www.wikidata.org/wiki/Q11029',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Official License',
-        name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-        sameAs: 'https://www.wikidata.org/wiki/Q11440',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'TSE Standard',
-        name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
-      },
-    ],
+    hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Alo Yönetim Tesis Yönetimi Sektörel Çözüm Kataloğu',
@@ -449,6 +480,7 @@ export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGrap
     address: ORG_ADDRESS,
     geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
+    hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
   };
 
   // 2. BreadcrumbList Node
@@ -511,20 +543,7 @@ export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGrap
       bestRating: 5,
       worstRating: 1,
     },
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'International Standard',
-        name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
-        sameAs: 'https://www.wikidata.org/wiki/Q108846399',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Security License',
-        name: '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-        sameAs: 'https://www.wikidata.org/wiki/Q11440',
-      },
-    ],
+    hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     areaServed: DISTRICTS.map((d) => ({
       '@type': 'AdministrativeArea',
       name: `${d.name}, İstanbul`,
@@ -632,6 +651,7 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
     address: ORG_ADDRESS,
     geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
+    hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
   };
 
   // 2. LocalBusiness / Operations Node
@@ -735,20 +755,7 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
       bestRating: 5,
       worstRating: 1,
     },
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'International Standard',
-        name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
-        sameAs: 'https://www.wikidata.org/wiki/Q108846399',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Security License',
-        name: '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-        sameAs: 'https://www.wikidata.org/wiki/Q11440',
-      },
-    ],
+    hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     areaServed: {
       '@type': 'AdministrativeArea',
       name: `${options.districtName}, İstanbul`,

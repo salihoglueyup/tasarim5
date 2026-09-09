@@ -23,6 +23,12 @@ export interface VoiceAiSynthesizerPayload {
     url: string;
     telephone: string;
     logo: string;
+    hasCredential?: Array<{
+      '@type': string;
+      credentialCategory: string;
+      name: string;
+      sameAs?: string;
+    }>;
   };
   qaCollection: VoiceQaItem[];
 }
@@ -140,6 +146,16 @@ export function synthesizeFacilityVoiceQA(
       url: BASE_URL,
       telephone: '+90 216 550 48 48',
       logo: `${BASE_URL}/images/logo.png`,
+      hasCredential: [
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'International Standard', name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Quality Management', name: 'ISO 9001:2015 Kalite Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q11029' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Environmental Management', name: 'ISO 14001:2015 Çevre Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q832444' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Occupational Health and Safety', name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q25052309' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Information Security', name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q831623' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Customer Satisfaction', name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q11029' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'TSE Standard', name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Official License', name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi', sameAs: 'https://www.wikidata.org/wiki/Q11440' },
+      ],
     },
     qaCollection: filtered,
   };
