@@ -2405,5 +2405,127 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resUpload.headers.get('Cache-Control')).toContain('no-store');
     });
   });
+
+  describe('94. Operasyonel ve Analiz API Uç Noktalarında noindex ve Private Cache Güvencesi', () => {
+    it('lead, seed-referanslar, analyze-content, audit-page, ping-all, websub-notify, indexnow ve ping-indexnow noindex döner', async () => {
+      process.env.DATABASE_URL = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/alo_yonetim';
+      process.env.JWT_SECRET = process.env.JWT_SECRET || 'test_jwt_secret_key_for_vitest_runner_2026';
+
+      // 1. lead API
+      const { POST: postLead } = await import('@/app/api/lead/route');
+      const reqLead = new Request('https://aloyonetim.com.tr/api/lead', {
+        method: 'POST',
+        body: JSON.stringify({}),
+      });
+      const resLead = await postLead(reqLead as any);
+      expect(resLead.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resLead.headers.get('Cache-Control')).toContain('no-store');
+
+      // 2. seed-referanslar API
+      const { GET: getSeed } = await import('@/app/api/seed-referanslar/route');
+      const resSeed = await getSeed();
+      expect(resSeed.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resSeed.headers.get('Cache-Control')).toContain('no-store');
+
+      // 3. analyze-content API
+      const { POST: postAnalyze } = await import('@/app/api/seo/analyze-content/route');
+      const reqAnalyze = new Request('https://aloyonetim.com.tr/api/seo/analyze-content', {
+        method: 'POST',
+        body: JSON.stringify({ content: '' }),
+      });
+      const resAnalyze = await postAnalyze(reqAnalyze as any);
+      expect(resAnalyze.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resAnalyze.headers.get('Cache-Control')).toContain('no-store');
+
+      // 4. audit-page API (GET & POST)
+      const { GET: getAuditPage, POST: postAuditPage } = await import('@/app/api/seo/audit-page/route');
+      const reqAuditGet = new Request('https://aloyonetim.com.tr/api/seo/audit-page');
+      const resAuditGet = await getAuditPage(reqAuditGet as any);
+      expect(resAuditGet.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resAuditGet.headers.get('Cache-Control')).toContain('no-store');
+
+      const reqAuditPost = new Request('https://aloyonetim.com.tr/api/seo/audit-page', {
+        method: 'POST',
+        body: JSON.stringify({ title: 'Test' }),
+      });
+      const resAuditPost = await postAuditPage(reqAuditPost as any);
+      expect(resAuditPost.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resAuditPost.headers.get('Cache-Control')).toContain('no-store');
+
+      // 5. ping-all API
+      const { GET: getPingAll } = await import('@/app/api/seo/ping-all/route');
+      const resPingAll = await getPingAll();
+      expect(resPingAll.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resPingAll.headers.get('Cache-Control')).toContain('no-store');
+
+      // 6. websub-notify API
+      const { GET: getWebsub } = await import('@/app/api/seo/websub-notify/route');
+      const resWebsub = await getWebsub();
+      expect(resWebsub.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resWebsub.headers.get('Cache-Control')).toContain('no-store');
+
+      // 7. indexnow genel API
+      const { POST: postIndexNow } = await import('@/app/api/indexnow/route');
+      const reqIndexNow = new Request('https://aloyonetim.com.tr/api/indexnow', {
+        method: 'POST',
+        body: JSON.stringify({ urls: [] }),
+      });
+      const resIndexNow = await postIndexNow(reqIndexNow);
+      expect(resIndexNow.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resIndexNow.headers.get('Cache-Control')).toContain('no-store');
+
+      // 8. tesis-yonetimi ping-indexnow API
+      const { GET: getTesisPing } = await import('@/app/api/tesis-yonetimi/ping-indexnow/route');
+      const resTesisPing = await getTesisPing();
+      expect(resTesisPing.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resTesisPing.headers.get('Cache-Control')).toContain('no-store');
+    });
+  });
+
+  describe('95. GEO (Generative Engine Optimization) & 2026 AI Corpus Zenginleştirme Standartları', () => {
+    it('facilityKnowledgeCorpus ve llms.txt çıktılarında 2026 ek bütçe, EV şarj ve enerji tasarrufu bulunur', async () => {
+      // 1. facilityKnowledgeCorpus buildFacilityRAGCorpus
+      const { buildFacilityRAGCorpus } = await import('@/lib/ai/facilityKnowledgeCorpus');
+      const corpus = await buildFacilityRAGCorpus('tr');
+
+      // 2026 Ek bütçe kontrolü
+      expect(corpus.asgariUcretEkButceRehberi2026).toBeDefined();
+      expect(corpus.asgariUcretEkButceRehberi2026.title).toContain('2026 Asgari Ücret');
+      expect(corpus.asgariUcretEkButceRehberi2026.proceduralSteps.length).toBeGreaterThanOrEqual(4);
+      expect(corpus.asgariUcretEkButceRehberi2026.kpiMetrics.some((m) => m.standardValue === '7 Gün')).toBe(true);
+
+      // EV Şarj kuralları
+      expect(corpus.evChargeInstallationRulesKMK42).toBeDefined();
+      expect(corpus.evChargeInstallationRulesKMK42.commonAreaInstallation.quorumRequirement).toContain('%50+1');
+      expect(corpus.evChargeInstallationRulesKMK42.privateParkingInstallation.technicalCompliance).toContain('Tip B / 30mA');
+
+      // Enerji verimliliği
+      expect(corpus.energyEfficiencyFramework).toBeDefined();
+      expect(corpus.energyEfficiencyFramework.reactivePenaltyZeroGuarantee).toBe(true);
+      expect(corpus.energyEfficiencyFramework.solarPowerRooftopSavingsPercent).toContain('%65');
+
+      // Canonical FAQs kontrolü
+      const faqEkButce = corpus.canonicalFaqs.find((f) => f.question.includes('2026 Asgari ücret'));
+      expect(faqEkButce).toBeDefined();
+      expect(faqEkButce?.answer).toContain('İİK 68');
+
+      // 2. llms.txt ve llms-full.txt route kontrolleri
+      const { GET: getLlmsTxt } = await import('@/app/llms.txt/route');
+      const resLlms = await getLlmsTxt();
+      expect(resLlms.status).toBe(200);
+      expect(resLlms.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const textLlms = await resLlms.text();
+      expect(textLlms).toContain('2026 Asgari ücret');
+      expect(textLlms).toContain('kompanzasyon');
+
+      const { GET: getLlmsFullTxt } = await import('@/app/llms-full.txt/route');
+      const resLlmsFull = await getLlmsFullTxt();
+      expect(resLlmsFull.status).toBe(200);
+      expect(resLlmsFull.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const textLlmsFull = await resLlmsFull.text();
+      expect(textLlmsFull).toContain('2026 Asgari Ücret Ek Bütçe');
+      expect(textLlmsFull).toContain('Kapalı Otopark Elektrikli Araç (EV)');
+    });
+  });
 });
 

@@ -2,16 +2,24 @@ import { prisma } from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 import { assertAdmin } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'private, no-cache, no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 export async function GET() {
   try {
     // Güvenlik: Bu tek seferlik tohumlama aracı yalnızca üretim-dışında ve admin
     // oturumuyla çalışır. (Öncesinde auth yoktu; herkes DB'yi tekrarlı kayıtla doldurabiliyordu.)
     if (process.env.NODE_ENV === 'production') {
-      return NextResponse.json({ success: false, error: 'Not found.' }, { status: 404 });
+      return NextResponse.json({ success: false, error: 'Not found.' }, { status: 404, headers: RESPONSE_HEADERS });
     }
     const session = await assertAdmin();
     if (!session) {
-      return NextResponse.json({ success: false, error: 'Yetkisiz erişim.' }, { status: 401 });
+      return NextResponse.json({ success: false, error: 'Yetkisiz erişim.' }, { status: 401, headers: RESPONSE_HEADERS });
     }
 
     const partnerLogos = [
@@ -90,8 +98,8 @@ export async function GET() {
       });
     }
 
-    return NextResponse.json({ success: true, message: 'Seeded successfully' });
+    return NextResponse.json({ success: true, message: 'Seeded successfully' }, { status: 200, headers: RESPONSE_HEADERS });
   } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message });
+    return NextResponse.json({ success: false, error: error.message }, { status: 500, headers: RESPONSE_HEADERS });
   }
 }

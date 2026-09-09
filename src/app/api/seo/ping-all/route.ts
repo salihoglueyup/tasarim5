@@ -56,7 +56,9 @@ async function handlePingAll() {
       {
         status: 200,
         headers: {
-          'Cache-Control': 'no-store, no-cache, must-revalidate',
+          'Content-Type': 'application/json; charset=utf-8',
+          'Cache-Control': 'private, no-cache, no-store',
+          'X-Robots-Tag': 'noindex, nofollow',
           'Access-Control-Allow-Origin': '*',
         },
       }
@@ -69,7 +71,14 @@ async function handlePingAll() {
         details: error instanceof Error ? error.message : String(error),
         timestamp,
       },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Cache-Control': 'private, no-cache, no-store',
+          'X-Robots-Tag': 'noindex, nofollow',
+        },
+      }
     );
   }
 }

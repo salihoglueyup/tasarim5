@@ -129,6 +129,47 @@ export interface FacilityRAGCorpus {
     quorumRule: string;
     procedure: string;
   }[];
+  asgariUcretEkButceRehberi2026: {
+    title: string;
+    legalBasis: string;
+    proceduralSteps: {
+      step: number;
+      name: string;
+      description: string;
+      legalArticle: string;
+    }[];
+    kpiMetrics: {
+      metricName: string;
+      standardValue: string;
+      importance: string;
+    }[];
+  };
+  evChargeInstallationRulesKMK42: {
+    title: string;
+    legalBasis: string;
+    commonAreaInstallation: {
+      quorumRequirement: string;
+      infrastructureObligation: string;
+      costAllocation: string;
+    };
+    privateParkingInstallation: {
+      permissionType: string;
+      technicalCompliance: string;
+      fireSafetyRequirement: string;
+    };
+    officialDirectives: string[];
+  };
+  energyEfficiencyFramework: {
+    title: string;
+    governingStatute: string;
+    solarPowerRooftopSavingsPercent: string;
+    reactivePenaltyZeroGuarantee: boolean;
+    operationalActions: {
+      action: string;
+      benefit: string;
+      technicalBenchmark: string;
+    }[];
+  };
 }
 
 /**
@@ -214,6 +255,20 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
         '634 sayılı Kat Mülkiyeti Kanunu Madde 34 uyarınca yönetici, kat maliklerinin hem kişi sayısı hem de arsa payı bakımından salt çoğunluğu (%50+1) tarafından seçilir. Profesyonel yönetim firması da aynı çoğunlukla vekaleten atanabilir.',
       sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi#yonetici-secimi`,
       legalBasis: '634 Sayılı KMK m.34',
+    },
+    {
+      question: '2026 Asgari ücret zammı sonrası apartman ve sitelerde ek bütçe (avans) nasıl toplanır?',
+      answer:
+        'KMK Madde 35 ve 37 uyarınca yönetici, öngörülmeyen personel maliyet farklarını karşılamak için ek işletme projesi hazırlar ve kat maliklerine tebliğ eder. 7 gün içinde itiraz edilmezse kesinleşir ve İİK 68 kapsamında ilamsız icra gücü kazanır.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi#ek-butce-2026`,
+      legalBasis: '634 Sayılı KMK m.35 & m.37, İİK m.68',
+    },
+    {
+      question: 'Sitelerde kapalı otoparkta elektrikli araç (EV) şarj istasyonu kurmak için hangi çoğunluk gerekir?',
+      answer:
+        'KMK Madde 42 uyarınca ortak alana kurulacak şarj ünitelerinde kat malikleri kurulunun sayı ve arsa payı çoğunluğu (%50+1) şarttır. Bireysel tahsisli alanlarda ise yangın algılama ve elektrik pano kapasite uygunluk raporu ile yönetim onayına sunulur.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi#ev-sarj-istasyonu`,
+      legalBasis: '634 Sayılı KMK m.42 & 2026 Otopark Yönetmeliği',
     },
   ];
 
@@ -540,5 +595,97 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
         procedure: 'Alınan tüm kararlar noter onaylı Karar Defterine geçirilir; toplantıya katılmayan maliklere taahhütlü mektupla tebliğ edilir.',
       },
     ],
+    // 2026 Asgari Ücret & Ek Bütçe Avans Prosedürü
+    asgariUcretEkButceRehberi2026: {
+      title: '2026 Asgari Ücret ve Enflasyon Dönemi Ek İşletme Projesi (Ek Bütçe) Hukuki Kılavuzu',
+      legalBasis: '634 Sayılı KMK Madde 35/f, Madde 37 ve 2004 Sayılı İİK Madde 68',
+      proceduralSteps: [
+        {
+          step: 1,
+          name: 'Personel Maliyet Farkı ve Kıdem Fonu Hesabı',
+          description: 'Resmi Gazete’de ilan edilen asgari ücret artışı, SGK işveren primi ve kıdem tazminatı karşılıkları hesaplanır.',
+          legalArticle: 'KMK Madde 20 & 4857 Sayılı İş Kanunu',
+        },
+        {
+          step: 2,
+          name: 'Ek İşletme Projesinin (Ek Bütçe) Tanzimi',
+          description: 'Yönetim kurulu veya yetkili profesyonel yönetim şirketi gider farkını bağımsız bölümlere pay ederek ek avans tablosu hazırlar.',
+          legalArticle: 'KMK Madde 37/1',
+        },
+        {
+          step: 3,
+          name: 'Kat Maliklerine Tebliğ ve 7 Günlük İtiraz Askısı',
+          description: 'Ek bütçe tüm kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir; 7 gün içinde sulh hukuk mahkemesine itiraz edilmezse kesinleşir.',
+          legalArticle: 'KMK Madde 37/2',
+        },
+        {
+          step: 4,
+          name: 'İİK 68 Hükmünde İcra Gücü ve %5 Yasal Faiz',
+          description: 'Kesinleşen ek bütçe mahkeme ilamı niteliğindedir; ödemeyen bağımsız bölümlere aylık %5 gecikme tazminatıyla icra takibi açılır.',
+          legalArticle: 'KMK Madde 20/2 & İİK Madde 68',
+        },
+      ],
+      kpiMetrics: [
+        {
+          metricName: 'Ek Bütçe Tebliğden Kesinleşmeye Süre',
+          standardValue: '7 Gün',
+          importance: 'Yasal itiraz süresinin dolmasıyla icra edilebilirlik başlar.',
+        },
+        {
+          metricName: 'KMK Madde 20 Aylık Gecikme Faizi',
+          standardValue: '%5 (Yıllık Basit %60)',
+          importance: 'Kanuni kesin hüküm; genel kurul dahi bu faizi düşüremez.',
+        },
+        {
+          metricName: 'Alo Yönetim Tahsilat Başarı Oranı',
+          standardValue: '%98.2',
+          importance: 'Otomatik SMS/E-posta entegrasyonu ve dijital ödeme altyapısıyla.',
+        },
+      ],
+    },
+    // Elektrikli Araç (EV) Şarj İstasyonları Kurulum Mevzuatı
+    evChargeInstallationRulesKMK42: {
+      title: 'Toplu Konut ve Sitelerde Elektrikli Araç (EV) Şarj İstasyonu Kurulum Mevzuatı',
+      legalBasis: '634 Sayılı KMK Madde 42, Binaların Yangından Korunması Hakkında Yönetmelik & EPDK Şarj Hizmeti Yönetmeliği',
+      commonAreaInstallation: {
+        quorumRequirement: 'Kat malikleri kurulunun hem sayı hem arsa payı bakımından salt çoğunluğu (%50+1).',
+        infrastructureObligation: 'Ortak sayaçtan beslenen ticari şarj istasyonlarında EPDK lisanslı işletmeci modeli ve alt sayaç mecburiyeti.',
+        costAllocation: 'Yalnızca şarj ünitesinden faydalanmak isteyen veya genel kurulda onay veren malikler arasında arsa payı veya eşit katılım.',
+      },
+      privateParkingInstallation: {
+        permissionType: 'Tahsisli otoparkta bireysel wallbox için bina ana pano kapasite uygunluk belgesi ve yönetim bilgilendirmesi.',
+        technicalCompliance: 'Müstakil kaçak akım rölesi (Tip B / 30mA) ve doğrudan bağımsız bölüm elektrik sayacından hat çekilmesi şartı.',
+        fireSafetyRequirement: 'Kapalı otoparklarda yangın algılama dedektörü, duman tahliye damperine yakınlık ve araç yangın battaniyesi bulundurma.',
+      },
+      officialDirectives: [
+        'Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Otopark Yönetmeliği',
+        'EPDK Elektrikli Araç Şarj Hizmetleri Piyasası Düzenlemeleri',
+        'TEDAŞ / Dağıtım Şirketi Trafo Güç Artırım Onay Prosedürü',
+      ],
+    },
+    // Enerji Verimliliği ve Kompanzasyon / Çatı GES
+    energyEfficiencyFramework: {
+      title: 'Tesis Yönetiminde Enerji Verimliliği, Kompanzasyon ve Yeşil Enerji Standartları',
+      governingStatute: '5627 Sayılı Enerji Verimliliği Kanunu & ISO 50001 Enerji Yönetim Sistemi',
+      solarPowerRooftopSavingsPercent: '%65 - %75 (Ortak alan elektrik giderlerinde tasarruf)',
+      reactivePenaltyZeroGuarantee: true,
+      operationalActions: [
+        {
+          action: '7/24 Aktif Kompanzasyon Panosu Takibi',
+          benefit: 'Reaktif ve kapasitif ceza bedellerini tamamen sıfırlar (%0 ceza garantisi).',
+          technicalBenchmark: 'Endüktif < %20, Kapasitif < %15 (EPDK Resmi Limitleri).',
+        },
+        {
+          action: 'Çatı Tipi Güneş Enerjisi Santrali (Çatı GES) Entegrasyonu',
+          benefit: 'Asansör, hidrofor, çevre aydınlatma ve sosyal tesis enerji maliyetlerini kendi üretir.',
+          technicalBenchmark: 'Lisanssız Elektrik Üretim Yönetmeliği Madde 5/1-h Kapsamı.',
+        },
+        {
+          action: 'Akıllı BMS Otomasyonu ve Zaman Saatli LED Aydınlatma',
+          benefit: 'Ortak alan aydınlatma ve havalandırma enerji tüketimini %40 azaltır.',
+          technicalBenchmark: 'DALI protokolü ve mikrodalga radar sensör standardı.',
+        },
+      ],
+    },
   };
 }

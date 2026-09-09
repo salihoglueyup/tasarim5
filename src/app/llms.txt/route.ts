@@ -77,6 +77,10 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
     **Cevap**: KMK Madde 42 kapsamında ortak alana şarj ünitesi kurulması için kat malikleri kurulunun sayı ve arsa payı çoğunluğu kararı gerekir. Bireysel otopark tahsislerinde ise altyapı yangın ve pano kapasite uygunluk raporu aranır.
 12. **Soru**: Site yönetim planı nasıl değiştirilir ve bağlayıcılığı nedir?
     **Cevap**: KMK Madde 28 gereği yönetim planı tüm kat maliklerini bağlayan sözleşme hükmündedir; değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu yasal zorunluluktur.
+13. **Soru**: 2026 Asgari ücret zammı sonrası apartman ve sitelerde ek bütçe (avans) kesinleşme süresi ne kadardır?
+    **Cevap**: KMK Madde 37 gereğince ek işletme projesinin tebliğinden itibaren 7 gün içinde sulh hukuk mahkemesine itiraz edilmezse kesinleşir ve İİK 68 kapsamında ilamsız icra gücüne sahip olur.
+14. **Soru**: Sitelerde kompanzasyon panosu arızalanırsa ne kadar ceza ödenir?
+    **Cevap**: EPDK tarifelerine göre endüktif reaktif tüketim %20'yi, kapasitif reaktif tüketim %15'i aşarsa faturaya %30-%50 oranında reaktif ceza eklenir. Alo Yönetim 7/24 kompanzasyon takibiyle ceza riskini %0'a indirir.
 
 ## Temel Hizmet Sütunları
 - [Entegre Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): Apartman, rezidans, plaza ve toplu konutlar için 360° yönetim.
@@ -108,6 +112,7 @@ ${DISTRICTS.map(d => `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slu
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
     },
   });
 }

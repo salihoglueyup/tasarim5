@@ -13,6 +13,12 @@ import {
 
 export const dynamic = 'force-dynamic';
 
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'private, no-cache, no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 /**
  * Headless Content Intelligence & Topikal Otorite Analiz API'si (/api/seo/analyze-content)
  * 
@@ -28,7 +34,7 @@ export async function POST(req: NextRequest) {
     if (!content || typeof content !== 'string' || content.trim().length === 0) {
       return NextResponse.json(
         { status: 'error', message: 'Analiz edilecek "content" (metin/HTML) alanı zorunludur.' },
-        { status: 400 }
+        { status: 400, headers: RESPONSE_HEADERS }
       );
     }
 
@@ -41,17 +47,20 @@ export async function POST(req: NextRequest) {
       currentPath: path,
     });
 
-    return NextResponse.json({
-      status: 'success',
-      overallSeoScore: fullAudit.overallScore,
-      data: fullAudit,
-      analyzedAt: new Date().toISOString(),
-    });
+    return NextResponse.json(
+      {
+        status: 'success',
+        overallSeoScore: fullAudit.overallScore,
+        data: fullAudit,
+        analyzedAt: new Date().toISOString(),
+      },
+      { status: 200, headers: RESPONSE_HEADERS }
+    );
   } catch (err: any) {
     console.error('Content analysis API error:', err);
     return NextResponse.json(
       { status: 'error', message: err?.message || 'İçerik analizi sırasında bir hata oluştu.' },
-      { status: 500 }
+      { status: 500, headers: RESPONSE_HEADERS }
     );
   }
 }

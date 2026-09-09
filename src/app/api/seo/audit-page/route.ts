@@ -4,6 +4,12 @@ import { auditFullPageSeo } from '@/lib/seoEngine';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'private, no-cache, no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 /**
  * Sayfa ve İçerik SEO Teşhis API'si (Alo Yönetim Real-Time SEO Engine).
  *
@@ -29,18 +35,21 @@ export async function POST(req: NextRequest) {
       currentPath,
     });
 
-    return NextResponse.json({
-      success: true,
-      timestamp: new Date().toISOString(),
-      audit,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        timestamp: new Date().toISOString(),
+        audit,
+      },
+      { status: 200, headers: RESPONSE_HEADERS }
+    );
   } catch (error: any) {
     return NextResponse.json(
       {
         success: false,
         error: error?.message || 'SEO denetimi sırasında bir hata oluştu.',
       },
-      { status: 500 }
+      { status: 500, headers: RESPONSE_HEADERS }
     );
   }
 }
@@ -72,10 +81,13 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
     currentPath: path,
   });
 
-  return NextResponse.json({
-    success: true,
-    message: 'Canlı Tesis Yönetimi SEO Teşhis Raporu',
-    timestamp: new Date().toISOString(),
-    audit,
-  });
+  return NextResponse.json(
+    {
+      success: true,
+      message: 'Canlı Tesis Yönetimi SEO Teşhis Raporu',
+      timestamp: new Date().toISOString(),
+      audit,
+    },
+    { status: 200, headers: RESPONSE_HEADERS }
+  );
 }

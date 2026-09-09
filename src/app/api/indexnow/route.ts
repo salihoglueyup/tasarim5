@@ -13,8 +13,16 @@ import { NextResponse } from 'next/server';
  * Body: { urls: ["https://aloyonetim.com.tr/bolgeler/kadikoy", "https://aloyonetim.com.tr/guvenlik-akademisi"] }
  */
 
+export const dynamic = 'force-dynamic';
+
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'aloyonetim-indexnow-key';
 const HOST = 'aloyonetim.com.tr';
+
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'private, no-cache, no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
 
 export async function POST(req: Request) {
   try {
@@ -24,7 +32,7 @@ export async function POST(req: Request) {
     if (!Array.isArray(rawUrls) || rawUrls.length === 0) {
       return NextResponse.json(
         { error: 'Geçerli bir "url" veya "urls" dizisi parametresi zorunludur.' },
-        { status: 400 }
+        { status: 400, headers: RESPONSE_HEADERS }
       );
     }
 
@@ -36,7 +44,7 @@ export async function POST(req: Request) {
     if (validUrls.length === 0) {
       return NextResponse.json(
         { error: 'En az bir geçerli mutlak HTTP/HTTPS URL girilmelidir.' },
-        { status: 400 }
+        { status: 400, headers: RESPONSE_HEADERS }
       );
     }
 
@@ -57,11 +65,14 @@ export async function POST(req: Request) {
     });
 
     if (response.ok || response.status === 200 || response.status === 202) {
-      return NextResponse.json({
-        success: true,
-        message: `${validUrls.length} URL için IndexNow anında indeksleme talebi başarıyla iletildi.`,
-        submittedUrls: validUrls,
-      });
+      return NextResponse.json(
+        {
+          success: true,
+          message: `${validUrls.length} URL için IndexNow anında indeksleme talebi başarıyla iletildi.`,
+          submittedUrls: validUrls,
+        },
+        { status: 200, headers: RESPONSE_HEADERS }
+      );
     } else {
       return NextResponse.json(
         {
@@ -69,11 +80,11 @@ export async function POST(req: Request) {
           error: `IndexNow API yanıtı: ${response.statusText}`,
           statusCode: response.status,
         },
-        { status: response.status }
+        { status: response.status, headers: RESPONSE_HEADERS }
       );
     }
   } catch (error: any) {
-    return NextResponse.json({ error: error.message || 'Bilinmeyen hata.' }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Bilinmeyen hata.' }, { status: 500, headers: RESPONSE_HEADERS });
   }
 }
 
@@ -129,15 +140,18 @@ export async function GET(req: Request) {
       body: JSON.stringify(payload),
     });
 
-    return NextResponse.json({
-      success: response.ok || response.status === 200 || response.status === 202,
-      scope,
-      totalUrls: urlsToPing.length,
-      sampleUrls: urlsToPing.slice(0, 5),
-      status: response.status,
-      timestamp: new Date().toISOString()
-    });
+    return NextResponse.json(
+      {
+        success: response.ok || response.status === 200 || response.status === 202,
+        scope,
+        totalUrls: urlsToPing.length,
+        sampleUrls: urlsToPing.slice(0, 5),
+        status: response.status,
+        timestamp: new Date().toISOString(),
+      },
+      { status: 200, headers: RESPONSE_HEADERS }
+    );
   } catch (error: any) {
-    return NextResponse.json({ error: error.message || 'Bilinmeyen hata.' }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Bilinmeyen hata.' }, { status: 500, headers: RESPONSE_HEADERS });
   }
 }

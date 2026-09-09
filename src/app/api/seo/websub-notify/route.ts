@@ -3,6 +3,12 @@ import { notifyWebSubHubs } from '@/lib/seo/webSubPublisher';
 
 export const dynamic = 'force-dynamic';
 
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'private, no-cache, no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => ({}));
@@ -17,12 +23,12 @@ export async function POST(request: NextRequest) {
         topicPath,
         results,
       },
-      { status: 200 }
+      { status: 200, headers: RESPONSE_HEADERS }
     );
   } catch (error: any) {
     return NextResponse.json(
       { status: 'error', message: error?.message || 'WebSub notification error' },
-      { status: 500 }
+      { status: 500, headers: RESPONSE_HEADERS }
     );
   }
 }
@@ -37,6 +43,6 @@ export async function GET() {
       topicPath: '/feed/tesis-yonetimi.xml',
       results,
     },
-    { status: 200 }
+    { status: 200, headers: RESPONSE_HEADERS }
   );
 }

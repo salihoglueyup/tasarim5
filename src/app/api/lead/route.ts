@@ -12,6 +12,12 @@ import { applyApiRateLimit } from '@/lib/security/rateLimiter';
 
 export const dynamic = 'force-dynamic';
 
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'private, no-cache, no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for');
   if (fwd) return fwd.split(',')[0].trim();
@@ -23,25 +29,25 @@ export async function POST(req: NextRequest) {
   try {
     body = await req.json();
   } catch {
-    return Response.json({ ok: false, errorKey: 'lead_error_invalid' }, { status: 400 });
+    return Response.json({ ok: false, errorKey: 'lead_error_invalid' }, { status: 400, headers: RESPONSE_HEADERS });
   }
 
   // Faz 177: Bot Koruması (Honeypot + Zaman Damgası) — Bot ise sessizce başarı taklidi yap
   const botCheck = checkBotSubmission(body);
   if (botCheck.isBot) {
-    return Response.json({ ok: true, channels: [] });
+    return Response.json({ ok: true, channels: [] }, { status: 200, headers: RESPONSE_HEADERS });
   }
 
   // Faz 176: Kayan Pencereli Rate Limiting (Dakikada maks 10 lead gönderimi)
   const rateLimitRes = await applyApiRateLimit(clientIp(req), 'lead_submission', 10, 60);
   if (!rateLimitRes.success) {
-    return Response.json({ ok: false, errorKey: 'lead_error_rate' }, { status: 429 });
+    return Response.json({ ok: false, errorKey: 'lead_error_rate' }, { status: 429, headers: RESPONSE_HEADERS });
   }
 
   // 4) Doğrulama + normalizasyon.
   const result = validateLead(body);
   if (!result.valid || !result.lead) {
-    return Response.json({ ok: false, errorKey: result.errorKey }, { status: 400 });
+    return Response.json({ ok: false, errorKey: result.errorKey }, { status: 400, headers: RESPONSE_HEADERS });
   }
 
   // 5) Kanallara fan-out.
@@ -49,5 +55,5 @@ export async function POST(req: NextRequest) {
   // Güvenlik: kanal `detail`'i (downstream iç hata metni) client'a sızdırılmaz;
   // yalnız kanal adı + durumu döndürülür (detay sunucu log'unda kalır).
   const safeChannels = dispatch.channels.map((c) => ({ channel: c.channel, status: c.status }));
-  return Response.json({ ok: dispatch.ok, channels: safeChannels }, { status: dispatch.ok ? 200 : 502 });
+  return Response.json({ ok: dispatch.ok, channels: safeChannels }, { status: dispatch.ok ? 200 : 502, headers: RESPONSE_HEADERS });
 }
