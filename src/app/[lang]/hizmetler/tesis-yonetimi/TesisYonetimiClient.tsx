@@ -12,7 +12,7 @@ import {
   FacilitySubSectorCrossNav,
   ServiceAuthorityHubSeo,
   FacilityMaintenanceScheduleSeo,
-  FacilityManagementCalculatorSeo,
+  FacilityRfpDownloadModalSeo,
   IstanbulDuesHeatmapSeo,
   ChecklistAuditSeo,
   TrustVerificationAuditSeo,
@@ -295,12 +295,34 @@ export default function TesisYonetimiClient() {
         {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
         <FacilityOperationalPillarsSeo />
 
-        {/* 1.5. BÖLÜM: İnteraktif Aidat Hesaplayıcı, Kadro Simülatörü, İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
+        {/* 1.5. BÖLÜM: Kadro Simülatörü, B2B İhale Şartnamesi (RFP), İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
         <div className="space-y-12">
           <FacilityBudgetStaffSimulatorSeo />
-          <FacilityManagementCalculatorSeo />
+          <FacilityRfpDownloadModalSeo />
           <IstanbulDuesHeatmapSeo />
           <ChecklistAuditSeo />
+        </div>
+
+        {/* Karar Verici Rehber & Şartname Banner */}
+        <div className="p-8 rounded-3xl bg-gradient-to-r from-indigo-950/60 via-slate-900/60 to-blue-950/50 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+          <div className="space-y-2">
+            <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+              Yönetim Kurulu Karar Rehberi
+            </span>
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
+              Tesis Yönetim Şirketi Nasıl Seçilir? 2026 Kılavuzu
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl font-light">
+              Şirket seçerken yapılan 7 ölümcül hata, 10 maddelik firma denetim skorkartı, 5188 yasal belgeleri ve KMK m.34 devir protokolü rehberimizi inceleyin.
+            </p>
+          </div>
+          <Link
+            href="/hizmetler/tesis-yonetimi/rehber"
+            className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm transition-all hover:scale-105 shrink-0 flex items-center gap-2 shadow-lg"
+          >
+            <span>Seçim Rehberini İncele</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          </Link>
         </div>
 
         {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}

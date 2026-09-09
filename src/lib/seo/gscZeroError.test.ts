@@ -4066,6 +4066,50 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(portfolioContent).toContain('ISO 45001 & ATEX Uyumluluğu');
     });
   });
+
+  describe('127. Wave 58: Tesis Yönetimi Rehberi (/rehber) Mega Dönüşümü, B2B Şartname (RFP) & Karar Verici Mimarisi', () => {
+    it('TesisYonetimiRehberClient.tsx içinde 4 temel kurumsal bileşen (RFP, Audit Radar, Comparison Matrix, Vault) eksiksiz monte edilmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const rehberContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/TesisYonetimiRehberClient.tsx'), 'utf8');
+
+      expect(rehberContent).toContain('<FacilityRfpDownloadModalSeo />');
+      expect(rehberContent).toContain('<InteractiveFacilityAuditRadarSeo');
+      expect(rehberContent).toContain('<FacilityComparisonMatrixSeo />');
+      expect(rehberContent).toContain('<FacilityDownloadableVaultSeo />');
+    });
+
+    it('TesisYonetimiRehberClient.tsx 7 ölümcül hata ve kurumsal çözüm maddelerini barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const rehberContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/TesisYonetimiRehberClient.tsx'), 'utf8');
+
+      expect(rehberContent).toContain('Sadece En Düşük Fiyata Bakmak & 5188 Lisansını Sorgulamamak');
+      expect(rehberContent).toContain('Sözleşmede 45 Dk SLA ve %0 Reaktif Ceza Garantisi Aramamak');
+      expect(rehberContent).toContain('Personel Kıdem Tazminatı ve SGK Rücu Riskini Netleştirmemek');
+      expect(rehberContent).toContain('KMK m.37 İşletme Projesinin Tebliğ Edilmeyip Kesinleşmemesi');
+      expect(rehberContent).toContain('Asansör Yeşil Etiket ve Yangın Otomasyonunu Denetimsiz Bırakmak');
+    });
+
+    it('rehber/page.tsx başlığı yüksek CTR ve B2B niyetine uygun olarak güncellenmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/page.tsx'), 'utf8');
+
+      expect(pageContent).toContain('Tesis Yönetim Şirketi Nasıl Seçilir? 2026 Seçim & Şartname Rehberi | Alo Yönetim');
+      expect(pageContent).toContain('B2B teknik şartname hazırlığı (RFP), 5188 lisansı, KMK m.34 devir protokolü');
+    });
+
+    it('TesisYonetimiClient.tsx içinde FacilityRfpDownloadModalSeo entegre edilmiştir ve yinelenen hesaplayıcı kaldırılmıştır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'), 'utf8');
+
+      expect(clientContent).toContain('<FacilityRfpDownloadModalSeo />');
+      expect(clientContent).toContain('/hizmetler/tesis-yonetimi/rehber');
+      expect(clientContent).not.toContain('<FacilityManagementCalculatorSeo />');
+    });
+  });
 });
 
 
