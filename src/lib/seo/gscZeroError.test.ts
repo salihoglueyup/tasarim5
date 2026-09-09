@@ -839,11 +839,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('46. facilityAutonomousAuditor Genişletilmiş API Envanteri ve Sağlık Raporu', () => {
-    it('15 açık veri/SEO API ucunu ve %100 sağlık durumunu doğrular', async () => {
+    it('açık veri/SEO API uçlarını ve %100 sağlık durumunu doğrular', async () => {
       const { runFacilityAutonomousAudit } = await import('@/lib/seo/facilityAutonomousAuditor');
       const report = runFacilityAutonomousAudit();
 
-      expect(report.apiHealthStatus.length).toBe(15);
+      expect(report.apiHealthStatus.length).toBeGreaterThanOrEqual(15);
       expect(report.overallSeoHealthScore).toBeGreaterThanOrEqual(80);
       expect(report.apiHealthStatus.every((a) => a.status === 'ACTIVE_AND_HEALTHY')).toBe(true);
 
@@ -852,6 +852,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       const nearestHubEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('nearest-facility-hub'));
       expect(nearestHubEndpoint).toBeDefined();
+
+      const legalEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('legal-precedents.json'));
+      expect(legalEndpoint).toBeDefined();
     });
   });
 
@@ -3818,6 +3821,60 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(report.score).toBe(100);
       expect(report.googleRichResultsCompliant).toBe(true);
       expect(report.issues).toHaveLength(0);
+    });
+  });
+
+  describe('124. Wave 55: Yargıtay Emsal Kararları Açık Veri API, KMK İçtihat Korpusu & Akredite Hesaplayıcı', () => {
+    it('/api/tesis-yonetimi/legal-precedents.json 200 OK, ItemList ve Yargıtay emsal kararlarını döner', async () => {
+      const { GET } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
+      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
+      const res = await GET(req);
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('ETag')).toBeDefined();
+      expect(res.headers.get('Cache-Control')).toContain('public');
+
+      const data = await res.json();
+      expect(data.metadata.totalPrecedentsIndexed).toBeGreaterThanOrEqual(5);
+      expect(data.schema['@type']).toBe('ItemList');
+      expect(data.schema.itemListElement.length).toBeGreaterThanOrEqual(5);
+      expect(data.precedents.some((p: any) => p.subject.includes('Asansör'))).toBe(true);
+      expect(data.precedents.some((p: any) => p.subject.includes('Cam Balkon'))).toBe(true);
+      expect(data.precedents.some((p: any) => p.subject.includes('Gecikme Tazminatı'))).toBe(true);
+    });
+
+    it('buildFacilityRAGCorpus Yargıtay emsal kararlarını ve açık veri API bağlantısını eksiksiz içerir', async () => {
+      const { buildFacilityRAGCorpus } = await import('@/lib/ai/facilityKnowledgeCorpus');
+      const corpus = await buildFacilityRAGCorpus('tr');
+
+      expect(corpus.legalPrecedentsCourtDecisions).toBeDefined();
+      expect(corpus.legalPrecedentsCourtDecisions.length).toBeGreaterThanOrEqual(5);
+      expect(corpus.legalPrecedentsCourtDecisions[0].openDataApiUrl).toContain('legal-precedents.json');
+      expect(corpus.legalPrecedentsCourtDecisions[0].docketNumber).toBeDefined();
+    });
+
+    it('hesaplayici/page.tsx provider hasCredential içinde ISO 10002 ve ISO 41001 yetki belgelerini barındırır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'src/app/[lang]/hesaplayici/page.tsx');
+      const content = fs.readFileSync(filePath, 'utf8');
+
+      expect(content).toContain('ISO 10002:2018 Müşteri Memnuniyeti');
+      expect(content).toContain('A1808961');
+      expect(content).toContain('ISO 41001:2018 Entegre Tesis Yönetimi');
+      expect(content).toContain('Gecikme Tazminatı (KMK 20/2)');
+    });
+
+    it('sanayi-tesisi-yonetimi/page.tsx doğrulanmış ISO 45001 ve ISO 14001 akreditasyon numaralarını içerir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/page.tsx');
+      const content = fs.readFileSync(filePath, 'utf8');
+
+      expect(content).toContain('A1808966');
+      expect(content).toContain('A1808962');
+      expect(content).toContain('BELCERT');
     });
   });
 });

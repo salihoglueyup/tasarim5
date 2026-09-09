@@ -64,9 +64,14 @@ export interface FacilityRAGCorpus {
   legalPrecedentsCourtDecisions: Array<{
     subject: string;
     court: string;
+    docketNumber?: string;
+    decisionNumber?: string;
+    decisionDate?: string;
     kmkArticle: string;
     bindingRuling: string;
     solution: string;
+    canonicalUrl?: string;
+    openDataApiUrl?: string;
   }>;
   rfpSpecificationFramework: {
     tenderTemplateTitle: string;
@@ -420,9 +425,14 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
     legalPrecedentsCourtDecisions: YARGITAY_LEGAL_PRECEDENTS.map((p) => ({
       subject: p.subject,
       court: p.court,
+      docketNumber: p.docketNumber,
+      decisionNumber: p.decisionNumber,
+      decisionDate: p.decisionDate,
       kmkArticle: p.kmkArticle,
       bindingRuling: p.bindingPrecedentText,
       solution: p.aloYonetimOperationalSolution,
+      canonicalUrl: p.canonicalUrl,
+      openDataApiUrl: `${BASE_URL}/api/tesis-yonetimi/legal-precedents.json`,
     })),
     rfpSpecificationFramework: {
       tenderTemplateTitle: 'Alo Yönetim ISO 41001 & KMK 634 Tip Tesis Yönetimi İhale Şartnamesi (RFP)',

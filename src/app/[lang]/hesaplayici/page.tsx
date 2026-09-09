@@ -93,7 +93,36 @@ export default async function HesaplayiciServer() {
       'KMK 634 standartlarında bütçe simülasyonu',
       '5188 özel güvenlik ve temizlik maliyet hesaplama',
       'Yüzde 30 kanıtlanmış aidat tasarruf projeksiyonu',
+      'ISO 10002 ve ISO 41001 akrediteli şeffaf yönetim güvencesi',
     ],
+    provider: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi Sistemi',
+          credentialCategory: 'certificate',
+          identifier: 'A1808961',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
+          },
+          url: `${BASE_URL}/kurumsal/sertifikalar/iso-10002`,
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
+          credentialCategory: 'certificate',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'TÜRKAK & ISO',
+          },
+          url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+        },
+      ],
+    },
     potentialAction: {
       '@type': 'CalculateAction',
       target: {
@@ -131,6 +160,10 @@ export default async function HesaplayiciServer() {
             {
               term: '%30 Tesis Yönetimi Tasarruf Modeli',
               definition: 'Toplu satın alma gücü, önleyici bakım ve dijital enerji otomasyonu ile işletme masraflarından sağlanan somut tasarruf oranıdır.',
+            },
+            {
+              term: 'Gecikme Tazminatı (KMK 20/2)',
+              definition: 'Gününde ödenmeyen aidat ve ortak avans borcuna yasal faizden bağımsız olarak aylık yüzde 5 oranında işletilen emredici yasal tazminattır (Yargıtay 18. HD).',
             },
           ]}
         />

@@ -1,47 +1,45 @@
-import { NextResponse } from 'next/server';
+import { BASE_URL } from '@/lib/seo';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
+import { createETagResponse } from '@/lib/security/etag';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
 
 export async function GET(req: Request) {
-  let articleFilter: string | null = null;
-  if (req && req.url) {
-    try {
-      const { searchParams } = new URL(req.url);
-      articleFilter = searchParams.get('article');
-    } catch {
-      // noop
-    }
-  }
+  const url = new URL(req.url);
+  const articleParam = url.searchParams.get('article');
 
-  let selectedPrecedents = YARGITAY_LEGAL_PRECEDENTS;
-  if (articleFilter) {
-    const cleanArticle = articleFilter.trim();
-    selectedPrecedents = YARGITAY_LEGAL_PRECEDENTS.filter(
-      (item) =>
-        item.kmkArticle.toLowerCase().includes(`madde ${cleanArticle.toLowerCase()}`) ||
-        item.kmkArticle.toLowerCase().includes(`m.${cleanArticle.toLowerCase()}`) ||
-        item.kmkArticle.includes(cleanArticle)
+  let filteredPrecedents = YARGITAY_LEGAL_PRECEDENTS;
+  if (articleParam) {
+    filteredPrecedents = YARGITAY_LEGAL_PRECEDENTS.filter((p) =>
+      p.kmkArticle.includes(articleParam)
     );
   }
 
   const schemaLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Tesis Yönetimi ve Kat Mülkiyeti Hukuku Yargıtay Emsal Kararları',
-    description: '634 sayılı KMK kapsamında asansör, cam balkon, %5 gecikme faizi ve ortak alanlara dair bağlayıcı içtihatlar.',
-    itemListElement: selectedPrecedents.map((item, index) => ({
+    name: 'Tesis Yönetimi Yargıtay Emsal Kararları ve 634 KMK Hukuki İçtihatları',
+    description: 'Aidat gecikme tazminatı, asansör ortak gider muafiyeti, yönetici seçimi çift çoğunluğu ve ortak alan işgalleri hakkında bağlayıcı yüksek mahkeme kararları.',
+    inLanguage: 'tr-TR',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim ve Organizasyon A.Ş.',
+      url: BASE_URL,
+      logo: `${BASE_URL}/images/logo.png`,
+      telephone: '+90 216 550 48 48',
+    },
+    itemListElement: filteredPrecedents.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       item: {
         '@type': 'Legislation',
         name: `${item.court} — ${item.subject}`,
-        legislationType: 'Yargıtay Emsal Kararı',
         legislationIdentifier: `${item.docketNumber} / ${item.decisionNumber}`,
-        legislationDate: item.decisionDate,
+        legislationType: 'Yargıtay Emsal Kararı',
         legislationJurisdiction: 'TR',
         inLanguage: 'tr',
+        datePublished: item.decisionDate,
         legislationPassedBy: {
           '@type': 'GovernmentOrganization',
           name: 'T.C. Yargıtay Başkanlığı',
@@ -53,28 +51,28 @@ export async function GET(req: Request) {
     })),
   };
 
-  return NextResponse.json(
-    {
-      metadata: {
-        title: 'Alo Yönetim Tesis Yönetimi & KMK 634 Hukuki Emsal Karar Bilgi Tabanı',
-        provider: 'Alo Yönetim Hukuk Müşavirliği',
-        totalPrecedents: selectedPrecedents.length,
-        filteredArticle: articleFilter || 'All',
-        scope: 'Kat Mülkiyeti Hukuku & Tesis İşletmeciliği E-E-A-T Kaynağı',
-        version: '2026.1',
-      },
-      precedents: selectedPrecedents,
-      schema: schemaLd,
+  const payload = {
+    metadata: {
+      title: 'Tesis ve Site Yönetimi Yargıtay Emsal Kararları Açık Veri İndeksi',
+      jurisdiction: 'Türkiye Cumhuriyeti',
+      totalPrecedentsIndexed: filteredPrecedents.length,
+      courtScope: 'T.C. Yargıtay (Hukuk Genel Kurulu, 5. HD, 18. HD, 20. HD)',
+      primaryLaw: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
+      version: '2026.1',
+      lastUpdated: '2026-08-04',
+      ...(articleParam ? { filteredArticle: articleParam } : {}),
     },
-    {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Access-Control-Allow-Origin': '*',
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
-        'X-Legal-Database': 'Yargitay-KMK-634-Facility-Precedents',
-        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
-      },
-    }
-  );
+    precedents: filteredPrecedents,
+    schema: schemaLd,
+  };
+
+  return createETagResponse(req, payload, {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'X-Legal-Precedents-Index': 'Yargitay-KMK-Precedents-Knowledge-Graph',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+    },
+    cacheControl: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
+  });
 }

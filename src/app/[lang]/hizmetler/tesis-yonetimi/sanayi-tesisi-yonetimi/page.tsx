@@ -50,7 +50,7 @@ export default async function SanayiTesisiYonetimiPage({
     {
       question: 'Sanayi tesislerinde ISO 45001 uyumu nasıl sağlanır?',
       answer:
-        'Risk değerlendirmesi, acil durum planları, güvenlik eğitimleri, KKD (kişisel koruyucu donanım) standartları ve periyodik iç denetimler ISO 45001 kapsamında uygulanır. Alo Yönetim bu süreçleri belgeli olarak yürütür.',
+        'Risk değerlendirmesi, acil durum planları, güvenlik eğitimleri, KKD (kişisel koruyucu donanım) standartları ve periyodik denetimler ISO 45001:2018 (BELCERT Belge No: A1808966) kapsamında uygulanır. Alo Yönetim bu süreçleri tescilli ve ILAS akreditasyonlu olarak yürütür.',
     },
     {
       question: 'Endüstriyel tesis bakım yönetimi nasıl planlanır?',
@@ -70,7 +70,7 @@ export default async function SanayiTesisiYonetimiPage({
     {
       question: 'Endüstriyel zemin ve atık yönetimi nasıl yapılır?',
       answer:
-        'Endüstriyel zemin temizliği için özel makine ve kimyasallar kullanılır. Atık yönetimi çevre mevzuatı (Çevre Kanunu, ISO 14001) çerçevesinde belgelenmiş şekilde yürütülür.',
+        'Endüstriyel zemin temizliği için özel makine ve biyolojik çözünür kimyasallar kullanılır. Tehlikeli ve geri dönüştürülebilir atık yönetimi ISO 14001:2026 (BELCERT Belge No: A1808962) standartlarında belgelenmiş olarak yürütülür.',
     },
   ];
 

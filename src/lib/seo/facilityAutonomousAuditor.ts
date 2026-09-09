@@ -117,6 +117,7 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
     { endpoint: '/api/seo/verify-authority', purpose: 'E-E-A-T Otorite ve Yasal Akreditasyon Doğrulama', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/admin/schema-lint', purpose: 'Schema.org Linter & Çoklu Düğüm Doğrulama API', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/seo/facility-rank-score', purpose: 'Çok Dilli SERP Potansiyeli ve CTR Simülatörü', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/tesis-yonetimi/legal-precedents.json', purpose: '634 KMK & Yargıtay Emsal Kararları Açık Veri API', status: 'ACTIVE_AND_HEALTHY' },
   ];
 
   return {
