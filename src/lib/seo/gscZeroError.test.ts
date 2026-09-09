@@ -3274,6 +3274,100 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       }
     });
   });
+
+  describe('114. Wave 50 Altın Kilometre Taşı — 39 İlçe Coğrafi Ağ ve Semantik Mesh Tamlığı', () => {
+    it('39 İstanbul ilçesinin tamamı haritada yer alır ve Küçükçekmece dahil her ilçe çift yönlü komşuluk bağına sahiptir', async () => {
+      const { DISTRICTS } = await import('@/data/districts');
+      const { getAdjacentDistricts, getAdjacentDistrictMeshLinks } = await import('./facilityMeshLinkerEngine');
+
+      // 1. İlçe sayısı ve coğrafi bütünlük
+      expect(DISTRICTS).toHaveLength(39);
+
+      for (const d of DISTRICTS) {
+        expect(d.slug).toBeDefined();
+        expect(d.name).toBeDefined();
+        expect(d.geo.lat).toBeGreaterThan(40.5);
+        expect(d.geo.lat).toBeLessThan(41.6);
+        expect(d.geo.lng).toBeGreaterThan(27.8);
+        expect(d.geo.lng).toBeLessThan(29.9);
+
+        // Komşuluk haritası
+        const adj = getAdjacentDistricts(d.slug);
+        expect(adj.length).toBeGreaterThanOrEqual(2);
+
+        // Komşuluk link düğümleri
+        const links = getAdjacentDistrictMeshLinks(d.slug, 'tr');
+        expect(links.length).toBe(adj.length);
+        for (const link of links) {
+          expect(link.url).toContain(`/bolgeler/`);
+          expect(link.url).toContain(`/tesis-yonetimi`);
+          expect(link.category).toBe('district');
+          expect(link.title).toContain('Tesis ve Site Yönetimi');
+        }
+      }
+
+      // 2. Küçükçekmece özel entegrasyonu
+      const kucukcekmeceAdj = getAdjacentDistricts('kucukcekmece');
+      expect(kucukcekmeceAdj).toContain('bakirkoy');
+      expect(kucukcekmeceAdj).toContain('avcilar');
+      expect(kucukcekmeceAdj).toContain('basaksehir');
+      expect(kucukcekmeceAdj).toContain('bahcelievler');
+      expect(kucukcekmeceAdj).toContain('bagcilar');
+
+      // Bakırköy'ün komşuları arasında da Küçükçekmece olmalı (çift yönlü mesh)
+      const bakirkoyAdj = getAdjacentDistricts('bakirkoy');
+      expect(bakirkoyAdj).toContain('kucukcekmece');
+    });
+  });
+
+  describe('115. Wave 50 Altın Kilometre Taşı — Bütünleşik E-E-A-T, Knowledge Graph ve Otonom Ekosistem Zirve Denetimi', () => {
+    it('auditFacilityEcosystemGoldenStandard 5 sütunda 100/100 puan ile A+ onaylı altın standart raporu üretir', async () => {
+      const { auditFacilityEcosystemGoldenStandard } = await import('./facilityAutonomousSeoAuditor');
+      const report = auditFacilityEcosystemGoldenStandard();
+
+      expect(report.milestone).toBe('Wave 50 - Golden Milestone');
+      expect(report.overallScore).toBe(100);
+      expect(report.grade).toBe('A+');
+      expect(report.isGoldenStandardApproved).toBe(true);
+      expect(report.coveredDistrictsCount).toBe(39);
+      expect(report.credentialsCount).toBe(8);
+      expect(report.supportedVoiceLanguages).toEqual(['tr', 'en', 'ru', 'ar']);
+
+      // 5 Sütunun detaylı doğrulaması
+      expect(report.pillars).toHaveLength(5);
+      for (const pillar of report.pillars) {
+        expect(pillar.score).toBe(20);
+        expect(pillar.maxScore).toBe(20);
+        expect(pillar.status).toBe('passed');
+        expect(pillar.details.length).toBeGreaterThan(20);
+      }
+
+      const kgPillar = report.pillars.find((p) => p.category === 'knowledge_graph');
+      expect(kgPillar).toBeDefined();
+      expect(kgPillar?.metrics.linterScore).toBe(100);
+      expect(kgPillar?.metrics.googleRichResultsCompliant).toBe(true);
+
+      const districtPillar = report.pillars.find((p) => p.category === 'district_mesh');
+      expect(districtPillar).toBeDefined();
+      expect(districtPillar?.metrics.totalDistricts).toBe(39);
+      expect(districtPillar?.metrics.allDistrictsHaveGeo).toBe(true);
+      expect(districtPillar?.metrics.allDistrictsHaveAdjacent).toBe(true);
+
+      const eeatPillar = report.pillars.find((p) => p.category === 'eeat_citations');
+      expect(eeatPillar).toBeDefined();
+      expect(eeatPillar?.metrics.allCitationsWhitelisted).toBe(true);
+      expect((eeatPillar?.metrics.totalCitations as number)).toBeGreaterThanOrEqual(14);
+
+      const voicePillar = report.pillars.find((p) => p.category === 'voice_ai');
+      expect(voicePillar).toBeDefined();
+      expect(voicePillar?.metrics.publisherCredentialsCount).toBe(8);
+
+      const serpPillar = report.pillars.find((p) => p.category === 'serp_readiness');
+      expect(serpPillar).toBeDefined();
+      expect((serpPillar?.metrics.serpScore as number)).toBeGreaterThanOrEqual(90);
+      expect(serpPillar?.metrics.grade).toBe('A+');
+    });
+  });
 });
 
 

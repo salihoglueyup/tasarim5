@@ -138,7 +138,7 @@ export function getAdjacentDistricts(slug: string): string[] {
     maltepe: ['kadikoy', 'kartal', 'atasehir'],
     kartal: ['maltepe', 'pendik', 'sultanbeyli', 'sancaktepe'],
     pendik: ['kartal', 'tuzla', 'sultanbeyli', 'sile'],
-    tuzla: ['pendik', 'gebze'],
+    tuzla: ['pendik', 'sultanbeyli', 'sile'],
     basaksehir: ['kucukcekmece', 'bagcilar', 'esenyurt', 'arnavutkoy', 'sultangazi'],
     beylikduzu: ['esenyurt', 'buyukcekmece', 'avcilar'],
     sariyer: ['besiktas', 'eyupsultan', 'sisli'],
@@ -167,6 +167,7 @@ export function getAdjacentDistricts(slug: string): string[] {
     silivri: ['buyukcekmece', 'catalca'],
     catalca: ['silivri', 'buyukcekmece', 'arnavutkoy'],
     arnavutkoy: ['catalca', 'basaksehir', 'eyupsultan'],
+    kucukcekmece: ['bakirkoy', 'bahcelievler', 'bagcilar', 'basaksehir', 'avcilar'],
   };
 
   return ADJACENCY_MAP[slug] || ['kadikoy', 'besiktas', 'bakirkoy'];
