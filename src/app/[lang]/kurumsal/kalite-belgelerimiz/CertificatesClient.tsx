@@ -18,16 +18,17 @@ interface Certificate {
   color: string;
   pdfPath: string;
   slug: string;
+  certNumber: string;
 }
 
 const CERTIFICATES: Certificate[] = [
-  { id: "cert_1", titleKey: "cert_1_title", subKey: "cert_1_sub", descKey: "cert_1_desc", icon: "eco",            color: "from-emerald-500 to-teal-700",  pdfPath: "/certificates/dogaya-saygi.pdf", slug: "dogaya-saygi" },
-  { id: "cert_2", titleKey: "cert_2_title", subKey: "cert_2_sub", descKey: "cert_2_desc", icon: "security",       color: "from-blue-600 to-indigo-800",   pdfPath: "/certificates/iso-31000.pdf",    slug: "iso-31000" },
-  { id: "cert_3", titleKey: "cert_3_title", subKey: "cert_3_sub", descKey: "cert_3_desc", icon: "health_and_safety", color: "from-amber-500 to-orange-700", pdfPath: "/certificates/iso-45001.pdf",  slug: "iso-45001" },
-  { id: "cert_4", titleKey: "cert_4_title", subKey: "cert_4_sub", descKey: "cert_4_desc", icon: "diversity_3",    color: "from-purple-500 to-pink-700",   pdfPath: "/certificates/iso-26000.pdf",    slug: "iso-26000" },
-  { id: "cert_5", titleKey: "cert_5_title", subKey: "cert_5_sub", descKey: "cert_5_desc", icon: "all_inclusive",  color: "from-cyan-500 to-blue-700",     pdfPath: "/certificates/iso-22301.pdf",    slug: "iso-22301" },
-  { id: "cert_6", titleKey: "cert_6_title", subKey: "cert_6_sub", descKey: "cert_6_desc", icon: "public",         color: "from-teal-500 to-emerald-700",  pdfPath: "/certificates/iso-14001.pdf",    slug: "iso-14001" },
-  { id: "cert_7", titleKey: "cert_7_title", subKey: "cert_7_sub", descKey: "cert_7_desc", icon: "support_agent",  color: "from-rose-500 to-red-700",      pdfPath: "/certificates/iso-10002.pdf",    slug: "iso-10002" },
+  { id: "cert_1", titleKey: "cert_1_title", subKey: "cert_1_sub", descKey: "cert_1_desc", icon: "eco",            color: "from-emerald-500 to-teal-700",  pdfPath: "/certificates/dogaya-saygi.pdf", slug: "dogaya-saygi", certNumber: "A1808967" },
+  { id: "cert_2", titleKey: "cert_2_title", subKey: "cert_2_sub", descKey: "cert_2_desc", icon: "security",       color: "from-blue-600 to-indigo-800",   pdfPath: "/certificates/iso-31000.pdf",    slug: "iso-31000",    certNumber: "A1808965" },
+  { id: "cert_3", titleKey: "cert_3_title", subKey: "cert_3_sub", descKey: "cert_3_desc", icon: "health_and_safety", color: "from-amber-500 to-orange-700", pdfPath: "/certificates/iso-45001.pdf",  slug: "iso-45001",    certNumber: "A1808966" },
+  { id: "cert_4", titleKey: "cert_4_title", subKey: "cert_4_sub", descKey: "cert_4_desc", icon: "diversity_3",    color: "from-purple-500 to-pink-700",   pdfPath: "/certificates/iso-26000.pdf",    slug: "iso-26000",    certNumber: "A1808964" },
+  { id: "cert_5", titleKey: "cert_5_title", subKey: "cert_5_sub", descKey: "cert_5_desc", icon: "all_inclusive",  color: "from-cyan-500 to-blue-700",     pdfPath: "/certificates/iso-22301.pdf",    slug: "iso-22301",    certNumber: "A1808963" },
+  { id: "cert_6", titleKey: "cert_6_title", subKey: "cert_6_sub", descKey: "cert_6_desc", icon: "public",         color: "from-teal-500 to-emerald-700",  pdfPath: "/certificates/iso-14001.pdf",    slug: "iso-14001",    certNumber: "A1808962" },
+  { id: "cert_7", titleKey: "cert_7_title", subKey: "cert_7_sub", descKey: "cert_7_desc", icon: "support_agent",  color: "from-rose-500 to-red-700",      pdfPath: "/certificates/iso-10002.pdf",    slug: "iso-10002",    certNumber: "A1808961" },
 ];
 
 function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => void }) {
@@ -104,23 +105,34 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
           </div>
 
           <div className="flex-grow flex flex-col justify-end w-full" style={{ transform: "translateZ(20px)" }}>
-            <span className="inline-block self-start text-[10px] font-extrabold tracking-wider uppercase mb-2.5 px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700">
-              {t(cert.titleKey as any)}
-            </span>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="inline-block text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700">
+                {t(cert.titleKey as any)}
+              </span>
+              <span className="inline-block text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40">
+                {cert.certNumber}
+              </span>
+            </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white leading-tight mb-3">
               {t(cert.subKey as any)}
             </h3>
             <p className="text-sm font-light text-slate-600 dark:text-slate-300 line-clamp-3 mb-4 leading-relaxed">
               {t(cert.descKey as any)}
             </p>
-            <Link
-              href={`/kurumsal/sertifikalar/${cert.slug}`}
-              onClick={(e) => e.stopPropagation()}
-              className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
-            >
-              <span>Detayları İncele</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
-            </Link>
+            <div className="flex items-center justify-between w-full pt-1">
+              <Link
+                href={`/kurumsal/sertifikalar/${cert.slug}`}
+                onClick={(e) => e.stopPropagation()}
+                className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+              >
+                <span>Detayları İncele</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              </Link>
+              <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                <span className="material-symbols-outlined text-xs text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
+                BELCERT / ILAS
+              </span>
+            </div>
           </div>
         </div>
       </div>

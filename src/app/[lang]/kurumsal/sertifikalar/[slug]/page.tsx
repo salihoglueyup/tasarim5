@@ -3,12 +3,10 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
 import { CERTIFICATES, getCertificate } from '@/data/certificates';
 import PreFooterCta from '@/components/sections/PreFooterCta';
-
-import { LOCALES } from '@/lib/seo';
 
 export const revalidate = 2592000; // 30 gün
 
@@ -27,18 +25,18 @@ export async function generateMetadata({
   const cert = getCertificate(slug);
   if (!cert) return buildMetadata({ title: 'Bulunamadı', description: '', path: '/kurumsal/sertifikalar', lang, noindex: true });
 
-  let title = `${cert.name} — ${cert.subtitle} | Alo Yönetim`;
-  let description = `${cert.description} Akreditasyon ve denetim: ${cert.issuer}.`;
+  let title = `${cert.name} (No: ${cert.certificateNumber}) — ${cert.subtitle} | Alo Yönetim`;
+  let description = `${cert.description} Akreditasyon ve denetim: ${cert.issuer} (${cert.accreditation}). Belge No: ${cert.certificateNumber}.`;
 
   if (lang === 'en') {
-    title = `${cert.name} — ${cert.subtitle} | Alo Management`;
-    description = `Official corporate accreditation: ${cert.description} Audited and certified by ${cert.issuer}.`;
+    title = `${cert.name} (No: ${cert.certificateNumber}) — ${cert.subtitle} | Alo Management`;
+    description = `Official corporate accreditation: ${cert.description} Audited and certified by ${cert.issuer} (${cert.accreditation}). Certificate No: ${cert.certificateNumber}.`;
   } else if (lang === 'ru') {
-    title = `${cert.name} — ${cert.subtitle} | Сертификат Alo Yonetim`;
-    description = `Официальная корпоративная сертификация: ${cert.description} Аудитор: ${cert.issuer}.`;
+    title = `${cert.name} (No: ${cert.certificateNumber}) — ${cert.subtitle} | Сертификат Alo Yonetim`;
+    description = `Официальная корпоративная сертификация: ${cert.description} Аудитор: ${cert.issuer} (${cert.accreditation}). Номер сертификата: ${cert.certificateNumber}.`;
   } else if (lang === 'ar') {
-    title = `${cert.name} — ${cert.subtitle} | شهادة Alo Management`;
-    description = `شهادة الاعتماد المؤسسي: ${cert.description} الجهة المانحة: ${cert.issuer}.`;
+    title = `${cert.name} (No: ${cert.certificateNumber}) — ${cert.subtitle} | شهادة Alo Management`;
+    description = `شهادة الاعتماد المؤسسي: ${cert.description} الجهة المانحة: ${cert.issuer} (${cert.accreditation}). رقم الشهادة: ${cert.certificateNumber}.`;
   }
 
   return buildMetadata({
@@ -73,8 +71,8 @@ export default async function CertificatePage({
   });
 
   const docLd = digitalDocumentSchema({
-    name: cert.name,
-    description: cert.description,
+    name: `${cert.name} — Sertifika No: ${cert.certificateNumber}`,
+    description: `${cert.description} Belgelendiren: ${cert.issuer} (${cert.accreditation}).`,
     url: cert.pdf,
     datePublished: cert.datePublished,
     issuerName: cert.issuer,
@@ -102,7 +100,7 @@ export default async function CertificatePage({
               </div>
               <div>
                 <p className={`text-xs font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r ${cert.color}`}>
-                  {cert.issuer}
+                  {cert.accreditation}
                 </p>
                 <h2 className="text-xl font-bold text-[var(--color-primary)]">{cert.subtitle}</h2>
               </div>
@@ -113,20 +111,64 @@ export default async function CertificatePage({
               {cert.longDescription}
             </p>
 
-            {/* Bilgi satırları */}
-            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { label: 'Standart', value: cert.name },
-                { label: 'Kapsam', value: cert.about },
-                { label: 'Belge Tarihi', value: new Date(cert.datePublished).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long' }) },
-                { label: 'Belgelendiren Kurum', value: cert.issuer },
-              ].map((item) => (
-                <div key={item.label} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-5">
-                  <dt className="text-xs font-bold text-[var(--color-tertiary)] uppercase tracking-wider mb-1">{item.label}</dt>
-                  <dd className="text-sm font-semibold text-[var(--color-primary)]">{item.value}</dd>
+            {/* Doğrulanmış Resmi Meta Veriler (E-E-A-T) */}
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 md:p-8 space-y-6 shadow-xs">
+              <div className="flex items-center justify-between border-b border-[var(--color-outline)]/40 pb-4">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
+                  <h3 className="text-base font-bold text-[var(--color-primary)]">Resmi Belge Künyesi & Tescil Bilgileri</h3>
                 </div>
-              ))}
-            </dl>
+                <span className="text-xs font-mono font-bold px-3 py-1 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 rounded-full">
+                  AKTİF & GEÇERLİ
+                </span>
+              </div>
+
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { label: 'Standart / Belge Adı', value: cert.name },
+                  { label: 'Sertifika Numarası', value: cert.certificateNumber, mono: true },
+                  { label: 'Güvenlik Mührü / Seri', value: cert.sealNumber, mono: true },
+                  { label: 'Sertifika Kodu', value: cert.certificateCode, mono: true },
+                  { label: 'Yayın Tarihi', value: '04 Ağustos 2026' },
+                  { label: 'Geçerlilik Tarihi', value: '04 Ağustos 2027 (1 Yıl)' },
+                  { label: 'Belgelendiren Kuruluş', value: cert.issuer },
+                  { label: 'Akreditasyon', value: cert.accreditation },
+                  { label: 'Belgelendirilen Şirket', value: cert.holderName },
+                  { label: 'Kayıtlı Adres', value: cert.holderAddress },
+                ].map((item) => (
+                  <div key={item.label} className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 rounded-2xl p-4">
+                    <dt className="text-[11px] font-bold text-[var(--color-tertiary)] uppercase tracking-wider mb-1">{item.label}</dt>
+                    <dd className={`text-sm font-semibold text-[var(--color-primary)] ${item.mono ? 'font-mono' : ''}`}>{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              {/* Resmi Faaliyet Kapsamı */}
+              <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 text-xs space-y-1.5">
+                <span className="font-bold text-[var(--color-primary)] uppercase tracking-wider block">
+                  Resmi Belge Kapsamı (Scope):
+                </span>
+                <p className="text-[var(--color-secondary)] italic leading-relaxed">
+                  &ldquo;{cert.officialScopeTr}&rdquo;
+                </p>
+              </div>
+
+              {/* Doğrulama Portalı */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs text-[var(--color-secondary)]">
+                  Belgenin geçerlilik durumu belgelendirme kuruluşunun resmi adresinden teyit edilebilir.
+                </div>
+                <a
+                  href={cert.verificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-opacity shadow-sm shrink-0"
+                >
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
+                  <span>BELCERT Belge Doğrulama</span>
+                </a>
+              </div>
+            </div>
 
             {/* İlgili sayfa linki */}
             {cert.relatedPath && (
@@ -144,7 +186,7 @@ export default async function CertificatePage({
           <div className="flex flex-col gap-4 sticky top-24">
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl overflow-hidden shadow-sm">
               <div className="bg-slate-100 dark:bg-slate-800 px-5 py-3 flex items-center justify-between">
-                <span className="text-xs font-semibold text-[var(--color-secondary)]">Sertifika Önizlemesi</span>
+                <span className="text-xs font-semibold text-[var(--color-secondary)]">Sertifika Önizlemesi (No: {cert.certificateNumber})</span>
                 <span className="material-symbols-outlined text-sm text-[var(--color-tertiary)]" aria-hidden="true">picture_as_pdf</span>
               </div>
               <iframe

@@ -20,58 +20,58 @@ export default function TrustVerificationAuditSeo() {
 
   const certificates: CertificateItem[] = [
     {
-      code: 'ISO 9001:2015',
-      name: 'Kalite Yönetim Sistemi',
-      issuer: 'TÜRKAK & Uluslararası Akreditasyon Forumu (IAF)',
-      scope: 'Apartman, Site, Rezidans ve Entegre Tesis Yönetimi Hizmetleri Standardizasyonu',
-      certNumber: 'TR-QMS-2024-8841',
-      validUntil: '2027',
-      icon: 'verified'
-    },
-    {
-      code: 'ISO 14001:2015',
+      code: 'ISO 14001:2026',
       name: 'Çevre Yönetim Sistemi',
-      issuer: 'TÜRKAK Akredite Belgelendirme Kuruluşu',
+      issuer: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
       scope: 'Tesislerde Sıfır Atık, Ekolojik Peyzaj Bakımı ve Enerji Verimliliği Yönetimi',
-      certNumber: 'TR-EMS-2024-5512',
-      validUntil: '2027',
+      certNumber: 'A1808962',
+      validUntil: '04.08.2027',
       icon: 'eco'
     },
     {
       code: 'ISO 45001:2018',
       name: 'İş Sağlığı ve Güvenliği',
-      issuer: 'TÜRKAK Akredite Belgelendirme Kuruluşu',
+      issuer: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
       scope: 'Tesis Teknik Bakım, Yüksekte Çalışma ve Havuz Hijyeni İSG Standartları',
-      certNumber: 'TR-OHS-2024-3329',
-      validUntil: '2027',
+      certNumber: 'A1808966',
+      validUntil: '04.08.2027',
       icon: 'health_and_safety'
-    },
-    {
-      code: 'ISO 27001:2022',
-      name: 'Bilgi Güvenliği Yönetimi',
-      issuer: 'TÜRKAK Akredite Belgelendirme Kuruluşu',
-      scope: 'Sakin Verileri, KVKK Uyumlu Aidat Takibi ve Kamera/PTS Görüntü Güvenliği',
-      certNumber: 'TR-ISMS-2024-9104',
-      validUntil: '2027',
-      icon: 'lock'
     },
     {
       code: 'ISO 10002:2018',
       name: 'Müşteri Memnuniyeti Yönetimi',
-      issuer: 'TÜRKAK Akredite Belgelendirme Kuruluşu',
+      issuer: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
       scope: 'Kat Malikleri ve Sakin Şikayet/Talep Çözüm Süreçleri Yönetimi (%98.7 Çözüm)',
-      certNumber: 'TR-CMS-2024-1185',
-      validUntil: '2027',
+      certNumber: 'A1808961',
+      validUntil: '04.08.2027',
       icon: 'sentiment_very_satisfied'
+    },
+    {
+      code: 'ISO 22301:2019',
+      name: 'İş Sürekliliği Yönetim Sistemi',
+      issuer: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
+      scope: 'Olağanüstü Durumlarda ve Kriz Anlarında Kesintisiz Tesis Hizmet Güvencesi',
+      certNumber: 'A1808963',
+      validUntil: '04.08.2027',
+      icon: 'all_inclusive'
+    },
+    {
+      code: 'ISO 31000:2018',
+      name: 'Kurumsal Risk Yönetimi',
+      issuer: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
+      scope: 'Finansal, Hukuki ve Operasyonel Risklerin Proaktif Olarak Tespiti ve Yönetimi',
+      certNumber: 'A1808965',
+      validUntil: '04.08.2027',
+      icon: 'security'
     },
     {
       code: '5188 Sayılı ÖGHDK',
       name: 'Özel Güvenlik Faaliyet İzin Belgesi',
       issuer: 'T.C. İçişleri Bakanlığı & T.C. İstanbul Valiliği',
       scope: '7/24 Silahlı/Silahsız Özel Güvenlik, Devriye ve Giriş-Çıkış Kontrolü',
-      certNumber: 'İST-ÖG-2015-774',
+      certNumber: '34-ÖG-2016/482',
       validUntil: 'Süresiz / Yıllık Denetimli',
-      icon: 'security'
+      icon: 'local_police'
     }
   ];
 
@@ -195,9 +195,22 @@ export default function TrustVerificationAuditSeo() {
           </button>
 
           {verifiedStatus && (
-            <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 animate-fade-in bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-500/40">
-              {verifiedStatus}
-            </span>
+            <div className="flex flex-col items-center md:items-end gap-1.5 animate-fade-in">
+              <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-500/40">
+                {verifiedStatus}
+              </span>
+              {active.certNumber.startsWith('A1808') && (
+                <a
+                  href="https://www.belcert.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-bold text-blue-600 dark:text-blue-400 underline flex items-center gap-1 hover:opacity-80"
+                >
+                  <span>BELCERT Resmi Doğrulama Portalı</span>
+                  <span className="material-symbols-outlined text-[12px]" aria-hidden="true">open_in_new</span>
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>
