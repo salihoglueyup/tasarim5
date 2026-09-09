@@ -3539,6 +3539,134 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       }
     });
   });
+
+  describe('120. Wave 53: facilityBlogClusterEngine Çoklu Standart ve Mevzuat Akıllı Eşleme & Topikal Kümeleme Güvencesi', () => {
+    it('8 akreditasyon standardı ve mevzuat konularını doğru dış atıflarla eşler', async () => {
+      const { resolveBlogArticleCluster } = await import('./facilityBlogClusterEngine');
+
+      // 1. ISO 27001 Bilgi Güvenliği & KVKK
+      const clusterIso27001 = resolveBlogArticleCluster(
+        'Akıllı Binalarda ISO 27001 Bilgi Güvenliği ve KVKK Veri Koruma Standartları',
+        'Tesis yönetim yazılımlarında sakin verilerinin korunması ve siber güvenlik altyapıları.',
+        ['bilgi güvenliği', 'kvkk', 'iso 27001']
+      );
+      expect(clusterIso27001.relevantLegislation.some((l) => l.id === 'iso-27001')).toBe(true);
+      expect(clusterIso27001.topicalTags).toContain('ISO 27001 Bilgi Güvenliği');
+
+      // 2. ISO 45001 & 6331 İSG
+      const clusterIso45001 = resolveBlogArticleCluster(
+        'Tesislerde ISO 45001 İş Sağlığı ve Güvenliği ile 6331 Sayılı Kanun Yükümlülükleri',
+        'Apartman ve plaza personeli için periyodik risk analizi ve acil durum tahliye tatbikatları.',
+        ['iş sağlığı', 'isg', '6331', 'risk analizi']
+      );
+      expect(clusterIso45001.relevantLegislation.some((l) => l.id === 'iso-45001')).toBe(true);
+      expect(clusterIso45001.relevantLegislation.some((l) => l.id === 'isg-6331')).toBe(true);
+      expect(clusterIso45001.topicalTags).toContain('ISO 45001 İSG');
+
+      // 3. ISO 14001 Çevre & Sıfır Atık
+      const clusterIso14001 = resolveBlogArticleCluster(
+        'Sürdürülebilir Yeşil Tesislerde ISO 14001 Çevre Yönetimi ve Sıfır Atık Belgesi',
+        'Site ve plazalarda atık ayrıştırma, kompost üretimi ve enerji tasarrufu uygulamaları.',
+        ['çevre', 'iso 14001', 'sıfır atık', 'sürdürülebilirlik']
+      );
+      expect(clusterIso14001.relevantLegislation.some((l) => l.id === 'iso-14001')).toBe(true);
+      expect(clusterIso14001.topicalTags).toContain('ISO 14001 Çevre');
+
+      // 4. ISO 10002 Müşteri Memnuniyeti & Şikayet Yönetimi
+      const clusterIso10002 = resolveBlogArticleCluster(
+        'Rezidans ve Sitelerde ISO 10002 Müşteri Memnuniyeti ve Şikayet Çözüm Mekanizmaları',
+        'Kat malikleri ve sakin memnuniyeti için çağrı merkezi ve SLA taahhütleri.',
+        ['müşteri memnuniyeti', 'iso 10002', 'şikayet', 'sakin iletişimi']
+      );
+      expect(clusterIso10002.relevantLegislation.some((l) => l.id === 'iso-10002')).toBe(true);
+      expect(clusterIso10002.topicalTags).toContain('ISO 10002 Memnuniyet');
+
+      // 5. ISO 9001 Kalite Yönetim Sistemi
+      const clusterIso9001 = resolveBlogArticleCluster(
+        'Profesyonel Tesis Yönetiminde ISO 9001 Kalite Yönetim Sistemi ve Süreç Standartları',
+        'Operasyonel mükemmeliyet, iç denetim ve kurumsal hizmet kalitesi ilkeleri.',
+        ['iso 9001', 'kalite yönetim', 'operasyonel mükemmeliyet']
+      );
+      expect(clusterIso9001.relevantLegislation.some((l) => l.id === 'iso-9001')).toBe(true);
+      expect(clusterIso9001.topicalTags).toContain('ISO 9001 Kalite');
+
+      // 6. TSE HYB 12850 Hizmet Yeterlilik
+      const clusterTse = resolveBlogArticleCluster(
+        'Tesis Yönetim Şirketlerinde TSE HYB 12850 Hizmet Yeterlilik Belgesi Kriterleri',
+        'Türk Standardları Enstitüsü onaylı teknik servis ve kurumsal işletme yeterlilik belgesi.',
+        ['tse', 'hyb', 'hizmet yeterlilik', 'ts 12850']
+      );
+      expect(clusterTse.relevantLegislation.some((l) => l.id.startsWith('tse'))).toBe(true);
+      expect(clusterTse.topicalTags).toContain('TSE HYB 12850');
+
+      // 7. Yargıtay Hukuk Emsal Kararları
+      const clusterYargitay = resolveBlogArticleCluster(
+        'Kat Mülkiyeti Hukukunda Yargıtay Emsal Kararları ve Genel Kurul İptal Davaları',
+        'KMK 33 uyarınca hakimin müdahalesi ve usulsüz genel kurul kararlarının iptali süreci.',
+        ['yargıtay', 'içtihat', 'emsal', 'dava', 'mahkeme']
+      );
+      expect(clusterYargitay.relevantLegislation.some((l) => l.id === 'yargitay-emsal')).toBe(true);
+      expect(clusterYargitay.relevantLegislation.some((l) => l.id === 'kmk-634')).toBe(true);
+    });
+
+    it('Tüm eşleşen mevzuat atıflarının tekil, en fazla 3 adet ve geçerli resmi alan adı içerdiğini teyit eder', async () => {
+      const { resolveBlogArticleCluster } = await import('./facilityBlogClusterEngine');
+      const cluster = resolveBlogArticleCluster(
+        'Kompleks Tesislerde Entegre Standartlar: ISO 27001, ISO 14001, ISO 45001 ve 634 KMK',
+        'Büyük ölçekli karma projelerde bilgi güvenliği, çevre koruma ve iş sağlığı yönetimi.',
+        ['iso 27001', 'iso 14001', 'iso 45001', 'kmk']
+      );
+
+      expect(cluster.relevantLegislation.length).toBeGreaterThanOrEqual(1);
+      expect(cluster.relevantLegislation.length).toBeLessThanOrEqual(3);
+
+      const ids = cluster.relevantLegislation.map((l) => l.id);
+      expect(new Set(ids).size).toBe(ids.length); // Tekil
+
+      for (const leg of cluster.relevantLegislation) {
+        expect(leg.url).toMatch(/^https:\/\//);
+        expect(
+          leg.url.includes('mevzuat.gov.tr') ||
+            leg.url.includes('resmigazete.gov.tr') ||
+            leg.url.includes('iso.org') ||
+            leg.url.includes('tse.org.tr') ||
+            leg.url.includes('yargitay.gov.tr')
+        ).toBe(true);
+      }
+    });
+  });
+
+  describe('121. Wave 53: facilityPageRankSimulationEngine 39 İlçe Coğrafi Mesh Ağı & PageRank Yakınsama Doğrulaması', () => {
+    it('39 ilçe coğrafi mesh bağlantılarıyla PageRank simülasyonunun başarıyla yakınsadığını doğrular', async () => {
+      const { simulateFacilityPageRank } = await import('./facilityPageRankSimulationEngine');
+      const { DISTRICTS } = await import('@/data/districts');
+
+      const report = simulateFacilityPageRank(0.85, 50);
+
+      // 1. Genel Simülasyon Sağlığı
+      expect(report.converged).toBe(true);
+      expect(report.totalNodes).toBe(1 + 5 + 39 + 2); // 47 düğüm
+      expect(report.flagshipHubScore).toBe(100);
+      expect(report.underlinkedNodes).toHaveLength(0);
+      expect(report.averageSubSectorScore).toBeGreaterThanOrEqual(15);
+      expect(report.averageDistrictScore).toBeGreaterThan(1);
+
+      // 2. 39 İlçe Düğümlerinin Coğrafi Mesh Bağlantı ve PageRank Doğrulaması
+      const districtNodes = report.nodes.filter((n) => n.tier === 'tier_3_district');
+      expect(districtNodes).toHaveLength(39);
+
+      for (const d of DISTRICTS) {
+        const dNode = districtNodes.find((n) => n.id === `district-${d.slug}`);
+        expect(dNode).toBeDefined();
+        expect(dNode?.name).toBe(`${d.name} Tesis Yönetimi`);
+        expect(dNode?.url).toBe(`/bolgeler/${d.slug}/tesis-yonetimi`);
+        // Her ilçe Hub + komşu ilçelerden en az 2 inbound link alır
+        expect(dNode?.inboundLinkCount).toBeGreaterThanOrEqual(2);
+        expect(dNode?.normalizedScore).toBeGreaterThan(0);
+        expect(dNode?.rawPageRank).toBeGreaterThan(0);
+      }
+    });
+  });
 });
 
 

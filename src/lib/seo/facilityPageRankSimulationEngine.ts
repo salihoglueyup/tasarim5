@@ -1,6 +1,7 @@
 import { FACILITY_SUB_SECTORS } from './facilitySiloRankPasser';
 import { DISTRICTS } from '@/data/districts';
 import { GROUP_COMPANIES_ECOSYSTEM } from './facilityGroupAndLegalEcosystem';
+import { getAdjacentDistricts } from './facilityMeshLinkerEngine';
 
 export interface PageRankNodeResult {
   id: string;
@@ -96,11 +97,13 @@ export function simulateFacilityPageRank(dampingFactor = 0.85, maxIterations = 5
     outboundMap.set(`sub-${sub.slug}`, subOutbounds);
   }
 
-  // 3. İlçeler -> Hub'a ve alt sektörlere link verir
+  // 3. İlçeler -> Hub'a, alt sektörlere ve komşu ilçelerine (Geographic Mesh) link verir
   for (const d of DISTRICTS) {
+    const adjacentSlugs = getAdjacentDistricts(d.slug);
     const distOutbounds = [
       'hub-tesis-yonetimi',
       ...FACILITY_SUB_SECTORS.slice(0, 2).map((s) => `sub-${s.slug}`),
+      ...adjacentSlugs.map((adj) => `district-${adj}`),
     ];
     outboundMap.set(`district-${d.slug}`, distOutbounds);
   }

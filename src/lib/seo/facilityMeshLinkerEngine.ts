@@ -129,14 +129,14 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
  */
 export function getAdjacentDistricts(slug: string): string[] {
   const ADJACENCY_MAP: Record<string, string[]> = {
-    kadikoy: ['uskudar', 'atasehir', 'maltepe'],
+    kadikoy: ['uskudar', 'atasehir', 'maltepe', 'adalar'],
     besiktas: ['sisli', 'sariyer', 'beyoglu'],
     sisli: ['besiktas', 'kagithane', 'beyoglu', 'eyupsultan'],
     bakirkoy: ['bahcelievler', 'zeytinburnu', 'kucukcekmece'],
     atasehir: ['kadikoy', 'umraniye', 'maltepe', 'sancaktepe'],
     uskudar: ['kadikoy', 'umraniye', 'beykoz'],
-    maltepe: ['kadikoy', 'kartal', 'atasehir'],
-    kartal: ['maltepe', 'pendik', 'sultanbeyli', 'sancaktepe'],
+    maltepe: ['kadikoy', 'kartal', 'atasehir', 'adalar'],
+    kartal: ['maltepe', 'pendik', 'sultanbeyli', 'sancaktepe', 'adalar'],
     pendik: ['kartal', 'tuzla', 'sultanbeyli', 'sile'],
     tuzla: ['pendik', 'sultanbeyli', 'sile'],
     basaksehir: ['kucukcekmece', 'bagcilar', 'esenyurt', 'arnavutkoy', 'sultangazi'],
@@ -161,7 +161,7 @@ export function getAdjacentDistricts(slug: string): string[] {
     sultanbeyli: ['kartal', 'pendik', 'sancaktepe'],
     cekmekoy: ['umraniye', 'sancaktepe', 'beykoz', 'sile'],
     beykoz: ['uskudar', 'umraniye', 'cekmekoy', 'sile'],
-    sile: ['beykoz', 'cekmekoy', 'pendik'],
+    sile: ['beykoz', 'cekmekoy', 'pendik', 'tuzla'],
     adalar: ['kadikoy', 'maltepe', 'kartal'],
     buyukcekmece: ['beylikduzu', 'esenyurt', 'catalca', 'silivri'],
     silivri: ['buyukcekmece', 'catalca'],
