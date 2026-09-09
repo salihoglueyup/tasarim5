@@ -4549,6 +4549,30 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(regionsSitemap).toContain("path: '/hizmetler/tesis-yonetimi/acik-veri'");
       expect(regionsSitemap).toContain("path: '/bolgeler'");
     });
+
+    it('Header bölgesel mega menüde 8 stratejik ilçe doğrudan /bolgeler/:ilce/tesis-yonetimi hedefler ve 4 dilde çevrilmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const headerContent = fs.readFileSync(path.join(process.cwd(), 'src/components/layout/Header.tsx'), 'utf8');
+      expect(headerContent).toContain('/bolgeler/kadikoy/tesis-yonetimi');
+      expect(headerContent).toContain('/bolgeler/besiktas/tesis-yonetimi');
+      expect(headerContent).toContain('/bolgeler/kartal/tesis-yonetimi');
+      expect(headerContent).toContain('/bolgeler/bakirkoy/tesis-yonetimi');
+      expect(headerContent).toContain('/bolgeler/beylikduzu/tesis-yonetimi');
+
+      for (const lang of ['tr', 'en', 'ru', 'ar']) {
+        const localeFile = JSON.parse(
+          fs.readFileSync(path.join(process.cwd(), `src/i18n/locales/${lang}/common.json`), 'utf8')
+        );
+        expect(localeFile.dist_kartal).toBeDefined();
+        expect(localeFile.dist_bakirkoy).toBeDefined();
+        expect(localeFile.dist_beylikduzu).toBeDefined();
+        expect(localeFile.dist_kartal_desc).toBeDefined();
+        expect(localeFile.dist_bakirkoy_desc).toBeDefined();
+        expect(localeFile.dist_beylikduzu_desc).toBeDefined();
+      }
+    });
   });
 });
 
