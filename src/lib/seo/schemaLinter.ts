@@ -266,6 +266,54 @@ export function lintSchemaOrgObject(schema: any): SchemaLintReport {
       }
       break;
     }
+
+    case 'EducationalOccupationalCredential': {
+      if (!schema.name) {
+        issues.push({ field: 'name', message: 'Belge/Sertifika adı (name) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!schema.recognizedBy) {
+        issues.push({ field: 'recognizedBy', message: 'Belgeyi veren akredite kuruluş (recognizedBy) önerilir', severity: 'WARNING' });
+        score -= 15;
+      }
+      break;
+    }
+
+    case 'DefinedTerm': {
+      if (!schema.name && !schema.termCode) {
+        issues.push({ field: 'name', message: 'Tanımlı terim adı (name) veya terim kodu (termCode) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!schema.description) {
+        issues.push({ field: 'description', message: 'Terim açıklaması (description) önerilir', severity: 'WARNING' });
+        score -= 15;
+      }
+      break;
+    }
+
+    case 'DefinedTermSet': {
+      if (!schema.name) {
+        issues.push({ field: 'name', message: 'Terim seti adı (name) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!Array.isArray(schema.hasDefinedTerm) || schema.hasDefinedTerm.length === 0) {
+        issues.push({ field: 'hasDefinedTerm', message: 'Terim setinde en az 1 tanımlı terim (hasDefinedTerm) bulunmalıdır', severity: 'WARNING' });
+        score -= 15;
+      }
+      break;
+    }
+
+    case 'DigitalDocument': {
+      if (!schema.name) {
+        issues.push({ field: 'name', message: 'Dijital doküman adı (name) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!schema.url) {
+        issues.push({ field: 'url', message: 'Dijital doküman erişim adresi (url) önerilir', severity: 'WARNING' });
+        score -= 15;
+      }
+      break;
+    }
   }
 
   const hasErrors = issues.some((i) => i.severity === 'ERROR');

@@ -3667,6 +3667,159 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       }
     });
   });
+
+  describe('122. Wave 54: eeatAuditor ve verify-authority 8 Akredite Yetki Belgesi ve Schema.org EducationalOccupationalCredential Uyumluluğu', () => {
+    it('VERIFIED_AUTHORITY_CREDENTIALS 8 akreditasyon standardını eksiksiz sunar', async () => {
+      const { VERIFIED_AUTHORITY_CREDENTIALS, generateVerifiedAuthorityGraph } = await import('./eeatAuditor');
+
+      expect(VERIFIED_AUTHORITY_CREDENTIALS).toHaveLength(8);
+
+      const requiredIds = [
+        'iso-41001',
+        'kanun-5188',
+        'iso-9001',
+        'iso-14001',
+        'iso-45001',
+        'iso-27001',
+        'iso-10002',
+        'tse-12850',
+      ];
+
+      for (const reqId of requiredIds) {
+        const cred = VERIFIED_AUTHORITY_CREDENTIALS.find((c) => c.id === reqId);
+        expect(cred).toBeDefined();
+        expect(cred?.name).toBeDefined();
+        expect(cred?.issuer).toBeDefined();
+        expect(cred?.credentialNumber).toBeDefined();
+        expect(cred?.validUntil).toBeDefined();
+        expect(cred?.scope).toBeDefined();
+        expect(cred?.verificationUrl).toMatch(/^https:\/\//);
+      }
+
+      // generateVerifiedAuthorityGraph Çıktı Doğrulaması
+      const graph = generateVerifiedAuthorityGraph();
+      expect(graph['@type']).toBe('Organization');
+      expect(graph.name).toBe('Alo Yönetim');
+      expect(graph.logo).toBeDefined();
+      expect(graph.image).toBeDefined();
+      expect(Array.isArray(graph.sameAs)).toBe(true);
+      expect(graph.sameAs.length).toBeGreaterThanOrEqual(3);
+
+      // knowsAbout Kontrolü
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 41001'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 9001'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 14001'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 45001'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 27001'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 10002'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('TSE HYB 12850'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('5188'))).toBe(true);
+
+      // hasCredential Kontrolü
+      expect(graph.hasCredential).toHaveLength(8);
+      for (const cred of graph.hasCredential) {
+        expect(cred['@type']).toBe('EducationalOccupationalCredential');
+        expect(cred.name).toBeDefined();
+        expect(cred.recognizedBy?.name).toBeDefined();
+        expect(cred.identifier).toBeDefined();
+        expect(cred.url).toMatch(/^https:\/\//);
+      }
+    });
+
+    it('/api/seo/verify-authority API rotası 8 akreditasyon ve doğrulanmış E-E-A-T çıktısı döner', async () => {
+      const { GET } = await import('@/app/api/seo/verify-authority/route');
+      const res = await GET();
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('X-Robots-Tag')).toContain('all');
+
+      const data = await res.json();
+      expect(data.status).toBe('verified');
+      expect(data.authorityScore).toBeGreaterThanOrEqual(95);
+      expect(data.credentials).toHaveLength(8);
+      expect(data.schema.hasCredential).toHaveLength(8);
+    });
+  });
+
+  describe('123. Wave 54: schemaLinter Zengin Sonuç Kuralları — EducationalOccupationalCredential, DefinedTerm ve Gelişmiş Şema Denetimi', () => {
+    it('EducationalOccupationalCredential şemasını doğrular ve eksik alanlarda hata/uyarı üretir', async () => {
+      const { lintSchemaOrgObject } = await import('./schemaLinter');
+
+      // 1. Eksik isimli geçersiz sertifika
+      const invalidCred = {
+        '@context': 'https://schema.org',
+        '@type': 'EducationalOccupationalCredential',
+      };
+      const invalidReport = lintSchemaOrgObject(invalidCred);
+      expect(invalidReport.isValid).toBe(false);
+      expect(invalidReport.issues.some((i) => i.field === 'name')).toBe(true);
+      expect(invalidReport.googleRichResultsCompliant).toBe(false);
+
+      // 2. Geçerli tam donanımlı sertifika
+      const validCred = {
+        '@context': 'https://schema.org',
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 41001:2018 Entegre Tesis Yönetimi',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'TÜRKAK & ISO',
+        },
+        identifier: 'ISO41001-TR-2024-8841',
+      };
+      const validReport = lintSchemaOrgObject(validCred);
+      expect(validReport.isValid).toBe(true);
+      expect(validReport.score).toBe(100);
+      expect(validReport.googleRichResultsCompliant).toBe(true);
+    });
+
+    it('DefinedTerm, DefinedTermSet ve DigitalDocument şema tiplerini doğrular', async () => {
+      const { lintSchemaOrgObject } = await import('./schemaLinter');
+
+      // 1. DefinedTerm
+      const termReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTerm',
+        name: 'İşletme Projesi (KMK m.37)',
+        description: 'Kat mülkiyetinde tahmini gelir-gider ve aidat dağılım tablosu.',
+      });
+      expect(termReport.isValid).toBe(true);
+      expect(termReport.score).toBe(100);
+
+      // 2. DefinedTermSet
+      const termSetReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTermSet',
+        name: 'Tesis Yönetimi Terimler Sözlüğü',
+        hasDefinedTerm: [{ '@type': 'DefinedTerm', name: 'Aidat' }],
+      });
+      expect(termSetReport.isValid).toBe(true);
+      expect(termSetReport.score).toBe(100);
+
+      // 3. DigitalDocument
+      const docReport = lintSchemaOrgObject({
+        '@context': 'https://schema.org',
+        '@type': 'DigitalDocument',
+        name: 'Tesis Yönetim Şartnamesi (RFP) Şablonu',
+        url: 'https://aloyonetim.com.tr/docs/rfp-sablonu.pdf',
+      });
+      expect(docReport.isValid).toBe(true);
+      expect(docReport.score).toBe(100);
+    });
+
+    it('generateVerifiedAuthorityGraph çıktısını lintSchemaOrgObject ile 100/100 tam puanla onaylar', async () => {
+      const { generateVerifiedAuthorityGraph } = await import('./eeatAuditor');
+      const { lintSchemaOrgObject } = await import('./schemaLinter');
+
+      const authorityGraph = generateVerifiedAuthorityGraph();
+      const report = lintSchemaOrgObject(authorityGraph);
+
+      expect(report.schemaType).toBe('Organization');
+      expect(report.isValid).toBe(true);
+      expect(report.score).toBe(100);
+      expect(report.googleRichResultsCompliant).toBe(true);
+      expect(report.issues).toHaveLength(0);
+    });
+  });
 });
 
 
