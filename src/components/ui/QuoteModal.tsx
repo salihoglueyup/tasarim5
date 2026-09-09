@@ -74,7 +74,12 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
       },
     });
     if (ok) {
-      import('@/lib/analytics').then(({ trackEvent, AnalyticsEvents }) => {
+      import('@/lib/analytics').then(({ trackQuoteSubmit, trackEvent, AnalyticsEvents }) => {
+        trackQuoteSubmit('teklif_modal', {
+          form_tipi: 'quote_modal',
+          proje_tipi: formData.projectType,
+          hizmetler: formData.services.join(', '),
+        });
         trackEvent(AnalyticsEvents.submitQuote, { form: 'quote_modal' });
       });
     }

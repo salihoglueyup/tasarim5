@@ -23,6 +23,34 @@ export const TERMS: Term[] = [
     sameAs: 'https://tr.wikipedia.org/wiki/Kat_m%C3%BClkiyeti',
   },
   {
+    term: 'KMK Madde 20 (Genel Giderlere Katılma & Aidat Borcu)',
+    definition:
+      '634 sayılı KMK Madde 20; kat maliklerinin kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine eşit oranda, sigorta ve diğer ortak giderlere ise arsa payı oranında katılmakla yükümlü olduğunu düzenler. Gününde ödenmeyen aidat ve avans borçları için aylık %5 kanuni gecikme tazminatı işletilir ve doğrudan icra takibine konu edilir.',
+    link: { href: '/hesaplayici', label: 'Aidat ve bütçe hesaplayıcı' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'KMK Madde 34 (Site Yöneticisinin Atanması & Seçimi)',
+    definition:
+      '634 sayılı KMK Madde 34; sekiz ve daha fazla bağımsız bölümü olan taşınmazlarda yönetici atanmasının kanunen zorunlu olduğunu hükme bağlar. Yönetici, kat malikleri kurulu tarafından hem sayı hem de arsa payı çoğunluğuyla seçilir. Anlaşma sağlanamazsa Sulh Hukuk Mahkemesi tarafından re\'sen yönetici atanabilir.',
+    link: { href: '/hizmetler/tesis-yonetimi', label: 'Profesyonel tesis yönetimi' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'KMK Madde 37 (İşletme Projesi & İtiraz Süresi)',
+    definition:
+      '634 sayılı KMK Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
+    link: { href: '/hizmetler/aidat-takibi', label: 'İşletme projesi ve aidat takibi' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'KMK Madde 45 (Önemli İşler & Oybirliği Kararları)',
+    definition:
+      '634 sayılı KMK Madde 45; ana taşınmazın bir hakla kayıtlanması, arsanın bölünmesi, ortak yerlerin üçüncü kişilere kiralanması veya mülkiyet yapısını değiştiren önemli tasarrufi işlemlerde bütün kat maliklerinin oybirliğini şart koşar.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Kat mülkiyeti hukuk danışmanlığı' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
     term: 'Demirbaş',
     definition:
       'Sitenin ortak kullanımına ait, uzun ömürlü ve envantere kayıtlı taşınır mallardır (jeneratör, hidrofor, güvenlik kamerası, bahçe ekipmanı). Yönetim değişiminde tutanakla devredilir.',

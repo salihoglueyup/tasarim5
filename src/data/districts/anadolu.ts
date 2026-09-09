@@ -20,6 +20,9 @@ export const ANADOLU_DISTRICTS: District[] = [
     ],
     managedProjects: 48,
     priority: 1,
+    totalResidentialSitesEstimated: 2100,
+    prominentProjects: ['Four Winds Residence', 'Park Residences Cadde', 'Elysium Elit Koşuyolu', 'Şua Elite Concept', 'Pırlanta Göztepe'],
+    regionalFacilityTraits: 'Bağdat Caddesi ve sahil bandında yüksek katlı prestij rezidansları, Moda tarihi apartmanlarında koruyucu mühendislik ve yoğun sosyal donatılı havuzlu siteler.',
     neighborhoodData: [
       { slug: 'moda', name: 'Moda', geo: { lat: 40.9845, lng: 29.024 }, intro: 'Moda, Kadıköy\'ün en prestijli ve tarihi mahallesi olup 19. yüzyıldan kalma Rum ve Rum apartmanları ile çevrilidir. Yüksek kira potansiyeli ve değer koruma odaklı profesyonel tesis yönetimi talebi sürekli artmaktadır.', characteristics: ['tarihi apartman stoğu', 'yüksek kira değeri', 'kültürel miras'] },
       { slug: 'caddebostan', name: 'Caddebostan', geo: { lat: 40.9619, lng: 29.0614 }, intro: 'Caddebostan sahil hattı ve modern rezidanslarıyla Kadıköy\'ün en gözde semtlerinden biridir. Yüksek katlı sitelerde havuz, kapalı otopark ve concierge yönetimi öne çıkan ihtiyaçlardandır.', characteristics: ['sahil rezidansları', 'havuzlu siteler', 'üst segment yaşam'] },
@@ -45,6 +48,9 @@ export const ANADOLU_DISTRICTS: District[] = [
     ],
     managedProjects: 41,
     priority: 1,
+    totalResidentialSitesEstimated: 1850,
+    prominentProjects: ['Metropol İstanbul', 'Ağaoğlu My World', 'Varyap Meridian', 'Uphill Court', 'Brandium Ataşehir'],
+    regionalFacilityTraits: 'İstanbul Finans Merkezi komşuluğunda yüksek katlı gökdelen tesis yönetimi, karma kullanım plaza-konut işletmesi, merkezi yangın otomasyonu ve 5188 VIP güvenlik.',
     neighborhoodData: [
       { slug: 'barbaros', name: 'Barbaros', geo: { lat: 40.9925, lng: 29.12 }, intro: 'Barbaros, Ataşehir\'in kalbinde konumlanan modern konut ve ofis alanlarının yoğunlaştığı semttir. Finans merkezi yakınlığı, kurumsal kiracı profiline uygun profesyonel tesis yönetimini zorunlu kılar.', characteristics: ['finans merkezi yakını', 'ofis-konut karma', 'kurumsal kiracı profili'] },
       { slug: 'bati-atasehir', name: 'Batı Ataşehir', geo: { lat: 40.9985, lng: 29.1085 }, intro: 'Batı Ataşehir, büyük ölçekli kapalı site projelerinin yoğunlaştığı, alışveriş merkezleri ve sosyal donatılara yakın bir yaşam alanıdır. Geniş ortak alanlar ve havuzlu siteler detaylı tesis yönetimi gerektirir.', characteristics: ['geniş kapalı siteler', 'havuzlu kompleksler', 'alışveriş merkezi yakını'] },
@@ -119,7 +125,10 @@ export const ANADOLU_DISTRICTS: District[] = [
       'Yoğun otopark alanlarında güvenlik ve erişim kontrolü',
     ],
     managedProjects: 26,
-    priority: 2,
+    priority: 1,
+    totalResidentialSitesEstimated: 1450,
+    prominentProjects: ['İstMarina', 'DKY Sahil', 'Marmara Kule', 'Mai Residence', 'AND Pastel', 'Teknik Yapı UpCity'],
+    regionalFacilityTraits: 'Sahil şeridinde deniz tuzu korozyonuna karşı periyodik cephe ve asansör muayenesi, E-5 aksında karma kullanım plaza-konut işletmesi ve kentsel dönüşüm işletme bütçeleri.',
   },
   {
     slug: 'pendik',

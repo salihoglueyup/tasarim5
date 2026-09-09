@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
+import WalletSvgIcon from '@/components/ui/WalletSvgIcon';
 
 export default function BentoServices() {
   const { t, language } = useLanguage();
@@ -125,7 +126,7 @@ export default function BentoServices() {
         {/* Card 3: Aidat & Finans */}
         <div className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
-            <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4" aria-hidden="true">account_balance_wallet</span>
+            <WalletSvgIcon className="w-10 h-10 text-[var(--color-primary)] mb-4" />
             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card3_title')}</h3>
             <p className="text-[var(--color-secondary)] text-sm leading-relaxed">
               {t('home_bento_card3_desc')}

@@ -87,6 +87,24 @@ const PORTFOLIO_DATA: DistrictPortfolioHighlight[] = [
     sampleProjects: ['Maslak Kurumsal Plazalar', 'Tarabya Villa Kompleksleri', 'Zekeriyaköy Siteleri', 'İstinye Konutları'],
     features: ['Yangın & Deprem Otomasyon Denetimi', '5188 Silahlı/Silahsız Özel Güvenlik', '7/24 Acil SLA Müdahalesi'],
     savingAvg: '%33 Tasarruf'
+  },
+  {
+    slug: 'kartal',
+    name: 'Kartal',
+    side: 'anadolu',
+    managedCount: 38,
+    sampleProjects: ['İstMarina Projesi', 'DKY Sahil Siteleri', 'Marmara Kule', 'Mai Residence', 'AND Pastel'],
+    features: ['Sahil Korozyonuna Karşı Asansör & Cephe Bakımı', 'Kentsel Dönüşüm Yönetim Planı', '5188 Güvenlik & PTS Bariyer'],
+    savingAvg: '%30 Tasarruf'
+  },
+  {
+    slug: 'arnavutkoy',
+    name: 'Arnavutköy',
+    side: 'avrupa',
+    managedCount: 29,
+    sampleProjects: ['Hadımköy Sanayi Siteleri', 'Yenişehir Lojistik Merkezleri', 'Bolluca Konutları', 'Taşoluk Yerleşkeleri'],
+    features: ['5188 Lisanslı Endüstriyel Güvenlik', 'Ağır Vasıta & Çevre Çit Denetimi', 'Şeffaf KMK İşletme Bütçesi'],
+    savingAvg: '%32 Tasarruf'
   }
 ];
 

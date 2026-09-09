@@ -7,6 +7,7 @@ import { VoiceSearchSpeakableSeo } from '@/components/seo';
 import { TERMS } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
+import WalletSvgIcon from '@/components/ui/WalletSvgIcon';
 
 export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -154,7 +155,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:border-blue-500/40 transition-colors">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">account_balance_wallet</span>
+                  <WalletSvgIcon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">Aidat & KMK m.20 Takibi</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">

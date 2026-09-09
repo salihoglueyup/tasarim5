@@ -16,6 +16,7 @@ import {
   DistrictFacilityAuditTableSeo,
   InteractiveFacilityAuditRadarSeo,
   FacilityLegalTemplateGeneratorSeo,
+  DistrictElevatorMaintenanceSeo,
 } from '@/components/seo';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
@@ -144,8 +145,8 @@ export async function generateMetadata({
   let serviceKeywords: string[] = [];
 
   if (isFacility) {
-    metaTitle = `${district.name} Site ve Apartman Yönetimi & Tesis Yönetim Şirketi — Alo Yönetim`;
-    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel site yönetimi, 5188 güvenlik, teknik bakım ve şeffaf KMK aidat tahsilatı. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    metaTitle = `${district.name} Site Yönetimi — Aidat, Bütçe ve Personel Yönetimi | Ücretsiz Keşif`;
+    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel site yönetimi, 5188 lisanslı güvenlik, temizlik ve şeffaf KMK aidat tahsilatı. Hemen ücretsiz keşif randevusu alın.`;
     serviceKeywords = [
       `${district.name} site yönetimi`,
       `${district.name} apartman yönetimi`,
@@ -158,11 +159,11 @@ export async function generateMetadata({
       `${district.name} entegre tesis yönetimi`,
     ];
   } else if (isSecurity) {
-    metaTitle = `${district.name} Özel Güvenlik Şirketleri & Site Güvenlik Firması — Alo Yönetim`;
-    metaDesc = `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri. ${neighborhoods} mahallelerinde ücretsiz keşif.`;
+    metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik | Ücretsiz Keşif`;
+    metaDesc = `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera izleme ve devriye hizmetleri. 48 saatte ücretsiz güvenlik keşif raporu.`;
     serviceKeywords = [
-      `${district.name} özel güvenlik şirketi`,
       `${district.name} güvenlik şirketleri`,
+      `${district.name} özel güvenlik şirketi`,
       `${district.name} güvenlik firması`,
       `${district.name} güvenlik firmaları`,
       `${district.name} site güvenliği`,
@@ -172,13 +173,14 @@ export async function generateMetadata({
       `${district.name} kameralı güvenlik`,
     ];
   } else if (isTechnical) {
-    metaTitle = `${district.name} Asansör Bakım, Arıza & Site Teknik Servisi — Alo Yönetim`;
-    metaDesc = `${district.name}'de asansör arıza, periyodik bakım ve yeşil etiket muayenesi, jeneratör ATS testleri ve bina teknik servis çözümleri. ${neighborhoods} mahallelerinde 45 dk SLA ile hizmet.`;
+    metaTitle = `${district.name} Asansör Bakımı ve Arıza Servisi — Yeşil Etiket & 7/24 Teknik Servis | Alo Yönetim`;
+    metaDesc = `${district.name}'de asansör arıza ve periyodik bakımı, MMO onaylı yeşil etiket muayenesi, jeneratör ve bina teknik servisi. 15-25 dk SLA ile 7/24 kesintisiz müdahale.`;
     serviceKeywords = [
-      `${district.name} asansör arıza`,
       `${district.name} asansör bakım`,
+      `${district.name} asansör arıza`,
       `${district.name} asansör bakım firmaları`,
       `${district.name} asansör periyodik kontrol`,
+      `${district.name} asansör yeşil etiket`,
       `${district.name} site teknik bakım`,
       `${district.name} jeneratör periyodik bakım`,
       `${district.name} bina teknik servisi`,
@@ -509,6 +511,12 @@ export default async function ServiceDistrictPage({
               localNeeds={district.localNeeds}
             />
             <InteractiveTechnicalAuditRadarSeo districtName={district.name} />
+            {/* Wave 56: Asansör Bakım, Arıza & Yeşil Etiket İlçe Odaklı SEO Bloğu */}
+            <DistrictElevatorMaintenanceSeo
+              districtName={district.name}
+              districtSlug={district.slug}
+              managedProjects={district.managedProjects}
+            />
           </div>
         )}
 

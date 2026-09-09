@@ -14,6 +14,7 @@ import ruDict from '@/i18n/locales/ru/common.json';
 import arDict from '@/i18n/locales/ar/common.json';
 import DynamicBreadcrumb from '@/components/seo/DynamicBreadcrumb';
 import LanguageSuggestionBanner from '@/components/ui/LanguageSuggestionBanner';
+import ConversionTracker from '@/components/analytics/ConversionTracker';
 
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
@@ -308,6 +309,7 @@ export default async function RootLayout({
 
         {/* Faz 3, 10, 20: TBT/LCP bozmayan asenkron izole analytics */}
         <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} gtmId={gtmId} />
+        <ConversionTracker />
         <DynamicBreadcrumb />
         
         <MaterialSymbolsFix />

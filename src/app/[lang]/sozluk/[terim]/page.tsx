@@ -29,8 +29,20 @@ export async function generateMetadata({
     return buildMetadata({ title: 'Terim Bulunamadı', description: '', path: '/sozluk', lang, noindex: true });
   }
   const cleanDef = term.definition.replace(/\s+/g, ' ').trim();
-  let title = `${term.term} Nedir? — Kat Mülkiyeti & Site Yönetimi Sözlüğü | Alo Yönetim`;
-  let description = `${term.term} nedir? ${cleanDef.slice(0, 105)}... KMK 634 kapsamındaki hukuki tanımı ve detaylarını inceleyin!`;
+  
+  // Wave 56: Yüksek CTR (Poz 5-12 Tıklama Maksimizasyonu) Şablonları
+  let title = `${term.term} Ne Demek? Nedir — Kısa Açıklama | Alo Yönetim`;
+  let description = `${term.term} ne demek ve ne anlama gelir? ${cleanDef.slice(0, 110)}... Kat mülkiyeti ve profesyonel site yönetimi rehberi.`;
+
+  if (term.term.toLowerCase().includes('kat mülkiyeti kanunu') || term.term.includes('KMK')) {
+    if (term.term.toLowerCase().includes('madde')) {
+      title = `${term.term} Nedir, Ne Anlama Gelir? — KMK Açıklaması | Alo Yönetim`;
+      description = `${term.term} nedir ve ne anlama gelir? ${cleanDef.slice(0, 115)}... Kat Mülkiyeti Kanunu madde rehberi.`;
+    } else {
+      title = `KMK Ne Demek? Kat Mülkiyeti Kanunu Nedir — Kısa Açıklama | Alo Yönetim`;
+      description = `KMK ne demek, ne anlama gelir? 634 sayılı Kat Mülkiyeti Kanunu (KMK) kapsamı, yöneticinin görevleri, aidat işletme projesi ve kat malikleri hakları.`;
+    }
+  }
 
   if (lang === 'en') {
     const enTerm = ENGLISH_TERMS.find(

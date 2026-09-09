@@ -8,7 +8,7 @@ const ALL_SERVICES = [
   { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi', icon: 'shield_person' },
   { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen', icon: 'cleaning_services' },
   { nameKey: 'nav_tech_maintenance', path: '/hizmetler/teknik-bakim', icon: 'engineering' },
-  { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi', icon: 'account_balance_wallet' },
+  { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi', icon: 'payments' },
   { nameKey: 'nav_legal', path: '/hizmetler/hukuk-ve-icra-danismanligi', icon: 'gavel' },
   { nameKey: 'nav_landscaping', path: '/hizmetler/peyzaj-ve-bahce-bakimi', icon: 'park' },
   { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen', icon: 'pool' },

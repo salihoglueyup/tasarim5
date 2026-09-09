@@ -34,7 +34,7 @@ export default function HizmetlerClient() {
       category: t('services_cat_management'),
       desc: t('serv_4_desc'),
       link: "/hizmetler/tesis-yonetimi",
-      icon: "account_balance_wallet",
+      icon: "domain",
       stats: t('serv_4_stats'),
       isFlagship: true
     },

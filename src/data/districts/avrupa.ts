@@ -92,6 +92,9 @@ export const AVRUPA_DISTRICTS: District[] = [
     ],
     managedProjects: 30,
     priority: 1,
+    totalResidentialSitesEstimated: 1650,
+    prominentProjects: ['SeaPearl Ataköy', 'Yalı Ataköy', 'Selenium Retro', 'Ataköy Konakları', 'Florya Akik Konakları'],
+    regionalFacilityTraits: 'Marmara Denizi kıyısında deniz tuzu kaynaklı korozyona karşı periyodik asansör halat ve kuyu kontrolleri, yeşil etiket muayeneleri, Florya villa sitelerinde havuz ve 5188 güvenlik.',
   },
   {
     slug: 'beylikduzu',
@@ -126,6 +129,9 @@ export const AVRUPA_DISTRICTS: District[] = [
     ],
     managedProjects: 37,
     priority: 1,
+    totalResidentialSitesEstimated: 2200,
+    prominentProjects: ['Vadi Başakşehir', 'Nidapark Kayaşehir', 'Avrupa Konutları Başakşehir', 'Bahçetepe İstanbul', 'Mavera Sarayları', 'Bulvar İstanbul'],
+    regionalFacilityTraits: 'Dev toplu konut etaplarında merkezi ısıtma kazan ve hidrofor otomasyonu, geniş gölet ve peyzaj sulama sistemleri, okul-aile sitelerinde 5188 çevre güvenliği ve KMK aidat tahsilat disiplini.',
     neighborhoodData: [
       { slug: 'kayasehir', name: 'Kayaşehir', geo: { lat: 41.1025, lng: 28.772 }, intro: 'Kayaşehir, TOKİ ve özel sektörün birlikte geliştirdiği büyük ölçekli toplu konut projeleriyle Başakşehir\'in en kalabalık mahallesini oluşturmaktadır. Geniş ortak alanlar ve binlerce dairelik siteler kapsamlı tesis yönetimi hizmetleri gerektirmektedir.', characteristics: ['toplu konut', 'geniş ortak alan', 'büyük ölçek'] },
       { slug: 'bahcesehir', name: 'Bahçeşehir', geo: { lat: 41.0877, lng: 28.7788 }, intro: 'Bahçeşehir, göletleri ve yeşil alanlarıyla tanınan, planlı yapısıyla İstanbul\'un en tercih edilen aile yaşam merkezlerinden biridir. Peyzaj bakımı, gölet yönetimi ve geniş sosyal tesis işletmeciliği temel ihtiyaçlardandır.', characteristics: ['gölet ve yeşil alan', 'planlı yerleşim', 'aile odaklı'] },
@@ -398,7 +404,10 @@ export const AVRUPA_DISTRICTS: District[] = [
       'Büyük lojistik tesislerde endüstriyel zemin bakımı ve atık yönetimi',
     ],
     managedProjects: 24,
-    priority: 2,
+    priority: 1,
+    totalResidentialSitesEstimated: 950,
+    prominentProjects: ['Yenişehir Evleri Arnavutköy', 'Hadımköy Sanayi Siteleri', 'Bolluca Konakları', 'Taşoluk TOKİ Projeleri'],
+    regionalFacilityTraits: 'İstanbul Havalimanı kargo ve Hadımköy lojistik antrepolarında 5188 lisanslı endüstriyel güvenlik, çevre çit denetimleri ve yeni havalimanı konutlarında şeffaf bütçe işletmesi.',
   },
   {
     slug: 'bayrampasa',

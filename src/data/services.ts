@@ -160,7 +160,7 @@ export const SERVICES: ServiceDef[] = [
     slug: 'aidat-takibi',
     name: 'Aidat Takibi',
     shortName: 'Aidat Takibi',
-    icon: 'account_balance_wallet',
+    icon: 'payments',
     summary:
       'Aidat borçlarının şeffaf takibi, dijital tahsilat yönetimi ve kat malikleri için hızlı ödeme kolaylığı.',
     benefits: [

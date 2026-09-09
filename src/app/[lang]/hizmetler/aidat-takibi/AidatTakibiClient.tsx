@@ -26,7 +26,7 @@ export default function AidatTakibiClient() {
     {
       title: t('dues_feat_2_title') || 'Otomatik Banka ve Muhasebe Entegrasyonu',
       desc: t('dues_feat_2_desc') || 'Banka hesap hareketlerinin otomatik işlenmesi, mükerrer ödemelerin engellenmesi ve hatasız cari hesap mutabakatı.',
-      icon: "account_balance_wallet"
+      icon: "account_balance"
     },
     {
       title: t('dues_feat_3_title') || 'Otomatik SMS ve E-Posta Hatırlatma',

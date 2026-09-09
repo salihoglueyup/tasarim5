@@ -39,7 +39,7 @@ const MENU_ITEMS: MenuItem[] = [
       { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi', descKey: 'nav_security_desc', icon: 'shield' },
       { nameKey: 'nav_cleaning', path: '/hizmetler/temizlik-ve-hijyen', descKey: 'nav_cleaning_desc', icon: 'cleaning_services' },
       { nameKey: 'nav_tech_maintenance', path: '/hizmetler/teknik-bakim', descKey: 'nav_tech_maintenance_desc', icon: 'engineering' },
-      { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi', descKey: 'nav_dues_desc', icon: 'account_balance_wallet' },
+      { nameKey: 'nav_dues', path: '/hizmetler/aidat-takibi', descKey: 'nav_dues_desc', icon: 'payments' },
       { nameKey: 'nav_legal_consulting', path: '/hizmetler/hukuk-ve-icra-danismanligi', descKey: 'nav_legal_consulting_desc', icon: 'gavel' },
       { nameKey: 'nav_landscaping', path: '/hizmetler/peyzaj-ve-bahce-bakimi', descKey: 'nav_landscaping_desc', icon: 'park' },
       { nameKey: 'nav_pool_care', path: '/hizmetler/havuz-bakimi-ve-hijyen', descKey: 'nav_pool_care_desc', icon: 'pool' },

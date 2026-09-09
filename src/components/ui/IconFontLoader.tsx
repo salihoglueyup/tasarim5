@@ -9,7 +9,7 @@ import { useEffect } from 'react';
  * mantığıyla anında ağa indirir ve DOM'a bağlar.
  */
 const HREF =
-  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap';
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block';
 
 export default function IconFontLoader() {
   useEffect(() => {

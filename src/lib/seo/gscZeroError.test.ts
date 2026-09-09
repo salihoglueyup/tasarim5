@@ -3877,7 +3877,118 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(content).toContain('BELCERT');
     });
   });
+
+  describe('125. Wave 56: GA4 Dönüşüm Takibi, İkon/SSR Ligature Temizliği, Yüksek CTR Meta Şablonları & Tesis Yönetimi Mega Hub', () => {
+    it('analytics.ts içinde telefonTikla, whatsappTikla ve teklifFormuGonderildi dönüşüm eventleri tanımlıdır', async () => {
+      const { AnalyticsEvents, trackPhoneClick, trackWhatsAppClick, trackQuoteSubmit } = await import('@/lib/analytics');
+      expect(AnalyticsEvents.telefonTikla).toBe('telefon_tikla');
+      expect(AnalyticsEvents.whatsappTikla).toBe('whatsapp_tikla');
+      expect(AnalyticsEvents.teklifFormuGonderildi).toBe('teklif_formu_gonderildi');
+
+      expect(typeof trackPhoneClick).toBe('function');
+      expect(typeof trackWhatsAppClick).toBe('function');
+      expect(typeof trackQuoteSubmit).toBe('function');
+    });
+
+    it('globals.css ve IconFontLoader.tsx font-display: block kuralıyla ligature sızıntısını engeller', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const cssContent = fs.readFileSync(path.join(process.cwd(), 'src/app/globals.css'), 'utf8');
+      const loaderContent = fs.readFileSync(path.join(process.cwd(), 'src/components/ui/IconFontLoader.tsx'), 'utf8');
+
+      expect(cssContent).toContain('.material-symbols-outlined');
+      expect(cssContent).toContain('font-display: block !important');
+      expect(cssContent).toContain("font-feature-settings: 'liga'");
+      expect(cssContent).toContain('user-select: none');
+      expect(loaderContent).toContain('&display=block');
+    });
+
+    it('Skeleton.tsx crawler erişiminde 22x "Yükleniyor..." metin sızıntısı üretmez ve aria-hidden="true" içerir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const skeletonContent = fs.readFileSync(path.join(process.cwd(), 'src/components/ui/Skeleton.tsx'), 'utf8');
+
+      expect(skeletonContent).not.toContain('sr-only');
+      expect(skeletonContent).not.toContain('Yükleniyor...');
+      expect(skeletonContent).toContain('aria-hidden="true"');
+    });
+
+    it('account_balance_wallet ham ligature metni kullanıcı arayüzü ve veri dosyalarından tamamen arındırılmıştır', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const filesToCheck = [
+        'src/app/[lang]/sozluk/SozlukClient.tsx',
+        'src/components/sections/BentoServices.tsx',
+        'src/components/sections/Faq.tsx',
+        'src/components/layout/Header.tsx',
+        'src/components/sections/RelatedServices.tsx',
+        'src/data/services.ts',
+      ];
+
+      for (const relPath of filesToCheck) {
+        const content = fs.readFileSync(path.join(process.cwd(), relPath), 'utf8');
+        expect(content, `${relPath} içinde account_balance_wallet bulunmamalıdır`).not.toContain('account_balance_wallet');
+      }
+    });
+
+    it('Sözlük ve Bölge/Hizmet başlık ve meta şablonları 5-12. pozisyonlar için yüksek CTR formatına sahiptir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const sozlukPageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/sozluk/[terim]/page.tsx'), 'utf8');
+      expect(sozlukPageContent).toContain('KMK Ne Demek? Kat Mülkiyeti Kanunu Nedir — Kısa Açıklama | Alo Yönetim');
+      expect(sozlukPageContent).toContain('${term.term} Ne Demek? Nedir — Kısa Açıklama | Alo Yönetim');
+
+      const districtServicePageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx'), 'utf8');
+      expect(districtServicePageContent).toContain('${district.name} Site Yönetimi — Aidat, Bütçe ve Personel Yönetimi | Ücretsiz Keşif');
+      expect(districtServicePageContent).toContain('${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik | Ücretsiz Keşif');
+      expect(districtServicePageContent).toContain('${district.name} Asansör Bakımı ve Arıza Servisi — Yeşil Etiket & 7/24 Teknik Servis | Alo Yönetim');
+    });
+
+    it('Tesis Yönetimi Mega Hub mimarisi: İlçe sayfaları ISO 41001 hub linkine sahiptir ve Kartal/Başakşehir verileri zenginleştirilmiştir', async () => {
+      const { DISTRICTS } = await import('@/data/districts');
+      const kartal = DISTRICTS.find((d) => d.slug === 'kartal');
+      expect(kartal).toBeDefined();
+      expect(kartal?.totalResidentialSitesEstimated).toBe(1450);
+      expect(kartal?.prominentProjects).toContain('İstMarina');
+      expect(kartal?.prominentProjects).toContain('DKY Sahil');
+      expect(kartal?.regionalFacilityTraits).toContain('deniz tuzu korozyonuna karşı periyodik cephe');
+
+      const basaksehir = DISTRICTS.find((d) => d.slug === 'basaksehir');
+      expect(basaksehir).toBeDefined();
+      expect(basaksehir?.totalResidentialSitesEstimated).toBe(2200);
+      expect(basaksehir?.prominentProjects).toContain('Vadi Başakşehir');
+
+      const fs = await import('fs');
+      const path = await import('path');
+      const districtPageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'), 'utf8');
+      expect(districtPageContent).toContain('href="/hizmetler/tesis-yonetimi"');
+      expect(districtPageContent).toContain('ISO 41001 kalite standartları');
+    });
+
+    it('KMK 20, 34, 37, 45 maddeleri Sözlük terimlerinde yer alır ve asansör servis bileşeni hazırdır', async () => {
+      const { TERMS } = await import('@/data/dictionary');
+      const kmk20 = TERMS.find((t) => t.term.includes('KMK Madde 20'));
+      const kmk34 = TERMS.find((t) => t.term.includes('KMK Madde 34'));
+      const kmk37 = TERMS.find((t) => t.term.includes('KMK Madde 37'));
+      const kmk45 = TERMS.find((t) => t.term.includes('KMK Madde 45'));
+
+      expect(kmk20).toBeDefined();
+      expect(kmk20?.definition).toContain('%5 kanuni gecikme tazminatı');
+      expect(kmk34).toBeDefined();
+      expect(kmk34?.definition).toContain('sekiz ve daha fazla bağımsız bölüm');
+      expect(kmk37).toBeDefined();
+      expect(kmk37?.definition).toContain('7 gün içinde itiraz edilmezse');
+      expect(kmk45).toBeDefined();
+      expect(kmk45?.definition).toContain('oybirliğini şart koşar');
+
+      const { DistrictElevatorMaintenanceSeo } = await import('@/components/seo');
+      expect(DistrictElevatorMaintenanceSeo).toBeDefined();
+    });
+  });
 });
+
 
 
 

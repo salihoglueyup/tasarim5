@@ -19,7 +19,7 @@ export interface FaqItem {
 const FAQ_CATEGORIES = [
   { id: 'all', label: 'Tüm Sorular', icon: 'apps' },
   { id: 'tesis', label: 'Tesis & Site Yönetimi', icon: 'domain' },
-  { id: 'aidat', label: 'Aidat & İcra Takibi', icon: 'account_balance_wallet' },
+  { id: 'aidat', label: 'Aidat & İcra Takibi', icon: 'payments' },
   { id: 'guvenlik', label: '5188 Güvenlik', icon: 'shield' },
   { id: 'teknik', label: 'Teknik & Asansör', icon: 'engineering' },
   { id: 'hukuk', label: 'KMK 634 & Hukuk', icon: 'gavel' },

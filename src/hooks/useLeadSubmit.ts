@@ -46,6 +46,16 @@ export function useLeadSubmit(): UseLeadSubmit {
 
       if (res.ok && data.ok) {
         setStatus('success');
+        try {
+          import('@/lib/analytics').then(({ trackQuoteSubmit }) => {
+            trackQuoteSubmit(lead.type || 'lead_form', {
+              form_tipi: lead.type,
+              kaynak: String(lead.meta?.kaynak || lead.type || 'form'),
+              ilce: lead.meta?.district ? String(lead.meta.district) : undefined,
+              hizmet: lead.meta?.services ? String(lead.meta.services) : undefined,
+            });
+          });
+        } catch {}
         return true;
       }
       setErrorKey(typeof data.errorKey === 'string' ? data.errorKey : 'lead_error_generic');

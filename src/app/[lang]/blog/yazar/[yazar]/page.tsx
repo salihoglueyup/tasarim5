@@ -225,7 +225,7 @@ export default async function AuthorArchive({
             { icon: 'verified_user', label: 'ISO 41001', desc: 'Entegre tesis yönetimi standartları ve uygulamaları.' },
             { icon: 'security', label: '5188 Güvenlik', desc: 'Site güvenlik mevzuatı ve risk analizi.' },
             { icon: 'engineering', label: 'Teknik Bakım', desc: 'Asansör, jeneratör, yangın sistemi periyodik bakımı.' },
-            { icon: 'account_balance_wallet', label: 'Bütçe Yönetimi', desc: 'Şeffaf aidat ve ihale süreçleri.' },
+            { icon: 'payments', label: 'Bütçe Yönetimi', desc: 'Şeffaf aidat ve ihale süreçleri.' },
             { icon: 'eco', label: 'Sürdürülebilirlik', desc: 'Enerji verimliliği ve yeşil bina standartları.' },
           ].map((exp) => (
             <div key={exp.label} className="flex flex-col gap-2 p-5 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl">

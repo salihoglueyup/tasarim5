@@ -36,14 +36,11 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   return (
     <div
       role="status"
-      aria-label="Yükleniyor..."
-      aria-busy="true"
+      aria-hidden="true"
       className={`skeleton-shimmer ${variantClass} ${className}`}
       style={customStyle}
       {...props}
-    >
-      <span className="sr-only">Yükleniyor...</span>
-    </div>
+    />
   );
 };
 

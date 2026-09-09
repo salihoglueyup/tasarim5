@@ -82,5 +82,6 @@ export { default as FacilityDownloadableVaultSeo } from './FacilityDownloadableV
 export { default as FacilityDistrictPortfolioSeo } from './FacilityDistrictPortfolioSeo';
 export { default as FacilityCorporateSlaGuaranteesSeo } from './FacilityCorporateSlaGuaranteesSeo';
 export { default as FacilityTransitionTimelineSeo } from './FacilityTransitionTimelineSeo';
+export { default as DistrictElevatorMaintenanceSeo } from './DistrictElevatorMaintenanceSeo';
 export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
 

@@ -34,6 +34,12 @@ export type District = {
   aloDuesM2?: number;
   /** Ortalama kanıtlanmış tasarruf oranı (%). */
   savingsRate?: number;
+  /** Wave 56: İlçedeki tahmini toplam konut ve site proje sayısı (şablon kırıcı veri). */
+  totalResidentialSitesEstimated?: number;
+  /** Wave 56: İlçedeki öne çıkan büyük konut / karma yaşam projeleri. */
+  prominentProjects?: string[];
+  /** Wave 56: Bölgeye özgü tesis yönetimi karakteristikleri (korozyon, rüzgar, merkezi sistem vb.). */
+  regionalFacilityTraits?: string;
 };
 
 export type NeighborhoodInfo = {

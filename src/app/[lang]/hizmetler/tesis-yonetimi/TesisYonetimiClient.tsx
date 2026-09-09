@@ -597,6 +597,9 @@ export default function TesisYonetimiClient() {
         ]}
       />
 
+      {/* 6.5. BÖLÜM: Wave 56 İstanbul 39 İlçe Hub & Spoke Tesis Yönetimi Portföy Ağı */}
+      <FacilityDistrictPortfolioSeo />
+
       {/* 7. BÖLÜM: Footer Öncesi SEO, İlgili Hizmetler & Makaleler */}
       <SeoTextSection
         titleKey="tesis_seo_title"

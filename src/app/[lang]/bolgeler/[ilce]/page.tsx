@@ -355,6 +355,52 @@ export default async function DistrictPage({
           </div>
         </div>
 
+        {/* Wave 56: ISO 41001 Mega Hub Entegrasyon Bloğu */}
+        <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/10">
+          <div className="space-y-2 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[15px]" aria-hidden="true">hub</span>
+              <span>İstanbul Merkezi Tesis Yönetim Hub Standardı</span>
+            </div>
+            <h3 className="text-xl md:text-2xl font-bold">
+              {district.name} Tesis & Site Yönetimi Operasyon Merkezi
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              {district.name} ilçesindeki tüm konut siteleri, rezidanslar ve ticari tesisler; Alo Yönetim&apos;in{' '}
+              <Link href="/hizmetler/tesis-yonetimi" className="text-blue-400 font-bold underline hover:text-blue-300">
+                İstanbul Entegre Tesis Yönetimi
+              </Link>{' '}
+              merkezi yönetim protokolü, ISO 41001 kalite standartları, 5188 yasal güvenlik ve 15-25 dk acil mobil arıza SLA ağı ile kesintisiz yönetilmektedir.
+            </p>
+            {district.totalResidentialSitesEstimated && (
+              <div className="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">
+                <span className="flex items-center gap-1 font-semibold text-emerald-400">
+                  <span className="material-symbols-outlined text-[16px]" aria-hidden="true">domain</span>
+                  Tahmini {district.totalResidentialSitesEstimated.toLocaleString('tr-TR')}+ Konut Sitesi & Apartman
+                </span>
+                {district.prominentProjects && district.prominentProjects.length > 0 && (
+                  <span className="flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[16px] text-blue-400" aria-hidden="true">verified</span>
+                    Öne Çıkan Projeler: {district.prominentProjects.slice(0, 4).join(', ')}
+                  </span>
+                )}
+              </div>
+            )}
+            {district.regionalFacilityTraits && (
+              <p className="text-xs text-slate-400 italic pt-1">
+                📍 {district.regionalFacilityTraits}
+              </p>
+            )}
+          </div>
+          <Link
+            href="/hizmetler/tesis-yonetimi"
+            className="shrink-0 px-6 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-2 group cursor-pointer"
+          >
+            <span>Merkezi Tesis Yönetimi Standartları</span>
+            <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+          </Link>
+        </div>
+
         {/* Faz 145: Çapraz Anlamsal Komşu İlçe Bağlantı Ağı */}
         {neighborLinks.length > 0 && (
           <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
