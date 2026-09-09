@@ -147,6 +147,13 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       },
       {
         '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'Customer Satisfaction',
+        name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
+        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
+        sameAs: 'https://www.wikidata.org/wiki/Q11029',
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'Government License',
         name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
         url: `${BASE_URL}${langPrefix}/guvenlik-akademisi`,

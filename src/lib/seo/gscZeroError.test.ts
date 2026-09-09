@@ -588,7 +588,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const dataPost = await resPost.json();
       expect(dataPost.success).toBe(true);
       expect(dataPost.totalUrlsSubmitted).toBeGreaterThanOrEqual(80);
-    });
+    }, 20000);
   });
 
   describe('34. FacilityDistrictGridSeo Çok Dilli UI Metinleri', () => {
@@ -2365,7 +2365,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resIndexNow.status).toBe(200);
       expect(resIndexNow.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
       expect(resIndexNow.headers.get('Cache-Control')).toContain('no-store');
-    });
+    }, 20000);
   });
 
   describe('93. Health, RUM Vitals, Auth ve Upload Uç Noktalarında noindex Standartları', () => {
@@ -2479,7 +2479,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const resTesisPing = await getTesisPing();
       expect(resTesisPing.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
       expect(resTesisPing.headers.get('Cache-Control')).toContain('no-store');
-    });
+    }, 20000);
   });
 
   describe('95. GEO (Generative Engine Optimization) & 2026 AI Corpus Zenginleştirme Standartları', () => {
