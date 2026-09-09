@@ -69,8 +69,10 @@ export async function GET() {
     status: 200,
     headers: {
       'Content-Type': 'application/rss+xml; charset=utf-8',
-      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800'
-    }
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+    },
   });
 }
 

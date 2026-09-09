@@ -20,35 +20,42 @@ function escapeXml(unsafe: string) {
 
 export async function GET() {
   try {
-    const posts = await prisma.post.findMany({
-      where: { published: true },
-      orderBy: { datePublished: 'desc' },
-      take: 25,
-      select: {
-        slug: true,
-        title: true,
-        description: true,
-        tldr: true,
-        category: { select: { name: true } },
-        author: { select: { name: true } },
-        datePublished: true,
-        dateModified: true,
-      },
-    });
+    let posts: any[] = [];
+    let references: any[] = [];
 
-    const references = await prisma.reference.findMany({
-      where: { published: true },
-      orderBy: { createdAt: 'desc' },
-      take: 10,
-      select: {
-        slug: true,
-        title: true,
-        testimonialText: true,
-        units: true,
-        location: true,
-        createdAt: true,
-      },
-    });
+    try {
+      posts = await prisma.post.findMany({
+        where: { published: true },
+        orderBy: { datePublished: 'desc' },
+        take: 25,
+        select: {
+          slug: true,
+          title: true,
+          description: true,
+          tldr: true,
+          category: { select: { name: true } },
+          author: { select: { name: true } },
+          datePublished: true,
+          dateModified: true,
+        },
+      });
+
+      references = await prisma.reference.findMany({
+        where: { published: true },
+        orderBy: { createdAt: 'desc' },
+        take: 10,
+        select: {
+          slug: true,
+          title: true,
+          testimonialText: true,
+          units: true,
+          location: true,
+          createdAt: true,
+        },
+      });
+    } catch (err) {
+      console.warn('feed/tesis-yonetimi.xml: Database fetch fallback:', err instanceof Error ? err.message : err);
+    }
 
     const now = new Date().toUTCString();
 
@@ -115,6 +122,8 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/rss+xml; charset=utf-8',
         'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+        'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
         'X-Feed-Type': 'Facility-Management-RSS-2.0',
       },
     });

@@ -76,6 +76,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       'X-Video-Sitemap': 'Google-Video-Sitemap-v1.1',
     },
   });

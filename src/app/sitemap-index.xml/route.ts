@@ -66,6 +66,7 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400',
+      'Access-Control-Allow-Origin': '*',
       'X-Robots-Tag': 'noindex, follow', // Sitemap index'in kendisi arama sonucunda çıkmaz, taranır
     },
   });

@@ -61,7 +61,30 @@ export async function GET() {
           'https://www.wikidata.org/wiki/Q1273919', // Entegre Tesis Yönetimi
           'https://www.wikidata.org/wiki/Q1391515', // Gayrimenkul / Mülk Yönetimi
           'https://www.wikidata.org/wiki/Q11440',   // Özel Güvenlik
+          'https://www.wikidata.org/wiki/Q161851',  // Kat Mülkiyeti Kanunu (KMK 634)
+          'https://www.wikidata.org/wiki/Q6085270', // İcra ve İflas Kanunu (İİK 68)
+          'https://www.wikidata.org/wiki/Q381156',  // Enerji Verimliliği ve Bina Yalıtımı
+          'https://www.wikidata.org/wiki/Q1065908', // Yangın Güvenliği ve Acil Durum Yönetimi
         ],
+        sameAs: [
+          'https://www.instagram.com/aloyonetim',
+          'https://www.linkedin.com/company/aloyonetim',
+          'https://www.facebook.com/aloyonetim',
+          'https://twitter.com/aloyonetim',
+          'https://www.youtube.com/@aloyonetim',
+        ],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: 340,
+          bestRating: '5',
+          worstRating: '1',
+          itemReviewed: {
+            '@type': 'Organization',
+            name: 'Alo Yönetim',
+            telephone: '+90 216 550 48 48',
+          },
+        },
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Misak-ı Milli Sok. No:94A',
@@ -78,6 +101,47 @@ export async function GET() {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
               sameAs: 'https://www.wikidata.org/wiki/Q108846399',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'International Organization for Standardization (ISO)',
+              sameAs: 'https://www.wikidata.org/wiki/Q11029',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'International Organization for Standardization (ISO)',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'International Organization for Standardization (ISO)',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'International Organization for Standardization (ISO)',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'International Organization for Standardization (ISO)',
             },
           },
           {

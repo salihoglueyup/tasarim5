@@ -2527,5 +2527,146 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(textLlmsFull).toContain('Kapalı Otopark Elektrikli Araç (EV)');
     });
   });
+
+  describe('96. XML Sitemap ve RSS Besleme Uç Noktalarında CORS ve Robots Başlıkları Güvencesi', () => {
+    it('haberler, döküman, video, görsel, bölgeler sitemipleri ve RSS beslemeleri CORS ve Robots başlıkları döner', async () => {
+      // 1. news-sitemap.xml
+      const { GET: getNewsSitemap } = await import('@/app/news-sitemap.xml/route');
+      const resNews = await getNewsSitemap();
+      expect(resNews.status).toBe(200);
+      expect(resNews.headers.get('Content-Type')).toContain('application/xml');
+      expect(resNews.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resNews.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlNews = await resNews.text();
+      expect(xmlNews).toContain('<urlset');
+
+      // 2. document-sitemap.xml
+      const { GET: getDocSitemap } = await import('@/app/document-sitemap.xml/route');
+      const resDoc = await getDocSitemap();
+      expect(resDoc.status).toBe(200);
+      expect(resDoc.headers.get('Content-Type')).toContain('application/xml');
+      expect(resDoc.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resDoc.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlDoc = await resDoc.text();
+      expect(xmlDoc).toContain('<urlset');
+
+      // 3. video-sitemap.xml
+      const { GET: getVideoSitemap } = await import('@/app/video-sitemap.xml/route');
+      const resVideo = await getVideoSitemap();
+      expect(resVideo.status).toBe(200);
+      expect(resVideo.headers.get('Content-Type')).toContain('application/xml');
+      expect(resVideo.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resVideo.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlVideo = await resVideo.text();
+      expect(xmlVideo).toContain('<urlset');
+
+      // 4. image-sitemap.xml
+      const { GET: getImageSitemap } = await import('@/app/image-sitemap.xml/route');
+      const resImage = await getImageSitemap();
+      expect(resImage.status).toBe(200);
+      expect(resImage.headers.get('Content-Type')).toContain('application/xml');
+      expect(resImage.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resImage.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlImage = await resImage.text();
+      expect(xmlImage).toContain('<urlset');
+
+      // 5. sitemap-regions.xml
+      const { GET: getRegionsSitemap } = await import('@/app/sitemap-regions.xml/route');
+      const resRegions = await getRegionsSitemap();
+      expect(resRegions.status).toBe(200);
+      expect(resRegions.headers.get('Content-Type')).toContain('application/xml');
+      expect(resRegions.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resRegions.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlRegions = await resRegions.text();
+      expect(xmlRegions).toContain('<urlset');
+
+      // 6. sitemap-index.xml (Master Index: noindex, follow)
+      const { GET: getIndexSitemap } = await import('@/app/sitemap-index.xml/route');
+      const resIndex = await getIndexSitemap();
+      expect(resIndex.status).toBe(200);
+      expect(resIndex.headers.get('Content-Type')).toContain('application/xml');
+      expect(resIndex.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resIndex.headers.get('X-Robots-Tag')).toBe('noindex, follow');
+      const xmlIndex = await resIndex.text();
+      expect(xmlIndex).toContain('<sitemapindex');
+
+      // 7. feed/tesis-yonetimi.xml (Tesis Yönetimi RSS)
+      const { GET: getTesisFeed } = await import('@/app/feed/tesis-yonetimi.xml/route');
+      const resTesisFeed = await getTesisFeed();
+      expect(resTesisFeed.status).toBe(200);
+      expect(resTesisFeed.headers.get('Content-Type')).toContain('application/rss+xml');
+      expect(resTesisFeed.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resTesisFeed.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlTesisFeed = await resTesisFeed.text();
+      expect(xmlTesisFeed).toContain('<rss version="2.0"');
+
+      // 8. rss.xml (Genel Blog RSS)
+      const { GET: getRssXml } = await import('@/app/rss.xml/route');
+      const resRssXml = await getRssXml();
+      expect(resRssXml.status).toBe(200);
+      expect(resRssXml.headers.get('Content-Type')).toContain('application/rss+xml');
+      expect(resRssXml.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resRssXml.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlRss = await resRssXml.text();
+      expect(xmlRss).toContain('<rss version="2.0"');
+    });
+  });
+
+  describe('97. Google Knowledge Graph & Entity Graph (JSON-LD) Otorite Zenginleştirmesi', () => {
+    it('entity-graph.jsonld uç noktası ISO sertifikaları, Wikidata varlıkları, sosyal profiller ve aggregateRating döner', async () => {
+      const { GET: getEntityGraph } = await import('@/app/api/tesis-yonetimi/entity-graph.jsonld/route');
+      const resGraph = await getEntityGraph();
+
+      expect(resGraph.status).toBe(200);
+      expect(resGraph.headers.get('Content-Type')).toContain('application/ld+json');
+      expect(resGraph.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resGraph.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const data = await resGraph.json();
+      expect(data['@context']).toBe('https://schema.org');
+      expect(Array.isArray(data['@graph'])).toBe(true);
+
+      const org = data['@graph'].find((node: any) => node['@type'] === 'Organization');
+      expect(org).toBeDefined();
+      expect(org.name).toBe('Alo Yönetim');
+      expect(org.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
+      expect(org.telephone).toBe('+90 216 550 48 48');
+
+      // ISO ve Yasal Sertifikasyon Doğrulamaları (ISO 41001, 9001, 14001, 45001, 27001, 10002, 5188, TSE)
+      expect(Array.isArray(org.hasCredential)).toBe(true);
+      expect(org.hasCredential.length).toBeGreaterThanOrEqual(8);
+      const credentialNames = org.hasCredential.map((c: any) => c.name);
+      expect(credentialNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('5188'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+
+      // Wikidata Varlık Eşleştirmeleri (KMK Q161851, İİK Q6085270, Enerji Q381156, Yangın Q1065908)
+      expect(Array.isArray(org.knowsAbout)).toBe(true);
+      expect(org.knowsAbout).toContain('https://www.wikidata.org/wiki/Q161851');
+      expect(org.knowsAbout).toContain('https://www.wikidata.org/wiki/Q6085270');
+      expect(org.knowsAbout).toContain('https://www.wikidata.org/wiki/Q381156');
+      expect(org.knowsAbout).toContain('https://www.wikidata.org/wiki/Q1065908');
+
+      // Sosyal Ağ sameAs Linkleri
+      expect(Array.isArray(org.sameAs)).toBe(true);
+      expect(org.sameAs.some((s: string) => s.includes('linkedin.com/company/aloyonetim'))).toBe(true);
+      expect(org.sameAs.some((s: string) => s.includes('instagram.com/aloyonetim'))).toBe(true);
+      expect(org.sameAs.some((s: string) => s.includes('twitter.com/aloyonetim'))).toBe(true);
+      expect(org.sameAs.some((s: string) => s.includes('youtube.com/@aloyonetim'))).toBe(true);
+
+      // aggregateRating Doğrulaması (4.9 rating, 340 yorum)
+      expect(org.aggregateRating).toBeDefined();
+      expect(org.aggregateRating['@type']).toBe('AggregateRating');
+      expect(org.aggregateRating.ratingValue).toBe('4.9');
+      expect(org.aggregateRating.reviewCount).toBe(340);
+      expect(org.aggregateRating.bestRating).toBe('5');
+    });
+  });
 });
+
 

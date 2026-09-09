@@ -158,6 +158,8 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/xml; charset=utf-8',
         'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
+        'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     });
   } catch (error) {
@@ -168,6 +170,8 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/xml; charset=utf-8',
         'Cache-Control': 'public, s-maxage=3600',
+        'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     });
   }
