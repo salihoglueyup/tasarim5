@@ -3188,6 +3188,92 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(schemaCheck?.details).toContain('Başarılı');
     });
   });
+
+  describe('112. facilitySearchRankAnalyzer ve domainSemanticAuditor 8 Akreditasyon ve LSI Eşleşme Güvencesi', () => {
+    it('SERP Rank Analyzer ve LSI grupları tüm 8 akreditasyon standardını tespit eder', async () => {
+      const { analyzeFacilitySerpReadiness } = await import('./facilitySearchRankAnalyzer');
+      const { FACILITY_LSI_GROUPS } = await import('./domainSemanticAuditor');
+
+      // 1. LSI Grubu Doğrulaması
+      const isoGroup = FACILITY_LSI_GROUPS.find((g) => g.groupName.includes('ISO & Sertifikasyon'));
+      expect(isoGroup).toBeDefined();
+      expect(isoGroup?.terms.some((t) => t.includes('iso 41001'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 9001'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 27001'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 14001'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 45001'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 10002'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('tse hyb 12850'))).toBe(true);
+
+      // 2. SERP Rank Analyzer Tespiti
+      const sampleAudit = analyzeFacilitySerpReadiness({
+        title: 'ISO 9001 ve ISO 27001 Akredite Tesis ve Mülk Yönetimi',
+        metaDescription: 'ISO 14001 ve ISO 45001 belgeli profesyonel site yönetimi ve aidat takibi.',
+        h1: 'TSE HYB 12850 Standartlarında Profesyonel Tesis Hizmetleri',
+        content: `
+          <p>KMK 634 ve ISO 41001 standartlarında tesislerimizde ISO 10002 müşteri memnuniyeti, özel güvenlik ve teknik bakım ile %30 tasarruf sağlıyoruz.</p>
+          <p><a href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi">Rezidans Yönetimi</a></p>
+          <p><a href="/hizmetler/tesis-yonetimi/plaza-yonetimi">Plaza Yönetimi</a></p>
+          <p><a href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi">Toplu Konut</a></p>
+        `,
+        hasGraphSchema: true,
+        hasBreadcrumbs: true,
+        hasFaq: true,
+        hasLegalReference: true,
+      });
+
+      expect(sampleAudit.overallScore).toBeGreaterThanOrEqual(90);
+      expect(sampleAudit.grade).toBe('A+');
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 9001'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 27001'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 14001'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 45001'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 10002'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('tse hyb 12850'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('aidat takibi'))).toBe(true);
+    });
+  });
+
+  describe('113. compareFacilityDistricts Çok Dilli 8 Standart ve Schema Table Doğrulaması', () => {
+    it('4 dilde (TR, EN, RU, AR) 8 akreditasyon içeren geçerli Table şeması ve kıyaslama üretir', async () => {
+      const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
+
+      const languages: Array<'tr' | 'en' | 'ru' | 'ar'> = ['tr', 'en', 'ru', 'ar'];
+
+      for (const lang of languages) {
+        const result = compareFacilityDistricts(['kadikoy', 'besiktas'], lang);
+        expect(result).toBeDefined();
+        expect(result?.districts).toHaveLength(2);
+        expect(result?.duesDifferenceM2).toBeGreaterThanOrEqual(0);
+        expect(result?.savingsLeader).toBeDefined();
+        expect(result?.seoSummaryParagraph.length).toBeGreaterThan(50);
+
+        // Schema.org Table Doğrulaması
+        const schema = result?.schema as any;
+        expect(schema).toBeDefined();
+        expect(schema['@type']).toBe('Table');
+        expect(Array.isArray(schema.about)).toBe(true);
+        expect(schema.about).toHaveLength(2);
+
+        // Her ilçenin LocalBusiness düğümünde 8 akreditasyon yer almalı
+        for (const business of schema.about) {
+          expect(business['@type']).toBe('LocalBusiness');
+          expect(business.parentOrganization).toBeDefined();
+          expect(business.parentOrganization.hasCredential).toHaveLength(8);
+
+          const credNames = business.parentOrganization.hasCredential.map((c: any) => c.name);
+          expect(credNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('5188'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+        }
+      }
+    });
+  });
 });
 
 

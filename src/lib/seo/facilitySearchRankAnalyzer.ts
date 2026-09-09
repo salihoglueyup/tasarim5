@@ -52,6 +52,17 @@ const HIGH_PRIORITY_TERMS = [
   'iso 41001',
   'kmk 634',
   '5188',
+  'iso 9001',
+  'iso 27001',
+  'iso 14001',
+  'iso 45001',
+  'iso 10002',
+  'tse hyb 12850',
+  'aidat takibi',
+  'özel güvenlik',
+  'teknik bakım',
+  'yönetim planı',
+  'işletme projesi',
 ];
 
 /**
