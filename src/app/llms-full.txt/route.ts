@@ -69,7 +69,7 @@ export async function GET() {
 - **Telefon**: +90 216 550 48 48
 - **E-posta**: info@aloyonetim.com.tr
 - **Hizmet Ağı**: İstanbul'un 39 İlçesinin Tamamı
-- **Sertifikalar**: ISO 41001:2018, ISO 45001:2018, ISO 14001:2015, ISO 9001:2015, TSE HYB 12850
+- **Sertifikalar**: ISO 41001:2018, ISO 9001:2015, ISO 14001:2015, ISO 45001:2018, ISO 27001:2022, ISO 10002:2018, TSE HYB 12850
 - **Güvenlik Ruhsatı**: 5188 Sayılı Kanun Kapsamında T.C. İçişleri Bakanlığı Faaliyet İzin Belgesi
 
 ---

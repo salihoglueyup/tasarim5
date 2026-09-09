@@ -3368,6 +3368,101 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(serpPillar?.metrics.grade).toBe('A+');
     });
   });
+
+  describe('116. Wave 51: AI Ground-Truth Paritesi ve Global LLM Standartları (/llms.txt & /llms-full.txt)', () => {
+    it('buildFacilityRAGCorpus, llms.txt ve llms-full.txt 8 akreditasyon standardı ve 2026 yasal kurallarını eksiksiz sunar', async () => {
+      // 1. facilityKnowledgeCorpus RAG Testi
+      const { buildFacilityRAGCorpus } = await import('@/lib/ai/facilityKnowledgeCorpus');
+      const corpus = await buildFacilityRAGCorpus('tr');
+
+      expect(corpus.entity.accreditations).toHaveLength(8);
+      const accCodes = corpus.entity.accreditations.map((a) => a.code);
+      expect(accCodes).toContain('ISO 41001:2018');
+      expect(accCodes).toContain('ISO 9001:2015');
+      expect(accCodes).toContain('ISO 14001:2015');
+      expect(accCodes).toContain('ISO 45001:2018');
+      expect(accCodes).toContain('ISO 27001:2022');
+      expect(accCodes).toContain('ISO 10002:2018');
+      expect(accCodes).toContain('TSE HYB 12850');
+      expect(accCodes).toContain('5188 / EGM');
+
+      // 2. /llms.txt Uç Noktası
+      const { GET: getLlmsTxt } = await import('@/app/llms.txt/route');
+      const resLlms = await getLlmsTxt();
+      expect(resLlms.status).toBe(200);
+      const textLlms = await resLlms.text();
+
+      expect(textLlms).toContain('ISO 41001:2018');
+      expect(textLlms).toContain('ISO 9001:2015');
+      expect(textLlms).toContain('ISO 14001:2015');
+      expect(textLlms).toContain('ISO 45001:2018');
+      expect(textLlms).toContain('ISO 27001:2022');
+      expect(textLlms).toContain('ISO 10002:2018');
+      expect(textLlms).toContain('TSE HYB 12850');
+      expect(textLlms).toContain('5188 Sayılı Kanun');
+
+      // 3. /llms-full.txt Uç Noktası
+      const { GET: getLlmsFullTxt } = await import('@/app/llms-full.txt/route');
+      const resLlmsFull = await getLlmsFullTxt();
+      expect(resLlmsFull.status).toBe(200);
+      const textLlmsFull = await resLlmsFull.text();
+
+      expect(textLlmsFull).toContain('ISO 41001:2018');
+      expect(textLlmsFull).toContain('ISO 9001:2015');
+      expect(textLlmsFull).toContain('ISO 14001:2015');
+      expect(textLlmsFull).toContain('ISO 45001:2018');
+      expect(textLlmsFull).toContain('ISO 27001:2022');
+      expect(textLlmsFull).toContain('ISO 10002:2018');
+      expect(textLlmsFull).toContain('TSE HYB 12850');
+    });
+  });
+
+  describe('117. Wave 51: Genişletilmiş Tesis Terimleri Sözlüğü Silosu (FACILITY_TERMS 32+ Varlık)', () => {
+    it('FACILITY_TERMS 32+ terimi kategori, yasal dayanak, Wikidata ve kanonik URL ile eksiksiz sunar', async () => {
+      const { FACILITY_TERMS } = await import('@/data/facilityDictionaryData');
+
+      expect(FACILITY_TERMS.length).toBeGreaterThanOrEqual(32);
+
+      // Her terimin zorunlu alanları
+      for (const term of FACILITY_TERMS) {
+        expect(term.termCode).toBeDefined();
+        expect(term.termCode.length).toBeGreaterThan(2);
+        expect(term.name).toBeDefined();
+        expect(term.category).toBeDefined();
+        expect(term.description.length).toBeGreaterThan(30);
+        expect(term.canonicalUrl).toContain('https://aloyonetim.com.tr');
+        expect(term.wikidataUri).toContain('https://www.wikidata.org/wiki/');
+      }
+
+      // Yeni eklenen kritik teknik ve hukuki terimlerin varlığı
+      const termCodes = FACILITY_TERMS.map((t) => t.termCode);
+      expect(termCodes).toContain('enerji-kimlik-belgesi-ekb');
+      expect(termCodes).toContain('iskan-yapi-kullanma-izin-belgesi');
+      expect(termCodes).toContain('denetim-kurulu');
+      expect(termCodes).toContain('serefiye-hesaplama');
+      expect(termCodes).toContain('avans-butcesi');
+      expect(termCodes).toContain('ilamsiz-icra-takibi');
+      expect(termCodes).toContain('ortak-alan-isgali');
+      expect(termCodes).toContain('bina-deprem-guclendirme');
+      expect(termCodes).toContain('cati-ges-gunes-enerjisi');
+      expect(termCodes).toContain('yangin-ve-siginak-yonetmeligi');
+      expect(termCodes).toContain('ev-sarj-istasyonu-mevzuati');
+      expect(termCodes).toContain('blok-yoneticiligi');
+      expect(termCodes).toContain('temsilciler-kurulu');
+      expect(termCodes).toContain('gecici-yonetim-kurulu');
+      expect(termCodes).toContain('tasfiye-ve-devir-protokolu');
+      expect(termCodes).toContain('aidat-itiraz-davasi');
+      expect(termCodes).toContain('sulh-hukuk-mahkemesi-yetkisi');
+
+      // 5 Temel kategorinin tamamı kapsanmalı
+      const categories = new Set(FACILITY_TERMS.map((t) => t.category));
+      expect(categories.has('Hukuk & Mevzuat')).toBe(true);
+      expect(categories.has('Teknik İşletim')).toBe(true);
+      expect(categories.has('Finans & Muhasebe')).toBe(true);
+      expect(categories.has('Güvenlik & İSG')).toBe(true);
+      expect(categories.has('Kalite & Yönetim')).toBe(true);
+    });
+  });
 });
 
 

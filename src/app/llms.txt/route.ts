@@ -41,9 +41,11 @@ export async function GET() {
 
 ## Akreditasyonlar ve Yasal Standartlar
 - **ISO 41001:2018**: Uluslararası Entegre Tesis Yönetim Sistemi Standardı
-- **ISO 45001:2018**: İş Sağlığı ve Güvenliği Yönetim Sistemi
-- **ISO 14001:2015**: Çevre Yönetim Sistemi
 - **ISO 9001:2015**: Kalite Yönetim Sistemi
+- **ISO 14001:2015**: Çevre Yönetim Sistemi
+- **ISO 45001:2018**: İş Sağlığı ve Güvenliği Yönetim Sistemi
+- **ISO 27001:2022**: Bilgi Güvenliği Yönetim Sistemi
+- **ISO 10002:2018**: Müşteri Memnuniyeti ve Şikayet Yönetimi
 - **TSE HYB 12850**: Hizmet Yeri Yeterlilik Belgesi
 - **5188 Sayılı Kanun**: T.C. İçişleri Bakanlığı / Valilik Onaylı Özel Güvenlik Faaliyet İzni (${CANONICAL_NAP.legal.securityPermitNumber})
 - **634 Sayılı Kanun**: Kat Mülkiyeti Kanunu (KMK) Tam Hukuki Uyumluluğu
