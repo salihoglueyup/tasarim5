@@ -2960,6 +2960,64 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       ).toBe(true);
     });
   });
+
+  describe('106. facilityExternalCitations Resmi ISO ve TSE Dış Atıf ve Whitelist Doğrulaması', () => {
+    it('OFFICIAL_LEGAL_CITATIONS tüm 8 akreditasyonu resmi alan adlarıyla barındırır ve şema üretir', async () => {
+      const { OFFICIAL_LEGAL_CITATIONS, generateExternalCitationsSchema } = await import(
+        './facilityExternalCitations'
+      );
+
+      expect(OFFICIAL_LEGAL_CITATIONS.length).toBeGreaterThanOrEqual(14);
+
+      const requiredIds = ['kmk-634', 'guvenlik-5188', 'iso-41001', 'iso-9001', 'iso-27001', 'iso-14001', 'iso-45001', 'iso-10002', 'tse-hyb-12850'];
+      for (const reqId of requiredIds) {
+        const found = OFFICIAL_LEGAL_CITATIONS.find((c) => c.id === reqId);
+        expect(found).toBeDefined();
+        expect(found?.url).toMatch(/^https:\/\//);
+      }
+
+      // Tüm atıfların resmi kurum alan adlarını içerdiğini doğrula
+      for (const cit of OFFICIAL_LEGAL_CITATIONS) {
+        expect(
+          cit.url.includes('mevzuat.gov.tr') ||
+            cit.url.includes('resmigazete.gov.tr') ||
+            cit.url.includes('iso.org') ||
+            cit.url.includes('tse.org.tr') ||
+            cit.url.includes('yargitay.gov.tr')
+        ).toBe(true);
+      }
+
+      const schemas = generateExternalCitationsSchema();
+      expect(schemas.length).toBe(OFFICIAL_LEGAL_CITATIONS.length);
+      expect(schemas.every((s) => s['@type'] === 'Legislation')).toBe(true);
+    });
+  });
+
+  describe('107. domainKeywordsTaxonomy ve facilityLinkGraphBuilder E-E-A-T Otorite Zenginleştirmesi', () => {
+    it('Taksonomi ISO/TSE ve kariyer terimlerini içerir; Link Graph yüksek otorite skoru üretir', async () => {
+      const {
+        FACILITY_MANAGEMENT_TAXONOMY,
+        SITE_MANAGEMENT_TAXONOMY,
+      } = await import('./domainKeywordsTaxonomy');
+
+      const facilityTerms = FACILITY_MANAGEMENT_TAXONOMY.map((t) => t.term);
+      expect(facilityTerms.some((t) => t.includes('iso 9001'))).toBe(true);
+      expect(facilityTerms.some((t) => t.includes('iso 27001'))).toBe(true);
+      expect(facilityTerms.some((t) => t.includes('iso 14001'))).toBe(true);
+      expect(facilityTerms.some((t) => t.includes('iso 45001'))).toBe(true);
+      expect(facilityTerms.some((t) => t.includes('iso 10002'))).toBe(true);
+      expect(facilityTerms.some((t) => t.includes('tse hyb 12850'))).toBe(true);
+
+      const siteTerms = SITE_MANAGEMENT_TAXONOMY.map((t) => t.term);
+      expect(siteTerms.some((t) => t.includes('özel güvenlik iş ilanları'))).toBe(true);
+      expect(siteTerms.some((t) => t.includes('örnek site yönetimi projeleri'))).toBe(true);
+
+      const { buildFacilityCompleteLinkGraph } = await import('./facilityLinkGraphBuilder');
+      const linkReport = buildFacilityCompleteLinkGraph();
+      expect(linkReport.officialCitationsConnected).toBeGreaterThanOrEqual(14);
+      expect(linkReport.linkAuthorityScore).toBeGreaterThanOrEqual(85);
+    });
+  });
 });
 
 

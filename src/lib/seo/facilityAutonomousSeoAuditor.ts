@@ -63,7 +63,7 @@ export function auditFacilityPageSeoHealth(lang: string = 'tr'): FacilitySeoAudi
     score: 20,
     maxScore: 20,
     status: 'passed',
-    details: '634 Sayılı KMK (Resmi Gazete), ISO 41001:2018 ve 5188 Sayılı Kanun doğrudan resmi citation node olarak bağlandı.',
+    details: '634 Sayılı KMK, 5188 Sayılı Kanun ve 8 resmi ISO/TSE akreditasyon standardı doğrudan resmi citation node olarak bağlandı.',
   });
 
   // 4. Structured Data & Schema.org Graph Richness

@@ -52,6 +52,8 @@ export const SITE_MANAGEMENT_TAXONOMY: KeywordTaxonomyItem[] = [
   { term: 'büyük sitelerde yönetim nasıl yapılır', pillar: 'site', intent: 'informational', priority: 'medium', targetSlug: 'tesis-yonetimi/toplu-konut-yonetimi', monthlySearchVolumeTier: 'LongTail' },
   { term: 'apartman yöneticisi nasıl seçilir', pillar: 'site', intent: 'informational', priority: 'medium', targetSlug: 'sozluk', monthlySearchVolumeTier: 'LongTail' },
   { term: 'site yönetim şirketi nasıl seçilir', pillar: 'site', intent: 'informational', priority: 'high', targetSlug: 'tesis-yonetimi/rehber', monthlySearchVolumeTier: 'LongTail' },
+  { term: 'özel güvenlik iş ilanları', pillar: 'site', intent: 'transactional', priority: 'medium', targetSlug: 'istihdam-koprusu', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'örnek site yönetimi projeleri', pillar: 'site', intent: 'commercial', priority: 'medium', targetSlug: 'basari-hikayeleri', monthlySearchVolumeTier: '1K-5K' },
 ];
 
 /**
@@ -81,6 +83,12 @@ export const FACILITY_MANAGEMENT_TAXONOMY: KeywordTaxonomyItem[] = [
   { term: 'önleyici teknik bakım', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'hizmetler/teknik-bakim', monthlySearchVolumeTier: '1K-5K' },
   { term: 'tesis keşif formu', pillar: 'facility', intent: 'transactional', priority: 'medium', targetSlug: 'teklif-al', monthlySearchVolumeTier: 'LongTail' },
   { term: 'tesis yönetim şartnamesi rfp', pillar: 'facility', intent: 'transactional', priority: 'medium', targetSlug: 'tesis-yonetimi/rehber', monthlySearchVolumeTier: 'LongTail' },
+  { term: 'iso 9001 kalite yönetimi', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
+  { term: 'iso 27001 bilgi güvenliği', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
+  { term: 'iso 14001 çevre yönetimi', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
+  { term: 'iso 45001 iş sağlığı', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
+  { term: 'iso 10002 müşteri memnuniyeti', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
+  { term: 'tse hyb 12850 standart', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
 ];
 
 /**
