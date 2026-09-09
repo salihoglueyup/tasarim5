@@ -23,6 +23,13 @@ function makeUnicodeRegex(pattern: string): RegExp {
 // Merkezi Anahtar Kelime Haritası (Hizmetler, Sözlük Terimleri & Öncelikli İlçeler)
 // Türkçe Unicode sınırlarıyla (\\p{L}) tam uyumludur.
 export const LINK_DICTIONARY: DictionaryEntry[] = [
+  // Tesis Yönetimi Alt Sektörleri (Amiral Gemisi - Öncelikli Spesifik Eşleşmeler)
+  { regex: makeUnicodeRegex('rezidans yönetimi|rezidans site yönetimi|lüks rezidans'), url: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
+  { regex: makeUnicodeRegex('plaza yönetimi|ofis binası yönetimi|iş merkezi yönetimi'), url: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
+  { regex: makeUnicodeRegex('toplu konut yönetimi|toplu yapı yönetimi|TOKİ site yönetimi'), url: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi' },
+  { regex: makeUnicodeRegex('sanayi tesisi yönetimi|fabrika yönetimi|endüstriyel tesis yönetimi'), url: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
+  { regex: makeUnicodeRegex('tesis yönetimi rehberi|yönetim rehberi|şartname rehberi'), url: '/hizmetler/tesis-yonetimi/rehber' },
+
   // Hizmetler
   { regex: makeUnicodeRegex('aidat takibi|aidat yönetimi|aidat tahsilatı'), url: '/hizmetler/aidat-takibi' },
   { regex: makeUnicodeRegex('güvenlik yönetimi|özel güvenlik|site güvenliği|bina güvenliği'), url: '/hizmetler/guvenlik-yonetimi' },
@@ -50,8 +57,10 @@ export const LINK_DICTIONARY: DictionaryEntry[] = [
   { regex: makeUnicodeRegex('kompanzasyon|reaktif güç'), url: '/sozluk/kompanzasyon-reaktif-guc' },
   { regex: makeUnicodeRegex('mali ibra'), url: '/sozluk/mali-ibra' },
 
-  // Kurumsal & Araçlar
-  { regex: makeUnicodeRegex('kalite belgeleri(?:miz)?|ISO sertifikaları|ISO 41001'), url: '/kurumsal/kalite-belgelerimiz' },
+  // Kurumsal, Akreditasyon & Araçlar
+  { regex: makeUnicodeRegex('kalite belgeleri(?:miz)?|ISO sertifikaları|ISO 41001|ISO 9001|ISO 14001|ISO 45001|ISO 27001|ISO 10002|TSE HYB(?: 12850)?'), url: '/kurumsal/kalite-belgelerimiz' },
+  { regex: makeUnicodeRegex('istihdam köprüsü|özel güvenlik iş ilanları|kariyer'), url: '/istihdam-koprusu' },
+  { regex: makeUnicodeRegex('başarı hikayeleri|vaka analizleri|örnek projeler'), url: '/basari-hikayeleri' },
   { regex: makeUnicodeRegex('güvenlik akademisi'), url: '/guvenlik-akademisi' },
   { regex: makeUnicodeRegex('aidat hesaplama|yönetim hesaplayıcı|aidat simülatörü'), url: '/hesaplayici' },
   { regex: makeUnicodeRegex('sürdürülebilirlik|yeşil tesis|GES projeleri'), url: '/kurumsal/surdurulebilirlik' },

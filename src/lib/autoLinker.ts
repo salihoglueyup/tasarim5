@@ -161,6 +161,28 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'yüzme havuzu bakımı', href: '/hizmetler/havuz-bakimi-ve-hijyen' },
   { term: 'otomatik sulama sistemleri', href: '/hizmetler/peyzaj-ve-bahce-bakimi' },
   { term: 'çim biçme budama', href: '/hizmetler/peyzaj-ve-bahce-bakimi' },
+  // 8 Resmi Akreditasyon ve Kalite Belgeleri (E-E-A-T Sinyalleri)
+  { term: 'iso 41001:2018', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 41001', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 9001:2015', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 9001', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 14001:2015', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 14001', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 45001:2018', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 45001', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 27001:2022', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 27001', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 10002:2018', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'iso 10002', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'tse hyb 12850', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'tse hyb', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'kalite belgelerimiz', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'kalite belgeleri', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'türkak akreditasyonu', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'türkak onaylı', href: '/kurumsal/kalite-belgelerimiz' },
+  { term: 'istihdam köprüsü', href: '/istihdam-koprusu' },
+  { term: 'özel güvenlik iş ilanları', href: '/istihdam-koprusu' },
+  { term: 'başarı hikayeleri', href: '/basari-hikayeleri' },
 ];
 
 // 5. Sözlük Terimleri

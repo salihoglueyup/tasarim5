@@ -89,6 +89,8 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
       'fabrika yönetimi',
       'lojistik merkezi yönetimi',
       'organize sanayi tesis bakımı',
+      'tse hyb 12850 belgesi',
+      'iso 45001 isg',
     ],
   },
   {
@@ -135,6 +137,8 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
       'plaka tanıma sistemi',
       'devriye kontrol',
       'fiziki güvenlik',
+      'iso 27001 bilgi güvenliği',
+      '5188 güvenlik lisansı',
     ],
   },
   {
@@ -150,6 +154,8 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
       'hidrofor servisi',
       'yangın otomasyonu',
       'kompanzasyon panosu',
+      'iso 9001 kalite standardı',
+      'iso 14001 çevre yönetim',
     ],
   },
   {
@@ -191,6 +197,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
       'site muhasebesi',
       'online aidat ödeme',
       'şeffaf hesap raporu',
+      'iso 10002 şikayet yönetimi',
     ],
   },
   {

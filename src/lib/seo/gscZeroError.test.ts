@@ -2845,6 +2845,54 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(compCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
     });
   });
+
+  describe('102. SemanticLinker Alt Sektör ve 8 Akreditasyon Eşleşme Güvencesi', () => {
+    it('SemanticLinker alt sektörleri, ISO/TSE akreditasyonlarını ve kariyer sayfalarını doğru bağlar', async () => {
+      const React = await import('react');
+      const { renderToStaticMarkup } = await import('react-dom/server');
+      const { default: SemanticLinker } = await import('@/components/seo/SemanticLinker');
+
+      const sampleText = 'İstanbul genelinde rezidans yönetimi, plaza yönetimi ve sanayi tesisi yönetimi süreçlerinde ISO 9001 ve TSE HYB kalite standartları uygulanırken, istihdam köprüsü ile personel istihdamı sağlanır.';
+
+      const rendered = renderToStaticMarkup(React.createElement(SemanticLinker, { text: sampleText, maxLinks: 6 }));
+
+      expect(rendered).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
+      expect(rendered).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+      expect(rendered).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
+      expect(rendered).toContain('/kurumsal/kalite-belgelerimiz');
+      expect(rendered).toContain('/istihdam-koprusu');
+    });
+  });
+
+  describe('103. autoLinker Akreditasyon ve Kurumsal Semantik Ağ Güvencesi', () => {
+    it('autoLinkHtml ISO ve TSE akreditasyonlarını /kurumsal/kalite-belgelerimiz sayfasına bağlar ve self-link engeller', async () => {
+      const { autoLinkHtml } = await import('@/lib/autoLinker');
+
+      const html = '<p>Firmamız ISO 9001:2015 ve TSE HYB 12850 belgeleri ile istihdam köprüsü projelerini yönetir.</p>';
+      const linked = autoLinkHtml(html, '/blog/ornek-yazi');
+
+      expect(linked).toContain('href="/kurumsal/kalite-belgelerimiz"');
+      expect(linked).toContain('href="/istihdam-koprusu"');
+
+      // Kalite belgelerimiz sayfasında iken kendine link vermemelidir (self-referencing engeli)
+      const selfPageLinked = autoLinkHtml(html, '/kurumsal/kalite-belgelerimiz');
+      expect(selfPageLinked).not.toContain('href="/kurumsal/kalite-belgelerimiz"');
+      expect(selfPageLinked).toContain('href="/istihdam-koprusu"');
+    });
+
+    it('FACILITY_MANAGEMENT_ENTITIES ISO ve TSE standartları varyasyonlarına sahiptir', async () => {
+      const { FACILITY_MANAGEMENT_ENTITIES } = await import('@/lib/seoEngine');
+
+      const securityEntity = FACILITY_MANAGEMENT_ENTITIES.find((e) => e.slug === 'guvenlik-yonetimi');
+      expect(securityEntity?.variations.some((v) => v.includes('iso 27001'))).toBe(true);
+
+      const techEntity = FACILITY_MANAGEMENT_ENTITIES.find((e) => e.slug === 'teknik-bakim');
+      expect(techEntity?.variations.some((v) => v.includes('iso 9001'))).toBe(true);
+
+      const duesEntity = FACILITY_MANAGEMENT_ENTITIES.find((e) => e.slug === 'aidat-takibi');
+      expect(duesEntity?.variations.some((v) => v.includes('iso 10002'))).toBe(true);
+    });
+  });
 });
 
 
