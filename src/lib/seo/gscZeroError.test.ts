@@ -3463,6 +3463,82 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(categories.has('Kalite & Yönetim')).toBe(true);
     });
   });
+
+  describe('118. Wave 52: facilityAuthorityCorpusEngine ve SERVICES 8 Akreditasyon Standardı Güvencesi', () => {
+    it('authorityEntity ve SERVICES[0] tüm 8 akreditasyon standardını eksiksiz içerir', async () => {
+      // 1. facilityAuthorityCorpusEngine
+      const { buildFacilityAuthorityCorpus } = await import('./facilityAuthorityCorpusEngine');
+      const corpus = buildFacilityAuthorityCorpus('tr');
+
+      expect(corpus.authorityEntity.certifications).toHaveLength(8);
+      const certs = corpus.authorityEntity.certifications;
+      expect(certs.some((c) => c.includes('ISO 41001'))).toBe(true);
+      expect(certs.some((c) => c.includes('ISO 9001'))).toBe(true);
+      expect(certs.some((c) => c.includes('ISO 14001'))).toBe(true);
+      expect(certs.some((c) => c.includes('ISO 45001'))).toBe(true);
+      expect(certs.some((c) => c.includes('ISO 27001'))).toBe(true);
+      expect(certs.some((c) => c.includes('ISO 10002'))).toBe(true);
+      expect(certs.some((c) => c.includes('TSE HYB 12850'))).toBe(true);
+      expect(certs.some((c) => c.includes('5188'))).toBe(true);
+
+      // 2. SERVICES[0] tesis-yonetimi
+      const { SERVICES } = await import('@/data/services');
+      const flagship = SERVICES[0];
+      expect(flagship.slug).toBe('tesis-yonetimi');
+      expect(flagship.standards).toBeDefined();
+      expect(flagship.standards?.length).toBeGreaterThanOrEqual(9);
+      const standards = flagship.standards || [];
+      expect(standards.some((s) => s.includes('ISO 41001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 9001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 14001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 45001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 27001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 10002'))).toBe(true);
+      expect(standards.some((s) => s.includes('TSE HYB 12850'))).toBe(true);
+      expect(standards.some((s) => s.includes('5188'))).toBe(true);
+      expect(standards.some((s) => s.includes('634'))).toBe(true);
+    });
+  });
+
+  describe('119. Wave 52: facilityFaqSynthesizer 39 İlçe Sentezinde 5 Soru ve E-E-A-T Akreditasyon FAQPage Şema Doğrulaması', () => {
+    it('39 ilçenin tamamında 5 adet dinamik SSS ve 8 akreditasyonlu FAQPage şeması üretir', async () => {
+      const { DISTRICTS } = await import('@/data/districts');
+      const { synthesizeDistrictFacilityFaq } = await import('./facilityFaqSynthesizer');
+
+      for (const d of DISTRICTS) {
+        const res = synthesizeDistrictFacilityFaq(d.slug);
+        expect(res.districtName).toBe(d.name);
+        expect(res.districtSlug).toBe(d.slug);
+        expect(res.faqs).toHaveLength(5);
+
+        // 5. SSS E-E-A-T Akreditasyon kontrolü
+        const accreditationFaq = res.faqs[4];
+        expect(accreditationFaq.question).toContain(d.name);
+        expect(accreditationFaq.question).toContain('akreditasyon');
+        expect(accreditationFaq.answer).toContain('ISO 41001');
+        expect(accreditationFaq.answer).toContain('ISO 9001');
+        expect(accreditationFaq.answer).toContain('ISO 14001');
+        expect(accreditationFaq.answer).toContain('ISO 45001');
+        expect(accreditationFaq.answer).toContain('ISO 27001');
+        expect(accreditationFaq.answer).toContain('ISO 10002');
+        expect(accreditationFaq.answer).toContain('TSE HYB 12850');
+        expect(accreditationFaq.answer).toContain('5188');
+
+        // FAQPage Şema Doğrulaması
+        expect(res.schema).toBeDefined();
+        expect(res.schema?.['@type']).toBe('FAQPage');
+        const mainEntity = (res.schema as any).mainEntity;
+        expect(Array.isArray(mainEntity)).toBe(true);
+        expect(mainEntity).toHaveLength(5);
+        for (const item of mainEntity) {
+          expect(item['@type']).toBe('Question');
+          expect(item.name).toBeDefined();
+          expect(item.acceptedAnswer?.['@type']).toBe('Answer');
+          expect(item.acceptedAnswer?.text).toBeDefined();
+        }
+      }
+    });
+  });
 });
 
 

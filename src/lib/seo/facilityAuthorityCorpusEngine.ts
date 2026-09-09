@@ -253,6 +253,8 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
         'ISO 9001:2015 Kalite Yönetim Sistemi',
         'ISO 14001:2015 Çevre Yönetim Sistemi',
         'ISO 45001:2018 İş Sağlığı ve Güvenliği',
+        'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
+        'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
         'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
         '5188 Sayılı Kanun Lisanslı Güvenlik Partnerliği'
       ],

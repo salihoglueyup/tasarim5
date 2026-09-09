@@ -146,7 +146,13 @@ export const SERVICES: ServiceDef[] = [
     wikidata: 'https://www.wikidata.org/wiki/Q1391515',
     standards: [
       'ISO 41001:2018 Entegre Tesis Yönetim Standardı',
+      'ISO 9001:2015 Kalite Yönetim Sistemi',
+      'ISO 14001:2015 Çevre Yönetim Sistemi',
+      'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+      'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
+      'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
       'TSE HYB 12850 Hizmet Yeri Yeterlilik Belgesi',
+      '5188 Sayılı Özel Güvenlik Hizmetleri Kanunu',
       '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
     ],
   },

@@ -73,6 +73,13 @@ export function synthesizeDistrictFacilityFaq(
     topic: 'KMK_634',
   });
 
+  // 5. E-E-A-T Akreditasyon & Kalite Standartları
+  faqs.push({
+    question: `${dName} bölgesinde Alo Yönetim hangi akreditasyon ve kalite standartlarıyla hizmet verir?`,
+    answer: `Alo Yönetim, ${dName} genelinde ISO 41001 Entegre Tesis Yönetimi, ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 10002, TSE HYB 12850 ve 5188 lisanslı güvenlik belgeleriyle akredite hizmet sunmaktadır.`,
+    topic: 'TECHNICAL_SLA',
+  });
+
   const schema = faqPageSchema(faqs);
 
   return {
