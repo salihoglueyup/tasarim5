@@ -151,6 +151,16 @@ export function runFacilitySeoPatrol(): SeoPatrolReport {
  */
 export function auditSitemapIntegrity(): SitemapAuditResult {
   const servicePillars = SERVICES.map((s) => s.pillar);
+  const xmlSitemapsAndFeeds = [
+    '/news-sitemap.xml',
+    '/document-sitemap.xml',
+    '/video-sitemap.xml',
+    '/image-sitemap.xml',
+    '/sitemap-regions.xml',
+    '/sitemap-index.xml',
+    '/feed/tesis-yonetimi.xml',
+    '/rss.xml',
+  ];
   const allRoutes = [
     '/',
     '/hizmetler',
@@ -162,6 +172,7 @@ export function auditSitemapIntegrity(): SitemapAuditResult {
     '/hesaplayici',
     ...DISTRICTS.map((d) => `/bolgeler/${d.slug}`),
     ...DISTRICTS.map((d) => `/bolgeler/${d.slug}/tesis-yonetimi`),
+    ...xmlSitemapsAndFeeds,
   ];
 
   const totalUrls = allRoutes.length;
@@ -196,6 +207,14 @@ export function auditInternalLinks(): BrokenLinksAuditResult {
     '/site-haritasi',
     '/sozluk',
     '/sss',
+    '/news-sitemap.xml',
+    '/document-sitemap.xml',
+    '/video-sitemap.xml',
+    '/image-sitemap.xml',
+    '/sitemap-regions.xml',
+    '/sitemap-index.xml',
+    '/feed/tesis-yonetimi.xml',
+    '/rss.xml',
     ...DISTRICTS.map((d) => `/bolgeler/${d.slug}`),
     ...DISTRICTS.map((d) => `/bolgeler/${d.slug}/tesis-yonetimi`),
   ]);

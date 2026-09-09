@@ -73,7 +73,7 @@ export async function GET(req: Request) {
         'Access-Control-Allow-Origin': '*',
         'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=43200',
         'X-Legal-Database': 'Yargitay-KMK-634-Facility-Precedents',
-        'X-Robots-Tag': 'all',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       },
     }
   );

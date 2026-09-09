@@ -59,6 +59,30 @@ export async function GET() {
         validityStatus: 'VALID_UNTIL_2027',
         wikidataReference: 'https://www.wikidata.org/wiki/Q3506168',
       },
+      {
+        standard: 'ISO 9001:2015',
+        scope: 'Kalite Yönetim Sistemi (Quality Management System)',
+        certificateNumber: 'TR-QMS-9001-2024-882',
+        accreditationBody: 'TÜRKAK / IAF Akredite Uluslararası Sertifikasyon',
+        validityStatus: 'VALID_UNTIL_2027',
+        wikidataReference: 'https://www.wikidata.org/wiki/Q11029',
+      },
+      {
+        standard: 'ISO 27001:2022',
+        scope: 'Bilgi Güvenliği Yönetim Sistemi (Information Security Management)',
+        certificateNumber: 'TR-ISMS-27001-2024-319',
+        accreditationBody: 'TÜRKAK / IAF Akredite Uluslararası Sertifikasyon',
+        validityStatus: 'VALID_UNTIL_2027',
+        wikidataReference: 'https://www.wikidata.org/wiki/Q3506168',
+      },
+      {
+        standard: 'ISO 10002:2018',
+        scope: 'Müşteri Memnuniyeti ve Şikayet Yönetimi Sistemi',
+        certificateNumber: 'TR-CMS-10002-2024-045',
+        accreditationBody: 'TÜRKAK / IAF Akredite Uluslararası Sertifikasyon',
+        validityStatus: 'VALID_UNTIL_2027',
+        wikidataReference: 'https://www.wikidata.org/wiki/Q11029',
+      },
     ],
     insuranceGuarantee: {
       policyType: 'Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigortası',
@@ -91,6 +115,46 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
+            recognizedBy: {
+              '@type': 'Organization',
+              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
+            },
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',

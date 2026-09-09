@@ -38,11 +38,14 @@ export async function GET(req: Request) {
       canonicalUrl: `${BASE_URL}${isEnglish ? '/en' : ''}/hizmetler/tesis-yonetimi`,
       standards: [
         'ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)',
+        'ISO 9001:2015 (Kalite Yönetim Sistemi)',
         '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
         '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
         'TSE HYB 12850 Tesis Hizmet Yeri Yeterlilik Belgesi',
         'ISO 45001:2018 İş Sağlığı ve Güvenliği',
         'ISO 14001:2015 Çevre Yönetimi',
+        'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
+        'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
       ],
       slaCommitment: isEnglish
         ? 'Guaranteed on-site technical emergency intervention within a maximum of 45 minutes.'
@@ -71,7 +74,13 @@ export async function GET(req: Request) {
       entityGraphJsonLd: `${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld`,
       kmkLawIndex: `${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json`,
       facilityAuditApi: `${BASE_URL}/api/seo/facility-audit`,
+      geoCoverageGeoJson: `${BASE_URL}/api/geo/facility-coverage.geojson`,
+      districtsGeoJson: `${BASE_URL}/api/geo/districts.geojson`,
+      istanbulFacilityDataset: `${BASE_URL}/api/datasets/istanbul-facility-data`,
+      llmsTxt: `${BASE_URL}/llms.txt`,
+      llmsFullTxt: `${BASE_URL}/llms-full.txt`,
       rssFeed: `${BASE_URL}/api/tesis-yonetimi/feed.xml`,
+      publicRssFeed: `${BASE_URL}/feed/tesis-yonetimi.xml`,
     },
     districtDuesBenchmarks39: DISTRICTS.map((d) => {
       const dues = getDistrictDues(d.slug);

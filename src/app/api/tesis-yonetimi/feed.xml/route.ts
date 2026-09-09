@@ -63,7 +63,8 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-      'X-Robots-Tag': 'noindex, follow',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
       Link: `<https://pubsubhubbub.appspot.com/>; rel="hub", <${BASE_URL}/api/tesis-yonetimi/feed.xml>; rel="self"`,
     },
   });

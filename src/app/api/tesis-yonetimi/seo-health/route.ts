@@ -13,9 +13,10 @@ export async function GET(request: Request) {
     status: 200,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'private, no-cache, no-store',
       'X-Seo-Health-Score': `${report.overallScore}/100`,
-      'X-Robots-Tag': 'noindex, follow',
+      'X-Robots-Tag': 'noindex, nofollow',
     },
   });
 }

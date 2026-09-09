@@ -1203,7 +1203,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
       const resAll = await GET(reqAll);
       expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('X-Robots-Tag')).toBe('all');
+      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
       expect(resAll.headers.get('Content-Type')).toContain('application/json');
 
       const dataAll = await resAll.json();
@@ -2667,6 +2667,112 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(org.aggregateRating.bestRating).toBe('5');
     });
   });
+
+  describe('98. Kurumsal Akreditasyon Paritesi, LLM-Facts Açık Veri Bağlantıları ve Robots Standardizasyonu', () => {
+    it('verify-credentials 8 ISO akreditasyonu sunar ve llm-facts tüm AI açık veri uç noktalarını bağlar', async () => {
+      // 1. verify-credentials API
+      const { GET: getVerifyCreds } = await import('@/app/api/tesis-yonetimi/verify-credentials/route');
+      const resCreds = await getVerifyCreds();
+      expect(resCreds.status).toBe(200);
+      expect(resCreds.headers.get('Content-Type')).toContain('application/json');
+      expect(resCreds.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resCreds.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataCreds = await resCreds.json();
+      expect(dataCreds.accreditations.length).toBeGreaterThanOrEqual(8);
+      const standardNames = dataCreds.accreditations.map((a: any) => a.standard);
+      expect(standardNames.some((s: string) => s.includes('ISO 41001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 9001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 14001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 45001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 27001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 10002'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('5188'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('TSE HYB'))).toBe(true);
+
+      expect(dataCreds.schema.mainEntity.hasCredential.length).toBeGreaterThanOrEqual(8);
+
+      // 2. llm-facts.json API
+      const { GET: getLlmFacts } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
+      const reqFacts = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
+      const resFacts = await getLlmFacts(reqFacts);
+      expect(resFacts.status).toBe(200);
+      expect(resFacts.headers.get('Content-Type')).toContain('application/json');
+      expect(resFacts.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resFacts.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      const dataFacts = await resFacts.json();
+      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 9001'))).toBe(true);
+      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 27001'))).toBe(true);
+      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 10002'))).toBe(true);
+
+      expect(dataFacts.linkedApis.geoCoverageGeoJson).toBeDefined();
+      expect(dataFacts.linkedApis.districtsGeoJson).toBeDefined();
+      expect(dataFacts.linkedApis.istanbulFacilityDataset).toBeDefined();
+      expect(dataFacts.linkedApis.llmsTxt).toBeDefined();
+      expect(dataFacts.linkedApis.llmsFullTxt).toBeDefined();
+
+      // 3. geo-feed.xml API
+      const { GET: getGeoFeed } = await import('@/app/api/tesis-yonetimi/geo-feed.xml/route');
+      const reqGeo = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml');
+      const resGeo = await getGeoFeed(reqGeo);
+      expect(resGeo.status).toBe(200);
+      expect(resGeo.headers.get('Content-Type')).toContain('application/xml');
+      expect(resGeo.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resGeo.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+
+      // 4. legal-precedents.json API
+      const { GET: getPrecedents } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
+      const reqPrec = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
+      const resPrec = await getPrecedents(reqPrec);
+      expect(resPrec.status).toBe(200);
+      expect(resPrec.headers.get('Content-Type')).toContain('application/json');
+      expect(resPrec.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resPrec.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+    });
+  });
+
+  describe('99. Tesis RSS Feed, SEO-Health Güvenlik Mührü ve Kapsamlı SEO Devriye Bütünlüğü', () => {
+    it('tesis-yonetimi/feed.xml CORS döner, seo-health noindex mühürlüdür ve devriye tüm haritaları doğrular', async () => {
+      // 1. api/tesis-yonetimi/feed.xml
+      const { GET: getTesisApiFeed } = await import('@/app/api/tesis-yonetimi/feed.xml/route');
+      const resApiFeed = await getTesisApiFeed();
+      expect(resApiFeed.status).toBe(200);
+      expect(resApiFeed.headers.get('Content-Type')).toContain('application/xml');
+      expect(resApiFeed.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resApiFeed.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
+      const xmlFeed = await resApiFeed.text();
+      expect(xmlFeed).toContain('<rss version="2.0"');
+
+      // 2. api/tesis-yonetimi/seo-health (Dahili Teftiş Uç Noktası)
+      const { GET: getTesisSeoHealth } = await import('@/app/api/tesis-yonetimi/seo-health/route');
+      const reqHealth = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/seo-health');
+      const resHealth = await getTesisSeoHealth(reqHealth);
+      expect(resHealth.status).toBe(200);
+      expect(resHealth.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(resHealth.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(resHealth.headers.get('Cache-Control')).toContain('no-store');
+
+      // 3. facilitySeoPatrol auditSitemapIntegrity ve auditInternalLinks
+      const { auditSitemapIntegrity, auditInternalLinks, runComprehensiveSeoPatrol } = await import('@/lib/seo/facilitySeoPatrol');
+      const sitemapAudit = auditSitemapIntegrity();
+      expect(sitemapAudit.status).toBe('VALID');
+      expect(sitemapAudit.sitemapIntegrityScore).toBe(100);
+      expect(sitemapAudit.missingCanonicalCount).toBe(0);
+      expect(sitemapAudit.totalUrls).toBeGreaterThan(50);
+
+      const linkAudit = auditInternalLinks();
+      expect(linkAudit.status).toBe('CLEAN');
+      expect(linkAudit.linkHealthScore).toBe(100);
+      expect(linkAudit.brokenLinksFound).toBe(0);
+
+      const patrolReport = runComprehensiveSeoPatrol();
+      expect(['OPTIMAL', 'GOOD']).toContain(patrolReport.overallHealthStatus);
+      expect(patrolReport.sitemapAudit.sitemapIntegrityScore).toBe(100);
+      expect(patrolReport.brokenLinkAudit.brokenLinksFound).toBe(0);
+    });
+  });
 });
+
 
 
