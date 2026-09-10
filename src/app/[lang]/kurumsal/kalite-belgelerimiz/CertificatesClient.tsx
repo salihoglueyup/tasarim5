@@ -2,37 +2,29 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import TrustVerificationAuditSeo from '@/components/seo/TrustVerificationAuditSeo';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { CERTIFICATES } from '@/data/certificates';
+
+type Category = 'all' | 'cevre' | 'is-sagligi' | 'risk-sureklillik' | 'musteri' | 'sosyal';
+
+const CATEGORY_LABELS: Record<Category, { label: string; icon: string; count?: number }> = {
+  all:              { label: 'Tümü', icon: 'workspace_premium' },
+  cevre:            { label: 'Çevre & Sürdürülebilirlik', icon: 'eco' },
+  'is-sagligi':     { label: 'İş Sağlığı & Güvenlik', icon: 'health_and_safety' },
+  'risk-sureklillik': { label: 'Risk & Süreklilik', icon: 'security' },
+  musteri:          { label: 'Müşteri Memnuniyeti', icon: 'support_agent' },
+  sosyal:           { label: 'Sosyal Sorumluluk', icon: 'diversity_3' },
+};
 
 
-interface Certificate {
-  id: string;
-  titleKey: string;
-  subKey: string;
-  descKey: string;
-  icon: string;
-  color: string;
-  pdfPath: string;
-  slug: string;
-  certNumber: string;
-}
 
-const CERTIFICATES: Certificate[] = [
-  { id: "cert_1", titleKey: "cert_1_title", subKey: "cert_1_sub", descKey: "cert_1_desc", icon: "eco",            color: "from-emerald-500 to-teal-700",  pdfPath: "/certificates/dogaya-saygi.pdf", slug: "dogaya-saygi", certNumber: "A1808967" },
-  { id: "cert_2", titleKey: "cert_2_title", subKey: "cert_2_sub", descKey: "cert_2_desc", icon: "security",       color: "from-blue-600 to-indigo-800",   pdfPath: "/certificates/iso-31000.pdf",    slug: "iso-31000",    certNumber: "A1808965" },
-  { id: "cert_3", titleKey: "cert_3_title", subKey: "cert_3_sub", descKey: "cert_3_desc", icon: "health_and_safety", color: "from-amber-500 to-orange-700", pdfPath: "/certificates/iso-45001.pdf",  slug: "iso-45001",    certNumber: "A1808966" },
-  { id: "cert_4", titleKey: "cert_4_title", subKey: "cert_4_sub", descKey: "cert_4_desc", icon: "diversity_3",    color: "from-purple-500 to-pink-700",   pdfPath: "/certificates/iso-26000.pdf",    slug: "iso-26000",    certNumber: "A1808964" },
-  { id: "cert_5", titleKey: "cert_5_title", subKey: "cert_5_sub", descKey: "cert_5_desc", icon: "all_inclusive",  color: "from-cyan-500 to-blue-700",     pdfPath: "/certificates/iso-22301.pdf",    slug: "iso-22301",    certNumber: "A1808963" },
-  { id: "cert_6", titleKey: "cert_6_title", subKey: "cert_6_sub", descKey: "cert_6_desc", icon: "public",         color: "from-teal-500 to-emerald-700",  pdfPath: "/certificates/iso-14001.pdf",    slug: "iso-14001",    certNumber: "A1808962" },
-  { id: "cert_7", titleKey: "cert_7_title", subKey: "cert_7_sub", descKey: "cert_7_desc", icon: "support_agent",  color: "from-rose-500 to-red-700",      pdfPath: "/certificates/iso-10002.pdf",    slug: "iso-10002",    certNumber: "A1808961" },
-];
-
-function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => void }) {
-  const { t } = useLanguage();
+function CertificateCard({ cert }: { cert: typeof CERTIFICATES[0] }) {
+  const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
   
   // Mouse position values
@@ -73,7 +65,7 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
   return (
     <motion.div
       ref={ref}
-      onClick={() => window.open(cert.pdfPath, '_blank')}
+      onClick={() => router.push(`/kurumsal/sertifikalar/${cert.slug}`)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
@@ -97,27 +89,27 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
         />
 
         <div className="p-8 h-full flex flex-col items-start justify-between relative z-10">
-          <div 
-            className="w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md flex items-center justify-center shrink-0 mb-6 group-hover:scale-110 transition-transform duration-300"
+          <div
+            className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}
             style={{ transform: "translateZ(30px)" }}
           >
-            <span className="material-symbols-outlined text-2xl" aria-hidden="true">{cert.icon}</span>
+            <span className="material-symbols-outlined text-white text-2xl" aria-hidden="true">{cert.icon}</span>
           </div>
 
           <div className="flex-grow flex flex-col justify-end w-full" style={{ transform: "translateZ(20px)" }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="inline-block text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700">
-                {t(cert.titleKey as any)}
+                {cert.name}
               </span>
               <span className="inline-block text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40">
-                {cert.certNumber}
+                {cert.certificateNumber}
               </span>
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white leading-tight mb-3">
-              {t(cert.subKey as any)}
+              {cert.subtitle}
             </h3>
             <p className="text-sm font-light text-slate-600 dark:text-slate-300 line-clamp-3 mb-4 leading-relaxed">
-              {t(cert.descKey as any)}
+              {cert.description}
             </p>
             <div className="flex items-center justify-between w-full pt-1">
               <Link
@@ -125,13 +117,20 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
                 onClick={(e) => e.stopPropagation()}
                 className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
               >
-                <span>Detayları İncele</span>
+                <span>Detaylı İncele</span>
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
-              <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                <span className="material-symbols-outlined text-xs text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
-                BELCERT / ILAS
-              </span>
+              <a
+                href={cert.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+                aria-label={`${cert.name} PDF indir`}
+              >
+                <span className="material-symbols-outlined text-xs" aria-hidden="true">download</span>
+                PDF
+              </a>
             </div>
           </div>
         </div>
@@ -142,6 +141,17 @@ function CertificateCard({ cert, onClick }: { cert: Certificate; onClick: () => 
 
 export default function CertificatesClient() {
   const { t } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<Category>('all');
+
+  const filteredCerts = activeCategory === 'all'
+    ? CERTIFICATES
+    : CERTIFICATES.filter((c) => c.category === activeCategory);
+
+  const categories = (Object.keys(CATEGORY_LABELS) as Category[]).map((key) => ({
+    key,
+    ...CATEGORY_LABELS[key],
+    count: key === 'all' ? CERTIFICATES.length : CERTIFICATES.filter((c) => c.category === key).length,
+  }));
 
   return (
     <>
@@ -322,7 +332,7 @@ export default function CertificatesClient() {
 
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] relative z-10">
           
-          <div className="text-center max-w-4xl mx-auto mb-20">
+          <div className="text-center max-w-4xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-8">
               {t('certificates_manifest_title_1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-100 dark:to-slate-400">{t('certificates_manifest_title_2')}</span>
             </h2>
@@ -336,15 +346,43 @@ export default function CertificatesClient() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10 perspective-[2000px] mb-16">
-            {CERTIFICATES.map((cert) => (
-              <CertificateCard 
-                key={cert.id} 
-                cert={cert} 
-                onClick={() => {}} 
-              />
+          {/* Kategori Filtre Sekmeleri */}
+          <div className="flex flex-wrap gap-2 mb-10 justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
+                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 border ${
+                  activeCategory === cat.key
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-md'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500'
+                }`}
+              >
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">{cat.icon}</span>
+                {cat.label}
+                <span className={`text-[10px] font-mono ml-0.5 px-1.5 py-0.5 rounded-full ${
+                  activeCategory === cat.key
+                    ? 'bg-white/20 dark:bg-slate-900/20'
+                    : 'bg-slate-100 dark:bg-slate-800'
+                }`}>{cat.count}</span>
+              </button>
             ))}
           </div>
+
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10 perspective-[2000px] mb-16"
+          >
+            {filteredCerts.map((cert) => (
+              <CertificateCard 
+                key={cert.slug} 
+                cert={cert} 
+              />
+            ))}
+          </motion.div>
 
           {/* TÜRKAK & ISO Canlı Güvenilirlik Mührü (E-E-A-T) */}
           <TrustVerificationAuditSeo />

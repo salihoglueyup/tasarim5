@@ -429,6 +429,16 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=2592000' },
         ],
       },
+      // Sertifika PDF'leri kendi sayfamızdaki <iframe> önizlemesinde gösteriliyor —
+      // global X-Frame-Options: DENY / frame-ancestors 'none' bunu (aynı origin'den bile) engelliyor.
+      {
+        source: '/certificates/(.*)',
+        headers: [
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' },
+        ],
+      },
       {
         source: '/favicon.ico',
         headers: [

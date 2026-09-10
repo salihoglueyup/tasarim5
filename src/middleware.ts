@@ -244,7 +244,7 @@ export async function middleware(request: NextRequest) {
   let normalizedPath = rawDecoded
     .toLowerCase()
     .replace(/_/g, '-')
-    .replace(/[\s%20]+/g, '-')
+    .replace(/\s+/g, '-')
     .replace(/sahıntepe/g, 'sahintepe')
     .replace(/mehterçesme/g, 'mehtercesme')
     .replace(/yenıkoy/g, 'yenikoy');
