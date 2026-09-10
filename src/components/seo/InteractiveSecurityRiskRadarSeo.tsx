@@ -158,11 +158,11 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
   return (
     <>
       <JsonLd data={schema} />
-      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
             <span className="material-symbols-outlined text-sm" aria-hidden="true">radar</span>
             <span>İnteraktif 5188 Güvenlik & Risk Analiz Testi</span>
           </div>
@@ -187,22 +187,22 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                   onClick={() => toggleCriterion(crit.id)}
                   className={`p-4 md:p-5 rounded-2xl border transition-all cursor-pointer flex items-start gap-4 ${
                     isChecked
-                      ? 'bg-slate-500/5 dark:bg-white/5 border-slate-400 dark:border-slate-500 shadow-sm'
-                      : 'bg-transparent border-gray-200/80 dark:border-white/10 opacity-70 hover:opacity-100 hover:border-slate-300'
+                      ? 'bg-blue-500/5 dark:bg-[#1E202B] border-blue-500/40 shadow-xs'
+                      : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 opacity-80 hover:opacity-100 hover:border-slate-300 dark:hover:border-white/20'
                   }`}
                 >
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                    isChecked ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950' : 'border border-gray-300 dark:border-white/20'
+                    isChecked ? 'bg-blue-600 text-white border border-blue-500' : 'border border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
                   }`}>
                     {isChecked && <span className="material-symbols-outlined text-base" aria-hidden="true">check</span>}
                   </div>
                   
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
                         {crit.category}
                       </span>
-                      <span className="text-[11px] font-mono text-slate-400">
+                      <span className="text-[11px] font-mono text-[var(--color-tertiary)]">
                         +{crit.points} Puan
                       </span>
                     </div>
@@ -212,7 +212,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                     <p className="text-xs text-[var(--color-secondary)] font-light mt-1 leading-relaxed">
                       {crit.desc}
                     </p>
-                    <div className="inline-flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-2 bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">
+                    <div className="inline-flex items-center gap-1 text-[10px] text-[var(--color-tertiary)] font-mono mt-2 bg-[var(--color-surface)] px-2 py-0.5 rounded border border-[var(--color-outline)]/40">
                       <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
                       <span>{crit.lawRef}</span>
                     </div>
@@ -223,9 +223,9 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
           </div>
 
           {/* Right Column: Sticky Live Score Gauge & CTA (4 Cols) */}
-          <div className="lg:col-span-4 sticky top-28 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white p-7 md:p-8 rounded-3xl border border-slate-700/60 shadow-2xl space-y-6 text-center">
+          <div className="lg:col-span-4 sticky top-28 bg-[var(--color-surface-variant)] p-7 md:p-8 rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm space-y-6 text-center">
             
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-secondary)] block">
               Sitenizin Güvenlik Skoru
             </span>
 
@@ -236,7 +236,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                   cx="70"
                   cy="70"
                   r={radius}
-                  className="stroke-slate-800"
+                  className="stroke-slate-200 dark:stroke-white/10"
                   strokeWidth="12"
                   fill="transparent"
                 />
@@ -254,8 +254,8 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-4xl font-black">{totalScore}</span>
-                <span className="text-[11px] text-gray-400 font-medium">/ 100 Puan</span>
+                <span className="text-4xl font-black text-[var(--color-primary)]">{totalScore}</span>
+                <span className="text-[11px] text-[var(--color-secondary)] font-medium">/ 100 Puan</span>
               </div>
             </div>
 
@@ -265,20 +265,20 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
             </div>
 
             {/* Insight Text */}
-            <p className="text-xs text-gray-300 font-light leading-relaxed">
+            <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
               {evalData.description}
             </p>
 
             {/* CTA Button */}
             <Link
               href="/teklif-al"
-              className="w-full bg-white hover:bg-slate-100 text-slate-950 font-bold py-3.5 px-5 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-xs"
+              className="w-full bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-surface)] font-bold py-3.5 px-5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-xs"
             >
               <span>{evalData.ctaText}</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
 
-            <span className="text-[10px] text-gray-400 block">
+            <span className="text-[10px] text-[var(--color-secondary)] block">
               🔒 T.C. İçişleri Bakanlığı 5188 Sayılı Kanun Uyumlu
             </span>
 

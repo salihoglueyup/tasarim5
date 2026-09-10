@@ -114,12 +114,12 @@ export default function InteractiveProcessSteps() {
             </p>
           </div>
 
-          <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-10 rounded-[2.5rem] flex flex-col items-center justify-center text-center gap-4">
-            <span className="material-symbols-outlined text-6xl text-slate-300" aria-hidden="true">
+          <div className="lg:col-span-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col items-center justify-center text-center gap-4 shadow-xs">
+            <span className="material-symbols-outlined text-6xl text-[var(--color-primary)]" aria-hidden="true">
               {steps[activeStep].icon}
             </span>
-            <div className="font-bold text-lg">{t('home_process_step_label')} {steps[activeStep].step} / 6</div>
-            <div className="text-xs text-gray-300 font-light">{t('home_process_guarantee')}</div>
+            <div className="font-bold text-lg text-[var(--color-primary)]">{t('home_process_step_label')} {steps[activeStep].step} / 6</div>
+            <div className="text-xs text-[var(--color-secondary)] font-light">{t('home_process_guarantee')}</div>
           </div>
         </motion.div>
       </AnimatePresence>

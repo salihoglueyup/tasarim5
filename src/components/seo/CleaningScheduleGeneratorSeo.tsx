@@ -95,7 +95,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
   };
 
   return (
-    <section className={`my-10 bg-[var(--color-surface)] border border-[var(--color-outline)]/70 rounded-3xl p-6 sm:p-10 shadow-sm ${className}`}>
+    <section className={`my-10 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-10 shadow-sm ${className}`}>
       <JsonLd data={howToSchema} />
 
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -117,7 +117,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       </p>
 
       {/* Parametre Girişleri */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 mb-8">
         <div>
           <label className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
             Blok Sayısı
@@ -125,7 +125,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setBlockCount((p) => Math.max(1, p - 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
             >
               -
             </button>
@@ -134,7 +134,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             </span>
             <button
               onClick={() => setBlockCount((p) => Math.min(20, p + 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
             >
               +
             </button>
@@ -148,7 +148,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setFloorCount((p) => Math.max(1, p - 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
             >
               -
             </button>
@@ -157,7 +157,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             </span>
             <button
               onClick={() => setFloorCount((p) => Math.min(40, p + 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
             >
               +
             </button>
@@ -171,7 +171,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setUnitCount((p) => Math.max(4, p - 10))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
             >
               -
             </button>
@@ -180,7 +180,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             </span>
             <button
               onClick={() => setUnitCount((p) => Math.min(500, p + 10))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
             >
               +
             </button>
@@ -194,25 +194,25 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex flex-wrap gap-1.5">
             <button
               onClick={() => setHasParking(!hasParking)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasParking ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasParking ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Otopark
             </button>
             <button
               onClick={() => setHasElevator(!hasElevator)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasElevator ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasElevator ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Asansör
             </button>
             <button
               onClick={() => setHasGarbageChute(!hasGarbageChute)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasGarbageChute ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasGarbageChute ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Çöp Şaftı
             </button>
             <button
               onClick={() => setHasPoolFitness(!hasPoolFitness)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasPoolFitness ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasPoolFitness ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Havuz/Fitness
             </button>
@@ -223,7 +223,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       {/* Görev Kartları (Günlük / Haftalık / Aylık) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Günlük */}
-        <div className="p-5 rounded-2xl bg-teal-50/50 dark:bg-teal-950/20 border border-teal-200 dark:border-teal-900/50 flex flex-col gap-3">
+        <div className="p-5 rounded-2xl bg-teal-500/5 dark:bg-[#1E202B] border border-teal-500/20 dark:border-teal-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-extrabold text-sm">
             <span className="material-symbols-outlined text-base" aria-hidden="true">today</span>
             <span>GÜNLÜK GÖREVLER (Hergün)</span>
@@ -239,15 +239,15 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         </div>
 
         {/* Haftalık */}
-        <div className="p-5 rounded-2xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-extrabold text-sm">
+        <div className="p-5 rounded-2xl bg-sky-500/5 dark:bg-[#1E202B] border border-sky-500/20 dark:border-sky-500/30 flex flex-col gap-3">
+          <div className="flex items-center gap-2 text-sky-700 dark:text-sky-400 font-extrabold text-sm">
             <span className="material-symbols-outlined text-base" aria-hidden="true">calendar_view_week</span>
             <span>HAFTALIK GÖREVLER (Haftada 1-2)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
             {weeklyTasks.map((t, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-sky-600 font-bold">•</span>
                 <span>{t}</span>
               </li>
             ))}
@@ -255,7 +255,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         </div>
 
         {/* Aylık */}
-        <div className="p-5 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 flex flex-col gap-3">
+        <div className="p-5 rounded-2xl bg-amber-500/5 dark:bg-[#1E202B] border border-amber-500/20 dark:border-amber-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
             <span className="material-symbols-outlined text-base" aria-hidden="true">pest_control</span>
             <span>AYLIK & BİYOSİDAL İLAÇLAMA</span>
@@ -272,11 +272,11 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       </div>
 
       {/* Butonlar & Eylemler */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--color-outline)]/40">
         <div className="flex items-center gap-3">
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 text-white text-xs font-bold transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 dark:bg-[#1E202B] dark:hover:bg-[#262938] dark:border dark:border-white/10 text-white text-xs font-bold transition-all shadow-sm"
           >
             <span className="material-symbols-outlined text-sm" aria-hidden="true">
               {copied ? 'check' : 'content_copy'}

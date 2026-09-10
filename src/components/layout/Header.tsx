@@ -148,9 +148,12 @@ export default function Header() {
   // Faz 65: Dropdown menüler açıkken dışarı tıklandığında menüyü pasif pointerdown ile kapat
   useClickOutside(headerContainerRef, () => setHoveredMenu(null), Boolean(hoveredMenu));
 
-  // Tüm sayfalarda hero alanları ultra-premium koyu slate gradyanına sahip olduğu için
-  // sayfa başındayken (!isScrolled) daima kristal parlaklığında beyaz navbar render edilir.
-  const isTopAndDarkHero = !isScrolled;
+  // Açık zeminli hero alanına sahip sayfalar (ör. Açık Veri Portalı)
+  const isLightHero = Boolean(pathname && pathname.includes('/hizmetler/tesis-yonetimi/acik-veri'));
+
+  // Normal sayfalarda sayfa başındayken (!isScrolled) koyu hero varsayımı geçerlidir.
+  // Açık zeminli sayfalarda ise sayfa başındayken bile navbar frosted cam zemininde ve yüksek kontrastlı renklerde gösterilir.
+  const isTopAndDarkHero = !isScrolled && !isLightHero;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -219,15 +222,14 @@ export default function Header() {
       rafId = window.requestAnimationFrame(() => {
         const currentScrollY = window.scrollY;
         
+        // Kullanıcı aşağı kaydırsa dahi navbar her zaman sabit (sticky) ve görünür kalır
+        setIsVisible(true);
         if (currentScrollY < 10) {
-          setIsVisible(true);
           setIsScrolled(false);
         } else {
           setIsScrolled(true);
-          if (currentScrollY < lastScrollYRef.current) {
-            setIsVisible(true);
-          } else if (currentScrollY > 100 && currentScrollY > lastScrollYRef.current + 5) {
-            setIsVisible(false);
+          // Hızlı kaydırmada açık kalan dropdown menüleri kapat
+          if (Math.abs(currentScrollY - lastScrollYRef.current) > 20) {
             setHoveredMenu(null);
           }
         }
@@ -298,10 +300,8 @@ export default function Header() {
 
       <header 
         ref={headerContainerRef}
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out font-sans ${
-          isVisible ? 'translate-y-0' : '-translate-y-full'
-        } ${
-          !isScrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out font-sans translate-y-0 ${
+          !isScrolled && !isLightHero
             ? 'bg-transparent py-3.5 border-b border-transparent'
             : 'bg-white/90 dark:bg-slate-950/92 backdrop-blur-2xl shadow-sm border-b border-slate-200/60 dark:border-white/10 py-2.5'
         }`}
@@ -323,7 +323,7 @@ export default function Header() {
               >
                 {hoveredMenu === item.nameKey && (
                   <div
-                    className="absolute inset-0 bg-slate-100/90 dark:bg-white/10 rounded-xl border border-slate-200/50 dark:border-white/10 -z-10 animate-in fade-in zoom-in-95 duration-150 transform-gpu"
+                    className="absolute inset-0 bg-[var(--color-surface-variant)]/80 rounded-xl border border-[var(--color-outline)]/40 -z-10 animate-in fade-in zoom-in-95 duration-150 transform-gpu"
                   />
                 )}
                 
@@ -345,13 +345,13 @@ export default function Header() {
                     isTopAndDarkHero 
                       ? 'text-white/95 hover:text-white' 
                       : hoveredMenu === item.nameKey || item.subItems.some(sub => pathname.startsWith(sub.path))
-                        ? 'text-[var(--color-primary)] dark:text-white' 
-                        : 'text-slate-800 dark:text-white/90 hover:text-[var(--color-primary)] dark:hover:text-white'
+                        ? 'text-[var(--color-primary)]' 
+                        : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                   }`}>
                     <span>{t(item.nameKey)}</span>
                     <span aria-hidden="true" className={`material-symbols-outlined text-[15px] transition-transform duration-300 ${
-                      isTopAndDarkHero ? 'text-white/80' : 'text-slate-400 dark:text-slate-400'
-                    } ${hoveredMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)] dark:text-white' : ''}`}>
+                      isTopAndDarkHero ? 'text-white/80' : 'text-[var(--color-tertiary)]'
+                    } ${hoveredMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)]' : ''}`}>
                       expand_more
                     </span>
                   </button>
@@ -364,8 +364,8 @@ export default function Header() {
                       isTopAndDarkHero 
                         ? (pathname === item.path ? 'text-white font-bold underline underline-offset-8 decoration-2 decoration-blue-400' : 'text-white/95 hover:text-white')
                         : pathname === item.path
-                          ? 'text-blue-600 dark:text-blue-400 font-bold' 
-                          : 'text-slate-800 dark:text-white/90 hover:text-[var(--color-primary)] dark:hover:text-white'
+                          ? 'text-[var(--color-primary)] font-bold underline underline-offset-8 decoration-2 decoration-[var(--color-primary)]' 
+                          : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                     }`}
                   >
                     {t(item.nameKey)}
@@ -389,7 +389,7 @@ export default function Header() {
             <div className={`flex items-center rounded-full p-0.5 border backdrop-blur-md transition-all ${
               isTopAndDarkHero 
                 ? 'bg-white/10 border-white/20 text-white' 
-                : 'bg-slate-100/90 dark:bg-slate-900/90 border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-white shadow-sm'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-primary)] shadow-sm'
             }`}>
               
               <div 
@@ -419,8 +419,8 @@ export default function Header() {
                   <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 pt-2 z-[70] max-w-[calc(100vw-1rem)]">
                     <div className={`w-28 backdrop-blur-xl border rounded-xl shadow-xl overflow-hidden py-1 ${
                       isTopAndDarkHero 
-                        ? 'bg-slate-900/95 border-white/20 text-white' 
-                        : 'bg-white/95 dark:bg-slate-950/95 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white'
+                        ? 'bg-[var(--color-surface)] border-white/20 text-white' 
+                        : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)]'
                     }`}>
                       {[
                         { code: 'tr', label: 'TR', flag: '🇹🇷' },
@@ -439,8 +439,8 @@ export default function Header() {
                             isTopAndDarkHero
                               ? (language === lang.code ? 'bg-white/20 text-white font-extrabold' : 'text-white/80 hover:bg-white/10 hover:text-white')
                               : (language === lang.code 
-                                  ? 'bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-extrabold' 
-                                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5')
+                                  ? 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] font-extrabold' 
+                                  : 'text-[var(--color-secondary)] hover:bg-[var(--color-surface-variant)] hover:text-[var(--color-primary)]')
                           }`}
                         >
                           <span>{lang.label}</span>
@@ -452,7 +452,7 @@ export default function Header() {
                 )}
               </div>
 
-              <div className="w-[1px] h-3.5 bg-slate-300 dark:bg-white/20 mx-0.5" />
+              <div className="w-[1px] h-3.5 bg-[var(--color-outline)]/60 mx-0.5" />
 
               <button 
                 onClick={toggleTheme}
@@ -477,7 +477,7 @@ export default function Header() {
                 className={`relative overflow-hidden text-xs font-bold px-3 xl:px-4 py-2 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group border cursor-pointer ${
                   isTopAndDarkHero 
                     ? 'bg-white/10 border-white/20 text-white hover:bg-white/20' 
-                    : 'bg-white border-slate-200 dark:border-white/10 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'
+                    : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)] shadow-sm'
                 }`}
               >
                 <span className="relative z-10 flex items-center gap-1.5">
@@ -491,7 +491,7 @@ export default function Header() {
               <button 
                 onClick={openQuoteModal}
                 aria-label="Hızlı teklif alın"
-                className="relative overflow-hidden text-xs font-extrabold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white px-4 xl:px-5 py-2 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group shadow-md shadow-slate-900/15 hover:shadow-xl hover:shadow-slate-900/25 hover:-translate-y-0.5 border border-white/10 cursor-pointer"
+                className="relative overflow-hidden text-xs font-extrabold bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 px-4 xl:px-5 py-2 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group shadow-md hover:shadow-xl hover:-translate-y-0.5 border border-white/10 cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-1.5">
                   {t('nav_get_quote')}
@@ -506,7 +506,7 @@ export default function Header() {
               aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
               aria-expanded={isMobileMenuOpen}
               className={`lg:hidden p-2 -mr-2 rounded-lg transition-colors ${
-                isTopAndDarkHero ? 'text-white' : 'text-slate-900 dark:text-white'
+                isTopAndDarkHero ? 'text-white' : 'text-[var(--color-primary)]'
               }`}
             >
               <span className="material-symbols-outlined text-[24px]" aria-hidden="true">

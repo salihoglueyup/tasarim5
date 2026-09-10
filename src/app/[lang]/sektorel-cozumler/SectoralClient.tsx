@@ -169,12 +169,10 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
   return (
     <>
       <JsonLd data={[breadcrumbLd, itemListLd, productLd]} />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-4">
-        <Breadcrumbs items={breadcrumbs} />
-      </div>
       <PageHeader 
         title={t('sector_page_title')} 
         description={t('sector_page_desc')} 
+        breadcrumbs={breadcrumbs}
       />
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
@@ -355,7 +353,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 onClick={() => setActiveTab(s.id)}
                 className={`flex items-center gap-3 px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeTab === s.id
-                    ? 'bg-[var(--color-primary)] text-white shadow-lg scale-105'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold shadow-lg scale-105'
                     : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
                 }`}
               >
@@ -377,10 +375,10 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             >
               <div className="lg:col-span-7 flex flex-col gap-6">
                 <div className="flex items-center gap-3">
-                  <span className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
+                  <span className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-2xl" aria-hidden="true">{currentSector.icon}</span>
                   </span>
-                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 border border-slate-500/20 px-4 py-1.5 rounded-full">
+                  <span className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-4 py-1.5 rounded-full">
                     {currentSector.kpi}
                   </span>
                 </div>
@@ -393,28 +391,28 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {currentSector.features.map((feat: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/10 text-xs font-semibold text-[var(--color-primary)]">
-                      <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">check_circle</span>
+                    <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs font-semibold text-[var(--color-primary)]">
+                      <span className="material-symbols-outlined text-[var(--color-primary)] shrink-0" aria-hidden="true">check_circle</span>
                       <span>{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
-                <div className="flex items-center gap-2 text-slate-300 text-xs font-bold uppercase tracking-widest">
-                  <span className="material-symbols-outlined text-sm" aria-hidden="true">stars</span>
+              <div className="lg:col-span-5 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-sm">
+                <div className="inline-flex items-center gap-2 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest w-fit">
+                  <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">stars</span>
                   {t('sector_specialty_tag')}
                 </div>
 
-                <h3 className="text-2xl font-bold">{t('sector_specialty_title')}</h3>
-                <p className="text-xs text-gray-300 font-light leading-relaxed">
+                <h3 className="text-2xl font-bold text-[var(--color-primary)]">{t('sector_specialty_title')}</h3>
+                <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
                   {t('sector_specialty_desc')}
                 </p>
 
                 <Link 
                   href="/teklif-al" 
-                  className="w-full bg-white text-slate-950 font-bold py-4 px-6 rounded-2xl text-center text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md flex items-center justify-center gap-2 mt-2"
+                  className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-6 rounded-2xl text-center text-sm transition-transform hover:scale-102 shadow-md flex items-center justify-center gap-2 mt-2"
                 >
                   {currentSector.title} {t('sector_quote_for_sector')}
                   <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
@@ -505,10 +503,10 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:shadow-xl transition-all">
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center">
                     <span className="material-symbols-outlined text-3xl" aria-hidden="true">{s.icon}</span>
                   </div>
-                  <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 px-3 py-1 rounded-full">
+                  <span className="text-[10px] font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full">
                     {s.kpi}
                   </span>
                 </div>
@@ -517,15 +515,15 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
                 <div className="flex flex-col gap-2 pt-2">
                   {s.features.map((f: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-300">
-                      <span className="material-symbols-outlined text-slate-900 dark:text-white text-sm" aria-hidden="true">check_circle</span>
+                    <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[var(--color-secondary)]">
+                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm" aria-hidden="true">check_circle</span>
                       <span>{f}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Link href="/teklif-al" className="w-fit bg-[var(--color-primary)] text-white font-bold py-3 px-6 rounded-xl text-xs hover:opacity-95 transition-opacity flex items-center gap-2">
+              <Link href="/teklif-al" className="w-fit bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold py-3 px-6 rounded-xl text-xs hover:opacity-95 transition-opacity flex items-center gap-2 shadow-sm">
                 {t('sector_get_quote')}
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
@@ -541,18 +539,18 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
           <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-8">{t('sector_faq_title')}</h2>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
+              <div key={i} className="border border-[var(--color-outline)]/60 rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-gray-50/50 dark:bg-white/5"
+                  className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-[var(--color-surface-variant)]/50"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-slate-900 dark:text-white transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} aria-hidden="true">
+                  <span className="material-symbols-outlined text-[var(--color-primary)] transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} aria-hidden="true">
                     expand_more
                   </span>
                 </button>
                 {openFaq === i && (
-                  <div className="p-6 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-white/10 text-sm text-[var(--color-secondary)] leading-relaxed">
+                  <div className="p-6 bg-[var(--color-surface)] border-t border-[var(--color-outline)]/40 text-sm text-[var(--color-secondary)] leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -613,14 +611,14 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
         />
 
         {/* Bottom Call To Action Banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
           <div>
-            <h2 className="text-3xl font-bold mb-2">{t('sector_cta_title')}</h2>
-            <p className="text-sm text-gray-300 font-light max-w-xl">
+            <h2 className="text-3xl font-bold mb-2 text-[var(--color-primary)]">{t('sector_cta_title')}</h2>
+            <p className="text-sm text-[var(--color-secondary)] font-light max-w-xl">
               {t('sector_cta_desc')}
             </p>
           </div>
-          <Link href="/teklif-al" className="bg-white text-slate-950 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm hover:bg-gray-100 transition-transform hover:scale-105 shadow-md">
+          <Link href="/teklif-al" className="bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm transition-transform hover:scale-102 shadow-md">
             {t('sector_cta_btn')}
           </Link>
         </div>

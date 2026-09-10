@@ -55,26 +55,26 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
               href={getLocalizedPath(service.path)}
               className={`group flex items-center gap-4 p-6 rounded-2xl transition-all duration-300 relative overflow-hidden ${
                 isSpecial
-                  ? 'bg-gradient-to-br from-blue-900/20 via-slate-900/10 to-slate-900/40 border-2 border-blue-500/40 hover:border-blue-500 shadow-md'
-                  : 'bg-[var(--color-surface)] border border-slate-200/60 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/40 hover:shadow-lg'
+                  ? 'bg-[var(--color-surface)] border-2 border-slate-400/50 dark:border-white/20 hover:border-slate-600 dark:hover:border-white/50 shadow-md'
+                  : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/40 hover:shadow-lg'
               }`}
             >
               {isSpecial && (
-                <span className="absolute top-2.5 right-3 text-[10px] font-extrabold uppercase tracking-wider text-blue-500 bg-blue-500/10 px-2 py-0.5 rounded-md">
+                <span className="absolute top-2.5 right-3 text-[10px] font-extrabold uppercase tracking-wider text-[var(--color-primary)] bg-slate-100 dark:bg-white/10 border border-[var(--color-outline)]/60 px-2 py-0.5 rounded-md">
                   Amiral Gemisi Çözüm
                 </span>
               )}
               <div
                 className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${
                   isSpecial
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm'
                     : 'bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white'
                 }`}
               >
                 <span className="material-symbols-outlined" aria-hidden="true">{service.icon}</span>
               </div>
               <div className="flex flex-col">
-                <span className={`font-bold group-hover:opacity-80 transition-opacity ${isSpecial ? 'text-blue-600 dark:text-blue-400' : 'text-[var(--color-primary)]'}`}>
+                <span className="font-bold group-hover:opacity-80 transition-opacity text-[var(--color-primary)]">
                   {(t as any)(service.nameKey) || service.nameKey}
                 </span>
                 <span className="text-xs text-[var(--color-secondary)] mt-1 flex items-center gap-1">

@@ -348,7 +348,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
   return (
     <div className="bg-[#f8fafc] dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 border-b border-slate-200 dark:border-slate-800">
+      <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 border-b border-slate-200 dark:border-slate-800">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] relative z-10">
           

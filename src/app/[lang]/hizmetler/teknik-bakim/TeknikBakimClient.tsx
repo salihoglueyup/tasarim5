@@ -119,11 +119,11 @@ export default function TeknikBakimClient() {
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">engineering</span>
               <span>Özet Rehber: Profesyonel Tesis Teknik Bakım ve Mühendislik Nedir?</span>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
               Sanayi Bakanlığı & MMO Yeşil Etiket Standardı
             </span>
           </div>
@@ -314,7 +314,7 @@ export default function TeknikBakimClient() {
                 Bakanlık mevzuatı uyarınca asansörlerinizin mühürlenmesini, sarı/kırmızı etiket cezalarını ve yönetici cezai sorumluluklarını sıfırlayan mühendislik süreci.
               </p>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700/60 shrink-0">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1.5 rounded-lg border border-[var(--color-outline)]/60 shrink-0">
               Mühürlenme Riski: %0
             </span>
           </div>
@@ -343,7 +343,7 @@ export default function TeknikBakimClient() {
                 step: "04",
                 title: "45 Dk Acil Servis SLA",
                 desc: "Asansörde kalma veya arıza durumunda 7/24 mobil nöbetçi teknik servisimiz en geç 45 dakikada kabin kurtarmasını tamamlar.",
-                icon: "alarm_on",
+                icon: "timer",
               }
             ].map((s, idx) => (
               <div key={idx} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-3 relative group hover:border-emerald-500/50 transition-colors">
@@ -359,47 +359,46 @@ export default function TeknikBakimClient() {
         </div>
 
         {/* 365 Günlük Önleyici Bakım (PPM) & Reaktif Ceza Kalkanı */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
-              <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">precision_manufacturing</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="material-symbols-outlined text-[16px] text-emerald-500" aria-hidden="true">precision_manufacturing</span>
               Planlı Önleyici Bakım (PPM) & Enerji Güvencesi
             </div>
-            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight mb-4">
-              Tesisler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">365 Günlük Mühendislik Kalkanı</span>
+            <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
+              Tesisler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400">365 Günlük Mühendislik Kalkanı</span>
             </h2>
-            <p className="text-slate-300 text-sm md:text-base max-w-3xl leading-relaxed mb-8">
+            <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
               Arıza oluştuktan sonra tamir etmek yerine, kestirimci ölçümler ve periyodik mühendislik testleri ile arızayı önceden engelliyoruz. Kompanzasyon panolarınızı 7/24 izleyerek elektrik faturalarındaki reaktif güç cezalarını sıfırlıyoruz.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">energy_savings_leaf</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">%0 Reaktif Elektrik Cezası</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">%0 Reaktif Elektrik Cezası</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Kondansatör kademe testleri ve akıllı reaktif güç rölesi takibi ile Bedaş/Ayedaş faturalarında reaktif ceza sıfırlama garantisi.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">sync_alt</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">Senkron Jeneratör & Trafo</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Senkron Jeneratör & Trafo</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Elektrik kesintisinde 8 saniyede otomatik transfer panosu (ATS) devreye alma, haftalık yüksüz test çalıştırması ve yakıt filtre bakımı.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">water_drop</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">Hidrofor & Yangın Pompaları</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Hidrofor & Yangın Pompaları</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Membran azot basınç optimizasyonu, mekanik salmastra kaçak denetimi ve joker yangın pompalarının haftalık otomatik basınç testleri.
                 </p>
               </div>

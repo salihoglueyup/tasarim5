@@ -106,7 +106,7 @@ export default function QuizAuditScoreSeo({
     <>
       <JsonLd data={schema} />
       <div
-        className={`bg-slate-50/90 dark:bg-zinc-900/90 border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-sm my-8 ${className}`}
+        className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 md:p-8 shadow-sm my-8 ${className}`}
       >
         <div className="text-center max-w-2xl mx-auto mb-8">
           <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
@@ -125,9 +125,9 @@ export default function QuizAuditScoreSeo({
             {QUIZ_QUESTIONS.map((q, idx) => (
               <div
                 key={q.id}
-                className="bg-white dark:bg-zinc-800/60 p-5 rounded-2xl border border-slate-100 dark:border-white/5"
+                className="bg-[var(--color-surface-variant)] p-5 rounded-2xl border border-[var(--color-outline)]/60"
               >
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-start gap-2">
+                <h4 className="text-sm font-bold text-[var(--color-primary)] mb-3 flex items-start gap-2">
                   <span className="w-5 h-5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs flex items-center justify-center shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
@@ -144,7 +144,7 @@ export default function QuizAuditScoreSeo({
                         className={`p-3 rounded-xl border text-xs flex items-center gap-2.5 cursor-pointer transition-all ${
                           isSelected
                             ? 'bg-brand-500/10 border-brand-500 text-brand-900 dark:text-white font-semibold'
-                            : 'bg-slate-50 dark:bg-zinc-700/30 border-slate-200/60 dark:border-white/5 text-slate-700 dark:text-slate-300 hover:border-slate-300'
+                            : 'bg-[var(--color-surface)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:border-slate-300'
                         }`}
                       >
                         <input
@@ -169,7 +169,7 @@ export default function QuizAuditScoreSeo({
                 className={`px-8 py-3.5 rounded-xl font-bold text-xs transition-all shadow-md ${
                   Object.keys(answers).length === QUIZ_QUESTIONS.length
                     ? 'bg-brand-500 hover:bg-brand-600 text-white cursor-pointer'
-                    : 'bg-slate-200 dark:bg-zinc-800 text-slate-400 cursor-not-allowed'
+                    : 'bg-slate-200 dark:bg-zinc-800 text-[var(--color-tertiary)] cursor-not-allowed'
                 }`}
               >
                 Risk Raporumu Oluştur
@@ -178,12 +178,12 @@ export default function QuizAuditScoreSeo({
           </div>
         ) : (
           /* Sonuç Ekranı */
-          <div className="bg-white dark:bg-zinc-800 p-6 md:p-8 rounded-3xl border border-slate-100 dark:border-white/5 text-center">
+          <div className="bg-[var(--color-surface-variant)] p-6 md:p-8 rounded-3xl border border-[var(--color-outline)]/60 text-center">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-black text-2xl mb-4">
               %{scorePercent}
             </div>
 
-            <h4 className="text-xl font-bold text-slate-900 dark:text-white">
+            <h4 className="text-xl font-bold text-[var(--color-primary)]">
               {scorePercent >= 80
                 ? "🌟 Mükemmel Yönetim Skoru"
                 : scorePercent >= 50
@@ -191,7 +191,7 @@ export default function QuizAuditScoreSeo({
                 : "🚨 Yüksek Hukuki ve Mali Risk Tespit Edildi"}
             </h4>
 
-            <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-light max-w-xl mx-auto mt-2 leading-relaxed">
+            <p className="text-xs md:text-sm text-[var(--color-secondary)] font-light max-w-xl mx-auto mt-2 leading-relaxed">
               {scorePercent >= 80
                 ? "Siteniz büyük oranda kanunlara uygun idare ediliyor. Alo Yönetim ile bu başarıyı sürdürülebilir kılabilirsiniz."
                 : scorePercent >= 50
@@ -205,7 +205,7 @@ export default function QuizAuditScoreSeo({
                   setAnswers({});
                   setIsCompleted(false);
                 }}
-                className="px-5 py-2.5 bg-slate-100 dark:bg-zinc-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold hover:bg-slate-200 transition-colors"
+                className="px-5 py-2.5 bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 rounded-xl text-xs font-semibold hover:bg-[var(--color-surface-variant)] transition-colors"
               >
                 Testi Tekrarla
               </button>

@@ -21,7 +21,7 @@ export async function generateMetadata({
   const t = await getDictionary(lang);
 
   let title = 'Hakkımızda — 15+ Yıl Kurumsal Tesis Yönetimi | Alo Yönetim';
-  let description = 'Alo Yönetim ve Organizasyon A.Ş. hakkında: 15+ yıl tecrübe, 340+ seçkin proje, ISO 41001 & 5188 lisanslı güvenlik ile İstanbul\'un lider tesis yönetim şirketi.';
+  let description = "Alo Yönetim hakkında: 15+ yıl tecrübe, 340+ seçkin proje, ISO 41001 & 5188 lisanslı güvenlik ile İstanbul'un lider tesis ve site yönetim şirketi.";
 
   if (lang === 'en') {
     title = 'About Us — 15+ Years Corporate Facility Management | Alo Management';

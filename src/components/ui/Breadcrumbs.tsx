@@ -24,27 +24,27 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
 
   return (
     <nav aria-label="Breadcrumb" className="w-full overflow-x-auto py-2.5 no-scrollbar">
-      <ol className="flex items-center min-w-max space-x-1 text-sm text-slate-500 dark:text-slate-400">
+      <ol className="flex items-center min-w-max space-x-1 text-sm text-[var(--color-secondary)]">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
 
           return (
             <li key={item.url} className="flex items-center">
               {isLast ? (
-                <span className="font-semibold text-slate-900 dark:text-white px-2.5 py-1.5" aria-current="page">
+                <span className="font-semibold text-[var(--color-primary)] px-2.5 py-1.5" aria-current="page">
                   {item.name}
                 </span>
               ) : (
                 <>
                   <Link 
                     href={item.url} 
-                    className="inline-flex items-center min-h-[36px] px-2.5 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="inline-flex items-center min-h-[36px] px-2.5 py-1.5 rounded-lg font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)] transition-all focus-visible:ring-2 focus-visible:ring-slate-400"
                   >
                     {item.name}
                   </Link>
                   <span 
                     aria-hidden="true" 
-                    className="material-symbols-outlined mx-0.5 text-slate-400 dark:text-slate-600 text-[18px] select-none"
+                    className="material-symbols-outlined mx-0.5 text-[var(--color-tertiary)] text-[18px] select-none"
                   >
                     chevron_right
                   </span>

@@ -108,7 +108,9 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
           <Link href="/" className="hover:text-white transition-colors">Anasayfa</Link>
           
           {finalBreadcrumbs ? (
-            finalBreadcrumbs.map((crumb, i) => (
+            finalBreadcrumbs
+              .filter((crumb, idx) => !(idx === 0 && (crumb.url === '/' || crumb.name.toLowerCase() === 'anasayfa' || crumb.name.toLowerCase() === 'home')))
+              .map((crumb, i) => (
               <span key={i} className="flex items-center gap-2">
                 <span className="text-slate-500">/</span>
                 {crumb.url ? (

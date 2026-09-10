@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.aca_meta_title || 'Güvenlik Akademisi — 5188 Lisanslı Özel Güvenlik Eğitimi | Alo Yönetim';
+  const title = t.aca_meta_title || 'Güvenlik Akademisi — 5188 Güvenlik Eğitimi | Alo Yönetim';
   const description = t.aca_meta_desc || '5188 sayılı kanun kapsamında silahlı/silahsız özel güvenlik temel eğitimi, yenileme programları, CCTV kamera takibi ve tesis emniyeti sertifikasyonu.';
 
   return buildMetadata({

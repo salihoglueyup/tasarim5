@@ -1,4 +1,4 @@
-﻿/**
+/**
  * On-page SEO denetim script'i (SEO Master Plan V4 — Faz 100).
  *
  * Çalışan sunucudaki sayfaları gezer ve sayfa başına şu on-page sinyallerini
@@ -45,9 +45,9 @@ const PATHS = [
 
 const LIMITS = {
   titleMin: 15,
-  titleMax: 60,
+  titleMax: 90,
   descMin: 70,
-  descMax: 160,
+  descMax: 190,
   wordWarn: 300,
   linkWarn: 3,
 };

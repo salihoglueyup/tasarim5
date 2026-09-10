@@ -42,11 +42,11 @@ export const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) =
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => toggle(idx)}
-              className="w-full flex items-center justify-between p-6 text-left font-bold text-lg text-slate-900 dark:text-white cursor-pointer"
+              className="w-full flex items-center justify-between p-6 text-left font-bold text-lg text-[var(--color-primary)] cursor-pointer"
             >
               <span>{item.title}</span>
               <span
-                className={`material-symbols-outlined text-slate-900 dark:text-white shrink-0 ml-4 transition-transform duration-300 transform-gpu ${
+                className={`material-symbols-outlined text-[var(--color-primary)] shrink-0 ml-4 transition-transform duration-300 transform-gpu ${
                   isOpen ? 'rotate-180' : 'rotate-0'
                 }`}
               >
@@ -62,7 +62,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) =
               }`}
             >
               <div className="overflow-hidden">
-                <div className="p-6 pt-0 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light border-t border-slate-100 dark:border-white/5">
+                <div className="p-6 pt-0 text-sm text-[var(--color-secondary)] leading-relaxed font-light border-t border-[var(--color-outline)]/40">
                   {item.content}
                 </div>
               </div>

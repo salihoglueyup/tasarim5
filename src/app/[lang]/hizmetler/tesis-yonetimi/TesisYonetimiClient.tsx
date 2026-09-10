@@ -148,11 +148,11 @@ export default function TesisYonetimiClient() {
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
               <span>Özet Rehber: Tesis Yönetimi Nedir?</span>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
               ISO 41001 & 634 KMK Standardı
             </span>
           </div>

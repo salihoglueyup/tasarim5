@@ -21,12 +21,12 @@ export const StatCard: React.FC<StatCardProps> = ({
     <div className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col gap-3 shadow-sm hover:shadow-xl transition-all ${className}`}>
       <div className="flex items-center justify-between">
         {icon && (
-          <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white flex items-center justify-center">
+          <div className="w-12 h-12 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] flex items-center justify-center">
             <span className="material-symbols-outlined text-2xl" aria-hidden="true">{icon}</span>
           </div>
         )}
         {trend && (
-          <span className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-500/10 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 px-3 py-1 rounded-full">
             {trend}
           </span>
         )}

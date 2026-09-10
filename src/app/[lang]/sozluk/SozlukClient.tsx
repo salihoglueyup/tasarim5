@@ -294,26 +294,24 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
 
       {/* 6. B2B Keşif & Hukuki Danışmanlık CTA Kartı */}
       <section className="py-16 md:py-24 px-[var(--spacing-gutter)] max-w-5xl mx-auto">
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[2.5rem] p-8 md:p-14 text-center flex flex-col items-center gap-6 shadow-2xl relative overflow-hidden border border-slate-700/60">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/15">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+        <div className="bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 text-center flex flex-col items-center gap-6 shadow-sm relative overflow-hidden border border-[var(--color-outline)]/60">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-700 dark:text-slate-300 text-xs font-bold border border-slate-200 dark:border-white/10">
+            <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">verified</span>
             <span>SIFIR HUKUKİ RİSK & %100 ŞEFFAFLIK</span>
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-black max-w-2xl leading-tight">
+          <h2 className="text-2xl md:text-4xl font-black max-w-2xl leading-tight text-[var(--color-primary)]">
             Sitenizin Yönetimini Kurumsal ve Yasal Güvenceye Alın
           </h2>
 
-          <p className="text-xs md:text-sm text-slate-300 font-light max-w-xl leading-relaxed">
+          <p className="text-xs md:text-sm text-[var(--color-secondary)] font-light max-w-xl leading-relaxed">
             Aidat icra takiplerinden 5188 güvenlik protokollerine, asansör teknik denetiminden şeffaf işletme projesine kadar tüm süreçlerinizi yönetiyoruz.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
             <Link
               href="/teklif-al"
-              className="bg-white text-slate-950 hover:bg-slate-100 font-extrabold text-xs md:text-sm py-3.5 px-7 rounded-2xl shadow-lg transition-all active:scale-95 flex items-center gap-2"
+              className="bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-extrabold text-xs md:text-sm py-3.5 px-7 rounded-2xl shadow-md transition-all active:scale-95 flex items-center gap-2"
             >
               <span>Ücretsiz Keşif & Teklif İsteyin</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
@@ -321,7 +319,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
 
             <Link
               href="/hesaplayici"
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/15 font-bold text-xs md:text-sm py-3.5 px-6 rounded-2xl transition-all active:scale-95 flex items-center gap-2"
+              className="bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] text-[var(--color-primary)] border border-[var(--color-outline)]/60 font-bold text-xs md:text-sm py-3.5 px-6 rounded-2xl transition-all active:scale-95 flex items-center gap-2"
             >
               <span className="material-symbols-outlined text-sm" aria-hidden="true">calculate</span>
               <span>Aidat Bütçesi Simüle Et</span>

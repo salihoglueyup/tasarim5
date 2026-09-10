@@ -106,10 +106,10 @@ export default function ChecklistAuditSeo({
     <>
       <JsonLd data={schema} />
       <div
-        className={`bg-slate-50/90 dark:bg-zinc-900/90 border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-sm my-8 ${className}`}
+        className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 md:p-8 shadow-sm my-8 ${className}`}
       >
         {/* Başlık ve İlerleme */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 dark:border-white/10 pb-6 mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-outline)]/40 pb-6 mb-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
               İnteraktif Denetim Aracı
@@ -123,13 +123,13 @@ export default function ChecklistAuditSeo({
           </div>
 
           {/* İlerleme Rozeti */}
-          <div className="bg-white dark:bg-zinc-800 p-3.5 rounded-2xl border border-slate-200/60 dark:border-white/5 shadow-xs flex items-center gap-3">
+          <div className="bg-[var(--color-surface-variant)] p-3.5 rounded-2xl border border-[var(--color-outline)]/60 shadow-xs flex items-center gap-3">
             <div className="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-black text-sm">
               %{progressPercent}
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Tamamlanma</span>
-              <span className="text-xs font-bold text-slate-900 dark:text-white">
+              <span className="text-[10px] uppercase font-bold text-[var(--color-tertiary)] block">Tamamlanma</span>
+              <span className="text-xs font-bold text-[var(--color-primary)]">
                 {checkedIds.length} / {items.length} Madde
               </span>
             </div>
@@ -155,7 +155,7 @@ export default function ChecklistAuditSeo({
                 className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3.5 ${
                   isChecked
                     ? 'bg-emerald-500/5 border-emerald-500/30 dark:bg-emerald-950/20'
-                    : 'bg-white dark:bg-zinc-800/60 border-slate-200/70 dark:border-white/5 hover:border-slate-300'
+                    : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 hover:border-slate-300'
                 }`}
               >
                 <div className="mt-0.5 shrink-0">
@@ -174,7 +174,7 @@ export default function ChecklistAuditSeo({
 
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-700 text-slate-600 dark:text-slate-300">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/40">
                       {item.category}
                     </span>
                     {item.isLegalRequirement && (
@@ -186,13 +186,13 @@ export default function ChecklistAuditSeo({
                   <h4
                     className={`text-sm font-bold transition-all ${
                       isChecked
-                        ? 'text-slate-400 dark:text-slate-500 line-through'
-                        : 'text-slate-900 dark:text-white'
+                        ? 'text-[var(--color-tertiary)] line-through'
+                        : 'text-[var(--color-primary)]'
                     }`}
                   >
                     {item.title}
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-light mt-1 leading-relaxed">
+                  <p className="text-xs text-[var(--color-secondary)] font-light mt-1 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -202,12 +202,12 @@ export default function ChecklistAuditSeo({
         </div>
 
         {/* Eylem Kutusu */}
-        <div className="mt-8 pt-6 border-t border-slate-200/80 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-zinc-800 p-5 rounded-2xl border border-slate-100 dark:border-white/5">
+        <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/40 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[var(--color-surface-variant)] p-5 rounded-2xl border border-[var(--color-outline)]/60">
           <div>
-            <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+            <h4 className="text-sm font-bold text-[var(--color-primary)]">
               Eksikleriniz mi var? Yasal riskleri sıfırlayalım.
             </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-light mt-0.5">
+            <p className="text-xs text-[var(--color-secondary)] font-light mt-0.5">
               Alo Yönetim uzmanları siteniz için ücretsiz durum tespiti ve işletme projesi denetimi yapar.
             </p>
           </div>

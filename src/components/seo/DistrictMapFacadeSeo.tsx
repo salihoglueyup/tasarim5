@@ -62,7 +62,7 @@ export default function DistrictMapFacadeSeo({
   return (
     <div
       ref={containerRef}
-      className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-6 md:p-8 shadow-sm overflow-hidden"
+      className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 md:p-8 shadow-sm overflow-hidden"
     >
       {/* Top Header Information */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
@@ -124,7 +124,7 @@ export default function DistrictMapFacadeSeo({
             referrerPolicy="no-referrer-when-downgrade"
           />
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 select-none">
+          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-slate-50 dark:bg-[var(--color-surface-variant)] select-none">
             <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 ring-8 ring-amber-500/5 shadow-inner">
               <span className="material-symbols-outlined text-3xl animate-bounce" aria-hidden="true">map</span>
             </div>

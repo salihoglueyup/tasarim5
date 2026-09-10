@@ -82,8 +82,8 @@ export async function generateMetadata({
     lang,
     ogType: 'article',
     ogImageType: 'article',
-    datePublished: post.datePublished.toISOString(),
-    dateModified: post.dateModified?.toISOString() ?? post.datePublished.toISOString(),
+    datePublished: new Date(post.datePublished).toISOString(),
+    dateModified: new Date(post.dateModified || post.datePublished).toISOString(),
     authorName: post.author?.name ?? 'Alo Yönetim',
     keywords: parseTags(post.tags),
   });
@@ -283,8 +283,8 @@ export default async function BlogDetail({
       description: post.description,
       path,
       image: post.image || undefined,
-      datePublished: post.datePublished.toISOString(),
-      dateModified: post.dateModified.toISOString(),
+      datePublished: new Date(post.datePublished).toISOString(),
+      dateModified: new Date(post.dateModified || post.datePublished).toISOString(),
       section: category?.name,
       keywords: tags,
       timeRequired: `PT${minutes}M`,
@@ -381,7 +381,7 @@ export default async function BlogDetail({
               priority
               injectSchema={true}
               author={author?.name ?? 'Alo Yönetim'}
-              datePublished={post.datePublished.toISOString()}
+              datePublished={new Date(post.datePublished).toISOString()}
             />
           </div>
 

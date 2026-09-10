@@ -10,10 +10,10 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const VARIANT_STYLES = {
-  glass: "bg-slate-50/90 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-700/50 shadow-sm",
-  glow: "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-blue-500/10 dark:hover:shadow-white/5",
-  outline: "bg-transparent border border-slate-300 dark:border-slate-700",
-  flat: "bg-slate-100 dark:bg-slate-800 border border-transparent",
+  glass: "bg-[var(--color-surface)]/90 backdrop-blur-xl border border-[var(--color-outline)]/60 shadow-sm",
+  glow: "bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-sm hover:shadow-xl dark:hover:shadow-black/50 hover:border-slate-400/60 dark:hover:border-white/20",
+  outline: "bg-transparent border border-[var(--color-outline)]/80 dark:border-white/15",
+  flat: "bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40",
 };
 
 /**

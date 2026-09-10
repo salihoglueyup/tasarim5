@@ -24,12 +24,12 @@ export const Input: React.FC<InputProps> = ({
       )}
       <div className="relative flex items-center">
         {icon && (
-          <span className="material-symbols-outlined text-gray-400 absolute left-4 text-xl pointer-events-none" aria-hidden="true">
+          <span className="material-symbols-outlined text-[var(--color-tertiary)] absolute left-4 text-xl pointer-events-none" aria-hidden="true">
             {icon}
           </span>
         )}
         <input
-          className={`w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-slate-900 dark:text-white text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:border-slate-900 dark:focus:border-white focus:ring-2 focus:ring-slate-900/20 dark:focus:ring-white/20 transition-all ${
+          className={`w-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] placeholder:text-[var(--color-tertiary)] text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 transition-all ${
             icon ? 'pl-11' : ''
           } ${error ? 'border-rose-500' : ''} ${className}`}
           {...props}

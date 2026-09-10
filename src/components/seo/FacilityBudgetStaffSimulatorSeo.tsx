@@ -199,58 +199,58 @@ export default function FacilityBudgetStaffSimulatorSeo() {
         </div>
 
         {/* Right Col: Calculated Results Card (6 cols) */}
-        <div className="lg:col-span-6 flex flex-col gap-5 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white shadow-xl">
-          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+        <div className="lg:col-span-6 flex flex-col gap-5 p-6 sm:p-8 rounded-[2.5rem] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] shadow-sm">
+          <div className="flex items-center justify-between border-b border-[var(--color-outline)]/40 pb-4">
             <div>
-              <span className="text-xs text-slate-400 uppercase tracking-wider font-bold">Önerilen Norm Kadro</span>
-              <h4 className="text-xl font-extrabold text-white">Toplam {calculations.totalStaff} Uzman Personel</h4>
+              <span className="text-xs text-[var(--color-secondary)] uppercase tracking-wider font-bold">Önerilen Norm Kadro</span>
+              <h4 className="text-xl font-extrabold text-[var(--color-primary)]">Toplam {calculations.totalStaff} Uzman Personel</h4>
             </div>
-            <div className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+            <div className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20">
               %{calculations.savingRatePercent} Tasarruf
             </div>
           </div>
 
           {/* 3 Staff Blocks */}
           <div className="grid grid-cols-3 gap-3">
-            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span className="material-symbols-outlined text-blue-400 text-2xl block mb-1" aria-hidden="true">shield_person</span>
-              <div className="text-xl sm:text-2xl font-black text-white">{calculations.securityStaff}</div>
-              <div className="text-[11px] text-slate-300 mt-0.5">5188 Güvenlik</div>
+            <div className="p-3.5 rounded-2xl bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-center">
+              <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl block mb-1" aria-hidden="true">shield_person</span>
+              <div className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">{calculations.securityStaff}</div>
+              <div className="text-[11px] text-[var(--color-secondary)] mt-0.5">5188 Güvenlik</div>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span className="material-symbols-outlined text-emerald-400 text-2xl block mb-1" aria-hidden="true">cleaning_services</span>
-              <div className="text-xl sm:text-2xl font-black text-white">{calculations.cleaningStaff}</div>
-              <div className="text-[11px] text-slate-300 mt-0.5">Temizlik Ekibi</div>
+            <div className="p-3.5 rounded-2xl bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-center">
+              <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl block mb-1" aria-hidden="true">cleaning_services</span>
+              <div className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">{calculations.cleaningStaff}</div>
+              <div className="text-[11px] text-[var(--color-secondary)] mt-0.5">Temizlik Ekibi</div>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span className="material-symbols-outlined text-amber-400 text-2xl block mb-1" aria-hidden="true">engineering</span>
-              <div className="text-xl sm:text-2xl font-black text-white">{calculations.technicalStaff}</div>
-              <div className="text-[11px] text-slate-300 mt-0.5">Teknik & Bakım</div>
+            <div className="p-3.5 rounded-2xl bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-center">
+              <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 text-2xl block mb-1" aria-hidden="true">engineering</span>
+              <div className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">{calculations.technicalStaff}</div>
+              <div className="text-[11px] text-[var(--color-secondary)] mt-0.5">Teknik & Bakım</div>
             </div>
           </div>
 
           {/* Estimated Monthly Dues & Annual Savings */}
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 space-y-3">
             <div className="flex items-center justify-between text-xs sm:text-sm">
-              <span className="text-slate-300">Tahmini Daire Başına Aidat:</span>
-              <span className="font-mono font-bold text-white text-base">
+              <span className="text-[var(--color-secondary)]">Tahmini Daire Başına Aidat:</span>
+              <span className="font-mono font-bold text-[var(--color-primary)] text-base">
                 ₺{calculations.baseDuesPerUnit.toLocaleString('tr-TR')} / Ay
               </span>
             </div>
             <div className="flex items-center justify-between text-xs sm:text-sm">
-              <span className="text-slate-300">Aylık Toplam İşletme Bütçesi:</span>
-              <span className="font-mono font-bold text-slate-200">
+              <span className="text-[var(--color-secondary)]">Aylık Toplam İşletme Bütçesi:</span>
+              <span className="font-mono font-bold text-[var(--color-primary)]">
                 ₺{calculations.monthlyTotalBudget.toLocaleString('tr-TR')}
               </span>
             </div>
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+            <div className="pt-3 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
               <div>
-                <span className="text-xs font-bold text-emerald-400 block">Alo Yönetim ile Yıllık Tasarruf:</span>
-                <span className="text-[11px] text-slate-400 font-light">Toplu satın alma + reaktif muafiyeti</span>
+                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 block">Alo Yönetim ile Yıllık Tasarruf:</span>
+                <span className="text-[11px] text-[var(--color-secondary)] font-light">Toplu satın alma + reaktif muafiyeti</span>
               </div>
-              <span className="font-mono font-black text-emerald-400 text-xl sm:text-2xl">
+              <span className="font-mono font-black text-emerald-600 dark:text-emerald-400 text-xl sm:text-2xl">
                 ~₺{calculations.annualSavings.toLocaleString('tr-TR')}
               </span>
             </div>
@@ -259,7 +259,7 @@ export default function FacilityBudgetStaffSimulatorSeo() {
           {/* Action Button */}
           <Link
             href="/teklif-al"
-            className="w-full py-4 rounded-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm text-center transition-all shadow-lg hover:shadow-blue-500/25 flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm text-center transition-all shadow-md flex items-center justify-center gap-2 group cursor-pointer"
           >
             <span>Bu Kadro & Bütçe İçin Resmi Keşif İste</span>
             <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>

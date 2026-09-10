@@ -462,18 +462,18 @@ export default function FacilityOperationalPillarsSeo() {
           </div>
 
           {/* Bottom Action Strip */}
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+          <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div className="flex items-center gap-3 text-center sm:text-left">
-              <span className="material-symbols-outlined text-3xl text-blue-400 shrink-0 hidden sm:block" aria-hidden="true">verified_user</span>
+              <span className="material-symbols-outlined text-3xl text-blue-600 dark:text-blue-400 shrink-0 hidden sm:block" aria-hidden="true">verified_user</span>
               <div>
                 <h4 className="font-bold text-sm sm:text-base">{current.tabLabel} Projeniz İçin 48 Saatte Şeffaf Teklif</h4>
-                <p className="text-xs text-slate-300 font-light mt-0.5">Ücretsiz yerinde keşif, risk analizi ve tasarruf fizibilitesi hazırlıyoruz.</p>
+                <p className="text-xs text-[var(--color-secondary)] font-light mt-0.5">Ücretsiz yerinde keşif, risk analizi ve tasarruf fizibilitesi hazırlıyoruz.</p>
               </div>
             </div>
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <Link
                 href="/teklif-al"
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-400 text-white font-bold text-xs sm:text-sm text-center transition-all shadow-md cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm text-center transition-all shadow-sm cursor-pointer"
               >
                 Ücretsiz Keşif Randevusu Al
               </Link>

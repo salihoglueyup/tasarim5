@@ -84,9 +84,9 @@ export default function InteractiveFacilityExplorer() {
   const [activeHotspot, setActiveHotspot] = useState<Hotspot>(FACILITY_HOTSPOTS[0]);
 
   return (
-    <section id="facility-explorer" className="relative py-20 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-900 dark:text-white rounded-[2.5rem] border border-slate-200/80 dark:border-slate-800 shadow-xl overflow-hidden my-12">
+    <section id="facility-explorer" className="relative py-20 bg-slate-50 dark:bg-[var(--color-surface-variant)] text-[var(--color-primary)] rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm overflow-hidden my-12">
       {/* Arka Plan Işık Efektleri */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-slate-400/5 dark:bg-white/[0.02] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -96,10 +96,10 @@ export default function InteractiveFacilityExplorer() {
             <span className="material-symbols-outlined text-sm" aria-hidden="true">apartment</span>
             İnteraktif Akıllı Tesis Keşfi
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-primary)] tracking-tight">
             Modern Bir Rezidansta <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-100 dark:to-slate-400">Neleri Yönetiyoruz?</span>
           </h2>
-          <p className="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base font-light">
+          <p className="mt-4 text-[var(--color-secondary)] text-sm sm:text-base font-light">
             Binanın üzerindeki noktalara tıklayarak nizamiye güvenliğinden kazan dairesine, yüzme havuzundan dijital muhasebeye sunduğumuz kurumsal standartları keşfedin.
           </p>
         </div>
@@ -108,17 +108,17 @@ export default function InteractiveFacilityExplorer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Sol Kolon: İnteraktif Tesis Maketi / Haritası */}
-          <div className="lg:col-span-7 relative bg-white dark:bg-slate-900/80 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-8 min-h-[420px] sm:min-h-[500px] flex items-center justify-center overflow-hidden shadow-xl group">
+          <div className="lg:col-span-7 relative bg-[var(--color-surface)] rounded-[2.5rem] border border-[var(--color-outline)]/60 p-6 sm:p-8 min-h-[420px] sm:min-h-[500px] flex items-center justify-center overflow-hidden shadow-sm group">
             
             {/* Tesis İllüstrasyon Çerçevesi */}
-            <div className="relative w-full max-w-md h-80 sm:h-96 border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center p-6 bg-slate-50/60 dark:bg-slate-950/60 backdrop-blur-sm">
-              <span className="material-symbols-outlined text-7xl sm:text-8xl text-slate-300 dark:text-slate-700/60 mb-3 animate-pulse" aria-hidden="true">
+            <div className="relative w-full max-w-md h-80 sm:h-96 border-2 border-dashed border-[var(--color-outline)] rounded-2xl flex flex-col items-center justify-center p-6 bg-[var(--color-surface-variant)]/60 backdrop-blur-sm">
+              <span className="material-symbols-outlined text-7xl sm:text-8xl text-slate-300 dark:text-slate-600 mb-3 animate-pulse" aria-hidden="true">
                 domain
               </span>
-              <div className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest text-center">
+              <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest text-center">
                 Alo Yönetim Entegre Tesis Modeli (360°)
               </div>
-              <div className="text-[11px] text-slate-400 dark:text-slate-500 mt-1 text-center max-w-xs">
+              <div className="text-[11px] text-[var(--color-secondary)] mt-1 text-center max-w-xs">
                 Keşfetmek istediğiniz hizmet noktasını seçin
               </div>
 
@@ -133,7 +133,7 @@ export default function InteractiveFacilityExplorer() {
                     className={`absolute -translate-x-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full transition-all duration-300 flex items-center justify-center ${
                       isActive
                         ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 scale-125 shadow-xl ring-4 ring-slate-900/20 dark:ring-white/20 z-20 font-bold'
-                        : 'bg-white dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:scale-110 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 z-10 shadow-sm'
+                        : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/80 hover:scale-110 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 z-10 shadow-sm'
                     }`}
                     title={spot.title}
                   >
@@ -158,7 +158,7 @@ export default function InteractiveFacilityExplorer() {
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     activeHotspot.id === spot.id
                       ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-extrabold'
-                      : 'bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:text-white'
+                      : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:bg-[var(--color-outline)]/40 dark:hover:text-white'
                   }`}
                 >
                   {spot.category.split(' ')[0]}
@@ -168,40 +168,40 @@ export default function InteractiveFacilityExplorer() {
           </div>
 
           {/* Sağ Kolon: Aktif Hizmet Detay Kartı */}
-          <div className="lg:col-span-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="lg:col-span-5 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-8 shadow-sm space-y-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="p-3 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-500/20 flex items-center justify-center">
+                <span className="p-3 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl" aria-hidden="true">{activeHotspot.icon}</span>
                 </span>
                 <div>
-                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                     {activeHotspot.category}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                  <h3 className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">
                     {activeHotspot.title}
                   </h3>
                 </div>
               </div>
-              <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold border border-slate-200 dark:border-slate-700">
+              <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-slate-200 text-xs font-bold border border-slate-200 dark:border-white/10">
                 {activeHotspot.badge}
               </span>
             </div>
 
-            <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+            <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
               {activeHotspot.description}
             </p>
 
             {/* SLA Taahhüdü */}
-            <div className="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 shadow-2xs">
-              <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0" aria-hidden="true">
+            <div className="p-4 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/60 flex items-center gap-3 shadow-2xs">
+              <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl flex-shrink-0" aria-hidden="true">
                 verified_user
               </span>
               <div>
-                <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                   Kurumsal Hizmet Seviyesi Taahhüdü (SLA)
                 </div>
-                <div className="text-sm font-extrabold text-slate-900 dark:text-white">
+                <div className="text-sm font-extrabold text-[var(--color-primary)]">
                   {activeHotspot.sla}
                 </div>
               </div>
@@ -209,12 +209,12 @@ export default function InteractiveFacilityExplorer() {
 
             {/* 4 Ana Özellik */}
             <div className="space-y-2">
-              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <div className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                 Operasyonel Standartlar:
               </div>
               <div className="grid grid-cols-1 gap-2">
                 {activeHotspot.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-700 dark:text-slate-200 p-2.5 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-2xs">
+                  <div key={idx} className="flex items-center gap-2.5 text-xs text-[var(--color-primary)] p-2.5 bg-[var(--color-surface-variant)] rounded-xl border border-[var(--color-outline)]/60 shadow-2xs">
                     <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm" aria-hidden="true">
                       check_circle
                     </span>

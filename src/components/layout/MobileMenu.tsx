@@ -121,14 +121,14 @@ export default function MobileMenu({
 
       {/* Faz 97: dvh kullanımı ile mobil adres çubuğu açılıp kapandığında zıplamayan 120 FPS çekmece */}
       <div 
-        className="fixed inset-y-0 right-0 w-full max-w-sm h-[100dvh] max-h-[100dvh] bg-white dark:bg-slate-950 backdrop-blur-2xl shadow-2xl flex flex-col pt-24 px-6 overflow-y-auto pb-12 transition-transform duration-300 ease-out transform-gpu will-change-transform animate-in slide-in-from-right relative"
+        className="fixed inset-y-0 right-0 w-full max-w-sm h-[100dvh] max-h-[100dvh] bg-[var(--color-surface)] backdrop-blur-2xl shadow-2xl border-l border-[var(--color-outline)]/60 flex flex-col pt-24 px-6 overflow-y-auto pb-12 transition-transform duration-300 ease-out transform-gpu will-change-transform animate-in slide-in-from-right relative"
       >
         {/* Faz 222: Menü Kapatma Butonu */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Menüyü Kapat"
-          className="absolute top-6 right-6 p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
+          className="absolute top-6 right-6 p-2 rounded-xl text-[var(--color-tertiary)] hover:text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:opacity-80 transition-colors cursor-pointer"
         >
           <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
         </button>
@@ -137,18 +137,18 @@ export default function MobileMenu({
           {menuItems.map((item) => (
             <div 
               key={item.nameKey}
-              className="border-b border-slate-200 dark:border-white/10"
+              className="border-b border-[var(--color-outline)]/40"
             >
               {item.subItems ? (
                 <div className="flex flex-col">
                   <button 
                     type="button"
                     onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.nameKey ? null : item.nameKey)}
-                    className="flex items-center justify-between py-4 text-xl font-bold text-slate-900 dark:text-white cursor-pointer"
+                    className="flex items-center justify-between py-4 text-xl font-bold text-[var(--color-primary)] cursor-pointer"
                     aria-expanded={expandedMobileMenu === item.nameKey}
                   >
                     <span>{t(item.nameKey)}</span>
-                    <span className={`material-symbols-outlined transition-transform duration-200 transform-gpu ${expandedMobileMenu === item.nameKey ? 'rotate-180' : ''}`}>
+                    <span className={`material-symbols-outlined transition-transform duration-200 transform-gpu text-[var(--color-tertiary)] ${expandedMobileMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)]' : ''}`}>
                       expand_more
                     </span>
                   </button>
@@ -160,13 +160,13 @@ export default function MobileMenu({
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="flex flex-col gap-4 pb-6 pl-4 border-l-2 border-slate-200 dark:border-white/10 ml-2">
+                      <div className="flex flex-col gap-4 pb-6 pl-4 border-l-2 border-[var(--color-outline)]/60 ml-2">
                         {item.subItems.map((sub) => (
                           <Link 
                             key={sub.nameKey} 
                             href={getLocalizedPath(sub.path)} 
                             onClick={onClose}
-                            className="text-lg text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white flex items-center gap-3 font-medium transition-colors"
+                            className="text-lg text-[var(--color-secondary)] hover:text-[var(--color-primary)] flex items-center gap-3 font-medium transition-colors"
                           >
                             {sub.icon && <span className="material-symbols-outlined text-[18px] opacity-50" aria-hidden="true">{sub.icon}</span>}
                             <span>{t(sub.nameKey)}</span>
@@ -180,7 +180,7 @@ export default function MobileMenu({
                 <Link 
                   href={getLocalizedPath(item.path!)} 
                   onClick={onClose}
-                  className="block py-4 text-xl font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="block py-4 text-xl font-bold text-[var(--color-primary)] hover:opacity-80 transition-opacity"
                 >
                   {t(item.nameKey)}
                 </Link>
@@ -190,8 +190,8 @@ export default function MobileMenu({
         </nav>
 
         {/* Mobil Dil Seçimi Barı */}
-        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10">
-          <span className="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">
+        <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/40">
+          <span className="block text-xs font-bold text-[var(--color-tertiary)] uppercase tracking-widest mb-3">
             Dil Seçimi / Language
           </span>
           <div className="grid grid-cols-4 gap-2">
@@ -207,8 +207,8 @@ export default function MobileMenu({
                 onClick={() => handleMobileLanguageChange(l.code as 'tr' | 'en' | 'ru' | 'ar')}
                 className={`py-2.5 px-2 rounded-xl text-xs font-extrabold flex flex-col items-center gap-1 border transition-all cursor-pointer ${
                   language === l.code
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-md'
-                    : 'bg-white/80 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-surface)] border-[var(--color-primary)] shadow-md'
+                    : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/60'
                 }`}
               >
                 <span className="text-base">{l.flag}</span>
@@ -219,19 +219,19 @@ export default function MobileMenu({
         </div>
 
         {/* Mobil Tema Değiştirici */}
-        <div className="mt-4 flex items-center justify-between p-3 rounded-2xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+        <div className="mt-4 flex items-center justify-between p-3 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
           <div className="flex items-center gap-2.5">
-            <span className="material-symbols-outlined text-slate-700 dark:text-slate-200" aria-hidden="true">
+            <span className="material-symbols-outlined text-[var(--color-primary)]" aria-hidden="true">
               {isDarkMode ? 'dark_mode' : 'light_mode'}
             </span>
-            <span className="text-xs font-bold text-slate-900 dark:text-white">
+            <span className="text-xs font-bold text-[var(--color-primary)]">
               {isDarkMode ? 'Koyu Tema (Aktif)' : 'Açık Tema (Aktif)'}
             </span>
           </div>
           <button
             type="button"
             onClick={toggleTheme}
-            className="px-3.5 py-1.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-extrabold shadow-sm transition-transform active:scale-95 cursor-pointer"
+            className="px-3.5 py-1.5 rounded-xl bg-[var(--color-primary)] text-[var(--color-surface)] text-xs font-extrabold shadow-sm transition-transform active:scale-95 cursor-pointer"
           >
             {isDarkMode ? 'Açık Mod' : 'Koyu Mod'}
           </button>
@@ -242,7 +242,7 @@ export default function MobileMenu({
           <button 
             type="button"
             onClick={() => { onClose(); openQuoteModal(); }}
-            className="flex items-center justify-center gap-2 w-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-lg font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform cursor-pointer"
+            className="flex items-center justify-center gap-2 w-full bg-[var(--color-primary)] text-[var(--color-surface)] text-lg font-bold py-4 rounded-2xl shadow-lg active:scale-95 transition-transform cursor-pointer"
           >
             <span>{t('btn_get_quote')}</span>
             <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>

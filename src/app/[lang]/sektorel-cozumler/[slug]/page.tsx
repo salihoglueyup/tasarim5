@@ -173,13 +173,10 @@ export default async function SectoralSolutionDetailPage({
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, pageLd, authorityLd, calculateActionLd, rfpDocumentLd]} />
 
-      <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
-        <Breadcrumbs items={breadcrumbs} />
-      </div>
-
       <PageHeader
         title={solution.title}
         description={solution.kpiTag ? `Hedeflenen KPI: ${solution.kpiTag}` : 'Sektörünüze özel entegre tesis yönetimi çözümleri.'}
+        breadcrumbs={breadcrumbs}
       />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-7xl mx-auto space-y-12">
@@ -238,30 +235,30 @@ export default async function SectoralSolutionDetailPage({
 
           {/* Sağ Kolon: CTA & İletişim Kartı */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-3xl p-8 shadow-xl border border-slate-800 space-y-6">
-              <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider inline-block">
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 shadow-sm space-y-6">
+              <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider inline-block">
                 Ücretsiz Keşif & Analiz
               </span>
-              <h3 className="text-2xl font-bold">
+              <h3 className="text-2xl font-bold text-[var(--color-primary)]">
                 {solution.title} İçin Profesyonel Teklif Alın
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed font-light">
+              <p className="text-sm text-[var(--color-secondary)] leading-relaxed font-light">
                 Tesisinizin büyüklüğü, personel ihtiyacı ve teknik altyapısına özel 48 saat içinde şeffaf bütçe ve yönetim planı sunalım.
               </p>
 
               <div className="pt-2">
                 <Link
                   href="/teklif-al"
-                  className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-950 font-bold py-4 rounded-2xl transition-all shadow-lg hover:scale-105 active:scale-95 text-sm"
+                  className="w-full flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 rounded-2xl transition-all shadow-md hover:scale-102 active:scale-95 text-sm"
                 >
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">description</span>
                   <span>Ücretsiz Teklif İste</span>
                 </Link>
               </div>
 
-              <div className="border-t border-white/10 pt-4 flex items-center justify-between text-xs text-slate-400">
+              <div className="border-t border-[var(--color-outline)]/40 pt-4 flex items-center justify-between text-xs text-[var(--color-secondary)]">
                 <span>ISO 41001 & 5188 Güvencesi</span>
-                <span className="text-emerald-400 font-semibold">48 Saatte Yanıt</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">48 Saatte Yanıt</span>
               </div>
             </div>
 

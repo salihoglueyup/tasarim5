@@ -61,11 +61,11 @@ function checkFile(relativePath, budgetKB) {
 console.log('--- Kritik LCP ve Fold-Üstü Öğeler ---');
 checkFile('images/hero-poster-v5.webp', BUDGETS_KB['hero-poster-v5.webp']);
 checkFile('video/brand-film.mp4', BUDGETS_KB['brand-film.mp4']);
-checkFile('images/hero-mockup.webp', 200);
 
 console.log('\n--- Marka ve İkon Varlıkları ---');
 checkFile('favicon.ico', BUDGETS_KB['favicon.ico']);
-checkFile('icon.svg', 50);
+checkFile('apple-touch-icon.png', 50);
+checkFile('images/logos/new-icon.webp', 120);
 
 console.log(`\n${COLORS.bold}Denetlenen Toplam Boyut: ${totalSizeKB.toFixed(2)} KB${COLORS.reset}`);
 

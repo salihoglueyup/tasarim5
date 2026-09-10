@@ -76,27 +76,27 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Left Column: Alo Yönetim */}
-        <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-950 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-500/30 flex flex-col justify-between gap-6">
+        <div className="bg-[var(--color-surface)] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between gap-6">
           <div>
-            <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-6">
+            <div className="flex items-center justify-between border-b border-[var(--color-outline)]/60 pb-6 mb-6">
               <div>
-                <h3 className="text-2xl font-bold text-slate-300">
+                <h3 className="text-2xl font-bold text-[var(--color-primary)]">
                   {t('home_comparison_left_title', 'Alo Yönetim')}
                 </h3>
-                <span className="text-xs text-emerald-400 font-medium">
+                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
                   {t('home_comparison_left_sub', 'Kurumsal & Dijital & %100 Şeffaf')}
                 </span>
               </div>
-              <span className="material-symbols-outlined text-4xl text-emerald-400" aria-hidden="true">verified</span>
+              <span className="material-symbols-outlined text-4xl text-emerald-500" aria-hidden="true">verified</span>
             </div>
 
             <div className="flex flex-col gap-4">
               {DEFAULT_ROWS.map((row, i) => (
-                <div key={i} className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
-                  <span className="material-symbols-outlined text-emerald-400 shrink-0 mt-0.5 text-lg" aria-hidden="true">check_circle</span>
+                <div key={i} className="flex items-start gap-3 bg-emerald-50/40 dark:bg-emerald-950/20 p-4 rounded-2xl border border-emerald-200/50 dark:border-emerald-900/30">
+                  <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5 text-lg" aria-hidden="true">check_circle</span>
                   <div>
-                    <h4 className="font-bold text-white text-sm mb-1">{row.title}</h4>
-                    <p className="text-xs text-gray-300 font-light leading-relaxed">{row.alo}</p>
+                    <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{row.title}</h4>
+                    <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{row.alo}</p>
                   </div>
                 </div>
               ))}
@@ -105,7 +105,7 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
 
           <Link 
             href={`${basePath}/teklif-al`} 
-            className="w-full bg-white hover:bg-slate-100 text-slate-950 font-extrabold py-4 rounded-xl text-center transition-colors shadow-md text-sm mt-4 inline-block"
+            className="w-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-extrabold py-4 rounded-xl text-center transition-colors shadow-md text-sm mt-4 inline-block"
           >
             {t('home_comparison_btn', 'Siteniz İçin Profesyonel Teklif Alın →')}
           </Link>

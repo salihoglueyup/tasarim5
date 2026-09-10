@@ -176,11 +176,11 @@ export default function GuvenlikYonetimiClient() {
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">verified_user</span>
               <span>Özet Rehber: 5188 Lisanslı Özel Güvenlik Nedir?</span>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
               5188 Sayılı Kanun & Valilik Ruhsatı
             </span>
           </div>
@@ -455,7 +455,7 @@ export default function GuvenlikYonetimiClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
                 <span className="material-symbols-outlined text-[16px] text-blue-600 dark:text-blue-400" aria-hidden="true">policy</span>
                 T.C. İçişleri Bakanlığı & Valilik Süreci
               </div>
@@ -466,7 +466,7 @@ export default function GuvenlikYonetimiClient() {
                 Sitenizde yasal olarak özel güvenlik istihdam edilebilmesi için İl Özel Güvenlik Komisyonu nezdinde tamamlanması zorunlu 5 resmi adım.
               </p>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700/60 shrink-0">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1.5 rounded-lg border border-[var(--color-outline)]/60 shrink-0">
               Ortalama Süre: 15-21 İş Günü
             </span>
           </div>
@@ -517,47 +517,46 @@ export default function GuvenlikYonetimiClient() {
         </div>
 
         {/* Yönetim Kurulu Kıdem Tazminatı & İş Hukuku Sorumluluk Kalkanı */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
-              <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">verified_user</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="material-symbols-outlined text-[16px] text-emerald-500" aria-hidden="true">verified_user</span>
               4857 Sayılı İş Kanunu Güvencesi
             </div>
-            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight mb-4">
-              Site Yönetimleri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Kıdem Tazminatı & Sorumluluk Kalkanı</span>
+            <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
+              Site Yönetimleri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-cyan-400">Kıdem Tazminatı & Sorumluluk Kalkanı</span>
             </h2>
-            <p className="text-slate-300 text-sm md:text-base max-w-3xl leading-relaxed mb-8">
+            <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
               Kendi bünyesinde doğrudan güvenlik veya bekçi çalıştıran sitelerde kat malikleri; biriken yüz binlerce liralık kıdem tazminatı, fazla mesai davaları ve iş kazası rücularında şahsi mal varlıklarıyla müteselsilen sorumludur. Alo Yönetim ile bu risklerin tamamı sıfırlanır.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">payments</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">%100 Alo Yönetim Bordro Güvencesi</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">%100 Alo Yönetim Bordro Güvencesi</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Tüm güvenlik personeli şirketimizin resmi bordrosundadır. Kıdem, ihbar, yıllık izin ve SGK yükümlülükleri tamamen şirketimize aittir.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">health_and_safety</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">6331 İSG & İş Kazası Kalkanı</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">6331 İSG & İş Kazası Kalkanı</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   İşyeri hekimi, İSG uzmanı, risk analizi ve zorunlu eğitimler şirketimiz koordinasyonundadır; yöneticilere cezai dava açılamaz.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">verified</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">Zorunlu Mali Mesuliyet Sigortası</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Zorunlu Mali Mesuliyet Sigortası</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   5188 sayılı Kanun Madde 21 gereğince her personel için üçüncü şahıslara verilebilecek zararlara karşı kapsamlı sigorta teminatı sağlanır.
                 </p>
               </div>

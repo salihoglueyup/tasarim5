@@ -165,14 +165,14 @@ export default async function DistrictPage({
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-xl">
-            <div className="text-4xl font-black text-slate-400">{district.managedProjects}+</div>
+          <div className="lg:col-span-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-sm">
+            <div className="text-4xl font-black text-slate-800 dark:text-slate-200">{district.managedProjects}+</div>
             <div className="font-semibold">{district.name}&apos;de yönetilen proje</div>
-            <p className="text-xs text-gray-300 font-light border-t border-white/10 pt-4">
+            <p className="text-xs text-[var(--color-secondary)] font-light border-t border-[var(--color-outline)]/40 pt-4">
               {district.side} Yakası · ~{Math.round(district.population / 1000)} bin nüfus ·{' '}
               {district.neighborhoods.length} öne çıkan mahalle
             </p>
-            <QuoteCtaButton className="mt-2 bg-white text-slate-950 font-bold py-3 px-5 rounded-xl text-center hover:bg-slate-100 transition-colors shadow text-sm">
+            <QuoteCtaButton className="mt-2 bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3 px-5 rounded-xl text-center hover:opacity-90 transition-opacity shadow text-sm">
               {district.name} İçin Teklif Al
             </QuoteCtaButton>
           </div>
@@ -284,50 +284,49 @@ export default async function DistrictPage({
         </div>
 
         {/* İlçe Operasyonel Mükemmellik & Yasal Standartlar */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-800 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="relative z-10 space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 bg-white/10 px-3.5 py-1 rounded-full border border-white/10">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-surface-variant)] px-3.5 py-1 rounded-full border border-[var(--color-outline)]/60">
                   {district.name} Bölge Standartları
                 </span>
-                <h2 className="text-2xl md:text-3xl font-black text-white mt-2">
-                  {district.name} Genelinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-cyan-400">Üçlü Yasal Koruma Kalkanı</span>
+                <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mt-2">
+                  {district.name} Genelinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 dark:from-blue-400 dark:via-emerald-400 dark:to-cyan-400">Üçlü Yasal Koruma Kalkanı</span>
                 </h2>
               </div>
-              <span className="text-xs font-mono text-slate-300 bg-white/5 border border-white/10 px-4 py-2 rounded-xl shrink-0">
+              <span className="text-xs font-mono text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl shrink-0">
                 {district.managedProjects}+ Proje Güvencesi
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">gavel</span>
                 </div>
-                <h3 className="text-base font-bold text-white">KMK 634 & Hızlı İcra Takibi</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-base font-bold text-[var(--color-primary)]">KMK 634 & Hızlı İcra Takibi</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   {district.name}&apos;deki sitelerde geciken aidat alacakları için noter ihtarnamesi, ilamsız icra ve aylık %5 gecikme tazminatının tahsili.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">verified_user</span>
                 </div>
-                <h3 className="text-base font-bold text-white">5188 Valilik İzinli Güvenlik</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-base font-bold text-[var(--color-primary)]">5188 Valilik İzinli Güvenlik</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   İlçe Emniyet Müdürlüğü koordinasyonu, 7/24 RFID devriye tur kontrolü ve yöneticilere %100 kıdem tazminatı koruma kalkanı.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">engineering</span>
                 </div>
-                <h3 className="text-base font-bold text-white">A Tipi Yeşil Etiket & 45 Dk SLA</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-base font-bold text-[var(--color-primary)]">A Tipi Yeşil Etiket & 45 Dk SLA</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   {district.name} sınırları içinde asansör muayenelerinde %100 yeşil etiket tescili ve acil durumlarda 45 dakika içinde yerinde müdahale.
                 </p>
               </div>
@@ -387,19 +386,19 @@ export default async function DistrictPage({
         />
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">
-          <h2 className="text-3xl font-extrabold">{district.name} için ücretsiz teklif alın</h2>
-          <p className="text-gray-300 font-light max-w-xl">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-sm">
+          <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">{district.name} için ücretsiz teklif alın</h2>
+          <p className="text-[var(--color-secondary)] font-light max-w-xl">
             {district.name}&apos;deki sitenizde ücretsiz keşif yapalım, 48 saat içinde şeffaf teklifinizi
             sunalım.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <QuoteCtaButton className="bg-white text-slate-950 font-bold py-3.5 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-lg">
+            <QuoteCtaButton className="bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3.5 px-8 rounded-xl hover:opacity-90 transition-opacity shadow-md">
               Ücretsiz Teklif Al
             </QuoteCtaButton>
             <a
               href={`tel:${ORG_PHONE}`}
-              className="border border-white/30 text-white font-bold py-3.5 px-8 rounded-xl hover:bg-white/10 transition-colors"
+              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3.5 px-8 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors"
             >
               Hemen Ara: 0216 550 48 48
             </a>
@@ -407,18 +406,18 @@ export default async function DistrictPage({
         </div>
 
         {/* Wave 56: ISO 41001 Mega Hub Entegrasyon Bloğu */}
-        <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/10">
+        <div className="p-8 rounded-[2.5rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[15px]" aria-hidden="true">hub</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[15px] text-blue-600 dark:text-blue-400" aria-hidden="true">hub</span>
               <span>İstanbul Merkezi Tesis Yönetim Hub Standardı</span>
             </div>
-            <h3 className="text-xl md:text-2xl font-bold">
+            <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)]">
               {district.name} Tesis & Site Yönetimi Operasyon Merkezi
             </h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
               {district.name} ilçesindeki tüm konut siteleri, rezidanslar ve ticari tesisler; Alo Yönetim&apos;in{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-blue-400 font-bold underline hover:text-blue-300">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-blue-600 dark:text-blue-400 font-bold underline hover:underline">
                 İstanbul Entegre Tesis Yönetimi
               </Link>{' '}
               merkezi yönetim protokolü, ISO 41001 kalite standartları, 5188 yasal güvenlik ve 15-25 dk acil mobil arıza SLA ağı ile kesintisiz yönetilmektedir.

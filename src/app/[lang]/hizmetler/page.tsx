@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.services_meta_title || 'Tesis Yönetimi ve Profesyonel Bina Yönetim Hizmetleri | Alo Yönetim';
+  const title = t.services_meta_title || 'Bina ve Tesis Yönetim Hizmetleri | Alo Yönetim';
   const description = t.services_meta_desc || 'İstanbul genelinde 5188 özel güvenlik, temizlik, teknik bakım, aidat icra takibi ve peyzaj dahil kurumsal tesis yönetim çözümleri.';
 
   return buildMetadata({

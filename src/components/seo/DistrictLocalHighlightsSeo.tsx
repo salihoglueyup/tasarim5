@@ -77,16 +77,16 @@ export default function DistrictLocalHighlightsSeo({
     <>
       <JsonLd data={schema} />
       <div
-        className={`bg-slate-50/90 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-sm ${className}`}
+        className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 md:p-8 shadow-sm ${className}`}
       >
         {/* Üst Başlık & İstatistikler */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-outline)]/40 pb-6 mb-6">
           <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)]">
               <MapPin className="w-3.5 h-3.5" />
               <span>{side} Yakası Bölgesel Tesis ve Yönetim Ağı</span>
             </span>
-            <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mt-1">
+            <h3 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mt-1">
               {districtName} Bölgesi Yönetim Gücümüz
             </h3>
           </div>
@@ -146,9 +146,9 @@ export default function DistrictLocalHighlightsSeo({
         </div>
 
         {/* 3. Bölgesel SLA & Nöbetçi Ekip Müdahale Kartı */}
-        <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800/80 dark:to-blue-950/40 border border-blue-100 dark:border-blue-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+        <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 shadow-2xs">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-blue-600 text-white shrink-0">
+            <div className="p-2.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 shrink-0">
               <Clock className="w-5 h-5" />
             </div>
             <div>

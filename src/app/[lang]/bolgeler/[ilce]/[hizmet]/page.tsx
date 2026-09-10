@@ -588,17 +588,17 @@ export default async function ServiceDistrictPage({
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-2xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-10 md:p-14 flex flex-col items-center text-center gap-6 shadow-sm">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)]">
             {district.name}&apos;de {service.shortName.toLowerCase()} için teklif alın
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <QuoteCtaButton className="bg-white text-slate-950 font-bold py-3.5 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-lg">
+            <QuoteCtaButton className="bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3.5 px-8 rounded-xl hover:opacity-90 transition-opacity shadow-md">
               Ücretsiz Teklif Al
             </QuoteCtaButton>
             <a
               href={`tel:${ORG_PHONE}`}
-              className="border border-white/30 text-white font-bold py-3.5 px-8 rounded-xl hover:bg-white/10 transition-colors"
+              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3.5 px-8 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors"
             >
               Hemen Ara: 0216 550 48 48
             </a>

@@ -132,11 +132,11 @@ export default function HukukVeIcraDanismanligiClient() {
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">gavel</span>
               <span>Özet Rehber: Profesyonel KMK Hukuk ve İcra Danışmanlığı Nedir?</span>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
               634 KMK & İcra İflas Kanunu Standardı
             </span>
           </div>
@@ -307,47 +307,46 @@ export default function HukukVeIcraDanismanligiClient() {
         />
 
         {/* Yönetim Kurulu Cezai ve Şahsi Sorumluluk Kalkanı (KMK m.38 & TCK) */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
-              <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">security</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="material-symbols-outlined text-[16px] text-emerald-500" aria-hidden="true">security</span>
               Yönetici & Denetçi Yasal Güvencesi
             </div>
-            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight mb-4">
-              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Cezai ve Şahsi Sorumluluk Kalkanı</span>
+            <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
+              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600 dark:from-emerald-400 dark:to-cyan-400">Cezai ve Şahsi Sorumluluk Kalkanı</span>
             </h2>
-            <p className="text-slate-300 text-sm md:text-base max-w-3xl leading-relaxed mb-8">
+            <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
               Amatör site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıyadır. Alo Yönetim hukuk müşavirliği bu riskleri %100 bertaraf eder.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">shield</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">KMK m.38 Şahsi Tazminat Kalkanı</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">KMK m.38 Şahsi Tazminat Kalkanı</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Yöneticinin vekil gibi sorumlu olması ilkesi gereği doğabilecek tüm maddi zarar iddiaları profesyonel sigortamız ve avukatlarımızca karşılanır.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">verified_user</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">TCK m.155 Mali Suç Güvencesi</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">TCK m.155 Mali Suç Güvencesi</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Çift imzalı dijital onay, bağımsız mali müşavir denetimi ve şeffaf banka entegrasyonu ile güveni kötüye kullanma isnatları imkansız kılınır.
                 </p>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+              <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">fact_check</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">Kusursuz İbra & Sıfır İptal Riski</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Kusursuz İbra & Sıfır İptal Riski</h3>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Genel kurul çağrısı, taahhütlü tebligatlar ve hazirun cetveli noter usulünde hazırlanarak Sulh Hukuk Mahkemesi iptal davaları önlenir.
                 </p>
               </div>

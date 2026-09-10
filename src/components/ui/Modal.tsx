@@ -76,7 +76,7 @@ export const Modal: React.FC<ModalProps> = ({
 
       {/* Modal Dialog Content */}
       <div
-        className={`relative w-full ${MAX_WIDTH_STYLES[maxWidth]} bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10 p-6 md:p-8 z-10 transition-all duration-200 ease-out transform-gpu animate-in fade-in zoom-in-95`}
+        className={`relative w-full ${MAX_WIDTH_STYLES[maxWidth]} bg-[var(--color-surface)] rounded-[2.5rem] shadow-2xl overflow-hidden border border-[var(--color-outline)]/60 p-6 md:p-8 z-10 transition-all duration-200 ease-out transform-gpu animate-in fade-in zoom-in-95`}
       >
         {title && (
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/10">

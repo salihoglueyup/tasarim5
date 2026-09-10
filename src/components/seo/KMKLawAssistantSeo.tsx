@@ -140,24 +140,24 @@ export default function KMKLawAssistantSeo() {
   };
 
   return (
-    <section className="relative py-16 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-900 dark:text-white rounded-[2.5rem] border border-slate-200/80 dark:border-slate-800 shadow-xl overflow-hidden my-12">
+    <section className="relative py-16 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm overflow-hidden my-12">
       <JsonLd data={faqSchema} />
 
       {/* Arka Plan Efektleri */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-500/5 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-400/5 dark:bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-400/5 dark:bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Başlık Bölümü */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 text-[var(--color-primary)] text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <span className="material-symbols-outlined text-sm" aria-hidden="true">gavel</span>
             KMK 634 & 5188 Yasal Mevzuat Rehberi
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight leading-tight">
             Apartman ve Site Yönetiminde <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-100 dark:to-slate-400">Yasal Haklarınız</span>
           </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-300 text-base sm:text-lg font-light">
+          <p className="mt-3 text-[var(--color-secondary)] text-base sm:text-lg font-light">
             Kat Mülkiyeti Kanunu ve Yargıtay emsal kararlarıyla desteklenmiş, en çok karşılaşılan hukuki uyuşmazlıklar ve Alo Yönetim uzman çözümleri.
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function KMKLawAssistantSeo() {
             <label htmlFor="kmk-search-input" className="sr-only">
               Kat Mülkiyeti Kanunu ve mevzuat maddesi ara
             </label>
-            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-[var(--color-tertiary)]">
               <span className="material-symbols-outlined" aria-hidden="true">search</span>
             </span>
             <input
@@ -179,14 +179,14 @@ export default function KMKLawAssistantSeo() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Örn: asansör, cam balkon, faiz, otopark, yönetici..."
-              className="w-full pl-12 pr-10 py-3.5 bg-white dark:bg-slate-900/90 border border-slate-300 dark:border-slate-700 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white transition-all shadow-sm font-medium"
+              className="w-full pl-12 pr-10 py-3.5 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none focus:ring-2 focus:ring-slate-400/20 transition-all shadow-xs font-medium"
             />
             {searchQuery && (
               <button
                 type="button"
                 aria-label="Aramayı Temizle"
                 onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-700 dark:hover:text-white"
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-[var(--color-tertiary)] hover:text-[var(--color-primary)]"
               >
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">close</span>
               </button>
@@ -201,7 +201,7 @@ export default function KMKLawAssistantSeo() {
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                   activeCategory === cat.id
                     ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold scale-105'
-                    : 'bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-2xs'
+                    : 'bg-[var(--color-surface)] text-[var(--color-secondary)] hover:bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 shadow-2xs'
                 }`}
               >
                 {cat.label}
@@ -234,8 +234,8 @@ export default function KMKLawAssistantSeo() {
                   key={item.id}
                   className={`border rounded-2xl transition-all duration-300 overflow-hidden ${
                     isExpanded
-                      ? 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 shadow-xl ring-1 ring-slate-200 dark:ring-slate-700/50'
-                      : 'bg-white/80 dark:bg-slate-900/40 border-slate-200/80 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md'
+                      ? 'bg-[var(--color-surface)] border-[var(--color-outline)] shadow-lg ring-1 ring-[var(--color-outline)]/40'
+                      : 'bg-[var(--color-surface)]/80 border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/20 hover:shadow-xs'
                   }`}
                 >
                   <button
@@ -244,18 +244,18 @@ export default function KMKLawAssistantSeo() {
                   >
                     <div className="space-y-1.5">
                       <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold border border-slate-200 dark:border-slate-700">
+                        <span className="px-2.5 py-0.5 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold border border-[var(--color-outline)]/60">
                           {item.article}
                         </span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        <span className="text-xs text-[var(--color-tertiary)] font-medium">
                           {item.categoryTitle}
                         </span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                      <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] leading-snug">
                         {item.question}
                       </h3>
                     </div>
-                    <span className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 mt-1 flex-shrink-0">
+                    <span className="p-2 rounded-xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] mt-1 flex-shrink-0">
                       <span
                         className={`material-symbols-outlined transition-transform duration-300 text-sm ${
                           isExpanded ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''
@@ -267,36 +267,36 @@ export default function KMKLawAssistantSeo() {
                   </button>
 
                   {isExpanded && (
-                    <div className="px-5 pb-6 sm:px-6 pt-0 border-t border-slate-100 dark:border-slate-800/80 space-y-4 mt-2">
+                    <div className="px-5 pb-6 sm:px-6 pt-0 border-t border-[var(--color-outline)]/40 space-y-4 mt-2">
                       {/* Özet Hüküm */}
-                      <div className="p-4 bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-800/30 rounded-2xl">
-                        <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                      <div className="p-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl">
+                        <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                          <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">verified</span>
                           Yasal Hüküm Özeti
                         </div>
-                        <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+                        <p className="text-sm text-[var(--color-primary)] leading-relaxed font-medium">
                           {item.summary}
                         </p>
                       </div>
 
                       {/* Kanun ve Emsal Karar Detayı */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/60 rounded-2xl space-y-1.5">
-                          <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <div className="p-4 bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)]/60 rounded-2xl space-y-1.5">
+                          <div className="text-xs font-bold text-[var(--color-tertiary)] uppercase tracking-wider flex items-center gap-1.5">
                             <span className="material-symbols-outlined text-sm" aria-hidden="true">menu_book</span>
                             Kanun Metni ({item.lawName})
                           </div>
-                          <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                          <p className="text-xs text-[var(--color-secondary)] leading-relaxed italic">
                             "{item.fullRule}"
                           </p>
                         </div>
 
-                        <div className="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/60 rounded-2xl space-y-1.5">
+                        <div className="p-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl space-y-1.5">
                           <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
                             <span className="material-symbols-outlined text-sm" aria-hidden="true">account_balance</span>
                             Yargıtay Emsal Kararı
                           </div>
-                          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                          <p className="text-xs text-[var(--color-secondary)] leading-relaxed font-medium">
                             {item.precedent}
                           </p>
                         </div>
@@ -325,10 +325,10 @@ export default function KMKLawAssistantSeo() {
         </div>
 
         {/* Alt Bilgi & Hukuk Danışmanlığı CTA */}
-        <div className="mt-10 p-6 sm:p-8 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-lg">
+        <div className="mt-10 p-6 sm:p-8 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
           <div>
-            <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">Sitenizde Özel Bir Hukuki Uyuşmazlık mı Var?</h4>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5 font-light">
+            <h4 className="text-base sm:text-lg font-bold text-[var(--color-primary)]">Sitenizde Özel Bir Hukuki Uyuşmazlık mı Var?</h4>
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] mt-0.5 font-light">
               Kat Mülkiyeti Kanunu ve icra süreçlerinde uzman avukat kadromuzla ücretsiz ön analiz sağlayalım.
             </p>
           </div>

@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const titles: Record<string, string> = {
-    tr: 'Referanslarımız — Yönettiğimiz 120+ Prestijli Site ve Plaza | Alo Yönetim',
+    tr: 'Referanslarımız — 120+ Prestijli Proje | Alo Yönetim',
     en: 'Our References — 120+ Prestigious Managed Properties in Istanbul',
     ru: 'Наши объекты — 120+ жилых и коммерческих проектов | Alo Yönetim',
     ar: 'مشاريعنا — إدارة أكثر من 120 مجمعاً وبرجاً في إسطنبول | ألو للإدارة',

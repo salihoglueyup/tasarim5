@@ -49,7 +49,7 @@ export default function AIOptimizedSummary({
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`relative my-8 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900/90 dark:via-slate-900/60 dark:to-blue-950/20 border border-blue-100/80 dark:border-blue-900/30 shadow-lg shadow-blue-500/5 ${className}`}
+      className={`relative my-8 p-6 md:p-8 rounded-[2.5rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-sm ${className}`}
     >
       <JsonLd data={schema} />
 
@@ -63,33 +63,33 @@ export default function AIOptimizedSummary({
             Hızlı Özet & Temel Standartlar
           </span>
         </div>
-        <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1 bg-white/80 dark:bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-200/50 dark:border-white/10">
+        <span className="text-[11px] font-medium text-[var(--color-secondary)] flex items-center gap-1 bg-[var(--color-surface-variant)] px-2.5 py-1 rounded-full border border-[var(--color-outline)]/60">
           <span className="material-symbols-outlined text-xs text-emerald-500" aria-hidden="true">verified</span>
           Doğrulanmış Bilgi
         </span>
       </div>
 
       {/* Ana Başlık */}
-      <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3">
+      <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-3">
         {title}
       </h3>
 
       {/* Özet Metin (AI Speakable Selector) */}
-      <p className="ai-summary-text text-base md:text-lg font-light text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+      <p className="ai-summary-text text-base md:text-lg font-light text-[var(--color-secondary)] leading-relaxed mb-6">
         {summary}
       </p>
 
       {/* Maddeler (Key Takeaways) */}
       {keyTakeaways.length > 0 && (
-        <div className="space-y-2.5 pt-4 border-t border-slate-200/60 dark:border-white/10">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <div className="space-y-2.5 pt-4 border-t border-[var(--color-outline)]/40">
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-tertiary)]">
             Önemli Çıkarımlar
           </span>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-2">
             {keyTakeaways.map((takeaway, i) => (
               <li
                 key={i}
-                className="ai-takeaway-item flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 bg-white/60 dark:bg-white/5 p-2.5 rounded-xl border border-slate-200/40 dark:border-white/5"
+                className="ai-takeaway-item flex items-start gap-2.5 text-sm text-[var(--color-primary)] bg-[var(--color-surface-variant)] p-3 rounded-xl border border-[var(--color-outline)]/60"
               >
                 <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5" aria-hidden="true">
                   check_circle
@@ -103,13 +103,13 @@ export default function AIOptimizedSummary({
 
       {/* Hızlı Bilgiler (Quick Facts Grid) */}
       {quickFacts.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6 pt-4 border-t border-slate-200/60 dark:border-white/10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6 pt-4 border-t border-[var(--color-outline)]/40">
           {quickFacts.map((fact, i) => (
             <div key={i} className="flex flex-col">
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+              <span className="text-[11px] text-[var(--color-tertiary)] font-medium">
                 {fact.label}
               </span>
-              <span className="text-sm font-bold text-slate-900 dark:text-white">
+              <span className="text-sm font-bold text-[var(--color-primary)]">
                 {fact.value}
               </span>
             </div>

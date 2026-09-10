@@ -78,17 +78,17 @@ export default function NotFound() {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center bg-slate-50 dark:bg-[#071322] px-6 py-20 font-sans">
+    <div className="min-h-[85vh] flex items-center justify-center bg-[var(--color-background)] px-6 py-20 font-sans">
       <div className="max-w-3xl text-center flex flex-col items-center transition-all transform-gpu animate-in fade-in zoom-in-95 duration-200">
-        <span className="text-8xl md:text-9xl font-extrabold text-slate-900 dark:text-white opacity-90 mb-2 tracking-tight">
+        <span className="text-8xl md:text-9xl font-extrabold text-[var(--color-primary)] opacity-90 mb-2 tracking-tight">
           404
         </span>
         
-        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] mb-4">
           {t('err_404_title')}
         </h1>
         
-        <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed">
+        <p className="text-base md:text-lg text-[var(--color-secondary)] mb-8 max-w-xl leading-relaxed">
           {t('err_404_desc')}
         </p>
 
@@ -96,22 +96,22 @@ export default function NotFound() {
         <button
           type="button"
           onClick={handleOpenSearch}
-          className="w-full max-w-lg mb-10 flex items-center justify-between p-3.5 px-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg hover:border-blue-500 transition-all text-left cursor-pointer group"
+          className="w-full max-w-lg mb-10 flex items-center justify-between p-3.5 px-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-sm hover:border-blue-500/50 transition-all text-left cursor-pointer group"
         >
           <div className="flex items-center gap-3 text-slate-400">
             <Search className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform rtl-auto-mirror" />
-            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+            <span className="text-sm font-medium text-[var(--color-secondary)]">
               {ui.searchPlaceholder}
             </span>
           </div>
-          <kbd className="hidden sm:inline-flex px-2 py-0.5 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-slate-500">
+          <kbd className="hidden sm:inline-flex px-2 py-0.5 text-xs font-mono bg-slate-100 dark:bg-[#1E202B] rounded border border-slate-200 dark:border-white/10 text-slate-500">
             ⌘K
           </kbd>
         </button>
 
         {/* Popüler Hizmetler Grid */}
         <div className="w-full text-left mb-10">
-          <h2 className="text-xs font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 text-center">
+          <h2 className="text-xs font-extrabold uppercase tracking-widest text-[var(--color-secondary)] mb-4 text-center">
             {ui.popularHeading}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -121,19 +121,19 @@ export default function NotFound() {
                 <Link
                   key={s.path}
                   href={getLocalizedPath(s.path)}
-                  className="flex items-start gap-3.5 p-4 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-md transition-all group"
+                  className="flex items-start gap-3.5 p-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500/40 hover:shadow-md transition-all group"
                 >
-                  <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {s.name}
                       </span>
                       <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform rtl-auto-mirror" />
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+                    <p className="text-xs text-[var(--color-secondary)] mt-0.5 line-clamp-1">
                       {s.desc}
                     </p>
                   </div>

@@ -102,11 +102,11 @@ export default function TrustVerificationAuditSeo() {
   const active = certificates[selectedCert];
 
   return (
-    <div className="my-12 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-900 dark:text-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
+    <div className="my-12 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-[var(--color-outline)]/60 relative overflow-hidden">
       <JsonLd data={schemaData} />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-primary/10 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-400/5 dark:bg-white/[0.02] blur-[140px] pointer-events-none rounded-full" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 relative z-10">
@@ -117,10 +117,10 @@ export default function TrustVerificationAuditSeo() {
               E-E-A-T Güvenilirlik & Akreditasyon Mührü
             </span>
           </div>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
             TÜRKAK Akredite Kalite & 5188 Güvenlik Standartları
           </h3>
-          <p className="text-sm text-slate-600 dark:text-slate-300 font-light mt-1">
+          <p className="text-sm text-[var(--color-secondary)] font-light mt-1">
             Alo Yönetim, Türkiye ve uluslararası geçerliliğe sahip 5 ISO belgesi ve Bakanlık ruhsatı ile hizmet verir.
           </p>
         </div>
@@ -145,41 +145,41 @@ export default function TrustVerificationAuditSeo() {
             }}
             className={`p-4 rounded-2xl flex flex-col items-center text-center gap-2 transition-all border ${
               selectedCert === idx
-                ? 'bg-white dark:bg-slate-900 border-slate-900 dark:border-white shadow-xl scale-105 ring-2 ring-slate-900/10 dark:ring-white/20'
-                : 'bg-white/80 dark:bg-slate-900/50 border-slate-200/80 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-white dark:hover:bg-slate-900 shadow-2xs'
+                ? 'bg-[var(--color-surface)] border-slate-900 dark:border-white shadow-md scale-105 ring-2 ring-slate-900/10 dark:ring-white/20'
+                : 'bg-[var(--color-surface)]/70 border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/20 hover:bg-[var(--color-surface)] shadow-2xs'
             }`}
           >
             <span className={`material-symbols-outlined text-2xl transition-colors ${
-              selectedCert === idx ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'
+              selectedCert === idx ? 'text-[var(--color-primary)]' : 'text-[var(--color-tertiary)]'
             }`}>
               {c.icon}
             </span>
-            <span className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{c.code}</span>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1">{c.name}</span>
+            <span className="text-xs font-bold text-[var(--color-primary)] line-clamp-1">{c.code}</span>
+            <span className="text-[10px] text-[var(--color-secondary)] line-clamp-1">{c.name}</span>
           </button>
         ))}
       </div>
 
       {/* Active Certificate Details Card */}
-      <div className="bg-white dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-start justify-between gap-6 relative z-10 shadow-lg">
+      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 md:p-8 flex flex-col md:flex-row items-start justify-between gap-6 relative z-10 shadow-sm">
         <div className="space-y-3 flex-1">
           <div className="flex items-center gap-3">
             <span className="px-3 py-1 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-black rounded-lg text-xs tracking-wider shadow-xs">
               {active.code}
             </span>
-            <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">{active.name}</h4>
+            <h4 className="text-lg md:text-xl font-bold text-[var(--color-primary)]">{active.name}</h4>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light">
+          <p className="text-sm text-[var(--color-secondary)] leading-relaxed font-light">
             <strong>Kapsam:</strong> {active.scope}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-500 dark:text-slate-400 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[var(--color-tertiary)] pt-2">
             <div>
-              <span className="block text-slate-400 dark:text-slate-500 font-medium">Akreditasyon Kurumu:</span>
-              <strong className="text-slate-800 dark:text-slate-200">{active.issuer}</strong>
+              <span className="block text-[var(--color-tertiary)] font-medium">Akreditasyon Kurumu:</span>
+              <strong className="text-[var(--color-primary)]">{active.issuer}</strong>
             </div>
             <div>
-              <span className="block text-slate-400 dark:text-slate-500 font-medium">Sertifika / Ruhsat No:</span>
-              <strong className="text-slate-900 dark:text-white font-mono font-bold">{active.certNumber}</strong>
+              <span className="block text-[var(--color-tertiary)] font-medium">Sertifika / Ruhsat No:</span>
+              <strong className="text-[var(--color-primary)] font-mono font-bold">{active.certNumber}</strong>
             </div>
           </div>
         </div>

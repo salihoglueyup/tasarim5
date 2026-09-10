@@ -240,26 +240,25 @@ export default function MegaMenuDropdown({
             </div>
 
             {/* Promo / Banner Card (4 Cols) */}
-            <div className="col-span-4 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden bg-gradient-to-br from-slate-900 via-[#1e293b] to-blue-950 border border-white/10 shadow-lg">
+            <div className="col-span-4 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 shadow-xs">
               
               {/* Arka plan dekoratif desen & parlama */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-400/5 dark:bg-white/[0.02] rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative z-10 flex flex-col gap-2">
-                <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 px-2 py-0.5 rounded-full w-fit">
+                <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-[var(--color-primary)] bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-2 py-0.5 rounded-full w-fit">
                   {promo.tag}
                 </span>
-                <div className="font-extrabold text-sm leading-snug mt-1 text-white">{promo.title}</div>
-                <p className="text-[11px] text-slate-300 font-light leading-relaxed">
+                <div className="font-extrabold text-sm leading-snug mt-1 text-[var(--color-primary)]">{promo.title}</div>
+                <p className="text-[11px] text-[var(--color-secondary)] font-light leading-relaxed">
                   {promo.desc}
                 </p>
                 {item.nameKey === 'nav_contact_media' && (
                   <a
                     href="tel:+902165504848"
-                    className="inline-flex items-center gap-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-3 py-1.5 rounded-xl transition-colors mt-2 w-fit shadow-sm"
+                    className="inline-flex items-center gap-2 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-3 py-1.5 rounded-xl transition-colors mt-2 w-fit shadow-xs"
                   >
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="material-symbols-outlined text-[15px]" aria-hidden="true">call</span>
                     <span>0216 550 48 48</span>
                   </a>
@@ -270,7 +269,7 @@ export default function MegaMenuDropdown({
                 href={getLocalizedPath(promo.link)}
                 prefetch={['/hesaplayici', '/hizmetler/tesis-yonetimi'].includes(promo.link)}
                 onClick={closeMenus}
-                className="relative z-10 mt-4 text-xs font-bold text-white hover:text-slate-950 bg-white/10 hover:bg-white border border-white/15 hover:border-white py-2.5 px-3.5 rounded-xl flex items-center justify-between group/btn transition-all duration-300 shadow-sm"
+                className="relative z-10 mt-4 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center justify-between group/btn transition-all duration-300"
               >
                 <span>{promo.btnText}</span>
                 <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>

@@ -252,42 +252,42 @@ export default function TeklifAlClient() {
       <div className="lg:col-span-5 flex flex-col gap-6">
         
         {/* Fiyatlandırma Rehberi Kartı */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white p-8 sm:p-10 rounded-[3rem] border border-slate-700 shadow-xl flex flex-col gap-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-slate-200 text-xs font-bold tracking-wider uppercase w-fit">
-            <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">payments</span>
+        <div className="bg-[var(--color-surface)] text-[var(--color-primary)] p-8 sm:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm flex flex-col gap-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold tracking-wider uppercase w-fit">
+            <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">payments</span>
             <span>Şeffaf Fiyatlandırma</span>
           </div>
 
-          <h3 className="text-xl font-extrabold text-white">
+          <h3 className="text-xl font-extrabold text-[var(--color-primary)]">
             Site Yönetimi Fiyatları Nasıl Belirlenir?
           </h3>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+          <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-light">
             Alo Yönetim, gizli hiçbir ek maliyet içermeyen <strong>net kalem bütçeleme</strong> ilkesiyle çalışır. Yönetim maliyeti şu 4 temel kritere göre belirlenir:
           </p>
 
-          <ul className="text-xs text-slate-300 space-y-2.5 pt-2 border-t border-white/10">
+          <ul className="text-xs text-[var(--color-secondary)] space-y-2.5 pt-2 border-t border-[var(--color-outline)]/40">
             <li className="flex items-start gap-2">
-              <span className="text-emerald-400 font-bold">1.</span>
+              <span className="text-emerald-500 font-bold">1.</span>
               <span><strong>Bağımsız Bölüm Sayısı:</strong> Projedeki daire ve dükkan adedine göre daire başı yönetim katsayısı optimize edilir.</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-emerald-400 font-bold">2.</span>
+              <span className="text-emerald-500 font-bold">2.</span>
               <span><strong>Güvenlik & Temizlik Vardiyası:</strong> 5188 lisanslı güvenlik personeli ve temizlik görevlisi kadro ihtiyacı.</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-emerald-400 font-bold">3.</span>
+              <span className="text-emerald-500 font-bold">3.</span>
               <span><strong>Teknik Ekipman Kapasitesi:</strong> Asansör adedi, jeneratör, hidrofor, yangın santrali ve havuz sistemi.</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-emerald-400 font-bold">4.</span>
+              <span className="text-emerald-500 font-bold">4.</span>
               <span><strong>%20 - %30 Net Tasarruf Güvencesi:</strong> Toplu alım gücümüzle ortak alan elektrik ve bakım maliyetlerini düşürürüz.</span>
             </li>
           </ul>
 
-          <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+          <div className="pt-3 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-xs text-[var(--color-secondary)]">
             <span>Sözleşme Süresi: 1 Yıl</span>
-            <span className="text-emerald-400 font-bold">48 Saatte Bütçe Teslimi</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold">48 Saatte Bütçe Teslimi</span>
           </div>
         </div>
 

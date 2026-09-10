@@ -74,23 +74,19 @@ export default function FacilityCorporateSlaGuaranteesSeo() {
   };
 
   return (
-    <div className="my-16 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-[3.5rem] p-6 sm:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+    <div className="my-16 bg-[var(--color-surface)] rounded-[2.5rem] p-6 sm:p-12 shadow-sm border border-[var(--color-outline)]/60 relative overflow-hidden">
       <JsonLd data={schemaData} />
-
-      {/* Decorative Glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/10 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 blur-[120px] pointer-events-none rounded-full" />
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12 relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-slate-200 border border-white/20 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">verified</span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider mb-3">
+          <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">verified</span>
           <span>Sözleşmeyle İmza Altına Alınan Resmi Taahhütler</span>
         </div>
-        <h3 className="text-2xl sm:text-4xl font-extrabold text-white">
-          3 Büyük <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-400">Kurumsal SLA ve Hukuki Garanti</span>
+        <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
+          3 Büyük <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 dark:from-emerald-400 dark:via-teal-300 dark:to-blue-400">Kurumsal SLA ve Hukuki Garanti</span>
         </h3>
-        <p className="text-xs sm:text-sm text-slate-300 font-light mt-2">
+        <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2">
           Alo Yönetim ile çalışan hiçbir kat maliki veya yöneticisi beklenmeyen fatura cezası, arıza mağduriyeti veya personel tazminatıyla karşılaşmaz.
         </p>
       </div>
@@ -100,36 +96,36 @@ export default function FacilityCorporateSlaGuaranteesSeo() {
         {GUARANTEES_DATA.map((g) => (
           <div
             key={g.id}
-            className={`p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between gap-6 transition-all duration-300 ${g.borderGlow} hover:bg-white/10`}
+            className={`p-6 sm:p-8 rounded-[2rem] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between gap-6 transition-all duration-300 hover:shadow-md`}
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+                <span className="w-12 h-12 rounded-2xl bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 flex items-center justify-center text-[var(--color-primary)]">
                   <span className="material-symbols-outlined text-2xl" aria-hidden="true">{g.icon}</span>
                 </span>
-                <span className="text-[11px] font-bold font-mono px-3 py-1 rounded-full bg-white/10 text-slate-200 border border-white/15">
+                <span className="text-[11px] font-bold font-mono px-3 py-1 rounded-full bg-white dark:bg-[#15161E] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10">
                   {g.badge}
                 </span>
               </div>
 
-              <h4 className="text-lg font-bold text-white leading-snug">{g.title}</h4>
+              <h4 className="text-lg font-bold text-[var(--color-primary)] leading-snug">{g.title}</h4>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+              <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-light">
                 {g.guaranteeText}
               </p>
 
               <ul className="space-y-2 pt-2">
                 {g.details.map((d, idx) => (
-                  <li key={idx} className="text-xs text-slate-300 flex items-start gap-2 leading-relaxed">
-                    <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                  <li key={idx} className="text-xs text-[var(--color-secondary)] flex items-start gap-2 leading-relaxed">
+                    <span className="text-emerald-500 font-bold shrink-0">✓</span>
                     <span>{d}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-white/10">
-              <span className="text-[10px] text-slate-400 block font-medium">
+            <div className="pt-4 border-t border-[var(--color-outline)]/40">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-medium">
                 Resmi Dayanak: {g.legalReference}
               </span>
             </div>

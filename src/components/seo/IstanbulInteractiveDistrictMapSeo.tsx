@@ -42,7 +42,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
   }, [filteredDistricts]);
 
   return (
-    <section className={`bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-6 sm:p-8 md:p-12 shadow-sm my-12 overflow-hidden ${className}`}>
+    <section className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-8 md:p-12 shadow-sm my-12 overflow-hidden ${className}`}>
       
       {/* Top Header */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-6 border-b border-slate-100 dark:border-white/5">

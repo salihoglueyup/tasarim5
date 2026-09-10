@@ -156,35 +156,31 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
   };
 
   return (
-    <section className="my-10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl overflow-hidden relative">
+    <section className="my-10 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
       <JsonLd data={quizSchema} />
-      
-      {/* Arka Plan Işık Efekti */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10">
         {/* Üst Başlık & Badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-semibold tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase">
             <span className="material-symbols-outlined text-sm" aria-hidden="true">precision_manufacturing</span>
             TMMOB & Sanayi Bakanlığı Mevzuat Uyum Radarı
           </div>
-          <span className="text-xs text-slate-400 font-mono">
+          <span className="text-xs text-[var(--color-secondary)] font-mono">
             Güncelleme: 2026 Standartları
           </span>
         </div>
 
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+        <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight mb-3">
           Tesis & Site Teknik Sağlık ve Yasal Uyum Hesaplayıcı
         </h3>
-        <p className="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed mb-8">
+        <p className="text-sm sm:text-base text-[var(--color-secondary)] max-w-3xl leading-relaxed mb-8">
           Sitenizdeki asansör, jeneratör, kompanzasyon ve yangın tesisatının durumunu işaretleyin; 
           olası <strong>yasal para cezalarını, reaktif elektrik kesintilerini</strong> ve can güvenliği risk puanınızı anında hesaplayın.
         </p>
 
         {/* Skor Paneli & Özet Kartı */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-slate-900/90 rounded-2xl p-6 border border-slate-800 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-[var(--color-surface-variant)] rounded-2xl p-6 border border-[var(--color-outline)]/60 mb-8">
           {/* Sol: SVG Circular Score Meter */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center p-2 text-center">
             <div className="relative w-36 h-36 flex items-center justify-center">
@@ -193,9 +189,10 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                   cx="50"
                   cy="50"
                   r="40"
-                  stroke="#1e293b"
+                  stroke="currentColor"
                   strokeWidth="8"
                   fill="transparent"
+                  className="text-slate-200 dark:text-white/10"
                 />
                 <circle
                   cx="50"
@@ -211,11 +208,11 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 />
               </svg>
               <div className="absolute flex flex-col items-center justify-center">
-                <span className="text-4xl font-black text-white">{totalScore}</span>
-                <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">/ 100 Puan</span>
+                <span className="text-4xl font-black text-[var(--color-primary)]">{totalScore}</span>
+                <span className="text-[10px] text-[var(--color-secondary)] font-semibold uppercase tracking-wider">/ 100 Puan</span>
               </div>
             </div>
-            <span className="text-xs text-slate-400 mt-2 font-medium">Teknik Uyum Skoru</span>
+            <span className="text-xs text-[var(--color-secondary)] mt-2 font-medium">Teknik Uyum Skoru</span>
           </div>
 
           {/* Sağ: Durum Analizi ve Eylem Çağrısı */}
@@ -224,24 +221,24 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
               <span className={`px-3 py-1 text-xs font-bold rounded-full border ${status.badgeClass}`}>
                 {status.label}
               </span>
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-[var(--color-secondary)]">
                 ({checkedIds.length} / {TECHNICAL_CRITERIA.length} Kriter Karşılanıyor)
               </span>
             </div>
-            <p className="text-sm text-slate-200 leading-relaxed font-light">
+            <p className="text-sm text-[var(--color-secondary)] leading-relaxed font-light">
               {status.desc}
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/teklif-al?hizmet=teknik-bakim&utm_source=technical_radar"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/30 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-md shadow-blue-600/20 hover:scale-[1.02]"
               >
                 <span className="material-symbols-outlined text-base" aria-hidden="true">engineering</span>
                 Ücretsiz 48 Saatlik Teknik Keşif İste
               </Link>
               <a
                 href="tel:+902165504848"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all border border-slate-700"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-sm font-semibold transition-all border border-[var(--color-outline)]/60"
               >
                 <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
                 0216 550 48 48
@@ -258,8 +255,8 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
               onClick={() => setSelectedFilter(cat)}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 selectedFilter === cat
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:bg-[var(--color-surface)]'
               }`}
             >
               {cat}
@@ -277,31 +274,31 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 onClick={() => toggleCriterion(c.id)}
                 className={`flex items-start gap-3 p-4 rounded-2xl border cursor-pointer transition-all ${
                   isChecked
-                    ? 'bg-blue-950/30 border-blue-500/40 shadow-sm'
-                    : 'bg-slate-900/60 border-slate-800/80 opacity-70 hover:opacity-100 hover:border-slate-700'
+                    ? 'bg-blue-500/5 dark:bg-[#1E202B] border-blue-500/40 shadow-xs'
+                    : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 opacity-80 hover:opacity-100 hover:border-slate-300 dark:hover:border-white/20'
                 }`}
               >
                 <div className={`mt-0.5 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border transition-all ${
-                  isChecked ? 'bg-blue-500 border-blue-400 text-white' : 'border-slate-700 bg-slate-800 text-transparent'
+                  isChecked ? 'bg-blue-600 border-blue-500 text-white' : 'border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
                 }`}>
                   <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">check</span>
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">
+                    <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                       {c.category}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] font-mono">
                       +{c.points} Puan
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-white leading-snug">
+                  <h4 className="text-sm font-bold text-[var(--color-primary)] leading-snug">
                     {c.title}
                   </h4>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">
+                  <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">
                     {c.desc}
                   </p>
-                  <span className="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
+                  <span className="text-[11px] text-[var(--color-secondary)] mt-1 flex items-center gap-1">
                     <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
                     {c.lawRef}
                   </span>
@@ -312,12 +309,12 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
         </div>
 
         {/* Bilgilendirme Dipnotu */}
-        <div className="mt-6 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+        <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--color-secondary)]">
           <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-blue-400" aria-hidden="true">info</span>
+            <span className="material-symbols-outlined text-sm text-blue-500" aria-hidden="true">info</span>
             TMMOB Makina ve Elektrik Mühendisleri Odası denetim prensipleri esas alınmıştır.
           </span>
-          <span className="font-mono text-[11px] text-slate-500">
+          <span className="font-mono text-[11px] text-[var(--color-tertiary)]">
             Alo Yönetim Teknik Operasyon & Denetim Masası
           </span>
         </div>

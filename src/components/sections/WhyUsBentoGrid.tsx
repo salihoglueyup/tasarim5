@@ -54,7 +54,7 @@ export default function WhyUsBentoGrid() {
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
+        <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 px-4 py-1.5 rounded-full">
           {t('home_why_badge')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
@@ -72,15 +72,15 @@ export default function WhyUsBentoGrid() {
             className={`${item.span} bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between gap-6 shadow-sm hover:border-[var(--color-primary)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group`}
           >
             {/* Dekoratif dev ikon (arkaplan) */}
-            <div className="absolute -bottom-8 -right-8 text-slate-100 dark:text-slate-800/50 pointer-events-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 z-0">
+            <div className="absolute -bottom-8 -right-8 text-slate-100 dark:text-white/[0.03] pointer-events-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 z-0">
               <span className="material-symbols-outlined" style={{ fontSize: '180px' }} aria-hidden="true">{item.icon}</span>
             </div>
 
             <div className="flex items-center justify-between relative z-10">
-              <span className="text-xs font-bold text-slate-900 dark:text-white tracking-widest uppercase bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
+              <span className="text-xs font-bold text-[var(--color-primary)] tracking-widest uppercase bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 px-4 py-1.5 rounded-full">
                 {item.tag}
               </span>
-              <div className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] flex items-center justify-center">
                 <span className="material-symbols-outlined text-2xl" aria-hidden="true">{item.icon}</span>
               </div>
             </div>

@@ -158,7 +158,7 @@ export default function Faq({
       <div className="max-w-4xl mx-auto">
         {/* Başlık */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-bold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>SIKÇA SORULAN SORULAR</span>
           </div>
@@ -172,8 +172,8 @@ export default function Faq({
 
         {/* 1. Canlı Arama Çubuğu */}
         <div className="relative mb-6">
-          <div className="flex items-center px-4 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:border-blue-500 transition-all">
-            <Search className="w-5 h-5 text-slate-400 shrink-0 mr-3" />
+          <div className="flex items-center px-4 py-3.5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-xs focus-within:ring-2 focus-within:ring-slate-400/20 focus-within:border-[var(--color-primary)] transition-all">
+            <Search className="w-5 h-5 text-[var(--color-tertiary)] shrink-0 mr-3" />
             <input
               type="text"
               value={searchInput}
@@ -185,7 +185,7 @@ export default function Faq({
                 });
               }}
               placeholder="Sorularda veya yanıtlarda anında arama yapın (örn: aidat, asansör, güvenlik)..."
-              className="w-full bg-transparent text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none text-sm md:text-base font-normal"
+              className="w-full bg-transparent text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none text-sm md:text-base font-normal"
             />
             {searchInput && (
               <button
@@ -196,7 +196,7 @@ export default function Faq({
                     setSearchQuery('');
                   });
                 }}
-                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                className="text-[var(--color-tertiary)] hover:text-[var(--color-primary)] p-1 cursor-pointer"
                 aria-label="Aramayı temizle"
               >
                 <X className="w-4 h-4" />
@@ -219,10 +219,10 @@ export default function Faq({
                     setActiveIndex(null);
                   });
                 }}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
                   isSelected
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
-                    : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-surface)] font-bold shadow-xs'
+                    : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:border-slate-400 dark:hover:border-white/20'
                 }`}
               >
                 {cat.label}
@@ -234,11 +234,11 @@ export default function Faq({
         {/* 3. Soru Listesi & Akordeon */}
         <div className="flex flex-col border-t border-[var(--color-outline)] divide-y divide-[var(--color-outline)]">
           {filteredFaqs.length === 0 ? (
-            <div className="py-12 text-center text-slate-500 dark:text-slate-400">
-              <p className="font-semibold text-slate-700 dark:text-slate-300">
+            <div className="py-12 text-center text-[var(--color-secondary)]">
+              <p className="font-semibold text-[var(--color-primary)]">
                 Aradığınız kriterlere uygun soru bulunamadı
               </p>
-              <p className="text-xs mt-1">
+              <p className="text-xs mt-1 text-[var(--color-tertiary)]">
                 Farklı bir anahtar kelime deneyebilir veya aşağıdaki butondan doğrudan bize danışabilirsiniz.
               </p>
             </div>
@@ -254,12 +254,12 @@ export default function Faq({
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
-                    className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
+                    className="w-full py-6 flex items-center justify-between text-left focus:outline-none group cursor-pointer"
                   >
                     <span
                       className={`text-lg md:text-xl font-medium transition-colors pr-4 ${
                         isActive
-                          ? 'text-blue-600 dark:text-blue-400'
+                          ? 'text-[var(--color-primary)] font-bold'
                           : 'text-[var(--color-secondary)] group-hover:text-[var(--color-primary)]'
                       }`}
                     >
@@ -282,15 +282,15 @@ export default function Faq({
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="pb-6 pr-6 text-slate-600 dark:text-slate-300 leading-relaxed text-base font-normal">
+                      <div className="pb-6 pr-6 text-[var(--color-secondary)] leading-relaxed text-base font-normal">
                         <div dangerouslySetInnerHTML={{ __html: aText }} />
 
                         {/* Soru Paylaş / Kopyala Butonu */}
-                        <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
+                        <div className="mt-4 pt-3 border-t border-[var(--color-outline)]/40 flex items-center gap-2">
                           <button
                             type="button"
                             onClick={() => copyQuestionLink(qText, index)}
-                            className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                            className="inline-flex items-center gap-1 text-xs text-[var(--color-tertiary)] hover:text-[var(--color-primary)] transition-colors cursor-pointer"
                           >
                             {isCopied ? (
                               <>
@@ -317,17 +317,17 @@ export default function Faq({
         </div>
 
         {/* 4. WhatsApp / Danışman Destek Rozeti */}
-        <div className="mt-12 p-6 rounded-3xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-900 dark:to-blue-950/40 border border-blue-100 dark:border-blue-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 sm:p-8 rounded-[2.5rem] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center gap-3.5 text-center sm:text-left">
             <div className="p-3 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">
               <MessageCircle className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5 justify-center sm:justify-start">
+              <h4 className="text-sm font-bold text-[var(--color-primary)] flex items-center gap-1.5 justify-center sm:justify-start">
                 <span>Sorunuza Yanıt Bulamadınız mı?</span>
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               </h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              <p className="text-xs text-[var(--color-secondary)] mt-0.5">
                 Kat Mülkiyeti Kanunu ve tesis yönetimi uzmanlarımıza anında WhatsApp üzerinden danışın.
               </p>
             </div>

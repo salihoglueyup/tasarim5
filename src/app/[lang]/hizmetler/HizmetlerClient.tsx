@@ -147,7 +147,7 @@ export default function HizmetlerClient() {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all cursor-pointer ${
                 activeCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
+                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold shadow-md scale-105'
                   : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
               }`}
             >
@@ -165,19 +165,19 @@ export default function HizmetlerClient() {
               className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 rounded-[2.5rem] flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group"
             >
               <div className="flex flex-col gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   <span className="material-symbols-outlined text-2xl" aria-hidden="true">{service.icon}</span>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-3 py-1 rounded-full w-fit">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full w-fit">
                   {service.category}
                 </span>
                 <h3 className="text-xl font-bold text-[var(--color-primary)] leading-snug">{service.title}</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed prose prose-sm dark:prose-invert" dangerouslySetInnerHTML={{ __html: service.desc }} />
               </div>
 
-              <div className="pt-6 mt-6 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
-                <span className="text-[10px] font-bold text-gray-500">{service.stats}</span>
-                <Link href={service.link} className="text-xs font-bold text-slate-900 dark:text-white hover:underline flex items-center gap-1">
+              <div className="pt-6 mt-6 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
+                <span className="text-[10px] font-bold text-[var(--color-tertiary)]">{service.stats}</span>
+                <Link href={service.link} className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1">
                   {t('serv_btn_detail')}
                   <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                 </Link>
@@ -283,19 +283,19 @@ export default function HizmetlerClient() {
         </div>
 
         {/* Bottom Call To Action Banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
           <div className="flex flex-col gap-4 max-w-xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-4 py-1.5 rounded-full w-fit">{t('services_cta_badge')}</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold">{t('services_cta_title')}</h2>
-            <p className="text-sm text-gray-300 font-light leading-relaxed">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#1E202B] border border-slate-200 dark:border-white/10 px-4 py-1.5 rounded-full w-fit">{t('services_cta_badge')}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)]">{t('services_cta_title')}</h2>
+            <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">
               {t('services_cta_desc')}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-            <Link href="/teklif-al" className="bg-white text-slate-950 hover:bg-slate-100 font-bold py-4 px-8 rounded-2xl shadow-lg transition-transform hover:scale-105 text-sm text-center">
+            <Link href="/teklif-al" className="bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-8 rounded-2xl shadow-md transition-transform hover:scale-102 text-sm text-center">
               {t('services_cta_btn_offer')}
             </Link>
-            <Link href="/hesaplayici" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold py-4 px-8 rounded-2xl transition-all text-sm text-center">
+            <Link href="/hesaplayici" className="bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 text-[var(--color-primary)] font-semibold py-4 px-8 rounded-2xl transition-all text-sm text-center">
               {t('services_cta_btn_calc')}
             </Link>
           </div>

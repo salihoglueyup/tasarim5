@@ -314,22 +314,22 @@ export default function ReferencesClient({
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto" style={{ perspective: "1000px" }}>
         
         {/* Search & Side Filter Bar */}
-        <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-[2.5rem] p-6 md:p-8 mb-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 md:p-8 mb-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           
           {/* Search Box */}
           <div className="relative w-full md:w-96">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true">search</span>
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-tertiary)]" aria-hidden="true">search</span>
             <input
               type="text"
               placeholder={currentDict.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-[#1E202B] border border-slate-200 dark:border-white/10 rounded-2xl py-3.5 pl-12 pr-10 text-sm text-[var(--color-heading-text)] focus:outline-none focus:border-slate-500 transition-colors placeholder:text-slate-400 font-medium"
+              className="w-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl py-3.5 pl-12 pr-10 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 transition-colors placeholder:text-[var(--color-tertiary)] font-medium"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-white"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--color-tertiary)] hover:text-[var(--color-primary)]"
               >
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">close</span>
               </button>
@@ -337,7 +337,7 @@ export default function ReferencesClient({
           </div>
 
           {/* Yaka Switcher */}
-          <div className="flex bg-gray-100 dark:bg-[#1E202B] p-1.5 rounded-2xl border border-gray-200 dark:border-white/10 shrink-0">
+          <div className="flex bg-[var(--color-surface-variant)] p-1.5 rounded-2xl border border-[var(--color-outline)]/60 shrink-0">
             <button
               onClick={() => setSelectedSide('TÜMÜ')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
@@ -371,7 +371,7 @@ export default function ReferencesClient({
           </div>
 
           {/* Metrics Counter */}
-          <div className="hidden lg:flex items-center gap-2 text-xs font-bold bg-slate-100 dark:bg-white/10 text-[var(--color-heading-text)] px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
+          <div className="hidden lg:flex items-center gap-2 text-xs font-bold bg-[var(--color-surface-variant)] text-[var(--color-primary)] px-4 py-2.5 rounded-2xl border border-[var(--color-outline)]/60 shadow-sm">
             <span className="material-symbols-outlined text-base text-emerald-500" aria-hidden="true">verified</span>
             <span>{filteredProjects.length} {currentDict.showing}</span>
           </div>
@@ -386,7 +386,7 @@ export default function ReferencesClient({
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === cat
                   ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md shadow-slate-900/20 dark:shadow-white/20 font-bold scale-105'
-                  : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 dark:border-white/10 hover:border-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-slate-400 hover:text-[var(--color-primary)]'
               }`}
             >
               {cat}
@@ -414,10 +414,10 @@ export default function ReferencesClient({
         </motion.div>
         
         {filteredProjects.length === 0 && (
-          <div className="text-center py-24 text-[var(--color-secondary)] space-y-2 bg-[var(--color-surface)] dark:bg-[#15161E] rounded-[2.5rem] border border-[var(--color-outline)]/60 dark:border-white/10 p-12">
-            <span className="material-symbols-outlined text-5xl mb-2 opacity-50 block text-slate-400" aria-hidden="true">search_off</span>
-            <p className="font-bold text-xl text-[var(--color-heading-text)]">{currentDict.noResults}</p>
-            <p className="text-sm text-slate-400">{currentDict.noResultsDesc}</p>
+          <div className="text-center py-24 text-[var(--color-secondary)] space-y-2 bg-[var(--color-surface)] rounded-[2.5rem] border border-[var(--color-outline)]/60 p-12">
+            <span className="material-symbols-outlined text-5xl mb-2 opacity-50 block text-[var(--color-tertiary)]" aria-hidden="true">search_off</span>
+            <p className="font-bold text-xl text-[var(--color-primary)]">{currentDict.noResults}</p>
+            <p className="text-sm text-[var(--color-tertiary)]">{currentDict.noResultsDesc}</p>
           </div>
         )}
 
@@ -463,12 +463,12 @@ export default function ReferencesClient({
         </div>
 
         {/* Call to Action (CTA) Card */}
-        <div className="mt-12 bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 rounded-[3rem] p-8 md:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mt-12 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex-1 space-y-3 text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-black text-[var(--color-heading-text)] tracking-tight">
+            <h3 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] tracking-tight">
               {currentDict.ctaTitle}
             </h3>
-            <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl">
+            <p className="text-[var(--color-secondary)] text-sm md:text-base leading-relaxed max-w-2xl">
               {currentDict.ctaDesc}
             </p>
           </div>
@@ -476,7 +476,7 @@ export default function ReferencesClient({
           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full md:w-auto">
             <a
               href="tel:+902165504848"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-100 dark:bg-white/10 text-[var(--color-heading-text)] font-extrabold text-sm hover:bg-slate-200 dark:hover:bg-white/20 transition-all border border-slate-300 dark:border-white/10"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] font-extrabold text-sm hover:bg-[var(--color-outline)]/30 transition-all border border-[var(--color-outline)]/60"
             >
               <span className="material-symbols-outlined text-emerald-500 text-lg" aria-hidden="true">call</span>
               <span>{currentDict.ctaCall}</span>

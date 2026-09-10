@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.emp_meta_title || 'İstihdam Köprüsü — Tesis & Özel Güvenlik Kariyer Fırsatları | Alo Yönetim';
+  const title = t.emp_meta_title || 'İstihdam Köprüsü — Tesis & Güvenlik Kariyeri | Alo Yönetim';
   const description = t.emp_meta_desc || 'İstanbul genelinde 5188 kimlikli özel güvenlik, temizlik personeli ve teknik bakım uzmanı açık iş pozisyonları ve kariyer başvurusu.';
 
   return buildMetadata({

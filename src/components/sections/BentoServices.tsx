@@ -16,7 +16,7 @@ export default function BentoServices() {
     <section id="hizmetler" className="py-24 sm:py-32 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center mb-16 sm:mb-20">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4 border border-slate-200 dark:border-white/10">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4 border border-[var(--color-outline)]/60">
           <span className="material-symbols-outlined text-[16px]" aria-hidden="true">domain</span>
           <span>ISO 41001 Akredite Entegre Tesis ve Mülk Çözümleri</span>
         </div>
@@ -47,7 +47,7 @@ export default function BentoServices() {
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {['Kamera Sistemleri', 'Fiziki Güvenlik', 'Nöbetçi Devriye', 'Plaka Tanıma (PTS)'].map(tag => (
-                <span key={tag} className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700">
+                <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
               ))}
@@ -78,7 +78,7 @@ export default function BentoServices() {
 
             <Link
               href={getLocalizedPath('/hesaplayici')}
-              className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+              className="text-xs font-bold text-[var(--color-primary)] bg-slate-100 dark:bg-white/10 px-3 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-white/20 transition-colors"
             >
               Maliyet Hesapla →
             </Link>
@@ -90,7 +90,7 @@ export default function BentoServices() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">cleaning_services</span>
-              <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-white/10 px-2.5 py-0.5 rounded-full">
+              <span className="text-[11px] font-bold text-[var(--color-secondary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 px-2.5 py-0.5 rounded-full">
                 ISO 9001
               </span>
             </div>
@@ -100,16 +100,16 @@ export default function BentoServices() {
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {['Ortak Alan', 'Kapalı Otopark', 'Çöp Toplama', 'Merdiven & Blok'].map(tag => (
-                <span key={tag} className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700">
+                <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between">
+          <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
             <Link
               href={getLocalizedPath('/hesaplayici')}
-              className="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
             >
               Temizlik Maliyeti →
             </Link>
@@ -133,13 +133,13 @@ export default function BentoServices() {
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {['Aidat Takibi', 'Şeffaf Bilanço', 'İcra Takibi', 'Mobil Tahsilat'].map(tag => (
-                <span key={tag} className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-[11px] font-semibold border border-slate-200 dark:border-slate-700">
+                <span key={tag} className="px-2.5 py-1 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-[11px] font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10 flex justify-end">
+          <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex justify-end">
             <Link 
               href={getLocalizedPath('/hizmetler/aidat-takibi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
@@ -160,13 +160,13 @@ export default function BentoServices() {
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {['634 KMK', 'İcra Takibi', 'Genel Kurul', 'Dava Takibi'].map(tag => (
-                <span key={tag} className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-[11px] font-semibold border border-slate-200 dark:border-slate-700">
+                <span key={tag} className="px-2.5 py-1 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-[11px] font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10 flex justify-end">
+          <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex justify-end">
             <Link 
               href={getLocalizedPath('/hizmetler/hukuk-ve-icra-danismanligi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
@@ -192,16 +192,16 @@ export default function BentoServices() {
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {['Asansör Yeşil Etiket', 'Jeneratör', 'Hidrofor & Yangın', 'Havuz & Kazan'].map(tag => (
-                <span key={tag} className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700">
+                <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between">
+          <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
             <Link
               href={getLocalizedPath('/hesaplayici')}
-              className="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
             >
               Teknik Bakım Keşfi →
             </Link>
@@ -216,56 +216,57 @@ export default function BentoServices() {
         </div>
 
         {/* Card 6: Site & Tesis Yönetimi (Amiral Gemisi Hub Linki) */}
-        <div className="md:col-span-2 bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white rounded-[2.5rem] p-8 sm:p-10 border border-slate-700 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform-gpu relative overflow-hidden group flex flex-col justify-between">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold tracking-wider uppercase mb-4 border border-blue-400/20">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">apartment</span>
-              <span>Amiral Gemisi — Site & Tesis İşletmesi</span>
+        <div className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">apartment</span>
+              <span className="text-[11px] font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                Amiral Gemisi
+              </span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Profesyonel Site ve Tesis Yönetimi</h3>
-            <p className="text-slate-300 leading-relaxed text-sm">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-3">Profesyonel Site ve Tesis Yönetimi</h3>
+            <p className="text-[var(--color-secondary)] leading-relaxed text-sm sm:text-base">
               İstanbul&apos;un 39 ilçesinde 340+ konut sitesi ve rezidansta 634 Sayılı KMK ve ISO 41001 standartlarında 5188 lisanslı güvenlik, temizlik, önleyici teknik servis ve %99.2 aidat tahsilat garantisi sunuyoruz.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {['Site Yönetimi', 'Toplu Konut', 'Rezidans', 'KMK 634', '%30 Tasarruf', '15 Dk SLA'].map(tag => (
-                <span key={tag} className="px-3 py-1.5 bg-white/10 text-slate-200 rounded-full text-xs font-semibold border border-white/10">
+                <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
               ))}
             </div>
 
             {/* Alt Sektörel Hızlı Linkler */}
-            <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-3 text-xs">
+            <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap gap-3 text-xs">
               <Link 
                 href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')}
-                className="text-blue-300 hover:text-white underline decoration-blue-500/50 flex items-center gap-1"
+                className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
                 <span>Toplu Konut & Site Çözümleri</span>
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
               </Link>
-              <span className="text-slate-600">·</span>
+              <span className="text-[var(--color-tertiary)]">·</span>
               <Link 
                 href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')}
-                className="text-blue-300 hover:text-white underline decoration-blue-500/50 flex items-center gap-1"
+                className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
                 <span>Rezidans & Lüks Site</span>
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
           </div>
-          <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
+          <div className="mt-8 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3">
             <Link 
               href={getLocalizedPath('/hizmetler/tesis-yonetimi')}
-              className="text-sm font-extrabold text-blue-400 hover:text-blue-300 flex items-center gap-2 group/btn"
+              className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
               <span>Site & Tesis Yönetimi Rehberi</span>
-              <span className="material-symbols-outlined text-base group-hover/btn:translate-x-1.5 transition-transform" aria-hidden="true">arrow_forward</span>
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
 
             <Link
               href={getLocalizedPath('/teklif-al')}
-              className="text-xs font-bold text-slate-900 bg-white hover:bg-slate-100 px-4 py-2 rounded-xl transition-colors shadow-sm"
+              className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl transition-colors shadow-xs"
             >
               Siteniz İçin Teklif Alın →
             </Link>

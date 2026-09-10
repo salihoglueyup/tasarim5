@@ -40,22 +40,22 @@ export default function MobileAppLiveSimulatorSeo() {
   };
 
   return (
-    <div className="my-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[3.5rem] p-8 md:p-14 shadow-2xl border border-white/10 relative overflow-hidden">
+    <div className="my-16 bg-[var(--color-surface)] rounded-[2.5rem] p-8 md:p-14 shadow-sm border border-[var(--color-outline)]/60 relative overflow-hidden">
       <JsonLd data={schemaData} />
 
       {/* Glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-blue-500/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-blue-500/5 blur-[130px] pointer-events-none rounded-full" />
 
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider mb-3">
           <span className="material-symbols-outlined text-sm" aria-hidden="true">smartphone</span>
           <span>İnteraktif Sakin & Yönetici Deneyimi</span>
         </div>
-        <h3 className="text-3xl md:text-4xl font-extrabold text-white">
+        <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)]">
           Alo Yönetim Mobil Uygulama Simülatörü
         </h3>
-        <p className="text-sm text-slate-300 font-light mt-2">
+        <p className="text-sm text-[var(--color-secondary)] font-light mt-2">
           Sitenizde ve rezidansınızda sakinlerin ve yöneticilerin kullanacağı dijital yönetim panelini canlı test edin.
         </p>
       </div>
@@ -69,16 +69,16 @@ export default function MobileAppLiveSimulatorSeo() {
             onClick={() => setActiveScreen('aidat')}
             className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
               activeScreen === 'aidat'
-                ? 'bg-blue-600/30 border-blue-500 text-white shadow-lg'
-                : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                ? 'bg-blue-500/10 dark:bg-[#1E202B] border-blue-500 text-[var(--color-primary)] shadow-sm'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-500 flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">credit_card</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-white mb-0.5">1. Tek Tıkla Aidat & Masraf Ödeme</h4>
-              <p className="text-xs text-slate-300 font-light">
+              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">1. Tek Tıkla Aidat & Masraf Ödeme</h4>
+              <p className="text-xs text-[var(--color-secondary)] font-light">
                 Kredi kartı veya banka kartıyla anında 3D Secure ödeme ve resmi dijital makbuz üretimi.
               </p>
             </div>
@@ -88,16 +88,16 @@ export default function MobileAppLiveSimulatorSeo() {
             onClick={() => setActiveScreen('ariza')}
             className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
               activeScreen === 'ariza'
-                ? 'bg-amber-600/30 border-amber-500 text-white shadow-lg'
-                : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                ? 'bg-amber-500/10 dark:bg-[#1E202B] border-amber-500 text-[var(--color-primary)] shadow-sm'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">home_repair_service</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-white mb-0.5">2. Fotoğraflı Arıza & Teknik Takip</h4>
-              <p className="text-xs text-slate-300 font-light">
+              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">2. Fotoğraflı Arıza & Teknik Takip</h4>
+              <p className="text-xs text-[var(--color-secondary)] font-light">
                 Ortak alandaki arızayı fotoğraflayıp iletin; teknik ekip çözdüğünde bildirim alın.
               </p>
             </div>
@@ -107,16 +107,16 @@ export default function MobileAppLiveSimulatorSeo() {
             onClick={() => setActiveScreen('oylama')}
             className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
               activeScreen === 'oylama'
-                ? 'bg-emerald-600/30 border-emerald-500 text-white shadow-lg'
-                : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                ? 'bg-emerald-500/10 dark:bg-[#1E202B] border-emerald-500 text-[var(--color-primary)] shadow-sm'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">how_to_vote</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-white mb-0.5">3. Dijital Genel Kurul & Karar Oylama</h4>
-              <p className="text-xs text-slate-300 font-light">
+              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">3. Dijital Genel Kurul & Karar Oylama</h4>
+              <p className="text-xs text-[var(--color-secondary)] font-light">
                 Site kararlarına arsa payınız oranında evinizden online katılın, anketleri oylayın.
               </p>
             </div>
@@ -126,16 +126,16 @@ export default function MobileAppLiveSimulatorSeo() {
             onClick={() => setActiveScreen('guvenlik')}
             className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
               activeScreen === 'guvenlik'
-                ? 'bg-purple-600/30 border-purple-500 text-white shadow-lg'
-                : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                ? 'bg-purple-500/10 dark:bg-[#1E202B] border-purple-500 text-[var(--color-primary)] shadow-sm'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-500 flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">local_police</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-white mb-0.5">4. Ziyaretçi & Plaka Tanıma (PTS)</h4>
-              <p className="text-xs text-slate-300 font-light">
+              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">4. Ziyaretçi & Plaka Tanıma (PTS)</h4>
+              <p className="text-xs text-[var(--color-secondary)] font-light">
                 Misafirinizin plakasını önceden kaydedin; nizamiyeden beklemeden hızlı geçiş yapsın.
               </p>
             </div>

@@ -200,12 +200,12 @@ export default function TestimonialSlider({
           </div>
         </div>
 
-        <div className="lg:col-span-4 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 rounded-[2rem] flex flex-col gap-4">
-          <div className="flex items-center gap-2 text-slate-300 font-bold text-sm">
+        <div className="lg:col-span-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-8 rounded-[2rem] flex flex-col gap-4 shadow-xs">
+          <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
             <span className="material-symbols-outlined" aria-hidden="true">verified</span>
             {t('home_testimonial_verified')}
           </div>
-          <div className="text-xs text-gray-300 leading-relaxed">
+          <div className="text-xs text-[var(--color-secondary)] leading-relaxed">
             {t('home_testimonial_verified_desc_1')}{current.site}{t('home_testimonial_verified_desc_2')}
           </div>
         </div>

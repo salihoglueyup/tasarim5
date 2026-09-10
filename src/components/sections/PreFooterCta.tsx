@@ -64,7 +64,7 @@ export default function PreFooterCta() {
           onMouseMove={isPointerDevice ? handleMouseMove : undefined}
           onMouseEnter={isPointerDevice ? handleMouseEnter : undefined}
           onMouseLeave={isPointerDevice ? handleMouseLeave : undefined}
-          className="relative w-full bg-[#2D2D3A] dark:bg-slate-900 border border-slate-700/40 dark:border-slate-800 rounded-[3rem] overflow-hidden px-8 py-24 md:py-32 flex flex-col items-center justify-center text-center shadow-2xl"
+          className="relative w-full bg-[#2D2D3A] dark:bg-[#15161E] border border-slate-700/40 dark:border-white/10 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden px-8 py-20 md:py-28 flex flex-col items-center justify-center text-center shadow-2xl"
         >
           {/* Spotlight Effect - Yalnızca fare imleci olan masaüstü cihazlarda aktif */}
           {isPointerDevice && (

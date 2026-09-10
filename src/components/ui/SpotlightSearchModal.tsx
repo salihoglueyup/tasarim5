@@ -36,6 +36,28 @@ export interface SearchItem {
   icon: React.ReactNode;
 }
 
+type FilterCategory = 'all' | 'Hizmet' | 'İlçe' | 'Rehber' | 'API' | 'Mevzuat' | 'Araç' | 'Sözlük';
+
+const CATEGORY_TABS: { key: FilterCategory; label: string }[] = [
+  { key: 'all', label: 'Tümü' },
+  { key: 'Hizmet', label: 'Hizmetler' },
+  { key: 'İlçe', label: 'İlçeler (39)' },
+  { key: 'Rehber', label: 'Rehber' },
+  { key: 'API', label: 'Açık Veri & API' },
+  { key: 'Mevzuat', label: 'KMK Mevzuat' },
+  { key: 'Araç', label: 'Hesaplayıcı' },
+  { key: 'Sözlük', label: 'Sözlük' },
+];
+
+const POPULAR_SEARCHES = [
+  { label: 'RFP Şartnamesi', query: 'rfp' },
+  { label: '39 İlçe SLA', query: 'sla' },
+  { label: 'Aidat Hesaplayıcı', query: 'hesaplayici' },
+  { label: 'KMK Madde 20', query: 'kmk 20' },
+  { label: 'Açık Veri API', query: 'açık veri' },
+  { label: 'Rezidans Yönetimi', query: 'rezidans' },
+];
+
 /**
  * Wave 64: Bütünleşik Ultra-Hızlı Spotlight Arama (Ctrl+K / ⌘K)
  * - Mükerrer arama modalları tek ve merkezi bir bileşende birleştirilmiştir.
@@ -45,6 +67,7 @@ export interface SearchItem {
 export default function SpotlightSearchModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<FilterCategory>('all');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const router = useRouter();
   const { language } = useLanguage();
@@ -86,6 +109,7 @@ export default function SpotlightSearchModal() {
       });
       setQuery('');
       setSelectedIndex(0);
+      setActiveCategory('all');
 
       return () => {
         document.body.style.overflow = originalOverflow;
@@ -306,15 +330,26 @@ export default function SpotlightSearchModal() {
 
   // Ultra Hızlı Filtreleme (< 2ms)
   const filteredResults = useMemo(() => {
+    let items = searchableItems;
+    if (activeCategory !== 'all') {
+      items = items.filter((item) => item.category === activeCategory);
+    }
+
     if (!query.trim()) {
-      return searchableItems.slice(0, 8);
+      return items.slice(0, 8);
     }
 
     const cleanQuery = query.toLowerCase().trim();
-    return searchableItems
+    return items
       .filter((item) => item.searchIndex.includes(cleanQuery))
-      .slice(0, 10);
-  }, [query, searchableItems]);
+      .slice(0, 12);
+  }, [query, activeCategory, searchableItems]);
+
+  const handleSelectCategory = (cat: FilterCategory) => {
+    setActiveCategory(cat);
+    setSelectedIndex(0);
+    inputRef.current?.focus();
+  };
 
   // Klavye Seçimi
   const handleInputKeyDown = (e: React.KeyboardEvent) => {
@@ -341,28 +376,50 @@ export default function SpotlightSearchModal() {
     router.push(url);
   };
 
-  const getCategoryBadgeClass = (category: SearchItem['category'], isSelected: boolean) => {
+  const getCategoryBadgeClass = (category: SearchItem['category']) => {
+    switch (category) {
+      case 'Rehber':
+        return 'bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/25';
+      case 'API':
+        return 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/25';
+      case 'Hizmet':
+        return 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/25';
+      case 'İlçe':
+        return 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25';
+      case 'Araç':
+        return 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/25';
+      case 'Mevzuat':
+        return 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/25';
+      case 'Sözlük':
+        return 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/25';
+      case 'Kurumsal':
+      default:
+        return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
+    }
+  };
+
+  const getCategoryIconBoxClass = (category: SearchItem['category'], isSelected: boolean) => {
     if (isSelected) {
-      return 'bg-blue-600 text-white dark:bg-blue-500 dark:text-white';
+      return 'bg-blue-500/15 text-blue-600 dark:text-blue-400 ring-1 ring-blue-500/30';
     }
     switch (category) {
       case 'Rehber':
-        return 'bg-teal-100 text-teal-800 dark:bg-teal-950/70 dark:text-teal-300';
+        return 'bg-teal-500/10 text-teal-600 dark:text-teal-400';
       case 'API':
-        return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-950/70 dark:text-cyan-300';
+        return 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400';
       case 'Hizmet':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-950/70 dark:text-blue-300';
+        return 'bg-blue-500/10 text-blue-600 dark:text-blue-400';
       case 'İlçe':
-        return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300';
+        return 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400';
       case 'Araç':
-        return 'bg-purple-100 text-purple-800 dark:bg-purple-950/70 dark:text-purple-300';
+        return 'bg-purple-500/10 text-purple-600 dark:text-purple-400';
       case 'Mevzuat':
-        return 'bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300';
+        return 'bg-rose-500/10 text-rose-600 dark:text-rose-400';
       case 'Sözlük':
-        return 'bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-300';
+        return 'bg-amber-500/10 text-amber-600 dark:text-amber-400';
       case 'Kurumsal':
       default:
-        return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+        return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
     }
   };
 
@@ -370,7 +427,7 @@ export default function SpotlightSearchModal() {
 
   return (
     <div 
-      className="fixed inset-0 z-[99999] flex items-start justify-center pt-14 sm:pt-20 px-4 font-sans"
+      className="fixed inset-0 z-[99999] flex items-start justify-center pt-12 sm:pt-20 px-3 sm:px-4 font-sans"
       role="dialog"
       aria-modal="true"
       aria-label="Tesis Yönetimi ve Site İçi Akıllı Arama"
@@ -378,18 +435,23 @@ export default function SpotlightSearchModal() {
       {/* Backdrop */}
       <div
         onClick={() => setIsOpen(false)}
-        className="fixed inset-0 bg-slate-950/75 backdrop-blur-md transition-opacity duration-150 ease-out transform-gpu"
+        className="fixed inset-0 bg-slate-950/70 backdrop-blur-md transition-opacity duration-150 ease-out transform-gpu"
         aria-hidden="true"
       />
 
       {/* Modal Container */}
       <div
-        className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden flex flex-col z-10 transition-all duration-150 ease-out transform-gpu"
+        className="relative w-full max-w-2xl bg-white/95 dark:bg-[#12131C]/95 backdrop-blur-2xl rounded-[2rem] shadow-[0_25px_70px_rgba(0,0,0,0.30)] dark:shadow-[0_25px_70px_rgba(0,0,0,0.70)] border border-slate-200/80 dark:border-white/10 ring-1 ring-black/5 dark:ring-white/5 overflow-hidden flex flex-col z-10 transition-all duration-150 ease-out transform-gpu"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Lüks Üst Kenar Işık Hüzmesi */}
+        <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-blue-400/40 to-transparent pointer-events-none" />
+
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 sm:px-5 py-4 border-b border-slate-100 dark:border-slate-800/80 gap-3 bg-slate-50/50 dark:bg-slate-950/30">
-          <Search className="w-5 h-5 text-slate-400 dark:text-slate-500 shrink-0" aria-hidden="true" />
+        <div className="relative flex items-center px-4 sm:px-5 py-4 border-b border-[var(--color-outline)]/40 gap-3 bg-[var(--color-surface-variant)]/40">
+          <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-blue-500/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 shrink-0">
+            <Search className="w-4 h-4" aria-hidden="true" />
+          </div>
           <input
             ref={inputRef}
             type="text"
@@ -401,35 +463,88 @@ export default function SpotlightSearchModal() {
             onKeyDown={handleInputKeyDown}
             aria-label="Tesis yönetimi rehberi, ilçe, API, mevzuat veya hesaplayıcı arayın"
             placeholder="Hizmet, ilçe, API, rehber, KMK maddesi veya hesaplayıcı..."
-            className="w-full bg-transparent text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none text-base sm:text-lg font-medium"
+            className="spotlight-input w-full bg-transparent text-[var(--color-primary)] placeholder-[var(--color-tertiary)] border-0 ring-0 outline-none focus:ring-0 focus:border-0 focus:outline-none focus-visible:outline-none text-base sm:text-lg font-medium tracking-tight shadow-none"
+            style={{ outline: 'none', boxShadow: 'none' }}
           />
           {query && (
             <button
               type="button"
-              onClick={() => setQuery('')}
+              onClick={() => {
+                setQuery('');
+                setSelectedIndex(0);
+                inputRef.current?.focus();
+              }}
               aria-label="Aramayı Temizle"
-              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              className="text-[var(--color-tertiary)] hover:text-[var(--color-primary)] p-1.5 rounded-lg hover:bg-[var(--color-surface-variant)] transition-colors cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
           )}
-          <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-slate-800 text-[11px] font-semibold text-slate-600 dark:text-slate-400">
+          <div className="hidden sm:flex items-center gap-1 px-2 py-1 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[10px] font-mono font-bold text-[var(--color-tertiary)] shadow-2xs">
             <kbd>ESC</kbd>
           </div>
         </div>
 
+        {/* Quick Category Filter Tabs */}
+        <div className="flex items-center gap-1.5 px-4 sm:px-5 py-2.5 border-b border-[var(--color-outline)]/30 overflow-x-auto no-scrollbar bg-[var(--color-surface)]/60">
+          <span className="text-[11px] font-bold text-[var(--color-tertiary)] uppercase tracking-wider shrink-0 mr-1 hidden sm:inline">
+            Filtre:
+          </span>
+          {CATEGORY_TABS.map((tab) => {
+            const isActive = activeCategory === tab.key;
+            return (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => handleSelectCategory(tab.key)}
+                className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
+                  isActive
+                    ? 'bg-[var(--color-primary)] text-[var(--color-surface)] shadow-xs'
+                    : 'bg-[var(--color-surface-variant)]/70 text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Popular Searches Quick Access */}
+        {!query.trim() && activeCategory === 'all' && (
+          <div className="px-4 sm:px-5 py-2 border-b border-[var(--color-outline)]/20 bg-[var(--color-surface-variant)]/20 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <span className="text-[11px] font-medium text-[var(--color-tertiary)] flex items-center gap-1 shrink-0 mr-1">
+              <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+              Popüler:
+            </span>
+            {POPULAR_SEARCHES.map((pop) => (
+              <button
+                key={pop.label}
+                type="button"
+                onClick={() => {
+                  setQuery(pop.query);
+                  setSelectedIndex(0);
+                  inputRef.current?.focus();
+                }}
+                className="text-xs px-2.5 py-0.5 rounded-md bg-[var(--color-surface)] hover:bg-blue-50 dark:hover:bg-blue-950/40 text-[var(--color-secondary)] hover:text-blue-600 dark:hover:text-blue-400 border border-[var(--color-outline)]/50 transition-colors shrink-0 cursor-pointer font-medium"
+              >
+                {pop.label}
+              </button>
+            ))}
+          </div>
+        )}
+
         {/* Results List */}
-        <div className="max-h-[60vh] sm:max-h-[440px] overflow-y-auto p-2.5 divide-y divide-slate-100/60 dark:divide-slate-800/40">
+        <div className="max-h-[55vh] sm:max-h-[420px] overflow-y-auto p-2.5 divide-y divide-[var(--color-outline)]/20">
           {filteredResults.length === 0 ? (
-            <div className="py-12 text-center text-slate-500 dark:text-slate-400 text-sm space-y-2">
-              <Search className="w-8 h-8 mx-auto text-slate-300 dark:text-slate-600 mb-2" />
-              <p className="font-bold text-slate-800 dark:text-slate-200 text-base">
+            <div className="py-12 text-center text-[var(--color-tertiary)] text-sm space-y-2">
+              <Search className="w-8 h-8 mx-auto text-[var(--color-tertiary)] mb-2 opacity-50" />
+              <p className="font-bold text-[var(--color-primary)] text-base">
                 Sonuç bulunamadı
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
-                &quot;{query}&quot; ile eşleşen bir tesis hizmeti, ilçe, rehber veya mevzuat bulunamadı.
+              <p className="text-xs text-[var(--color-secondary)] max-w-sm mx-auto">
+                &quot;{query}&quot; ile eşleşen bir sonuç bulunamadı.
               </p>
-              <p className="text-[11px] text-slate-400 dark:text-slate-500 pt-1">
+              <p className="text-[11px] text-[var(--color-tertiary)] pt-1">
                 İpuçları: <em>Kadıköy, RFP Rehberi, Açık Veri, Aidat, KMK 20, Rezidans</em>
               </p>
             </div>
@@ -442,43 +557,41 @@ export default function SpotlightSearchModal() {
                   type="button"
                   onClick={() => navigateTo(item.url)}
                   onMouseEnter={() => setSelectedIndex(index)}
-                  className={`w-full text-left flex items-center justify-between p-3 sm:p-3.5 rounded-2xl transition-all cursor-pointer ${
+                  className={`w-full text-left flex items-center justify-between p-3 sm:p-3.5 rounded-2xl transition-all duration-150 cursor-pointer ${
                     isSelected
-                      ? 'bg-blue-50/90 dark:bg-blue-950/40 text-blue-950 dark:text-blue-100 shadow-xs ring-1 ring-blue-500/20'
-                      : 'hover:bg-slate-50 dark:hover:bg-slate-800/40 text-slate-700 dark:text-slate-200'
+                      ? 'bg-slate-100/90 dark:bg-white/[0.07] border border-slate-200/80 dark:border-white/10 shadow-xs border-l-[3px] border-l-blue-600 dark:border-l-blue-400 pl-2.5'
+                      : 'hover:bg-slate-50 dark:hover:bg-white/5 border border-transparent text-[var(--color-secondary)]'
                   }`}
                 >
                   <div className="flex items-start gap-3 min-w-0 pr-2">
                     <div
-                      className={`p-2.5 rounded-xl shrink-0 mt-0.5 transition-colors ${
+                      className={`p-2.5 rounded-xl shrink-0 mt-0.5 transition-colors ${getCategoryIconBoxClass(
+                        item.category,
                         isSelected
-                          ? 'bg-white dark:bg-slate-800 shadow-xs'
-                          : 'bg-slate-100 dark:bg-slate-800/80'
-                      }`}
+                      )}`}
                     >
                       {item.icon}
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 flex-wrap mb-1">
-                        <span className="font-bold text-sm truncate text-slate-900 dark:text-slate-100">
+                        <span className="font-bold text-sm truncate text-[var(--color-primary)]">
                           {item.title}
                         </span>
                         <span
-                          className={`text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-md shrink-0 transition-colors ${getCategoryBadgeClass(
-                            item.category,
-                            isSelected
+                          className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full shrink-0 tracking-wider ${getCategoryBadgeClass(
+                            item.category
                           )}`}
                         >
                           {item.category}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
+                      <p className="text-xs text-[var(--color-secondary)] line-clamp-1 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
                   </div>
                   <ArrowRight
-                    className={`w-4 h-4 shrink-0 transition-transform ${
+                    className={`w-4 h-4 shrink-0 transition-all duration-200 ${
                       isSelected
                         ? 'translate-x-1 text-blue-600 dark:text-blue-400 font-bold'
                         : 'text-slate-300 dark:text-slate-600'
@@ -491,30 +604,37 @@ export default function SpotlightSearchModal() {
         </div>
 
         {/* Footer Navigation Hints */}
-        <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-slate-50 dark:bg-slate-950/70 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[var(--color-surface-variant)]/40 border-t border-[var(--color-outline)]/40 text-[11px] text-[var(--color-secondary)]">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono font-bold text-[10px]">
+            <span className="flex items-center gap-1.5">
+              <kbd className="px-1.5 py-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-outline)]/60 font-mono font-bold text-[10px] text-[var(--color-primary)] shadow-2xs">
                 ↑↓
               </kbd>{' '}
               Gezin
             </span>
-            <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono font-bold text-[10px]">
+            <span className="flex items-center gap-1.5">
+              <kbd className="px-1.5 py-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-outline)]/60 font-mono font-bold text-[10px] text-[var(--color-primary)] shadow-2xs">
                 ↵
               </kbd>{' '}
               Seç
             </span>
-            <span className="hidden sm:flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono font-bold text-[10px]">
+            <span className="hidden sm:flex items-center gap-1.5">
+              <kbd className="px-1.5 py-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-outline)]/60 font-mono font-bold text-[10px] text-[var(--color-primary)] shadow-2xs">
                 ESC
               </kbd>{' '}
               Kapat
             </span>
           </div>
-          <div className="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-medium">
-            <Command className="w-3.5 h-3.5" />
-            <span>+ K Akıllı Arama</span>
+          <div className="flex items-center gap-2">
+            <span className="hidden md:inline-flex items-center gap-1.5 text-[10px] text-[var(--color-tertiary)] font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              80+ Varlık İndekslendi
+            </span>
+            <span className="text-[var(--color-outline)]/60 hidden md:inline">•</span>
+            <div className="flex items-center gap-1 text-[var(--color-primary)] font-semibold text-[11px]">
+              <Command className="w-3.5 h-3.5" />
+              <span>+ K</span>
+            </div>
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-gray-200 dark:border-white/10 overflow-hidden"
+            className="relative w-full max-w-lg bg-[var(--color-surface)] rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-[var(--color-outline)]/60 overflow-hidden"
           >
             {/* Close Button */}
             <button 

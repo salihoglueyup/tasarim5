@@ -162,7 +162,9 @@ export default async function Blog() {
     blogPost: finalPosts.map((post: any) => ({
       '@type': 'BlogPosting',
       headline: post.title,
-      datePublished: post.datePublished.toISOString(),
+      datePublished: post.datePublished instanceof Date
+        ? post.datePublished.toISOString()
+        : new Date(post.datePublished || Date.now()).toISOString(),
       url: `https://aloyonetim.com/blog/${post.slug}`,
       image: post.image,
     })),
