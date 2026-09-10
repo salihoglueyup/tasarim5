@@ -2,7 +2,6 @@
 
 import Header from './Header';
 import Footer from './Footer';
-import GlobalSpotlightSearchSeo from '@/components/seo/GlobalSpotlightSearchSeo';
 import LeadQuickModalSeo from '@/components/seo/LeadQuickModalSeo';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
@@ -26,7 +25,6 @@ export default function NavigationWrapper({ children }: { children: React.ReactN
       <main id="main-content" className={isAdmin ? 'h-full w-full' : 'flex-grow min-h-[75vh] w-full relative'}>{children}</main>
       {!isAdmin && (
         <>
-          <GlobalSpotlightSearchSeo />
           <LeadQuickModalSeo />
           <Footer />
         </>

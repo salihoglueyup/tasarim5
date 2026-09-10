@@ -4574,6 +4574,74 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       }
     });
   });
+
+  describe('133. Wave 64: Spotlight Search Modal Bütünlüğü, Mimari Sadeleştirme & Tesis Yönetimi Arama İndeksi', () => {
+    it('SpotlightSearchModal.tsx mevcuttur, Ctrl+K / Cmd+K ve open-spotlight-search olaylarını dinler ve tesis yönetimi varlıklarını indeksler', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const modalFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/ui/SpotlightSearchModal.tsx'),
+        'utf8'
+      );
+
+      // Event listener ve klavye kısayolu kontrolleri
+      expect(modalFile).toContain('open-spotlight-search');
+      expect(modalFile).toContain("e.key.toLowerCase() === 'k'");
+      expect(modalFile).toContain('Escape');
+
+      // Tesis Yönetimi anahtar varlıkları
+      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/rehber');
+      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/acik-veri');
+      expect(modalFile).toContain('/bolgeler');
+      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
+      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
+      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
+      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
+      expect(modalFile).toContain('/hesaplayici');
+      expect(modalFile).toContain('/kurumsal/kalite-belgelerimiz');
+    });
+
+    it('ClientWidgets ve NavigationWrapper tekil SpotlightSearchModal mimarisini korur', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const clientWidgetsFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/layout/ClientWidgets.tsx'),
+        'utf8'
+      );
+      expect(clientWidgetsFile).toContain('SpotlightSearchModal');
+
+      const navWrapperFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/layout/NavigationWrapper.tsx'),
+        'utf8'
+      );
+      expect(navWrapperFile).not.toContain('<GlobalSpotlightSearchSeo');
+
+      const globalModalFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/GlobalSpotlightSearchSeo.tsx'),
+        'utf8'
+      );
+      expect(globalModalFile).toContain('return null');
+    });
+
+    it('QuickCallWidget ve not-found sayfaları tekil open-spotlight-search olayını tetikler', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const widgetFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/ui/QuickCallWidget.tsx'),
+        'utf8'
+      );
+      expect(widgetFile).toContain("new CustomEvent('open-spotlight-search')");
+
+      const notFoundFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/not-found.tsx'),
+        'utf8'
+      );
+      expect(notFoundFile).toContain('open-spotlight-search');
+    });
+  });
 });
 
 

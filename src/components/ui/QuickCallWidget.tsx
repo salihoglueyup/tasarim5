@@ -26,7 +26,9 @@ export default function QuickCallWidget() {
 
   const handleOpenSpotlight = () => {
     close();
-    window.dispatchEvent(new CustomEvent('open-spotlight-search'));
+    requestAnimationFrame(() => {
+      window.dispatchEvent(new CustomEvent('open-spotlight-search'));
+    });
   };
 
   return (
