@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import JsonLd from './JsonLd';
+import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 
 export type AppScreen = 'aidat' | 'ariza' | 'oylama' | 'guvenlik';
 
@@ -15,15 +16,23 @@ export default function MobileAppLiveSimulatorSeo() {
   const schemaData = {
     '@context': 'https://schema.org',
     '@type': 'MobileApplication',
-    name: 'Alo Yönetim Sakin & Yönetici Mobil Paneli',
+    name: 'Apsiyon — Alo Yönetim Sakin & Yönetici Portalı',
     operatingSystem: 'iOS, Android',
     applicationCategory: 'BusinessApplication',
-    description: 'Site sakinleri ve yöneticiler için 7/24 online aidat ödeme, arıza bildirimi ve oylama mobil uygulaması.',
+    description: 'Alo Yönetim sakinleri ve yöneticileri için 7/24 online aidat ödeme, arıza bildirimi ve oylama mobil uygulaması.',
+    downloadUrl: 'https://apps.apple.com/app/apsiyon/id1115852575',
+    installUrl: 'https://play.google.com/store/apps/details?id=com.apsiyon.mobile',
+    sameAs: [
+      'https://apps.apple.com/app/apsiyon/id1115852575',
+      'https://play.google.com/store/apps/details?id=com.apsiyon.mobile',
+      'https://appgallery.huawei.com/app/C100486001',
+      'https://online.apsiyon.com/'
+    ],
     aggregateRating: {
       '@type': 'AggregateRating',
       itemReviewed: {
         '@type': 'MobileApplication',
-        name: 'Alo Yönetim Sakin & Yönetici Mobil Paneli',
+        name: 'Apsiyon — Alo Yönetim Sakin & Yönetici Portalı',
         operatingSystem: 'iOS, Android',
         applicationCategory: 'BusinessApplication'
       },
@@ -40,23 +49,23 @@ export default function MobileAppLiveSimulatorSeo() {
   };
 
   return (
-    <div className="my-16 bg-[var(--color-surface)] rounded-[2.5rem] p-8 md:p-14 shadow-sm border border-[var(--color-outline)]/60 relative overflow-hidden">
+    <div className="my-12 bg-white/80 dark:bg-[#111827] rounded-[2.5rem] p-8 md:p-14 shadow-xl shadow-[#00A5DF]/5 border border-slate-200/80 dark:border-slate-800 backdrop-blur-sm relative overflow-hidden">
       <JsonLd data={schemaData} />
 
       {/* Glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-blue-500/5 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#00A5DF]/5 blur-[130px] pointer-events-none rounded-full" />
 
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00A5DF]/10 text-[#00A5DF] border border-[#00A5DF]/20 text-xs font-bold uppercase tracking-wider mb-3">
           <span className="material-symbols-outlined text-sm" aria-hidden="true">smartphone</span>
-          <span>İnteraktif Sakin & Yönetici Deneyimi</span>
+          <span>Apsiyon Altyapısı • Canlı Deneyim</span>
         </div>
-        <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)]">
-          Alo Yönetim Mobil Uygulama Simülatörü
+        <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+          Apsiyon Mobil Uygulama Deneyimi
         </h3>
-        <p className="text-sm text-[var(--color-secondary)] font-light mt-2">
-          Sitenizde ve rezidansınızda sakinlerin ve yöneticilerin kullanacağı dijital yönetim panelini canlı test edin.
+        <p className="text-sm text-slate-600 dark:text-slate-300 font-normal mt-2">
+          Alo Yönetim tarafından yönetilen sitelerde sakinlerin ve yöneticilerin kullandığı Apsiyon mobil ekranlarını canlı test edin.
         </p>
       </div>
 
@@ -67,18 +76,18 @@ export default function MobileAppLiveSimulatorSeo() {
         <div className="lg:col-span-6 space-y-4">
           <button
             onClick={() => setActiveScreen('aidat')}
-            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
+            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 cursor-pointer ${
               activeScreen === 'aidat'
-                ? 'bg-blue-500/10 dark:bg-[#1E202B] border-blue-500 text-[var(--color-primary)] shadow-sm'
-                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
+                ? 'bg-[#00A5DF]/10 border-[#00A5DF] text-slate-900 dark:text-white shadow-sm'
+                : 'bg-slate-50/80 dark:bg-[var(--color-surface-variant)] border-slate-200 dark:border-[var(--color-outline)]/60 text-slate-700 dark:text-[var(--color-secondary)] hover:bg-slate-100/90'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-500 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-[#00A5DF]/20 text-[#00A5DF] flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">credit_card</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">1. Tek Tıkla Aidat & Masraf Ödeme</h4>
-              <p className="text-xs text-[var(--color-secondary)] font-light">
+              <h4 className="text-base font-bold text-slate-900 dark:text-white mb-0.5">1. Tek Tıkla Aidat & Masraf Ödeme</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 font-normal">
                 Kredi kartı veya banka kartıyla anında 3D Secure ödeme ve resmi dijital makbuz üretimi.
               </p>
             </div>
@@ -86,18 +95,18 @@ export default function MobileAppLiveSimulatorSeo() {
 
           <button
             onClick={() => setActiveScreen('ariza')}
-            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
+            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 cursor-pointer ${
               activeScreen === 'ariza'
-                ? 'bg-amber-500/10 dark:bg-[#1E202B] border-amber-500 text-[var(--color-primary)] shadow-sm'
-                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
+                ? 'bg-[#FF9503]/10 border-[#FF9503] text-slate-900 dark:text-white shadow-sm'
+                : 'bg-slate-50/80 dark:bg-[var(--color-surface-variant)] border-slate-200 dark:border-[var(--color-outline)]/60 text-slate-700 dark:text-[var(--color-secondary)] hover:bg-slate-100/90'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-[#FF9503]/20 text-[#FF9503] flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">home_repair_service</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">2. Fotoğraflı Arıza & Teknik Takip</h4>
-              <p className="text-xs text-[var(--color-secondary)] font-light">
+              <h4 className="text-base font-bold text-slate-900 dark:text-white mb-0.5">2. Fotoğraflı Arıza & Teknik Takip</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 font-normal">
                 Ortak alandaki arızayı fotoğraflayıp iletin; teknik ekip çözdüğünde bildirim alın.
               </p>
             </div>
@@ -105,18 +114,18 @@ export default function MobileAppLiveSimulatorSeo() {
 
           <button
             onClick={() => setActiveScreen('oylama')}
-            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
+            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 cursor-pointer ${
               activeScreen === 'oylama'
-                ? 'bg-emerald-500/10 dark:bg-[#1E202B] border-emerald-500 text-[var(--color-primary)] shadow-sm'
-                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
+                ? 'bg-emerald-500/10 border-emerald-500 text-slate-900 dark:text-white shadow-sm'
+                : 'bg-slate-50/80 dark:bg-[var(--color-surface-variant)] border-slate-200 dark:border-[var(--color-outline)]/60 text-slate-700 dark:text-[var(--color-secondary)] hover:bg-slate-100/90'
             }`}
           >
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">how_to_vote</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">3. Dijital Genel Kurul & Karar Oylama</h4>
-              <p className="text-xs text-[var(--color-secondary)] font-light">
+              <h4 className="text-base font-bold text-slate-900 dark:text-white mb-0.5">3. Dijital Genel Kurul & Karar Oylama</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 font-normal">
                 Site kararlarına arsa payınız oranında evinizden online katılın, anketleri oylayın.
               </p>
             </div>
@@ -124,18 +133,18 @@ export default function MobileAppLiveSimulatorSeo() {
 
           <button
             onClick={() => setActiveScreen('guvenlik')}
-            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 ${
+            className={`w-full p-5 rounded-3xl border text-left transition-all flex items-start gap-4 cursor-pointer ${
               activeScreen === 'guvenlik'
-                ? 'bg-purple-500/10 dark:bg-[#1E202B] border-purple-500 text-[var(--color-primary)] shadow-sm'
-                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:bg-slate-200/50 dark:hover:bg-[#262938]'
+                ? 'bg-purple-500/10 border-purple-500 text-slate-900 dark:text-white shadow-sm'
+                : 'bg-slate-50/80 dark:bg-[var(--color-surface-variant)] border-slate-200 dark:border-[var(--color-outline)]/60 text-slate-700 dark:text-[var(--color-secondary)] hover:bg-slate-100/90'
             }`}
           >
             <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-500 flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-2xl" aria-hidden="true">local_police</span>
             </div>
             <div>
-              <h4 className="text-base font-bold text-[var(--color-primary)] mb-0.5">4. Ziyaretçi & Plaka Tanıma (PTS)</h4>
-              <p className="text-xs text-[var(--color-secondary)] font-light">
+              <h4 className="text-base font-bold text-slate-900 dark:text-white mb-0.5">4. Ziyaretçi & Plaka Tanıma (PTS)</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 font-normal">
                 Misafirinizin plakasını önceden kaydedin; nizamiyeden beklemeden hızlı geçiş yapsın.
               </p>
             </div>
@@ -160,7 +169,10 @@ export default function MobileAppLiveSimulatorSeo() {
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <strong className="text-white text-xs">Güneş Sitesi D:14</strong>
                 </div>
-                <span className="text-[10px] text-slate-400">Alo Yönetim Mobil</span>
+                <div className="flex items-center gap-1.5">
+                  <ApsiyonLogo variant="full" width={68} height={16} fillColor="#00A5DF" />
+                  <span className="text-[10px] text-[#00A5DF] font-bold">Apsiyon Sakin</span>
+                </div>
               </div>
 
               {/* Dynamic Screen Content */}
@@ -169,7 +181,7 @@ export default function MobileAppLiveSimulatorSeo() {
                 {/* 1. Aidat Ekranı */}
                 {activeScreen === 'aidat' && (
                   <div className="space-y-4 animate-fade-in">
-                    <div className="bg-blue-600/20 border border-blue-500/30 rounded-2xl p-4 text-center space-y-1">
+                    <div className="bg-[#00A5DF]/15 border border-[#00A5DF]/30 rounded-2xl p-4 text-center space-y-1">
                       <span className="text-[11px] text-slate-400">Şubat 2026 Aidat Borcu</span>
                       <div className="text-3xl font-black text-white">
                         {paidStatus ? '0.00 ₺' : '1.850 ₺'}
@@ -184,14 +196,14 @@ export default function MobileAppLiveSimulatorSeo() {
                     {!paidStatus ? (
                       <button
                         onClick={() => setPaidStatus(true)}
-                        className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg transition-transform active:scale-95"
+                        className="w-full py-3 bg-gradient-to-r from-[#00A5DF] to-[#088DC0] hover:from-[#0092C7] hover:to-[#077BA8] text-white font-bold rounded-xl shadow-lg shadow-[#00A5DF]/20 transition-transform active:scale-95 cursor-pointer"
                       >
                         💳 Kart ile Şimdi Öde (1.850 ₺)
                       </button>
                     ) : (
                       <button
                         onClick={() => setPaidStatus(false)}
-                        className="w-full py-2.5 bg-white/10 text-slate-300 font-medium rounded-xl text-center"
+                        className="w-full py-2.5 bg-white/10 text-slate-300 font-medium rounded-xl text-center cursor-pointer"
                       >
                         Simülasyonu Sıfırla
                       </button>

@@ -1,35 +1,27 @@
-import AppComingSoon from '@/components/sections/AppComingSoon';
+import ApsiyonMobileHub from '@/components/sections/ApsiyonMobileHub';
 import JsonLd from '@/components/seo/JsonLd';
-import MobileAppLiveSimulatorSeo from '@/components/seo/MobileAppLiveSimulatorSeo';
-import PageHeader from '@/components/layout/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function AppPage() {
   const breadcrumbs = [
     { name: 'Anasayfa', url: '/' },
-    { name: 'Mobil Uygulama', url: '/app' },
+    { name: 'Alo Yönetim & Apsiyon Mobil Portalı', url: '/app' },
   ];
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
   const pageLd = webPageSchema({
-    name: 'Alo Yönetim Mobil Uygulaması',
-    description: 'Site yönetiminin tamamı cebinizde — canlı interaktif demo.',
+    name: 'Alo Yönetim Sakin & Yönetici Mobil Portalı — Apsiyon Güvencesiyle',
+    description: 'Site ve tesis yönetiminin tamamı cebinizde — Apsiyon entegre canlı interaktif portal, online aidat ödeme ve talep takibi.',
     path: '/app',
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd]} />
-      <PageHeader 
-        title="Alo Yönetim Mobil Uygulaması"
-        description="Site yönetiminin tamamı cebinizde — Akıllı bina yönetimi, anlık bildirimler ve online aidat takibi."
-        breadcrumbs={breadcrumbs}
-      />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] py-12">
-        <MobileAppLiveSimulatorSeo />
-      </div>
-      <AppComingSoon />
+      
+      {/* Apsiyon Resmi Marka Kimliğiyle Güçlendirilmiş Bütünleşik Mobil Vitrini */}
+      <ApsiyonMobileHub />
     </>
   );
 }

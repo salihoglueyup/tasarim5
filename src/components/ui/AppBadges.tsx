@@ -10,9 +10,12 @@ export default function AppBadges() {
   return (
     <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 pt-2">
       {/* App Store */}
-      <button
-        type="button"
-        title="Yakında App Store'da"
+      <a
+        href="https://apps.apple.com/app/apsiyon/id1115852575"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Apsiyon iOS Uygulamasını App Store'dan İndirin"
+        aria-label="Apsiyon iOS Uygulamasını App Store'dan İndirin"
         className={badgeClasses}
       >
         <svg 
@@ -29,12 +32,15 @@ export default function AppBadges() {
           <span className="text-[10px] font-medium text-white/80 leading-none">Download on the</span>
           <span className="text-lg font-bold text-white leading-tight mt-0.5 tracking-tight">App Store</span>
         </div>
-      </button>
+      </a>
 
       {/* Google Play */}
-      <button
-        type="button"
-        title="Yakında Google Play'de"
+      <a
+        href="https://play.google.com/store/apps/details?id=com.apsiyon.mobile"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Apsiyon Android Uygulamasını Google Play'den İndirin"
+        aria-label="Apsiyon Android Uygulamasını Google Play'den İndirin"
         className={badgeClasses}
       >
         <svg 
@@ -53,12 +59,15 @@ export default function AppBadges() {
           <span className="text-[10px] font-medium text-white/80 leading-none uppercase">GET IT ON</span>
           <span className="text-lg font-bold text-white leading-tight mt-0.5 tracking-tight">Google Play</span>
         </div>
-      </button>
+      </a>
       
       {/* Huawei AppGallery */}
-      <button
-        type="button"
-        title="Yakında AppGallery'de"
+      <a
+        href="https://appgallery.huawei.com/app/C100486001"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Apsiyon Uygulamasını Huawei AppGallery'den İndirin"
+        aria-label="Apsiyon Uygulamasını Huawei AppGallery'den İndirin"
         className={badgeClasses}
       >
         <svg 
@@ -75,7 +84,7 @@ export default function AppBadges() {
           <span className="text-[10px] font-medium text-white/80 leading-none uppercase">EXPLORE IT ON</span>
           <span className="text-lg font-bold text-white leading-tight mt-0.5 tracking-tight">AppGallery</span>
         </div>
-      </button>
+      </a>
     </div>
   );
 }

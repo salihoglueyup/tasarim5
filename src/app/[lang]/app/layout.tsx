@@ -8,12 +8,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   return buildMetadata({
-    title: 'Alo Yönetim Mobil Uygulaması — Çok Yakında',
+    title: 'Alo Yönetim Sakin & Yönetici Mobil Portalı — Apsiyon Güvencesiyle',
     description:
-      'Aidat öde, arıza bildir, belgelere eriş, toplantılara katıl — tek güvenli uygulamada. Yakında App Store ve Google Play\'de.',
+      'Alo Yönetim ve Apsiyon resmi entegrasyonu: 7/24 online aidat ödeme, arıza takibi, karar oylama ve yönetim paneli. App Store, Google Play ve Huawei AppGallery\'de aktif.',
     path: '/app',
     lang,
-    keywords: ['alo yönetim uygulaması', 'site yönetimi app', 'aidat ödeme uygulaması', 'mobil tesis yönetimi'],
+    keywords: [
+      'alo yönetim mobil',
+      'apsiyon sakin indir',
+      'apsiyon manager',
+      'site yönetimi mobil uygulama',
+      'aidat ödeme uygulaması',
+      'mobil tesis yönetimi'
+    ],
   });
 }
 

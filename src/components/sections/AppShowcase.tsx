@@ -55,21 +55,47 @@ export default function AppShowcase() {
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
-            <div className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)]">
-              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)]" aria-hidden="true">phone_iphone</span>
+            <a
+              href="https://apps.apple.com/app/apsiyon/id1115852575"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-blue-500 hover:scale-[1.02] transition-all shadow-2xs group"
+              aria-label="Apsiyon iOS uygulamasını App Store'dan indirin"
+            >
+              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-blue-500 transition-colors" aria-hidden="true">phone_iphone</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">App Store</span>
               </div>
-            </div>
+            </a>
 
-            <div className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)]">
-              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)]" aria-hidden="true">android</span>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.apsiyon.mobile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-emerald-500 hover:scale-[1.02] transition-all shadow-2xs group"
+              aria-label="Apsiyon Android uygulamasını Google Play'den indirin"
+            >
+              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-emerald-500 transition-colors" aria-hidden="true">android</span>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">Google Play</span>
               </div>
-            </div>
+            </a>
+
+            <a
+              href="https://online.apsiyon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-purple-500 hover:scale-[1.02] transition-all shadow-2xs group"
+              aria-label="Apsiyon Web Sakin Portalı ile Giriş Yapın"
+            >
+              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-purple-500 transition-colors" aria-hidden="true">laptop_mac</span>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-[var(--color-secondary)]">Web'den Doğrudan</span>
+                <span className="text-sm font-bold">Sakin Girişi</span>
+              </div>
+            </a>
           </div>
         </div>
 
