@@ -163,6 +163,25 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
     expect(headerContent).not.toContain('layoutId=');
   });
 
+  it('LoginModal.tsx Apsiyon resmi portal ve mağaza linklerini taşır ve useFocusTrap kullanır', () => {
+    const loginModalContent = fs.readFileSync(path.join(layoutDir, 'LoginModal.tsx'), 'utf-8');
+    expect(loginModalContent).toContain('Apsiyon Altyapısı Güvencesiyle');
+    expect(loginModalContent).toContain('https://online.apsiyon.com/');
+    expect(loginModalContent).toContain('https://apps.apple.com/app/apsiyon/id1115852575');
+    expect(loginModalContent).toContain('https://play.google.com/store/apps/details?id=com.apsiyon.mobile');
+    expect(loginModalContent).toContain('https://apps.apple.com/app/apsiyon-manager/id1453210408');
+    expect(loginModalContent).toContain('useFocusTrap');
+  });
+
+  it('QuickCallWidget.tsx 5 saniyelik akıllı otomatik kapanma zamanlayıcısı ve hover koruması içerir', () => {
+    const quickCallContent = fs.readFileSync(path.join(uiDir, 'QuickCallWidget.tsx'), 'utf-8');
+    expect(quickCallContent).toContain('setTimeout');
+    expect(quickCallContent).toContain('clearTimeout');
+    expect(quickCallContent).toContain('5000');
+    expect(quickCallContent).toContain('onMouseEnter={clearTimer}');
+    expect(quickCallContent).toContain('onMouseLeave=');
+  });
+
   it('Wave 4 (Faz 76 - Faz 100) Header, Mega Menü & Router Cache mimarisi %100 onaylandı (Faz 100)', () => {
     expect(true).toBe(true);
   });

@@ -148,8 +148,14 @@ export default function Header() {
   // Faz 65: Dropdown menüler açıkken dışarı tıklandığında menüyü pasif pointerdown ile kapat
   useClickOutside(headerContainerRef, () => setHoveredMenu(null), Boolean(hoveredMenu));
 
-  // Açık zeminli hero alanına sahip sayfalar (ör. Açık Veri Portalı)
-  const isLightHero = Boolean(pathname && pathname.includes('/hizmetler/tesis-yonetimi/acik-veri'));
+  // Açık zeminli hero alanına sahip sayfalar (ör. Açık Veri Portalı, Apsiyon Mobil Portalı)
+  const isLightHero = Boolean(
+    pathname && (
+      pathname.includes('/hizmetler/tesis-yonetimi/acik-veri') ||
+      pathname === '/app' ||
+      pathname.endsWith('/app')
+    )
+  );
 
   // Normal sayfalarda sayfa başındayken (!isScrolled) koyu hero varsayımı geçerlidir.
   // Açık zeminli sayfalarda ise sayfa başındayken bile navbar frosted cam zemininde ve yüksek kontrastlı renklerde gösterilir.
