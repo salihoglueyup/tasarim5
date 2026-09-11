@@ -42,45 +42,61 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
               </div>
 
               <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold mb-3 border border-blue-500/20">
+                  <span className="material-symbols-outlined text-sm" aria-hidden="true">verified_user</span>
+                  <span>Apsiyon Altyapısı Güvencesiyle</span>
+                </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('portal_title')}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {t('portal_desc')}
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  Alo Yönetim sakinleri ve kat malikleri aidat ödemelerini, arıza takiplerini ve site kararlarını 7/24 Apsiyon platformu üzerinden güvenle yönetir.
                 </p>
               </div>
 
-              <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">{t('portal_tc_label')}</label>
-                  <input 
-                    type="text" 
-                    placeholder="12345678901"
-                    className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">{t('portal_password')}</label>
-                  <input 
-                    type="password" 
-                    placeholder="••••••••"
-                    className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
-                  />
-                </div>
-
-                <button 
-                  type="submit"
-                  className="w-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-2 cursor-pointer"
+              {/* Action Buttons */}
+              <div className="flex flex-col gap-3">
+                <a 
+                  href="https://online.apsiyon.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all flex items-center justify-center gap-3 text-center group cursor-pointer"
                 >
-                  {t('portal_btn')}
-                </button>
-              </form>
+                  <span className="material-symbols-outlined text-xl group-hover:translate-x-0.5 transition-transform" aria-hidden="true">open_in_new</span>
+                  <span>Apsiyon Web Sakin Portalı ile Giriş Yap</span>
+                </a>
 
-              <div className="pt-4 border-t border-gray-100 dark:border-white/10 flex items-center justify-between text-xs text-gray-400">
-                <span>{t('portal_app_ready')}</span>
-                <div className="flex gap-2">
-                  <span className="font-semibold text-slate-900 dark:text-white">App Store</span>
-                  <span>•</span>
-                  <span className="font-semibold text-slate-500">Google Play</span>
+                <div className="bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 rounded-2xl p-4 text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                  <div className="flex items-center gap-2 font-bold text-[var(--color-primary)]">
+                    <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">info</span>
+                    <span>İlk Giriş & Şifre Yardımı</span>
+                  </div>
+                  <p className="leading-relaxed text-slate-500 dark:text-slate-400">
+                    Sistem şifreniz site yönetiminize kayıtlı cep telefonunuza SMS ile iletilir. Şifrenizi bilmiyorsanız giriş ekranında <strong>&ldquo;Şifremi Unuttum&rdquo;</strong> seçeneğiyle anında yeni şifre oluşturabilirsiniz.
+                  </p>
+                </div>
+              </div>
+
+              {/* Mobile Apps Section */}
+              <div className="pt-4 border-t border-gray-100 dark:border-white/10 flex flex-col gap-3">
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Mobil Cihazınızda 7/24 Kullanın:</span>
+                <div className="grid grid-cols-2 gap-3">
+                  <a
+                    href="https://apps.apple.com/app/apsiyon/id1115852575"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs hover:opacity-90 transition-opacity"
+                  >
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">phone_iphone</span>
+                    <span>App Store</span>
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.apsiyon.mobile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs hover:bg-emerald-700 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">android</span>
+                    <span>Google Play</span>
+                  </a>
                 </div>
               </div>
 
