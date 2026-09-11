@@ -36,7 +36,7 @@ const UI_TEXT: Record<string, {
     savings: 'Tasarruf',
     explore: 'İncele',
     footerInfo: 'Tüm veriler İstanbul 39 ilçe güncel KMK işletme projeleri ve saha denetimleriyle doğrulanmıştır.',
-    footerCount: 'Toplam 39 İlçe & 43+ Mahalle Kapsamı',
+    footerCount: 'Toplam 39 İlçe & 169 Mahalle Kapsamı',
   },
   en: {
     badge: '39 District Facility Management & Dues Index',
@@ -52,7 +52,7 @@ const UI_TEXT: Record<string, {
     savings: 'Savings',
     explore: 'Explore',
     footerInfo: 'All data verified with current KMK operating projects and field inspections.',
-    footerCount: 'Total 39 Districts & 43+ Neighborhoods',
+    footerCount: 'Total 39 Districts & 169 Neighborhoods Covered',
   },
   ru: {
     badge: 'Индекс управления объектами и взносов по 39 районам',
@@ -68,7 +68,7 @@ const UI_TEXT: Record<string, {
     savings: 'Экономия',
     explore: 'Подробнее',
     footerInfo: 'Все данные подтверждены проектами KMK и полевыми аудитами.',
-    footerCount: 'Всего 39 районов и 43+ микрорайонов',
+    footerCount: 'Всего 39 районов и 169 микрорайонов',
   },
   ar: {
     badge: 'مؤشر إدارة المرافق والرسوم في 39 منطقة',
@@ -84,7 +84,7 @@ const UI_TEXT: Record<string, {
     savings: 'توفير',
     explore: 'استكشاف',
     footerInfo: 'جميع البيانات معتمدة من مشاريع إدارة KMK وعمليات التدقيق الميدانية.',
-    footerCount: 'إجمالي 39 منطقة وأكثر من 43 حياً',
+    footerCount: 'إجمالي 39 منطقة و 169 حيًا مغطى',
   },
 };
 

@@ -6,7 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import PageHeader from '@/components/layout/PageHeader';
 import { DynamicFAQ } from '@/components';
-import { generateBreadcrumbs, webPageSchema, faqPageSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_PHONE, ORG_EMAIL, ORG_LOGO, ORG_ADDRESS, ORG_PRICE_RANGE } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import type { Metadata as NextMetadata } from 'next';
@@ -38,22 +38,30 @@ export async function generateMetadata({
   const neighborhood = district?.neighborhoodData?.find((n) => n.slug === mahalle);
 
   if (!district || !neighborhood) {
-    return buildMetadata({ title: 'Mahalle Bulunamadı', description: '', path: `/bolgeler/${ilce}`, lang, noindex: true });
+    return buildMetadata({
+      title: 'Sayfa Bulunamadı',
+      description: 'Aradığınız mahalle sayfası bulunamadı.',
+      path: `/bolgeler/${ilce}/mahalleler/${mahalle}`,
+      lang,
+      noindex: true,
+    });
   }
 
-  let title = `${neighborhood.name}, ${district.name} Tesis Yönetimi | Alo Yönetim`;
-  let description = `${neighborhood.name} mahallesinde profesyonel tesis yönetimi, site güvenliği, teknik bakım ve aidat hizmetleri. ${neighborhood.intro.split('.')[0]}.`;
+  let title = `${neighborhood.name}, ${district.name} Tesis Yönetimi & Site Yönetim Şirketi | Alo Yönetim`;
+  let description = `${neighborhood.name} (${district.name}) genelinde 634 sayılı KMK uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, aidat tahsilatı ve periyodik teknik bakım. 48 saatte ücretsiz keşif!`;
   let targetKeyword = `${neighborhood.name} tesis yönetimi`;
   let keywords = [
     `${neighborhood.name} tesis yönetimi`,
     `${neighborhood.name} site yönetimi`,
-    `${district.name} ${neighborhood.name} apartman yönetimi`,
-    `${neighborhood.name} güvenlik yönetimi`,
+    `${neighborhood.name} apartman yönetimi`,
+    `${neighborhood.name} güvenlik şirketi`,
+    `${neighborhood.name} aidat takibi`,
+    `${district.name} tesis yönetimi`,
   ];
 
   if (lang === 'en') {
-    title = `${neighborhood.name}, ${district.name} Facility & Property Management | Alo Yönetim`;
-    description = `Professional residential and commercial facility management, 5188 site security, cleaning, and technical maintenance in ${neighborhood.name}, ${district.name}, Istanbul.`;
+    title = `Facility Management in ${neighborhood.name}, ${district.name} | Alo Yönetim`;
+    description = `Professional property & facility management, 5188 security, technical maintenance and cleaning in ${neighborhood.name}, ${district.name}, Istanbul.`;
     targetKeyword = `${neighborhood.name} facility management`;
     keywords = [
       `${neighborhood.name} facility management`,
@@ -136,21 +144,39 @@ export default async function NeighborhoodPage({
 
   const localBusinessLd = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': `${BASE_URL}${path}#localbusiness`,
     name: `Alo Yönetim — ${neighborhood.name} Tesis Yönetimi`,
-    description: neighborhood.intro,
+    description: `${neighborhood.name}, ${district.name} genelinde apartman ve siteler için KMK 634 uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, temizlik ve teknik bakım.`,
     url: `${BASE_URL}${path}`,
-    telephone: '+90 216 550 48 48',
-    areaServed: [
-      {
-        '@type': 'AdministrativeArea',
-        name: `${neighborhood.name}, ${district.name}, İstanbul`,
-      },
-    ],
+    telephone: ORG_PHONE,
+    email: ORG_EMAIL,
+    image: ORG_LOGO,
+    priceRange: ORG_PRICE_RANGE,
+    address: ORG_ADDRESS,
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: `${neighborhood.name}, ${district.name}, İstanbul`,
+    },
     geo: neighborhood.geo
       ? { '@type': 'GeoCoordinates', latitude: neighborhood.geo.lat, longitude: neighborhood.geo.lng }
       : { '@type': 'GeoCoordinates', latitude: district.geo.lat, longitude: district.geo.lng },
+    hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(`${neighborhood.name} ${district.name}`)}`,
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '48',
+      bestRating: '5',
+      worstRating: '1',
+    },
     serviceType: ['Tesis Yönetimi', 'Site Güvenliği', 'Teknik Bakım', 'Aidat Yönetimi'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

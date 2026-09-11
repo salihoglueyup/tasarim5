@@ -148,17 +148,19 @@ export async function generateMetadata({
 
   if (isFacility) {
     metaTitle = `${district.name} Site Yönetimi — Aidat, Bütçe ve Personel Yönetimi | Ücretsiz Keşif`;
-    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel site yönetimi, 5188 lisanslı güvenlik, temizlik ve şeffaf KMK aidat tahsilatı. Hemen ücretsiz keşif randevusu alın.`;
+    metaDesc = `${district.name}'de ISO 41001 standartlarında entegre tesis yönetimi ve profesyonel site yönetimi, 5188 lisanslı güvenlik, periyodik teknik bakım ve şeffaf aidat işletmesi. Ücretsiz keşif alın.`;
     serviceKeywords = [
+      `${district.name} tesis yönetimi`,
+      `${district.name} tesis yönetim şirketi`,
+      `${district.name} tesis yönetim şirketleri`,
+      `${district.name} tesis yönetim firmaları`,
+      `${district.name} entegre tesis yönetimi`,
       `${district.name} site yönetimi`,
       `${district.name} apartman yönetimi`,
       `${district.name} bina yönetimi`,
-      `${district.name} tesis yönetimi`,
       `${district.name} site yönetim şirketi`,
-      `${district.name} site yönetim firmaları`,
       `${district.name} profesyonel site yönetimi`,
       `${district.name} kmk site yönetimi`,
-      `${district.name} entegre tesis yönetimi`,
     ];
   } else if (isSecurity) {
     metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik | Ücretsiz Keşif`;

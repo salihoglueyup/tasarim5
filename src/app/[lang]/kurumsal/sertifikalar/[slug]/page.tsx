@@ -316,7 +316,7 @@ export default async function CertificatePage({
               >
                 <span className="material-symbols-outlined text-xl" aria-hidden="true">download</span>
                 <span>Resmi Sertifikayı İndir</span>
-                <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-medium ml-1">PDF</span>
+                <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-medium ml-1">PDF · 1.8 MB</span>
               </a>
 
               {/* BELCERT Doğrulama */}

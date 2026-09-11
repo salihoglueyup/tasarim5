@@ -232,12 +232,14 @@ export default function KMKLawAssistantSeo() {
               return (
                 <div
                   key={item.id}
-                  className={`border rounded-2xl transition-all duration-300 overflow-hidden ${
+                  id={item.id}
+                  className={`border rounded-2xl transition-all duration-300 overflow-hidden relative ${
                     isExpanded
                       ? 'bg-[var(--color-surface)] border-[var(--color-outline)] shadow-lg ring-1 ring-[var(--color-outline)]/40'
                       : 'bg-[var(--color-surface)]/80 border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/20 hover:shadow-xs'
                   }`}
                 >
+                  <span id={`kmk-madde-${item.article.toLowerCase().replace(/[^0-9]/g, '')}`} className="absolute -top-24 left-0 pointer-events-none opacity-0" aria-hidden="true" />
                   <button
                     onClick={() => setExpandedId(isExpanded ? null : item.id)}
                     className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4"
