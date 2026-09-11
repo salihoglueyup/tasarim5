@@ -50,6 +50,9 @@ export function buildHttpLinkHeader(pathname: string, currentLang: string = 'tr'
   linkElements.push(`<${BASE_URL}/llms.txt>; rel="describedby"; type="text/plain"`);
   linkElements.push(`<${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld>; rel="alternate"; type="application/ld+json"`);
   linkElements.push(`<${BASE_URL}/api/tesis-yonetimi/geo-feed.xml>; rel="alternate"; type="application/xml"`);
+  linkElements.push(`<${BASE_URL}/opensearch.xml>; rel="search"; type="application/opensearchdescription+xml"`);
+  linkElements.push(`<${BASE_URL}/feed.xml>; rel="alternate"; type="application/rss+xml"; title="Alo Yönetim RSS"`);
+  linkElements.push(`<https://pubsubhubbub.appspot.com/>; rel="hub"`);
 
   return linkElements.join(', ');
 }
@@ -90,5 +93,7 @@ export function generateEdgeSeoHeaders(
     'X-Legal-Entity': `${CANONICAL_NAP.legal.legalName} | MERSIS: ${CANONICAL_NAP.legal.mersisNumber} | ITO: ${CANONICAL_NAP.legal.tradeRegistryNumber}`,
     'X-NAP-Source': `${BASE_URL}/#organization`,
     'X-SLA-Guarantee': '15-25 min emergency response across 39 districts',
+    'X-Coverage-Scope': '39 Districts, 169 Neighborhoods across Istanbul',
+    'Server-Timing': 'edge;desc="Alo-Edge-Cache";dur=1, seo;desc="Metadata-Resolved";dur=1',
   };
 }

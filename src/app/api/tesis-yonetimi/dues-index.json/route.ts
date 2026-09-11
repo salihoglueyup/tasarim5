@@ -12,10 +12,12 @@ export const revalidate = 86400; // 24 saat ISR
  */
 export async function GET(req: Request) {
   let sideFilter: string | null = null;
+  let formatFilter: string | null = null;
   if (req && req.url) {
     try {
       const { searchParams } = new URL(req.url);
       sideFilter = searchParams.get('side');
+      formatFilter = searchParams.get('format');
     } catch {
       // noop
     }
@@ -34,13 +36,23 @@ export async function GET(req: Request) {
   const anatolianDistricts = selectedDistricts.filter((d) => d.side === 'Anadolu');
   const europeanDistricts = selectedDistricts.filter((d) => d.side === 'Avrupa');
 
+  const totalNeighborhoodsCount = selectedDistricts.reduce(
+    (acc, d) => acc + (d.neighborhoodData?.length || d.neighborhoods.length || 0),
+    0
+  );
+
   const districtData = selectedDistricts.map((d) => {
     const dues = getDistrictDues(d.slug);
+    const nData = d.neighborhoodData || [];
+    const nNames = nData.length > 0 ? nData.map((n) => n.name) : d.neighborhoods;
+
     return {
       district: d.name,
       slug: d.slug,
       side: d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası',
       population: d.population,
+      neighborhoodsCount: nNames.length,
+      prominentNeighborhoods: nNames.slice(0, 4),
       marketAverageM2Dues: dues.avgDuesM2,
       aloYonetimOptimizedM2Dues: dues.aloDuesM2,
       savingsPercentage: dues.savingsRate,
@@ -53,6 +65,46 @@ export async function GET(req: Request) {
       },
     };
   });
+
+  // CSV Formatı Desteği (RFC 4180 ve UTF-8 BOM)
+  if (formatFilter && formatFilter.toLowerCase() === 'csv') {
+    const headers = [
+      'Ilce',
+      'Yaka',
+      'Nufus',
+      'Mahalle_Sayisi',
+      'Piyasa_Ortalama_m2_Aidat_TL',
+      'Alo_Yonetim_Optimize_m2_Aidat_TL',
+      'Tasarruf_Orani_Yuzde',
+      'Tahmini_Yillik_Tasarruf_100_Daire_TL',
+      'Kanonik_URL',
+    ];
+
+    const rows = districtData.map((d) => [
+      `"${d.district}"`,
+      `"${d.side}"`,
+      d.population,
+      d.neighborhoodsCount,
+      d.marketAverageM2Dues,
+      d.aloYonetimOptimizedM2Dues,
+      d.savingsPercentage,
+      d.annualSavingsEstimatedFor100Units,
+      `"${d.canonicalUrl}"`,
+    ]);
+
+    const csvContent = '\uFEFF' + [headers.join(','), ...rows.map((r) => r.join(','))].join('\r\n');
+
+    return new NextResponse(csvContent, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/csv; charset=utf-8',
+        'Content-Disposition': 'inline; filename="istanbul-39-ilce-aidat-endeksi-2026.csv"',
+        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+        'Access-Control-Allow-Origin': '*',
+        'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+      },
+    });
+  }
 
   const avgMarketIstanbul = districtData.length
     ? Math.round(districtData.reduce((sum, d) => sum + d.marketAverageM2Dues, 0) / districtData.length)
@@ -72,6 +124,7 @@ export async function GET(req: Request) {
     methodology: '634 Sayılı KMK m.20 ve ISO 41001 standartlarında 340+ aktif yönetilen proje ve bölge saha analizleri.',
     istanbulSummary: {
       totalDistricts: selectedDistricts.length,
+      totalNeighborhoods: totalNeighborhoodsCount,
       anatolianCount: anatolianDistricts.length,
       europeanCount: europeanDistricts.length,
       istanbulAverageMarketDuesM2: `₺${avgMarketIstanbul}`,
@@ -119,6 +172,11 @@ export async function GET(req: Request) {
           '@type': 'DataDownload',
           encodingFormat: 'application/json',
           contentUrl: `${BASE_URL}/api/tesis-yonetimi/dues-index.json`,
+        },
+        {
+          '@type': 'DataDownload',
+          encodingFormat: 'text/csv',
+          contentUrl: `${BASE_URL}/api/tesis-yonetimi/dues-index.json?format=csv`,
         },
       ],
       spatialCoverage: {

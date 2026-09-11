@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { submitFacilityIndexNow } from '@/lib/seo/facilityIndexNowPinger';
+import { publishWebSubPing } from '@/lib/seo/webSubPinger';
 import { BASE_URL } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
@@ -9,8 +10,9 @@ export const dynamic = 'force-dynamic';
  *
  * Tek bir istek ile:
  * 1. IndexNow protokolü üzerinden (Bing, Yandex, Seznam, Naver vb.) tüm güncel sayfaları iletir.
- * 2. Master Sitemap Index (/sitemap-index.xml) ve alt sitemaplerin aktif durumunu doğrular.
- * 3. Arama motorlarına tek bir yanıtla toplu indeksleme raporu sunar.
+ * 2. Google PubSubHubbub (WebSub) Hub'ına canlı RSS/GeoRSS beslemelerini anında bildirir.
+ * 3. Master Sitemap Index (/sitemap-index.xml) ve alt sitemaplerin aktif durumunu doğrular.
+ * 4. Arama motorlarına tek bir yanıtla toplu indeksleme raporu sunar.
  */
 export async function POST() {
   return handlePingAll();
@@ -24,10 +26,19 @@ async function handlePingAll() {
   const timestamp = new Date().toISOString();
 
   try {
-    // 1. IndexNow Toplu Gönderimi Tetikle
+    // 1. IndexNow Toplu Gönderimi Tetikle (Bing, Yandex, Seznam, Naver)
     const indexNowResult = await submitFacilityIndexNow();
 
-    // 2. Sitemap Harita Listesi
+    // 2. Google PubSubHubbub / WebSub Anlık Bildirimi Tetikle
+    const webSubFeeds = [
+      `${BASE_URL}/feed.xml`,
+      `${BASE_URL}/api/tesis-yonetimi/feed.xml`,
+      `${BASE_URL}/feed/tesis-yonetimi.xml`,
+      `${BASE_URL}/api/tesis-yonetimi/geo-feed.xml`,
+    ];
+    const webSubSuccess = await publishWebSubPing(webSubFeeds);
+
+    // 3. Sitemap Harita Listesi
     const registeredSitemaps = [
       `${BASE_URL}/sitemap-index.xml`,
       `${BASE_URL}/sitemap.xml`,
@@ -41,7 +52,7 @@ async function handlePingAll() {
     return NextResponse.json(
       {
         success: true,
-        message: 'Tüm arama motoru indeksleme mekanizmaları tek tıkla başarıyla tetiklendi.',
+        message: 'Tüm arama motoru indeksleme mekanizmaları (IndexNow & WebSub Hub) tek tıkla başarıyla tetiklendi.',
         timestamp,
         masterSitemapIndex: `${BASE_URL}/sitemap-index.xml`,
         gscSingleLinkNotice: 'Google Search Console paneline sadece sitemap-index.xml tek linkini girmeniz tüm sayfaların taranması için yeterlidir.',
@@ -50,6 +61,11 @@ async function handlePingAll() {
           totalUrlsSubmitted: indexNowResult.totalUrlsSubmitted,
           message: indexNowResult.message,
           engines: ['Bing', 'Yandex', 'Seznam', 'Naver'],
+        },
+        webSub: {
+          success: webSubSuccess,
+          hub: 'https://pubsubhubbub.appspot.com/',
+          feedsNotified: webSubFeeds,
         },
         sitemaps: registeredSitemaps,
       },

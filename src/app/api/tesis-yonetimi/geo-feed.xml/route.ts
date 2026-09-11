@@ -42,11 +42,13 @@ export async function GET(req: Request) {
   const items = selectedDistricts.map((d) => {
     const url = `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`;
     const title = `${d.name} Profesyonel Tesis Yönetimi & 7/24 Saha İşletmesi — Alo Yönetim`;
-    const neighborhoods = d.neighborhoods.slice(0, 4).join(', ');
+    const neighborhoods = d.neighborhoods.slice(0, 6).join(', ');
     const slaMinutes = ['kadikoy', 'uskudar'].includes(d.slug) ? 15 : ['atasehir', 'besiktas', 'sisli'].includes(d.slug) ? 20 : 25;
-    const description = `${d.name} (${d.side} Yakası) genelinde ${d.managedProjects}+ aktif projede KMK 634 uyumlu tesis yönetimi, 5188 özel güvenlik, TSE temizlik ve ${slaMinutes} dakika mobil acil müdahale SLA garantisi. Hizmet verilen mahalleler: ${neighborhoods}.`;
+    const projectsInfo = d.prominentProjects?.length ? ` Örnek projeler: ${d.prominentProjects.join(', ')}.` : '';
+    const sitesInfo = d.totalResidentialSitesEstimated ? ` Bölgesel ${d.totalResidentialSitesEstimated} site stoğu.` : '';
+    const description = `${d.name} (${d.side} Yakası) genelinde ${d.managedProjects}+ aktif projede KMK 634 uyumlu tesis yönetimi, 5188 özel güvenlik, TSE temizlik ve ${slaMinutes} dakika mobil acil müdahale SLA garantisi.${projectsInfo}${sitesInfo} Hizmet verilen mahalleler: ${neighborhoods}.`;
 
-    return `
+    const districtXml = `
   <item>
     <title>${escapeXml(title)}</title>
     <link>${url}</link>
@@ -70,6 +72,36 @@ export async function GET(req: Request) {
     <tesis:canonicalOrg>${escapeXml(CANONICAL_NAP.legal.legalName)}</tesis:canonicalOrg>
     <tesis:telephone>${CANONICAL_NAP.contact.phoneDisplay}</tesis:telephone>
   </item>`;
+
+    const neighborhoodXml = (d.neighborhoodData || []).map((n) => {
+      const nUrl = `${BASE_URL}/bolgeler/${d.slug}/mahalleler/${n.slug}`;
+      const nTitle = `${escapeXml(n.name)} Mahallesi Tesis & Site Yönetimi (${escapeXml(d.name)}) — Alo Yönetim`;
+      const lat = n.geo?.lat ?? d.geo.lat;
+      const lng = n.geo?.lng ?? d.geo.lng;
+      const charsText = n.characteristics?.length ? ` Mahalle dinamikleri: ${n.characteristics.join(', ')}.` : '';
+      const nDesc = `${d.name} ilçesi ${n.name} Mahallesi: ${n.intro}${charsText} KMK 634 standartlarında profesyonel tesis ve site yönetimi.`;
+
+      return `
+  <item>
+    <title>${escapeXml(nTitle)}</title>
+    <link>${nUrl}</link>
+    <guid isPermaLink="true">${nUrl}</guid>
+    <description><![CDATA[${nDesc}]]></description>
+    <pubDate>${lastBuildDate}</pubDate>
+    <category>Mahalle Tesis Yönetimi</category>
+    <category>${escapeXml(d.name)}</category>
+    <category>${escapeXml(n.name)} Mahallesi</category>
+    <georss:point>${lat} ${lng}</georss:point>
+    <geo:lat>${lat}</geo:lat>
+    <geo:long>${lng}</geo:long>
+    <tesis:districtSlug>${d.slug}</tesis:districtSlug>
+    <tesis:neighborhoodSlug>${n.slug}</tesis:neighborhoodSlug>
+    <tesis:neighborhoodName>${escapeXml(n.name)}</tesis:neighborhoodName>
+    <tesis:canonicalOrg>${escapeXml(CANONICAL_NAP.legal.legalName)}</tesis:canonicalOrg>
+  </item>`;
+    }).join('');
+
+    return districtXml + neighborhoodXml;
   }).join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

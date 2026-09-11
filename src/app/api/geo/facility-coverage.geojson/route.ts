@@ -63,10 +63,23 @@ export async function GET() {
           securityManagement: `${BASE_URL}/bolgeler/${district.slug}/guvenlik-yonetimi`,
           technicalMaintenance: `${BASE_URL}/bolgeler/${district.slug}/teknik-bakim`,
           cleaningHygiene: `${BASE_URL}/bolgeler/${district.slug}/temizlik-ve-hijyen`,
+          neighborhoods: `${BASE_URL}/bolgeler/${district.slug}/mahalleler`,
           districtHub: `${BASE_URL}/bolgeler/${district.slug}`,
         },
         sampleNeighborhoods: district.neighborhoods.slice(0, 5),
         primaryLocalNeeds: district.localNeeds,
+        totalResidentialSitesEstimated: district.totalResidentialSitesEstimated || district.managedProjects * 15,
+        prominentProjects: district.prominentProjects || [],
+        regionalFacilityTraits: district.regionalFacilityTraits || '',
+        neighborhoodsCount: district.neighborhoodData?.length || district.neighborhoods.length,
+        neighborhoodsDetail: (district.neighborhoodData || []).map((n) => ({
+          slug: n.slug,
+          name: n.name,
+          lat: n.geo?.lat ?? lat,
+          lng: n.geo?.lng ?? lng,
+          characteristics: n.characteristics,
+          url: `${BASE_URL}/bolgeler/${district.slug}/mahalleler/${n.slug}`,
+        })),
       },
     };
   });

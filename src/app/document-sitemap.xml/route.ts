@@ -131,6 +131,14 @@ export async function GET() {
     xml += `  </url>\n`;
   }
 
+  // B2B RFP Teknik Şartname Doküman Üreticisi (Schema.org DigitalDocument)
+  xml += `  <url>\n`;
+  xml += `    <loc>${BASE_URL}/api/tesis-yonetimi/rfp-generator</loc>\n`;
+  xml += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`;
+  xml += `    <changefreq>monthly</changefreq>\n`;
+  xml += `    <priority>0.7</priority>\n`;
+  xml += `  </url>\n`;
+
   // Hukuki şablonların ait olduğu hizmet sayfaları ana sitemap.xml içinde yer almaktadır.
   // Sitemap standardı (sitemaps.org & Google Search Console) gereğince <loc> etiketinde '#' hash fragment bulunamaz.
 

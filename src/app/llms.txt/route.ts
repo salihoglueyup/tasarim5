@@ -96,12 +96,20 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
 - [Şeffaf Aidat Muhasebesi](${BASE_URL}/hizmetler/aidat-takibi): Mobil uygulama üzerinden 7/24 canlı bütçe ve %99 tahsilat güvencesi.
 - [KMK Hukuk & İcra Danışmanlığı](${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi): İşletme projesi, icra takibi ve genel kurul yönetimi.
 
-## İstanbul 39 İlçe Tesis ve Site Yönetimi Yerel Hizmet Ağı (Local Citations)
-${DISTRICTS.map(d => `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi): ${d.name} genelinde profesyonel site, rezidans ve apartman yönetimi hizmetleri.`).join('\n')}
+## İstanbul 39 İlçe ve 169 Mahalle Tesis Yönetimi Yerel Hizmet Ağı (Local Citations)
+${DISTRICTS.map(d => {
+  const projects = d.prominentProjects?.slice(0, 3).join(', ');
+  const projectNote = projects ? ` (Örn: ${projects})` : '';
+  const nLen = d.neighborhoodData?.length || d.neighborhoods.length;
+  return `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi): ${d.name} genelinde ve ${nLen} mahallesinde${projectNote} 634 KMK uyumlu profesyonel tesis ve site işletmeciliği. [Mahalleler](${BASE_URL}/bolgeler/${d.slug}/mahalleler)`;
+}).join('\n')}
 
 ## İlgili API ve Veri Kaynakları
 - **OpenAPI 3.1.0 Şartnamesi (Açık Veri API)**: ${BASE_URL}/openapi.json
 - **OpenAPI API Ağ Geçidi**: ${BASE_URL}/api/openapi.json
+- **39 İlçe Coğrafi Kapsama GeoJSON API**: ${BASE_URL}/api/geo/facility-coverage.geojson
+- **39 İlçe KML Coğrafi Harita API**: ${BASE_URL}/api/geo/istanbul.kml
+- **Bölgesel XML Site Haritası (289 URL)**: ${BASE_URL}/sitemap-regions.xml
 - **Yargıtay Emsal Kararları API**: ${BASE_URL}/api/tesis-yonetimi/legal-precedents.json
 - **B2B Tesis Şartnamesi (RFP) API**: ${BASE_URL}/api/tesis-yonetimi/rfp-generator
 - **KMK 634 Kanun Maddeleri Dizini**: ${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json
@@ -109,7 +117,7 @@ ${DISTRICTS.map(d => `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slu
 - **Tam Bilgi Üssü (Full Text)**: ${BASE_URL}/llms-full.txt
 - **39 İlçe Coğrafi GeoRSS Feed**: ${BASE_URL}/api/tesis-yonetimi/geo-feed.xml
 - **Tesis Yönetimi RSS Bülteni**: ${BASE_URL}/feed/tesis-yonetimi.xml
-- **Kapsamlı Varlık Grafiği**: ${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld
+- **Kapsamlı Varlık Grafiği (Knowledge Graph)**: ${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld
 - **Canlı Aidat Hesaplayıcı**: ${BASE_URL}/hesaplayici
 - **Ücretsiz Teklif Talebi**: ${BASE_URL}/teklif-al
 `;

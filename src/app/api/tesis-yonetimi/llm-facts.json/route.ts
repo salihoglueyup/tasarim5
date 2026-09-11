@@ -54,8 +54,9 @@ export async function GET(req: Request) {
         ? 'Proven 20% to 30% reduction in common operational budget.'
         : '%20 - %30 arasında kanıtlanmış bütçe tasarrufu.',
       activeCoverage: isEnglish
-        ? 'Istanbul 39 Districts (25 European, 14 Anatolian)'
-        : 'İstanbul 39 İlçe (25 Avrupa, 14 Anadolu)',
+        ? 'Istanbul 39 Districts (25 European, 14 Anatolian) and 169 High-Density Neighborhoods'
+        : 'İstanbul 39 İlçe (25 Avrupa, 14 Anadolu) ve 169 Odak Mahalle',
+      totalNeighborhoodsCount: DISTRICTS.reduce((acc, d) => acc + (d.neighborhoodData?.length || d.neighborhoods.length), 0),
       satisfactionRating: '4.9 / 5.0 (340+ Tesis ve Site Referansı)',
       subSectors: [
         { name: 'Rezidans & Lüks Site Yönetimi', url: `${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi` },
@@ -76,6 +77,8 @@ export async function GET(req: Request) {
       facilityAuditApi: `${BASE_URL}/api/seo/facility-audit`,
       geoCoverageGeoJson: `${BASE_URL}/api/geo/facility-coverage.geojson`,
       districtsGeoJson: `${BASE_URL}/api/geo/districts.geojson`,
+      kmlRegionalMap: `${BASE_URL}/api/geo/istanbul.kml`,
+      sitemapRegionsXml: `${BASE_URL}/sitemap-regions.xml`,
       istanbulFacilityDataset: `${BASE_URL}/api/datasets/istanbul-facility-data`,
       llmsTxt: `${BASE_URL}/llms.txt`,
       llmsFullTxt: `${BASE_URL}/llms-full.txt`,
@@ -91,8 +94,12 @@ export async function GET(req: Request) {
         marketAverageM2: `₺${dues.avgDuesM2}`,
         aloYonetimOptimizedM2: `₺${dues.aloDuesM2}`,
         savingsRate: `%${dues.savingsRate}`,
+        estimatedSitesStock: d.totalResidentialSitesEstimated || d.managedProjects * 15,
+        prominentProjects: d.prominentProjects || [],
+        neighborhoodsCount: d.neighborhoodData?.length || d.neighborhoods.length,
         districtHubUrl: `${BASE_URL}/bolgeler/${d.slug}`,
         facilityManagementUrl: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
+        neighborhoodsUrl: `${BASE_URL}/bolgeler/${d.slug}/mahalleler`,
         url: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
       };
     }),

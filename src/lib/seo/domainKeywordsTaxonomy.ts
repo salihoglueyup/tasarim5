@@ -161,18 +161,30 @@ export function getKeywordsByPillar(pillar: DomainPillar): string[] {
  * Belirli bir dikey ve ilçe için özel optimize edilmiş SERP Başlığı üretir.
  */
 export function getPillarTitleTemplate(pillar: DomainPillar, districtName?: string): string {
-  const prefix = districtName ? `${districtName} ` : 'İstanbul ';
+  if (districtName) {
+    switch (pillar) {
+      case 'site':
+        return `${districtName} Profesyonel Site ve Apartman Yönetimi Şirketi | Alo Yönetim`;
+      case 'facility':
+        return `${districtName} Entegre Tesis Yönetimi ve İşletmeciliği | Alo Yönetim`;
+      case 'legal':
+        return `${districtName} Site Yönetimi Hukuku & KMK 634 Danışmanlığı | Alo Yönetim`;
+      case 'hybrid':
+      default:
+        return `${districtName} Tesis Yönetimi & Site Yönetimi | Alo Yönetim`;
+    }
+  }
 
   switch (pillar) {
     case 'site':
-      return `${prefix}Profesyonel Site ve Apartman Yönetimi Şirketi | Alo Yönetim`;
+      return 'İstanbul Profesyonel Site ve Apartman Yönetimi Şirketi | Alo Yönetim';
     case 'facility':
-      return `${prefix}Entegre Tesis Yönetimi ve İşletmeciliği — ISO 41001 | Alo Yönetim`;
+      return 'İstanbul Entegre Tesis Yönetimi ve İşletmeciliği — ISO 41001 | Alo Yönetim';
     case 'legal':
-      return `${prefix}Site Yönetimi Hukuku & KMK 634 İcra Danışmanlığı | Alo Yönetim`;
+      return 'İstanbul Site Yönetimi Hukuku & KMK 634 İcra Danışmanlığı | Alo Yönetim';
     case 'hybrid':
     default:
-      return `${prefix}Tesis Yönetimi & Site Yönetimi — Profesyonel Yönetim Şirketi | Alo Yönetim`;
+      return 'İstanbul Tesis Yönetimi & Site Yönetimi | 39 İlçe | Alo Yönetim';
   }
 }
 
@@ -184,13 +196,13 @@ export function getPillarDescriptionTemplate(pillar: DomainPillar, districtName?
 
   switch (pillar) {
     case 'site':
-      return `${loc} konut siteleri ve apartmanlar için KMK 634 uyumlu profesyonel site yönetimi. 5188 güvenlik, aidat icra takibi, %30 tasarruf ve 15-25 dk SLA!`;
+      return `${loc} konut siteleri ve apartmanlar için KMK 634 uyumlu profesyonel site yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 tasarruf ve 7/24 acil müdahale hattı. Ücretsiz keşif.`;
     case 'facility':
-      return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 41001 sertifikalı entegre tesis yönetimi, önleyici teknik bakım ve %99.2 verimlilik.`;
+      return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 41001 sertifikalı entegre tesis yönetimi. 150+ aktif proje, önleyici teknik bakım ve %99.2 verimlilik güvencesi. Hemen teklif alın.`;
     case 'legal':
-      return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi, işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık.`;
+      return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi (KMK m.20), işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık. 48 saat içinde çözüm.`;
     case 'hybrid':
     default:
-      return `${loc} apartman, site ve rezidanslar için KMK 634 uyumlu profesyonel site ve tesis yönetimi. 5188 güvenlik, aidat icra takibi ve %30 maliyet tasarrufu!`;
+      return `${loc} apartman, site ve rezidanslar için ISO 41001 & KMK 634 uyumlu profesyonel tesis yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 maliyet tasarrufu. Ücretsiz keşif randevusu.`;
   }
 }

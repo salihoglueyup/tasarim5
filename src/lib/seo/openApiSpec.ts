@@ -320,6 +320,124 @@ export function generateOpenApiSpec() {
           },
         },
       },
+      '/api/geo/facility-coverage.geojson': {
+        get: {
+          tags: ['Coğrafi Harita & Yerel Saha Ağı'],
+          summary: 'İstanbul 39 İlçe & 169 Mahalle Tesis Yönetimi Kapsam Haritası (GeoJSON)',
+          description: '39 ilçe ve 169 mahallenin koordinatlarını, dinamiklerini, öne çıkan sitelerini ve SLA müdahale sürelerini döner.',
+          operationId: 'getFacilityCoverageGeoJson',
+          responses: {
+            '200': {
+              description: 'RFC 7946 GeoJSON FeatureCollection tam coğrafi kapsam verisi.',
+              content: {
+                'application/geo+json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      type: { type: 'string', example: 'FeatureCollection' },
+                      features: { type: 'array' },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/api/geo/istanbul.kml': {
+        get: {
+          tags: ['Coğrafi Harita & Yerel Saha Ağı'],
+          summary: 'İstanbul Tesis Yönetimi KML Harita Katmanı (OGC KML 2.2)',
+          description: 'Google Earth ve GIS sistemleri için 39 ilçe ve mahalle sınırlarını içeren OGC KML 2.2 coğrafi veri katmanı.',
+          operationId: 'getIstanbulKmlMap',
+          responses: {
+            '200': {
+              description: 'OGC KML standardında coğrafi işaretçiler ve detaylar.',
+              content: {
+                'application/vnd.google-earth.kml+xml': {
+                  schema: { type: 'string' },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/api/tesis-yonetimi/entity-graph.jsonld': {
+        get: {
+          tags: ['Kurumsal Akreditasyon & Bilgi Korpusu'],
+          summary: 'Schema.org Bağlantılı Veri ve Varlık Grafiği (JSON-LD)',
+          description: 'Organization, AdministrativeArea, Neighborhood ve LocalBusiness düğümlerini içeren 215 varlıklı bilgi grafiği.',
+          operationId: 'getEntityGraphJsonLd',
+          responses: {
+            '200': {
+              description: 'W3C JSON-LD standardında Schema.org bilgi grafiği.',
+              content: {
+                'application/ld+json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      '@context': { type: 'string' },
+                      '@graph': { type: 'array' },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/api/tesis-yonetimi/compare-districts': {
+        get: {
+          tags: ['Aidat & Piyasa Endeksi'],
+          summary: 'İki İlçe Tesis Yönetimi ve Aidat Karşılaştırma Servisi',
+          description: 'İki ilçe arasındaki aidat m², tasarruf oranı, nüfus ve yönetim dinamiklerini kıyaslar.',
+          operationId: 'compareDistricts',
+          parameters: [
+            {
+              name: 'district1',
+              in: 'query',
+              required: true,
+              schema: { type: 'string', example: 'kadikoy' },
+            },
+            {
+              name: 'district2',
+              in: 'query',
+              required: true,
+              schema: { type: 'string', example: 'besiktas' },
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'İki ilçe arasındaki detaylı karşılaştırma metrikleri.',
+            },
+          },
+        },
+      },
+      '/api/tesis-yonetimi/geo-feed.xml': {
+        get: {
+          tags: ['Coğrafi Harita & Yerel Saha Ağı'],
+          summary: '39 İlçe & 169 Mahalle GeoRSS Coğrafi Bilgi Beslemesi',
+          description: 'Harita indeksleme botları ve arama motorları için W3C Geo ve GeoRSS etiketleriyle canlı coğrafi koordinat beslemesi.',
+          operationId: 'getGeoFeedXml',
+          parameters: [
+            {
+              name: 'side',
+              in: 'query',
+              required: false,
+              description: 'Yaka filtresi (anadolu veya avrupa)',
+              schema: { type: 'string', enum: ['anadolu', 'avrupa'] },
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'GeoRSS XML formatında coğrafi besleme akışı.',
+              content: {
+                'application/xml': { schema: { type: 'string' } },
+              },
+            },
+          },
+        },
+      },
     },
   };
 }

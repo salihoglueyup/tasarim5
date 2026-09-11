@@ -5,6 +5,7 @@ import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
 import { createETagResponse } from '@/lib/security/etag';
 import { SERVICES } from '@/data/services';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
+import { DISTRICTS } from '@/data/districts';
 
 /**
  * OpenSearch & Site-Wide Autocomplete API Endpoint
@@ -130,6 +131,26 @@ export async function GET(req: NextRequest) {
         }
         if (suggestions.length >= 5) break;
       }
+    }
+
+    // 2.5 Mahalle Eşleşmeleri (169 Mahalle)
+    for (const district of DISTRICTS) {
+      if (!district.neighborhoodData) continue;
+      for (const n of district.neighborhoodData) {
+        if (
+          n.name.toLowerCase().includes(normalizedQuery) ||
+          n.slug.includes(normalizedQuery)
+        ) {
+          const nUrl = localizedUrl(`/bolgeler/${district.slug}/mahalleler/${n.slug}`, lang);
+          if (!urls.includes(nUrl)) {
+            suggestions.push(`${n.name} Mahallesi Tesis & Site Yönetimi (${district.name})`);
+            descriptions.push(`${district.name} ${n.name} Mahallesi genelinde 634 KMK uyumlu profesyonel tesis yönetimi ve 5188 lisanslı güvenlik.`);
+            urls.push(nUrl);
+          }
+          if (suggestions.length >= 6) break;
+        }
+      }
+      if (suggestions.length >= 6) break;
     }
 
     // 3. İnteraktif Araç Eşleşmeleri (Tools)

@@ -5,6 +5,7 @@ import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
 import { POSTS_META } from '@/data/postsMetadata';
 import { REFERENCES_META } from '@/data/referencesMetadata';
+import { CERTIFICATES } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // Günde bir yenile (ISR)
@@ -90,6 +91,20 @@ export async function GET() {
     xml += `    </image:image>\n`;
     xml += `  </url>\n`;
 
+    // 7 Bireysel Akredite Kalite Sertifikası Görselleri
+    for (const cert of CERTIFICATES) {
+      xml += `  <url>\n`;
+      xml += `    <loc>${BASE_URL}/kurumsal/sertifikalar/${cert.slug}</loc>\n`;
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n`;
+      xml += `      <image:title>${escapeXml(cert.name)} — ${escapeXml(cert.subtitle)}</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(cert.description)} (${escapeXml(cert.accreditation)})</image:caption>\n`;
+      xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
+      xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
+      xml += `    </image:image>\n`;
+      xml += `  </url>\n`;
+    }
+
     // 9 Temel Hizmet Sayfası Görselleri
     for (const service of SERVICES) {
       xml += `  <url>\n`;
@@ -98,6 +113,27 @@ export async function GET() {
       xml += `      <image:loc>${BASE_URL}/api/og</image:loc>\n`;
       xml += `      <image:title>${escapeXml(service.name)} — Alo Yönetim Tesis Yönetimi</image:title>\n`;
       xml += `      <image:caption>${escapeXml(service.summary)}</image:caption>\n`;
+      xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
+      xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
+      xml += `    </image:image>\n`;
+      xml += `  </url>\n`;
+    }
+
+    // Tesis Yönetimi Dikey Alt Sektörleri ve Rehber Görselleri
+    const facilitySubsectors = [
+      { slug: 'rezidans-site-yonetimi', title: 'Rezidans ve Site Yönetimi', caption: 'Lüks rezidans ve toplu yaşam alanlarında 5188 güvenlik ve entegre tesis yönetimi' },
+      { slug: 'plaza-yonetimi', title: 'Plaza ve İş Merkezi Yönetimi', caption: 'A+ plazalar ve ticari gayrimenkullerde akıllı bina otomasyonu ve tesis işletmesi' },
+      { slug: 'toplu-konut-yonetimi', title: 'Toplu Konut ve Uydukent Yönetimi', caption: 'Geniş parsel ve çok bloklu toplu konut sitelerinde bütçe ve operasyon yönetimi' },
+      { slug: 'sanayi-tesisi-yonetimi', title: 'Sanayi Tesisi ve Fabrika Yönetimi', caption: 'Endüstriyel tesisler ve lojistik merkezlerinde teknik bakım ve İSG yönetimi' },
+      { slug: 'rehber', title: 'Entegre Tesis Yönetimi ve KMK 634 Rehberi', caption: 'KMK 634, ISO 41001 ve tesis yönetimi yasal mevzuat rehberi' },
+    ];
+    for (const sub of facilitySubsectors) {
+      xml += `  <url>\n`;
+      xml += `    <loc>${BASE_URL}/hizmetler/tesis-yonetimi/${sub.slug}</loc>\n`;
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(sub.title)}</image:loc>\n`;
+      xml += `      <image:title>${escapeXml(sub.title)} — Alo Yönetim</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(sub.caption)}</image:caption>\n`;
       xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
       xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
       xml += `    </image:image>\n`;
@@ -115,6 +151,23 @@ export async function GET() {
       xml += `      <image:geo_location>${escapeXml(district.name)}, İstanbul, Türkiye</image:geo_location>\n`;
       xml += `    </image:image>\n`;
       xml += `  </url>\n`;
+    }
+
+    // 169 Mahalle Yerel Tesis Yönetimi Görsel Haritası
+    for (const district of DISTRICTS) {
+      if (!district.neighborhoodData || district.neighborhoodData.length === 0) continue;
+      for (const n of district.neighborhoodData) {
+        xml += `  <url>\n`;
+        xml += `    <loc>${BASE_URL}/bolgeler/${district.slug}/mahalleler/${n.slug}</loc>\n`;
+        xml += `    <image:image>\n`;
+        xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(n.name + ' Tesis Yönetimi')}&amp;type=local</image:loc>\n`;
+        xml += `      <image:title>${escapeXml(n.name)} Mahallesi Tesis Yönetimi &amp; Site İşletmesi</image:title>\n`;
+        xml += `      <image:caption>${escapeXml(district.name)} ${escapeXml(n.name)} Mahallesi ISO 41001 standartlarında profesyonel tesis ve site yönetimi</image:caption>\n`;
+        xml += `      <image:geo_location>${escapeXml(n.name)}, ${escapeXml(district.name)}, İstanbul, Türkiye</image:geo_location>\n`;
+        xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
+        xml += `    </image:image>\n`;
+        xml += `  </url>\n`;
+      }
     }
 
     // Blog yazıları

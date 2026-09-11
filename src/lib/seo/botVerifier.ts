@@ -2,12 +2,14 @@ export interface BotVerificationResult {
   isBot: boolean;
   botName?: string;
   isVerifiedSearchEngine: boolean;
+  isAiBot?: boolean;
   allowFastLane: boolean;
   recommendedCacheControl: string;
   reason: string;
 }
 
-const SEARCH_BOT_PATTERNS: Array<{ name: string; pattern: RegExp; trustedDomains: string[] }> = [
+const SEARCH_BOT_PATTERNS: Array<{ name: string; pattern: RegExp; trustedDomains: string[]; isAi?: boolean }> = [
+  // 1. Geleneksel Arama Motorları
   {
     name: 'Googlebot',
     pattern: /googlebot|google-inspectiontool|adsbot-google|mediapartners-google/i,
@@ -25,7 +27,7 @@ const SEARCH_BOT_PATTERNS: Array<{ name: string; pattern: RegExp; trustedDomains
   },
   {
     name: 'Applebot',
-    pattern: /applebot/i,
+    pattern: /applebot(?!\-extended)/i,
     trustedDomains: ['applebot.apple.com'],
   },
   {
@@ -33,10 +35,89 @@ const SEARCH_BOT_PATTERNS: Array<{ name: string; pattern: RegExp; trustedDomains
     pattern: /duckduckbot/i,
     trustedDomains: ['duckduckgo.com'],
   },
+  // 2. Yeni Nesil AI ve LLM Arama Botları (GEO - Generative Engine Optimization)
+  {
+    name: 'GPTBot',
+    pattern: /gptbot/i,
+    trustedDomains: ['openai.com'],
+    isAi: true,
+  },
+  {
+    name: 'OAI-SearchBot',
+    pattern: /oai-searchbot/i,
+    trustedDomains: ['openai.com'],
+    isAi: true,
+  },
+  {
+    name: 'ChatGPT-User',
+    pattern: /chatgpt-user/i,
+    trustedDomains: ['openai.com'],
+    isAi: true,
+  },
+  {
+    name: 'ClaudeBot',
+    pattern: /claudebot|claude-web|anthropic-ai/i,
+    trustedDomains: ['anthropic.com'],
+    isAi: true,
+  },
+  {
+    name: 'PerplexityBot',
+    pattern: /perplexitybot|perplexity-user/i,
+    trustedDomains: ['perplexity.ai'],
+    isAi: true,
+  },
+  {
+    name: 'Applebot-Extended',
+    pattern: /applebot-extended/i,
+    trustedDomains: ['apple.com', 'applebot.apple.com'],
+    isAi: true,
+  },
+  {
+    name: 'DeepSeekBot',
+    pattern: /deepseekbot/i,
+    trustedDomains: ['deepseek.com'],
+    isAi: true,
+  },
+  {
+    name: 'Google-Extended',
+    pattern: /google-extended/i,
+    trustedDomains: ['google.com', 'googlebot.com'],
+    isAi: true,
+  },
+  {
+    name: 'cohere-ai',
+    pattern: /cohere-ai/i,
+    trustedDomains: ['cohere.ai', 'cohere.com'],
+    isAi: true,
+  },
+  {
+    name: 'Amazonbot',
+    pattern: /amazonbot/i,
+    trustedDomains: ['amazon.com'],
+    isAi: true,
+  },
+  {
+    name: 'Meta-ExternalAgent',
+    pattern: /meta-externalagent/i,
+    trustedDomains: ['facebook.com', 'meta.com'],
+    isAi: true,
+  },
+  {
+    name: 'Bytespider',
+    pattern: /bytespider/i,
+    trustedDomains: ['bytedance.com'],
+    isAi: true,
+  },
+  {
+    name: 'PetalBot',
+    pattern: /petalbot/i,
+    trustedDomains: ['aspiegel.com', 'petalsearch.com'],
+    isAi: false,
+  },
 ];
 
 /**
- * Gelen User-Agent ve IP/Hostname bilgilerini denetleyerek arama motoru botunu doğrular.
+ * Gelen User-Agent ve IP/Hostname bilgilerini denetleyerek arama motoru ve AI botlarını doğrular.
  */
 export function verifySearchBot(
   userAgent: string = '',
@@ -65,15 +146,19 @@ export function verifySearchBot(
           isBot: true,
           botName: bot.name,
           isVerifiedSearchEngine: true,
+          isAiBot: !!bot.isAi,
           allowFastLane: true,
           recommendedCacheControl: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400',
-          reason: `Verified ${bot.name} - Fast Lane Enabled`,
+          reason: bot.isAi
+            ? `Verified AI Search Bot ${bot.name} - LLM Fast Lane Enabled`
+            : `Verified ${bot.name} - Fast Lane Enabled`,
         };
       } else {
         return {
           isBot: true,
           botName: bot.name,
           isVerifiedSearchEngine: false,
+          isAiBot: !!bot.isAi,
           allowFastLane: false,
           recommendedCacheControl: 'no-store, no-cache',
           reason: `Spoofed / Unverified ${bot.name} signature detected`,
@@ -90,3 +175,4 @@ export function verifySearchBot(
     reason: 'Standard Client or Generic Crawler',
   };
 }
+

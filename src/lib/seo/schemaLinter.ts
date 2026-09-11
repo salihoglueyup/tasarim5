@@ -314,6 +314,62 @@ export function lintSchemaOrgObject(schema: any): SchemaLintReport {
       }
       break;
     }
+
+    case 'WebApplication':
+    case 'SoftwareApplication': {
+      if (!schema.name) {
+        issues.push({ field: 'name', message: 'Uygulama adı (name) zorunludur', severity: 'ERROR' });
+        score -= 35;
+      }
+      if (!schema.applicationCategory) {
+        issues.push({ field: 'applicationCategory', message: 'Uygulama kategorisi (applicationCategory) önerilir (örn: BusinessApplication)', severity: 'WARNING' });
+        score -= 10;
+      }
+      if (!schema.operatingSystem) {
+        issues.push({ field: 'operatingSystem', message: 'Desteklenen işletim sistemi (operatingSystem) önerilir (örn: All, Web)', severity: 'WARNING' });
+        score -= 10;
+      }
+      break;
+    }
+
+    case 'GeoCoordinates': {
+      const lat = typeof schema.latitude === 'number' ? schema.latitude : parseFloat(schema.latitude);
+      const lng = typeof schema.longitude === 'number' ? schema.longitude : parseFloat(schema.longitude);
+
+      if (isNaN(lat) || lat < -90 || lat > 90) {
+        issues.push({ field: 'latitude', message: 'Enlem (latitude) -90 ile 90 arasında geçerli bir sayı olmalıdır', severity: 'ERROR' });
+        score -= 40;
+      }
+      if (isNaN(lng) || lng < -180 || lng > 180) {
+        issues.push({ field: 'longitude', message: 'Boylam (longitude) -180 ile 180 arasında geçerli bir sayı olmalıdır', severity: 'ERROR' });
+        score -= 40;
+      }
+      break;
+    }
+
+    case 'Place': {
+      if (!schema.name) {
+        issues.push({ field: 'name', message: 'Mekan adı (name) zorunludur', severity: 'ERROR' });
+        score -= 30;
+      }
+      if (!schema.geo && !schema.address) {
+        issues.push({ field: 'geo', message: 'Mekan şemasında geo koordinat veya address alanı bulunmalıdır', severity: 'ERROR' });
+        score -= 30;
+      }
+      break;
+    }
+
+    case 'SearchAction': {
+      if (!schema.target && !schema['target-name']) {
+        issues.push({ field: 'target', message: 'SearchAction şemasında hedef arama URL şablonu (target) zorunludur', severity: 'ERROR' });
+        score -= 40;
+      }
+      if (!schema['query-input']) {
+        issues.push({ field: 'query-input', message: 'SearchAction sorgu parametresi (query-input) önerilir (örn: required name=search_term_string)', severity: 'WARNING' });
+        score -= 15;
+      }
+      break;
+    }
   }
 
   const hasErrors = issues.some((i) => i.severity === 'ERROR');

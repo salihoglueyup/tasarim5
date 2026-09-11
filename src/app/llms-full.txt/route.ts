@@ -16,14 +16,23 @@ export const revalidate = 86400;
 export async function GET() {
   const districtList = DISTRICTS.map((d) => {
     const dues = getDistrictDues(d.slug);
+    const sites = d.totalResidentialSitesEstimated ? `${d.totalResidentialSitesEstimated.toLocaleString('tr-TR')} Konut Sitesi / Apartman` : `${d.managedProjects * 15}+ Site`;
+    const projects = d.prominentProjects?.length ? d.prominentProjects.join(', ') : 'Bölge Prestij Siteleri';
+    const neighborhoodsList = d.neighborhoodData?.length ? d.neighborhoodData.map((n) => n.name).join(', ') : d.neighborhoods.join(', ');
+
     return `### ${d.name} (${d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'})
 - **Nüfus**: ${d.population.toLocaleString('tr-TR')}
+- **Tahmini Konut Sitesi Stoğu**: ${sites}
 - **Piyasa Ortalama Aidat m²**: ₺${dues.avgDuesM2}
 - **Alo Yönetim Optimize Aidat m²**: ₺${dues.aloDuesM2}
 - **Tasarruf Oranı**: %${dues.savingsRate}
+- **Öne Çıkan Referans Siteler & Projeler**: ${projects}
+- **Bölgesel Tesis ve İşletme Dinamikleri**: ${d.regionalFacilityTraits || d.localNeeds.join(', ')}
+- **Hizmet Verilen Odak Mahalleler**: ${neighborhoodsList}
 - **Yerel İhtiyaçlar**: ${d.localNeeds.join(', ')}
-- **Örnek Yönetilen Proje**: ${d.managedProjects}
-- **Sayfa URL**: ${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi
+- **Örnek Yönetilen Proje**: ${d.managedProjects}+ Tesis
+- **İlçe Tesis Yönetimi URL**: ${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi
+- **Mahalleler İndeks URL**: ${BASE_URL}/bolgeler/${d.slug}/mahalleler
 `;
   }).join('\n');
 

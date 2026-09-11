@@ -115,6 +115,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-41001`,
+            credentialCategory: 'FacilityManagementSystem',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
@@ -123,6 +125,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-9001`,
+            credentialCategory: 'QualityManagementSystem',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
@@ -131,6 +135,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/sertifikalar/iso-14001`,
+            credentialCategory: 'EnvironmentalManagementSystem',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
@@ -139,6 +145,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/sertifikalar/iso-45001`,
+            credentialCategory: 'OccupationalHealthAndSafety',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
@@ -147,6 +155,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-27001`,
+            credentialCategory: 'InformationSecurityManagement',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
@@ -155,6 +165,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
+            url: `${BASE_URL}/kurumsal/sertifikalar/iso-10002`,
+            credentialCategory: 'CustomerSatisfactionManagement',
             recognizedBy: {
               '@type': 'Organization',
               name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
@@ -163,6 +175,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
+            url: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
+            credentialCategory: 'PrivateSecurityLicense',
             recognizedBy: {
               '@type': 'GovernmentOrganization',
               name: 'T.C. İçişleri Bakanlığı / İstanbul Valiliği',
@@ -171,6 +185,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'TSE HYB 12850 Hizmet Yeri Yeterlilik Belgesi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#tse-12850`,
+            credentialCategory: 'ServicePlaceCompetence',
             recognizedBy: {
               '@type': 'Organization',
               name: 'Türk Standardları Enstitüsü (TSE)',

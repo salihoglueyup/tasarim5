@@ -78,11 +78,12 @@ export async function GET() {
   }
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
-  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n`;
+  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
 
   for (const post of posts) {
     const pubDate = new Date(post.datePublished).toISOString();
     const loc = `${BASE_URL}/blog/${post.slug}`;
+    const keywordsTag = post.tags ? `        <news:keywords>${escapeXml(post.tags)}</news:keywords>\n` : '';
 
     xml += `  <url>\n`;
     xml += `    <loc>${loc}</loc>\n`;
@@ -93,7 +94,14 @@ export async function GET() {
     xml += `      </news:publication>\n`;
     xml += `      <news:publication_date>${pubDate}</news:publication_date>\n`;
     xml += `      <news:title>${escapeXml(post.title)}</news:title>\n`;
+    if (keywordsTag) {
+      xml += keywordsTag;
+    }
     xml += `    </news:news>\n`;
+    xml += `    <image:image>\n`;
+    xml += `      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n`;
+    xml += `      <image:title>${escapeXml(post.title)}</image:title>\n`;
+    xml += `    </image:image>\n`;
     xml += `  </url>\n`;
   }
 

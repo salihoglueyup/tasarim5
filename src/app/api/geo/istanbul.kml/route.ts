@@ -20,9 +20,11 @@ export async function GET() {
         <p>${d.intro}</p>
         <p><strong>Yaka:</strong> ${d.side} Yakası</p>
         <p><strong>Yönetilen Proje:</strong> ${d.managedProjects}+ Tesis / Site</p>
-        <p><strong>Öne Çıkan Mahalleler:</strong> ${d.neighborhoods.join(', ')}</p>
+        <p><strong>Öne Çıkan Referans Siteler:</strong> ${d.prominentProjects?.length ? d.prominentProjects.join(', ') : 'Bölge Prestij Projeleri'}</p>
+        <p><strong>Bölgesel Tesis Dinamikleri:</strong> ${d.regionalFacilityTraits || d.localNeeds.join(', ')}</p>
+        <p><strong>Öne Çıkan Mahalleler:</strong> ${d.neighborhoodData?.length ? d.neighborhoodData.map((n) => n.name).join(', ') : d.neighborhoods.join(', ')}</p>
         <p><strong>Telefon:</strong> +90 216 550 48 48</p>
-        <p><a href="${BASE_URL}/bolgeler/${d.slug}">İlçe Detay Sayfası</a> | <a href="${BASE_URL}/bolgeler/${d.slug}/guvenlik-yonetimi">5188 Güvenlik Hizmetleri</a></p>
+        <p><a href="${BASE_URL}/bolgeler/${d.slug}">İlçe Detay Sayfası</a> | <a href="${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi">Tesis Yönetimi</a> | <a href="${BASE_URL}/bolgeler/${d.slug}/mahalleler">Mahalleler</a></p>
       ]]></description>
       <Point>
         <coordinates>${d.geo.lng},${d.geo.lat},0</coordinates>

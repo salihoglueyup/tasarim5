@@ -44,10 +44,16 @@ export function buildFacilityIndexNowPayload(apiKey: string = 'b42e617d3a2e4e10b
     urlList.push(`${BASE_URL}/hizmetler/tesis-yonetimi/${sub}`);
   });
 
-  // 3. 39 İlçe Hub ve Tesis Yönetimi Spoke URL'leri
+  // 3. 39 İlçe Hub, Tesis Yönetimi ve Mahalle Spoke URL'leri
   DISTRICTS.forEach((d) => {
     urlList.push(`${BASE_URL}/bolgeler/${d.slug}`);
     urlList.push(`${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`);
+    if (d.neighborhoodData && d.neighborhoodData.length > 0) {
+      urlList.push(`${BASE_URL}/bolgeler/${d.slug}/mahalleler`);
+      d.neighborhoodData.forEach((n) => {
+        urlList.push(`${BASE_URL}/bolgeler/${d.slug}/mahalleler/${n.slug}`);
+      });
+    }
   });
 
   // 4. Çekirdek Hizmetler (Dinamik Pillar Rotaları)

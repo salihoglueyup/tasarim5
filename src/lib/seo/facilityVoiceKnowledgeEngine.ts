@@ -29,7 +29,7 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
   const canonicalSource = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
 
-  const allQuestions: VoiceSearchQAItem[] = [
+  const trQuestions: VoiceSearchQAItem[] = [
     {
       id: 'kmk-yonetici-aidat-muafiyeti',
       queryIntent: 'legal',
@@ -85,6 +85,179 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
       targetKeyword: 'profesyonel tesis yönetimi avantajları',
     },
   ];
+
+  const enQuestions: VoiceSearchQAItem[] = [
+    {
+      id: 'kmk-yonetici-aidat-muafiyeti-en',
+      queryIntent: 'legal',
+      voiceQuery: 'Does a property manager pay dues in residential complexes?',
+      speakableAnswer: 'Under Property Ownership Law Article 40, unless specified otherwise in the management plan, an elected manager may be exempt from half of common operating expenses. With professional management firms, all unit owners pay in full.',
+      detailedExplanation: 'According to Article 40 of Law No. 634, an elected manager may receive compensation or partial dues exemption. Professional management firms guarantee full transparency and fair dues accounting for all independent unit owners.',
+      legalReference: 'Property Law No. 634 Art. 40',
+      targetKeyword: 'does property manager pay dues',
+    },
+    {
+      id: 'kmk-isletme-projesi-itiraz-suresi-en',
+      queryIntent: 'legal',
+      voiceQuery: 'How many days to appeal against an annual operating budget?',
+      speakableAnswer: 'An operating budget must be appealed in writing within 7 days of official notification. Uncontested budgets become legally finalized and enforceable under debt recovery laws.',
+      detailedExplanation: 'Under Article 37, the annual operating project must be notified to unit owners against signature or via registered mail. If not objected to within 7 days, it acquires the status of a binding legal title.',
+      legalReference: 'Property Law No. 634 Art. 37',
+      targetKeyword: 'operating budget appeal period',
+    },
+    {
+      id: 'kmk-gecikme-tazminati-orani-en',
+      queryIntent: 'legal',
+      voiceQuery: 'What is the late penalty interest rate for unpaid property dues?',
+      speakableAnswer: 'Under Property Ownership Law Article 20, unpaid dues and advance payments accrue a statutory delay compensation of 5% per month.',
+      detailedExplanation: 'Statutory delay compensation of 5% monthly accrues automatically under law. Professional management can initiate fast-track execution proceedings without a notary notice.',
+      legalReference: 'Property Law No. 634 Art. 20/c',
+      targetKeyword: 'dues late payment interest rate',
+    },
+    {
+      id: 'iso-41001-tesis-yonetimi-nedir-en',
+      queryIntent: 'informational',
+      voiceQuery: 'What is the ISO 41001 standard in facility management?',
+      speakableAnswer: 'ISO 41001 is the international facility management benchmark standard governing technical maintenance, energy efficiency, security, and quality of life.',
+      detailedExplanation: 'Alo Management delivers 30% cost savings, under 30 minutes emergency technical response, and 24/7 transparent digital reporting with accredited ISO 41001:2018 certification.',
+      legalReference: 'ISO 41001:2018 Facility Management Standard',
+      targetKeyword: 'iso 41001 facility management',
+    },
+    {
+      id: 'ozel-guvenlik-5188-zorunlulugu-en',
+      queryIntent: 'commercial',
+      voiceQuery: 'What permits are required to employ security personnel in residential complexes?',
+      speakableAnswer: 'Deploying security guards requires official authorization from the Governorate Security Commission and partnership with an Interior Ministry licensed security provider.',
+      detailedExplanation: 'Under Law No. 5188, employing guards without official certification is illegal. Alo Management ensures full regulatory compliance with accredited security operations.',
+      legalReference: 'Law No. 5188 on Private Security Services',
+      targetKeyword: 'residential complex security permits 5188',
+    },
+    {
+      id: 'profesyonel-tesis-yonetimi-avantajlari-en',
+      queryIntent: 'transactional',
+      voiceQuery: 'Why choose a professional facility management company in Istanbul?',
+      speakableAnswer: 'Professional management boosts collection rates above 98%, lowers operating expenses by 30% through bulk purchasing power, and eliminates legal liabilities.',
+      detailedExplanation: 'Alo Management deploys legal advisors, 5188 licensed security supervisors, and certified technicians to elevate living standards and enhance asset valuation.',
+      legalReference: 'Property Law Art. 34',
+      targetKeyword: 'professional facility management advantages',
+    },
+  ];
+
+  const ruQuestions: VoiceSearchQAItem[] = [
+    {
+      id: 'kmk-yonetici-aidat-muafiyeti-ru',
+      queryIntent: 'legal',
+      voiceQuery: 'Обязан ли управляющий жилым комплексом платить ежемесячные взносы?',
+      speakableAnswer: 'Согласно Закону о кондоминиумах статья 40, если иное не указано в плане управления, управляющий может быть освобожден от половины общих расходов. В профессиональных управляющих компаниях все собственники платят взносы в полном объеме.',
+      detailedExplanation: 'Согласно статье 40 Закона 634, избранный управляющий может получить освобождение от взносов. Профессиональная компания Alo Management обеспечивает независимый учет и равные права всех собственников.',
+      legalReference: 'Закон KMK № 634 Статья 40',
+      targetKeyword: 'управляющий платит взносы стамбул',
+    },
+    {
+      id: 'kmk-isletme-projesi-itiraz-suresi-ru',
+      queryIntent: 'legal',
+      voiceQuery: 'В течение какого срока можно обжаловать годовой бюджет жилого комплекса?',
+      speakableAnswer: 'Письменное возражение против бюджета должно быть подано в течение 7 дней с момента официального уведомления.',
+      detailedExplanation: 'В соответствии со статьей 37 Закона KMK, проект бюджета вручается под подпись. При отсутствии возражений в 7-дневный срок бюджет вступает в силу.',
+      legalReference: 'Закон KMK № 634 Статья 37',
+      targetKeyword: 'срок обжалования бюджета айдат',
+    },
+    {
+      id: 'kmk-gecikme-tazminati-orani-ru',
+      queryIntent: 'legal',
+      voiceQuery: 'Какой штраф начисляется за просрочку уплаты коммунальных взносов айдат?',
+      speakableAnswer: 'Согласно статье 20 Закона KMK, за каждый месяц просрочки платежей айдат начисляется законная пеня в размере 5 процентов.',
+      detailedExplanation: 'Пеня начисляется в силу закона автоматически. Управляющая компания имеет право немедленно инициировать процедуру принудительного взыскания.',
+      legalReference: 'Закон KMK № 634 Статья 20',
+      targetKeyword: 'штраф просрочка айдат турция',
+    },
+    {
+      id: 'iso-41001-tesis-yonetimi-nedir-ru',
+      queryIntent: 'informational',
+      voiceQuery: 'Что представляет собой стандарт управления объектами ISO 41001?',
+      speakableAnswer: 'ISO 41001 — это международный стандарт комплексного управления объектами недвижимости, энергоэффективностью и охраной.',
+      detailedExplanation: 'Alo Management гарантирует экономию бюджета на 30%, прибытие технической службы менее чем за 30 минут и прозрачную отчетность по ISO 41001:2018.',
+      legalReference: 'Стандарт ISO 41001:2018',
+      targetKeyword: 'iso 41001 управление недвижимостью',
+    },
+    {
+      id: 'ozel-guvenlik-5188-zorunlulugu-ru',
+      queryIntent: 'commercial',
+      voiceQuery: 'Каковы требования к лицензированию охраны в жилых комплексах Турции?',
+      speakableAnswer: 'Для работы физической охраны в жилых комплексах требуется официальное разрешение Губернаторства и лицензия по Закону 5188.',
+      detailedExplanation: 'Работа нелицензированных охранников без служебного удостоверения запрещена законом. Alo Management предоставляет полностью сертифицированную охрану 5188.',
+      legalReference: 'Закон № 5188 об охранной деятельности',
+      targetKeyword: 'охрана жилого комплекса турция 5188',
+    },
+    {
+      id: 'profesyonel-tesis-yonetimi-avantajlari-ru',
+      queryIntent: 'transactional',
+      voiceQuery: 'В чем преимущества профессионального управления недвижимостью в Стамбуле?',
+      speakableAnswer: 'Профессиональное управление обеспечивает сбор взносов свыше 98%, снижает расходы комплекса на 30% и устраняет юридические споры между соседями.',
+      detailedExplanation: 'Компания Alo Management привлекает юристов, лицензированную охрану 5188 и сертифицированных инженеров для поддержания высокой стоимости недвижимости.',
+      legalReference: 'Закон KMK Статья 34',
+      targetKeyword: 'преимущества управляющей компании стамбул',
+    },
+  ];
+
+  const arQuestions: VoiceSearchQAItem[] = [
+    {
+      id: 'kmk-yonetici-aidat-muafiyeti-ar',
+      queryIntent: 'legal',
+      voiceQuery: 'هل يدفع مدير المجمع السكني رسوم العائدات الشهرية؟',
+      speakableAnswer: 'وفقاً للمادة 40 من قانون الملكية الطابقية، يجوز إعفاء المدير المنتخب من نصف الرسوم ما لم ينص مخطط الإدارة على خلاف ذلك. أما مع شركات الإدارة الاحترافية، فيدفع جميع الملاك رسومهم كاملة.',
+      detailedExplanation: 'تنص المادة 40 من القانون رقم 634 على إمكانية إعفاء المدير من بعض المصاريف. وتضمن شركة ألو للإدارة الشفافية الكاملة وحفظ حقوق الملاك.',
+      legalReference: 'قانون الملكية الطابقية رقم 634 مادة 40',
+      targetKeyword: 'رسوم مدير المجمع السكني اسطنبول',
+    },
+    {
+      id: 'kmk-isletme-projesi-itiraz-suresi-ar',
+      queryIntent: 'legal',
+      voiceQuery: 'كم يوماً يحق لمالك العقار الاعتراض على الميزانية التشغيلية السنوية؟',
+      speakableAnswer: 'يجب تقديم الاعتراض الخطي على ميزانية التشغيل خلال 7 أيام من تاريخ التبليغ الرسمي لتعتبر سارية وقابلة للتنفيذ القانوني.',
+      detailedExplanation: 'تُبلغ الميزانية للملاك بالبريد المسجل أو التوقيع المباشر وفق المادة 37، وتصبح سنداً نهائياً بعد مرور 7 أيام.',
+      legalReference: 'قانون الملكية الطابقية رقم 634 مادة 37',
+      targetKeyword: 'مدة الاعتراض ميزانية المجمع السكني',
+    },
+    {
+      id: 'kmk-gecikme-tazminati-orani-ar',
+      queryIntent: 'legal',
+      voiceQuery: 'ما هي نسبة غرامة التأخير عن دفع رسوم العائدات الشهرية؟',
+      speakableAnswer: 'وفقاً للمادة 20 من قانون الملكية الطابقية، يتم تطبيق غرامة تأخير قانونية بنسبة 5 بالمائة شهرياً على المبالغ المستحقة غير المسددة.',
+      detailedExplanation: 'تُفرض غرامة 5% الشهرية بقوة القانون، ويحق لشركة الإدارة المعتمدة البدء بإجراءات التحصيل والتنفيذ القضائي فوراً.',
+      legalReference: 'قانون الملكية الطابقية مادة 20',
+      targetKeyword: 'غرامة تأخير العائدات تركيا',
+    },
+    {
+      id: 'iso-41001-tesis-yonetimi-nedir-ar',
+      queryIntent: 'informational',
+      voiceQuery: 'ما هو معيار آيزو 41001 لإدارة المرافق والمنشآت؟',
+      speakableAnswer: 'آيزو 41001 هو المعيار الدولي المعتمد لإدارة المرافق والمنشآت المتكاملة وضمان كفاءة الطاقة والصيانة والسلامة.',
+      detailedExplanation: 'توفر شركة ألو للإدارة تخفيضاً بنسبة 30% في المصاريف واستجابة طارئة خلال أقل من 30 دقيقة باعتماد آيزو 41001:2018.',
+      legalReference: 'معيار آيزو 41001:2018',
+      targetKeyword: 'ايزو 41001 ادارة المرافق',
+    },
+    {
+      id: 'ozel-guvenlik-5188-zorunlulugu-ar',
+      queryIntent: 'commercial',
+      voiceQuery: 'ما هي الشروط القانونية لتوظيف حراس أمن في المجمعات السكنية في إسطنبول؟',
+      speakableAnswer: 'يتطلب توظيف حراس أمن ترخيصاً رسمياً من لجنة الأمن الخاصة بالولاية والتعاقد مع شركة مرخصة بموجب القانون 5188.',
+      detailedExplanation: 'يُحظر قانوناً تشغيل حراس دون بطاقة هوية أمنية معتمدة. وتضمن شركة ألو خدمات أمنية مرخصة ومتوافقة بالكامل مع القانون 5188.',
+      legalReference: 'قانون الأمن الخاص رقم 5188',
+      targetKeyword: 'ترخيص الامن المجمعات السكنية 5188',
+    },
+    {
+      id: 'profesyonel-tesis-yonetimi-avantajlari-ar',
+      queryIntent: 'transactional',
+      voiceQuery: 'لماذا يجب اختيار شركة إدارة مرافق احترافية في إسطنبول؟',
+      speakableAnswer: 'تحقق الإدارة الاحترافية نسبة تحصيل تتجاوز 98%، وتوفر 30% من المصاريف بفضل القوة الشرائية المجمعة، وتزيل النزاعات بين الجيران.',
+      detailedExplanation: 'تعتمد ألو للإدارة على نخبة من المستشارين القانونيين والمشرفين الأمنيين المرخصين والمهندسين لرفع القيمة السوقية للعقار.',
+      legalReference: 'قانون الملكية الطابقية مادة 34',
+      targetKeyword: 'مزايا شركة ادارة المرافق اسطنبول',
+    },
+  ];
+
+  const allQuestions = lang === 'en' ? enQuestions : lang === 'ru' ? ruQuestions : lang === 'ar' ? arQuestions : trQuestions;
 
   let questions = allQuestions;
   if (filterIntent) {

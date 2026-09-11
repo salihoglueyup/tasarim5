@@ -16,13 +16,14 @@ export async function GET() {
   const districtItems = DISTRICTS.map((d) => {
     const dues = getDistrictDues(d.slug);
     const pubDate = new Date().toUTCString();
+    const projects = d.prominentProjects?.length ? ` Referans projeler: ${d.prominentProjects.slice(0, 3).join(', ')}.` : '';
     return `
     <item>
       <title><![CDATA[${d.name} Profesyonel Tesis ve Site Yönetimi — Ortalama Aidat m² ₺${dues.avgDuesM2}]]></title>
       <link>${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi</link>
       <guid isPermaLink="true">${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi</guid>
       <pubDate>${pubDate}</pubDate>
-      <description><![CDATA[İstanbul ${d.name} ilçesinde ISO 41001 standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %${dues.savingsRate} maliyet tasarruflu aidat muhasebesi.]]></description>
+      <description><![CDATA[İstanbul ${d.name} ilçesinde ISO 41001 standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %${dues.savingsRate} maliyet tasarruflu aidat muhasebesi.${projects}]]></description>
       <category>Tesis Yönetimi</category>
       <category>${d.name}</category>
       <enclosure url="${BASE_URL}/images/hero-poster-v5.webp" type="image/webp" length="102400" />
@@ -33,7 +34,7 @@ export async function GET() {
     return `
     <item>
       <title><![CDATA[KMK Hukuk İçtihadı: ${p.subject} (${p.docketNumber})]]></title>
-      <link>${BASE_URL}/hizmetler/tesis-yonetimi#hukuk</link>
+      <link>${BASE_URL}/hizmetler/tesis-yonetimi/rehber</link>
       <guid isPermaLink="false">kmk-${p.id}</guid>
       <pubDate>${new Date(p.decisionDate).toUTCString()}</pubDate>
       <description><![CDATA[${p.court} kararı: ${p.rulingSummary} - ${p.bindingPrecedentText}]]></description>

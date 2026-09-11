@@ -1,4 +1,5 @@
 import { DISTRICTS, District, getDistrictDues } from '@/data/districts';
+import type { NeighborhoodInfo } from '@/data/districts/types';
 import { BASE_URL } from '@/lib/seo';
 
 export interface NearestHubResult {
@@ -7,6 +8,15 @@ export interface NearestHubResult {
     slug: string;
     side: 'Anadolu' | 'Avrupa';
     canonicalUrl: string;
+  };
+  nearestNeighborhood?: {
+    name: string;
+    slug: string;
+    canonicalUrl: string;
+    distanceKm: number;
+    neighborhoodSlaMinutes?: number;
+    characteristics: string[];
+    geo?: { lat: number; lng: number };
   };
   duesData: {
     avgDuesM2: number;
@@ -48,6 +58,7 @@ export interface NearestHubResult {
       addressRegion: string;
       addressCountry: string;
     };
+    areaServed?: string[];
   };
 }
 
@@ -71,25 +82,81 @@ function calculateHaversineDistance(
 }
 
 /**
- * Verilen koordinatlara en yakın Alo Yönetim ilçe operasyon merkezini, yerel aidat verisini ve SLA süresini hesaplar.
+ * Verilen koordinatlara en yakın Alo Yönetim ilçe ve mahalle operasyon merkezini, yerel aidat verisini ve SLA süresini hesaplar.
+ * 169 mahalle koordinatını tarayarak hiper-yerel mobil ekip ve "Near-Me" yerel SEO sinyali üretir.
  */
 export function findNearestFacilityHub(lat: number, lng: number): NearestHubResult {
   let nearestDistrict: District = DISTRICTS[0];
-  let minDistance = Infinity;
+  let minDistrictDistance = Infinity;
+
+  let nearestNeighborhoodInfo: NeighborhoodInfo | null = null;
+  let nearestNeighborhoodDistrict: District = DISTRICTS[0];
+  let minNeighborhoodDistance = Infinity;
 
   for (const d of DISTRICTS) {
+    // 1. İlçe merkez mesafesi
     if (d.geo?.lat && d.geo?.lng) {
       const dist = calculateHaversineDistance(lat, lng, d.geo.lat, d.geo.lng);
-      if (dist < minDistance) {
-        minDistance = dist;
+      if (dist < minDistrictDistance) {
+        minDistrictDistance = dist;
         nearestDistrict = d;
+      }
+    }
+
+    // 2. 169 Mahalle bağımsız GPS koordinat mesafesi
+    if (d.neighborhoodData && d.neighborhoodData.length > 0) {
+      for (const n of d.neighborhoodData) {
+        if (n.geo?.lat && n.geo?.lng) {
+          const nDist = calculateHaversineDistance(lat, lng, n.geo.lat, n.geo.lng);
+          if (nDist < minNeighborhoodDistance) {
+            minNeighborhoodDistance = nDist;
+            nearestNeighborhoodInfo = n;
+            nearestNeighborhoodDistrict = d;
+          }
+        }
       }
     }
   }
 
-  // SLA süresi: mesafeye göre 25 - 45 dakika arası
-  const estimatedSla = Math.min(45, Math.max(25, Math.round(20 + minDistance * 1.2)));
+  // Eğer en yakın mahalle saptandıysa ve mesafesi makulse, ilçe de bu mahallenin ilçesi olarak hizalanabilir
+  if (nearestNeighborhoodInfo && minNeighborhoodDistance < minDistrictDistance) {
+    nearestDistrict = nearestNeighborhoodDistrict;
+  }
+
+  // SLA süresi: İlçe geneli acil müdahale SLA standardı 25 - 45 dakika arası
+  const estimatedSla = Math.min(45, Math.max(25, Math.round(20 + minDistrictDistance * 1.2)));
+  // Mahalle düzeyinde direkt mobil ekip SLA süresi: 15 - 25 dakika
+  const neighborhoodSla = minNeighborhoodDistance <= 3.5
+    ? Math.min(25, Math.max(15, Math.round(15 + minNeighborhoodDistance * 1.5)))
+    : estimatedSla;
+
   const dues = getDistrictDues(nearestDistrict.slug);
+
+  const nearestNeighborhood = nearestNeighborhoodInfo
+    ? {
+        name: nearestNeighborhoodInfo.name,
+        slug: nearestNeighborhoodInfo.slug,
+        canonicalUrl: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/mahalleler/${nearestNeighborhoodInfo.slug}`,
+        distanceKm: minNeighborhoodDistance === Infinity ? 0 : minNeighborhoodDistance,
+        neighborhoodSlaMinutes: neighborhoodSla,
+        characteristics: nearestNeighborhoodInfo.characteristics || [],
+        geo: nearestNeighborhoodInfo.geo,
+      }
+    : undefined;
+
+  const finalGeoLat = nearestNeighborhoodInfo?.geo?.lat || nearestDistrict.geo.lat;
+  const finalGeoLng = nearestNeighborhoodInfo?.geo?.lng || nearestDistrict.geo.lng;
+
+  const hubDisplayName = nearestNeighborhoodInfo
+    ? `Alo Yönetim ${nearestDistrict.name} / ${nearestNeighborhoodInfo.name} Tesis Operasyon Merkezi`
+    : `Alo Yönetim ${nearestDistrict.name} Tesis Operasyon Merkezi`;
+
+  const hubUrl = `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`;
+
+  const areaServed = [nearestDistrict.name];
+  if (nearestNeighborhoodInfo) {
+    areaServed.push(`${nearestNeighborhoodInfo.name} Mahallesi`);
+  }
 
   return {
     nearestDistrict: {
@@ -98,20 +165,21 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
       side: nearestDistrict.side,
       canonicalUrl: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`,
     },
+    nearestNeighborhood,
     duesData: {
       avgDuesM2: dues.avgDuesM2,
       aloDuesM2: dues.aloDuesM2,
       savingsRate: dues.savingsRate,
     },
-    distanceKm: minDistance === Infinity ? 0 : minDistance,
+    distanceKm: minDistrictDistance === Infinity ? 0 : minDistrictDistance,
     estimatedSlaMinutes: estimatedSla,
     emergencyHotline: '+90 (216) 550 48 48',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      name: `Alo Yönetim ${nearestDistrict.name} Tesis Operasyon Merkezi`,
+      name: hubDisplayName,
       telephone: '+90 216 550 48 48',
-      url: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`,
+      url: hubUrl,
       priceRange: '₺₺',
       currenciesAccepted: 'TRY',
       parentOrganization: {
@@ -137,15 +205,17 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: nearestDistrict.geo.lat,
-        longitude: nearestDistrict.geo.lng,
+        latitude: finalGeoLat,
+        longitude: finalGeoLng,
       },
       address: {
         '@type': 'PostalAddress',
-        addressLocality: nearestDistrict.name,
+        addressLocality: nearestNeighborhoodInfo ? `${nearestNeighborhoodInfo.name}, ${nearestDistrict.name}` : nearestDistrict.name,
         addressRegion: 'İstanbul',
         addressCountry: 'TR',
       },
+      areaServed,
     },
   };
 }
+

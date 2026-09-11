@@ -345,9 +345,9 @@ export async function middleware(request: NextRequest) {
   if (!pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
     const isAiBot = /GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek/i.test(userAgent);
     const isSearchBot = /Googlebot|bingbot|YandexBot|DuckDuckBot|Baiduspider/i.test(userAgent);
-    const isFacilityRoute = pathname.includes('/tesis-yonetimi');
+    const isFacilityRoute = pathname.includes('/tesis-yonetimi') || pathname.includes('/mahalleler');
 
-    // 4.1 Tesis Yönetimi 304 Not Modified & ETag Kalkanı
+    // 4.1 Tesis Yönetimi & Mahalle Sayfaları 304 Not Modified & ETag Kalkanı
     if (isFacilityRoute && request.method === 'GET') {
       const currentEtag = generateFacilityContentHash();
       const ifNoneMatch = request.headers.get('if-none-match');
@@ -374,7 +374,7 @@ export async function middleware(request: NextRequest) {
         recordBotCrawlEvent(botName, botType, pathname, 200, request.headers.get('x-forwarded-for') || 'edge-ip', userAgent);
       }
 
-      // Tesis rotalarına özel Edge Header enjeksiyonu
+      // Tesis ve Mahalle rotalarına özel Edge Header enjeksiyonu
       const facilityHeaders = buildFacilityEdgeHeaders(pathname, currentLocale || defaultLocale, isAiBot);
       Object.entries(facilityHeaders).forEach(([key, val]) => {
         if (val) response.headers.set(key, val);
@@ -408,7 +408,17 @@ export async function middleware(request: NextRequest) {
     const extraLinks = [
       `<https://aloyonetim.com.tr/sitemap-index.xml>; rel="sitemap"`,
       `<https://aloyonetim.com.tr/sitemap.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/sitemap-regions.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/image-sitemap.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/document-sitemap.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/news-sitemap.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/video-sitemap.xml>; rel="sitemap"`,
+      `<https://aloyonetim.com.tr/opensearch.xml>; rel="search"; type="application/opensearchdescription+xml"`,
+      `<https://aloyonetim.com.tr/openapi.json>; rel="service-desc"; type="application/json"`,
+      `<https://aloyonetim.com.tr/api/geo/facility-coverage.geojson>; rel="describedby"; type="application/geo+json"`,
+      `<https://aloyonetim.com.tr/api/geo/istanbul.kml>; rel="alternate"; type="application/vnd.google-earth.kml+xml"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/feed.xml>; rel="alternate"; type="application/rss+xml"`,
+      `<https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml>; rel="alternate"; type="application/rss+xml"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld>; rel="describedby"; type="application/ld+json"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json>; rel="help"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json>; rel="describedby"; type="application/json"`,
@@ -425,11 +435,16 @@ export async function middleware(request: NextRequest) {
       response.headers.set('X-AI-Authority-Corpus', 'https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json');
       response.headers.set('X-AI-Voice-Knowledge', 'https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json');
       response.headers.set('X-AI-KMK-Law-Index', 'https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
+      response.headers.set('X-AI-Dues-Index', 'https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
+      response.headers.set('X-AI-Credentials', 'https://aloyonetim.com.tr/api/tesis-yonetimi/verify-credentials');
       response.headers.set('X-AI-Facts', 'https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
       response.headers.set('X-AI-Legal-Precedents', 'https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
       response.headers.set('X-AI-RFP-Generator', 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator');
       response.headers.set('X-AI-Entity-Graph', 'https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld');
+      response.headers.set('X-AI-Geo-Coverage', 'https://aloyonetim.com.tr/api/geo/facility-coverage.geojson');
+      response.headers.set('X-AI-KML-Map', 'https://aloyonetim.com.tr/api/geo/istanbul.kml');
+      response.headers.set('X-AI-Sitemap-Regions', 'https://aloyonetim.com.tr/sitemap-regions.xml');
     }
   }
 

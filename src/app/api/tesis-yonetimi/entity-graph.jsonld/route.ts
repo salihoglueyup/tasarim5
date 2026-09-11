@@ -11,6 +11,24 @@ export const revalidate = 86400;
  * 39 İlçe, ISO 41001, KMK 634 ve Wikidata Varlıklarını bağlayan devasa JSON-LD Graph.
  */
 export async function GET() {
+  const neighborhoodNodes = DISTRICTS.flatMap((d) =>
+    (d.neighborhoodData || []).map((n) => ({
+      '@type': 'Neighborhood',
+      '@id': `${BASE_URL}/bolgeler/${d.slug}/mahalleler/${n.slug}#neighborhood`,
+      name: `${n.name}, ${d.name}, İstanbul`,
+      containedInPlace: {
+        '@id': `${BASE_URL}/bolgeler/${d.slug}#area`,
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: n.geo?.lat ?? d.geo.lat,
+        longitude: n.geo?.lng ?? d.geo.lng,
+      },
+      url: `${BASE_URL}/bolgeler/${d.slug}/mahalleler/${n.slug}`,
+      description: n.intro,
+    }))
+  );
+
   const districtNodes = DISTRICTS.map((d) => ({
     '@type': 'AdministrativeArea',
     '@id': `${BASE_URL}/bolgeler/${d.slug}#area`,
@@ -20,6 +38,9 @@ export async function GET() {
       name: 'İstanbul',
       sameAs: 'https://www.wikidata.org/wiki/Q406',
     },
+    containsPlace: (d.neighborhoodData || []).map((n) => ({
+      '@id': `${BASE_URL}/bolgeler/${d.slug}/mahalleler/${n.slug}#neighborhood`,
+    })),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: d.geo.lat,
@@ -97,6 +118,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-41001`,
+            credentialCategory: 'FacilityManagementSystem',
             recognizedBy: {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
@@ -106,6 +129,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-9001`,
+            credentialCategory: 'QualityManagementSystem',
             recognizedBy: {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
@@ -115,6 +140,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/sertifikalar/iso-14001`,
+            credentialCategory: 'EnvironmentalManagementSystem',
             recognizedBy: {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
@@ -123,6 +150,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+            url: `${BASE_URL}/kurumsal/sertifikalar/iso-45001`,
+            credentialCategory: 'OccupationalHealthAndSafety',
             recognizedBy: {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
@@ -131,6 +160,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-27001`,
+            credentialCategory: 'InformationSecurityManagement',
             recognizedBy: {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
@@ -139,6 +170,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
+            url: `${BASE_URL}/kurumsal/sertifikalar/iso-10002`,
+            credentialCategory: 'CustomerSatisfactionManagement',
             recognizedBy: {
               '@type': 'Organization',
               name: 'International Organization for Standardization (ISO)',
@@ -147,6 +180,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
+            url: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
+            credentialCategory: 'PrivateSecurityLicense',
             recognizedBy: {
               '@type': 'GovernmentOrganization',
               name: 'T.C. İçişleri Bakanlığı',
@@ -156,6 +191,8 @@ export async function GET() {
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'TSE HYB 12850 Tesis Hizmet Yeterlilik Belgesi',
+            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#tse-12850`,
+            credentialCategory: 'ServicePlaceCompetence',
             recognizedBy: {
               '@type': 'GovernmentOrganization',
               name: 'Türk Standardları Enstitüsü (TSE)',
@@ -176,6 +213,7 @@ export async function GET() {
         areaServed: districtNodes.map((d) => ({ '@id': d['@id'] })),
       },
       ...districtNodes,
+      ...neighborhoodNodes,
       ...precedentsNodes,
     ],
   };

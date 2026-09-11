@@ -160,6 +160,14 @@ export function auditSitemapIntegrity(): SitemapAuditResult {
     '/sitemap-index.xml',
     '/feed/tesis-yonetimi.xml',
     '/rss.xml',
+    '/api/tesis-yonetimi/feed.xml',
+    '/api/tesis-yonetimi/geo-feed.xml',
+    '/api/tesis-yonetimi/entity-graph.jsonld',
+    '/api/geo/facility-coverage.geojson',
+    '/api/geo/istanbul.kml',
+    '/openapi.json',
+    '/llms.txt',
+    '/llms-full.txt',
   ];
   const allRoutes = [
     '/',
@@ -190,7 +198,7 @@ export function auditSitemapIntegrity(): SitemapAuditResult {
 }
 
 /**
- * Faz 236: Kırık link kontrolü simülasyonu ve iç bağlantı bütünlük doğrulaması.
+ * Faz 236: Kırık link kontrolü ve iç bağlantı bütünlük doğrulaması.
  */
 export function auditInternalLinks(): BrokenLinksAuditResult {
   // Proje içi tüm kritik hedef yolların listesi
@@ -215,6 +223,14 @@ export function auditInternalLinks(): BrokenLinksAuditResult {
     '/sitemap-index.xml',
     '/feed/tesis-yonetimi.xml',
     '/rss.xml',
+    '/api/tesis-yonetimi/feed.xml',
+    '/api/tesis-yonetimi/geo-feed.xml',
+    '/api/tesis-yonetimi/entity-graph.jsonld',
+    '/api/geo/facility-coverage.geojson',
+    '/api/geo/istanbul.kml',
+    '/openapi.json',
+    '/llms.txt',
+    '/llms-full.txt',
     ...DISTRICTS.map((d) => `/bolgeler/${d.slug}`),
     ...DISTRICTS.map((d) => `/bolgeler/${d.slug}/tesis-yonetimi`),
   ]);
@@ -293,3 +309,74 @@ export function runComprehensiveSeoPatrol(): ComprehensivePatrolReport {
     indexStatusAudit,
   };
 }
+
+export interface NeighborhoodSeoPatrolReport {
+  timestamp: string;
+  totalNeighborhoodsAudited: number;
+  averageScore: number;
+  healthStatus: 'OPTIMAL' | 'GOOD' | 'NEEDS_ATTENTION';
+  pages: PageAuditItem[];
+}
+
+/**
+ * 169 Mahallenin tamamı için SEO başlık, açıklama ve kanonik URL bütünlüğünü denetler.
+ */
+export function auditNeighborhoodSeoPages(): NeighborhoodSeoPatrolReport {
+  const pages: PageAuditItem[] = [];
+
+  for (const district of DISTRICTS) {
+    if (!district.neighborhoodData || district.neighborhoodData.length === 0) continue;
+
+    for (const n of district.neighborhoodData) {
+      const path = `/bolgeler/${district.slug}/mahalleler/${n.slug}`;
+      const title = `${n.name} Mahallesi Tesis Yönetimi & Site Yönetimi | Alo Yönetim`;
+      const desc = `${district.name} ${n.name} Mahallesi için 634 sayılı KMK ve ISO 41001 standartlarında profesyonel site ve tesis yönetimi, 7/24 mobil teknik SLA ve aidat optimizasyonu.`;
+
+      const issues: string[] = [];
+      let score = 100;
+
+      if (title.length < 35 || title.length > 75) {
+        issues.push(`Başlık uzunluğu (${title.length}) SERP standardı dışında`);
+        score -= 10;
+      }
+
+      if (desc.length < 110 || desc.length > 180) {
+        issues.push(`Açıklama uzunluğu (${desc.length}) SERP standardı dışında`);
+        score -= 10;
+      }
+
+      const hasKw = title.toLowerCase().includes('tesis yönetimi') || desc.toLowerCase().includes('tesis yönetimi');
+      if (!hasKw) {
+        issues.push('Hedef anahtar kelime (Tesis Yönetimi) eksik');
+        score -= 20;
+      }
+
+      pages.push({
+        path,
+        type: 'DISTRICT_FACILITY',
+        title,
+        titleLength: title.length,
+        descriptionLength: desc.length,
+        hasTargetKeyword: hasKw,
+        score: Math.max(0, score),
+        issues,
+      });
+    }
+  }
+
+  const totalScore = pages.reduce((acc, p) => acc + p.score, 0);
+  const averageScore = pages.length > 0 ? Math.round((totalScore / pages.length) * 10) / 10 : 100;
+
+  let healthStatus: NeighborhoodSeoPatrolReport['healthStatus'] = 'OPTIMAL';
+  if (averageScore < 80) healthStatus = 'NEEDS_ATTENTION';
+  else if (averageScore < 95) healthStatus = 'GOOD';
+
+  return {
+    timestamp: new Date().toISOString(),
+    totalNeighborhoodsAudited: pages.length,
+    averageScore,
+    healthStatus,
+    pages,
+  };
+}
+

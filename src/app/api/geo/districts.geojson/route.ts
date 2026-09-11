@@ -33,9 +33,13 @@ export async function GET() {
       securityServiceUrl: `${BASE_URL}/bolgeler/${d.slug}/guvenlik-yonetimi`,
       facilityServiceUrl: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
       cleaningServiceUrl: `${BASE_URL}/bolgeler/${d.slug}/temizlik-ve-hijyen`,
-      duesServiceUrl: `${BASE_URL}/bolgeler/${d.slug}/aidat-takibi`,
       neighborhoods: d.neighborhoods,
+      neighborhoodsUrl: `${BASE_URL}/bolgeler/${d.slug}/mahalleler`,
       localNeeds: d.localNeeds,
+      totalResidentialSitesEstimated: d.totalResidentialSitesEstimated || d.managedProjects * 15,
+      prominentProjects: d.prominentProjects || [],
+      regionalFacilityTraits: d.regionalFacilityTraits || '',
+      neighborhoodsCount: d.neighborhoodData?.length || d.neighborhoods.length,
       phone: '+90 216 550 48 48',
       provider: 'Alo Yönetim ve Organizasyon A.Ş.'
     }

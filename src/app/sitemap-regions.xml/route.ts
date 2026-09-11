@@ -46,6 +46,21 @@ export async function GET() {
       { path: `/bolgeler/${district.slug}/tesis-yonetimi`, priority: '0.85', changefreq: 'daily' },
     ];
 
+    if (district.neighborhoodData && district.neighborhoodData.length > 0) {
+      districtRoutes.push({
+        path: `/bolgeler/${district.slug}/mahalleler`,
+        priority: '0.80',
+        changefreq: 'weekly',
+      });
+      for (const n of district.neighborhoodData) {
+        districtRoutes.push({
+          path: `/bolgeler/${district.slug}/mahalleler/${n.slug}`,
+          priority: '0.75',
+          changefreq: 'weekly',
+        });
+      }
+    }
+
     for (const route of districtRoutes) {
       xml += `  <url>\n`;
       xml += `    <loc>${BASE_URL}${route.path}</loc>\n`;

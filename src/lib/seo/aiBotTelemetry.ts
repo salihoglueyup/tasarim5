@@ -32,6 +32,7 @@ const AI_BOT_SIGNATURES: Array<{ pattern: RegExp; name: string; family: AiCrawle
   { pattern: /cohere-ai/i, name: 'Cohere-AI', family: 'OtherAI' },
   { pattern: /ccbot/i, name: 'CCBot (CommonCrawl)', family: 'OtherAI' },
   { pattern: /meta-externalagent/i, name: 'Meta-ExternalAgent', family: 'OtherAI' },
+  { pattern: /amazonbot/i, name: 'Amazonbot', family: 'OtherAI' },
 ];
 
 // Bellek içi dairesel tampon (Ring Buffer)

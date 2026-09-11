@@ -59,3 +59,24 @@ export async function notifyWebSubHubs(
 
   return results;
 }
+
+export const FACILITY_FEED_TOPICS = [
+  '/api/tesis-yonetimi/feed.xml',
+  '/feed.xml',
+  '/feed/tesis-yonetimi.xml',
+  '/rss.xml',
+];
+
+/**
+ * Tesis yönetimi canlı RSS beslemelerinin tamamını WebSub hub'larına topluca duyurur.
+ */
+export async function notifyAllFacilityFeedsWebSub(
+  customHubs: string[] = DEFAULT_HUBS
+): Promise<WebSubNotificationResult[]> {
+  const allResults: WebSubNotificationResult[] = [];
+  for (const topic of FACILITY_FEED_TOPICS) {
+    const res = await notifyWebSubHubs(topic, customHubs);
+    allResults.push(...res);
+  }
+  return allResults;
+}

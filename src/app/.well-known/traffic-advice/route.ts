@@ -14,7 +14,10 @@ export async function GET() {
   const trafficAdvice = [
     {
       user_agent: 'prefetch-proxy',
-      fraction: 1.0
+      fraction: 1.0,
+      google: {
+        fraction: 1.0
+      }
     }
   ];
 

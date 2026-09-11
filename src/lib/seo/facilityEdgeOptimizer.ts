@@ -17,8 +17,10 @@ export interface FacilityEdgeHeaders {
  * Tesis Yönetimi verilerinin (39 İlçe, KMK, Yargıtay emsalleri) checksum'ını hesaplar.
  */
 export function generateFacilityContentHash(): string {
+  const totalNeighborhoods = DISTRICTS.reduce((acc, d) => acc + (d.neighborhoodData?.length || 0), 0);
   const payload = JSON.stringify({
     districtsCount: DISTRICTS.length,
+    neighborhoodsCount: totalNeighborhoods,
     precedentsCount: YARGITAY_LEGAL_PRECEDENTS.length,
     firstPrecedent: YARGITAY_LEGAL_PRECEDENTS[0]?.id || '',
     version: '2026-v2',
