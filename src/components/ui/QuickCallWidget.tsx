@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useQuote } from '@/context/QuoteContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { sendGAEvent } from '@next/third-parties/google';
@@ -12,17 +12,44 @@ import CallbackForm from '@/components/cro/CallbackForm';
  * Faz 56: QuickCallWidget FAB butonunun Framer Motion'dan arındırılması,
  * mobilde GPU katmanında sabitlenerek (transform-gpu, will-change-transform)
  * layout shift'in (CLS) kesin olarak sıfırlanması.
+ * Akıllı 5 Saniyelik Otomatik Kapanma: Kullanıcı tıkladıktan sonra 5 saniye
+ * işlem yapılmazsa otomatik kapanır; fare ile üzerine gelindiğinde duraklar.
  */
 export default function QuickCallWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [view, setView] = useState<'menu' | 'callback'>('menu');
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const { openQuoteModal } = useQuote();
   const { t } = useLanguage();
 
-  const close = () => {
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  const close = useCallback(() => {
+    clearTimer();
     setIsOpen(false);
     setView('menu');
-  };
+  }, [clearTimer]);
+
+  const startTimer = useCallback(() => {
+    clearTimer();
+    timerRef.current = setTimeout(() => {
+      close();
+    }, 5000);
+  }, [clearTimer, close]);
+
+  useEffect(() => {
+    if (isOpen && view === 'menu') {
+      startTimer();
+    } else {
+      clearTimer();
+    }
+    return () => clearTimer();
+  }, [isOpen, view, startTimer, clearTimer]);
 
   const handleOpenSpotlight = () => {
     close();
@@ -38,6 +65,15 @@ export default function QuickCallWidget() {
         <div
           role="dialog"
           aria-label={t('fab_quick_actions')}
+          onMouseEnter={clearTimer}
+          onMouseLeave={() => {
+            if (isOpen && view === 'menu') startTimer();
+          }}
+          onPointerEnter={clearTimer}
+          onPointerLeave={() => {
+            if (isOpen && view === 'menu') startTimer();
+          }}
+          onFocus={clearTimer}
           className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-5 rounded-[2.5rem] shadow-2xl flex flex-col gap-3 w-80 text-[var(--color-primary)] backdrop-blur-xl transition-all duration-200 ease-out transform-gpu animate-in fade-in zoom-in-95"
         >
           {view === 'callback' ? (
