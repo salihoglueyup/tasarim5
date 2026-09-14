@@ -56,6 +56,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy prisma directory (schema and migrations)
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.ts
+# Prisma 7 generated client (seed ve runtime scriptleri için)
+COPY --from=builder --chown=nextjs:nodejs /app/src/generated/prisma ./src/generated/prisma
 # Standalone output trace @prisma/adapter-pg ve bağımlılıklarını dahil etmiyor —
 # pg driver adapter olmadan Prisma DB sorguları sessizce [] döner.
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma/adapter-pg ./node_modules/@prisma/adapter-pg
