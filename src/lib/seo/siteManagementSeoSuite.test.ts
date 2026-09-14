@@ -619,6 +619,88 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       }
     });
   });
+
+  describe('24. 48 Saatte Profesyonel Yönetime Devir Teslim Protokolü (transitionRoadmapData.ts & HowTo)', () => {
+    it('6 resmi devir aşaması, süreleri ve kanuni dayanakları eksiksiz içerir', async () => {
+      const { TRANSITION_ROADMAP_STAGES } = await import('@/data/transitionRoadmapData');
+
+      expect(TRANSITION_ROADMAP_STAGES.length).toBe(6);
+
+      const stage1 = TRANSITION_ROADMAP_STAGES.find(s => s.stepNumber === 1);
+      expect(stage1).toBeDefined();
+      expect(stage1?.legalBasis).toContain('Madde 29');
+      expect(stage1?.timeframe).toContain('15 Gün Önce');
+
+      const stage2 = TRANSITION_ROADMAP_STAGES.find(s => s.stepNumber === 2);
+      expect(stage2).toBeDefined();
+      expect(stage2?.legalBasis).toContain('Madde 34/4');
+
+      const stage4 = TRANSITION_ROADMAP_STAGES.find(s => s.stepNumber === 4);
+      expect(stage4).toBeDefined();
+      expect(stage4?.requiredDocuments.some(d => d.includes('Devir Teslim Tutanağı'))).toBe(true);
+
+      const stage6 = TRANSITION_ROADMAP_STAGES.find(s => s.stepNumber === 6);
+      expect(stage6).toBeDefined();
+      expect(stage6?.stageTitle).toContain('Apsiyon');
+      expect(stage6?.timeframe).toContain('36 – 48. Saat');
+    });
+  });
+
+  describe('25. KMK Emsal Hukuki Soru-Cevap Dizini (kmkLegalQaDisputesData.ts & QAPage)', () => {
+    it('8 emsal uyuşmazlık vakası, Yargıtay esasları ve çözüm kılavuzlarını içerir', async () => {
+      const { KMK_LEGAL_QA_DISPUTES } = await import('@/data/kmkLegalQaDisputesData');
+
+      expect(KMK_LEGAL_QA_DISPUTES.length).toBe(8);
+
+      const cati = KMK_LEGAL_QA_DISPUTES.find(d => d.id === 'qa-acil-cati-tamirati-yetki');
+      expect(cati).toBeDefined();
+      expect(cati?.statutoryArticle).toContain('Madde 35');
+      expect(cati?.yargitayCaseRef).toContain('Yargıtay 20. Hukuk Dairesi');
+      expect(cati?.practicalGuidelines.length).toBeGreaterThanOrEqual(3);
+
+      const kiraci = KMK_LEGAL_QA_DISPUTES.find(d => d.id === 'qa-kiraci-genel-kurul-oy-yetkisi');
+      expect(kiraci).toBeDefined();
+      expect(kiraci?.acceptedAnswerText).toContain('vekaletsiz oy kullanamaz');
+
+      const yonetimPlani = KMK_LEGAL_QA_DISPUTES.find(d => d.id === 'qa-yonetim-plani-degisikligi-nisabi');
+      expect(yonetimPlani).toBeDefined();
+      expect(yonetimPlani?.acceptedAnswerText).toContain('beşte dördünün');
+    });
+  });
+
+  describe('26. 39 İlçe Sulh Hukuk Mahkemesi & Zorunlu Arabuluculuk Rehberi (districtCourthouseMediationData.ts)', () => {
+    it('İstanbul’un 6 adliyesi ve yetki alanları doğru tanımlanmıştır', async () => {
+      const { ISTANBUL_COURTHOUSES } = await import('@/data/districtCourthouseMediationData');
+
+      expect(ISTANBUL_COURTHOUSES.length).toBe(6);
+
+      const anadolu = ISTANBUL_COURTHOUSES.find(c => c.courthouseId === 'istanbul-anadolu-kartal');
+      expect(anadolu).toBeDefined();
+      expect(anadolu?.jurisdictionDistricts).toContain('kadikoy');
+      expect(anadolu?.jurisdictionDistricts).toContain('atasehir');
+
+      const caglayan = ISTANBUL_COURTHOUSES.find(c => c.courthouseId === 'istanbul-caglayan');
+      expect(caglayan).toBeDefined();
+      expect(caglayan?.jurisdictionDistricts).toContain('besiktas');
+      expect(caglayan?.jurisdictionDistricts).toContain('sisli');
+    });
+
+    it('Kadıköy, Şişli ve Bakırköy adliye ve arabuluculuk profillerini doğrular', async () => {
+      const { getDistrictCourthouseProfile } = await import('@/data/districtCourthouseMediationData');
+
+      const kadikoy = getDistrictCourthouseProfile('kadikoy');
+      expect(kadikoy.courthouseName).toContain('Anadolu');
+      expect(kadikoy.mandatoryMediationNote).toContain('7445');
+      expect(kadikoy.requiredDocumentsForMediation.length).toBeGreaterThanOrEqual(4);
+
+      const sisli = getDistrictCourthouseProfile('sisli');
+      expect(sisli.courthouseName).toContain('Çağlayan');
+
+      const bakirkoy = getDistrictCourthouseProfile('bakirkoy');
+      expect(bakirkoy.courthouseName).toContain('Bakırköy');
+    });
+  });
 });
+
 
 

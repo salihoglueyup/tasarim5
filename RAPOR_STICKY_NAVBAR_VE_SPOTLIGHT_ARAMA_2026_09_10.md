@@ -516,6 +516,51 @@ SearchGPT, Perplexity AI, Claude, Google AI Overviews, DeepSeek ve Apple Intelli
 - `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
 - `npm test` -> **104 test dosyası, 943 testin tamamı PASSED (%100 Başarı)**
 
+---
+
+## BÖLÜM 15: FAZ 11 — 48 SAATTE DEVİR TESLİM YOL HARİTASI, KMK QAPAGE HUKUK DİZİNİ VE 39 İLÇE ADLİYE & ARABULUCULUK REHBERİ (2026-09-14)
+
+### 1. Amatörden Profesyonel Yönetime 48 Saatte Devir Teslim Protokolü (`Schema.org HowTo`)
+- **Veri Modeli:** [`src/data/transitionRoadmapData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/transitionRoadmapData.ts)
+  - 6 aşamalı resmi devir protokolü:
+    1. Gün -15: Genel Kurul Çağrısı ve Gündem Tebligatı (KMK m.29),
+    2. Saat 0: Genel Kurul Divan Teşekkülü & KMK m.34 Çift Çoğunluk Kararı (%50+1 Sayı ve Arsa Payı),
+    3. Saat 0–12: Karar Defteri Noter Tescili & Yönetim Sözleşmesi İmzası,
+    4. Saat 12–24: Eski Yönetimden Resmi Evrak, Kasa & Defter Devir Teslim Tutanağı,
+    5. Saat 24–36: Vergi Dairesi ve Banka Çift İmza Yetki Devri,
+    6. Saat 36–48: Apsiyon Entegrasyonu & Sakinlere 7/24 Canlı Mobil Erişim Aktivasyonu.
+- **Bileşen:** [`src/components/seo/ManagementTransitionRoadmapSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/ManagementTransitionRoadmapSeo.tsx)
+  - Schema.org `HowTo` ve `HowToStep` yapılandırılmış verisi ile [`SiteYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx) sayfasına entegre edildi.
+
+### 2. KMK Emsal Hukuki Soru-Cevap & Uyuşmazlıklar Dizini (`Schema.org QAPage`)
+- **Veri Modeli:** [`src/data/kmkLegalQaDisputesData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/kmkLegalQaDisputesData.ts)
+  - Kat mülkiyetinde en sık dava konusu olan 8 derin uyuşmazlık:
+    1. Yöneticinin acil çatı akması tamiratı yetkisi (KMK m.35/d & TBK),
+    2. Kiracının genel kurulda vekaletsiz/vekaletli oy yetkisi (KMK m.31),
+    3. Dükkan ve zemin kat maliklerinin bina güvenlik ve temizlik giderine katılımı (KMK m.20/1-c),
+    4. Yönetim planı değişikliği için 4/5 karar nisabı kuralı (KMK m.28/3),
+    5. Yöneticinin yönetim ücreti ve aidat muafiyetinin genel kurulsuz geçerliliği (KMK m.40),
+    6. Ortak alanlara güvenlik kamerası takılmasında oy çoğunluğu ve KVKK (KMK m.42),
+    7. Genel kurul iptal davalarında 1 ay ve 6 aylık hak düşürücü süreler (KMK m.33),
+    8. Kompanzasyon arızası kaynaklı reaktif ceza faturasından eski yöneticinin şahsi sorumluluğu (KMK m.38 & TBK 506).
+- **Bileşen:** [`src/components/seo/KMKLegalDisputesQAPageSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/KMKLegalDisputesQAPageSeo.tsx)
+  - Schema.org `QAPage`, `Question` ve `AcceptedAnswer` (Alo Yönetim Hukuk Kurulu imzalı) olarak [`SiteYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx) sayfasına yerleştirildi.
+
+### 3. 39 İlçe Sulh Hukuk Mahkemesi & Zorunlu Arabuluculuk Rehberi (`Schema.org LegalService`)
+- **Veri Modeli:** [`src/data/districtCourthouseMediationData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/districtCourthouseMediationData.ts)
+  - 1 Eylül 2023 7445 Sayılı Kanun gereğince KMK davalarında dava şartı olan Zorunlu Arabuluculuk sürecinin İstanbul'daki 6 ana adliye (Çağlayan, Anadolu/Kartal, Bakırköy, Büyükçekmece, Gaziosmanpaşa, Silivri) dağılımı.
+  - Arabuluculuk başvuru adresi, telefonları, gerekli evraklar ve Alo Yönetim masada çözüm desteği.
+- **Bileşen:** [`src/components/seo/DistrictCourthouseMediationSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/DistrictCourthouseMediationSeo.tsx)
+  - Schema.org `LegalService` ve `GovernmentBuilding` yapılandırılmış verisi ile tüm 39 ilçe sayfasına ([`/bolgeler/[ilce]`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/bolgeler/[ilce]/page.tsx)) entegre edildi.
+
+### 4. Kalite Güvence ve Test Sonuçları
+- `src/lib/seo/siteManagementSeoSuite.test.ts` dosyasına 3 yeni test paketi (24, 25, 26) eklendi; toplam test sayısı **46'ya** yükseldi.
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **46/46 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- `npm test` -> **104 test dosyası, 947 testin tamamı PASSED (%100 Başarı)**
+
+
 
 
 
