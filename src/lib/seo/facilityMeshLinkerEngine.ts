@@ -13,6 +13,7 @@ export interface SemanticLinkNode {
 export interface FacilityMeshGraph {
   currentUrl: string;
   flagshipHub: SemanticLinkNode;
+  siteFlagshipHub: SemanticLinkNode;
   subSectors: SemanticLinkNode[];
   priorityDistricts: SemanticLinkNode[];
   authoritativeLegalGuides: SemanticLinkNode[];
@@ -20,11 +21,11 @@ export interface FacilityMeshGraph {
 }
 
 /**
- * Tesis Yönetimi Dinamik İç Bağlantı (Internal Mesh Linker) ve PageRank Dağıtım Motoru.
+ * Tesis ve Site Yönetimi Dinamik İç Bağlantı (Internal Mesh Linker) ve PageRank Dağıtım Motoru.
  * 
  * Google botlarının site içi tarama bütçesini (Crawl Budget) maksimize eder,
  * yetim (orphan) sayfa oluşumunu engeller ve alt sayfaların otoritesini
- * amiral gemisi olan `/hizmetler/tesis-yonetimi` sayfasına akıtır (PageRank Passer).
+ * amiral gemisi olan `/hizmetler/tesis-yonetimi` ve `/hizmetler/site-yonetimi` sayfalarına akıtır (Dual-Pillar PageRank Passer).
  */
 export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesis-yonetimi', lang: string = 'tr'): FacilityMeshGraph {
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
@@ -35,6 +36,14 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
     url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`,
     anchorText: 'İstanbul Profesyonel Site ve Tesis Yönetimi Şirketi',
     description: '634 sayılı KMK ve ISO 41001 standartlarında 39 ilçede tam kapsamlı site, apartman, rezidans ve tesis yönetimi.',
+    category: 'flagship',
+  };
+
+  const siteFlagshipHub: SemanticLinkNode = {
+    title: 'Alo Yönetim — Profesyonel Site Yönetimi ve Toplu Yaşam Alanları',
+    url: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi`,
+    anchorText: 'İstanbul Profesyonel Site Yönetimi ve Apartman Yönetimi',
+    description: '634 sayılı KMK uyarınca kat malikleri kurulu, aidat takibi, hukuki danışmanlık ve 7/24 tesis işletimi.',
     category: 'flagship',
   };
 
@@ -112,11 +121,12 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
     },
   ];
 
-  const totalConnectedNodesCount = 1 + subSectors.length + priorityDistricts.length + authoritativeLegalGuides.length;
+  const totalConnectedNodesCount = 1 + 1 + subSectors.length + priorityDistricts.length + authoritativeLegalGuides.length;
 
   return {
     currentUrl,
     flagshipHub,
+    siteFlagshipHub,
     subSectors,
     priorityDistricts,
     authoritativeLegalGuides,

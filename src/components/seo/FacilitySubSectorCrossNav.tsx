@@ -29,13 +29,24 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
           </h3>
         </div>
 
-        <Link
-          href="/hizmetler/tesis-yonetimi"
-          className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 shrink-0"
-        >
-          <span>Ana Tesis Yönetimi Hub&apos;ı</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
-        </Link>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
+          <Link
+            href="/hizmetler/site-yonetimi"
+            className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-blue-600/10 hover:bg-blue-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30 flex items-center gap-1.5 transition-all shadow-xs"
+          >
+            <span className="material-symbols-outlined text-[14px]" aria-hidden="true">apartment</span>
+            <span>Site Yönetimi Hub&apos;ı</span>
+            <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+          </Link>
+          <Link
+            href="/hizmetler/tesis-yonetimi"
+            className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 hover:bg-slate-900/10 dark:hover:bg-white/15 text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center gap-1.5 transition-all"
+          >
+            <span className="material-symbols-outlined text-[14px]" aria-hidden="true">domain</span>
+            <span>Tesis Yönetimi Hub&apos;ı</span>
+            <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+          </Link>
+        </div>
       </div>
 
       {/* Sub-Sectors Grid */}

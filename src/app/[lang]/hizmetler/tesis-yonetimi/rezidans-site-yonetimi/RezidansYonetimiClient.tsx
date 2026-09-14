@@ -90,6 +90,10 @@ export default function RezidansYonetimiClient() {
               <Link href="/teklif-al" className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
                 Ücretsiz Rezidans Keşfi İste
               </Link>
+              <Link href="/hizmetler/site-yonetimi" className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold py-3.5 px-8 rounded-xl transition-all flex items-center gap-2">
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">apartment</span>
+                Profesyonel Site Yönetimi
+              </Link>
               <Link href="/hizmetler/tesis-yonetimi" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
                 Merkezi Tesis Yönetimi Standartları
               </Link>
