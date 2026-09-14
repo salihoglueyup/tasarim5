@@ -139,6 +139,7 @@ services:
       - NODE_OPTIONS=--max-old-space-size=768
     volumes:
       - ./data/n8n:/home/node/.n8n
+      - ../n8n/active:/home/node/active-workflows:ro
     deploy:
       resources:
         limits:
