@@ -1,0 +1,167 @@
+{
+  "id": "w21FacTicketRoute1",
+  "name": "[Saha & Bakım] W21 — Akıllı Tesis Arıza Sınıflandırıcı & Taşeron Sevk Motoru",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "teknik-ariza",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-tech-ticket",
+      "name": "Teknik Arıza Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        180,
+        300
+      ],
+      "webhookId": "teknik-ariza"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"ticketId\": \"WKO-\" + Date.now().toString(36).toUpperCase(),\n  \"message\": \"Arıza kaydı alındı ve ilgili teknik servise iş emri oluşturuldu.\",\n  \"receivedAt\": new Date().toISOString()\n}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-ticket-ok",
+      "name": "Anında 200 OK Yanıtı",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst data = body.data || body;\n\nconst binaAdi = (data.binaAdi || data.building || 'Belirtilmemiş Tesis/Site').trim();\nconst blokDaire = (data.blokDaire || data.unit || 'Genel Ortak Alan').trim();\nconst talepMetni = (data.talep || data.description || 'Arıza detayı girilmedi').toLowerCase();\nconst bildirenKisi = (data.adSoyad || data.name || 'Site Sakini').trim();\nconst telefon = (data.telefon || data.phone || '-').trim();\n\nlet kategori = 'GENEL_BAKIM';\nlet taseronFirma = 'Alo Yönetim Genel Saha Teknik Ekibi';\nlet hedefSlaSaat = 24;\n\nif (talepMetni.includes('asansör') || talepMetni.includes('kabin') || talepMetni.includes('katta kaldı')) {\n  kategori = 'ASANSOR_BAKIM';\n  taseronFirma = 'Anlaşmalı Asansör Yetkili Servisi (A Tipi Muayene)';\n  hedefSlaSaat = 2;\n} else if (talepMetni.includes('su') || talepMetni.includes('hidrofor') || talepMetni.includes('vana') || talepMetni.includes('gider')) {\n  kategori = 'MEKANIK_TESISAT';\n  taseronFirma = 'Sıhhi Tesisat & Hidrofor Bakım Servisi';\n  hedefSlaSaat = 4;\n} else if (talepMetni.includes('elektrik') || talepMetni.includes('trafo') || talepMetni.includes('jeneratör') || talepMetni.includes('sigorta')) {\n  kategori = 'ELEKTRIK_ENERJI';\n  taseronFirma = 'Yetkili Elektrik & Jeneratör Teknik Servisi';\n  hedefSlaSaat = 3;\n} else if (talepMetni.includes('yangın') || talepMetni.includes('dedektör') || talepMetni.includes('sprinkler')) {\n  kategori = 'YANGIN_GUVENLIK';\n  taseronFirma = 'Yangın Güvenlik & Algılama Sistemleri Servisi';\n  hedefSlaSaat = 1;\n}\n\nconst workOrderId = `ALOWKO-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`;\n\nreturn [{\n  json: {\n    workOrderId,\n    binaAdi,\n    blokDaire,\n    kategori,\n    taseronFirma,\n    hedefSlaSaat,\n    talepMetni,\n    bildirenKisi,\n    telefon,\n    dispatchedAt: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "classify-and-route",
+      "name": "Akıllı Arıza Sınıflandırıcı",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-ticket-router',\n  'contractor_work_order_dispatched',\n  'Facility',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'wko_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ wkoId: $json.workOrderId, bina: $json.binaAdi, kategori: $json.kategori, taseron: $json.taseronFirma }) ] }}"
+        }
+      },
+      "id": "log-wko-db",
+      "name": "AuditLog'a İş Emri Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        360
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🔧 [İŞ EMRİ SEVKİ] {{ $json.binaAdi }}: {{ $json.kategori }} ({{ $json.workOrderId }})",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #0284c7; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0284c7; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🔧 Resmi Teknik İş Emri Sevk Formu</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">İş Emri No: {{ $json.workOrderId }} | SLA: {{ $json.hedefSlaSaat }} Saat</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Tesis / Bina:</td><td style=\"font-weight: bold;\">{{ $json.binaAdi }} ({{ $json.blokDaire }})</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Sevk Edilen Taşeron:</td><td style=\"font-weight: bold; color: #0284c7;\">{{ $json.taseronFirma }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Arıza Kategorisi:</td><td style=\"font-weight: bold;\">{{ $json.kategori }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">İrtibat:</td><td style=\"font-weight: bold;\">{{ $json.bildirenKisi }} (<a href=\"tel:{{ $json.telefon }}\" style=\"color:#0284c7;\">{{ $json.telefon }}</a>)</td></tr>\n    </table>\n    <div style=\"margin-top: 14px; background: #f8fafc; border-left: 4px solid #0284c7; padding: 12px;\">\n      <strong style=\"font-size: 13px;\">Arıza Tanımı:</strong>\n      <p style=\"margin: 4px 0 0 0; font-size: 13px;\">{{ $json.talepMetni }}</p>\n    </div>\n  </div>\n</div>"
+      },
+      "id": "send-wko-email",
+      "name": "Teknik Servise İş Emri Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        360
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'ROUTED', workOrderId: $json.workOrderId, time: new Date().toISOString() } }];"
+      },
+      "id": "wko-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        360
+      ]
+    }
+  ],
+  "connections": {
+    "Teknik Arıza Webhook": {
+      "main": [
+        [
+          {
+            "node": "Anında 200 OK Yanıtı",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Akıllı Arıza Sınıflandırıcı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Akıllı Arıza Sınıflandırıcı": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a İş Emri Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a İş Emri Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Teknik Servise İş Emri Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Teknik Servise İş Emri Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

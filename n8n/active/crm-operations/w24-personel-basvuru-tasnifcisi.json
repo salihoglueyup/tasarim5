@@ -1,0 +1,167 @@
+{
+  "id": "w24HrJobParser1",
+  "name": "[İK & Personel] W24 — Kapıcı, Güvenlik & Temizlik Personeli Başvuru Tasnifçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "is-basvurusu",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-job-application",
+      "name": "İş Başvuru Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        180,
+        300
+      ],
+      "webhookId": "is-basvurusu"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"candidateId\": \"CND-\" + Date.now().toString(36).toUpperCase(),\n  \"message\": \"İş başvurunuz İK havuzuna başarıyla kaydedildi. Niteliklerinize uygun bir pozisyon açıldığında sizinle iletişime geçilecektir.\",\n  \"receivedAt\": new Date().toISOString()\n}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-candidate-ok",
+      "name": "Anında 200 OK Yanıtı",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst data = body.data || body;\n\nconst adSoyad = (data.adSoyad || data.name || 'İsimsiz Aday').trim();\nconst telefon = (data.telefon || data.phone || '-').trim();\nconst email = (data.email || '').trim().toLowerCase();\nconst pozisyon = (data.pozisyon || data.position || 'Genel Tesis Personeli').trim();\nconst deneyimYili = parseInt(data.deneyimYili || data.experience || 1, 10);\nconst ilce = (data.ilce || data.district || 'İstanbul').trim();\nconst notlar = (data.notlar || data.notes || '').toLowerCase();\n\n// Sertifika & Nitelik Tespiti\nconst has5188 = notlar.includes('5188') || notlar.includes('özel güvenlik') || pozisyon.toLowerCase().includes('güvenlik');\nconst hasAtesci = notlar.includes('ateşçi') || notlar.includes('kazan') || notlar.includes('kalorifer');\nconst hasEhliyet = notlar.includes('ehliyet') || notlar.includes('b sınıfı');\nconst hasHijyen = notlar.includes('hijyen') || notlar.includes('temizlik sertifikası');\n\nlet uygunlukPuani = 60;\nif (deneyimYili >= 3) uygunlukPuani += 15;\nif (has5188 || hasAtesci) uygunlukPuani += 15;\nif (hasEhliyet) uygunlukPuani += 10;\n\nconst candidateId = `ALOHR-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`;\n\nreturn [{\n  json: {\n    candidateId,\n    adSoyad,\n    telefon,\n    email: email.includes('@') ? email : null,\n    pozisyon,\n    deneyimYili,\n    ilce,\n    sertifikalar: {\n      guvenlik5188: has5188,\n      atesciBelgesi: hasAtesci,\n      surucuBelgesi: hasEhliyet,\n      hijyenBelgesi: hasHijyen\n    },\n    uygunlukPuani,\n    summary: `İK Başvuru: ${adSoyad} (${pozisyon} - ${ilce}) - Puan: ${uygunlukPuani}/100`\n  }\n}];"
+      },
+      "id": "parse-candidate",
+      "name": "Aday Nitelik & Sertifika Ayrıştırıcı",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-hr-parser',\n  'hr_job_application_parsed',\n  'HR',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'cand_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ candidateId: $json.candidateId, ad: $json.adSoyad, pozisyon: $json.pozisyon, puan: $json.uygunlukPuani }) ] }}"
+        }
+      },
+      "id": "log-candidate-db",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        360
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=👤 [YENİ PERSONEL BAŞVURUSU] {{ $json.adSoyad }} — {{ $json.pozisyon }} (Puan: {{ $json.uygunlukPuani }})",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">👤 Tesis Personeli İK Başvuru Kartı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #38bdf8;\">Aday No: {{ $json.candidateId }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Aday Adı Soyadı:</td><td style=\"font-weight: bold; font-size: 15px;\">{{ $json.adSoyad }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Hedef Pozisyon:</td><td style=\"font-weight: bold; color: #0284c7;\">{{ $json.pozisyon }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Telefon:</td><td style=\"font-weight: bold;\"><a href=\"tel:{{ $json.telefon }}\" style=\"color: #0284c7;\">{{ $json.telefon }}</a></td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">İkamet / İlçe:</td><td style=\"font-weight: bold;\">{{ $json.ilce }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Deneyim Süresi:</td><td style=\"font-weight: bold;\">{{ $json.deneyimYili }} Yıl</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">5188 Güvenlik Kimliği:</td><td style=\"font-weight: bold;\">{{ $json.sertifikalar.guvenlik5188 ? '✅ Mevcut' : '❌ Yok' }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kazan Ateşçi Belgesi:</td><td style=\"font-weight: bold;\">{{ $json.sertifikalar.atesciBelgesi ? '✅ Mevcut' : '❌ Yok' }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Uygunluk Skoru:</td><td style=\"font-weight: bold; font-size: 16px; color: #16a34a;\">{{ $json.uygunlukPuani }} / 100</td></tr>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-candidate-email",
+      "name": "İK Departmanına Başvuru Kartı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        360
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'PARSED', candidateId: $json.candidateId, time: new Date().toISOString() } }];"
+      },
+      "id": "candidate-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        360
+      ]
+    }
+  ],
+  "connections": {
+    "İş Başvuru Webhook": {
+      "main": [
+        [
+          {
+            "node": "Anında 200 OK Yanıtı",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aday Nitelik & Sertifika Ayrıştırıcı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aday Nitelik & Sertifika Ayrıştırıcı": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "İK Departmanına Başvuru Kartı Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "İK Departmanına Başvuru Kartı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

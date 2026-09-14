@@ -1,8 +1,8 @@
-# Alo Yönetim — 18 İleri Seviye İç Sistem İş Akışları
+# Alo Yönetim — 24 İleri Seviye Kurumsal İş Akışları
 
-Bu dizin, Alo Yönetim'in iç saha operasyonları, acil durum kriz yönetimi, sunucu kaynak ve güvenlik nöbetçileri, veritabanı bakımı ve 39 ilçe SEO kalite güvencesi için yapılandırılmış **18 adet kurumsal iş akışını** içerir.
+Bu dizin, Alo Yönetim'in iç saha operasyonları, arıza kriz yönetimi, kurumsal fatura ayrıştırma, gecikmiş aidat faiz hesaplamaları, sunucu kaynak ve güvenlik nöbetçileri, 6331 İSG mevzuat denetimi ve 39 ilçe SEO kalite güvencesi için yapılandırılmış **24 adet kurumsal iş akışını** içerir.
 
-## Kategori Dağılımı ve 5 Renkli Etiket (Tags)
+## Kategori Dağılımı ve 7 Renkli Etiket (Tags)
 
 | Kategori | ID | Standart İş Akışı Adı | Dosya |
 | :--- | :--- | :--- | :--- |
@@ -10,6 +10,12 @@ Bu dizin, Alo Yönetim'in iç saha operasyonları, acil durum kriz yönetimi, su
 | 🔵 **CRM & Saha Operasyonları** | `w02CrmDailyTrg01` | `[CRM & Operasyon] W02 — Günlük Talep Triajı & Gecikme Nöbetçisi` | `w02-gunluk-talep-triaji.json` |
 | 🔵 **CRM & Saha Operasyonları** | `w13CrmCrisisTrg1` | `[Saha & Kriz] W13 — Acil Tesis Arıza & Kriz Triaj Webhook Motoru` | `w13-acil-tesis-ariza-triaji.json` |
 | 🔵 **CRM & Saha Operasyonları** | `w17CrmContractT1` | `[CRM & Sözleşme] W17 — Yönetim Sözleşmesi & Genel Kurul Devir-Teslim Takipçisi` | `w17-genel-kurul-sozlesme-takipcisi.json` |
+| 🔵 **CRM & Saha Operasyonları** | `w21FacTicketRoute1` | `[Saha & Bakım] W21 — Akıllı Tesis Arıza Sınıflandırıcı & Taşeron Sevk Motoru` | `w21-akilli-ariza-taseron-sevki.json` |
+| 🔵 **CRM & Saha Operasyonları** | `w23FacShiftSummary1` | `[Saha & Güvenlik] W23 — 5188 Özel Güvenlik & Temizlik Günlük Vardiya Devir Bülteni` | `w23-guvenlik-vardiya-devir-bulteni.json` |
+| 🟡 **Finans, Aidat & Faturalar** | `w19FinBillParser1` | `[Finans & Fatura] W19 — BEDAŞ/İSKİ/İGDAŞ Fatura & Sayaç Ayrıştırıcı` | `w19-kurumsal-fatura-sayac-ayristirici.json` |
+| 🟡 **Finans, Aidat & Faturalar** | `w20FinOverdueRem1` | `[Finans & Borç] W20 — KMK m.20 Gecikmiş Aidat & %5 Yasal Faiz Hatırlatıcı` | `w20-gecikmis-aidat-faiz-hatirlatici.json` |
+| ⚖️ **Hukuk, İSG & Personel** | `w22LegCompliance1` | `[Hukuk & KMK] W22 — Apartman/Site 6331 İSG & Yangın Mevzuat Denetim Listesi` | `w22-isg-yangin-mevzuat-denetimi.json` |
+| ⚖️ **Hukuk, İSG & Personel** | `w24HrJobParser1` | `[İK & Personel] W24 — Kapıcı, Güvenlik & Temizlik Personeli Başvuru Tasnifçisi` | `w24-personel-basvuru-tasnifcisi.json` |
 | 🔴 **DevOps & Sistem Sağlığı** | `w03DevOpsUptime1` | `[DevOps & SLA] W03 — Master Uptime & Çift Teyitli Sağlık Nöbetçisi` | `w03-master-uptime-watchdog.json` |
 | 🔴 **DevOps & Sistem Sağlığı** | `w04DevOpsErrAgg1` | `[DevOps & Güvenlik] W04 — Sistem Hata & Çökme Log Merkezi` | `w04-sistem-hata-merkezi.json` |
 | 🔴 **DevOps & Sistem Sağlığı** | `w05DevOpsSslSec1` | `[DevOps & Güvenlik] W05 — SSL Sertifikası & Güvenlik Başlıkları Denetimi` | `w05-ssl-guvenlik-denetimi.json` |

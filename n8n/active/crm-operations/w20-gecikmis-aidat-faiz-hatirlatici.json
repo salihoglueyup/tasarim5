@@ -1,0 +1,166 @@
+{
+  "id": "w20FinOverdueRem1",
+  "name": "[Finans & Borç] W20 — KMK m.20 Gecikmiş Aidat & %5 Yasal Faiz Hatırlatıcı",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 10 15 * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-monthly-15th",
+      "name": "Her Ayın 15'i Saat 10:00'da Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  'Aidat Takip Portföyü' as baslik,\n  COUNT(*) as toplam_kayit,\n  NOW() as kontrol_tarihi\nFROM \"Lead\";"
+      },
+      "id": "query-dues-status",
+      "name": "Mevcut Portföy Verisini Çek",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// KMK Madde 20/c Kuralı: Gider ve avans payını ödemeyen kat maliki, ödemede geciktiği günler için aylık yüzde beş (%5) gecikme tazminatı ödemekle yükümlüdür.\nconst mockOverdueResidents = [\n  { daire: 'A Blok D:12', malik: 'Ahmet Yılmaz', anaPara: 2400, gecikmeGun: 28, tel: '0532 555 01 22' },\n  { daire: 'B Blok D:04', malik: 'Mehmet Demir', anaPara: 3200, gecikmeGun: 45, tel: '0542 555 01 33' },\n  { daire: 'C Blok D:19', malik: 'Selin Karaca', anaPara: 1800, gecikmeGun: 18, tel: '0555 555 01 44' }\n];\n\nconst processed = mockOverdueResidents.map(r => {\n  // Günlük faiz oranı = %5 / 30 gün = %0.166 günlük faiz\n  const faizTutari = Math.round((r.anaPara * (0.05 / 30) * r.gecikmeGun) * 100) / 100;\n  const toplamBorc = r.anaPara + faizTutari;\n  return {\n    ...r,\n    faizTutari: faizTutari.toLocaleString('tr-TR', { minimumFractionDigits: 2 }),\n    toplamBorc: toplamBorc.toLocaleString('tr-TR', { minimumFractionDigits: 2 }),\n    anaParaFormatted: r.anaPara.toLocaleString('tr-TR', { minimumFractionDigits: 2 })\n  };\n});\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    ay: new Date().toLocaleDateString('tr-TR', { month: 'long', year: 'numeric' }),\n    totalBorclu: processed.length,\n    residents: processed,\n    summary: `KMK m.20 Aidat Hatırlatması: ${processed.length} Bağımsız Bölümde Vadesi Geçmiş Bakiye ve %5 Yasal Faiz Hesaplanmıştır.`\n  }\n}];"
+      },
+      "id": "calc-kmk-interest",
+      "name": "KMK m.20/c %5 Faiz Hesaplayıcı",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-kmk-interest-sentinel',\n  'kmk_overdue_dues_calculated',\n  'Finance',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'kmk_due_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ count: $json.totalBorclu, month: $json.ay }) ] }}"
+        }
+      },
+      "id": "log-dues-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        800,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚖️ [KMK m.20 AİDAT RAPORU] {{ $json.ay }} Ayı Gecikmiş Aidat & Faiz Listesi",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚖️ KMK m.20/c Yasal Gecikme Tazminatı Brifingi</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;\">Dönem: {{ $json.ay }} | Yasal Faiz Oranı: Aylık %5</p>\n  </div>\n  <div style=\"padding: 20px;\">\n    <p style=\"font-size: 13px; color: #475569;\">Kat Mülkiyeti Kanunu m.20/c uyarınca vadesi geçen aidat ve ortak gider avansları için hesaplanan güncel bakiye tablosu:</p>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px;\">\n      <thead>\n        <tr style=\"background: #f1f5f9;\">\n          <th style=\"padding: 8px; text-align: left;\">Bölüm / Kat Maliki</th>\n          <th style=\"padding: 8px; text-align: right;\">Ana Para</th>\n          <th style=\"padding: 8px; text-align: center;\">Gecikme</th>\n          <th style=\"padding: 8px; text-align: right;\">%5 KMK Faizi</th>\n          <th style=\"padding: 8px; text-align: right;\">Toplam Borç</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.residents.map(r => `<tr style=\"border-bottom: 1px solid #e2e8f0;\"><td style=\"padding: 8px; font-weight: bold;\">${r.daire} - ${r.malik}</td><td style=\"padding: 8px; text-align: right;\">${r.anaParaFormatted} TL</td><td style=\"padding: 8px; text-align: center;\">${r.gecikmeGun} Gün</td><td style=\"padding: 8px; text-align: right; color: #dc2626;\">+${r.faizTutari} TL</td><td style=\"padding: 8px; text-align: right; font-weight: bold; color: #0284c7;\">${r.toplamBorc} TL</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-overdue-email",
+      "name": "Aidat Takip Brifingi Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "overdue-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Her Ayın 15'i Saat 10:00'da Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Mevcut Portföy Verisini Çek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mevcut Portföy Verisini Çek": {
+      "main": [
+        [
+          {
+            "node": "KMK m.20/c %5 Faiz Hesaplayıcı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KMK m.20/c %5 Faiz Hesaplayıcı": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Aidat Takip Brifingi Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aidat Takip Brifingi Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

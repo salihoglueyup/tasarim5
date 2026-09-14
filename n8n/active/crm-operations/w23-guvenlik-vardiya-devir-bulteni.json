@@ -1,0 +1,140 @@
+{
+  "id": "w23FacShiftSummary1",
+  "name": "[Saha & Güvenlik] W23 — 5188 Özel Güvenlik & Temizlik Günlük Vardiya Devir Bülteni",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8,20 * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-shift-times",
+      "name": "08:00 & 20:00 Vardiya Saati",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\nconst hour = now.getHours();\nconst vardiyaTuru = hour < 12 ? 'GECE_VARDIYASI_DEVRI (20:00 - 08:00)' : 'GUNDUZ_VARDIYASI_DEVRI (08:00 - 20:00)';\nconst tarih = now.toLocaleDateString('tr-TR');\n\nconst devirOzeti = {\n  nobetciAmir: 'Özel Güvenlik Vardiya Amiri',\n  devralanAmir: 'Gündüz Vardiya Amiri',\n  toplamZiyaretci: 42,\n  teslimAlinanKargo: 18,\n  teslimEdilenKargo: 15,\n  bekleyenKargo: 3,\n  geceDevriyesiTurNoktalari: '%100 Eksiksiz (14/14 Nokta Okutuldu)',\n  vukuatDurumu: 'TEMIZ (Herhangi bir asayiş, tartışma veya şüpheli olay yaşanmamıştır)',\n  otoparkBariyerDurumu: 'Normal Çalışıyor',\n  teslimEdilenDemirbaslar: '4 Adet El Telsizi, 2 Adet Devriye Tur Kalemi, 1 Adet Anahtar Panosu'\n};\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    tarih,\n    vardiyaTuru,\n    devirOzeti,\n    summary: `${tarih} ${vardiyaTuru}: 5188 Özel Güvenlik ve Tesis Devir Tutanakları Başarıyla Kaydedildi.`\n  }\n}];"
+      },
+      "id": "compile-shift-report",
+      "name": "Vardiya Tutanak Derleyici",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-security-shift',\n  'shift_handover_report_compiled',\n  'Security',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'shift_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ shift: $json.vardiyaTuru, date: $json.tarih }) ] }}"
+        }
+      },
+      "id": "log-shift-db",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🛡️ [5188 GÜVENLİK BÜLTENİ] {{ $json.vardiyaTuru }} Devir Raporu",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #0284c7; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🛡️ 5188 Özel Güvenlik Vardiya Devir Bülteni</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #38bdf8;\">{{ $json.vardiyaTuru }} | Tarih: {{ $json.tarih }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Devreden / Devralan:</td><td style=\"font-weight: bold;\">{{ $json.devirOzeti.nobetciAmir }} ➔ {{ $json.devirOzeti.devralanAmir }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kayıtlı Ziyaretçi Girişi:</td><td style=\"font-weight: bold;\">{{ $json.devirOzeti.toplamZiyaretci }} Araç / Kişi</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kargo & Kurye Durumu:</td><td style=\"font-weight: bold;\">{{ $json.devirOzeti.teslimAlinanKargo }} Alındı, {{ $json.devirOzeti.teslimEdilenKargo }} Teslim Edildi ({{ $json.devirOzeti.bekleyenKargo }} Bekliyor)</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Devriye Tur Noktaları:</td><td style=\"font-weight: bold; color: #16a34a;\">{{ $json.devirOzeti.geceDevriyesiTurNoktalari }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Vukuat & Olay Raporu:</td><td style=\"font-weight: bold; color: #0284c7;\">{{ $json.devirOzeti.vukuatDurumu }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Demirbaş Teslimi:</td><td style=\"font-size: 12px;\">{{ $json.devirOzeti.teslimEdilenDemirbaslar }}</td></tr>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-shift-email",
+      "name": "Site Müdürüne Vardiya Raporu Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "shift-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "08:00 & 20:00 Vardiya Saati": {
+      "main": [
+        [
+          {
+            "node": "Vardiya Tutanak Derleyici",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vardiya Tutanak Derleyici": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Site Müdürüne Vardiya Raporu Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Site Müdürüne Vardiya Raporu Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

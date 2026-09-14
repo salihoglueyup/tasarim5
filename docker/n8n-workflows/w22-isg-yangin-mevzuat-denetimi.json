@@ -1,0 +1,140 @@
+{
+  "id": "w22LegCompliance1",
+  "name": "[Hukuk & KMK] W22 — Apartman/Site 6331 İSG & Yangın Mevzuat Denetim Listesi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 1 * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-monthly-1st",
+      "name": "Her Ayın 1'i Saat 09:00'da Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const ay = new Date().toLocaleDateString('tr-TR', { month: 'long', year: 'numeric' });\n\nconst checklist = [\n  { id: 1, konu: 'Yangın Söndürme Tüpleri', periyot: '6 Ayda Bir', yasalDayanak: 'Binaların Yangından Korunması Hakkında Yönetmelik', durum: 'Kontrol Edilmeli' },\n  { id: 2, konu: 'Asansör Yıllık Muayenesi (Yeşil Etiket)', periyot: 'Yılda Bir', yasalDayanak: 'Asansör İşletme ve Bakım Yönetmeliği', durum: 'A Tipi Muayene Kuruluşu' },\n  { id: 3, konu: 'Su Deposu Temizlik & Dezenfeksiyon', periyot: '6 Ayda Bir', yasalDayanak: 'Sağlık Bakanlığı 2007/67 Sayılı Genelge', durum: 'Akredite Lab Raporu' },\n  { id: 4, konu: 'Paratoner & Topraklama Ölçümü', periyot: 'Yılda Bir', yasalDayanak: 'Elektrik Tesislerinde Topraklamalar Yönetmeliği', durum: 'EMO Onaylı Rapor' },\n  { id: 5, konu: 'Kazan Dairesi Gaz Dedektörleri & Selenoid Vana', periyot: '3 Ayda Bir', yasalDayanak: 'İGDAŞ / Binaların Yangından Korunması', durum: 'Test Edilmeli' },\n  { id: 6, konu: 'Sığınak Havalandırma & Acil Aydınlatma', periyot: 'Yılda Bir', yasalDayanak: 'Sığınak Yönetmeliği m.13', durum: 'Batarya & Filtre Kontrolü' },\n  { id: 7, konu: '6331 İSG Risk Değerlendirme Raporu', periyot: '6 Yılda Bir (Az Tehlikeli)', yasalDayanak: '6331 Sayılı İSG Kanunu m.10', durum: 'Yönetici İmzası & Arşiv' },\n  { id: 8, konu: '4 Zorunlu Acil Durum Ekip Listesi', periyot: 'Yılda Bir Güncelleme', yasalDayanak: 'İşyerlerinde Acil Durumlar Yönetmeliği', durum: 'Söndürme, Kurtarma, Koruma, İlkyardım' }\n];\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    ay,\n    toplamMadde: checklist.length,\n    checklist,\n    summary: `${ay} Ayı İçin ${checklist.length} Maddelik Yasal Uyum ve İSG Denetim Formu Oluşturuldu.`\n  }\n}];"
+      },
+      "id": "generate-compliance-list",
+      "name": "6331 & KMK Uyum Listesi Motoru",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-compliance-sentinel',\n  'monthly_compliance_audit_generated',\n  'Legal',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'comp_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ month: $json.ay, count: $json.toplamMadde }) ] }}"
+        }
+      },
+      "id": "log-compliance-db",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=📋 [YASAL UYUM & İSG] {{ $json.ay }} Ayı Tesis Denetim Kontrol Listesi",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 680px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #1e293b; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">📋 6331 Sayılı İSG & KMK Aylık Mevzuat Denetim Listesi</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #38bdf8;\">Dönem: {{ $json.ay }} | Tesis Yöneticisi Cezai & Hukuki Güvence Bülteni</p>\n  </div>\n  <div style=\"padding: 20px;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px;\">\n      <thead>\n        <tr style=\"background: #f8fafc; border-bottom: 2px solid #e2e8f0;\">\n          <th style=\"padding: 8px; text-align: left;\">Denetim Maddesi</th>\n          <th style=\"padding: 8px; text-align: left;\">Periyot</th>\n          <th style=\"padding: 8px; text-align: left;\">Yasal Dayanak</th>\n          <th style=\"padding: 8px; text-align: center;\">Gereklilik</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.checklist.map(c => `<tr style=\"border-bottom: 1px solid #e2e8f0;\"><td style=\"padding: 8px; font-weight: bold;\">${c.konu}</td><td style=\"padding: 8px;\">${c.periyot}</td><td style=\"padding: 8px; color: #64748b;\">${c.yasalDayanak}</td><td style=\"padding: 8px; text-align: center; color: #0284c7; font-weight: bold;\">${c.durum}</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-compliance-email",
+      "name": "Yönetim Ekibine Denetim Listesi Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "compliance-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Her Ayın 1'i Saat 09:00'da Tetikle": {
+      "main": [
+        [
+          {
+            "node": "6331 & KMK Uyum Listesi Motoru",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "6331 & KMK Uyum Listesi Motoru": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Yönetim Ekibine Denetim Listesi Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yönetim Ekibine Denetim Listesi Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

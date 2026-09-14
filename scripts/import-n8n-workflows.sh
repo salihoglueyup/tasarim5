@@ -1,9 +1,9 @@
 #!/bin/bash
-# Alo Yönetim — 18 İleri Seviye İç Sistem İş Akışını & Renkli Etiketleri İçe Aktarma Scripti
+# Alo Yönetim — 24 İleri Seviye Kurumsal İş Akışını & Renkli Etiketleri İçe Aktarma Scripti
 set -e
 
 echo "========================================================"
-echo "🚀 Alo Yönetim: 18 İleri Seviye İş Akışı İçe Aktarılıyor..."
+echo "🚀 Alo Yönetim: 24 Kurumsal İş Akışı İçe Aktarılıyor..."
 echo "========================================================"
 
 # n8n container'ı çalışıyor mu kontrol et
@@ -13,14 +13,14 @@ if ! docker ps | grep -q "aloyonetim-n8n"; then
   exit 1
 fi
 
-echo "📦 18 İş akış dosyası container içerisine kopyalanıyor..."
+echo "📦 24 İş akış dosyası container içerisine kopyalanıyor..."
 
 # Volume bağımlılığını sıfırlamak için doğrudan container içine kopyala
 docker exec aloyonetim-n8n mkdir -p /home/node/imported-workflows
 docker cp n8n/active/. aloyonetim-n8n:/home/node/imported-workflows/
 docker exec aloyonetim-n8n chmod -R 777 /home/node/imported-workflows
 
-echo "⚙️ 18 Aktif iş akışı n8n sistemine kaydediliyor..."
+echo "⚙️ 24 Aktif iş akışı n8n sistemine kaydediliyor..."
 
 # Container içindeki iş akışlarını içe aktar
 docker exec -u node aloyonetim-n8n sh -c '
@@ -37,19 +37,21 @@ echo "🎨 n8n Kategorilendirme Etiketleri (Tags) & Eşleştirmeler Yapılıyor.
 
 # n8n PostgreSQL şemasına renkli etiketleri ve akış eşleşmelerini yaz
 if docker ps | grep -q "aloyonetim-postgres"; then
-  echo "🏷️ Kategori etiketleri oluşturuluyor..."
+  echo "🏷️ 7 Kategori etiketi oluşturuluyor..."
   docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
     INSERT INTO n8n.tag_entity (id, name, \"createdAt\", \"updatedAt\")
     VALUES 
       ('tag_crm', 'CRM & Saha Operasyonları', NOW(), NOW()),
+      ('tag_fin', 'Finans, Aidat & Faturalar', NOW(), NOW()),
       ('tag_sla', 'DevOps & Sistem Sağlığı', NOW(), NOW()),
       ('tag_db', 'Veritabanı & Önbellek', NOW(), NOW()),
       ('tag_seo', 'SEO & Arama Motorları', NOW(), NOW()),
+      ('tag_legal', 'Hukuk, İSG & Personel', NOW(), NOW()),
       ('tag_mgmt', 'Yönetim & Haftalık Rapor', NOW(), NOW())
     ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, \"updatedAt\" = NOW();
   "
 
-  echo "🔗 18 İş akışı 5 kurumsal kategoriye bağlanıyor..."
+  echo "🔗 24 İş akışı 7 kurumsal kategoriye bağlanıyor..."
   docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
     INSERT INTO n8n.workflows_tags (\"workflowId\", \"tagId\")
     VALUES
@@ -70,7 +72,13 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       ('w15DevOpsNginxS1', 'tag_sla'),
       ('w16SeoDistricts1', 'tag_seo'),
       ('w17CrmContractT1', 'tag_crm'),
-      ('w18DevOpsExtSla1', 'tag_sla')
+      ('w18DevOpsExtSla1', 'tag_sla'),
+      ('w19FinBillParser1', 'tag_fin'),
+      ('w20FinOverdueRem1', 'tag_fin'),
+      ('w21FacTicketRoute1', 'tag_crm'),
+      ('w22LegCompliance1', 'tag_legal'),
+      ('w23FacShiftSummary1', 'tag_crm'),
+      ('w24HrJobParser1', 'tag_legal')
     ON CONFLICT DO NOTHING;
   "
 
@@ -82,7 +90,9 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
       'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1',
       'w13CrmCrisisTrg1', 'w14DevOpsDocker1', 'w15DevOpsNginxS1',
-      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1'
+      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1',
+      'w19FinBillParser1', 'w20FinOverdueRem1', 'w21FacTicketRoute1',
+      'w22LegCompliance1', 'w23FacShiftSummary1', 'w24HrJobParser1'
     );
     DELETE FROM n8n.shared_workflow WHERE \"workflowId\" NOT IN (
       'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
@@ -90,7 +100,9 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
       'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1',
       'w13CrmCrisisTrg1', 'w14DevOpsDocker1', 'w15DevOpsNginxS1',
-      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1'
+      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1',
+      'w19FinBillParser1', 'w20FinOverdueRem1', 'w21FacTicketRoute1',
+      'w22LegCompliance1', 'w23FacShiftSummary1', 'w24HrJobParser1'
     );
     DELETE FROM n8n.workflow_entity WHERE id NOT IN (
       'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
@@ -98,14 +110,16 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
       'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1',
       'w13CrmCrisisTrg1', 'w14DevOpsDocker1', 'w15DevOpsNginxS1',
-      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1'
+      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1',
+      'w19FinBillParser1', 'w20FinOverdueRem1', 'w21FacTicketRoute1',
+      'w22LegCompliance1', 'w23FacShiftSummary1', 'w24HrJobParser1'
     );
   " 2>/dev/null || true
 
-  echo "✅ 5 Kategori ve 18 kurumsal akış bağı başarıyla oluşturuldu!"
+  echo "✅ 7 Kategori ve 24 kurumsal akış bağı başarıyla oluşturuldu!"
 fi
 
 echo "========================================================"
-echo "✅ Tam 18 ileri seviye iç sistem akışı kategorileriyle n8n'de!"
+echo "✅ Tam 24 kurumsal iş akışı kategorileriyle n8n'de!"
 echo "🌐 Paneli yenileyin: https://n8n.aloyonetim.com.tr/workflows"
 echo "========================================================"
