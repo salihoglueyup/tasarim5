@@ -1,0 +1,99 @@
+{
+  "name": "W14 — UptimeRobot Dış Göz & Kesinti Senkronizasyonu",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "uptimerobot-alert",
+        "options": {}
+      },
+      "id": "webhook-uptimerobot",
+      "name": "UptimeRobot Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ],
+      "webhookId": "uptimerobot-alert"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst alertType = body.alertType || body.event || 'UNKNOWN';\nconst monitorName = body.monitorFriendlyName || body.monitorName || 'Alo Yönetim Web';\nconst monitorUrl = body.monitorURL || 'https://aloyonetim.com.tr';\nconst alertDetails = body.alertDetails || 'Ayrıntı yok';\nconst isDown = String(alertType).toLowerCase().includes('down');\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isDown,\n    severity: isDown ? 'CRITICAL' : 'RECOVERED',\n    monitorName,\n    monitorUrl,\n    alertDetails,\n    subject: isDown ? '🚨 [DIŞ KESİNTİ] Alo Yönetim Yanıt Vermiyor!' : '✅ [DÜZELDİ] Alo Yönetim Tekrar Yayında',\n    summary: `UptimeRobot Olayı: ${isDown ? 'SİTE ÇÖKTÜ' : 'SİTE AÇILDI'} (${monitorName} - ${monitorUrl})`\n  }\n}];"
+      },
+      "id": "parse-uptimerobot",
+      "name": "UptimeRobot Uyarısını Ayrıştır",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "={{ $json.subject }}",
+        "emailType": "text",
+        "text": "=UptimeRobot Dış Göz İzleme Bildirimi\n\nZaman: {{ $json.timestamp }}\nDurum: {{ $json.severity }}\nMonitör: {{ $json.monitorName }}\nURL: {{ $json.monitorUrl }}\nAyrıntı: {{ $json.alertDetails }}\n\nLütfen sunucu Nginx ve Docker durumlarını kontrol ediniz."
+      },
+      "id": "send-uptime-email",
+      "name": "Kesinti E-Postası Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[UptimeRobot Sync] ${$json.summary}`);\nreturn [{ json: { logged: true } }];"
+      },
+      "id": "log-uptime-event",
+      "name": "Olayı Logla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "UptimeRobot Webhook": {
+      "main": [
+        [
+          {
+            "node": "UptimeRobot Uyarısını Ayrıştır",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UptimeRobot Uyarısını Ayrıştır": {
+      "main": [
+        [
+          {
+            "node": "Kesinti E-Postası Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Olayı Logla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "id": "w14UptimeRobot1"
+}

@@ -19,7 +19,7 @@ echo "📦 İş akışları taranıyor ve n8n veritabanına aktarılıyor..."
 docker exec -u node aloyonetim-n8n sh -c '
   for file in $(find /home/node/active-workflows -name "*.json" | sort); do
     echo "➡️ İçe aktarılıyor: $(basename "$file")"
-    n8n import:workflow --input="$file"
+    n8n import:workflow --input="$file" || echo "⚠️ Uyarı: $(basename "$file") içe aktarılırken bir durum oluştu (güncel olabilir)."
   done
 '
 

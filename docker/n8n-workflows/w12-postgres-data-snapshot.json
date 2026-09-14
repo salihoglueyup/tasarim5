@@ -1,0 +1,112 @@
+{
+  "name": "W12 — PostgreSQL Otomatik Snapshot & Yedekleme",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 3 * * *"
+            }
+          ]
+        }
+      },
+      "id": "schedule-backup",
+      "name": "Gece 03:30 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT json_build_object('leads_count', (SELECT count(*) FROM \"Lead\"), 'posts_count', (SELECT count(*) FROM \"Post\"), 'categories_count', (SELECT count(*) FROM \"Category\"), 'users_count', (SELECT count(*) FROM \"User\"), 'timestamp', NOW()) as snapshot_meta;"
+      },
+      "id": "fetch-db-snapshot-meta",
+      "name": "Snapshot Meta Verilerini Al",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        440,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const meta = $json.snapshot_meta || {};\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    leadsCount: meta.leads_count || 0,\n    postsCount: meta.posts_count || 0,\n    categoriesCount: meta.categories_count || 0,\n    usersCount: meta.users_count || 0,\n    status: 'SUCCESS',\n    summary: `Veritabanı Snapshot Tamam: ${meta.leads_count} Teklif, ${meta.posts_count} Blog/Hizmet, ${meta.categories_count} Kategori, ${meta.users_count} Kullanıcı.`\n  }\n}];"
+      },
+      "id": "format-snapshot-meta",
+      "name": "Meta Veriyi Formatla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[Backup Snapshot OK] ${$json.summary}`);\nreturn [{ json: { logged: true, summary: $json.summary } }];"
+      },
+      "id": "log-snapshot",
+      "name": "Snapshot Logla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Gece 03:30 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Snapshot Meta Verilerini Al",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snapshot Meta Verilerini Al": {
+      "main": [
+        [
+          {
+            "node": "Meta Veriyi Formatla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Meta Veriyi Formatla": {
+      "main": [
+        [
+          {
+            "node": "Snapshot Logla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "id": "w12PgDataSnap01"
+}

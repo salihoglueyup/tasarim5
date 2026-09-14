@@ -1,5 +1,6 @@
 {
-  "name": "W10 — PostgreSQL Canlı Performans & Bağlantı Nöbetçisi",
+  "id": "w10PostgresPerf1",
+  "name": "W10 — PostgreSQL Performans, Önbellek & Şişme Nöbetçisi",
   "nodes": [
     {
       "parameters": {
@@ -16,34 +17,38 @@
       "name": "Her 15 Dakikada Bir Tetikle",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [220, 300]
+      "position": [
+        200,
+        300
+      ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "SELECT (SELECT count(*) FROM pg_stat_activity WHERE state = 'active') as active_connections, (SELECT count(*) FROM pg_stat_activity WHERE wait_event_type IS NOT NULL) as waiting_locks, (SELECT pg_size_pretty(pg_database_size('aloyonetim'))) as database_size, (SELECT count(*) FROM \"Lead\" WHERE \"createdAt\" > NOW() - INTERVAL '24 hours') as new_leads_24h;"
+        "query": "SELECT \n  (SELECT count(*) FROM pg_stat_activity WHERE state = 'active') as active_connections,\n  (SELECT count(*) FROM pg_stat_activity WHERE wait_event_type IS NOT NULL) as waiting_locks,\n  (SELECT pg_size_pretty(pg_database_size(current_database()))) as database_size,\n  (SELECT round(sum(blks_hit) * 100.0 / nullif(sum(blks_hit + blks_read), 0), 2) FROM pg_stat_database WHERE datname = current_database()) as cache_hit_ratio,\n  (SELECT coalesce(sum(n_dead_tup), 0) FROM pg_stat_user_tables) as dead_tuples_total,\n  (SELECT count(*) FROM \"Lead\" WHERE \"createdAt\" > NOW() - INTERVAL '24 hours') as new_leads_24h;"
       },
       "id": "postgres-metrics-query",
-      "name": "PostgreSQL Metriklerini Sorgula",
+      "name": "PostgreSQL Derin Metrik Sorgusu",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
-      "position": [440, 300],
-      "credentials": {
-        "postgres": {
-          "id": "postgres-cred",
-          "name": "Alo Yönetim PostgreSQL"
-        }
-      }
+      "position": [
+        420,
+        300
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "const metrics = $json;\nconst activeConnections = parseInt(metrics.active_connections, 10) || 0;\nconst waitingLocks = parseInt(metrics.waiting_locks, 10) || 0;\nconst dbSize = metrics.database_size || 'Bilinmiyor';\nconst leads24h = parseInt(metrics.new_leads_24h, 10) || 0;\n\n// Eşik Değerleri (Thresholds)\nconst isConnCritical = activeConnections > 35;\nconst isLockCritical = waitingLocks > 3;\nconst alertRequired = isConnCritical || isLockCritical;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    activeConnections,\n    waitingLocks,\n    dbSize,\n    leads24h,\n    alertRequired,\n    status: alertRequired ? 'WARNING' : 'HEALTHY',\n    summary: `DB: ${dbSize} | Aktif Bağlantı: ${activeConnections} | Kilit: ${waitingLocks} | Son 24s Teklif: ${leads24h}`\n  }\n}];"
+        "jsCode": "const metrics = $json;\nconst activeConnections = parseInt(metrics.active_connections, 10) || 0;\nconst waitingLocks = parseInt(metrics.waiting_locks, 10) || 0;\nconst dbSize = metrics.database_size || 'Bilinmiyor';\nconst cacheHitRatio = parseFloat(metrics.cache_hit_ratio) || 100.0;\nconst deadTuples = parseInt(metrics.dead_tuples_total, 10) || 0;\nconst leads24h = parseInt(metrics.new_leads_24h, 10) || 0;\n\n// Kritik Eşik Analizi\nconst isConnCritical = activeConnections > 40;\nconst isLockCritical = waitingLocks > 3;\nconst isCacheDegraded = cacheHitRatio < 95.0;\nconst isDeadTuplesHigh = deadTuples > 5000;\n\nconst alertRequired = isConnCritical || isLockCritical || isCacheDegraded || isDeadTuplesHigh;\n\nlet status = 'HEALTHY';\nlet warnings = [];\nif (isConnCritical) { status = 'WARNING'; warnings.push(`Yüksek bağlantı: ${activeConnections}`); }\nif (isLockCritical) { status = 'CRITICAL'; warnings.push(`Bekleyen kilit var: ${waitingLocks}`); }\nif (isCacheDegraded) { status = 'WARNING'; warnings.push(`Düşük önbellek isabeti: %${cacheHitRatio}`); }\nif (isDeadTuplesHigh) { status = 'WARNING'; warnings.push(`Ölü satır şişmesi: ${deadTuples} dead tuples`); }\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    status,\n    alertRequired,\n    activeConnections,\n    waitingLocks,\n    dbSize,\n    cacheHitRatio,\n    deadTuples,\n    leads24h,\n    warningSummary: warnings.join(', ') || 'Metrikler normal sınırlarda.',\n    summary: `DB: ${dbSize} | Cache Hit: %${cacheHitRatio} | Aktif: ${activeConnections} | Dead: ${deadTuples}`\n  }\n}];"
       },
       "id": "evaluate-db-health",
-      "name": "Eşik Değer Analizi",
+      "name": "Eşik Değer & Şişme Analizi",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300]
+      "position": [
+        640,
+        300
+      ]
     },
     {
       "parameters": {
@@ -60,31 +65,59 @@
       "name": "DB Uyarısı Var mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [880, 300]
+      "position": [
+        860,
+        300
+      ]
     },
     {
       "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=⚠️ [DB UYARISI] PostgreSQL Yüksek Yük Tespiti",
-        "emailType": "text",
-        "text": "=Alo Yönetim Veritabanı Gözlemcisi Bildirimi\n\nZaman: {{ $json.timestamp }}\nDurum: {{ $json.status }}\n\nDetaylar:\n- Aktif Bağlantı Sayısı: {{ $json.activeConnections }}\n- Bekleyen Kilit Sayısı: {{ $json.waitingLocks }}\n- Veritabanı Boyutu: {{ $json.dbSize }}\n- Son 24 Saatte Gelen Teklifler: {{ $json.leads24h }}\n\nLütfen PostgreSQL aktif sorgularını ve bağlantı havuzunu kontrol ediniz."
+        "subject": "=⚠️ [DB UYARISI] PostgreSQL Sağlık Eşiği Aşıldı: {{ $json.warningSummary }}",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #f59e0b; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #f59e0b; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ PostgreSQL Performans Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p><strong>Tespit Edilen Uyarılar:</strong> {{ $json.warningSummary }}</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Veritabanı Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.dbSize }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Önbellek İsabet Oranı:</td><td style=\"font-weight: bold;\">%{{ $json.cacheHitRatio }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Aktif Bağlantı Sayısı:</td><td style=\"font-weight: bold;\">{{ $json.activeConnections }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Ölü Veri Satırları (Dead Tuples):</td><td style=\"font-weight: bold;\">{{ $json.deadTuples }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Son 24 Saat Teklif Sayısı:</td><td style=\"font-weight: bold;\">{{ $json.leads24h }}</td></tr>\n    </table>\n  </div>\n</div>"
       },
       "id": "send-db-alert-email",
       "name": "Veritabanı Uyarısı Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [1120, 200]
+      "position": [
+        1080,
+        200
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "console.log(`[PostgreSQL OK] ${$json.summary}`);\nreturn [{ json: { logged: true, summary: $json.summary } }];"
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-db-sentinel',\n  'postgres_health_metrics',\n  'Database',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_db_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ dbSize: $json.dbSize, cacheHitRatio: $json.cacheHitRatio, activeConnections: $json.activeConnections, deadTuples: $json.deadTuples }) ] }}"
+        }
+      },
+      "id": "log-db-audit",
+      "name": "Metrikleri AuditLog'a Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1080,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
       },
       "id": "log-db-status",
-      "name": "Log Tut",
+      "name": "Sonuç Özeti",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 400]
+      "position": [
+        1300,
+        300
+      ]
     }
   ],
   "connections": {
@@ -92,25 +125,25 @@
       "main": [
         [
           {
-            "node": "PostgreSQL Metriklerini Sorgula",
+            "node": "PostgreSQL Derin Metrik Sorgusu",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "PostgreSQL Metriklerini Sorgula": {
+    "PostgreSQL Derin Metrik Sorgusu": {
       "main": [
         [
           {
-            "node": "Eşik Değer Analizi",
+            "node": "Eşik Değer & Şişme Analizi",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Eşik Değer Analizi": {
+    "Eşik Değer & Şişme Analizi": {
       "main": [
         [
           {
@@ -132,7 +165,29 @@
         ],
         [
           {
-            "node": "Log Tut",
+            "node": "Metrikleri AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Veritabanı Uyarısı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Metrikleri AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metrikleri AuditLog'a Kaydet": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
             "type": "main",
             "index": 0
           }
@@ -144,5 +199,6 @@
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "saveFailedExecutions": true
-  }
+  },
+  "tags": []
 }

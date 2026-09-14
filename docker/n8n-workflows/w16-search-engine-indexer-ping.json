@@ -1,5 +1,6 @@
 {
-  "name": "W16 — Arama Motorları Otomatik İndeksleme & Ping Döngüsü",
+  "id": "w16SearchPing01",
+  "name": "W16 — Arama Motorları Otomatik İndeksleme & IndexNow Ping Motoru",
   "nodes": [
     {
       "parameters": {
@@ -16,7 +17,10 @@
       "name": "Günde 2 Kez Tetikle (09:00, 18:00)",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [220, 300]
+      "position": [
+        180,
+        300
+      ]
     },
     {
       "parameters": {
@@ -30,27 +34,123 @@
       "name": "POST /api/seo/ping-all",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [440, 300]
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "const res = $json;\nconst isSuccess = res.success === true;\nconst indexNowUrls = res.indexNow?.totalUrlsSubmitted || 0;\nconst indexNowEngines = (res.indexNow?.engines || []).join(', ');\nconst webSubSuccess = res.webSub?.success === true;\nconst masterIndex = res.masterSitemapIndex || 'https://aloyonetim.com.tr/sitemap-index.xml';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isSuccess,\n    indexNowUrls,\n    indexNowEngines,\n    webSubSuccess,\n    masterIndex,\n    summary: `İndeksleme Tamam: ${indexNowUrls} URL -> (${indexNowEngines}) | Google WebSub: ${webSubSuccess ? 'OK' : 'FAIL'}`\n  }\n}];"
+        "method": "POST",
+        "url": "https://api.indexnow.org/indexnow",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"host\": \"aloyonetim.com.tr\",\n  \"key\": \"5a2b1c3d4e5f6g7h8i9j0k1l2m3n4o5p\",\n  \"keyLocation\": \"https://aloyonetim.com.tr/5a2b1c3d4e5f6g7h8i9j0k1l2m3n4o5p.txt\",\n  \"urlList\": [\n    \"https://aloyonetim.com.tr/\",\n    \"https://aloyonetim.com.tr/hizmetler\",\n    \"https://aloyonetim.com.tr/kadikoy-site-yonetimi\",\n    \"https://aloyonetim.com.tr/besiktas-apartman-yonetimi\",\n    \"https://aloyonetim.com.tr/basaksehir-site-yonetimi\",\n    \"https://aloyonetim.com.tr/atasehir-site-yonetimi\",\n    \"https://aloyonetim.com.tr/hukuk-ve-icra-danismanligi\",\n    \"https://aloyonetim.com.tr/iletisim\"\n  ]\n}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "direct-indexnow-push",
+      "name": "IndexNow API Doğrudan Ping",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const res = $json;\nconst isSuccess = !res.error;\nconst submittedUrls = 8;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isSuccess,\n    submittedUrls,\n    engines: 'Bing, Yandex, Seznam, Naver (IndexNow Protokolü)',\n    status: isSuccess ? 'SUCCESS' : 'WARNING',\n    summary: isSuccess ? `IndexNow ping başarılı: ${submittedUrls} öncelikli URL tarama botlarına iletildi.` : 'IndexNow ping esnasında geçici bağlantı hatası oluştu.'\n  }\n}];"
       },
       "id": "format-ping-report",
       "name": "Ping Raporunu Formatla",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300]
+      "position": [
+        780,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "console.log(`[SEO Ping] ${$json.summary}`);\nreturn [{ json: { logged: true, report: $json.summary } }];"
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isSuccess }}",
+              "value2": false
+            }
+          ]
+        }
+      },
+      "id": "check-ping-failure",
+      "name": "Ping Hatası Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        980,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚠️ [SEO UYARISI] Arama Motoru İndeksleme Ping Hatası",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #f59e0b; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #f59e0b; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ IndexNow Ping Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p>IndexNow API'ye gönderilen arama motoru indeksleme pingi esnasında hata alındı.</p>\n    <p>Lütfen sitenin <code>5a2b1c3d4e5f6g7h8i9j0k1l2m3n4o5p.txt</code> doğrulama anahtarını ve internet çıkışını kontrol ediniz.</p>\n  </div>\n</div>"
+      },
+      "id": "send-ping-error-email",
+      "name": "SEO Ping Hata E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1200,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-indexer',\n  'indexnow_ping_dispatched',\n  'SEO',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_idx_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ isSuccess: $json.isSuccess, summary: $json.summary, urls: $json.submittedUrls }) ] }}"
+        }
+      },
+      "id": "log-indexer-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1200,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
       },
       "id": "log-ping-result",
-      "name": "Sonucu Logla",
+      "name": "Sonuç Özeti",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [880, 300]
+      "position": [
+        1420,
+        300
+      ]
     }
   ],
   "connections": {
@@ -69,6 +169,17 @@
       "main": [
         [
           {
+            "node": "IndexNow API Doğrudan Ping",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IndexNow API Doğrudan Ping": {
+      "main": [
+        [
+          {
             "node": "Ping Raporunu Formatla",
             "type": "main",
             "index": 0
@@ -80,7 +191,47 @@
       "main": [
         [
           {
-            "node": "Sonucu Logla",
+            "node": "Ping Hatası Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ping Hatası Var mı?": {
+      "main": [
+        [
+          {
+            "node": "SEO Ping Hata E-Postası",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SEO Ping Hata E-Postası": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
             "type": "main",
             "index": 0
           }
@@ -92,5 +243,6 @@
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "saveFailedExecutions": true
-  }
+  },
+  "tags": []
 }

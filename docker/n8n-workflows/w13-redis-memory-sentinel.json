@@ -1,5 +1,6 @@
 {
-  "name": "W13 — Redis Bellek & Önbellek Nöbetçisi",
+  "id": "w13RedisMemory1",
+  "name": "W13 — Redis Bellek, Parçalanma & Önbellek Nöbetçisi",
   "nodes": [
     {
       "parameters": {
@@ -16,7 +17,10 @@
       "name": "Her 30 Dakikada Bir Tetikle",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [220, 300]
+      "position": [
+        200,
+        300
+      ]
     },
     {
       "parameters": {
@@ -27,23 +31,24 @@
       "name": "Redis INFO Memory",
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
-      "position": [440, 300],
-      "credentials": {
-        "redis": {
-          "id": "redis-cred",
-          "name": "Alo Yönetim Redis"
-        }
-      }
+      "position": [
+        420,
+        300
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "const memData = $json;\nconst usedMemory = parseInt(memData.used_memory || '0', 10);\nconst usedMemoryPeak = parseInt(memData.used_memory_peak || '0', 10);\nconst usedMemoryHuman = memData.used_memory_human || '0M';\nconst peakHuman = memData.used_memory_peak_human || '0M';\n\n// 500MB üzeri bellek kullanımı uyarı eşiğidir\nconst isMemoryHigh = usedMemory > (500 * 1024 * 1024);\nconst fragmentationRatio = parseFloat(memData.mem_fragmentation_ratio || '1.0');\nconst isFragHigh = fragmentationRatio > 2.5;\n\nconst alertRequired = isMemoryHigh || isFragHigh;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    usedMemoryHuman,\n    peakHuman,\n    fragmentationRatio,\n    alertRequired,\n    status: alertRequired ? 'WARNING' : 'HEALTHY',\n    summary: `Redis RAM: ${usedMemoryHuman} (Zirve: ${peakHuman}) | Parçalanma: ${fragmentationRatio}`\n  }\n}];"
+        "jsCode": "const memData = $json || {};\nconst usedMemory = parseInt(memData.used_memory || '0', 10);\nconst usedMemoryPeak = parseInt(memData.used_memory_peak || '0', 10);\nconst usedMemoryHuman = memData.used_memory_human || '0M';\nconst peakHuman = memData.used_memory_peak_human || '0M';\nconst fragmentationRatio = parseFloat(memData.mem_fragmentation_ratio || '1.0');\n\n// 500MB üzeri bellek kullanımı veya 2.5 üzeri parçalanma uyarı eşiğidir\nconst isMemoryHigh = usedMemory > (500 * 1024 * 1024);\nconst isFragHigh = fragmentationRatio > 2.5;\nconst alertRequired = isMemoryHigh || isFragHigh;\n\nlet warnings = [];\nif (isMemoryHigh) warnings.push(`Yüksek RAM: ${usedMemoryHuman}`);\nif (isFragHigh) warnings.push(`Yüksek parçalanma: ${fragmentationRatio}`);\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    usedMemoryHuman,\n    peakHuman,\n    fragmentationRatio,\n    alertRequired,\n    status: alertRequired ? 'WARNING' : 'HEALTHY',\n    warningSummary: warnings.join(', ') || 'Bellek ve parçalanma normal.',\n    summary: `Redis RAM: ${usedMemoryHuman} (Zirve: ${peakHuman}) | Parçalanma: ${fragmentationRatio}`\n  }\n}];"
       },
       "id": "evaluate-redis-metrics",
       "name": "Redis Sağlık Değerlendirmesi",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300]
+      "position": [
+        640,
+        300
+      ]
     },
     {
       "parameters": {
@@ -60,31 +65,59 @@
       "name": "Redis Uyarısı Var mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [880, 300]
+      "position": [
+        860,
+        300
+      ]
     },
     {
       "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=⚠️ [REDIS UYARISI] Yüksek Önbellek Tüketimi",
-        "emailType": "text",
-        "text": "=Alo Yönetim Redis Önbellek Nöbetçisi Bildirimi\n\nZaman: {{ $json.timestamp }}\nDurum: {{ $json.status }}\n\nDetaylar:\n- Kullanılan Bellek: {{ $json.usedMemoryHuman }}\n- Zirve Bellek: {{ $json.peakHuman }}\n- Parçalanma Oranı (Fragmentation): {{ $json.fragmentationRatio }}\n\nLütfen rate-limit ve sayfa önbellek anahtarlarını kontrol ediniz."
+        "subject": "=⚠️ [REDIS UYARISI] Önbellek Bellek Eşiği Aşıldı: {{ $json.warningSummary }}",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ Redis Önbellek Bellek Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p><strong>Uyarı Nedeni:</strong> {{ $json.warningSummary }}</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kullanılan Bellek:</td><td style=\"font-weight: bold;\">{{ $json.usedMemoryHuman }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Zirve Bellek (Peak):</td><td style=\"font-weight: bold;\">{{ $json.peakHuman }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bellek Parçalanma Oranı:</td><td style=\"font-weight: bold;\">{{ $json.fragmentationRatio }}</td></tr>\n    </table>\n  </div>\n</div>"
       },
       "id": "send-redis-alert-email",
-      "name": "Redis E-Postası Gönder",
+      "name": "Redis Uyarısı Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [1120, 200]
+      "position": [
+        1080,
+        200
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "console.log(`[Redis OK] ${$json.summary}`);\nreturn [{ json: { logged: true, summary: $json.summary } }];"
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-redis-sentinel',\n  'redis_memory_metrics',\n  'Cache',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_redis_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ usedMemory: $json.usedMemoryHuman, peak: $json.peakHuman, frag: $json.fragmentationRatio }) ] }}"
+        }
+      },
+      "id": "log-redis-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1080,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
       },
       "id": "log-redis-status",
-      "name": "Log Tut",
+      "name": "Sonuç Özeti",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 400]
+      "position": [
+        1300,
+        300
+      ]
     }
   ],
   "connections": {
@@ -125,14 +158,36 @@
       "main": [
         [
           {
-            "node": "Redis E-Postası Gönder",
+            "node": "Redis Uyarısı Gönder",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Log Tut",
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Uyarısı Gönder": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
             "type": "main",
             "index": 0
           }
@@ -144,5 +199,6 @@
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "saveFailedExecutions": true
-  }
+  },
+  "tags": []
 }

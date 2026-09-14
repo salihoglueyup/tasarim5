@@ -1,5 +1,6 @@
 {
-  "name": "W9 — Master SLA & Uptime Watchdog",
+  "id": "w09SlaWatchdog01",
+  "name": "W9 — Master SLA & Uptime Watchdog (Çift Teyitli)",
   "nodes": [
     {
       "parameters": {
@@ -16,7 +17,75 @@
       "name": "Her 2 Dakikada Bir Tetikle",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [220, 300]
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://web:3001/api/health",
+        "options": {
+          "timeout": 4500
+        }
+      },
+      "id": "check-api-health",
+      "name": "GET /api/health Kontrolü",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $json;\nconst isHttpOk = !response.error && (response.status === 'pass' || response.status === 'warn');\nconst isHealthy = Boolean(response.healthy) && isHttpOk;\n\nconst dbStatus = response.services?.database?.status || 'fail';\nconst cacheStatus = response.services?.cache?.status || 'fail';\nconst heapUsedMb = response.services?.system?.heapUsedMb || 0;\nconst latencyMs = response.latencyMs || 0;\nconst uptimeHours = response.uptimeSeconds ? (response.uptimeSeconds / 3600).toFixed(2) : '0';\n\nconst isDbFailing = dbStatus !== 'pass';\nconst isCacheFailing = cacheStatus === 'fail';\nconst isRamCritical = heapUsedMb > 950;\nconst isLatencyCritical = latencyMs > 3500;\n\nconst hasIssue = !isHealthy || isDbFailing || isCacheFailing || isRamCritical || isLatencyCritical;\n\nlet severity = 'OK';\nlet reason = 'Tüm servisler operasyonel.';\nif (!isHealthy) {\n  severity = 'CRITICAL';\n  reason = 'Web uygulaması (/api/health) yanıt vermiyor veya FAIL durumunda!';\n} else if (isDbFailing) {\n  severity = 'CRITICAL';\n  reason = 'PostgreSQL veritabanı bağlantısı koptu!';\n} else if (isRamCritical) {\n  severity = 'WARNING';\n  reason = `Node.js RAM tüketimi kritik eşiği aştı: ${heapUsedMb} MB`;\n} else if (isLatencyCritical) {\n  severity = 'WARNING';\n  reason = `Sistem gecikmesi çok yüksek: ${latencyMs} ms`;\n}\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    hasIssue,\n    severity,\n    reason,\n    dbStatus,\n    cacheStatus,\n    heapUsedMb,\n    latencyMs,\n    uptimeHours\n  }\n}];"
+      },
+      "id": "analyze-first-check",
+      "name": "İlk Sağlık Analizi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasIssue }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-needs-retry",
+      "name": "Sorun Tespit Edildi mi?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "wait-for-retry",
+      "name": "5 Saniye Bekle (Yanıltıcı Alarm Önleyici)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1000,
+        180
+      ],
+      "webhookId": "uptime-retry-wait"
     },
     {
       "parameters": {
@@ -25,63 +94,97 @@
           "timeout": 5000
         }
       },
-      "id": "check-health-api",
-      "name": "GET /api/health Kontrolü",
+      "id": "check-api-health-retry",
+      "name": "2. Teyit Kontrolü",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [440, 300],
+      "position": [
+        1220,
+        180
+      ],
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "const response = $json;\nconst isHttpOk = !response.error && (response.status === 'pass' || response.status === 'warn');\nconst isHealthy = Boolean(response.healthy) && isHttpOk;\n\nconst dbStatus = response.services?.database?.status || 'fail';\nconst cacheStatus = response.services?.cache?.status || 'fail';\nconst heapUsedMb = response.services?.system?.heapUsedMb || 0;\nconst latencyMs = response.latencyMs || 0;\nconst uptimeSeconds = response.uptimeSeconds || 0;\n\n// Alarm eşik kontrolleri (SLA %99.9 standardı)\nconst isDbFailing = dbStatus !== 'pass';\nconst isCacheFailing = cacheStatus === 'fail';\nconst isRamCritical = heapUsedMb > 950;\nconst isLatencyCritical = latencyMs > 3500;\n\nconst alertRequired = !isHealthy || isDbFailing || isCacheFailing || isRamCritical || isLatencyCritical;\n\nlet severity = 'OK';\nlet reason = 'Tüm servisler operasyonel.';\n\nif (!isHealthy) {\n  severity = 'CRITICAL';\n  reason = 'Sistem sağlığı FAIL durumunda veya /api/health yanıt vermiyor!';\n} else if (isDbFailing) {\n  severity = 'CRITICAL';\n  reason = 'PostgreSQL veritabanı bağlantısı koptu!';\n} else if (isRamCritical) {\n  severity = 'WARNING';\n  reason = `Node.js RAM tüketimi kritik eşiği aştı: ${heapUsedMb} MB`;\n} else if (isLatencyCritical) {\n  severity = 'WARNING';\n  reason = `Sistem gecikmesi çok yüksek: ${latencyMs} ms`;\n}\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isHealthy,\n    alertRequired,\n    severity,\n    reason,\n    dbStatus,\n    cacheStatus,\n    heapUsedMb,\n    latencyMs,\n    uptimeHours: (uptimeSeconds / 3600).toFixed(2),\n    rawResponse: response\n  }\n}];"
+        "jsCode": "const secondCheck = $json;\nconst isSecondOk = !secondCheck.error && (secondCheck.status === 'pass' || secondCheck.status === 'warn');\nconst isSecondHealthy = Boolean(secondCheck.healthy) && isSecondOk;\n\n// Eğer 2. kontrolde düzelmişse bu geçici bir dalgalanmadır (flapping), alarm çalma\nconst isConfirmedIncident = !isSecondHealthy;\n\nreturn [{\n  json: {\n    isConfirmedIncident,\n    severity: isConfirmedIncident ? 'CRITICAL' : 'RECOVERED_TRANSIENT',\n    reason: isConfirmedIncident ? 'Arka arkaya yapılan 2 kontrolde de servis yanıt vermedi!' : 'Geçici gecikme tespit edildi, 2. denemede servis toparlandı.',\n    timestamp: new Date().toISOString(),\n    secondCheck\n  }\n}];"
       },
-      "id": "evaluate-health",
-      "name": "RFC 8485 Sağlık Analizi",
+      "id": "evaluate-confirmed-incident",
+      "name": "Kesinleşmiş Olay Değerlendirme",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300]
+      "position": [
+        1440,
+        180
+      ]
     },
     {
       "parameters": {
         "conditions": {
           "boolean": [
             {
-              "value1": "={{ $json.alertRequired }}",
+              "value1": "={{ $json.isConfirmedIncident }}",
               "value2": true
             }
           ]
         }
       },
-      "id": "filter-alert",
-      "name": "Acil Durum Var mı?",
+      "id": "check-is-confirmed",
+      "name": "Kesin Olay mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [880, 300]
+      "position": [
+        1660,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-watchdog',\n  'system_incident_detected',\n  'System',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'incident_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ severity: $json.severity, reason: $json.reason, timestamp: $json.timestamp }) ] }}"
+        }
+      },
+      "id": "log-incident-db",
+      "name": "Olayı AuditLog'a Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1880,
+        100
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=🚨 [ALARM: {{ $json.severity }}] Alo Yönetim Sistem Uyarısı",
-        "emailType": "text",
-        "text": "=Alo Yönetim DevOps Watchdog Acil Durum Uyarısı\n\nZaman: {{ $json.timestamp }}\nDurum: {{ $json.severity }}\nNeden: {{ $json.reason }}\n\nMetrikler:\n- PostgreSQL Durumu: {{ $json.dbStatus }}\n- Redis Durumu: {{ $json.cacheStatus }}\n- Bellek Tüketimi: {{ $json.heapUsedMb }} MB\n- Yanıt Gecikmesi: {{ $json.latencyMs }} ms\n- Çalışma Süresi: {{ $json.uptimeHours }} saat\n\nLütfen sunucu durumunu (docker compose ps) ve logları kontrol ediniz."
+        "subject": "=🚨 [KRİTİK KESİNTİ ALARMI] Alo Yönetim Servis Sağlığı Çöktü!",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 22px;\">🚨 KRİTİK SİSTEM KESİNTİSİ</h1>\n    <p style=\"margin: 5px 0 0 0; font-size: 13px;\">Çift Teyit Mekanizması Tarafından Doğrulandı</p>\n  </div>\n  <div style=\"padding: 24px; color: #1e293b;\">\n    <p><strong>Zaman:</strong> {{ $json.timestamp }}</p>\n    <p><strong>Neden:</strong> {{ $json.reason }}</p>\n    <div style=\"background: #fef2f2; border-left: 4px solid #ef4444; padding: 12px; margin: 16px 0;\">\n      <strong>Önerilen Müdahale Adımları:</strong>\n      <ol style=\"margin: 8px 0 0 16px; padding: 0; font-size: 13px;\">\n        <li>Sunucuya SSH ile bağlanınız: <code>ssh halil@sunucu</code></li>\n        <li>Container durumlarını kontrol ediniz: <code>docker compose ps</code></li>\n        <li>Web container loglarını inceleyiniz: <code>docker logs --tail 50 aloyonetim-web</code></li>\n        <li>Gerekirse web servisini yeniden başlatınız: <code>docker compose restart web</code></li>\n      </ol>\n    </div>\n  </div>\n</div>"
       },
-      "id": "send-alert-email",
-      "name": "Acil E-Posta Gönder",
+      "id": "send-critical-email",
+      "name": "DevOps Acil Durum E-Postası",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [1120, 200]
+      "position": [
+        1880,
+        260
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "console.log(`[Watchdog OK] ${$json.timestamp} - Sistem sorunsuz. Uptime: ${$json.uptimeHours}h, RAM: ${$json.heapUsedMb}MB`);\nreturn [{ json: { status: 'OK', loggedAt: $json.timestamp } }];"
+        "jsCode": "return [{ json: { status: 'HEARTBEAT_HEALTHY', uptime: $json.uptimeHours, latency: $json.latencyMs, time: new Date().toISOString() } }];"
       },
-      "id": "log-heartbeat",
-      "name": "Sessizce Logla",
+      "id": "log-healthy-heartbeat",
+      "name": "Sessiz Sağlık Logu",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 400]
+      "position": [
+        1000,
+        420
+      ]
     }
   ],
   "connections": {
@@ -100,36 +203,92 @@
       "main": [
         [
           {
-            "node": "RFC 8485 Sağlık Analizi",
+            "node": "İlk Sağlık Analizi",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "RFC 8485 Sağlık Analizi": {
+    "İlk Sağlık Analizi": {
       "main": [
         [
           {
-            "node": "Acil Durum Var mı?",
+            "node": "Sorun Tespit Edildi mi?",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Acil Durum Var mı?": {
+    "Sorun Tespit Edildi mi?": {
       "main": [
         [
           {
-            "node": "Acil E-Posta Gönder",
+            "node": "5 Saniye Bekle (Yanıltıcı Alarm Önleyici)",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Sessizce Logla",
+            "node": "Sessiz Sağlık Logu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5 Saniye Bekle (Yanıltıcı Alarm Önleyici)": {
+      "main": [
+        [
+          {
+            "node": "2. Teyit Kontrolü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Teyit Kontrolü": {
+      "main": [
+        [
+          {
+            "node": "Kesinleşmiş Olay Değerlendirme",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kesinleşmiş Olay Değerlendirme": {
+      "main": [
+        [
+          {
+            "node": "Kesin Olay mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kesin Olay mı?": {
+      "main": [
+        [
+          {
+            "node": "Olayı AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DevOps Acil Durum E-Postası",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sessiz Sağlık Logu",
             "type": "main",
             "index": 0
           }
@@ -142,5 +301,6 @@
     "saveManualExecutions": true,
     "saveExecutionProgress": false,
     "saveFailedExecutions": true
-  }
+  },
+  "tags": []
 }

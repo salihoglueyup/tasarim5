@@ -1,343 +1,198 @@
 {
-  "name": "W2 — LinkedIn Lead Gen Form Sync (Her 30 Dakika)",
+  "id": "w02LeadSyncGen01",
+  "name": "W2 — CRM Lead Senkronizasyonu & Günlük Triaj Brifingi",
   "nodes": [
     {
       "parameters": {
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": 30
+              "field": "cronExpression",
+              "expression": "0 9,14 * * 1-5"
             }
           ]
         }
       },
       "id": "cron-trigger",
-      "name": "Her 30 Dakika",
+      "name": "Hafta İçi 09:00 ve 14:00",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        240,
+        200,
         300
       ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "SELECT value FROM \"AuditLog\" WHERE action = 'linkedin_lead_sync_cursor' ORDER BY \"createdAt\" DESC LIMIT 1",
-        "options": {}
+        "query": "SELECT \"id\", \"type\", \"name\", \"phone\", \"email\", \"subject\", \"message\", \"meta\", \"isRead\", \"createdAt\"\nFROM \"Lead\"\nWHERE \"isRead\" = false\nORDER BY \"createdAt\" DESC\nLIMIT 50;"
       },
-      "id": "get-cursor",
-      "name": "Son Sync Zamanı",
+      "id": "fetch-pending-leads",
+      "name": "PostgreSQL Bekleyen Talepleri Çek",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
       "position": [
-        460,
+        420,
         300
       ],
-      "credentials": {
-        "postgres": {
-          "id": "postgres-cred",
-          "name": "Alo Yönetim PostgreSQL"
-        }
-      }
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "const rows = $input.all();\nconst cursor = rows[0]?.json?.value || (Date.now() - 30*60*1000).toString();\nreturn [{ json: { cursor: parseInt(cursor) } }];"
+        "jsCode": "const items = $input.all();\nconst now = Date.now();\n\nconst leads = items.map(item => {\n  const row = item.json;\n  let meta = {};\n  try { meta = typeof row.meta === 'string' ? JSON.parse(row.meta) : (row.meta || {}); } catch(e) {}\n  \n  const createdTime = new Date(row.createdAt).getTime();\n  const waitHours = Math.round((now - createdTime) / (1000 * 60 * 60));\n  \n  return {\n    id: row.id,\n    name: row.name || 'İsimsiz',\n    phone: row.phone || 'Belirtilmedi',\n    email: row.email || '-',\n    type: row.type || 'quote',\n    district: meta.district || 'İstanbul',\n    segment: meta.segment || 'STANDART',\n    priority: meta.priority || (waitHours > 2 ? 'YUKSEK' : 'STANDART'),\n    waitHours,\n    createdAt: new Date(row.createdAt).toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })\n  };\n});\n\nconst vipCount = leads.filter(l => l.priority === 'ACIL_VIP' || l.segment === 'VIP_REZIDANS').length;\nconst overdueCount = leads.filter(l => l.waitHours >= 2).length;\n\nreturn [{\n  json: {\n    totalPending: leads.length,\n    vipCount,\n    overdueCount,\n    hasLeads: leads.length > 0,\n    leads,\n    reportTime: new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })\n  }\n}];"
       },
-      "id": "resolve-cursor",
-      "name": "Cursor Hesapla",
+      "id": "analyze-leads",
+      "name": "Bekleme Süresi & Öncelik Analizi",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        680,
-        300
-      ]
-    },
-    {
-      "parameters": {
-        "method": "GET",
-        "url": "=https://api.linkedin.com/v2/leadFormResponses?q=owner&owner=urn%3Ali%3Aorganization%3A{{ $env.LINKEDIN_COMPANY_ID }}&startTimeRange.start={{ $json.cursor }}&startTimeRange.end={{ Date.now() }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}"
-            },
-            {
-              "name": "X-Restli-Protocol-Version",
-              "value": "2.0.0"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "fetch-leads",
-      "name": "LinkedIn Lead'leri Çek",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        900,
+        640,
         300
       ]
     },
     {
       "parameters": {
         "conditions": {
-          "conditions": [
+          "boolean": [
             {
-              "leftValue": "={{ $json.elements?.length || 0 }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "gt"
-              }
+              "value1": "={{ $json.hasLeads }}",
+              "value2": true
             }
           ]
         }
       },
-      "id": "if-new-leads",
-      "name": "Yeni Lead Var Mı?",
+      "id": "check-has-leads",
+      "name": "Bekleyen Talep Var mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1120,
+        860,
         300
       ]
     },
     {
       "parameters": {
-        "fieldToSplitOut": "elements",
-        "options": {}
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=📊 Günlük Operasyon Brifingi: {{ $json.totalPending }} Bekleyen Talep ({{ $json.vipCount }} VIP, {{ $json.overdueCount }} Gecikmiş)",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 680px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">📋 Alo Yönetim — Günlük Müşteri Talepleri Triaj Raporu</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;\">Rapor Tarihi: {{ $json.reportTime }}</p>\n  </div>\n  <div style=\"padding: 20px;\">\n    <div style=\"display: flex; gap: 10px; margin-bottom: 20px;\">\n      <div style=\"flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 20px; font-weight: bold; color: #0284c7;\">{{ $json.totalPending }}</div>\n        <div style=\"font-size: 11px; color: #64748b;\">Toplam Bekleyen</div>\n      </div>\n      <div style=\"flex: 1; background: #fef2f2; border: 1px solid #fee2e2; padding: 12px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 20px; font-weight: bold; color: #dc2626;\">{{ $json.vipCount }}</div>\n        <div style=\"font-size: 11px; color: #991b1b;\">VIP Rezidans</div>\n      </div>\n      <div style=\"flex: 1; background: #fffbeb; border: 1px solid #fef3c7; padding: 12px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 20px; font-weight: bold; color: #d97706;\">{{ $json.overdueCount }}</div>\n        <div style=\"font-size: 11px; color: #92400e;\">2+ Saat Bekleyen</div>\n      </div>\n    </div>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px;\">\n      <thead>\n        <tr style=\"background: #f1f5f9; border-bottom: 2px solid #cbd5e1;\">\n          <th style=\"padding: 8px; text-align: left;\">Müşteri</th>\n          <th style=\"padding: 8px; text-align: left;\">Telefon</th>\n          <th style=\"padding: 8px; text-align: left;\">İlçe</th>\n          <th style=\"padding: 8px; text-align: left;\">Öncelik</th>\n          <th style=\"padding: 8px; text-align: center;\">Bekleme</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.leads.map(l => `<tr style=\"border-bottom: 1px solid #e2e8f0;\"><td style=\"padding: 8px; font-weight: bold;\">${l.name}</td><td style=\"padding: 8px;\"><a href=\"tel:${l.phone}\" style=\"color:#0284c7;text-decoration:none;\">${l.phone}</a></td><td style=\"padding: 8px;\">${l.district}</td><td style=\"padding: 8px;\">${l.priority}</td><td style=\"padding: 8px; text-align: center; color: ${l.waitHours >= 2 ? '#dc2626' : '#16a34a'}; font-weight: bold;\">${l.waitHours} saat</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
       },
-      "id": "split-leads",
-      "name": "Her Lead İçin",
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
+      "id": "send-digest-email",
+      "name": "Operasyon Brifingi E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
       "position": [
-        1340,
-        240
-      ]
+        1100,
+        220
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "const el = $json;\nconst fields = el.fieldAnswers || [];\nconst get = (name) => fields.find(f => f.questionFieldType === name)?.values?.[0] || null;\n\nreturn [{\n  json: {\n    type: 'linkedin_lead',\n    name: get('FULL_NAME'),\n    email: get('EMAIL'),\n    phone: get('PHONE_NUMBER'),\n    subject: get('COMPANY') || 'LinkedIn Lead Gen',\n    message: `LinkedIn Lead Gen Form — ${el.formResponse?.formContext?.campaignId || 'organik'}`,\n    meta: JSON.stringify({ linkedinLeadId: el.id, campaignId: el.formResponse?.formContext?.campaignId })\n  }\n}];"
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-system',\n  'daily_lead_digest_sent',\n  'Lead',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ totalPending: $json.totalPending, vipCount: $json.vipCount, overdueCount: $json.overdueCount }) ] }}"
+        }
       },
-      "id": "parse-lead",
-      "name": "Lead Verisi Dönüştür",
+      "id": "log-audit-entry",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1100,
+        420
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'OK', totalProcessed: $json.totalPending || 0, time: new Date().toISOString() } }];"
+      },
+      "id": "summary-log",
+      "name": "Sonuç Özeti",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1560,
-        240
+        1320,
+        300
       ]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "INSERT INTO \"Lead\" (id, type, name, phone, email, subject, message, meta, \"isRead\", \"createdAt\") VALUES (gen_random_uuid()::text, $1, $2, $3, $4, $5, $6, $7, false, NOW()) ON CONFLICT DO NOTHING",
-        "additionalFields": {
-          "queryReplacement": "={{ [$json.type, $json.name || '', $json.phone || '', $json.email || '', $json.subject || '', $json.message || '', $json.meta || '{}'] }}"
-        },
-        "options": {}
-      },
-      "id": "save-lead",
-      "name": "DB'ye Kaydet",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.4,
-      "position": [
-        1780,
-        240
-      ],
-      "credentials": {
-        "postgres": {
-          "id": "postgres-cred",
-          "name": "Alo Yönetim PostgreSQL"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://graph.facebook.com/v18.0/{{ $env.WHATSAPP_PHONE_NUMBER_ID }}/messages",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $env.WHATSAPP_TO_NUMBER }}\",\n  \"type\": \"text\",\n  \"text\": { \"body\": \"🎯 YENİ LİNKEDİN LEAD!\\n\\n👤 {{ $('Lead Verisi Dönüştür').item.json.name || 'İsimsiz' }}\\n📧 {{ $('Lead Verisi Dönüştür').item.json.email || '-' }}\\n📞 {{ $('Lead Verisi Dönüştür').item.json.phone || '-' }}\\n\\n📋 {{ $('Lead Verisi Dönüştür').item.json.subject }}\" }\n}",
-        "options": {}
-      },
-      "id": "whatsapp-notify",
-      "name": "WhatsApp Bildirim",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2000,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.resend.com/emails",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $env.RESEND_API_KEY }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"from\": \"{{ $env.LEAD_FROM_EMAIL }}\",\n  \"to\": [\"{{ $('Lead Verisi Dönüştür').item.json.email }}\"],\n  \"subject\": \"Alo Yönetim — Talebinizi Aldık\",\n  \"html\": \"<p>Sayın {{ $('Lead Verisi Dönüştür').item.json.name }},</p><p>LinkedIn üzerinden iletişim talebinizi aldık. En kısa sürede sizinle iletişime geçeceğiz.</p><p>Saygılarımızla,<br>Alo Yönetim Ekibi</p>\"\n}",
-        "options": {}
-      },
-      "id": "thankyou-email",
-      "name": "Teşekkür E-postası",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2000,
-        420
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "INSERT INTO \"AuditLog\" (id, \"userId\", action, entity, \"entityId\", details, \"createdAt\") VALUES (gen_random_uuid()::text, 'n8n', 'linkedin_lead_sync_cursor', 'LinkedInSync', 'cursor', $1, NOW())",
-        "additionalFields": {
-          "queryReplacement": "={{ [Date.now().toString()] }}"
-        },
-        "options": {}
-      },
-      "id": "update-cursor",
-      "name": "Cursor Güncelle",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.4,
-      "position": [
-        1340,
-        420
-      ],
-      "credentials": {
-        "postgres": {
-          "id": "postgres-cred",
-          "name": "Alo Yönetim PostgreSQL"
-        }
-      }
     }
   ],
   "connections": {
-    "Her 30 Dakika": {
+    "Hafta İçi 09:00 ve 14:00": {
       "main": [
         [
           {
-            "node": "Son Sync Zamanı",
+            "node": "PostgreSQL Bekleyen Talepleri Çek",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Son Sync Zamanı": {
+    "PostgreSQL Bekleyen Talepleri Çek": {
       "main": [
         [
           {
-            "node": "Cursor Hesapla",
+            "node": "Bekleme Süresi & Öncelik Analizi",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Cursor Hesapla": {
+    "Bekleme Süresi & Öncelik Analizi": {
       "main": [
         [
           {
-            "node": "LinkedIn Lead'leri Çek",
+            "node": "Bekleyen Talep Var mı?",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "LinkedIn Lead'leri Çek": {
+    "Bekleyen Talep Var mı?": {
       "main": [
         [
           {
-            "node": "Yeni Lead Var Mı?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Yeni Lead Var Mı?": {
-      "main": [
-        [
-          {
-            "node": "Her Lead İçin",
+            "node": "Operasyon Brifingi E-Postası",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Cursor Güncelle",
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Her Lead İçin": {
+    "Operasyon Brifingi E-Postası": {
       "main": [
         [
           {
-            "node": "Lead Verisi Dönüştür",
+            "node": "Sonuç Özeti",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Lead Verisi Dönüştür": {
+    "AuditLog Kaydı": {
       "main": [
         [
           {
-            "node": "DB'ye Kaydet",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "DB'ye Kaydet": {
-      "main": [
-        [
-          {
-            "node": "WhatsApp Bildirim",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Teşekkür E-postası",
+            "node": "Sonuç Özeti",
             "type": "main",
             "index": 0
           }
@@ -347,7 +202,9 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "timezone": "Europe/Istanbul"
+    "saveManualExecutions": true,
+    "saveExecutionProgress": false,
+    "saveFailedExecutions": true
   },
   "tags": []
 }
