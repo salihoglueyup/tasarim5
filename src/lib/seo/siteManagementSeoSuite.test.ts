@@ -396,4 +396,120 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(camBalkon?.conciseVoiceAnswer).toContain('beşte dördünün');
     });
   });
+
+  describe('16. 39 İlçe Açık Veri & KMK İstatistik Kalkanı (districtOpenDataProfiles.ts & Dataset)', () => {
+    it('Kadıköy ve Beşiktaş için ilçe açık veri profili ve mahkeme yetki alanını doğrular', async () => {
+      const { getDistrictOpenDataProfile } = await import('@/data/districtOpenDataProfiles');
+
+      const kadikoy = getDistrictOpenDataProfile('kadikoy');
+      expect(kadikoy.slug).toBe('kadikoy');
+      expect(kadikoy.name).toBe('Kadıköy');
+      expect(kadikoy.avgDuesM2).toBeGreaterThan(0);
+      expect(kadikoy.savingsRate).toBeGreaterThan(0);
+      expect(kadikoy.housingSitesEstimated).toBeGreaterThan(0);
+      expect(kadikoy.kmkFocusTopic).toContain('Kentsel Dönüşüm');
+      expect(kadikoy.localJurisdictionNote).toContain('Kadıköy Sulh Hukuk');
+
+      const besiktas = getDistrictOpenDataProfile('besiktas');
+      expect(besiktas.kmkFocusTopic).toContain('Asansör');
+      expect(besiktas.localJurisdictionNote).toContain('İstanbul (Çağlayan)');
+    });
+
+    it('İstanbul’un 39 ilçesinin tamamında geçerli veri seti başlığı ve konut stoğu bulunur', async () => {
+      const { DISTRICTS } = await import('@/data/districts');
+      const { getDistrictOpenDataProfile } = await import('@/data/districtOpenDataProfiles');
+
+      expect(DISTRICTS.length).toBe(39);
+      for (const district of DISTRICTS) {
+        const profile = getDistrictOpenDataProfile(district.slug);
+        expect(profile.datasetTitle).toContain(district.name);
+        expect(profile.housingSitesEstimated).toBeGreaterThan(0);
+        expect(profile.distributionFormat).toContain('application/json');
+      }
+    });
+  });
+
+  describe('17. Akademik & Hukuki Atıf Motoru (AcademicCitationBoxSeo)', () => {
+    it('Akademik atıf bileşeni başarıyla yüklenir ve bileşen fonksiyonunu dışa aktarır', async () => {
+      const AcademicCitationBoxSeo = (await import('@/components/seo/AcademicCitationBoxSeo')).default;
+      expect(AcademicCitationBoxSeo).toBeDefined();
+      expect(typeof AcademicCitationBoxSeo).toBe('function');
+    });
+  });
+
+  describe('18. Entegre Tesis Yönetimi ISO 41001 & Kurumsal B2B Hub (facilityCorporateB2BData.ts)', () => {
+    it('5 uluslararası ISO standardı ve kurumsal müşteri faydalarını eksiksiz içerir', async () => {
+      const { ISO_COMPLIANCE_STANDARDS } = await import('@/data/facilityCorporateB2BData');
+
+      expect(ISO_COMPLIANCE_STANDARDS.length).toBe(5);
+      const iso41001 = ISO_COMPLIANCE_STANDARDS.find(s => s.standardCode.includes('41001'));
+      expect(iso41001).toBeDefined();
+      expect(iso41001?.name).toContain('Entegre Tesis Yönetimi');
+
+      const iso50001 = ISO_COMPLIANCE_STANDARDS.find(s => s.standardCode.includes('50001'));
+      expect(iso50001).toBeDefined();
+      expect(iso50001?.benefitToClient).toContain('reaktif ceza');
+    });
+
+    it('Silver, Gold, Platinum kurumsal SLA kademelerini ve acil sürelerini barındırır', async () => {
+      const { B2B_SLA_TIERS } = await import('@/data/facilityCorporateB2BData');
+
+      expect(B2B_SLA_TIERS.length).toBe(3);
+
+      const silver = B2B_SLA_TIERS.find(t => t.tierId === 'silver');
+      expect(silver?.responseTimeMinutes).toBe(45);
+
+      const gold = B2B_SLA_TIERS.find(t => t.tierId === 'gold');
+      expect(gold?.responseTimeMinutes).toBe(30);
+
+      const platinum = B2B_SLA_TIERS.find(t => t.tierId === 'platinum');
+      expect(platinum?.responseTimeMinutes).toBe(15);
+      expect(platinum?.energySavingsGuarantee).toContain('%33');
+    });
+
+    it('B2B şartname taslağı (B2B_RFP_SPECIFICATION_TEMPLATE) hukuki ve teknik maddeleri barındırır', async () => {
+      const { B2B_RFP_SPECIFICATION_TEMPLATE } = await import('@/data/facilityCorporateB2BData');
+
+      expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('ENTEGRE TESİS VE BİNA YÖNETİMİ');
+      expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('ISO 41001:2018');
+      expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('Reaktif Enerji Güvencesi');
+    });
+  });
+
+  describe('19. Google Haritalar & 39 İlçe W3C GeoCoordinates (districtGeoCoordinatesData.ts)', () => {
+    it('İstanbul’un 39 ilçesinin tamamında geçerli W3C coğrafi koordinatları ve posta kodları mevcuttur', async () => {
+      const { DISTRICT_GEO_DATA, getDistrictGeo } = await import('@/data/districtGeoCoordinatesData');
+
+      const keys = Object.keys(DISTRICT_GEO_DATA);
+      expect(keys.length).toBe(39);
+
+      for (const slug of keys) {
+        const geo = getDistrictGeo(slug);
+        expect(geo.latitude).toBeGreaterThan(40.5);
+        expect(geo.latitude).toBeLessThan(41.6);
+        expect(geo.longitude).toBeGreaterThan(28.0);
+        expect(geo.longitude).toBeLessThan(30.0);
+        expect(geo.postalCode.length).toBe(5);
+        expect(geo.serviceRadiusMeters).toBeGreaterThanOrEqual(10000);
+        expect(geo.googleMapsUrl).toContain('maps.google.com');
+      }
+    });
+
+    it('Kadıköy ve Beşiktaş lokal hub adreslerini ve koordinatlarını doğrular', async () => {
+      const { getDistrictGeo } = await import('@/data/districtGeoCoordinatesData');
+
+      const kadikoy = getDistrictGeo('kadikoy');
+      expect(kadikoy.name).toBe('Kadıköy');
+      expect(kadikoy.side).toBe('anadolu');
+      expect(kadikoy.latitude).toBeCloseTo(40.9819, 2);
+      expect(kadikoy.longitude).toBeCloseTo(29.0576, 2);
+
+      const besiktas = getDistrictGeo('besiktas');
+      expect(besiktas.name).toBe('Beşiktaş');
+      expect(besiktas.side).toBe('avrupa');
+      expect(besiktas.latitude).toBeCloseTo(41.0428, 2);
+      expect(besiktas.longitude).toBeCloseTo(29.0077, 2);
+    });
+  });
 });
+
