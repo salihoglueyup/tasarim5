@@ -275,6 +275,27 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
       sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi#ev-sarj-istasyonu`,
       legalBasis: '634 Sayılı KMK m.42 & 2026 Otopark Yönetmeliği',
     },
+    {
+      question: 'Site yönetimi nedir ve profesyonel site yönetimi neleri kapsar?',
+      answer:
+        'Site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında konut siteleri, rezidanslar ve apartmanların aidat tahsilatı (%99.2 başarı), 5188 lisanslı güvenliği, ortak alan temizliği, 45 dk acil mobil teknik müdahalesi ve Apsiyon mobil portal yönetimini tek elden yürüten kurumsal organizasyondur.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi`,
+      legalBasis: '634 Sayılı KMK m.34-40 & 5188 Sayılı Kanun',
+    },
+    {
+      question: 'Site yönetimi ile tesis yönetimi arasındaki fark nedir?',
+      answer:
+        'Site yönetimi, Kat Mülkiyeti Kanunu (KMK 634) kapsamında konut ve yaşam alanlarındaki sakin huzuru, aidat tahsilatı ve genel kurul süreçlerine odaklanır. Tesis yönetimi ise ISO 41001 standartlarında plaza, fabrika ve ticari binaların HVAC/BMS otomasyonu, enerji verimliliği ve teknik işletmesini yürütür.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi#karsilastirma`,
+      legalBasis: 'KMK 634 vs ISO 41001:2018 Standartları',
+    },
+    {
+      question: 'Gününde ödenmeyen site aidatları için yasal icra süreci nasıl işletilir?',
+      answer:
+        'KMK Madde 20 uyarınca vadesinde ödenmeyen aidatlara aylık kanuni %5 gecikme tazminatı işletilir. Kesinleşen işletme projesine istinaden noter ihtarnamesine gerek kalmaksızın İcra İflas Kanunu Madde 68 kapsamında doğrudan ilamsız icra takibi başlatılır.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi`,
+      legalBasis: '634 Sayılı KMK m.20 & İİK m.68',
+    },
   ];
 
   // 4. 39 İlçe Silo Matrisi
