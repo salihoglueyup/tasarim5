@@ -1,0 +1,148 @@
+{
+  "name": "W13 — Redis Bellek & Önbellek Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger-30m",
+      "name": "Her 30 Dakikada Bir Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "operation": "info",
+        "section": "memory"
+      },
+      "id": "redis-info-memory",
+      "name": "Redis INFO Memory",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [440, 300],
+      "credentials": {
+        "redis": {
+          "id": "redis-cred",
+          "name": "Alo Yönetim Redis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const memData = $json;\nconst usedMemory = parseInt(memData.used_memory || '0', 10);\nconst usedMemoryPeak = parseInt(memData.used_memory_peak || '0', 10);\nconst usedMemoryHuman = memData.used_memory_human || '0M';\nconst peakHuman = memData.used_memory_peak_human || '0M';\n\n// 500MB üzeri bellek kullanımı uyarı eşiğidir\nconst isMemoryHigh = usedMemory > (500 * 1024 * 1024);\nconst fragmentationRatio = parseFloat(memData.mem_fragmentation_ratio || '1.0');\nconst isFragHigh = fragmentationRatio > 2.5;\n\nconst alertRequired = isMemoryHigh || isFragHigh;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    usedMemoryHuman,\n    peakHuman,\n    fragmentationRatio,\n    alertRequired,\n    status: alertRequired ? 'WARNING' : 'HEALTHY',\n    summary: `Redis RAM: ${usedMemoryHuman} (Zirve: ${peakHuman}) | Parçalanma: ${fragmentationRatio}`\n  }\n}];"
+      },
+      "id": "evaluate-redis-metrics",
+      "name": "Redis Sağlık Değerlendirmesi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.alertRequired }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "filter-redis-alert",
+      "name": "Redis Uyarısı Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [880, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚠️ [REDIS UYARISI] Yüksek Önbellek Tüketimi",
+        "emailType": "text",
+        "text": "=Alo Yönetim Redis Önbellek Nöbetçisi Bildirimi\n\nZaman: {{ $json.timestamp }}\nDurum: {{ $json.status }}\n\nDetaylar:\n- Kullanılan Bellek: {{ $json.usedMemoryHuman }}\n- Zirve Bellek: {{ $json.peakHuman }}\n- Parçalanma Oranı (Fragmentation): {{ $json.fragmentationRatio }}\n\nLütfen rate-limit ve sayfa önbellek anahtarlarını kontrol ediniz."
+      },
+      "id": "send-redis-alert-email",
+      "name": "Redis E-Postası Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[Redis OK] ${$json.summary}`);\nreturn [{ json: { logged: true, summary: $json.summary } }];"
+      },
+      "id": "log-redis-status",
+      "name": "Log Tut",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 400]
+    }
+  ],
+  "connections": {
+    "Her 30 Dakikada Bir Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Redis INFO Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis INFO Memory": {
+      "main": [
+        [
+          {
+            "node": "Redis Sağlık Değerlendirmesi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Sağlık Değerlendirmesi": {
+      "main": [
+        [
+          {
+            "node": "Redis Uyarısı Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Uyarısı Var mı?": {
+      "main": [
+        [
+          {
+            "node": "Redis E-Postası Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Tut",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  }
+}
