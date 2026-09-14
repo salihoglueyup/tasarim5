@@ -25,6 +25,8 @@ import {
   KMKLegalDocumentVaultSeo,
   VoiceSearchSpeakableSeo,
   AcademicCitationBoxSeo,
+  ServicePricingCatalogSeo,
+  KMKAuditProtocolSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
@@ -326,6 +328,25 @@ export default function SiteYonetimiClient() {
           <AcademicCitationBoxSeo
             pageUrl="/hizmetler/site-yonetimi"
             pageTitle="634 Sayılı KMK ve ISO 41001 Standartlarında Profesyonel Site Yönetimi Uygulama Rehberi"
+          />
+        </div>
+      </div>
+
+      {/* 11.14. BÖLÜM: Şeffaf Hizmet & Fiyatlandırma Paket Kataloğu (OfferCatalog & PriceSpecification) */}
+      <div className="py-16 bg-slate-900/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServicePricingCatalogSeo
+            pageUrl="/hizmetler/site-yonetimi"
+            categoryFilter="residential"
+          />
+        </div>
+      </div>
+
+      {/* 11.15. BÖLÜM: KMK Madde 41 Denetim Kurulu Resmi Protokolü (HowTo & Audit Checklist) */}
+      <div className="py-16 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <KMKAuditProtocolSeo
+            pageUrl="/hizmetler/site-yonetimi"
           />
         </div>
       </div>

@@ -27,6 +27,7 @@ import {
   VoiceSearchSpeakableSeo,
   FacilityCorporateB2BHubSeo,
   AcademicCitationBoxSeo,
+  ServicePricingCatalogSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -652,6 +653,16 @@ export default function TesisYonetimiClient() {
           <AcademicCitationBoxSeo
             pageUrl="/hizmetler/tesis-yonetimi"
             pageTitle="Entegre Tesis Yönetimi, ISO 41001 Standartları ve Kurumsal SLA Kılavuzu"
+          />
+        </div>
+      </div>
+
+      {/* 6.8. BÖLÜM: Kurumsal Plaza & Tesis Yönetimi Fiyatlandırma Kataloğu (OfferCatalog & PriceSpecification) */}
+      <div className="py-12 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServicePricingCatalogSeo
+            pageUrl="/hizmetler/tesis-yonetimi"
+            categoryFilter="commercial"
           />
         </div>
       </div>

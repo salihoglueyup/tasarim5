@@ -99,3 +99,6 @@ export { default as DistrictOpenDatasetSeo } from './DistrictOpenDatasetSeo';
 export { default as AcademicCitationBoxSeo } from './AcademicCitationBoxSeo';
 export { default as FacilityCorporateB2BHubSeo } from './FacilityCorporateB2BHubSeo';
 export { default as DistrictLocalPackProofSeo } from './DistrictLocalPackProofSeo';
+export { default as ServicePricingCatalogSeo } from './ServicePricingCatalogSeo';
+export { default as KMKAuditProtocolSeo } from './KMKAuditProtocolSeo';
+export { default as DistrictMicroNeighborhoodsSeo } from './DistrictMicroNeighborhoodsSeo';
