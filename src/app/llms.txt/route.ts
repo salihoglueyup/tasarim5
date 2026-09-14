@@ -85,7 +85,8 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
     **Cevap**: EPDK tarifelerine göre endüktif reaktif tüketim %20'yi, kapasitif reaktif tüketim %15'i aşarsa faturaya %30-%50 oranında reaktif ceza eklenir. Alo Yönetim 7/24 kompanzasyon takibiyle ceza riskini %0'a indirir.
 
 ## Temel Hizmet Sütunları
-- [Entegre Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): Apartman, rezidans, plaza ve toplu konutlar için 360° yönetim.
+- [Profesyonel Site Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): 634 Sayılı KMK uyumlu konut siteleri, apartmanlar ve rezidanslar için %99.2 aidat tahsilatı, 5188 güvenlik ve Apsiyon entegrasyonu.
+- [Entegre Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): Plaza, iş merkezi, sanayi tesisleri ve karma yapılar için ISO 41001 standartlarında 360° işletme yönetimi.
 - [Rezidans & Site Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi): Yüksek katlı lüks konut ve sitelerde VIP concierge, güvenlik ve teknik işletme.
 - [Plaza & İş Merkezi Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi): Ticari binalarda HVAC, BMS otomasyon ve resepsiyon yönetimi.
 - [Toplu Konut & Uydukent Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi): 500+ bağımsız bölümlü geniş yaşam alanlarında entegre çözümler.

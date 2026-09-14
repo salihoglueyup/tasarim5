@@ -83,7 +83,17 @@ export async function GET() {
 
 ---
 
-## 2. Entegre Hizmet Sütunları
+## 2. Entegre Hizmet Sütunları & Dual-Pillar Hub'lar
+### Profesyonel Site Yönetimi (B2C & Konut Hub)
+- **Açıklama**: 634 Sayılı Kat Mülkiyeti Kanunu (KMK) standartlarında konut siteleri, rezidanslar ve apartmanlar için %99.2 aidat tahsilat garantisi, 5188 lisanslı güvenlik, genel kurul divan yönetimi ve Apsiyon mobil entegrasyonu.
+- **Kapsam**: Aidat & Avans Tahsilatı, KMK Hukuk Müşavirliği, 5188 Güvenlik, 45 Dk Acil Mobil Teknik Müdahale, Apsiyon Sakin Portalı, Ortak Alan Hijyeni.
+- **URL**: ${BASE_URL}/hizmetler/site-yonetimi
+
+### Entegre Tesis Yönetimi (B2B & Kurumsal İşletme Hub)
+- **Açıklama**: Plaza, iş merkezi, fabrika ve karma gayrimenkul projelerinde ISO 41001 uluslararası standartlarında 360° entegre teknik işletme ve tesis yönetimi.
+- **Kapsam**: BMS & HVAC Otomasyonu, Önleyici Bakım, Enerji Verimliliği, Reaktif Ceza Koruması, ISO 41001 Sertifikasyonu, Kurumsal SLA.
+- **URL**: ${BASE_URL}/hizmetler/tesis-yonetimi
+
 ${servicesList}
 
 ---
