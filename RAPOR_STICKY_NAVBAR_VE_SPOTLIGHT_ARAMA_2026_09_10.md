@@ -235,3 +235,33 @@ Platformun tüm kalite kapıları başarıyla çalıştırılmış ve sıfır ha
 - Temsili sahte formlar yerine kurumsal yönlendirmeler yerleştirilmiş,
 - Sayfa üzerinde kullanıcıyı rahatsız eden hareketsiz yüzen öğeler akıllı zamanlayıcılarla modernize edilmiş,
 - Tüm bunlar yapılırken **sıfır SEO kaybı**, **sıfır erişilebilirlik ihlali** ve **916 testin tamamında %100 başarı** ile üretim ortamına hazır hale getirilmiştir.
+
+---
+
+## 🏆 7. 14 Eylül 2026: Tesis ve Site Yönetimi Dual-Pillar SEO Dönüşümü
+
+14 Eylül 2026 tarihinde, platformun organik arama hacmini katlamak ve Türkiye'de "site yönetimi" ve "tesis yönetimi" dikey kelimelerinde Google, Yandex, Bing ve yeni nesil Yapay Zeka Arama Motorlarında (SearchGPT, Perplexity, Google SGE) 1. sırayı güvenceye almak amacıyla **Dual-Pillar Mimarisi** hayata geçirilmiştir:
+
+### 1. Dual-Pillar Mimari Ayrışması (B2B vs B2C/Konut)
+- **Önceki Durum:** `/hizmetler/site-yonetimi` adresi `next.config.ts` üzerinden doğrudan B2B odaklı `/hizmetler/tesis-yonetimi` sayfasına 301 ile yönlendiriliyordu. Bu durum, apartman ve konut arayan yüzbinlerce kullanıcının ticari plaza ve fabrika içerikleriyle karşılaşmasına ve arama niyetinin bölünmesine yol açıyordu.
+- **Yeni Durum:**
+  - `/hizmetler/tesis-yonetimi`: B2B, Plaza, İş Merkezi, Fabrika, Sanayi Tesisleri ve ISO 41001 Entegre Tesis Yönetimi odaklı amiral gemisi olarak konumlandırıldı.
+  - `/hizmetler/site-yonetimi`: Bağımsız bir amiral gemisi olarak inşa edildi. Kat Mülkiyeti Kanunu (KMK 634), Apsiyon mobil entegrasyonu, %99.2 aidat tahsilat garantisi, 5188 güvenlik ve 45 dk acil mobil teknik müdahale özellikleri yerleştirildi.
+  - `/site-yonetimi`, `/apartman-yonetimi`, `/bina-yonetimi` ve `/site-yonetim-sirketleri` gibi yüksek hacimli kısa rotalar artık doğrudan yeni `/hizmetler/site-yonetimi` sayfasına 301 kalıcı yönlendirmeyle bağlandı.
+
+### 2. Google Sıfırıncı Sıra (Featured Snippet) ve Speakable Voice SEO
+- Hem Tesis hem de Site Yönetimi sayfalarına 40-55 kelimelik, doğrudan soru yanıtlayan `InstantAnswerCardSeo` blokları yerleştirildi.
+- CSS seçicileri `VoiceSearchSpeakableSeo` bileşeni üzerinden Schema.org Speakable linked-data standardına bağlandı (`#site-hero-h1`, `#site-instant-answer-text`, vb.).
+
+### 3. Yapay Zeka Arama Motorları (SearchGPT, Perplexity, Claude, Gemini) Uyum
+- `llms.txt` ve `llms-full.txt` rotalarına `[Profesyonel Site Yönetimi]` bağımsız hub olarak eklendi.
+- `facilityVoiceKnowledgeEngine.ts` içerisine apartman yöneticisi seçimi (KMK 34), aidat icra süreçleri (İİK 68 / KMK 20), genel kurul nisapları (KMK 29-30), denetçi görevleri (KMK 41) ve EV şarj istasyonu izinleri (KMK 42) gibi 8 yeni yapılandırılmış sesli soru-cevap eklendi.
+
+### 4. Kalite Güvence ve Testler
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **15/15 PASSED**
+- `npx vitest run src/lib/seo/districtDualCoreMatrix.test.ts` -> **11/11 PASSED**
+- `npx vitest run src/lib/seo/facilityBackendInternalSeo.test.ts` -> **7/7 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- Toplam **104 test dosyası, 916 test %100 başarıyla tamamlandı**.
+
