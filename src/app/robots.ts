@@ -36,6 +36,10 @@ export default function robots(): MetadataRoute.Robots {
     '/api/ai-knowledge',
     '/api/knowledge-graph',
     '/api/ai/facility-agent-context.json',
+    '/api/ai/site-agent-context.json',
+    '/api/ai/search-query',
+    '/api/markdown/site-yonetimi',
+    '/api/markdown/tesis-yonetimi',
     '/api/tesis-yonetimi/calculate-budget',
     '/api/tesis-yonetimi/dictionary.json',
     '/api/tesis-yonetimi/legal-precedents.json',
@@ -85,6 +89,7 @@ export default function robots(): MetadataRoute.Robots {
     '/opensearch.xml',
     '/.well-known/security.txt',
     '/.well-known/traffic-advice',
+    '/.well-known/ai-plugin.json',
     '/_next/static/',
   ];
 

@@ -49,6 +49,10 @@ export function generateOpenApiSpec() {
         name: 'Kurumsal Akreditasyon & Bilgi Korpusu',
         description: 'ISO 41001, ISO 45001, 5188 Özel Güvenlik ve BELCERT akredite otorite verileri.',
       },
+      {
+        name: 'Yapay Zeka & Semantik Grounding (GEO)',
+        description: 'ChatGPT Search, Perplexity ve Claude için dinamik KMK 634, Yargıtay emsal kararları ve 39 ilçe canlı semantik sorgu uç noktaları.',
+      },
     ],
     paths: {
       '/api/tesis-yonetimi/legal-precedents.json': {
@@ -434,6 +438,62 @@ export function generateOpenApiSpec() {
               content: {
                 'application/xml': { schema: { type: 'string' } },
               },
+            },
+          },
+        },
+      },
+      '/api/ai/search-query': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'Canlı Doğal Dil Semantik KMK & Emsal Arama Uç Noktası',
+          description: 'ChatGPT Search, Perplexity ve Claude için doğal dille sorulan aidat, asansör, yönetici seçimi ve ilçe aidat sorularına doğrulanmış KMK 634 ve Yargıtay emsal kararlarıyla JSON grounding yanıtı döner.',
+          operationId: 'getSemanticSearchQuery',
+          parameters: [
+            {
+              name: 'q',
+              in: 'query',
+              required: true,
+              description: 'Doğal dille yazılmış soru veya arama terimi (Örn: zemin kat asansör öder mi, kadıköy aidat ortalaması)',
+              schema: { type: 'string', example: 'zemin kat asansör öder mi' },
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'Doğrulanmış hukuki dayanak, emsal kararlar, alıntılanabilir doğrudan yanıt ve güven skoru.',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      query: { type: 'string' },
+                      matchedTopic: { type: 'string' },
+                      directAnswer: { type: 'string' },
+                      confidenceScore: { type: 'number' },
+                      legalBasis: { type: 'string' },
+                      courtPrecedents: { type: 'array' },
+                      canonicalCitationUrl: { type: 'string' },
+                      recommendedCitationSentence: { type: 'string' },
+                      timestamp: { type: 'string' },
+                    },
+                  },
+                },
+              },
+            },
+            '400': {
+              description: 'Eksik veya geçersiz arama parametresi (q).',
+            },
+          },
+        },
+      },
+      '/api/ai/site-agent-context.json': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'Profesyonel Site Yönetimi Tam LLM Ground-Truth Bilgi Korpusu',
+          description: '634 Sayılı KMK maddeleri, Yargıtay 20. H.D. içtihatları, 39 ilçe konut stoğu ve aidat tasarruf oranları ile akredite site yönetimi bağlam verisi.',
+          operationId: 'getSiteAgentContext',
+          responses: {
+            '200': {
+              description: 'Tam yapılandırılmış JSON-LD ve semantik RAG korpusu.',
             },
           },
         },
