@@ -17,6 +17,7 @@ import {
   DistrictOpenDatasetSeo,
   DistrictLocalPackProofSeo,
   DistrictMicroNeighborhoodsSeo,
+  DistrictCourthouseMediationSeo,
 } from '@/components/seo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -252,6 +253,12 @@ export default async function DistrictPage({
 
         {/* Faz 10: Mikro-Semt & Mahalle Otorite Ağı (subServiceArea & BreadcrumbList) */}
         <DistrictMicroNeighborhoodsSeo
+          districtSlug={district.slug}
+          districtName={district.name}
+        />
+
+        {/* Faz 11: 39 İlçe Sulh Hukuk Mahkemesi & Zorunlu Arabuluculuk Rehberi (7445 Sayılı Kanun) */}
+        <DistrictCourthouseMediationSeo
           districtSlug={district.slug}
           districtName={district.name}
         />
