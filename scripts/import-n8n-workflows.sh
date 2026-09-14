@@ -26,7 +26,7 @@ echo "⚙️ 30 Aktif iş akışı n8n sistemine kaydediliyor..."
 docker exec -u node aloyonetim-n8n sh -c '
   for file in $(find /home/node/imported-workflows -name "*.json" | sort); do
     echo "➡️ İçe aktarılıyor: $(basename "$file")"
-    n8n import:workflow --input="$file"
+    n8n import:workflow --input="$file" --activeState=fromJson
   done
 '
 
@@ -126,12 +126,17 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       'w25DevOpsDiskLog1', 'w26DevOpsPgLock1', 'w27DevOpsSmtpRbl1',
       'w28DevOpsCronHbt1', 'w29DevOpsDnsWhois1', 'w30DevOpsNodeLag1'
     );
+    UPDATE n8n.workflow_entity SET active = true;
   " 2>/dev/null || true
 
+  echo "⚡ Tüm 30 kurumsal iş akışı otomatik çalışma moduna (active = true) geçirildi."
   echo "✅ 7 Kategori ve 30 kurumsal akış bağı başarıyla oluşturuldu!"
 fi
 
+echo "🔄 n8n servisi zamanlanmış tetikleyicileri (Cron/Schedule) devreye almak için yeniden başlatılıyor..."
+docker restart aloyonetim-n8n
+
 echo "========================================================"
-echo "✅ Tam 30 kurumsal iş akışı kategorileriyle n8n'de!"
-echo "🌐 Paneli yenileyin: https://n8n.aloyonetim.com.tr/workflows"
+echo "✅ Tam 30 kurumsal iş akışı n8n'de AKTİF ve OTOMATİK ÇALIŞIYOR!"
+echo "🌐 Paneli kontrol edin: https://n8n.aloyonetim.com.tr/workflows"
 echo "========================================================"

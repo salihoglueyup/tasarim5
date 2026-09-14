@@ -244,5 +244,6 @@
     "saveManualExecutions": true,
     "saveFailedExecutions": true
   },
-  "tags": []
+  "tags": [],
+  "active": true
 }

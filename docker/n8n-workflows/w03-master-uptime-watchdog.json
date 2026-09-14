@@ -302,5 +302,6 @@
     "saveExecutionProgress": false,
     "saveFailedExecutions": true
   },
-  "tags": []
+  "tags": [],
+  "active": true
 }
