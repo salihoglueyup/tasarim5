@@ -13,22 +13,32 @@ if ! docker ps | grep -q "aloyonetim-n8n"; then
   exit 1
 fi
 
-echo "📦 12 Aktif iç sistem iş akışı taranıyor ve n8n'e aktarılıyor..."
+echo "📦 İş akış dosyaları container içerisine aktarılıyor..."
 
-# Container içindeki aktif iş akışlarını içe aktar
+# Volume bağımlılığını sıfırlamak için doğrudan container içine kopyala
+docker exec aloyonetim-n8n mkdir -p /home/node/imported-workflows
+docker cp n8n/active/. aloyonetim-n8n:/home/node/imported-workflows/
+docker exec aloyonetim-n8n chmod -R 777 /home/node/imported-workflows
+
+echo "⚙️ 12 Aktif iş akışı n8n sistemine kaydediliyor..."
+
+# Container içindeki iş akışlarını içe aktar
 docker exec -u node aloyonetim-n8n sh -c '
-  for file in $(find /home/node/active-workflows -name "*.json" | sort); do
+  for file in $(find /home/node/imported-workflows -name "*.json" | sort); do
     echo "➡️ İçe aktarılıyor: $(basename "$file")"
-    n8n import:workflow --input="$file" || echo "⚠️ Uyarı: $(basename "$file") içe aktarılırken bir durum oluştu (güncel olabilir)."
+    n8n import:workflow --input="$file"
   done
 '
+
+# Geçici dosyaları temizle
+docker exec aloyonetim-n8n rm -rf /home/node/imported-workflows
 
 echo "🎨 n8n Kategorilendirme Etiketleri (Tags) Veritabanına İşleniyor..."
 
 # n8n PostgreSQL şemasına renkli etiketleri ve akış eşleşmelerini yaz
 if docker ps | grep -q "aloyonetim-postgres"; then
+  echo "🏷️ Kategori etiketleri oluşturuluyor..."
   docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
-    -- 1. Kategori Etiketlerini Oluştur
     INSERT INTO n8n.tag_entity (id, name, \"createdAt\", \"updatedAt\")
     VALUES 
       ('tag_crm', 'CRM & Saha Operasyonları', NOW(), NOW()),
@@ -37,8 +47,10 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       ('tag_seo', 'SEO & Arama Motorları', NOW(), NOW()),
       ('tag_mgmt', 'Yönetim & Haftalık Rapor', NOW(), NOW())
     ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, \"updatedAt\" = NOW();
+  "
 
-    -- 2. Akışları Etiketlerle Eşle
+  echo "🔗 İş akışları kategorilerine bağlanıyor..."
+  docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
     INSERT INTO n8n.workflows_tags (\"workflowId\", \"tagId\")
     VALUES
       ('w01CrmLeadZeng01', 'tag_crm'),
@@ -54,7 +66,8 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       ('w11SeoIndexNow1', 'tag_seo'),
       ('w12MgmtCockpit1', 'tag_mgmt')
     ON CONFLICT DO NOTHING;
-  " 2>/dev/null && echo "✅ 5 Kategori etiketi ve 12 iş akışı bağı başarıyla oluşturuldu!" || echo "ℹ️ Not: Etiket tablosu henüz hazır değilse n8n arayüzünden etiketler görüntülenecektir."
+  "
+  echo "✅ 5 Kategori etiketi ve 12 iş akışı bağı başarıyla tamamlandı!"
 fi
 
 echo "========================================================"
