@@ -41,13 +41,13 @@ if docker ps | grep -q "aloyonetim-postgres"; then
   docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
     INSERT INTO n8n.tag_entity (id, name, \"createdAt\", \"updatedAt\")
     VALUES 
-      ('tag_crm', 'CRM & Saha Operasyonları', NOW(), NOW()),
-      ('tag_fin', 'Finans, Aidat & Faturalar', NOW(), NOW()),
-      ('tag_sla', 'DevOps & Sistem Sağlığı', NOW(), NOW()),
-      ('tag_db', 'Veritabanı & Önbellek', NOW(), NOW()),
-      ('tag_seo', 'SEO & Arama Motorları', NOW(), NOW()),
-      ('tag_legal', 'Hukuk, İSG & Personel', NOW(), NOW()),
-      ('tag_mgmt', 'Yönetim & Haftalık Rapor', NOW(), NOW())
+      ('tag_crm', 'CRM & Saha', NOW(), NOW()),
+      ('tag_fin', 'Finans & Aidat', NOW(), NOW()),
+      ('tag_sla', 'DevOps & Sağlık', NOW(), NOW()),
+      ('tag_db', 'Veritabanı & DB', NOW(), NOW()),
+      ('tag_seo', 'SEO & Arama', NOW(), NOW()),
+      ('tag_legal', 'Hukuk & İSG', NOW(), NOW()),
+      ('tag_mgmt', 'Yönetim & Rapor', NOW(), NOW())
     ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, \"updatedAt\" = NOW();
   "
 
