@@ -14,6 +14,8 @@ import {
   DistrictMapFacadeSeo,
   ServiceAuthorityHubSeo,
   DistrictDualCoreSelectorSeo,
+  DistrictOpenDatasetSeo,
+  DistrictLocalPackProofSeo,
 } from '@/components/seo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -185,6 +187,9 @@ export default async function DistrictPage({
           districtName={district.name}
         />
 
+        {/* Google Haritalar & Local Pack Doğrulanmış Saha Ağı */}
+        <DistrictLocalPackProofSeo districtSlug={district.slug} />
+
         {/* İlçe Yerel Otorite Kartı */}
         <DistrictLocalHighlightsSeo
           districtName={district.name}
@@ -226,6 +231,9 @@ export default async function DistrictPage({
             ))}
           </div>
         </div>
+
+        {/* Google Dataset Search: 39 İlçe Konut Stoğu & Açık Veri Kalkanı */}
+        <DistrictOpenDatasetSeo districtSlug={district.slug} />
 
         {/* Mahalle Bazlı Aidat & Tesis Yönetimi Tablosu */}
         <DistrictNeighborhoodDuesTableSeo
