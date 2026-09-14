@@ -715,6 +715,55 @@ SearchGPT, Perplexity AI, Claude, Google AI Overviews, DeepSeek ve Apple Intelli
 - `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
 - `npm test` -> **104 test dosyası, 960 testin tamamı PASSED (%100 Başarı)**
 
+---
+
+## BÖLÜM 19: FAZ 15 — İŞLETME PROJESİ MEVZUATI, İİK İTİRAZIN İPTALİ & TAZMİNAT, 6331 İSG RİSK ANALİZİ VE SU DEPOSU LEJYONELLA REHBERİ (2026-09-14)
+
+### 1. Kat Mülkiyetinde İşletme Projesi Hazırlama, Tebliği & Kesinleşme Rehberi (`Schema.org Legislation` & `TechArticle`)
+- **Veri Modeli:** [`src/data/kmkOperatingBudgetData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/kmkOperatingBudgetData.ts)
+  - KMK m.37 gereği 1 yıllık tahmini gelir-gider bütçesi tanzimi (kapıcı, güvenlik, elektrik, asansör yeşil etiket, demirbaş onarım avansı).
+  - KMK m.20 Gider Dağıtım Esasları: Bağımsız bölüm başına eşit paylaştırılan giderler (m.20/1-a) vs tapudaki arsa payı oranında paylaştırılan ortak giderler (m.20/1-b).
+  - 4 Adımlı Tebligat Usulü: İmzalı tutanak veya PTT iadeli taahhütlü tebligat; 7 günlük yasal itiraz süresi ve itiraz edilmeyen projenin İİK m.68 uyarınca ilam niteliğinde resmi belge kesinleşmesi.
+  - Yargıtay Hukuk Genel Kurulu Emsalleri: Tebligatsız işletme projesine dayalı icranın iptali ve zemin kat maliklerinin asansör ortak gider muafiyet iddialarının reddi.
+- **Bileşen:** [`src/components/seo/KMKOperatingBudgetGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/KMKOperatingBudgetGuideSeo.tsx)
+- **Entegrasyon Sayfası:** [`AidatTakibiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/aidat-takibi/AidatTakibiClient.tsx).
+
+### 2. İİK m.68 / m.67 Aidat İtirazının İptali & %20 İcra İnkar Tazminatı Kılavuzu (`Schema.org LegalService` & `TechArticle`)
+- **Veri Modeli:** [`src/data/facilityEnforcementDisputeData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityEnforcementDisputeData.ts)
+  - 2 Temel Hukuki Yol Kıyaslaması:
+    - **İtirazın Kesin Kaldırılması (İcra Hukuk Mahkemesi - İİK m.68):** 6 ay hak düşürücü süre, 2-4 ayda kesin sonuç, kesinleşmiş proje ve noterli karar şartı.
+    - **İtirazın İptali Davası (Sulh Hukuk Mahkemesi - İİK m.67):** 1 yıl hak düşürücü süre, zorunlu arabuluculuk şartı ve bilirkişi incelemesi.
+  - Borçlu Aleyhine Yasal Yaptırımlar: Asıl alacağın en az %20'si oranında İcra İnkar Tazminatı + aylık %5 KMK gecikme tazminatı + maktu/nispi icra vekalet ücreti.
+  - Kiracının Korunması (KMK m.22): Kiracının borç sorumluluğunun aylık kira bedeli ile sınırlı olması ve ödenmeyen aidat için daire üzerine kanuni ipotek tescili.
+- **Bileşen:** [`src/components/seo/FacilityEnforcementDisputeSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityEnforcementDisputeSeo.tsx)
+- **Entegrasyon Sayfası:** [`HukukVeIcraDanismanligiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/HukukVeIcraDanismanligiClient.tsx).
+
+### 3. Sitelerde 6331 Sayılı İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi (`Schema.org TechArticle` & `GovernmentPermit`)
+- **Veri Modeli:** [`src/data/facilityOccupationalHealthSafetyData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityOccupationalHealthSafetyData.ts)
+  - Sitelerin İşveren Sıfatı & Tehlike Sınıfları (Az Tehlikeli, Tehlikeli, Çok Tehlikeli; OSGB ve İşyeri Hekimi hizmetleri).
+  - 5 Zorunlu İSG Belgesi: 6 yıllık periyodik Risk Değerlendirme Raporu, Acil Durum Eylem Planı, Periyodik Sağlık Raporları, 8-12 saatlik İSG Eğitimleri ve KKD Teslim Tutanakları.
+  - 4 Zorunlu Acil Durum Ekibi: Yangın Söndürme Ekibi, Arama-Kurtarma ve Tahliye Ekibi, Koruma/Güvenlik Ekibi, Sertifikalı İlk Yardım Ekibi (oranlar ve donanımlar).
+  - Yöneticinin Şahsi Cezai ve İdari Sorumluluğu: İş kazalarında TCK m.85/2 hapis riski ve SGK rücu davalarında yöneticinin şahsi malvarlığına haciz tehlikesi.
+- **Bileşen:** [`src/components/seo/FacilityOccupationalHealthSafetySeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityOccupationalHealthSafetySeo.tsx)
+- **Entegrasyon Sayfası:** [`TesisYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx).
+
+### 4. Binalarda Su Deposu Temizliği, Lejyonella Kontrolü ve Dezenfeksiyon Rehberi (`Schema.org TechArticle` & `GovernmentService`)
+- **Veri Modeli:** [`src/data/facilityWaterTankSanitationData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityWaterTankSanitationData.ts)
+  - Sağlık Bakanlığı 2007/67 Sayılı Genelgesi: Bina su depolarının yılda en az 2 kez (6 ayda bir) temizlenmesi ve klorlanması zorunluluğu.
+  - Depo Malzeme Tipleri: Betonarme fayans (derz riski), paslanmaz çelik modüler prizmatik (AISI 304/316 altın standart), galvaniz sac (pas tehlikesi) ve polietilen.
+  - 4 Aşamalı Temizlik Protokolü: Dip çamuru tahliyesi -> 150 Bar basınçlı sıcak suyla biyofilm kazıma -> Gıda tipi klor (NaOCl) ULV sisleme/bekletme -> Basınçlı durulama ve 0.2-0.5 ppm serbest klor nötralizasyonu.
+  - Lejyonella (Legionella Pneumophila) Termal Şoklama: Boyler su sıcaklığının haftada bir 60-70°C'ye çıkarılarak sirkülasyon hattı pastörizasyonu.
+  - Laboratuvar Kriterleri: E. coli ve koliform bakteri 0 / 100 ml sıfır tolerans ve akredite analiz sertifikasyonu.
+- **Bileşen:** [`src/components/seo/FacilityWaterTankSanitationSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityWaterTankSanitationSeo.tsx)
+- **Entegrasyon Sayfası:** [`TeknikBakimClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/teknik-bakim/TeknikBakimClient.tsx).
+
+### 5. Kalite Güvence ve Test Sonuçları
+- `src/lib/seo/siteManagementSeoSuite.test.ts` dosyasına 4 yeni kapsamlı test paketi (38, 39, 40, 41) eklendi; toplam test paketi **41'e**, tekil test sayısı **63'e** yükseldi.
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **63/63 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- `npm test` -> **104 test dosyası, 964 testin tamamı PASSED (%100 Başarı)**
+
 
 
 

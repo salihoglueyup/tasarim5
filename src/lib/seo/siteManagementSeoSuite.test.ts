@@ -1122,6 +1122,137 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(klorAsit?.hazardDescription).toContain('klor gazı');
     });
   });
+
+  describe('38. Kat Mülkiyetinde İşletme Projesi Tanzimi, Tebliği & İtiraz Usulü (kmkOperatingBudgetData.ts)', () => {
+    it('Bütçe gider kalemleri, KMK m.20 eşit/arsa payı dağılımı ve 7 gün itiraz süresini doğrular', async () => {
+      const {
+        BUDGET_ESTIMATED_EXPENSES,
+        EXPENSE_ALLOCATION_RULES,
+        BUDGET_NOTIFICATION_TIMELINE,
+        BUDGET_LEGAL_PRECEDENTS
+      } = await import('@/data/kmkOperatingBudgetData');
+
+      expect(BUDGET_ESTIMATED_EXPENSES.length).toBeGreaterThanOrEqual(5);
+
+      const personel = BUDGET_ESTIMATED_EXPENSES.find(e => e.id === 'exp-personel-kapici-guvenlik');
+      expect(personel).toBeDefined();
+      expect(personel?.kmkDistributionBasis).toContain('Eşit Paylaşım');
+
+      const elektrik = BUDGET_ESTIMATED_EXPENSES.find(e => e.id === 'exp-ortak-elektrik-su');
+      expect(elektrik?.kmkDistributionBasis).toContain('Arsa Payı');
+
+      // Dağıtım Kuralları
+      expect(EXPENSE_ALLOCATION_RULES.length).toBe(2);
+      const ruleA = EXPENSE_ALLOCATION_RULES.find(r => r.ruleCode === 'kmk-20-1-a');
+      expect(ruleA?.coveredExpenseTypes.some(t => t.includes('Kapıcı'))).toBe(true);
+
+      // Tebligat ve Kesinleşme
+      expect(BUDGET_NOTIFICATION_TIMELINE.length).toBe(4);
+      const step3 = BUDGET_NOTIFICATION_TIMELINE.find(s => s.stepNo === 3);
+      expect(step3?.timeframe).toContain('7 GÜN');
+      expect(step3?.legalConsequence).toContain('İLAM NİTELİĞİNDE BELGE');
+
+      // Emsal İçtihatlar
+      expect(BUDGET_LEGAL_PRECEDENTS.length).toBe(2);
+    });
+  });
+
+  describe('39. İcra İtirazının İptali, İtirazın Kaldırılması & %20 Tazminat (facilityEnforcementDisputeData.ts)', () => {
+    it('İİK m.68 vs m.67 kıyaslaması, 5 aşamalı takip ve %20 icra inkar tazminatını doğrular', async () => {
+      const {
+        ENFORCEMENT_DISPUTE_ROUTES,
+        ENFORCEMENT_PROCEDURE_STAGES,
+        ENFORCEMENT_PENALTIES,
+        TENANT_LIABILITY_RULES
+      } = await import('@/data/facilityEnforcementDisputeData');
+
+      expect(ENFORCEMENT_DISPUTE_ROUTES.length).toBe(2);
+
+      const kaldirilmasi = ENFORCEMENT_DISPUTE_ROUTES.find(r => r.routeCode === 'itirazin_kaldirilmasi');
+      expect(kaldirilmasi?.competentCourt).toBe('İcra Hukuk Mahkemesi');
+      expect(kaldirilmasi?.statutoryTimeLimit).toContain('6 AY');
+
+      const iptali = ENFORCEMENT_DISPUTE_ROUTES.find(r => r.routeCode === 'itirazin_iptali');
+      expect(iptali?.competentCourt).toContain('Sulh Hukuk');
+      expect(iptali?.statutoryTimeLimit).toContain('1 YIL');
+
+      // 5 Aşamalı Takip
+      expect(ENFORCEMENT_PROCEDURE_STAGES.length).toBe(5);
+      expect(ENFORCEMENT_PROCEDURE_STAGES[1].stageTitle).toContain('İlamsız Takip');
+
+      // Tazminatlar
+      expect(ENFORCEMENT_PENALTIES.length).toBe(3);
+      const inkar = ENFORCEMENT_PENALTIES.find(p => p.penaltyType.includes('İnkar'));
+      expect(inkar?.rateOrAmount).toContain('%20');
+
+      // Kiracı Sınırı (KMK m.22)
+      expect(TENANT_LIABILITY_RULES.length).toBe(3);
+      expect(TENANT_LIABILITY_RULES[0].legalRule).toContain('KİRA MİKTARI');
+    });
+  });
+
+  describe('40. Sitelerde 6331 Sayılı İSG Kanunu, Risk Analizi & Acil Ekipler (facilityOccupationalHealthSafetyData.ts)', () => {
+    it('Tehlike sınıfları, 5 zorunlu İSG belgesi, 4 acil durum ekibi ve yönetici sorumluluğunu doğrular', async () => {
+      const {
+        OHS_HAZARD_CLASSES,
+        OHS_MANDATORY_DOCUMENTS,
+        EMERGENCY_RESPONSE_TEAMS,
+        OHS_ADMINISTRATIVE_PENALTIES
+      } = await import('@/data/facilityOccupationalHealthSafetyData');
+
+      expect(OHS_HAZARD_CLASSES.length).toBe(3);
+      const azTehlikeli = OHS_HAZARD_CLASSES.find(h => h.hazardClass === 'Az Tehlikeli');
+      expect(azTehlikeli?.riskAssessmentValidityYears).toBe(6);
+
+      // Zorunlu Belgeler
+      expect(OHS_MANDATORY_DOCUMENTS.length).toBe(5);
+      const riskDoc = OHS_MANDATORY_DOCUMENTS.find(d => d.id === 'doc-risk-degerlendirmesi');
+      expect(riskDoc?.statutoryBasis).toContain('6331');
+
+      // 4 Acil Ekip
+      expect(EMERGENCY_RESPONSE_TEAMS.length).toBe(4);
+      const sondurme = EMERGENCY_RESPONSE_TEAMS.find(t => t.teamCode === 'sondurme');
+      expect(sondurme?.teamName).toContain('Söndürme');
+
+      const ilkyardim = EMERGENCY_RESPONSE_TEAMS.find(t => t.teamCode === 'ilkyardim');
+      expect(ilkyardim?.requiredCertification).toContain('İlkyardımcı Sertifikası');
+
+      // Cezai Sorumluluk
+      expect(OHS_ADMINISTRATIVE_PENALTIES.length).toBe(3);
+      const kaza = OHS_ADMINISTRATIVE_PENALTIES.find(p => p.penaltySeverityLevel.includes('Hapis'));
+      expect(kaza?.managementPersonalLiability).toContain('ŞAHSİ MALVARLIĞINDAN');
+    });
+  });
+
+  describe('41. Su Deposu Temizliği, Lejyonella Kontrolü & Dezenfeksiyon (facilityWaterTankSanitationData.ts)', () => {
+    it('Depo tipleri, 4 aşamalı 2007/67 protokolü, lejyonella şoklaması ve su lab kriterlerini doğrular', async () => {
+      const {
+        WATER_TANK_TYPE_STANDARDS,
+        WATER_TANK_SANITATION_STEPS,
+        LEGIONELLA_SAFETY_PROTOCOLS,
+        WATER_LAB_INSPECTION_CRITERIA
+      } = await import('@/data/facilityWaterTankSanitationData');
+
+      expect(WATER_TANK_TYPE_STANDARDS.length).toBe(4);
+      const paslanmaz = WATER_TANK_TYPE_STANDARDS.find(t => t.tankType.includes('Paslanmaz'));
+      expect(paslanmaz?.hygieneRiskLevel).toContain('Düşük Risk');
+
+      // 4 Aşamalı Temizlik
+      expect(WATER_TANK_SANITATION_STEPS.length).toBe(4);
+      expect(WATER_TANK_SANITATION_STEPS[1].stageTitle).toContain('150 Bar');
+      expect(WATER_TANK_SANITATION_STEPS[2].disinfectantOrTool).toContain('Klor');
+
+      // Lejyonella Protokolü
+      expect(LEGIONELLA_SAFETY_PROTOCOLS.length).toBe(2);
+      const boyler = LEGIONELLA_SAFETY_PROTOCOLS.find(p => p.riskZone.includes('Boyler'));
+      expect(boyler?.thermalDisinfectionMethod).toContain('60°C');
+
+      // Laboratuvar Analizi
+      expect(WATER_LAB_INSPECTION_CRITERIA.length).toBe(4);
+      const ecoli = WATER_LAB_INSPECTION_CRITERIA.find(c => c.parameterCode === 'param-ecoli');
+      expect(ecoli?.legalLimit).toContain('0 / 100 ml');
+    });
+  });
 });
 
 

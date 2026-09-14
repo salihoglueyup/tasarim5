@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components';
 import MaintenanceCalculator from '@/components/sections/MaintenanceCalculator';
 import MaintenanceTestimonials from '@/components/sections/MaintenanceTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityWaterTankSanitationSeo } from '@/components/seo';
 
 export default function TeknikBakimClient() {
   const { t } = useLanguage();
@@ -444,6 +444,9 @@ export default function TeknikBakimClient() {
             steps={maintenanceSteps}
           />
         </div>
+
+        {/* Sağlık Bakanlığı 2007/67 Su Deposu Temizliği, Dezenfeksiyon ve Lejyonella Rehberi (Faz 15) */}
+        <FacilityWaterTankSanitationSeo />
 
         {/* Maintenance Specific Social Proof */}
         <MaintenanceTestimonials />
