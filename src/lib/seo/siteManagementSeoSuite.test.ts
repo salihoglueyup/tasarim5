@@ -511,5 +511,114 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(besiktas.longitude).toBeCloseTo(29.0077, 2);
     });
   });
+
+  describe('20. Şeffaf Hizmet & Fiyatlandırma Paket Kataloğu (servicePricingPackagesData.ts & OfferCatalog)', () => {
+    it('4 kurumsal yönetim paketi, geçerli fiyat aralıkları ve taahhütleri eksiksiz içerir', async () => {
+      const { SERVICE_PRICING_PACKAGES } = await import('@/data/servicePricingPackagesData');
+
+      expect(SERVICE_PRICING_PACKAGES.length).toBe(4);
+
+      const butik = SERVICE_PRICING_PACKAGES.find(p => p.id === 'butik-apartman-yonetimi');
+      expect(butik).toBeDefined();
+      expect(butik?.minMonthlyFee).toBe(4500);
+      expect(butik?.priceCurrency).toBe('TRY');
+      expect(butik?.deliverables.length).toBeGreaterThanOrEqual(5);
+
+      const orta = SERVICE_PRICING_PACKAGES.find(p => p.id === 'orta-olcekli-konut-sitesi');
+      expect(orta).toBeDefined();
+      expect(orta?.isPopular).toBe(true);
+      expect(orta?.minMonthlyFee).toBe(12000);
+
+      const plaza = SERVICE_PRICING_PACKAGES.find(p => p.id === 'plaza-ticari-tesis-yonetimi');
+      expect(plaza).toBeDefined();
+      expect(plaza?.highlightText).toContain('ISO 41001');
+      expect(plaza?.slaResponseTime).toContain('15 Dakika');
+    });
+  });
+
+  describe('21. KMK Madde 41 Denetim Kurulu Resmi Protokolü (kmkAuditProtocolData.ts & HowTo)', () => {
+    it('4 ana kategori ve 24 kritik denetim kontrol maddesini eksiksiz barındırır', async () => {
+      const { KMK_AUDIT_CATEGORIES, KMK_AUDIT_CHECKPOINTS } = await import('@/data/kmkAuditProtocolData');
+
+      expect(KMK_AUDIT_CATEGORIES.length).toBe(4);
+      expect(KMK_AUDIT_CHECKPOINTS.length).toBe(24);
+
+      const bankAcc = KMK_AUDIT_CHECKPOINTS.find(c => c.id === 'chk-bank-account-isolation');
+      expect(bankAcc).toBeDefined();
+      expect(bankAcc?.legalBasis).toContain('KMK Madde 35/i');
+      expect(bankAcc?.category).toBe('financial');
+
+      const asansor = KMK_AUDIT_CHECKPOINTS.find(c => c.id === 'chk-asansor-yesil-etiket');
+      expect(asansor).toBeDefined();
+      expect(asansor?.category).toBe('technical');
+      expect(asansor?.aloYonetimGuarantee).toContain('Yeşil Etiket');
+
+      const guvenlik = KMK_AUDIT_CHECKPOINTS.find(c => c.id === 'chk-guvenlik-5188-valilik-izni');
+      expect(guvenlik).toBeDefined();
+      expect(guvenlik?.category).toBe('staff');
+      expect(guvenlik?.legalBasis).toContain('5188');
+    });
+  });
+
+  describe('22. AI Anti-Halüsinasyon KMK Doğrulama Korpusu (/api/ai/fact-check-feed.json)', () => {
+    it('endpoint 200 döner ve anti-halüsinasyon korpusu yasal içtihatları barındırır', async () => {
+      const { GET: getFactCheckFeed } = await import('@/app/api/ai/fact-check-feed.json/route');
+      const res = await getFactCheckFeed();
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('X-AI-FactCheck-Engine')).toBe('Anti-Hallucination-V1');
+      expect(res.headers.get('X-Robots-Tag')).toBe('noindex, follow');
+
+      const data = await res.json();
+      expect(data.feed_metadata).toBeDefined();
+      expect(data.feed_metadata.total_records).toBeGreaterThanOrEqual(6);
+
+      const zeminKat = data.facts.find((f: any) => f.id === 'myth-zemin-kat-asansor');
+      expect(zeminKat).toBeDefined();
+      expect(zeminKat.groundTruthVerdict).toBe('FALSE');
+      expect(zeminKat.statutoryLegalBasis).toContain('Madde 20/1-c');
+
+      const camBalkon = data.facts.find((f: any) => f.id === 'myth-izinsiz-cam-balkon');
+      expect(camBalkon).toBeDefined();
+      expect(camBalkon.statutoryLegalBasis).toContain('Madde 19/2');
+    });
+  });
+
+  describe('23. 39 İlçe Mikro-Semt & Mahalle Otorite Ağı (districtNeighborhoodsData.ts)', () => {
+    it('Kadıköy, Beşiktaş ve Başakşehir için mikro-semt tipolojilerini ve anahtar kelimeleri doğrular', async () => {
+      const { getDistrictNeighborhoodCluster } = await import('@/data/districtNeighborhoodsData');
+
+      const kadikoy = getDistrictNeighborhoodCluster('kadikoy');
+      expect(kadikoy.districtName).toBe('Kadıköy');
+      expect(kadikoy.prominentNeighborhoods.length).toBeGreaterThanOrEqual(6);
+      const kozyatagi = kadikoy.prominentNeighborhoods.find(n => n.name === 'Kozyatağı');
+      expect(kozyatagi).toBeDefined();
+      expect(kozyatagi?.typology).toBe('commercial');
+
+      const besiktas = getDistrictNeighborhoodCluster('besiktas');
+      const levent = besiktas.prominentNeighborhoods.find(n => n.name === 'Levent');
+      expect(levent).toBeDefined();
+      expect(levent?.focusKeyword).toContain('Levent plaza');
+
+      const basaksehir = getDistrictNeighborhoodCluster('basaksehir');
+      const bahcesehir = basaksehir.prominentNeighborhoods.find(n => n.name.includes('Bahçeşehir'));
+      expect(bahcesehir).toBeDefined();
+    });
+
+    it('39 ilçenin tamamında geçerli semt kümesi ve 45 dk SLA güvencesi mevcuttur', async () => {
+      const { DISTRICTS } = await import('@/data/districts');
+      const { getDistrictNeighborhoodCluster } = await import('@/data/districtNeighborhoodsData');
+
+      expect(DISTRICTS.length).toBe(39);
+      for (const d of DISTRICTS) {
+        const cluster = getDistrictNeighborhoodCluster(d.slug);
+        expect(cluster.districtSlug).toBe(d.slug);
+        expect(cluster.serviceReachGuaranteeMinutes).toBe(45);
+        expect(cluster.prominentNeighborhoods.length).toBeGreaterThanOrEqual(1);
+      }
+    });
+  });
 });
+
 

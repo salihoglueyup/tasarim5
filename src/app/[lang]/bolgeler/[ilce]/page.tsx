@@ -16,6 +16,7 @@ import {
   DistrictDualCoreSelectorSeo,
   DistrictOpenDatasetSeo,
   DistrictLocalPackProofSeo,
+  DistrictMicroNeighborhoodsSeo,
 } from '@/components/seo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -247,6 +248,12 @@ export default async function DistrictPage({
           districtName={district.name}
           districtSlug={district.slug}
           neighborhoods={district.neighborhoods}
+        />
+
+        {/* Faz 10: Mikro-Semt & Mahalle Otorite Ağı (subServiceArea & BreadcrumbList) */}
+        <DistrictMicroNeighborhoodsSeo
+          districtSlug={district.slug}
+          districtName={district.name}
         />
 
         {/* Mahalle Detay Sayfaları (Faz 8C — neighborhoodData varsa) */}
