@@ -20,6 +20,9 @@ import {
   FacilityLegalPrecedentsBrowserSeo,
   SiteAiSearchGroundingSeo,
   SiteLegalClaimReviewsSeo,
+  KMKGlossaryEncyclopediaSeo,
+  ThreeWayManagementComparisonSeo,
+  KMKLegalDocumentVaultSeo,
   VoiceSearchSpeakableSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
@@ -292,6 +295,27 @@ export default function SiteYonetimiClient() {
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SiteLegalClaimReviewsSeo />
+        </div>
+      </div>
+
+      {/* 11.10. BÖLÜM: 3-Yönlü Yönetim Modeli Kıyaslama Matrisi (Bireysel vs Dışarıdan vs Alo Yönetim) */}
+      <div className="py-16 bg-slate-900/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ThreeWayManagementComparisonSeo />
+        </div>
+      </div>
+
+      {/* 11.11. BÖLÜM: Google Position Zero Hukuk Ansiklopedisi (DefinedTermSet & 52 Terim) */}
+      <div className="py-16 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <KMKGlossaryEncyclopediaSeo />
+        </div>
+      </div>
+
+      {/* 11.12. BÖLÜM: KMK Karar & İhtarname Şablonları Resmi Kütüphanesi (DigitalDocument & Legislation) */}
+      <div className="py-16 bg-slate-900/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <KMKLegalDocumentVaultSeo />
         </div>
       </div>
 

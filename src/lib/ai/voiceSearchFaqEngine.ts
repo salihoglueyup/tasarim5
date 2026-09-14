@@ -72,6 +72,42 @@ export const VOICE_SEARCH_KNOWLEDGE_BASE: VoiceSearchTopic[] = [
     canonicalPageUrl: `${BASE_URL}/hizmetler/teknik-bakim`,
     speakableCssSelectors: ['h1', '.voice-answer-reaktif'],
   },
+  {
+    id: 'voice-site-yonetimi-secim',
+    spokenQuery: 'İstanbul\'da profesyonel site yönetimi firması kimdir?',
+    conciseVoiceAnswer:
+      'Alo Yönetim, 2009\'dan bu yana İstanbul\'un 39 ilçesinde Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında %99.2 aidat tahsilat garantisiyle profesyonel site yönetimi sunmaktadır.',
+    legalArticleRef: 'KMK Madde 34 & ISO 41001',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
+    speakableCssSelectors: ['h1', '.voice-answer-site-yonetimi'],
+  },
+  {
+    id: 'voice-asansor-zemin-kat',
+    spokenQuery: 'Zemin kat daireler asansör masrafı öder mi?',
+    conciseVoiceAnswer:
+      'Kat Mülkiyeti Kanunu Madde 20 uyarınca yönetim planında aksine açık hüküm yoksa zemin kat malikleri asansörü kullanmadığı gerekçesiyle masraftan muaf tutulamaz.',
+    legalArticleRef: 'KMK Madde 20/1-c',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
+    speakableCssSelectors: ['h1', '.voice-answer-asansor-zemin'],
+  },
+  {
+    id: 'voice-cam-balkon-onay',
+    spokenQuery: 'Apartmanda cam balkon taktırmak için kaç kişinin onayı gerekir?',
+    conciseVoiceAnswer:
+      'Kat Mülkiyeti Kanunu Madde 19 gereğince balkon dış cephe ortak alan olduğundan tüm kat maliklerinin beşte dördünün yani yüzde 80\'inin yazılı onayı zorunludur.',
+    legalArticleRef: 'KMK Madde 19/2',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
+    speakableCssSelectors: ['h1', '.voice-answer-cam-balkon'],
+  },
+  {
+    id: 'voice-kidem-tazminati-fonu',
+    spokenQuery: 'Apartman kapıcısının kıdem tazminatını kim öder?',
+    conciseVoiceAnswer:
+      'Bina görevlisinin kıdem tazminatından çalışma süresi boyunca malik olan herkes mülkiyet süresine göre sorumludur. Alo Yönetim kurumsal modelinde aylık fon işletilerek maliklerin riski sıfırlanır.',
+    legalArticleRef: '4857 Sayılı İş Kanunu & KMK m.20',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
+    speakableCssSelectors: ['h1', '.voice-answer-kidem-fonu'],
+  },
 ];
 
 /**
