@@ -1,6 +1,6 @@
 {
   "id": "w25DevOpsDiskLog1",
-  "name": "[DevOps & Sunucu] W25 — Sunucu Disk Doluluğu, Inode & Log Şişmesi Nöbetçisi",
+  "name": "[DevOps & Sunucu] W25 — Sunucu Disk Doluluğu, Inode & Log Şişmesi Nöbetçisi (Self-Healing)",
   "nodes": [
     {
       "parameters": {
@@ -41,7 +41,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const now = new Date();\nconst healthData = $json || {};\n\n// Sunucu simüle / hesaplanan disk & log parametreleri\nconst totalDiskGb = 80;\nconst usedDiskGb = 34.2;\nconst freeDiskGb = Math.round((totalDiskGb - usedDiskGb) * 10) / 10;\nconst diskUsagePercent = Math.round((usedDiskGb / totalDiskGb) * 100);\n\nconst dockerLogSizeMb = 480; // 480 MB\nconst postgresWalSizeMb = 320; // 320 MB\nconst totalLogSizeMb = dockerLogSizeMb + postgresWalSizeMb;\n\nconst isWarning = diskUsagePercent >= 80 || totalLogSizeMb >= 4000;\nconst isCritical = diskUsagePercent >= 90 || totalLogSizeMb >= 8000;\n\nconst status = isCritical ? 'CRITICAL' : (isWarning ? 'WARNING' : 'HEALTHY');\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    status,\n    disk: {\n      totalGb: totalDiskGb,\n      usedGb: usedDiskGb,\n      freeGb: freeDiskGb,\n      percent: diskUsagePercent\n    },\n    logs: {\n      dockerMb: dockerLogSizeMb,\n      postgresWalMb: postgresWalSizeMb,\n      totalMb: totalLogSizeMb\n    },\n    isHealthy: !isWarning,\n    summary: `Disk Durumu: %${diskUsagePercent} Doluluk (${freeDiskGb} GB Boş) | Docker & DB Logları: ${totalLogSizeMb} MB [${status}]`\n  }\n}];"
+        "jsCode": "const now = new Date();\nconst healthData = $json || {};\n\n// Sunucu simüle / hesaplanan disk & log parametreleri\nconst totalDiskGb = 80;\nconst usedDiskGb = 34.2;\nconst freeDiskGb = Math.round((totalDiskGb - usedDiskGb) * 10) / 10;\nconst diskUsagePercent = Math.round((usedDiskGb / totalDiskGb) * 100);\n\nconst dockerLogSizeMb = 480; // 480 MB\nconst postgresWalSizeMb = 320; // 320 MB\nconst totalLogSizeMb = dockerLogSizeMb + postgresWalSizeMb;\n\nconst isWarning = diskUsagePercent >= 80 || totalLogSizeMb >= 4000;\nconst isCritical = diskUsagePercent >= 90 || totalLogSizeMb >= 8000;\n\nconst status = isCritical ? 'CRITICAL' : (isWarning ? 'WARNING' : 'HEALTHY');\nconst needsPrune = isWarning || isCritical;\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    status,\n    needsPrune,\n    disk: {\n      totalGb: totalDiskGb,\n      usedGb: usedDiskGb,\n      freeGb: freeDiskGb,\n      percent: diskUsagePercent\n    },\n    logs: {\n      dockerMb: dockerLogSizeMb,\n      postgresWalMb: postgresWalSizeMb,\n      totalMb: totalLogSizeMb\n    },\n    isHealthy: !isWarning,\n    summary: `Disk Durumu: %${diskUsagePercent} Doluluk (${freeDiskGb} GB Boş) | Docker & DB Logları: ${totalLogSizeMb} MB [${status}]`\n  }\n}];"
       },
       "id": "analyze-disk-usage",
       "name": "Disk & Log Analiz Motoru",
@@ -57,7 +57,7 @@
         "operation": "executeQuery",
         "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-disk-sentinel',\n  'server_disk_health_evaluated',\n  'DevOps',\n  $2,\n  NOW()\n);",
         "additionalFields": {
-          "queryParams": "={{ [ 'disk_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ diskUsage: $json.disk.percent, freeGb: $json.disk.freeGb, status: $json.status }) ] }}"
+          "queryParams": "={{ [ 'disk_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ diskUsage: $json.disk.percent, freeGb: $json.disk.freeGb, status: $json.status, needsPrune: $json.needsPrune }) ] }}"
         }
       },
       "id": "log-disk-audit",
@@ -75,14 +75,14 @@
         "conditions": {
           "boolean": [
             {
-              "value1": "={{ $json.isHealthy }}",
-              "value2": false
+              "value1": "={{ $json.needsPrune }}",
+              "value2": true
             }
           ]
         }
       },
       "id": "if-disk-critical",
-      "name": "Disk Uyarısı Var mı?",
+      "name": "Disk Temizliği Gerekli mi?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
@@ -92,19 +92,34 @@
     },
     {
       "parameters": {
+        "operation": "executeQuery",
+        "query": "DELETE FROM \"AuditLog\"\nWHERE \"createdAt\" < NOW() - INTERVAL '30 days'\n  AND \"userId\" LIKE 'n8n-%';"
+      },
+      "id": "auto-prune-old-logs",
+      "name": "Eski Audit Logları Otomatik Süpür (Self-Healing)",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1200,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
         "subject": "=⚠️ [DİSK & LOG UYARISI] Sunucu Disk Kullanımı: %{{ $json.disk.percent }} ({{ $json.disk.freeGb }} GB Kaldı)",
         "emailType": "html",
-        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ Sunucu Disk & Log Şişmesi Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Seviye: {{ $json.status }} | Tarih: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Disk Doluluğu:</td><td style=\"font-weight: bold; color: #ef4444;\">%{{ $json.disk.percent }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kalan Boş Alan:</td><td style=\"font-weight: bold;\">{{ $json.disk.freeGb }} GB / {{ $json.disk.totalGb }} GB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Docker Log Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.logs.dockerMb }} MB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">PostgreSQL WAL Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.logs.postgresWalMb }} MB</td></tr>\n    </table>\n    <div style=\"margin-top: 15px; background: #fef2f2; border-left: 4px solid #ef4444; padding: 12px; font-size: 12px;\">\n      <strong>Önerilen Müdahale:</strong><br>\n      <code>docker system prune -f</code> veya container log rotasyonunu çalıştırın.\n    </div>\n  </div>\n</div>"
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ Sunucu Disk & Log Şişmesi Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Seviye: {{ $json.status }} | Tarih: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Disk Doluluğu:</td><td style=\"font-weight: bold; color: #ef4444;\">%{{ $json.disk.percent }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kalan Boş Alan:</td><td style=\"font-weight: bold;\">{{ $json.disk.freeGb }} GB / {{ $json.disk.totalGb }} GB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Docker Log Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.logs.dockerMb }} MB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">PostgreSQL WAL Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.logs.postgresWalMb }} MB</td></tr>\n    </table>\n    <div style=\"margin-top: 15px; background: #f0fdf4; border-left: 4px solid #16a34a; padding: 12px; font-size: 12px;\">\n      <strong>🛡️ Self-Healing Devrede:</strong> 30 günden eski n8n audit logları otomatik süpürüldü.\n    </div>\n  </div>\n</div>"
       },
       "id": "send-disk-alert",
       "name": "DevOps Ekibine Alarm Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        1200,
-        220
+        1420,
+        200
       ],
       "onError": "continueRegularOutput"
     },
@@ -118,7 +133,7 @@
       "typeVersion": 2,
       "position": [
         1200,
-        380
+        400
       ]
     }
   ],
@@ -160,18 +175,18 @@
       "main": [
         [
           {
-            "node": "Disk Uyarısı Var mı?",
+            "node": "Disk Temizliği Gerekli mi?",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Disk Uyarısı Var mı?": {
+    "Disk Temizliği Gerekli mi?": {
       "main": [
         [
           {
-            "node": "DevOps Ekibine Alarm Gönder",
+            "node": "Eski Audit Logları Otomatik Süpür (Self-Healing)",
             "type": "main",
             "index": 0
           }
@@ -179,6 +194,17 @@
         [
           {
             "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Eski Audit Logları Otomatik Süpür (Self-Healing)": {
+      "main": [
+        [
+          {
+            "node": "DevOps Ekibine Alarm Gönder",
             "type": "main",
             "index": 0
           }

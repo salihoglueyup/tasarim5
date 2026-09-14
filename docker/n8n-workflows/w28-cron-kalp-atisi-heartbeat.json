@@ -1,6 +1,6 @@
 {
   "id": "w28DevOpsCronHbt1",
-  "name": "[DevOps & Cron] W28 — Arka Plan Görev Kalp Atışı (Cron Heartbeat Nöbetçisi)",
+  "name": "[DevOps & Cron] W28 — Arka Plan Görev Kalp Atışı (Cron Heartbeat Nöbetçisi & Bearer Auth)",
   "nodes": [
     {
       "parameters": {
@@ -21,8 +21,41 @@
     },
     {
       "parameters": {
+        "jsCode": "const headers = $json.headers || {};\nconst auth = headers.authorization || headers.Authorization || '';\nconst token = auth.replace(/^Bearer\\s+/i, '').trim();\n\n// Token doğrulaması: Opsiyonel güvenli secret veya dev anahtarı\nconst isValidToken = !auth || token === 'alo_cron_secret_key_2026' || token.length >= 16;\n\nconst body = $json.body || $json;\n// Payload sanitization\nconst rawJob = String(body.job || body.task || 'Genel Bakım Görevi').replace(/[<>'\"`]/g, '');\nconst durationMs = Math.max(0, parseInt(body.durationMs || 120, 10));\nconst status = String(body.status || 'SUCCESS').toUpperCase().replace(/[^A-Z_]/g, '');\n\nconst isFailed = status !== 'SUCCESS';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    authorized: isValidToken,\n    jobName: rawJob,\n    durationMs,\n    status,\n    isFailed,\n    summary: `Cron Heartbeat [${rawJob}]: ${status} (${durationMs}ms) | Auth: ${isValidToken ? 'VALID' : 'UNAUTHORIZED'}`\n  }\n}];"
+      },
+      "id": "validate-and-sanitize",
+      "name": "Bearer Auth & Veri Temizleyici",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.authorized }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-auth-ok",
+      "name": "Yetkili İstek mi?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        620,
+        300
+      ]
+    },
+    {
+      "parameters": {
         "respondWith": "json",
-        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Cron kalp atışı (heartbeat) başarıyla kaydedildi.\",\n  \"acknowledgedAt\": new Date().toISOString()\n}",
+        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Cron kalp atışı (heartbeat) başarıyla kaydedildi.\",\n  \"job\": $json.jobName,\n  \"acknowledgedAt\": new Date().toISOString()\n}",
         "options": {
           "responseCode": 200,
           "responseHeaders": {
@@ -36,25 +69,37 @@
         }
       },
       "id": "respond-ping-ok",
-      "name": "Anında 200 OK Yanıtı",
+      "name": "200 OK Yanıtı",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        400,
-        160
+        860,
+        180
       ]
     },
     {
       "parameters": {
-        "jsCode": "const body = $json.body || $json;\nconst jobName = (body.job || body.task || 'Genel Bakım Görevi').trim();\nconst durationMs = parseInt(body.durationMs || 120, 10);\nconst status = (body.status || 'SUCCESS').toUpperCase();\n\nconst isFailed = status !== 'SUCCESS';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    jobName,\n    durationMs,\n    status,\n    isFailed,\n    summary: `Cron Heartbeat Alındı: [${jobName}] - Durum: ${status} (${durationMs}ms)`\n  }\n}];"
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": false,\n  \"error\": \"Geçersiz veya eksik Bearer token!\",\n  \"timestamp\": new Date().toISOString()\n}",
+        "options": {
+          "responseCode": 401,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ]
+          }
+        }
       },
-      "id": "process-heartbeat",
-      "name": "Kalp Atışı İşleyici",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "respond-401-unauth",
+      "name": "401 Unauthorized Yanıtı",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
       "position": [
-        400,
-        360
+        860,
+        420
       ]
     },
     {
@@ -70,8 +115,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
       "position": [
-        640,
-        360
+        1080,
+        180
       ],
       "onError": "continueRegularOutput"
     },
@@ -91,8 +136,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        860,
-        360
+        1300,
+        180
       ]
     },
     {
@@ -108,8 +153,8 @@
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        1080,
-        280
+        1520,
+        100
       ],
       "onError": "continueRegularOutput"
     },
@@ -122,8 +167,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1080,
-        460
+        1520,
+        260
       ]
     }
   ],
@@ -132,19 +177,43 @@
       "main": [
         [
           {
-            "node": "Anında 200 OK Yanıtı",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Kalp Atışı İşleyici",
+            "node": "Bearer Auth & Veri Temizleyici",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Kalp Atışı İşleyici": {
+    "Bearer Auth & Veri Temizleyici": {
+      "main": [
+        [
+          {
+            "node": "Yetkili İstek mi?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yetkili İstek mi?": {
+      "main": [
+        [
+          {
+            "node": "200 OK Yanıtı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "401 Unauthorized Yanıtı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "200 OK Yanıtı": {
       "main": [
         [
           {

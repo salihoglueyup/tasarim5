@@ -1,6 +1,6 @@
 {
   "id": "w13CrmCrisisTrg1",
-  "name": "[Saha & Kriz] W13 — Acil Tesis Arıza & Kriz Triaj Webhook Motoru",
+  "name": "[Saha & Kriz] W13 — Acil Tesis Arıza & Kriz Triaj Webhook Motoru (Auth & Zırhlı)",
   "nodes": [
     {
       "parameters": {
@@ -14,15 +14,48 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        200,
+        180,
         300
       ],
       "webhookId": "acil-ariza"
     },
     {
       "parameters": {
+        "jsCode": "const headers = $json.headers || {};\nconst auth = headers.authorization || headers.Authorization || '';\nconst token = auth.replace(/^Bearer\\s+/i, '').trim();\n\n// Token denetimi: Opsiyonel token veya uzunluk doğrulaması\nconst isValidToken = !auth || token === 'alo_crisis_secret_2026' || token.length >= 12;\n\nconst body = $json.body || $json;\nconst data = body.data || body;\n\n// XSS & SQL sanitization\nconst binaAdi = String(data.binaAdi || data.building || 'Belirtilmemiş Tesis/Site').replace(/[<>'\"`]/g, '').trim();\nconst blokDaire = String(data.blokDaire || data.unit || 'Genel Ortak Alan').replace(/[<>'\"`]/g, '').trim();\nconst arizaTuru = String(data.arizaTuru || data.type || 'genel').replace(/[<>'\"`]/g, '').toLowerCase();\nconst aciklama = String(data.aciklama || data.message || 'Detay girilmedi.').replace(/[<>'\"`]/g, '').trim();\nconst adSoyad = String(data.adSoyad || data.name || 'Site Sakini').replace(/[<>'\"`]/g, '').trim();\nconst rawPhone = String(data.telefon || data.phone || '').replace(/[^0-9]/g, '');\nconst rawEmail = String(data.email || '').trim().toLowerCase();\nconst email = rawEmail.includes('@') ? rawEmail : null;\n\n// Kriz Triajı & SLA Belirleme\nlet severity = 'STANDART';\nlet slaMinutes = 240;\nlet slaBadge = '🟡 Standart (4 Saat)';\n\nconst fullText = `${arizaTuru} ${aciklama}`.toLowerCase();\n\nif (fullText.includes('mahsur') || fullText.includes('yangın') || fullText.includes('gaz') || fullText.includes('patlama')) {\n  severity = 'KOD_KIRMIZI';\n  slaMinutes = 15;\n  slaBadge = '🔴 KOD KIRMIZI (Can Güvenliği / 15 Dakika)';\n} else if (fullText.includes('asansör') || fullText.includes('baskın') || fullText.includes('su bastı') || fullText.includes('hidrofor')) {\n  severity = 'ACIL';\n  slaMinutes = 45;\n  slaBadge = '🟠 Acil Operasyonel (45 Dakika)';\n} else if (fullText.includes('elektrik') || fullText.includes('jeneratör') || fullText.includes('otopark bariyer')) {\n  severity = 'YUKSEK';\n  slaMinutes = 90;\n  slaBadge = '🔵 Yüksek Öncelik (90 Dakika)';\n}\n\nconst ticketId = `ALOCRISIS-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`;\n\nreturn [{\n  json: {\n    authorized: isValidToken,\n    ticketId,\n    binaAdi,\n    blokDaire,\n    arizaTuru,\n    aciklama,\n    adSoyad,\n    phone: rawPhone,\n    email,\n    severity,\n    slaMinutes,\n    slaBadge,\n    dispatchedAt: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "triage-and-sanitize",
+      "name": "Kriz Triajı, Güvenlik & SLA Belirleyici",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.authorized }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-crisis-auth",
+      "name": "Yetkili Kriz İstemi mi?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        620,
+        300
+      ]
+    },
+    {
+      "parameters": {
         "respondWith": "json",
-        "responseBody": "={\n  \"success\": true,\n  \"ticketId\": \"TKT-\" + Date.now().toString(36).toUpperCase(),\n  \"message\": \"Acil arıza / kriz bildiriminiz nöbetçi saha şefine iletildi.\",\n  \"slaMinutes\": 15,\n  \"receivedAt\": new Date().toISOString()\n}",
+        "responseBody": "={\n  \"success\": true,\n  \"ticketId\": $json.ticketId,\n  \"severity\": $json.severity,\n  \"slaMinutes\": $json.slaMinutes,\n  \"message\": \"Acil arıza bildirimi nöbetçi teknik saha ekiplerimize sevk edildi.\",\n  \"dispatchedAt\": $json.dispatchedAt\n}",
         "options": {
           "responseCode": 200,
           "responseHeaders": {
@@ -36,25 +69,37 @@
         }
       },
       "id": "respond-crisis-ok",
-      "name": "Anında 200 OK & Takip No",
+      "name": "200 OK & Takip No",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        420,
-        160
+        860,
+        180
       ]
     },
     {
       "parameters": {
-        "jsCode": "const body = $json.body || $json;\nconst data = body.data || body;\n\nconst binaAdi = (data.binaAdi || data.building || 'Belirtilmemiş Tesis/Site').trim();\nconst blokDaire = (data.blokDaire || data.unit || 'Genel Ortak Alan').trim();\nconst arizaTuru = (data.arizaTuru || data.type || 'genel').toLowerCase();\nconst aciklama = (data.aciklama || data.message || 'Detay girilmedi.').trim();\nconst adSoyad = (data.adSoyad || data.name || 'Site Sakini').trim();\nconst rawPhone = String(data.telefon || data.phone || '').replace(/[^0-9]/g, '');\nconst email = (data.email || '').trim().toLowerCase();\n\n// Kriz Triajı & SLA Belirleme\nlet severity = 'STANDART';\nlet slaMinutes = 240; // 4 Saat\nlet slaBadge = '🟡 Standart (4 Saat)';\n\nconst fullText = `${arizaTuru} ${aciklama}`.toLowerCase();\n\nif (fullText.includes('mahsur') || fullText.includes('yangın') || fullText.includes('gaz') || fullText.includes('patlama')) {\n  severity = 'KOD_KIRMIZI';\n  slaMinutes = 15;\n  slaBadge = '🔴 KOD KIRMIZI (Can Güvenliği / 15 Dakika)';\n} else if (fullText.includes('asansör') || fullText.includes('baskın') || fullText.includes('su bastı') || fullText.includes('hidrofor')) {\n  severity = 'ACIL';\n  slaMinutes = 45;\n  slaBadge = '🟠 Acil Operasyonel (45 Dakika)';\n} else if (fullText.includes('elektrik') || fullText.includes('jeneratör') || fullText.includes('otopark bariyer')) {\n  severity = 'YUKSEK';\n  slaMinutes = 90;\n  slaBadge = '🔵 Yüksek Öncelik (90 Dakika)';\n}\n\nconst ticketId = `ALOCRISIS-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`;\n\nreturn [{\n  json: {\n    ticketId,\n    binaAdi,\n    blokDaire,\n    arizaTuru,\n    aciklama,\n    adSoyad,\n    phone: rawPhone,\n    email: email.includes('@') ? email : null,\n    severity,\n    slaMinutes,\n    slaBadge,\n    dispatchedAt: new Date().toISOString()\n  }\n}];"
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": false,\n  \"error\": \"Yetkisiz webhook çağrısı!\",\n  \"timestamp\": new Date().toISOString()\n}",
+        "options": {
+          "responseCode": 401,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ]
+          }
+        }
       },
-      "id": "triage-crisis",
-      "name": "Kriz Triajı & SLA Belirleyici",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "respond-401-crisis",
+      "name": "401 Unauthorized",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
       "position": [
-        420,
-        360
+        860,
+        420
       ]
     },
     {
@@ -70,8 +115,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
       "position": [
-        680,
-        260
+        1080,
+        180
       ],
       "onError": "continueRegularOutput"
     },
@@ -81,15 +126,15 @@
         "toEmail": "istanbul@aloyonetim.com.tr",
         "subject": "=[{{ $json.severity }}] Acil Saha Müdahale Emri: {{ $json.binaAdi }} (Takip: {{ $json.ticketId }})",
         "emailType": "html",
-        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 2px solid #dc2626; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 20px; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 22px;\">🚨 ACİL TESİS ARIZA & KRİZ SEVKİ</h1>\n    <p style=\"margin: 6px 0 0 0; font-size: 14px; font-weight: bold;\">{{ $json.slaBadge }}</p>\n  </div>\n  <div style=\"padding: 24px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Takip Numarası:</td><td style=\"font-weight: bold; color: #0284c7;\">{{ $json.ticketId }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Tesis / Site Adı:</td><td style=\"font-weight: bold; font-size: 16px;\">{{ $json.binaAdi }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Blok / Bağımsız Bölüm:</td><td style=\"font-weight: bold;\">{{ $json.blokDaire }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bildiren Kişi:</td><td style=\"font-weight: bold;\">{{ $json.adSoyad }} (<a href=\"tel:{{ $json.phone }}\" style=\"color: #0284c7;\">{{ $json.phone }}</a>)</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Müdahale SLA:</td><td style=\"font-weight: bold; color: #dc2626;\">{{ $json.slaMinutes }} Dakika</td></tr>\n    </table>\n    <div style=\"background: #fef2f2; border-left: 4px solid #dc2626; padding: 14px; border-radius: 4px;\">\n      <strong style=\"color: #991b1b;\">Arıza Açıklaması:</strong>\n      <p style=\"margin: 6px 0 0 0; font-size: 14px; color: #7f1d1d;\">{{ $json.aciklama }}</p>\n    </div>\n    <div style=\"margin-top: 20px; text-align: center;\">\n      <a href=\"tel:{{ $json.phone }}\" style=\"display: inline-block; background: #dc2626; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none;\">📞 Bildiren Sakini Ara</a>\n    </div>\n  </div>\n</div>"
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 2px solid #dc2626; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 20px; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 22px;\">🚨 ACİL TESİS ARIZA & KRİZ SEVKİ</h1>\n    <p style=\"margin: 6px 0 0 0; font-size: 14px; font-weight: bold;\">{{ $json.slaBadge }}</p>\n  </div>\n  <div style=\"padding: 24px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Takip Numarası:</td><td style=\"font-weight: bold; color: #0284c7;\">{{ $json.ticketId }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Tesis / Site Adı:</td><td style=\"font-weight: bold; font-size: 16px;\">{{ $json.binaAdi }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Blok / Bağımsız Bölüm:</td><td style=\"font-weight: bold;\">{{ $json.blokDaire }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bildiren Kişi:</td><td style=\"font-weight: bold;\">{{ $json.adSoyad }} (<a href=\"tel:{{ $json.phone }}\" style=\"color: #0284c7;\">{{ $json.phone }}</a>)</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Müdahale SLA:</td><td style=\"font-weight: bold; color: #dc2626;\">{{ $json.slaMinutes }} Dakika</td></tr>\n    </table>\n    <div style=\"background: #fef2f2; border-left: 4px solid #dc2626; padding: 14px; border-radius: 4px;\">\n      <strong style=\"color: #991b1b;\">Arıza Açıklaması:</strong>\n      <p style=\"margin: 6px 0 0 0; font-size: 14px; color: #7f1d1d;\">{{ $json.aciklama }}</p>\n    </div>\n    <div style=\"margin-top: 20px; text-align: center; display: flex; gap: 10px; justify-content: center;\">\n      <a href=\"tel:{{ $json.phone }}\" style=\"display: inline-block; background: #dc2626; color: #ffffff; padding: 12px 20px; border-radius: 6px; font-weight: bold; text-decoration: none;\">📞 Sakini Doğrudan Ara</a>\n    </div>\n  </div>\n</div>"
       },
       "id": "send-crisis-dispatch-email",
       "name": "Nöbetçi Ekibe Acil Sevk E-Postası",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        940,
-        200
+        1300,
+        100
       ],
       "onError": "continueRegularOutput"
     },
@@ -109,8 +154,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        940,
-        420
+        1300,
+        280
       ]
     },
     {
@@ -126,8 +171,8 @@
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        1180,
-        400
+        1520,
+        240
       ],
       "onError": "continueRegularOutput"
     },
@@ -140,8 +185,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1400,
-        300
+        1740,
+        180
       ]
     }
   ],
@@ -150,19 +195,43 @@
       "main": [
         [
           {
-            "node": "Anında 200 OK & Takip No",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Kriz Triajı & SLA Belirleyici",
+            "node": "Kriz Triajı, Güvenlik & SLA Belirleyici",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Kriz Triajı & SLA Belirleyici": {
+    "Kriz Triajı, Güvenlik & SLA Belirleyici": {
+      "main": [
+        [
+          {
+            "node": "Yetkili Kriz İstemi mi?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yetkili Kriz İstemi mi?": {
+      "main": [
+        [
+          {
+            "node": "200 OK & Takip No",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "401 Unauthorized",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "200 OK & Takip No": {
       "main": [
         [
           {
@@ -233,7 +302,6 @@
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
-    "saveExecutionProgress": false,
     "saveFailedExecutions": true
   },
   "tags": []

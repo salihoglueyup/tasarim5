@@ -1,6 +1,6 @@
 {
   "id": "w26DevOpsPgLock1",
-  "name": "[DevOps & DB] W26 — PostgreSQL Kilitli / Yavaş Sorgu & Askıda Kalan Bağlantı Avcısı",
+  "name": "[DevOps & DB] W26 — PostgreSQL Kilitli / Yavaş Sorgu & Askıda Kalan Bağlantı Avcısı (Self-Healing)",
   "nodes": [
     {
       "parameters": {
@@ -39,7 +39,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const rows = $input.all();\nconst longRunning = [];\nlet maxDuration = 0;\n\nfor (const r of rows) {\n  const data = r.json;\n  const duration = parseFloat(data.duration_seconds || 0);\n  if (duration > maxDuration) maxDuration = duration;\n  if (duration >= 30) {\n    longRunning.push({\n      pid: data.pid,\n      user: data.usename,\n      state: data.state,\n      duration,\n      query: data.query_preview\n    });\n  }\n}\n\nconst hasSlowQueries = longRunning.length > 0;\nconst summary = hasSlowQueries \n  ? `UYARI: ${longRunning.length} adet sorgu 30 saniyeden uzun süredir kilitli/askıda!` \n  : `PostgreSQL Sağlıklı: Askıda kalan veya kilitlenen sorgu yok (Maks süre: ${maxDuration}s)`;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    hasSlowQueries,\n    totalChecked: rows.length,\n    longRunningCount: longRunning.length,\n    slowQueries: longRunning,\n    maxDurationSeconds: maxDuration,\n    summary\n  }\n}];"
+        "jsCode": "const rows = $input.all();\nconst longRunning = [];\nconst autoKillPids = [];\nlet maxDuration = 0;\n\nfor (const r of rows) {\n  const data = r.json;\n  const duration = parseFloat(data.duration_seconds || 0);\n  if (duration > maxDuration) maxDuration = duration;\n  if (duration >= 30) {\n    longRunning.push({\n      pid: data.pid,\n      user: data.usename,\n      state: data.state,\n      duration,\n      query: data.query_preview\n    });\n    // 60 saniyeden uzun süren idle in transaction işlemlerini self-healing adayı yap\n    if (duration >= 60 && data.state === 'idle in transaction') {\n      autoKillPids.push(data.pid);\n    }\n  }\n}\n\nconst hasSlowQueries = longRunning.length > 0;\nconst hasAutoKill = autoKillPids.length > 0;\nconst summary = hasSlowQueries \n  ? `UYARI: ${longRunning.length} adet sorgu 30 saniyeden uzun süredir askıda! (Otomatik sonlandırma adayı: ${autoKillPids.length})` \n  : `PostgreSQL Sağlıklı: Kilitlenen sorgu yok (Maks süre: ${maxDuration}s)`;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    hasSlowQueries,\n    hasAutoKill,\n    autoKillPids,\n    totalChecked: rows.length,\n    longRunningCount: longRunning.length,\n    slowQueries: longRunning,\n    maxDurationSeconds: maxDuration,\n    summary\n  }\n}];"
       },
       "id": "evaluate-query-locks",
       "name": "Kilitli Sorgu Değerlendirici",
@@ -55,7 +55,7 @@
         "operation": "executeQuery",
         "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-pg-lock-sentinel',\n  'pg_slow_queries_monitored',\n  'Database',\n  $2,\n  NOW()\n);",
         "additionalFields": {
-          "queryParams": "={{ [ 'pg_lock_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ slowCount: $json.longRunningCount, maxDuration: $json.maxDurationSeconds }) ] }}"
+          "queryParams": "={{ [ 'pg_lock_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ slowCount: $json.longRunningCount, autoKillCount: $json.autoKillPids.length, maxDuration: $json.maxDurationSeconds }) ] }}"
         }
       },
       "id": "log-pg-lock-db",
@@ -65,6 +65,41 @@
       "position": [
         780,
         300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasAutoKill }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-self-heal-kill",
+      "name": "Otomatik Kapatılacak PID Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        980,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT pg_terminate_backend(pid)\nFROM pg_stat_activity\nWHERE pid = ANY($1::int[])\n  AND state = 'idle in transaction'\n  AND EXTRACT(EPOCH FROM (clock_timestamp() - state_change)) > 60;"
+      },
+      "id": "self-healing-terminate",
+      "name": "Otomatik Bağlantıyı Sonlandır (Self-Healing)",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1200,
+        140
       ],
       "onError": "continueRegularOutput"
     },
@@ -85,16 +120,16 @@
       "typeVersion": 2,
       "position": [
         980,
-        300
+        400
       ]
     },
     {
       "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=🛑 [POSTGRESQL KİLİT UYARISI] {{ $json.longRunningCount }} Adet Askıda Kalan Sorgu Tespit Edildi!",
+        "subject": "=🛑 [POSTGRESQL KİLİT & SELF-HEALING] {{ $json.longRunningCount }} Askıda Kalan Sorgu Yakalandı!",
         "emailType": "html",
-        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #dc2626; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🛑 PostgreSQL Kilitli Sorgu & Havuz Şişmesi Alarmı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Tarih: {{ $json.timestamp }} | Maks Süre: {{ $json.maxDurationSeconds }} sn</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p style=\"font-size: 13px;\">Aşağıdaki sorgular 30 saniyeden uzun süredir veritabanı kaynaklarını bloke etmektedir:</p>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px;\">\n      <thead>\n        <tr style=\"background: #fef2f2; border-bottom: 2px solid #dc2626;\">\n          <th style=\"padding: 8px; text-align: left;\">PID</th>\n          <th style=\"padding: 8px; text-align: left;\">Durum</th>\n          <th style=\"padding: 8px; text-align: right;\">Süre (sn)</th>\n          <th style=\"padding: 8px; text-align: left;\">Sorgu</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.slowQueries.map(q => `<tr style=\"border-bottom: 1px solid #fee2e2;\"><td style=\"padding: 8px; font-weight: bold;\">${q.pid}</td><td style=\"padding: 8px;\">${q.state}</td><td style=\"padding: 8px; text-align: right; color: #dc2626; font-weight: bold;\">${q.duration}s</td><td style=\"padding: 8px; font-family: monospace; font-size: 11px;\">${q.query}</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #dc2626; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🛑 PostgreSQL Kilitli Sorgu & Self-Healing Müdahalesi</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Tarih: {{ $json.timestamp }} | Maks Süre: {{ $json.maxDurationSeconds }} sn</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p style=\"font-size: 13px;\">Aşağıdaki sorgular veritabanı bağlantı havuzunu bloke etmektedir:</p>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px;\">\n      <thead>\n        <tr style=\"background: #fef2f2; border-bottom: 2px solid #dc2626;\">\n          <th style=\"padding: 8px; text-align: left;\">PID</th>\n          <th style=\"padding: 8px; text-align: left;\">Durum</th>\n          <th style=\"padding: 8px; text-align: right;\">Süre (sn)</th>\n          <th style=\"padding: 8px; text-align: left;\">Sorgu</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.slowQueries.map(q => `<tr style=\"border-bottom: 1px solid #fee2e2;\"><td style=\"padding: 8px; font-weight: bold;\">${q.pid}</td><td style=\"padding: 8px;\">${q.state}</td><td style=\"padding: 8px; text-align: right; color: #dc2626; font-weight: bold;\">${q.duration}s</td><td style=\"padding: 8px; font-family: monospace; font-size: 11px;\">${q.query}</td></tr>`).join('') }}\n      </tbody>\n    </table>\n    <div style=\"margin-top: 15px; padding: 12px; background: #f0fdf4; border-left: 4px solid #16a34a; font-size: 12px;\">\n      <strong>🛡️ Self-Healing Durumu:</strong> 60 sn'yi aşan ve havuzu tıkayan <code>idle in transaction</code> işlemleri otomatik sonlandırıldı.\n    </div>\n  </div>\n</div>"
       },
       "id": "send-pg-alert",
       "name": "DevOps'a Acil Kilit Bildirimi Gönder",
@@ -102,7 +137,7 @@
       "typeVersion": 2.1,
       "position": [
         1200,
-        220
+        340
       ],
       "onError": "continueRegularOutput"
     },
@@ -115,8 +150,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1200,
-        380
+        1420,
+        340
       ]
     }
   ],
@@ -158,7 +193,34 @@
       "main": [
         [
           {
+            "node": "Otomatik Kapatılacak PID Var mı?",
+            "type": "main",
+            "index": 0
+          },
+          {
             "node": "Yavaş/Kilitli Sorgu Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Otomatik Kapatılacak PID Var mı?": {
+      "main": [
+        [
+          {
+            "node": "Otomatik Bağlantıyı Sonlandır (Self-Healing)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Otomatik Bağlantıyı Sonlandır (Self-Healing)": {
+      "main": [
+        [
+          {
+            "node": "DevOps'a Acil Kilit Bildirimi Gönder",
             "type": "main",
             "index": 0
           }

@@ -1253,6 +1253,36 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(ecoli?.legalLimit).toContain('0 / 100 ml');
     });
   });
+
+  describe('42. 30 Kurumsal n8n İş Akışı & Sistem Telemetrisi API (/api/admin/workflow-telemetry)', () => {
+    it('Telemetri API uç noktası 30 akış, 7 kurumsal kategori ve güvenlik başlıklarını döner', async () => {
+      const { GET } = await import('@/app/api/admin/workflow-telemetry/route');
+      const response = await GET();
+      expect(response.status).toBe(200);
+
+      const headers = response.headers;
+      expect(headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
+      expect(headers.get('Cache-Control')).toContain('no-store');
+
+      const data = await response.json();
+      expect(data.success).toBe(true);
+      expect(data.summary.totalWorkflows).toBe(30);
+      expect(data.summary.activeWorkflows).toBe(30);
+      expect(data.summary.systemUptimePercentage).toBeGreaterThanOrEqual(99.9);
+      expect(data.summary.selfHealingStatus).toBe('ACTIVE');
+      expect(data.summary.bearerSecurityStatus).toBe('ENFORCED');
+
+      // 7 Kategori
+      expect(data.categories.length).toBe(7);
+      const crmCat = data.categories.find((c: any) => c.name === 'CRM & Saha');
+      expect(crmCat).toBeDefined();
+      expect(crmCat.count).toBe(6);
+
+      const devopsCat = data.categories.find((c: any) => c.name === 'DevOps & Sağlık');
+      expect(devopsCat).toBeDefined();
+      expect(devopsCat.count).toBe(11);
+    });
+  });
 });
 
 

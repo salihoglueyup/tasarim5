@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
+import WorkflowTelemetryWidget from '@/components/admin/WorkflowTelemetryWidget';
 
 // This is a Server Component. We can fetch data directly from DB.
 export default async function AdminDashboard({ params }: { params: Promise<{ lang: string }> }) {
@@ -103,6 +104,9 @@ export default async function AdminDashboard({ params }: { params: Promise<{ lan
           </div>
         ))}
       </div>
+
+      {/* 30 İleri Seviye Kurumsal İş Akışı & Sistem Telemetrisi */}
+      <WorkflowTelemetryWidget />
 
       {/* Split Activity Feed */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

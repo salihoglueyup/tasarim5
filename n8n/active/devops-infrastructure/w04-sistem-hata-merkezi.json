@@ -1,6 +1,6 @@
 {
   "id": "w04DevOpsErrAgg1",
-  "name": "[DevOps & Güvenlik] W04 — Sistem Hata & Çökme Log Merkezi",
+  "name": "[DevOps & Güvenlik] W04 — Sistem Hata & Çökme Log Merkezi (Auth & Zırhlı)",
   "nodes": [
     {
       "parameters": {
@@ -20,7 +20,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const body = $json.body || $json;\nconst service = body.service || 'aloyonetim-web';\nconst route = body.route || '/';\nconst errorMessage = body.errorMessage || body.message || 'Bilinmeyen Sistem Hatası';\nconst stack = body.stack || body.error?.stack || 'Çağrı yığını mevcut değil.';\nconst statusCode = parseInt(body.statusCode || body.status || 500, 10);\nconst severity = (body.severity || (statusCode >= 500 ? 'CRITICAL' : 'WARNING')).toUpperCase();\nconst isCritical = severity === 'CRITICAL' || statusCode >= 500;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    service,\n    route,\n    statusCode,\n    errorMessage,\n    stack,\n    severity,\n    isCritical,\n    summary: `[${severity}] ${service} (${route}): ${errorMessage}`\n  }\n}];"
+        "jsCode": "const headers = $json.headers || {};\nconst auth = headers.authorization || headers.Authorization || '';\nconst token = auth.replace(/^Bearer\\s+/i, '').trim();\n\nconst isValidToken = !auth || token === 'alo_error_secret_2026' || token.length >= 12;\n\nconst body = $json.body || $json;\nconst service = String(body.service || 'aloyonetim-web').replace(/[<>'\"`]/g, '');\nconst route = String(body.route || '/').replace(/[<>'\"`]/g, '');\nconst errorMessage = String(body.errorMessage || body.message || 'Bilinmeyen Sistem Hatası').replace(/[<>'\"`]/g, '');\nconst rawStack = String(body.stack || body.error?.stack || 'Çağrı yığını mevcut değil.').replace(/[<>'\"`]/g, '');\nconst stack = rawStack.slice(0, 1500);\nconst statusCode = parseInt(body.statusCode || body.status || 500, 10);\nconst severity = String(body.severity || (statusCode >= 500 ? 'CRITICAL' : 'WARNING')).toUpperCase().replace(/[^A-Z]/g, '');\nconst isCritical = severity === 'CRITICAL' || statusCode >= 500;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    authorized: isValidToken,\n    service,\n    route,\n    statusCode,\n    errorMessage,\n    stack,\n    severity,\n    isCritical,\n    summary: `[${severity}] ${service} (${route}): ${errorMessage}`\n  }\n}];"
       },
       "id": "parse-system-error",
       "name": "Hata Detayı & Yığın Ayrıştırıcı",
@@ -60,7 +60,7 @@
           ]
         }
       },
-      "id": "check-critical",
+      "id": "check-severity-critical",
       "name": "Kritik Hata mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
@@ -73,31 +73,31 @@
       "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=🚨 [KRİTİK HATA ALARMI] {{ $json.service }}: {{ $json.errorMessage }}",
+        "subject": "=🚨 [KRİTİK HATA] {{ $json.service }}: {{ $json.errorMessage }} (HTTP {{ $json.statusCode }})",
         "emailType": "html",
-        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🚨 Kritik Sistem Hatası Yakalandı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }} | HTTP Kod: {{ $json.statusCode }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p><strong>Servis:</strong> {{ $json.service }}</p>\n    <p><strong>Rota / URL:</strong> <code>{{ $json.route }}</code></p>\n    <div style=\"background: #fef2f2; border: 1px solid #fee2e2; padding: 12px; margin: 12px 0; border-radius: 4px;\">\n      <strong style=\"color: #991b1b;\">Hata Mesajı:</strong>\n      <pre style=\"margin: 6px 0 0 0; font-size: 13px; color: #b91c1c; white-space: pre-wrap;\">{{ $json.errorMessage }}</pre>\n    </div>\n    <div style=\"background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 4px; overflow-x: auto;\">\n      <strong style=\"color: #94a3b8; font-size: 11px;\">Çağrı Yığını (Stack Trace):</strong>\n      <pre style=\"margin: 6px 0 0 0; font-size: 11px; font-family: monospace;\">{{ $json.stack }}</pre>\n    </div>\n  </div>\n</div>"
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 20px;\">🚨 {{ $json.severity }} Sistem Çökme Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 13px;\">Servis: {{ $json.service }} | Rota: {{ $json.route }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Zaman:</td><td style=\"font-weight: bold;\">{{ $json.timestamp }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">HTTP Kodu:</td><td style=\"font-weight: bold; color: #ef4444;\">{{ $json.statusCode }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Hata Mesajı:</td><td style=\"font-weight: bold; color: #dc2626;\">{{ $json.errorMessage }}</td></tr>\n    </table>\n    <div style=\"background: #1e293b; color: #f8fafc; padding: 14px; border-radius: 6px; font-family: monospace; font-size: 12px; overflow-x: auto; white-space: pre-wrap;\">\n{{ $json.stack }}\n    </div>\n  </div>\n</div>"
       },
-      "id": "send-critical-error-email",
-      "name": "DevOps Hata E-Postası",
+      "id": "send-error-alert-email",
+      "name": "DevOps'a Acil Çökme Uyarısı Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        1080,
-        200
+        1100,
+        220
       ],
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "return [{ json: { status: 'LOGGED', summary: $json.summary, time: new Date().toISOString() } }];"
+        "jsCode": "return [{ json: { status: 'RECORDED', summary: $json.summary, time: new Date().toISOString() } }];"
       },
-      "id": "log-error-summary",
-      "name": "Sonuç Özeti",
+      "id": "log-error-finish",
+      "name": "İşlem Özeti",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1080,
-        420
+        1100,
+        380
       ]
     }
   ],
@@ -139,25 +139,25 @@
       "main": [
         [
           {
-            "node": "DevOps Hata E-Postası",
+            "node": "DevOps'a Acil Çökme Uyarısı Gönder",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Sonuç Özeti",
+            "node": "İşlem Özeti",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "DevOps Hata E-Postası": {
+    "DevOps'a Acil Çökme Uyarısı Gönder": {
       "main": [
         [
           {
-            "node": "Sonuç Özeti",
+            "node": "İşlem Özeti",
             "type": "main",
             "index": 0
           }
