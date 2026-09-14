@@ -18,6 +18,7 @@ import {
   DistrictLocalPackProofSeo,
   DistrictMicroNeighborhoodsSeo,
   DistrictCourthouseMediationSeo,
+  DistrictEmergencyPreparednessSeo,
 } from '@/components/seo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -259,6 +260,12 @@ export default async function DistrictPage({
 
         {/* Faz 11: 39 İlçe Sulh Hukuk Mahkemesi & Zorunlu Arabuluculuk Rehberi (7445 Sayılı Kanun) */}
         <DistrictCourthouseMediationSeo
+          districtSlug={district.slug}
+          districtName={district.name}
+        />
+
+        {/* Faz 12: 39 İlçe Deprem, Yangın ve Afet Acil Durum Eylem Planı (Schema.org EmergencyService) */}
+        <DistrictEmergencyPreparednessSeo
           districtSlug={district.slug}
           districtName={district.name}
         />

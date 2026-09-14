@@ -29,6 +29,7 @@ import {
   KMKAuditProtocolSeo,
   ManagementTransitionRoadmapSeo,
   KMKLegalDisputesQAPageSeo,
+  KMKLegislationNavigatorSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
@@ -368,6 +369,13 @@ export default function SiteYonetimiClient() {
           <KMKLegalDisputesQAPageSeo
             pageUrl="/hizmetler/site-yonetimi"
           />
+        </div>
+      </div>
+
+      {/* 11.18. BÖLÜM: 634 Sayılı Kat Mülkiyeti Kanunu Madde Madde Mevzuat Gezgini (Schema.org Legislation) */}
+      <div className="py-16 bg-slate-900/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <KMKLegislationNavigatorSeo />
         </div>
       </div>
 

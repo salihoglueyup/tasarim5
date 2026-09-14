@@ -28,6 +28,7 @@ import {
   FacilityCorporateB2BHubSeo,
   AcademicCitationBoxSeo,
   ServicePricingCatalogSeo,
+  FacilityAnnualMaintenanceScheduleSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -664,6 +665,13 @@ export default function TesisYonetimiClient() {
             pageUrl="/hizmetler/tesis-yonetimi"
             categoryFilter="commercial"
           />
+        </div>
+      </div>
+
+      {/* 6.9. BÖLÜM: ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi (Schedule & TechArticle) */}
+      <div className="py-12 bg-slate-900/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FacilityAnnualMaintenanceScheduleSeo />
         </div>
       </div>
 
