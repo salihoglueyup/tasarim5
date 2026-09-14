@@ -498,6 +498,19 @@ export function generateOpenApiSpec() {
           },
         },
       },
+      '/api/ai/fact-check-feed.json': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'AI Anti-Halüsinasyon KMK Doğrulama Korpusu (Ground-Truth Feed)',
+          description: 'ChatGPT, Perplexity ve Claude için Kat Mülkiyeti Kanunu ve tesis yönetimi şehir efsanelerine karşı Yargıtay içtihatlı kanuni doğrular.',
+          operationId: 'getAiFactCheckFeed',
+          responses: {
+            '200': {
+              description: 'Doğrulanmış yasal hükümler, Yargıtay esas kararları ve doğru hüküm listesi.',
+            },
+          },
+        },
+      },
     },
   };
 }

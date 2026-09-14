@@ -38,6 +38,7 @@ export default function robots(): MetadataRoute.Robots {
     '/api/ai/facility-agent-context.json',
     '/api/ai/site-agent-context.json',
     '/api/ai/search-query',
+    '/api/ai/fact-check-feed.json',
     '/api/markdown/site-yonetimi',
     '/api/markdown/tesis-yonetimi',
     '/api/tesis-yonetimi/calculate-budget',
