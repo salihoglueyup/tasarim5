@@ -25,6 +25,8 @@ import {
   FacilityBudgetStaffSimulatorSeo,
   SiteVsFacilityComparisonSeo,
   VoiceSearchSpeakableSeo,
+  FacilityCorporateB2BHubSeo,
+  AcademicCitationBoxSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -636,6 +638,23 @@ export default function TesisYonetimiClient() {
 
       {/* 6.5. BÖLÜM: Wave 56 İstanbul 39 İlçe Hub & Spoke Tesis Yönetimi Portföy Ağı */}
       <FacilityDistrictPortfolioSeo />
+
+      {/* 6.6. BÖLÜM: ISO 41001 & B2B Kurumsal Tesis Yönetimi Hub'ı (Table & DigitalDocument) */}
+      <div className="py-12 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FacilityCorporateB2BHubSeo />
+        </div>
+      </div>
+
+      {/* 6.7. BÖLÜM: Akademik & Hukuki Atıf Oluşturucu (ScholarlyArticle & Citation Authority) */}
+      <div className="py-8 bg-slate-900/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AcademicCitationBoxSeo
+            pageUrl="/hizmetler/tesis-yonetimi"
+            pageTitle="Entegre Tesis Yönetimi, ISO 41001 Standartları ve Kurumsal SLA Kılavuzu"
+          />
+        </div>
+      </div>
 
       {/* 7. BÖLÜM: Footer Öncesi SEO, İlgili Hizmetler & Makaleler */}
       <SeoTextSection
