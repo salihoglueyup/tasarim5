@@ -16,7 +16,10 @@
       "name": "Pazartesi 09:00",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -26,7 +29,10 @@
       "name": "Anahtar Kelimeler",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
@@ -35,8 +41,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
-            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "X-Restli-Protocol-Version",
+              "value": "2.0.0"
+            }
           ]
         },
         "options": {}
@@ -45,7 +57,10 @@
       "name": "Reklamları Ara",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
@@ -55,7 +70,10 @@
       "name": "Reklamları Düzenle",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [900, 300]
+      "position": [
+        900,
+        300
+      ]
     },
     {
       "parameters": {
@@ -70,7 +88,10 @@
       "name": "Daha Önce Kayıtlı mı?",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [1120, 300],
+      "position": [
+        1120,
+        300
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -85,7 +106,10 @@
             {
               "leftValue": "={{ $json.length }}",
               "rightValue": 0,
-              "operator": { "type": "number", "operation": "equals" }
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
             }
           ]
         }
@@ -94,7 +118,10 @@
       "name": "Yeni Reklam mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [1340, 300]
+      "position": [
+        1340,
+        300
+      ]
     },
     {
       "parameters": {
@@ -109,7 +136,10 @@
       "name": "Yeni Reklamı Kaydet",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [1560, 240],
+      "position": [
+        1560,
+        240
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -129,7 +159,10 @@
       "name": "Rakip Uyarısı",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [1780, 240],
+      "position": [
+        1780,
+        240
+      ],
       "credentials": {
         "telegramApi": {
           "id": "telegram-cred",
@@ -140,30 +173,91 @@
   ],
   "connections": {
     "Pazartesi 09:00": {
-      "main": [[{ "node": "Anahtar Kelimeler", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Anahtar Kelimeler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Anahtar Kelimeler": {
-      "main": [[{ "node": "Reklamları Ara", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Reklamları Ara",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Reklamları Ara": {
-      "main": [[{ "node": "Reklamları Düzenle", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Reklamları Düzenle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Reklamları Düzenle": {
-      "main": [[{ "node": "Daha Önce Kayıtlı mı?", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Daha Önce Kayıtlı mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Daha Önce Kayıtlı mı?": {
-      "main": [[{ "node": "Yeni Reklam mı?", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Yeni Reklam mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Yeni Reklam mı?": {
-      "main": [[{ "node": "Yeni Reklamı Kaydet", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Yeni Reklamı Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Yeni Reklamı Kaydet": {
-      "main": [[{ "node": "Rakip Uyarısı", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Rakip Uyarısı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": ["aloYonetim", "linkedin", "rakipAnaliz"]
+  "tags": [
+    "aloYonetim",
+    "linkedin",
+    "rakipAnaliz"
+  ],
+  "id": "w04CompetitMon01"
 }

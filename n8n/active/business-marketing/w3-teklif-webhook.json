@@ -12,7 +12,10 @@
       "name": "Yeni Talep Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [240, 300],
+      "position": [
+        240,
+        300
+      ],
       "webhookId": "yeni-talep"
     },
     {
@@ -21,7 +24,12 @@
         "responseBody": "{\"ok\":true}",
         "options": {
           "responseHeaders": {
-            "entries": [{ "name": "Content-Type", "value": "application/json" }]
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
           }
         }
       },
@@ -29,23 +37,61 @@
       "name": "200 OK Döndür",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [460, 160]
+      "position": [
+        460,
+        160
+      ]
     },
     {
       "parameters": {
         "rules": {
           "values": [
-            { "conditions": { "conditions": [{ "leftValue": "={{ $json.body.data.type }}", "rightValue": "quote", "operator": { "type": "string", "operation": "equals" } }] }, "renameOutput": true, "outputKey": "quote" },
-            { "conditions": { "conditions": [{ "leftValue": "={{ $json.body.data.type }}", "rightValue": "callback", "operator": { "type": "string", "operation": "equals" } }] }, "renameOutput": true, "outputKey": "callback" }
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.data.type }}",
+                    "rightValue": "quote",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "quote"
+            },
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.data.type }}",
+                    "rightValue": "callback",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "callback"
+            }
           ]
         },
-        "options": { "fallbackOutput": "extra" }
+        "options": {
+          "fallbackOutput": "extra"
+        }
       },
       "id": "switch-type",
       "name": "Talep Türü",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3,
-      "position": [460, 380]
+      "position": [
+        460,
+        380
+      ]
     },
     {
       "parameters": {
@@ -55,7 +101,10 @@
       "name": "Payload Parse",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
@@ -64,8 +113,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}" },
-            { "name": "Content-Type", "value": "application/json" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
           ]
         },
         "sendBody": true,
@@ -80,27 +135,56 @@
       "name": "WhatsApp Bildirim",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 300]
+      "position": [
+        900,
+        300
+      ]
     }
   ],
   "connections": {
     "Yeni Talep Webhook": {
       "main": [
         [
-          { "node": "200 OK Döndür", "type": "main", "index": 0 },
-          { "node": "Talep Türü", "type": "main", "index": 0 }
+          {
+            "node": "200 OK Döndür",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Talep Türü",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
     "Talep Türü": {
       "main": [
-        [{ "node": "Payload Parse", "type": "main", "index": 0 }],
-        [{ "node": "Payload Parse", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Payload Parse",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Payload Parse",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Payload Parse": {
       "main": [
-        [{ "node": "WhatsApp Bildirim", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "WhatsApp Bildirim",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -108,5 +192,10 @@
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": ["aloYonetim", "webhook", "whatsapp"]
+  "tags": [
+    "aloYonetim",
+    "webhook",
+    "whatsapp"
+  ],
+  "id": "w03TeklifWebhk01"
 }

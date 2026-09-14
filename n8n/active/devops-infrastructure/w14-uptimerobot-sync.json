@@ -11,7 +11,10 @@
       "name": "UptimeRobot Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [220, 300],
+      "position": [
+        220,
+        300
+      ],
       "webhookId": "uptimerobot-alert"
     },
     {
@@ -22,7 +25,10 @@
       "name": "UptimeRobot Uyarısını Ayrıştır",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [440, 300]
+      "position": [
+        440,
+        300
+      ]
     },
     {
       "parameters": {
@@ -36,7 +42,10 @@
       "name": "Kesinti E-Postası Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [660, 200]
+      "position": [
+        660,
+        200
+      ]
     },
     {
       "parameters": {
@@ -46,7 +55,10 @@
       "name": "Olayı Logla",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 400]
+      "position": [
+        660,
+        400
+      ]
     }
   ],
   "connections": {
@@ -82,5 +94,6 @@
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "saveFailedExecutions": true
-  }
+  },
+  "id": "w14UptimeRobot1"
 }

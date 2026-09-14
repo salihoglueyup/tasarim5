@@ -16,7 +16,10 @@
       "name": "Her 15 Dakikada Bir Tetikle",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [220, 300]
+      "position": [
+        220,
+        300
+      ]
     },
     {
       "parameters": {
@@ -27,7 +30,10 @@
       "name": "PostgreSQL Metriklerini Sorgula",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
-      "position": [440, 300],
+      "position": [
+        440,
+        300
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -43,7 +49,10 @@
       "name": "Eşik Değer Analizi",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300]
+      "position": [
+        660,
+        300
+      ]
     },
     {
       "parameters": {
@@ -60,7 +69,10 @@
       "name": "DB Uyarısı Var mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [880, 300]
+      "position": [
+        880,
+        300
+      ]
     },
     {
       "parameters": {
@@ -74,7 +86,10 @@
       "name": "Veritabanı Uyarısı Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [1120, 200]
+      "position": [
+        1120,
+        200
+      ]
     },
     {
       "parameters": {
@@ -84,7 +99,10 @@
       "name": "Log Tut",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 400]
+      "position": [
+        1120,
+        400
+      ]
     }
   ],
   "connections": {
@@ -144,5 +162,6 @@
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "saveFailedExecutions": true
-  }
+  },
+  "id": "w10PostgresPerf1"
 }

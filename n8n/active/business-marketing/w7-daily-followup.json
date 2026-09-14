@@ -16,7 +16,10 @@
       "name": "Hafta İçi 08:30",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -28,7 +31,10 @@
       "name": "Takip Bekleyen Leadler",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [460, 300],
+      "position": [
+        460,
+        300
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -63,7 +69,10 @@
       "name": "Lead Var Mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
@@ -73,7 +82,10 @@
       "name": "Mesajı Formatla",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [900, 240]
+      "position": [
+        900,
+        240
+      ]
     },
     {
       "parameters": {
@@ -87,7 +99,10 @@
       "name": "Telegram Bildirim",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [1120, 240],
+      "position": [
+        1120,
+        240
+      ],
       "credentials": {
         "telegramApi": {
           "id": "telegram-cred",
@@ -99,22 +114,46 @@
   "connections": {
     "Hafta İçi 08:30": {
       "main": [
-        [{ "node": "Takip Bekleyen Leadler", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Takip Bekleyen Leadler",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Takip Bekleyen Leadler": {
       "main": [
-        [{ "node": "Lead Var Mı?", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Lead Var Mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Lead Var Mı?": {
       "main": [
-        [{ "node": "Mesajı Formatla", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Mesajı Formatla",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Mesajı Formatla": {
       "main": [
-        [{ "node": "Telegram Bildirim", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Telegram Bildirim",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -122,5 +161,10 @@
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": ["aloYonetim", "crm", "takip"]
+  "tags": [
+    "aloYonetim",
+    "crm",
+    "takip"
+  ],
+  "id": "w07DailyFolwUp01"
 }

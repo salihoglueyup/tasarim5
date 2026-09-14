@@ -16,7 +16,10 @@
       "name": "Cuma 17:00",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -25,8 +28,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
-            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "X-Restli-Protocol-Version",
+              "value": "2.0.0"
+            }
           ]
         },
         "options": {}
@@ -35,7 +44,10 @@
       "name": "Sayfa İstatistikleri Al",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
@@ -44,8 +56,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
-            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "X-Restli-Protocol-Version",
+              "value": "2.0.0"
+            }
           ]
         },
         "options": {}
@@ -54,7 +72,10 @@
       "name": "Takipçi Sayısı Al",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 480]
+      "position": [
+        460,
+        480
+      ]
     },
     {
       "parameters": {
@@ -64,7 +85,10 @@
       "name": "Verileri Düzenle",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [700, 380]
+      "position": [
+        700,
+        380
+      ]
     },
     {
       "parameters": {
@@ -79,7 +103,10 @@
       "name": "Metrikleri Kaydet",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [920, 380],
+      "position": [
+        920,
+        380
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -99,7 +126,10 @@
       "name": "Telegram Rapor",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [1140, 380],
+      "position": [
+        1140,
+        380
+      ],
       "credentials": {
         "telegramApi": {
           "id": "telegram-cred",
@@ -112,27 +142,72 @@
     "Cuma 17:00": {
       "main": [
         [
-          { "node": "Sayfa İstatistikleri Al", "type": "main", "index": 0 },
-          { "node": "Takipçi Sayısı Al", "type": "main", "index": 0 }
+          {
+            "node": "Sayfa İstatistikleri Al",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Takipçi Sayısı Al",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
     "Sayfa İstatistikleri Al": {
-      "main": [[{ "node": "Verileri Düzenle", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Verileri Düzenle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Takipçi Sayısı Al": {
-      "main": [[{ "node": "Verileri Düzenle", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Verileri Düzenle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Verileri Düzenle": {
-      "main": [[{ "node": "Metrikleri Kaydet", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Metrikleri Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Metrikleri Kaydet": {
-      "main": [[{ "node": "Telegram Rapor", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Telegram Rapor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": ["aloYonetim", "linkedin", "istatistik"]
+  "tags": [
+    "aloYonetim",
+    "linkedin",
+    "istatistik"
+  ],
+  "id": "w05LnkdStatsPg01"
 }

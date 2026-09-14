@@ -16,7 +16,10 @@
       "name": "Her 2 Dakikada Bir Tetikle",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [220, 300]
+      "position": [
+        220,
+        300
+      ]
     },
     {
       "parameters": {
@@ -29,7 +32,10 @@
       "name": "GET /api/health Kontrolü",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [440, 300],
+      "position": [
+        440,
+        300
+      ],
       "onError": "continueRegularOutput"
     },
     {
@@ -40,7 +46,10 @@
       "name": "RFC 8485 Sağlık Analizi",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300]
+      "position": [
+        660,
+        300
+      ]
     },
     {
       "parameters": {
@@ -57,7 +66,10 @@
       "name": "Acil Durum Var mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [880, 300]
+      "position": [
+        880,
+        300
+      ]
     },
     {
       "parameters": {
@@ -71,7 +83,10 @@
       "name": "Acil E-Posta Gönder",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [1120, 200]
+      "position": [
+        1120,
+        200
+      ]
     },
     {
       "parameters": {
@@ -81,7 +96,10 @@
       "name": "Sessizce Logla",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 400]
+      "position": [
+        1120,
+        400
+      ]
     }
   ],
   "connections": {
@@ -142,5 +160,6 @@
     "saveManualExecutions": true,
     "saveExecutionProgress": false,
     "saveFailedExecutions": true
-  }
+  },
+  "id": "w09SlaWatchdog01"
 }
