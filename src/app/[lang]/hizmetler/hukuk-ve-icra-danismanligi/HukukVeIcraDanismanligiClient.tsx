@@ -14,7 +14,7 @@ import KMKLegalProcessHowToSeo from '@/components/seo/KMKLegalProcessHowToSeo';
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/KMKLegalTemplateGeneratorSeo';
 import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo } from '@/components/seo';
 
 export default function HukukVeIcraDanismanligiClient() {
   const { t } = useLanguage();
@@ -356,6 +356,9 @@ export default function HukukVeIcraDanismanligiClient() {
 
         {/* KMK 634 Karar & İhtarname Şablonu Jeneratörü */}
         <KMKLegalTemplateGeneratorSeo />
+
+        {/* İcra İtirazının İptali ve %20 İcra İnkar Tazminatı Rehberi (Faz 15) */}
+        <FacilityEnforcementDisputeSeo />
 
         {/* Legal Specific Social Proof */}
         <LegalTestimonials />
