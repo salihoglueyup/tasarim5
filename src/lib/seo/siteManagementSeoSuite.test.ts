@@ -310,4 +310,90 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(geoTag).toBeDefined();
     });
   });
+
+  describe('12. Google Position Zero Hukuk Ansiklopedisi (kmkGlossaryEncyclopediaData.ts & DefinedTermSet)', () => {
+    it('50+ seçkin KMK ve tesis terimi, kategori tanımları ve yasal maddeleri eksiksiz içerir', async () => {
+      const { KMK_GLOSSARY_TERMS, GLOSSARY_CATEGORIES } = await import('@/data/kmkGlossaryEncyclopediaData');
+
+      expect(KMK_GLOSSARY_TERMS.length).toBeGreaterThanOrEqual(50);
+      expect(GLOSSARY_CATEGORIES.length).toBe(5);
+
+      const arsaPayi = KMK_GLOSSARY_TERMS.find(t => t.id === 'arsa-payi');
+      expect(arsaPayi).toBeDefined();
+      expect(arsaPayi?.kmkArticleRef).toContain('Madde 3');
+      expect(arsaPayi?.snippetDefinition.length).toBeGreaterThan(50);
+      expect(arsaPayi?.wikidataUri).toContain('wikidata.org');
+
+      const isletmeProjesi = KMK_GLOSSARY_TERMS.find(t => t.id === 'isletme-projesi');
+      expect(isletmeProjesi).toBeDefined();
+      expect(isletmeProjesi?.kmkArticleRef).toContain('Madde 37');
+
+      const ciftCogunluk = KMK_GLOSSARY_TERMS.find(t => t.id === 'yonetici-secimi-cift-cogunluk');
+      expect(ciftCogunluk).toBeDefined();
+      expect(ciftCogunluk?.snippetDefinition).toContain('%50+1');
+    });
+  });
+
+  describe('13. 3-Yönlü Yönetim Modeli Karşılaştırma Matrisi (managementModelComparisonData.ts)', () => {
+    it('6 temel boyutta bina içi, dışarıdan ve Alo Yönetim kurumsal modellerini kıyaslar', async () => {
+      const { MANAGEMENT_MODEL_COMPARISON_DATA } = await import('@/data/managementModelComparisonData');
+
+      expect(MANAGEMENT_MODEL_COMPARISON_DATA.length).toBe(6);
+
+      const hukukBoyutu = MANAGEMENT_MODEL_COMPARISON_DATA.find(d => d.id === 'hukuki-ve-kanuni-sorumluluk');
+      expect(hukukBoyutu).toBeDefined();
+      expect(hukukBoyutu?.amateurResidentModel.statusBadge).toBe('Kritik Risk');
+      expect(hukukBoyutu?.aloYonetimCorporateModel.statusBadge).toBe('Tam Güvence');
+
+      const tahsilatBoyutu = MANAGEMENT_MODEL_COMPARISON_DATA.find(d => d.id === 'aidat-tahsilati-ve-icra-disiplini');
+      expect(tahsilatBoyutu).toBeDefined();
+      expect(tahsilatBoyutu?.aloYonetimCorporateModel.summary).toContain('%99.2');
+
+      const acilTeknik = MANAGEMENT_MODEL_COMPARISON_DATA.find(d => d.id === 'acil-teknik-mudahale-sla');
+      expect(acilTeknik).toBeDefined();
+      expect(acilTeknik?.aloYonetimCorporateModel.summary).toContain('45 Dakika');
+    });
+  });
+
+  describe('14. KMK Karar & İhtarname Şablonları Resmi Kütüphanesi (officialLegalDocumentsData.ts)', () => {
+    it('8 avukat onaylı KMK resmi evrak şablonu, yasal dayanakları ve doldurulabilir metinleri içerir', async () => {
+      const { OFFICIAL_LEGAL_DOCUMENTS } = await import('@/data/officialLegalDocumentsData');
+
+      expect(OFFICIAL_LEGAL_DOCUMENTS.length).toBe(8);
+
+      const yoneticiKarari = OFFICIAL_LEGAL_DOCUMENTS.find(d => d.id === 'yonetici-secim-karari');
+      expect(yoneticiKarari).toBeDefined();
+      expect(yoneticiKarari?.kmkArticleRef).toContain('Madde 34');
+      expect(yoneticiKarari?.templateText).toContain('KARAR DEFTERİ');
+
+      const aidatIhtari = OFFICIAL_LEGAL_DOCUMENTS.find(d => d.id === 'aidat-gecikme-ihtarnamesi');
+      expect(aidatIhtari).toBeDefined();
+      expect(aidatIhtari?.kmkArticleRef).toContain('Madde 20');
+      expect(aidatIhtari?.templateText).toContain('AYLIK YÜZDE BEŞ (%5) YASAL GECİKME TAZMİNATI');
+
+      const camBalkon = OFFICIAL_LEGAL_DOCUMENTS.find(d => d.id === 'cam-balkon-muvafakatnamesi');
+      expect(camBalkon).toBeDefined();
+      expect(camBalkon?.kmkArticleRef).toContain('19/2');
+      expect(camBalkon?.templateText).toContain('4/5');
+    });
+  });
+
+  describe('15. Sesli Arama & Konuşma Tabanlı AI Grounding (voiceSearchFaqEngine.ts)', () => {
+    it('Site Yönetimi dikeyinde sesli asistan (Siri, Google Assistant) yanıtlarını eksiksiz barındırır', async () => {
+      const { VOICE_SEARCH_KNOWLEDGE_BASE } = await import('@/lib/ai/voiceSearchFaqEngine');
+
+      const siteSecim = VOICE_SEARCH_KNOWLEDGE_BASE.find(t => t.id === 'voice-site-yonetimi-secim');
+      expect(siteSecim).toBeDefined();
+      expect(siteSecim?.conciseVoiceAnswer).toContain('%99.2');
+      expect(siteSecim?.canonicalPageUrl).toContain('/hizmetler/site-yonetimi');
+
+      const zeminAsansor = VOICE_SEARCH_KNOWLEDGE_BASE.find(t => t.id === 'voice-asansor-zemin-kat');
+      expect(zeminAsansor).toBeDefined();
+      expect(zeminAsansor?.conciseVoiceAnswer).toContain('Madde 20');
+
+      const camBalkon = VOICE_SEARCH_KNOWLEDGE_BASE.find(t => t.id === 'voice-cam-balkon-onay');
+      expect(camBalkon).toBeDefined();
+      expect(camBalkon?.conciseVoiceAnswer).toContain('beşte dördünün');
+    });
+  });
 });
