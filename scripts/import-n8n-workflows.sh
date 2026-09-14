@@ -33,7 +33,7 @@ docker exec -u node aloyonetim-n8n sh -c '
 # Geçici dosyaları temizle
 docker exec aloyonetim-n8n rm -rf /home/node/imported-workflows
 
-echo "🎨 n8n Kategorilendirme Etiketleri (Tags) Veritabanına İşleniyor..."
+echo "🎨 n8n Kategorilendirme Etiketleri (Tags) & Temizlik Yapılıyor..."
 
 # n8n PostgreSQL şemasına renkli etiketleri ve akış eşleşmelerini yaz
 if docker ps | grep -q "aloyonetim-postgres"; then
@@ -67,10 +67,33 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       ('w12MgmtCockpit1', 'tag_mgmt')
     ON CONFLICT DO NOTHING;
   "
-  echo "✅ 5 Kategori etiketi ve 12 iş akışı bağı başarıyla tamamlandı!"
+
+  echo "🧹 Eski/mükerrer iş akışları temizleniyor..."
+  docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
+    DELETE FROM n8n.workflows_tags WHERE \"workflowId\" NOT IN (
+      'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
+      'w04DevOpsErrAgg1', 'w05DevOpsSslSec1', 'w06DevOpsPgPerf1',
+      'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
+      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1'
+    );
+    DELETE FROM n8n.shared_workflow WHERE \"workflowId\" NOT IN (
+      'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
+      'w04DevOpsErrAgg1', 'w05DevOpsSslSec1', 'w06DevOpsPgPerf1',
+      'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
+      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1'
+    );
+    DELETE FROM n8n.workflow_entity WHERE id NOT IN (
+      'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
+      'w04DevOpsErrAgg1', 'w05DevOpsSslSec1', 'w06DevOpsPgPerf1',
+      'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
+      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1'
+    );
+  " 2>/dev/null || true
+
+  echo "✅ 5 Kategori etiketi bağlandı ve eski akışlar temizlendi!"
 fi
 
 echo "========================================================"
-echo "✅ Tüm 12 iç sistem iş akışı kategorileriyle n8n'e aktarıldı!"
+echo "✅ Sadece 12 aktif iç sistem akışı tertemiz n8n'de yayında!"
 echo "🌐 Paneli yenileyin: https://n8n.aloyonetim.com.tr/workflows"
 echo "========================================================"
