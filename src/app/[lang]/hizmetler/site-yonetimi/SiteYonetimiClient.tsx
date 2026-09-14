@@ -16,7 +16,8 @@ import {
   TrustVerificationAuditSeo,
   FacilityCorporateSlaGuaranteesSeo,
   FacilityOperationalPillarsSeo,
-  FacilityBudgetStaffSimulatorSeo,
+  SiteVsFacilityComparisonSeo,
+  FacilityLegalPrecedentsBrowserSeo,
   VoiceSearchSpeakableSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
@@ -217,10 +218,10 @@ export default function SiteYonetimiClient() {
         </div>
       </div>
 
-      {/* 5. BÖLÜM: Bütçe ve Personel Simülatörü */}
+      {/* 5. BÖLÜM: Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
       <div className="py-20 bg-slate-900/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityBudgetStaffSimulatorSeo />
+          <SiteVsFacilityComparisonSeo currentPillar="site" />
         </div>
       </div>
 
@@ -263,6 +264,18 @@ export default function SiteYonetimiClient() {
       <div className="py-20 bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <TrustVerificationAuditSeo />
+        </div>
+      </div>
+
+      {/* 11.5. BÖLÜM: 634 KMK Yargıtay Emsal Kararları ve Hukuk Kütüphanesi */}
+      <div className="py-20 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FacilityLegalPrecedentsBrowserSeo
+            basePath="/hizmetler/site-yonetimi"
+            title="Site ve Apartman Yönetiminde Yargıtay Emsal Kararları"
+            badge="634 KMK & Yargıtay İçtihat Kütüphanesi"
+            subtitle="Aidat borcu, asansör ortak giderleri, yönetici seçimi ve mimari tadilat ihtilaflarında bağlayıcı yüksek mahkeme kararları."
+          />
         </div>
       </div>
 

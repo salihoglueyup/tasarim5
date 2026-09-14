@@ -88,4 +88,6 @@ export { default as FacilityBudgetStaffSimulatorSeo } from './FacilityBudgetStaf
 export { default as DistrictMapFacadeSeo } from './DistrictMapFacadeSeo';
 export { default as IstanbulInteractiveDistrictMapSeo } from './IstanbulInteractiveDistrictMapSeo';
 export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
+export { default as SiteVsFacilityComparisonSeo } from './SiteVsFacilityComparisonSeo';
+export { default as DistrictDualCoreSelectorSeo } from './DistrictDualCoreSelectorSeo';
 

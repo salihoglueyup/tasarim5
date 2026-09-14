@@ -23,6 +23,7 @@ import {
   FacilityTransitionTimelineSeo,
   FacilityOperationalPillarsSeo,
   FacilityBudgetStaffSimulatorSeo,
+  SiteVsFacilityComparisonSeo,
   VoiceSearchSpeakableSeo,
 } from '@/components/seo';
 
@@ -302,6 +303,9 @@ export default function TesisYonetimiClient() {
 
         {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
         <FacilityOperationalPillarsSeo />
+
+        {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
+        <SiteVsFacilityComparisonSeo currentPillar="facility" />
 
         {/* 1.5. BÖLÜM: Kadro Simülatörü, B2B İhale Şartnamesi (RFP), İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
         <div className="space-y-12">
