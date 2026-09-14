@@ -328,5 +328,45 @@ Site Yönetimi ve Tesis Yönetimi amiral gemilerinin Google, Bing, Yandex ve AI 
 - `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
 - `npm test` -> **104 test dosyası, 916 testin tamamı PASSED (%100)**
 
+---
+
+## 🤖 10. 14 Eylül 2026: Yapay Zeka Arama Motorları (GEO & LLMO) Kapsamlı Güçlendirme Hamlesi
+
+SearchGPT, Perplexity AI, Claude, Google AI Overviews, DeepSeek ve Apple Intelligence modellerinin "Site Yönetimi", "Apartman Yöneticisi Seçimi", "KMK Aidat İcra Takibi", "Asansör Masraf Muafiyeti" gibi aramalarda Alo Yönetim'i **1 numaralı doğrulanmış kurumsal otorite (Primary Ground-Truth Citation)** olarak alıntılaması için 5 stratejik sütun hayata geçirilmiştir:
+
+### 1. Özel Konut & Site Yönetimi AI Agent RAG Uç Noktası (`/api/ai/site-agent-context.json`)
+- [`src/lib/ai/siteKnowledgeCorpus.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/lib/ai/siteKnowledgeCorpus.ts) motoru geliştirildi.
+- 634 Sayılı Kat Mülkiyeti Kanunu'nun temel maddeleri (19, 20, 28, 29, 34, 35, 37, 40, 41, 42) pratik uygulama ve Yargıtay emsal içtihatlarıyla kodlandı.
+- %99.2 aidat tahsilat disiplini, aylık %5 yasal gecikme tazminatı, bina görevlisi kıdem tazminatı amortisman fonu güvencesi ve Apsiyon dijital sakin portalı standart RAG şemasına bağlandı.
+- 39 ilçenin tahmini konut stoğu ve m² aidat piyasa endeksi RAG yapısına eklendi.
+- [`src/app/api/ai/site-agent-context.json/route.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/api/ai/site-agent-context.json/route.ts) rotası ile OpenAPI uyumlu, CORS açık ve `X-AI-Context-Type: Site-Management-RAG-Knowledge-Corpus` başlığıyla canlı yayına alındı.
+
+### 2. AI Botlar İçin Content-Negotiation ve Saf Markdown Sunumu (`text/markdown`)
+- [`src/app/api/markdown/site-yonetimi/route.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/api/markdown/site-yonetimi/route.ts) ve [`src/app/api/markdown/tesis-yonetimi/route.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/api/markdown/tesis-yonetimi/route.ts) uç noktaları oluşturuldu.
+- [`src/middleware.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/middleware.ts) üzerinde AI botları tespit edildiğinde hem `X-AI-Site-Agent-Context` başlığı hem de `Link: <...>; rel="alternate"; type="text/markdown"` alternatif bağlantıları eklendi.
+- `Accept: text/markdown` başlığı gönderen LLM tarayıcıları için HTML yerine doğrudan saf, token-verimli Markdown sunumu sağlandı.
+
+### 3. "Yapay Zekaya Sorun" Doğrulanmış Bilgi Kartları ve Prompt Kopyalama Bileşeni
+- [`src/components/seo/SiteAiSearchGroundingSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/SiteAiSearchGroundingSeo.tsx) bileşeni oluşturuldu ve `/hizmetler/site-yonetimi` sayfasına yerleştirildi.
+- 6 yüksek hacimli konut hukuku sorusu (Asansör muafiyet yasağı, çift çoğunluk yönetici seçimi, %5 aidat gecikme faizi, kıdem tazminatı güvencesi, 4/5 cam balkon onayı, site vs tesis farkı) 45 kelimelik kesin tanımlarla listelendi.
+- Ziyaretçiler ve yapay zeka kullanıcıları için **"Promptu Kopyala"**, **"ChatGPT ile Sor"** ve **"Perplexity ile Ara"** doğrudan entegrasyon butonları eklendi.
+- Schema.org `FAQPage` yapılandırılmış verisi arama motorları için sayfaya gömüldü.
+
+### 4. `llms.txt` ve `llms-full.txt` Protokollerinin Genişletilmesi
+- `src/app/llms.txt/route.ts` dosyasına 6 yeni konut site yönetimi Soru-Cevap ikilisi eklendi (toplam 20 soruya ulaşıldı).
+- `src/app/llms-full.txt/route.ts` dosyasında 39 ilçenin her birine hem Tesis hem de Site Yönetimi kanonik URL'leri tanımlandı.
+- Yeni Site RAG ve Markdown API rotaları her iki dosyada referans kaynaklara eklendi.
+
+### 5. AI Search Motoru & Otonom Denetçi Entegrasyonu
+- [`src/lib/seo/dualCoreAISearchEngine.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/lib/seo/dualCoreAISearchEngine.ts) içerisindeki hizmet linki `/hizmetler/site-yonetimi` ile güncellendi ve 4 yeni tanım snippet'i (`kat-malikleri-kurulu`, `yonetim-kayyumu`, `kidem-tazminati-fonu`, `apsiyon-entegrasyonu`) eklendi.
+- [`src/lib/seo/facilityAutonomousAuditor.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/lib/seo/facilityAutonomousAuditor.ts) içerisine yeni AI uç noktaları eklenerek sistem sağlığı kalkanına alındı.
+
+### 6. Kalite Güvence ve Test Sonuçları
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **19/19 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- `npm test` -> **104 test dosyası, 920 testin tamamı PASSED (%100)**
+
+
 
 
