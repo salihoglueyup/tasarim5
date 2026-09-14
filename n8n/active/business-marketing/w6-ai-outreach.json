@@ -326,11 +326,6 @@
     "saveManualExecutions": true
   },
   "notes": "⚠️ UYARI: Bu workflow LinkedIn connection request göndermek için tasarlanmıştır. Günlük 15 limit AŞILMAMALI. İlk test için 'dry-run' modunda çalıştırın: Save Outreach nodeunu devre dışı bırakın.",
-  "tags": [
-    "aloYonetim",
-    "linkedin",
-    "outreach",
-    "ai"
-  ],
+  "tags": [],
   "id": "w06AiOutreach01"
 }

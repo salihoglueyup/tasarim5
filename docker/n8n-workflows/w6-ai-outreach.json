@@ -16,7 +16,10 @@
       "name": "Hafta İçi 14:00",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -28,7 +31,10 @@
       "name": "Günlük Limit Kontrol",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [460, 300],
+      "position": [
+        460,
+        300
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -43,7 +49,10 @@
             {
               "leftValue": "={{ parseInt($json.today_count) }}",
               "rightValue": 15,
-              "operator": { "type": "number", "operation": "lt" }
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
             }
           ]
         }
@@ -52,7 +61,10 @@
       "name": "Limit Aşıldı mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
@@ -64,7 +76,10 @@
       "name": "Hedef Listesi",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [900, 240],
+      "position": [
+        900,
+        240
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -81,7 +96,10 @@
       "name": "Her Hedef İçin",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
-      "position": [1120, 240]
+      "position": [
+        1120,
+        240
+      ]
     },
     {
       "parameters": {
@@ -90,8 +108,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.OPENAI_API_KEY }}" },
-            { "name": "Content-Type", "value": "application/json" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.OPENAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
           ]
         },
         "sendBody": true,
@@ -103,7 +127,10 @@
       "name": "AI Mesaj Oluştur",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1340, 240]
+      "position": [
+        1340,
+        240
+      ]
     },
     {
       "parameters": {
@@ -113,7 +140,10 @@
       "name": "Outreach Hazırla",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1560, 240]
+      "position": [
+        1560,
+        240
+      ]
     },
     {
       "parameters": {
@@ -128,7 +158,10 @@
       "name": "Outreach Kaydet",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [1780, 240],
+      "position": [
+        1780,
+        240
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -148,7 +181,10 @@
       "name": "Telegram Log",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [2000, 240],
+      "position": [
+        2000,
+        240
+      ],
       "credentials": {
         "telegramApi": {
           "id": "telegram-cred",
@@ -166,39 +202,122 @@
       "name": "60sn Bekle",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
-      "position": [2220, 240]
+      "position": [
+        2220,
+        240
+      ]
     }
   ],
   "connections": {
     "Hafta İçi 14:00": {
-      "main": [[{ "node": "Günlük Limit Kontrol", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Günlük Limit Kontrol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Günlük Limit Kontrol": {
-      "main": [[{ "node": "Limit Aşıldı mı?", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Limit Aşıldı mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Limit Aşıldı mı?": {
-      "main": [[{ "node": "Hedef Listesi", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Hedef Listesi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Hedef Listesi": {
-      "main": [[{ "node": "Her Hedef İçin", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Her Hedef İçin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Her Hedef İçin": {
-      "main": [[{ "node": "AI Mesaj Oluştur", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "AI Mesaj Oluştur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "AI Mesaj Oluştur": {
-      "main": [[{ "node": "Outreach Hazırla", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Outreach Hazırla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Outreach Hazırla": {
-      "main": [[{ "node": "Outreach Kaydet", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Outreach Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Outreach Kaydet": {
-      "main": [[{ "node": "Telegram Log", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Telegram Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Telegram Log": {
-      "main": [[{ "node": "60sn Bekle", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "60sn Bekle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "60sn Bekle": {
-      "main": [[{ "node": "Her Hedef İçin", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Her Hedef İçin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -207,5 +326,5 @@
     "saveManualExecutions": true
   },
   "notes": "⚠️ UYARI: Bu workflow LinkedIn connection request göndermek için tasarlanmıştır. Günlük 15 limit AŞILMAMALI. İlk test için 'dry-run' modunda çalıştırın: Save Outreach nodeunu devre dışı bırakın.",
-  "tags": ["aloYonetim", "linkedin", "outreach", "ai"]
+  "tags": []
 }

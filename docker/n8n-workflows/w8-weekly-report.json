@@ -16,7 +16,10 @@
       "name": "Cuma 17:05",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -28,7 +31,10 @@
       "name": "Lead Metrikleri",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [460, 240],
+      "position": [
+        460,
+        240
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -46,7 +52,10 @@
       "name": "LinkedIn Son Veri",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [460, 420],
+      "position": [
+        460,
+        420
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -62,7 +71,10 @@
       "name": "Rapor Oluştur",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [700, 320]
+      "position": [
+        700,
+        320
+      ]
     },
     {
       "parameters": {
@@ -71,8 +83,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.RESEND_API_KEY }}" },
-            { "name": "Content-Type", "value": "application/json" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.RESEND_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
           ]
         },
         "sendBody": true,
@@ -84,7 +102,10 @@
       "name": "Rapor E-postası Gönder",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [920, 240]
+      "position": [
+        920,
+        240
+      ]
     },
     {
       "parameters": {
@@ -98,7 +119,10 @@
       "name": "Telegram Özet",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [920, 420],
+      "position": [
+        920,
+        420
+      ],
       "credentials": {
         "telegramApi": {
           "id": "telegram-cred",
@@ -111,22 +135,54 @@
     "Cuma 17:05": {
       "main": [
         [
-          { "node": "Lead Metrikleri", "type": "main", "index": 0 },
-          { "node": "LinkedIn Son Veri", "type": "main", "index": 0 }
+          {
+            "node": "Lead Metrikleri",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "LinkedIn Son Veri",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
     "Lead Metrikleri": {
-      "main": [[{ "node": "Rapor Oluştur", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Rapor Oluştur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "LinkedIn Son Veri": {
-      "main": [[{ "node": "Rapor Oluştur", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Rapor Oluştur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Rapor Oluştur": {
       "main": [
         [
-          { "node": "Rapor E-postası Gönder", "type": "main", "index": 0 },
-          { "node": "Telegram Özet", "type": "main", "index": 0 }
+          {
+            "node": "Rapor E-postası Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Telegram Özet",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     }
@@ -135,5 +191,5 @@
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": ["aloYonetim", "rapor", "haftalık"]
+  "tags": []
 }

@@ -4,14 +4,22 @@
     {
       "parameters": {
         "rule": {
-          "interval": [{ "field": "minutes", "minutesInterval": 30 }]
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
         }
       },
       "id": "cron-trigger",
       "name": "Her 30 Dakika",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -23,7 +31,10 @@
       "name": "Son Sync Zamanı",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [460, 300],
+      "position": [
+        460,
+        300
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -39,7 +50,10 @@
       "name": "Cursor Hesapla",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
@@ -48,8 +62,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
-            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "X-Restli-Protocol-Version",
+              "value": "2.0.0"
+            }
           ]
         },
         "options": {}
@@ -58,7 +78,10 @@
       "name": "LinkedIn Lead'leri Çek",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 300]
+      "position": [
+        900,
+        300
+      ]
     },
     {
       "parameters": {
@@ -67,7 +90,10 @@
             {
               "leftValue": "={{ $json.elements?.length || 0 }}",
               "rightValue": 0,
-              "operator": { "type": "number", "operation": "gt" }
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
             }
           ]
         }
@@ -76,7 +102,10 @@
       "name": "Yeni Lead Var Mı?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [1120, 300]
+      "position": [
+        1120,
+        300
+      ]
     },
     {
       "parameters": {
@@ -87,7 +116,10 @@
       "name": "Her Lead İçin",
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
-      "position": [1340, 240]
+      "position": [
+        1340,
+        240
+      ]
     },
     {
       "parameters": {
@@ -97,7 +129,10 @@
       "name": "Lead Verisi Dönüştür",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1560, 240]
+      "position": [
+        1560,
+        240
+      ]
     },
     {
       "parameters": {
@@ -112,7 +147,10 @@
       "name": "DB'ye Kaydet",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [1780, 240],
+      "position": [
+        1780,
+        240
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -127,8 +165,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}" },
-            { "name": "Content-Type", "value": "application/json" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
           ]
         },
         "sendBody": true,
@@ -140,7 +184,10 @@
       "name": "WhatsApp Bildirim",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [2000, 240]
+      "position": [
+        2000,
+        240
+      ]
     },
     {
       "parameters": {
@@ -149,8 +196,14 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $env.RESEND_API_KEY }}" },
-            { "name": "Content-Type", "value": "application/json" }
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.RESEND_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
           ]
         },
         "sendBody": true,
@@ -162,7 +215,10 @@
       "name": "Teşekkür E-postası",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [2000, 420]
+      "position": [
+        2000,
+        420
+      ]
     },
     {
       "parameters": {
@@ -177,7 +233,10 @@
       "name": "Cursor Güncelle",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [1340, 420],
+      "position": [
+        1340,
+        420
+      ],
       "credentials": {
         "postgres": {
           "id": "postgres-cred",
@@ -188,36 +247,100 @@
   ],
   "connections": {
     "Her 30 Dakika": {
-      "main": [[{ "node": "Son Sync Zamanı", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Son Sync Zamanı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Son Sync Zamanı": {
-      "main": [[{ "node": "Cursor Hesapla", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Cursor Hesapla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Cursor Hesapla": {
-      "main": [[{ "node": "LinkedIn Lead'leri Çek", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "LinkedIn Lead'leri Çek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "LinkedIn Lead'leri Çek": {
-      "main": [[{ "node": "Yeni Lead Var Mı?", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Yeni Lead Var Mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Yeni Lead Var Mı?": {
       "main": [
         [
-          { "node": "Her Lead İçin", "type": "main", "index": 0 },
-          { "node": "Cursor Güncelle", "type": "main", "index": 0 }
+          {
+            "node": "Her Lead İçin",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Cursor Güncelle",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
     "Her Lead İçin": {
-      "main": [[{ "node": "Lead Verisi Dönüştür", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Lead Verisi Dönüştür",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Lead Verisi Dönüştür": {
-      "main": [[{ "node": "DB'ye Kaydet", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "DB'ye Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "DB'ye Kaydet": {
       "main": [
         [
-          { "node": "WhatsApp Bildirim", "type": "main", "index": 0 },
-          { "node": "Teşekkür E-postası", "type": "main", "index": 0 }
+          {
+            "node": "WhatsApp Bildirim",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Teşekkür E-postası",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     }
@@ -226,5 +349,5 @@
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": ["aloYonetim", "linkedin", "leadSync"]
+  "tags": []
 }

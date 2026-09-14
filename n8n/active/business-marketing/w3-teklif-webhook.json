@@ -192,10 +192,6 @@
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": [
-    "aloYonetim",
-    "webhook",
-    "whatsapp"
-  ],
+  "tags": [],
   "id": "w03TeklifWebhk01"
 }

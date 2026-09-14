@@ -191,10 +191,6 @@
     "executionOrder": "v1",
     "timezone": "Europe/Istanbul"
   },
-  "tags": [
-    "aloYonetim",
-    "rapor",
-    "haftalık"
-  ],
+  "tags": [],
   "id": "w08WeeklyReprt01"
 }
