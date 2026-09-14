@@ -72,23 +72,18 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/hizmetler/site-yonetimi',
-        destination: '/hizmetler/tesis-yonetimi',
-        permanent: true,
-      },
-      {
         source: '/site-yonetimi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/bina-yonetimi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/apartman-yonetimi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
@@ -98,22 +93,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/site-yonetim-sirketleri',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/site-yonetim-firmalari',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/site-yonetim-sirketi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/site-yonetim-firmasi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
@@ -138,37 +133,37 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/bina-yonetim-sirketleri',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/bina-yonetim-firmalari',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/apartman-yonetim-sirketleri',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/apartman-yonetim-firmalari',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/apartman-yonetim-sirketi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/apartman-yonetim-firmasi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {
         source: '/profesyonel-site-yonetimi',
-        destination: '/hizmetler/tesis-yonetimi',
+        destination: '/hizmetler/site-yonetimi',
         permanent: true,
       },
       {

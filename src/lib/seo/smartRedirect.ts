@@ -219,13 +219,13 @@ export const SERVICE_SYNONYMS: Record<string, string> = {
 // 3. Statik Rota Eşanlamlıları
 export const STATIC_ROUTE_SYNONYMS: Record<string, string> = {
   // Site Yönetimi Statik Rotaları
-  'site-yonetimi': '/hizmetler/tesis-yonetimi',
-  'apartman-yonetimi': '/hizmetler/tesis-yonetimi',
-  'site-yonetim-sirketleri': '/hizmetler/tesis-yonetimi',
-  'site-yonetim-firmalari': '/hizmetler/tesis-yonetimi',
-  'profesyonel-site-yonetimi': '/hizmetler/tesis-yonetimi',
-  'hizmetler/site-yonetimi': '/hizmetler/tesis-yonetimi',
-  'hizmetler/apartman-yonetimi': '/hizmetler/tesis-yonetimi',
+  'site-yonetimi': '/hizmetler/site-yonetimi',
+  'apartman-yonetimi': '/hizmetler/site-yonetimi',
+  'site-yonetim-sirketleri': '/hizmetler/site-yonetimi',
+  'site-yonetim-firmalari': '/hizmetler/site-yonetimi',
+  'profesyonel-site-yonetimi': '/hizmetler/site-yonetimi',
+  'hizmetler/site-yonetimi': '/hizmetler/site-yonetimi',
+  'hizmetler/apartman-yonetimi': '/hizmetler/site-yonetimi',
   'toplu-konut-yonetimi': '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
   'rezidans-yonetimi': '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
   'plaza-yonetimi': '/hizmetler/tesis-yonetimi/plaza-yonetimi',
