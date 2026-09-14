@@ -1,0 +1,96 @@
+{
+  "name": "W16 — Arama Motorları Otomatik İndeksleme & Ping Döngüsü",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9,18 * * *"
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger-seo",
+      "name": "Günde 2 Kez Tetikle (09:00, 18:00)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://web:3001/api/seo/ping-all",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "trigger-ping-api",
+      "name": "POST /api/seo/ping-all",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const res = $json;\nconst isSuccess = res.success === true;\nconst indexNowUrls = res.indexNow?.totalUrlsSubmitted || 0;\nconst indexNowEngines = (res.indexNow?.engines || []).join(', ');\nconst webSubSuccess = res.webSub?.success === true;\nconst masterIndex = res.masterSitemapIndex || 'https://aloyonetim.com.tr/sitemap-index.xml';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isSuccess,\n    indexNowUrls,\n    indexNowEngines,\n    webSubSuccess,\n    masterIndex,\n    summary: `İndeksleme Tamam: ${indexNowUrls} URL -> (${indexNowEngines}) | Google WebSub: ${webSubSuccess ? 'OK' : 'FAIL'}`\n  }\n}];"
+      },
+      "id": "format-ping-report",
+      "name": "Ping Raporunu Formatla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[SEO Ping] ${$json.summary}`);\nreturn [{ json: { logged: true, report: $json.summary } }];"
+      },
+      "id": "log-ping-result",
+      "name": "Sonucu Logla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 300]
+    }
+  ],
+  "connections": {
+    "Günde 2 Kez Tetikle (09:00, 18:00)": {
+      "main": [
+        [
+          {
+            "node": "POST /api/seo/ping-all",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST /api/seo/ping-all": {
+      "main": [
+        [
+          {
+            "node": "Ping Raporunu Formatla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ping Raporunu Formatla": {
+      "main": [
+        [
+          {
+            "node": "Sonucu Logla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  }
+}

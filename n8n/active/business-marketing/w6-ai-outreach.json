@@ -1,0 +1,211 @@
+{
+  "name": "W6 — AI Destekli LinkedIn Outreach (Günlük Max 15)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 14 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Hafta İçi 14:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) as today_count FROM \"LinkedInOutreach\" WHERE \"sentAt\" > NOW()::date",
+        "options": {}
+      },
+      "id": "check-daily-limit",
+      "name": "Günlük Limit Kontrol",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [460, 300],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{ parseInt($json.today_count) }}",
+              "rightValue": 15,
+              "operator": { "type": "number", "operation": "lt" }
+            }
+          ]
+        }
+      },
+      "id": "if-under-limit",
+      "name": "Limit Aşıldı mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT l.name, l.phone, l.email, l.subject as firm_name, l.meta FROM \"Lead\" l WHERE l.type IN ('quote', 'contact') AND l.\"isRead\" = false AND NOT EXISTS (SELECT 1 FROM \"LinkedInOutreach\" lo WHERE lo.\"targetName\" = l.name) ORDER BY l.\"createdAt\" DESC LIMIT {{ 15 - parseInt($('Günlük Limit Kontrol').first().json.today_count) }}",
+        "options": {}
+      },
+      "id": "get-targets",
+      "name": "Hedef Listesi",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [900, 240],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "loop-targets",
+      "name": "Her Hedef İçin",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1120, 240]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.OPENAI_API_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o-mini\",\n  \"max_tokens\": 150,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Sen profesyonel bir tesis yönetimi şirketi temsilcisisin. LinkedIn bağlantı istekleri için kişiselleştirilmiş, kısa (max 2 cümle), samimi ve satış yapmayan mesajlar yazıyorsun. Türkçe yaz.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Şu kişi için LinkedIn bağlantı isteği notu yaz:\\nİsim: {{ $json.name }}\\nFirma: {{ $json.firm_name || 'bilinmiyor' }}\\n\\nNot kısa olsun, samimi olsun, tesis/site/bina yönetimi konusunda kısa bir bilgi paylaşmak istediğimizi belirt.\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "generate-message",
+      "name": "AI Mesaj Oluştur",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiResponse = $json;\nconst message = aiResponse.choices?.[0]?.message?.content || 'Merhaba, tesis yönetimi konusunda bilgi paylaşmak isterim.';\nconst target = $('Her Hedef İçin').item.json;\n\nreturn [{\n  json: {\n    targetName: target.name,\n    firmName: target.firm_name || '',\n    message: message.trim(),\n    email: target.email\n  }\n}];"
+      },
+      "id": "prepare-outreach",
+      "name": "Outreach Hazırla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 240]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"LinkedInOutreach\" (id, \"targetName\", \"firmName\", \"linkedinUrl\", message, \"sentAt\", \"followupAt\") VALUES (gen_random_uuid()::text, $1, $2, '', $3, NOW(), NOW() + INTERVAL '3 days')",
+        "additionalFields": {
+          "queryReplacement": "={{ [$json.targetName, $json.firmName || '', $json.message] }}"
+        },
+        "options": {}
+      },
+      "id": "save-outreach",
+      "name": "Outreach Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1780, 240],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "=📤 *Outreach Gönderildi*\n\n👤 {{ $('Outreach Hazırla').item.json.targetName }}\n🏢 {{ $('Outreach Hazırla').item.json.firmName || '-' }}\n💬 {{ $('Outreach Hazırla').item.json.message }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-log",
+      "name": "Telegram Log",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [2000, 240],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-cred",
+          "name": "Alo Yönetim Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "unit": "seconds",
+        "resume": "timeInterval",
+        "amount": 60
+      },
+      "id": "rate-limit-wait",
+      "name": "60sn Bekle",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2220, 240]
+    }
+  ],
+  "connections": {
+    "Hafta İçi 14:00": {
+      "main": [[{ "node": "Günlük Limit Kontrol", "type": "main", "index": 0 }]]
+    },
+    "Günlük Limit Kontrol": {
+      "main": [[{ "node": "Limit Aşıldı mı?", "type": "main", "index": 0 }]]
+    },
+    "Limit Aşıldı mı?": {
+      "main": [[{ "node": "Hedef Listesi", "type": "main", "index": 0 }]]
+    },
+    "Hedef Listesi": {
+      "main": [[{ "node": "Her Hedef İçin", "type": "main", "index": 0 }]]
+    },
+    "Her Hedef İçin": {
+      "main": [[{ "node": "AI Mesaj Oluştur", "type": "main", "index": 0 }]]
+    },
+    "AI Mesaj Oluştur": {
+      "main": [[{ "node": "Outreach Hazırla", "type": "main", "index": 0 }]]
+    },
+    "Outreach Hazırla": {
+      "main": [[{ "node": "Outreach Kaydet", "type": "main", "index": 0 }]]
+    },
+    "Outreach Kaydet": {
+      "main": [[{ "node": "Telegram Log", "type": "main", "index": 0 }]]
+    },
+    "Telegram Log": {
+      "main": [[{ "node": "60sn Bekle", "type": "main", "index": 0 }]]
+    },
+    "60sn Bekle": {
+      "main": [[{ "node": "Her Hedef İçin", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul",
+    "saveManualExecutions": true
+  },
+  "notes": "⚠️ UYARI: Bu workflow LinkedIn connection request göndermek için tasarlanmıştır. Günlük 15 limit AŞILMAMALI. İlk test için 'dry-run' modunda çalıştırın: Save Outreach nodeunu devre dışı bırakın.",
+  "tags": ["aloYonetim", "linkedin", "outreach", "ai"]
+}

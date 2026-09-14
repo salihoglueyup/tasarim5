@@ -1,0 +1,177 @@
+{
+  "name": "W1 — LinkedIn Otomatik Post (Salı+Perşembe)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 10 * * 2,4"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Salı ve Perşembe 10:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.LINKEDIN_CONTENT_SHEET_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "İçerik Takvimi",
+          "mode": "name"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Durum",
+              "lookupValue": "Bekliyor"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "sheets-read",
+      "name": "İçerik Takvimi",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [460, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gsheets-cred",
+          "name": "Google Sheets Alo Yönetim"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{ $json['PostMetni'] }}",
+              "rightValue": "",
+              "operator": { "type": "string", "operation": "isNotEmpty" }
+            }
+          ]
+        }
+      },
+      "id": "if-has-content",
+      "name": "Post Var Mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.linkedin.com/v2/ugcPosts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"author\": \"urn:li:organization:{{ $env.LINKEDIN_COMPANY_ID }}\",\n  \"lifecycleState\": \"PUBLISHED\",\n  \"specificContent\": {\n    \"com.linkedin.ugc.ShareContent\": {\n      \"shareCommentary\": {\n        \"text\": \"{{ $json['PostMetni'] }}\"\n      },\n      \"shareMediaCategory\": \"NONE\"\n    }\n  },\n  \"visibility\": {\n    \"com.linkedin.ugc.MemberNetworkVisibility\": \"PUBLIC\"\n  }\n}",
+        "options": {}
+      },
+      "id": "linkedin-post",
+      "name": "LinkedIn'de Paylaş",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.LINKEDIN_CONTENT_SHEET_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "İçerik Takvimi",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Durum": "Yayınlandı",
+            "YayınTarihi": "={{ new Date().toLocaleDateString('tr-TR') }}"
+          },
+          "matchingColumns": ["PostMetni"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "sheets-update",
+      "name": "Durumu Güncelle",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [1120, 240],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gsheets-cred",
+          "name": "Google Sheets Alo Yönetim"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "=✅ *LinkedIn Post Yayınlandı!*\n\n📝 {{ $('İçerik Takvimi').item.json['PostMetni'].substring(0, 100) }}...\n\n🕐 {{ new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' }) }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-success",
+      "name": "Telegram Başarı",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1340, 240],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-cred",
+          "name": "Alo Yönetim Telegram"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Salı ve Perşembe 10:00": {
+      "main": [[{ "node": "İçerik Takvimi", "type": "main", "index": 0 }]]
+    },
+    "İçerik Takvimi": {
+      "main": [[{ "node": "Post Var Mı?", "type": "main", "index": 0 }]]
+    },
+    "Post Var Mı?": {
+      "main": [[{ "node": "LinkedIn'de Paylaş", "type": "main", "index": 0 }]]
+    },
+    "LinkedIn'de Paylaş": {
+      "main": [[{ "node": "Durumu Güncelle", "type": "main", "index": 0 }]]
+    },
+    "Durumu Güncelle": {
+      "main": [[{ "node": "Telegram Başarı", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "linkedin", "sosyalMedya"]
+}

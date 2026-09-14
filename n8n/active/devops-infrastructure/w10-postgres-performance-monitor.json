@@ -1,0 +1,148 @@
+{
+  "name": "W10 — PostgreSQL Canlı Performans & Bağlantı Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger-15m",
+      "name": "Her 15 Dakikada Bir Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT (SELECT count(*) FROM pg_stat_activity WHERE state = 'active') as active_connections, (SELECT count(*) FROM pg_stat_activity WHERE wait_event_type IS NOT NULL) as waiting_locks, (SELECT pg_size_pretty(pg_database_size('aloyonetim'))) as database_size, (SELECT count(*) FROM \"Lead\" WHERE \"createdAt\" > NOW() - INTERVAL '24 hours') as new_leads_24h;"
+      },
+      "id": "postgres-metrics-query",
+      "name": "PostgreSQL Metriklerini Sorgula",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [440, 300],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst activeConnections = parseInt(metrics.active_connections, 10) || 0;\nconst waitingLocks = parseInt(metrics.waiting_locks, 10) || 0;\nconst dbSize = metrics.database_size || 'Bilinmiyor';\nconst leads24h = parseInt(metrics.new_leads_24h, 10) || 0;\n\n// Eşik Değerleri (Thresholds)\nconst isConnCritical = activeConnections > 35;\nconst isLockCritical = waitingLocks > 3;\nconst alertRequired = isConnCritical || isLockCritical;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    activeConnections,\n    waitingLocks,\n    dbSize,\n    leads24h,\n    alertRequired,\n    status: alertRequired ? 'WARNING' : 'HEALTHY',\n    summary: `DB: ${dbSize} | Aktif Bağlantı: ${activeConnections} | Kilit: ${waitingLocks} | Son 24s Teklif: ${leads24h}`\n  }\n}];"
+      },
+      "id": "evaluate-db-health",
+      "name": "Eşik Değer Analizi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.alertRequired }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "filter-db-alert",
+      "name": "DB Uyarısı Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [880, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚠️ [DB UYARISI] PostgreSQL Yüksek Yük Tespiti",
+        "emailType": "text",
+        "text": "=Alo Yönetim Veritabanı Gözlemcisi Bildirimi\n\nZaman: {{ $json.timestamp }}\nDurum: {{ $json.status }}\n\nDetaylar:\n- Aktif Bağlantı Sayısı: {{ $json.activeConnections }}\n- Bekleyen Kilit Sayısı: {{ $json.waitingLocks }}\n- Veritabanı Boyutu: {{ $json.dbSize }}\n- Son 24 Saatte Gelen Teklifler: {{ $json.leads24h }}\n\nLütfen PostgreSQL aktif sorgularını ve bağlantı havuzunu kontrol ediniz."
+      },
+      "id": "send-db-alert-email",
+      "name": "Veritabanı Uyarısı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[PostgreSQL OK] ${$json.summary}`);\nreturn [{ json: { logged: true, summary: $json.summary } }];"
+      },
+      "id": "log-db-status",
+      "name": "Log Tut",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 400]
+    }
+  ],
+  "connections": {
+    "Her 15 Dakikada Bir Tetikle": {
+      "main": [
+        [
+          {
+            "node": "PostgreSQL Metriklerini Sorgula",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PostgreSQL Metriklerini Sorgula": {
+      "main": [
+        [
+          {
+            "node": "Eşik Değer Analizi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Eşik Değer Analizi": {
+      "main": [
+        [
+          {
+            "node": "DB Uyarısı Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DB Uyarısı Var mı?": {
+      "main": [
+        [
+          {
+            "node": "Veritabanı Uyarısı Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Tut",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  }
+}

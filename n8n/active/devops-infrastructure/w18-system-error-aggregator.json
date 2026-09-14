@@ -1,0 +1,116 @@
+{
+  "name": "W18 — Sistem Hata & Çökme Log Merkezi",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "system-error",
+        "options": {}
+      },
+      "id": "webhook-error-listener",
+      "name": "Hata Webhook Dinleyicisi",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [220, 300],
+      "webhookId": "system-error"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst service = body.service || 'aloyonetim-web';\nconst route = body.route || '/';\nconst errorMessage = body.errorMessage || body.message || 'Bilinmeyen Hata';\nconst severity = body.severity || 'ERROR';\nconst isCritical = severity.toUpperCase() === 'CRITICAL';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    service,\n    route,\n    errorMessage,\n    severity,\n    isCritical,\n    summary: `[${severity}] ${service} (${route}): ${errorMessage}`\n  }\n}];"
+      },
+      "id": "parse-system-error",
+      "name": "Hata Detayını Ayrıştır",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isCritical }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-critical",
+      "name": "Kritik Hata mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🚨 [KRİTİK HATA] {{ $json.service }} Hatası",
+        "emailType": "text",
+        "text": "=Alo Yönetim Sistem Hata Raporu\n\nZaman: {{ $json.timestamp }}\nServis: {{ $json.service }}\nRota: {{ $json.route }}\nSeviye: {{ $json.severity }}\n\nHata Mesajı:\n{{ $json.errorMessage }}\n\nLütfen sunucu loglarını kontrol ediniz."
+      },
+      "id": "send-critical-error-email",
+      "name": "Kritik Hata E-Postası Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[Error Logged] ${$json.summary}`);\nreturn [{ json: { logged: true } }];"
+      },
+      "id": "log-error-event",
+      "name": "Hatayı Logla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 400]
+    }
+  ],
+  "connections": {
+    "Hata Webhook Dinleyicisi": {
+      "main": [
+        [
+          {
+            "node": "Hata Detayını Ayrıştır",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hata Detayını Ayrıştır": {
+      "main": [
+        [
+          {
+            "node": "Kritik Hata mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kritik Hata mı?": {
+      "main": [
+        [
+          {
+            "node": "Kritik Hata E-Postası Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Hatayı Logla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  }
+}

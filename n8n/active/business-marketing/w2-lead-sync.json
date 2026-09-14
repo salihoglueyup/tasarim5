@@ -1,0 +1,230 @@
+{
+  "name": "W2 — LinkedIn Lead Gen Form Sync (Her 30 Dakika)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "minutes", "minutesInterval": 30 }]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Her 30 Dakika",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT value FROM \"AuditLog\" WHERE action = 'linkedin_lead_sync_cursor' ORDER BY \"createdAt\" DESC LIMIT 1",
+        "options": {}
+      },
+      "id": "get-cursor",
+      "name": "Son Sync Zamanı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [460, 300],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\nconst cursor = rows[0]?.json?.value || (Date.now() - 30*60*1000).toString();\nreturn [{ json: { cursor: parseInt(cursor) } }];"
+      },
+      "id": "resolve-cursor",
+      "name": "Cursor Hesapla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.linkedin.com/v2/leadFormResponses?q=owner&owner=urn%3Ali%3Aorganization%3A{{ $env.LINKEDIN_COMPANY_ID }}&startTimeRange.start={{ $json.cursor }}&startTimeRange.end={{ Date.now() }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.LINKEDIN_ACCESS_TOKEN }}" },
+            { "name": "X-Restli-Protocol-Version", "value": "2.0.0" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fetch-leads",
+      "name": "LinkedIn Lead'leri Çek",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{ $json.elements?.length || 0 }}",
+              "rightValue": 0,
+              "operator": { "type": "number", "operation": "gt" }
+            }
+          ]
+        }
+      },
+      "id": "if-new-leads",
+      "name": "Yeni Lead Var Mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "elements",
+        "options": {}
+      },
+      "id": "split-leads",
+      "name": "Her Lead İçin",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [1340, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "const el = $json;\nconst fields = el.fieldAnswers || [];\nconst get = (name) => fields.find(f => f.questionFieldType === name)?.values?.[0] || null;\n\nreturn [{\n  json: {\n    type: 'linkedin_lead',\n    name: get('FULL_NAME'),\n    email: get('EMAIL'),\n    phone: get('PHONE_NUMBER'),\n    subject: get('COMPANY') || 'LinkedIn Lead Gen',\n    message: `LinkedIn Lead Gen Form — ${el.formResponse?.formContext?.campaignId || 'organik'}`,\n    meta: JSON.stringify({ linkedinLeadId: el.id, campaignId: el.formResponse?.formContext?.campaignId })\n  }\n}];"
+      },
+      "id": "parse-lead",
+      "name": "Lead Verisi Dönüştür",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 240]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"Lead\" (id, type, name, phone, email, subject, message, meta, \"isRead\", \"createdAt\") VALUES (gen_random_uuid()::text, $1, $2, $3, $4, $5, $6, $7, false, NOW()) ON CONFLICT DO NOTHING",
+        "additionalFields": {
+          "queryReplacement": "={{ [$json.type, $json.name || '', $json.phone || '', $json.email || '', $json.subject || '', $json.message || '', $json.meta || '{}'] }}"
+        },
+        "options": {}
+      },
+      "id": "save-lead",
+      "name": "DB'ye Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1780, 240],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v18.0/{{ $env.WHATSAPP_PHONE_NUMBER_ID }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $env.WHATSAPP_TO_NUMBER }}\",\n  \"type\": \"text\",\n  \"text\": { \"body\": \"🎯 YENİ LİNKEDİN LEAD!\\n\\n👤 {{ $('Lead Verisi Dönüştür').item.json.name || 'İsimsiz' }}\\n📧 {{ $('Lead Verisi Dönüştür').item.json.email || '-' }}\\n📞 {{ $('Lead Verisi Dönüştür').item.json.phone || '-' }}\\n\\n📋 {{ $('Lead Verisi Dönüştür').item.json.subject }}\" }\n}",
+        "options": {}
+      },
+      "id": "whatsapp-notify",
+      "name": "WhatsApp Bildirim",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2000, 240]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.resend.com/emails",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.RESEND_API_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"from\": \"{{ $env.LEAD_FROM_EMAIL }}\",\n  \"to\": [\"{{ $('Lead Verisi Dönüştür').item.json.email }}\"],\n  \"subject\": \"Alo Yönetim — Talebinizi Aldık\",\n  \"html\": \"<p>Sayın {{ $('Lead Verisi Dönüştür').item.json.name }},</p><p>LinkedIn üzerinden iletişim talebinizi aldık. En kısa sürede sizinle iletişime geçeceğiz.</p><p>Saygılarımızla,<br>Alo Yönetim Ekibi</p>\"\n}",
+        "options": {}
+      },
+      "id": "thankyou-email",
+      "name": "Teşekkür E-postası",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2000, 420]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (id, \"userId\", action, entity, \"entityId\", details, \"createdAt\") VALUES (gen_random_uuid()::text, 'n8n', 'linkedin_lead_sync_cursor', 'LinkedInSync', 'cursor', $1, NOW())",
+        "additionalFields": {
+          "queryReplacement": "={{ [Date.now().toString()] }}"
+        },
+        "options": {}
+      },
+      "id": "update-cursor",
+      "name": "Cursor Güncelle",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1340, 420],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-cred",
+          "name": "Alo Yönetim PostgreSQL"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Her 30 Dakika": {
+      "main": [[{ "node": "Son Sync Zamanı", "type": "main", "index": 0 }]]
+    },
+    "Son Sync Zamanı": {
+      "main": [[{ "node": "Cursor Hesapla", "type": "main", "index": 0 }]]
+    },
+    "Cursor Hesapla": {
+      "main": [[{ "node": "LinkedIn Lead'leri Çek", "type": "main", "index": 0 }]]
+    },
+    "LinkedIn Lead'leri Çek": {
+      "main": [[{ "node": "Yeni Lead Var Mı?", "type": "main", "index": 0 }]]
+    },
+    "Yeni Lead Var Mı?": {
+      "main": [
+        [
+          { "node": "Her Lead İçin", "type": "main", "index": 0 },
+          { "node": "Cursor Güncelle", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Her Lead İçin": {
+      "main": [[{ "node": "Lead Verisi Dönüştür", "type": "main", "index": 0 }]]
+    },
+    "Lead Verisi Dönüştür": {
+      "main": [[{ "node": "DB'ye Kaydet", "type": "main", "index": 0 }]]
+    },
+    "DB'ye Kaydet": {
+      "main": [
+        [
+          { "node": "WhatsApp Bildirim", "type": "main", "index": 0 },
+          { "node": "Teşekkür E-postası", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Istanbul"
+  },
+  "tags": ["aloYonetim", "linkedin", "leadSync"]
+}

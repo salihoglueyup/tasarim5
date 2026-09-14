@@ -85,3 +85,6 @@ next-env.d.ts
 *.key
 *.crt
 *.pfx
+
+# n8n third-party template libraries (kept locally for reference)
+/n8n/library/

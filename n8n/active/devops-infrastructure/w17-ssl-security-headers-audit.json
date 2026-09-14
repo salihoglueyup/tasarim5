@@ -1,0 +1,96 @@
+{
+  "name": "W17 — SSL Sertifikası & Güvenlik Başlıkları Denetimi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "schedule-security-audit",
+      "name": "Pazartesi 08:00 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "HEAD",
+        "url": "https://aloyonetim.com.tr",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "inspect-headers",
+      "name": "HEAD https://aloyonetim.com.tr",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const headers = $json.headers || {};\nconst hasHsts = Boolean(headers['strict-transport-security']);\nconst hasCsp = Boolean(headers['content-security-policy']);\nconst hasFrame = Boolean(headers['x-frame-options']);\nconst hasContentType = Boolean(headers['x-content-type-options']);\n\nconst isSecure = hasHsts && hasCsp && hasFrame && hasContentType;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isSecure,\n    hasHsts,\n    hasCsp,\n    hasFrame,\n    hasContentType,\n    summary: `Güvenlik Başlıkları: HSTS=${hasHsts}, CSP=${hasCsp}, X-Frame=${hasFrame}, X-Content-Type=${hasContentType}`\n  }\n}];"
+      },
+      "id": "evaluate-security",
+      "name": "Güvenlik Başlıklarını Değerlendir",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[Security Headers Audit] ${$json.summary}`);\nreturn [{ json: { logged: true, summary: $json.summary } }];"
+      },
+      "id": "log-security-status",
+      "name": "Sonucu Logla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 300]
+    }
+  ],
+  "connections": {
+    "Pazartesi 08:00 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "HEAD https://aloyonetim.com.tr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HEAD https://aloyonetim.com.tr": {
+      "main": [
+        [
+          {
+            "node": "Güvenlik Başlıklarını Değerlendir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Güvenlik Başlıklarını Değerlendir": {
+      "main": [
+        [
+          {
+            "node": "Sonucu Logla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  }
+}

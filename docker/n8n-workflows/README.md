@@ -1,5 +1,9 @@
 # Alo Yönetim — n8n Workflow Kurulum Rehberi
 
+> [!NOTE]
+> **Önemli Güncelleme:** Tüm n8n iş akışları, DevOps nöbetçileri (W9 - W18), pazarlama akışları (W1 - W8), sektörel şablon kütüphaneleri ve entegrasyon katalogları proje ana dizinindeki **[`n8n/`](../../n8n/)** merkezinde toplanmıştır.
+> Güncel aktif iş akışları için lütfen [`n8n/active/`](../../n8n/active/) dizinine başvurunuz.
+
 ## Genel Bakış
 
 | Dosya | Workflow | Tetikleyici |

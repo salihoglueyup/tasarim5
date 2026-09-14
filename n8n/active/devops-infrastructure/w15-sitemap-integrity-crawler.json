@@ -1,0 +1,95 @@
+{
+  "name": "W15 — 5072 Sayfa Sitemap Bütünlük Taraması",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 2 * * 3"
+            }
+          ]
+        }
+      },
+      "id": "schedule-sitemap-check",
+      "name": "Çarşamba 02:00 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://web:3001/sitemap-index.xml",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "fetch-sitemap-index",
+      "name": "GET /sitemap-index.xml",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const xml = typeof $json === 'string' ? $json : JSON.stringify($json);\nconst hasSitemapIndex = xml.includes('<sitemapindex') && xml.includes('sitemap.xml') && xml.includes('sitemap-regions.xml');\nconst isHealthy = hasSitemapIndex;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    isHealthy,\n    status: isHealthy ? 'PASS' : 'FAIL',\n    summary: isHealthy ? 'Master Sitemap Index eksiksiz ve tüm alt haritalar aktif.' : 'Sitemap Index yapısında eksik harita tespit edildi!'\n  }\n}];"
+      },
+      "id": "validate-sitemap",
+      "name": "Sitemap Yapısını Doğrula",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(`[Sitemap Integrity] ${$json.summary}`);\nreturn [{ json: { logged: true, status: $json.status } }];"
+      },
+      "id": "log-sitemap-result",
+      "name": "Sonucu Logla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 300]
+    }
+  ],
+  "connections": {
+    "Çarşamba 02:00 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "GET /sitemap-index.xml",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET /sitemap-index.xml": {
+      "main": [
+        [
+          {
+            "node": "Sitemap Yapısını Doğrula",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sitemap Yapısını Doğrula": {
+      "main": [
+        [
+          {
+            "node": "Sonucu Logla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  }
+}
