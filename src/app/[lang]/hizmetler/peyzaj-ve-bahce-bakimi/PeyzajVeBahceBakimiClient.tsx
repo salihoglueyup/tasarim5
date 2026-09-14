@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components';
 import LandscapeCalculator from '@/components/sections/LandscapeCalculator';
 import LandscapeTestimonials from '@/components/sections/LandscapeTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityLandscapeTreeGuideSeo } from '@/components/seo';
 
 export default function PeyzajVeBahceBakimiClient() {
   const { t } = useLanguage();
@@ -148,6 +148,9 @@ export default function PeyzajVeBahceBakimiClient() {
             steps={landscapeSteps}
           />
         </div>
+
+        {/* Sitelerde Peyzaj Bakımı, Otomatik Sulama ve Ağaç Koruma Rehberi (Faz 14) */}
+        <FacilityLandscapeTreeGuideSeo />
 
         {/* Landscape Specific Social Proof */}
         <LandscapeTestimonials />
