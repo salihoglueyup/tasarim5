@@ -133,6 +133,23 @@ if docker ps | grep -q "aloyonetim-postgres"; then
   echo "✅ 7 Kategori ve 30 kurumsal akış bağı başarıyla oluşturuldu!"
 fi
 
+echo "📢 30 İş akışı n8n v2 motorunda canlıya alınıyor (publish:workflow)..."
+WORKFLOW_IDS=(
+  "w01CrmLeadZeng01" "w02CrmDailyTrg01" "w03DevOpsUptime1" "w04DevOpsErrAgg1"
+  "w05DevOpsSslSec1" "w06DevOpsPgPerf1" "w07DevOpsPgVacu1" "w08DevOpsPgSnap1"
+  "w09DevOpsRedisM1" "w10SeoSitemapCr1" "w11SeoIndexNow1" "w12MgmtCockpit1"
+  "w13CrmCrisisTrg1" "w14DevOpsDocker1" "w15DevOpsNginxS1" "w16SeoDistricts1"
+  "w17CrmContractT1" "w18DevOpsExtSla1" "w19FinBillParser1" "w20FinOverdueRem1"
+  "w21FacTicketRoute1" "w22LegCompliance1" "w23FacShiftSummary1" "w24HrJobParser1"
+  "w25DevOpsDiskLog1" "w26DevOpsPgLock1" "w27DevOpsSmtpRbl1" "w28DevOpsCronHbt1"
+  "w29DevOpsDnsWhois1" "w30DevOpsNodeLag1"
+)
+
+for wId in "${WORKFLOW_IDS[@]}"; do
+  docker exec -u node aloyonetim-n8n n8n publish:workflow --id="$wId" >/dev/null 2>&1 || true
+done
+echo "✅ 30 İş akışı başarıyla yayınlandı."
+
 echo "🔄 n8n servisi zamanlanmış tetikleyicileri (Cron/Schedule) devreye almak için yeniden başlatılıyor..."
 docker restart aloyonetim-n8n
 

@@ -55,12 +55,21 @@ npx prisma generate
 npx tsx import-faqs.ts        # 500+ SSS verisini yükle
 ```
 
-### 1.5 Erişim Kontrolü
+### 1.5 n8n 30 Kurumsal İş Akışını İçe Aktar ve Canlıya Al
+n8n ve PostgreSQL container'ları ayağa kalktıktan sonra:
+```bash
+npm run n8n:import
+# veya Linux shell üzerinden: ./scripts/import-n8n-workflows.sh
+```
+> Bu komut 30 kurumsal iş akışını (CRM, SLA, DB, Güvenlik, SEO, İSG vb.) n8n'e aktarır, 7 kurumsal kategoriye bağlar, `publish:workflow` ile canlıya alır ve tüm cron/webhook tetikleyicilerini otomatik olarak başlatır.
+
+### 1.6 Erişim Kontrolü
 ```bash
 make status   # Tüm container'lar "healthy" olmalı
 ```
 
 Tarayıcıda: `http://sunucu-ip:3001`
+n8n Paneli: `https://n8n.aloyonetim.com.tr/workflows` veya `http://sunucu-ip:5678`
 
 ---
 
