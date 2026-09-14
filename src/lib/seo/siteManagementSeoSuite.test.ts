@@ -967,6 +967,161 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(mantolama?.targetClassOrSaving).toContain('%35');
     });
   });
+
+  describe('34. Yüzme Havuzları Sağlık Esasları & Kimyasal Standartlar (facilityPoolHealthData.ts)', () => {
+    it('Sağlık Bakanlığı klor/pH limitleri, havuz defteri ve kimyasal dozaj kurallarını doğrular', async () => {
+      const {
+        POOL_WATER_PARAMETERS,
+        POOL_REGULATION_RULES,
+        POOL_HYGIENE_STEPS,
+        POOL_CHEMICAL_DOSING_RULES
+      } = await import('@/data/facilityPoolHealthData');
+
+      expect(POOL_WATER_PARAMETERS.length).toBeGreaterThanOrEqual(8);
+
+      const serbestKlorAcik = POOL_WATER_PARAMETERS.find(p => p.id === 'param-serbest-klor-acik');
+      expect(serbestKlorAcik).toBeDefined();
+      expect(serbestKlorAcik?.idealRange).toBe('1.0 - 3.0');
+      expect(serbestKlorAcik?.unit).toContain('mg/L');
+
+      const ph = POOL_WATER_PARAMETERS.find(p => p.id === 'param-ph');
+      expect(ph).toBeDefined();
+      expect(ph?.idealRange).toContain('6.5 - 7.8');
+
+      const bagliKlor = POOL_WATER_PARAMETERS.find(p => p.id === 'param-bagli-klor');
+      expect(bagliKlor?.idealRange).toContain('0.2');
+
+      // Yönetmelik ve defter
+      expect(POOL_REGULATION_RULES.length).toBe(4);
+      const defter = POOL_REGULATION_RULES.find(r => r.id === 'rule-havuz-isletme-defteri');
+      expect(defter).toBeDefined();
+      expect(defter?.articleRef).toContain('Madde 8');
+      expect(defter?.aloYonetimGuarantee).toContain('Alo Yönetim mobil');
+
+      // 4 Aşamalı Hijyen
+      expect(POOL_HYGIENE_STEPS.length).toBe(4);
+      expect(POOL_HYGIENE_STEPS[2].title).toContain('Ters Yıkama');
+
+      // Kimyasal Güvenlik (Klor-Asit teması uyarısı)
+      expect(POOL_CHEMICAL_DOSING_RULES.length).toBe(4);
+      const klor = POOL_CHEMICAL_DOSING_RULES.find(c => c.chemicalName.includes('Klor'));
+      expect(klor?.safetyWarning).toContain('asitle');
+    });
+  });
+
+  describe('35. Sitelerde Biyosidal Haşere İlaçlama & Sağlık Bakanlığı Ruhsatı (facilityBiocidalPestData.ts)', () => {
+    it('Zararlı tür protokolleri, mesul müdürlük şartları ve sakin güvenlik ilkelerini doğrular', async () => {
+      const {
+        PEST_SPECIES_PROTOCOLS,
+        BIOCIDAL_REGULATION_REQUIREMENTS,
+        IPM_APPLICATION_STEPS,
+        RESIDENTIAL_PEST_SAFETY_CHECKLIST
+      } = await import('@/data/facilityBiocidalPestData');
+
+      expect(PEST_SPECIES_PROTOCOLS.length).toBe(5);
+
+      const hamambocek = PEST_SPECIES_PROTOCOLS.find(p => p.id === 'pest-hamambocekleri');
+      expect(hamambocek).toBeDefined();
+      expect(hamambocek?.activeMethod).toBe('Kokusuz Jel Uygulaması');
+      expect(hamambocek?.evacuationNeeded).toBe(false);
+
+      const kemirgen = PEST_SPECIES_PROTOCOLS.find(p => p.id === 'pest-kemirgenler');
+      expect(kemirgen?.activeMethod).toBe('Kilitli Yem İstasyonu');
+      expect(kemirgen?.aloYonetimProtocol).toContain('çift kilitli');
+
+      // Ruhsat ve 48 saat bildirim şartı
+      expect(BIOCIDAL_REGULATION_REQUIREMENTS.length).toBe(4);
+      const notice = BIOCIDAL_REGULATION_REQUIREMENTS.find(r => r.id === 'req-resident-notice');
+      expect(notice).toBeDefined();
+      expect(notice?.legalMandate).toContain('48 saat');
+
+      // IPM adımları ve güvenlik
+      expect(IPM_APPLICATION_STEPS.length).toBe(4);
+      expect(RESIDENTIAL_PEST_SAFETY_CHECKLIST.length).toBe(3);
+    });
+  });
+
+  describe('36. Sitelerde Peyzaj Bakımı, Otomatik Sulama Su Tasarrufu & Ağaç Koruma (facilityLandscapeTreeData.ts)', () => {
+    it('4 mevsim peyzaj takvimi, belediye ağaç izinleri ve akıllı sulama tasarrufunu doğrular', async () => {
+      const {
+        SEASONAL_LANDSCAPE_SCHEDULE,
+        TREE_PRUNING_PERMIT_RULES,
+        SMART_IRRIGATION_STANDARDS,
+        LANDSCAPE_LEGAL_DISPUTES
+      } = await import('@/data/facilityLandscapeTreeData');
+
+      expect(SEASONAL_LANDSCAPE_SCHEDULE.length).toBe(4);
+
+      const ilkbahar = SEASONAL_LANDSCAPE_SCHEDULE.find(s => s.seasonKey === 'ilkbahar');
+      expect(ilkbahar).toBeDefined();
+      expect(ilkbahar?.lawnCareOperations.some(op => op.includes('Vertikut'))).toBe(true);
+
+      const kis = SEASONAL_LANDSCAPE_SCHEDULE.find(s => s.seasonKey === 'kis');
+      expect(kis?.irrigationSchedule).toContain('SİSTEM TAMAMEN KAPATILIR');
+
+      // Ağaç Budama ve Kesim İzinleri
+      expect(TREE_PRUNING_PERMIT_RULES.length).toBe(4);
+      const anitAgac = TREE_PRUNING_PERMIT_RULES.find(r => r.id === 'tree-anit-tescilli');
+      expect(anitAgac?.permitRequired).toBe(true);
+      expect(anitAgac?.legalAuthority).toContain('Tabiat Varlıklarını Koruma');
+
+      const sehirAgac = TREE_PRUNING_PERMIT_RULES.find(r => r.id === 'tree-belediye-park-bahceler');
+      expect(sehirAgac?.permitRequired).toBe(true);
+      expect(sehirAgac?.legalAuthority).toContain('Park ve Bahçeler');
+
+      // Su Tasarrufu Standartları
+      expect(SMART_IRRIGATION_STANDARDS.length).toBe(3);
+      const damla = SMART_IRRIGATION_STANDARDS.find(s => s.systemType.includes('Damla'));
+      expect(damla?.waterSavingPercentage).toContain('%50');
+
+      // Uyuşmazlıklar
+      expect(LANDSCAPE_LEGAL_DISPUTES.length).toBe(3);
+    });
+  });
+
+  describe('37. Sitelerde 4 Renkli Hijyen Standardı, GBF/MSDS & Çöp Şaftı Sanitasyonu (facilityHygieneMsdsData.ts)', () => {
+    it('4 renk kodlu çapraz bulaşma önleme, 16 başlıklı GBF/MSDS ve çöp şaftı ozonlamasını doğrular', async () => {
+      const {
+        COLOR_CODED_HYGIENE_ZONES,
+        MSDS_MANDATORY_SECTIONS,
+        GARBAGE_CHUTE_SANITATION_STEPS,
+        CHEMICAL_STORAGE_SAFETY_RULES
+      } = await import('@/data/facilityHygieneMsdsData');
+
+      // 4 Renkli Hijyen
+      expect(COLOR_CODED_HYGIENE_ZONES.length).toBe(4);
+
+      const kirmizi = COLOR_CODED_HYGIENE_ZONES.find(z => z.colorKey === 'kirmizi');
+      expect(kirmizi).toBeDefined();
+      expect(kirmizi?.assignedSurfaces.some(s => s.includes('Klozet'))).toBe(true);
+      expect(kirmizi?.crossContaminationWarning).toContain('KESİNLİKLE');
+
+      const sari = COLOR_CODED_HYGIENE_ZONES.find(z => z.colorKey === 'sari');
+      expect(sari?.assignedSurfaces.some(s => s.includes('Lavabo'))).toBe(true);
+
+      const mavi = COLOR_CODED_HYGIENE_ZONES.find(z => z.colorKey === 'mavi');
+      expect(mavi?.assignedSurfaces.some(s => s.includes('Asansör'))).toBe(true);
+
+      const yesil = COLOR_CODED_HYGIENE_ZONES.find(z => z.colorKey === 'yesil');
+      expect(yesil?.assignedSurfaces.some(s => s.includes('Mutfak') || s.includes('yemek'))).toBe(true);
+
+      // MSDS / GBF İSG Dosyası
+      expect(MSDS_MANDATORY_SECTIONS.length).toBeGreaterThanOrEqual(5);
+      const sec1 = MSDS_MANDATORY_SECTIONS.find(s => s.sectionNo === 1);
+      expect(sec1?.mandatoryInfo).toContain('114');
+
+      // Çöp Şaftı Ozon Sanitasyonu
+      expect(GARBAGE_CHUTE_SANITATION_STEPS.length).toBe(3);
+      const ozon = GARBAGE_CHUTE_SANITATION_STEPS.find(s => s.stageName.includes('Ozonlama'));
+      expect(ozon).toBeDefined();
+      expect(ozon?.disinfectantAgent).toContain('O3');
+
+      // Kimyasal Depolama Kuralı
+      expect(CHEMICAL_STORAGE_SAFETY_RULES.length).toBe(3);
+      const klorAsit = CHEMICAL_STORAGE_SAFETY_RULES.find(r => r.ruleId === 'chem-klor-asit-ayrimi');
+      expect(klorAsit?.hazardDescription).toContain('klor gazı');
+    });
+  });
 });
 
 

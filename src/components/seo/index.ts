@@ -112,3 +112,7 @@ export { default as KMKLegalNoticesVaultSeo } from './KMKLegalNoticesVaultSeo';
 export { default as DistrictUtilityTransferGuideSeo } from './DistrictUtilityTransferGuideSeo';
 export { default as SiteSecurityPermitGuideSeo } from './SiteSecurityPermitGuideSeo';
 export { default as FacilityEnergyEvChargingSeo } from './FacilityEnergyEvChargingSeo';
+export { default as FacilityPoolHealthGuideSeo } from './FacilityPoolHealthGuideSeo';
+export { default as FacilityBiocidalPestGuideSeo } from './FacilityBiocidalPestGuideSeo';
+export { default as FacilityLandscapeTreeGuideSeo } from './FacilityLandscapeTreeGuideSeo';
+export { default as FacilityHygieneMsdsGuideSeo } from './FacilityHygieneMsdsGuideSeo';

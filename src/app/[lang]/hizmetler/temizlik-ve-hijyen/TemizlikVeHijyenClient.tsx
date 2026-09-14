@@ -11,7 +11,7 @@ import { RelatedArticles } from '@/components';
 import CleaningCalculator from '@/components/sections/CleaningCalculator';
 import CleaningTestimonials from '@/components/sections/CleaningTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityHygieneMsdsGuideSeo } from '@/components/seo';
 
 export default function TemizlikVeHijyenClient() {
   const { t } = useLanguage();
@@ -439,6 +439,9 @@ export default function TemizlikVeHijyenClient() {
             category="Hijyen & Temizlik Standartları"
           />
         </div>
+
+        {/* 4 Renkli Hijyen Kodu, GBF/MSDS ve Çöp Şaftı Ozon Sanitasyonu (Faz 14) */}
+        <FacilityHygieneMsdsGuideSeo />
 
         {/* Cleaning Specific Social Proof */}
         <CleaningTestimonials />

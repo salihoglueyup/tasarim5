@@ -660,6 +660,61 @@ SearchGPT, Perplexity AI, Claude, Google AI Overviews, DeepSeek ve Apple Intelli
 - `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
 - `npm test` -> **104 test dosyası, 956 testin tamamı PASSED (%100 Başarı)**
 
+---
+
+## BÖLÜM 18: FAZ 14 — HAVUZ SAĞLIK ESASLARI, BİYOSİDAL İLAÇLAMA RUHSATI, PEYZAJ & ANIT AĞAÇ KORUMA VE 4 RENKLİ HİJYEN/MSDS STANDARTLARI (2026-09-14)
+
+### 1. Yüzme Havuzları Sağlık Esasları, Kimyasal Parametreler & Havuz İşletme Defteri (`Schema.org TechArticle` & `GovernmentPermit`)
+- **Veri Modeli:** [`src/data/facilityPoolHealthData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityPoolHealthData.ts)
+  - T.C. Sağlık Bakanlığı "Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik" (Resmi Gazete: 06.03.2011 / 27866) & TSE 11899 Standartları:
+    - Serbest Klor (Açık Havuz: 1.0 - 3.0 ppm; Kapalı Havuz: 1.0 - 1.5 ppm),
+    - Bağlı Klor (Maks. 0.2 ppm - klor kokusu ve göz yanması önleme),
+    - pH Dengesi (6.5 - 7.8, ideal 7.2 - 7.4),
+    - Siyanürik Asit (Maks. 100 ppm stabilizatör eşiği ve Chlorine Lock önleme),
+    - Toplam Alkalinite (80 - 120 ppm) & Mikrobiyolojik E. coli / Pseudomonas sıfır tolerans kuralı.
+  - Hukuki Yaptırımlar: Yönetmelik Madde 8 havuz kimya defteri zorunluluğu, MEB/TSSF lisanslı havuz suyu operatörü ve aylık TÜRKAK akredite lab tahlil protokolü.
+  - İSG Kimyasal Güvenlik: Klor ve asidin asla karıştırılmaması (ölümcül Cl2 klor gazı patlaması önleme) ve emniyet dökülme havuzları.
+- **Bileşen:** [`src/components/seo/FacilityPoolHealthGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityPoolHealthGuideSeo.tsx)
+- **Entegrasyon Sayfası:** [`HavuzBakimiVeHijyenClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/havuz-bakimi-ve-hijyen/HavuzBakimiVeHijyenClient.tsx).
+
+### 2. Sitelerde Biyosidal Haşere İlaçlama & Sağlık Bakanlığı Ruhsat Standartları (`Schema.org Service` & `GovernmentPermit`)
+- **Veri Modeli:** [`src/data/facilityBiocidalPestData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityBiocidalPestData.ts)
+  - Sağlık Bakanlığı "Biyosidal Ürünlerin Kullanım Usul ve Esasları Hakkında Yönetmelik" & WHO Entegre Zararlı Yönetimi (IPM):
+    - Hamamböceği: Kokusuz jel uygulama (domino etkisi - evden çıkmaya gerek yok),
+    - Kemirgenler: Çift kilitli, çocuk/evcil hayvan emniyetli barkodlu yem istasyonları,
+    - Pire/Kene: Rezidüel sıvı pülverizasyon ve 2 saat sonra 30 dk havalandırma,
+    - Sivrisinek/Karasinek: Durgun sularda çevreye ve arılara zararsız BTI biyolojik larvasit.
+  - Ruhsat & Bildirim Kuralları: İl Sağlık Müdürlüğü Biyosidal Uygulama İzin Belgesi, Mesul Müdürlük, Sağlık Bakanlığı Ek-1 Formu ve kat maliklerine 48 saat önceden SMS/pano bildirimi mecburiyeti.
+- **Bileşen:** [`src/components/seo/FacilityBiocidalPestGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityBiocidalPestGuideSeo.tsx)
+- **Entegrasyon Sayfası:** [`HasereVeDezenfeksiyonClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/hasere-ve-dezenfeksiyon/HasereVeDezenfeksiyonClient.tsx).
+
+### 3. Sitelerde Peyzaj Bakımı, Otomatik Sulama Su Tasarrufu & Anıt Ağaç Koruma (`Schema.org TechArticle` & `HowTo`)
+- **Veri Modeli:** [`src/data/facilityLandscapeTreeData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityLandscapeTreeData.ts)
+  - 4 Mevsim Periyodik Bakım: İlkbahar vertikut/ara ekim kürü, Yaz gece sulaması ve potasyumlu stres direnci, Sonbahar derin kök gübresi ve yaprak temizliği, Kış don koruma malçlaması ve tesisat tahliyesi.
+  - 6831 Sayılı Orman Kanunu & Belediye İzinleri: Tescilli anıt ağaçlar (Tabiat Varlıklarını Koruma Komisyonu ruhsatı), şehir ağaçları budama/kesim izinleri (İlçe Belediyesi Park Bahçeler ruhsatı ve izinsiz kesimde TCK m.151 cezaları).
+  - Akıllı Sulama & Su Tasarrufu: Basınç ayarlı damla sulama ve yağmur sensörlü rotor sistemleri ile %50-65 su tasarrufu; komşuluk hukuku manzara ve ortak bahçe işgal ihtilafları çözümü.
+- **Bileşen:** [`src/components/seo/FacilityLandscapeTreeGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityLandscapeTreeGuideSeo.tsx)
+- **Entegrasyon Sayfası:** [`PeyzajVeBahceBakimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/peyzaj-ve-bahce-bakimi/PeyzajVeBahceBakimiClient.tsx).
+
+### 4. Sitelerde 4 Renkli Hijyen Standardı, GBF/MSDS & Çöp Şaftı Ozon Sanitasyonu (`Schema.org HowTo` & `TechArticle`)
+- **Veri Modeli:** [`src/data/facilityHygieneMsdsData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityHygieneMsdsData.ts)
+  - Hastane Standardında 4 Renk Kodu Çapraz Bulaşma (Cross-Contamination) Önleme:
+    - **Kırmızı:** Klozet ve pisuvarlar (yüksek biyo-tehlike - kapı dışına çıkışı yasak),
+    - **Sarı:** Lavabo, ayna, fayans ve duşakabinler (orta risk),
+    - **Mavi:** Lobi, bina girişleri, koridorlar ve asansör butonları (düşük risk genel),
+    - **Yeşil:** Kafeterya, personel mutfağı ve gıda hazırlık alanları (gıda sertifikalı).
+  - 6331 Sayılı İSG & KKDİK Güvenlik Bilgi Formu (GBF / MSDS): 16 başlıklı Türkçe onaylı arşiv, UZEM 114 Zehir Danışma bilgisi ve EN 374 kimyasal eldiven standardı.
+  - Çöp Şaftı Sanitasyonu: 150 Bar sıcak basınçlı yıkama, kuaterner amonyum dezenfeksiyonu ve 10-20 g/h aktif korona deşarjlı ozonlama ile %100 koku eliminasyonu.
+- **Bileşen:** [`src/components/seo/FacilityHygieneMsdsGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityHygieneMsdsGuideSeo.tsx)
+- **Entegrasyon Sayfası:** [`TemizlikVeHijyenClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/temizlik-ve-hijyen/TemizlikVeHijyenClient.tsx).
+
+### 5. Kalite Güvence ve Test Sonuçları
+- `src/lib/seo/siteManagementSeoSuite.test.ts` dosyasına 4 yeni kapsamlı test paketi (34, 35, 36, 37) eklendi; toplam test paketi **37'ye**, tekil test sayısı **59'a** yükseldi.
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **59/59 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- `npm test` -> **104 test dosyası, 960 testin tamamı PASSED (%100 Başarı)**
+
 
 
 
