@@ -13,6 +13,7 @@ import {
   DistrictSecuritySpotlightSeo,
   DistrictMapFacadeSeo,
   ServiceAuthorityHubSeo,
+  DistrictDualCoreSelectorSeo,
 } from '@/components/seo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -177,6 +178,12 @@ export default async function DistrictPage({
             </QuoteCtaButton>
           </div>
         </div>
+
+        {/* Çift Çekirdekli (Dual-Core) Yönetim Modeli Seçim Paneli (Site vs Tesis) */}
+        <DistrictDualCoreSelectorSeo
+          districtSlug={district.slug}
+          districtName={district.name}
+        />
 
         {/* İlçe Yerel Otorite Kartı */}
         <DistrictLocalHighlightsSeo
