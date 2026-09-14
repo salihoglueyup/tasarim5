@@ -424,7 +424,10 @@ export async function middleware(request: NextRequest) {
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json>; rel="describedby"; type="application/json"`,
-      `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`
+      `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/api/ai/site-agent-context.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/api/markdown/site-yonetimi>; rel="alternate"; type="text/markdown"`,
+      `<https://aloyonetim.com.tr/api/markdown/tesis-yonetimi>; rel="alternate"; type="text/markdown"`
     ];
     response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
 
@@ -439,12 +442,30 @@ export async function middleware(request: NextRequest) {
       response.headers.set('X-AI-Credentials', 'https://aloyonetim.com.tr/api/tesis-yonetimi/verify-credentials');
       response.headers.set('X-AI-Facts', 'https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
       response.headers.set('X-AI-Knowledge-Endpoint', 'https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
+      response.headers.set('X-AI-Site-Agent-Context', 'https://aloyonetim.com.tr/api/ai/site-agent-context.json');
       response.headers.set('X-AI-Legal-Precedents', 'https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
       response.headers.set('X-AI-RFP-Generator', 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator');
       response.headers.set('X-AI-Entity-Graph', 'https://aloyonetim.com.tr/api/tesis-yonetimi/entity-graph.jsonld');
       response.headers.set('X-AI-Geo-Coverage', 'https://aloyonetim.com.tr/api/geo/facility-coverage.geojson');
       response.headers.set('X-AI-KML-Map', 'https://aloyonetim.com.tr/api/geo/istanbul.kml');
       response.headers.set('X-AI-Sitemap-Regions', 'https://aloyonetim.com.tr/sitemap-regions.xml');
+
+      if (pathname.includes('site-yonetimi')) {
+        response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown/site-yonetimi');
+      } else if (pathname.includes('tesis-yonetimi')) {
+        response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown/tesis-yonetimi');
+      }
+    }
+
+    // AI Bot Content Negotiation (Saf Markdown talebi kontrolü)
+    const acceptHeader = request.headers.get('accept') || '';
+    if (acceptHeader.includes('text/markdown') && request.method === 'GET') {
+      if (pathname.endsWith('/hizmetler/site-yonetimi')) {
+        return NextResponse.rewrite(new URL('/api/markdown/site-yonetimi', request.url));
+      }
+      if (pathname.endsWith('/hizmetler/tesis-yonetimi')) {
+        return NextResponse.rewrite(new URL('/api/markdown/tesis-yonetimi', request.url));
+      }
     }
   }
 
