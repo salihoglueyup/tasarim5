@@ -560,6 +560,59 @@ SearchGPT, Perplexity AI, Claude, Google AI Overviews, DeepSeek ve Apple Intelli
 - `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
 - `npm test` -> **104 test dosyası, 947 testin tamamı PASSED (%100 Başarı)**
 
+---
+
+## BÖLÜM 16: FAZ 12 — 634 KMK MADDE MADDE İNTERAKTİF MEVZUAT GEZGİNİ, ISO 41001 12 AYLIK BAKIM TAKVİMİ VE 39 İLÇE AFET EYLEM PLANI REHBERİ (2026-09-14)
+
+### 1. 634 Sayılı Kat Mülkiyeti Kanunu Madde Madde İnteraktif Mevzuat Gezgini (`Schema.org Legislation`)
+- **Veri Modeli:** [`src/data/kmkLegislationArticlesData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/kmkLegislationArticlesData.ts)
+  - Kat Mülkiyeti Kanunu'nun en çok uyuşmazlık yaşanan 20 temel maddesi:
+    - **Mülkiyet & Arsa Payı:** Madde 4 (Ortak Yerler), Madde 18 (Komşuluk Borçları), Madde 19 (Mimari Değişiklikler ve Cam Balkon), Madde 22 (Ortak Giderlerin Teminatı ve İpotek).
+    - **Maliye & Aidat:** Madde 20 (Aidat ve Aylık %5 Gecikme Tazminatı), Madde 37 (İşletme Projesi ve İtiraz), Madde 39 (Yöneticinin Hesap Verme Yükümlülüğü), Madde 40 (Yöneticinin Hakları ve Ücreti).
+    - **Yönetim Organları:** Madde 28 (Yönetim Planı Bağlayıcılığı), Madde 29 (Genel Kurul Toplantı Zamanı), Madde 30 (Toplantı ve Karar Yetersayısı), Madde 31 (Oy Hakkı ve Vekalet Sınırları), Madde 32 (Kararların Bağlayıcılığı ve Karar Defteri), Madde 34 (Yönetici Seçimi ve Çift Çoğunluk), Madde 35 (Yöneticinin Yasal Görevleri), Madde 38 (Yöneticinin Sorumluluğu ve İbra).
+    - **Denetim & Yargı:** Madde 33 (Hâkimin Müdahalesi ve 1-6 Ay Hak Düşürücü Süre), Madde 36 (Defterlerin Noter Kapanış Tasdiki), Madde 41 (Denetim Kurulu ve Denetim Raporu), Madde 42 (Faydalı ve Lüks Yenilik ve İlaveler).
+  - Her madde için: Orijinal Kanun Metni, Sadeleştirilmiş Pratik Anlam, Yargıtay Hukuk Genel Kurulu / Özel Daire İçtihadı, İcra & Yaptırım Riski ve Alo Yönetim Kurumsal Standart Güvencesi.
+- **Bileşen:** [`src/components/seo/KMKLegislationNavigatorSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/KMKLegislationNavigatorSeo.tsx)
+  - Google Schema.org `Legislation` ve `hasPart` yapısal verisi.
+  - Arama, kategori filtreleri, akordeon aç/kapa ve sıfır simülasyon kuralına tam uyumlu bilgilendirme mimarisi.
+  - [`SiteYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx) sayfasına Bölüm 11.18 olarak entegre edildi.
+
+### 2. ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi (`Schema.org Schedule` & `TechArticle`)
+- **Veri Modeli:** [`src/data/facilityAnnualMaintenanceScheduleData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityAnnualMaintenanceScheduleData.ts)
+  - 12 aya yayılmış yasal zorunlu muayeneler ve önleyici teknik bakım periyotları:
+    - **Ocak:** Kat Malikleri Olağan Genel Kurulu & Kış yükü jeneratör/trafo yük testi.
+    - **Şubat:** Merkezi kazan brülör gaz analizi & yangın hidrant hatları testi.
+    - **Mart:** Asansör A Tipi akredite muayene kuruluşu kontrolü (Yeşil Bilgi Etiketi) & çatı drenaj temizliği.
+    - **Nisan:** Kullanma suyu deposu mekanik temizliği/laboratuvar analizi & paratoner/topraklama meger ölçümü.
+    - **Mayıs:** Açık yüzme havuzu sezon açılışı & Chiller soğutma grupları devreye alma.
+    - **Haziran:** Kapalı otopark jet-fan duman tahliye/CO dedektör kalibrasyonu & PTS bariyer revizyonu.
+    - **Temmuz:** Yangın ana pompa istasyonu (NFPA 20) debi testi & peyzaj akıllı sulama otomasyonu.
+    - **Ağustos:** Trafo kompanzasyon panosu kondansatör testi (%0 reaktif ceza) & CCTV güvenlik NVR kayıt denetimi.
+    - **Eylül:** Sığınak NBC havalandırma ve acil aydınlatma revizyonu & asansör makine dairesi halat/kasnak bakımı.
+    - **Ekim:** Kış sezonu öncesi merkezi ısıtma kazanları ön ateşleme & kapalı havuz nem alma santrali testi.
+    - **Kasım:** Isı payölçer ve kalorimetre RF okuma kalibrasyonu & rampa buz eritme kabloları testi.
+    - **Aralık:** Yıl sonu kesin hesap kapanışı, banka mutabakatları, denetim kurulu raporu & ortak alan paket sigortası yenilemesi.
+- **Bileşen:** [`src/components/seo/FacilityAnnualMaintenanceScheduleSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityAnnualMaintenanceScheduleSeo.tsx)
+  - Schema.org `Schedule` ve `eventSchedule` yapısal verisi.
+  - Çeyreklik (Q1-Q4), disiplin ve ay filtreleri; tek tıkla takvim metnini panoya kopyalama altyapısı.
+  - [`TesisYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx) sayfasına Bölüm 6.9 olarak entegre edildi.
+
+### 3. 39 İlçe Deprem, Yangın ve Afet Acil Durum Eylem Planı Rehberi (`Schema.org EmergencyService`)
+- **Veri Modeli:** [`src/data/districtEmergencyPreparednessData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/districtEmergencyPreparednessData.ts)
+  - İstanbul'un 39 ilçesinin zemin jeolojisi, 1./2./3. derece sismik risk sınıflandırması, AFAD toplanma alanları sayısı ve ana meydanları, yetkili itfaiye grup amirlikleri, afet triyaj hastaneleri ve 2000 öncesi yapı stoku oranları.
+  - Alo Yönetim acil afet protokolleri: Sismik ana doğalgaz selenoid vana kesintisi, deprem anı asansör otomatik en yakın kata indirme ve kapı açma, yangın hidroforu için 72 saat jeneratör rezervi ve acil afet toplanma kiti.
+- **Bileşen:** [`src/components/seo/DistrictEmergencyPreparednessSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/DistrictEmergencyPreparednessSeo.tsx)
+  - Schema.org `EmergencyService` yapısal verisi.
+  - 3 kolonlu sismik kartlar, Alo Yönetim müdahale standardı ve 4 maddelik etkileşimli afet güvenliği doğrulama kontrol listesi.
+  - Tüm 39 ilçe sayfasına ([`/bolgeler/[ilce]`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/bolgeler/[ilce]/page.tsx)) entegre edildi.
+
+### 4. Kalite Güvence ve Test Sonuçları
+- `src/lib/seo/siteManagementSeoSuite.test.ts` dosyasına 3 yeni kapsamlı test paketi (27, 28, 29) eklendi; toplam test sayısı **51'e** yükseldi.
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **51/51 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- `npm test` -> **104 test dosyası, 952 testin tamamı PASSED (%100 Başarı)**
+
 
 
 

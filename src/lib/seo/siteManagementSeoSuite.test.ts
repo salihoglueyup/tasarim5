@@ -700,6 +700,151 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(bakirkoy.courthouseName).toContain('Bakırköy');
     });
   });
+
+  describe('27. 634 KMK Madde Madde İnteraktif Mevzuat Gezgini (kmkLegislationArticlesData.ts & Legislation)', () => {
+    it('20 kritik KMK maddesini, sadeleştirilmiş meallerini ve Yargıtay ilkelerini eksiksiz barındırır', async () => {
+      const { KMK_LEGISLATION_ARTICLES } = await import('@/data/kmkLegislationArticlesData');
+
+      expect(KMK_LEGISLATION_ARTICLES.length).toBe(20);
+
+      // KMK m.4 (Ortak Yerler)
+      const m4 = KMK_LEGISLATION_ARTICLES.find(a => a.articleNo === 4);
+      expect(m4).toBeDefined();
+      expect(m4?.articleCode).toBe('KMK Madde 4');
+      expect(m4?.category).toBe('Mülkiyet & Arsa Payı');
+      expect(m4?.supremeCourtPrinciple).toContain('Yargıtay HGK');
+      expect(m4?.legalSanctionOrRisk).toContain('müdahalenin men\'i');
+
+      // KMK m.18 (Komşuluk Borçları)
+      const m18 = KMK_LEGISLATION_ARTICLES.find(a => a.articleNo === 18);
+      expect(m18).toBeDefined();
+      expect(m18?.plainLanguageSummary).toContain('komşuluk hukukuna');
+
+      // KMK m.19 (Mimari Değişiklikler & Cam Balkon)
+      const m19 = KMK_LEGISLATION_ARTICLES.find(a => a.articleNo === 19);
+      expect(m19).toBeDefined();
+      expect(m19?.plainLanguageSummary).toContain('4/5');
+      expect(m19?.supremeCourtPrinciple).toContain('katlanır cam');
+
+      // KMK m.20 (Aidat ve %5 Gecikme Tazminatı)
+      const m20 = KMK_LEGISLATION_ARTICLES.find(a => a.articleNo === 20);
+      expect(m20).toBeDefined();
+      expect(m20?.category).toBe('Maliye & Aidat');
+      expect(m20?.originalStatuteSnippet).toContain('yüzde beş');
+      expect(m20?.legalSanctionOrRisk).toContain('icra masrafları');
+
+      // KMK m.34 (Yönetici Atanması)
+      const m34 = KMK_LEGISLATION_ARTICLES.find(a => a.articleNo === 34);
+      expect(m34).toBeDefined();
+      expect(m34?.category).toBe('Yönetim Organları');
+      expect(m34?.plainLanguageSummary).toContain('salt çoğunluğu');
+
+      // KMK m.41 (Denetim)
+      const m41 = KMK_LEGISLATION_ARTICLES.find(a => a.articleNo === 41);
+      expect(m41).toBeDefined();
+      expect(m41?.category).toBe('Denetim & Yargı');
+      expect(m41?.aloYonetimStandard).toContain('Apsiyon');
+    });
+
+    it('tüm maddelerde 5 temel zorunlu alanın dolu olduğunu teyit eder', async () => {
+      const { KMK_LEGISLATION_ARTICLES } = await import('@/data/kmkLegislationArticlesData');
+
+      for (const item of KMK_LEGISLATION_ARTICLES) {
+        expect(item.articleNo).toBeGreaterThan(0);
+        expect(item.articleCode.length).toBeGreaterThan(4);
+        expect(item.articleTitle.length).toBeGreaterThan(5);
+        expect(item.originalStatuteSnippet.length).toBeGreaterThan(15);
+        expect(item.plainLanguageSummary.length).toBeGreaterThan(15);
+        expect(item.supremeCourtPrinciple.length).toBeGreaterThan(15);
+        expect(item.legalSanctionOrRisk.length).toBeGreaterThan(15);
+        expect(item.aloYonetimStandard.length).toBeGreaterThan(15);
+      }
+    });
+  });
+
+  describe('28. ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım Takvimi (facilityAnnualMaintenanceScheduleData.ts & Schedule)', () => {
+    it('12 ayın tamamını kapsayan periyodik teknik, mali ve yasal faaliyetleri içerir', async () => {
+      const { FACILITY_ANNUAL_MAINTENANCE_SCHEDULE, MAINTENANCE_CATEGORIES } = await import('@/data/facilityAnnualMaintenanceScheduleData');
+
+      expect(FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.length).toBeGreaterThanOrEqual(18);
+      expect(MAINTENANCE_CATEGORIES.length).toBe(6);
+
+      // 1-12 ayların hepsinde en az bir bakım görevi bulunmalıdır
+      for (let month = 1; month <= 12; month++) {
+        const monthTasks = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.filter(t => t.month === month);
+        expect(monthTasks.length).toBeGreaterThanOrEqual(1);
+      }
+
+      // Q1-Q4 çeyreklerin hepsi mevcut olmalıdır
+      const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
+      for (const q of quarters) {
+        const qTasks = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.filter(t => t.quarter === q);
+        expect(qTasks.length).toBeGreaterThanOrEqual(3);
+      }
+
+      // Asansör A Tipi Muayene kontrolü (Mart)
+      const asansorMart = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-03-asansor-yillik-a-tipi');
+      expect(asansorMart).toBeDefined();
+      expect(asansorMart?.frequency).toBe('Yıllık Yasal Zorunlu');
+      expect(asansorMart?.aloYonetimGuarantee).toContain('Yeşil');
+
+      // Su Deposu Temizliği (Nisan)
+      const suDeposu = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-04-hidrofor-su-deposu-hijyen');
+      expect(suDeposu).toBeDefined();
+      expect(suDeposu?.standardOrRegulation).toContain('Sağlık Bakanlığı');
+
+      // Yangın Pompa İstasyonu (Temmuz)
+      const yanginPompa = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-07-yangin-pompa-istasyonu');
+      expect(yanginPompa).toBeDefined();
+      expect(yanginPompa?.standardOrRegulation).toContain('NFPA 20');
+
+      // Yıl Sonu Kesin Hesap Kapanışı (Aralık)
+      const yilSonu = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-12-yilsonu-kesin-hesap-denetim');
+      expect(yilSonu).toBeDefined();
+      expect(yilSonu?.category).toBe('Mali & Hukuk & Genel Kurul');
+    });
+  });
+
+  describe('29. 39 İlçe Deprem, Yangın ve Afet Acil Durum Eylem Planı (districtEmergencyPreparednessData.ts & EmergencyService)', () => {
+    it('İstanbul’un 39 ilçesinin tamamı için afet ve acil durum profili sunar', async () => {
+      const { DISTRICTS } = await import('@/data/districts');
+      const { getDistrictEmergencyProfile } = await import('@/data/districtEmergencyPreparednessData');
+
+      expect(DISTRICTS.length).toBe(39);
+
+      for (const d of DISTRICTS) {
+        const profile = getDistrictEmergencyProfile(d.slug);
+        expect(profile).toBeDefined();
+        expect(profile.districtSlug).toBe(d.slug);
+        expect(profile.afadAssemblyPointsCount).toBeGreaterThan(0);
+        expect(profile.primaryAssemblyAreas.length).toBeGreaterThanOrEqual(1);
+        expect(profile.localFireStation.length).toBeGreaterThan(5);
+        expect(profile.emergencyFirstResponseCenter.length).toBeGreaterThan(5);
+        expect(profile.checklistItems.length).toBe(4);
+      }
+    });
+
+    it('Kadıköy, Bakırköy, Şişli ve Çekmeköy jeolojik sismik profil farklılıklarını doğru yansıtır', async () => {
+      const { getDistrictEmergencyProfile } = await import('@/data/districtEmergencyPreparednessData');
+
+      const kadikoy = getDistrictEmergencyProfile('kadikoy');
+      expect(kadikoy.riskZone).toBe('1. Derece Yüksek Sismik Risk');
+      expect(kadikoy.primaryAssemblyAreas).toContain('Göztepe 60. Yıl Parkı');
+      expect(kadikoy.localFireStation).toContain('Kadıköy İtfaiye');
+
+      const bakirkoy = getDistrictEmergencyProfile('bakirkoy');
+      expect(bakirkoy.riskZone).toBe('1. Derece Yüksek Sismik Risk');
+      expect(bakirkoy.soilClassification).toContain('sıvılaşma');
+
+      const sisli = getDistrictEmergencyProfile('sisli');
+      expect(sisli.riskZone).toBe('Kaya Zemin / Düşük Zemin İvmesi');
+      expect(sisli.emergencyFirstResponseCenter).toContain('Şişli Hamidiye Etfal');
+
+      const cekmekoy = getDistrictEmergencyProfile('cekmekoy');
+      expect(cekmekoy.riskZone).toBe('Kaya Zemin / Düşük Zemin İvmesi');
+      expect(cekmekoy.mandatoryShelterStandard).toContain('Orman');
+    });
+  });
 });
 
 
