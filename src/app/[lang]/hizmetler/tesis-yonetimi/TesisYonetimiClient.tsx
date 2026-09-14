@@ -23,6 +23,7 @@ import {
   FacilityTransitionTimelineSeo,
   FacilityOperationalPillarsSeo,
   FacilityBudgetStaffSimulatorSeo,
+  VoiceSearchSpeakableSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -92,6 +93,13 @@ export default function TesisYonetimiClient() {
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi"
       />
+
+      <VoiceSearchSpeakableSeo
+        cssSelectors={[
+          '#facility-instant-answer-text',
+          '#facility-hero-h1',
+        ]}
+      />
       
       {/* 1. BÖLÜM: Hero & Değer Önerisi (Titanium & Slate) */}
       <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-28 md:pt-36 md:pb-36">
@@ -118,7 +126,7 @@ export default function TesisYonetimiClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('fac_banner_badge') || 'ENTEGRE VE DİJİTAL TESİS YÖNETİMİ'}
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') || 'Profesyonel <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400"> Tesis Yönetimi </span>' }} />
+            <h1 id="facility-hero-h1" className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') || 'Profesyonel <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400"> Tesis Yönetimi </span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: `Alo Yönetim - ${t('serv_fac_name') || 'Tesis Yönetimi'}` }}
@@ -162,7 +170,7 @@ export default function TesisYonetimiClient() {
             <h2 className="text-base sm:text-lg font-extrabold text-[var(--color-primary)] mb-2 flex items-center gap-2">
               <span>📌</span> Tesis Yönetimi Nedir?
             </h2>
-            <p className="text-sm md:text-base text-[var(--color-secondary)] font-medium leading-relaxed">
+            <p id="facility-instant-answer-text" className="text-sm md:text-base text-[var(--color-secondary)] font-medium leading-relaxed">
               <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi</strong>; konut siteleri, apartmanlar, plazalar ve sanayi tesislerinin <strong>5188 lisanslı güvenlik</strong>, <strong>7/24 teknik bakım</strong>, <strong>endüstriyel temizlik</strong>, <strong>aidat muhasebesi</strong> ve <strong>634 sayılı KMK hukuki danışmanlık</strong> operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir.
             </p>
           </div>
