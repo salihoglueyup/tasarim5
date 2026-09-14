@@ -27,6 +27,8 @@ import {
   AcademicCitationBoxSeo,
   ServicePricingCatalogSeo,
   KMKAuditProtocolSeo,
+  ManagementTransitionRoadmapSeo,
+  KMKLegalDisputesQAPageSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
@@ -346,6 +348,24 @@ export default function SiteYonetimiClient() {
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <KMKAuditProtocolSeo
+            pageUrl="/hizmetler/site-yonetimi"
+          />
+        </div>
+      </div>
+
+      {/* 11.16. BÖLÜM: 48 Saatte Profesyonel Yönetime Devir Teslim Protokolü (Schema.org HowTo) */}
+      <div className="py-16 bg-slate-900/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ManagementTransitionRoadmapSeo
+            pageUrl="/hizmetler/site-yonetimi"
+          />
+        </div>
+      </div>
+
+      {/* 11.17. BÖLÜM: KMK Emsal Hukuki Uyuşmazlıklar & Uzman Çözüm Dizini (Schema.org QAPage) */}
+      <div className="py-16 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <KMKLegalDisputesQAPageSeo
             pageUrl="/hizmetler/site-yonetimi"
           />
         </div>
