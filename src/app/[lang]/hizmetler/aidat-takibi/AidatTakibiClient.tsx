@@ -12,7 +12,7 @@ import DuesCalculator from '@/components/sections/DuesCalculator';
 import DuesTestimonials from '@/components/sections/DuesTestimonials';
 import InteractiveCostSimulatorSeo from '@/components/seo/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, KMKOperatingBudgetGuideSeo } from '@/components/seo';
 
 export default function AidatTakibiClient() {
   const { t } = useLanguage();
@@ -367,6 +367,9 @@ export default function AidatTakibiClient() {
 
         {/* KMK Arsa Payı & İşletme Projesi Masraf Simülatörü */}
         <InteractiveCostSimulatorSeo />
+
+        {/* KMK Madde 37 İşletme Projesi, Gider Dağıtımı ve Tebliğ Rehberi (Faz 15) */}
+        <KMKOperatingBudgetGuideSeo />
 
         {/* Dues Specific Social Proof */}
         <DuesTestimonials />
