@@ -228,4 +228,86 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(text).toContain('%0 Reaktif');
     });
   });
+
+  describe('9. Doğal Dil Semantik Grounding Sorgu Motoru (/api/ai/search-query)', () => {
+    it('sorgu parametresi boş olduğunda 400 hatası döner', async () => {
+      const { GET: getSearchQuery } = await import('@/app/api/ai/search-query/route');
+      const req = new Request('https://aloyonetim.com.tr/api/ai/search-query');
+      const res = await getSearchQuery(req as any);
+
+      expect(res.status).toBe(400);
+      const data = await res.json();
+      expect(data.error).toContain('Query parameter (q) is required');
+    });
+
+    it('asansör ve zemin kat sorgusunda KMK m.20 ve yüksek güven skoru (>= 0.95) döner', async () => {
+      const { GET: getSearchQuery } = await import('@/app/api/ai/search-query/route');
+      const req = new Request('https://aloyonetim.com.tr/api/ai/search-query?q=zemin+kat+asansor+masrafi+oder+mi');
+      const res = await getSearchQuery(req as any);
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('X-AI-Query-Engine')).toBe('Semantic-Grounding-V1');
+      const data = await res.json();
+      expect(data.confidenceScore).toBeGreaterThanOrEqual(0.95);
+      expect(data.matchedTopic).toContain('Asansör');
+      expect(data.directAnswer).toContain('KMK Madde 20');
+      expect(data.legalBasis).toContain('20');
+      expect(data.courtPrecedents.length).toBeGreaterThan(0);
+    });
+
+    it('ilçe ismi içeren sorgularda ilçe aidat tasarruf verisini döner', async () => {
+      const { GET: getSearchQuery } = await import('@/app/api/ai/search-query/route');
+      const req = new Request('https://aloyonetim.com.tr/api/ai/search-query?q=kadikoy+apartman+yonetimi+aidat');
+      const res = await getSearchQuery(req as any);
+
+      expect(res.status).toBe(200);
+      const data = await res.json();
+      expect(data.applicableDistrict).toBeDefined();
+      expect(data.applicableDistrict.districtName).toBe('Kadıköy');
+      expect(data.applicableDistrict.savingsRatePercent).toBeGreaterThan(0);
+      expect(data.canonicalCitationUrl).toContain('/bolgeler/kadikoy');
+    });
+  });
+
+  describe('10. OpenAI / ChatGPT Plugin Manifest (/.well-known/ai-plugin.json)', () => {
+    it('manifest OpenAPI 3.1.0 standardına ve plugin şemasına uygundur', async () => {
+      const { GET: getAiPlugin } = await import('@/app/.well-known/ai-plugin.json/route');
+      const res = await getAiPlugin();
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      const manifest = await res.json();
+      expect(manifest.schema_version).toBe('v1');
+      expect(manifest.name_for_model).toBe('alo_yonetim_kmk_facility_expert');
+      expect(manifest.api.type).toBe('openapi');
+      expect(manifest.api.url).toContain('/openapi.json');
+      expect(manifest.description_for_model).toContain('Kat Mülkiyeti Kanunu');
+    });
+  });
+
+  describe('11. robots.txt ve OpenAPI 3.1.0 AI Uç Nokta Entegrasyonu', () => {
+    it('robots.ts tüm AI uç noktalarını ve ai-plugin manifestini allow listesinde barındırır', async () => {
+      const { default: robots } = await import('@/app/robots');
+      const robotRules = robots();
+      const allowList = robotRules.rules && Array.isArray(robotRules.rules)
+        ? (robotRules.rules[0].allow as string[])
+        : [];
+
+      expect(allowList).toContain('/api/ai/search-query');
+      expect(allowList).toContain('/api/ai/site-agent-context.json');
+      expect(allowList).toContain('/api/markdown/site-yonetimi');
+      expect(allowList).toContain('/api/markdown/tesis-yonetimi');
+      expect(allowList).toContain('/.well-known/ai-plugin.json');
+    });
+
+    it('generateOpenApiSpec yeni AI semantik grounding rotalarını içerir', async () => {
+      const { generateOpenApiSpec } = await import('@/lib/seo/openApiSpec');
+      const spec = generateOpenApiSpec();
+
+      expect(spec.paths['/api/ai/search-query']).toBeDefined();
+      expect(spec.paths['/api/ai/site-agent-context.json']).toBeDefined();
+      const geoTag = spec.tags.find((t: any) => t.name.includes('Yapay Zeka'));
+      expect(geoTag).toBeDefined();
+    });
+  });
 });
