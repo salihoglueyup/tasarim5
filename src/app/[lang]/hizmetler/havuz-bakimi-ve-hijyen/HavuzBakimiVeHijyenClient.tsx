@@ -11,7 +11,7 @@ import { RelatedArticles } from '@/components';
 import PoolCalculator from '@/components/sections/PoolCalculator';
 import PoolTestimonials from '@/components/sections/PoolTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityPoolHealthGuideSeo } from '@/components/seo';
 
 export default function HavuzBakimiVeHijyenClient() {
   const { t } = useLanguage();
@@ -150,6 +150,9 @@ export default function HavuzBakimiVeHijyenClient() {
             steps={poolSteps}
           />
         </div>
+
+        {/* Sağlık Bakanlığı ve TSE 11899 Havuz Sağlık ve Kimyasal Rehberi (Faz 14) */}
+        <FacilityPoolHealthGuideSeo />
 
         {/* Pool Specific Social Proof */}
         <PoolTestimonials />
