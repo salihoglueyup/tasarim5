@@ -91,4 +91,4 @@ export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
 export { default as SiteVsFacilityComparisonSeo } from './SiteVsFacilityComparisonSeo';
 export { default as DistrictDualCoreSelectorSeo } from './DistrictDualCoreSelectorSeo';
 export { default as SiteAiSearchGroundingSeo } from './SiteAiSearchGroundingSeo';
-
+export { default as SiteLegalClaimReviewsSeo } from './SiteLegalClaimReviewsSeo';

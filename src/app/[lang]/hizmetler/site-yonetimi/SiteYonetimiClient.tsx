@@ -19,6 +19,7 @@ import {
   SiteVsFacilityComparisonSeo,
   FacilityLegalPrecedentsBrowserSeo,
   SiteAiSearchGroundingSeo,
+  SiteLegalClaimReviewsSeo,
   VoiceSearchSpeakableSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
@@ -284,6 +285,13 @@ export default function SiteYonetimiClient() {
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SiteAiSearchGroundingSeo />
+        </div>
+      </div>
+
+      {/* 11.9. BÖLÜM: Google Fact Check & AI Doğrulamaları (ClaimReview) */}
+      <div className="py-16 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SiteLegalClaimReviewsSeo />
         </div>
       </div>
 
