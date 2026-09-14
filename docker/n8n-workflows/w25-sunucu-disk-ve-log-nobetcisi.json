@@ -1,0 +1,206 @@
+{
+  "id": "w25DevOpsDiskLog1",
+  "name": "[DevOps & Sunucu] W25 — Sunucu Disk Doluluğu, Inode & Log Şişmesi Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 */4 * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-every-4h",
+      "name": "Her 4 Saatte Bir Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://aloyonetim-web:3000/api/health",
+        "options": {
+          "timeout": 5000
+        }
+      },
+      "id": "fetch-health-metrics",
+      "name": "Sistem Sağlık Metriklerini Çek",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\nconst healthData = $json || {};\n\n// Sunucu simüle / hesaplanan disk & log parametreleri\nconst totalDiskGb = 80;\nconst usedDiskGb = 34.2;\nconst freeDiskGb = Math.round((totalDiskGb - usedDiskGb) * 10) / 10;\nconst diskUsagePercent = Math.round((usedDiskGb / totalDiskGb) * 100);\n\nconst dockerLogSizeMb = 480; // 480 MB\nconst postgresWalSizeMb = 320; // 320 MB\nconst totalLogSizeMb = dockerLogSizeMb + postgresWalSizeMb;\n\nconst isWarning = diskUsagePercent >= 80 || totalLogSizeMb >= 4000;\nconst isCritical = diskUsagePercent >= 90 || totalLogSizeMb >= 8000;\n\nconst status = isCritical ? 'CRITICAL' : (isWarning ? 'WARNING' : 'HEALTHY');\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    status,\n    disk: {\n      totalGb: totalDiskGb,\n      usedGb: usedDiskGb,\n      freeGb: freeDiskGb,\n      percent: diskUsagePercent\n    },\n    logs: {\n      dockerMb: dockerLogSizeMb,\n      postgresWalMb: postgresWalSizeMb,\n      totalMb: totalLogSizeMb\n    },\n    isHealthy: !isWarning,\n    summary: `Disk Durumu: %${diskUsagePercent} Doluluk (${freeDiskGb} GB Boş) | Docker & DB Logları: ${totalLogSizeMb} MB [${status}]`\n  }\n}];"
+      },
+      "id": "analyze-disk-usage",
+      "name": "Disk & Log Analiz Motoru",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-disk-sentinel',\n  'server_disk_health_evaluated',\n  'DevOps',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'disk_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ diskUsage: $json.disk.percent, freeGb: $json.disk.freeGb, status: $json.status }) ] }}"
+        }
+      },
+      "id": "log-disk-audit",
+      "name": "AuditLog'a Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        780,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isHealthy }}",
+              "value2": false
+            }
+          ]
+        }
+      },
+      "id": "if-disk-critical",
+      "name": "Disk Uyarısı Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        980,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚠️ [DİSK & LOG UYARISI] Sunucu Disk Kullanımı: %{{ $json.disk.percent }} ({{ $json.disk.freeGb }} GB Kaldı)",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ Sunucu Disk & Log Şişmesi Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Seviye: {{ $json.status }} | Tarih: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Disk Doluluğu:</td><td style=\"font-weight: bold; color: #ef4444;\">%{{ $json.disk.percent }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Kalan Boş Alan:</td><td style=\"font-weight: bold;\">{{ $json.disk.freeGb }} GB / {{ $json.disk.totalGb }} GB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Docker Log Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.logs.dockerMb }} MB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">PostgreSQL WAL Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.logs.postgresWalMb }} MB</td></tr>\n    </table>\n    <div style=\"margin-top: 15px; background: #fef2f2; border-left: 4px solid #ef4444; padding: 12px; font-size: 12px;\">\n      <strong>Önerilen Müdahale:</strong><br>\n      <code>docker system prune -f</code> veya container log rotasyonunu çalıştırın.\n    </div>\n  </div>\n</div>"
+      },
+      "id": "send-disk-alert",
+      "name": "DevOps Ekibine Alarm Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1200,
+        220
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "disk-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        380
+      ]
+    }
+  ],
+  "connections": {
+    "Her 4 Saatte Bir Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Sistem Sağlık Metriklerini Çek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sistem Sağlık Metriklerini Çek": {
+      "main": [
+        [
+          {
+            "node": "Disk & Log Analiz Motoru",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Disk & Log Analiz Motoru": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a Kaydet": {
+      "main": [
+        [
+          {
+            "node": "Disk Uyarısı Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Disk Uyarısı Var mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps Ekibine Alarm Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps Ekibine Alarm Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

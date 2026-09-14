@@ -1,0 +1,205 @@
+{
+  "id": "w28DevOpsCronHbt1",
+  "name": "[DevOps & Cron] W28 — Arka Plan Görev Kalp Atışı (Cron Heartbeat Nöbetçisi)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cron-heartbeat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-cron-ping",
+      "name": "Cron Kalp Atışı Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        180,
+        300
+      ],
+      "webhookId": "cron-heartbeat"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Cron kalp atışı (heartbeat) başarıyla kaydedildi.\",\n  \"acknowledgedAt\": new Date().toISOString()\n}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-ping-ok",
+      "name": "Anında 200 OK Yanıtı",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst jobName = (body.job || body.task || 'Genel Bakım Görevi').trim();\nconst durationMs = parseInt(body.durationMs || 120, 10);\nconst status = (body.status || 'SUCCESS').toUpperCase();\n\nconst isFailed = status !== 'SUCCESS';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    jobName,\n    durationMs,\n    status,\n    isFailed,\n    summary: `Cron Heartbeat Alındı: [${jobName}] - Durum: ${status} (${durationMs}ms)`\n  }\n}];"
+      },
+      "id": "process-heartbeat",
+      "name": "Kalp Atışı İşleyici",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-cron-heartbeat',\n  'cron_task_heartbeat_recorded',\n  'DevOps',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'cron_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ job: $json.jobName, status: $json.status, duration: $json.durationMs }) ] }}"
+        }
+      },
+      "id": "log-heartbeat-db",
+      "name": "AuditLog'a Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        360
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isFailed }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-cron-failed",
+      "name": "Görev Başarısız mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        860,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🚨 [CRON GÖREV ÇÖKMESİ] {{ $json.jobName }} Görevi Başarısız Oldu!",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🚨 Arka Plan Görevi (Cron) Çökme Alarmı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Tarih: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Görev Adı:</td><td style=\"font-weight: bold; color: #ef4444;\">{{ $json.jobName }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Çalışma Süresi:</td><td style=\"font-weight: bold;\">{{ $json.durationMs }} ms</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Sonuç:</td><td style=\"font-weight: bold; color: #ef4444;\">{{ $json.status }}</td></tr>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-cron-fail-alert",
+      "name": "DevOps'a Acil Cron Alarmı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1080,
+        280
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'HEARTBEAT_ACKNOWLEDGED', job: $json.jobName, time: new Date().toISOString() } }];"
+      },
+      "id": "cron-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        460
+      ]
+    }
+  ],
+  "connections": {
+    "Cron Kalp Atışı Webhook": {
+      "main": [
+        [
+          {
+            "node": "Anında 200 OK Yanıtı",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Kalp Atışı İşleyici",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kalp Atışı İşleyici": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a Kaydet": {
+      "main": [
+        [
+          {
+            "node": "Görev Başarısız mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Görev Başarısız mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps'a Acil Cron Alarmı Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps'a Acil Cron Alarmı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

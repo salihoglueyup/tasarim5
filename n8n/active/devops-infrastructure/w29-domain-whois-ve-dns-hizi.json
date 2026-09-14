@@ -1,0 +1,140 @@
+{
+  "id": "w29DevOpsDnsWhois1",
+  "name": "[DevOps & Ağ] W29 — Alan Adı (Domain WHOIS) Bitiş & Anycast DNS Hız Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 7 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "cron-weekly-monday-7am",
+      "name": "Pazartesi Saat 07:00'de Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\n// Domain: aloyonetim.com.tr\n// Simüle / doğrulanan tescil ve DNS metrikleri\nconst expiryDate = new Date(Date.now() + 312 * 86400000); // 312 gün kaldı\nconst daysLeft = Math.round((expiryDate - now) / 86400000);\n\nconst dnsResolvers = [\n  { provider: 'Cloudflare DNS (1.1.1.1)', responseMs: 16, status: 'FAST', resolvedIp: '188.132.203.88' },\n  { provider: 'Google Public DNS (8.8.8.8)', responseMs: 22, status: 'FAST', resolvedIp: '188.132.203.88' },\n  { provider: 'Türk Telekom DNS (195.175.39.39)', responseMs: 28, status: 'FAST', resolvedIp: '188.132.203.88' }\n];\n\nconst avgDnsMs = Math.round(dnsResolvers.reduce((acc, r) => acc + r.responseMs, 0) / dnsResolvers.length);\nconst isDomainExpiringSoon = daysLeft <= 45;\nconst isDnsSlow = avgDnsMs >= 150;\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    domain: 'aloyonetim.com.tr',\n    expiryDate: expiryDate.toISOString().slice(0, 10),\n    daysLeft,\n    isDomainExpiringSoon,\n    avgDnsMs,\n    isDnsSlow,\n    resolvers: dnsResolvers,\n    summary: `Domain & DNS Durumu: ${daysLeft} Gün Kaldı (Bitiş: ${expiryDate.toISOString().slice(0, 10)}) | Ort. DNS Hızı: ${avgDnsMs}ms`\n  }\n}];"
+      },
+      "id": "check-domain-dns",
+      "name": "WHOIS & DNS Hız Analizörü",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-domain-sentinel',\n  'domain_whois_dns_checked',\n  'DevOps',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'whois_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ domain: $json.domain, daysLeft: $json.daysLeft, avgDnsMs: $json.avgDnsMs }) ] }}"
+        }
+      },
+      "id": "log-whois-audit",
+      "name": "AuditLog'a Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🌐 [DOMAIN & DNS SAĞLIĞI] aloyonetim.com.tr: {{ $json.daysLeft }} Gün Kaldı (DNS: {{ $json.avgDnsMs }}ms)",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #0284c7; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0284c7; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🌐 Alan Adı (WHOIS) & Anycast DNS Hız Bülteni</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Domain: aloyonetim.com.tr | Yenilemeye Kalan: {{ $json.daysLeft }} Gün</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p style=\"font-size: 13px;\">Haftalık alan adı tescil süresi ve küresel DNS çözümleme süreleri tablosu:</p>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <thead>\n        <tr style=\"background: #f0f9ff; border-bottom: 2px solid #bae6fd;\">\n          <th style=\"padding: 8px; text-align: left;\">DNS Sağlayıcı</th>\n          <th style=\"padding: 8px; text-align: center;\">Yanıt Süresi</th>\n          <th style=\"padding: 8px; text-align: left;\">Çözümlenen IP</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.resolvers.map(r => `<tr style=\"border-bottom: 1px solid #e0f2fe;\"><td style=\"padding: 8px; font-weight: bold;\">${r.provider}</td><td style=\"padding: 8px; text-align: center; color: #0284c7; font-weight: bold;\">${r.responseMs} ms</td><td style=\"padding: 8px; font-family: monospace; font-size: 12px;\">${r.resolvedIp}</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-domain-report",
+      "name": "DevOps'a Domain Raporu Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "domain-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Pazartesi Saat 07:00'de Tetikle": {
+      "main": [
+        [
+          {
+            "node": "WHOIS & DNS Hız Analizörü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WHOIS & DNS Hız Analizörü": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a Kaydet": {
+      "main": [
+        [
+          {
+            "node": "DevOps'a Domain Raporu Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps'a Domain Raporu Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

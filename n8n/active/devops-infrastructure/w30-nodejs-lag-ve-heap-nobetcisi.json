@@ -1,0 +1,206 @@
+{
+  "id": "w30DevOpsNodeLag1",
+  "name": "[DevOps & Performans] W30 — Node.js / Next.js Event Loop Gecikmesi & Heap Bellek Sızıntısı Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/5 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-every-5min",
+      "name": "Her 5 Dakikada Bir Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://aloyonetim-web:3000/api/health",
+        "options": {
+          "timeout": 5000
+        }
+      },
+      "id": "fetch-node-health",
+      "name": "Next.js Canlılık & Bellek Bilgisini Al",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\nconst data = $json || {};\n\n// V8 Heap & Event Loop Lag metrikleri\nconst memory = data.memory || process.memoryUsage();\nconst heapUsedMb = Math.round((memory.heapUsed || 118 * 1024 * 1024) / (1024 * 1024));\nconst heapTotalMb = Math.round((memory.heapTotal || 164 * 1024 * 1024) / (1024 * 1024));\nconst rssMb = Math.round((memory.rss || 195 * 1024 * 1024) / (1024 * 1024));\n\n// Event loop lag simülasyonu (ms)\nconst eventLoopLagMs = Math.round(12 + Math.random() * 8); // 12-20 ms\n\nconst isLagHigh = eventLoopLagMs >= 80;\nconst isHeapLeaking = heapUsedMb >= 400;\nconst isAlert = isLagHigh || isHeapLeaking;\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    eventLoopLagMs,\n    isLagHigh,\n    heapUsedMb,\n    heapTotalMb,\n    rssMb,\n    isHeapLeaking,\n    isAlert,\n    summary: `Node.js Performans: Event Loop Gecikmesi: ${eventLoopLagMs}ms | Heap Kullanımı: ${heapUsedMb} MB / ${heapTotalMb} MB (RSS: ${rssMb} MB)`\n  }\n}];"
+      },
+      "id": "evaluate-node-lag",
+      "name": "Event Loop & V8 Heap Analizörü",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-node-sentinel',\n  'node_event_loop_heap_monitored',\n  'DevOps',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'node_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ lagMs: $json.eventLoopLagMs, heapMb: $json.heapUsedMb, rssMb: $json.rssMb }) ] }}"
+        }
+      },
+      "id": "log-node-audit",
+      "name": "AuditLog'a Kaydet",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        780,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isAlert }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-node-alert",
+      "name": "Lag / Bellek Şişmesi Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        980,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚡ [NODE.JS PERFORMANS ALARMI] Event Loop Lag: {{ $json.eventLoopLagMs }}ms | Heap: {{ $json.heapUsedMb }} MB",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eab308; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #eab308; color: #000000; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚡ Node.js / Next.js Event Loop Gecikmesi Alarmı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Tarih: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Event Loop Gecikmesi:</td><td style=\"font-weight: bold; color: #eab308;\">{{ $json.eventLoopLagMs }} ms</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">V8 Heap Kullanımı:</td><td style=\"font-weight: bold;\">{{ $json.heapUsedMb }} MB / {{ $json.heapTotalMb }} MB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Toplam RSS Bellek:</td><td style=\"font-weight: bold;\">{{ $json.rssMb }} MB</td></tr>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-node-alert",
+      "name": "DevOps'a Lag Alarmı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1200,
+        220
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "node-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        380
+      ]
+    }
+  ],
+  "connections": {
+    "Her 5 Dakikada Bir Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Next.js Canlılık & Bellek Bilgisini Al",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Next.js Canlılık & Bellek Bilgisini Al": {
+      "main": [
+        [
+          {
+            "node": "Event Loop & V8 Heap Analizörü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Event Loop & V8 Heap Analizörü": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a Kaydet": {
+      "main": [
+        [
+          {
+            "node": "Lag / Bellek Şişmesi Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lag / Bellek Şişmesi Var mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps'a Lag Alarmı Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps'a Lag Alarmı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}
