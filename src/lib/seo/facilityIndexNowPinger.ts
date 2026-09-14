@@ -24,12 +24,17 @@ export function buildFacilityIndexNowPayload(apiKey: string = 'b42e617d3a2e4e10b
   const host = 'aloyonetim.com.tr';
   const urlList: string[] = [];
 
-  // 1. Ana Tesis Yönetimi Hub URL'leri (Tüm Diller)
+  // 1. Ana Dual-Pillar Hub URL'leri (Tesis ve Site Yönetimi - Tüm Diller)
   LOCALES.forEach((lang) => {
-    const hubUrl = lang === 'tr'
+    const facilityHubUrl = lang === 'tr'
       ? `${BASE_URL}/hizmetler/tesis-yonetimi`
       : `${BASE_URL}/${lang}/hizmetler/tesis-yonetimi`;
-    urlList.push(hubUrl);
+    urlList.push(facilityHubUrl);
+
+    const siteHubUrl = lang === 'tr'
+      ? `${BASE_URL}/hizmetler/site-yonetimi`
+      : `${BASE_URL}/${lang}/hizmetler/site-yonetimi`;
+    urlList.push(siteHubUrl);
   });
 
   // 2. Alt Sektör URL'leri

@@ -112,7 +112,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // --- Statik rotalar ("Tesis Yönetimi" Odaklı Öncelikler - Amiral Gemisi) ---
   const staticPaths: { path: string; priority: number; changeFreq: 'daily' | 'weekly' | 'monthly'; lastMod?: string }[] = [
     { path: '/', priority: 1.0, changeFreq: 'daily', lastMod: latestPostDate },
-    { path: '/hizmetler/tesis-yonetimi', priority: 1.0, changeFreq: 'daily', lastMod: now }, // Amiral Gemisi #1
+    { path: '/hizmetler/tesis-yonetimi', priority: 1.0, changeFreq: 'daily', lastMod: now }, // Amiral Gemisi #1 (B2B Tesis)
+    { path: '/hizmetler/site-yonetimi', priority: 1.0, changeFreq: 'daily', lastMod: now }, // Amiral Gemisi #2 (B2C/Konut Site)
     { path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
     { path: '/hizmetler/tesis-yonetimi/plaza-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
     { path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },

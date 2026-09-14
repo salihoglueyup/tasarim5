@@ -212,6 +212,16 @@ export async function GET() {
         termsOfService: `${BASE_URL}/kullanim-sartlari`,
         areaServed: districtNodes.map((d) => ({ '@id': d['@id'] })),
       },
+      {
+        '@type': 'Service',
+        '@id': `${BASE_URL}/hizmetler/site-yonetimi#service`,
+        name: 'Profesyonel Site Yönetimi',
+        serviceType: 'Residential Property Management',
+        provider: { '@id': `${BASE_URL}/#organization` },
+        sameAs: 'https://www.wikidata.org/wiki/Q1391515', // Property Management Wikidata
+        termsOfService: `${BASE_URL}/kullanim-sartlari`,
+        areaServed: districtNodes.map((d) => ({ '@id': d['@id'] })),
+      },
       ...districtNodes,
       ...neighborhoodNodes,
       ...precedentsNodes,
