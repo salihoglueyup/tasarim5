@@ -18,6 +18,7 @@ import {
   FacilityOperationalPillarsSeo,
   SiteVsFacilityComparisonSeo,
   FacilityLegalPrecedentsBrowserSeo,
+  SiteAiSearchGroundingSeo,
   VoiceSearchSpeakableSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
@@ -276,6 +277,13 @@ export default function SiteYonetimiClient() {
             badge="634 KMK & Yargıtay İçtihat Kütüphanesi"
             subtitle="Aidat borcu, asansör ortak giderleri, yönetici seçimi ve mimari tadilat ihtilaflarında bağlayıcı yüksek mahkeme kararları."
           />
+        </div>
+      </div>
+
+      {/* 11.8. BÖLÜM: Yapay Zekaya Sorun (SearchGPT & Perplexity Doğrulanmış Prompt ve Yanıtlar) */}
+      <div className="py-16 bg-slate-900/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SiteAiSearchGroundingSeo />
         </div>
       </div>
 

@@ -90,4 +90,5 @@ export { default as IstanbulInteractiveDistrictMapSeo } from './IstanbulInteract
 export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
 export { default as SiteVsFacilityComparisonSeo } from './SiteVsFacilityComparisonSeo';
 export { default as DistrictDualCoreSelectorSeo } from './DistrictDualCoreSelectorSeo';
+export { default as SiteAiSearchGroundingSeo } from './SiteAiSearchGroundingSeo';
 
