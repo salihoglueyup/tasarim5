@@ -111,11 +111,11 @@ export function getFacilitySerpMeta(
   let targetKeyword = pillar === 'site' ? 'site yönetimi' : 'tesis yönetimi';
 
   if (pillar === 'site') {
-    title = 'Profesyonel Site ve Apartman Yönetimi Şirketi İstanbul | Alo Yönetim';
+    title = 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim';
     description = 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı ve 5188 güvenlik!';
   } else if (pillar === 'facility') {
-    title = 'Entegre Tesis Yönetimi İstanbul — ISO 41001 & B2B Kurumsal İşletme | Alo Yönetim';
-    description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için ISO 41001 standartlarında entegre tesis yönetimi, 7/24 teknik bakım ve enerji optimizasyonu.';
+    title = 'Tesis Yönetimi İstanbul — ISO 41001 Belgeli & %30 Tasarruf | Alo Yönetim';
+    description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için ISO 41001 standartlarında entegre tesis yönetimi, 7/24 teknik bakım ve %30 enerji/işletme tasarrufu.';
   }
 
   if (lang === 'en') {
@@ -132,7 +132,7 @@ export function getFacilitySerpMeta(
     targetKeyword = 'إدارة المجمعات السكنية اسطنبول';
   }
 
-  const canonicalPath = '/hizmetler/tesis-yonetimi';
+  const canonicalPath = pillar === 'site' ? '/hizmetler/site-yonetimi' : '/hizmetler/tesis-yonetimi';
   const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Site ve Tesis Yönetimi')}&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('ISO 41001 Standartlarında 39 İlçede Entegre Yönetim')}&rating=${encodeURIComponent('★ 4.9 · 340+ Referans Proje')}`;
 
   const allKeywords = [

@@ -116,18 +116,18 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
   });
 
   describe('5. Akıllı İç Linkleme, 301 Yönlendirmeleri ve Şema Doğrulama', () => {
-    it('seoEngine FACILITY_MANAGEMENT_ENTITIES içindeki site-yonetimi pillarUrl doğru sayfaya (/hizmetler/tesis-yonetimi) bakar', () => {
+    it('seoEngine FACILITY_MANAGEMENT_ENTITIES içindeki site-yonetimi pillarUrl doğru sayfaya (/hizmetler/site-yonetimi) bakar', () => {
       const siteEntity = FACILITY_MANAGEMENT_ENTITIES.find(e => e.slug === 'site-yonetimi');
       expect(siteEntity).toBeDefined();
-      expect(siteEntity?.pillarUrl).toBe('/hizmetler/tesis-yonetimi');
+      expect(siteEntity?.pillarUrl).toBe('/hizmetler/site-yonetimi');
     });
 
-    it('resolveSmartRedirect /site-yonetimi ve /apartman-yonetimi rotalarını /hizmetler/tesis-yonetimi adresine yönlendirir', () => {
+    it('resolveSmartRedirect /site-yonetimi ve /apartman-yonetimi rotalarını /hizmetler/site-yonetimi adresine yönlendirir', () => {
       const red1 = resolveSmartRedirect('/site-yonetimi');
-      expect(red1?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
+      expect(red1?.targetUrl).toBe('/hizmetler/site-yonetimi');
 
       const red2 = resolveSmartRedirect('/apartman-yonetimi');
-      expect(red2?.targetUrl).toBe('/hizmetler/tesis-yonetimi');
+      expect(red2?.targetUrl).toBe('/hizmetler/site-yonetimi');
     });
 
     it('analyzeFacilitySerpReadiness site yönetimi anahtar kelimelerini tespit edip yüksek skor üretir', () => {

@@ -21,16 +21,16 @@ export interface KeywordTaxonomyItem {
  * 🏢 1. Site ve Konut Yönetimi Taksonomisi (35+ Kritik Kelime)
  */
 export const SITE_MANAGEMENT_TAXONOMY: KeywordTaxonomyItem[] = [
-  { term: 'site yönetimi', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '10K+' },
-  { term: 'profesyonel site yönetimi', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
-  { term: 'site yönetim şirketi', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
-  { term: 'site yönetim şirketleri', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '10K+' },
-  { term: 'site yönetim şirketleri istanbul', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
-  { term: 'site yönetim firmaları', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
-  { term: 'apartman ve site yönetimi', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '10K+' },
-  { term: 'apartman yöneticiliği', pillar: 'site', intent: 'commercial', priority: 'high', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
-  { term: 'site yöneticiliği', pillar: 'site', intent: 'commercial', priority: 'high', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
-  { term: 'apartman yönetim şirketleri', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'tesis-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'site yönetimi', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '10K+' },
+  { term: 'profesyonel site yönetimi', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'site yönetim şirketi', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'site yönetim şirketleri', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '10K+' },
+  { term: 'site yönetim şirketleri istanbul', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'site yönetim firmaları', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'apartman ve site yönetimi', pillar: 'site', intent: 'commercial', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '10K+' },
+  { term: 'apartman yöneticiliği', pillar: 'site', intent: 'commercial', priority: 'high', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'site yöneticiliği', pillar: 'site', intent: 'commercial', priority: 'high', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
+  { term: 'apartman yönetim şirketleri', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'hizmetler/site-yonetimi', monthlySearchVolumeTier: '5K-10K' },
   { term: 'site yönetimi teklif al', pillar: 'site', intent: 'transactional', priority: 'critical', targetSlug: 'teklif-al', monthlySearchVolumeTier: '1K-5K' },
   { term: 'site yönetimi fiyatları', pillar: 'site', intent: 'commercial', priority: 'high', targetSlug: 'hesaplayici', monthlySearchVolumeTier: '5K-10K' },
   { term: 'apartman yönetimi fiyatları', pillar: 'site', intent: 'commercial', priority: 'high', targetSlug: 'hesaplayici', monthlySearchVolumeTier: '1K-5K' },
@@ -177,14 +177,14 @@ export function getPillarTitleTemplate(pillar: DomainPillar, districtName?: stri
 
   switch (pillar) {
     case 'site':
-      return 'İstanbul Profesyonel Site ve Apartman Yönetimi Şirketi | Alo Yönetim';
+      return 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim';
     case 'facility':
-      return 'İstanbul Entegre Tesis Yönetimi ve İşletmeciliği — ISO 41001 | Alo Yönetim';
+      return 'Tesis Yönetimi İstanbul — ISO 41001 Belgeli & %30 Tasarruf | Alo Yönetim';
     case 'legal':
       return 'İstanbul Site Yönetimi Hukuku & KMK 634 İcra Danışmanlığı | Alo Yönetim';
     case 'hybrid':
     default:
-      return 'İstanbul Tesis Yönetimi & Site Yönetimi | 39 İlçe | Alo Yönetim';
+      return 'Site ve Tesis Yönetim Şirketi İstanbul — ISO 41001 & %99.2 Tahsilat | Alo Yönetim';
   }
 }
 
