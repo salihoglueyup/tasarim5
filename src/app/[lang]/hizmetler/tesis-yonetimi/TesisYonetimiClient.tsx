@@ -29,6 +29,8 @@ import {
   AcademicCitationBoxSeo,
   ServicePricingCatalogSeo,
   FacilityAnnualMaintenanceScheduleSeo,
+  FacilityEnergyEvChargingSeo,
+  DistrictUtilityTransferGuideSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -672,6 +674,20 @@ export default function TesisYonetimiClient() {
       <div className="py-12 bg-slate-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FacilityAnnualMaintenanceScheduleSeo />
+        </div>
+      </div>
+
+      {/* 6.10. BÖLÜM: Binalarda Enerji Kimlik Belgesi (EKB) & Ortak Alan EV Şarj İstasyonu Kurulum Rehberi */}
+      <div className="py-12 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FacilityEnergyEvChargingSeo />
+        </div>
+      </div>
+
+      {/* 6.11. BÖLÜM: 39 İlçe İSKİ, BEDAŞ/AYEDAŞ & İGDAŞ Kurumsal Altyapı ve Abonelik Devir Rehberi */}
+      <div className="py-12 bg-slate-900/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DistrictUtilityTransferGuideSeo />
         </div>
       </div>
 

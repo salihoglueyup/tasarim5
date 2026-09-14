@@ -21,8 +21,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
 import SecurityCalculator from '@/components/sections/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
-import EmergencyDisasterAuditSeo from '@/components/seo/EmergencyDisasterAuditSeo';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, SiteSecurityPermitGuideSeo, EmergencyDisasterAuditSeo } from '@/components/seo';
 
 export default function GuvenlikYonetimiClient() {
   const { t } = useLanguage();
@@ -573,6 +572,13 @@ export default function GuvenlikYonetimiClient() {
         </div>
 
       </section>
+
+      {/* 5188 Sayılı Kanun Sitelerde Özel Güvenlik Kurulum & Valilik İzinleri Rehberi */}
+      <div className="py-12 bg-slate-900/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SiteSecurityPermitGuideSeo />
+        </div>
+      </div>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
       <ServiceAuthorityHubSeo

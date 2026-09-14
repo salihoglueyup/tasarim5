@@ -30,6 +30,7 @@ import {
   ManagementTransitionRoadmapSeo,
   KMKLegalDisputesQAPageSeo,
   KMKLegislationNavigatorSeo,
+  KMKLegalNoticesVaultSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
@@ -376,6 +377,13 @@ export default function SiteYonetimiClient() {
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <KMKLegislationNavigatorSeo />
+        </div>
+      </div>
+
+      {/* 11.19. BÖLÜM: KMK Hukuki İhtarname ve Tutanak Şablon Kütüphanesi (DigitalDocument & Legislation) */}
+      <div className="py-16 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <KMKLegalNoticesVaultSeo />
         </div>
       </div>
 

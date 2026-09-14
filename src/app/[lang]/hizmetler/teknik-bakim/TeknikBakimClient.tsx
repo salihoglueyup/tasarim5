@@ -2,7 +2,7 @@
 
 import RelatedServices from '@/components/sections/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
-import { InstantAnswerCardSeo, InteractiveTechnicalAuditRadarSeo } from '@/components/seo';
+import { InstantAnswerCardSeo, InteractiveTechnicalAuditRadarSeo, DistrictUtilityTransferGuideSeo } from '@/components/seo';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -452,8 +452,14 @@ export default function TeknikBakimClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <DynamicFAQ faqs={faqs} title={t('tech_faq_title') || 'Teknik Bakım Hakkında Sıkça Sorulan Sorular'} />
         </div>
-
       </section>
+
+      {/* 39 İlçe İSKİ, BEDAŞ, AYEDAŞ ve İGDAŞ Kurumsal Altyapı ve Sayaç Devir Rehberi */}
+      <div className="py-12 bg-slate-900/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DistrictUtilityTransferGuideSeo />
+        </div>
+      </div>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
       <ServiceAuthorityHubSeo
