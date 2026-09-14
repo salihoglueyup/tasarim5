@@ -24,6 +24,7 @@ import {
   ThreeWayManagementComparisonSeo,
   KMKLegalDocumentVaultSeo,
   VoiceSearchSpeakableSeo,
+  AcademicCitationBoxSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
@@ -316,6 +317,16 @@ export default function SiteYonetimiClient() {
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <KMKLegalDocumentVaultSeo />
+        </div>
+      </div>
+
+      {/* 11.13. BÖLÜM: Akademik & Hukuki Atıf Oluşturucu (ScholarlyArticle & Citation Authority Engine) */}
+      <div className="py-16 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AcademicCitationBoxSeo
+            pageUrl="/hizmetler/site-yonetimi"
+            pageTitle="634 Sayılı KMK ve ISO 41001 Standartlarında Profesyonel Site Yönetimi Uygulama Rehberi"
+          />
         </div>
       </div>
 
