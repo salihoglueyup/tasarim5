@@ -613,6 +613,53 @@ SearchGPT, Perplexity AI, Claude, Google AI Overviews, DeepSeek ve Apple Intelli
 - `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
 - `npm test` -> **104 test dosyası, 952 testin tamamı PASSED (%100 Başarı)**
 
+---
+
+## BÖLÜM 17: FAZ 13 — HUKUKİ İHTARNAME VE TUTANAK KÜTÜPHANESİ, KURUMSAL ALTYAPI DEVİR REHBERİ, 5188 GÜVENLİK VALİLİK İZİNLERİ & EKB/EV ŞARJ KURULUM KILAVUZU (2026-09-14)
+
+### 1. Kat Malikleri & Yöneticiler İçin KMK Hukuki İhtarname & Tutanak Şablon Kütüphanesi (`Schema.org DigitalDocument` & `Legislation`)
+- **Veri Modeli:** [`src/data/kmkLegalNoticesTemplatesData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/kmkLegalNoticesTemplatesData.ts)
+  - Yöneticilerin ve kat maliklerinin sahada noter veya avukata başvurmadan önce ihtiyaç duyduğu 8 resmi metin şablonu:
+    1. KMK m.20 Aidat ve Avans Borcu Noter İhtarnamesi (Aylık %5 yasal gecikme tazminatı ve 7 gün süreli doğrudan icra uyarısı),
+    2. KMK m.19 Mimari Projeye Aykırılık & İzinsiz Cam Balkon/Çatı Tadilatı İhtarnamesi (15 günlük eski hale iade süresi ve Sulh Hukuk Mahkemesi uyarısı),
+    3. KMK m.18 Komşuluk Hukuku ve Gürültü/Huzur İhlali Tespit Tutanağı (Zabıta ve KMK m.25 mülkiyetin devri davası delili),
+    4. KMK m.29 Kat Malikleri Olağan/Olağanüstü Genel Kurul Çağrı ve Gündem Mektubu (Toplantıdan 15 gün önce tebliğ şartı),
+    5. KMK m.30 Genel Kurul Resmi Hazirun (Katılım) Cetveli Şablonu (Toplantı yeter sayısı ve arsa payı hesaplama tablosu),
+    6. KMK m.31 Genel Kurul Oy Kullanma Yetki Belgesi / Vekaletname (Adi yazılı vekaletname ve %5 oy sınırı kuralı),
+    7. KMK m.32 Noter Onaylı Karar Defteri Yazım ve İbra Şablonu (KMK m.36 yıllık kapanış tasdiki güvencesi),
+    8. KMK m.35 Eski Yönetici Kasa, Evrak ve Banka Devir Teslim Protokolü (TCK m.155 güveni kötüye kullanma cezası güvencesi).
+  - Tek tıkla kopyalama (`navigator.clipboard`), resmi mevzuat dayanakları ve Alo Yönetim Hukuk Müşavirliği kurumsal güvencesi.
+- **Bileşen:** [`src/components/seo/KMKLegalNoticesVaultSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/KMKLegalNoticesVaultSeo.tsx)
+- **Entegrasyon Sayfası:** [`SiteYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx) (Bölüm 11.19).
+
+### 2. 39 İlçe İSKİ, BEDAŞ/AYEDAŞ & İGDAŞ Kurumsal Altyapı ve Sayaç Devir Rehberi (`Schema.org GovernmentService` & `HowTo`)
+- **Veri Modeli:** [`src/data/districtUtilitySubscriptionData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/districtUtilitySubscriptionData.ts)
+  - 4 temel kamu ve özel dağıtım kuruluşu: BEDAŞ (Avrupa Yakası Elektrik), AYEDAŞ (Anadolu Yakası Elektrik), İSKİ (Tüm İstanbul Su & Kanalizasyon), İGDAŞ (Tüm İstanbul Doğalgaz).
+  - Şantiye tarifesinden iskanlı ortak alan mesken tarifesine geçiş adımları, DASK ve iskan belgeleri, güvence bedeli optimizasyonu ve reaktif ceza önleme güvencesi.
+- **Bileşen:** [`src/components/seo/DistrictUtilityTransferGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/DistrictUtilityTransferGuideSeo.tsx)
+- **Entegrasyon Sayfaları:** [`TeknikBakimClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/teknik-bakim/TeknikBakimClient.tsx) ve [`TesisYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx) (Bölüm 6.11).
+
+### 3. 5188 Sayılı Kanun Sitelerde Özel Güvenlik Kurulum & Valilik İzinleri Rehberi (`Schema.org GovernmentPermit` & `TechArticle`)
+- **Veri Modeli:** [`src/data/siteSecurityCommissionPermitData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/siteSecurityCommissionPermitData.ts)
+  - 6 adımlı resmi Valilik ve Emniyet süreci: Kat Malikleri Kurulu kararı, Valilik Komisyon müracaatı, Kolluk fiziki keşfi, İzin Belgesi tescili, 5188 personel & Özel Güvenlik Mali Sorumluluk Sigortası tanzimi, EGM ÖGNET bildirimi.
+  - Hukuki Kıyaslama: Kendi bünyesinde çalıştırmada kat maliklerine binen milyonluk kıdem tazminatı, SGK rücu davaları ve adli ceza risklerine karşı; Alo Yönetim kurumsal hizmet alımı ile yöneticinin şahsi malvarlığına %100 yasal koruma kalkanı.
+- **Bileşen:** [`src/components/seo/SiteSecurityPermitGuideSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/SiteSecurityPermitGuideSeo.tsx)
+- **Entegrasyon Sayfası:** [`GuvenlikYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/guvenlik-yonetimi/GuvenlikYonetimiClient.tsx).
+
+### 4. Binalarda Enerji Kimlik Belgesi (EKB) & Ortak Alan EV Şarj İstasyonu Kurulum Rehberi (`Schema.org TechArticle` & `Legislation`)
+- **Veri Modeli:** [`src/data/facilityEnergyEvChargingData.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/data/facilityEnergyEvChargingData.ts)
+  - KMK m.42 uyarınca ortak otoparklara Elektrikli Araç (EV) şarj istasyonu kurulumunda Genel Kurul karar nisapları (daire sayacından müstakil hat çekiminde %50+1 çoğunluk, ortak ticari istasyonda gelir paylaşımı, trafo güç artırımı müsaadesi ve otopark Li-ion batarya yangın emniyet tedbirleri).
+  - 5627 Sayılı Enerji Verimliliği Kanunu & Binalarda Enerji Performansı Yönetmeliği: EKB A-B-C sınıfı zorunluluğu, dış cephe taş yünü mantolama ve radar sensörlü LED otomasyon standartları.
+- **Bileşen:** [`src/components/seo/FacilityEnergyEvChargingSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityEnergyEvChargingSeo.tsx)
+- **Entegrasyon Sayfası:** [`TesisYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx) (Bölüm 6.10).
+
+### 5. Kalite Güvence ve Test Sonuçları
+- `src/lib/seo/siteManagementSeoSuite.test.ts` dosyasına 4 yeni kapsamlı test paketi (30, 31, 32, 33) eklendi; toplam test paketi **33'e**, tekil test sayısı **55'e** yükseldi.
+- `npx tsc --noEmit` -> **0 Hata**
+- `npx vitest run src/lib/seo/siteManagementSeoSuite.test.ts` -> **55/55 PASSED**
+- `npx vitest run src/lib/seo/gscZeroError.test.ts` -> **185/185 PASSED**
+- `npm test` -> **104 test dosyası, 956 testin tamamı PASSED (%100 Başarı)**
+
 
 
 

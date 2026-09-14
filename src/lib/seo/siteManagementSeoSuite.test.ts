@@ -845,6 +845,128 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(cekmekoy.mandatoryShelterStandard).toContain('Orman');
     });
   });
+
+  describe('30. KMK Hukuki İhtarname & Tutanak Şablon Kütüphanesi (kmkLegalNoticesTemplatesData.ts & DigitalDocument)', () => {
+    it('8 resmi ihtarname, tutanak, vekaletname ve devir teslim şablonunu eksiksiz barındırır', async () => {
+      const { KMK_LEGAL_NOTICES_TEMPLATES } = await import('@/data/kmkLegalNoticesTemplatesData');
+
+      expect(KMK_LEGAL_NOTICES_TEMPLATES.length).toBe(8);
+
+      // KMK 20 Aidat Noter İhtarı
+      const aidatIhtar = KMK_LEGAL_NOTICES_TEMPLATES.find(t => t.id === 'ihtar-kmk-20-aidat-avans-borcu');
+      expect(aidatIhtar).toBeDefined();
+      expect(aidatIhtar?.category).toBe('Aidat & İcra');
+      expect(aidatIhtar?.dispatchMethod).toBe('Noter İhtarnamesi');
+      expect(aidatIhtar?.templateContent).toContain('İHTARNAME');
+      expect(aidatIhtar?.templateContent).toContain('yüzde beş');
+      expect(aidatIhtar?.aloYonetimLegalAssurance).toContain('hukuk bürosu');
+
+      // KMK 19 Mimari Aykırılık & Cam Balkon
+      const camBalkon = KMK_LEGAL_NOTICES_TEMPLATES.find(t => t.id === 'ihtar-kmk-19-mimari-aykirilik-cam-balkon');
+      expect(camBalkon).toBeDefined();
+      expect(camBalkon?.statutoryArticle).toContain('Madde 19/2');
+      expect(camBalkon?.templateContent).toContain('beşte dördünün');
+
+      // KMK 18 Komşuluk ve Gürültü Tutanağı
+      const gurultu = KMK_LEGAL_NOTICES_TEMPLATES.find(t => t.id === 'tutanak-kmk-18-gurultu-komnsuluk-ihlali');
+      expect(gurultu).toBeDefined();
+      expect(gurultu?.dispatchMethod).toBe('İmzalı Tebellüğ Tutanağı');
+      expect(gurultu?.templateContent).toContain('GÜVENLİK AMİRİ');
+
+      // KMK 31 Genel Kurul Vekaletnamesi
+      const vekalet = KMK_LEGAL_NOTICES_TEMPLATES.find(t => t.id === 'vekalet-kmk-31-oy-kullanma-yetki-belgesi');
+      expect(vekalet).toBeDefined();
+      expect(vekalet?.templateContent).toContain('yüzde beşinden');
+      expect(vekalet?.practicalUsageNotes.some(n => n.includes('noter tasdikli olması ZORUNLU DEĞİLDİR'))).toBe(true);
+
+      // KMK 35 Devir Teslim Protokolü
+      const devir = KMK_LEGAL_NOTICES_TEMPLATES.find(t => t.id === 'protokol-kmk-35-yonetici-devir-teslim-ibra');
+      expect(devir).toBeDefined();
+      expect(devir?.templateContent).toContain('Karar Defteri');
+    });
+  });
+
+  describe('31. 39 İlçe İSKİ, BEDAŞ/AYEDAŞ & İGDAŞ Kurumsal Altyapı ve Sayaç Devir Rehberi (districtUtilitySubscriptionData.ts & GovernmentService)', () => {
+    it('4 temel enerji ve su dağıtım kurumunun devir süreçlerini doğrular', async () => {
+      const { UTILITY_SUBSCRIPTION_PROVIDERS } = await import('@/data/districtUtilitySubscriptionData');
+
+      expect(UTILITY_SUBSCRIPTION_PROVIDERS.length).toBe(4);
+
+      const bedas = UTILITY_SUBSCRIPTION_PROVIDERS.find(p => p.providerId === 'bedas');
+      expect(bedas).toBeDefined();
+      expect(bedas?.jurisdictionSide).toBe('Avrupa Yakası');
+      expect(bedas?.requiredDocuments.some(d => d.includes('İskan Belgesi'))).toBe(true);
+      expect(bedas?.steps.length).toBe(4);
+      expect(bedas?.criticalRisksIfNotDone).toContain('Şantiye tarifesinde');
+
+      const ayedas = UTILITY_SUBSCRIPTION_PROVIDERS.find(p => p.providerId === 'ayedas');
+      expect(ayedas).toBeDefined();
+      expect(ayedas?.jurisdictionSide).toBe('Anadolu Yakası');
+
+      const iski = UTILITY_SUBSCRIPTION_PROVIDERS.find(p => p.providerId === 'iski');
+      expect(iski).toBeDefined();
+      expect(iski?.utilityType).toBe('Su & Kanalizasyon');
+
+      const igdas = UTILITY_SUBSCRIPTION_PROVIDERS.find(p => p.providerId === 'igdas');
+      expect(igdas).toBeDefined();
+      expect(igdas?.utilityType).toBe('Doğalgaz Dağıtım');
+      expect(igdas?.requiredDocuments.some(d => d.includes('Kazan Dairesi'))).toBe(true);
+    });
+  });
+
+  describe('32. 5188 Sayılı Kanun Sitelerde Özel Güvenlik Kurulum & Valilik İzinleri (siteSecurityCommissionPermitData.ts & GovernmentPermit)', () => {
+    it('6 adımlı resmi Valilik Komisyonu izin sürecini ve sürelerini doğrular', async () => {
+      const { SECURITY_PERMIT_STEPS, SECURITY_EMPLOYMENT_COMPARISON } = await import('@/data/siteSecurityCommissionPermitData');
+
+      expect(SECURITY_PERMIT_STEPS.length).toBe(6);
+
+      const step1 = SECURITY_PERMIT_STEPS.find(s => s.stepNo === 1);
+      expect(step1?.authority).toContain('Kat Malikleri Kurulu');
+
+      const step4 = SECURITY_PERMIT_STEPS.find(s => s.stepNo === 4);
+      expect(step4?.stepName).toContain('İzin Belgesi');
+      expect(step4?.authority).toContain('Vali Yardımcısı');
+
+      const step6 = SECURITY_PERMIT_STEPS.find(s => s.stepNo === 6);
+      expect(step6?.authority).toContain('ÖGNET');
+
+      // Karşılaştırma matrisi
+      expect(SECURITY_EMPLOYMENT_COMPARISON.length).toBe(6);
+      const kidem = SECURITY_EMPLOYMENT_COMPARISON.find(r => r.aspect.includes('Kıdem'));
+      expect(kidem).toBeDefined();
+      expect(kidem?.riskSeverity).toBe('Kritik Risk');
+      expect(kidem?.aloYonetimOutsourcing).toContain('1 Kuruş dahi rücu edilemez');
+    });
+  });
+
+  describe('33. Binalarda Enerji Kimlik Belgesi (EKB) & Ortak Alan EV Şarj İstasyonu (facilityEnergyEvChargingData.ts & TechArticle)', () => {
+    it('EV Şarj kurulum seçenekleri, KMK m.42 nisapları ve EKB kriterlerini doğrular', async () => {
+      const { EV_CHARGING_OPTIONS, ENERGY_EFFICIENCY_PILLARS } = await import('@/data/facilityEnergyEvChargingData');
+
+      expect(EV_CHARGING_OPTIONS.length).toBe(2);
+
+      const individual = EV_CHARGING_OPTIONS.find(o => o.optionId === 'individual-meter');
+      expect(individual).toBeDefined();
+      expect(individual?.kmkArticleRef).toContain('KMK Madde 42/1');
+      expect(individual?.legalMajorityRequired).toContain('%50+1');
+      expect(individual?.fireSafetyPrecautions.length).toBeGreaterThanOrEqual(3);
+
+      const shared = EV_CHARGING_OPTIONS.find(o => o.optionId === 'shared-commercial');
+      expect(shared).toBeDefined();
+      expect(shared?.aloYonetimProtocol).toContain('şarj operatörleriyle');
+
+      // Enerji verimliliği sütunları
+      expect(ENERGY_EFFICIENCY_PILLARS.length).toBe(3);
+      const ekb = ENERGY_EFFICIENCY_PILLARS.find(p => p.pillarCode === 'ekb-belgesi');
+      expect(ekb).toBeDefined();
+      expect(ekb?.legalStandard).toContain('5627');
+      expect(ekb?.targetClassOrSaving).toContain('C Sınıfı');
+
+      const mantolama = ENERGY_EFFICIENCY_PILLARS.find(p => p.pillarCode === 'dis-cephe-yalitin' || p.pillarCode === 'dis-cephe-yalitim');
+      expect(mantolama).toBeDefined();
+      expect(mantolama?.targetClassOrSaving).toContain('%35');
+    });
+  });
 });
 
 
