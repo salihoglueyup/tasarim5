@@ -1,6 +1,6 @@
 {
-  "id": "w02LeadSyncGen01",
-  "name": "W2 — CRM Lead Senkronizasyonu & Günlük Triaj Brifingi",
+  "id": "w02CrmDailyTrg01",
+  "name": "[CRM & Operasyon] W02 — Günlük Talep Triajı & Gecikme Nöbetçisi",
   "nodes": [
     {
       "parameters": {
@@ -74,7 +74,7 @@
       "parameters": {
         "fromEmail": "bildirim@aloyonetim.com.tr",
         "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=📊 Günlük Operasyon Brifingi: {{ $json.totalPending }} Bekleyen Talep ({{ $json.vipCount }} VIP, {{ $json.overdueCount }} Gecikmiş)",
+        "subject": "=📊 Günlük Müşteri Talepleri Triajı: {{ $json.totalPending }} Bekleyen Talep ({{ $json.vipCount }} VIP, {{ $json.overdueCount }} Gecikmiş)",
         "emailType": "html",
         "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 680px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">📋 Alo Yönetim — Günlük Müşteri Talepleri Triaj Raporu</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;\">Rapor Tarihi: {{ $json.reportTime }}</p>\n  </div>\n  <div style=\"padding: 20px;\">\n    <div style=\"display: flex; gap: 10px; margin-bottom: 20px;\">\n      <div style=\"flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 20px; font-weight: bold; color: #0284c7;\">{{ $json.totalPending }}</div>\n        <div style=\"font-size: 11px; color: #64748b;\">Toplam Bekleyen</div>\n      </div>\n      <div style=\"flex: 1; background: #fef2f2; border: 1px solid #fee2e2; padding: 12px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 20px; font-weight: bold; color: #dc2626;\">{{ $json.vipCount }}</div>\n        <div style=\"font-size: 11px; color: #991b1b;\">VIP Rezidans</div>\n      </div>\n      <div style=\"flex: 1; background: #fffbeb; border: 1px solid #fef3c7; padding: 12px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 20px; font-weight: bold; color: #d97706;\">{{ $json.overdueCount }}</div>\n        <div style=\"font-size: 11px; color: #92400e;\">2+ Saat Bekleyen</div>\n      </div>\n    </div>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px;\">\n      <thead>\n        <tr style=\"background: #f1f5f9; border-bottom: 2px solid #cbd5e1;\">\n          <th style=\"padding: 8px; text-align: left;\">Müşteri</th>\n          <th style=\"padding: 8px; text-align: left;\">Telefon</th>\n          <th style=\"padding: 8px; text-align: left;\">İlçe</th>\n          <th style=\"padding: 8px; text-align: left;\">Öncelik</th>\n          <th style=\"padding: 8px; text-align: center;\">Bekleme</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.leads.map(l => `<tr style=\"border-bottom: 1px solid #e2e8f0;\"><td style=\"padding: 8px; font-weight: bold;\">${l.name}</td><td style=\"padding: 8px;\"><a href=\"tel:${l.phone}\" style=\"color:#0284c7;text-decoration:none;\">${l.phone}</a></td><td style=\"padding: 8px;\">${l.district}</td><td style=\"padding: 8px;\">${l.priority}</td><td style=\"padding: 8px; text-align: center; color: ${l.waitHours >= 2 ? '#dc2626' : '#16a34a'}; font-weight: bold;\">${l.waitHours} saat</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
       },
@@ -91,9 +91,9 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-system',\n  'daily_lead_digest_sent',\n  'Lead',\n  $2,\n  NOW()\n);",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-crm-triage',\n  'daily_lead_digest_sent',\n  'Lead',\n  $2,\n  NOW()\n);",
         "additionalFields": {
-          "queryParams": "={{ [ 'audit_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ totalPending: $json.totalPending, vipCount: $json.vipCount, overdueCount: $json.overdueCount }) ] }}"
+          "queryParams": "={{ [ 'audit_crm_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ totalPending: $json.totalPending, vipCount: $json.vipCount, overdueCount: $json.overdueCount }) ] }}"
         }
       },
       "id": "log-audit-entry",

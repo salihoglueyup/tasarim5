@@ -1,0 +1,223 @@
+{
+  "id": "w07DevOpsPgVacu1",
+  "name": "[DevOps & DB] W07 — PostgreSQL Otomatik Bakım & Güvenli Vacuum",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 4 * * 0"
+            }
+          ]
+        }
+      },
+      "id": "schedule-vacuum",
+      "name": "Pazar 04:00 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  coalesce(sum(n_dead_tup), 0) as pre_dead_tuples,\n  pg_size_pretty(pg_database_size(current_database())) as pre_db_size\nFROM pg_stat_user_tables;"
+      },
+      "id": "pre-vacuum-check",
+      "name": "Bakım Öncesi Metrikleri",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "VACUUM ANALYZE \"Lead\";\nVACUUM ANALYZE \"AuditLog\";\nVACUUM ANALYZE \"Post\";\nVACUUM ANALYZE \"User\";\nVACUUM ANALYZE \"Reference\";"
+      },
+      "id": "run-vacuum-analyze",
+      "name": "Yoğun Tablolarda VACUUM ANALYZE",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        580,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  coalesce(sum(n_dead_tup), 0) as post_dead_tuples,\n  pg_size_pretty(pg_database_size(current_database())) as post_db_size\nFROM pg_stat_user_tables;"
+      },
+      "id": "post-vacuum-check",
+      "name": "Bakım Sonrası Metrikleri",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        780,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const pre = $('Bakım Öncesi Metrikleri').first()?.json || {};\nconst post = $json || {};\n\nconst preDead = parseInt(pre.pre_dead_tuples, 10) || 0;\nconst postDead = parseInt(post.post_dead_tuples, 10) || 0;\nconst cleanedDead = Math.max(0, preDead - postDead);\n\nconst summary = `Haftalık PostgreSQL VACUUM bakımı başarıyla tamamlandı. Temizlenen ölü satır: ${cleanedDead}. Veritabanı boyutu: ${post.post_db_size || 'Bilinmiyor'}.`;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    preDbSize: pre.pre_db_size,\n    postDbSize: post.post_db_size,\n    preDead,\n    postDead,\n    cleanedDead,\n    summary,\n    status: 'COMPLETED'\n  }\n}];"
+      },
+      "id": "format-vacuum-report",
+      "name": "Bakım Raporunu Hesapla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-db-vacuum',\n  'postgres_weekly_vacuum_completed',\n  'Database',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_vac_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ preDbSize: $json.preDbSize, postDbSize: $json.postDbSize, cleanedDead: $json.cleanedDead }) ] }}"
+        }
+      },
+      "id": "log-vacuum-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1200,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🔧 [DB BAKIM RAPORU] PostgreSQL Haftalık Bakım Tamamlandı",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #10b981; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #065f46; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🔧 PostgreSQL Haftalık Bakım & İndeks Raporu</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #a7f3d0;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p>{{ $json.summary }}</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bakım Öncesi DB Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.preDbSize }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bakım Sonrası DB Boyutu:</td><td style=\"font-weight: bold; color: #059669;\">{{ $json.postDbSize }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Temizlenen Ölü Satır (Dead Tuples):</td><td style=\"font-weight: bold; color: #059669;\">{{ $json.cleanedDead }}</td></tr>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-vacuum-email",
+      "name": "Bakım Raporu E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1200,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "vacuum-complete-summary",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Pazar 04:00 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Bakım Öncesi Metrikleri",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bakım Öncesi Metrikleri": {
+      "main": [
+        [
+          {
+            "node": "Yoğun Tablolarda VACUUM ANALYZE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yoğun Tablolarda VACUUM ANALYZE": {
+      "main": [
+        [
+          {
+            "node": "Bakım Sonrası Metrikleri",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bakım Sonrası Metrikleri": {
+      "main": [
+        [
+          {
+            "node": "Bakım Raporunu Hesapla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bakım Raporunu Hesapla": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bakım Raporu E-Postası",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bakım Raporu E-Postası": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

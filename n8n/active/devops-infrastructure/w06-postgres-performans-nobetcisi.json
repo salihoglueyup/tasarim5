@@ -1,6 +1,6 @@
 {
-  "id": "w10PostgresPerf1",
-  "name": "W10 — PostgreSQL Performans, Önbellek & Şişme Nöbetçisi",
+  "id": "w06DevOpsPgPerf1",
+  "name": "[DevOps & DB] W06 — PostgreSQL Performans, Önbellek & Şişme Nöbetçisi",
   "nodes": [
     {
       "parameters": {

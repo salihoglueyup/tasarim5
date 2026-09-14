@@ -1,6 +1,6 @@
 {
-  "id": "w13RedisMemory1",
-  "name": "W13 — Redis Bellek, Parçalanma & Önbellek Nöbetçisi",
+  "id": "w09DevOpsRedisM1",
+  "name": "[DevOps & Cache] W09 — Redis Bellek & Parçalanma Nöbetçisi",
   "nodes": [
     {
       "parameters": {

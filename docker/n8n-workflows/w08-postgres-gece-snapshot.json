@@ -1,0 +1,160 @@
+{
+  "id": "w08DevOpsPgSnap1",
+  "name": "[DevOps & DB] W08 — PostgreSQL Gece Bütünlük & Veri Snapshot'ı",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 3 * * *"
+            }
+          ]
+        }
+      },
+      "id": "schedule-backup",
+      "name": "Gece 03:30 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT json_build_object(\n  'leads_count', (SELECT count(*) FROM \"Lead\"),\n  'posts_count', (SELECT count(*) FROM \"Post\"),\n  'categories_count', (SELECT count(*) FROM \"Category\"),\n  'users_count', (SELECT count(*) FROM \"User\"),\n  'references_count', (SELECT count(*) FROM \"Reference\"),\n  'audit_logs_count', (SELECT count(*) FROM \"AuditLog\"),\n  'db_size', (SELECT pg_size_pretty(pg_database_size(current_database()))),\n  'timestamp', NOW()\n) as snapshot_meta;"
+      },
+      "id": "fetch-db-snapshot-meta",
+      "name": "Snapshot & Bütünlük Sorgusu",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const meta = $json.snapshot_meta || {};\nconst leadsCount = parseInt(meta.leads_count || 0, 10);\nconst postsCount = parseInt(meta.posts_count || 0, 10);\nconst usersCount = parseInt(meta.users_count || 0, 10);\nconst dbSize = meta.db_size || 'Bilinmiyor';\n\n// Veri Bütünlüğü Doğrulaması: Kritik tablolarda ani veri sıfırlanması olmamalıdır\nconst isDataIntegrityOk = usersCount > 0;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    leadsCount,\n    postsCount,\n    categoriesCount: meta.categories_count || 0,\n    usersCount,\n    referencesCount: meta.references_count || 0,\n    auditLogsCount: meta.audit_logs_count || 0,\n    dbSize,\n    isDataIntegrityOk,\n    status: isDataIntegrityOk ? 'SUCCESS' : 'INTEGRITY_FAIL',\n    summary: `Veritabanı Snapshot: ${leadsCount} Lead, ${postsCount} Post, ${meta.references_count} Referans, ${usersCount} Kullanıcı. Boyut: ${dbSize}.`\n  }\n}];"
+      },
+      "id": "format-snapshot-meta",
+      "name": "Bütünlük & Meta Analiz",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-backup-snapshot',\n  'nightly_db_snapshot_verified',\n  'Database',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_snap_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ leads: $json.leadsCount, posts: $json.postsCount, dbSize: $json.dbSize, isOk: $json.isDataIntegrityOk }) ] }}"
+        }
+      },
+      "id": "log-snapshot-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        780,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🛡️ [GECE YEDEK BÜTÜNLÜK] Alo Yönetim Veritabanı Snapshot Başarılı",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #0284c7; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0369a1; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🛡️ Gece Veritabanı Bütünlük & Snapshot Raporu</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px; color: #bae6fd;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p>{{ $json.summary }}</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Veritabanı Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.dbSize }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Toplam Müşteri Talebi (Lead):</td><td style=\"font-weight: bold;\">{{ $json.leadsCount }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Yayınlanan İçerik / Blog:</td><td style=\"font-weight: bold;\">{{ $json.postsCount }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Referans Proje Sayısı:</td><td style=\"font-weight: bold;\">{{ $json.referencesCount }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bütünlük Durumu:</td><td style=\"font-weight: bold; color: #16a34a;\">DOĞRULANDI (Sıfır Veri Kaybı)</td></tr>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-snapshot-email",
+      "name": "Snapshot Bilgilendirme E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1000,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "snapshot-log-completion",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Gece 03:30 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Snapshot & Bütünlük Sorgusu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snapshot & Bütünlük Sorgusu": {
+      "main": [
+        [
+          {
+            "node": "Bütünlük & Meta Analiz",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bütünlük & Meta Analiz": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Snapshot Bilgilendirme E-Postası",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

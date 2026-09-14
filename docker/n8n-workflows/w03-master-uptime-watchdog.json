@@ -1,6 +1,6 @@
 {
-  "id": "w09SlaWatchdog01",
-  "name": "W9 — Master SLA & Uptime Watchdog (Çift Teyitli)",
+  "id": "w03DevOpsUptime1",
+  "name": "[DevOps & SLA] W03 — Master Uptime & Çift Teyitli Sağlık Nöbetçisi",
   "nodes": [
     {
       "parameters": {
@@ -140,7 +140,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-watchdog',\n  'system_incident_detected',\n  'System',\n  $2,\n  NOW()\n);",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-sla-watchdog',\n  'system_incident_detected',\n  'System',\n  $2,\n  NOW()\n);",
         "additionalFields": {
           "queryParams": "={{ [ 'incident_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ severity: $json.severity, reason: $json.reason, timestamp: $json.timestamp }) ] }}"
         }

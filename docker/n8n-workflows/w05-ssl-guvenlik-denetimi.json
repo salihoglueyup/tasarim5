@@ -1,6 +1,6 @@
 {
-  "id": "w17SslSecAudit1",
-  "name": "W17 — SSL & Güvenlik Başlıkları (HSTS, CSP, X-Frame) Denetim Motoru",
+  "id": "w05DevOpsSslSec1",
+  "name": "[DevOps & Güvenlik] W05 — SSL Sertifikası & Güvenlik Başlıkları Denetimi",
   "nodes": [
     {
       "parameters": {

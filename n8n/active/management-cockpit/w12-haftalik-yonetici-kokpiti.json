@@ -1,0 +1,203 @@
+{
+  "id": "w12MgmtCockpit1",
+  "name": "[Yönetim & Kokpit] W12 — Alo Yönetim Haftalık Sistem & Operasyon Kokpiti",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "5 17 * * 5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger-friday",
+      "name": "Cuma 17:05 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT type, COUNT(*) as count FROM \"Lead\" WHERE \"createdAt\" > NOW() - INTERVAL '7 days' GROUP BY type ORDER BY count DESC;"
+      },
+      "id": "fetch-weekly-leads",
+      "name": "Haftalık Lead Dağılımı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        420,
+        220
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  (SELECT COUNT(*) FROM \"Lead\" WHERE \"isRead\" = false) as unread_leads,\n  (SELECT COUNT(*) FROM \"AuditLog\" WHERE action LIKE '%incident%' AND \"createdAt\" > NOW() - INTERVAL '7 days') as weekly_incidents,\n  (SELECT COUNT(*) FROM \"AuditLog\" WHERE action = 'application_error_captured' AND \"createdAt\" > NOW() - INTERVAL '7 days') as weekly_errors,\n  (SELECT pg_size_pretty(pg_database_size(current_database()))) as db_size,\n  (SELECT COUNT(*) FROM \"Post\" WHERE published = true) as live_posts,\n  (SELECT COUNT(*) FROM \"Reference\" WHERE published = true) as live_references;"
+      },
+      "id": "fetch-system-metrics",
+      "name": "Sistem Sağlık Metrikleri",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        420,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const leads = $('Haftalık Lead Dağılımı').all();\nconst sys = $('Sistem Sağlık Metrikleri').first()?.json || {};\n\nconst typeLabels = {\n  quote: '📋 Yönetim Teklif Talebi',\n  callback: '🔔 Geri Arama',\n  contact: '📞 İletişim',\n  newsletter: '📧 E-Bülten'\n};\n\nlet totalLeads = 0;\nconst leadRows = leads.map(item => {\n  const cnt = parseInt(item.json.count, 10) || 0;\n  totalLeads += cnt;\n  const label = typeLabels[item.json.type] || item.json.type;\n  return `<tr><td style=\"padding: 8px; border-bottom: 1px solid #e2e8f0;\">${label}</td><td style=\"padding: 8px; text-align: center; font-weight: bold; border-bottom: 1px solid #e2e8f0;\">${cnt}</td></tr>`;\n}).join('');\n\nconst unreadLeads = parseInt(sys.unread_leads || 0, 10);\nconst incidents = parseInt(sys.weekly_incidents || 0, 10);\nconst errors = parseInt(sys.weekly_errors || 0, 10);\nconst dbSize = sys.db_size || 'Bilinmiyor';\nconst livePosts = sys.live_posts || 0;\nconst liveReferences = sys.live_references || 0;\n\nconst slaStatus = incidents === 0 ? '%99.99 (Kusursuz)' : `%${(100 - incidents * 0.1).toFixed(2)}`;\n\nconst reportTime = new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' });\n\nreturn [{\n  json: {\n    totalLeads,\n    unreadLeads,\n    incidents,\n    errors,\n    dbSize,\n    livePosts,\n    liveReferences,\n    slaStatus,\n    leadRows,\n    reportTime,\n    summary: `Haftalık Kokpit: ${totalLeads} Yeni Lead | ${unreadLeads} Bekleyen | ${incidents} Kesinti | SLA: ${slaStatus}`\n  }\n}];"
+      },
+      "id": "generate-executive-report",
+      "name": "Yönetici Kokpiti Raporlayıcı",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-executive-cockpit',\n  'weekly_executive_report_sent',\n  'Management',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_mgmt_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ totalLeads: $json.totalLeads, unread: $json.unreadLeads, incidents: $json.incidents, sla: $json.slaStatus }) ] }}"
+        }
+      },
+      "id": "log-mgmt-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        920,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🏆 [HAFTALIK YÖNETİCİ KOKPİTİ] {{ $json.totalLeads }} Yeni Lead | SLA: {{ $json.slaStatus }}",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 680px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 24px; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 22px; color: #38bdf8;\">Alo Yönetim — Haftalık Yönetici Kokpiti</h1>\n    <p style=\"margin: 6px 0 0 0; font-size: 13px; color: #94a3b8;\">Konsolide Operasyon & Sistem Raporu • {{ $json.reportTime }}</p>\n  </div>\n  <div style=\"padding: 24px; background: #ffffff;\">\n    <div style=\"display: flex; gap: 12px; margin-bottom: 24px;\">\n      <div style=\"flex: 1; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 14px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 24px; font-weight: bold; color: #16a34a;\">{{ $json.totalLeads }}</div>\n        <div style=\"font-size: 11px; color: #15803d; font-weight: bold;\">Haftalık Yeni Lead</div>\n      </div>\n      <div style=\"flex: 1; background: #fef2f2; border: 1px solid #fee2e2; padding: 14px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 24px; font-weight: bold; color: #dc2626;\">{{ $json.unreadLeads }}</div>\n        <div style=\"font-size: 11px; color: #991b1b; font-weight: bold;\">Bekleyen Talep</div>\n      </div>\n      <div style=\"flex: 1; background: #eff6ff; border: 1px solid #bfdbfe; padding: 14px; border-radius: 6px; text-align: center;\">\n        <div style=\"font-size: 24px; font-weight: bold; color: #2563eb;\">{{ $json.slaStatus }}</div>\n        <div style=\"font-size: 11px; color: #1d4ed8; font-weight: bold;\">Sistem Erişilebilirlik</div>\n      </div>\n    </div>\n    <h3 style=\"margin: 0 0 12px 0; font-size: 15px; color: #1e293b;\">📋 Müşteri Talepleri Dağılımı</h3>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 24px;\">\n      <thead>\n        <tr style=\"background: #f8fafc; border-bottom: 2px solid #e2e8f0;\">\n          <th style=\"padding: 8px; text-align: left;\">Talep Türü</th>\n          <th style=\"padding: 8px; text-align: center;\">Adet</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.leadRows || '<tr><td colspan=\"2\" style=\"padding: 8px; text-align: center; color: #94a3b8;\">Bu hafta talep girişi olmadı.</td></tr>' }}\n      </tbody>\n    </table>\n    <h3 style=\"margin: 0 0 12px 0; font-size: 15px; color: #1e293b;\">🖥️ Sistem & Altyapı Durumu</h3>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Veritabanı Boyutu:</td><td style=\"font-weight: bold;\">{{ $json.dbSize }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Yayındaki Makale / KMK Terimi:</td><td style=\"font-weight: bold;\">{{ $json.livePosts }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Yayındaki Referans Tesisler:</td><td style=\"font-weight: bold;\">{{ $json.liveReferences }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Haftalık Kritik Kesinti Sayısı:</td><td style=\"font-weight: bold; color: {{ $json.incidents > 0 ? '#dc2626' : '#16a34a' }};\">{{ $json.incidents }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Haftalık Yakalanan Hata Sayısı:</td><td style=\"font-weight: bold;\">{{ $json.errors }}</td></tr>\n    </table>\n  </div>\n  <div style=\"background: #f1f5f9; padding: 12px; text-align: center; font-size: 11px; color: #94a3b8;\">\n    Alo Yönetim Executive Cockpit • n8n Otomasyon Motoru Tarafından Üretildi\n  </div>\n</div>"
+      },
+      "id": "send-cockpit-email",
+      "name": "Yönetici Kokpiti E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        920,
+        420
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "mgmt-log-summary",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Cuma 17:05 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Haftalık Lead Dağılımı",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sistem Sağlık Metrikleri",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Haftalık Lead Dağılımı": {
+      "main": [
+        [
+          {
+            "node": "Yönetici Kokpiti Raporlayıcı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sistem Sağlık Metrikleri": {
+      "main": [
+        [
+          {
+            "node": "Yönetici Kokpiti Raporlayıcı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yönetici Kokpiti Raporlayıcı": {
+      "main": [
+        [
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Yönetici Kokpiti E-Postası",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yönetici Kokpiti E-Postası": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveExecutionProgress": false,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

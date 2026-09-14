@@ -1,0 +1,174 @@
+{
+  "id": "w04DevOpsErrAgg1",
+  "name": "[DevOps & Güvenlik] W04 — Sistem Hata & Çökme Log Merkezi",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "system-error",
+        "options": {}
+      },
+      "id": "webhook-error-listener",
+      "name": "Hata Webhook Dinleyicisi",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        200,
+        300
+      ],
+      "webhookId": "system-error"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst service = body.service || 'aloyonetim-web';\nconst route = body.route || '/';\nconst errorMessage = body.errorMessage || body.message || 'Bilinmeyen Sistem Hatası';\nconst stack = body.stack || body.error?.stack || 'Çağrı yığını mevcut değil.';\nconst statusCode = parseInt(body.statusCode || body.status || 500, 10);\nconst severity = (body.severity || (statusCode >= 500 ? 'CRITICAL' : 'WARNING')).toUpperCase();\nconst isCritical = severity === 'CRITICAL' || statusCode >= 500;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    service,\n    route,\n    statusCode,\n    errorMessage,\n    stack,\n    severity,\n    isCritical,\n    summary: `[${severity}] ${service} (${route}): ${errorMessage}`\n  }\n}];"
+      },
+      "id": "parse-system-error",
+      "name": "Hata Detayı & Yığın Ayrıştırıcı",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-error-aggregator',\n  'application_error_captured',\n  $2,\n  $3,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'err_' + Math.random().toString(36).substr(2, 9), $json.service, JSON.stringify({ route: $json.route, statusCode: $json.statusCode, error: $json.errorMessage, severity: $json.severity }) ] }}"
+        }
+      },
+      "id": "log-error-db",
+      "name": "AuditLog'a Hata Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        640,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isCritical }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-critical",
+      "name": "Kritik Hata mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        860,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=🚨 [KRİTİK HATA ALARMI] {{ $json.service }}: {{ $json.errorMessage }}",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🚨 Kritik Sistem Hatası Yakalandı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }} | HTTP Kod: {{ $json.statusCode }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p><strong>Servis:</strong> {{ $json.service }}</p>\n    <p><strong>Rota / URL:</strong> <code>{{ $json.route }}</code></p>\n    <div style=\"background: #fef2f2; border: 1px solid #fee2e2; padding: 12px; margin: 12px 0; border-radius: 4px;\">\n      <strong style=\"color: #991b1b;\">Hata Mesajı:</strong>\n      <pre style=\"margin: 6px 0 0 0; font-size: 13px; color: #b91c1c; white-space: pre-wrap;\">{{ $json.errorMessage }}</pre>\n    </div>\n    <div style=\"background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 4px; overflow-x: auto;\">\n      <strong style=\"color: #94a3b8; font-size: 11px;\">Çağrı Yığını (Stack Trace):</strong>\n      <pre style=\"margin: 6px 0 0 0; font-size: 11px; font-family: monospace;\">{{ $json.stack }}</pre>\n    </div>\n  </div>\n</div>"
+      },
+      "id": "send-critical-error-email",
+      "name": "DevOps Hata E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1080,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'LOGGED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "log-error-summary",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Hata Webhook Dinleyicisi": {
+      "main": [
+        [
+          {
+            "node": "Hata Detayı & Yığın Ayrıştırıcı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hata Detayı & Yığın Ayrıştırıcı": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a Hata Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a Hata Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Kritik Hata mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kritik Hata mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps Hata E-Postası",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps Hata E-Postası": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}
