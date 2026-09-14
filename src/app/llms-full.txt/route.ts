@@ -32,6 +32,7 @@ export async function GET() {
 - **Yerel İhtiyaçlar**: ${d.localNeeds.join(', ')}
 - **Örnek Yönetilen Proje**: ${d.managedProjects}+ Tesis
 - **İlçe Tesis Yönetimi URL**: ${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi
+- **İlçe Site Yönetimi URL**: ${BASE_URL}/bolgeler/${d.slug}
 - **Mahalleler İndeks URL**: ${BASE_URL}/bolgeler/${d.slug}/mahalleler
 `;
   }).join('\n');
@@ -138,7 +139,10 @@ ${dictionaryList}
 - B2B Tesis Şartnamesi (RFP) API: ${BASE_URL}/api/tesis-yonetimi/rfp-generator
 - KMK 634 Kanun Maddeleri API: ${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json
 - 39 İlçe Aidat Endeksi API: ${BASE_URL}/api/tesis-yonetimi/dues-index.json
-- AI RAG Ground-Truth Context: ${BASE_URL}/api/ai/facility-agent-context.json
+- Site AI RAG Ground-Truth Context: ${BASE_URL}/api/ai/site-agent-context.json
+- Tesis AI RAG Ground-Truth Context: ${BASE_URL}/api/ai/facility-agent-context.json
+- Site Saf Markdown: ${BASE_URL}/api/markdown/site-yonetimi
+- Tesis Saf Markdown: ${BASE_URL}/api/markdown/tesis-yonetimi
 - AI Snippets: ${BASE_URL}/api/tesis-yonetimi/ai-snippets.json
 - JSON-LD Graph: ${BASE_URL}/api/tesis-yonetimi/entity-graph.jsonld
 - Fact-Sheet: ${BASE_URL}/api/tesis-yonetimi/llm-facts.json

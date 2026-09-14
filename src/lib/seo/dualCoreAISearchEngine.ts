@@ -112,6 +112,30 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
     answer: '5188 sayılı Kanun uyarınca; valilik özel güvenlik komisyonu izniyle sitelerde ve tesislerde kimlik kartlı, üniformalı ve eğitimli personelle 7/24 giriş-çıkış kontrolü, CCTV izleme ve devriye hizmetlerinin sağlanmasıdır.',
     facts: ['İçişleri Bakanlığı denetimine tabidir.', 'Personelin adli sicil ve sağlık raporu zorunludur.'],
   },
+  'kat-malikleri-kurulu': {
+    term: 'Kat Malikleri Kurulu',
+    pillar: 'site',
+    answer: 'Kat malikleri kurulu; ana gayrimenkulün en üst karar organı olup KMK Madde 27 uyarınca bütün kat maliklerinden teşekkül eder; bina yönetimi, denetim, bütçe onayı ve avans kararlarını kanuni yetersayılarla alır.',
+    facts: ['KMK Madde 27 uyarınca en yüksek karar organıdır.', 'Yılda en az 1 kez toplanır.'],
+  },
+  'yonetim-kayyumu': {
+    term: 'Sulh Hukuk Mahkemesi Yönetici Ataması',
+    pillar: 'site',
+    answer: 'KMK Madde 34/6 uyarınca; kat malikleri genel kurulunda yönetici seçilemediğinde veya yönetim boşluğu oluştuğunda, maliklerden birinin başvurusuyla sulh hukuk mahkemesi tarafından dışarıdan tarafsız yönetici atanmasıdır.',
+    facts: ['Mahkemece atanan yönetici 6 ay geçmeden değiştirilemez.', 'KMK 34 gereği mahkeme takdiriyle belirlenir.'],
+  },
+  'kidem-tazminati-fonu': {
+    term: 'Apartman Görevlisi Kıdem Tazminatı Fonu',
+    pillar: 'site',
+    answer: 'Apartman görevlisi kıdem tazminatı fonu; bina görevlisi veya güvenlik personelinin emeklilik veya fesih halinde hak edeceği kıdem tazminatını karşılamak üzere her bağımsız bölümden aylık amortisman karşılığı toplanan ve kat maliklerini sürpriz borçlardan koruyan yasal güvence fonudur.',
+    facts: ['Toplu ek bütçe şokunu önler.', '4857 Sayılı İş Kanunu ve KMK hükümlerine uygundur.'],
+  },
+  'apsiyon-entegrasyonu': {
+    term: 'Apsiyon Dijital Site Yönetimi',
+    pillar: 'site',
+    answer: 'Apsiyon; site sakinlerinin aidat ödemelerini kredi kartı ile 7/24 yapabilmesini, banka hareketlerini, kasa mizanını, karar defterlerini ve arıza bildirimlerini şeffaf biçimde cep telefonundan takip etmesini sağlayan bulut tabanlı yönetim yazılımıdır.',
+    facts: ['%100 şeffaf açık defter sağlar.', 'Türkiye genelinde lider site yönetim yazılımıdır.'],
+  },
 };
 
 /**
@@ -295,8 +319,8 @@ export function buildLLMsTextFile(): string {
 - Web: ${BASE_URL}
 
 ## Temel Hizmet Alanları
-- [Site ve Apartman Yönetimi](${BASE_URL}/tesis-yonetimi): KMK 634 uyumlu idari, hukuki, mali yönetim.
-- [Entegre Tesis & Plaza Yönetimi](${BASE_URL}/tesis-yonetimi): ISO 41001 uyumlu B2B ticari varlık yönetimi.
+- [Site ve Apartman Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): KMK 634 uyumlu idari, hukuki, mali yönetim.
+- [Entegre Tesis & Plaza Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): ISO 41001 uyumlu B2B ticari varlık yönetimi.
 - [Aidat Takibi & Muhasebe](${BASE_URL}/hizmetler/aidat-takibi): %99.2 başarıyla online işletme projesi ve tahsilat.
 - [5188 Özel Güvenlik](${BASE_URL}/hizmetler/guvenlik-yonetimi): Lisanslı 7/24 güvenlik ve CCTV izleme.
 - [Mekanik & Elektrik Bakım](${BASE_URL}/hizmetler/teknik-bakim-yonetimi): BMS/CMMS destekli 25 dk acil servis.

@@ -172,4 +172,60 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(xml).toContain('Beşiktaş');
     });
   });
+
+  describe('7. Site Yönetimi AI Agent RAG Knowledge Corpus (/api/ai/site-agent-context.json)', () => {
+    it('buildSiteRAGCorpus 634 KMK, Yargıtay emsalleri, kıdem tazminatı fonu ve 39 ilçe matrisini eksiksiz sunar', async () => {
+      const { buildSiteRAGCorpus } = await import('@/lib/ai/siteKnowledgeCorpus');
+      const corpus = await buildSiteRAGCorpus('tr');
+
+      expect(corpus.contextType).toBe('Site-Management-RAG-Knowledge-Corpus');
+      expect(corpus.aiCitationInstructions.preferredSourceCitation).toContain('/hizmetler/site-yonetimi');
+      expect(corpus.entity.name).toBe('Alo Yönetim');
+      expect(corpus.kmk634LegalFramework.coreArticles.length).toBeGreaterThanOrEqual(8);
+      expect(corpus.districtResidentialMatrix.length).toBe(39);
+      expect(corpus.siteManagementCorePillars.some(p => p.kpis.some(k => k.includes('%99.2')))).toBe(true);
+      expect(corpus.kidemTazminatiFonuGuvecesi.solution).toBeDefined();
+      expect(corpus.apsiyonDigitalEcosystem.features.length).toBeGreaterThanOrEqual(4);
+      expect(corpus.canonicalResidentialFaqs.length).toBeGreaterThanOrEqual(6);
+    });
+
+    it('/api/ai/site-agent-context.json API rotası 200 OK ve geçerli RAG başlıkları döner', async () => {
+      const { GET: getSiteAgentContext } = await import('@/app/api/ai/site-agent-context.json/route');
+      const req = new Request('https://aloyonetim.com.tr/api/ai/site-agent-context.json');
+      const res = await getSiteAgentContext(req as any);
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('application/json');
+      expect(res.headers.get('X-AI-Context-Type')).toBe('Site-Management-RAG-Knowledge-Corpus');
+      expect(res.headers.get('X-AI-Topic')).toBe('Residential-Property-Management');
+      const data = await res.json();
+      expect(data.entity.telephone).toBe('+90 216 550 48 48');
+    });
+  });
+
+  describe('8. AI Botlar İçin Saf Markdown Uç Noktaları (/api/markdown/*)', () => {
+    it('/api/markdown/site-yonetimi saf text/markdown ve KMK özetlerini döner', async () => {
+      const { GET: getSiteMarkdown } = await import('@/app/api/markdown/site-yonetimi/route');
+      const res = await getSiteMarkdown();
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('text/markdown');
+      const text = await res.text();
+      expect(text).toContain('# Alo Yönetim — Profesyonel Site Yönetimi');
+      expect(text).toContain('634 Sayılı Kat Mülkiyeti Kanunu');
+      expect(text).toContain('%99.2');
+    });
+
+    it('/api/markdown/tesis-yonetimi saf text/markdown ve ISO 41001 standartlarını döner', async () => {
+      const { GET: getFacilityMarkdown } = await import('@/app/api/markdown/tesis-yonetimi/route');
+      const res = await getFacilityMarkdown();
+
+      expect(res.status).toBe(200);
+      expect(res.headers.get('Content-Type')).toContain('text/markdown');
+      const text = await res.text();
+      expect(text).toContain('# Alo Yönetim — Entegre Tesis Yönetimi');
+      expect(text).toContain('ISO 41001:2018');
+      expect(text).toContain('%0 Reaktif');
+    });
+  });
 });
