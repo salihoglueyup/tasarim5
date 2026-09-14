@@ -1,0 +1,209 @@
+{
+  "id": "w17CrmContractT1",
+  "name": "[CRM & Sözleşme] W17 — Yönetim Sözleşmesi & Genel Kurul Devir-Teslim Takipçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 8 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "cron-monday-trigger",
+      "name": "Pazartesi 08:30 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \"id\", \"name\", \"phone\", \"email\", \"subject\", \"message\", \"meta\", \"createdAt\"\nFROM \"Lead\"\nWHERE \"type\" = 'quote'\nORDER BY \"createdAt\" DESC\nLIMIT 20;"
+      },
+      "id": "query-quote-leads",
+      "name": "Son Teklif & Site Kayıtlarını Çek",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst currentMonth = new Date().getMonth() + 1; // 1-12\n\n// KMK m.29: Apartman/Site Olağan Genel Kurulları çoğunlukla Ocak ve Mayıs/Haziran aylarında toplanır\nlet seasonTag = 'STANDART_DONEM';\nlet seasonDesc = 'Standart Ara Dönem Yönetim Talepleri';\nif (currentMonth === 12 || currentMonth === 1) {\n  seasonTag = 'OCAK_GENEL_KURUL_SEZONU';\n  seasonDesc = '🎯 KMK m.29 Ocak Ayı Olağan Genel Kurul & Yönetici Seçim Sezonu (En Yoğun Dönem)';\n} else if (currentMonth === 4 || currentMonth === 5 || currentMonth === 6) {\n  seasonTag = 'BAHAR_GENEL_KURUL_SEZONU';\n  seasonDesc = '🎯 Bahar / Yaz Öncesi Toplu Yapı & Site Genel Kurul Sezonu';\n}\n\nconst qualifiedCandidates = items.map(item => {\n  const row = item.json;\n  let meta = {};\n  try { meta = typeof row.meta === 'string' ? JSON.parse(row.meta) : (row.meta || {}); } catch(e) {}\n  return {\n    name: row.name || 'İsimsiz Temsilci',\n    phone: row.phone || '-',\n    subject: row.subject || '-',\n    district: meta.district || 'İstanbul',\n    segment: meta.segment || 'STANDART',\n    date: new Date(row.createdAt).toLocaleDateString('tr-TR')\n  };\n});\n\nconst hasCandidates = qualifiedCandidates.length > 0;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    seasonTag,\n    seasonDesc,\n    candidateCount: qualifiedCandidates.length,\n    candidates: qualifiedCandidates,\n    hasCandidates,\n    summary: `Genel Kurul & Sözleşme Takibi: ${qualifiedCandidates.length} Potansiyel Bina (${seasonTag})`\n  }\n}];"
+      },
+      "id": "evaluate-agm-candidates",
+      "name": "KMK Genel Kurul Sezon Analizi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasCandidates }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-has-candidates",
+      "name": "Takip Edilecek Bina Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=📋 [KMK DEVİR-TESLİM] Haftalık Genel Kurul & Sözleşme Takip Brifingi ({{ $json.candidateCount }} Bina)",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">📋 Genel Kurul & Yönetim Sözleşmesi Takipçisi</h2>\n    <p style=\"margin: 6px 0 0 0; font-size: 13px; color: #38bdf8;\">{{ $json.seasonDesc }}</p>\n  </div>\n  <div style=\"padding: 20px;\">\n    <p style=\"font-size: 13px; color: #475569;\">Aşağıdaki binalar son dönemde yönetim teklifi talep etmiş olup, yaklaşan genel kurullarında Alo Yönetim kurumsal yönetim teklifinin karara bağlanması için bu hafta aranmalıdır:</p>\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px;\">\n      <thead>\n        <tr style=\"background: #f8fafc; border-bottom: 2px solid #e2e8f0;\">\n          <th style=\"padding: 8px; text-align: left;\">Bina / Temsilci</th>\n          <th style=\"padding: 8px; text-align: left;\">Telefon</th>\n          <th style=\"padding: 8px; text-align: left;\">İlçe</th>\n          <th style=\"padding: 8px; text-align: left;\">Segment</th>\n          <th style=\"padding: 8px; text-align: center;\">Tarih</th>\n        </tr>\n      </thead>\n      <tbody>\n        {{ $json.candidates.map(c => `<tr style=\"border-bottom: 1px solid #e2e8f0;\"><td style=\"padding: 8px; font-weight: bold;\">${c.name}</td><td style=\"padding: 8px;\"><a href=\"tel:${c.phone}\" style=\"color:#0284c7;text-decoration:none;\">${c.phone}</a></td><td style=\"padding: 8px;\">${c.district}</td><td style=\"padding: 8px;\">${c.segment}</td><td style=\"padding: 8px; text-align: center;\">${c.date}</td></tr>`).join('') }}\n      </tbody>\n    </table>\n  </div>\n</div>"
+      },
+      "id": "send-agm-briefing",
+      "name": "Haftalık Devir-Teslim Brifingi Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1000,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-contract-tracker',\n  'agm_contract_renewal_audit',\n  'Management',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'agm_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ season: $json.seasonTag, count: $json.candidateCount }) ] }}"
+        }
+      },
+      "id": "log-agm-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "agm-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Pazartesi 08:30 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Son Teklif & Site Kayıtlarını Çek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Son Teklif & Site Kayıtlarını Çek": {
+      "main": [
+        [
+          {
+            "node": "KMK Genel Kurul Sezon Analizi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KMK Genel Kurul Sezon Analizi": {
+      "main": [
+        [
+          {
+            "node": "Takip Edilecek Bina Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Takip Edilecek Bina Var mı?": {
+      "main": [
+        [
+          {
+            "node": "Haftalık Devir-Teslim Brifingi Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Haftalık Devir-Teslim Brifingi Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

@@ -1,0 +1,209 @@
+{
+  "id": "w15DevOpsNginxS1",
+  "name": "[DevOps & Güvenlik] W15 — Nginx Rate-Limit & Bot Saldırısı Denetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "cron-hourly-trigger",
+      "name": "Her Saat Başı Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  COUNT(*) as total_errors_1h,\n  COUNT(*) FILTER (WHERE details LIKE '%404%' OR details LIKE '%wp-%' OR details LIKE '%.env%') as suspicious_probes,\n  COUNT(*) FILTER (WHERE details LIKE '%429%' OR details LIKE '%rate%') as rate_limited_count\nFROM \"AuditLog\"\nWHERE \"createdAt\" > NOW() - INTERVAL '1 hour';"
+      },
+      "id": "query-threat-logs",
+      "name": "Son 1 Saatin Tehdit Logları",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const row = $json || {};\nconst totalErrors = parseInt(row.total_errors_1h || 0, 10);\nconst suspiciousProbes = parseInt(row.suspicious_probes || 0, 10);\nconst rateLimited = parseInt(row.rate_limited_count || 0, 10);\n\n// Tehdit Eşiği: 1 saatte 30'dan fazla şüpheli bot taraması veya rate-limit tetiklenmesi\nconst hasAttackPattern = suspiciousProbes > 30 || rateLimited > 15 || totalErrors > 100;\n\nlet threatLevel = 'DUSUK';\nif (suspiciousProbes > 100 || rateLimited > 50) threatLevel = 'YUKSEK_DDOS';\nelse if (hasAttackPattern) threatLevel = 'ORTA_BOT_TARAMASI';\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    totalErrors,\n    suspiciousProbes,\n    rateLimited,\n    hasAttackPattern,\n    threatLevel,\n    summary: `Nginx Güvenlik: ${suspiciousProbes} Şüpheli Tarama, ${rateLimited} Rate-Limit Engeli (Tehdit: ${threatLevel})`\n  }\n}];"
+      },
+      "id": "evaluate-threats",
+      "name": "Bot & Saldırı Puanlama",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasAttackPattern }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-threat-alert",
+      "name": "Saldırı Modeli Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=[GÜVENLİK ALARMI] Nginx Şüpheli Bot/Tarama Dalgası: {{ $json.threatLevel }}",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #dc2626; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🛡️ Nginx Bot & Saldırı Algılama Raporu</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }} | Tehdit Seviyesi: {{ $json.threatLevel }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p>Son 1 saat içerisinde web sitesine yönelik otomatik tarayıcı veya yoğun istek trafiği tespit edildi.</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Şüpheli Bot Taraması (.env, wp-login vb.):</td><td style=\"font-weight: bold; color: #dc2626;\">{{ $json.suspiciousProbes }} adet</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Rate-Limit'e Takılan İstek:</td><td style=\"font-weight: bold;\">{{ $json.rateLimited }} adet</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Toplam Hata Hacmi:</td><td style=\"font-weight: bold;\">{{ $json.totalErrors }} adet</td></tr>\n    </table>\n    <div style=\"margin-top: 16px; background: #0f172a; color: #f8fafc; padding: 12px; border-radius: 4px; font-family: monospace; font-size: 12px;\">\n      # Nginx Erişim Loglarını İnceleyiniz:<br>\n      docker logs --tail 100 aloyonetim-nginx | grep -E \"404|429|403\"\n    </div>\n  </div>\n</div>"
+      },
+      "id": "send-security-email",
+      "name": "DevOps Güvenlik Alarmı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1000,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-nginx-guard',\n  'security_threat_audit',\n  'Security',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'threat_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ threatLevel: $json.threatLevel, suspiciousProbes: $json.suspiciousProbes, rateLimited: $json.rateLimited }) ] }}"
+        }
+      },
+      "id": "log-threat-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "threat-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Her Saat Başı Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Son 1 Saatin Tehdit Logları",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Son 1 Saatin Tehdit Logları": {
+      "main": [
+        [
+          {
+            "node": "Bot & Saldırı Puanlama",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bot & Saldırı Puanlama": {
+      "main": [
+        [
+          {
+            "node": "Saldırı Modeli Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Saldırı Modeli Var mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps Güvenlik Alarmı Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps Güvenlik Alarmı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

@@ -1,0 +1,240 @@
+{
+  "id": "w13CrmCrisisTrg1",
+  "name": "[Saha & Kriz] W13 — Acil Tesis Arıza & Kriz Triaj Webhook Motoru",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "acil-ariza",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-crisis-trigger",
+      "name": "Acil Arıza Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        200,
+        300
+      ],
+      "webhookId": "acil-ariza"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"ticketId\": \"TKT-\" + Date.now().toString(36).toUpperCase(),\n  \"message\": \"Acil arıza / kriz bildiriminiz nöbetçi saha şefine iletildi.\",\n  \"slaMinutes\": 15,\n  \"receivedAt\": new Date().toISOString()\n}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-crisis-ok",
+      "name": "Anında 200 OK & Takip No",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        420,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst data = body.data || body;\n\nconst binaAdi = (data.binaAdi || data.building || 'Belirtilmemiş Tesis/Site').trim();\nconst blokDaire = (data.blokDaire || data.unit || 'Genel Ortak Alan').trim();\nconst arizaTuru = (data.arizaTuru || data.type || 'genel').toLowerCase();\nconst aciklama = (data.aciklama || data.message || 'Detay girilmedi.').trim();\nconst adSoyad = (data.adSoyad || data.name || 'Site Sakini').trim();\nconst rawPhone = String(data.telefon || data.phone || '').replace(/[^0-9]/g, '');\nconst email = (data.email || '').trim().toLowerCase();\n\n// Kriz Triajı & SLA Belirleme\nlet severity = 'STANDART';\nlet slaMinutes = 240; // 4 Saat\nlet slaBadge = '🟡 Standart (4 Saat)';\n\nconst fullText = `${arizaTuru} ${aciklama}`.toLowerCase();\n\nif (fullText.includes('mahsur') || fullText.includes('yangın') || fullText.includes('gaz') || fullText.includes('patlama')) {\n  severity = 'KOD_KIRMIZI';\n  slaMinutes = 15;\n  slaBadge = '🔴 KOD KIRMIZI (Can Güvenliği / 15 Dakika)';\n} else if (fullText.includes('asansör') || fullText.includes('baskın') || fullText.includes('su bastı') || fullText.includes('hidrofor')) {\n  severity = 'ACIL';\n  slaMinutes = 45;\n  slaBadge = '🟠 Acil Operasyonel (45 Dakika)';\n} else if (fullText.includes('elektrik') || fullText.includes('jeneratör') || fullText.includes('otopark bariyer')) {\n  severity = 'YUKSEK';\n  slaMinutes = 90;\n  slaBadge = '🔵 Yüksek Öncelik (90 Dakika)';\n}\n\nconst ticketId = `ALOCRISIS-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`;\n\nreturn [{\n  json: {\n    ticketId,\n    binaAdi,\n    blokDaire,\n    arizaTuru,\n    aciklama,\n    adSoyad,\n    phone: rawPhone,\n    email: email.includes('@') ? email : null,\n    severity,\n    slaMinutes,\n    slaBadge,\n    dispatchedAt: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "triage-crisis",
+      "name": "Kriz Triajı & SLA Belirleyici",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-crisis-dispatcher',\n  'emergency_facility_crisis_dispatched',\n  'Facility',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'crisis_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ ticketId: $json.ticketId, bina: $json.binaAdi, severity: $json.severity, sla: $json.slaMinutes }) ] }}"
+        }
+      },
+      "id": "log-crisis-db",
+      "name": "AuditLog'a Kriz Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        680,
+        260
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=[{{ $json.severity }}] Acil Saha Müdahale Emri: {{ $json.binaAdi }} (Takip: {{ $json.ticketId }})",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; border: 2px solid #dc2626; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #dc2626; color: #ffffff; padding: 20px; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 22px;\">🚨 ACİL TESİS ARIZA & KRİZ SEVKİ</h1>\n    <p style=\"margin: 6px 0 0 0; font-size: 14px; font-weight: bold;\">{{ $json.slaBadge }}</p>\n  </div>\n  <div style=\"padding: 24px; color: #1e293b;\">\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Takip Numarası:</td><td style=\"font-weight: bold; color: #0284c7;\">{{ $json.ticketId }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Tesis / Site Adı:</td><td style=\"font-weight: bold; font-size: 16px;\">{{ $json.binaAdi }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Blok / Bağımsız Bölüm:</td><td style=\"font-weight: bold;\">{{ $json.blokDaire }}</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Bildiren Kişi:</td><td style=\"font-weight: bold;\">{{ $json.adSoyad }} (<a href=\"tel:{{ $json.phone }}\" style=\"color: #0284c7;\">{{ $json.phone }}</a>)</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Müdahale SLA:</td><td style=\"font-weight: bold; color: #dc2626;\">{{ $json.slaMinutes }} Dakika</td></tr>\n    </table>\n    <div style=\"background: #fef2f2; border-left: 4px solid #dc2626; padding: 14px; border-radius: 4px;\">\n      <strong style=\"color: #991b1b;\">Arıza Açıklaması:</strong>\n      <p style=\"margin: 6px 0 0 0; font-size: 14px; color: #7f1d1d;\">{{ $json.aciklama }}</p>\n    </div>\n    <div style=\"margin-top: 20px; text-align: center;\">\n      <a href=\"tel:{{ $json.phone }}\" style=\"display: inline-block; background: #dc2626; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none;\">📞 Bildiren Sakini Ara</a>\n    </div>\n  </div>\n</div>"
+      },
+      "id": "send-crisis-dispatch-email",
+      "name": "Nöbetçi Ekibe Acil Sevk E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        940,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ Boolean($json.email) }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-resident-email",
+      "name": "Bildiren E-Postası Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        940,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "destek@aloyonetim.com.tr",
+        "toEmail": "={{ $json.email }}",
+        "subject": "Arıza Bildiriminiz Alındı — Takip No: {{ $json.ticketId }}",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #0f172a; color: #ffffff; padding: 20px; text-align: center;\">\n    <h2 style=\"margin: 0;\">Alo Yönetim Teknik Hizmetler</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 13px; color: #38bdf8;\">Arıza Takip Numarası: {{ $json.ticketId }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #334155;\">\n    <p>Sayın <strong>{{ $json.adSoyad }}</strong>,</p>\n    <p><strong>{{ $json.binaAdi }}</strong> tesisimiz için iletmiş olduğunuz arıza bildirimi nöbetçi teknik saha ekiplerimize sevk edilmiştir.</p>\n    <div style=\"background: #f0fdf4; border-left: 4px solid #16a34a; padding: 12px; margin: 12px 0;\">\n      <strong>Hedef Müdahale Süresi: {{ $json.slaMinutes }} Dakika</strong>\n      <p style=\"margin: 4px 0 0 0; font-size: 13px;\">Teknik ekibimiz sahaya intikal ettiğinde tarafınıza SMS/Arama ile bilgilendirme yapılacaktır.</p>\n    </div>\n    <p style=\"font-size: 12px; color: #64748b;\">Acil durum hattımız: <strong>0850 309 34 00</strong></p>\n  </div>\n</div>"
+      },
+      "id": "send-resident-confirmation",
+      "name": "Sakine Teyit E-Postası",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1180,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'DISPATCHED', ticketId: $json.ticketId, severity: $json.severity, time: new Date().toISOString() } }];"
+      },
+      "id": "log-crisis-finish",
+      "name": "Kriz Sevk Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Acil Arıza Webhook": {
+      "main": [
+        [
+          {
+            "node": "Anında 200 OK & Takip No",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Kriz Triajı & SLA Belirleyici",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kriz Triajı & SLA Belirleyici": {
+      "main": [
+        [
+          {
+            "node": "AuditLog'a Kriz Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog'a Kriz Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Nöbetçi Ekibe Acil Sevk E-Postası",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bildiren E-Postası Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bildiren E-Postası Var mı?": {
+      "main": [
+        [
+          {
+            "node": "Sakine Teyit E-Postası",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Kriz Sevk Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nöbetçi Ekibe Acil Sevk E-Postası": {
+      "main": [
+        [
+          {
+            "node": "Kriz Sevk Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sakine Teyit E-Postası": {
+      "main": [
+        [
+          {
+            "node": "Kriz Sevk Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveExecutionProgress": false,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

@@ -1,9 +1,9 @@
 #!/bin/bash
-# Alo Yönetim — n8n Hazır İş Akışlarını & Renkli Etiketleri Otomatik İçe Aktarma Scripti
+# Alo Yönetim — 18 İleri Seviye İç Sistem İş Akışını & Renkli Etiketleri İçe Aktarma Scripti
 set -e
 
 echo "========================================================"
-echo "🚀 Alo Yönetim: n8n İç Sistem İş Akışları İçe Aktarılıyor..."
+echo "🚀 Alo Yönetim: 18 İleri Seviye İş Akışı İçe Aktarılıyor..."
 echo "========================================================"
 
 # n8n container'ı çalışıyor mu kontrol et
@@ -13,14 +13,14 @@ if ! docker ps | grep -q "aloyonetim-n8n"; then
   exit 1
 fi
 
-echo "📦 İş akış dosyaları container içerisine aktarılıyor..."
+echo "📦 18 İş akış dosyası container içerisine kopyalanıyor..."
 
 # Volume bağımlılığını sıfırlamak için doğrudan container içine kopyala
 docker exec aloyonetim-n8n mkdir -p /home/node/imported-workflows
 docker cp n8n/active/. aloyonetim-n8n:/home/node/imported-workflows/
 docker exec aloyonetim-n8n chmod -R 777 /home/node/imported-workflows
 
-echo "⚙️ 12 Aktif iş akışı n8n sistemine kaydediliyor..."
+echo "⚙️ 18 Aktif iş akışı n8n sistemine kaydediliyor..."
 
 # Container içindeki iş akışlarını içe aktar
 docker exec -u node aloyonetim-n8n sh -c '
@@ -33,7 +33,7 @@ docker exec -u node aloyonetim-n8n sh -c '
 # Geçici dosyaları temizle
 docker exec aloyonetim-n8n rm -rf /home/node/imported-workflows
 
-echo "🎨 n8n Kategorilendirme Etiketleri (Tags) & Temizlik Yapılıyor..."
+echo "🎨 n8n Kategorilendirme Etiketleri (Tags) & Eşleştirmeler Yapılıyor..."
 
 # n8n PostgreSQL şemasına renkli etiketleri ve akış eşleşmelerini yaz
 if docker ps | grep -q "aloyonetim-postgres"; then
@@ -49,7 +49,7 @@ if docker ps | grep -q "aloyonetim-postgres"; then
     ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, \"updatedAt\" = NOW();
   "
 
-  echo "🔗 İş akışları kategorilerine bağlanıyor..."
+  echo "🔗 18 İş akışı 5 kurumsal kategoriye bağlanıyor..."
   docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
     INSERT INTO n8n.workflows_tags (\"workflowId\", \"tagId\")
     VALUES
@@ -64,36 +64,48 @@ if docker ps | grep -q "aloyonetim-postgres"; then
       ('w09DevOpsRedisM1', 'tag_db'),
       ('w10SeoSitemapCr1', 'tag_seo'),
       ('w11SeoIndexNow1', 'tag_seo'),
-      ('w12MgmtCockpit1', 'tag_mgmt')
+      ('w12MgmtCockpit1', 'tag_mgmt'),
+      ('w13CrmCrisisTrg1', 'tag_crm'),
+      ('w14DevOpsDocker1', 'tag_sla'),
+      ('w15DevOpsNginxS1', 'tag_sla'),
+      ('w16SeoDistricts1', 'tag_seo'),
+      ('w17CrmContractT1', 'tag_crm'),
+      ('w18DevOpsExtSla1', 'tag_sla')
     ON CONFLICT DO NOTHING;
   "
 
-  echo "🧹 Eski/mükerrer iş akışları temizleniyor..."
+  echo "🧹 Eski/mükerrer harici akışlar temizleniyor..."
   docker exec aloyonetim-postgres psql -U alo_user -d aloyonetim -c "
     DELETE FROM n8n.workflows_tags WHERE \"workflowId\" NOT IN (
       'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
       'w04DevOpsErrAgg1', 'w05DevOpsSslSec1', 'w06DevOpsPgPerf1',
       'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
-      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1'
+      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1',
+      'w13CrmCrisisTrg1', 'w14DevOpsDocker1', 'w15DevOpsNginxS1',
+      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1'
     );
     DELETE FROM n8n.shared_workflow WHERE \"workflowId\" NOT IN (
       'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
       'w04DevOpsErrAgg1', 'w05DevOpsSslSec1', 'w06DevOpsPgPerf1',
       'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
-      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1'
+      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1',
+      'w13CrmCrisisTrg1', 'w14DevOpsDocker1', 'w15DevOpsNginxS1',
+      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1'
     );
     DELETE FROM n8n.workflow_entity WHERE id NOT IN (
       'w01CrmLeadZeng01', 'w02CrmDailyTrg01', 'w03DevOpsUptime1',
       'w04DevOpsErrAgg1', 'w05DevOpsSslSec1', 'w06DevOpsPgPerf1',
       'w07DevOpsPgVacu1', 'w08DevOpsPgSnap1', 'w09DevOpsRedisM1',
-      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1'
+      'w10SeoSitemapCr1', 'w11SeoIndexNow1', 'w12MgmtCockpit1',
+      'w13CrmCrisisTrg1', 'w14DevOpsDocker1', 'w15DevOpsNginxS1',
+      'w16SeoDistricts1', 'w17CrmContractT1', 'w18DevOpsExtSla1'
     );
   " 2>/dev/null || true
 
-  echo "✅ 5 Kategori etiketi bağlandı ve eski akışlar temizlendi!"
+  echo "✅ 5 Kategori ve 18 kurumsal akış bağı başarıyla oluşturuldu!"
 fi
 
 echo "========================================================"
-echo "✅ Sadece 12 aktif iç sistem akışı tertemiz n8n'de yayında!"
+echo "✅ Tam 18 ileri seviye iç sistem akışı kategorileriyle n8n'de!"
 echo "🌐 Paneli yenileyin: https://n8n.aloyonetim.com.tr/workflows"
 echo "========================================================"

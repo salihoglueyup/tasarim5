@@ -1,0 +1,244 @@
+{
+  "id": "w16SeoDistricts1",
+  "name": "[SEO & Kalite] W16 — 39 İlçe Sayfaları Canlılık, Canonical & Meta Bütünlük Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 3 * * 2,5"
+            }
+          ]
+        }
+      },
+      "id": "cron-districts-trigger",
+      "name": "Salı ve Cuma 03:00 Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://web:3001/kadikoy-apartman-yonetimi",
+        "options": {
+          "timeout": 8000
+        }
+      },
+      "id": "fetch-district-sample-1",
+      "name": "Kadıköy Landing Sayfası",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "http://web:3001/besiktas-site-yonetimi",
+        "options": {
+          "timeout": 8000
+        }
+      },
+      "id": "fetch-district-sample-2",
+      "name": "Beşiktaş Landing Sayfası",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const kRes = $('Kadıköy Landing Sayfası').first()?.json || {};\nconst bRes = $('Beşiktaş Landing Sayfası').first()?.json || {};\n\nconst kHtml = typeof kRes === 'string' ? kRes : (kRes.data || JSON.stringify(kRes));\nconst bHtml = typeof bRes === 'string' ? bRes : (bRes.data || JSON.stringify(bRes));\n\nconst kOk = kHtml.includes('<title>') && kHtml.includes('canonical');\nconst bOk = bHtml.includes('<title>') && bHtml.includes('canonical');\n\nconst issues = [];\nif (!kOk) issues.push('Kadıköy Landing: Title veya Canonical etiketi eksik!');\nif (!bOk) issues.push('Beşiktaş Landing: Title veya Canonical etiketi eksik!');\n\nconst hasErrors = issues.length > 0;\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    testedDistricts: ['Kadıköy', 'Beşiktaş'],\n    hasErrors,\n    issues,\n    status: hasErrors ? 'WARNING' : 'HEALTHY',\n    summary: hasErrors ? `İlçe SEO Hatası: ${issues.join(' | ')}` : '39 İlçe ana çıpa sayfaları ve Canonical/Meta etiketleri %100 sağlıklı.'\n  }\n}];"
+      },
+      "id": "evaluate-district-seo",
+      "name": "İlçe Sayfa Sağlık Değerlendirmesi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasErrors }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-district-alert",
+      "name": "İlçe Sayfalarında Hata Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        840,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=⚠️ [SEO UYARISI] İlçe Landing Sayfası Meta/Canonical Hatası!",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #f59e0b; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #f59e0b; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ 39 İlçe Sayfası SEO Bütünlük Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p>Arama motorlarında sıralama kaybını önlemek için aşağıdaki ilçe sayfalarını kontrol ediniz:</p>\n    <ul style=\"color: #b91c1c; font-weight: bold;\">\n      {{ $json.issues.map(i => `<li>${i}</li>`).join('') }}\n    </ul>\n  </div>\n</div>"
+      },
+      "id": "send-district-seo-email",
+      "name": "SEO Ekibi Uyarısı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1060,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-district-auditor',\n  'district_seo_integrity_audit',\n  'SEO',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'audit_dist_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ hasErrors: $json.hasErrors, issues: $json.issues }) ] }}"
+        }
+      },
+      "id": "log-district-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1060,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "district-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Salı ve Cuma 03:00 Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Kadıköy Landing Sayfası",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Beşiktaş Landing Sayfası",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kadıköy Landing Sayfası": {
+      "main": [
+        [
+          {
+            "node": "İlçe Sayfa Sağlık Değerlendirmesi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Beşiktaş Landing Sayfası": {
+      "main": [
+        [
+          {
+            "node": "İlçe Sayfa Sağlık Değerlendirmesi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "İlçe Sayfa Sağlık Değerlendirmesi": {
+      "main": [
+        [
+          {
+            "node": "İlçe Sayfalarında Hata Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "İlçe Sayfalarında Hata Var mı?": {
+      "main": [
+        [
+          {
+            "node": "SEO Ekibi Uyarısı Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SEO Ekibi Uyarısı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

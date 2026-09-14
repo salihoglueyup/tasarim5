@@ -1,0 +1,211 @@
+{
+  "id": "w18DevOpsExtSla1",
+  "name": "[DevOps & Dış Göz] W18 — Çoklu Konum SLA Doğrulama & Harici Uptime Eşitleme",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 10
+            }
+          ]
+        }
+      },
+      "id": "cron-10m-trigger",
+      "name": "Her 10 Dakikada Bir Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://aloyonetim.com.tr/api/health",
+        "options": {
+          "timeout": 9000
+        }
+      },
+      "id": "probe-public-endpoint",
+      "name": "Dış İnternetten GET https://aloyonetim.com.tr/api/health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const res = $json || {};\nconst isHealthy = !res.error && res.healthy === true && (res.status === 'pass' || res.status === 'warn');\nconst latency = parseInt(res.latencyMs || '0', 10);\n\n// Dış internet perspektifinden erişilebilirlik\nconst hasExternalOutage = !isHealthy;\nconst isHighLatency = latency > 3500;\nconst alertRequired = hasExternalOutage || isHighLatency;\n\nlet severity = 'OK';\nlet issueDesc = 'Dış internet ve DNS üzerinden erişim %100 kusursuz.';\nif (hasExternalOutage) {\n  severity = 'CRITICAL';\n  issueDesc = 'Dış internet / DNS / Nginx üzerinden https://aloyonetim.com.tr adresine ulaşılamıyor!';\n} else if (isHighLatency) {\n  severity = 'WARNING';\n  issueDesc = `Dış erişim gecikmesi kabul edilebilir eşiğin üstünde: ${latency} ms`;\n}\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    severity,\n    alertRequired,\n    hasExternalOutage,\n    latency,\n    issueDesc,\n    summary: `Dış Göz SLA: ${severity} | Gecikme: ${latency}ms | Durum: ${issueDesc}`\n  }\n}];"
+      },
+      "id": "evaluate-external-sla",
+      "name": "Dış Göz SLA Analizi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.alertRequired }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-external-alert",
+      "name": "Dış Erişim Uyarısı Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=[DIŞ GÖZ SLA ALARMI] {{ $json.severity }}: Alo Yönetim Dış Erişim Sorunu",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">🚨 Harici Dış Göz SLA Kesinti Uyarısı</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p><strong>Tespit:</strong> {{ $json.issueDesc }}</p>\n    <p><strong>Ölçülen Gecikme:</strong> {{ $json.latency }} ms</p>\n    <p style=\"font-size: 12px; color: #64748b;\">Sunucu içeride çalışıyor olabilir fakat Nginx SSL sertifikası, DNS sağlayıcısı veya Cloudflare CDN katmanında bir tıkanıklık yaşanıyor olabilir.</p>\n  </div>\n</div>"
+      },
+      "id": "send-external-sla-email",
+      "name": "DevOps Dış Göz Alarmı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1000,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-external-sla',\n  'external_sla_probe_completed',\n  'Infrastructure',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'ext_sla_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ severity: $json.severity, latency: $json.latency, isOk: !$json.hasExternalOutage }) ] }}"
+        }
+      },
+      "id": "log-ext-sla-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "ext-sla-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Her 10 Dakikada Bir Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Dış İnternetten GET https://aloyonetim.com.tr/api/health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dış İnternetten GET https://aloyonetim.com.tr/api/health": {
+      "main": [
+        [
+          {
+            "node": "Dış Göz SLA Analizi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dış Göz SLA Analizi": {
+      "main": [
+        [
+          {
+            "node": "Dış Erişim Uyarısı Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dış Erişim Uyarısı Var mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps Dış Göz Alarmı Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps Dış Göz Alarmı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}

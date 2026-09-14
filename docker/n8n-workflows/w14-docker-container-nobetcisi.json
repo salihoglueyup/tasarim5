@@ -1,0 +1,211 @@
+{
+  "id": "w14DevOpsDocker1",
+  "name": "[DevOps & Sunucu] W14 — Docker Container Kaynak (RAM / CPU / Lag) Nöbetçisi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "cron-5m-trigger",
+      "name": "Her 5 Dakikada Bir Tetikle",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://web:3001/api/health",
+        "options": {
+          "timeout": 5000
+        }
+      },
+      "id": "fetch-container-metrics",
+      "name": "Konteyner Metriklerini Çek",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const res = $json || {};\nconst sys = res.services?.system || {};\n\nconst heapUsed = parseFloat(sys.heapUsedMb || '0');\nconst heapTotal = parseFloat(sys.heapTotalMb || '0');\nconst rss = parseFloat(sys.rssMb || '0');\nconst uptimeHours = (parseFloat(res.uptimeSeconds || '0') / 3600).toFixed(1);\nconst latency = parseInt(res.latencyMs || '0', 10);\n\n// Eşik Kontrolleri (Node.js Container Limit: 1GB)\nconst isHeapHigh = heapUsed > 800; // 800 MB üzeri bellek sızıntısı riski\nconst isRssHigh = rss > 950; // 950 MB üzeri OOM Kill riski\nconst isLatencyHigh = latency > 2500;\n\nconst alertRequired = isHeapHigh || isRssHigh || isLatencyHigh;\n\nlet severity = 'OK';\nlet warnings = [];\nif (isRssHigh) { severity = 'CRITICAL'; warnings.push(`RSS Bellek Aşımı: ${rss} MB (OOM Kill Riski)`); }\nelse if (isHeapHigh) { severity = 'WARNING'; warnings.push(`Yüksek Heap RAM: ${heapUsed} MB`); }\nif (isLatencyHigh) { warnings.push(`Yüksek Yanıt Gecikmesi: ${latency} ms`); }\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    heapUsed,\n    heapTotal,\n    rss,\n    uptimeHours,\n    latency,\n    severity,\n    alertRequired,\n    warnings: warnings.join(' | ') || 'Konteyner kaynakları dengeli.',\n    summary: `Web Container RAM: ${heapUsed}MB / ${heapTotal}MB (RSS: ${rss}MB) | Uptime: ${uptimeHours}s | Gecikme: ${latency}ms`\n  }\n}];"
+      },
+      "id": "analyze-resources",
+      "name": "RAM & Sızıntı Analizi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.alertRequired }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-resource-alert",
+      "name": "Kaynak Aşımı Var mı?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "bildirim@aloyonetim.com.tr",
+        "toEmail": "istanbul@aloyonetim.com.tr",
+        "subject": "=[{{ $json.severity }}] Docker Container Kaynak Aşımı Uyarısı",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 18px;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">⚠️ Docker Container Kaynak Nöbetçisi</h2>\n    <p style=\"margin: 4px 0 0 0; font-size: 12px;\">Zaman: {{ $json.timestamp }}</p>\n  </div>\n  <div style=\"padding: 20px; color: #1e293b;\">\n    <p><strong>Uyarılar:</strong> {{ $json.warnings }}</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px;\">\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Heap Bellek (Kullanılan / Toplam):</td><td style=\"font-weight: bold;\">{{ $json.heapUsed }} MB / {{ $json.heapTotal }} MB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Toplam RSS Bellek:</td><td style=\"font-weight: bold; color: #dc2626;\">{{ $json.rss }} MB</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">API Yanıt Gecikmesi:</td><td style=\"font-weight: bold;\">{{ $json.latency }} ms</td></tr>\n      <tr><td style=\"padding: 6px 0; color: #64748b;\">Konteyner Çalışma Süresi:</td><td style=\"font-weight: bold;\">{{ $json.uptimeHours }} saat</td></tr>\n    </table>\n    <div style=\"margin-top: 16px; background: #0f172a; color: #f8fafc; padding: 12px; border-radius: 4px; font-family: monospace; font-size: 12px;\">\n      # Önerilen Müdahale:<br>\n      docker stats --no-stream<br>\n      docker restart aloyonetim-web\n    </div>\n  </div>\n</div>"
+      },
+      "id": "send-resource-alert",
+      "name": "DevOps Kaynak Alarmı Gönder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1000,
+        200
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-container-sentinel',\n  'container_resource_warning',\n  'Infrastructure',\n  $2,\n  NOW()\n);",
+        "additionalFields": {
+          "queryParams": "={{ [ 'res_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ heap: $json.heapUsed, rss: $json.rss, latency: $json.latency }) ] }}"
+        }
+      },
+      "id": "log-resource-audit",
+      "name": "AuditLog Kaydı",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'COMPLETED', summary: $json.summary, time: new Date().toISOString() } }];"
+      },
+      "id": "resource-finish",
+      "name": "Sonuç Özeti",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Her 5 Dakikada Bir Tetikle": {
+      "main": [
+        [
+          {
+            "node": "Konteyner Metriklerini Çek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Konteyner Metriklerini Çek": {
+      "main": [
+        [
+          {
+            "node": "RAM & Sızıntı Analizi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAM & Sızıntı Analizi": {
+      "main": [
+        [
+          {
+            "node": "Kaynak Aşımı Var mı?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kaynak Aşımı Var mı?": {
+      "main": [
+        [
+          {
+            "node": "DevOps Kaynak Alarmı Gönder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AuditLog Kaydı",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DevOps Kaynak Alarmı Gönder": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AuditLog Kaydı": {
+      "main": [
+        [
+          {
+            "node": "Sonuç Özeti",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveFailedExecutions": true
+  },
+  "tags": []
+}
