@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components';
 import PestControlCalculator from '@/components/sections/PestControlCalculator';
 import PestControlTestimonials from '@/components/sections/PestControlTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityBiocidalPestGuideSeo } from '@/components/seo';
 
 export default function HasereVeDezenfeksiyonClient() {
   const { t } = useLanguage();
@@ -148,6 +148,9 @@ export default function HasereVeDezenfeksiyonClient() {
             steps={pestSteps}
           />
         </div>
+
+        {/* Sağlık Bakanlığı Ruhsatlı Biyosidal Haşere İlaçlama ve IPM Rehberi (Faz 14) */}
+        <FacilityBiocidalPestGuideSeo />
 
         {/* Pest Control Specific Social Proof */}
         <PestControlTestimonials />
