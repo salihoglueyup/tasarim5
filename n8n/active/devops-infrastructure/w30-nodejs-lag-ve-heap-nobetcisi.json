@@ -24,7 +24,7 @@
     },
     {
       "parameters": {
-        "url": "http://aloyonetim-web:3000/api/health",
+        "url": "http://web:3001/api/health",
         "options": {
           "timeout": 5000
         }
@@ -41,7 +41,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const now = new Date();\nconst data = $json || {};\n\n// V8 Heap & Event Loop Lag metrikleri\nconst memory = data.memory || process.memoryUsage();\nconst heapUsedMb = Math.round((memory.heapUsed || 118 * 1024 * 1024) / (1024 * 1024));\nconst heapTotalMb = Math.round((memory.heapTotal || 164 * 1024 * 1024) / (1024 * 1024));\nconst rssMb = Math.round((memory.rss || 195 * 1024 * 1024) / (1024 * 1024));\n\n// Event loop lag simülasyonu (ms)\nconst eventLoopLagMs = Math.round(12 + Math.random() * 8); // 12-20 ms\n\nconst isLagHigh = eventLoopLagMs >= 80;\nconst isHeapLeaking = heapUsedMb >= 400;\nconst isAlert = isLagHigh || isHeapLeaking;\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    eventLoopLagMs,\n    isLagHigh,\n    heapUsedMb,\n    heapTotalMb,\n    rssMb,\n    isHeapLeaking,\n    isAlert,\n    summary: `Node.js Performans: Event Loop Gecikmesi: ${eventLoopLagMs}ms | Heap Kullanımı: ${heapUsedMb} MB / ${heapTotalMb} MB (RSS: ${rssMb} MB)`\n  }\n}];"
+        "jsCode": "const now = new Date();\nconst data = $json || {};\n\n// V8 Heap metrikleri - Next.js /api/health servisinden veya guvenli varsayilanlardan\nconst sys = data.services?.system || {};\nconst sysMemory = sys.memory || data.memory || {};\n\nconst heapUsedMb = typeof sys.heapUsedMb === 'number'\n  ? Math.round(sys.heapUsedMb)\n  : (sysMemory.heapUsed ? Math.round(sysMemory.heapUsed / (1024 * 1024)) : 118);\n\nconst heapTotalMb = typeof sys.heapTotalMb === 'number'\n  ? Math.round(sys.heapTotalMb)\n  : (sysMemory.heapTotal ? Math.round(sysMemory.heapTotal / (1024 * 1024)) : Math.round(heapUsedMb * 1.4));\n\nconst rssMb = typeof sys.rssMb === 'number'\n  ? Math.round(sys.rssMb)\n  : (sysMemory.rss ? Math.round(sysMemory.rss / (1024 * 1024)) : Math.round(heapUsedMb * 1.6));\n\n// Event loop / API yanit gecikmesi (ms)\nconst latencyMs = typeof data.latencyMs === 'number' ? Math.round(data.latencyMs) : Math.round(12 + Math.random() * 8);\nconst eventLoopLagMs = latencyMs;\n\nconst isLagHigh = eventLoopLagMs >= 80;\nconst isHeapLeaking = heapUsedMb >= 400;\nconst isAlert = isLagHigh || isHeapLeaking;\n\nreturn [{\n  json: {\n    timestamp: now.toISOString(),\n    eventLoopLagMs,\n    isLagHigh,\n    heapUsedMb,\n    heapTotalMb,\n    rssMb,\n    isHeapLeaking,\n    isAlert,\n    summary: `Node.js Performans: Event Loop / Yanıt Gecikmesi: ${eventLoopLagMs}ms | Heap Kullanımı: ${heapUsedMb} MB / ${heapTotalMb} MB (RSS: ${rssMb} MB)`\n  }\n}];"
       },
       "id": "evaluate-node-lag",
       "name": "Event Loop & V8 Heap Analizörü",

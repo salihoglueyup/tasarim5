@@ -40,6 +40,8 @@ export async function GET() {
   const durationMs = Math.round((performance.now() - startTime) * 100) / 100;
   const memoryUsage = process.memoryUsage();
   const heapUsedMb = Math.round((memoryUsage.heapUsed / 1024 / 1024) * 100) / 100;
+  const heapTotalMb = Math.round((memoryUsage.heapTotal / 1024 / 1024) * 100) / 100;
+  const rssMb = Math.round((memoryUsage.rss / 1024 / 1024) * 100) / 100;
 
   // RFC 8485 SLA Uyumluluk Formatı
   const overallStatus = isHealthy
@@ -70,7 +72,15 @@ export async function GET() {
       },
       system: {
         heapUsedMb,
+        heapTotalMb,
+        rssMb,
         status: heapUsedMb < 1024 ? 'pass' : 'warn',
+        memory: {
+          heapUsed: memoryUsage.heapUsed,
+          heapTotal: memoryUsage.heapTotal,
+          rss: memoryUsage.rss,
+          external: memoryUsage.external,
+        },
       },
     },
     latencyMs: durationMs,
