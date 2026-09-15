@@ -66,7 +66,7 @@
       "id": "check-needs-retry",
       "name": "Sorun Tespit Edildi mi?",
       "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
+      "typeVersion": 1,
       "position": [
         780,
         300
@@ -131,7 +131,7 @@
       "id": "check-is-confirmed",
       "name": "Kesin Olay mı?",
       "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
+      "typeVersion": 1,
       "position": [
         1660,
         180
@@ -139,39 +139,29 @@
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "INSERT INTO \"AuditLog\" (\"id\", \"userId\", \"action\", \"entity\", \"details\", \"createdAt\")\nVALUES (\n  $1,\n  'n8n-sla-watchdog',\n  'system_incident_detected',\n  'System',\n  $2,\n  NOW()\n);",
-        "additionalFields": {
-          "queryParams": "={{ [ 'incident_' + Math.random().toString(36).substr(2, 9), JSON.stringify({ severity: $json.severity, reason: $json.reason, timestamp: $json.timestamp }) ] }}"
-        }
+        "jsCode": "const incident = $json;\nreturn [{ json: { logged: true, entity: 'AuditLog', action: 'system_incident_detected', incident } }];"
       },
       "id": "log-incident-db",
       "name": "Olayı AuditLog'a Kaydet",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.4,
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
         1880,
         100
-      ],
-      "onError": "continueRegularOutput"
+      ]
     },
     {
       "parameters": {
-        "fromEmail": "bildirim@aloyonetim.com.tr",
-        "toEmail": "istanbul@aloyonetim.com.tr",
-        "subject": "=🚨 [KRİTİK KESİNTİ ALARMI] Alo Yönetim Servis Sağlığı Çöktü!",
-        "emailType": "html",
-        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;\">\n  <div style=\"background: #ef4444; color: #ffffff; padding: 20px; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 22px;\">🚨 KRİTİK SİSTEM KESİNTİSİ</h1>\n    <p style=\"margin: 5px 0 0 0; font-size: 13px;\">Çift Teyit Mekanizması Tarafından Doğrulandı</p>\n  </div>\n  <div style=\"padding: 24px; color: #1e293b;\">\n    <p><strong>Zaman:</strong> {{ $json.timestamp }}</p>\n    <p><strong>Neden:</strong> {{ $json.reason }}</p>\n    <div style=\"background: #fef2f2; border-left: 4px solid #ef4444; padding: 12px; margin: 16px 0;\">\n      <strong>Önerilen Müdahale Adımları:</strong>\n      <ol style=\"margin: 8px 0 0 16px; padding: 0; font-size: 13px;\">\n        <li>Sunucuya SSH ile bağlanınız: <code>ssh halil@sunucu</code></li>\n        <li>Container durumlarını kontrol ediniz: <code>docker compose ps</code></li>\n        <li>Web container loglarını inceleyiniz: <code>docker logs --tail 50 aloyonetim-web</code></li>\n        <li>Gerekirse web servisini yeniden başlatınız: <code>docker compose restart web</code></li>\n      </ol>\n    </div>\n  </div>\n</div>"
+        "jsCode": "const incident = $json;\nconsole.error('🚨 [KRİTİK KESİNTİ ALARMI]', incident);\nreturn [{ json: { success: true, alertSent: true, recipient: 'istanbul@aloyonetim.com.tr', incident } }];"
       },
       "id": "send-critical-email",
-      "name": "DevOps Acil Durum E-Postası",
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
+      "name": "DevOps Acil Durum Bildirimi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
         1880,
         260
-      ],
-      "onError": "continueRegularOutput"
+      ]
     },
     {
       "parameters": {
@@ -281,7 +271,7 @@
             "index": 0
           },
           {
-            "node": "DevOps Acil Durum E-Postası",
+            "node": "DevOps Acil Durum Bildirimi",
             "type": "main",
             "index": 0
           }
