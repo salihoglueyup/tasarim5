@@ -85,6 +85,18 @@ export default function Faq({
           '5188 Sayılı Özel Güvenlik Kanunu kapsamında üniformalı ve yetkili güvenlik hizmeti verilebilmesi için Valilik Özel Güvenlik İzni (ÖGİ) ve sertifikalı personel gereklidir. Aksi takdirde site yönetimi ağır idari para cezalarıyla karşılaşabilir.',
         category: 'guvenlik',
       },
+      {
+        question: 'KMK Madde 37 kapsamında işletme projesine itiraz süresi kaç gündür ve icra hükmü nedir?',
+        answer:
+          'Kat maliklerine tebliğ edilen işletme projesine itiraz süresi kesin 7 gündür. 7 gün içinde itiraz edilmeyen bütçe kesinleşerek İcra ve İflas Kanunu Madde 68 anlamında borç ikrarı belgesi hükmü kazanır ve doğrudan ilamsız icra takibine konulabilir.',
+        category: 'hukuk',
+      },
+      {
+        question: 'Biyosidal ilaçlama nedir ve apartman/sitelerde yaptırılması zorunlu mudur?',
+        answer:
+          'Biyosidal ilaçlama; T.C. Sağlık Bakanlığı onaylı formülasyonlarla insan ve çevre sağlığına zarar vermeden haşere ve kemirgenlerin yok edilmesidir. Biyosidal Ürünler Yönetmeliği gereğince toplu yaşam alanlarında yalnızca Sağlık Bakanlığı ruhsatlı firmalarca uygulanabilir.',
+        category: 'tesis',
+      },
     ],
     [t]
   );

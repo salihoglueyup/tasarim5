@@ -25,6 +25,7 @@ const Faq = dynamic(() => import('@/components/sections/Faq'), { ssr: true });
 const IstanbulDuesHeatmapSeo = dynamic(() => import('@/components/seo/IstanbulDuesHeatmapSeo'), { ssr: true });
 const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/KMKLawAssistantSeo'), { ssr: true });
 const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/ServiceAuthorityHubSeo'), { ssr: true });
+const GoogleAiOverviewGroundingSeo = dynamic(() => import('@/components/seo/GoogleAiOverviewGroundingSeo'), { ssr: true });
 
 
 export const revalidate = 3600;
@@ -163,6 +164,7 @@ export default async function Home({ params }: Props) {
       <div className="lazy-section"><AppShowcase /></div>
       <div className="lazy-section"><TestimonialSlider dbReferences={dbReferences} /></div>
       <div className="lazy-section"><CertificateBadgeGrid /></div>
+      <div className="lazy-section px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto"><GoogleAiOverviewGroundingSeo /></div>
       <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
       
       {/* E-E-A-T Master Mevzuat & İç/Dış Bağlantı Otorite Hub'ı */}
