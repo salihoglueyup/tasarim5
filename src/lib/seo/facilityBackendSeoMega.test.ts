@@ -108,7 +108,7 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
       const { generateFacilityAiSnippets } = await import('./facilityAiSnippetEngine');
       const enPayload = generateFacilityAiSnippets('en');
 
-      expect(enPayload.totalSnippets).toBe(7);
+      expect(enPayload.totalSnippets).toBe(13);
       for (const snippet of enPayload.snippets) {
         expect(snippet.citationAnchorUrl).toMatch(/^https:\/\/aloyonetim\.com\.tr/);
         // Eski bozuk rotaları içermemeli

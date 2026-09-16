@@ -1157,7 +1157,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 1. Türkçe Varsayılan
       const trPayload = generateFacilityAiSnippets('tr');
-      expect(trPayload.totalSnippets).toBe(7);
+      expect(trPayload.totalSnippets).toBe(13);
       expect(trPayload.snippets[0].queryIntent).toContain('Tesis Yönetimi');
       expect(trPayload.schema).toBeDefined();
       expect(trPayload.schema?.['@type']).toBe('DefinedTermSet');
@@ -1165,7 +1165,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 2. İngilizce AI Overviews
       const enPayload = generateFacilityAiSnippets('en');
-      expect(enPayload.totalSnippets).toBe(7);
+      expect(enPayload.totalSnippets).toBe(13);
       expect(enPayload.snippets[0].queryIntent).toContain('What is Facility Management');
       expect(enPayload.snippets[0].directSummaryText).toContain('Facility management is');
       expect(enPayload.snippets[0].citationAnchorUrl).toContain('/en/hizmetler/tesis-yonetimi');
@@ -1182,7 +1182,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const aiRes = await getAiSnippets(aiReq);
       expect(aiRes.status).toBe(200);
       const aiData = await aiRes.json();
-      expect(aiData.totalSnippets).toBe(7);
+      expect(aiData.totalSnippets).toBe(13);
       expect(aiData.snippets[0].queryIntent).toContain('What is Facility Management');
       expect(aiData.schema['@type']).toBe('DefinedTermSet');
 
@@ -3941,9 +3941,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(sozlukPageContent).toContain('${term.term} Ne Demek? Nedir — Kısa Açıklama | Alo Yönetim');
 
       const districtServicePageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx'), 'utf8');
-      expect(districtServicePageContent).toContain('${district.name} Site Yönetimi — Aidat, Bütçe ve Personel Yönetimi | Ücretsiz Keşif');
-      expect(districtServicePageContent).toContain('${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik | Ücretsiz Keşif');
-      expect(districtServicePageContent).toContain('${district.name} Asansör Bakımı ve Arıza Servisi — Yeşil Etiket & 7/24 Teknik Servis | Alo Yönetim');
+      expect(districtServicePageContent).toContain('${district.name} Site Yönetimi Şirketleri — 7/24 Kesintisiz Hizmet & Ücretsiz Keşif | Alo Yönetim');
+      expect(districtServicePageContent).toContain('${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik & Hızlı Teklif | Alo Yönetim');
+      expect(districtServicePageContent).toContain('${district.name} Asansör Bakımı ve Arıza — 15 Dk Acil Servis & Yeşil Etiket | Alo Yönetim');
     });
 
     it('Tesis Yönetimi Mega Hub mimarisi: İlçe sayfaları ISO 41001 hub linkine sahiptir ve Kartal/Başakşehir verileri zenginleştirilmiştir', async () => {
@@ -4012,9 +4012,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
       const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/page.tsx'), 'utf8');
-
-      expect(pageContent).toContain('Tesis Yönetimi Şirketleri — Entegre Tesis İşletmesi & Ücretsiz Keşif | Alo Yönetim');
-      expect(pageContent).toContain('İstanbul genelinde rezidans, plaza, site ve sanayi tesisleri için ISO 41001 standartlarında entegre tesis yönetimi');
+      expect(pageContent).toContain('Tesis Yönetimi ve Entegre Tesis Yönetim Firmaları | Alo Yönetim');
+      expect(pageContent).toContain('İstanbul genelinde rezidans, plaza ve siteler için ISO 41001 entegre tesis yönetimi');
     });
 
     it('4 alt sektör sayfasının tümü (Rezidans, Plaza, Toplu Konut, Sanayi) operasyonel derinliğe ve yasal standartlara sahiptir', async () => {
@@ -4640,6 +4639,303 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         'utf8'
       );
       expect(notFoundFile).toContain('open-spotlight-search');
+    });
+  });
+
+  describe('186. Entegre Tesis Yönetimi Ekosistemi (9 Temel Disiplin) ve Topical Authority Doğrulaması', () => {
+    it('ECOSYSTEM_SERVICES 9 temel hizmeti eksiksiz içerir ve tüm yollar geçerli rotalara bağlanır', async () => {
+      const { ECOSYSTEM_SERVICES } = await import('@/components/seo/FacilityEcosystemMatrixSeo');
+      const fs = await import('fs');
+      const path = await import('path');
+
+      expect(ECOSYSTEM_SERVICES).toHaveLength(9);
+
+      for (const service of ECOSYSTEM_SERVICES) {
+        expect(service.title).toBeTruthy();
+        expect(service.badge).toBeTruthy();
+        expect(service.icon).toBeTruthy();
+        expect(service.path.startsWith('/hizmetler/')).toBe(true);
+        expect(service.description).toBeTruthy();
+        expect(service.metric).toBeTruthy();
+        expect(service.tag).toBeTruthy();
+
+        // Rota dizininin fiziki varlığını doğrula
+        const subDir = service.path.replace('/hizmetler/', '');
+        const targetDir = path.join(process.cwd(), 'src/app/[lang]/hizmetler', subDir);
+        expect(fs.existsSync(targetDir)).toBe(true);
+      }
+
+      // TesisYonetimiClient.tsx içinde monte edildiğini doğrula
+      const clientFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'),
+        'utf8'
+      );
+      expect(clientFile).toContain('FacilityEcosystemMatrixSeo');
+      expect(clientFile).toContain('<FacilityEcosystemMatrixSeo />');
+    });
+  });
+
+  describe('187. SEO Dörtlü İvme Paketi (Fiyat Kataloğu, Plaza & Rezidans, İlçe Portföyü, GEO Soru-Cevap)', () => {
+    it('Tesis Yönetimi sayfasında ServicePricingCatalogSeo ve FacilityDistrictPortfolioSeo monte edilmiştir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const clientFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'),
+        'utf8'
+      );
+
+      // Fiyat kataloğu montajı ve kanibalizasyon temizliği
+      expect(clientFile).toContain('ServicePricingCatalogSeo');
+      expect(clientFile).toContain('categoryFilter="commercial"');
+      expect(clientFile).not.toContain('Alo Yönetim Profesyonel Site Yönetim Şirketi');
+
+      // 39 İlçe Bölgesel Portföy montajı
+      expect(clientFile).toContain('FacilityDistrictPortfolioSeo');
+      expect(clientFile).toContain('<FacilityDistrictPortfolioSeo />');
+
+      // AI-Overview / Gemini GEO Soru-Cevap seti
+      expect(clientFile).toContain('Tesis yönetiminde KMK 37 işletme projesi itiraz süresi kaç gündür?');
+      expect(clientFile).toContain('Geciken aidatlara ne kadar yasal gecikme tazminatı işletilir?');
+      expect(clientFile).toContain('Plaza ve rezidans yönetiminde enerji tasarrufu nasıl sağlanır?');
+    });
+
+    it('Plaza ve Rezidans Yönetimi sayfaları GSC arama niyetiyle tam uyumlu meta üretir', async () => {
+      const { generateMetadata: genPlazaMeta } = await import(
+        '@/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/page'
+      );
+      const plazaMeta = await genPlazaMeta({ params: Promise.resolve({ lang: 'tr' }) });
+      expect(plazaMeta.title).toContain('Plaza Tesis Yönetimi');
+
+      const { generateMetadata: genRezidansMeta } = await import(
+        '@/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/page'
+      );
+      const rezidansMeta = await genRezidansMeta({ params: Promise.resolve({ lang: 'tr' }) });
+      expect(rezidansMeta.title).toContain('Rezidans Tesis Yönetimi');
+    });
+  });
+
+  describe('188. Wave 58: Google AI Overviews (SGE & Gemini GEO) ve Tüm Projede Position Zero Otorite Güvencesi', () => {
+    it('Tüm 7 temel hizmet client bileşeninde PositionZeroAnswerBox ve speakable ID ler eksiksiz tanımlıdır', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const services = [
+        { file: 'guvenlik-yonetimi/GuvenlikYonetimiClient.tsx', id: 'security-instant-answer-text', badge: '5188 Sayılı Kanun' },
+        { file: 'teknik-bakim/TeknikBakimClient.tsx', id: 'technical-instant-answer-text', badge: 'A Tipi Yeşil Etiket' },
+        { file: 'aidat-takibi/AidatTakibiClient.tsx', id: 'dues-instant-answer-text', badge: 'İİK Madde 68' },
+        { file: 'hukuk-ve-icra-danismanligi/HukukVeIcraDanismanligiClient.tsx', id: 'legal-instant-answer-text', badge: '634 KMK' },
+        { file: 'hasere-ve-dezenfeksiyon/HasereVeDezenfeksiyonClient.tsx', id: 'pest-instant-answer-text', badge: 'Biyosidal Ruhsatı' },
+        { file: 'temizlik-ve-hijyen/TemizlikVeHijyenClient.tsx', id: 'cleaning-instant-answer-text', badge: 'TSE 13811' },
+        { file: 'site-yonetimi/SiteYonetimiClient.tsx', id: 'site-instant-answer-text', badge: '634 Sayılı KMK' },
+      ];
+
+      for (const s of services) {
+        const fullPath = path.join(process.cwd(), 'src/app/[lang]/hizmetler', s.file);
+        const content = fs.readFileSync(fullPath, 'utf8');
+        expect(content).toContain('PositionZeroAnswerBox');
+        expect(content).toContain(s.id);
+        expect(content).toContain(s.badge);
+      }
+    });
+
+    it('Hizmet sayfalarında GSC #1 ve 2026 yasal parametre FAQ soruları eksiksiz yer alır', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const guvenlikPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/page.tsx'), 'utf8');
+      expect(guvenlikPage).toContain('5188 özel güvenlik kimlik kartı nedir');
+
+      const teknikPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/page.tsx'), 'utf8');
+      expect(teknikPage).toContain('Asansör yeşil etiket zorunluluğu');
+      expect(teknikPage).toContain('kompanzasyon panosu reaktif ceza');
+
+      const aidatPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/aidat-takibi/page.tsx'), 'utf8');
+      expect(aidatPage).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
+      expect(aidatPage).toContain('İİK 68');
+
+      const haserePage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/hasere-ve-dezenfeksiyon/page.tsx'), 'utf8');
+      expect(haserePage).toContain('Biyosidal ilaçlama nedir');
+    });
+
+    it('llms.txt protokolü ve anasayfa Faq bileşeni 2026 yasal standartlarını eksiksiz sunar', async () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const llmsRoute = fs.readFileSync(path.join(process.cwd(), 'src/app/llms.txt/route.ts'), 'utf8');
+      expect(llmsRoute).toContain('Biyosidal ilaçlama nedir');
+      expect(llmsRoute).toContain('5188 özel güvenlik kimlik kartı');
+
+      const homeFaq = fs.readFileSync(path.join(process.cwd(), 'src/components/sections/Faq.tsx'), 'utf8');
+      expect(homeFaq).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
+      expect(homeFaq).toContain('Biyosidal ilaçlama nedir');
+    });
+  });
+
+  describe('189. Wave 59: Google AI Overviews (SGE & Gemini GEO) Maksimum Seviye Geliştirme Güvencesi', () => {
+    it('GoogleAiOverviewGroundingSeo bileşeni 8 yasal promptu, ChatGPT/Perplexity köprülerini ve çift şemayı içerir', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const geoFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/GoogleAiOverviewGroundingSeo.tsx'),
+        'utf8'
+      );
+      expect(geoFile).toContain('kmk37-itiraz');
+      expect(geoFile).toContain('aidat-gecikme-faizi');
+      expect(geoFile).toContain('5188-ozel-guvenlik');
+      expect(geoFile).toContain('asansor-yesil-etiket');
+      expect(geoFile).toContain('biyosidal-ilaclama');
+      expect(geoFile).toContain('kidem-tazminati');
+      expect(geoFile).toContain('cam-balkon-onayi');
+      expect(geoFile).toContain('site-vs-tesis');
+      expect(geoFile).toContain('chatgpt.com/?q=');
+      expect(geoFile).toContain('perplexity.ai/search?q=');
+      expect(geoFile).toContain('SpeakableSpecification');
+      expect(geoFile).toContain('FAQPage');
+    });
+
+    it('Ana sayfa GoogleAiOverviewGroundingSeo bileşenini lazy-section olarak render eder', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const homePage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/page.tsx'),
+        'utf8'
+      );
+      expect(homePage).toContain('GoogleAiOverviewGroundingSeo');
+      expect(homePage).toContain('<GoogleAiOverviewGroundingSeo />');
+    });
+
+    it('KMKLawAssistantSeo 10 yasal emsal kararını eksiksiz içerir', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const kmkFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/KMKLawAssistantSeo.tsx'),
+        'utf8'
+      );
+      expect(kmkFile).toContain('kmk-asansor');
+      expect(kmkFile).toContain('kmk-cam-balkon');
+      expect(kmkFile).toContain('kmk-aidat-gecikme-faizi');
+      expect(kmkFile).toContain('kmk-yonetici-secimi');
+      expect(kmkFile).toContain('kmk-evcil-hayvan');
+      expect(kmkFile).toContain('kmk-siginak-otopark');
+      expect(kmkFile).toContain('kmk-isletme-projesi-itiraz');
+      expect(kmkFile).toContain('kmk-5188-guvenlik-izni');
+      expect(kmkFile).toContain('kmk-asansor-yesil-etiket-reaktif');
+      expect(kmkFile).toContain('kmk-biyosidal-ilaclama');
+    });
+
+    it('voiceSearchFaqEngine ve facilityKnowledgeCorpus 2026 yasal standartlarını eksiksiz sağlar', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const voiceEngine = fs.readFileSync(
+        path.join(process.cwd(), 'src/lib/ai/voiceSearchFaqEngine.ts'),
+        'utf8'
+      );
+      expect(voiceEngine).toContain('voice-kmk37-itiraz');
+      expect(voiceEngine).toContain('voice-5188-kimlik');
+      expect(voiceEngine).toContain('voice-biyosidal-ilaclama');
+
+      const corpus = fs.readFileSync(
+        path.join(process.cwd(), 'src/lib/ai/facilityKnowledgeCorpus.ts'),
+        'utf8'
+      );
+      expect(corpus).toContain('Sitelerde biyosidal ilaçlama zorunlu mudur');
+      expect(corpus).toContain('Sitelerde 5188 sayılı özel güvenlik kimlik kartı');
+    });
+  });
+
+  describe('190. Wave 60: Google AI Overviews (SGE & Gemini GEO) Maksimum Güçlendirme Paketi', () => {
+    it('Tüm 9 hizmet ve 4 alt sektör client bileşeninde PositionZeroAnswerBox ve benzersiz speakable ID ler tanımlıdır', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const items = [
+        { file: 'guvenlik-yonetimi/GuvenlikYonetimiClient.tsx', id: 'security-instant-answer-text' },
+        { file: 'teknik-bakim/TeknikBakimClient.tsx', id: 'technical-instant-answer-text' },
+        { file: 'aidat-takibi/AidatTakibiClient.tsx', id: 'dues-instant-answer-text' },
+        { file: 'hukuk-ve-icra-danismanligi/HukukVeIcraDanismanligiClient.tsx', id: 'legal-instant-answer-text' },
+        { file: 'hasere-ve-dezenfeksiyon/HasereVeDezenfeksiyonClient.tsx', id: 'pest-instant-answer-text' },
+        { file: 'temizlik-ve-hijyen/TemizlikVeHijyenClient.tsx', id: 'cleaning-instant-answer-text' },
+        { file: 'site-yonetimi/SiteYonetimiClient.tsx', id: 'site-instant-answer-text' },
+        { file: 'havuz-bakimi-ve-hijyen/HavuzBakimiVeHijyenClient.tsx', id: 'pool-instant-answer-text' },
+        { file: 'peyzaj-ve-bahce-bakimi/PeyzajVeBahceBakimiClient.tsx', id: 'landscape-instant-answer-text' },
+        { file: 'tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx', id: 'plaza-instant-answer-text' },
+        { file: 'tesis-yonetimi/rezidans-site-yonetimi/RezidansYonetimiClient.tsx', id: 'residence-instant-answer-text' },
+        { file: 'tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx', id: 'toplukonut-instant-answer-text' },
+        { file: 'tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx', id: 'industrial-instant-answer-text' },
+      ];
+
+      for (const item of items) {
+        const fullPath = path.join(process.cwd(), 'src/app/[lang]/hizmetler', item.file);
+        const content = fs.readFileSync(fullPath, 'utf8');
+        expect(content).toContain('PositionZeroAnswerBox');
+        expect(content).toContain(item.id);
+      }
+    });
+
+    it('GoogleAiOverviewGroundingSeo 12 yasal promptu içerir ve Tesis/Site hub sayfalarında render edilir', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const geoFile = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/GoogleAiOverviewGroundingSeo.tsx'),
+        'utf8'
+      );
+      expect(geoFile).toContain('havuz-saglik-kriteri');
+      expect(geoFile).toContain('toplu-yapi-kmk66');
+      expect(geoFile).toContain('plaza-bms-enerji');
+      expect(geoFile).toContain('ev-sarj-istasyonu');
+
+      const tesisClient = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'),
+        'utf8'
+      );
+      expect(tesisClient).toContain('GoogleAiOverviewGroundingSeo');
+
+      const siteClient = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx'),
+        'utf8'
+      );
+      expect(siteClient).toContain('GoogleAiOverviewGroundingSeo');
+    });
+
+    it('facilityAiSnippetEngine Türkçe ve İngilizce 13 tam kapsamlı AI snippet üretir', async () => {
+      const { generateFacilityAiSnippets } = await import('./facilityAiSnippetEngine');
+
+      const trPayload = generateFacilityAiSnippets('tr');
+      expect(trPayload.totalSnippets).toBe(13);
+      expect(trPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-plaza-management');
+      expect(trPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-pool-maintenance');
+      expect(trPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-landscape-management');
+
+      const enPayload = generateFacilityAiSnippets('en');
+      expect(enPayload.totalSnippets).toBe(13);
+      expect(enPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-residence-management');
+      expect(enPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-toplu-konut-management');
+      expect(enPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-industrial-management');
+    });
+
+    it('39 İlçe sayfasında DistrictAiOverviewSnippetSeo ve speakable ID yer alır', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      const districtPage = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'),
+        'utf8'
+      );
+      expect(districtPage).toContain('DistrictAiOverviewSnippetSeo');
+
+      const districtComponent = fs.readFileSync(
+        path.join(process.cwd(), 'src/components/seo/DistrictAiOverviewSnippetSeo.tsx'),
+        'utf8'
+      );
+      expect(districtComponent).toContain('district-instant-answer-text');
+      expect(districtComponent).toContain('FAQPage');
+      expect(districtComponent).toContain('SpeakableSpecification');
     });
   });
 });

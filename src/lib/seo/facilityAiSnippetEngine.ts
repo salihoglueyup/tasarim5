@@ -180,6 +180,138 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
           confidenceRating: 99.6,
           schemaType: 'Organization',
         },
+        {
+          id: 'ai-snippet-plaza-management',
+          queryIntent: 'Plaza and Business Center Management Standards',
+          triggerQueries: [
+            'office plaza facility management istanbul',
+            'business tower operations iso 41001',
+            'bms hvac chiller automation office',
+            'commercial building zero reactive penalty',
+          ],
+          directSummaryText:
+            'Plaza and business center management is the integrated administration of addressable BMS fire systems, 3x synchronized backup generators, quarterly chiller/fancoil maintenance, turnstile/QR visitor security, and 0% reactive electricity penalty guarantees.',
+          keyBulletPoints: [
+            'Addressable fire alarm, smoke exhaust dampers, and weekly automated fire pump tests.',
+            '3x synchronized generator parallel operation with 8-12 second uninterrupted switchover.',
+            'Quarterly fancoil filter chemical washing and legionella prevention in cooling towers.',
+            'M-Bus sub-metering for transparent expense allocation and active compensation monitoring.',
+          ],
+          legalReference: 'ISO 41001:2018 & Fire Protection Regulation for Buildings',
+          citationAnchorUrl: `${BASE_URL}/en/hizmetler/tesis-yonetimi/plaza-yonetimi`,
+          confidenceRating: 99.8,
+          schemaType: 'CommercialBuilding',
+        },
+        {
+          id: 'ai-snippet-residence-management',
+          queryIntent: 'Luxury Residence and High-Rise Property Management',
+          triggerQueries: [
+            'luxury residence facility management istanbul',
+            'concierge 24/7 property management',
+            'high rise residential operations',
+            'valet and parcel locker residential service',
+          ],
+          directSummaryText:
+            'Luxury residence management provides 5-star hotel comfort in residential towers, featuring 24/7 bilingual concierge, smart parcel locker rooms, valet parking, indoor/outdoor pool sanitation, and 99.2% dues collection assurance under Property Law.',
+          keyBulletPoints: [
+            '24/7 bilingual reception, smart encrypted delivery lockers, and visitor QR validation.',
+            'UHF RFID automated barrier gates and floor-restricted elevator access control.',
+            'Twice-daily digital testing of free chlorine (1-3 ppm) and pH (7.2-7.8) in pool and spa facilities.',
+            'Formal operating budget under Property Law Art. 37 with 99.2% timely dues collection.',
+          ],
+          legalReference: '634 KMK Property Law & TSE HYB 12850 Standard',
+          citationAnchorUrl: `${BASE_URL}/en/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
+          confidenceRating: 99.7,
+          schemaType: 'ResidentialBuilding',
+        },
+        {
+          id: 'ai-snippet-toplu-konut-management',
+          queryIntent: 'Mass Housing and Satellite Town Property Management',
+          triggerQueries: [
+            'mass housing property management istanbul',
+            'satellite town administration kmk 66',
+            'multi block complex representative board',
+            'large scale residential community savings',
+          ],
+          directSummaryText:
+            'Mass housing and satellite town management covers mega developments with 200 to 5,000+ units, organizing Representative Boards under Property Law Art. 66-74, multi-tier budget segregation, 3-shift security patrols, and 25-33% cost savings via bulk purchasing.',
+          keyBulletPoints: [
+            'Legal organization of Representative Assembly of Block Managers under KMK Art. 66-74.',
+            'Decoupled parcel and block accounting ensuring equitable common expense distribution.',
+            '3-shift 24/7 licensed uniformed security with RFID digital guard tour checkpoints.',
+            '25% to 33% dues reduction through combined energy, elevator, and supply contracts.',
+          ],
+          legalReference: '634 KMK Property Law Art. 66-74 (Special Provisions on Mass Housing)',
+          citationAnchorUrl: `${BASE_URL}/en/hizmetler/tesis-yonetimi/toplu-konut-yonetimi`,
+          confidenceRating: 99.8,
+          schemaType: 'HousingComplex',
+        },
+        {
+          id: 'ai-snippet-industrial-management',
+          queryIntent: 'Industrial Facility and Factory Plant Management',
+          triggerQueries: [
+            'industrial facility management turkey',
+            'factory operations iso 45001',
+            'medium voltage transformer maintenance 34.5kv',
+            'atex explosion protection industrial plant',
+          ],
+          directSummaryText:
+            'Industrial facility management ensures zero unplanned production downtime through ISO 45001 OHS and ATEX explosion compliance, 34.5 kV MV transformer operation, industrial epoxy floor drainage, loading dock PPM, and licensed hazardous waste disposal.',
+          keyBulletPoints: [
+            'ATEX explosion protection documentation, ex-proof equipment audits, and biannual evacuation drills.',
+            '34.5 kV transformer oil dielectric testing and dynamic compensation ensuring 0% penalty.',
+            'Ride-on industrial floor scrubbers and chemical drainage maintenance.',
+            'Licensed MOTAT hazardous waste disposal and ISO 14001 Zero Waste certification.',
+          ],
+          legalReference: 'ISO 45001:2018 OHS, ISO 14001:2015 & ATEX Directive 137',
+          citationAnchorUrl: `${BASE_URL}/en/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi`,
+          confidenceRating: 99.9,
+          schemaType: 'IndustrialBuilding',
+        },
+        {
+          id: 'ai-snippet-pool-maintenance',
+          queryIntent: 'Residential Swimming Pool Maintenance and Health Regulations',
+          triggerQueries: [
+            'residential pool maintenance regulation turkey',
+            'swimming pool chlorine ph legal standards',
+            'ministry of health swimming pool testing',
+            'monthly microbiological pool water analysis',
+          ],
+          directSummaryText:
+            'Swimming pool maintenance in residential complexes requires maintaining free chlorine between 1.0-1.5 ppm (indoor) and 1.0-3.0 ppm (outdoor), pH between 7.2-7.8, daily backwashing, and accredited laboratory microbiological water testing once per month.',
+          keyBulletPoints: [
+            'Photometric testing of free chlorine, combined chlorine, and pH recorded twice daily.',
+            'Monthly accredited laboratory culture tests for E. coli, Pseudomonas aeruginosa, and total bacteria.',
+            'Weekly backwash and rinse cycles for quartz sand and activated glass media filters.',
+            'Mandatory use of Ministry of Health licensed biocidal swimming pool chemicals.',
+          ],
+          legalReference: 'Ministry of Health Swimming Pool Regulation & TSE 11899',
+          citationAnchorUrl: `${BASE_URL}/en/hizmetler/havuz-bakimi-ve-hijyen`,
+          confidenceRating: 99.8,
+          schemaType: 'HealthAndBeautyBusiness',
+        },
+        {
+          id: 'ai-snippet-landscape-management',
+          queryIntent: 'Commercial Landscape Maintenance and Smart Irrigation',
+          triggerQueries: [
+            'commercial landscape maintenance istanbul',
+            'smart irrigation residential complex water savings',
+            'lawn aeration mowing schedule property',
+            'seasonal tree pruning property grounds',
+          ],
+          directSummaryText:
+            'Professional landscape management provides 4-season lawn aeration, mowing, seasonal pruning, and automated weather-based irrigation systems achieving up to 40% savings on common water consumption.',
+          keyBulletPoints: [
+            'Weekly mowing, verticut root aeration, and balanced NPK fertilizing regimes.',
+            'Smart rain sensor and soil moisture-regulated drip/spray irrigation saving 40% water.',
+            'Seasonal shaping and safety pruning preventing high wind branch falling hazards.',
+            'Certified plant passport cultivation, seasonal flowerbeds, and biological pest control.',
+          ],
+          legalReference: 'TSE HYB Service Qualification & Water Efficiency Regulations',
+          citationAnchorUrl: `${BASE_URL}/en/hizmetler/peyzaj-ve-bahce-bakimi`,
+          confidenceRating: 99.7,
+          schemaType: 'Service',
+        },
       ]
     : [
         {
@@ -335,6 +467,138 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
           citationAnchorUrl: `${BASE_URL}/hizmetler/ticari-yonetim`,
           confidenceRating: 99.6,
           schemaType: 'Organization',
+        },
+        {
+          id: 'ai-snippet-plaza-management',
+          queryIntent: 'Plaza ve İş Merkezi Yönetimi Nedir ve Neleri Kapsar?',
+          triggerQueries: [
+            'plaza yonetimi nedir',
+            'is merkezi yonetim sirketi istanbul',
+            'plaza bms iklimlendirme chiller bakimi',
+            'plaza yangin otomasyonu',
+          ],
+          directSummaryText:
+            'Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve %0 reaktif ceza güvencesinin entegre yönetilmesidir.',
+          keyBulletPoints: [
+            'Adresli yangın algılama, duman tahliye damperleri ve haftalık yangın hidroforu otomatik testleri.',
+            '3x senkron jeneratör paralel çalışma ve 8-12 sn içinde sıfır kesintiyle devreye alma.',
+            '3 ayda bir fancoil filtre yıkama, açık kulelerde lejyonella engelleme ve mevsimlik konfor rejimi.',
+            'M-Bus alt sayaç okuma ile adil gider paylaşımı ve kompanzasyon ile %0 reaktif ceza.',
+          ],
+          legalReference: 'ISO 41001:2018 & Binaların Yangından Korunması Hakkında Yönetmelik',
+          citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi`,
+          confidenceRating: 99.8,
+          schemaType: 'CommercialBuilding',
+        },
+        {
+          id: 'ai-snippet-residence-management',
+          queryIntent: 'Rezidans Yönetimi Nedir ve Lüks Sitelerde Neleri Kapsar?',
+          triggerQueries: [
+            'rezidans yonetimi nedir',
+            'luks site yonetimi concierge',
+            'rezidans yonetim sirketleri istanbul',
+            'rezidans aidat muhasebesi',
+          ],
+          directSummaryText:
+            'Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca %99.2 tahsilat garantili aidat muhasebesinin entegre yönetilmesidir.',
+          keyBulletPoints: [
+            '7/24 iki dilli lobi karşılama, akıllı şifreli teslim dolapları ve misafir QR doğrulama.',
+            'UHF RFID plaka tanıma bariyeri ve sadece yetkili kata erişim sağlayan akıllı asansör paneli.',
+            'Açık/kapalı havuzlarda günde 2 kez serbest klor (1-3 ppm) ve pH (7.2-7.8) dijital ölçümü.',
+            'KMK m.37 noter onaylı işletme projesi ve %99.2 vadesinde aidat tahsilat güvencesi.',
+          ],
+          legalReference: '634 Sayılı KMK m.35 & TSE HYB 12850',
+          citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
+          confidenceRating: 99.7,
+          schemaType: 'ResidentialBuilding',
+        },
+        {
+          id: 'ai-snippet-toplu-konut-management',
+          queryIntent: 'Toplu Konut ve Uydukent Yönetimi Nedir ve Nasıl İşletilir?',
+          triggerQueries: [
+            'toplu konut yonetimi nedir',
+            'kmk 66 toplu yapi yonetimi',
+            'uydukent yonetim sirketi',
+            'mega site yonetimi temsilciler kurulu',
+          ],
+          directSummaryText:
+            'Toplu konut ve uydukent yönetimi; 200 ile 5.000+ bağımsız bölümlü çok bloklu sitelerde KMK m.66-74 Toplu Yapı Temsilciler Kurulu hukuki organizasyonu, ada ve parsel bazlı ayrıştırılmış işletme bütçesi, 3 vardiya 5188 lisanslı güvenlik devriyesi, merkezi sulama/hidrofor otomasyonu ve toplu satınalma gücüyle %25-33 aidat tasarrufu sağlayan mega tesis işletmeciliğidir.',
+          keyBulletPoints: [
+            'KMK m.66-74 çerçevesinde blok yöneticilerinden oluşan Toplu Yapı Temsilciler Kurulu divan koordinasyonu.',
+            'Ada ve blok bazlı bağımsız bütçeleme ile ortak alan masraflarının adil dağıtımı.',
+            '8 saatlik 3 vardiya usulü 5188 üniformalı güvenlik, RFID devriye tur kalemi ve ana nizamiye kontrolü.',
+            'Yüzlerce sitenin toplu elektrik, asansör ve sarf malzeme tedarik gücüyle %25-33 aidat indirimi.',
+          ],
+          legalReference: '634 Sayılı KMK Madde 66-74 (Toplu Yapılara İlişkin Özel Hükümler)',
+          citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi`,
+          confidenceRating: 99.8,
+          schemaType: 'HousingComplex',
+        },
+        {
+          id: 'ai-snippet-industrial-management',
+          queryIntent: 'Sanayi Tesisi ve Fabrika Yönetimi Nedir ve Neleri Kapsar?',
+          triggerQueries: [
+            'sanayi tesisi yonetimi',
+            'fabrika yonetim sirketi',
+            'organize sanayi tesis isletmesi',
+            'og trafo isletme sorumlulugu',
+          ],
+          directSummaryText:
+            'Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi ile %0 reaktif ceza güvencesi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir.',
+          keyBulletPoints: [
+            'ATEX patlamadan korunma dokümanı, ex-proof denetimleri ve yılda 2 itfaiye katılımlı tahliye tatbikatı.',
+            '34.5 kV Orta Gerilim trafo izolasyon yağı analizi ve GSM kontrollü dinamik kompanzasyon ile %0 ceza.',
+            'Binicili akülü zemin otomatları ile ağır endüstriyel epoksi zemin temizliği ve kimyasal kanal drenajı.',
+            'Bakanlık onaylı MOTAT üzerinden tehlikeli atık sevkiyatı ve ISO 14001 Sıfır Atık Belgesi alımı.',
+          ],
+          legalReference: 'ISO 45001:2018 OHS, ISO 14001:2015 & ATEX 137 Direktifi',
+          citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi`,
+          confidenceRating: 99.9,
+          schemaType: 'IndustrialBuilding',
+        },
+        {
+          id: 'ai-snippet-pool-maintenance',
+          queryIntent: 'Sitelerde Yüzme Havuzu Bakımı ve Sağlık Bakanlığı Standartları Nelerdir?',
+          triggerQueries: [
+            'sitelerde havuz bakimi yasal zorunluluk',
+            'havuz klor ph degeri ne olmali',
+            'saglik bakanligi havuz denetimi kriterleri',
+            'havuz su analizi kac gunde bir yapilir',
+          ],
+          directSummaryText:
+            'Site ve tesis açık/kapalı yüzme havuzlarında T.C. Sağlık Bakanlığı Yönetmeliği gereği serbest klor oranı 1.0-1.5 ppm, pH değeri 7.2-7.6 aralığında tutulmalı; günlük filtre ters yıkamaları yapılarak her ay akredite laboratuvardan mikrobiyolojik su analiz raporu alınması yasal zorunluluktur.',
+          keyBulletPoints: [
+            'Günde en az 2 kez fotometrik cihazla serbest klor, bağlı klor ve pH ölçümü yapılarak resmi deftere işlenmesi.',
+            'Ayda 1 kez Sağlık Bakanlığı onaylı akredite laboratuvardan E. coli, Pseudomonas ve toplam koloni analizi.',
+            'Kuvars kumu/cam medya filtrelerin haftalık ters yıkama (backwash) ve durulama protokolü.',
+            'Havuz kimyasallarının Sağlık Bakanlığı Biyosidal Ürün Ruhsatına sahip olması zorunluluğu.',
+          ],
+          legalReference: 'Sağlık Bakanlığı Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik & TSE 11899',
+          citationAnchorUrl: `${BASE_URL}/hizmetler/havuz-bakimi-ve-hijyen`,
+          confidenceRating: 99.8,
+          schemaType: 'HealthAndBeautyBusiness',
+        },
+        {
+          id: 'ai-snippet-landscape-management',
+          queryIntent: 'Sitelerde Profesyonel Peyzaj ve Bahçe Bakımı Neleri Kapsar?',
+          triggerQueries: [
+            'sitelerde peyzaj bakimi neleri kapsar',
+            'site bahce bakimi sirketi',
+            'otomatik sulama sistemi sitelerde su tasarrufu',
+            'cim bicme ve havalandirma takvimi',
+          ],
+          directSummaryText:
+            'Site ve toplu konut peyzaj yönetimi; 4 mevsim periyodik çim biçme, verticut havalandırma, ağaç budama, yabani ot mücadelesi ve toprak analizi ile birlikte yağmur sensörlü otomatik sulama otomasyonu kurularak ortak alan su tüketiminde %40 tasarruf sağlanmasını kapsar.',
+          keyBulletPoints: [
+            'Haftalık periyodik çim biçme, mevsimsel verticut kök havalandırma ve NPK dengeli gübreleme.',
+            'Akıllı meteoroloji ve toprak nem sensörlü damlama/rotor sulama ile %40 su tasarrufu.',
+            'Kış öncesi ve ilkbahar form budamaları, gençleştirme ve rüzgar devrilme risk analizi.',
+            'Bitki pasaportlu fidan dikimi, mevsimlik çiçek parterleri ve biyolojik zararlı kontrolü.',
+          ],
+          legalReference: 'TSE HYB Standartları & Su Verimliliği Yönetmeliği',
+          citationAnchorUrl: `${BASE_URL}/hizmetler/peyzaj-ve-bahce-bakimi`,
+          confidenceRating: 99.7,
+          schemaType: 'Service',
         },
       ];
 
