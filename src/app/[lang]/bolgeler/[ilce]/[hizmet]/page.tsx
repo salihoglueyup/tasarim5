@@ -147,8 +147,8 @@ export async function generateMetadata({
   let serviceKeywords: string[] = [];
 
   if (isFacility) {
-    metaTitle = `${district.name} Site Yönetimi — Aidat, Bütçe ve Personel Yönetimi | Ücretsiz Keşif`;
-    metaDesc = `${district.name}'de ISO 41001 standartlarında entegre tesis yönetimi ve profesyonel site yönetimi, 5188 lisanslı güvenlik, periyodik teknik bakım ve şeffaf aidat işletmesi. Ücretsiz keşif alın.`;
+    metaTitle = `${district.name} Site Yönetimi Şirketleri — 7/24 Kesintisiz Hizmet & Ücretsiz Keşif | Alo Yönetim`;
+    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel site yönetimi ve entegre tesis işletmesi. 5188 güvenlik, teknik bakım ve aidat tahsilatında garantili çözüm. Hemen keşif alın.`;
     serviceKeywords = [
       `${district.name} tesis yönetimi`,
       `${district.name} tesis yönetim şirketi`,
@@ -163,8 +163,8 @@ export async function generateMetadata({
       `${district.name} kmk site yönetimi`,
     ];
   } else if (isSecurity) {
-    metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik | Ücretsiz Keşif`;
-    metaDesc = `${district.name}'de 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 kamera izleme ve devriye hizmetleri. 48 saatte ücretsiz güvenlik keşif raporu.`;
+    metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik & Hızlı Teklif | Alo Yönetim`;
+    metaDesc = `${district.name} genelinde 5188 sayılı kanun kapsamında Valilik izinli özel güvenlik personeli, 7/24 devriye ve kamera denetimi. Hemen ücretsiz güvenlik keşfi alın.`;
     serviceKeywords = [
       `${district.name} güvenlik şirketleri`,
       `${district.name} özel güvenlik şirketi`,
@@ -177,8 +177,8 @@ export async function generateMetadata({
       `${district.name} kameralı güvenlik`,
     ];
   } else if (isTechnical) {
-    metaTitle = `${district.name} Asansör Bakımı ve Arıza Servisi — Yeşil Etiket & 7/24 Teknik Servis | Alo Yönetim`;
-    metaDesc = `${district.name}'de asansör arıza ve periyodik bakımı, MMO onaylı yeşil etiket muayenesi, jeneratör ve bina teknik servisi. 15-25 dk SLA ile 7/24 kesintisiz müdahale.`;
+    metaTitle = `${district.name} Asansör Bakımı ve Arıza — 15 Dk Acil Servis & Yeşil Etiket | Alo Yönetim`;
+    metaDesc = `${district.name}'de asansör arıza ve aylık periyodik bakımı, MMO yeşil etiket muayenesi ve jeneratör teknik servisi. 15-25 dk acil müdahale ile kesintisiz güvence.`;
     serviceKeywords = [
       `${district.name} asansör bakım`,
       `${district.name} asansör arıza`,
@@ -452,15 +452,25 @@ export default async function ServiceDistrictPage({
               : service.name}
           </h2>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
-            {isFacility
-              ? `${district.name} genelindeki sitelerde, rezidanslarda ve plazalarda Kat Mülkiyeti Kanunu'na tam uygun şeffaf bütçe yönetimi, yasal işletme projesi, 5188 lisanslı güvenlik ve mobil teknik işletme hizmeti sunuyoruz.`
-              : isSecurity
-              ? `${district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz.`
-              : isTechnical
-              ? `${district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, jeneratör ATS kontrolleri ve kompanzasyon cezası engelleme protokolleriyle güvenceye alıyoruz.`
-              : isCleaning
-              ? `${district.name} apartman ve sitelerinde günlük kat koridoru hijyeninden, endüstriyel dağcı cam silimine ve Sağlık Bakanlığı onaylı biyosidal haşere ilaçlamasına kadar uçtan uca hijyen sağlıyoruz.`
-              : service.summary}
+            {isFacility ? (
+              <>
+                {district.name} genelindeki sitelerde, rezidanslarda ve plazalarda Kat Mülkiyeti Kanunu&apos;na tam uygun şeffaf bütçe yönetimi, yasal işletme projesi, 5188 lisanslı güvenlik ve mobil teknik işletme hizmeti sunuyoruz. İstanbul geneli kurumsal standartlarımız ve ölçek avantajlarımız için <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">entegre tesis yönetimi</Link> çözümlerimizi inceleyebilirsiniz.
+              </>
+            ) : isSecurity ? (
+              <>
+                {district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz. Tüm güvenlik operasyonlarımızı <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">profesyonel tesis yönetimi</Link> altyapısıyla entegre şekilde koordine ediyoruz.
+              </>
+            ) : isTechnical ? (
+              <>
+                {district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, jeneratör ATS kontrolleri ve kompanzasyon cezası engelleme protokolleriyle güvenceye alıyoruz. Teknik altyapı hizmetlerimiz <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">tesis yönetimi firmaları</Link> standartlarında 7/24 kesintisiz nöbetçi ekiplerle yürütülmektedir.
+              </>
+            ) : isCleaning ? (
+              <>
+                {district.name} apartman ve sitelerinde günlük kat koridoru hijyeninden, endüstriyel dağcı cam silimine ve Sağlık Bakanlığı onaylı biyosidal haşere ilaçlamasına kadar uçtan uca hijyen sağlıyoruz. Temizlik operasyonlarımız kurumsal <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">tesis yönetimi</Link> şeffaflığıyla denetlenir.
+              </>
+            ) : (
+              service.summary
+            )}
           </p>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
             {district.intro} Bu nedenle {district.name}&apos;de {service.name.toLowerCase()} hizmetimizi,

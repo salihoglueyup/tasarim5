@@ -19,6 +19,7 @@ import {
   DistrictMicroNeighborhoodsSeo,
   DistrictCourthouseMediationSeo,
   DistrictEmergencyPreparednessSeo,
+  DistrictAiOverviewSnippetSeo,
 } from '@/components/seo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -183,6 +184,14 @@ export default async function DistrictPage({
             </QuoteCtaButton>
           </div>
         </div>
+
+        {/* Google AI Overviews & SGE Doğrulanmış Yerel Bilgi Yanıt Kutusu */}
+        <DistrictAiOverviewSnippetSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          side={district.side as 'Anadolu' | 'Avrupa'}
+          managedProjects={district.managedProjects}
+        />
 
         {/* Çift Çekirdekli (Dual-Core) Yönetim Modeli Seçim Paneli (Site vs Tesis) */}
         <DistrictDualCoreSelectorSeo
