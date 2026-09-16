@@ -1286,7 +1286,8 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
 
   describe('43. Kurumsal Varlık Güven Künyesi & B2B Hizmet Matrisi Güvencesi', () => {
     it('FacilityOfficialEntityTrustSeo ve FacilityCommercialTiersSeo bileşenleri dışa aktarılır ve geçerlidir', async () => {
-      const { FacilityOfficialEntityTrustSeo, FacilityCommercialTiersSeo } = await import('@/components/seo');
+      const { FacilityOfficialEntityTrustSeo } = await import('@/components/seo/FacilityOfficialEntityTrustSeo');
+      const { FacilityCommercialTiersSeo } = await import('@/components/seo/FacilityCommercialTiersSeo');
       expect(FacilityOfficialEntityTrustSeo).toBeDefined();
       expect(FacilityCommercialTiersSeo).toBeDefined();
       expect(typeof FacilityOfficialEntityTrustSeo).toBe('function');

@@ -46,4 +46,14 @@ describe('Gelişmiş Otomatik İç Linkleme Motoru (autoLinker.ts)', () => {
 
     expect(output).toContain('<a href="/en/hizmetler/tesis-yonetimi/rezidans-site-yonetimi"');
   });
+
+  it('Site yönetimi terimleri /hizmetler/site-yonetimi sayfasına, tesis yönetimi ise /hizmetler/tesis-yonetimi sayfasına bağlanarak silo ayrımı sağlar', () => {
+    const siteInput = '<p>Toplu konutlarda profesyonel site yönetimi ve şeffaf bütçeleme yapıyoruz.</p>';
+    const siteOutput = autoLinkHtml(siteInput, '/blog/ornek-post', 2);
+    expect(siteOutput).toContain('<a href="/hizmetler/site-yonetimi"');
+
+    const facilityInput = '<p>Endüstriyel plazalarda entegre tesis yönetimi ve teknik bakım sağlıyoruz.</p>';
+    const facilityOutput = autoLinkHtml(facilityInput, '/blog/ornek-post', 2);
+    expect(facilityOutput).toContain('<a href="/hizmetler/tesis-yonetimi"');
+  });
 });
