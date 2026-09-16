@@ -108,6 +108,33 @@ export const VOICE_SEARCH_KNOWLEDGE_BASE: VoiceSearchTopic[] = [
     canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
     speakableCssSelectors: ['h1', '.voice-answer-kidem-fonu'],
   },
+  {
+    id: 'voice-kmk37-itiraz',
+    spokenQuery: 'Site işletme projesine kaç gün içinde itiraz edilir?',
+    conciseVoiceAnswer:
+      'Kat Mülkiyeti Kanunu Madde 37 gereğince tebliğden itibaren 7 gün içinde itiraz edilmelidir. 7 günde itiraz edilmeyen proje kesinleşir ve İcra İflas Kanunu 68 kapsamında doğrudan icraya konulabilir.',
+    legalArticleRef: 'KMK Madde 37 & İİK Madde 68',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/aidat-takibi`,
+    speakableCssSelectors: ['h1', '.voice-answer-kmk37'],
+  },
+  {
+    id: 'voice-5188-kimlik',
+    spokenQuery: '5188 özel güvenlik kimlik kartı nedir?',
+    conciseVoiceAnswer:
+      '5188 Sayılı Kanun kapsamında Valilik ve Emniyet Genel Müdürlüğü tarafından verilen resmi koruma kartıdır. Sitelerde özel güvenlik olarak görev yapmak için bu kimlik yasal zorunluluktur.',
+    legalArticleRef: '5188 Sayılı Kanun Madde 7',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
+    speakableCssSelectors: ['h1', '.voice-answer-5188-kimlik'],
+  },
+  {
+    id: 'voice-biyosidal-ilaclama',
+    spokenQuery: 'Sitelerde böcek ilaçlamasını kimler yapabilir?',
+    conciseVoiceAnswer:
+      'Biyosidal Ürünler Yönetmeliği gereğince sitelerde yalnızca Sağlık Bakanlığı ruhsatlı ve resmi uygulayıcı izin belgeli kurumsal firmalar böcek ve kemirgen ilaçlaması yapabilir.',
+    legalArticleRef: 'Sağlık Bakanlığı Biyosidal Yönetmeliği',
+    canonicalPageUrl: `${BASE_URL}/hizmetler/hasere-ve-dezenfeksiyon`,
+    speakableCssSelectors: ['h1', '.voice-answer-biyosidal'],
+  },
 ];
 
 /**

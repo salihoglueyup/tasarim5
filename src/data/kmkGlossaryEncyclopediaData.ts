@@ -27,7 +27,7 @@ export interface GlossaryTerm {
 export const GLOSSARY_CATEGORIES: { id: GlossaryCategory; name: string; icon: string }[] = [
   { id: 'mulkiyet-ve-arsa-payi', name: 'Mülkiyet & Arsa Payı', icon: 'domain' },
   { id: 'yonetim-ve-karar-organlari', name: 'Yönetim & Karar Organları', icon: 'groups' },
-  { id: 'maliye-ve-butce', name: 'Maliye, Bütçe & Aidat', icon: 'account_balance_wallet' },
+  { id: 'maliye-ve-butce', name: 'Maliye, Bütçe & Aidat', icon: 'payments' },
   { id: 'teknik-ve-isletme', name: 'Teknik, İşletme & Güvenlik', icon: 'engineering' },
   { id: 'hukuk-ve-ihtilaf', name: 'Hukuk, Dava & İcra', icon: 'gavel' },
 ];

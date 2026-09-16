@@ -296,6 +296,20 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
       sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi`,
       legalBasis: '634 Sayılı KMK m.20 & İİK m.68',
     },
+    {
+      question: 'Sitelerde biyosidal ilaçlama zorunlu mudur ve kimler tarafından yapılır?',
+      answer:
+        'T.C. Sağlık Bakanlığı Biyosidal Ürünler Yönetmeliği uyarınca sitelerde yalnızca Bakanlık ruhsatlı ürünler ve resmi uygulayıcı izin belgeli kurumsal firmalar haşere ve kemirgen ilaçlaması yapabilir. Toplu yaşam alanlarında tarım ilacı kullanımı yasaktır.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/hasere-ve-dezenfeksiyon`,
+      legalBasis: 'Sağlık Bakanlığı Biyosidal Ürünler Yönetmeliği',
+    },
+    {
+      question: 'Sitelerde 5188 sayılı özel güvenlik kimlik kartı ve Valilik izni zorunlu mudur?',
+      answer:
+        '5188 Sayılı Kanun gereğince sitelerde üniformalı güvenlik hizmeti verebilmek için Valilik Özel Güvenlik Komisyonu izni (ÖGİ) ve personelin EGM onaylı özel güvenlik kimlik kartı kanunen zorunludur.',
+      sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/guvenlik-yonetimi`,
+      legalBasis: '5188 Sayılı Kanun Madde 3 & 7',
+    },
   ];
 
   // 4. 39 İlçe Silo Matrisi

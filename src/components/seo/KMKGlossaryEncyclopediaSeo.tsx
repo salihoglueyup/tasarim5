@@ -242,6 +242,30 @@ export default function KMKGlossaryEncyclopediaSeo() {
           })
         )}
       </div>
+
+      {/* Kurumsal Otorite & Tesis Yönetimi Transfer Köprüsü (Internal PageRank Bridge) */}
+      <div className="mt-8 p-5 md:p-6 rounded-2xl bg-gradient-to-r from-indigo-900/10 via-slate-900/5 to-indigo-900/10 dark:from-indigo-950/40 dark:via-slate-900/20 dark:to-indigo-950/40 border border-indigo-600/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+            <span className="material-symbols-outlined text-xl" aria-hidden="true">apartment</span>
+          </div>
+          <div>
+            <h4 className="text-sm md:text-base font-bold text-[var(--color-primary)]">
+              KMK ve Yasal Standartlarda Profesyonel Tesis Yönetimi
+            </h4>
+            <p className="text-xs text-[var(--color-secondary)] mt-0.5">
+              Kat Mülkiyeti Kanunu m.34 ve m.37 uyarınca işletme projesi, 5188 güvenlik ve teknik bakımı kurumsal standartlarda yürütüyoruz.
+            </p>
+          </div>
+        </div>
+        <a
+          href="/hizmetler/tesis-yonetimi"
+          className="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-all shadow-sm hover:shadow inline-flex items-center gap-1.5"
+        >
+          <span>Entegre Tesis Yönetimi</span>
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
     </section>
   );
 }

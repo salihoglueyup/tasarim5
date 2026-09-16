@@ -95,6 +95,10 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
     **Cevap**: Alo Yönetim, Apsiyon bulut yazılımı ile entegre çalışır. Sakinler mobil uygulama üzerinden kredi kartıyla aidat öder, anlık kasa mizanını inceler ve fotoğraflı teknik arıza kaydı açabilir.
 20. **Soru**: Site yönetimi ile entegre tesis yönetimi arasındaki temel fark nedir?
     **Cevap**: Site yönetimi konut ve rezidanslarda 634 Sayılı KMK çerçevesinde malik hakları ve aidat tahsilatına odaklanırken; entegre tesis yönetimi ticari plazalarda ISO 41001 standardında BMS otomasyonu, enerji optimizasyonu ve kurumsal SLA taahhütlerine odaklanır.
+21. **Soru**: Biyosidal ilaçlama nedir ve sitelerde yasal olarak kimler tarafından yapılmalıdır?
+    **Cevap**: Biyosidal ilaçlama; T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü ruhsatlı ürünlerle çevreye ve evcil hayvanlara zarar vermeden uygulanan profesyonel zararlı kontrolüdür. Biyosidal Ürünler Yönetmeliği gereği toplu konutlarda tarım ilacı kullanılması yasak olup yalnızca Sağlık Bakanlığı onaylı resmi uygulayıcı izin belgeli kurumsal firmalar tarafından icra edilmelidir.
+22. **Soru**: Sitelerde 5188 özel güvenlik kimlik kartı zorunlu mudur?
+    **Cevap**: Evet, 5188 Sayılı Kanun kapsamında sitede özel güvenlik üniformasıyla fiziki nöbet, devriye ve kimlik kontrolü yapabilmek için personelin Emniyet Genel Müdürlüğü/Valilik onaylı geçerli özel güvenlik kimlik kartına sahip olması ve sitenin İl Özel Güvenlik Komisyonu'ndan Valilik İzni (ÖGİ) almış olması kanuni zorunluluktur.
 
 ## Temel Hizmet Sütunları
 - [Profesyonel Site Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): 634 Sayılı KMK uyumlu konut siteleri, apartmanlar ve rezidanslar için %99.2 aidat tahsilatı, 5188 güvenlik ve Apsiyon entegrasyonu.

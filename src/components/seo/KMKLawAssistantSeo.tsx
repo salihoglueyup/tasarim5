@@ -88,6 +88,54 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     fullRule: 'Ortak yerlerin bütünü veya bir kısmı, hiçbir kat malikinin tek başına zilyetliğine bırakılamaz; oy birliği olmadan ortak alan niteliği değiştirilemez.',
     precedent: 'Yargıtay 18. Hukuk Dairesi: "Sığınak gibi mutlak ortak alanların herhangi bir malike tahsis edilmesi kanuna açıkça aykırıdır."',
     solution: 'Tesis keşif denetimlerimizde ortak alan işgallerini tespit ediyor, yangın ve sığınak yönetmeliklerine uygun tahliye ve düzenleme sağlıyoruz.'
+  },
+  {
+    id: 'kmk-isletme-projesi-itiraz',
+    category: 'aidat-icra',
+    categoryTitle: 'İşletme Projesi & İtiraz',
+    question: 'Apartman ve site işletme projesine itiraz süresi kaç gündür ve icra takibi dayanağı nedir?',
+    article: 'KMK Madde 37 ve İİK Madde 68/1',
+    lawName: '634 Sayılı Kat Mülkiyeti Kanunu & 2004 İİK',
+    summary: 'Kat maliklerine tebliğ edilen işletme projesine kesin itiraz süresi 7 gündür. 7 gün içinde itiraz edilmeyen proje kesinleşir ve İİK 68 kapsamında borç ikrarı içeren resmi belge hükmü kazanır.',
+    fullRule: 'Kat maliklerine tebliğ edilen işletme projesine veya ek bütçeye 7 gün içinde itiraz edilmezse proje kesinleşir. Kesinleşen işletme projeleri veya kat malikleri kurulunun işletme giderleri ile ilgili kararları, İcra ve İflas Kanununun 68 inci maddesinin 1 inci fıkrasında belirtilen belgelerden sayılır.',
+    precedent: 'Yargıtay 18. Hukuk Dairesi: "Tebliğ edilip 7 gün içinde itiraz edilmeyen işletme projesi İİK 68 anlamında borç ikrarını havi belge niteliğinde olup doğrudan ilamsız icraya konulabilir."',
+    solution: 'Alo Yönetim, yıllık işletme projelerini ve ek bütçeleri noter/iadeli taahhütlü usulüne göre tebliğ ederek alacakların 7 günde kesinleşmesini ve tahsilatın %99.2 başarıyla icrasını sağlar.'
+  },
+  {
+    id: 'kmk-5188-guvenlik-izni',
+    category: 'ortak-alan',
+    categoryTitle: '5188 Özel Güvenlik',
+    question: 'Sitelerde özel güvenlik hizmeti başlatmak için Valilik izni şart mıdır?',
+    article: '5188 Sayılı Kanun Madde 3 ve KMK Madde 35',
+    lawName: '5188 Sayılı Özel Güvenlik Kanunu',
+    summary: 'Sitelerde özel güvenlik üniformasıyla fiziki nöbet ve koruma sağlanması için Valilik Özel Güvenlik Komisyonu\'ndan izin (ÖGİ) alınması ve personelin lisanslı kimlik kartına sahip olması yasal zorunluluktur.',
+    fullRule: 'Kişilerin silahlı personel tarafından korunması, kurum ve kuruluşlar bünyesinde özel güvenlik birimi kurulması veya güvenlik hizmetinin şirketlere gördürülmesi özel güvenlik komisyonunun kararı üzerine valinin iznine bağlıdır.',
+    precedent: 'Danıştay 10. Dairesi: "Özel güvenlik izni alınmaksızın çalıştırılan personelin yetki aşımı ve güvenlik tedbirleri hukuken geçersizdir ve idari para cezası gerektirir."',
+    solution: 'Alo Yönetim, Valilik Özel Güvenlik Komisyonu başvurusunu, ÖGİ ruhsatını ve EGM denetim dosyasını anahtar teslim yürüterek sitenizi yasal koruma kalkanına alır.'
+  },
+  {
+    id: 'kmk-asansor-yesil-etiket-reaktif',
+    category: 'ortak-alan',
+    categoryTitle: 'Asansör Yeşil Etiket & Reaktif',
+    question: 'Bina asansörlerinde yeşil etiket almak zorunlu mudur ve reaktif enerji cezası nasıl engellenir?',
+    article: 'Asansör Bakım Yönetmeliği & EPDK Tarifeleri',
+    lawName: 'Sanayi Bakanlığı & EPDK Mevzuatı',
+    summary: 'Asansörlerde yıllık A Tipi akredite muayenede yeşil etiket alınması can güvenliği için zorunludur; kompanzasyon takibiyle elektrik faturasındaki reaktif ceza sıfırlanır.',
+    fullRule: 'Bina sorumlusu, asansörün güvenli bir şekilde kullanılmasını sağlamak amacıyla periyodik kontrolünü yılda en az bir defa A tipi muayene kuruluşuna yaptırmakla yükümlüdür. Kırmızı etiketli asansör 60 gün içinde güvenli hale getirilmezse belediyece mühürlenir.',
+    precedent: 'Yargıtay Hukuk Genel Kurulu: "Yeşil etiketsiz asansörden kaynaklanan kazalarda bina yöneticisi ve kat malikleri kurulu müştereken ve müteselsilen kusurlu sorumludur."',
+    solution: 'Alo Yönetim teknik masası, TMMOB/A Tipi muayenelerde asansörlerin yeşil etiket almasını koordine eder ve kompanzasyon panolarını haftalık izleyerek %0 reaktif ceza garantisi verir.'
+  },
+  {
+    id: 'kmk-biyosidal-ilaclama',
+    category: 'komsuluk-hukuku',
+    categoryTitle: 'Biyosidal İlaçlama & Hijyen',
+    question: 'Apartman ve sitelerde böcek ilaçlamasını kimler yapabilir, tarım ilacı kullanılabilir mi?',
+    article: 'Biyosidal Ürünler Yönetmeliği Madde 4 & 18',
+    lawName: 'T.C. Sağlık Bakanlığı Mevzuatı',
+    summary: 'Toplu yaşam alanlarında tarım ilacı veya yetkisiz kimyasal kullanılması suçtur; yalnızca Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle ve izin belgeli kurumsal firmalarca yapılabilir.',
+    fullRule: 'Halk sağlığını korumak amacıyla kapalı ve açık toplu yaşam alanlarında yapılacak haşere ve kemirgen mücadelesinde yalnızca Sağlık Bakanlığı onaylı biyosidal ürünler ve yetki belgeli uygulayıcılar görevlendirilebilir.',
+    precedent: 'Yargıtay Ceza Dairesi: "Apartmanda yetkisiz kimyasal ilaçlama sonucu sakinlerin zehirlenmesi halinde uygulayıcı ve yönetici hakkında taksirle yaralama suçundan ceza verilir."',
+    solution: 'Alo Yönetim, kokusuz Sağlık Bakanlığı ruhsatlı jel ve mikroenkapsüle biyosidal solüsyonlarla 4 mevsim periyodik ve garantili haşere kontrolü sağlar.'
   }
 ];
 
