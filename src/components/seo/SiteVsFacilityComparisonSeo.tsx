@@ -129,16 +129,19 @@ export default function SiteVsFacilityComparisonSeo({
 
         {/* Karşılaştırma Tablosu (Google Position Zero Optimize) */}
         <div className="overflow-x-auto rounded-2xl border border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)]/30 mb-12">
-          <table className="w-full text-left border-collapse min-w-[640px]">
+          <table className="w-full text-left border-collapse min-w-[640px]" aria-label="Site Yönetimi ile Entegre Tesis Yönetimi Karşılaştırması">
+            <caption className="sr-only">
+              Site Yönetimi ile Entegre Tesis Yönetimi Arasındaki 6 Temel Fark Karşılaştırma Tablosu (634 Sayılı KMK ve ISO 41001)
+            </caption>
             <thead>
               <tr className="border-b border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)]">
-                <th className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-[var(--color-primary)] uppercase tracking-wider w-1/4">
+                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-[var(--color-primary)] uppercase tracking-wider w-1/4">
                   Karşılaştırma Kriteri
                 </th>
-                <th className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-brand-600 dark:text-brand-400 uppercase tracking-wider w-3/8 bg-brand-50/50 dark:bg-brand-950/20">
+                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-brand-600 dark:text-brand-400 uppercase tracking-wider w-3/8 bg-brand-50/50 dark:bg-brand-950/20">
                   🏢 Profesyonel Site Yönetimi (Konut)
                 </th>
-                <th className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider w-3/8 bg-indigo-50/50 dark:bg-indigo-950/20">
+                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider w-3/8 bg-indigo-50/50 dark:bg-indigo-950/20">
                   🏭 Entegre Tesis Yönetimi (B2B/Ticari)
                 </th>
               </tr>
@@ -149,12 +152,12 @@ export default function SiteVsFacilityComparisonSeo({
                   key={idx}
                   className="hover:bg-[var(--color-surface-variant)]/40 transition-colors"
                 >
-                  <td className="p-4 sm:p-5 font-bold text-[var(--color-primary)] flex items-center gap-2">
+                  <th scope="row" className="p-4 sm:p-5 font-bold text-[var(--color-primary)] flex items-center gap-2 text-left font-sans">
                     <span className="material-symbols-outlined text-base text-slate-500 dark:text-slate-400" aria-hidden="true">
                       {dim.icon}
                     </span>
                     <span>{dim.title}</span>
-                  </td>
+                  </th>
                   <td className="p-4 sm:p-5 text-[var(--color-secondary)] leading-relaxed bg-brand-50/20 dark:bg-brand-950/10">
                     <p className="font-semibold text-slate-800 dark:text-slate-200 mb-1">{dim.siteFeature}</p>
                     <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-light">{dim.detailExplanation}</p>
