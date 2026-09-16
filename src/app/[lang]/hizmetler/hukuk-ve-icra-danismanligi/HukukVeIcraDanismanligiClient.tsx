@@ -14,7 +14,7 @@ import KMKLegalProcessHowToSeo from '@/components/seo/KMKLegalProcessHowToSeo';
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/KMKLegalTemplateGeneratorSeo';
 import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function HukukVeIcraDanismanligiClient() {
   const { t } = useLanguage();
@@ -123,6 +123,17 @@ export default function HukukVeIcraDanismanligiClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <LegalCalculator />
         </div>
+
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="hukuk-danismanligi-nedir"
+          answerId="legal-instant-answer-text"
+          question="Kat Mülkiyeti Hukuku ve Aidat İcra Danışmanlığı Nedir?"
+          answer="KMK hukuk ve icra danışmanlığı; 634 sayılı Kat Mülkiyeti Kanunu ve İcra İflas Kanunu çerçevesinde aidat alacaklarının tahsili, 7 günlük itiraz süresi sonrası ilamsız icra takibi (Örnek No: 7), genel kurul divan yönetimi ve yönetim planı tadilatını yürüten kurumsal hukuk disiplinidir."
+          standardBadge="634 KMK & İcra İflas Kanunu"
+          subText="Alo Yönetim, uzman gayrimenkul hukukçuları ile Sulh Hukuk Mahkemesi süreçleri, hakimin müdahalesi ve hızlı tahsilat protokollerini yönetir."
+          accentColor="indigo"
+        />
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}

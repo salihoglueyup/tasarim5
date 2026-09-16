@@ -88,6 +88,10 @@ export default async function TeknikBakimPage({
     {
       question: 'Teknik bakım sözleşmesinde malzeme ve işçilik garantisi var mı?',
       answer: 'Evet. Yapılan tüm işçilik hizmetleri 1 yıl, değişimi yapılan orijinal yedek parçalar ise 2 yıl üretici ve servis garantisi altındadır.'
+    },
+    {
+      question: 'Asansör yeşil etiket zorunluluğu ve kompanzasyon panosu reaktif ceza güvencesi nedir?',
+      answer: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği uyarınca yılda 1 kez akredite A Tipi muayene kuruluşunca yeşil etiket alınması can güvenliği için yasal zorunluluktur. Kompanzasyon panolarının haftalık takibi ise EPDK reaktif sınırlarını (endüktif %20, kapasitif %15) koruyarak site ortak elektrik faturasına gelebilecek cezayı %0\'a indirir.'
     }
   ];
 

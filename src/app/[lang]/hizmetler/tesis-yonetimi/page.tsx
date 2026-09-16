@@ -23,13 +23,13 @@ export async function generateMetadata({
   const t = await getDictionary(lang);
   const serpMeta = getFacilitySerpMeta({ lang, pillar: 'facility' });
 
-  // Wave 57: CTR Boost & Ön Yüklemeli Tesis Yönetimi Başlık Şablonu (Pozisyon 53 -> İlk 10)
+  // GSC Gerçek Arama Niyeti Hizalaması (entegre tesis yönetimi & tesis yönetim firmaları)
   const title = lang === 'tr'
-    ? 'Tesis Yönetimi Şirketleri — Entegre Tesis İşletmesi & Ücretsiz Keşif | Alo Yönetim'
+    ? 'Tesis Yönetimi ve Entegre Tesis Yönetim Firmaları | Alo Yönetim'
     : t.serv_fac_meta_title || serpMeta.title;
 
   const description = lang === 'tr'
-    ? "İstanbul genelinde rezidans, plaza, site ve sanayi tesisleri için ISO 41001 standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik ve %30 tasarruf. Hemen keşif randevusu alın."
+    ? "İstanbul genelinde rezidans, plaza ve siteler için ISO 41001 entegre tesis yönetimi, 5188 güvenlik ve teknik bakım. Profesyonel tesis yönetim firmaları arasında lider çözüm."
     : t.serv_fac_meta_desc || serpMeta.description;
 
   return buildMetadata({

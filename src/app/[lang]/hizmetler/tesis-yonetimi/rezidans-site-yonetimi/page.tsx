@@ -20,21 +20,22 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti | Alo Yönetim',
     description:
-      'İstanbul geneli lüks rezidans ve kuleler için ISO 41001 standartlarında entegre tesis yönetimi, 7/24 konsiyerj, 5188 lisanslı güvenlik ve %30 aidat tasarrufu.',
+      'İstanbul genelinde rezidans kuleleri ve lüks siteler için 7/24 konsiyerj, 5188 lisanslı güvenlik, teknik işletme ve şeffaf aidat takibi sunan profesyonel rezidans yönetimi.',
     path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
     lang,
+    targetKeyword: 'rezidans yönetimi',
     ogImageType: 'service',
     keywords: [
+      'rezidans yönetimi',
+      'rezidans yönetim şirketi',
       'rezidans tesis yönetimi',
       'lüks site yönetimi',
-      'rezidans yönetim şirketi',
       'lüks konut yönetimi',
-      'rezidans aidat yönetimi',
+      'rezidans yönetim firmaları',
       'istanbul rezidans yönetimi',
       'concierge hizmeti istanbul',
       'lüks site güvenliği',
-      'premium tesis yönetimi',
-      'rezidans site yönetim firması',
+      'premium rezidans işletmesi',
     ],
   });
 }

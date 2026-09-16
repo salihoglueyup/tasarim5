@@ -87,6 +87,10 @@ export default async function HasereVeDezenfeksiyonPage({
     {
       question: 'İlaçlama sonrası haşereler ne kadar sürede tamamen yok olur?',
       answer: 'Jel uygulamaları hamamböceklerinde domino etkisiyle 3-5 gün içinde yuvanın tamamını kurutur. Sıvı rezidüel ilaçlar ise temas anından itibaren 24 saat içinde sonuç verir ve 3 aya kadar koruyucu bariyer sağlar.'
+    },
+    {
+      question: 'Biyosidal ilaçlama nedir ve apartman/sitelerde uygulanması yasal olarak zorunlu mudur?',
+      answer: 'Biyosidal ilaçlama; T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü tarafından ruhsatlandırılmış aktif maddelerle haşere, kemirgen ve patojenlerin yok edilmesidir. Biyosidal Ürünler Yönetmeliği uyarınca toplu yaşam alanlarında yetkisiz şahıslarca tarım ilacı kullanılması yasak olup yalnızca Sağlık Bakanlığı onaylı uygulayıcı izin belgeli firmalarca yapılması yasal zorunluluktur.'
     }
   ];
 

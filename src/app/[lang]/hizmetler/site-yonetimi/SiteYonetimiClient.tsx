@@ -31,6 +31,8 @@ import {
   KMKLegalDisputesQAPageSeo,
   KMKLegislationNavigatorSeo,
   KMKLegalNoticesVaultSeo,
+  PositionZeroAnswerBox,
+  GoogleAiOverviewGroundingSeo,
 } from '@/components/seo';
 import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
@@ -188,6 +190,16 @@ export default function SiteYonetimiClient() {
 
       {/* 2. BÖLÜM: Google Sıfırıncı Sıra (Featured Snippet) & Hızlı Yanıt Kartı */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-30">
+        <PositionZeroAnswerBox
+          id="site-yonetimi-nedir"
+          answerId="site-instant-answer-text"
+          question="Profesyonel Site Yönetimi Nedir ve Neleri Kapsar?"
+          answer="Profesyonel site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında kat malikleri kurulunca onaylanan işletme projesinin yürütülmesi, %99.2 aidat tahsilat garantisi, 5188 lisanslı güvenlik, periyodik teknik bakım ve temizlik hizmetlerinin tek elden, şeffaf ve kurumsal olarak idare edilmesidir."
+          standardBadge="634 Sayılı KMK & %99.2 Tahsilat"
+          subText="Alo Yönetim, Apsiyon dijital entegrasyonu, KMK m.20 aylık %5 gecikme faizi takibi ve 45 dakika SLA acil teknik servisiyle sitelerde kusursuz huzur sağlar."
+          accentColor="indigo"
+          className="mb-8"
+        />
         <div id="site-management-instant-answer">
           <InstantAnswerCardSeo
             question="Site yönetimi nedir ve neleri kapsar?"
@@ -400,6 +412,15 @@ export default function SiteYonetimiClient() {
           </div>
           <DynamicFAQ faqs={faqs} />
         </div>
+      </div>
+
+      {/* 12.5. BÖLÜM: Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
+      <div className="py-8 px-4 max-w-6xl mx-auto">
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['kmk37-itiraz', 'aidat-gecikme-faizi', '5188-ozel-guvenlik', 'kidem-tazminati', 'cam-balkon-onayi', 'ev-sarj-istasyonu']}
+          title="Site Yönetiminde Yapay Zekaya Sorun: 634 Sayılı KMK Hukuku"
+          subtitle="Google AI Overviews (SGE), Gemini ve Perplexity için doğrulanmış apartman/site yönetimi, aidat takibi ve kat malikleri kurulu yasal mevzuatı."
+        />
       </div>
 
       {/* 13. BÖLÜM: Müşteri Referansları ve Yorumları */}

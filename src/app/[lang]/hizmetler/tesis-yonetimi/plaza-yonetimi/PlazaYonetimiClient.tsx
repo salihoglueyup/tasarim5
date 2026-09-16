@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
-import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 const OPERATIONAL_PILLARS = [
   {
@@ -99,6 +99,17 @@ export default function PlazaYonetimiClient() {
       </div>
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+
+        {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="plaza-yonetimi-nedir"
+          answerId="plaza-instant-answer-text"
+          question="Plaza ve İş Merkezi Yönetimi Nedir ve Neleri Kapsar?"
+          answer="Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, 5188 lisanslı turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve %0 reaktif ceza güvencesinin entegre yönetilmesidir."
+          standardBadge="ISO 41001 & Yangın Yönetmeliği"
+          subText="Alo Yönetim, kurumsal plazalarda 45 dakika acil teknik müdahale SLA garantisi, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
+          accentColor="blue"
+        />
 
         {/* 6'lı Operasyonel Standartlar Grid */}
         <div>

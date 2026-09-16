@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components';
 import LandscapeCalculator from '@/components/sections/LandscapeCalculator';
 import LandscapeTestimonials from '@/components/sections/LandscapeTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityLandscapeTreeGuideSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityLandscapeTreeGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function PeyzajVeBahceBakimiClient() {
   const { t } = useLanguage();
@@ -126,6 +126,17 @@ export default function PeyzajVeBahceBakimiClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <LandscapeCalculator />
         </div>
+
+        {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="peyzaj-bakimi-standartlari"
+          answerId="landscape-instant-answer-text"
+          question="Sitelerde Profesyonel Peyzaj ve Bahçe Bakımı Neleri Kapsar?"
+          answer="Site ve toplu konut peyzaj yönetimi; 4 mevsim periyodik çim biçme, verticut havalandırma, ağaç budama, yabani ot mücadelesi ve toprak analizi ile birlikte yağmur sensörlü otomatik sulama otomasyonu kurularak ortak alan su tüketiminde %40 tasarruf sağlanmasını kapsar."
+          standardBadge="Akıllı Sulama & 4 Mevsim PPM"
+          subText="Alo Yönetim, ziraat mühendisleri ve peyzaj mimarları denetiminde bitki sağlığı pasaportu, organik gübreleme ve periyodik mevsimlik çiçeklendirme sunar."
+          accentColor="emerald"
+        />
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

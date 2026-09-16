@@ -87,6 +87,10 @@ export default async function AidatTakibiPage({
     {
       question: 'Aidat borcum ve geçmiş ödemelerim için resmi döküm alabilir miyim?',
       answer: 'Evet. Mobil uygulamamız veya web panelinizden dilediğiniz tarih aralığına ait ıslak imzalı/karekodlu ekstre ve tahsilat makbuzlarını PDF formatında tek tıkla indirebilirsiniz.'
+    },
+    {
+      question: 'KMK Madde 37 kapsamında işletme projesine itiraz süresi kaç gündür ve İİK 68 icra dayanağı nedir?',
+      answer: 'Kat maliklerine usulüne uygun tebliğ edilen işletme projesine veya ek bütçeye itiraz süresi kesin 7 gündür. 7 gün içinde itiraz edilmeyen işletme projesi kesinleşerek İcra ve İflas Kanunu Madde 68/1 anlamında borç ikrarını havi resmi belge niteliği kazanır ve mahkeme kararsız doğrudan icraya konulabilir.'
     }
   ];
 

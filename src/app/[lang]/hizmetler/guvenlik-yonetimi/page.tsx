@@ -88,6 +88,10 @@ export default async function GuvenlikYonetimiPage({
     {
       question: 'Güvenlik kameraları ve kayıt saklama süresi nedir?',
       answer: 'Site ortak alan güvenlik kameraları 7/24 kesintisiz kayıt altına alınır. KVKK (Kişisel Verilerin Korunması Kanunu) Aydınlatma Metni çerçevesinde görüntüler şifreli NVR sunucularında en az 30 gün yasal saklama süresiyle muhafaza edilir.'
+    },
+    {
+      question: '5188 özel güvenlik kimlik kartı nedir ve sitelerde çalışmak için şart mıdır?',
+      answer: '5188 Sayılı Kanun gereğince Emniyet Genel Müdürlüğü ve Valilik tarafından güvenlik soruşturması ve arşiv araştırması tamamlanmış, silahsız/silahlı eğitim sertifikasını tamamlamış kişilere verilen resmi kimlik kartıdır. Sitelerde özel güvenlik üniformasıyla görev yapabilmek için geçerli 5188 kimlik kartı yasal zorunluluktur.'
     }
   ];
 

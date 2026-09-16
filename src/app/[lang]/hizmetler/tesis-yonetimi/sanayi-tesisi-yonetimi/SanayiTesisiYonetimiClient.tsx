@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
-import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo, PositionZeroAnswerBox } from '@/components/seo';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
 
@@ -99,6 +99,17 @@ export default function SanayiTesisiYonetimiClient() {
       </div>
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+
+        {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="sanayi-tesisi-yonetimi-nedir"
+          answerId="industrial-instant-answer-text"
+          question="Sanayi Tesisi ve Fabrika Yönetimi Nedir ve Neleri Kapsar?"
+          answer="Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi ile %0 reaktif ceza güvencesi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir."
+          standardBadge="ISO 45001 & ISO 14001 Endüstriyel Standart"
+          subText="Alo Yönetim, üretim hatlarında sıfır plansız duruş garantisi, 30 dakika acil mekanik SLA taahhüdü ve 5188 perimetre çevre güvenliği sunar."
+          accentColor="orange"
+        />
 
         {/* 6'lı Operasyonel Standartlar Grid */}
         <div>

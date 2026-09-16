@@ -145,7 +145,7 @@ const API_ENDPOINTS: ApiEndpointInfo[] = [
     path: '/api/tesis-yonetimi/budget-distribution.json',
     description: 'KMK Madde 37 kapsamında hazırlanan site işletme bütçelerinde harcama kalemlerinin (Güvenlik, Temizlik, Teknik Bakım, Enerji, Hukuk) ideal yüzdesel dağılım normları.',
     updateFrequency: 'Altı Aylık',
-    icon: 'account_balance_wallet',
+    icon: 'payments',
     sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/budget-distribution.json" -H "Accept: application/json"`,
     fields: [
       { name: 'category', type: 'string', desc: 'Bütçe harcama kalemi' },

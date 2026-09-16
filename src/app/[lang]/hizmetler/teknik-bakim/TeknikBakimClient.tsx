@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components';
 import MaintenanceCalculator from '@/components/sections/MaintenanceCalculator';
 import MaintenanceTestimonials from '@/components/sections/MaintenanceTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityWaterTankSanitationSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityWaterTankSanitationSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function TeknikBakimClient() {
   const { t } = useLanguage();
@@ -110,6 +110,17 @@ export default function TeknikBakimClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <MaintenanceCalculator />
         </div>
+
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="teknik-bakim-nedir"
+          answerId="technical-instant-answer-text"
+          question="Bina ve Tesis Teknik Bakımı Nedir ve Neleri Kapsar?"
+          answer="Bina ve tesis teknik bakımı; asansör, jeneratör, hidrofor, yangın ve elektrik sistemlerinin kesintisiz çalışmasını sağlayan planlı mühendislik disiplinidir. Sanayi Bakanlığı A Tipi muayene ile asansörlerde yeşil etiket tescili ve kompanzasyon takibiyle %0 reaktif ceza güvencesi sağlayarak işletme giderlerini düşürür."
+          standardBadge="Sanayi Bakanlığı & A Tipi Yeşil Etiket"
+          subText="Alo Yönetim, TMMOB standartlarında periyodik muayeneler ve 45 dakika SLA acil teknik müdahale garantisi ile binalarınızda sıfır altyapı arızası hedefler."
+          accentColor="blue"
+        />
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}

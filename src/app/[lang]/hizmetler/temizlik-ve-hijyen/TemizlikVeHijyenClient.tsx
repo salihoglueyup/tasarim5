@@ -11,7 +11,7 @@ import { RelatedArticles } from '@/components';
 import CleaningCalculator from '@/components/sections/CleaningCalculator';
 import CleaningTestimonials from '@/components/sections/CleaningTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityHygieneMsdsGuideSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityHygieneMsdsGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function TemizlikVeHijyenClient() {
   const { t } = useLanguage();
@@ -168,6 +168,17 @@ export default function TemizlikVeHijyenClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <CleaningCalculator />
         </div>
+
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="temizlik-hijyen-nedir"
+          answerId="cleaning-instant-answer-text"
+          question="TSE 13811 Standartlarında Profesyonel Site ve Tesis Temizliği Nedir?"
+          answer="Profesyonel site ve tesis temizliği; TSE 13811 Hijyen ve Sanitasyon standardında, endüstriyel zemin yıkama makineleri ve Sağlık Bakanlığı onaylı çevre dostu kimyasallarla ortak alanların, otoparkların ve blok hollerinin temizlenmesidir. 6331 İSG ve SGK kıdem tazminatı kalkanıyla kat maliklerini tüm yasal risklerden korur."
+          standardBadge="TSE 13811 & ISO 9001"
+          subText="Alo Yönetim, 4 mevsim periyodik hijyen planı, bina içi zemin otomatları ve fotoğraflı süpervizör denetimleriyle sitelerde 5 yıldızlı otel standartlarında temizlik sağlar."
+          accentColor="emerald"
+        />
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}

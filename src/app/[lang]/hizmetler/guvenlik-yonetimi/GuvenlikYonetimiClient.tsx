@@ -21,7 +21,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
 import SecurityCalculator from '@/components/sections/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
-import { ServiceAuthorityHubSeo, SiteSecurityPermitGuideSeo, EmergencyDisasterAuditSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, SiteSecurityPermitGuideSeo, EmergencyDisasterAuditSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function GuvenlikYonetimiClient() {
   const { t } = useLanguage();
@@ -166,6 +166,17 @@ export default function GuvenlikYonetimiClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <SecurityCalculator />
         </div>
+
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="guvenlik-yonetimi-nedir"
+          answerId="security-instant-answer-text"
+          question="5188 Sayılı Kanun Kapsamında Sitelerde Özel Güvenlik Nedir ve Neleri Kapsar?"
+          answer="5188 sayılı Kanun kapsamında site özel güvenliği; Valilik ve İl Özel Güvenlik Komisyonu izinli, üniformalı ve lisanslı personelle yürütülen fiziki ve teknik koruma hizmetidir. Yetkisiz bekçi modelinin aksine kimlik sorma, dedektörle arama, suçüstü yakalama ve genel kollukla anlık koordinasyon yasal yetkilerine sahiptir."
+          standardBadge="5188 Sayılı Kanun & Valilik İzni"
+          subText="Alo Yönetim, 5188 lisanslı güvenlik personeli, CCTV analitiği ve plaka tanıma sistemi ile sitenizde %100 yasal güvence ve sıfır kıdem tazminatı riski sağlar."
+          accentColor="blue"
+        />
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}

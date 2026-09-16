@@ -20,21 +20,22 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi | Alo Yönetim',
     description:
-      'İstanbul geneli A+ plazalar ve iş merkezleri için HVAC otomasyonu, 3x senkron jeneratör, turnike güvenliği ve enerji tasarrufu odaklı entegre tesis yönetimi.',
+      'İstanbul genelinde A+ plazalar, iş kuleleri ve ticari merkezler için 5188 lisanslı güvenlik, HVAC/BMS otomasyonu, kesintisiz jeneratör ve %30 enerji tasarruflu plaza yönetimi.',
     path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
     lang,
+    targetKeyword: 'plaza yönetimi',
     ogImageType: 'service',
     keywords: [
+      'plaza yönetimi',
+      'plaza yönetim şirketleri',
+      'iş merkezi yönetimi',
       'plaza tesis yönetimi',
       'ofis binası yönetimi',
       'ticari bina yönetimi',
-      'iş merkezi yönetimi',
-      'plaza yönetim şirketi',
-      'HVAC yönetimi istanbul',
-      'ofis yönetim firması',
+      'plaza yönetim firması',
       'kurumsal tesis yönetimi',
-      'ticari tesis yönetimi istanbul',
-      'AVM yönetimi',
+      'istanbul plaza yönetimi',
+      'HVAC bina otomasyonu',
     ],
   });
 }

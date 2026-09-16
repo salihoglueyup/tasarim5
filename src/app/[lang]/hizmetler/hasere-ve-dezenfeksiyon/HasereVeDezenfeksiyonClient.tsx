@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components';
 import PestControlCalculator from '@/components/sections/PestControlCalculator';
 import PestControlTestimonials from '@/components/sections/PestControlTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityBiocidalPestGuideSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityBiocidalPestGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function HasereVeDezenfeksiyonClient() {
   const { t } = useLanguage();
@@ -126,6 +126,17 @@ export default function HasereVeDezenfeksiyonClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <PestControlCalculator />
         </div>
+
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="biyosidal-ilaclama-nedir"
+          answerId="pest-instant-answer-text"
+          question="Biyosidal İlaçlama Nedir ve Sitelerde Yasal Zorunluluğu Var mıdır?"
+          answer="Biyosidal ilaçlama; T.C. Sağlık Bakanlığı onaylı, insan ve çevre sağlığına zararsız formülasyonlarla zararlı ve kemirgenlerin kontrol altına alınmasıdır. Biyosidal Ürünler Yönetmeliği gereğince siteler, apartmanlar ve tesisler yalnızca Bakanlık ruhsatlı profesyonel firmalar aracılığıyla periyodik dezenfeksiyon ve ilaçlama yaptırabilir."
+          standardBadge="Sağlık Bakanlığı Biyosidal Ruhsatı"
+          subText="Alo Yönetim, WHO ve Sağlık Bakanlığı onaylı kokusuz biyosidal formülasyonlar, kilitli yem istasyonları ve garantili IPM entegre zararlı yönetimi uygular."
+          accentColor="emerald"
+        />
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

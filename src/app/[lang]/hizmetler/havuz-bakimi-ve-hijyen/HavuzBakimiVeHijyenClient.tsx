@@ -11,7 +11,7 @@ import { RelatedArticles } from '@/components';
 import PoolCalculator from '@/components/sections/PoolCalculator';
 import PoolTestimonials from '@/components/sections/PoolTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityPoolHealthGuideSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityPoolHealthGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function HavuzBakimiVeHijyenClient() {
   const { t } = useLanguage();
@@ -128,6 +128,17 @@ export default function HavuzBakimiVeHijyenClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <PoolCalculator />
         </div>
+
+        {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="havuz-bakimi-standartlari"
+          answerId="pool-instant-answer-text"
+          question="Sitelerde Yüzme Havuzu Bakımı ve Sağlık Bakanlığı Standartları Nelerdir?"
+          answer="Site ve tesis açık/kapalı yüzme havuzlarında T.C. Sağlık Bakanlığı Yönetmeliği gereği serbest klor oranı 1.0-1.5 ppm, pH değeri 7.2-7.6 aralığında tutulmalı; günlük filtre ters yıkamaları yapılarak her ay akredite laboratuvardan mikrobiyolojik su analiz raporu alınması yasal zorunluluktur."
+          standardBadge="Sağlık Bakanlığı & TSE 11899"
+          subText="Alo Yönetim, sertifikalı havuz operatörleri ile günlük dijital fotometrik ölçümler, haftalık kışlatma/şartlandırma ve sıfır bakteri güvenceli kimyasal dozajlama sunar."
+          accentColor="cyan"
+        />
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
-import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 const OPERATIONAL_PILLARS = [
   {
@@ -103,6 +103,17 @@ export default function RezidansYonetimiClient() {
       </div>
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+
+        {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="rezidans-yonetimi-nedir"
+          answerId="residence-instant-answer-text"
+          question="Rezidans Yönetimi Nedir ve Lüks Sitelerde Neleri Kapsar?"
+          answer="Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca %99.2 tahsilat garantili aidat muhasebesinin entegre yönetilmesidir."
+          standardBadge="7/24 Concierge & VIP İşletme"
+          subText="Alo Yönetim, 5 yıldızlı otel konforunda rezidans işletmeciliği ile kat maliklerinin yaşam kalitesini artırırken bağımsız bölümlerin gayrimenkul değerini maksimize eder."
+          accentColor="amber"
+        />
 
         {/* 6'lı Operasyonel Standartlar Grid */}
         <div>

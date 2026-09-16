@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
-import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo } from '@/components/seo';
+import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo, PositionZeroAnswerBox } from '@/components/seo';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
 
@@ -103,6 +103,17 @@ export default function TopluKonutYonetimiClient() {
       </div>
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+
+        {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="toplu-konut-yonetimi-nedir"
+          answerId="toplukonut-instant-answer-text"
+          question="Toplu Konut ve Uydukent Yönetimi Nedir ve Nasıl İşletilir?"
+          answer="Toplu konut ve uydukent yönetimi; 200 ile 5.000+ bağımsız bölümlü çok bloklu sitelerde KMK m.66-74 Toplu Yapı Temsilciler Kurulu hukuki organizasyonu, ada ve parsel bazlı ayrıştırılmış işletme bütçesi, 3 vardiya 5188 lisanslı güvenlik devriyesi, merkezi sulama/hidrofor otomasyonu ve toplu satınalma gücüyle %25-33 aidat tasarrufu sağlayan mega tesis işletmeciliğidir."
+          standardBadge="KMK m.66-74 Toplu Yapı Standartları"
+          subText="Alo Yönetim, devasa konut komplekslerinde blok temsilcileri divan yönetimi, Apsiyon dijital şeffaf mizan ve nöbetçi teknik müdahale kadroları ile sıfır bütçe açığı garantisi sunar."
+          accentColor="emerald"
+        />
 
         {/* Tasarruf Banner */}
         <div className="bg-gradient-to-r from-emerald-950/50 via-teal-950/40 to-slate-900/60 border border-emerald-500/30 rounded-3xl p-8 sm:p-10 text-center shadow-lg">

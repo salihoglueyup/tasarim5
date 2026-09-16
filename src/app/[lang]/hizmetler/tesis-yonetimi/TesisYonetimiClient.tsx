@@ -34,6 +34,9 @@ import {
   FacilityOccupationalHealthSafetySeo,
   FacilityOfficialEntityTrustSeo,
   FacilityCommercialTiersSeo,
+  PositionZeroAnswerBox,
+  FacilityEcosystemMatrixSeo,
+  GoogleAiOverviewGroundingSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -92,6 +95,18 @@ export default function TesisYonetimiClient() {
       question: 'Tesis yönetim şirketi nasıl seçilir?',
       answer: 'ISO sertifikaları ve 5188 lisansının güncelliğini, en az 3 referans siteyi, sözleşmedeki SLA sürelerini ve aylık raporlama yükümlülüklerini kontrol edin. Detaylı rehberimize göz atın.',
     },
+    {
+      question: 'Tesis yönetiminde KMK 37 işletme projesi itiraz süresi kaç gündür?',
+      answer: '634 Sayılı Kat Mülkiyeti Kanunu Madde 37 uyarınca işletme projesine itiraz süresi, projenin kat malikine imza karşılığı veya taahhütlü mektupla tebliğinden itibaren kesin olarak 7 gündür. 7 gün içinde itiraz edilmeyen proje kesinleşir ve İcra ve İflas Kanunu (İİK m.68/1) kapsamında kesin borç belgesi hükmünü kazanır.',
+    },
+    {
+      question: 'Geciken aidatlara ne kadar yasal gecikme tazminatı işletilir?',
+      answer: 'KMK Madde 20/c uyarınca gününde ödenmeyen ortak gider ve aidat borçlarına aylık yasal %5 gecikme tazminatı uygulanır. Alo Yönetim hukuk servisi, gecikmeye giren borçlar için mahkeme kararı beklemeksizin doğrudan ilamsız icra takibi başlatır.',
+    },
+    {
+      question: 'Plaza ve rezidans yönetiminde enerji tasarrufu nasıl sağlanır?',
+      answer: 'Kompanzasyon panosu ve reaktif güç rölelerinin 7/24 takibiyle %0 reaktif ceza garantisi verilir. Ayrıca HVAC zamanlama optimizasyonu ve LED aydınlatma dönüşümüyle toplam elektrik tüketiminde ortalama %20 ile %35 arasında net bütçe tasarrufu sağlanır.',
+    },
   ];
 
   return (
@@ -148,18 +163,51 @@ export default function TesisYonetimiClient() {
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('fac_banner_desc') || 'Apartman, site, plaza ve tesisler için 7/24 güvenlik, temizlik, teknik bakım, peyzaj ve şeffaf aidat takibi. ISO ve 5188 lisanslı kurumsal güvence.'}
             </p>
-            <div className="flex gap-4 mt-8">
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Ücretsiz Keşif & Teklif Al'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>
+              <Link href="/hesaplayici" className="bg-slate-900/80 hover:bg-slate-900 text-white border border-slate-700 hover:border-slate-500 font-bold py-4 px-8 rounded-xl backdrop-blur-md transition-all hover:scale-105 flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">calculate</span>
+                <span>Tasarruf & Aidat Hesapla</span>
+              </Link>
+            </div>
+
+            {/* Hızlı Güven Rozetleri (Above the Fold Dwell Time Kancası) */}
+            <div className="flex flex-wrap justify-center items-center gap-6 mt-6 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">bolt</span>
+                <span>15-25 Dk Acil SLA Müdahale</span>
+              </div>
+              <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
+              <div className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">shield</span>
+                <span>5188 Lisanslı Valilik İzinli Güvenlik</span>
+              </div>
+              <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
+              <div className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">trending_down</span>
+                <span>%20 - %30 Kanıtlanmış İşletme Tasarrufu</span>
+              </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      <div className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
+      <div className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         
-        {/* Google Position Zero Özet Bilgi Kutusu (Slate & Titanium Paleti) */}
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="tesis-yonetimi-nedir"
+          answerId="facility-instant-answer-text"
+          question="Tesis Yönetimi Nedir ve Neleri Kapsar?"
+          answer="Tesis Yönetimi (Facility Management); konut siteleri, çok katlı rezidanslar, plazalar ve sanayi tesislerinin 5188 lisanslı güvenlik, 7/24 kestirimci teknik bakım, endüstriyel temizlik, şeffaf aidat muhasebesi ve 634 sayılı KMK hukuki danışmanlık operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir."
+          standardBadge="ISO 41001:2018 & 634 Sayılı KMK"
+          subText="Alo Yönetim, uluslararası ISO 41001 standartlarında entegre tesis yönetimi ile işletme bütçelerinde %20-30 net tasarruf ve kritik arızalara 45 dakika acil teknik müdahale SLA garantisi sunar."
+          accentColor="indigo"
+        />
+
+        {/* Kapsamlı Tesis Yönetimi Standartları & Operasyonel Disiplinler (Slate & Titanium Paleti) */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           {/* Dekoratif Slate Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-slate-200/40 via-transparent to-transparent dark:from-slate-800/20 rounded-full blur-3xl pointer-events-none" />
@@ -168,21 +216,11 @@ export default function TesisYonetimiClient() {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
-              <span>Özet Rehber: Tesis Yönetimi Nedir?</span>
+              <span>Entegre Tesis Yönetimi Metodolojisi</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
               ISO 41001 & 634 KMK Standardı
             </span>
-          </div>
-
-          {/* Google 0. Sıra / Featured Snippet Doğrudan Tanım Bloku */}
-          <div className="bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-transparent border-l-4 border-blue-600 dark:border-blue-400 p-5 rounded-r-2xl mb-6 relative z-10">
-            <h2 className="text-base sm:text-lg font-extrabold text-[var(--color-primary)] mb-2 flex items-center gap-2">
-              <span>📌</span> Tesis Yönetimi Nedir?
-            </h2>
-            <p id="facility-instant-answer-text" className="text-sm md:text-base text-[var(--color-secondary)] font-medium leading-relaxed">
-              <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi</strong>; konut siteleri, apartmanlar, plazalar ve sanayi tesislerinin <strong>5188 lisanslı güvenlik</strong>, <strong>7/24 teknik bakım</strong>, <strong>endüstriyel temizlik</strong>, <strong>aidat muhasebesi</strong> ve <strong>634 sayılı KMK hukuki danışmanlık</strong> operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir.
-            </p>
           </div>
 
           {/* Genişletilmiş ve Detaylandırılmış Metin */}
@@ -309,6 +347,9 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
         </div>
+
+        {/* Entegre Tesis Yönetimi Ekosistemi (9 Temel Disiplin Matrisi & Topical Authority) */}
+        <FacilityEcosystemMatrixSeo />
 
         {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
         <FacilityOfficialEntityTrustSeo />
@@ -532,64 +573,6 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
 
-          {/* Site Yönetimi vs. Tesis Yönetimi ve Şirket Seçim Rehberi (Hedef: "site yönetimi", "site yönetim şirketleri") */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm flex flex-col gap-8">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">apartment</span>
-                <span>Site ve Tesis Yönetimi Karşılaştırmalı Rehberi</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
-                Site Yönetimi ile Entegre Tesis Yönetimi Arasındaki Farklar Nelerdir?
-              </h2>
-              <p className="text-sm sm:text-base text-[var(--color-secondary)] mt-2 leading-relaxed font-normal">
-                Geleneksel site yönetimi çoğunlukla sadece aidat toplama ve basit temizlik işlerini kapsarken; <strong>profesyonel tesis yönetimi şirketi</strong> olarak Alo Yönetim, ISO 41001 standartlarında 5188 lisanslı güvenlik, mühendislik destekli önleyici teknik servis, KMK 634 hukuki danışmanlığı ve %99.2 aidat tahsilat garantisini tek elden entegre olarak sunar.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 flex flex-col gap-3">
-                <h3 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="material-symbols-outlined text-amber-500 text-lg" aria-hidden="true">person_off</span>
-                  <span>Geleneksel Apartman & Site Yöneticiliği</span>
-                </h3>
-                <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 leading-relaxed">
-                  <li>• Komşular arası aidat ve para ilişkisinden kaynaklanan huzursuzluklar ve dava riskleri.</li>
-                  <li>• SGK ve kıdem tazminatı yükümlülüklerinin doğrudan kat maliklerinin şahsi sorumluluğunda olması.</li>
-                  <li>• Arıza anında rastgele usta çağırma ve yüksek maliyetli tamir faturaları.</li>
-                  <li>• Kompanzasyon takibi yapılmadığı için ortak elektrik faturasına yansıyan reaktif güç cezaları.</li>
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40 flex flex-col gap-3">
-                <h3 className="font-bold text-base text-blue-900 dark:text-blue-300 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-500 text-lg" aria-hidden="true">verified</span>
-                  <span>Alo Yönetim Profesyonel Site Yönetim Şirketi</span>
-                </h3>
-                <ul className="text-xs sm:text-sm text-blue-800 dark:text-blue-300/90 space-y-2 leading-relaxed">
-                  <li>• <strong>KMK 634 & İİK 68 Güvencesi:</strong> Şeffaf işletme projesi, 7/24 mobil uygulama ve %99.2 tahsilat başarısı.</li>
-                  <li>• <strong>Sıfır Personel Riski:</strong> Tüm temizlik ve güvenlik personelinin SGK ve kıdem tazminatı güvencemiz altındadır.</li>
-                  <li>• <strong>15-25 Dk Acil SLA:</strong> 39 ilçede nöbetçi mobil teknik ekiplerle anında arıza müdahalesi.</li>
-                  <li>• <strong>%20 - %30 Net Maliyet Tasarrufu:</strong> Toplu tedarik ve önleyici mühendislik bakımı.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-white/10">
-              <div className="text-xs text-slate-500">
-                İstanbul genelinde 340+ seçkin konut sitesi ve rezidans projesinde aktif yönetim güvencesi.
-              </div>
-              <div className="flex items-center gap-3">
-                <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
-                  Toplu Konut & Site Çözümleri →
-                </Link>
-                <Link href="/teklif-al" className="text-xs font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-white/10 px-3.5 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-white/20 transition-colors">
-                  Siteniz İçin Teklif Alın
-                </Link>
-              </div>
-            </div>
-          </div>
-
           {/* Sitelerde 6331 İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi (Faz 15) */}
           <FacilityOccupationalHealthSafetySeo />
 
@@ -701,6 +684,15 @@ export default function TesisYonetimiClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <DistrictUtilityTransferGuideSeo />
         </div>
+      </div>
+
+      {/* 6.12. BÖLÜM: Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
+      <div className="py-8 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['site-vs-tesis', 'plaza-bms-enerji', 'toplu-yapi-kmk66', 'asansor-yesil-etiket', 'kmk37-itiraz', 'ev-sarj-istasyonu']}
+          title="Tesis Yönetiminde Yapay Zekaya Sorun: ISO 41001 & KMK Standartları"
+          subtitle="Google AI Overviews (SGE), Gemini ve Perplexity için doğrulanmış kurumsal tesis yönetimi, BMS otomasyonu ve enerji optimizasyonu bilgi seti."
+        />
       </div>
 
       {/* 7. BÖLÜM: Footer Öncesi SEO, İlgili Hizmetler & Makaleler */}

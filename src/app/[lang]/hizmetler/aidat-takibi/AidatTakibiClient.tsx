@@ -12,7 +12,7 @@ import DuesCalculator from '@/components/sections/DuesCalculator';
 import DuesTestimonials from '@/components/sections/DuesTestimonials';
 import InteractiveCostSimulatorSeo from '@/components/seo/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, KMKOperatingBudgetGuideSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, KMKOperatingBudgetGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function AidatTakibiClient() {
   const { t } = useLanguage();
@@ -129,6 +129,17 @@ export default function AidatTakibiClient() {
         <div className="-mt-20 md:-mt-32 relative z-30">
           <DuesCalculator />
         </div>
+
+        {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+        <PositionZeroAnswerBox
+          id="aidat-takibi-nedir"
+          answerId="dues-instant-answer-text"
+          question="Apartman ve Site Aidat Takibi Nedir ve Yasal Süreç Nasıl İşler?"
+          answer="Aidat takibi; KMK Madde 20 ve 37 kapsamında sitenin ortak gider bütçesinin bağımsız bölümlere paylaştırılması ve dijital tahsilatıdır. Tebliğden itibaren 7 gün içinde itiraz edilmeyen işletme projesi İİK Madde 68 uyarınca kesinleşir; ödenmeyen aidatlara aylık yasal %5 gecikme tazminatı işletilerek ilamsız icra takibi açılır."
+          standardBadge="KMK Madde 20 & İİK Madde 68"
+          subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla 7/24 online ödeme ve kurumsal hukuk desteğiyle sitelerde %99.2 yıllık tahsilat oranı sağlar."
+          accentColor="emerald"
+        />
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
