@@ -38,27 +38,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getDictionary(lang);
   
   const base = buildMetadata({
-    title: t.home_meta_title_base || 'Alo Yönetim — Profesyonel Tesis Yönetimi',
-    description: t.home_meta_desc || 'İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. %30 maliyet tasarrufu ve 7/24 hizmet.',
+    title: t.home_meta_title_base || 'Alo Yönetim — İstanbul Profesyonel Site ve Tesis Yönetimi',
+    description: t.home_meta_desc || 'İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel site ve tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. %30 maliyet tasarrufu ve 7/24 hizmet.',
     path: '/',
     lang,
-    targetKeyword: 'tesis yönetimi',
+    targetKeyword: 'alo yönetim',
     keywords: [
-      'tesis yönetimi',
-      'profesyonel tesis yönetimi',
-      'istanbul tesis yönetimi',
-      'entegre tesis yönetimi',
-      'tesis yönetim şirketleri',
+      'alo yönetim',
+      'alo yönetim istanbul',
+      'profesyonel site yönetimi',
+      'istanbul site ve tesis yönetimi',
+      'site yönetim şirketleri',
+      'apartman yönetimi firmaları',
       'bina yönetimi',
-      'site yönetimi',
-      'iso 41001',
-      '5188 özel güvenlik'
+      '5188 özel güvenlik izinli site yönetimi',
+      'iso 41001'
     ],
   });
   
   return {
     ...base,
-    title: { absolute: t.home_meta_title_absolute || 'Alo Yönetim | İstanbul Profesyonel Tesis ve Site Yönetimi' },
+    title: { absolute: t.home_meta_title_absolute || 'Alo Yönetim | İstanbul Profesyonel Site ve Tesis Yönetim Şirketi' },
   };
 }
 

@@ -120,3 +120,5 @@ export { default as KMKOperatingBudgetGuideSeo } from './KMKOperatingBudgetGuide
 export { default as FacilityEnforcementDisputeSeo } from './FacilityEnforcementDisputeSeo';
 export { default as FacilityOccupationalHealthSafetySeo } from './FacilityOccupationalHealthSafetySeo';
 export { default as FacilityWaterTankSanitationSeo } from './FacilityWaterTankSanitationSeo';
+export { default as FacilityOfficialEntityTrustSeo } from './FacilityOfficialEntityTrustSeo';
+export { default as FacilityCommercialTiersSeo } from './FacilityCommercialTiersSeo';

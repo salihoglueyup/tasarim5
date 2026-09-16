@@ -32,6 +32,8 @@ import {
   FacilityEnergyEvChargingSeo,
   DistrictUtilityTransferGuideSeo,
   FacilityOccupationalHealthSafetySeo,
+  FacilityOfficialEntityTrustSeo,
+  FacilityCommercialTiersSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -307,6 +309,12 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
         </div>
+
+        {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
+        <FacilityOfficialEntityTrustSeo />
+
+        {/* 4'lü B2B Tesis Yönetimi Hizmet Segmentleri & Kapsam Matrisi */}
+        <FacilityCommercialTiersSeo />
 
         {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
         <FacilityOperationalPillarsSeo />

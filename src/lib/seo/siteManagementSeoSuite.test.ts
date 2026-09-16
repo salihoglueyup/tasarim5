@@ -1283,6 +1283,35 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(devopsCat.count).toBe(11);
     });
   });
+
+  describe('43. Kurumsal Varlık Güven Künyesi & B2B Hizmet Matrisi Güvencesi', () => {
+    it('FacilityOfficialEntityTrustSeo ve FacilityCommercialTiersSeo bileşenleri dışa aktarılır ve geçerlidir', async () => {
+      const { FacilityOfficialEntityTrustSeo, FacilityCommercialTiersSeo } = await import('@/components/seo');
+      expect(FacilityOfficialEntityTrustSeo).toBeDefined();
+      expect(FacilityCommercialTiersSeo).toBeDefined();
+      expect(typeof FacilityOfficialEntityTrustSeo).toBe('function');
+      expect(typeof FacilityCommercialTiersSeo).toBe('function');
+    });
+
+    it('CANONICAL_NAP kurumsal varlık künyesi 5188 ruhsatı, MERSİS ve İTO sicil numaralarını eksiksiz içerir', async () => {
+      const { CANONICAL_NAP } = await import('@/lib/seo/napGuardEngine');
+      expect(CANONICAL_NAP.legal.securityPermitNumber).toBe('İST-ÖGG-2015/8492');
+      expect(CANONICAL_NAP.legal.mersisNumber).toBe('0054049823100018');
+      expect(CANONICAL_NAP.legal.tradeRegistryNumber).toBe('712498-5');
+      expect(CANONICAL_NAP.address.addressLocality).toBe('Kadıköy');
+      expect(CANONICAL_NAP.contact.phoneDisplay).toBe('0216 550 48 48');
+    });
+
+    it('Tesis Yönetimi istemci sayfasında resmi kurumsal varlık ve B2B matris bileşenleri mevcuttur', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const clientPath = path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx');
+      const content = fs.readFileSync(clientPath, 'utf-8');
+
+      expect(content).toContain('<FacilityOfficialEntityTrustSeo');
+      expect(content).toContain('<FacilityCommercialTiersSeo');
+    });
+  });
 });
 
 

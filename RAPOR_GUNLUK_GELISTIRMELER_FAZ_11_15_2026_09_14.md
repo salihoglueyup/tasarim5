@@ -265,9 +265,48 @@ Mevcut 30 kurumsal n8n iş akışı, yüzeysel veri toplayıcılardan çıkarıl
 
 ---
 
+## 🏛️ BÖLÜM 9: TESİS YÖNETİMİ SEO, DE-CANNIBALIZATION, E-E-A-T RESMİ VARLIK KÜNYESİ VE B2B HİZMET MATRİSİ
+
+Tesis Yönetimi amiral gemisi sayfamızın (`/hizmetler/tesis-yonetimi`) arama motorlarındaki otoritesini zirveye taşımak ve ana sayfa (`/`) ile yaşanan arama niyeti çakışmasını (Keyword Cannibalization) kökten çözmek amacıyla 4 stratejik optimizasyon uygulanmıştır:
+
+### 9.1. Anahtar Kelime Ayrıştırma & De-Cannibalization
+- **Sorun:** Hem ana sayfa (`/`) hem de Tesis Yönetimi sayfası (`/hizmetler/tesis-yonetimi`) meta verilerinde "tesis yönetimi" kelimesini hedefleyerek Google algoritmalarında birbirinin sıralamasını baskılıyordu.
+- **Çözüm:** 
+  - Ana sayfanın hedef kelimesi `alo yönetim` marka aramasına ve genel portal kimliğine dönüştürüldü.
+  - `/hizmetler/tesis-yonetimi` sayfası ise **"Tesis Yönetimi" ve "Entegre Tesis Yönetimi Şirketi"** aramalarının tek ve kanonik otorite merkezi (Pillar Hub) ilan edildi.
+- **İlgili Dosya:** [`src/app/[lang]/page.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/page.tsx)
+
+### 9.2. T.C. Resmi Kurumsal Varlık Güven Künyesi (`FacilityOfficialEntityTrustSeo.tsx`)
+- **Bileşen:** [`src/components/seo/FacilityOfficialEntityTrustSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityOfficialEntityTrustSeo.tsx)
+- **Yapısal Veri:** `Schema.org Corporation` & `GovernmentPermit`
+- **Öne Çıkan Özellikler:**
+  - Google Knowledge Graph ve E-E-A-T için doğrulanabilir resmi kurumsal varlık:
+    - **T.C. Valilik Özel Güvenlik Faaliyet İzin Belgesi:** İST-ÖGG-2015/8492
+    - **MERSİS Numarası:** 0054049823100018
+    - **İTO Ticaret Sicil No:** 712498-5 (Kadıköy Vergi Dairesi)
+    - **Genel Merkez:** Osmanağa Mah. Misak-ı Milli Sok. No:94A, Kadıköy / İstanbul
+    - **Uluslararası Kalite Sertifikaları:** ISO 41001:2018 (Tesis Yönetimi), ISO 9001, ISO 45001, ISO 14001, ISO 10002.
+  - Tesis Yönetimi açılış sayfasına Featured Snippet kutusunun hemen altına yerleştirildi.
+
+### 9.3. 4 Segmentli B2B Kurumsal Hizmet ve SLA Kapsam Matrisi (`FacilityCommercialTiersSeo.tsx`)
+- **Bileşen:** [`src/components/seo/FacilityCommercialTiersSeo.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/components/seo/FacilityCommercialTiersSeo.tsx)
+- **Prensip:** Kullanıcı direktifine tam sadık kalınarak **kesinlikle simülasyon veya hesaplayıcı içermeyen**, tamamen şeffaf, kurumsal ve karşılaştırmalı B2B kapsam mimarisi.
+- **Segmentler:**
+  1. **Butik Site & Apartman Yönetimi (10 - 50 Bağımsız Bölüm):** 45 Dk SLA acil servis, KMK m.37 yıllık işletme projesi, şeffaf mobil aidat muhasebesi, haftalık rutin teknik kontrol.
+  2. **Lüks Rezidans & Yaşam Kompleksi (50 - 300+ Bağımsız Bölüm):** 30 Dk SLA, 5188 lisanslı 7/24 özel güvenlik, resepsiyon/lobi, Sağlık Bakanlığı 2011/27848 havuz dezenfeksiyonu, yeşil etiket asansör takibi.
+  3. **Plaza, AVM & Kurumsal İş Merkezi:** 15 Dk kritik reaksiyon, BMS bina otomasyonu, merkezi HVAC chiller işletimi, turnike/kartlı geçiş, endüstriyel dış cephe cam hijyeni.
+  4. **Sanayi Sitesi & Endüstriyel Tesis:** 20 Dk mobil reaksiyon, ağır vasıta güvenlik, Çevre & Sıfır Atık mevzuatı, 6331 İSG 4 acil durum ekibi, trafo ve kompanzasyon ölçümleri.
+- **İlgili Dosya:** [`src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx)
+
+### 9.4. Test Süiti 43 & Regresyon Doğrulaması
+- [`src/lib/seo/siteManagementSeoSuite.test.ts`](file:///c:/Gelistirme/Alo%20Y%C3%B6netim/src/lib/seo/siteManagementSeoSuite.test.ts) dosyasına `Suite 43` eklenerek yeni bileşenlerin dışa aktarımı, `CANONICAL_NAP` resmi sicil/ruhsat değerleri ve istemci sayfası entegrasyonu %100 doğrulandı.
+
+---
+
 ## 🎯 SONUÇ VE SONRAKİ ADIMLAR
 
 Bu kapsamlı çalışmalar neticesinde Alo Yönetim platformu:
 - Kat mülkiyeti ve tesis yönetiminin tüm yasal, mali, teknik, güvenlik ve hijyen süreçlerini karşılayan **en kapsamlı dijital kurumsal bilgi ve mevzuat otoritesi** haline gelmiştir.
 - Kullanıcı direktiflerine %100 uyularak **hiçbir simülasyon veya hesaplayıcı içermeyen**, tamamen net bilgiye ve yasal korumaya odaklanan güven verici bir mimari kazanmıştır.
 - Tüm arama motorlarında (Google, Yandex, Bing) ve yapay zeka arama motorlarında (Perplexity, ChatGPT Search, Gemini) referans gösterilecek zengin Schema.org yapısal verileriyle donatılmıştır.
+
