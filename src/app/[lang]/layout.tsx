@@ -242,6 +242,8 @@ export default async function RootLayout({
         {/* OpenSearch & Humans.txt */}
         <link rel="search" type="application/opensearchdescription+xml" title="Alo Yönetim" href="/opensearch.xml" />
         <link rel="author" href="/humans.txt" />
+        {/* Google AI Overviews & LLM RAG Knowledge Graph Discovery (Wave 61) */}
+        <link rel="alternate" type="application/json" href="/api/seo/ai-overviews-rag.json" title="Alo Yönetim AI Knowledge Graph RAG API" />
         
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
         {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation - Moderate Eagerness) */}
