@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
+import { VideoGroundingAiOverviewSeo } from '@/components/seo';
 import HizmetlerClient from './HizmetlerClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -68,11 +69,15 @@ export default async function HizmetlerPage({
     name: t.services_title || 'Hizmetlerimiz',
     description: t.services_desc || 'Tüm profesyonel tesis ve site yönetim hizmetlerimiz.',
     path: '/hizmetler',
+    speakableSelectors: ['h1', 'p', '#video-grounding-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, serviceLd]} />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-8">
+        <VideoGroundingAiOverviewSeo lang={lang} />
+      </div>
       <HizmetlerClient />
     </>
   );
