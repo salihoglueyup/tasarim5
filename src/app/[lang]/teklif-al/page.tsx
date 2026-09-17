@@ -3,7 +3,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
 import { QuoteCtaButton } from '@/components';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, QuoteAiOverviewCardSeo } from '@/components/seo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata } from '@/lib/seo';
@@ -63,6 +63,7 @@ export default function TeklifAl() {
     description:
       'Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifi. 48 saat içinde net fiyat.',
     path: '/teklif-al',
+    speakableSelectors: ['#quote-instant-answer-text', 'h1', 'p'],
   });
 
   const quoteActionLd = {
@@ -129,6 +130,9 @@ export default function TeklifAl() {
             </div>
           ))}
         </div>
+
+        {/* Google AI Overviews & Şeffaf Fiyatlandırma / Keşif Garantisi */}
+        <QuoteAiOverviewCardSeo />
 
         {/* Gömülü Teklif & Keşif Formu ve Fiyatlandırma Rehberi */}
         <TeklifAlClient />
