@@ -77,8 +77,12 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
   });
 
   it('6. MobileAppLiveSimulatorSeo.tsx Apsiyon Sakin & Yönetici Portalı yapılandırılmış verisi ve telefon arayüzü sunar', () => {
-    const simulatorContent = fs.readFileSync(path.join(seoDir, 'MobileAppLiveSimulatorSeo.tsx'), 'utf-8');
+    const simPath = fs.existsSync(path.join(seoDir, 'facility/MobileAppLiveSimulatorSeo.tsx'))
+      ? path.join(seoDir, 'facility/MobileAppLiveSimulatorSeo.tsx')
+      : path.join(seoDir, 'MobileAppLiveSimulatorSeo.tsx');
+    const simulatorContent = fs.readFileSync(simPath, 'utf-8');
     expect(simulatorContent).toContain('Apsiyon — Alo Yönetim Sakin & Yönetici Portalı');
+
     expect(simulatorContent).toContain('https://apps.apple.com/app/apsiyon/id1115852575');
     expect(simulatorContent).toContain('https://play.google.com/store/apps/details?id=com.apsiyon.mobile');
     expect(simulatorContent).toContain('Apsiyon Sakin');

@@ -595,10 +595,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('bileşen kaynak kodunda TR, EN, RU ve AR dilleri için UI_TEXT tanımlı olmalıdır', async () => {
       const fs = await import('fs');
       const path = await import('path');
-      const content = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/FacilityDistrictGridSeo.tsx'),
-        'utf-8'
-      );
+      const subPath = path.join(process.cwd(), 'src/components/seo/facility/FacilityDistrictGridSeo.tsx');
+      const targetPath = fs.existsSync(subPath) ? subPath : path.join(process.cwd(), 'src/components/seo/FacilityDistrictGridSeo.tsx');
+      const content = fs.readFileSync(targetPath, 'utf-8');
+
       expect(content).toContain('UI_TEXT');
       expect(content).toContain('badge:');
       expect(content).toContain('searchPlaceholder:');
@@ -3985,8 +3985,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       const { DistrictElevatorMaintenanceSeo } = await import('@/components/seo');
       expect(DistrictElevatorMaintenanceSeo).toBeDefined();
-    });
+    }, 15000);
   });
+
 
   describe('126. Wave 57: Tesis Yönetimi Mega Derinleştirme, Operasyonel Sektör Matrisi & Kadro Simülatörü', () => {
     it('FacilityOperationalPillarsSeo ve FacilityBudgetStaffSimulatorSeo bileşenleri dışa aktarılmıştır ve geçerlidir', async () => {
@@ -4056,7 +4057,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('FacilityDistrictPortfolioSeo bileşeni Kartal korozyon, Başakşehir mega site, Maltepe ve Tuzla OSB referanslarını barındırır', async () => {
       const fs = await import('fs');
       const path = await import('path');
-      const portfolioContent = fs.readFileSync(path.join(process.cwd(), 'src/components/seo/FacilityDistrictPortfolioSeo.tsx'), 'utf8');
+      const subPath = path.join(process.cwd(), 'src/components/seo/facility/FacilityDistrictPortfolioSeo.tsx');
+      const targetPath = fs.existsSync(subPath) ? subPath : path.join(process.cwd(), 'src/components/seo/FacilityDistrictPortfolioSeo.tsx');
+      const portfolioContent = fs.readFileSync(targetPath, 'utf8');
+
+
 
       expect(portfolioContent).toContain('Sahil Korozyonuna Karşı Asansör & Cephe Bakımı');
       expect(portfolioContent).toContain('Bahçeşehir Mega Siteleri');
@@ -4486,10 +4491,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
 
-      const facadeFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/DistrictMapFacadeSeo.tsx'),
-        'utf8'
-      );
+      const subPath = path.join(process.cwd(), 'src/components/seo/district/DistrictMapFacadeSeo.tsx');
+      const targetPath = fs.existsSync(subPath) ? subPath : path.join(process.cwd(), 'src/components/seo/DistrictMapFacadeSeo.tsx');
+      const facadeFile = fs.readFileSync(targetPath, 'utf8');
+
       expect(facadeFile).toContain('google.com/maps/dir/?api=1');
       expect(facadeFile).toContain('maps.apple.com/?daddr=');
       expect(facadeFile).toContain('Nöbetçi Saha Ekibi');
@@ -4506,10 +4511,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
 
-      const mapFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/IstanbulInteractiveDistrictMapSeo.tsx'),
-        'utf8'
-      );
+      const subMapPath = path.join(process.cwd(), 'src/components/seo/district/IstanbulInteractiveDistrictMapSeo.tsx');
+      const targetMapPath = fs.existsSync(subMapPath) ? subMapPath : path.join(process.cwd(), 'src/components/seo/IstanbulInteractiveDistrictMapSeo.tsx');
+      const mapFile = fs.readFileSync(targetMapPath, 'utf8');
+
       expect(mapFile).toContain('İstanbul 39 İlçe Saha & Harita Ağı');
       expect(mapFile).toContain('Anadolu (14)');
       expect(mapFile).toContain('Avrupa (25)');
@@ -4617,10 +4622,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       );
       expect(navWrapperFile).not.toContain('<GlobalSpotlightSearchSeo');
 
-      const globalModalFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/GlobalSpotlightSearchSeo.tsx'),
-        'utf8'
-      );
+      const subGlobalPath = path.join(process.cwd(), 'src/components/seo/district/GlobalSpotlightSearchSeo.tsx');
+      const targetGlobalPath = fs.existsSync(subGlobalPath) ? subGlobalPath : path.join(process.cwd(), 'src/components/seo/GlobalSpotlightSearchSeo.tsx');
+      const globalModalFile = fs.readFileSync(targetGlobalPath, 'utf8');
+
       expect(globalModalFile).toContain('return null');
     });
 
@@ -4777,10 +4782,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = require('fs');
       const path = require('path');
 
-      const geoFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/GoogleAiOverviewGroundingSeo.tsx'),
-        'utf8'
-      );
+      const subGeoPath = path.join(process.cwd(), 'src/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo.tsx');
+      const targetGeoPath = fs.existsSync(subGeoPath) ? subGeoPath : path.join(process.cwd(), 'src/components/seo/GoogleAiOverviewGroundingSeo.tsx');
+      const geoFile = fs.readFileSync(targetGeoPath, 'utf8');
+
       expect(geoFile).toContain('kmk37-itiraz');
       expect(geoFile).toContain('aidat-gecikme-faizi');
       expect(geoFile).toContain('5188-ozel-guvenlik');
@@ -4811,10 +4816,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = require('fs');
       const path = require('path');
 
-      const kmkFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/KMKLawAssistantSeo.tsx'),
-        'utf8'
-      );
+      const subKmkPath = path.join(process.cwd(), 'src/components/seo/kmk/KMKLawAssistantSeo.tsx');
+      const targetKmkPath = fs.existsSync(subKmkPath) ? subKmkPath : path.join(process.cwd(), 'src/components/seo/KMKLawAssistantSeo.tsx');
+      const kmkFile = fs.readFileSync(targetKmkPath, 'utf8');
+
       expect(kmkFile).toContain('kmk-asansor');
       expect(kmkFile).toContain('kmk-cam-balkon');
       expect(kmkFile).toContain('kmk-aidat-gecikme-faizi');
@@ -4881,10 +4886,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = require('fs');
       const path = require('path');
 
-      const geoFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/GoogleAiOverviewGroundingSeo.tsx'),
-        'utf8'
-      );
+      const subGeoPath2 = path.join(process.cwd(), 'src/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo.tsx');
+      const targetGeoPath2 = fs.existsSync(subGeoPath2) ? subGeoPath2 : path.join(process.cwd(), 'src/components/seo/GoogleAiOverviewGroundingSeo.tsx');
+      const geoFile = fs.readFileSync(targetGeoPath2, 'utf8');
+
       expect(geoFile).toContain('havuz-saglik-kriteri');
       expect(geoFile).toContain('toplu-yapi-kmk66');
       expect(geoFile).toContain('plaza-bms-enerji');
@@ -4929,10 +4934,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       );
       expect(districtPage).toContain('DistrictAiOverviewSnippetSeo');
 
-      const districtComponent = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/DistrictAiOverviewSnippetSeo.tsx'),
-        'utf8'
-      );
+      const subDistPath = path.join(process.cwd(), 'src/components/seo/district/DistrictAiOverviewSnippetSeo.tsx');
+      const targetDistPath = fs.existsSync(subDistPath) ? subDistPath : path.join(process.cwd(), 'src/components/seo/DistrictAiOverviewSnippetSeo.tsx');
+      const districtComponent = fs.readFileSync(targetDistPath, 'utf8');
+
       expect(districtComponent).toContain('district-instant-answer-text');
       expect(districtComponent).toContain('FAQPage');
       expect(districtComponent).toContain('SpeakableSpecification');

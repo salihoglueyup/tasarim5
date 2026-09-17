@@ -1,161 +1,24 @@
-export { default as JsonLd } from './JsonLd';
-export { default as GTMDataLayer } from './GTMDataLayer';
-export { default as DynamicBreadcrumb } from './DynamicBreadcrumb';
-export { default as DynamicFAQ } from './DynamicFAQ';
-export { default as SemanticLinker } from './SemanticLinker';
-export { default as AIOptimizedSummary } from './AIOptimizedSummary';
-export { default as TableOfContentsSeo } from './TableOfContentsSeo';
-export { default as EmergencyServiceBadgeSeo } from './EmergencyServiceBadgeSeo';
-export { default as ServiceComparisonMatrixSeo } from './ServiceComparisonMatrixSeo';
-export { default as DistrictLocalHighlightsSeo } from './DistrictLocalHighlightsSeo';
-export { default as MevzuatReferenceSeo } from './MevzuatReferenceSeo';
-export { default as VideoWithSeo } from './VideoWithSeo';
-export { default as LiveMetricBadgeSeo } from './LiveMetricBadgeSeo';
-export { default as VoiceSearchSpeakableSeo } from './VoiceSearchSpeakableSeo';
-export { default as DynamicPriceOfferSeo } from './DynamicPriceOfferSeo';
-export { default as GeoTargetAreaSeo } from './GeoTargetAreaSeo';
-export { default as SocialProofTickerSeo } from './SocialProofTickerSeo';
-export { default as CoreWebVitalsOptimizerSeo } from './CoreWebVitalsOptimizerSeo';
-export { default as FacilityManagementCalculatorSeo } from './FacilityManagementCalculatorSeo';
-export { default as SecurityTrustBadgeGridSeo } from './SecurityTrustBadgeGridSeo';
-export { default as NeighborhoodDirectorySeo } from './NeighborhoodDirectorySeo';
-export { default as ChecklistAuditSeo } from './ChecklistAuditSeo';
-export { default as QuizAuditScoreSeo } from './QuizAuditScoreSeo';
-export { default as LocalBusinessSeo } from './LocalBusinessSeo';
-export { default as AggregateRatingSeo } from './AggregateRatingSeo';
-export { default as ImageWithSeo } from './ImageWithSeo';
-export { default as JobPostingSeo } from './JobPostingSeo';
-export { default as ServiceSeo } from './ServiceSeo';
-export { default as HowToSeo } from './HowToSeo';
-export { default as EventSeo } from './EventSeo';
-export { default as PersonSeo } from './PersonSeo';
-export { default as SiteNavigationSeo } from './SiteNavigationSeo';
-export { default as DefinedTermSetSeo } from './DefinedTermSetSeo';
-export { default as ItemListSeo } from './ItemListSeo';
-export { default as LegalPageSeo } from './LegalPageSeo';
-export { default as ReviewListSeo } from './ReviewListSeo';
-export { default as KMKLawAssistantSeo } from './KMKLawAssistantSeo';
-export { default as IstanbulDuesHeatmapSeo } from './IstanbulDuesHeatmapSeo';
-export { default as EmergencyPreparednessAuditSeo } from './EmergencyPreparednessAuditSeo';
-export { default as InstantAnswerCardSeo } from './InstantAnswerCardSeo';
-export { default as DistrictComparisonMatrixSeo } from './DistrictComparisonMatrixSeo';
-export { default as TrustVerificationAuditSeo } from './TrustVerificationAuditSeo';
-export { default as InteractiveCostSimulatorSeo } from './InteractiveCostSimulatorSeo';
-export { default as SemanticTopicClusterSeo } from './SemanticTopicClusterSeo';
-export { default as GlobalSpotlightSearchSeo } from './GlobalSpotlightSearchSeo';
-export { default as DistrictNeighborhoodDuesTableSeo } from './DistrictNeighborhoodDuesTableSeo';
-export { default as KMKLegalProcessHowToSeo } from './KMKLegalProcessHowToSeo';
-export { default as FacilityEcoHealthScoreSeo } from './FacilityEcoHealthScoreSeo';
-export { default as LeadQuickModalSeo } from './LeadQuickModalSeo';
-export { default as KMKLegalTemplateGeneratorSeo } from './KMKLegalTemplateGeneratorSeo';
-export { default as MobileAppLiveSimulatorSeo } from './MobileAppLiveSimulatorSeo';
-export { default as EmergencyDisasterAuditSeo } from './EmergencyDisasterAuditSeo';
-export { default as SectoralRoiCalculatorSeo } from './SectoralRoiCalculatorSeo';
-export { default as SecurityComparisonTableSeo } from './SecurityComparisonTableSeo';
-export { default as SecurityTechMatrixSeo } from './SecurityTechMatrixSeo';
-export { default as DistrictSecurityClusterSeo } from './DistrictSecurityClusterSeo';
-export { default as InteractiveSecurityRiskRadarSeo } from './InteractiveSecurityRiskRadarSeo';
-export { default as SecurityLegalTemplateGeneratorSeo } from './SecurityLegalTemplateGeneratorSeo';
-export { default as DistrictSecurityAuditTableSeo } from './DistrictSecurityAuditTableSeo';
-export { default as DistrictSecuritySpotlightSeo } from './DistrictSecuritySpotlightSeo';
-export { default as InteractiveTechnicalAuditRadarSeo } from './InteractiveTechnicalAuditRadarSeo';
-export { default as DistrictTechnicalAuditTableSeo } from './DistrictTechnicalAuditTableSeo';
-export { default as CleaningScheduleGeneratorSeo } from './CleaningScheduleGeneratorSeo';
-export { default as DistrictCleaningAuditTableSeo } from './DistrictCleaningAuditTableSeo';
-export { default as InteractiveCleaningAuditRadarSeo } from './InteractiveCleaningAuditRadarSeo';
-export { default as DistrictFacilityAuditTableSeo } from './DistrictFacilityAuditTableSeo';
-export { default as InteractiveFacilityAuditRadarSeo } from './InteractiveFacilityAuditRadarSeo';
-export { default as FacilityLegalTemplateGeneratorSeo } from './FacilityLegalTemplateGeneratorSeo';
-export { default as FacilityComparisonMatrixSeo } from './FacilityComparisonMatrixSeo';
-export { default as FacilityDistrictGridSeo } from './FacilityDistrictGridSeo';
-export { default as FacilityRfpDownloadModalSeo } from './FacilityRfpDownloadModalSeo';
-export { default as FacilityLegalPrecedentsBrowserSeo } from './FacilityLegalPrecedentsBrowserSeo';
-export { default as FacilityGroupSecurityTrustSeo } from './FacilityGroupSecurityTrustSeo';
-export { default as FacilitySubSectorCrossNav } from './FacilitySubSectorCrossNav';
-export { default as BlogArticleEcosystemSeo } from './BlogArticleEcosystemSeo';
-export { default as KeywordAnalysisSeo } from './KeywordAnalysisSeo';
-export { default as BlogSeo } from './BlogSeo';
-export { default as ServiceAuthorityHubSeo } from './ServiceAuthorityHubSeo';
-export { default as FacilityMaintenanceScheduleSeo } from './FacilityMaintenanceScheduleSeo';
-export { default as FacilityBeforeAfterCasesSeo } from './FacilityBeforeAfterCasesSeo';
-export { default as FacilityDownloadableVaultSeo } from './FacilityDownloadableVaultSeo';
-export { default as FacilityDistrictPortfolioSeo } from './FacilityDistrictPortfolioSeo';
-export { default as FacilityCorporateSlaGuaranteesSeo } from './FacilityCorporateSlaGuaranteesSeo';
-export { default as FacilityTransitionTimelineSeo } from './FacilityTransitionTimelineSeo';
-export { default as DistrictElevatorMaintenanceSeo } from './DistrictElevatorMaintenanceSeo';
-export { default as FacilityOperationalPillarsSeo } from './FacilityOperationalPillarsSeo';
-export { default as FacilityBudgetStaffSimulatorSeo } from './FacilityBudgetStaffSimulatorSeo';
-export { default as DistrictMapFacadeSeo } from './DistrictMapFacadeSeo';
-export { default as IstanbulInteractiveDistrictMapSeo } from './IstanbulInteractiveDistrictMapSeo';
-export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
-export { default as SiteVsFacilityComparisonSeo } from './SiteVsFacilityComparisonSeo';
-export { default as DistrictDualCoreSelectorSeo } from './DistrictDualCoreSelectorSeo';
-export { default as SiteAiSearchGroundingSeo } from './SiteAiSearchGroundingSeo';
-export { default as SiteLegalClaimReviewsSeo } from './SiteLegalClaimReviewsSeo';
-export { default as KMKGlossaryEncyclopediaSeo } from './KMKGlossaryEncyclopediaSeo';
-export { default as ThreeWayManagementComparisonSeo } from './ThreeWayManagementComparisonSeo';
-export { default as KMKLegalDocumentVaultSeo } from './KMKLegalDocumentVaultSeo';
-export { default as DistrictOpenDatasetSeo } from './DistrictOpenDatasetSeo';
-export { default as AcademicCitationBoxSeo } from './AcademicCitationBoxSeo';
-export { default as FacilityCorporateB2BHubSeo } from './FacilityCorporateB2BHubSeo';
-export { default as DistrictLocalPackProofSeo } from './DistrictLocalPackProofSeo';
-export { default as ServicePricingCatalogSeo } from './ServicePricingCatalogSeo';
-export { default as KMKAuditProtocolSeo } from './KMKAuditProtocolSeo';
-export { default as DistrictMicroNeighborhoodsSeo } from './DistrictMicroNeighborhoodsSeo';
-export { default as ManagementTransitionRoadmapSeo } from './ManagementTransitionRoadmapSeo';
-export { default as KMKLegalDisputesQAPageSeo } from './KMKLegalDisputesQAPageSeo';
-export { default as DistrictCourthouseMediationSeo } from './DistrictCourthouseMediationSeo';
-export { default as KMKLegislationNavigatorSeo } from './KMKLegislationNavigatorSeo';
-export { default as FacilityAnnualMaintenanceScheduleSeo } from './FacilityAnnualMaintenanceScheduleSeo';
-export { default as DistrictEmergencyPreparednessSeo } from './DistrictEmergencyPreparednessSeo';
-export { default as KMKLegalNoticesVaultSeo } from './KMKLegalNoticesVaultSeo';
-export { default as DistrictUtilityTransferGuideSeo } from './DistrictUtilityTransferGuideSeo';
-export { default as SiteSecurityPermitGuideSeo } from './SiteSecurityPermitGuideSeo';
-export { default as FacilityEnergyEvChargingSeo } from './FacilityEnergyEvChargingSeo';
-export { default as FacilityPoolHealthGuideSeo } from './FacilityPoolHealthGuideSeo';
-export { default as FacilityBiocidalPestGuideSeo } from './FacilityBiocidalPestGuideSeo';
-export { default as FacilityLandscapeTreeGuideSeo } from './FacilityLandscapeTreeGuideSeo';
-export { default as FacilityHygieneMsdsGuideSeo } from './FacilityHygieneMsdsGuideSeo';
-export { default as KMKOperatingBudgetGuideSeo } from './KMKOperatingBudgetGuideSeo';
-export { default as FacilityEnforcementDisputeSeo } from './FacilityEnforcementDisputeSeo';
-export { default as FacilityOccupationalHealthSafetySeo } from './FacilityOccupationalHealthSafetySeo';
-export { default as FacilityWaterTankSanitationSeo } from './FacilityWaterTankSanitationSeo';
-export { default as FacilityOfficialEntityTrustSeo } from './FacilityOfficialEntityTrustSeo';
-export { default as FacilityCommercialTiersSeo } from './FacilityCommercialTiersSeo';
-export { default as PositionZeroAnswerBox } from './PositionZeroAnswerBox';
-export { default as FacilityEcosystemMatrixSeo } from './FacilityEcosystemMatrixSeo';
-export { default as GoogleAiOverviewGroundingSeo } from './GoogleAiOverviewGroundingSeo';
-export { default as DistrictAiOverviewSnippetSeo } from './DistrictAiOverviewSnippetSeo';
-export { default as NeighborhoodAiOverviewSnippetSeo } from './NeighborhoodAiOverviewSnippetSeo';
-export { default as FacilityLegalClaimReviewsSeo } from './FacilityLegalClaimReviewsSeo';
-export { default as AiOverviewStepSolverSeo } from './AiOverviewStepSolverSeo';
-export { default as ArticleAiOverviewCard } from './ArticleAiOverviewCard';
-export { default as TermAiOverviewCard } from './TermAiOverviewCard';
-export { default as FaqAiOverviewHubSeo } from './FaqAiOverviewHubSeo';
-export { default as KMKLawCourtDisputeMatrixSeo } from './KMKLawCourtDisputeMatrixSeo';
-export { default as QuoteAiOverviewCardSeo } from './QuoteAiOverviewCardSeo';
-export { default as CorporateEntityAiOverviewSeo } from './CorporateEntityAiOverviewSeo';
-export { default as ContactAiOverviewCardSeo } from './ContactAiOverviewCardSeo';
-export { default as CaseStudyAiGroundingSeo } from './CaseStudyAiGroundingSeo';
-export { default as SectorAiOverviewSnippetSeo } from './SectorAiOverviewSnippetSeo';
-export { default as CalculatorAiOverviewSeo } from './CalculatorAiOverviewSeo';
-export { default as ServiceAiOverviewSnippetSeo } from './ServiceAiOverviewSnippetSeo';
-export { default as SustainabilityAiOverviewSeo } from './SustainabilityAiOverviewSeo';
-export { default as AcademyAiOverviewSeo } from './AcademyAiOverviewSeo';
-export { default as AccreditationAiOverviewSeo } from './AccreditationAiOverviewSeo';
-export { default as CareerAiOverviewSeo } from './CareerAiOverviewSeo';
-export { default as FactCheckAiGroundingSeo } from './FactCheckAiGroundingSeo';
-export { default as RfpTransitionAiGroundingSeo } from './RfpTransitionAiGroundingSeo';
-export { default as BudgetMatrixAiGroundingSeo } from './BudgetMatrixAiGroundingSeo';
-export { default as BlogAiTakeawaysSeo } from './BlogAiTakeawaysSeo';
-export { default as AppAiOverviewGroundingSeo } from './AppAiOverviewGroundingSeo';
-export { default as GlossaryAiOverviewSeo } from './GlossaryAiOverviewSeo';
-export { default as DistrictServiceAiOverviewSnippetSeo } from './DistrictServiceAiOverviewSnippetSeo';
-export { default as SectorHubAiOverviewSeo } from './SectorHubAiOverviewSeo';
-export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOverviewSeo';
-export { default as VoiceConversationalAiSnippetSeo } from './VoiceConversationalAiSnippetSeo';
-export { default as ServicePricingProductAiOverviewSeo } from './ServicePricingProductAiOverviewSeo';
-export { default as LocalBusinessProfileAiAnchorSeo } from './LocalBusinessProfileAiAnchorSeo';
-export { default as PeopleAlsoAskDeepTreeSeo } from './PeopleAlsoAskDeepTreeSeo';
-export { default as AccreditedCertificationsTrustSeo } from './AccreditedCertificationsTrustSeo';
+/**
+ * Alo Yönetim SEO Bileşenleri Merkezi Dağıtım Modülü (src/components/seo/index.ts)
+ * 5 Mantıksal Alt Modül Altında Modülerleştirilmiştir:
+ * 1. schema/      -> Temel Schema.org & JSON-LD Yapısal Veri Bileşenleri
+ * 2. ai-overviews/-> Google AI Overviews, Gemini 2.0 & GEO RAG Bileşenleri
+ * 3. kmk/         -> KMK 634 Hukuku & Yargıtay Emsalleri Rehberleri
+ * 4. facility/    -> Entegre Tesis Yönetimi B2B, Bakım & Denetim Matrisleri
+ * 5. district/    -> İstanbul 39 İlçe, Mahalle & Yerel SEO Bileşenleri
+ */
 
+// 1. Schema.org & Yapısal Veri
+export * from './schema';
+
+// 2. Google AI Overviews & Generative Engine Optimization
+export * from './ai-overviews';
+
+// 3. KMK Hukuku & Yargıtay Emsalleri
+export * from './kmk';
+
+// 4. Tesis Yönetimi & B2B Denetim
+export * from './facility';
+
+// 5. İlçe, Mahalle & Yerel SEO
+export * from './district';

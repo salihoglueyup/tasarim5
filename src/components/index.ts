@@ -38,6 +38,10 @@ export { default as ExternalLink } from './ui/ExternalLink';
 
 // Modal Components
 export { default as PortalModal } from './modals/PortalModal';
+export { default as FacilityAuditReportModal } from './modals/FacilityAuditReportModal';
+export { default as QuoteModal } from './modals/QuoteModal';
+export { default as SpotlightSearchModal } from './modals/SpotlightSearchModal';
+
 
 // SEO Components
 export { default as JsonLd } from './seo/JsonLd';
@@ -69,7 +73,7 @@ export { default as RelatedServices } from './sections/RelatedServices';
 export { default as PersonnelDifference } from './sections/PersonnelDifference';
 export { default as InteractiveFacilityExplorer } from './sections/InteractiveFacilityExplorer';
 export { default as DynamicInteractiveFacilityExplorer } from './sections/DynamicInteractiveFacilityExplorer';
-export { default as FacilityAuditReportModal } from './modals/FacilityAuditReportModal';
 
 // SEO Components
+
 export * from './seo';

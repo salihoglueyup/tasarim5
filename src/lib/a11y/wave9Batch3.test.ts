@@ -24,8 +24,10 @@ describe('Wave 9: Faz 211 - Faz 215 Hareket Azaltma, Yüksek Kontrast, Tablo Sco
   });
 
   it('Faz 213: ComparisonTableSeo tablosu scope="col" ve scope="row" niteliklerine sahiptir', () => {
-    const tablePath = path.resolve(process.cwd(), 'src/components/seo/ComparisonTableSeo.tsx');
+    const subPath = path.resolve(process.cwd(), 'src/components/seo/district/ComparisonTableSeo.tsx');
+    const tablePath = fs.existsSync(subPath) ? subPath : path.resolve(process.cwd(), 'src/components/seo/ComparisonTableSeo.tsx');
     const tableContent = fs.readFileSync(tablePath, 'utf-8');
+
 
     expect(tableContent).toContain('scope="col"');
     expect(tableContent).toContain('scope="row"');

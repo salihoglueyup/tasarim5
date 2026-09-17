@@ -6,8 +6,10 @@ import { DEFAULT_BLUR_DATA_URL, getBlurPlaceholder } from './imagePlaceholder';
 describe('Wave 5: Faz 111 - Faz 115 Performans & Medya Geliştirmeleri', () => {
   const layoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const manifestPath = path.resolve(process.cwd(), 'src/app/manifest.ts');
-  const imageWithSeoPath = path.resolve(process.cwd(), 'src/components/seo/ImageWithSeo.tsx');
+  const imageWithSeoSubPath = path.resolve(process.cwd(), 'src/components/seo/schema/ImageWithSeo.tsx');
+  const imageWithSeoPath = fs.existsSync(imageWithSeoSubPath) ? imageWithSeoSubPath : path.resolve(process.cwd(), 'src/components/seo/ImageWithSeo.tsx');
   const iletisimPath = path.resolve(process.cwd(), 'src/app/[lang]/iletisim/IletisimClient.tsx');
+
   const lazyMapFacadePath = path.resolve(process.cwd(), 'src/components/ui/LazyMapFacade.tsx');
   const liteYouTubePath = path.resolve(process.cwd(), 'src/components/ui/LiteYouTubeEmbed.tsx');
 
