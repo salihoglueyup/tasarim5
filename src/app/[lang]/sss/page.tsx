@@ -6,6 +6,7 @@ import FaqClient from './FaqClient';
 import { buildMetadata } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import { redis } from '@/lib/redis';
+import { FaqAiOverviewHubSeo } from '@/components/seo';
 
 export const revalidate = 3600;
 
@@ -78,7 +79,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
   const pageLd = webPageSchema({
     name: dict.sss_title + ' — Alo Yönetim',
     path: '/sss',
-    speakableSelectors: ['h1', '.faq-question', '.faq-answer'],
+    speakableSelectors: ['#faq-instant-answer-text', 'h1', '.faq-question', '.faq-answer'],
   });
 
   return (
@@ -90,6 +91,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
       />
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-4xl mx-auto">
+        <FaqAiOverviewHubSeo />
         <FaqClient faqs={faqs} categories={categories} lang={lang} />
       </section>
     </>
