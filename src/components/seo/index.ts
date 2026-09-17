@@ -142,3 +142,5 @@ export { default as CalculatorAiOverviewSeo } from './CalculatorAiOverviewSeo';
 export { default as ServiceAiOverviewSnippetSeo } from './ServiceAiOverviewSnippetSeo';
 export { default as SustainabilityAiOverviewSeo } from './SustainabilityAiOverviewSeo';
 export { default as AcademyAiOverviewSeo } from './AcademyAiOverviewSeo';
+export { default as AccreditationAiOverviewSeo } from './AccreditationAiOverviewSeo';
+export { default as CareerAiOverviewSeo } from './CareerAiOverviewSeo';

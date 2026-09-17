@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
-export default function CaseStudyAiGroundingSeo({ className = '' }: { className?: string }) {
+export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }: { className?: string; lang?: string }) {
   const [copied, setCopied] = useState(false);
 
   const question = 'Profesyonel Site Yönetimi Aidatları Ne Kadar Düşürür ve Somut Tasarruf Örnekleri Nelerdir?';
