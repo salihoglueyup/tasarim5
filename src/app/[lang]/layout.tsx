@@ -254,6 +254,8 @@ export default async function RootLayout({
         <link rel="alternate" type="application/json" href="/api/seo/ai-citations.json" title="Alo Yönetim AI Citations Verification Graph" />
         {/* Autonomous AI Bot Crawl Telemetry & Edge Intelligence Graph (Wave 68) */}
         <link rel="alternate" type="application/json" href="/api/seo/bot-telemetry.json" title="Alo Yönetim AI Bot Telemetry Graph" />
+        {/* Local Business Profile & Verified Maps Grounding Graph (Wave 69) */}
+        <link rel="alternate" type="application/json" href="/api/seo/local-anchors.json" title="Alo Yönetim Local AI Anchors Graph" />
         
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
         {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation - Moderate Eagerness) */}

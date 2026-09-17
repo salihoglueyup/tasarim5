@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import IstanbulDuesHeatmapSeo from '@/components/seo/IstanbulDuesHeatmapSeo';
 import DistrictComparisonMatrixSeo from '@/components/seo/DistrictComparisonMatrixSeo';
 import IstanbulInteractiveDistrictMapSeo from '@/components/seo/IstanbulInteractiveDistrictMapSeo';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, LocalBusinessProfileAiAnchorSeo } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
@@ -60,6 +60,7 @@ export default async function Bolgeler({
     name: 'İstanbul Bölgeleri — İlçe Bazında Tesis Yönetimi',
     description: 'İstanbul ilçelerinde profesyonel site ve tesis yönetimi hizmetleri.',
     path: '/bolgeler',
+    speakableSelectors: ['h1', 'p', '#local-business-profile-instant-answer-text'],
   });
 
   return (
@@ -234,6 +235,9 @@ export default async function Bolgeler({
             </div>
           </div>
         </div>
+
+        {/* Doğrulanmış Yerel Ofis & Harita AI Zeminlemesi (Wave 69) */}
+        <LocalBusinessProfileAiAnchorSeo lang={lang} />
 
         <IstanbulInteractiveDistrictMapSeo />
         <IstanbulDuesHeatmapSeo />

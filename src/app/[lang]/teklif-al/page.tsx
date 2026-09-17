@@ -3,7 +3,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
 import { QuoteCtaButton } from '@/components';
-import { ServiceAuthorityHubSeo, QuoteAiOverviewCardSeo, RfpTransitionAiGroundingSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, QuoteAiOverviewCardSeo, RfpTransitionAiGroundingSeo, ServicePricingProductAiOverviewSeo } from '@/components/seo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata } from '@/lib/seo';
@@ -63,7 +63,13 @@ export default function TeklifAl() {
     description:
       'Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifi. 48 saat içinde net fiyat.',
     path: '/teklif-al',
-    speakableSelectors: ['#quote-instant-answer-text', '#rfp-transition-instant-answer-text', 'h1', 'p'],
+    speakableSelectors: [
+      '#quote-instant-answer-text',
+      '#rfp-transition-instant-answer-text',
+      '#pricing-product-instant-answer-text',
+      'h1',
+      'p',
+    ],
   });
 
   const quoteActionLd = {
@@ -136,6 +142,9 @@ export default function TeklifAl() {
 
         {/* Google AI Overviews & B2B Profesyonel Yönetime Geçiş Şartnamesi (Wave 66) */}
         <RfpTransitionAiGroundingSeo />
+
+        {/* Google Merchant & Servis Fiyatlandırma Paketleri (Wave 69) */}
+        <ServicePricingProductAiOverviewSeo />
 
         {/* Gömülü Teklif & Keşif Formu ve Fiyatlandırma Rehberi */}
         <TeklifAlClient />
