@@ -5,6 +5,7 @@ import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
 import PageHeader from '@/components/layout/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { TermAiOverviewCard } from '@/components/seo';
 import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';
@@ -121,7 +122,7 @@ export default async function TermPage({
     name: `${term.term} Nedir?`,
     description: term.definition.slice(0, 200),
     path: `/sozluk/${terim}`,
-    speakableSelectors: ['.term-definition', 'h1'],
+    speakableSelectors: ['#term-instant-answer-text', '.term-definition', 'h1'],
   });
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
@@ -167,20 +168,11 @@ export default async function TermPage({
           )}
         </div>
 
-        {/* Quick Answer Box — Featured Snippet hedefi */}
-        <div className="bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 p-6 rounded-2xl">
-          <div className="flex items-start gap-3">
-            <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl shrink-0 mt-0.5" aria-hidden="true">
-              lightbulb
-            </span>
-            <div>
-              <div className="font-bold text-[var(--color-primary)] text-sm mb-1">Hızlı Özet (AI & Arama Motoru Yanıtı)</div>
-              <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
-                <strong>{term.term}</strong>: {term.definition.split('.')[0]}.
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* Google AI Overviews & DefinedTerm Grounding Card */}
+        <TermAiOverviewCard
+          term={term.term}
+          definition={term.definition}
+        />
 
         {/* Related Terms */}
         {relatedTerms.length > 0 && (
