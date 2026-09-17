@@ -129,3 +129,8 @@ export { default as DistrictAiOverviewSnippetSeo } from './DistrictAiOverviewSni
 export { default as NeighborhoodAiOverviewSnippetSeo } from './NeighborhoodAiOverviewSnippetSeo';
 export { default as FacilityLegalClaimReviewsSeo } from './FacilityLegalClaimReviewsSeo';
 export { default as AiOverviewStepSolverSeo } from './AiOverviewStepSolverSeo';
+export { default as ArticleAiOverviewCard } from './ArticleAiOverviewCard';
+export { default as TermAiOverviewCard } from './TermAiOverviewCard';
+export { default as FaqAiOverviewHubSeo } from './FaqAiOverviewHubSeo';
+export { default as KMKLawCourtDisputeMatrixSeo } from './KMKLawCourtDisputeMatrixSeo';
+export { default as QuoteAiOverviewCardSeo } from './QuoteAiOverviewCardSeo';

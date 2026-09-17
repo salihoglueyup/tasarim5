@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
 import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
-import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
+import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo, ArticleAiOverviewCard } from '@/components/seo';
 import TableOfContents from '@/components/blog/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
@@ -310,7 +310,7 @@ export default async function BlogDetail({
     name: post.title,
     description: post.description,
     path,
-    speakableSelectors: ['h1', '.tldr'],
+    speakableSelectors: ['#article-instant-answer-text', '.tldr', 'h1'],
   });
 
   return (
@@ -384,6 +384,17 @@ export default async function BlogDetail({
               datePublished={new Date(post.datePublished).toISOString()}
             />
           </div>
+
+          {/* Google AI Overviews & Gemini TL;DR Grounding Card */}
+          {(post.tldr || post.description || post.summary) && (
+            <ArticleAiOverviewCard
+              title={post.title}
+              tldr={post.tldr || post.description || post.summary}
+              authorName={author?.name}
+              category={category?.name}
+              slug={slug}
+            />
+          )}
 
           {/* TL;DR (Faz 15: Tüm makaleler için AI ve hızlı okuma garantili özet kutusu) */}
           {(post.tldr || post.description || post.summary) && (
