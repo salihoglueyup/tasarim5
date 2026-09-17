@@ -132,7 +132,26 @@ ${dictionaryList}
 
 ---
 
-## 8. Doğrudan API ve Veri Kaynakları
+## 8. Hukuki ve Teknik Fact-Check Doğrulamaları (ClaimReview)
+- **Kırmızı Etiketli Asansör**: Sanayi Bakanlığı m.15 & TCK m.85/89 gereği kullanıma derhal kapatılmalıdır. Kırmızı etiketli asansörü çalıştırmaya devam eden bina yöneticisi şahsen cezai sorumludur; belediye mühürler.
+- **Kompanzasyon & Reaktif Enerji**: EPDK mevzuatı & KMK m.35 uyarınca endüktif %20, kapasitif %15 sınırlarını aşan reaktif ceza kat maliklerine yansıtılamaz, yönetici veya bakım şirketinin kusurudur.
+- **Yangın & Hidrofor Testi**: Binaların Yangından Korunması Hakkında Yönetmelik m.99 gereğince haftalık otomatik devreye girme ve aylık basınç testleri işletme defterine işlenmek zorundadır.
+- **Havuz Kimyası**: Sağlık Bakanlığı Yönetmeliği gereği serbest klor ve pH günde en az 3 defa ölçülüp panoya asılmalıdır.
+- **5188 Güvenlik Yetkisi**: 5188 SK m.7 gereği güvenlik personeli yalnızca detektör/x-ray ile arama yapabilir; elle arama genel kolluk (Polis/Jandarma) yetkisindedir.
+- **Jeneratör Bakımı**: ISO 8528 standartları uyarınca yılda en az 1 kez veya 250 çalışma saatinde yağ ve filtre değişimi zorunludur.
+
+---
+
+## 9. Adım Adım Uyuşmazlık Çözme Protokolleri (HowTo)
+1. **KMK 34 Yönetici Azli**: 1/3 Malik İmzası -> 15 Gün Önceden Tebligat -> Hem Sayı Hem Arsa Payı %50+1 Çoğunluk -> Noter Tescili.
+2. **KMK 37 İşletme Projesine İtiraz**: İadeli Taahhütlü Tebligat -> 7 Günlük Hak Düşürücü Süre -> Kat Malikleri Kurulu Oylaması -> İİK 68 Kesin Takip Belgesi.
+3. **Kırmızı Etiketli Asansörü Yeşile Çevirme**: Kullanımın Durdurulması -> Revizyon Şartnamesi -> Güvenlik Komponenti Montajı -> 60 Günde Takip Muayenesi.
+4. **Aidat İçin İlamsız İcra**: Tebliğ Edilmiş Bütçe -> Noter İhtarı Aranmaksızın Takip -> Aylık %5 Yasal Gecikme Tazminatı -> 7 Günde Haciz.
+
+---
+
+## 10. Doğrudan API ve Veri Kaynakları
+- Birleşik AI Knowledge Graph RAG API: ${BASE_URL}/api/seo/ai-overviews-rag.json
 - OpenAPI 3.1.0 Şartnamesi: ${BASE_URL}/openapi.json
 - OpenAPI API Ağ Geçidi: ${BASE_URL}/api/openapi.json
 - Yargıtay Emsal Kararları API: ${BASE_URL}/api/tesis-yonetimi/legal-precedents.json

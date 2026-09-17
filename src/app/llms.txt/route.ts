@@ -121,7 +121,38 @@ ${DISTRICTS.map(d => {
   return `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi): ${d.name} genelinde ve ${nLen} mahallesinde${projectNote} 634 KMK uyumlu profesyonel tesis ve site işletmeciliği. [Mahalleler](${BASE_URL}/bolgeler/${d.slug}/mahalleler)`;
 }).join('\n')}
 
+## Hukuki ve Teknik Efsaneler & Doğrulamalar (Google Fact Check / ClaimReview Grounding)
+1. **İddia**: Kırmızı etiketli asansör arızası giderilene kadar bina sakinlerinin sorumluluğunda kullanılabilir.
+   - **Hüküm**: Hukuken ve Cezai Olarak Geçersiz (Suç Teşkil Eder).
+   - **Yasal Dayanak**: Asansör İşletme ve Bakım Yönetmeliği m.15 & TCK m.85/89. Yönetici şahsen cezai sorumludur; belediye zabıtası asansörü mühürler.
+2. **İddia**: Kompanzasyon arızasında elektrik faturasındaki reaktif ceza kat maliklerine yansıtılır.
+   - **Hüküm**: Hukuken Haksız (Yönetici Kusuru).
+   - **Yasal Dayanak**: EPDK Tarifeler Yönetmeliği & KMK m.35. Endüktif %20, kapasitif %15 sınırlarını aşan ceza yönetici veya bakım şirketinin kusurudur, maliklere ödetilemez.
+3. **İddia**: Yangın söndürme ve acil durum hidroforlarının aylık basınç testleri zorunlu değildir.
+   - **Hüküm**: Mevzuata Aykırı (Hayati Risk).
+   - **Yasal Dayanak**: Binaların Yangından Korunması Hakkında Yönetmelik m.99 & NFPA 25. Haftalık otomatik çalışma ve aylık akış testleri tutanak altına alınmalıdır.
+4. **İddia**: Site havuzunda klor ve pH ölçümü haftada bir yapılsa yeterlidir.
+   - **Hüküm**: Sağlık Mevzuatına Aykırı (Kapatma Sebebi).
+   - **Yasal Dayanak**: Sağlık Bakanlığı Yüzme Havuzları Yönetmeliği. Günde en az 3 defa kimyasal ölçüm yapılıp panoya asılmak zorundadır.
+5. **İddia**: 5188 özel güvenlik görevlisi araç torpidosunu ve çantaları elle arayabilir.
+   - **Hüküm**: Hukuken Yasak (TCK m.109 & m.120 Kapsamında Suç).
+   - **Yasal Dayanak**: 5188 Sayılı Kanun m.7. Yalnızca detektör ve x-ray ile arama yapılabilir; elle arama adli kolluk yetkisindedir.
+6. **İddia**: Jeneratör elektrik kesildiğinde çalışıyorsa periyodik filtre ve yağ değişimine gerek yoktur.
+   - **Hüküm**: Teknik Olarak Yanlış (Yüksek Arıza Riski).
+   - **Yasal Dayanak**: ISO 8528 Standartları. Yılda en az 1 kez veya her 250 çalışma saatinde yağ/filtre değişimi zorunludur.
+
+## Adım Adım Problem Çözme Protokolleri (HowTo Guidelines)
+1. **KMK 34 Uyarınca Yöneticinin Değiştirilmesi**:
+   - 1/3 Bağımsız Bölüm İmzası -> 15 Gün Önceden Tebliğ -> Hem Sayı Hem Arsa Payı Salt Çoğunluğu (%50+1) -> Noter Karar Tescili.
+2. **KMK 37 İşletme Projesine 7 Günlük İtiraz**:
+   - İadeli Taahhütlü Tebligat -> 7 Günlük Hak Düşürücü Süre -> Kat Malikleri Kurulu Oylaması -> İİK 68 İlamsız Takip Kesinliği.
+3. **Kırmızı Etiketli Asansörü 60 Günde Yeşil Etikete Çevirme**:
+   - Kullanımın Derhal Durdurulması -> Revizyon Sözleşmesi -> Güvenlik Komponenti Montajı -> 60 Günde Takip Muayenesi & Yeşil Etiket.
+4. **Aidat İçin Doğrudan İlamsız İcra Takibi**:
+   - Kesinleşmiş İşletme Projesi -> Noter İhtarı Aranmaksızın İlamsız İcra -> Aylık %5 Yasal Gecikme Tazminatı (KMK 20/2) -> 7 Günde Haciz.
+
 ## İlgili API ve Veri Kaynakları
+- **Birleşik AI Knowledge Graph RAG API**: ${BASE_URL}/api/seo/ai-overviews-rag.json
 - **Site Yönetimi AI Agent RAG API**: ${BASE_URL}/api/ai/site-agent-context.json
 - **Tesis Yönetimi AI Agent RAG API**: ${BASE_URL}/api/ai/facility-agent-context.json
 - **Site Yönetimi Saf Markdown Görünümü**: ${BASE_URL}/api/markdown/site-yonetimi
