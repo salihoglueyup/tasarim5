@@ -24,7 +24,7 @@ import {
   JOB_POSTING_SITE_MANAGER,
   COURSE_KMK_634_LAW,
   COURSE_ISO_41001_FACILITY,
-} from './dualCoreRichResultEngine';
+} from './dual-core/dualCoreRichResultEngine';
 import { BASE_URL } from '@/lib/seo';
 
 describe('BÖLÜM F — 🏆 Rich Result & Zengin Snippet Motoru (dualCoreRichResultEngine.test.ts)', () => {

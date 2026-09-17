@@ -9,7 +9,7 @@ import {
 import {
   runFacilitySerpRankSimulation,
   simulatePageOnPageSeo,
-} from './facilityRankSimulator';
+} from './facility/facilityRankSimulator';
 
 describe('Wave 6 Final: Faz 146 - Faz 150 Kanonik URL Kontrolü, SERP Sıralama Simülatörü, OpenGraph/Twitter & Bütünsel Testler', () => {
   it('Faz 146: sanitizeCanonicalUrl takip parametrelerini temizler ve validateCanonicalUrl self-referencing doğrular', () => {

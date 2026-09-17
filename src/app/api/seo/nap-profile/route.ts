@@ -4,7 +4,7 @@ import {
   generateLocalBusinessJsonLd,
   generateNapGeoJson,
   validateNapIntegrity,
-} from '@/lib/seo/napGuardEngine';
+} from '@/lib/seo/audits/napGuardEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;

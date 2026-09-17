@@ -2,10 +2,10 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { notifyIndexNow } from '../indexnow-auto';
-import { publishWebSubPing } from './webSubPinger';
+import { publishWebSubPing } from './indexing/webSubPinger';
 import robots from '../../app/robots';
 import { generateBreadcrumbs } from '../schemas/breadcrumbs';
-import { getNeighborDistrictLinks } from './districtCrossLinker';
+import { getNeighborDistrictLinks } from './facility/districtCrossLinker';
 
 describe('Wave 6: Faz 141 - Faz 145 Anlık İndeksleme, WebSub, Robots.txt, Breadcrumb & Komşu Linkleme', () => {
   const feedXmlPath = path.resolve(process.cwd(), 'src/app/feed.xml/route.ts');

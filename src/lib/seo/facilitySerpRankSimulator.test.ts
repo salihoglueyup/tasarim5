@@ -3,7 +3,7 @@ import {
   calculateCtrScore,
   calculateIntentCoverage,
   runFacilitySerpRankSimulation,
-} from './facilitySerpRankSimulator';
+} from './facility/facilitySerpRankSimulator';
 
 describe('Tesis Yönetimi SERP & Rank Simülatörü (facilitySerpRankSimulator.ts)', () => {
   describe('CTR Tahminleme (calculateCtrScore)', () => {

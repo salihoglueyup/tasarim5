@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FACILITY_SUB_SECTORS } from '@/lib/seo/facilitySiloRankPasser';
+import { FACILITY_SUB_SECTORS } from '@/lib/seo/facility/facilitySiloRankPasser';
 
 export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug?: string }) {
   const POPULAR_DISTRICTS = [

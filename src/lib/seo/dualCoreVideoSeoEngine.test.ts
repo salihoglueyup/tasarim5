@@ -7,7 +7,7 @@ import {
   buildVideoCarouselSchema,
   buildYouTubeDescriptionTemplate,
   buildYouTubeTagList,
-} from './dualCoreVideoSeoEngine';
+} from './dual-core/dualCoreVideoSeoEngine';
 
 describe('BÖLÜM K — 🎥 Video SEO & YouTube Optimizasyon Motoru (dualCoreVideoSeoEngine.test.ts)', () => {
   /* =========================================================================

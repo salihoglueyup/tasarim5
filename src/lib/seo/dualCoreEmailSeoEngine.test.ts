@@ -5,7 +5,7 @@ import {
   buildUTMParameters,
   buildReviewRequestEmailSpec,
   buildEmailSubjectLineVariants,
-} from './dualCoreEmailSeoEngine';
+} from './dual-core/dualCoreEmailSeoEngine';
 
 describe('BÖLÜM L — 📧 E-Posta Otomasyonu & SEO Entegrasyonu (dualCoreEmailSeoEngine.test.ts)', () => {
   /* =========================================================================

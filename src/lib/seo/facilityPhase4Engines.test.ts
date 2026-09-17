@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { generateFacilityAiSnippets } from './facilityAiSnippetEngine';
+import { generateFacilityAiSnippets } from './facility/facilityAiSnippetEngine';
 import { DISTRICTS, getDistrictDues } from '@/data/districts';
 
 describe('Tesis Hizmetleri Faz 4 İleri Düzey Backend SEO & GEO Motorları', () => {

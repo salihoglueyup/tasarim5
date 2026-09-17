@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { compareFacilityDistricts } from './facilityDistrictComparator';
-import { buildFacilityIndexNowPayload } from './facilityIndexNowPinger';
-import { recordBotCrawlEvent, generateBotAnalyticsReport } from './facilityBotAuditLog';
-import { synthesizeFacilityVoiceQA } from './facilityVoiceAiSynthesizer';
+import { compareFacilityDistricts } from './facility/facilityDistrictComparator';
+import { buildFacilityIndexNowPayload } from './indexing/facilityIndexNowPinger';
+import { recordBotCrawlEvent, generateBotAnalyticsReport } from './bots/facilityBotAuditLog';
+import { synthesizeFacilityVoiceQA } from './facility/facilityVoiceAiSynthesizer';
 
 describe('Tesis Yönetimi Faz 3 İleri Düzey Backend SEO Motorları', () => {
   describe('İlçe Kıyaslama Motoru (facilityDistrictComparator.ts)', () => {

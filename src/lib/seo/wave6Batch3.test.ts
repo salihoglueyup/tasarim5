@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { autoLinkHtml, autoLinkDomTreeWalker } from '../autoLinker';
-import { auditPageEEAT } from './eeatAuditor';
-import { resolveBlogArticleCluster } from './facilityBlogClusterEngine';
+import { auditPageEEAT } from './audits/eeatAuditor';
+import { resolveBlogArticleCluster } from './facility/facilityBlogClusterEngine';
 
 describe('Wave 6: Faz 136 - Faz 140 Otomatik İç Linkleme, E-E-A-T Denetimi, Yargıtay Atıfları & Site Haritaları', () => {
   const newsSitemapPath = path.resolve(process.cwd(), 'src/app/news-sitemap.xml/route.ts');

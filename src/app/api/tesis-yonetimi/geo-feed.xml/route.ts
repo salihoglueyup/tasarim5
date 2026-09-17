@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;

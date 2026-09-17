@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { submitFacilityIndexNow } from '@/lib/seo/facilityIndexNowPinger';
-import { publishWebSubPing } from '@/lib/seo/webSubPinger';
+import { submitFacilityIndexNow } from '@/lib/seo/indexing/facilityIndexNowPinger';
+import { publishWebSubPing } from '@/lib/seo/indexing/webSubPinger';
 import { BASE_URL } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';

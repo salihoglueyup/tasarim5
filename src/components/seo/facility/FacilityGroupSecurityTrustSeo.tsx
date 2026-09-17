@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GROUP_COMPANIES_ECOSYSTEM } from '@/lib/seo/facilityGroupAndLegalEcosystem';
+import { GROUP_COMPANIES_ECOSYSTEM } from '@/lib/seo/facility/facilityGroupAndLegalEcosystem';
 
 export default function FacilityGroupSecurityTrustSeo() {
   return (

@@ -8,7 +8,7 @@ import {
   buildScrollDepthSegment,
   buildROICalculatorSpec,
   buildPackageSpec,
-} from './dualCoreCROEngine';
+} from './dual-core/dualCoreCROEngine';
 
 describe('BÖLÜM M — 💰 CRO & Dönüşüm Optimizasyonu (dualCoreCROEngine.test.ts)', () => {
   /* =========================================================================

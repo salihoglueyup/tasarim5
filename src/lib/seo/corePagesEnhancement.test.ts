@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
-import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
-import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
+import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facility/facilityFaqSynthesizer';
+import { findNearestFacilityHub } from '@/lib/seo/indexing/edgeGeoResolver';
+import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 import { TERMS } from '@/data/dictionary';
 

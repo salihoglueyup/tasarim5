@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { classifySearchIntent } from '@/lib/seo/intentClassifier';
+import { classifySearchIntent } from '@/lib/seo/audits/intentClassifier';
 
 export const dynamic = 'force-dynamic';
 

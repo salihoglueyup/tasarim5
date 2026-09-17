@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { runComprehensiveSeoPatrol, runFacilitySeoPatrol } from '@/lib/seo/facilitySeoPatrol';
+import { runComprehensiveSeoPatrol, runFacilitySeoPatrol } from '@/lib/seo/facility/facilitySeoPatrol';
 
 export const dynamic = 'force-dynamic';
 

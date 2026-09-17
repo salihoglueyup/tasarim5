@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { buildDistrictFacilityGraphSchema } from './facilityCompleteGraphBuilder';
-import { optimizeInternalFacilityLinks, FACILITY_LINKING_TARGETS } from './facilityInternalLinkingOptimizer';
+import { buildDistrictFacilityGraphSchema } from './facility/facilityCompleteGraphBuilder';
+import { optimizeInternalFacilityLinks, FACILITY_LINKING_TARGETS } from './facility/facilityInternalLinkingOptimizer';
 import { DISTRICTS } from '@/data/districts';
 
 describe('39 İlçe Tesis ve Mülk Yönetimi Birleşik @graph & İç Linkleme Motoru (Faz 10)', () => {

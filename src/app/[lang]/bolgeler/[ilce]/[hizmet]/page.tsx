@@ -22,11 +22,11 @@ import {
   DistrictServiceAiOverviewSnippetSeo,
 } from '@/components/seo';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
-import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
-import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
-import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
-import { buildDistrictFacilityGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
-import { getAdjacentDistrictMeshLinks } from '@/lib/seo/facilityMeshLinkerEngine';
+import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facility/facilityFaqSynthesizer';
+import { findNearestFacilityHub } from '@/lib/seo/indexing/edgeGeoResolver';
+import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
+import { buildDistrictFacilityGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import { getAdjacentDistrictMeshLinks } from '@/lib/seo/facility/facilityMeshLinkerEngine';
 import {
   generateBreadcrumbs,
   webPageSchema,

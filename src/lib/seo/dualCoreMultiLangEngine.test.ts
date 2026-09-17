@@ -8,7 +8,7 @@ import {
   detectUserLocale,
   validateHreflangConsistency,
   SUPPORTED_LOCALES,
-} from './dualCoreMultiLangEngine';
+} from './dual-core/dualCoreMultiLangEngine';
 import { BASE_URL } from '@/lib/seo';
 
 describe('BÖLÜM O — 🌍 Çok Dilli SEO & hreflang Motoru (dualCoreMultiLangEngine.test.ts)', () => {

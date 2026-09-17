@@ -4,7 +4,8 @@ import path from 'path';
 
 describe('Wave 10: Faz 226 - Faz 230 API Birim Testleri, Playwright E2E Suite, Çok Dilli Rota & Mobil Emülasyon', () => {
   it('Faz 226: A/B test çerçevesi testleri mevcuttur', () => {
-    const abTestPath = path.resolve(process.cwd(), 'src/lib/ab-test.test.ts');
+    const subAbPath = path.resolve(process.cwd(), 'src/lib/cro/ab-test.test.ts');
+    const abTestPath = fs.existsSync(subAbPath) ? subAbPath : path.resolve(process.cwd(), 'src/lib/ab-test.test.ts');
     expect(fs.existsSync(abTestPath)).toBe(true);
   });
 

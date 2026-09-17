@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { notifyWebSubHubs } from '@/lib/seo/webSubPublisher';
+import { notifyWebSubHubs } from '@/lib/seo/indexing/webSubPublisher';
 
 export const dynamic = 'force-dynamic';
 

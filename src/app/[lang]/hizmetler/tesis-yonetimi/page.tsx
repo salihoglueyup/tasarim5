@@ -3,8 +3,8 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { KeywordAnalysisSeo, ServiceAiOverviewSnippetSeo } from '@/components/seo';
-import { buildFacilityCompleteGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
-import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
+import { buildFacilityCompleteGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 import TesisYonetimiClient from './TesisYonetimiClient';
 
 export const revalidate = 86400; // 24 saat ISR

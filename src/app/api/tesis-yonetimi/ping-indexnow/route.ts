@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { submitFacilityIndexNow } from '@/lib/seo/facilityIndexNowPinger';
+import { submitFacilityIndexNow } from '@/lib/seo/indexing/facilityIndexNowPinger';
 
 export const dynamic = 'force-dynamic';
 

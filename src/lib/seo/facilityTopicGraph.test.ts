@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { generateFacilityManagementGraph } from './facilityTopicGraph';
-import { getFacilitySerpMeta } from './facilitySerpOptimizer';
+import { generateFacilityManagementGraph } from './facility/facilityTopicGraph';
+import { getFacilitySerpMeta } from './facility/facilitySerpOptimizer';
 
 describe('Tesis Yönetimi Semantik Otorite Grafiği (facilityTopicGraph.ts)', () => {
   it('ISO 41001, 8 alt hizmet ve 39 ilçeyi içeren eksiksiz Service şeması üretir', () => {

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { runFacilityAutonomousAudit } from '@/lib/seo/facilityAutonomousAuditor';
+import { runFacilityAutonomousAudit } from '@/lib/seo/facility/facilityAutonomousAuditor';
 
 export const dynamic = 'force-dynamic';
 

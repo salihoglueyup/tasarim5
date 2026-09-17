@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { buildFacilityAuthorityCorpus } from './facilityAuthorityCorpusEngine';
-import { generateFacilityMeshLinks } from './facilityMeshLinkerEngine';
-import { buildFacilityVoiceKnowledge } from './facilityVoiceKnowledgeEngine';
-import { auditFacilityPageSeoHealth } from './facilityAutonomousSeoAuditor';
+import { buildFacilityAuthorityCorpus } from './facility/facilityAuthorityCorpusEngine';
+import { generateFacilityMeshLinks } from './facility/facilityMeshLinkerEngine';
+import { buildFacilityVoiceKnowledge } from './facility/facilityVoiceKnowledgeEngine';
+import { auditFacilityPageSeoHealth } from './facility/facilityAutonomousSeoAuditor';
 
 describe('Tesis Yönetimi Backend İç SEO ve Semantik Otorite Motorları Test Paketi', () => {
   describe('1. Semantik Otorite ve Derin Bilgi Külliyatı (facilityAuthorityCorpusEngine.ts)', () => {

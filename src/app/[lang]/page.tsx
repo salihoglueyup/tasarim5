@@ -9,7 +9,7 @@ import { getDictionary } from '@/lib/i18n';
 import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 
-import { generateFacilityManagementGraph } from '@/lib/seo/facilityTopicGraph';
+import { generateFacilityManagementGraph } from '@/lib/seo/facility/facilityTopicGraph';
 
 // Heavy components loaded dynamically for performance
 const BentoServices = dynamic(() => import('@/components/sections/core/BentoServices'), { ssr: true });

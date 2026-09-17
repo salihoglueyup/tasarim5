@@ -7,7 +7,7 @@ import {
   auditSitemapIntegrity,
   auditInternalLinks,
   auditIndexStatus,
-} from '@/lib/seo/facilitySeoPatrol';
+} from '@/lib/seo/facility/facilitySeoPatrol';
 import { GET as getCronPatrol } from '@/app/api/cron/seo-patrol/route';
 import {
   getCloudflareDnssecConfig,

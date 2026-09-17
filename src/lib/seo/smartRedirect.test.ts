@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { resolveSmartRedirect } from './smartRedirect';
+import { resolveSmartRedirect } from './indexing/smartRedirect';
 
 describe('Smart Self-Healing 301 Redirect Motoru (smartRedirect.ts)', () => {
   it('ilçe ve hizmet birleşimi yanlış URL yi doğru yerel iniş sayfasına bağlar', () => {

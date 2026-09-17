@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { waLink } from '@/lib/cro';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';

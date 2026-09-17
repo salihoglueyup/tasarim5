@@ -5,7 +5,7 @@ import {
   getPillarCrossLinkCards,
   generateCrossLinkJsonLd,
   validateCrossLinkGraph,
-} from './facilityCrossServiceLinker';
+} from './facility/facilityCrossServiceLinker';
 
 describe('9 Hizmet Çapraz Bağlantı Motoru (facilityCrossServiceLinker.test.ts)', () => {
   describe('1. 9 Hizmet Matrisi ve Bütünlük (Faz 161-186)', () => {

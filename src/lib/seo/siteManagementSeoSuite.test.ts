@@ -11,8 +11,8 @@ import {
 } from '@/data/services';
 import { autoLinkHtml } from '@/lib/autoLinker';
 import { FACILITY_MANAGEMENT_ENTITIES } from '@/lib/seoEngine';
-import { resolveSmartRedirect } from '@/lib/seo/smartRedirect';
-import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
+import { resolveSmartRedirect } from '@/lib/seo/indexing/smartRedirect';
+import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 import { organizationSchema } from '@/lib/schemas';
 import {
   SITE_MANAGEMENT_TAXONOMY,
@@ -20,8 +20,8 @@ import {
   LEGAL_FINANCE_TAXONOMY,
   detectPillarIntent,
   getKeywordsByPillar
-} from '@/lib/seo/domainKeywordsTaxonomy';
-import { analyzeFacilitySerpReadiness } from '@/lib/seo/facilitySearchRankAnalyzer';
+} from '@/lib/seo/audits/domainKeywordsTaxonomy';
+import { analyzeFacilitySerpReadiness } from '@/lib/seo/facility/facilitySearchRankAnalyzer';
 
 describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagementSeoSuite.test.ts)', () => {
   describe('1. Sözlük & Google Featured Snippet (Position Zero) Tanımları (facilityDictionaryData.ts)', () => {

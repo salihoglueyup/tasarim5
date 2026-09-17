@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { generateOpenApiSpec } from '@/lib/seo/openApiSpec';
+import { generateOpenApiSpec } from '@/lib/seo/indexing/openApiSpec';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // 24 Saat ISR

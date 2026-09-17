@@ -1,6 +1,6 @@
 import type { JsonLdObject } from '@/lib/schemas';
 import { graph } from '@/lib/schemas';
-import { minifyJsonLd } from '@/lib/seo/schemaMinifier';
+import { minifyJsonLd } from '@/lib/seo/audits/schemaMinifier';
 
 /**
  * Tek JSON-LD render bileşeni (SEO V4 Faz 41).

@@ -10,7 +10,7 @@ import {
   buildAIBotWhitelistRule,
   buildRAGChunkingSpec,
   buildConversationalQueryOptimizer,
-} from './dualCoreAISearchEngine';
+} from './dual-core/dualCoreAISearchEngine';
 
 describe('BÖLÜM I — 🤖 AI Overviews & LLM Arama Optimizasyonu (dualCoreAISearchEngine.test.ts)', () => {
   /* =========================================================================

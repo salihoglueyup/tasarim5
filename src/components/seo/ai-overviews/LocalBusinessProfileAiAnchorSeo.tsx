@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export interface LocalHubItem {
   id: string;

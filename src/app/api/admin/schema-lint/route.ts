@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { lintSchemaOrgObject, lintSchemaGraph } from '@/lib/seo/schemaLinter';
-import { minifyJsonLd, calculateSchemaCompressionSavings } from '@/lib/seo/schemaMinifier';
+import { lintSchemaOrgObject, lintSchemaGraph } from '@/lib/seo/audits/schemaLinter';
+import { minifyJsonLd, calculateSchemaCompressionSavings } from '@/lib/seo/audits/schemaMinifier';
 
 export const dynamic = 'force-dynamic';
 

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { generateFacilityAiSnippets } from '@/lib/seo/facilityAiSnippetEngine';
+import { generateFacilityAiSnippets } from '@/lib/seo/facility/facilityAiSnippetEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;

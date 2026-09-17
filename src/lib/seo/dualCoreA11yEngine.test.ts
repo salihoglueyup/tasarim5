@@ -7,7 +7,7 @@ import {
   generateFullA11yReport,
   buildA11yComplianceStatement,
   scoreA11yImpactOnSEO,
-} from './dualCoreA11yEngine';
+} from './dual-core/dualCoreA11yEngine';
 
 describe('BÖLÜM N — ♿ Erişilebilirlik & WCAG 2.2 Uyum Motoru (dualCoreA11yEngine.test.ts)', () => {
   /* =========================================================================

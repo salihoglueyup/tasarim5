@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { KeywordAnalysisSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
-import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
+import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
 import SanayiTesisiYonetimiClient from './SanayiTesisiYonetimiClient';
 
 export const revalidate = 86400;

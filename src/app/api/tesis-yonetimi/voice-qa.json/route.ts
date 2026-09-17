@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { synthesizeFacilityVoiceQA } from '@/lib/seo/facilityVoiceAiSynthesizer';
+import { synthesizeFacilityVoiceQA } from '@/lib/seo/facility/facilityVoiceAiSynthesizer';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;

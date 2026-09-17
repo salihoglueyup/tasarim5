@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { buildHttpLinkHeader, buildXRobotsTag, generateEdgeSeoHeaders } from '@/lib/seo/edgeHeaderInjector';
-import { analyzeCrawlBudget } from '@/lib/seo/crawlBudgetDefender';
-import { classifySearchIntent } from '@/lib/seo/intentClassifier';
+import { buildHttpLinkHeader, buildXRobotsTag, generateEdgeSeoHeaders } from '@/lib/seo/indexing/edgeHeaderInjector';
+import { analyzeCrawlBudget } from '@/lib/seo/bots/crawlBudgetDefender';
+import { classifySearchIntent } from '@/lib/seo/audits/intentClassifier';
 
 describe('5 Derin Backend SEO Motoru Doğrulama Testleri', () => {
   describe('HTTP Link Header & Canonical Enjektörü (edgeHeaderInjector.ts)', () => {

@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { verifySearchBot } from '@/lib/seo/botVerifier';
-import { runFacilitySeoPatrol } from '@/lib/seo/facilitySeoPatrol';
-import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
-import { cleanJsonLd, minifyJsonLd, calculateSchemaCompressionSavings } from '@/lib/seo/schemaMinifier';
-import { VERIFIED_AUTHORITY_CREDENTIALS, generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
+import { verifySearchBot } from '@/lib/seo/bots/botVerifier';
+import { runFacilitySeoPatrol } from '@/lib/seo/facility/facilitySeoPatrol';
+import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facility/facilityFaqSynthesizer';
+import { cleanJsonLd, minifyJsonLd, calculateSchemaCompressionSavings } from '@/lib/seo/audits/schemaMinifier';
+import { VERIFIED_AUTHORITY_CREDENTIALS, generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 
 describe('5 Derin Arka Plan (Backend) SEO Motoru Testleri', () => {
   describe('Doğrulanmış Bot Önceliklendirme Motoru (botVerifier.ts)', () => {

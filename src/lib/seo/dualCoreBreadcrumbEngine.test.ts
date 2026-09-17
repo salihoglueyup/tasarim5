@@ -6,7 +6,7 @@ import {
   buildDualCoreSitelinksSchema,
   buildPillarNavigationSchema,
   validateSiloIntegrity,
-} from './dualCoreBreadcrumbEngine';
+} from './dual-core/dualCoreBreadcrumbEngine';
 
 describe('Dinamik Silo Breadcrumb & Hiyerarşik Otorite Motoru (dualCoreBreadcrumbEngine.test.ts)', () => {
   describe('1. buildDualCoreBreadcrumb Sayfa Tipleri Testleri (Faz 206-223)', () => {

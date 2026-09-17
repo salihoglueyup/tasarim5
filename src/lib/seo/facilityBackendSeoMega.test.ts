@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { generateEdgeSeoHeaders, buildHttpLinkHeader, buildXRobotsTag } from './edgeHeaderInjector';
-import { buildFacilityAuthorityCorpus } from './facilityAuthorityCorpusEngine';
+import { generateEdgeSeoHeaders, buildHttpLinkHeader, buildXRobotsTag } from './indexing/edgeHeaderInjector';
+import { buildFacilityAuthorityCorpus } from './facility/facilityAuthorityCorpusEngine';
 import { GET as getGeoFeed } from '@/app/api/tesis-yonetimi/geo-feed.xml/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
-import { CANONICAL_NAP } from './napGuardEngine';
+import { CANONICAL_NAP } from './audits/napGuardEngine';
 
 describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => {
   describe('Edge SEO Response Headers & Bot Denetimi (edgeHeaderInjector.ts)', () => {

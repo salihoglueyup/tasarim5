@@ -6,7 +6,7 @@ import {
   buildSlackNotificationPayload,
   runDailyHealthCheck,
   buildSelfHealingSpec,
-} from './dualCoreMonitoringEngine';
+} from './dual-core/dualCoreMonitoringEngine';
 
 describe('BÖLÜM Q — 🔔 Canlı İzleme & Otomatik Alarm Motoru (dualCoreMonitoringEngine.test.ts)', () => {
   /* =========================================================================

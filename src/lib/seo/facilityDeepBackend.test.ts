@@ -4,12 +4,12 @@ import {
   getAiCrawlerAnalytics,
   clearAiCrawlerLogsForTesting,
   checkAiCrawlerRateLimit,
-} from '@/lib/seo/aiBotTelemetry';
+} from '@/lib/seo/bots/aiBotTelemetry';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
-import { resolveSiloRedirect } from '@/lib/seo/siloRedirector';
+import { resolveSiloRedirect } from '@/lib/seo/indexing/siloRedirector';
 import { calculateFacilityBudget } from '@/data/facilityBudgetData';
-import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
+import { findNearestFacilityHub } from '@/lib/seo/indexing/edgeGeoResolver';
 import { b2bServiceSchema } from '@/lib/schemas/services';
 
 describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları (Faz 7)', () => {

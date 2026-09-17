@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 import { VERIFIED_BELCERT_CREDENTIALS } from '@/components/seo/ai-overviews/AccreditedCertificationsTrustSeo';
 import { PAA_DEEP_TREE_QUESTIONS } from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;

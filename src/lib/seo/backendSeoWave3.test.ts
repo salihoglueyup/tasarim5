@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { pushFacilityUrlsBulkToIndexNow } from '@/lib/seo/indexNowQueue';
+import { pushFacilityUrlsBulkToIndexNow } from '@/lib/seo/indexing/indexNowQueue';
 import { ServerTimingBuilder } from '@/lib/performance/serverTiming';
 
 describe('5 İleri Seviye Backend SEO & Altyapı Motoru Testleri (Wave 3)', () => {

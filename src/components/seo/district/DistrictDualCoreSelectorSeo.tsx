@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { getDistrictDualCore } from '@/lib/seo/districtDualCoreMatrix';
+import { getDistrictDualCore } from '@/lib/seo/facility/districtDualCoreMatrix';
 
 interface DistrictDualCoreSelectorSeoProps {
   districtSlug: string;

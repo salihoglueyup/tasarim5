@@ -7,7 +7,7 @@ import {
   analyzeContentGap,
   buildWinningContentSpec,
   buildOutreachTargetList,
-} from './dualCoreCompetitorAnalyzer';
+} from './dual-core/dualCoreCompetitorAnalyzer';
 
 describe('BÖLÜM J — 🕵️ Rakip Analiz & Boşluk Tespit Motoru (dualCoreCompetitorAnalyzer.test.ts)', () => {
   /* =========================================================================

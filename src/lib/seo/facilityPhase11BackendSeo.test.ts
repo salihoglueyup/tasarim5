@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { autoLinkHtml } from '@/lib/autoLinker';
-import { analyzeFacilitySerpReadiness } from './facilitySearchRankAnalyzer';
+import { analyzeFacilitySerpReadiness } from './facility/facilitySearchRankAnalyzer';
 
 describe('Tesis ve Mülk Hizmetleri Sitewide Linkleme & SERP Analizcisi (Faz 11)', () => {
   describe('autoLinker.ts Tesis ve Mülk Hizmetleri Otomatik Blog Linkleme', () => {

@@ -10,7 +10,7 @@ import {
   buildCTROptimizationAlert,
   buildROICalculation,
   buildWeeklyReportTemplate,
-} from './dualCoreAnalyticsEngine';
+} from './dual-core/dualCoreAnalyticsEngine';
 
 describe('BÖLÜM P — 📊 GA4 & SEO Analitik Entegrasyon Motoru (dualCoreAnalyticsEngine.test.ts)', () => {
   /* =========================================================================

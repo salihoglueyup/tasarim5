@@ -1,20 +1,20 @@
 import { describe, it, expect } from 'vitest';
-import { generateFacilityManagementGraph } from './facilityTopicGraph';
+import { generateFacilityManagementGraph } from './facility/facilityTopicGraph';
 import {
   buildFacilityCompleteGraphSchema,
   buildFacilitySubSectorGraphSchema,
   buildDistrictFacilityGraphSchema,
-} from './facilityCompleteGraphBuilder';
+} from './facility/facilityCompleteGraphBuilder';
 import {
   buildLocalBusinessSchema,
   buildDistrictLocalBusinessSchema,
   buildServiceReviewPage,
-} from './dualCoreRichResultEngine';
+} from './dual-core/dualCoreRichResultEngine';
 import { faqPageSchema } from '../schemas/faq';
 import { blogPostingSchema } from '../schemas/articles';
 import { siteNavigationSchema, generateBreadcrumbs } from '../schemas/breadcrumbs';
 import { graph, videoObjectSchema } from '../schemas/misc';
-import { buildHttpLinkHeader } from './edgeHeaderInjector';
+import { buildHttpLinkHeader } from './indexing/edgeHeaderInjector';
 import { BASE_URL } from '../seo';
 
 describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {

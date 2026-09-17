@@ -18,7 +18,7 @@ import {
   CheckCircle2,
   Lock,
 } from 'lucide-react';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 interface FacilityOfficialEntityTrustProps {
   className?: string;

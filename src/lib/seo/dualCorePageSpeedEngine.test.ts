@@ -14,7 +14,7 @@ import {
   buildInputDebounceSpec,
   getINPBudget,
   buildPerformanceBudgetConfig,
-} from './dualCorePageSpeedEngine';
+} from './dual-core/dualCorePageSpeedEngine';
 
 describe('BÖLÜM G — ⚡ Core Web Vitals & Sayfa Hızı Motoru (dualCorePageSpeedEngine.test.ts)', () => {
   /* =========================================================================

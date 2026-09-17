@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
-import { KNOWN_AI_BOTS, getAiBotTelemetryStats } from '@/lib/seo/aiBotDetector';
+import { KNOWN_AI_BOTS, getAiBotTelemetryStats } from '@/lib/seo/bots/aiBotDetector';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;

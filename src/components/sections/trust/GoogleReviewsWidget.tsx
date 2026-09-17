@@ -1,4 +1,4 @@
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
 const reviews = [

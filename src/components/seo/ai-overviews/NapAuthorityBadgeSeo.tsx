@@ -14,7 +14,7 @@ import {
   ExternalLink,
   Navigation,
 } from 'lucide-react';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 interface NapAuthorityBadgeProps {
   className?: string;

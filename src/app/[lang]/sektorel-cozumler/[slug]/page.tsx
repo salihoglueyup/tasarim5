@@ -7,7 +7,7 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { autoLinkHtml } from '@/lib/autoLinker';
-import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
+import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import { SectorAiOverviewSnippetSeo } from '@/components/seo';
 

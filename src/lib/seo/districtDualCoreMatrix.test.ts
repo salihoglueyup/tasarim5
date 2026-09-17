@@ -9,7 +9,7 @@ import {
   getDistrictPillarSerp,
   getTopDistrictsByPillar,
   getNeighborhoodLongTailKeywords,
-} from './districtDualCoreMatrix';
+} from './facility/districtDualCoreMatrix';
 
 describe('39 İlçe Çift Çekirdekli Mikro-Lokasyon Matrisi (districtDualCoreMatrix.test.ts)', () => {
   describe('1. Veri Yapısı ve İlçe Girişleri Bütünlüğü (Faz 56-94)', () => {

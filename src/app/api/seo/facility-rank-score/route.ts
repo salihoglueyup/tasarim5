@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { runFacilitySerpRankSimulation } from '@/lib/seo/facilitySerpRankSimulator';
+import { runFacilitySerpRankSimulation } from '@/lib/seo/facility/facilitySerpRankSimulator';
 
 export const dynamic = 'force-dynamic';
 

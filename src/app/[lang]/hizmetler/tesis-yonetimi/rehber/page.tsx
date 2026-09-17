@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
+import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
 import TesisYonetimiRehberClient from './TesisYonetimiRehberClient';
 
 export const revalidate = 86400;

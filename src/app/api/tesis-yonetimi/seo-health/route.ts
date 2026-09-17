@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { auditFacilityPageSeoHealth } from '@/lib/seo/facilityAutonomousSeoAuditor';
+import { auditFacilityPageSeoHealth } from '@/lib/seo/facility/facilityAutonomousSeoAuditor';
 
 export const dynamic = 'force-dynamic';
 

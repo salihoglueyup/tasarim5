@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { generateBotAnalyticsReport } from '@/lib/seo/facilityBotAuditLog';
+import { generateBotAnalyticsReport } from '@/lib/seo/bots/facilityBotAuditLog';
 
 export const dynamic = 'force-dynamic';
 

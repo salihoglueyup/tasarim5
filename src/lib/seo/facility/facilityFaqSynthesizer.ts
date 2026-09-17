@@ -1,0 +1,167 @@
+import { getDistrict } from '@/data/districts';
+import type { NeighborhoodInfo } from '@/data/districts/types';
+import { faqPageSchema } from '@/lib/schemas/faq';
+import type { JsonLdObject } from '@/lib/schemas/constants';
+
+export interface SynthesizedFaqItem {
+  question: string;
+  answer: string;
+  topic: 'KMK_634' | 'SECURITY_5188' | 'TECHNICAL_SLA' | 'COST_SAVINGS';
+}
+
+export interface SynthesizedDistrictFaqResult {
+  districtName: string;
+  districtSlug: string;
+  facilityContext: string;
+  faqs: SynthesizedFaqItem[];
+  schema: JsonLdObject | null;
+}
+
+/**
+ * İlçe profiline ve bina tipine göre dinamik, hiper-yerel ve benzersiz SSS JSON-LD şemaları sentezler.
+ */
+export function synthesizeDistrictFacilityFaq(
+  districtSlug: string = 'kadikoy'
+): SynthesizedDistrictFaqResult {
+  const district = getDistrict(districtSlug) || { name: 'Kadıköy', slug: 'kadikoy', side: 'Anadolu', neighborhoods: [], neighborhoodData: [] as NeighborhoodInfo[] };
+  const dName = district.name;
+  const isAnadolu = district.side === 'Anadolu';
+
+  const isHighDensitySite = ['basaksehir', 'beylikduzu', 'esenyurt', 'cekmekoy', 'sancaktepe', 'atasehir', 'pendik'].includes(district.slug);
+  const isCommercialHub = ['sisli', 'besiktas', 'sariyer', 'bakirkoy', 'kadikoy'].includes(district.slug);
+
+  const faqs: SynthesizedFaqItem[] = [];
+
+  // 1. Genel Tesis Yönetimi & Bölgesel SLA
+  faqs.push({
+    question: `${dName} bölgesinde profesyonel tesis yönetimi acil müdahale süresi ne kadardır?`,
+    answer: `Alo Yönetim, ${dName} ilçesindeki tüm apartman ve sitelere mobil teknik ekipleriyle en fazla 45 dakika içinde yerinde müdahale SLA garantisi sunmaktadır. 7/24 kesintisiz arıza hattımız aktiftir.`,
+    topic: 'TECHNICAL_SLA',
+  });
+
+  // 2. İlçe Profiline Göre Özelleştirilmiş Soru
+  if (isHighDensitySite) {
+    faqs.push({
+      question: `${dName} toplu konut ve çok bloklu sitelerde güvenlik ve peyzaj nasıl yönetilir?`,
+      answer: `${dName} bölgesindeki geniş sitelerde 5188 sayılı kanuna uygun fiziki güvenlik vardiyaları, TSE onaylı otomatik bahçe sulama ve havuz kimyasal denetimleri entegre tek işletme projesi altında yönetilir.`,
+      topic: 'SECURITY_5188',
+    });
+  } else if (isCommercialHub) {
+    faqs.push({
+      question: `${dName} plazalarında ve butik tesislerde yönetim devri nasıl yapılır?`,
+      answer: `${dName} lokasyonundaki ticari tesis ve rezidanslarda devir teslim süreci 48 saat içinde şeffaf denetim tutanağıyla tamamlanır; bağımsız bölüm sakinleri hiçbir hizmet kesintisi yaşamaz.`,
+      topic: 'KMK_634',
+    });
+  } else {
+    faqs.push({
+      question: `${dName} apartmanlarında kentsel dönüşüm sonrası yönetim nasıl kurulur?`,
+      answer: `${dName} genelindeki yeni yapılarda KMK Madde 34 gereğince ilk Kat Malikleri Genel Kurulu organize edilir, yönetim planı tescil edilir ve yasal işletme projesi hazırlanır.`,
+      topic: 'KMK_634',
+    });
+  }
+
+  // 3. Aidat & Tasarruf
+  faqs.push({
+    question: `${dName} tesis yönetimi şirketiyle çalışmak aidat maliyetini nasıl etkiler?`,
+    answer: `Toplu enerji alımları, periyodik asansör/jeneratör koruyucu bakımı ve merkezi tedarik anlaşmaları sayesinde ${dName} genelindeki tesislerde genel giderlerde %20 ile %30 arasında somut tasarruf sağlanır.`,
+    topic: 'COST_SAVINGS',
+  });
+
+  // 4. Hukuki Güvence
+  faqs.push({
+    question: `${dName} sitelerinde geciken aidatlara hangi yasal faiz uygulanır?`,
+    answer: `634 sayılı KMK Madde 20/2 uyarınca geciken aidatlara aylık %5 yasal gecikme tazminatı işletilir. Alo Yönetim hukuk müşavirliği icra süreçlerini sulh içinde ve şeffafça yürütür.`,
+    topic: 'KMK_634',
+  });
+
+  // 5. E-E-A-T Akreditasyon & Kalite Standartları
+  faqs.push({
+    question: `${dName} bölgesinde Alo Yönetim hangi akreditasyon ve kalite standartlarıyla hizmet verir?`,
+    answer: `Alo Yönetim, ${dName} genelinde ISO 41001 Entegre Tesis Yönetimi, ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 10002, TSE HYB 12850 ve 5188 lisanslı güvenlik belgeleriyle akredite hizmet sunmaktadır.`,
+    topic: 'TECHNICAL_SLA',
+  });
+
+  const schema = faqPageSchema(faqs);
+
+  return {
+    districtName: dName,
+    districtSlug: district.slug,
+    facilityContext: `${isAnadolu ? 'Anadolu Yakası' : 'Avrupa Yakası'} — ${dName} Tesis Yönetimi`,
+    faqs,
+    schema,
+  };
+}
+
+export interface SynthesizedNeighborhoodFaqResult {
+  districtName: string;
+  districtSlug: string;
+  neighborhoodName: string;
+  neighborhoodSlug: string;
+  facilityContext: string;
+  faqs: SynthesizedFaqItem[];
+  schema: JsonLdObject | null;
+}
+
+/**
+ * Mahalle düzeyinde dinamik, hiper-yerel ve benzersiz SSS JSON-LD şemaları sentezler.
+ */
+export function synthesizeNeighborhoodFacilityFaq(
+  districtSlug: string = 'kadikoy',
+  neighborhoodSlug: string = 'moda'
+): SynthesizedNeighborhoodFaqResult {
+  const district = getDistrict(districtSlug) || { name: 'Kadıköy', slug: 'kadikoy', side: 'Anadolu', neighborhoods: [], neighborhoodData: [] as NeighborhoodInfo[] };
+  const dName = district.name;
+  const isAnadolu = district.side === 'Anadolu';
+
+  const neighborhood = district.neighborhoodData?.find((n) => n.slug === neighborhoodSlug) || {
+    slug: neighborhoodSlug,
+    name: neighborhoodSlug.charAt(0).toUpperCase() + neighborhoodSlug.slice(1),
+    intro: `${dName} ilçesinde merkezi bir mahalle.`,
+    characteristics: ['Konut ve ticaret alanları'],
+  };
+
+  const nName = neighborhood.name;
+  const charText = neighborhood.characteristics && neighborhood.characteristics.length > 0
+    ? neighborhood.characteristics.slice(0, 2).join(' ve ')
+    : 'apartman ve site';
+
+  const faqs: SynthesizedFaqItem[] = [
+    // 1. Yerel Müdahale ve Mobil SLA
+    {
+      question: `${nName} Mahallesi (${dName}) için acil teknik servis müdahale süresi nedir?`,
+      answer: `Alo Yönetim mobil teknik ekipleri, ${dName} ${nName} Mahallesi lokasyonundaki site ve binalara ortalama 30-45 dakika içinde yerinde müdahale sağlamaktadır. 7/24 kesintisiz arıza SLA garantisi sunulur.`,
+      topic: 'TECHNICAL_SLA',
+    },
+    // 2. Mahalle Karakteristiğine Özel Hizmet
+    {
+      question: `${nName} Mahallesi'ndeki ${charText} yapılarda profesyonel tesis yönetimi neleri kapsar?`,
+      answer: `${nName} Mahallesi mimari ve sosyal dokusuna uygun olarak; 634 sayılı KMK uyarınca bina/site yöneticiliği, asansör ve hidrofor periyodik bakımı, TSE hijyen onaylı temizlik ve 5188 sayılı kanun standartlarında güvenlik entegre olarak yönetilir.`,
+      topic: 'KMK_634',
+    },
+    // 3. Şeffaf Aidat ve Mali Yönetim
+    {
+      question: `${nName} Mahallesi'nde bina ve site aidatları nasıl yönetilir?`,
+      answer: `KMK Madde 37'ye uygun yıllık işletme projesi hazırlanır. Bağımsız bölüm sakinleri mobil uygulama üzerinden aidatlarını güvenle öder, hesap hareketleri ve harcama belgeleri 7/24 şeffaf olarak denetlenebilir.`,
+      topic: 'COST_SAVINGS',
+    },
+    // 4. E-E-A-T Kalite ve Akreditasyon
+    {
+      question: `${nName} bölgesinde Alo Yönetim hangi resmi kalite sertifikaları ile hizmet verir?`,
+      answer: `Alo Yönetim, ${dName} ${nName} Mahallesi genelinde ISO 41001 Entegre Tesis Yönetimi, ISO 9001, ISO 14001, ISO 45001, ISO 27001, TSE HYB 12850 ve 5188 lisanslı güvenlik belgeleriyle akredite hizmet sunar.`,
+      topic: 'TECHNICAL_SLA',
+    },
+  ];
+
+  const schema = faqPageSchema(faqs);
+
+  return {
+    districtName: dName,
+    districtSlug: district.slug,
+    neighborhoodName: nName,
+    neighborhoodSlug: neighborhood.slug,
+    facilityContext: `${isAnadolu ? 'Anadolu Yakası' : 'Avrupa Yakası'} — ${dName} / ${nName} Mahallesi Tesis Yönetimi`,
+    faqs,
+    schema,
+  };
+}
+

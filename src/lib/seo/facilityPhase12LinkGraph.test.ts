@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { GROUP_COMPANIES_ECOSYSTEM, generateGroupCompaniesSchema, renderGroupCompanyLink } from './facilityGroupAndLegalEcosystem';
-import { OFFICIAL_LEGAL_CITATIONS, generateExternalCitationsSchema, renderExternalCitationLink } from './facilityExternalCitations';
-import { getCrossServiceLinks } from './facilityCrossServiceLinker';
-import { buildFacilityCompleteLinkGraph } from './facilityLinkGraphBuilder';
+import { GROUP_COMPANIES_ECOSYSTEM, generateGroupCompaniesSchema, renderGroupCompanyLink } from './facility/facilityGroupAndLegalEcosystem';
+import { OFFICIAL_LEGAL_CITATIONS, generateExternalCitationsSchema, renderExternalCitationLink } from './facility/facilityExternalCitations';
+import { getCrossServiceLinks } from './facility/facilityCrossServiceLinker';
+import { buildFacilityCompleteLinkGraph } from './facility/facilityLinkGraphBuilder';
 import { GROUP_COMPANIES, ORG_SAME_AS } from '@/lib/schemas';
 
 describe('Grup Şirketleri, Resmi Mevzuat & İç/Dış Linkleme Mimarisi (Faz 12)', () => {

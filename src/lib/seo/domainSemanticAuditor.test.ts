@@ -9,7 +9,7 @@ import {
   getTopicalDepthGrade,
   generateSemanticContentBriefing,
   comparePageSemanticDepth,
-} from './domainSemanticAuditor';
+} from './audits/domainSemanticAuditor';
 
 describe('Semantik LSI & Topikal Derinlik Analizcisi (domainSemanticAuditor.test.ts)', () => {
   describe('1. LSI Grup Tanımları ve Veri Bütünlüğü (Faz 11-33)', () => {

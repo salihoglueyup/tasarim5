@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import robots from '@/app/robots';
-import { resolveSmartRedirect, STATIC_ROUTE_SYNONYMS } from '@/lib/seo/smartRedirect';
+import { resolveSmartRedirect, STATIC_ROUTE_SYNONYMS } from '@/lib/seo/indexing/smartRedirect';
 import { DISTRICTS } from '@/data/districts';
 
 describe('Google Search Console 2000+ İndeks İyileştirme ve Hata Düzeltme Paketi', () => {

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
-import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
+import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 import { BASE_URL } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';

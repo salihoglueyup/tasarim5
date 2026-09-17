@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import {
   generateFacilityContentHash,
   buildFacilityEdgeHeaders,
-} from './facilityEdgeOptimizer';
-import { runFacilityAutonomousAudit } from './facilityAutonomousAuditor';
+} from './facility/facilityEdgeOptimizer';
+import { runFacilityAutonomousAudit } from './facility/facilityAutonomousAuditor';
 
 describe('Tesis Yönetimi İleri Düzey Backend SEO Motorları', () => {
   describe('Edge & Bot Crawler Optimizer (facilityEdgeOptimizer.ts)', () => {

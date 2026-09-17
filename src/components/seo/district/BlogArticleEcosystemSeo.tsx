@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { resolveBlogArticleCluster } from '@/lib/seo/facilityBlogClusterEngine';
+import { resolveBlogArticleCluster } from '@/lib/seo/facility/facilityBlogClusterEngine';
 
 interface BlogArticleEcosystemSeoProps {
   title: string;

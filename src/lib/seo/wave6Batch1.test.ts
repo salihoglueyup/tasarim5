@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
-import { generateFacilityAiSnippets } from './facilityAiSnippetEngine';
+import { generateFacilityAiSnippets } from './facility/facilityAiSnippetEngine';
 import { blogPostingSchema } from '../schemas/articles';
 import { webPageSchema } from '../schemas/misc';
 import { serviceSchema } from '../schemas/services';

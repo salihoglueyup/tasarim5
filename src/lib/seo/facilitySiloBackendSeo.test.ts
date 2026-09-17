@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { buildFacilitySubSectorGraphSchema } from './facilityCompleteGraphBuilder';
-import { resolveFacilitySiloHierarchy, FACILITY_SUB_SECTORS } from './facilitySiloRankPasser';
+import { buildFacilitySubSectorGraphSchema } from './facility/facilityCompleteGraphBuilder';
+import { resolveFacilitySiloHierarchy, FACILITY_SUB_SECTORS } from './facility/facilitySiloRankPasser';
 import { FACILITY_MANAGEMENT_ENTITIES } from '@/lib/seoEngine';
 
 describe('Tesis ve Mülk Hizmetleri Silo PageRank & Alt Sektör @graph Motoru (Faz 9)', () => {

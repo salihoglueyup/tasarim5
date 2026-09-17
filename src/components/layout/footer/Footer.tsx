@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
 import AppBadges from '@/components/ui/branding/AppBadges';
 import { waLink } from '@/lib/cro';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 // Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
 const NewsletterForm = dynamic(() => import('./NewsletterForm'), { ssr: false });

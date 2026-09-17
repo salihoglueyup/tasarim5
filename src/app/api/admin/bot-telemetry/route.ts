@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getBotTelemetrySummary } from '@/lib/seo/botTracker';
+import { getBotTelemetrySummary } from '@/lib/seo/bots/botTracker';
 
 export const dynamic = 'force-dynamic';
 

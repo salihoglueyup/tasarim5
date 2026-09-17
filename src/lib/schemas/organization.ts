@@ -22,7 +22,7 @@ import {
   BASE_URL,
   abs,
 } from './constants';
-import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export function organizationSchema(): JsonLdObject {
   return {

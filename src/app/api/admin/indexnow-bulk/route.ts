@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { pushFacilityUrlsBulkToIndexNow } from '@/lib/seo/indexNowQueue';
+import { pushFacilityUrlsBulkToIndexNow } from '@/lib/seo/indexing/indexNowQueue';
 
 export const dynamic = 'force-dynamic';
 

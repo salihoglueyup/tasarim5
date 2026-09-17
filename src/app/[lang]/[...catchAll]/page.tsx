@@ -1,5 +1,5 @@
 import { notFound, permanentRedirect } from 'next/navigation';
-import { resolveSmartRedirect } from '@/lib/seo/smartRedirect';
+import { resolveSmartRedirect } from '@/lib/seo/indexing/smartRedirect';
 
 export default async function CatchAll({
   params,

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { resolveBlogArticleCluster } from './facilityBlogClusterEngine';
+import { resolveBlogArticleCluster } from './facility/facilityBlogClusterEngine';
 
 describe('Blog İç/Dış Linkleme, Topikal Otorite Kümeleri & E-E-A-T Mimarisi (Faz 14)', () => {
   describe('facilityBlogClusterEngine.ts (Blog Makalesi Akıllı Kümeleme Motoru)', () => {

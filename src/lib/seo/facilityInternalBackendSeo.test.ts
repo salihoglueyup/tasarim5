@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { buildFacilityCompleteGraphSchema } from './facilityCompleteGraphBuilder';
+import { buildFacilityCompleteGraphSchema } from './facility/facilityCompleteGraphBuilder';
 import { FACILITY_MANAGEMENT_ENTITIES, resolveTopicalEntityGraph } from '@/lib/seoEngine';
-import { generateFacilityManagementGraph } from './facilityTopicGraph';
+import { generateFacilityManagementGraph } from './facility/facilityTopicGraph';
 
 describe('Tesis Yönetimi Doğrudan İç Backend SEO & Knowledge Graph Motorları (Faz 8)', () => {
   describe('Birleşik Schema.org @graph Mimarisi (buildFacilityCompleteGraphSchema)', () => {

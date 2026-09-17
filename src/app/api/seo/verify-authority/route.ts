@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { VERIFIED_AUTHORITY_CREDENTIALS, generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
+import { VERIFIED_AUTHORITY_CREDENTIALS, generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Günde bir yenile (ISR)

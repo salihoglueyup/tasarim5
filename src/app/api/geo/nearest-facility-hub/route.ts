@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { findNearestFacilityHub } from '@/lib/seo/edgeGeoResolver';
+import { findNearestFacilityHub } from '@/lib/seo/indexing/edgeGeoResolver';
 
 export const dynamic = 'force-dynamic';
 

@@ -15,7 +15,7 @@ import {
   buildCitationList,
   CORPORATE_CREDENTIALS,
   CORPORATE_MEMBERSHIPS,
-} from './dualCoreKnowledgePanelEngine';
+} from './dual-core/dualCoreKnowledgePanelEngine';
 
 describe('BÖLÜM H — 🌐 Google Knowledge Panel & Varlık Grafiği (dualCoreKnowledgePanelEngine.test.ts)', () => {
   /* =========================================================================

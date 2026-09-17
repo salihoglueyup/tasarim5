@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { simulateFacilityPageRank } from './facilityPageRankSimulationEngine';
-import { GROUP_COMPANIES_ECOSYSTEM } from './facilityGroupAndLegalEcosystem';
-import { FACILITY_SUB_SECTORS } from './facilitySiloRankPasser';
-import { OFFICIAL_LEGAL_CITATIONS } from './facilityExternalCitations';
+import { simulateFacilityPageRank } from './facility/facilityPageRankSimulationEngine';
+import { GROUP_COMPANIES_ECOSYSTEM } from './facility/facilityGroupAndLegalEcosystem';
+import { FACILITY_SUB_SECTORS } from './facility/facilitySiloRankPasser';
+import { OFFICIAL_LEGAL_CITATIONS } from './facility/facilityExternalCitations';
 
 describe('İç ve Dış Linkleme Derin Ağ Mimarisi & PageRank Simülatörü (Faz 13)', () => {
   describe('facilityPageRankSimulationEngine.ts (PageRank Dağılımı ve Akış Simülasyonu)', () => {

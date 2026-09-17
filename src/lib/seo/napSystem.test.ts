@@ -4,7 +4,7 @@ import {
   generateLocalBusinessJsonLd,
   generateNapGeoJson,
   validateNapIntegrity,
-} from './napGuardEngine';
+} from './audits/napGuardEngine';
 import {
   ORG_NAME,
   ORG_LEGAL_NAME,

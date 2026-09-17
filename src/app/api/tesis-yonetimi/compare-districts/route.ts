@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { compareFacilityDistricts } from '@/lib/seo/facilityDistrictComparator';
+import { compareFacilityDistricts } from '@/lib/seo/facility/facilityDistrictComparator';
 
 export const dynamic = 'force-dynamic';
 

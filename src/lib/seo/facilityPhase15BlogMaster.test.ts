@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { POSTS, CATEGORIES } from '@/data/posts';
-import { resolveBlogArticleCluster } from './facilityBlogClusterEngine';
+import { resolveBlogArticleCluster } from './facility/facilityBlogClusterEngine';
 
 describe('Tesis ve Mülk Yönetimi Amiral Blog Makaleleri & Hukuk Kütüphanesi (Faz 15)', () => {
   const FLAGSHIP_SLUGS = [

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { buildFacilityAuthorityCorpus } from '@/lib/seo/facilityAuthorityCorpusEngine';
+import { buildFacilityAuthorityCorpus } from '@/lib/seo/facility/facilityAuthorityCorpusEngine';
 
 export const dynamic = 'force-dynamic';
 

@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { BASE_URL } from '@/lib/seo';
-import { generateFacilityManagementGraph } from '@/lib/seo/facilityTopicGraph';
-import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
+import { generateFacilityManagementGraph } from '@/lib/seo/facility/facilityTopicGraph';
+import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 
 export const dynamic = 'force-dynamic';
 

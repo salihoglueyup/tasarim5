@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAiCrawlerAnalytics } from '@/lib/seo/aiBotTelemetry';
+import { getAiCrawlerAnalytics } from '@/lib/seo/bots/aiBotTelemetry';
 
 export const dynamic = 'force-dynamic';
 

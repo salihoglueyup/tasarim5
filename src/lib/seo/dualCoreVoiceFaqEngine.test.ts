@@ -8,7 +8,7 @@ import {
   buildQAPageSchema,
   getVoiceFaqByIntent,
   getTopVoiceFaqs,
-} from './dualCoreVoiceFaqEngine';
+} from './dual-core/dualCoreVoiceFaqEngine';
 
 describe('Çift Çekirdekli Sesli Arama & FAQ Motoru (dualCoreVoiceFaqEngine.test.ts)', () => {
   describe('1. Soru-Cevap Bankası Bütünlüğü (Faz 106-148)', () => {
