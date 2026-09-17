@@ -17,7 +17,7 @@ interface ServiceTruthSpec {
   keyPoints: { label: string; value: string }[];
 }
 
-const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
+export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
   'guvenlik-yonetimi': {
     question: 'Sitelerde 5188 Sayılı Kanun Kapsamında Özel Güvenlik Nasıl Sağlanır ve Yetkileri Nelerdir?',
     answer:
@@ -81,6 +81,32 @@ const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
       { label: 'pH Seviyesi', value: '7.2 - 7.6 Dengesi' },
       { label: 'Günlük Ölçüm', value: 'Günde En Az 3 Defa Panoda' },
       { label: 'Laboratuvar', value: 'Aylık Mikrobiyolojik Analiz' },
+    ],
+  },
+  'site-yonetimi': {
+    question: 'Apartman ve Site Yönetim Şirketleri Nasıl Çalışır ve KMK 35 Yasal Görevleri Nelerdir?',
+    answer:
+      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 34 uyarınca site yöneticisi kat malikleri kurulunun hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile seçilir. Yöneticinin KMK Madde 35 kapsamındaki yasal görevleri; yıllık tahmini işletme projesini (KMK 37) hazırlayıp tebliğ etmek, site adına banka hesabı açmak, aidat avanslarını toplamak, geciken ödemelere aylık %5 gecikme tazminatı işletmek ve genel kurul divanını sevk ve idare etmektir.',
+    legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 34, 35, 37 & İİK Madde 68',
+    badge: 'KMK 34 & 35 Uyumlu',
+    keyPoints: [
+      { label: 'Seçim Nisabı', value: 'Sayı ve Arsa Payı %50+1' },
+      { label: 'Yasal Görev', value: 'KMK 35 Şeffaf İşletim' },
+      { label: 'İşletme Projesi', value: 'KMK 37 (7 Günde Kesinleşme)' },
+      { label: 'Tasarruf', value: '%30 Net Bütçe Tasarrufu' },
+    ],
+  },
+  'tesis-yonetimi': {
+    question: 'Entegre Tesis Yönetimi Nedir ve ISO 41001 Standartları Neleri Kapsar?',
+    answer:
+      'Entegre tesis yönetimi; rezidans, AVM, iş merkezi ve karma yaşam projelerinde uluslararası ISO 41001:2018 standardında teknik bakım, 5188 özel güvenlik, endüstriyel temizlik, enerji otomasyonu (BMS) ve bütçe yönetimini tek çatı altında optimize eden kurumsal disiplindir. Alo Yönetim, 340+ aktif tesiste kurumsal SLA garantileri ve %0 reaktif ceza güvencesiyle 360 derece kesintisiz operasyon yürütmektedir.',
+    legalBasis: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi & TÜRKAK',
+    badge: 'ISO 41001 Akredite',
+    keyPoints: [
+      { label: 'Uluslararası Standart', value: 'ISO 41001:2018' },
+      { label: 'Operasyon Alanı', value: 'Teknik, Güvenlik, Hijyen' },
+      { label: 'Enerji Yönetimi', value: '%0 Reaktif Ceza & Otomasyon' },
+      { label: 'Acil İntikal', value: '15-20 Dk Mobil Teknik Filo' },
     ],
   },
 };
