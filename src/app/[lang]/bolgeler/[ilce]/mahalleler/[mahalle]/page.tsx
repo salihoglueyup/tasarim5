@@ -6,6 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import PageHeader from '@/components/layout/PageHeader';
 import { DynamicFAQ } from '@/components';
+import NeighborhoodAiOverviewSnippetSeo from '@/components/seo/NeighborhoodAiOverviewSnippetSeo';
 import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_PHONE, ORG_EMAIL, ORG_LOGO, ORG_ADDRESS, ORG_PRICE_RANGE } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES } from '@/data/services';
@@ -188,7 +189,7 @@ export default async function NeighborhoodPage({
     name: `${neighborhood.name}, ${district.name} Tesis Yönetimi`,
     description: neighborhood.intro,
     path,
-    speakableSelectors: ['.neighborhood-intro', 'h1'],
+    speakableSelectors: ['#neighborhood-instant-answer-text', '.neighborhood-intro', 'h1'],
   });
 
   const faqLd = faqPageSchema(faqs);
@@ -210,6 +211,15 @@ export default async function NeighborhoodPage({
       />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-6xl mx-auto flex flex-col gap-16">
+        {/* Google AI Overviews & SGE Mahalle Düzeyi Grounding */}
+        <NeighborhoodAiOverviewSnippetSeo
+          neighborhoodName={neighborhood.name}
+          districtName={district.name}
+          districtSlug={district.slug}
+          side={district.side}
+          characteristics={neighborhood.characteristics}
+        />
+
         {/* Neighborhood Intro */}
         <div className="neighborhood-intro bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-12 rounded-[2.5rem]">
           <div className="flex flex-wrap gap-2 mb-6">

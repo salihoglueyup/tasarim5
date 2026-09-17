@@ -126,3 +126,6 @@ export { default as PositionZeroAnswerBox } from './PositionZeroAnswerBox';
 export { default as FacilityEcosystemMatrixSeo } from './FacilityEcosystemMatrixSeo';
 export { default as GoogleAiOverviewGroundingSeo } from './GoogleAiOverviewGroundingSeo';
 export { default as DistrictAiOverviewSnippetSeo } from './DistrictAiOverviewSnippetSeo';
+export { default as NeighborhoodAiOverviewSnippetSeo } from './NeighborhoodAiOverviewSnippetSeo';
+export { default as FacilityLegalClaimReviewsSeo } from './FacilityLegalClaimReviewsSeo';
+export { default as AiOverviewStepSolverSeo } from './AiOverviewStepSolverSeo';
