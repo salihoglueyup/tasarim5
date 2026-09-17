@@ -14,7 +14,7 @@ import KMKLegalProcessHowToSeo from '@/components/seo/KMKLegalProcessHowToSeo';
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/KMKLegalTemplateGeneratorSeo';
 import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo, PositionZeroAnswerBox } from '@/components/seo';
+import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo, PositionZeroAnswerBox, KMKLawCourtDisputeMatrixSeo } from '@/components/seo';
 
 export default function HukukVeIcraDanismanligiClient() {
   const { t } = useLanguage();
@@ -370,6 +370,9 @@ export default function HukukVeIcraDanismanligiClient() {
 
         {/* İcra İtirazının İptali ve %20 İcra İnkar Tazminatı Rehberi (Faz 15) */}
         <FacilityEnforcementDisputeSeo />
+
+        {/* Google AI Overviews & Kat Mülkiyeti 6 Temel Dava Türü & Mahkeme Matrisi */}
+        <KMKLawCourtDisputeMatrixSeo />
 
         {/* Legal Specific Social Proof */}
         <LegalTestimonials />
