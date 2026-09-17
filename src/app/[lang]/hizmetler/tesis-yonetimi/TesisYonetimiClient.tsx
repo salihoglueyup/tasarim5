@@ -37,6 +37,7 @@ import {
   PositionZeroAnswerBox,
   FacilityEcosystemMatrixSeo,
   GoogleAiOverviewGroundingSeo,
+  FacilityLegalClaimReviewsSeo,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/CaseStudySeo';
@@ -575,6 +576,9 @@ export default function TesisYonetimiClient() {
 
           {/* Sitelerde 6331 İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi (Faz 15) */}
           <FacilityOccupationalHealthSafetySeo />
+
+          {/* Google Fact Check & AI Tesis Doğrulamaları (ClaimReview) */}
+          <FacilityLegalClaimReviewsSeo />
 
           {/* Sıkça Sorulan Sorular */}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
