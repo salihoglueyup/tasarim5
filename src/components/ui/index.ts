@@ -48,6 +48,4 @@ export { default as QuoteCtaButton } from './QuoteCtaButton';
 export { default as TldrBlock } from './TldrBlock';
 export { default as PdfDownloadBadge } from './PdfDownloadBadge';
 
-// Modal Re-exports (Geriye Dönük Uyumluluk)
-export { default as QuoteModal } from './QuoteModal';
-export { default as SpotlightSearchModal } from './SpotlightSearchModal';
+// Core UI & Primitives complete

@@ -17,14 +17,22 @@ describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 75)', () => {
   });
 
   it('QuoteModal.tsx Framer Motion içermez ve hafif CSS geçişleri kullanır (Faz 52)', () => {
-    const quoteContent = fs.readFileSync(path.join(uiDir, 'QuoteModal.tsx'), 'utf-8');
+    const modalsDir = path.resolve(process.cwd(), 'src/components/modals');
+    const quotePath = fs.existsSync(path.join(modalsDir, 'QuoteModal.tsx'))
+      ? path.join(modalsDir, 'QuoteModal.tsx')
+      : path.join(uiDir, 'QuoteModal.tsx');
+    const quoteContent = fs.readFileSync(quotePath, 'utf-8');
     expect(quoteContent).not.toContain("from 'framer-motion'");
     expect(quoteContent).toContain('transform-gpu');
     expect(quoteContent).toContain('aria-modal="true"');
   });
 
   it('SpotlightSearchModal.tsx Framer Motion içermez, arama dizgisi önceden tokenize edilmiştir (Faz 53)', () => {
-    const searchContent = fs.readFileSync(path.join(uiDir, 'SpotlightSearchModal.tsx'), 'utf-8');
+    const modalsDir = path.resolve(process.cwd(), 'src/components/modals');
+    const searchPath = fs.existsSync(path.join(modalsDir, 'SpotlightSearchModal.tsx'))
+      ? path.join(modalsDir, 'SpotlightSearchModal.tsx')
+      : path.join(uiDir, 'SpotlightSearchModal.tsx');
+    const searchContent = fs.readFileSync(searchPath, 'utf-8');
     expect(searchContent).not.toContain("from 'framer-motion'");
     expect(searchContent).toContain('searchIndex');
     expect(searchContent).not.toMatch(/setTimeout\s*\(/);

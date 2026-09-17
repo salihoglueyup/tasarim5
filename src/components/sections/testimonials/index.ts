@@ -1,0 +1,12 @@
+export { default as CleaningTestimonials } from './CleaningTestimonials';
+export { default as DuesTestimonials } from './DuesTestimonials';
+export { default as FacilityTestimonials } from './FacilityTestimonials';
+export { default as LandscapeTestimonials } from './LandscapeTestimonials';
+export { default as LegalTestimonials } from './LegalTestimonials';
+export { default as MaintenanceTestimonials } from './MaintenanceTestimonials';
+export { default as PestControlTestimonials } from './PestControlTestimonials';
+export { default as PoolTestimonials } from './PoolTestimonials';
+export { default as SecurityTestimonials } from './SecurityTestimonials';
+export { default as ServiceTestimonialsShared } from './ServiceTestimonialsShared';
+export * from './ServiceTestimonialsShared';
+export { default as TestimonialSlider } from './TestimonialSlider';

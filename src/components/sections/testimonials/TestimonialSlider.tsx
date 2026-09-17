@@ -1,0 +1,217 @@
+"use client";
+
+import { useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
+
+export default function TestimonialSlider({
+  dbReferences
+}: {
+  dbReferences?: {
+    id: string;
+    testimonialAuthor: string | null;
+    testimonialText: string | null;
+    title: string;
+    units: string;
+    location: string;
+    image: string | null;
+    category: string;
+  }[]
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useLanguage();
+
+  const fallbackTestimonials = [
+    {
+      id: "1",
+      name: "Ahmet Yılmaz",
+      title: t('home_testimonial_1_title'),
+      site: "Lalezar Konakları (240 Daire)",
+      location: "Kadıköy, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_1_comment'),
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "2",
+      name: "Ayşe Kaya",
+      title: t('home_testimonial_2_title'),
+      site: "Sapphire Residence (180 Daire)",
+      location: "Ataşehir, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_2_comment'),
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "3",
+      name: "Mehmet Demir",
+      title: t('home_testimonial_3_title'),
+      site: "Marina Towers (320 Daire)",
+      location: "Kartal, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_3_comment'),
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "4",
+      name: "Selin Öztürk",
+      title: t('home_testimonial_4_title'),
+      site: "Koru Park Evleri (95 Daire)",
+      location: "Ümraniye, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_4_comment'),
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "5",
+      name: "Mustafa Çelik",
+      title: t('home_testimonial_5_title'),
+      site: "Vadi Panorama Projesi (410 Daire)",
+      location: "Sarıyer, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_5_comment'),
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "6",
+      name: "Zeynep Arslan",
+      title: t('home_testimonial_6_title'),
+      site: "Akasya Evleri (150 Daire)",
+      location: "Bakırköy, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_6_comment'),
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "7",
+      name: "Burak Şahin",
+      title: t('home_testimonial_7_title'),
+      site: "Horizon Plaza & Loft (210 Daire)",
+      location: "Şişli, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_7_comment'),
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      id: "8",
+      name: "Canan Erdem",
+      title: t('home_testimonial_8_title'),
+      site: "Yeşiltepe Sitesi (130 Daire)",
+      location: "Maltepe, İstanbul",
+      rating: 5,
+      comment: t('home_testimonial_8_comment'),
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+    }
+  ];
+
+  const dbMapped = dbReferences && dbReferences.length > 0 
+    ? dbReferences
+        .filter(r => r.testimonialText && r.testimonialAuthor)
+        .map(r => ({
+          id: r.id,
+          name: r.testimonialAuthor!,
+          title: "Site Sakini / Kat Maliki",
+          site: `${r.title} (${r.units} Daire)`,
+          location: r.location,
+          rating: 5,
+          comment: r.testimonialText!,
+          avatar: r.image || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+        }))
+    : [];
+
+  const testimonials = dbMapped.length > 0 ? dbMapped : fallbackTestimonials;
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const current = testimonials[currentIndex];
+
+  return (
+    <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto overflow-hidden">
+      <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
+        <div>
+          <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
+            {t('home_testimonial_badge')}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
+            {t('home_testimonial_title')}
+          </h2>
+        </div>
+
+        {/* Carousel Controls */}
+        <div className="flex items-center gap-3">
+          <button 
+            onClick={prevTestimonial}
+            className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
+            aria-label="Önceki Yorum"
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+          </button>
+          <span className="text-sm font-bold text-[var(--color-secondary)] px-2">
+            {currentIndex + 1} / {testimonials.length}
+          </span>
+          <button 
+            onClick={nextTestimonial}
+            className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
+            aria-label="Sonraki Yorum"
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Faz 32: AnimatePresence yerine Zero-Jank Donanım Hızlandırmalı Kart Geçişi */}
+      <div 
+        key={current.id}
+        className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-10 md:p-16 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative overflow-hidden transition-all duration-300 transform-gpu animate-fade-in"
+      >
+        
+        <div className="lg:col-span-8 flex flex-col gap-8">
+          <div className="flex items-center gap-1 text-amber-500">
+            {[...Array(current.rating)].map((_, i) => (
+              <span key={i} className="material-symbols-outlined text-2xl fill-current">star</span>
+            ))}
+          </div>
+
+          <blockquote className="text-2xl md:text-3xl text-[var(--color-primary)] font-light leading-relaxed italic">
+            &quot;{current.comment}&quot;
+          </blockquote>
+
+          <div className="flex items-center gap-4">
+            <Image
+              src={current.avatar}
+              alt={current.name}
+              width={64}
+              height={64}
+              sizes="64px"
+              quality={75}
+              className="w-16 h-16 rounded-full object-cover border-2 border-slate-900 dark:border-white"
+            />
+            <div>
+              <h3 className="text-xl font-bold text-[var(--color-primary)]">{current.name}</h3>
+              <p className="text-sm text-[var(--color-secondary)] font-semibold">{current.title} • {current.site}</p>
+              <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{current.location}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-8 rounded-[2rem] flex flex-col gap-4 shadow-xs">
+          <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
+            <span className="material-symbols-outlined" aria-hidden="true">verified</span>
+            {t('home_testimonial_verified')}
+          </div>
+          <div className="text-xs text-[var(--color-secondary)] leading-relaxed">
+            {t('home_testimonial_verified_desc_1')}{current.site}{t('home_testimonial_verified_desc_2')}
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  );
+}

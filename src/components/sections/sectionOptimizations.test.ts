@@ -19,7 +19,8 @@ describe('Wave 2: Bölüm ve Bileşen Optimizasyonları (Faz 26 - Faz 50)', () =
     ];
 
     calculators.forEach((calcFile) => {
-      const filePath = path.join(sectionsDir, calcFile);
+      const subPath = path.join(sectionsDir, 'calculators', calcFile);
+      const filePath = fs.existsSync(subPath) ? subPath : path.join(sectionsDir, calcFile);
       const content = fs.readFileSync(filePath, 'utf-8');
       expect(content).not.toContain("from 'framer-motion'");
       expect(content).not.toContain('from "framer-motion"');
@@ -41,7 +42,8 @@ describe('Wave 2: Bölüm ve Bileşen Optimizasyonları (Faz 26 - Faz 50)', () =
     ];
 
     testimonialFiles.forEach((testiFile) => {
-      const filePath = path.join(sectionsDir, testiFile);
+      const subPath = path.join(sectionsDir, 'testimonials', testiFile);
+      const filePath = fs.existsSync(subPath) ? subPath : path.join(sectionsDir, testiFile);
       const content = fs.readFileSync(filePath, 'utf-8');
       expect(content).toContain('ServiceTestimonialsShared');
       expect(content).toContain('Object.freeze');

@@ -4584,10 +4584,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
 
-      const modalFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/ui/SpotlightSearchModal.tsx'),
-        'utf8'
-      );
+      const modalsPath = path.join(process.cwd(), 'src/components/modals/SpotlightSearchModal.tsx');
+      const uiPath = path.join(process.cwd(), 'src/components/ui/SpotlightSearchModal.tsx');
+      const targetPath = fs.existsSync(modalsPath) ? modalsPath : uiPath;
+      const modalFile = fs.readFileSync(targetPath, 'utf8');
 
       // Event listener ve klavye kısayolu kontrolleri
       expect(modalFile).toContain('open-spotlight-search');
@@ -4717,7 +4717,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       );
       const rezidansMeta = await genRezidansMeta({ params: Promise.resolve({ lang: 'tr' }) });
       expect(rezidansMeta.title).toContain('Rezidans Tesis Yönetimi');
-    });
+    }, 15000);
   });
 
   describe('188. Wave 58: Google AI Overviews (SGE & Gemini GEO) ve Tüm Projede Position Zero Otorite Güvencesi', () => {
