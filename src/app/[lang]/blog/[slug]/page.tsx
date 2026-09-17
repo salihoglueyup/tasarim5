@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
 import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo, ArticleAiOverviewCard, BlogAiTakeawaysSeo } from '@/components/seo';
 import TableOfContents from '@/components/blog/TableOfContents';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
 import {
   generateBreadcrumbs,
@@ -14,7 +14,7 @@ import {
   webPageSchema,
 } from '@/lib/schemas';
 import { parseTags } from '@/lib/jsonSafe';
-import BlogFAQExtractor from '@/components/seo/BlogFAQExtractor';
+import BlogFAQExtractor from '@/components/seo/district/BlogFAQExtractor';
 import { LOCALES, buildMetadata, BASE_URL } from '@/lib/seo';
 import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
 import type { Metadata } from 'next';

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Wave 5: Faz 116 - Faz 120 Medya & Görsel Optimizasyonları', () => {
-  const pdfBadgePath = path.resolve(process.cwd(), 'src/components/ui/PdfDownloadBadge.tsx');
+  const pdfBadgePath = path.resolve(process.cwd(), 'src/components/ui/widgets/PdfDownloadBadge.tsx');
   const certSlugPath = path.resolve(process.cwd(), 'src/app/[lang]/kurumsal/sertifikalar/[slug]/page.tsx');
   const ogRoutePath = path.resolve(process.cwd(), 'src/app/api/og/route.tsx');
   const layoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');

@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 import SectoralClient from './SectoralClient';
 import { buildMetadata } from '@/lib/seo';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { SectorHubAiOverviewSeo } from '@/components/seo';
 

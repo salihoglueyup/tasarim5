@@ -12,8 +12,8 @@ import {
   FacilitySubSectorCrossNav,
   AiOverviewStepSolverSeo,
 } from '@/components/seo';
-import RelatedServices from '@/components/sections/RelatedServices';
-import PreFooterCta from '@/components/sections/PreFooterCta';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
+import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
 const SEVEN_FATAL_MISTAKES = [
   {

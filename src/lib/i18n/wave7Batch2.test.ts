@@ -6,7 +6,7 @@ import { getFacilitySerpMeta } from '../seo/facilitySerpOptimizer';
 
 describe('Wave 7: Faz 156 - Faz 160 İngilizce Sözlük, RU/AR SERP Meta, Rota Koruma, NEXT_LOCALE & Akıllı Dil Bannerı', () => {
   const middlewarePath = path.resolve(process.cwd(), 'src/middleware.ts');
-  const bannerPath = path.resolve(process.cwd(), 'src/components/ui/LanguageSuggestionBanner.tsx');
+  const bannerPath = path.resolve(process.cwd(), 'src/components/ui/widgets/LanguageSuggestionBanner.tsx');
 
   it('Faz 156: dictionaryEn.ts temel sektör terimlerini ve arama fonksiyonunu içerir', () => {
     expect(ENGLISH_TERMS.length).toBeGreaterThanOrEqual(10);

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';

@@ -1,14 +1,14 @@
 "use client";
 
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import { Card } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
-import PestControlCalculator from '@/components/sections/PestControlCalculator';
-import PestControlTestimonials from '@/components/sections/PestControlTestimonials';
+import PestControlCalculator from '@/components/sections/calculators/PestControlCalculator';
+import PestControlTestimonials from '@/components/sections/testimonials/PestControlTestimonials';
 import Image from 'next/image';
 import { ServiceAuthorityHubSeo, FacilityBiocidalPestGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 

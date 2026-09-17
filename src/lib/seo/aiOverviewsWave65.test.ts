@@ -5,7 +5,7 @@ import {
   ServiceAiOverviewSnippetSeo,
   CaseStudyAiGroundingSeo,
 } from '@/components/seo';
-import { SERVICE_GROUND_TRUTH } from '@/components/seo/ServiceAiOverviewSnippetSeo';
+import { SERVICE_GROUND_TRUTH } from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
 import { GET as getCorporateDna } from '@/app/api/seo/corporate-dna.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';

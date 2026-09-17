@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import GizlilikPolitikasiClient from './GizlilikPolitikasiClient';
 

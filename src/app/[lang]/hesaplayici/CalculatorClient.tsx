@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';

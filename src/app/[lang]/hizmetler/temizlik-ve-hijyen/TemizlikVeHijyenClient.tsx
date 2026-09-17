@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from 'react';
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import { InstantAnswerCardSeo, InteractiveCleaningAuditRadarSeo } from '@/components/seo';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
-import CleaningCalculator from '@/components/sections/CleaningCalculator';
-import CleaningTestimonials from '@/components/sections/CleaningTestimonials';
+import CleaningCalculator from '@/components/sections/calculators/CleaningCalculator';
+import CleaningTestimonials from '@/components/sections/testimonials/CleaningTestimonials';
 import Image from 'next/image';
 import { ServiceAuthorityHubSeo, FacilityHygieneMsdsGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 

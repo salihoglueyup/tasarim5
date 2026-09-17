@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema, ORG_NAME, ORG_PHONE } from '@/lib/schemas';
 import { ContactAiOverviewCardSeo, VoiceConversationalAiSnippetSeo } from '@/components/seo';
 import IletisimClient from './IletisimClient';

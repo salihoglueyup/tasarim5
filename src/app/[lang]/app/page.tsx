@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import ApsiyonMobileHub from '@/components/sections/ApsiyonMobileHub';
-import JsonLd from '@/components/seo/JsonLd';
+import ApsiyonMobileHub from '@/components/sections/interactive/ApsiyonMobileHub';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';

@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from 'react';
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { autoLinkHtml } from '@/lib/autoLinker';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import SectoralRoiCalculatorSeo from '@/components/seo/SectoralRoiCalculatorSeo';
+import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
+import SectoralRoiCalculatorSeo from '@/components/seo/facility/SectoralRoiCalculatorSeo';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 

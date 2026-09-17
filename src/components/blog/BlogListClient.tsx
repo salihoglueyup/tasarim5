@@ -8,7 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 import { parseTags } from '@/lib/jsonSafe';
 import { createBlogSearchIndex, searchInBlogIndex } from '@/lib/blogSearchIndex';
-import Pagination from '@/components/ui/Pagination';
+import Pagination from '@/components/ui/primitives/Pagination';
 
 const PAGE_SIZE = 6;
 

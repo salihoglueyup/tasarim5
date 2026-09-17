@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export interface CertificateItem {
   code: string;

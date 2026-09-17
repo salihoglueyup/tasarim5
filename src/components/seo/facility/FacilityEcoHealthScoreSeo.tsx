@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export default function FacilityEcoHealthScoreSeo() {
   const [roofAreaM2, setRoofAreaM2] = useState<number>(600);

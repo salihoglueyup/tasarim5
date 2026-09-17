@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { waLink } from '@/lib/cro';
-import LazyMapFacade from '@/components/ui/LazyMapFacade';
+import LazyMapFacade from '@/components/ui/media/LazyMapFacade';
 import {
   Phone,
   Mail,

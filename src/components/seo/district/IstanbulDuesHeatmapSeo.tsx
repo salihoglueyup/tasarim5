@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import React, { useState, useMemo } from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export interface DistrictDuesData {
   slug: string;

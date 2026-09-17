@@ -1,16 +1,16 @@
 "use client";
 
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import { Card } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import GTMDataLayer from '@/components/seo/GTMDataLayer';
+import GTMDataLayer from '@/components/seo/schema/GTMDataLayer';
 import { RelatedArticles } from '@/components';
-import DuesCalculator from '@/components/sections/DuesCalculator';
-import DuesTestimonials from '@/components/sections/DuesTestimonials';
-import InteractiveCostSimulatorSeo from '@/components/seo/InteractiveCostSimulatorSeo';
+import DuesCalculator from '@/components/sections/calculators/DuesCalculator';
+import DuesTestimonials from '@/components/sections/testimonials/DuesTestimonials';
+import InteractiveCostSimulatorSeo from '@/components/seo/facility/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
 import { ServiceAuthorityHubSeo, KMKOperatingBudgetGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 

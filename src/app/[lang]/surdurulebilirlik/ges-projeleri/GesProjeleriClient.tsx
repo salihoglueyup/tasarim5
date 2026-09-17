@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { Card, Badge, Button } from '@/components';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';

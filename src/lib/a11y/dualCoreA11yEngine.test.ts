@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
-import { formatAccessiblePrice } from '@/components/ui/AccessiblePrice';
+import { formatAccessiblePrice } from '@/components/ui/media/AccessiblePrice';
 import { runLighthouseA11yAudit } from './dualCoreA11yEngine';
 
 describe('Wave 9: Faz 221 - Faz 225 Fiyat Erişilebilirliği, Menü Kapatma, Autocomplete & Lighthouse 100/100', () => {
@@ -10,18 +10,20 @@ describe('Wave 9: Faz 221 - Faz 225 Fiyat Erişilebilirliği, Menü Kapatma, Aut
     expect(price.visual).toBe('4.500 ₺');
     expect(price.accessible).toBe('4.500 Türk Lirası');
 
-    const componentPath = path.resolve(process.cwd(), 'src/components/ui/AccessiblePrice.tsx');
+    const componentPath = path.resolve(process.cwd(), 'src/components/ui/media/AccessiblePrice.tsx');
     const content = fs.readFileSync(componentPath, 'utf-8');
     expect(content).toContain('sr-only');
     expect(content).toContain('aria-hidden="true"');
   });
 
   it('Faz 222: Menü kapatma ve açma butonlarında açıkça "Menüyü Kapat" aria-label tanımlıdır', () => {
-    const mobileMenuPath = path.resolve(process.cwd(), 'src/components/layout/MobileMenu.tsx');
+    const subMobileMenu = path.resolve(process.cwd(), 'src/components/layout/header/MobileMenu.tsx');
+    const mobileMenuPath = fs.existsSync(subMobileMenu) ? subMobileMenu : path.resolve(process.cwd(), 'src/components/layout/MobileMenu.tsx');
     const mobileMenuContent = fs.readFileSync(mobileMenuPath, 'utf-8');
     expect(mobileMenuContent).toContain('aria-label="Menüyü Kapat"');
 
-    const headerPath = path.resolve(process.cwd(), 'src/components/layout/Header.tsx');
+    const subHeader = path.resolve(process.cwd(), 'src/components/layout/header/Header.tsx');
+    const headerPath = fs.existsSync(subHeader) ? subHeader : path.resolve(process.cwd(), 'src/components/layout/Header.tsx');
     const headerContent = fs.readFileSync(headerPath, 'utf-8');
     expect(headerContent).toContain('aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}');
   });
@@ -34,7 +36,8 @@ describe('Wave 9: Faz 221 - Faz 225 Fiyat Erişilebilirliği, Menü Kapatma, Aut
     expect(content).toContain('autoComplete="tel"');
     expect(content).toContain('autoComplete="email"');
 
-    const newsletterPath = path.resolve(process.cwd(), 'src/components/layout/NewsletterForm.tsx');
+    const subNewsletter = path.resolve(process.cwd(), 'src/components/layout/footer/NewsletterForm.tsx');
+    const newsletterPath = fs.existsSync(subNewsletter) ? subNewsletter : path.resolve(process.cwd(), 'src/components/layout/NewsletterForm.tsx');
     const newsletterContent = fs.readFileSync(newsletterPath, 'utf-8');
     expect(newsletterContent).toContain('autoComplete="email"');
   });

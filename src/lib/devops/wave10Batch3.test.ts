@@ -56,7 +56,8 @@ describe('Wave 10: Faz 236 - Faz 240 Nginx Sıkıştırma, 1-Yıl Cache, Yavaş 
     const res = await postVitals(req);
     expect(res.status).toBe(204);
 
-    const webVitalsCompPath = path.resolve(process.cwd(), 'src/components/layout/WebVitals.tsx');
+    const subVitals = path.resolve(process.cwd(), 'src/components/layout/telemetry/WebVitals.tsx');
+    const webVitalsCompPath = fs.existsSync(subVitals) ? subVitals : path.resolve(process.cwd(), 'src/components/layout/WebVitals.tsx');
     const compContent = fs.readFileSync(webVitalsCompPath, 'utf-8');
     expect(compContent).toContain('navigator.sendBeacon');
     expect(compContent).toContain('/api/analytics/vitals');

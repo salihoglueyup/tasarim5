@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/constants';
 import { Clock, ShieldCheck, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { DISTRICTS } from '@/data/districts';

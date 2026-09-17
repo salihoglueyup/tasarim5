@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo, RelatedArticles } from '@/components';
 import {
   InstantAnswerCardSeo,
@@ -34,8 +34,8 @@ import {
   PositionZeroAnswerBox,
   GoogleAiOverviewGroundingSeo,
 } from '@/components/seo';
-import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
-import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
+import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
+import FacilityTestimonials from '@/components/sections/testimonials/FacilityTestimonials';
 
 export default function SiteYonetimiClient() {
   const { t } = useLanguage();

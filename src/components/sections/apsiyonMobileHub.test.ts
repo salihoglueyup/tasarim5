@@ -4,6 +4,15 @@ import path from 'path';
 
 describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Testleri', () => {
   const uiDir = path.resolve(process.cwd(), 'src/components/ui');
+  const getUiPath = (fileName: string) => {
+    const direct = path.join(uiDir, fileName);
+    if (fs.existsSync(direct)) return direct;
+    for (const sub of ['primitives', 'media', 'effects', 'widgets', 'branding']) {
+      const subPath = path.join(uiDir, sub, fileName);
+      if (fs.existsSync(subPath)) return subPath;
+    }
+    return direct;
+  };
   const sectionsDir = path.resolve(process.cwd(), 'src/components/sections');
   const modalsDir = path.resolve(process.cwd(), 'src/components/modals');
   const seoDir = path.resolve(process.cwd(), 'src/components/seo');
@@ -11,7 +20,7 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
   const appPagePath = path.resolve(process.cwd(), 'src/app/[lang]/app/page.tsx');
 
   it('1. AppBadges.tsx resmi Apsiyon iOS, Android ve Huawei mağaza linklerini ve güvenlik özniteliklerini taşır', () => {
-    const badgesContent = fs.readFileSync(path.join(uiDir, 'AppBadges.tsx'), 'utf-8');
+    const badgesContent = fs.readFileSync(getUiPath('AppBadges.tsx'), 'utf-8');
     expect(badgesContent).toContain('https://apps.apple.com/app/apsiyon/id1115852575');
     expect(badgesContent).toContain('https://play.google.com/store/apps/details?id=com.apsiyon.mobile');
     expect(badgesContent).toContain('https://appgallery.huawei.com/app/C100486001');
@@ -24,7 +33,9 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
   });
 
   it('2. AppShowcase.tsx (Anasayfa) tıklanabilir Apsiyon mağaza ve doğrudan Web portal giriş bağlantılarını içerir', () => {
-    const showcaseContent = fs.readFileSync(path.join(sectionsDir, 'AppShowcase.tsx'), 'utf-8');
+    const subPath = path.join(sectionsDir, 'interactive', 'AppShowcase.tsx');
+    const showcasePath = fs.existsSync(subPath) ? subPath : path.join(sectionsDir, 'AppShowcase.tsx');
+    const showcaseContent = fs.readFileSync(showcasePath, 'utf-8');
     expect(showcaseContent).toContain('https://apps.apple.com/app/apsiyon/id1115852575');
     expect(showcaseContent).toContain('https://play.google.com/store/apps/details?id=com.apsiyon.mobile');
     expect(showcaseContent).toContain('https://online.apsiyon.com/');
@@ -42,7 +53,7 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
   });
 
   it('4. ApsiyonLogo.tsx resmi Apsiyon vektörel koordinatlarını ve #00A5DF marka rengini taşır', () => {
-    const logoContent = fs.readFileSync(path.join(uiDir, 'ApsiyonLogo.tsx'), 'utf-8');
+    const logoContent = fs.readFileSync(getUiPath('ApsiyonLogo.tsx'), 'utf-8');
     expect(logoContent).toContain('#00A5DF');
     expect(logoContent).toContain('role="img"');
     // Orijinal ikon çatı yolu
@@ -50,7 +61,9 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
   });
 
   it('5. ApsiyonMobileHub.tsx Sakin ve Yönetici (Apsiyon Manager) modları, QR kod, KMK güvenlik rozetleri ve FAQ barındırır', () => {
-    const hubContent = fs.readFileSync(path.join(sectionsDir, 'ApsiyonMobileHub.tsx'), 'utf-8');
+    const subPath = path.join(sectionsDir, 'interactive', 'ApsiyonMobileHub.tsx');
+    const hubPath = fs.existsSync(subPath) ? subPath : path.join(sectionsDir, 'ApsiyonMobileHub.tsx');
+    const hubContent = fs.readFileSync(hubPath, 'utf-8');
     // Framer motion içermez, CSS donanım hızlandırma
     expect(hubContent).not.toContain("from 'framer-motion'");
     expect(hubContent).toContain('transform-gpu');

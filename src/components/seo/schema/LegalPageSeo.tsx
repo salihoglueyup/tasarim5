@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { webPageSchema, graph } from '@/lib/schemas';
 
 interface LegalPageSeoProps {

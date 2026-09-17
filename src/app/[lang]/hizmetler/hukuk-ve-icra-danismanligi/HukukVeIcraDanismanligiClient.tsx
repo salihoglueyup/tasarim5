@@ -1,18 +1,18 @@
 "use client";
 
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ } from '@/components';
 import { Card } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
-import LegalCalculator from '@/components/sections/LegalCalculator';
-import LegalTestimonials from '@/components/sections/LegalTestimonials';
-import KMKLawAssistantSeo from '@/components/seo/KMKLawAssistantSeo';
-import KMKLegalProcessHowToSeo from '@/components/seo/KMKLegalProcessHowToSeo';
-import KMKLegalTemplateGeneratorSeo from '@/components/seo/KMKLegalTemplateGeneratorSeo';
-import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/FacilityLegalPrecedentsBrowserSeo';
+import LegalCalculator from '@/components/sections/calculators/LegalCalculator';
+import LegalTestimonials from '@/components/sections/testimonials/LegalTestimonials';
+import KMKLawAssistantSeo from '@/components/seo/kmk/KMKLawAssistantSeo';
+import KMKLegalProcessHowToSeo from '@/components/seo/kmk/KMKLegalProcessHowToSeo';
+import KMKLegalTemplateGeneratorSeo from '@/components/seo/kmk/KMKLegalTemplateGeneratorSeo';
+import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/facility/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
 import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo, PositionZeroAnswerBox, KMKLawCourtDisputeMatrixSeo } from '@/components/seo';
 

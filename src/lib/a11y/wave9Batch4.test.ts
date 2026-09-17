@@ -22,7 +22,7 @@ describe('Wave 9: Faz 216 - Faz 220 SVG aria-hidden, Video Altyazı/Deşifre, Di
   });
 
   it('Faz 217: AccessibleVideoPlayer bileşeni altyazı track ve deşifre metni desteği sunar', () => {
-    const playerPath = path.resolve(process.cwd(), 'src/components/ui/AccessibleVideoPlayer.tsx');
+    const playerPath = path.resolve(process.cwd(), 'src/components/ui/media/AccessibleVideoPlayer.tsx');
     const content = fs.readFileSync(playerPath, 'utf-8');
 
     expect(content).toContain('kind="captions"');
@@ -58,7 +58,7 @@ describe('Wave 9: Faz 216 - Faz 220 SVG aria-hidden, Video Altyazı/Deşifre, Di
   });
 
   it('Faz 220: AccessibleProgressBar role="progressbar" ve ARIA değer aralıklarını tanımlar', () => {
-    const progressPath = path.resolve(process.cwd(), 'src/components/ui/AccessibleProgressBar.tsx');
+    const progressPath = path.resolve(process.cwd(), 'src/components/ui/media/AccessibleProgressBar.tsx');
     const content = fs.readFileSync(progressPath, 'utf-8');
 
     expect(content).toContain('role="progressbar"');

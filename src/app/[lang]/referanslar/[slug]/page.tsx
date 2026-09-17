@@ -3,12 +3,12 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import redis from '@/lib/redis';
 import { autoLinkHtml } from '@/lib/autoLinker';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import { getReferenceBySlug, REFERENCES_DATA } from '@/data/references';
 
 export const dynamicParams = true;

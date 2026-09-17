@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from 'react';
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { Faq, SeoTextSection } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import ItemListSeo from '@/components/seo/ItemListSeo';
+import ItemListSeo from '@/components/seo/schema/ItemListSeo';
 import {
   LiveMetricBadgeSeo,
   ServiceComparisonMatrixSeo,

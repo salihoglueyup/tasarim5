@@ -7,7 +7,7 @@ describe('Wave 7: Faz 166 - Faz 170 Çok Dilli Sözlük, Başarı Hikayeleri, Ya
   const basariClientPath = path.resolve(process.cwd(), 'src/app/[lang]/basari-hikayeleri/BasariHikayeleriClient.tsx');
   const legalSummaryPath = path.resolve(process.cwd(), 'src/components/legal/LegalEnglishSummary.tsx');
   const globalsCssPath = path.resolve(process.cwd(), 'src/app/globals.css');
-  const cookieConsentPath = path.resolve(process.cwd(), 'src/components/ui/CookieConsent.tsx');
+  const cookieConsentPath = path.resolve(process.cwd(), 'src/components/ui/widgets/CookieConsent.tsx');
 
   it('Faz 166: SozlukClient İngilizce seçildiğinde ENGLISH_TERMS ile DefinedTermSetSeo besler', () => {
     const content = fs.readFileSync(sozlukClientPath, 'utf-8');

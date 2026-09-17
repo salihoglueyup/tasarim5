@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/constants';
 
 interface ServiceSeoProps {

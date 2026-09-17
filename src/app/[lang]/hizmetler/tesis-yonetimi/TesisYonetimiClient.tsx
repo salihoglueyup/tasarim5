@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import {
   InstantAnswerCardSeo,
@@ -40,12 +40,12 @@ import {
   FacilityLegalClaimReviewsSeo,
 } from '@/components/seo';
 
-import CaseStudySeo from '@/components/seo/CaseStudySeo';
+import CaseStudySeo from '@/components/seo/schema/CaseStudySeo';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
-import FacilityTestimonials from '@/components/sections/FacilityTestimonials';
+import FacilityTestimonials from '@/components/sections/testimonials/FacilityTestimonials';
 import Image from 'next/image';
 
 export default function TesisYonetimiClient() {

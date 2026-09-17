@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Image, { ImageProps } from 'next/image';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/constants';
 
 interface ImageWithSeoProps extends ImageProps {

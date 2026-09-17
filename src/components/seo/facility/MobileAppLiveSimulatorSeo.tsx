@@ -1,8 +1,8 @@
 ﻿'use client';
 
 import React, { useState } from 'react';
-import JsonLd from '@/components/seo/JsonLd';
-import ApsiyonLogo from '@/components/ui/ApsiyonLogo';
+import JsonLd from '@/components/seo/schema/JsonLd';
+import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
 
 export type AppScreen = 'aidat' | 'ariza' | 'oylama' | 'guvenlik';
 

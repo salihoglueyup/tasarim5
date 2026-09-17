@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { CERTIFICATES } from '@/data/certificates';
 import { AccreditationAiOverviewSeo, AccreditedCertificationsTrustSeo } from '@/components/seo';
 

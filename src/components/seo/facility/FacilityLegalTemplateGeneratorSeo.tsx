@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React, { useState } from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export type FacilityTemplateType = 'tesis_yonetimi_karar' | 'isletme_projesi_teblig' | 'aidat_gecikme_ihtar' | 'devir_teslim_protokol';
 

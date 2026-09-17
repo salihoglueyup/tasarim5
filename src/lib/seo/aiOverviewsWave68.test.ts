@@ -3,8 +3,8 @@ import {
   VideoGroundingAiOverviewSeo,
   VoiceConversationalAiSnippetSeo,
 } from '@/components/seo';
-import { GROUNDING_VIDEO_GUIDES } from '@/components/seo/VideoGroundingAiOverviewSeo';
-import { VOICE_CONVERSATIONAL_QUERIES } from '@/components/seo/VoiceConversationalAiSnippetSeo';
+import { GROUNDING_VIDEO_GUIDES } from '@/components/seo/ai-overviews/VideoGroundingAiOverviewSeo';
+import { VOICE_CONVERSATIONAL_QUERIES } from '@/components/seo/ai-overviews/VoiceConversationalAiSnippetSeo';
 import { detectAiBot, KNOWN_AI_BOTS, getAiBotTelemetryStats } from '@/lib/seo/aiBotDetector';
 import { GET as getBotTelemetry } from '@/app/api/seo/bot-telemetry.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';

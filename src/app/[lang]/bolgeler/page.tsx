@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';
-import IstanbulDuesHeatmapSeo from '@/components/seo/IstanbulDuesHeatmapSeo';
-import DistrictComparisonMatrixSeo from '@/components/seo/DistrictComparisonMatrixSeo';
-import IstanbulInteractiveDistrictMapSeo from '@/components/seo/IstanbulInteractiveDistrictMapSeo';
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
+import IstanbulDuesHeatmapSeo from '@/components/seo/district/IstanbulDuesHeatmapSeo';
+import DistrictComparisonMatrixSeo from '@/components/seo/district/DistrictComparisonMatrixSeo';
+import IstanbulInteractiveDistrictMapSeo from '@/components/seo/district/IstanbulInteractiveDistrictMapSeo';
 import { ServiceAuthorityHubSeo, LocalBusinessProfileAiAnchorSeo } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 

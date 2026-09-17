@@ -10,8 +10,8 @@ describe('Wave 5: Faz 111 - Faz 115 Performans & Medya Geliştirmeleri', () => {
   const imageWithSeoPath = fs.existsSync(imageWithSeoSubPath) ? imageWithSeoSubPath : path.resolve(process.cwd(), 'src/components/seo/ImageWithSeo.tsx');
   const iletisimPath = path.resolve(process.cwd(), 'src/app/[lang]/iletisim/IletisimClient.tsx');
 
-  const lazyMapFacadePath = path.resolve(process.cwd(), 'src/components/ui/LazyMapFacade.tsx');
-  const liteYouTubePath = path.resolve(process.cwd(), 'src/components/ui/LiteYouTubeEmbed.tsx');
+  const lazyMapFacadePath = path.resolve(process.cwd(), 'src/components/ui/media/LazyMapFacade.tsx');
+  const liteYouTubePath = path.resolve(process.cwd(), 'src/components/ui/media/LiteYouTubeEmbed.tsx');
 
   it('Faz 111: layout.tsx Cairo fontunu preload: false yapar ve yalnızca RTL rotalarında yükler', () => {
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8');

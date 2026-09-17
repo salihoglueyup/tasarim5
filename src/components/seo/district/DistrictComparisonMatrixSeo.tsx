@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { DISTRICTS, District } from '@/data/districts';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export default function DistrictComparisonMatrixSeo() {
   const [district1Slug, setDistrict1Slug] = useState<string>('kadikoy');

@@ -4,7 +4,25 @@ import path from 'path';
 
 describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100)', () => {
   const layoutDir = path.resolve(process.cwd(), 'src/components/layout');
+  const getLayoutPath = (fileName: string) => {
+    const direct = path.join(layoutDir, fileName);
+    if (fs.existsSync(direct)) return direct;
+    for (const sub of ['header', 'footer', 'telemetry', 'page']) {
+      const subPath = path.join(layoutDir, sub, fileName);
+      if (fs.existsSync(subPath)) return subPath;
+    }
+    return direct;
+  };
   const uiDir = path.resolve(process.cwd(), 'src/components/ui');
+  const getUiPath = (fileName: string) => {
+    const direct = path.join(uiDir, fileName);
+    if (fs.existsSync(direct)) return direct;
+    for (const sub of ['primitives', 'media', 'effects', 'widgets', 'branding']) {
+      const subPath = path.join(uiDir, sub, fileName);
+      if (fs.existsSync(subPath)) return subPath;
+    }
+    return direct;
+  };
   const contextDir = path.resolve(process.cwd(), 'src/context');
   const appLayoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const nextConfigPath = path.resolve(process.cwd(), 'next.config.ts');
@@ -12,37 +30,37 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
   const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/not-found.tsx');
   const errorPath = path.resolve(process.cwd(), 'src/app/[lang]/error.tsx');
   const globalErrorPath = path.resolve(process.cwd(), 'src/app/global-error.tsx');
-  const megaMenuPath = path.resolve(process.cwd(), 'src/components/layout/MegaMenuDropdown.tsx');
+  const megaMenuPath = getLayoutPath('MegaMenuDropdown.tsx');
   const globalsCssPath = path.resolve(process.cwd(), 'src/app/globals.css');
 
   it('Header.tsx MegaMenuDropdown bileşenini lazy-load olarak dinamik yükler (Faz 76)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain("dynamic(() => import('./MegaMenuDropdown')");
     expect(headerContent).not.toMatch(/^import MegaMenuDropdown from '\.\/MegaMenuDropdown';/m);
   });
 
   it('Header.tsx scroll dinleyicisini pasif ve requestAnimationFrame ile throttler (Faz 77)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain('requestAnimationFrame');
     expect(headerContent).toContain('passive: true');
   });
 
   it('layout.tsx ve Header.tsx senkronize, FOUC-engelli tema mimarisine sahiptir (Faz 78)', () => {
     const appLayoutContent = fs.readFileSync(appLayoutPath, 'utf-8');
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(appLayoutContent).toContain("localStorage.getItem('theme')");
     expect(headerContent).toContain("addEventListener('storage'");
   });
 
   it('MobileMenu.tsx Framer Motion içermez ve GPU will-change-transform taşır (Faz 79)', () => {
-    const menuContent = fs.readFileSync(path.join(layoutDir, 'MobileMenu.tsx'), 'utf-8');
+    const menuContent = fs.readFileSync(getLayoutPath('MobileMenu.tsx'), 'utf-8');
     expect(menuContent).not.toContain("from 'framer-motion'");
     expect(menuContent).toContain('will-change-transform');
     expect(menuContent).toContain('transform-gpu');
   });
 
   it('Header.tsx mobil menü açıldığında scrollbar genişliğini dengeleyerek CLS önler (Faz 80)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain('scrollBarWidth');
     expect(headerContent).toContain('paddingRight');
   });
@@ -90,46 +108,46 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
   });
 
   it('Header.tsx ve MegaMenuDropdown prefetch={true} kullanımını kritik rotalarla sınırlar (Faz 88)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     const megaMenuContent = fs.readFileSync(megaMenuPath, 'utf-8');
     expect(headerContent).toContain("prefetch={['/', '/hizmetler/tesis-yonetimi', '/hesaplayici', '/iletisim'].includes(item.path!)}");
     expect(megaMenuContent).toContain("prefetch={subItem.path === '/hizmetler/tesis-yonetimi'}");
   });
 
   it('Header.tsx tema butonu donanım hızlandırmalı saf CSS rotasyonu kullanır (Faz 89)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).not.toContain("from 'framer-motion'");
     expect(headerContent).toContain('rotate-180 scale-90');
   });
 
   it('Header.tsx klavye odak yönetimini onKeyDown ile destekler (Faz 90)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain("e.key === 'Enter'");
     expect(headerContent).toContain("e.key === 'Escape'");
   });
 
   it('ExternalLink.tsx dış bağlantılarda rel="noopener noreferrer" ve target="_blank" garantiler (Faz 91)', () => {
-    const externalLinkContent = fs.readFileSync(path.join(uiDir, 'ExternalLink.tsx'), 'utf-8');
+    const externalLinkContent = fs.readFileSync(getUiPath('ExternalLink.tsx'), 'utf-8');
     expect(externalLinkContent).toContain('noopener noreferrer');
     expect(externalLinkContent).toContain('target = \'_blank\'');
   });
 
   it('Header.tsx ağır modal ve menüleri Client Island olarak izole eder (Faz 92)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain("dynamic(() => import('./LoginModal')");
     expect(headerContent).toContain("dynamic(() => import('./MobileMenu')");
     expect(headerContent).toContain("dynamic(() => import('./MegaMenuDropdown')");
   });
 
   it('Logo.tsx sabit 48x48 piksel boyutları ve aspect-square ile CLS=0 garantiler (Faz 93)', () => {
-    const logoContent = fs.readFileSync(path.join(uiDir, 'Logo.tsx'), 'utf-8');
+    const logoContent = fs.readFileSync(getUiPath('Logo.tsx'), 'utf-8');
     expect(logoContent).toContain('aspect-square');
     expect(logoContent).toContain("width={48}");
     expect(logoContent).toContain("height={48}");
   });
 
   it('Header.tsx dil seçici açılır menüsünün taşmasını önleyen responsive ve RTL konumlandırma içerir (Faz 94)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain('rtl:right-auto rtl:left-0');
     expect(headerContent).toContain('max-w-[calc(100vw-1rem)]');
   });
@@ -148,23 +166,23 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
   });
 
   it('MobileMenu.tsx h-[100dvh] kullanarak mobil adres çubuğu hareketinde zıplamayı önler (Faz 97)', () => {
-    const menuContent = fs.readFileSync(path.join(layoutDir, 'MobileMenu.tsx'), 'utf-8');
+    const menuContent = fs.readFileSync(getLayoutPath('MobileMenu.tsx'), 'utf-8');
     expect(menuContent).toContain('h-[100dvh]');
   });
 
   it('Header.tsx aktif menü linklerinde aria-current="page" ve hafif CSS vurgusu sunar (Faz 98)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).toContain('aria-current={pathname === item.path ? \'page\' : undefined}');
   });
 
   it('Header.tsx Framer Motion içermez, sıfır layoutId ve 0ms TBT garantiler (Faz 99)', () => {
-    const headerContent = fs.readFileSync(path.join(layoutDir, 'Header.tsx'), 'utf-8');
+    const headerContent = fs.readFileSync(getLayoutPath('Header.tsx'), 'utf-8');
     expect(headerContent).not.toContain("from 'framer-motion'");
     expect(headerContent).not.toContain('layoutId=');
   });
 
   it('LoginModal.tsx Apsiyon resmi portal ve mağaza linklerini taşır ve useFocusTrap kullanır', () => {
-    const loginModalContent = fs.readFileSync(path.join(layoutDir, 'LoginModal.tsx'), 'utf-8');
+    const loginModalContent = fs.readFileSync(getLayoutPath('LoginModal.tsx'), 'utf-8');
     expect(loginModalContent).toContain('Apsiyon Altyapısı Güvencesiyle');
     expect(loginModalContent).toContain('https://online.apsiyon.com/');
     expect(loginModalContent).toContain('https://apps.apple.com/app/apsiyon/id1115852575');
@@ -174,7 +192,7 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
   });
 
   it('QuickCallWidget.tsx 5 saniyelik akıllı otomatik kapanma zamanlayıcısı ve hover koruması içerir', () => {
-    const quickCallContent = fs.readFileSync(path.join(uiDir, 'QuickCallWidget.tsx'), 'utf-8');
+    const quickCallContent = fs.readFileSync(getUiPath('QuickCallWidget.tsx'), 'utf-8');
     expect(quickCallContent).toContain('setTimeout');
     expect(quickCallContent).toContain('clearTimeout');
     expect(quickCallContent).toContain('5000');

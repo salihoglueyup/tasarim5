@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React, { useState } from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { howToSchema } from '@/lib/schemas';
 import { motion, AnimatePresence } from 'framer-motion';
 

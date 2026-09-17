@@ -5,8 +5,8 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import PageHeader from '@/components/layout/PageHeader';
-import TrustVerificationAuditSeo from '@/components/seo/TrustVerificationAuditSeo';
+import PageHeader from '@/components/layout/page/PageHeader';
+import TrustVerificationAuditSeo from '@/components/seo/facility/TrustVerificationAuditSeo';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
 import { CERTIFICATES } from '@/data/certificates';
 

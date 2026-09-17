@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/seo';
 import { ORG_ID, ORG_NAME } from '@/lib/schemas';
 

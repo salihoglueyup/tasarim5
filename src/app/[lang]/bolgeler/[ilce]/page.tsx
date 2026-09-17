@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { QuoteCtaButton, TldrBlock, DynamicFAQ } from '@/components';
 import {
   DistrictLocalHighlightsSeo,

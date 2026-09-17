@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { Star, StarHalf } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 interface AggregateRatingProps {
   itemReviewed: {

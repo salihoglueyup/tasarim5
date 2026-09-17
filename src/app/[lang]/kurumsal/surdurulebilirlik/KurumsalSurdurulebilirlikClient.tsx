@@ -1,8 +1,8 @@
 "use client";
 
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import FacilityEcoHealthScoreSeo from '@/components/seo/FacilityEcoHealthScoreSeo';
+import FacilityEcoHealthScoreSeo from '@/components/seo/facility/FacilityEcoHealthScoreSeo';
 
 export default function KurumsalSurdurulebilirlikClient() {
   const { t } = useLanguage();

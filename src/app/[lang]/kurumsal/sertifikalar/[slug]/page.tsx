@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
 import { CERTIFICATES, getCertificate } from '@/data/certificates';
-import PreFooterCta from '@/components/sections/PreFooterCta';
+import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
 export const revalidate = 2592000; // 30 gün
 

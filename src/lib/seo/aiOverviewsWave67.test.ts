@@ -5,9 +5,9 @@ import {
   DistrictServiceAiOverviewSnippetSeo,
   SectorHubAiOverviewSeo,
 } from '@/components/seo';
-import { APP_CORE_FEATURES } from '@/components/seo/AppAiOverviewGroundingSeo';
-import { TOP_GLOSSARY_TERMS } from '@/components/seo/GlossaryAiOverviewSeo';
-import { SECTOR_GROUND_TRUTH_LIST } from '@/components/seo/SectorHubAiOverviewSeo';
+import { APP_CORE_FEATURES } from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
+import { TOP_GLOSSARY_TERMS } from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
+import { SECTOR_GROUND_TRUTH_LIST } from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 import { GET as getAiTelemetry } from '@/app/api/seo/ai-telemetry.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';

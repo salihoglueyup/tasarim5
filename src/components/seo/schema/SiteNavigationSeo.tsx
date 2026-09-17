@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { siteNavigationSchema } from '@/lib/schemas';
 
 interface NavLink {

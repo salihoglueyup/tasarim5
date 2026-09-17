@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { KeywordAnalysisSeo, VoiceSearchSpeakableSeo } from '@/components/seo';
 import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import RezidansYonetimiClient from './RezidansYonetimiClient';

@@ -343,7 +343,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
   describe('17. BlogFAQExtractor faqPageSchema Standardizasyonu', () => {
     it('soru içermeyen metinlerde veya boş içerikte null dönerek GSC hatasını engellemelidir', async () => {
-      const BlogFAQExtractor = (await import('@/components/seo/BlogFAQExtractor')).default;
+      const BlogFAQExtractor = (await import('@/components/seo/district/BlogFAQExtractor')).default;
       expect(BlogFAQExtractor({ htmlContent: '' })).toBeNull();
       expect(BlogFAQExtractor({ htmlContent: '<p>Sadece düz bir açıklama paragrafı.</p>' })).toBeNull();
       expect(BlogFAQExtractor({ htmlContent: '<h2>Başlık Sorusuz</h2><p>Cevap yok</p>' })).toBeNull();
@@ -351,7 +351,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
     it('soru işareti içeren başlıklardan geçerli FAQ şeması oluşturmalıdır', async () => {
       const html = '<h2>Tesis yönetimi aidatları nasıl düşürülür?</h2><p>Toplu satın alma ve enerji optimizasyonu ile %30 tasarruf sağlanır.</p>';
-      const BlogFAQExtractor = (await import('@/components/seo/BlogFAQExtractor')).default;
+      const BlogFAQExtractor = (await import('@/components/seo/district/BlogFAQExtractor')).default;
       const element = BlogFAQExtractor({ htmlContent: html });
       expect(element).not.toBeNull();
       expect(element?.props?.data?.['@type']).toBe('FAQPage');
@@ -645,7 +645,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
   describe('37. JsonLd Evrensel Boş ItemList Kalkanı', () => {
     it('boş itemListElement içeren şemaları filtrelemeli ve null dönmelidir', async () => {
-      const JsonLd = (await import('@/components/seo/JsonLd')).default;
+      const JsonLd = (await import('@/components/seo/schema/JsonLd')).default;
       const elementEmpty = JsonLd({
         data: { '@type': 'ItemList', itemListElement: [] } as any,
       });
@@ -2853,7 +2853,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('SemanticLinker alt sektörleri, ISO/TSE akreditasyonlarını ve kariyer sayfalarını doğru bağlar', async () => {
       const React = await import('react');
       const { renderToStaticMarkup } = await import('react-dom/server');
-      const { default: SemanticLinker } = await import('@/components/seo/SemanticLinker');
+      const { default: SemanticLinker } = await import('@/components/seo/schema/SemanticLinker');
 
       const sampleText = 'İstanbul genelinde rezidans yönetimi, plaza yönetimi ve sanayi tesisi yönetimi süreçlerinde ISO 9001 ve TSE HYB kalite standartları uygulanırken, istihdam köprüsü ile personel istihdamı sağlanır.';
 
@@ -3026,7 +3026,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('LINK_DICTIONARY tüm 39 ilçeyi, sözlük ve kurumsal rotaları barındırır ve hatasız render eder', async () => {
       const React = await import('react');
       const { renderToStaticMarkup } = await import('react-dom/server');
-      const { LINK_DICTIONARY, default: SemanticLinker } = await import('@/components/seo/SemanticLinker');
+      const { LINK_DICTIONARY, default: SemanticLinker } = await import('@/components/seo/schema/SemanticLinker');
       const { DISTRICTS } = await import('@/data/districts');
 
       // 39 ilçenin tamamı LINK_DICTIONARY içinde bulunmalıdır
@@ -3894,7 +3894,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
       const cssContent = fs.readFileSync(path.join(process.cwd(), 'src/app/globals.css'), 'utf8');
-      const loaderContent = fs.readFileSync(path.join(process.cwd(), 'src/components/ui/IconFontLoader.tsx'), 'utf8');
+      const loaderContent = fs.readFileSync(path.join(process.cwd(), 'src/components/ui/branding/IconFontLoader.tsx'), 'utf8');
 
       expect(cssContent).toContain('.material-symbols-outlined');
       expect(cssContent).toContain('font-display: block !important');
@@ -3906,7 +3906,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('Skeleton.tsx crawler erişiminde 22x "Yükleniyor..." metin sızıntısı üretmez ve aria-hidden="true" içerir', async () => {
       const fs = await import('fs');
       const path = await import('path');
-      const skeletonContent = fs.readFileSync(path.join(process.cwd(), 'src/components/ui/Skeleton.tsx'), 'utf8');
+      const skeletonContent = fs.readFileSync(path.join(process.cwd(), 'src/components/ui/primitives/Skeleton.tsx'), 'utf8');
 
       expect(skeletonContent).not.toContain('sr-only');
       expect(skeletonContent).not.toContain('Yükleniyor...');
@@ -3919,15 +3919,18 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       const filesToCheck = [
         'src/app/[lang]/sozluk/SozlukClient.tsx',
-        'src/components/sections/BentoServices.tsx',
-        'src/components/sections/Faq.tsx',
-        'src/components/layout/Header.tsx',
-        'src/components/sections/RelatedServices.tsx',
+        'src/components/sections/core/BentoServices.tsx',
+        'src/components/sections/trust/Faq.tsx',
+        'src/components/layout/header/Header.tsx',
+        'src/components/sections/trust/RelatedServices.tsx',
         'src/data/services.ts',
       ];
 
       for (const relPath of filesToCheck) {
-        const content = fs.readFileSync(path.join(process.cwd(), relPath), 'utf8');
+        const fullPath = fs.existsSync(path.join(process.cwd(), relPath))
+          ? path.join(process.cwd(), relPath)
+          : path.join(process.cwd(), relPath.replace(/\/core\/|\/trust\/|\/header\//, '/'));
+        const content = fs.readFileSync(fullPath, 'utf8');
         expect(content, `${relPath} içinde account_balance_wallet bulunmamalıdır`).not.toContain('account_balance_wallet');
       }
     });
@@ -4345,8 +4348,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('Header MENU_ITEMS içinde nav_tools_library altında Tesis Yönetimi Rehberi ve Açık Veri Portalı eksiksiz yer alır', async () => {
       const fs = await import('fs');
       const path = await import('path');
+      const subHeader = path.join(process.cwd(), 'src/components/layout/header/Header.tsx');
+      const headerPath = fs.existsSync(subHeader) ? subHeader : path.join(process.cwd(), 'src/components/layout/Header.tsx');
       const headerContent = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/layout/Header.tsx'),
+        headerPath,
         'utf8'
       );
 
@@ -4398,8 +4403,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     it('Footer bileşeni Tesis Açık Veri Portalı ve OpenAPI 3.1 JSON linklerini barındırır', async () => {
       const fs = await import('fs');
       const path = await import('path');
+      const subFooter = path.join(process.cwd(), 'src/components/layout/footer/Footer.tsx');
+      const footerPath = fs.existsSync(subFooter) ? subFooter : path.join(process.cwd(), 'src/components/layout/Footer.tsx');
       const footerContent = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/layout/Footer.tsx'),
+        footerPath,
         'utf8'
       );
 
@@ -4558,7 +4565,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
 
-      const headerContent = fs.readFileSync(path.join(process.cwd(), 'src/components/layout/Header.tsx'), 'utf8');
+      const subHeader = path.join(process.cwd(), 'src/components/layout/header/Header.tsx');
+      const headerPath = fs.existsSync(subHeader) ? subHeader : path.join(process.cwd(), 'src/components/layout/Header.tsx');
+      const headerContent = fs.readFileSync(headerPath, 'utf8');
       expect(headerContent).toContain('/bolgeler/kadikoy/tesis-yonetimi');
       expect(headerContent).toContain('/bolgeler/besiktas/tesis-yonetimi');
       expect(headerContent).toContain('/bolgeler/kartal/tesis-yonetimi');
@@ -4610,14 +4619,18 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = await import('fs');
       const path = await import('path');
 
+      const subWidgets = path.join(process.cwd(), 'src/components/layout/page/ClientWidgets.tsx');
+      const widgetsPath = fs.existsSync(subWidgets) ? subWidgets : path.join(process.cwd(), 'src/components/layout/ClientWidgets.tsx');
       const clientWidgetsFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/layout/ClientWidgets.tsx'),
+        widgetsPath,
         'utf8'
       );
       expect(clientWidgetsFile).toContain('SpotlightSearchModal');
 
+      const subNav = path.join(process.cwd(), 'src/components/layout/header/NavigationWrapper.tsx');
+      const navPath = fs.existsSync(subNav) ? subNav : path.join(process.cwd(), 'src/components/layout/NavigationWrapper.tsx');
       const navWrapperFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/layout/NavigationWrapper.tsx'),
+        navPath,
         'utf8'
       );
       expect(navWrapperFile).not.toContain('<GlobalSpotlightSearchSeo');
@@ -4634,7 +4647,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const path = await import('path');
 
       const widgetFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/ui/QuickCallWidget.tsx'),
+        path.join(process.cwd(), 'src/components/ui/widgets/QuickCallWidget.tsx'),
         'utf8'
       );
       expect(widgetFile).toContain("new CustomEvent('open-spotlight-search')");
@@ -4649,7 +4662,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
   describe('186. Entegre Tesis Yönetimi Ekosistemi (9 Temel Disiplin) ve Topical Authority Doğrulaması', () => {
     it('ECOSYSTEM_SERVICES 9 temel hizmeti eksiksiz içerir ve tüm yollar geçerli rotalara bağlanır', async () => {
-      const { ECOSYSTEM_SERVICES } = await import('@/components/seo/FacilityEcosystemMatrixSeo');
+      const { ECOSYSTEM_SERVICES } = await import('@/components/seo/facility/FacilityEcosystemMatrixSeo');
       const fs = await import('fs');
       const path = await import('path');
 
@@ -4771,7 +4784,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(llmsRoute).toContain('Biyosidal ilaçlama nedir');
       expect(llmsRoute).toContain('5188 özel güvenlik kimlik kartı');
 
-      const homeFaq = fs.readFileSync(path.join(process.cwd(), 'src/components/sections/Faq.tsx'), 'utf8');
+      const subFaq = path.join(process.cwd(), 'src/components/sections/trust/Faq.tsx');
+      const faqPath = fs.existsSync(subFaq) ? subFaq : path.join(process.cwd(), 'src/components/sections/Faq.tsx');
+      const homeFaq = fs.readFileSync(faqPath, 'utf8');
       expect(homeFaq).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
       expect(homeFaq).toContain('Biyosidal ilaçlama nedir');
     });

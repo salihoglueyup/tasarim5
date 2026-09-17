@@ -1,8 +1,8 @@
 "use client";
 
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/seo/JsonLd';;
+import JsonLd from '@/components/seo/schema/JsonLd';;
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 export default function BasariHikayeleriClient({ stories }: { stories: any[] }) {

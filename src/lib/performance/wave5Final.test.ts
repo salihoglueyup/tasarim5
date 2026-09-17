@@ -6,7 +6,7 @@ import { CWV_ULTRA_TARGETS, validateLcpTarget } from '../seo/dualCorePageSpeedEn
 
 describe('Wave 5 Final: Faz 121 - Faz 125 Performans, Görsel Dayanıklılık & LCP Doğrulama', () => {
   const globalsCssPath = path.resolve(process.cwd(), 'src/app/globals.css');
-  const imageFallbackPath = path.resolve(process.cwd(), 'src/components/ui/ImageFallback.tsx');
+  const imageFallbackPath = path.resolve(process.cwd(), 'src/components/ui/media/ImageFallback.tsx');
 
   it('Faz 121: globals.css GPU kompozitör rahatlatma sınıfları barındırır', () => {
     const cssContent = fs.readFileSync(globalsCssPath, 'utf-8');

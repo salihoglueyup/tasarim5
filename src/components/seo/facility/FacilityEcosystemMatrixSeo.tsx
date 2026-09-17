@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { useLanguage } from '@/context/LanguageContext';
 
 export interface EcosystemService {

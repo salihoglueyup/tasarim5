@@ -1,14 +1,14 @@
 "use client";
 
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
 import { Card } from '@/components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
-import LandscapeCalculator from '@/components/sections/LandscapeCalculator';
-import LandscapeTestimonials from '@/components/sections/LandscapeTestimonials';
+import LandscapeCalculator from '@/components/sections/calculators/LandscapeCalculator';
+import LandscapeTestimonials from '@/components/sections/testimonials/LandscapeTestimonials';
 import Image from 'next/image';
 import { ServiceAuthorityHubSeo, FacilityLandscapeTreeGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
 

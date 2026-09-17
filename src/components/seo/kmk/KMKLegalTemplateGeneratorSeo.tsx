@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React, { useState } from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export type TemplateType = 'yonetici_karar' | 'aidat_ihtar' | 'vekaletname' | 'ortak_alan_ihtar';
 

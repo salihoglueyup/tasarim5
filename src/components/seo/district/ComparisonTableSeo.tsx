@@ -1,4 +1,4 @@
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 const ROWS = [
   {

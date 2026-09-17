@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { Hero, SeoTextSection } from '@/components';
-import GoogleReviewsWidget from '@/components/sections/GoogleReviewsWidget';
+import GoogleReviewsWidget from '@/components/sections/trust/GoogleReviewsWidget';
 import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
@@ -12,20 +12,20 @@ import { redis } from '@/lib/redis';
 import { generateFacilityManagementGraph } from '@/lib/seo/facilityTopicGraph';
 
 // Heavy components loaded dynamically for performance
-const BentoServices = dynamic(() => import('@/components/sections/BentoServices'), { ssr: true });
-const WhyUsBentoGrid = dynamic(() => import('@/components/sections/WhyUsBentoGrid'), { ssr: true });
-const PersonnelDifference = dynamic(() => import('@/components/sections/PersonnelDifference'), { ssr: true });
-const ComparisonTable = dynamic(() => import('@/components/sections/ComparisonTable'), { ssr: true });
-const InteractiveProcessSteps = dynamic(() => import('@/components/sections/InteractiveProcessSteps'), { ssr: true });
-const AppShowcase = dynamic(() => import('@/components/sections/AppShowcase'), { ssr: true });
-const PreFooterCta = dynamic(() => import('@/components/sections/PreFooterCta'), { ssr: true });
-const TestimonialSlider = dynamic(() => import('@/components/sections/TestimonialSlider'), { ssr: true });
-const CertificateBadgeGrid = dynamic(() => import('@/components/sections/CertificateBadgeGrid'), { ssr: true });
-const Faq = dynamic(() => import('@/components/sections/Faq'), { ssr: true });
-const IstanbulDuesHeatmapSeo = dynamic(() => import('@/components/seo/IstanbulDuesHeatmapSeo'), { ssr: true });
-const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/KMKLawAssistantSeo'), { ssr: true });
-const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/ServiceAuthorityHubSeo'), { ssr: true });
-const GoogleAiOverviewGroundingSeo = dynamic(() => import('@/components/seo/GoogleAiOverviewGroundingSeo'), { ssr: true });
+const BentoServices = dynamic(() => import('@/components/sections/core/BentoServices'), { ssr: true });
+const WhyUsBentoGrid = dynamic(() => import('@/components/sections/core/WhyUsBentoGrid'), { ssr: true });
+const PersonnelDifference = dynamic(() => import('@/components/sections/core/PersonnelDifference'), { ssr: true });
+const ComparisonTable = dynamic(() => import('@/components/sections/core/ComparisonTable'), { ssr: true });
+const InteractiveProcessSteps = dynamic(() => import('@/components/sections/core/InteractiveProcessSteps'), { ssr: true });
+const AppShowcase = dynamic(() => import('@/components/sections/interactive/AppShowcase'), { ssr: true });
+const PreFooterCta = dynamic(() => import('@/components/sections/core/PreFooterCta'), { ssr: true });
+const TestimonialSlider = dynamic(() => import('@/components/sections/testimonials/TestimonialSlider'), { ssr: true });
+const CertificateBadgeGrid = dynamic(() => import('@/components/sections/trust/CertificateBadgeGrid'), { ssr: true });
+const Faq = dynamic(() => import('@/components/sections/trust/Faq'), { ssr: true });
+const IstanbulDuesHeatmapSeo = dynamic(() => import('@/components/seo/district/IstanbulDuesHeatmapSeo'), { ssr: true });
+const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/kmk/KMKLawAssistantSeo'), { ssr: true });
+const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/facility/ServiceAuthorityHubSeo'), { ssr: true });
+const GoogleAiOverviewGroundingSeo = dynamic(() => import('@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo'), { ssr: true });
 
 
 export const revalidate = 3600;

@@ -431,7 +431,7 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
 
   describe('17. Akademik & Hukuki Atıf Motoru (AcademicCitationBoxSeo)', () => {
     it('Akademik atıf bileşeni başarıyla yüklenir ve bileşen fonksiyonunu dışa aktarır', async () => {
-      const AcademicCitationBoxSeo = (await import('@/components/seo/AcademicCitationBoxSeo')).default;
+      const AcademicCitationBoxSeo = (await import('@/components/seo/kmk/AcademicCitationBoxSeo')).default;
       expect(AcademicCitationBoxSeo).toBeDefined();
       expect(typeof AcademicCitationBoxSeo).toBe('function');
     });
@@ -1286,8 +1286,8 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
 
   describe('43. Kurumsal Varlık Güven Künyesi & B2B Hizmet Matrisi Güvencesi', () => {
     it('FacilityOfficialEntityTrustSeo ve FacilityCommercialTiersSeo bileşenleri dışa aktarılır ve geçerlidir', async () => {
-      const { FacilityOfficialEntityTrustSeo } = await import('@/components/seo/FacilityOfficialEntityTrustSeo');
-      const { FacilityCommercialTiersSeo } = await import('@/components/seo/FacilityCommercialTiersSeo');
+      const { FacilityOfficialEntityTrustSeo } = await import('@/components/seo/facility/FacilityOfficialEntityTrustSeo');
+      const { FacilityCommercialTiersSeo } = await import('@/components/seo/facility/FacilityCommercialTiersSeo');
       expect(FacilityOfficialEntityTrustSeo).toBeDefined();
       expect(FacilityCommercialTiersSeo).toBeDefined();
       expect(typeof FacilityOfficialEntityTrustSeo).toBe('function');

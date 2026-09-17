@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 interface FacilityLegalPrecedentsBrowserSeoProps {
   basePath?: string;

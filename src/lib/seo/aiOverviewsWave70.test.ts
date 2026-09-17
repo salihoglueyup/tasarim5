@@ -3,8 +3,8 @@ import {
   PeopleAlsoAskDeepTreeSeo,
   AccreditedCertificationsTrustSeo,
 } from '@/components/seo';
-import { PAA_DEEP_TREE_QUESTIONS } from '@/components/seo/PeopleAlsoAskDeepTreeSeo';
-import { VERIFIED_BELCERT_CREDENTIALS } from '@/components/seo/AccreditedCertificationsTrustSeo';
+import { PAA_DEEP_TREE_QUESTIONS } from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
+import { VERIFIED_BELCERT_CREDENTIALS } from '@/components/seo/ai-overviews/AccreditedCertificationsTrustSeo';
 import { GET as getCredentialsJson } from '@/app/api/seo/credentials.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';

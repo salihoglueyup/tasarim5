@@ -7,9 +7,9 @@ import Image from 'next/image';
 import { PersonSeo } from '@/components';
 import { ShieldCheck, Target, Lightbulb, Leaf, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import PreFooterCta from '@/components/sections/PreFooterCta';
-import WhyUsBentoGrid from '@/components/sections/WhyUsBentoGrid';
-import CertificateBadgeGrid from '@/components/sections/CertificateBadgeGrid';
+import PreFooterCta from '@/components/sections/core/PreFooterCta';
+import WhyUsBentoGrid from '@/components/sections/core/WhyUsBentoGrid';
+import CertificateBadgeGrid from '@/components/sections/trust/CertificateBadgeGrid';
 
 // --- CountUp Animasyon Bileşeni ---
 function Counter({ from, to, duration = 2 }: { from: number; to: number; duration?: number }) {

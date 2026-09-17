@@ -4,11 +4,13 @@ import path from 'path';
 
 describe('Wave 5: Medya, AVIF, Font & LCP Optimizasyonları (Faz 101 - Faz 110)', () => {
   const nextConfigPath = path.resolve(process.cwd(), 'next.config.ts');
-  const heroPath = path.resolve(process.cwd(), 'src/components/sections/Hero.tsx');
+  const heroSubPath = path.resolve(process.cwd(), 'src/components/sections/core/Hero.tsx');
+  const heroPath = fs.existsSync(heroSubPath) ? heroSubPath : path.resolve(process.cwd(), 'src/components/sections/Hero.tsx');
   const postGridPath = path.resolve(process.cwd(), 'src/components/blog/PostGrid.tsx');
   const blogListPath = path.resolve(process.cwd(), 'src/components/blog/BlogListClient.tsx');
-  const logoTickerPath = path.resolve(process.cwd(), 'src/components/ui/LogoTicker.tsx');
-  const footerPath = path.resolve(process.cwd(), 'src/components/layout/Footer.tsx');
+  const logoTickerPath = path.resolve(process.cwd(), 'src/components/ui/branding/LogoTicker.tsx');
+  const footerSubPath = path.resolve(process.cwd(), 'src/components/layout/footer/Footer.tsx');
+  const footerPath = fs.existsSync(footerSubPath) ? footerSubPath : path.resolve(process.cwd(), 'src/components/layout/Footer.tsx');
   const globalsCssPath = path.resolve(process.cwd(), 'src/app/globals.css');
   const layoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
 

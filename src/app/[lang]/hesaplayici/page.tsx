@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import CalculatorClient from './CalculatorClient';
 import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, howToSchema } from '@/lib/schemas';
 import { DefinedTermSetSeo, CalculatorAiOverviewSeo, BudgetMatrixAiGroundingSeo } from '@/components/seo';
 

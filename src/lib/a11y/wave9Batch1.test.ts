@@ -5,7 +5,8 @@ import { auditHeadingHierarchy } from './headingAuditor';
 
 describe('Wave 9: Faz 201 - Faz 205 WCAG 2.1 AA Erişilebilirlik (A11y) Temelleri', () => {
   it('Faz 201: Header bileşeninde interaktif butonlar açıklayıcı aria-label taşır', () => {
-    const headerPath = path.resolve(process.cwd(), 'src/components/layout/Header.tsx');
+    const subHeader = path.resolve(process.cwd(), 'src/components/layout/header/Header.tsx');
+    const headerPath = fs.existsSync(subHeader) ? subHeader : path.resolve(process.cwd(), 'src/components/layout/Header.tsx');
     const headerContent = fs.readFileSync(headerPath, 'utf-8');
 
     expect(headerContent).toContain('aria-label="Dil Seçimi"');
@@ -16,7 +17,8 @@ describe('Wave 9: Faz 201 - Faz 205 WCAG 2.1 AA Erişilebilirlik (A11y) Temeller
   });
 
   it('Faz 202: NavigationWrapper #main-content atlama bağlantısına (Skip Navigation Link) sahiptir', () => {
-    const navWrapperPath = path.resolve(process.cwd(), 'src/components/layout/NavigationWrapper.tsx');
+    const subNav = path.resolve(process.cwd(), 'src/components/layout/header/NavigationWrapper.tsx');
+    const navWrapperPath = fs.existsSync(subNav) ? subNav : path.resolve(process.cwd(), 'src/components/layout/NavigationWrapper.tsx');
     const navContent = fs.readFileSync(navWrapperPath, 'utf-8');
 
     expect(navContent).toContain('href="#main-content"');
@@ -50,7 +52,10 @@ describe('Wave 9: Faz 201 - Faz 205 WCAG 2.1 AA Erişilebilirlik (A11y) Temeller
 
   it('Faz 204: useFocusTrap hook dosyası mevcuttur ve LoginModal tarafından kullanılır', () => {
     const hookPath = path.resolve(process.cwd(), 'src/hooks/useFocusTrap.ts');
-    const loginModalPath = path.resolve(process.cwd(), 'src/components/layout/LoginModal.tsx');
+    const headerModalPath = path.resolve(process.cwd(), 'src/components/layout/header/LoginModal.tsx');
+    const loginModalPath = fs.existsSync(headerModalPath)
+      ? headerModalPath
+      : path.resolve(process.cwd(), 'src/components/layout/LoginModal.tsx');
 
     expect(fs.existsSync(hookPath)).toBe(true);
 

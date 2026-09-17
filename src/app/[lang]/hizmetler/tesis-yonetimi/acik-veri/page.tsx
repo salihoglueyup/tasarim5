@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import AcikVeriClient from './AcikVeriClient';
 

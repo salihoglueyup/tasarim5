@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { reviewsWithRating } from '@/lib/schemas';
 import { useLanguage } from '@/context/LanguageContext';
 

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
-import { LOCAL_BUSINESS_HUBS } from '@/components/seo/LocalBusinessProfileAiAnchorSeo';
+import { LOCAL_BUSINESS_HUBS } from '@/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo';
 import { CANONICAL_NAP } from '@/lib/seo/napGuardEngine';
 
 export const dynamic = 'force-dynamic';

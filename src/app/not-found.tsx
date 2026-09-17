@@ -1,7 +1,7 @@
 import { Inter, Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "./globals.css";
-import MaterialSymbolsFix from "@/components/ui/MaterialSymbolsFix";
-import GlobalNotFound from "@/components/layout/GlobalNotFound";
+import MaterialSymbolsFix from "@/components/ui/branding/MaterialSymbolsFix";
+import GlobalNotFound from "@/components/layout/page/GlobalNotFound";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],

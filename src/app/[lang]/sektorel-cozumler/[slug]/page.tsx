@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import JsonLd from '@/components/seo/JsonLd';
-import PageHeader from '@/components/layout/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { autoLinkHtml } from '@/lib/autoLinker';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import { SectorAiOverviewSnippetSeo } from '@/components/seo';
 
 export const dynamicParams = true;

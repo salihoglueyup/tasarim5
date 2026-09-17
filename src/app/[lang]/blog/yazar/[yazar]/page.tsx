@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { PostGrid } from '@/components';
 import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject, authorPersonSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 
 import { POSTS_META, CATEGORIES } from '@/data/posts';
 import { getAuthor } from '@/data/authors';

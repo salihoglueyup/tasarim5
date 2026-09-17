@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React, { useState } from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export type SecurityTemplateType = 'guvenlik_karar' | 'valilik_dilekce' | 'kvkk_aydinlatma' | 'gorev_talimati';
 

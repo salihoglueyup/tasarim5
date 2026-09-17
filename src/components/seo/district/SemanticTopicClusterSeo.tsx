@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export interface SemanticTopicClusterProps {
   currentPillar?: string;

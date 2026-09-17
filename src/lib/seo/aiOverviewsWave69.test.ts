@@ -3,8 +3,8 @@ import {
   ServicePricingProductAiOverviewSeo,
   LocalBusinessProfileAiAnchorSeo,
 } from '@/components/seo';
-import { SERVICE_PRICING_PACKAGES } from '@/components/seo/ServicePricingProductAiOverviewSeo';
-import { LOCAL_BUSINESS_HUBS } from '@/components/seo/LocalBusinessProfileAiAnchorSeo';
+import { SERVICE_PRICING_PACKAGES } from '@/components/seo/ai-overviews/ServicePricingProductAiOverviewSeo';
+import { LOCAL_BUSINESS_HUBS } from '@/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo';
 import { GET as getLocalAnchors } from '@/app/api/seo/local-anchors.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';

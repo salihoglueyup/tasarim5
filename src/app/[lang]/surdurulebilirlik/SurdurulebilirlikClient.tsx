@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import PageHeader from '@/components/layout/PageHeader';
-import PreFooterCta from '@/components/sections/PreFooterCta';
+import PageHeader from '@/components/layout/page/PageHeader';
+import PreFooterCta from '@/components/sections/core/PreFooterCta';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
 
 const CERTIFICATES = [

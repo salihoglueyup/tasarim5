@@ -7,7 +7,7 @@ import { VoiceSearchSpeakableSeo } from '@/components/seo';
 import { TERMS } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
-import WalletSvgIcon from '@/components/ui/WalletSvgIcon';
+import WalletSvgIcon from '@/components/ui/branding/WalletSvgIcon';
 
 export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);

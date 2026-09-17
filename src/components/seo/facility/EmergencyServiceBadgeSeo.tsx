@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React from 'react';
-import JsonLd from '@/components/seo/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL, ORG_PHONE } from '@/lib/constants';
 import { ORG_NAME, ORG_ADDRESS } from '@/lib/schemas';
 

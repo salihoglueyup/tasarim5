@@ -5,9 +5,9 @@ import {
   BudgetMatrixAiGroundingSeo,
   BlogAiTakeawaysSeo,
 } from '@/components/seo';
-import { LEGAL_FACT_CHECKS } from '@/components/seo/FactCheckAiGroundingSeo';
-import { RFP_TRANSITION_STEPS } from '@/components/seo/RfpTransitionAiGroundingSeo';
-import { BUDGET_MATRIX_ITEMS } from '@/components/seo/BudgetMatrixAiGroundingSeo';
+import { LEGAL_FACT_CHECKS } from '@/components/seo/ai-overviews/FactCheckAiGroundingSeo';
+import { RFP_TRANSITION_STEPS } from '@/components/seo/ai-overviews/RfpTransitionAiGroundingSeo';
+import { BUDGET_MATRIX_ITEMS } from '@/components/seo/ai-overviews/BudgetMatrixAiGroundingSeo';
 import { GET as getAiCitations } from '@/app/api/seo/ai-citations.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';

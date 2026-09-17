@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
 import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo, PositionZeroAnswerBox } from '@/components/seo';
-import RelatedServices from '@/components/sections/RelatedServices';
-import PreFooterCta from '@/components/sections/PreFooterCta';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
+import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
 const OPERATIONAL_PILLARS = [
   {

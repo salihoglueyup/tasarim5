@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import TableOfContents from '@/components/blog/TableOfContents';
-import LegalPageSeo from '@/components/seo/LegalPageSeo';
+import LegalPageSeo from '@/components/seo/schema/LegalPageSeo';
 
 export default function KullanimSartlariClient() {
   const { t, language } = useLanguage();

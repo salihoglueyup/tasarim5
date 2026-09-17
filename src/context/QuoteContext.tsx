@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, ReactNode, useEffect, useCa
 import dynamic from 'next/dynamic';
 
 // QuoteModal yalnız açıldığında yüklenir; ilk bundle'a girmez (SEO V4 Faz 192).
-const QuoteModal = dynamic(() => import('@/components/ui/QuoteModal'), { ssr: false });
+const QuoteModal = dynamic(() => import('@/components/modals/QuoteModal'), { ssr: false });
 
 interface QuoteContextType {
   isQuoteModalOpen: boolean;

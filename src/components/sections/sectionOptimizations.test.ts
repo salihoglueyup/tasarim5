@@ -52,11 +52,15 @@ describe('Wave 2: Bölüm ve Bileşen Optimizasyonları (Faz 26 - Faz 50)', () =
   });
 
   it('Hero.tsx ve AppComingSoon.tsx Framer Motion içermez, CSS donanım hızlandırma kullanır', () => {
-    const heroContent = fs.readFileSync(path.join(sectionsDir, 'Hero.tsx'), 'utf-8');
+    const heroSubPath = path.join(sectionsDir, 'core', 'Hero.tsx');
+    const heroPath = fs.existsSync(heroSubPath) ? heroSubPath : path.join(sectionsDir, 'Hero.tsx');
+    const heroContent = fs.readFileSync(heroPath, 'utf-8');
     expect(heroContent).not.toContain("from 'framer-motion'");
     expect(heroContent).toContain('transform-gpu');
 
-    const appSoonContent = fs.readFileSync(path.join(sectionsDir, 'AppComingSoon.tsx'), 'utf-8');
+    const appSoonSubPath = path.join(sectionsDir, 'interactive', 'AppComingSoon.tsx');
+    const appSoonPath = fs.existsSync(appSoonSubPath) ? appSoonSubPath : path.join(sectionsDir, 'AppComingSoon.tsx');
+    const appSoonContent = fs.readFileSync(appSoonPath, 'utf-8');
     expect(appSoonContent).not.toContain("from 'framer-motion'");
     expect(appSoonContent).toContain('transform-gpu');
   });

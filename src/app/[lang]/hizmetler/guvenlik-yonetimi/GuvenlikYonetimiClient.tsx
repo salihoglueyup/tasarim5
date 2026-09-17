@@ -1,6 +1,6 @@
 "use client";
 
-import RelatedServices from '@/components/sections/RelatedServices';
+import RelatedServices from '@/components/sections/trust/RelatedServices';
 import { 
   SeoTextSection, 
   ServiceSeo, 
@@ -19,8 +19,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { RelatedArticles } from '@/components';
-import SecurityCalculator from '@/components/sections/SecurityCalculator';
-import SecurityTestimonials from '@/components/sections/SecurityTestimonials';
+import SecurityCalculator from '@/components/sections/calculators/SecurityCalculator';
+import SecurityTestimonials from '@/components/sections/testimonials/SecurityTestimonials';
 import { ServiceAuthorityHubSeo, SiteSecurityPermitGuideSeo, EmergencyDisasterAuditSeo, PositionZeroAnswerBox } from '@/components/seo';
 
 export default function GuvenlikYonetimiClient() {

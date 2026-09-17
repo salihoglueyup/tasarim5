@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from '@/context/LanguageContext';
-import ReviewListSeo from '@/components/seo/ReviewListSeo';
+import ReviewListSeo from '@/components/seo/schema/ReviewListSeo';
 
 export interface ServiceTestimonialItem {
   quote: string;

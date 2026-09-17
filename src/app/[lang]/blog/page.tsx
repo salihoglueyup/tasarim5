@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import PageHeader from '@/components/layout/PageHeader';
-import JsonLd from '@/components/seo/JsonLd';;
+import PageHeader from '@/components/layout/page/PageHeader';
+import JsonLd from '@/components/seo/schema/JsonLd';;
 import { generateBreadcrumbs } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
 import { notFound } from 'next/navigation';
-import ItemListSeo from '@/components/seo/ItemListSeo';
+import ItemListSeo from '@/components/seo/schema/ItemListSeo';
 import { BASE_URL, buildMetadata } from '@/lib/seo';
 
 import { POSTS_META, CATEGORIES } from '@/data/posts';

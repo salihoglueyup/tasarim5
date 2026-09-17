@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import PageHeader from '@/components/layout/PageHeader';
+import PageHeader from '@/components/layout/page/PageHeader';
 import { QuoteCtaButton } from '@/components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { EventSeo, ServiceAuthorityHubSeo } from '@/components/seo';
-import EmergencyPreparednessAuditSeo from '@/components/seo/EmergencyPreparednessAuditSeo';
+import EmergencyPreparednessAuditSeo from '@/components/seo/facility/EmergencyPreparednessAuditSeo';
 
 export default function GuvenlikAkademisiClient() {
   const { t } = useLanguage();
