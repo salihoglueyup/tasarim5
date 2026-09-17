@@ -154,3 +154,5 @@ export { default as DistrictServiceAiOverviewSnippetSeo } from './DistrictServic
 export { default as SectorHubAiOverviewSeo } from './SectorHubAiOverviewSeo';
 export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOverviewSeo';
 export { default as VoiceConversationalAiSnippetSeo } from './VoiceConversationalAiSnippetSeo';
+export { default as ServicePricingProductAiOverviewSeo } from './ServicePricingProductAiOverviewSeo';
+export { default as LocalBusinessProfileAiAnchorSeo } from './LocalBusinessProfileAiAnchorSeo';
