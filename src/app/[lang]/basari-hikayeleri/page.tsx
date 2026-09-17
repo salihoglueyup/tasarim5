@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 import BasariHikayeleriClient from './BasariHikayeleriClient';
 import { buildMetadata } from '@/lib/seo';
+import { CaseStudyAiGroundingSeo } from '@/components/seo';
 
 export const revalidate = 3600;
 
@@ -54,6 +55,11 @@ export default async function BasariHikayeleriPage() {
   }
 
   return (
-    <BasariHikayeleriClient stories={stories} />
+    <>
+      <BasariHikayeleriClient stories={stories} />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <CaseStudyAiGroundingSeo />
+      </div>
+    </>
   );
 }

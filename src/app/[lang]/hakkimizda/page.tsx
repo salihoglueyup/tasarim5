@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema, organizationSchema } from '@/lib/schemas';
+import { CorporateEntityAiOverviewSeo } from '@/components/seo';
 import HakkimizdaClient from './HakkimizdaClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -71,7 +72,7 @@ export default async function HakkimizdaPage({
     name: t.about_title || 'Hakkımızda',
     description: t.about_desc || 'Alo Yönetim kurumsal kimliği, yönetim ekibi ve tesis işletim vizyonu.',
     path: '/hakkimizda',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#corporate-instant-answer-text'],
   });
 
   const orgLd = organizationSchema();
@@ -80,6 +81,9 @@ export default async function HakkimizdaPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd, orgLd]} />
       <HakkimizdaClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <CorporateEntityAiOverviewSeo />
+      </div>
     </>
   );
 }

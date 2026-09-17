@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema, ORG_NAME, ORG_PHONE } from '@/lib/schemas';
+import { ContactAiOverviewCardSeo } from '@/components/seo';
 import IletisimClient from './IletisimClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -69,7 +70,7 @@ export default async function IletisimPage({
     name: t.contact_title || 'İletişim',
     description: t.contact_desc || 'Alo Yönetim iletişim kanalları, genel merkez adresi ve canlı çağrı merkezi.',
     path: '/iletisim',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#contact-instant-answer-text'],
   });
 
   const serviceLd = professionalServiceSchema({
@@ -80,6 +81,9 @@ export default async function IletisimPage({
     <>
       <JsonLd data={[contactPageLd, breadcrumbLd, serviceLd]} />
       <IletisimClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ContactAiOverviewCardSeo />
+      </div>
     </>
   );
 }

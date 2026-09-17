@@ -9,6 +9,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { autoLinkHtml } from '@/lib/autoLinker';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/eeatAuditor';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { SectorAiOverviewSnippetSeo } from '@/components/seo';
 
 export const dynamicParams = true;
 export const revalidate = 3600;
@@ -134,7 +135,7 @@ export default async function SectoralSolutionDetailPage({
     name: `${solution.title} | Alo Yönetim`,
     path,
     description: solution.description,
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#sector-instant-answer-text'],
   });
 
   const authorityLd = generateVerifiedAuthorityGraph();
@@ -276,6 +277,9 @@ export default async function SectoralSolutionDetailPage({
             </div>
           </div>
         </div>
+
+        {/* AI Overviews & B2B Sektörel Mevzuat Otoritesi */}
+        <SectorAiOverviewSnippetSeo sectorName={solution.title} sectorSlug={solution.slug} />
 
         {/* İlgili Hizmetler ve Çapraz Silo Bağlantıları */}
         <div className="pt-8 border-t border-[var(--color-outline)]/40">
