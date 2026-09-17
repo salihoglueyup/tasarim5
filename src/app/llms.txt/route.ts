@@ -169,6 +169,7 @@ ${DISTRICTS.map(d => {
 - **İİK 68 İcra Gücü**: Tebliğinden itibaren 7 gün içinde Sulh Hukuk Mahkemesi'ne itiraz edilmeyen işletme projesi ilamsız icra takibi için borç ikrarı içeren resmi belge hükmündedir.
 
 ## İlgili API ve Veri Kaynakları
+- **Resmi GEO & AI Agent Manifest API**: ${BASE_URL}/api/seo/geo-manifest.json
 - **Birleşik AI Knowledge Graph RAG API**: ${BASE_URL}/api/seo/ai-overviews-rag.json
 - **Site Yönetimi AI Agent RAG API**: ${BASE_URL}/api/ai/site-agent-context.json
 - **Tesis Yönetimi AI Agent RAG API**: ${BASE_URL}/api/ai/facility-agent-context.json
