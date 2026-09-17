@@ -8,6 +8,7 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
+import { ServiceAiOverviewSnippetSeo } from '@/components/seo';
 import AidatTakibiClient from './AidatTakibiClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -100,13 +101,16 @@ export default async function AidatTakibiPage({
     name: 'Online Aidat Takibi ve Finansal Yönetim | Alo Yönetim',
     description: 'Site ve apartmanlar için %99 tahsilat oranlı dijital aidat takip programı.',
     path: '/hizmetler/aidat-takibi',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <AidatTakibiClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ServiceAiOverviewSnippetSeo serviceSlug="aidat-takibi" serviceName="Profesyonel Aidat Takibi ve Yasal Tahsilat" />
+      </div>
     </>
   );
 }

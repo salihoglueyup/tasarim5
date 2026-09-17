@@ -8,6 +8,7 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
+import { ServiceAiOverviewSnippetSeo } from '@/components/seo';
 import TeknikBakimClient from './TeknikBakimClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -101,13 +102,16 @@ export default async function TeknikBakimPage({
     name: 'Bina ve Tesis Teknik Bakım, Onarım ve Mobil Servis | Alo Yönetim',
     description: 'Asansör, jeneratör ve hidrofor sistemleri için 7/24 mobil teknik servis.',
     path: '/hizmetler/teknik-bakim',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <TeknikBakimClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ServiceAiOverviewSnippetSeo serviceSlug="teknik-bakim" serviceName="Teknik Bakım, Onarım ve Asansör İşletimi" />
+      </div>
     </>
   );
 }

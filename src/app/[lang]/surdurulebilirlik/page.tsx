@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { SustainabilityAiOverviewSeo } from '@/components/seo';
 import SurdurulebilirlikClient from './SurdurulebilirlikClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -57,13 +58,16 @@ export default async function SurdurulebilirlikPage({
     name: t.sust_hub_title || 'Sürdürülebilirlik ve Yeşil Tesis Yönetimi',
     description: t.sust_hub_desc || 'Alo Yönetim çevreye duyarlı yeşil tesis yönetimi ve ESG politikaları.',
     path: '/surdurulebilirlik',
-    speakableSelectors: ['h1', '#speakable-content'],
+    speakableSelectors: ['h1', '#speakable-content', '#sustainability-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd]} />
       <SurdurulebilirlikClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <SustainabilityAiOverviewSeo />
+      </div>
     </>
   );
 }

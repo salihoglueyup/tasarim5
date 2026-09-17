@@ -8,6 +8,7 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
+import { ServiceAiOverviewSnippetSeo } from '@/components/seo';
 import TemizlikVeHijyenClient from './TemizlikVeHijyenClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -94,13 +95,16 @@ export default async function TemizlikVeHijyenPage({
     name: 'Profesyonel Apartman, Site ve Tesis Temizliği | Alo Yönetim',
     description: 'TSE 13811 standartlarında endüstriyel ortak alan temizlik ve hijyen hizmetleri.',
     path: '/hizmetler/temizlik-ve-hijyen',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <TemizlikVeHijyenClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ServiceAiOverviewSnippetSeo serviceSlug="temizlik-ve-hijyen" serviceName="Site ve Tesis Temizliği & Hijyen Hizmetleri" />
+      </div>
     </>
   );
 }

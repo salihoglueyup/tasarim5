@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, courseSchema, webPageSchema } from '@/lib/schemas';
+import { AcademyAiOverviewSeo } from '@/components/seo';
 import GuvenlikAkademisiClient from './GuvenlikAkademisiClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -72,7 +73,7 @@ export default async function GuvenlikAkademisiPage({
     name: t.aca_page_title || 'Güvenlik Akademisi',
     description: t.aca_page_desc || '5188 sayılı kanun kapsamında lisanslı özel güvenlik eğitim programları.',
     path: '/guvenlik-akademisi',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#academy-instant-answer-text'],
   });
 
   const aloGuvenlikLd = {
@@ -93,6 +94,9 @@ export default async function GuvenlikAkademisiPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, aloGuvenlikLd, ucgGuvenlikLd]} />
       <GuvenlikAkademisiClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <AcademyAiOverviewSeo />
+      </div>
     </>
   );
 }

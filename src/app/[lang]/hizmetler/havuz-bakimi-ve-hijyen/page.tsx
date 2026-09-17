@@ -8,6 +8,7 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
+import { ServiceAiOverviewSnippetSeo } from '@/components/seo';
 import HavuzBakimiVeHijyenClient from './HavuzBakimiVeHijyenClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -94,13 +95,16 @@ export default async function HavuzBakimiVeHijyenPage({
     name: 'Yüzme Havuzu Bakımı ve Kimyasal Şartlandırma | Alo Yönetim',
     description: 'Açık ve kapalı yüzme havuzları için periyodik teknik bakım ve Sağlık Bakanlığı onaylı hijyen.',
     path: '/hizmetler/havuz-bakimi-ve-hijyen',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <HavuzBakimiVeHijyenClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ServiceAiOverviewSnippetSeo serviceSlug="havuz-bakimi-ve-hijyen" serviceName="Havuz Bakımı, Kimyasal Şartlandırma ve Hijyen" />
+      </div>
     </>
   );
 }

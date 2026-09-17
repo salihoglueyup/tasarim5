@@ -8,6 +8,7 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
+import { ServiceAiOverviewSnippetSeo } from '@/components/seo';
 import GuvenlikYonetimiClient from './GuvenlikYonetimiClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -101,13 +102,16 @@ export default async function GuvenlikYonetimiPage({
     name: '5188 Lisanslı Özel Güvenlik ve Tesis Emniyeti | Alo Yönetim',
     description: '5188 sayılı kanun kapsamında lisanslı site ve tesis özel güvenlik yönetimi.',
     path: '/hizmetler/guvenlik-yonetimi',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <GuvenlikYonetimiClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ServiceAiOverviewSnippetSeo serviceSlug="guvenlik-yonetimi" serviceName="5188 Lisanslı Özel Güvenlik Yönetimi" />
+      </div>
     </>
   );
 }
