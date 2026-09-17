@@ -5,7 +5,7 @@ import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema, howToSchema } from '@/lib/schemas';
-import { DefinedTermSetSeo, CalculatorAiOverviewSeo } from '@/components/seo';
+import { DefinedTermSetSeo, CalculatorAiOverviewSeo, BudgetMatrixAiGroundingSeo } from '@/components/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -140,7 +140,7 @@ export default async function HesaplayiciServer() {
     name: 'Aidat & Tesis Yönetim Maliyeti Hesaplayıcı',
     description: 'Siteniz için tahmini aidat ve yönetim bütçesini hesaplayın.',
     path: '/hesaplayici',
-    speakableSelectors: ['h1', 'h2', 'p', '#calc-instant-answer-text'],
+    speakableSelectors: ['h1', 'h2', 'p', '#calc-instant-answer-text', '#budget-matrix-instant-answer-text'],
   });
 
   return (
@@ -149,6 +149,7 @@ export default async function HesaplayiciServer() {
       <CalculatorClient initialConfig={config} />
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20 space-y-8">
         <CalculatorAiOverviewSeo />
+        <BudgetMatrixAiGroundingSeo />
         <DefinedTermSetSeo
           name="Tesis Yönetimi ve Aidat Bütçe Terimleri"
           description="KMK 634 Madde 20, İşletme Projesi ve Arsa Payı Bütçe Dağılımı Tanımları"

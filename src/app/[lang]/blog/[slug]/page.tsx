@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import JsonLd from '@/components/seo/JsonLd';
 import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
-import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo, ArticleAiOverviewCard } from '@/components/seo';
+import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo, ArticleAiOverviewCard, BlogAiTakeawaysSeo } from '@/components/seo';
 import TableOfContents from '@/components/blog/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
@@ -395,6 +395,14 @@ export default async function BlogDetail({
               slug={slug}
             />
           )}
+
+          {/* Google AI & Gemini Key Takeaways Box (Wave 66) */}
+          <BlogAiTakeawaysSeo
+            title={post.title}
+            slug={slug}
+            category={category?.name}
+            lang={lang}
+          />
 
           {/* TL;DR (Faz 15: Tüm makaleler için AI ve hızlı okuma garantili özet kutusu) */}
           {(post.tldr || post.description || post.summary) && (
