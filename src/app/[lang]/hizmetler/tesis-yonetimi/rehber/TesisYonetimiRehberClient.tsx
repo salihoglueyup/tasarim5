@@ -10,6 +10,7 @@ import {
   FacilityComparisonMatrixSeo,
   FacilityDownloadableVaultSeo,
   FacilitySubSectorCrossNav,
+  AiOverviewStepSolverSeo,
 } from '@/components/seo';
 import RelatedServices from '@/components/sections/RelatedServices';
 import PreFooterCta from '@/components/sections/PreFooterCta';
@@ -196,6 +197,9 @@ export default function TesisYonetimiRehberClient() {
             steps={STEPS}
           />
         </div>
+
+        {/* 5.5 BÖLÜM: Google AI Overviews Adım Adım Problem Çözücü & Uyuşmazlık Çözümü (HowTo) */}
+        <AiOverviewStepSolverSeo />
 
         {/* 6. BÖLÜM: Resmi Hukuki Belge & Şablon İndirme Kasası */}
         <div>
