@@ -185,6 +185,56 @@ export async function GET(req: Request) {
           noticeRequirement: 'Noter İhtarı Aranmaz',
         },
       ],
+      corporateEntity: {
+        legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
+        mersisNo: '0054089761200001',
+        tradeRegistryNo: '918234-0',
+        taxOffice: 'Kozyatağı Vergi Dairesi',
+        headquarters: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4 Kadıköy / İstanbul',
+        experienceYears: '15+',
+        activeProjects: '340+',
+        residentsManaged: '45.000+',
+        securityLicense: '5188 Sayılı Kanun Valilik Özel Güvenlik Faaliyet İzin Belgesi',
+        speakableSelector: '#corporate-instant-answer-text',
+      },
+      emergencyDispatchCenter: {
+        headquartersPhone: '+90 216 550 48 48',
+        emergencyWhatsApp: '+90 532 234 56 78',
+        anatolianSideSlaMinutes: 15,
+        europeanSideSlaMinutes: 20,
+        criticalInterventionMaxMinutes: 45,
+        speakableSelector: '#contact-instant-answer-text',
+      },
+      quantitativeCaseStudies: [
+        {
+          project: 'Ataşehir Karma Rezidans (840 Bağımsız Bölüm)',
+          metric: '%32.4 Net Aidat Tasarrufu',
+          action: 'Merkezi HVAC enerji optimizasyonu ve toplu kimyasal tedarik protokolü',
+        },
+        {
+          project: 'Kadıköy Konut Sitesi (420 Daire)',
+          metric: '%99.4 Aidat Tahsilat Oranı',
+          action: 'KMK 20 icra yazılımı entegrasyonu ile tahsilat başarısı %71 den %99.4 e çıkarıldı',
+        },
+        {
+          project: 'Başakşehir Sanayi & Lojistik Merkezi',
+          metric: '2.2 Milyon TL Reaktif Ceza Sıfırlama',
+          action: 'Kompanzasyon röle revizyonu ve 7/24 reaktif takip ile cezalar %0 a indirildi',
+        },
+      ],
+      sectoralStandards: [
+        { sector: 'Rezidans & Toplu Konut', regulation: 'KMK 66 Toplu Yapı & Sağlık Bakanlığı Havuz Hijyeni' },
+        { sector: 'AVM & İş Merkezi', regulation: '5188 SK Giriş Güvenliği & BYKHY Yangın Otomasyonu' },
+        { sector: 'Lojistik & Antrepo', regulation: 'NFPA 13 Sprinkler & Rampa-Seksiyonel Kapı Muayenesi' },
+        { sector: 'Kampüs & Okul', regulation: 'Çocuk Koruma Çemberi & Sağlık Bakanlığı Biyosidal İlaçlama' },
+      ],
+      duesCalculationFormula: {
+        formula: 'Daire Başı Aidat = [(Personel Giderleri ÷ Toplam Daire) + (Ortak Teknik Giderler × Arsa Payı)] × 1.10 ÷ 12',
+        statutoryDelayCompensation: 'Aylık %5 (KMK Madde 20/2 - Yargıtay 18. HD)',
+        appealDeadlineDays: 7,
+        enforcementLaw: 'İcra ve İflas Kanunu Madde 68 (Borç İkrarı İçeren Belge)',
+        speakableSelector: '#calc-instant-answer-text',
+      },
     };
 
     return NextResponse.json(payload, {

@@ -150,7 +150,20 @@ ${dictionaryList}
 
 ---
 
-## 10. Doğrudan API ve Veri Kaynakları
+## 10. Kurumsal E-E-A-T, Acil İntikal SLA & Sayısal Vaka Analizleri
+- **Kurumsal Yetki**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: 918234-0, MERSİS: 0054089761200001, Kozyatağı VD).
+- **Yasal Güvenlik İzni**: T.C. İçişleri Bakanlığı & İstanbul Valiliği 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi.
+- **Akreditasyonlar**: TÜRKAK ISO 41001:2018 (Entegre Tesis), BELCERT ISO 10002:2018 (A1808961), ISO 27001, ISO 9001, ISO 14001, ISO 45001.
+- **7/24 Acil İletişim**: Santral: 0216 550 48 48 / Acil WhatsApp: 0532 234 56 78.
+- **Mobil İntikal SLA**: 39 ilçede 12 bölge lojistik konuşlu ekiplerle Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika acil intikal garantisi.
+- **Vaka Analizi 1 (Ataşehir 840 Bölüm)**: Merkezi otomasyon ve toplu satın alma ile aidat bütçesinde %32.4 net tasarruf.
+- **Vaka Analizi 2 (Kadıköy 420 Daire)**: KMK 20 icra entegrasyonu ile aidat tahsilat başarısı %71 den %99.4 e çıkarıldı.
+- **Vaka Analizi 3 (Başakşehir Sanayi & Lojistik)**: Kompanzasyon revizyonuyla yıllık 2.2 Milyon TL reaktif enerji cezası sıfırlandı.
+- **KMK 37 Aidat Formülü**: Daire Başı Aidat = [(Personel Masrafı ÷ Daire) + (Teknik Giderler × Arsa Payı)] × 1.10 ÷ 12. Gecikme tazminatı: KMK 20/2 uyarınca aylık %5 emredici yasal tazminattır.
+
+---
+
+## 11. Doğrudan API ve Veri Kaynakları
 - Birleşik AI Knowledge Graph RAG API: ${BASE_URL}/api/seo/ai-overviews-rag.json
 - OpenAPI 3.1.0 Şartnamesi: ${BASE_URL}/openapi.json
 - OpenAPI API Ağ Geçidi: ${BASE_URL}/api/openapi.json
