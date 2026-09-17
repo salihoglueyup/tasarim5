@@ -144,3 +144,7 @@ export { default as SustainabilityAiOverviewSeo } from './SustainabilityAiOvervi
 export { default as AcademyAiOverviewSeo } from './AcademyAiOverviewSeo';
 export { default as AccreditationAiOverviewSeo } from './AccreditationAiOverviewSeo';
 export { default as CareerAiOverviewSeo } from './CareerAiOverviewSeo';
+export { default as FactCheckAiGroundingSeo } from './FactCheckAiGroundingSeo';
+export { default as RfpTransitionAiGroundingSeo } from './RfpTransitionAiGroundingSeo';
+export { default as BudgetMatrixAiGroundingSeo } from './BudgetMatrixAiGroundingSeo';
+export { default as BlogAiTakeawaysSeo } from './BlogAiTakeawaysSeo';
