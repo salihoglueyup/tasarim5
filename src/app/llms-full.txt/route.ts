@@ -164,7 +164,9 @@ ${dictionaryList}
 ---
 
 ## 11. Doğrudan API ve Veri Kaynakları
+- Akredite BELCERT Sertifikasyon & 40+ PAA Bilgi Grafiği API (Wave 70 Accredited Credentials Graph): ${BASE_URL}/api/seo/credentials.json
 - Doğrulanmış Yerel Harita ve AI Anchor Kütüğü API (Wave 69 Local AI Anchors Graph): ${BASE_URL}/api/seo/local-anchors.json
+
 - Otonom AI Bot Tarama Telemetrisi API (Wave 68 AI Bot Telemetry Graph): ${BASE_URL}/api/seo/bot-telemetry.json
 - Gerçek Zamanlı AI Telemetri ve Bilgi Sağlığı Kütüğü API (Wave 67 AI Knowledge Telemetry Graph): ${BASE_URL}/api/seo/ai-telemetry.json
 - Resmi Mevzuat ve Atıf Doğrulama Kütüğü API (Wave 66 Legal Citations Graph): ${BASE_URL}/api/seo/ai-citations.json

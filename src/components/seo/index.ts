@@ -156,3 +156,6 @@ export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOvervi
 export { default as VoiceConversationalAiSnippetSeo } from './VoiceConversationalAiSnippetSeo';
 export { default as ServicePricingProductAiOverviewSeo } from './ServicePricingProductAiOverviewSeo';
 export { default as LocalBusinessProfileAiAnchorSeo } from './LocalBusinessProfileAiAnchorSeo';
+export { default as PeopleAlsoAskDeepTreeSeo } from './PeopleAlsoAskDeepTreeSeo';
+export { default as AccreditedCertificationsTrustSeo } from './AccreditedCertificationsTrustSeo';
+
