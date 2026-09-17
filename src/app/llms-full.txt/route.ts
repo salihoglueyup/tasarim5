@@ -164,6 +164,7 @@ ${dictionaryList}
 ---
 
 ## 11. Doğrudan API ve Veri Kaynakları
+- Resmi Mevzuat ve Atıf Doğrulama Kütüğü API (Wave 66 Legal Citations Graph): ${BASE_URL}/api/seo/ai-citations.json
 - Resmi Kurumsal DNA & Otorite Grafiği (Wave 65 Master Entity Graph): ${BASE_URL}/api/seo/corporate-dna.json
 - Resmi GEO & AI Agent Manifest API: ${BASE_URL}/api/seo/geo-manifest.json
 - Birleşik AI Knowledge Graph RAG API: ${BASE_URL}/api/seo/ai-overviews-rag.json
