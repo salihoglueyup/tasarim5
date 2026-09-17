@@ -152,3 +152,5 @@ export { default as AppAiOverviewGroundingSeo } from './AppAiOverviewGroundingSe
 export { default as GlossaryAiOverviewSeo } from './GlossaryAiOverviewSeo';
 export { default as DistrictServiceAiOverviewSnippetSeo } from './DistrictServiceAiOverviewSnippetSeo';
 export { default as SectorHubAiOverviewSeo } from './SectorHubAiOverviewSeo';
+export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOverviewSeo';
+export { default as VoiceConversationalAiSnippetSeo } from './VoiceConversationalAiSnippetSeo';
