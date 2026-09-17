@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/JsonLd';
-import { KeywordAnalysisSeo } from '@/components/seo';
+import { KeywordAnalysisSeo, ServiceAiOverviewSnippetSeo } from '@/components/seo';
 import { buildFacilityCompleteGraphSchema } from '@/lib/seo/facilityCompleteGraphBuilder';
 import { getFacilitySerpMeta } from '@/lib/seo/facilitySerpOptimizer';
 import TesisYonetimiClient from './TesisYonetimiClient';
@@ -93,6 +93,9 @@ export default async function TesisYonetimiPage({
         ]}
       />
       <TesisYonetimiClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+        <ServiceAiOverviewSnippetSeo serviceSlug="tesis-yonetimi" serviceName="ISO 41001 Akredite Entegre Tesis Yönetimi" />
+      </div>
     </>
   );
 }

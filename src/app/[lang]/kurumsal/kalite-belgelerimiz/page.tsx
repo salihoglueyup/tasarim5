@@ -4,6 +4,7 @@ import { getDictionary } from '@/lib/i18n';
 import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
 import JsonLd from '@/components/seo/JsonLd';
 import { CERTIFICATES } from '@/data/certificates';
+import { AccreditationAiOverviewSeo } from '@/components/seo';
 import CertificatesClient from './CertificatesClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -61,7 +62,7 @@ export default async function CertificatesPage({
     name: t.certificates_title || 'Kalite Belgelerimiz & ISO Akreditasyonlarımız',
     description: t.certificates_desc || 'Alo Yönetim kurumsal kalite, BELCERT ve ILAS uluslararası akreditasyon sertifikaları.',
     path: '/kurumsal/kalite-belgelerimiz',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#accreditation-instant-answer-text'],
   });
 
   const certSchemas = CERTIFICATES.map((c) =>
@@ -79,6 +80,9 @@ export default async function CertificatesPage({
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, ...certSchemas]} />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-6">
+        <AccreditationAiOverviewSeo lang={lang} />
+      </div>
       <CertificatesClient />
     </>
   );

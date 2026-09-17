@@ -7,6 +7,7 @@ import ReferencesClient from './ReferencesClient';
 import redis from '@/lib/redis';
 import { buildMetadata } from '@/lib/seo';
 import { getReferencesList, PARTNERS_DATA } from '@/data/referencesMetadata';
+import { CaseStudyAiGroundingSeo } from '@/components/seo';
 
 export const revalidate = 3600;
 
@@ -157,6 +158,7 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
     name: headerContent.title,
     path: lang === 'tr' ? '/referanslar' : `/${lang}/referanslar`,
     description: headerContent.desc,
+    speakableSelectors: ['h1', 'p', '#case-study-instant-answer-text'],
   });
 
   const itemListLd = {
@@ -188,6 +190,10 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
         title={headerContent.title} 
         description={headerContent.desc} 
       />
+
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-6">
+        <CaseStudyAiGroundingSeo />
+      </div>
 
       <ReferencesClient 
         initialProjects={projects || []} 
