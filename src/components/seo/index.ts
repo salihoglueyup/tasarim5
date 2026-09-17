@@ -139,3 +139,6 @@ export { default as ContactAiOverviewCardSeo } from './ContactAiOverviewCardSeo'
 export { default as CaseStudyAiGroundingSeo } from './CaseStudyAiGroundingSeo';
 export { default as SectorAiOverviewSnippetSeo } from './SectorAiOverviewSnippetSeo';
 export { default as CalculatorAiOverviewSeo } from './CalculatorAiOverviewSeo';
+export { default as ServiceAiOverviewSnippetSeo } from './ServiceAiOverviewSnippetSeo';
+export { default as SustainabilityAiOverviewSeo } from './SustainabilityAiOverviewSeo';
+export { default as AcademyAiOverviewSeo } from './AcademyAiOverviewSeo';
