@@ -19,6 +19,7 @@ import {
   DistrictElevatorMaintenanceSeo,
   FacilityRfpDownloadModalSeo,
   FacilitySubSectorCrossNav,
+  DistrictServiceAiOverviewSnippetSeo,
 } from '@/components/seo';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facilityFaqSynthesizer';
@@ -351,7 +352,7 @@ export default async function ServiceDistrictPage({
     name: pageHeaderTitle,
     description: service.summary,
     path,
-    speakableSelectors: ['h1', '.tldr'],
+    speakableSelectors: ['h1', '.tldr', '#district-service-instant-answer-text'],
   });
 
   const districtFacilityGraphLd = isFacility
@@ -437,6 +438,9 @@ export default async function ServiceDistrictPage({
             `${district.name}'de ${service.name.toLowerCase()} için Alo Yönetim; ${service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.`
           )}
         </TldrBlock>
+
+        {/* AI Overviews & Grounding Snippet (Wave 67) */}
+        <DistrictServiceAiOverviewSnippetSeo district={district} service={service} lang={lang} />
 
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">

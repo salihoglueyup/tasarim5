@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { generateBreadcrumbs, webPageSchema, definedTermSetSchema } from '@/lib/schemas';
 import { TERMS, termToSlug } from '@/data/dictionary';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
-import { VoiceSearchSpeakableSeo } from '@/components/seo';
+import { VoiceSearchSpeakableSeo, GlossaryAiOverviewSeo } from '@/components/seo';
 import SozlukClient from './SozlukClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -62,7 +62,7 @@ export default async function SozlukPage({
     name: 'Site ve Tesis Yönetimi Sözlüğü | Alo Yönetim',
     description: 'Kat malikleri ve site yöneticileri için aidat, demirbaş, KMK ve 5188 gibi sektör terimlerinin tanımları.',
     path: '/sozluk',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#glossary-instant-answer-text'],
   });
 
   const kmkTerms = KMK_LAW_INDEX.map((item) => ({
@@ -91,6 +91,7 @@ export default async function SozlukPage({
   return (
     <>
       <JsonLd data={[breadcrumbLd, pageLd, termSetLd]} />
+      <GlossaryAiOverviewSeo lang={lang} />
       <SozlukClient lang={lang} />
 
       {/* Bireysel terim sayfaları — Google arama motoru tarama linkleri (Faz 7A) */}

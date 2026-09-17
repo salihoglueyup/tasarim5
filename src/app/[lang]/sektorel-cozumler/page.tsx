@@ -3,6 +3,9 @@ import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 import SectoralClient from './SectoralClient';
 import { buildMetadata } from '@/lib/seo';
+import JsonLd from '@/components/seo/JsonLd';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import { SectorHubAiOverviewSeo } from '@/components/seo';
 
 export const revalidate = 3600;
 
@@ -23,7 +26,12 @@ export async function generateMetadata({
   });
 }
 
-export default async function SektorelCozumlerPage() {
+export default async function SektorelCozumlerPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   let dbSolutions: any[] = [];
   const cacheKeySolutions = 'sectoral_solutions_list_v2';
 
@@ -45,7 +53,23 @@ export default async function SektorelCozumlerPage() {
     }
   }
 
+  const breadcrumbLd = generateBreadcrumbs([
+    { name: lang === 'en' ? 'Home' : 'Anasayfa', url: '/' },
+    { name: lang === 'en' ? 'Sectoral Solutions' : 'Sektörel Çözümler', url: '/sektorel-cozumler' },
+  ]);
+
+  const pageLd = webPageSchema({
+    name: 'Sektörel Tesis ve Bina Yönetimi Çözümleri | Alo Yönetim',
+    description: 'Rezidans, plaza, AVM ve OSB tesislerine özel ISO 41001 entegre yönetim çözümleri.',
+    path: '/sektorel-cozumler',
+    speakableSelectors: ['h1', 'p', '#sector-hub-instant-answer-text'],
+  });
+
   return (
-    <SectoralClient dbSolutions={dbSolutions} />
+    <>
+      <JsonLd data={[breadcrumbLd, pageLd]} />
+      <SectorHubAiOverviewSeo lang={lang} />
+      <SectoralClient dbSolutions={dbSolutions} />
+    </>
   );
 }
