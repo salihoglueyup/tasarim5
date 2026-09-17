@@ -246,6 +246,8 @@ export default async function RootLayout({
         <link rel="alternate" type="application/json" href="/api/seo/ai-overviews-rag.json" title="Alo Yönetim AI Knowledge Graph RAG API" />
         {/* Generative Engine Optimization (GEO) & Machine-Readable AI Manifest (Wave 64) */}
         <link rel="alternate" type="application/json" href="/api/seo/geo-manifest.json" title="Alo Yönetim GEO Manifest" />
+        {/* Corporate DNA & Verified Entity Knowledge Graph (Wave 65) */}
+        <link rel="alternate" type="application/json" href="/api/seo/corporate-dna.json" title="Alo Yönetim Corporate DNA Graph" />
         
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
         {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation - Moderate Eagerness) */}

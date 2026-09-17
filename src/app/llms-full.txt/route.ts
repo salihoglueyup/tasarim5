@@ -164,6 +164,7 @@ ${dictionaryList}
 ---
 
 ## 11. Doğrudan API ve Veri Kaynakları
+- Resmi Kurumsal DNA & Otorite Grafiği (Wave 65 Master Entity Graph): ${BASE_URL}/api/seo/corporate-dna.json
 - Resmi GEO & AI Agent Manifest API: ${BASE_URL}/api/seo/geo-manifest.json
 - Birleşik AI Knowledge Graph RAG API: ${BASE_URL}/api/seo/ai-overviews-rag.json
 - OpenAPI 3.1.0 Şartnamesi: ${BASE_URL}/openapi.json
