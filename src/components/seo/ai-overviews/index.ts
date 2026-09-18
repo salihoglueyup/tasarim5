@@ -32,3 +32,5 @@ export { default as InstantAnswerCardSeo } from './InstantAnswerCardSeo';
 export { default as PositionZeroAnswerBox } from './PositionZeroAnswerBox';
 export { default as SiteAiSearchGroundingSeo } from './SiteAiSearchGroundingSeo';
 export { NapAuthorityBadgeSeo } from './NapAuthorityBadgeSeo';
+export { default as LegalFactCheckAiSeo, LEGAL_FACT_CHECKS_20 } from './LegalFactCheckAiSeo';
+export { default as DistrictAiGroundingSeo, DISTRICT_AI_METRICS_39 } from './DistrictAiGroundingSeo';

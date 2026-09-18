@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import IstanbulDuesHeatmapSeo from '@/components/seo/district/IstanbulDuesHeatmapSeo';
 import DistrictComparisonMatrixSeo from '@/components/seo/district/DistrictComparisonMatrixSeo';
 import IstanbulInteractiveDistrictMapSeo from '@/components/seo/district/IstanbulInteractiveDistrictMapSeo';
-import { ServiceAuthorityHubSeo, LocalBusinessProfileAiAnchorSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, LocalBusinessProfileAiAnchorSeo, DistrictAiGroundingSeo } from '@/components/seo';
 import { buildMetadata } from '@/lib/seo';
 
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
@@ -271,6 +271,9 @@ export default async function Bolgeler({
             </div>
           </div>
         ))}
+
+        {/* Google AI Overviews & Gemini GEO 39 İlçe Zeminleme & Dataset */}
+        <DistrictAiGroundingSeo />
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
         <ServiceAuthorityHubSeo
