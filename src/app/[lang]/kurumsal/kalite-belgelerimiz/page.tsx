@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
-import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema, organizationSchema, digitalDocumentSchema } from '@/lib/schemas';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { CERTIFICATES } from '@/data/certificates';
-import { AccreditationAiOverviewSeo, AccreditedCertificationsTrustSeo } from '@/components/seo';
 
 import CertificatesClient from './CertificatesClient';
 
@@ -63,8 +62,10 @@ export default async function CertificatesPage({
     name: t.certificates_title || 'Kalite Belgelerimiz & ISO Akreditasyonlarımız',
     description: t.certificates_desc || 'Alo Yönetim kurumsal kalite, BELCERT ve ILAS uluslararası akreditasyon sertifikaları.',
     path: '/kurumsal/kalite-belgelerimiz',
-    speakableSelectors: ['h1', 'p', '#accreditation-instant-answer-text', '#accredited-trust-instant-answer-text'],
+    speakableSelectors: ['h1', 'p', '#accreditation-instant-answer-text'],
   });
+
+  const orgLd = organizationSchema();
 
   const certSchemas = CERTIFICATES.map((c) =>
     digitalDocumentSchema({
@@ -80,12 +81,8 @@ export default async function CertificatesPage({
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, ...certSchemas]} />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-6 space-y-6">
-        <AccreditationAiOverviewSeo lang={lang} />
-        <AccreditedCertificationsTrustSeo lang={lang} />
-      </div>
-      <CertificatesClient />
+      <JsonLd data={[pageLd, breadcrumbLd, orgLd, ...certSchemas]} />
+      <CertificatesClient lang={lang} />
     </>
   );
 }
