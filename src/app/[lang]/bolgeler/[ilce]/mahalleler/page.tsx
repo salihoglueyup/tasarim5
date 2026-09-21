@@ -34,12 +34,12 @@ export async function generateMetadata({
     return buildMetadata({ title: 'İlçe Bulunamadı', description: '', path: '/bolgeler', lang, noindex: true });
   }
   return buildMetadata({
-    title: `${district.name} Mahalleleri — Tesis Yönetimi Hizmetleri | Alo Yönetim`,
-    description: `${district.name}'deki tüm mahallelerde profesyonel tesis yönetimi, güvenlik ve teknik bakım hizmetleri. ${district.intro.split('.')[0]}.`,
+    title: `${district.name} Site Yönetimi — Hizmet Verilen Tüm Mahalleler | Alo Yönetim`,
+    description: `${district.name} genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik hizmetleri. ${district.intro.split('.')[0]}.`,
     path: `/bolgeler/${ilce}/mahalleler`,
     lang,
-    targetKeyword: `${district.name} mahalleleri tesis yönetimi`,
-    keywords: [`${district.name} tesis yönetimi`, `${district.name} mahalleler`, `${district.name} site yönetimi`],
+    targetKeyword: `${district.name} site yönetimi`,
+    keywords: [`${district.name} site yönetimi`, `${district.name} site yönetim şirketleri`, `${district.name} apartman yönetimi`, `${district.name} tesis yönetimi`],
   });
 }
 
@@ -62,8 +62,8 @@ export default async function NeighborhoodsHubPage({
   ];
 
   const pageLd = webPageSchema({
-    name: `${district.name} Mahalleleri — Tesis Yönetimi`,
-    description: `${district.name}'deki tüm mahallelerde profesyonel tesis yönetimi hizmetleri.`,
+    name: `${district.name} Site Yönetimi ve Hizmet Mahalleleri`,
+    description: `${district.name}'deki tüm mahallelerde 634 sayılı KMK uyumlu profesyonel site ve tesis yönetimi hizmetleri.`,
     path: `/bolgeler/${ilce}/mahalleler`,
   });
 
@@ -74,8 +74,8 @@ export default async function NeighborhoodsHubPage({
         <Breadcrumbs items={breadcrumbs} />
       </div>
       <PageHeader
-        title={`${district.name} Mahalleleri`}
-        description={`${district.name}'de tesis yönetimi hizmeti verdiğimiz mahalleler`}
+        title={`${district.name} Site Yönetimi — Mahalle Hizmet Ağı`}
+        description={`${district.name} genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik`}
       />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-5xl mx-auto flex flex-col gap-12">
@@ -85,7 +85,7 @@ export default async function NeighborhoodsHubPage({
 
         <div>
           <h2 className="text-2xl font-bold text-[var(--color-primary)] mb-6">
-            Hizmet Verdiğimiz {district.name} Mahalleleri
+            {district.name} Site Yönetimi Hizmeti Verdiğimiz Mahalleler
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {district.neighborhoodData.map((n) => (

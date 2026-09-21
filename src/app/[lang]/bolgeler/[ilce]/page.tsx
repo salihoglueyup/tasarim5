@@ -242,6 +242,43 @@ export default async function DistrictPage({
               </Link>
             ))}
           </div>
+
+          {/* İlçe İçi En Çok Aranan Hizmet Ağı & Hızlı Erişim */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
+              Öne Çıkan Aramalar:
+            </span>
+            <Link
+              href={`/bolgeler/${district.slug}/site-yonetimi`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+            >
+              {district.name} Site Yönetimi
+            </Link>
+            <Link
+              href={`/bolgeler/${district.slug}/apartman-yonetimi`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+            >
+              {district.name} Apartman Yönetimi
+            </Link>
+            <Link
+              href={`/bolgeler/${district.slug}/guvenlik-sirketleri`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+            >
+              {district.name} Güvenlik Şirketleri
+            </Link>
+            <Link
+              href={`/bolgeler/${district.slug}/asansor-bakimi`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+            >
+              {district.name} Asansör Bakımı
+            </Link>
+            <Link
+              href={`/bolgeler/${district.slug}/apartman-temizligi`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+            >
+              {district.name} Apartman Temizliği
+            </Link>
+          </div>
         </div>
 
         {/* Google Dataset Search: 39 İlçe Konut Stoğu & Açık Veri Kalkanı */}

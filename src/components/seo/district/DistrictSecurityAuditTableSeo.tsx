@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -92,9 +92,9 @@ export default function DistrictSecurityAuditTableSeo({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Table',
-    name: `${districtName} 5188 Özel Güvenlik & Tesis Emniyeti Denetim Standartları`,
-    about: `${districtName} bölgesindeki site ve apartmanlar için 5188 sayılı kanun fiziki, elektronik ve hukuki güvenlik gereksinimleri.`,
-    description: `${districtName} (~${formattedPop} nüfus) genelinde 5188 belgeli güvenlik, PTS plaka tanıma, CCTV ve Valilik izin süreçleri tablosu.`
+    name: `${districtName} Güvenlik Şirketleri — 5188 Özel Güvenlik & Tesis Emniyeti Denetim Standartları`,
+    about: `${districtName} bölgesindeki güvenlik şirketleri ve konut siteleri için 5188 sayılı kanun fiziki, elektronik ve hukuki güvenlik gereksinimleri.`,
+    description: `${districtName} genelinde 5188 belgeli özel güvenlik şirketleri, PTS plaka tanıma, CCTV ve Valilik izin süreçleri tablosu.`
   };
 
   return (
@@ -106,10 +106,10 @@ export default function DistrictSecurityAuditTableSeo({
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
             <span className="material-symbols-outlined text-sm" aria-hidden="true">shield</span>
-            {districtName} 5188 Güvenlik & Emniyet Matrisi
+            {districtName} 5188 Güvenlik Şirketi Standartları
           </div>
           <h3 className="text-xl md:text-2xl font-black text-[var(--color-primary)]">
-            {districtName}&apos;de Siteniz İçin Standart Güvenlik Denetim Protokolü
+            {districtName} Güvenlik Şirketleri Seçim ve Denetim Standartları (5188 Sayılı Kanun)
           </h3>
           <p className="text-sm text-[var(--color-secondary)] font-light mt-1">
             İlçe Nüfusu: <strong>{formattedPop}</strong> · Hizmet Verilen Başlıca Mahalleler: <strong>{sampleNeighborhoods}</strong>

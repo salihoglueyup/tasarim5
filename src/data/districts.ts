@@ -101,6 +101,7 @@ const DISTRICT_DUES_MAP: Record<string, { avgDuesM2: number; aloDuesM2: number; 
   catalca: { avgDuesM2: 30, aloDuesM2: 23, savingsRate: 23 },
   esenler: { avgDuesM2: 33, aloDuesM2: 25, savingsRate: 24 },
   gaziosmanpasa: { avgDuesM2: 35, aloDuesM2: 27, savingsRate: 23 },
+  gungoren: { avgDuesM2: 35, aloDuesM2: 27, savingsRate: 23 },
   güngoren: { avgDuesM2: 35, aloDuesM2: 27, savingsRate: 23 },
   kagithane: { avgDuesM2: 46, aloDuesM2: 35, savingsRate: 24 },
   sile: { avgDuesM2: 36, aloDuesM2: 27, savingsRate: 25 },
