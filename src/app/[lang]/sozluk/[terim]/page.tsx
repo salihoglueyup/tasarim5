@@ -6,7 +6,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { TermAiOverviewCard } from '@/components/seo';
-import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
+import { TERMS, termToSlug, slugToTerm, TERM_SLUG_ALIASES } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';
 
@@ -14,8 +14,11 @@ export const revalidate = 86400;
 export const dynamicParams = true;
 
 export function generateStaticParams() {
+  const termSlugs = TERMS.map((t) => termToSlug(t.term));
+  const aliasSlugs = Object.keys(TERM_SLUG_ALIASES);
+  const allSlugs = Array.from(new Set([...termSlugs, ...aliasSlugs]));
   return LOCALES.flatMap((lang) =>
-    TERMS.map((t) => ({ lang, terim: termToSlug(t.term) })),
+    allSlugs.map((terim) => ({ lang, terim })),
   );
 }
 
@@ -31,12 +34,25 @@ export async function generateMetadata({
   }
   const cleanDef = term.definition.replace(/\s+/g, ' ').trim();
   
-  // Wave 56: Yüksek CTR (Poz 5-12 Tıklama Maksimizasyonu) Şablonları
+  // Wave 56 & Faz 223: Yüksek CTR (Poz 5-12 Tıklama Maksimizasyonu) Şablonları
   let title = `${term.term} Ne Demek? Nedir — Kısa Açıklama | Alo Yönetim`;
   let description = `${term.term} ne demek ve ne anlama gelir? ${cleanDef.slice(0, 110)}... Kat mülkiyeti ve profesyonel site yönetimi rehberi.`;
 
-  if (term.term.toLowerCase().includes('kat mülkiyeti kanunu') || term.term.includes('KMK')) {
-    if (term.term.toLowerCase().includes('madde')) {
+  const termLower = term.term.toLowerCase();
+  if (termLower.includes('hazirun')) {
+    title = 'Hazirun Cetveli Nedir, Nasıl Hazırlanır? — Genel Kurul Rehberi | Alo Yönetim';
+    description = 'Hazirun cetveli nedir, genel kurulda nasıl düzenlenir? 634 sayılı KMK m.29-30 katılım listesi, çift çoğunluk hesabı ve divan tutanağı rehberi.';
+  } else if (termLower.includes('ögg') || termLower.includes('ogg') || termLower.includes('özel güvenlik görevlisi')) {
+    title = 'ÖGG Kartı Nedir, Nasıl Alınır? — 5188 Güvenlik Kimlik Kartı Rehberi | Alo Yönetim';
+    description = 'ÖGG kartı nedir, kimlere verilir? 5188 sayılı Kanun kapsamında silahlı ve silahsız özel güvenlik görevlisi kimlik kartı alma şartları ve yenileme eğitimi rehberi.';
+  } else if (termLower.includes('kmk 37') || (termLower.includes('kmk') && termLower.includes('37'))) {
+    title = 'KMK 37 Nedir? İşletme Projesi ve 7 Günlük İtiraz Süresi | Alo Yönetim';
+    description = '634 sayılı KMK Madde 37 işletme projesi nedir? 1 yıllık tahmini site bütçesi, tebligat usulü ve ilamsız icra takibi şartları.';
+  } else if (termLower.includes('kmk 45') || (termLower.includes('kmk') && termLower.includes('45'))) {
+    title = 'KMK 45 Nedir? Oybirliği Gerektiren Önemli Kararlar | Alo Yönetim';
+    description = '634 sayılı KMK Madde 45 önemli işler nedir? Kat mülkiyetinde ortak yerlerin kiralanması, devri ve oybirliği şartı aranan kararlar.';
+  } else if (termLower.includes('kat mülkiyeti kanunu') || term.term.includes('KMK')) {
+    if (termLower.includes('madde')) {
       title = `${term.term} Nedir, Ne Anlama Gelir? — KMK Açıklaması | Alo Yönetim`;
       description = `${term.term} nedir ve ne anlama gelir? ${cleanDef.slice(0, 115)}... Kat Mülkiyeti Kanunu madde rehberi.`;
     } else {

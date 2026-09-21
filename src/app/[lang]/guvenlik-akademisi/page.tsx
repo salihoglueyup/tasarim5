@@ -30,7 +30,11 @@ export async function generateMetadata({
     path: '/guvenlik-akademisi',
     lang,
     ogImageType: 'service',
+    canonicalUrl: 'https://www.guvenlikkursu.com/',
+    targetKeyword: 'alo güvenlik kursu',
     keywords: [
+      'alo güvenlik',
+      'alo güvenlik kursu',
       'özel güvenlik kursu',
       '5188 güvenlik eğitimi',
       'özel güvenlik kimlik kartı',
@@ -81,6 +85,14 @@ export default async function GuvenlikAkademisiPage({
     '@type': 'EducationalOrganization',
     name: 'Alo Güvenlik Kursu',
     url: 'https://www.guvenlikkursu.com/',
+    sameAs: [
+      'https://www.guvenlikkursu.com/',
+    ],
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim Grubu',
+      url: 'https://aloyonetim.com.tr',
+    },
   };
 
   const ucgGuvenlikLd = {

@@ -205,11 +205,20 @@ export function districtSecurityServiceSchema({
     '@context': 'https://schema.org',
     '@type': 'SecurityService',
     '@id': `${url}#security-service`,
-    name: `${districtName} 5188 Özel Güvenlik Şirketi & Site Emniyet Hizmetleri`,
+    name: `${districtName} Güvenlik Şirketleri — 5188 Özel Güvenlik & Site Emniyet Hizmetleri`,
     description: `${districtName} genelinde 5188 sayılı kanun standartlarında Valilik ruhsatlı özel güvenlik personeli, 7/24 devriye, PTS plaka tanıma ve CCTV kamera izleme hizmeti.`,
     url,
+    priceRange: '₺₺',
     serviceType: '5188 Sayılı Kanun Kapsamında Özel Güvenlik ve Koruma',
     category: 'SecurityService',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    ],
     provider: {
       '@type': 'Corporation',
       '@id': ORG_ID,

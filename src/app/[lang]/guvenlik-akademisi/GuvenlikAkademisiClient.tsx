@@ -54,6 +54,35 @@ export default function GuvenlikAkademisiClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
+        {/* Resmi Alo Güvenlik Eğitimi & Sınav Merkezi Yönlendirme Kartı (Authority Anchor) */}
+        <div className="bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/20">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/25">
+              <span className="material-symbols-outlined text-3xl sm:text-4xl text-white" aria-hidden="true">verified_user</span>
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-1">
+                <span>Resmi Eğitim Kurumumuz</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-white">
+                Alo Güvenlik Eğitim Kurumları (guvenlikkursu.com)
+              </h3>
+              <p className="text-white/90 text-xs sm:text-sm font-light mt-1 max-w-xl">
+                5188 Sayılı Kanun kapsamında silahlı ve silahsız özel güvenlik temel eğitimi, kimlik kartı yenileme ve sınav takvimi için resmi başvuru portalımızı ziyaret ediniz.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://www.guvenlikkursu.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 px-6 py-3.5 bg-white text-red-600 hover:bg-slate-100 rounded-xl font-bold text-sm shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center gap-2 cursor-pointer active:scale-95 group"
+          >
+            <span>guvenlikkursu.com'a Git</span>
+            <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform" aria-hidden="true">open_in_new</span>
+          </a>
+        </div>
+
         {/* Intro Teaser */}
         <div className="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white p-10 md:p-14 rounded-[3rem] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden">
            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-slate-500/10 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />

@@ -485,12 +485,52 @@ export const SERVICES_BY_SLUG = new Map<string, ServiceDef>(
 
 export const SERVICE_SLUGS = SERVICES.map((s) => s.slug);
 
+/**
+ * Hizmet Rota Eşanlamlıları (Faz 125 & Wave 68 — 39 İlçe 404 Kalkanı).
+ * 
+ * Kullanıcıların ve Google botlarının 39 ilçe için yaptığı en sık aramalar
+ * (site-yonetimi, apartman-yonetimi, asansor-bakimi, apartman-temizligi vb.)
+ * 404 almadan ana hizmet rotasına eşleştirilir.
+ */
+export const SERVICE_SLUG_ALIASES: Record<string, string> = {
+  'site-yonetimi': 'tesis-yonetimi',
+  'apartman-yonetimi': 'tesis-yonetimi',
+  'bina-yonetimi': 'tesis-yonetimi',
+  'site-yonetim-sirketleri': 'tesis-yonetimi',
+  'profesyonel-site-yonetimi': 'tesis-yonetimi',
+  'toplu-konut-yonetimi': 'tesis-yonetimi',
+  'asansor-bakimi': 'teknik-bakim',
+  'asansor-ariza': 'teknik-bakim',
+  'apartman-temizligi': 'temizlik-ve-hijyen',
+  'site-temizligi': 'temizlik-ve-hijyen',
+  'merdiven-temizligi': 'temizlik-ve-hijyen',
+  'guvenlik': 'guvenlik-yonetimi',
+  'ozel-guvenlik': 'guvenlik-yonetimi',
+  'guvenlik-sirketleri': 'guvenlik-yonetimi',
+  'guvenlik-firmalari': 'guvenlik-yonetimi',
+  'bocek-ilaclama': 'hasere-ve-dezenfeksiyon',
+  'bahce-bakimi': 'peyzaj-ve-bahce-bakimi',
+  'aidat-yonetimi': 'aidat-takibi',
+  'icra-takibi': 'hukuk-ve-icra-danismanligi',
+  'site-hukuku': 'hukuk-ve-icra-danismanligi',
+};
+
+export function resolveServiceSlug(slug: string): string {
+  return SERVICE_SLUG_ALIASES[slug] || slug;
+}
+
+export function isServiceAlias(slug: string): boolean {
+  return slug in SERVICE_SLUG_ALIASES;
+}
+
 export function getService(slug: string): ServiceDef | undefined {
-  return SERVICES_BY_SLUG.get(slug);
+  const canonicalSlug = resolveServiceSlug(slug);
+  return SERVICES_BY_SLUG.get(canonicalSlug);
 }
 
 export function isValidService(slug: string): boolean {
-  return SERVICES_BY_SLUG.has(slug);
+  const canonicalSlug = resolveServiceSlug(slug);
+  return SERVICES_BY_SLUG.has(canonicalSlug);
 }
 
 /**
