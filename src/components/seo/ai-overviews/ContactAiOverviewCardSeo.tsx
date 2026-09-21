@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
+import LocationPinSvgIcon from '@/components/ui/branding/LocationPinSvgIcon';
 
 export default function ContactAiOverviewCardSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
@@ -152,7 +153,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
 
         <div className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-start gap-3">
           <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">location_on</span>
+            <LocationPinSvgIcon className="w-5 h-5" />
           </div>
           <div>
             <div className="text-xs text-[var(--color-text-muted)] font-medium">Genel Merkez Adresi</div>

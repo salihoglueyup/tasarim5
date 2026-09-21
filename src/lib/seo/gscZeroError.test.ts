@@ -3924,6 +3924,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         'src/components/layout/header/Header.tsx',
         'src/components/sections/trust/RelatedServices.tsx',
         'src/data/services.ts',
+        'src/components/seo/ai-overviews/AppAiOverviewGroundingSeo.tsx',
       ];
 
       for (const relPath of filesToCheck) {

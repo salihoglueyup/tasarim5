@@ -180,7 +180,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-teal-500/20 pb-4">
         <div className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 border border-teal-400/30 font-bold text-xl">
-            <span className="material-symbols-outlined text-2xl">pin_drop</span>
+            <span className="material-symbols-outlined text-2xl" aria-hidden="true">pin_drop</span>
           </span>
           <div>
             <div className="flex items-center gap-2">
@@ -203,7 +203,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
           aria-label="Adres ve koordinatları kopyala"
           className="inline-flex items-center gap-1.5 rounded-lg border border-teal-400/30 bg-teal-500/10 px-3 py-1.5 text-xs font-medium text-teal-200 transition-colors hover:bg-teal-500/20 active:scale-95"
         >
-          <span className="material-symbols-outlined text-sm">
+          <span className="material-symbols-outlined text-sm" aria-hidden="true">
             {copied ? 'done' : 'content_copy'}
           </span>
           {copied ? 'Kopyalandı' : 'Harita AI Özetini Kopyala'}
@@ -213,7 +213,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
       {/* Instant Answer Text for Speakable / Local AI */}
       <div className="mt-4 rounded-xl border border-teal-400/20 bg-teal-950/30 p-4">
         <div className="flex items-start gap-2.5">
-          <span className="material-symbols-outlined text-teal-400 text-lg shrink-0 mt-0.5">
+          <span className="material-symbols-outlined text-teal-400 text-lg shrink-0 mt-0.5" aria-hidden="true">
             distance
           </span>
           <p
@@ -266,14 +266,14 @@ export default function LocalBusinessProfileAiAnchorSeo({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-xs text-slate-300">
             <div className="flex items-start gap-2">
-              <span className="material-symbols-outlined text-teal-400 text-sm mt-0.5">
+              <span className="material-symbols-outlined text-teal-400 text-sm mt-0.5" aria-hidden="true">
                 location_on
               </span>
               <span>{selectedHub.streetAddress}, {selectedHub.district} / {selectedHub.city}</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-teal-400 text-sm">
+              <span className="material-symbols-outlined text-teal-400 text-sm" aria-hidden="true">
                 call
               </span>
               <a href={`tel:${selectedHub.phone.replace(/\s+/g, '')}`} className="hover:text-teal-300 font-medium">
@@ -282,14 +282,14 @@ export default function LocalBusinessProfileAiAnchorSeo({
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-teal-400 text-sm">
+              <span className="material-symbols-outlined text-teal-400 text-sm" aria-hidden="true">
                 schedule
               </span>
               <span>{selectedHub.openingHours}</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-teal-400 text-sm">
+              <span className="material-symbols-outlined text-teal-400 text-sm" aria-hidden="true">
                 my_location
               </span>
               <span className="font-mono text-[11px] text-teal-300">
@@ -307,7 +307,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-600 hover:bg-teal-500 px-4 py-3 text-xs font-bold text-white shadow-lg shadow-teal-600/30 transition-all active:scale-95 text-center"
           >
-            <span className="material-symbols-outlined text-base">directions</span>
+            <span className="material-symbols-outlined text-base" aria-hidden="true">directions</span>
             Google Haritalar'da Aç
           </a>
 

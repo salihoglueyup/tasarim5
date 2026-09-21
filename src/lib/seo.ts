@@ -234,6 +234,8 @@ export type BuildMetadataArgs = {
   authorName?: string;
   /** Hedef anahtar kelime (örn. 'tesis yönetimi') */
   targetKeyword?: string;
+  /** Harici veya özel canonical URL (örn. cross-domain otorite aktarımı için). */
+  canonicalUrl?: string;
 };
 
 /**
@@ -282,10 +284,11 @@ export function buildMetadata({
   dateModified,
   authorName,
   targetKeyword,
+  canonicalUrl,
 }: BuildMetadataArgs): Metadata {
   const resolvedTitle = formatBrandTitle(title);
   const locale = normalizeLocale(lang);
-  const canonical = localizedUrl(path, locale);
+  const canonical = canonicalUrl || localizedUrl(path, locale);
 
   const resolvedKeywords = Array.from(
     new Set([

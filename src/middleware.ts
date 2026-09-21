@@ -290,17 +290,17 @@ export async function middleware(request: NextRequest) {
 
   if (pathname === '/') {
     const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
+    // Faz 159 & Faz 160: Varsayılan dil Türkçe'dir (tr).
+    // Ana sayfa ('/') her zaman doğrudan canonical Türkçe olarak açılır.
+    // Kullanıcılar yabancı dile LanguageSuggestionBanner veya navbar seçicisiyle bilinçli olarak geçer.
     if (cookieLocale && cookieLocale !== defaultLocale && locales.includes(cookieLocale)) {
-      return NextResponse.redirect(new URL(`/${cookieLocale}`, request.url));
-    }
-
-    // Arama motorları ve denetim botları yönlendirilmez; doğrudan canonical '/' içeriğini alır (Faz 161).
-    if (!cookieLocale && !isCrawler) {
-      const detectedLocale = getLocale(request);
-      if (detectedLocale !== defaultLocale) {
-        return NextResponse.redirect(new URL(`/${detectedLocale}`, request.url));
+      const explicitLang = request.nextUrl.searchParams.get('lang');
+      if (explicitLang && explicitLang === cookieLocale) {
+        return NextResponse.redirect(new URL(`/${cookieLocale}`, request.url));
       }
     }
+
+    // Arama motorları, denetim botları ve tüm ilk ziyaretçiler doğrudan canonical '/' (Türkçe) içeriğini alır (Faz 161).
   }
 
   // Locale var. /tr prefix'i kullanılıyorsa ana sayfaya at (Canonical için 301 kalıcı yönlendirme)

@@ -16,5 +16,8 @@ export default defineConfig({
     environment: 'node',
     include: ['src/**/*.test.ts'],
     exclude: ['tests/**', 'node_modules/**'],
+    env: {
+      JWT_SECRET: 'test_jwt_secret_key_for_vitest_runner_2026',
+    },
   },
 });

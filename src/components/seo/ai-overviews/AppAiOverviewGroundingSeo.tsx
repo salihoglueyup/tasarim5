@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
+import WalletSvgIcon from '@/components/ui/branding/WalletSvgIcon';
 
 export interface AppFeatureItem {
   icon: string;
@@ -18,7 +19,7 @@ export const APP_CORE_FEATURES: AppFeatureItem[] = [
     badge: '3D Secure & SSL',
   },
   {
-    icon: 'account_balance_wallet',
+    icon: 'wallet_svg',
     title: 'Şeffaf Canlı Kasa ve Banka Mizanı',
     desc: 'Sitede toplanan aidatlar, yapılan elektrik/asansör harcamaları ve geçmiş faturalar tüm maliklerce anlık olarak incelenebilir.',
     badge: 'KMK 35 Şeffaflık',
@@ -179,9 +180,13 @@ export default function AppAiOverviewGroundingSeo({
           >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="material-symbols-outlined text-violet-600 text-2xl" aria-hidden="true">
-                  {item.icon}
-                </span>
+                {item.icon === 'wallet_svg' ? (
+                  <WalletSvgIcon className="w-6 h-6 text-violet-600" />
+                ) : (
+                  <span className="material-symbols-outlined text-violet-600 text-2xl" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                )}
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-violet-500/10 text-violet-700 dark:text-violet-300">
                   {item.badge}
                 </span>
