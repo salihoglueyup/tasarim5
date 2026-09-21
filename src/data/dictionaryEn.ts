@@ -93,6 +93,27 @@ export const ENGLISH_TERMS: EnglishTerm[] = [
     definition: 'Dedicated capital reserves collected from unit owners for long-term infrastructural improvements, major repairs (façade repainting, roof replacement), and asset modernization.',
     category: 'Financial & Dues',
   },
+  {
+    term: 'Attendance Roster (Hazirun Cetveli)',
+    turkishEquivalent: 'Hazirun Cetveli',
+    definition: 'The official attendance and voting register signed by co-owners attending the General Assembly in person or via verified proxy. It serves as primary legal proof of the quorum (%50+1) required under Turkish Condominium Law Articles 29 and 30.',
+    category: 'Property Law & KMK',
+    link: { href: '/en/services/legal-and-execution-consultancy', label: 'General Assembly Legal Support' },
+  },
+  {
+    term: 'Private Security ID Card (ÖGG Kartı)',
+    turkishEquivalent: 'ÖGG Kartı (Özel Güvenlik Kimlik Kartı)',
+    definition: 'The statutory license card issued by the Turkish Ministry of Interior and Provincial Governorship pursuant to Law No. 5188, mandatory for all armed and unarmed security guards on duty in residential and commercial facilities.',
+    category: 'Security & Surveillance',
+    link: { href: '/en/services/security-management', label: '5188 Licensed Security' },
+  },
+  {
+    term: 'KMK Article 37 Operating Budget',
+    turkishEquivalent: 'KMK 37 (İşletme Projesi & Bütçe İtiraz Süresi)',
+    definition: 'Statutory annual operating budget projection for condominium complexes detailing monthly advances per unit and the 7-day objection window after formal service.',
+    category: 'Property Law & KMK',
+    link: { href: '/en/services/facility-management', label: 'Condominium Budget Planning' },
+  },
 ];
 
 export function getEnglishTerm(termOrSlug: string): EnglishTerm | undefined {

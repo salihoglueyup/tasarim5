@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/components/ui/branding/Logo';
+import FlagIcon from '@/components/ui/branding/FlagIcon';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Magnetic from '@/components/ui/effects/Magnetic';
 import dynamic from 'next/dynamic';
@@ -329,7 +330,11 @@ export default function Header() {
               >
                 {hoveredMenu === item.nameKey && (
                   <div
-                    className="absolute inset-0 bg-[var(--color-surface-variant)]/80 rounded-xl border border-[var(--color-outline)]/40 -z-10 animate-in fade-in zoom-in-95 duration-150 transform-gpu"
+                    className={`absolute inset-0 rounded-xl -z-10 animate-in fade-in zoom-in-95 duration-150 transform-gpu ${
+                      isTopAndDarkHero
+                        ? 'bg-white/15 border border-white/20'
+                        : 'bg-[var(--color-surface-variant)]/80 border border-[var(--color-outline)]/40'
+                    }`}
                   />
                 )}
                 
@@ -402,7 +407,7 @@ export default function Header() {
                 ref={languageDropdownRef}
                 className="relative"
                 onMouseEnter={() => setHoveredMenu('language')}
-                onMouseLeave={() => setHoveredMenu(null, 1500)}
+                onMouseLeave={() => setHoveredMenu(null, 300)}
               >
                 <button
                   type="button"
@@ -410,59 +415,76 @@ export default function Header() {
                     e.stopPropagation();
                     setHoveredMenu(hoveredMenu === 'language' ? null : 'language');
                   }}
-                  className="flex items-center gap-0.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase hover:bg-white/30 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase transition-colors cursor-pointer ${
+                    isTopAndDarkHero
+                      ? 'hover:bg-white/20 text-white'
+                      : 'hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-primary)]'
+                  }`}
                   aria-label="Dil Seçimi"
                   aria-haspopup="true"
                   aria-expanded={hoveredMenu === 'language'}
                 >
-                  <span>{language}</span>
+                  <FlagIcon code={language} size="xs" />
+                  <span className="font-mono tracking-wider font-bold">{language.toUpperCase()}</span>
                   <span className={`material-symbols-outlined text-[13px] transition-transform duration-300 ${hoveredMenu === 'language' ? 'rotate-180' : ''}`} aria-hidden="true">
                     expand_more
                   </span>
                 </button>
 
                 {hoveredMenu === 'language' && (
-                  <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 pt-2 z-[70] max-w-[calc(100vw-1rem)]">
-                    <div className={`w-28 backdrop-blur-xl border rounded-xl shadow-xl overflow-hidden py-1 ${
-                      isTopAndDarkHero 
-                        ? 'bg-[var(--color-surface)] border-white/20 text-white' 
-                        : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)]'
-                    }`}>
+                  <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 pt-2 z-[70] max-w-[calc(100vw-1rem)] animate-in fade-in zoom-in-95 duration-150 transform-gpu text-slate-800">
+                    <div className="w-48 bg-white dark:bg-[#181920] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden p-1.5 space-y-1">
                       {[
-                        { code: 'tr', label: 'TR', flag: '🇹🇷' },
-                        { code: 'en', label: 'EN', flag: '🇬🇧' },
-                        { code: 'ru', label: 'RU', flag: '🇷🇺' },
-                        { code: 'ar', label: 'AR', flag: '🇸🇦' },
-                      ].map((lang) => (
-                        <button
-                          key={lang.code}
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleLanguageChange(lang.code as 'tr'|'en'|'ru'|'ar');
-                          }}
-                          className={`w-full text-left px-3.5 py-2 text-xs font-bold flex items-center justify-between transition-colors cursor-pointer ${
-                            isTopAndDarkHero
-                              ? (language === lang.code ? 'bg-white/20 text-white font-extrabold' : 'text-white/80 hover:bg-white/10 hover:text-white')
-                              : (language === lang.code 
-                                  ? 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] font-extrabold' 
-                                  : 'text-[var(--color-secondary)] hover:bg-[var(--color-surface-variant)] hover:text-[var(--color-primary)]')
-                          }`}
-                        >
-                          <span>{lang.label}</span>
-                          <span className="text-sm">{lang.flag}</span>
-                        </button>
-                      ))}
+                        { code: 'tr', label: 'TR', name: 'Türkçe' },
+                        { code: 'en', label: 'EN', name: 'English' },
+                        { code: 'ru', label: 'RU', name: 'Русский' },
+                        { code: 'ar', label: 'AR', name: 'العربية' },
+                      ].map((lang) => {
+                        const isSelected = language === lang.code;
+                        return (
+                          <button
+                            key={lang.code}
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleLanguageChange(lang.code as 'tr'|'en'|'ru'|'ar');
+                            }}
+                            className={`w-full px-2.5 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-blue-600 text-white font-bold shadow-sm shadow-blue-600/30'
+                                : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-slate-950 dark:hover:text-white'
+                            }`}
+                          >
+                            <span className="flex items-center gap-2.5">
+                              <FlagIcon code={lang.code} size="sm" />
+                              <span className="font-semibold text-xs text-left rtl:text-right">{lang.name}</span>
+                            </span>
+                            <span className={`text-[10px] font-bold font-mono px-1.5 py-0.5 rounded ${
+                              isSelected
+                                ? 'bg-white/20 text-white'
+                                : 'bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-400'
+                            }`}>
+                              {lang.label}
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="w-[1px] h-3.5 bg-[var(--color-outline)]/60 mx-0.5" />
+              <div className={`w-[1px] h-3.5 mx-0.5 ${
+                isTopAndDarkHero ? 'bg-white/20' : 'bg-[var(--color-outline)]/60'
+              }`} />
 
               <button 
                 onClick={toggleTheme}
-                className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white/30 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                  isTopAndDarkHero
+                    ? 'hover:bg-white/20 text-white'
+                    : 'hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-primary)]'
+                }`}
                 aria-label="Temayı Değiştir"
               >
                 <span 

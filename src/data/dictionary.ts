@@ -399,6 +399,41 @@ export const TERMS: Term[] = [
       'Sektörel SLA, enerji tüketimi (ISO 50001), norm kadro ve bütçe kalemlerinin şeffaflık amacıyla makine taranabilir (JSON/OpenAPI) standartlarla kamuya açılmasıdır.',
     link: { href: '/hizmetler/tesis-yonetimi/acik-veri', label: 'Tesis açık veri portalı' },
   },
+  {
+    term: 'Hazirun Cetveli',
+    definition:
+      'Kat malikleri kurulu genel kurul toplantılarına asaleten katılan malikler ile vekaleten katılan temsilcilerin bağımsız bölüm numarası, arsa payı oranı ve ıslak imzalarını içeren resmi yoklama cetvelidir. 634 sayılı Kat Mülkiyeti Kanunu (KMK) m.29 ve m.30 gereğince toplantı yeter sayısı (%50+1) ve karar yeter sayısının sağlandığını kanıtlayan en temel yasal belgedir. Mahkeme iptal davalarında ilk incelenen resmi evraktır.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Genel kurul ve hukuk danışmanlığı' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'ÖGG Kartı (Özel Güvenlik Görevlisi Kimlik Kartı)',
+    definition:
+      '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun kapsamında İçişleri Bakanlığı ve Valilik Özel Güvenlik Komisyonu tarafından verilen resmi çalışma ruhsatı ve kimlik belgesidir. Silahlı (21 yaş, en az lise mezunu) ve silahsız (18 yaş, en az ortaokul mezunu) olmak üzere 5 yıl süreliğine verilir ve her 5 yılda bir yenileme eğitimi gerektirir. Site, rezidans ve tesislerde görev yapan tüm personelin bu karta sahip olması kanunen zorunludur.',
+    link: { href: '/hizmetler/guvenlik-yonetimi', label: '5188 site güvenliği yönetimi' },
+    sameAs: 'https://www.guvenlikkursu.com/',
+  },
+  {
+    term: 'KMK 37 (İşletme Projesi & Bütçe İtiraz Süresi)',
+    definition:
+      '634 sayılı Kat Mülkiyeti Kanunu Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
+    link: { href: '/hizmetler/aidat-takibi', label: 'İşletme projesi ve aidat takibi' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'KMK 45 (Önemli İşler & Oybirliği Kararları)',
+    definition:
+      '634 sayılı Kat Mülkiyeti Kanunu Madde 45; ana taşınmazın bir hakla kayıtlanması, arsanın bölünmesi, ortak yerlerin üçüncü kişilere kiralanması veya mülkiyet yapısını değiştiren önemli tasarrufi işlemlerde bütün kat maliklerinin oybirliğini şart koşar.',
+    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Kat mülkiyeti hukuk danışmanlığı' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
+  {
+    term: 'KMK Ne Demek (634 Sayılı Kat Mülkiyeti Kanunu)',
+    definition:
+      'KMK, 634 sayılı Kat Mülkiyeti Kanunu\'nun kısaltmasıdır. Türkiye\'de birden çok bağımsız bölüme (daire, dükkan, ofis) sahip apartman, site, plaza ve toplu yapılarda kat maliklerinin hak ve borçlarını, anagayrimenkulün yönetimini, aidat paylaşımını, yönetici ve denetçi seçimlerini düzenleyen temel yasal mevzuattır.',
+    link: { href: '/sozluk', label: 'Kat mülkiyeti sözlüğü' },
+    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+  },
 ];
 
 // Global statik objeyi mühürle (Faz 13)
@@ -421,6 +456,19 @@ export function termToSlug(term: string): string {
     .replace(/-+/g, '-');
 }
 
+/** Kısa ve popüler arama sorguları için doğrudan slug yönlendirme eşlemeleri */
+export const TERM_SLUG_ALIASES: Record<string, string> = {
+  'hazirun': 'hazirun-cetveli',
+  'ogg-karti': 'ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti',
+  'ogg-kimlik-karti': 'ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti',
+  'kmk-37': 'kmk-37-isletme-projesi-butce-itiraz-suresi',
+  'kmk-madde-37': 'kmk-37-isletme-projesi-butce-itiraz-suresi',
+  'kmk-45': 'kmk-45-onemli-isler-oybirligi-kararlari',
+  'kmk-madde-45': 'kmk-45-onemli-isler-oybirligi-kararlari',
+  'kmk-ne-demek': 'kmk-ne-demek-634-sayili-kat-mulkiyeti-kanunu',
+  'kmk': 'kat-mulkiyeti-kanunu-kmk',
+};
+
 // O(1) slug ve alfabetik harf indeks haritaları (Faz 7)
 export const TERMS_BY_SLUG: Map<string, Term> = new Map(
   TERMS.map((t) => [termToSlug(t.term), t])
@@ -434,7 +482,11 @@ export const TERMS_BY_LETTER: Record<string, Term[]> = TERMS.reduce((acc, t) => 
 }, {} as Record<string, Term[]>);
 
 export function slugToTerm(slug: string): Term | undefined {
-  return TERMS_BY_SLUG.get(slug);
+  const direct = TERMS_BY_SLUG.get(slug);
+  if (direct) return direct;
+  const alias = TERM_SLUG_ALIASES[slug];
+  if (alias) return TERMS_BY_SLUG.get(alias);
+  return undefined;
 }
 
 export function getTermsByLetter(letter: string): Term[] {
