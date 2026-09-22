@@ -7,10 +7,17 @@ import { QuoteCtaButton } from '@/components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { EventSeo, ServiceAuthorityHubSeo } from '@/components/seo';
-import EmergencyPreparednessAuditSeo from '@/components/seo/facility/EmergencyPreparednessAuditSeo';
+import { 
+  SecurityScenarioQuiz, 
+  AcademyEnrollmentModal, 
+  SecurityEquipmentShowcase, 
+  AcademyFaqAccordion 
+} from '@/components/academy';
 
 export default function GuvenlikAkademisiClient() {
   const { t } = useLanguage();
+  const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState('5188 Temel Güvenlik Eğitimi (Silahlı / Silahsız)');
 
   const academyFeatures = [
     {
@@ -94,6 +101,28 @@ export default function GuvenlikAkademisiClient() {
              <p className="text-slate-300 font-light leading-relaxed max-w-xl">
                {t('aca_intro_desc')}
              </p>
+             <div className="flex flex-wrap items-center gap-3 pt-2">
+               <button
+                 type="button"
+                 onClick={() => {
+                   setSelectedCourse('5188 Temel Güvenlik Eğitimi (Silahlı / Silahsız)');
+                   setIsEnrollmentOpen(true);
+                 }}
+                 className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-95 flex items-center gap-2"
+               >
+                 <span className="material-symbols-outlined text-base" aria-hidden="true">school</span>
+                 <span>Hızlı Kurs Ön Kayıt</span>
+               </button>
+               <a
+                 href="https://www.guvenlikkursu.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="px-5 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl text-sm border border-white/20 transition-colors flex items-center gap-2"
+               >
+                 <span>Sınav & Eğitim Takvimi</span>
+                 <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+               </a>
+             </div>
            </div>
            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl text-center shrink-0 w-48 relative z-10">
              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 dark:from-white dark:to-slate-300">{t('aca_intro_badge_val')}</div>
@@ -115,6 +144,10 @@ export default function GuvenlikAkademisiClient() {
               endDate="2026-09-15T18:00:00+03:00"
               locationName="Alo Güvenlik Kurs Merkezi"
               offersUrl="https://www.guvenlikkursu.com/"
+              onRegisterClick={() => {
+                setSelectedCourse('5188 Sayılı Kanun Kapsamında Temel Güvenlik Eğitimi');
+                setIsEnrollmentOpen(true);
+              }}
             />
             <EventSeo 
               name="Site Yöneticiliği ve Kriz Yönetimi Semineri"
@@ -122,6 +155,10 @@ export default function GuvenlikAkademisiClient() {
               startDate="2026-10-10T10:00:00+03:00"
               endDate="2026-10-10T16:00:00+03:00"
               locationName="Alo Yönetim Genel Merkez"
+              onRegisterClick={() => {
+                setSelectedCourse('Site Yöneticiliği ve Kriz Yönetimi Semineri');
+                setIsEnrollmentOpen(true);
+              }}
             />
           </div>
         </div>
@@ -241,8 +278,16 @@ export default function GuvenlikAkademisiClient() {
           </div>
         </div>
 
-        {/* Deprem, Yangın & Afet Güvenliği Denetim Portalı */}
-        <EmergencyPreparednessAuditSeo />
+        {/* 5188 İnteraktif Saha Senaryo Simülatörü */}
+        <SecurityScenarioQuiz 
+          onEnrollClick={(course) => {
+            if (course) setSelectedCourse(course);
+            setIsEnrollmentOpen(true);
+          }} 
+        />
+
+        {/* Modern Güvenlik Donanımları & Saha Teknolojileri */}
+        <SecurityEquipmentShowcase />
 
         {/* İstihdam Köprüsü Timeline */}
         <div className="max-w-5xl mx-auto mt-24">
@@ -315,6 +360,9 @@ export default function GuvenlikAkademisiClient() {
           </div>
         </div>
 
+        {/* 5188 & Sertifikasyon Sıkça Sorulan Sorular */}
+        <AcademyFaqAccordion />
+
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
         <ServiceAuthorityHubSeo
           serviceName="Özel Güvenlik Akademisi ve Personel Eğitimi"
@@ -367,6 +415,13 @@ export default function GuvenlikAkademisiClient() {
         />
 
       </section>
+
+      {/* Hızlı Kurs Ön Kayıt & Bilgi Formu Modal */}
+      <AcademyEnrollmentModal 
+        isOpen={isEnrollmentOpen}
+        onClose={() => setIsEnrollmentOpen(false)}
+        defaultCourseName={selectedCourse}
+      />
     </>
   );
 }

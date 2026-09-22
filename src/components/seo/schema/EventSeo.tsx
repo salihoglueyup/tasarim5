@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -13,6 +13,7 @@ interface EventSeoProps {
   locationAddress?: string;
   image?: string;
   offersUrl?: string;
+  onRegisterClick?: () => void;
   className?: string;
 }
 
@@ -25,6 +26,7 @@ export default function EventSeo({
   locationAddress = "Kadıköy, İstanbul",
   image,
   offersUrl = "/iletisim",
+  onRegisterClick,
   className = "" 
 }: EventSeoProps) {
 
@@ -89,13 +91,24 @@ export default function EventSeo({
 
         {/* Aksiyon */}
         <div className="shrink-0 relative z-10">
-          <a 
-            href={offersUrl}
-            className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-900 dark:text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm"
-          >
-            Kayıt Ol
-            <span className="material-symbols-outlined text-[1rem]" aria-hidden="true">arrow_forward</span>
-          </a>
+          {onRegisterClick ? (
+            <button 
+              type="button"
+              onClick={onRegisterClick}
+              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm shadow-md shadow-amber-500/20 active:scale-95"
+            >
+              Hızlı Ön Kayıt
+              <span className="material-symbols-outlined text-[1rem]" aria-hidden="true">arrow_forward</span>
+            </button>
+          ) : (
+            <a 
+              href={offersUrl}
+              className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-900 dark:text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm"
+            >
+              Kayıt Ol
+              <span className="material-symbols-outlined text-[1rem]" aria-hidden="true">arrow_forward</span>
+            </a>
+          )}
         </div>
       </div>
     </>
