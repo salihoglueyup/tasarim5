@@ -21,7 +21,7 @@ export default function NavigationWrapper({ children }: { children: React.ReactN
       >
         {t('nav_skip_content') || 'Ana İçeriğe Atla'}
       </a>
-      <Header />
+      {!isAdmin && <Header />}
       <main id="main-content" className={isAdmin ? 'h-full w-full' : 'flex-grow min-h-[75vh] w-full relative'}>{children}</main>
       {!isAdmin && (
         <>

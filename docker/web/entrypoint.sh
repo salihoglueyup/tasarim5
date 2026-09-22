@@ -39,9 +39,9 @@ if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
   NEED_SEED=$(node -e "
     const { Pool } = require('pg');
     const pool = new Pool({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 3000 });
-    pool.query('SELECT (SELECT COUNT(*) FROM \"Post\") + (SELECT COUNT(*) FROM \"Reference\") as total', (err, res) => {
+    pool.query('SELECT (SELECT COUNT(*) FROM \"Post\") + (SELECT COUNT(*) FROM \"Reference\") as total, (SELECT COUNT(*) FROM \"User\") as users', (err, res) => {
       pool.end();
-      if (err || !res || !res.rows || parseInt(res.rows[0].total, 10) === 0) {
+      if (err || !res || !res.rows || parseInt(res.rows[0].total, 10) === 0 || parseInt(res.rows[0].users, 10) === 0) {
         console.log('YES');
       } else {
         console.log('NO');

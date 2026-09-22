@@ -7,6 +7,8 @@ import { prisma } from '@/lib/prisma';
 import { applyApiRateLimit } from '@/lib/security/rateLimiter';
 
 function clientIp(req: NextRequest): string {
+  const cf = req.headers.get('cf-connecting-ip');
+  if (cf) return cf.trim();
   const fwd = req.headers.get('x-forwarded-for');
   if (fwd) return fwd.split(',')[0].trim();
   return req.headers.get('x-real-ip') || 'unknown';
@@ -29,13 +31,40 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, password } = body;
 
-    if (!email || !password) {
+    const rawEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
+    if (!rawEmail || !password) {
       return NextResponse.json({ error: 'Email ve şifre gereklidir.' }, { status: 400, headers: standardHeaders });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
+    // Hem .com hem de .com.tr varyasyonlarını destekleme
+    const emailVariants = [rawEmail];
+    if (rawEmail.endsWith('.com')) {
+      emailVariants.push(`${rawEmail}.tr`);
+    } else if (rawEmail.endsWith('.com.tr')) {
+      emailVariants.push(rawEmail.replace(/\.tr$/, ''));
+    }
+
+    let user = await prisma.user.findFirst({
+      where: {
+        email: { in: emailVariants },
+      },
     });
+
+    // Self-Healing: Eğer canlı DB'de User tablosu boşsa varsayılan admin kullanıcısını otomatik oluştur
+    if (!user) {
+      const userCount = await prisma.user.count();
+      if (userCount === 0 && (emailVariants.includes('admin@aloyonetim.com.tr') || emailVariants.includes('admin@aloyonetim.com'))) {
+        const hashedPassword = await bcrypt.hash('admin123', 10);
+        user = await prisma.user.create({
+          data: {
+            email: 'admin@aloyonetim.com.tr',
+            name: 'Alo Yönetim Admin',
+            password: hashedPassword,
+            role: 'ADMIN',
+          },
+        });
+      }
+    }
 
     if (!user) {
       return NextResponse.json({ error: 'Geçersiz email veya şifre.' }, { status: 401, headers: standardHeaders });
@@ -56,11 +85,15 @@ export async function POST(request: NextRequest) {
 
     const session = await encrypt(sessionData);
     
+    // Cookie Ayarları: HTTPS tespitine duyarlı ve reverse proxy ile tam uyumlu
+    const proto = request.headers.get('x-forwarded-proto') || request.nextUrl.protocol;
+    const isHttps = proto ? proto.replace(':', '') === 'https' : false;
+
     const cookieStore = await cookies();
     cookieStore.set('admin_session', session, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isHttps,
+      sameSite: 'lax',
       path: '/',
       maxAge: 60 * 60 * 24, // 24 hours
     });
