@@ -11,16 +11,12 @@ import {
   FacilityGroupSecurityTrustSeo,
   FacilitySubSectorCrossNav,
   ServiceAuthorityHubSeo,
-  FacilityMaintenanceScheduleSeo,
   FacilityRfpDownloadModalSeo,
   IstanbulDuesHeatmapSeo,
   ChecklistAuditSeo,
-  TrustVerificationAuditSeo,
   FacilityBeforeAfterCasesSeo,
   FacilityDownloadableVaultSeo,
   FacilityDistrictPortfolioSeo,
-  FacilityCorporateSlaGuaranteesSeo,
-  FacilityTransitionTimelineSeo,
   FacilityOperationalPillarsSeo,
   FacilityBudgetStaffSimulatorSeo,
   SiteVsFacilityComparisonSeo,
@@ -202,7 +198,8 @@ export default function TesisYonetimiClient() {
       {/* Sabit Hızlı Alt Navigasyon (Sticky Subnav Anchor Bar) */}
       <FacilityStickySubnav />
 
-      <div id="genel-bakis" className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+      {/* 1. BÖLÜM: Genel Bakış & ISO Metodolojisi */}
+      <section id="genel-bakis" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
         <PositionZeroAnswerBox
@@ -215,9 +212,8 @@ export default function TesisYonetimiClient() {
           accentColor="indigo"
         />
 
-        {/* Kapsamlı Tesis Yönetimi Standartları & Operasyonel Disiplinler (Slate & Titanium Paleti) */}
+        {/* Kapsamlı Tesis Yönetimi Standartları & Operasyonel Disiplinler */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          {/* Dekoratif Slate Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-slate-200/40 via-transparent to-transparent dark:from-slate-800/20 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
@@ -355,29 +351,34 @@ export default function TesisYonetimiClient() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Entegre Tesis Yönetimi Ekosistemi (9 Temel Disiplin Matrisi & Topical Authority) */}
-        <div id="hizmet-kapsami" className="space-y-16">
-          <FacilityEcosystemMatrixSeo />
+      {/* 2. BÖLÜM: 9 Disiplin & Hizmet Kapsamı */}
+      <section id="hizmet-kapsami" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+        <FacilityEcosystemMatrixSeo />
 
-          {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
-          <FacilityOfficialEntityTrustSeo />
+        {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
+        <FacilityOfficialEntityTrustSeo />
 
-          {/* 4'lü B2B Tesis Yönetimi Hizmet Segmentleri & Kapsam Matrisi */}
-          <FacilityCommercialTiersSeo />
+        {/* 4'lü B2B Tesis Yönetimi Hizmet Segmentleri & Kapsam Matrisi */}
+        <FacilityCommercialTiersSeo />
 
-          {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
-          <FacilityOperationalPillarsSeo />
+        {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
+        <FacilityOperationalPillarsSeo />
 
-          {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
-          <SiteVsFacilityComparisonSeo currentPillar="facility" />
+        {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
+        <SiteVsFacilityComparisonSeo currentPillar="facility" />
 
-          {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
-          <FacilitySubSectorCrossNav />
-        </div>
+        {/* Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
+        <FacilitySubSectorCrossNav />
 
-        {/* Akıllı Tesis Teşhis & İhale Merkezi (Konsolide Kumanda Masası) */}
-        <div id="tesis-araclari" className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
+        {/* ISO 41001 & B2B Kurumsal Tesis Yönetimi Hub'ı */}
+        <FacilityCorporateB2BHubSeo />
+      </section>
+
+      {/* 3. BÖLÜM: Akıllı Tesis Teşhis & İhale Masası */}
+      <section id="tesis-araclari" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">dashboard_customize</span>
@@ -474,15 +475,15 @@ export default function TesisYonetimiClient() {
         </div>
 
         {/* Karar Verici Rehber & Şartname Banner */}
-        <div className="p-8 rounded-3xl bg-gradient-to-r from-indigo-950/60 via-slate-900/60 to-blue-950/50 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="p-8 rounded-3xl bg-gradient-to-r from-indigo-900/90 via-slate-900/90 to-blue-900/90 dark:from-indigo-950/60 dark:via-slate-900/60 dark:to-blue-950/50 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md text-white">
           <div className="space-y-2">
-            <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+            <span className="text-xs font-bold text-indigo-300 dark:text-indigo-400 uppercase tracking-widest bg-indigo-500/20 px-3 py-1 rounded-full border border-indigo-500/30">
               Yönetim Kurulu Karar Rehberi
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-white">
               Tesis Yönetim Şirketi Nasıl Seçilir? 2026 Kılavuzu
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl font-light">
+            <p className="text-xs sm:text-sm text-slate-200 dark:text-slate-300 max-w-2xl font-light">
               Şirket seçerken yapılan 7 ölümcül hata, 10 maddelik firma denetim skorkartı, 5188 yasal belgeleri ve KMK m.34 devir protokolü rehberimizi inceleyin.
             </p>
           </div>
@@ -495,16 +496,13 @@ export default function TesisYonetimiClient() {
           </Link>
         </div>
 
-        {/* 3. BÖLÜM: Neden Alo Yönetim? (Bireysel vs Alo Yönetim, ISO Doğrulama, SLA Garantileri & 5188 Güvenlik) */}
+        {/* Kıyaslama & Güvenlik Matrisleri */}
         <div className="space-y-12">
-          <TrustVerificationAuditSeo />
-          <FacilityCorporateSlaGuaranteesSeo />
           <FacilityComparisonMatrixSeo />
           <FacilityGroupSecurityTrustSeo />
-          <FacilityMaintenanceScheduleSeo />
         </div>
 
-        {/* 4. BÖLÜM: Kanıtlanmış Başarı & Müşteri Deneyimi (Öncesi/Sonrası Vakalar + Testimonials) */}
+        {/* Kanıtlanmış Başarı & Müşteri Deneyimi */}
         <div className="space-y-16">
           <FacilityBeforeAfterCasesSeo />
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
@@ -512,292 +510,253 @@ export default function TesisYonetimiClient() {
           </div>
           <FacilityTestimonials />
         </div>
+      </section>
 
-        {/* 5. BÖLÜM: KMK 634 & Hukuki Geçiş Süreci + İndirilebilir Belge Kasası */}
-        <div id="hukuk-ve-guvenlik" className="space-y-12">
-          {/* 48 Saatte Geçiş Yol Haritası */}
-          <FacilityTransitionTimelineSeo />
+      {/* 4. BÖLÜM: KMK Hukuk, İSG & Mevzuat Güvencesi */}
+      <section id="hukuk-ve-guvenlik" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+        {/* İndirilebilir Resmi Doküman & Şablon Kasası */}
+        <FacilityDownloadableVaultSeo />
 
-          {/* İndirilebilir Resmi Doküman & Şablon Kasası */}
-          <FacilityDownloadableVaultSeo />
+        {/* 4 Adımda Geçiş Rehberi */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
+          <HowToSeo 
+            name={t('fac_steps_title') || 'Tesis Yönetimine Profesyonel Geçiş Rehberi'}
+            description="Tesis yönetimine profesyonel geçiş sürecimiz dört temel adımdan oluşmaktadır."
+            steps={legalSteps}
+          />
+        </div>
 
-          {/* 4 Adımda Geçiş Rehberi */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
-            <HowToSeo 
-              name={t('fac_steps_title') || 'Tesis Yönetimine Profesyonel Geçiş Rehberi'}
-              description="Tesis yönetimine profesyonel geçiş sürecimiz dört temel adımdan oluşmaktadır."
-              steps={legalSteps}
+        {/* Sekmeli Hukuk Masası: Emsal Kararlar & Karar Şablonları */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-6 sm:p-12 shadow-sm">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
+              634 KMK & Yargıtay Hukuk Kütüphanesi
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
+              Kat Mülkiyeti Hukuku & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Resmi Belge Masası</span>
+            </h3>
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-1">
+              Yargıtay emsal kararlarını inceleyin veya siteniz için noter onayına uygun genel kurul karar şablonu üretin.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-6 p-1.5 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/70 w-fit mx-auto">
+              <button
+                type="button"
+                onClick={() => setActiveLegalTab('precedents')}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                  activeLegalTab === 'precedents'
+                    ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-outline)]/80'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">policy</span>
+                <span>Yargıtay Emsal Kararları</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveLegalTab('template')}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                  activeLegalTab === 'template'
+                    ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-outline)]/80'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">edit_document</span>
+                <span>KMK 634 Karar & Şablon Jeneratörü</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <AnimatePresence mode="wait">
+              {activeLegalTab === 'precedents' && (
+                <motion.div
+                  key="precedents"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <FacilityLegalPrecedentsBrowserSeo />
+                </motion.div>
+              )}
+
+              {activeLegalTab === 'template' && (
+                <motion.div
+                  key="template"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <FacilityLegalTemplateGeneratorSeo />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* AI Instant Snippet Cards (2x2 Grid) */}
+        <div>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/10 dark:bg-white/10 text-xs font-bold uppercase tracking-wider mb-2">
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology</span>
+              Hukuk & Mevzuat Masası
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
+              Tesis Yönetimi Kritik Mevzuat Rehberi
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <InstantAnswerCardSeo
+              question="Profesyonel Tesis Yönetimi Şirketi ile Çalışmak Aidatları ve Giderleri Nasıl Düşürür?"
+              shortAnswer="Profesyonel tesis yönetimi firmaları, yüzlerce projeden oluşan satın alma gücü sayesinde asansör bakımı, jeneratör yakıtı, temizlik kimyasalları ve sigorta gibi ortak gider kalemlerinde %25 ile %35 arasında toptan fiyat avantajı sağlar. Ayrıca önleyici teknik bakım ile büyük arıza masraflarını önler ve reaktif güç cezalarını %100 engelleyerek doğrudan aidat yükünü düşürür."
+              bulletPoints={[
+                'Toplu tedarik gücü ile malzeme, bakım ve sigorta primlerinde %30 tasarruf.',
+                'Kompanzasyon panosu ve sayaç takibiyle elektrikte %0 reaktif ceza güvencesi.',
+                'Kapıcı/personel kıdem tazminatı yükü kat maliklerinin üzerinden alınır.',
+                'Otomatik SMS ve kredi kartlı tahsilat ile bütçe açığı ve faiz yükü sıfırlanır.'
+              ]}
+              lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 20 & 37"
+              verifiedBy="Alo Yönetim Mali Teftiş & Bütçe Kurulu"
+              category="Tesis Bütçesi & Aidat Tasarrufu"
+            />
+            <InstantAnswerCardSeo
+              question="Site Yönetiminde İşletme Projesi (Bütçe) Nasıl Hazırlanır ve İtiraz Süresi Kaç Gündür?"
+              shortAnswer="KMK Madde 37 uyarınca yönetici, seçildikten sonra bir yıllık tahmini gelir ve giderleri, her kat malikine düşecek avans tutarını gösteren bir işletme projesi hazırlar. Proje tüm kat maliklerine veya bağımsız bölümden fiilen yararlananlara imza karşılığı ya da taahhütlü mektupla tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse kesinleşir ve doğrudan icra takibine dayanak teşkil eder."
+              bulletPoints={[
+                'Yıllık tahmini elektrik, su, güvenlik, temizlik ve bakım giderleri kalem kalem hesaplanır.',
+                'Giderler KMK m.20 gereği arsa payı veya eşit olarak bağımsız bölümlere paylaştırılır.',
+                '7 günlük itiraz süresi içinde itiraz edilirse Kat Malikleri Kurulu toplanarak nihai kararı verir.',
+                'Kesinleşen işletme projesi İcra ve İflas Kanunu 68/1 maddesindeki resmi belge hükmündedir.'
+              ]}
+              lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 37"
+              verifiedBy="Alo Yönetim Hukuk & Mevzuat Masası"
+              category="KMK Mevzuatı & Bütçe Yönetimi"
+            />
+            <InstantAnswerCardSeo
+              question="Tesis Yönetim Şirketi Seçerken Nelere Dikkat Edilmeli ve Hangi Yasal Belgeler İstenmelidir?"
+              shortAnswer="Tesis yönetim şirketi seçerken ISO 41001:2018 Entegre Tesis Yönetimi ve TSE HYB 12850 belgelerinin bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin en az 3 aktif referans projesi, 45 dakikalık acil teknik müdahale SLA taahhüdü ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
+              bulletPoints={[
+                'ISO 41001, ISO 9001 ve TSE HYB 12850 resmi akreditasyon belgeleri kontrol edilmelidir.',
+                '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi şirket adına tescilli olmalıdır.',
+                'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket garantisinde olduğu sözleşmede yer almalıdır.',
+                'Acil teknik arızalarda maksimum 45 dakika SLA müdahale taahhüdü aranmalıdır.'
+              ]}
+              lawArticle="ISO 41001:2018 & 5188 Sayılı Özel Güvenlik Kanunu"
+              verifiedBy="Alo Yönetim Kalite & Akreditasyon Direktörlüğü"
+              category="Kurumsal Standartlar & Şirket Seçimi"
+            />
+            <InstantAnswerCardSeo
+              question="Kat Mülkiyeti Kanunu (KMK 34) Uyarınca Yönetici ve Yönetim Kurulu Hangi Çoğunlukla Seçilir?"
+              shortAnswer="634 sayılı KMK Madde 34/4 uyarınca yönetici veya profesyonel yönetim şirketi, kat maliklerinin hem sayı (kat maliki adedi) hem de arsa payı bakımından salt çoğunluğu (%50 + 1) tarafından atanır. İlk toplantıda bu çift çoğunluk sağlanamazsa, ikinci toplantıda da aynı kural aranır. Anlaşma sağlanamazsa sulh hukuk mahkemesince yönetici atanması talep edilebilir."
+              bulletPoints={[
+                'Çift çoğunluk kuralı: Hem kat maliki kişi sayısının hem de tapudaki arsa payının %50+1\'i şarttır.',
+                'Yönetim planında aksine bir hüküm yoksa yöneticinin kat maliki olması şart değildir; profesyonel tüzel kişilik seçilebilir.',
+                'Yönetici her yıl kat malikleri kurulunun kanuni yıllık toplantısında yeniden seçilir veya yetkisi yenilenir.',
+                'Seçilen yöneticinin adı, soyadı ve iş adresi ana gayrimenkulün giriş kapısı yanına asılır.'
+              ]}
+              lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 34 & 35"
+              verifiedBy="Alo Yönetim Hukuk Danışmanlığı"
+              category="Genel Kurul & Yönetici Seçimi"
             />
           </div>
-
-          {/* Sekmeli Hukuk Masası: Emsal Kararlar & Karar Şablonları */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-6 sm:p-12 shadow-sm">
-            <div className="text-center max-w-3xl mx-auto mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
-                634 KMK & Yargıtay Hukuk Kütüphanesi
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
-                Kat Mülkiyeti Hukuku & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Resmi Belge Masası</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-1">
-                Yargıtay emsal kararlarını inceleyin veya siteniz için noter onayına uygun genel kurul karar şablonu üretin.
-              </p>
-
-              <div className="flex flex-wrap items-center justify-center gap-2 mt-6 p-1.5 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/70 w-fit mx-auto">
-                <button
-                  type="button"
-                  onClick={() => setActiveLegalTab('precedents')}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                    activeLegalTab === 'precedents'
-                      ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-outline)]/80'
-                      : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">policy</span>
-                  <span>Yargıtay Emsal Kararları</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveLegalTab('template')}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                    activeLegalTab === 'template'
-                      ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-outline)]/80'
-                      : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">edit_document</span>
-                  <span>KMK 634 Karar & Şablon Jeneratörü</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <AnimatePresence mode="wait">
-                {activeLegalTab === 'precedents' && (
-                  <motion.div
-                    key="precedents"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <FacilityLegalPrecedentsBrowserSeo />
-                  </motion.div>
-                )}
-
-                {activeLegalTab === 'template' && (
-                  <motion.div
-                    key="template"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <FacilityLegalTemplateGeneratorSeo />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
         </div>
 
-        {/* 6. BÖLÜM: Bilgi Bankası & SSS (AI Instant Answers + DynamicFAQ) */}
-        <div className="space-y-12">
-          {/* AI Instant Snippet Cards (2x2 Grid) */}
-          <div>
-            <div className="text-center max-w-2xl mx-auto mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/10 dark:bg-white/10 text-xs font-bold uppercase tracking-wider mb-2">
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology</span>
-                Hukuk & Mevzuat Masası
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
-                Tesis Yönetimi Kritik Mevzuat Rehberi
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <InstantAnswerCardSeo
-                question="Profesyonel Tesis Yönetimi Şirketi ile Çalışmak Aidatları ve Giderleri Nasıl Düşürür?"
-                shortAnswer="Profesyonel tesis yönetimi firmaları, yüzlerce projeden oluşan satın alma gücü sayesinde asansör bakımı, jeneratör yakıtı, temizlik kimyasalları ve sigorta gibi ortak gider kalemlerinde %25 ile %35 arasında toptan fiyat avantajı sağlar. Ayrıca önleyici teknik bakım ile büyük arıza masraflarını önler ve reaktif güç cezalarını %100 engelleyerek doğrudan aidat yükünü düşürür."
-                bulletPoints={[
-                  'Toplu tedarik gücü ile malzeme, bakım ve sigorta primlerinde %30 tasarruf.',
-                  'Kompanzasyon panosu ve sayaç takibiyle elektrikte %0 reaktif ceza güvencesi.',
-                  'Kapıcı/personel kıdem tazminatı yükü kat maliklerinin üzerinden alınır.',
-                  'Otomatik SMS ve kredi kartlı tahsilat ile bütçe açığı ve faiz yükü sıfırlanır.'
-                ]}
-                lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 20 & 37"
-                verifiedBy="Alo Yönetim Mali Teftiş & Bütçe Kurulu"
-                category="Tesis Bütçesi & Aidat Tasarrufu"
-              />
-              <InstantAnswerCardSeo
-                question="Site Yönetiminde İşletme Projesi (Bütçe) Nasıl Hazırlanır ve İtiraz Süresi Kaç Gündür?"
-                shortAnswer="KMK Madde 37 uyarınca yönetici, seçildikten sonra bir yıllık tahmini gelir ve giderleri, her kat malikine düşecek avans tutarını gösteren bir işletme projesi hazırlar. Proje tüm kat maliklerine veya bağımsız bölümden fiilen yararlananlara imza karşılığı ya da taahhütlü mektupla tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse kesinleşir ve doğrudan icra takibine dayanak teşkil eder."
-                bulletPoints={[
-                  'Yıllık tahmini elektrik, su, güvenlik, temizlik ve bakım giderleri kalem kalem hesaplanır.',
-                  'Giderler KMK m.20 gereği arsa payı veya eşit olarak bağımsız bölümlere paylaştırılır.',
-                  '7 günlük itiraz süresi içinde itiraz edilirse Kat Malikleri Kurulu toplanarak nihai kararı verir.',
-                  'Kesinleşen işletme projesi İcra ve İflas Kanunu 68/1 maddesindeki resmi belge hükmündedir.'
-                ]}
-                lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 37"
-                verifiedBy="Alo Yönetim Hukuk & Mevzuat Masası"
-                category="KMK Mevzuatı & Bütçe Yönetimi"
-              />
-              <InstantAnswerCardSeo
-                question="Tesis Yönetim Şirketi Seçerken Nelere Dikkat Edilmeli ve Hangi Yasal Belgeler İstenmelidir?"
-                shortAnswer="Tesis yönetim şirketi seçerken ISO 41001:2018 Entegre Tesis Yönetimi ve TSE HYB 12850 belgelerinin bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin en az 3 aktif referans projesi, 45 dakikalık acil teknik müdahale SLA taahhüdü ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
-                bulletPoints={[
-                  'ISO 41001, ISO 9001 ve TSE HYB 12850 resmi akreditasyon belgeleri kontrol edilmelidir.',
-                  '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi şirket adına tescilli olmalıdır.',
-                  'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket garantisinde olduğu sözleşmede yer almalıdır.',
-                  'Acil teknik arızalarda maksimum 45 dakika SLA müdahale taahhüdü aranmalıdır.'
-                ]}
-                lawArticle="ISO 41001:2018 & 5188 Sayılı Özel Güvenlik Kanunu"
-                verifiedBy="Alo Yönetim Kalite & Akreditasyon Direktörlüğü"
-                category="Kurumsal Standartlar & Şirket Seçimi"
-              />
-              <InstantAnswerCardSeo
-                question="Kat Mülkiyeti Kanunu (KMK 34) Uyarınca Yönetici ve Yönetim Kurulu Hangi Çoğunlukla Seçilir?"
-                shortAnswer="634 sayılı KMK Madde 34/4 uyarınca yönetici veya profesyonel yönetim şirketi, kat maliklerinin hem sayı (kat maliki adedi) hem de arsa payı bakımından salt çoğunluğu (%50 + 1) tarafından atanır. İlk toplantıda bu çift çoğunluk sağlanamazsa, ikinci toplantıda da aynı kural aranır. Anlaşma sağlanamazsa sulh hukuk mahkemesince yönetici atanması talep edilebilir."
-                bulletPoints={[
-                  'Çift çoğunluk kuralı: Hem kat maliki kişi sayısının hem de tapudaki arsa payının %50+1\'i şarttır.',
-                  'Yönetim planında aksine bir hüküm yoksa yöneticinin kat maliki olması şart değildir; profesyonel tüzel kişilik seçilebilir.',
-                  'Yönetici her yıl kat malikleri kurulunun kanuni yıllık toplantısında yeniden seçilir veya yetkisi yenilenir.',
-                  'Seçilen yöneticinin adı, soyadı ve iş adresi ana gayrimenkulün giriş kapısı yanına asılır.'
-                ]}
-                lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 34 & 35"
-                verifiedBy="Alo Yönetim Hukuk Danışmanlığı"
-                category="Genel Kurul & Yönetici Seçimi"
-              />
-            </div>
-          </div>
+        {/* Sitelerde 6331 İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi */}
+        <FacilityOccupationalHealthSafetySeo />
 
-          {/* Sitelerde 6331 İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi (Faz 15) */}
-          <FacilityOccupationalHealthSafetySeo />
+        {/* Google Fact Check & AI Tesis Doğrulamaları (ClaimReview) */}
+        <FacilityLegalClaimReviewsSeo />
+        <LegalFactCheckAiSeo />
 
-          {/* Google Fact Check & AI Tesis Doğrulamaları (ClaimReview) */}
-          <FacilityLegalClaimReviewsSeo />
-          <LegalFactCheckAiSeo />
+        {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+        <ServiceAuthorityHubSeo
+          serviceName="Entegre Profesyonel Tesis Yönetimi"
+          serviceCategory="Tesis & Gayrimenkul Yönetimi"
+          lawReferences={[
+            {
+              title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Tüm Maddeler",
+              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+              badge: "KMK 634",
+              description: "Kat irtifakı, kat mülkiyeti, yönetim planı, genel kurul nisapları, yönetici ve denetçi hak ve sorumluluklarının ana kanuni çerçevesi."
+            },
+            {
+              title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
+              sourceName: "Türk Standardları Enstitüsü (TSE)",
+              url: "https://www.tse.org.tr",
+              badge: "ISO 41001",
+              description: "Tesis yönetiminde operasyonel verimlilik, maliyet optimizasyonu, risk yönetimi ve sakin memnuniyeti standartları."
+            },
+            {
+              title: "TSE HYB 12850 — İşyerleri: Bina ve Tesis Yönetim Hizmetleri Kuralları",
+              sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı & TSE",
+              url: "https://www.tse.org.tr",
+              badge: "TSE HYB 12850",
+              description: "Profesyonel bina ve tesis yönetimi şirketlerinin sahip olması gereken fiziki, idari ve teknik hizmet yeterlilik kriterleri."
+            }
+          ]}
+          glossaryTerms={[
+            {
+              slug: "kat-mulkiyeti-kanunu-kmk",
+              term: "Kat Mülkiyeti Kanunu (KMK)",
+              summary: "Birden çok bağımsız bölümü olan binalarda maliklerin hak ve yükümlülüklerini belirleyen temel kanundur."
+            },
+            {
+              slug: "isletme-projesi",
+              term: "İşletme Projesi Nedir?",
+              summary: "Sitenin 1 yıllık tahmini gelir-gider bütçesi ve bağımsız bölümlere düşen avans payını gösteren belgedir."
+            },
+            {
+              slug: "toplu-yapi-yonetimi",
+              term: "Toplu Yapı Yönetimi (KMK m.66-74)",
+              summary: "Birden çok parsel ve bloktan oluşan büyük sitelerde ortak alanların merkezi temsilciler kuruluyla yönetilmesidir."
+            },
+            {
+              slug: "arsa-payi",
+              term: "Arsa Payı Nedir?",
+              summary: "Bağımsız bölümlere ana taşınmazın değerine oranla tahsis edilen mülkiyet ve ortak gider payıdır."
+            }
+          ]}
+        />
 
-          {/* Sıkça Sorulan Sorular */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
-            <DynamicFAQ faqs={faqs} title={t('fac_faq_title') || 'Tesis Yönetimi Hakkında Sıkça Sorulan Sorular'} />
-          </div>
-        </div>
+        {/* Akademik & Hukuki Atıf Oluşturucu */}
+        <AcademicCitationBoxSeo
+          pageUrl="/hizmetler/tesis-yonetimi"
+          pageTitle="Entegre Tesis Yönetimi, ISO 41001 Standartları ve Kurumsal SLA Kılavuzu"
+        />
+      </section>
 
-      </div>
+      {/* 5. BÖLÜM: Yıllık Periyodik Bakım, Enerji & Altyapı Yönetimi */}
+      <section id="bakim-ve-enerji" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+        {/* ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi */}
+        <FacilityAnnualMaintenanceScheduleSeo />
 
-      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
-      <ServiceAuthorityHubSeo
-        serviceName="Entegre Profesyonel Tesis Yönetimi"
-        serviceCategory="Tesis & Gayrimenkul Yönetimi"
-        lawReferences={[
-          {
-            title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Tüm Maddeler",
-            sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
-            url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
-            badge: "KMK 634",
-            description: "Kat irtifakı, kat mülkiyeti, yönetim planı, genel kurul nisapları, yönetici ve denetçi hak ve sorumluluklarının ana kanuni çerçevesi."
-          },
-          {
-            title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
-            sourceName: "Türk Standardları Enstitüsü (TSE)",
-            url: "https://www.tse.org.tr",
-            badge: "ISO 41001",
-            description: "Tesis yönetiminde operasyonel verimlilik, maliyet optimizasyonu, risk yönetimi ve sakin memnuniyeti standartları."
-          },
-          {
-            title: "TSE HYB 12850 — İşyerleri: Bina ve Tesis Yönetim Hizmetleri Kuralları",
-            sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı & TSE",
-            url: "https://www.tse.org.tr",
-            badge: "TSE HYB 12850",
-            description: "Profesyonel bina ve tesis yönetimi şirketlerinin sahip olması gereken fiziki, idari ve teknik hizmet yeterlilik kriterleri."
-          }
-        ]}
-        glossaryTerms={[
-          {
-            slug: "kat-mulkiyeti-kanunu-kmk",
-            term: "Kat Mülkiyeti Kanunu (KMK)",
-            summary: "Birden çok bağımsız bölümü olan binalarda maliklerin hak ve yükümlülüklerini belirleyen temel kanundur."
-          },
-          {
-            slug: "isletme-projesi",
-            term: "İşletme Projesi Nedir?",
-            summary: "Sitenin 1 yıllık tahmini gelir-gider bütçesi ve bağımsız bölümlere düşen avans payını gösteren belgedir."
-          },
-          {
-            slug: "toplu-yapi-yonetimi",
-            term: "Toplu Yapı Yönetimi (KMK m.66-74)",
-            summary: "Birden çok parsel ve bloktan oluşan büyük sitelerde ortak alanların merkezi temsilciler kuruluyla yönetilmesidir."
-          },
-          {
-            slug: "arsa-payi",
-            term: "Arsa Payı Nedir?",
-            summary: "Bağımsız bölümlere ana taşınmazın değerine oranla tahsis edilen mülkiyet ve ortak gider payıdır."
-          }
-        ]}
-      />
-
-      {/* 6.5. BÖLÜM: Wave 56 İstanbul 39 İlçe Hub & Spoke Tesis Yönetimi Portföy Ağı */}
-      <FacilityDistrictPortfolioSeo />
-
-      {/* 6.6. BÖLÜM: ISO 41001 & B2B Kurumsal Tesis Yönetimi Hub'ı (Table & DigitalDocument) */}
-      <div className="py-12 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityCorporateB2BHubSeo />
-        </div>
-      </div>
-
-      {/* 6.7. BÖLÜM: Akademik & Hukuki Atıf Oluşturucu (ScholarlyArticle & Citation Authority) */}
-      <div className="py-8 bg-slate-900/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AcademicCitationBoxSeo
-            pageUrl="/hizmetler/tesis-yonetimi"
-            pageTitle="Entegre Tesis Yönetimi, ISO 41001 Standartları ve Kurumsal SLA Kılavuzu"
-          />
-        </div>
-      </div>
-
-      {/* 6.8. BÖLÜM: Kurumsal Plaza & Tesis Yönetimi Fiyatlandırma Kataloğu (OfferCatalog & PriceSpecification) */}
-      <div id="fiyat-ve-sss" className="py-12 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ServicePricingCatalogSeo
-            pageUrl="/hizmetler/tesis-yonetimi"
-            categoryFilter="commercial"
-          />
-        </div>
-      </div>
-
-      {/* 6.9. BÖLÜM: ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi (Schedule & TechArticle) */}
-      <div id="bakim-ve-enerji" className="py-12 bg-slate-900/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityAnnualMaintenanceScheduleSeo />
-        </div>
-      </div>
-
-      {/* 6.10 & 6.11. BÖLÜM: Binalarda Enerji, EV Şarj & Altyapı Sayaç Devir Kılavuzu (Tabbed Hub) */}
-      <div className="py-12 bg-slate-950 border-t border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Binalarda Enerji, EV Şarj & Altyapı Sayaç Devir Kılavuzu (Tabbed Hub) */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">bolt</span>
               <span>Enerji & Kurumsal Altyapı Yönetimi</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
               Sürdürülebilir Enerji, EV Şarj & Altyapı Devir Kılavuzu
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300 font-light mt-1">
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-1">
               Ortak alan elektrikli araç şarj istasyonu kurulumu ile İSKİ, BEDAŞ ve İGDAŞ abonelik devir süreçlerini tek tıkla inceleyin.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-6 p-1.5 bg-slate-900 rounded-2xl border border-slate-800 w-fit mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-6 p-1.5 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/70 w-fit mx-auto">
               <button
                 type="button"
                 onClick={() => setActiveUtilityTab('ev')}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
                   activeUtilityTab === 'ev'
                     ? 'bg-teal-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">ev_station</span>
@@ -810,7 +769,7 @@ export default function TesisYonetimiClient() {
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
                   activeUtilityTab === 'utility'
                     ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">sync_alt</span>
@@ -834,16 +793,31 @@ export default function TesisYonetimiClient() {
             </AnimatePresence>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 6.12. BÖLÜM: Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
-      <div className="py-8 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      {/* 6. BÖLÜM: Fiyatlandırma, 39 İlçe Portföyü & Sıkça Sorulan Sorular */}
+      <section id="fiyat-ve-sss" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+        {/* Kurumsal Plaza & Tesis Yönetimi Fiyatlandırma Kataloğu */}
+        <ServicePricingCatalogSeo
+          pageUrl="/hizmetler/tesis-yonetimi"
+          categoryFilter="commercial"
+        />
+
+        {/* 39 İlçe Hub & Spoke Tesis Yönetimi Portföy Ağı */}
+        <FacilityDistrictPortfolioSeo />
+
+        {/* Sıkça Sorulan Sorular */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
+          <DynamicFAQ faqs={faqs} title={t('fac_faq_title') || 'Tesis Yönetimi Hakkında Sıkça Sorulan Sorular'} />
+        </div>
+
+        {/* Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
         <GoogleAiOverviewGroundingSeo
           filterIds={['site-vs-tesis', 'plaza-bms-enerji', 'toplu-yapi-kmk66', 'asansor-yesil-etiket', 'kmk37-itiraz', 'ev-sarj-istasyonu']}
           title="Tesis Yönetiminde Yapay Zekaya Sorun: ISO 41001 & KMK Standartları"
           subtitle="Google AI Overviews (SGE), Gemini ve Perplexity için doğrulanmış kurumsal tesis yönetimi, BMS otomasyonu ve enerji optimizasyonu bilgi seti."
         />
-      </div>
+      </section>
 
       {/* 7. BÖLÜM: Footer Öncesi SEO, İlgili Hizmetler & Makaleler */}
       <SeoTextSection
@@ -856,4 +830,5 @@ export default function TesisYonetimiClient() {
     </>
   );
 }
+
 
