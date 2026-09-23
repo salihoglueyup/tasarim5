@@ -53,3 +53,4 @@ export { default as TrustVerificationAuditSeo } from './TrustVerificationAuditSe
 export { default as LeadQuickModalSeo } from './LeadQuickModalSeo';
 export { default as SocialProofTickerSeo } from './SocialProofTickerSeo';
 export { default as LiveMetricBadgeSeo } from './LiveMetricBadgeSeo';
+export { default as FacilityStickySubnav } from './FacilityStickySubnav';

@@ -39,6 +39,7 @@ import {
   GoogleAiOverviewGroundingSeo,
   FacilityLegalClaimReviewsSeo,
   LegalFactCheckAiSeo,
+  FacilityStickySubnav,
 } from '@/components/seo';
 
 import CaseStudySeo from '@/components/seo/schema/CaseStudySeo';
@@ -52,6 +53,8 @@ import Image from 'next/image';
 export default function TesisYonetimiClient() {
   const { t } = useLanguage();
   const [activeLegalTab, setActiveLegalTab] = useState<'precedents' | 'template'>('precedents');
+  const [activeToolTab, setActiveToolTab] = useState<'simulator' | 'rfp' | 'heatmap' | 'audit'>('simulator');
+  const [activeUtilityTab, setActiveUtilityTab] = useState<'ev' | 'utility'>('ev');
 
   const legalSteps = [
     { name: t('fac_step_1_title') || '1. Ücretsiz Tesis Keşfi ve Risk Analizi', text: t('fac_step_1_desc') || 'Tesisinizin fiziki, teknik, güvenlik ve mali durumunu yerinde inceler, eksikleri raporlarız.' },
@@ -196,7 +199,10 @@ export default function TesisYonetimiClient() {
         </div>
       </div>
 
-      <div className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
+      {/* Sabit Hızlı Alt Navigasyon (Sticky Subnav Anchor Bar) */}
+      <FacilityStickySubnav />
+
+      <div id="genel-bakis" className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
         <PositionZeroAnswerBox
@@ -351,26 +357,120 @@ export default function TesisYonetimiClient() {
         </div>
 
         {/* Entegre Tesis Yönetimi Ekosistemi (9 Temel Disiplin Matrisi & Topical Authority) */}
-        <FacilityEcosystemMatrixSeo />
+        <div id="hizmet-kapsami" className="space-y-16">
+          <FacilityEcosystemMatrixSeo />
 
-        {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
-        <FacilityOfficialEntityTrustSeo />
+          {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
+          <FacilityOfficialEntityTrustSeo />
 
-        {/* 4'lü B2B Tesis Yönetimi Hizmet Segmentleri & Kapsam Matrisi */}
-        <FacilityCommercialTiersSeo />
+          {/* 4'lü B2B Tesis Yönetimi Hizmet Segmentleri & Kapsam Matrisi */}
+          <FacilityCommercialTiersSeo />
 
-        {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
-        <FacilityOperationalPillarsSeo />
+          {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
+          <FacilityOperationalPillarsSeo />
 
-        {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
-        <SiteVsFacilityComparisonSeo currentPillar="facility" />
+          {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
+          <SiteVsFacilityComparisonSeo currentPillar="facility" />
 
-        {/* 1.5. BÖLÜM: Kadro Simülatörü, B2B İhale Şartnamesi (RFP), İstanbul İlçe Isı Haritası & Tesis Denetim Listesi */}
-        <div className="space-y-12">
-          <FacilityBudgetStaffSimulatorSeo />
-          <FacilityRfpDownloadModalSeo />
-          <IstanbulDuesHeatmapSeo />
-          <ChecklistAuditSeo />
+          {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
+          <FacilitySubSectorCrossNav />
+        </div>
+
+        {/* Akıllı Tesis Teşhis & İhale Merkezi (Konsolide Kumanda Masası) */}
+        <div id="tesis-araclari" className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">dashboard_customize</span>
+              <span>İnteraktif Kumanda Masası</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
+              Akıllı Tesis Teşhis, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">Maliyet & İhale Merkezi</span>
+            </h2>
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2 max-w-2xl mx-auto">
+              Tesisinizin ihtiyaç duyduğu norm kadroyu hesaplayın, yönetim kurulu ihale şartnamesi oluşturun, ilçe aidatlarını kıyaslayın ve 10 maddelik denetim listesini çalıştırın.
+            </p>
+
+            {/* Tab Selection Bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-8 p-1.5 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/60">
+              <button
+                type="button"
+                onClick={() => setActiveToolTab('simulator')}
+                className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  activeToolTab === 'simulator'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">calculate</span>
+                <span>Kadro & Bütçe Simülatörü</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveToolTab('rfp')}
+                className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  activeToolTab === 'rfp'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">description</span>
+                <span>B2B İhale Şartnamesi (RFP)</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveToolTab('heatmap')}
+                className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  activeToolTab === 'heatmap'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">map</span>
+                <span>39 İlçe Aidat Isı Haritası</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveToolTab('audit')}
+                className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  activeToolTab === 'audit'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">fact_check</span>
+                <span>Tesis Denetim Listesi</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Active Tool Content */}
+          <div className="mt-6">
+            <AnimatePresence mode="wait">
+              {activeToolTab === 'simulator' && (
+                <motion.div key="simulator" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
+                  <FacilityBudgetStaffSimulatorSeo />
+                </motion.div>
+              )}
+              {activeToolTab === 'rfp' && (
+                <motion.div key="rfp" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
+                  <FacilityRfpDownloadModalSeo />
+                </motion.div>
+              )}
+              {activeToolTab === 'heatmap' && (
+                <motion.div key="heatmap" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
+                  <IstanbulDuesHeatmapSeo />
+                </motion.div>
+              )}
+              {activeToolTab === 'audit' && (
+                <motion.div key="audit" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
+                  <ChecklistAuditSeo />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Karar Verici Rehber & Şartname Banner */}
@@ -395,9 +495,6 @@ export default function TesisYonetimiClient() {
           </Link>
         </div>
 
-        {/* 2. BÖLÜM: Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
-        <FacilitySubSectorCrossNav />
-
         {/* 3. BÖLÜM: Neden Alo Yönetim? (Bireysel vs Alo Yönetim, ISO Doğrulama, SLA Garantileri & 5188 Güvenlik) */}
         <div className="space-y-12">
           <TrustVerificationAuditSeo />
@@ -417,7 +514,7 @@ export default function TesisYonetimiClient() {
         </div>
 
         {/* 5. BÖLÜM: KMK 634 & Hukuki Geçiş Süreci + İndirilebilir Belge Kasası */}
-        <div className="space-y-12">
+        <div id="hukuk-ve-guvenlik" className="space-y-12">
           {/* 48 Saatte Geçiş Yol Haritası */}
           <FacilityTransitionTimelineSeo />
 
@@ -662,7 +759,7 @@ export default function TesisYonetimiClient() {
       </div>
 
       {/* 6.8. BÖLÜM: Kurumsal Plaza & Tesis Yönetimi Fiyatlandırma Kataloğu (OfferCatalog & PriceSpecification) */}
-      <div className="py-12 bg-slate-950">
+      <div id="fiyat-ve-sss" className="py-12 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ServicePricingCatalogSeo
             pageUrl="/hizmetler/tesis-yonetimi"
@@ -672,23 +769,70 @@ export default function TesisYonetimiClient() {
       </div>
 
       {/* 6.9. BÖLÜM: ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi (Schedule & TechArticle) */}
-      <div className="py-12 bg-slate-900/80">
+      <div id="bakim-ve-enerji" className="py-12 bg-slate-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FacilityAnnualMaintenanceScheduleSeo />
         </div>
       </div>
 
-      {/* 6.10. BÖLÜM: Binalarda Enerji Kimlik Belgesi (EKB) & Ortak Alan EV Şarj İstasyonu Kurulum Rehberi */}
-      <div className="py-12 bg-slate-950">
+      {/* 6.10 & 6.11. BÖLÜM: Binalarda Enerji, EV Şarj & Altyapı Sayaç Devir Kılavuzu (Tabbed Hub) */}
+      <div className="py-12 bg-slate-950 border-t border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityEnergyEvChargingSeo />
-        </div>
-      </div>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">bolt</span>
+              <span>Enerji & Kurumsal Altyapı Yönetimi</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+              Sürdürülebilir Enerji, EV Şarj & Altyapı Devir Kılavuzu
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 font-light mt-1">
+              Ortak alan elektrikli araç şarj istasyonu kurulumu ile İSKİ, BEDAŞ ve İGDAŞ abonelik devir süreçlerini tek tıkla inceleyin.
+            </p>
 
-      {/* 6.11. BÖLÜM: 39 İlçe İSKİ, BEDAŞ/AYEDAŞ & İGDAŞ Kurumsal Altyapı ve Abonelik Devir Rehberi */}
-      <div className="py-12 bg-slate-900/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <DistrictUtilityTransferGuideSeo />
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-6 p-1.5 bg-slate-900 rounded-2xl border border-slate-800 w-fit mx-auto">
+              <button
+                type="button"
+                onClick={() => setActiveUtilityTab('ev')}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                  activeUtilityTab === 'ev'
+                    ? 'bg-teal-600 text-white shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">ev_station</span>
+                <span>EV Şarj İstasyonu & EKB Rehberi</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveUtilityTab('utility')}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                  activeUtilityTab === 'utility'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="material-symbols-outlined text-lg" aria-hidden="true">sync_alt</span>
+                <span>39 İlçe İSKİ, BEDAŞ & İGDAŞ Devir Rehberi</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <AnimatePresence mode="wait">
+              {activeUtilityTab === 'ev' && (
+                <motion.div key="ev" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
+                  <FacilityEnergyEvChargingSeo />
+                </motion.div>
+              )}
+              {activeUtilityTab === 'utility' && (
+                <motion.div key="utility" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
+                  <DistrictUtilityTransferGuideSeo />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
 

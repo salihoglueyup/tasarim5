@@ -12,7 +12,7 @@ import {
 type QuarterFilter = 'Tümü' | 'Q1' | 'Q2' | 'Q3' | 'Q4';
 
 export default function FacilityAnnualMaintenanceScheduleSeo() {
-  const [selectedQuarter, setSelectedQuarter] = useState<QuarterFilter>('Tümü');
+  const [selectedQuarter, setSelectedQuarter] = useState<QuarterFilter>('Q1');
   const [selectedCategory, setSelectedCategory] = useState<string>('Tümü');
   const [selectedMonth, setSelectedMonth] = useState<number | 'Tümü'>('Tümü');
   const [copied, setCopied] = useState(false);
@@ -31,6 +31,14 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
     { num: 11, name: 'Kasım', quarter: 'Q4' },
     { num: 12, name: 'Aralık', quarter: 'Q4' },
   ];
+
+  const quarterLabels: Record<QuarterFilter, string> = {
+    Q1: 'Q1 (Ocak - Mart)',
+    Q2: 'Q2 (Nisan - Haziran)',
+    Q3: 'Q3 (Temmuz - Eylül)',
+    Q4: 'Q4 (Ekim - Aralık)',
+    Tümü: 'Tüm Yıl (12 Ay)'
+  };
 
   const filteredItems = useMemo(() => {
     return FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.filter((item) => {
@@ -115,7 +123,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
         {/* Quarter Tabs */}
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-semibold text-slate-400 mr-2">Dönem (Çeyrek):</span>
-          {(['Tümü', 'Q1', 'Q2', 'Q3', 'Q4'] as QuarterFilter[]).map((q) => (
+          {(['Q1', 'Q2', 'Q3', 'Q4', 'Tümü'] as QuarterFilter[]).map((q) => (
             <button
               key={q}
               onClick={() => {
@@ -128,7 +136,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
               }`}
             >
-              {q === 'Tümü' ? 'Tüm Yıl' : `${q} Çeyreği`}
+              {quarterLabels[q]}
             </button>
           ))}
         </div>
