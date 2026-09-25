@@ -249,59 +249,64 @@ export default function SeoTextSection({
 
           </div>
 
-          {/* Sağ Kolon: 4 Adet Yumuşak Köşeli Mikro Güven Kartı (lg:col-span-5) */}
-          <div className="lg:col-span-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              {metrics.map((card, idx) => {
-                const isAmber = card.color === 'amber';
-                const badgeStyle = isAmber
-                  ? 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/25'
-                  : 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/25';
-                const iconBoxStyle = isAmber
-                  ? 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25'
-                  : 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25';
-                const cardHoverBorder = isAmber
-                  ? 'hover:border-amber-500/50 dark:hover:border-amber-400/50'
-                  : 'hover:border-emerald-500/50 dark:hover:border-emerald-400/50';
+            {/* Sağ Kolon: 4 Adet Saf Titanium/Obsidian Mikro Güven Kartı (lg:col-span-5) */}
+            <div className="lg:col-span-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {metrics.map((card, idx) => {
+                  const isAmber = card.color === 'amber';
+                  const badgeStyle = isAmber
+                    ? 'bg-amber-500/10 dark:bg-amber-400/15 text-amber-800 dark:text-amber-300 border-amber-500/25'
+                    : 'bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/25';
+                  const iconBoxStyle = isAmber
+                    ? 'bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border-amber-500/25'
+                    : 'bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/25';
+                  const metricColor = isAmber
+                    ? 'text-amber-600 dark:text-amber-400'
+                    : 'text-emerald-600 dark:text-emerald-400';
+                  const cardHoverBorder = isAmber
+                    ? 'hover:border-amber-500/40 dark:hover:border-amber-400/40'
+                    : 'hover:border-emerald-500/40 dark:hover:border-emerald-400/40';
 
-                return (
-                  <div 
-                    key={idx}
-                    className={`p-4 sm:p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 dark:bg-white/[0.04] border border-[var(--color-outline)]/70 dark:border-white/10 ${cardHoverBorder} transition-all duration-300 hover:shadow-xs group/card flex flex-col justify-between`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-3">
-                        <div className={`w-9 h-9 rounded-xl ${iconBoxStyle} border flex items-center justify-center shrink-0 shadow-2xs`}>
-                          <span className="material-symbols-outlined text-lg">{card.icon}</span>
+                  return (
+                    <div 
+                      key={idx}
+                      className={`p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#1E202B] border border-slate-200/90 dark:border-white/10 ${cardHoverBorder} transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 group/card flex flex-col justify-between`}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <div className={`w-9 h-9 rounded-xl ${iconBoxStyle} border flex items-center justify-center shrink-0 shadow-2xs`}>
+                            <span className="material-symbols-outlined text-lg">{card.icon}</span>
+                          </div>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${badgeStyle} border`}>
+                            {card.badge}
+                          </span>
                         </div>
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${badgeStyle} border`}>
-                          {card.badge}
-                        </span>
+                        <div className={`text-xl sm:text-2xl font-black ${metricColor} tracking-tight mb-1`}>
+                          {card.metric}
+                        </div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                          {card.label}
+                        </div>
                       </div>
-                      <div className="text-xl sm:text-2xl font-black text-[var(--color-heading-text)] dark:text-white tracking-tight mb-1">
-                        {card.metric}
-                      </div>
-                      <div className="text-xs font-bold text-[var(--color-heading-text)] dark:text-slate-200 mb-1">
-                        {card.label}
-                      </div>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-2 pt-2 border-t border-slate-100 dark:border-white/5">
+                        {card.desc}
+                      </p>
                     </div>
-                    <p className="text-[11px] text-[var(--color-body-text)] dark:text-slate-400 leading-snug mt-2 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5">
-                      {card.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Alt Kurumsal Mühür Bilgisi (Kurumsal Zümrüt & Kehribar Uyumlu) */}
-            <div className="mt-4 p-3 rounded-xl bg-[var(--color-surface-variant)]/60 dark:bg-white/[0.03] border border-[var(--color-outline)]/60 dark:border-white/10 flex items-center justify-between gap-3 text-[11px] text-[var(--color-secondary)] dark:text-slate-400">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">lock</span>
-                <span>T.C. Çevre & Şehircilik Bakanlığı Mevzuatına Tam Uyum</span>
+                  );
+                })}
               </div>
-              <span className="font-mono font-bold text-amber-700 dark:text-amber-400 shrink-0">ISO 41001</span>
+
+              {/* Alt Kurumsal Mühür Bilgisi (Titanium Zemin & Zümrüt/Kehribar Vurgular) */}
+              <div className="mt-4 p-3 rounded-xl bg-white dark:bg-[#1E202B] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">lock</span>
+                  <span className="font-medium">T.C. Çevre & Şehircilik Bakanlığı Mevzuatına Tam Uyum</span>
+                </div>
+                <span className="px-2 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 font-mono font-bold shrink-0 text-[10px]">
+                  ISO 41001
+                </span>
+              </div>
             </div>
-          </div>
 
         </div>
 
