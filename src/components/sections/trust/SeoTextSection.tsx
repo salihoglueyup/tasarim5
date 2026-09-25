@@ -33,7 +33,7 @@ const TRUST_METRICS = {
       label: '7/24 Nöbetçi Teknik Kadro',
       desc: 'Asansör, hidrofor ve jeneratöre anında müdahale',
       badge: 'SLA Garantisi',
-      color: 'sky',
+      color: 'amber',
     },
     {
       icon: 'gavel',
@@ -41,7 +41,7 @@ const TRUST_METRICS = {
       label: 'Hukuki Danışmanlık & İcra',
       desc: 'Mevzuata tam uyum ve sıfır aidat tahsilat riski',
       badge: 'Hukuk Güvencesi',
-      color: 'indigo',
+      color: 'emerald',
     },
   ],
   en: [
@@ -67,7 +67,7 @@ const TRUST_METRICS = {
       label: '24/7 Technical Response',
       desc: 'Immediate action for elevators, pumps and generators',
       badge: 'SLA Guaranteed',
-      color: 'sky',
+      color: 'amber',
     },
     {
       icon: 'gavel',
@@ -75,7 +75,7 @@ const TRUST_METRICS = {
       label: 'Legal Advisory & Collection',
       desc: 'Full compliance with Condominium Law and dues recovery',
       badge: 'Legal Protection',
-      color: 'indigo',
+      color: 'emerald',
     },
   ],
   ru: [
@@ -101,7 +101,7 @@ const TRUST_METRICS = {
       label: '24/7 Техническая Служба',
       desc: 'Немедленное обслуживание лифтов и генераторов',
       badge: 'Гарантия SLA',
-      color: 'sky',
+      color: 'amber',
     },
     {
       icon: 'gavel',
@@ -109,7 +109,7 @@ const TRUST_METRICS = {
       label: 'Юридическая Поддержка',
       desc: 'Полное соответствие нормам и взыскание задолженностей',
       badge: 'Правовая Защита',
-      color: 'indigo',
+      color: 'emerald',
     },
   ],
   ar: [
@@ -135,7 +135,7 @@ const TRUST_METRICS = {
       label: 'طاقم فني على مدار 24/7',
       desc: 'استجابة فورية للمصاعد والمضخات والمولدات الكهربائية',
       badge: 'ضمان SLA',
-      color: 'sky',
+      color: 'amber',
     },
     {
       icon: 'gavel',
@@ -143,7 +143,7 @@ const TRUST_METRICS = {
       label: 'استشارات قانونية وتحصيل',
       desc: 'امتثال كامل للقوانين العقارية وتحصيل مضمون للمستحقات',
       badge: 'حماية قانونية',
-      color: 'indigo',
+      color: 'emerald',
     },
   ],
 };
@@ -213,24 +213,24 @@ export default function SeoTextSection({
           {/* Sol Kolon: Otorite Başlığı & Semantik Paragraflar (lg:col-span-7) */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Otorite & Akreditasyon Hap Rozeti */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-[var(--color-outline)]/80 dark:border-white/10 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+            {/* Otorite & Akreditasyon Hap Rozeti (Kurumsal Kehribar & Zümrüt Vurgulu) */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 text-xs font-bold text-amber-800 dark:text-amber-300 shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-              <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">verified</span>
+              <span className="material-symbols-outlined text-sm text-amber-600 dark:text-amber-400" aria-hidden="true">verified</span>
               <span className="tracking-tight">{eyebrow}</span>
             </div>
 
-            {/* Yüksek Kontrastlı Ana Başlık */}
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
+            {/* Yüksek Kontrastlı Ana Başlık (Kurumsal Başlık Rengi) */}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-heading-text)] dark:text-white tracking-tight leading-[1.2]">
               {t(titleKey as Parameters<typeof t>[0])}
             </h2>
             
-            {/* Semantik Gövde Metinleri */}
-            <div className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg font-normal space-y-4">
-              <p className="[&_strong]:text-slate-900 dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-amber-700 dark:[&_a]:text-amber-400 [&_a]:underline [&_a]:font-medium hover:[&_a]:text-amber-600">
+            {/* Semantik Gövde Metinleri (Kurumsal Gövde Rengi & Kehribar Bağlantılar) */}
+            <div className="text-[var(--color-body-text)] dark:text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg font-normal space-y-4">
+              <p className="[&_strong]:text-[var(--color-heading-text)] dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-amber-700 dark:[&_a]:text-amber-400 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-amber-500/40 [&_a]:font-medium hover:[&_a]:text-amber-600 hover:[&_a]:decoration-amber-600">
                 <SemanticLinker text={t(p1Key as Parameters<typeof t>[0]) as string} />
               </p>
-              <p className="[&_strong]:text-slate-900 dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-amber-700 dark:[&_a]:text-amber-400 [&_a]:underline [&_a]:font-medium hover:[&_a]:text-amber-600">
+              <p className="[&_strong]:text-[var(--color-heading-text)] dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-amber-700 dark:[&_a]:text-amber-400 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-amber-500/40 [&_a]:font-medium hover:[&_a]:text-amber-600 hover:[&_a]:decoration-amber-600">
                 <SemanticLinker text={t(p2Key as Parameters<typeof t>[0]) as string} />
               </p>
             </div>
@@ -238,8 +238,8 @@ export default function SeoTextSection({
             {/* Hızlı Güven & Mevzuat Doğrulama Kontrol Listesi */}
             <div className="pt-2 border-t border-[var(--color-outline)]/60 dark:border-white/5 space-y-2">
               {checkpoints.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <div className="w-4 h-4 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-[var(--color-heading-text)] dark:text-slate-200">
+                  <div className="w-4 h-4 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/25">
                     <span className="material-symbols-outlined text-xs">check</span>
                   </div>
                   <span>{item}</span>
@@ -253,36 +253,39 @@ export default function SeoTextSection({
           <div className="lg:col-span-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {metrics.map((card, idx) => {
-                const colorMap: Record<string, { bg: string; text: string; border: string }> = {
-                  amber: { bg: 'bg-amber-500/10', text: 'text-amber-700 dark:text-amber-400', border: 'border-amber-500/20' },
-                  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-700 dark:text-emerald-400', border: 'border-emerald-500/20' },
-                  sky: { bg: 'bg-sky-500/10', text: 'text-sky-700 dark:text-sky-400', border: 'border-sky-500/20' },
-                  indigo: { bg: 'bg-indigo-500/10', text: 'text-indigo-700 dark:text-indigo-400', border: 'border-indigo-500/20' },
-                };
-                const theme = colorMap[card.color] || colorMap.amber;
+                const isAmber = card.color === 'amber';
+                const badgeStyle = isAmber
+                  ? 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/25'
+                  : 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/25';
+                const iconBoxStyle = isAmber
+                  ? 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25'
+                  : 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25';
+                const cardHoverBorder = isAmber
+                  ? 'hover:border-amber-500/50 dark:hover:border-amber-400/50'
+                  : 'hover:border-emerald-500/50 dark:hover:border-emerald-400/50';
 
                 return (
                   <div 
                     key={idx}
-                    className="p-4 sm:p-5 rounded-2xl bg-slate-50/80 dark:bg-white/5 border border-[var(--color-outline)]/60 dark:border-white/10 hover:border-amber-500/40 dark:hover:border-amber-500/40 transition-all duration-300 hover:shadow-sm group/card flex flex-col justify-between"
+                    className={`p-4 sm:p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 dark:bg-white/[0.04] border border-[var(--color-outline)]/70 dark:border-white/10 ${cardHoverBorder} transition-all duration-300 hover:shadow-xs group/card flex flex-col justify-between`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <div className={`w-9 h-9 rounded-xl ${theme.bg} ${theme.text} ${theme.border} border flex items-center justify-center shrink-0`}>
+                        <div className={`w-9 h-9 rounded-xl ${iconBoxStyle} border flex items-center justify-center shrink-0 shadow-2xs`}>
                           <span className="material-symbols-outlined text-lg">{card.icon}</span>
                         </div>
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${theme.bg} ${theme.text} border ${theme.border}`}>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${badgeStyle} border`}>
                           {card.badge}
                         </span>
                       </div>
-                      <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight mb-1">
+                      <div className="text-xl sm:text-2xl font-black text-[var(--color-heading-text)] dark:text-white tracking-tight mb-1">
                         {card.metric}
                       </div>
-                      <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">
+                      <div className="text-xs font-bold text-[var(--color-heading-text)] dark:text-slate-200 mb-1">
                         {card.label}
                       </div>
                     </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-2 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                    <p className="text-[11px] text-[var(--color-body-text)] dark:text-slate-400 leading-snug mt-2 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5">
                       {card.desc}
                     </p>
                   </div>
@@ -290,13 +293,13 @@ export default function SeoTextSection({
               })}
             </div>
 
-            {/* Alt Kurumsal Mühür Bilgisi */}
-            <div className="mt-4 p-3 rounded-xl bg-slate-100/70 dark:bg-white/5 border border-[var(--color-outline)]/40 dark:border-white/5 flex items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400">
+            {/* Alt Kurumsal Mühür Bilgisi (Kurumsal Zümrüt & Kehribar Uyumlu) */}
+            <div className="mt-4 p-3 rounded-xl bg-[var(--color-surface-variant)]/60 dark:bg-white/[0.03] border border-[var(--color-outline)]/60 dark:border-white/10 flex items-center justify-between gap-3 text-[11px] text-[var(--color-secondary)] dark:text-slate-400">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-emerald-500">lock</span>
+                <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">lock</span>
                 <span>T.C. Çevre & Şehircilik Bakanlığı Mevzuatına Tam Uyum</span>
               </div>
-              <span className="font-mono font-bold text-slate-700 dark:text-slate-300 shrink-0">ISO 41001</span>
+              <span className="font-mono font-bold text-amber-700 dark:text-amber-400 shrink-0">ISO 41001</span>
             </div>
           </div>
 
