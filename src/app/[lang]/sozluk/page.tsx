@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, definedTermSetSchema } from '@/lib/schemas';
 import { TERMS, termToSlug } from '@/data/dictionary';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
-import { VoiceSearchSpeakableSeo, GlossaryAiOverviewSeo } from '@/components/seo';
+import { VoiceSearchSpeakableSeo } from '@/components/seo';
 import SozlukClient from './SozlukClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -91,7 +91,6 @@ export default async function SozlukPage({
   return (
     <>
       <JsonLd data={[breadcrumbLd, pageLd, termSetLd]} />
-      <GlossaryAiOverviewSeo lang={lang} />
       <SozlukClient lang={lang} />
 
       {/* Bireysel terim sayfaları — Google arama motoru tarama linkleri (Faz 7A) */}

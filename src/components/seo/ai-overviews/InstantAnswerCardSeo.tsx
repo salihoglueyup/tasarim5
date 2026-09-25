@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -83,7 +83,7 @@ export default function InstantAnswerCardSeo({
       {/* Header Badges */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
         <div className="flex items-center gap-2.5">
-          <span className="px-3.5 py-1.5 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <span className="px-3.5 py-1.5 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">stars</span>
             Google 0. Sıra Doğrudan Cevap
           </span>
@@ -106,12 +106,12 @@ export default function InstantAnswerCardSeo({
 
       {/* Question */}
       <h3 className="featured-snippet-question text-xl md:text-2xl font-extrabold text-[var(--color-primary)] mb-4 leading-snug relative z-10 flex items-start gap-3">
-        <span className="text-slate-400 font-serif text-2xl md:text-3xl leading-none select-none">Q:</span>
+        <span className="text-[var(--color-tertiary)] font-serif text-2xl md:text-3xl leading-none select-none">Q:</span>
         <span>{question}</span>
       </h3>
 
       {/* Direct Featured Snippet Paragraph */}
-      <div className="bg-[var(--color-surface-variant)] border-l-4 border-slate-900 dark:border-white p-5 rounded-r-2xl mb-6 relative z-10">
+      <div className="bg-[var(--color-surface-variant)] border-l-4 border-[var(--color-primary)] p-5 rounded-r-2xl mb-6 relative z-10">
         <p className="featured-snippet-answer text-sm md:text-base text-[var(--color-primary)] leading-relaxed font-normal">
           {shortAnswer}
         </p>
@@ -143,7 +143,7 @@ export default function InstantAnswerCardSeo({
           <span>Mevzuat Dayanağı: <strong className="text-[var(--color-primary)]">{lawArticle}</strong></span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-slate-500" aria-hidden="true">verified_user</span>
+          <span className="material-symbols-outlined text-sm text-[var(--color-tertiary)]" aria-hidden="true">verified_user</span>
           <span>Doğrulayan: <span className="text-[var(--color-primary)] font-medium">{verifiedBy}</span> ({lastUpdated})</span>
         </div>
       </div>

@@ -3,7 +3,6 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import { CareerAiOverviewSeo } from '@/components/seo';
 import IstihdamKoprusuClient from './IstihdamKoprusuClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -63,10 +62,7 @@ export default async function IstihdamKoprusuPage({
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd]} />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-6">
-        <CareerAiOverviewSeo lang={lang} />
-      </div>
-      <IstihdamKoprusuClient />
+      <IstihdamKoprusuClient lang={lang} />
     </>
   );
 }

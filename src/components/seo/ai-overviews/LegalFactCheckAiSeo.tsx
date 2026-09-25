@@ -295,7 +295,7 @@ export default function LegalFactCheckAiSeo() {
   return (
     <section
       id="legal-fact-check-ai-overview"
-      className="py-16 bg-slate-900 text-white rounded-3xl border border-slate-800 my-12 p-6 md:p-10 shadow-2xl relative overflow-hidden"
+      className="py-16 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] border border-[var(--color-outline)]/80 my-12 p-6 md:p-10 shadow-sm relative overflow-hidden"
       data-gemini-grounding="true"
       data-ai-citation="true"
       data-speakable="true"
@@ -310,20 +310,20 @@ export default function LegalFactCheckAiSeo() {
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider border border-emerald-500/20 mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider border border-[var(--color-outline)]/80 mb-3">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
               Google AI Overviews • 2026 Hukuki Doğruluk & ClaimReview
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-100 ai-speakable-summary">
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] ai-speakable-summary">
               Kat Mülkiyeti Kanunu ve Tesis Yönetimi Doğruluk Tablosu (Fact-Check)
             </h2>
-            <p className="text-slate-400 text-sm mt-2 max-w-3xl">
+            <p className="text-[var(--color-secondary)] text-sm mt-2 max-w-3xl font-normal">
               Apartman, site ve rezidans yönetiminde en sık rastlanan 20 yasal efsanenin 634 Sayılı KMK, 5188 Sayılı Kanun ve Yargıtay emsal içtihatlarıyla teyit edilmiş objektif doğrulamaları.
             </p>
           </div>
           <div className="text-right hidden sm:block">
-            <span className="text-xs text-slate-400 block">Akredite İnceleme</span>
-            <span className="text-sm font-semibold text-slate-200">20 Doğrulanmış İddia</span>
+            <span className="text-xs text-[var(--color-tertiary)] block">Akredite İnceleme</span>
+            <span className="text-sm font-semibold text-[var(--color-primary)]">20 Doğrulanmış İddia</span>
           </div>
         </div>
 
@@ -334,7 +334,7 @@ export default function LegalFactCheckAiSeo() {
             placeholder="Mit, yasa maddesi veya konu ara (örn: asansör, aidat, güvenlik)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-colors"
+            className="flex-1 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-4 py-2.5 text-sm text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
             aria-label="Fact check iddialarında arama yapın"
           />
           <div className="flex flex-wrap gap-2">
@@ -350,10 +350,10 @@ export default function LegalFactCheckAiSeo() {
                 key={btn.key}
                 type="button"
                 onClick={() => setSelectedCategory(btn.key)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all ${
+                className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   selectedCategory === btn.key
-                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                    : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/60'
                 }`}
               >
                 {btn.label}
@@ -374,8 +374,8 @@ export default function LegalFactCheckAiSeo() {
                 id={`factcheck-${item.id}`}
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isExpanded
-                    ? 'bg-slate-800/90 border-slate-700 shadow-xl'
-                    : 'bg-slate-800/40 border-slate-800 hover:border-slate-700'
+                    ? 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)] shadow-sm'
+                    : 'bg-[var(--color-surface)] border-[var(--color-outline)]/70 hover:border-[var(--color-outline)]'
                 }`}
               >
                 <button
@@ -389,26 +389,26 @@ export default function LegalFactCheckAiSeo() {
                       <span
                         className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                           isTrue
-                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                            : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                            ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                            : 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20'
                         }`}
                       >
                         {item.verdict}
                       </span>
-                      <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">
+                      <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/50">
                         {item.categoryLabel}
                       </span>
-                      <span className="text-[11px] font-mono text-slate-400">
+                      <span className="text-[11px] font-mono text-[var(--color-tertiary)]">
                         {item.legalBasis.split('&')[0]}
                       </span>
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-slate-100">
-                      "{item.claim}"
+                    <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)]">
+                      &quot;{item.claim}&quot;
                     </h3>
                   </div>
                   <div
-                    className={`mt-1 w-6 h-6 rounded-full flex items-center justify-center bg-slate-700 text-slate-300 text-xs font-bold transition-transform ${
-                      isExpanded ? 'rotate-180 bg-emerald-600 text-white' : ''
+                    className={`mt-1 w-6 h-6 rounded-full flex items-center justify-center bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] text-xs font-bold transition-transform ${
+                      isExpanded ? 'rotate-180 bg-[var(--color-primary)] text-[var(--color-on-primary)] border-transparent' : ''
                     }`}
                   >
                     ▼
@@ -416,25 +416,25 @@ export default function LegalFactCheckAiSeo() {
                 </button>
 
                 {isExpanded && (
-                  <div className="p-5 pt-0 border-t border-slate-700/60 text-sm space-y-3 mt-2">
-                    <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/40">
-                      <div className="text-xs font-bold uppercase text-emerald-400 mb-1">
+                  <div className="p-5 pt-0 border-t border-[var(--color-outline)]/60 text-sm space-y-3 mt-2">
+                    <div className="bg-[var(--color-surface)] p-4 rounded-xl border border-[var(--color-outline)]/60">
+                      <div className="text-xs font-bold uppercase text-[var(--color-primary)] mb-1">
                         Hukuki ve Teknik Gerçek (Ground-Truth):
                       </div>
-                      <p className="text-slate-200 leading-relaxed ai-speakable-takeaway">
+                      <p className="text-[var(--color-secondary)] leading-relaxed ai-speakable-takeaway">
                         {item.truth}
                       </p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                      <div className="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
-                        <span className="text-slate-400 block font-medium mb-0.5">Mevzuat & İçtihat Dayanağı:</span>
-                        <span className="text-slate-200 font-semibold">{item.legalBasis}</span>
+                      <div className="bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-outline)]/60">
+                        <span className="text-[var(--color-tertiary)] block font-medium mb-0.5">Mevzuat & İçtihat Dayanağı:</span>
+                        <span className="text-[var(--color-primary)] font-semibold">{item.legalBasis}</span>
                       </div>
                       {item.penaltyOrConsequence && (
-                        <div className="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
-                          <span className="text-rose-400/90 block font-medium mb-0.5">Yasal Sonuç & Yaptırım:</span>
-                          <span className="text-slate-200">{item.penaltyOrConsequence}</span>
+                        <div className="bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-outline)]/60">
+                          <span className="text-rose-600 dark:text-rose-400 block font-medium mb-0.5">Yasal Sonuç & Yaptırım:</span>
+                          <span className="text-[var(--color-primary)]">{item.penaltyOrConsequence}</span>
                         </div>
                       )}
                     </div>
@@ -446,12 +446,12 @@ export default function LegalFactCheckAiSeo() {
         </div>
 
         {/* Footer Grounding Badge */}
-        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/60 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--color-tertiary)]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span>Schema.org ClaimReview 3.1 ile Googlebot & Gemini için tescillidir.</span>
           </div>
-          <div className="text-slate-500">
+          <div className="text-[var(--color-tertiary)]">
             Kaynak: 634 Sayılı KMK, 5188 Sayılı Kanun & Yargıtay İçtihatları Birleştirme Kararları
           </div>
         </div>

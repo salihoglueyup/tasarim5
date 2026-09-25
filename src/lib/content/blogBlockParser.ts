@@ -101,7 +101,7 @@ export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): 
         const text = parseMarkdownLinks(block.text);
         htmlParts.push(
           `<h2 id="${id}" class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-12 mb-5 scroll-mt-24 border-b border-slate-200/60 dark:border-slate-800 pb-3 flex items-center gap-3">
-            <span className="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+            <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
             ${text}
           </h2>`
         );
@@ -176,17 +176,18 @@ export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): 
         const label = block.label || 'Hemen İnceleyin';
         const href = block.href || '/hizmetler/tesis-yonetimi';
         htmlParts.push(
-          `<div class="my-10 p-6 md:p-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-700">
-            <div class="space-y-1.5 text-center md:text-left">
-              <div class="text-xs font-bold uppercase tracking-widest text-amber-400 flex items-center justify-center md:justify-start gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                Alo Yönetim Profesyonel Çözüm
+          `<div class="my-10 not-prose p-6 md:p-8 bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-900 dark:text-white rounded-3xl shadow-xs flex flex-col md:flex-row items-center justify-between gap-6 border border-[var(--color-outline)]/80 dark:border-white/10 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="space-y-2 text-center md:text-left relative z-10">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider w-fit">
+                <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span>Alo Yönetim Profesyonel Çözüm</span>
               </div>
-              <p class="text-lg md:text-xl font-bold m-0 text-white">${text}</p>
-              <p class="text-sm text-slate-300 m-0">Ücretsiz keşif ve 10 dakikada şeffaf bütçe teklifi.</p>
+              <p class="text-lg md:text-xl font-extrabold m-0 text-slate-900 dark:text-white leading-snug">${text}</p>
+              <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 m-0 font-normal">Ücretsiz keşif ve 10 dakikada şeffaf bütçe teklifi.</p>
             </div>
-            <a href="${href}" class="inline-flex items-center gap-2 px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition-all shadow-lg hover:shadow-amber-500/20 hover:scale-105 whitespace-nowrap text-sm md:text-base no-underline">
-              ${label} →
+            <a href="${href}" class="relative z-10 inline-flex items-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 !text-white dark:!text-slate-950 text-white font-bold rounded-2xl transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap text-sm md:text-base !no-underline no-underline shrink-0">
+              <span>${label} →</span>
             </a>
           </div>`
         );

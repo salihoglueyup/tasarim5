@@ -3,7 +3,6 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
-import { VideoGroundingAiOverviewSeo } from '@/components/seo';
 import HizmetlerClient from './HizmetlerClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -75,10 +74,7 @@ export default async function HizmetlerPage({
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, serviceLd]} />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-8">
-        <VideoGroundingAiOverviewSeo lang={lang} />
-      </div>
-      <HizmetlerClient />
+      <HizmetlerClient lang={lang} />
     </>
   );
 }

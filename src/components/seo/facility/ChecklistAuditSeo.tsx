@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -111,20 +111,20 @@ export default function ChecklistAuditSeo({
         {/* Başlık ve İlerleme */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-outline)]/40 pb-6 mb-6">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-tertiary)]">
               İnteraktif Denetim Aracı
             </span>
             <h3 className="text-xl md:text-2xl font-black text-[var(--color-primary)] mt-1">
               {title}
             </h3>
-            <p className="text-xs md:text-sm text-[var(--color-secondary)] font-light mt-1">
+            <p className="text-xs md:text-sm text-[var(--color-secondary)] font-normal mt-1">
               {description}
             </p>
           </div>
 
           {/* İlerleme Rozeti */}
           <div className="bg-[var(--color-surface-variant)] p-3.5 rounded-2xl border border-[var(--color-outline)]/60 shadow-xs flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-black text-sm">
+            <div className="w-12 h-12 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] flex items-center justify-center font-black text-sm">
               %{progressPercent}
             </div>
             <div>
@@ -137,9 +137,9 @@ export default function ChecklistAuditSeo({
         </div>
 
         {/* İlerleme Çubuğu */}
-        <div className="w-full bg-slate-200 dark:bg-zinc-800 h-2 rounded-full mb-6 overflow-hidden">
+        <div className="w-full bg-[var(--color-outline)]/40 h-2 rounded-full mb-6 overflow-hidden">
           <div
-            className="bg-brand-500 h-full transition-all duration-500"
+            className="bg-[var(--color-primary)] h-full transition-all duration-500"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -155,7 +155,7 @@ export default function ChecklistAuditSeo({
                 className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3.5 ${
                   isChecked
                     ? 'bg-emerald-500/5 border-emerald-500/30 dark:bg-emerald-950/20'
-                    : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 hover:border-slate-300'
+                    : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 hover:border-[var(--color-outline)]'
                 }`}
               >
                 <div className="mt-0.5 shrink-0">
@@ -163,7 +163,7 @@ export default function ChecklistAuditSeo({
                     className={`w-5 h-5 rounded-lg flex items-center justify-center transition-colors ${
                       isChecked
                         ? 'bg-emerald-500 text-white'
-                        : 'border-2 border-slate-300 dark:border-slate-600'
+                        : 'border-2 border-[var(--color-outline)]'
                     }`}
                   >
                     {isChecked && (
@@ -192,7 +192,7 @@ export default function ChecklistAuditSeo({
                   >
                     {item.title}
                   </h4>
-                  <p className="text-xs text-[var(--color-secondary)] font-light mt-1 leading-relaxed">
+                  <p className="text-xs text-[var(--color-secondary)] font-normal mt-1 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -207,13 +207,13 @@ export default function ChecklistAuditSeo({
             <h4 className="text-sm font-bold text-[var(--color-primary)]">
               Eksikleriniz mi var? Yasal riskleri sıfırlayalım.
             </h4>
-            <p className="text-xs text-[var(--color-secondary)] font-light mt-0.5">
+            <p className="text-xs text-[var(--color-secondary)] font-normal mt-0.5">
               Alo Yönetim uzmanları siteniz için ücretsiz durum tespiti ve işletme projesi denetimi yapar.
             </p>
           </div>
           <Link
             href="/teklif-al"
-            className="shrink-0 px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white rounded-xl text-xs font-bold transition-colors shadow-md"
+            className="shrink-0 px-5 py-2.5 bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] rounded-xl text-xs font-bold transition-all shadow-sm"
           >
             Ücretsiz Hukuki Denetim İste
           </Link>

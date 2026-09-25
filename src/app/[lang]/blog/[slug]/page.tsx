@@ -6,7 +6,6 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
 import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo, ArticleAiOverviewCard, BlogAiTakeawaysSeo } from '@/components/seo';
 import TableOfContents from '@/components/blog/TableOfContents';
-import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import { prisma } from '@/lib/prisma';
 import {
   generateBreadcrumbs,
@@ -324,16 +323,11 @@ export default async function BlogDetail({
       />
       {renderedHtml && <BlogFAQExtractor htmlContent={renderedHtml} />}
       <ReadingProgress />
-      <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
-        <Breadcrumbs items={breadcrumbs} />
-      </div>
-      <PageHeader title={post.title} description={post.description} />
+      <PageHeader title={post.title} description={post.description} breadcrumbs={breadcrumbs} />
 
-      <div className="py-16 px-[var(--spacing-gutter)] max-w-7xl mx-auto flex gap-10 items-start">
-        {/* TOC Sidebar */}
-        <TableOfContents />
-
-        <article className="flex-1 max-w-3xl flex flex-col gap-10">
+      <div className="py-12 md:py-16 px-[var(--spacing-gutter)] max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Sol/Orta Kolon: Ana Makale İçeriği (Mobilde %100 Tam Genişlik, Masaüstünde 8 Kolon) */}
+        <article id="article-content" className="lg:col-span-8 w-full flex flex-col gap-10 min-w-0">
           {/* Meta bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-6 text-sm text-slate-500">
             <div className="flex items-center gap-3">
@@ -404,46 +398,73 @@ export default async function BlogDetail({
             lang={lang}
           />
 
-          {/* TL;DR (Faz 15: Tüm makaleler için AI ve hızlı okuma garantili özet kutusu) */}
-          {(post.tldr || post.description || post.summary) && (
-              <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-2xl p-6">
-                <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">bolt</span>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">{t('blog_summary')}</div>
-                  <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{post.tldr || post.description || post.summary}</p>
-                </div>
-              </aside>
-          )}
+
+
+          {/* Mobilde İçindekiler Tablosu (Katlanabilir Akordeon) */}
+          <div className="lg:hidden w-full">
+            <TableOfContents className="w-full" />
+          </div>
 
           {/* Body with smart cross-linking */}
           <PostBody htmlContent={post.content} title={post.title} currentUrl={path} locale={lang} />
 
           {/* AI Search Key Facts & Quantitative Signals */}
-          {keyFacts.length > 0 && (
-            <div className="bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-3">
-                <span className="material-symbols-outlined text-brand-600 text-base" aria-hidden="true">analytics</span>
-                <span>Önemli Sayısal & Yasal Metrikler</span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {keyFacts.slice(0, 4).map((f, i) => (
-                  <div key={i} className="flex items-start gap-2 bg-white dark:bg-white/5 p-3 rounded-xl border border-slate-100 dark:border-white/5 text-xs text-slate-600 dark:text-slate-300">
-                    <span className="font-bold text-brand-600 dark:text-brand-400 shrink-0">{f.raw}</span>
-                    <span className="line-clamp-2">{f.context}</span>
+          {(() => {
+            // Farklı metrik türlerini (kanun, standart, süre/SLA, genel metrik, yüzde) çeşitlendirerek seç
+            const selectedFacts: typeof keyFacts = [];
+            const preferredTypes = ['legal_code', 'standard', 'timeframe', 'general_metric', 'percentage'] as const;
+
+            // 1. Aşama: Her türden en kaliteli 1 olguyu seç
+            for (const type of preferredTypes) {
+              if (selectedFacts.length >= 4) break;
+              const match = keyFacts.find(
+                (f) => f.type === type && !selectedFacts.some((s) => s.context === f.context || s.raw === f.raw)
+              );
+              if (match) selectedFacts.push(match);
+            }
+
+            // 2. Aşama: Eğer 4'e ulaşılmadıysa kalan benzersiz olgularla doldur
+            for (const f of keyFacts) {
+              if (selectedFacts.length >= 4) break;
+              if (!selectedFacts.some((s) => s.context === f.context || s.raw === f.raw)) {
+                selectedFacts.push(f);
+              }
+            }
+
+            const displayedFacts = selectedFacts.length >= 2 ? selectedFacts : keyFacts.slice(0, 4);
+
+            return displayedFacts.length > 0 ? (
+              <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 shadow-xs">
+                <div className="flex items-center justify-between gap-3 mb-4 pb-3.5 border-b border-[var(--color-outline)]/60 dark:border-white/10">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                    <span className="material-symbols-outlined text-amber-500 text-base" aria-hidden="true">analytics</span>
+                    <span>Önemli Sayısal & Yasal Metrikler</span>
                   </div>
-                ))}
+                  <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium">Google AI Grounding</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                  {displayedFacts.map((f, i) => (
+                    <div key={i} className="flex items-start gap-3 bg-slate-50/80 dark:bg-white/[0.02] p-3.5 rounded-2xl border border-slate-200/70 dark:border-white/5 text-xs text-slate-700 dark:text-slate-300 shadow-2xs">
+                      <span className="font-extrabold text-slate-900 dark:text-white bg-white dark:bg-white/10 px-2.5 py-1 rounded-lg border border-slate-200/80 dark:border-white/10 shrink-0 text-[11px] shadow-2xs">
+                        {f.raw}
+                      </span>
+                      <span className="leading-relaxed pt-0.5 line-clamp-2">{f.context}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            ) : null;
+          })()}
 
           {/* Tags */}
           {tags.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-200 dark:border-white/10">
+            <div className="flex flex-wrap items-center gap-2 pt-6 border-t border-[var(--color-outline)]/60 dark:border-white/10">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">Etiketler:</span>
               {tags.map((tag: string) => (
                 <Link
                   key={tag}
                   href={`/blog/etiket/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
-                  className="text-xs bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full px-3 py-1.5 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-950 transition-colors"
+                  className="text-xs font-medium bg-slate-100 hover:bg-slate-900 hover:text-white dark:bg-white/5 dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 rounded-xl px-3 py-1.5 border border-slate-200/80 dark:border-white/10 transition-all shadow-2xs hover:scale-105"
                 >
                   #{tag}
                 </Link>
@@ -465,29 +486,29 @@ export default async function BlogDetail({
 
           {/* Author Box */}
           {author && (
-            <div itemScope itemType="https://schema.org/Person" className="flex items-start gap-6 bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-6 md:p-8 rounded-3xl mt-6">
+            <div itemScope itemType="https://schema.org/Person" className="flex items-start gap-6 bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 p-6 md:p-8 rounded-3xl mt-6 shadow-xs">
                <meta itemProp="jobTitle" content="Yazar" />
                <meta itemProp="url" content={`/blog/yazar/${author.slug}`} />
                {author.avatar ? (
-                 <Image itemProp="image" src={author.avatar} alt={author.name} width={80} height={80} className="w-20 h-20 rounded-full object-cover shrink-0" />
+                 <Image itemProp="image" src={author.avatar} alt={author.name} width={80} height={80} className="w-20 h-20 rounded-full object-cover shrink-0 border border-slate-200/80 dark:border-white/10" />
                ) : (
-                 <div className="w-20 h-20 rounded-full bg-brand-500 flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                 <div className="w-20 h-20 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center text-2xl font-bold shrink-0 shadow-xs">
                     {author.name.charAt(0)}
                  </div>
                )}
                <div className="flex flex-col gap-2">
                  <h4 className="text-xl font-bold text-slate-900 dark:text-white" itemProp="name">
-                   <Link href={`/blog/yazar/${author.slug}`} className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                   <Link href={`/blog/yazar/${author.slug}`} className="hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                       {author.name}
                    </Link>
                  </h4>
-                 {author.bio && <p itemProp="description" className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{author.bio}</p>}
+                 {author.bio && <p itemProp="description" className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">{author.bio}</p>}
                </div>
             </div>
           )}
 
           {/* Faz 206: Hukuki & Teknik İnceleme Yapan Uzman (Reviewed By) E-E-A-T Künyesi */}
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-xs text-slate-700 dark:text-slate-300">
+          <div className="flex items-center gap-3.5 p-5 rounded-3xl bg-emerald-500/5 dark:bg-emerald-950/20 border border-emerald-500/20 text-xs text-slate-700 dark:text-slate-300 shadow-2xs">
             <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl shrink-0" aria-hidden="true">verified_user</span>
             <div>
               <span className="font-bold text-slate-900 dark:text-white">Mevzuat & Hukuki Uyumluluk Denetimi: </span>
@@ -549,6 +570,89 @@ export default async function BlogDetail({
             </div>
           )}
         </article>
+
+        {/* Sağ Kolon: Masaüstü Yapışkan (Sticky) Otorite ve Dönüşüm Sidebar'ı (4 Kolon) */}
+        <aside className="hidden lg:flex lg:col-span-4 w-full flex-col gap-6 lg:sticky lg:top-28 self-start">
+          {/* 1. Dinamik Masaüstü İçindekiler Tablosu */}
+          <TableOfContents className="w-full shadow-md" />
+
+          {/* 2. Kurumsal Bütçe & Keşif Teklifi Kartı */}
+          <div className="p-6 md:p-8 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-900 dark:text-white border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col gap-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold w-fit">
+                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">verified</span>
+                Hızlı Fiyat & Bütçe
+              </span>
+              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white leading-snug">
+                Siteniz İçin Şeffaf Teklif Alın
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                634 sayılı KMK'ya tam uyumlu işletme projesi, 5188 lisanslı güvenlik ve %30'a varan merkezi bütçe tasarrufu.
+              </p>
+              <div className="flex flex-col gap-2.5 pt-2">
+                <Link
+                  href="/teklif-al"
+                  className="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-sm text-center shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                >
+                  <span>10 Dakikada Teklif Al</span>
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                </Link>
+                <a
+                  href="https://wa.me/902165504848?text=Merhaba%2C%20blog%20yaz%C4%B1n%C4%B1z%20%C3%BCzerinden%20tesis%20y%C3%B6netimi%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-500/15 dark:hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 font-semibold text-xs text-center transition-colors flex items-center justify-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
+                  <span>WhatsApp Destek Hattı</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Bütçe ve Aidat Simülatörü Kısayolu */}
+          <div className="p-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 flex flex-col gap-4 shadow-xs relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="flex items-center gap-3 relative z-10">
+              <div className="w-11 h-11 rounded-2xl bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0 shadow-2xs">
+                <span className="material-symbols-outlined text-2xl" aria-hidden="true">calculate</span>
+              </div>
+              <div>
+                <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">KMK Aidat Hesaplayıcı</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Arsa payı ve ortak gider simülasyonu</p>
+              </div>
+            </div>
+            <Link
+              href="/hesaplayici"
+              className="relative z-10 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 text-white font-bold text-xs flex items-center justify-between transition-all shadow-xs group-hover:shadow-md"
+            >
+              <span>Hesaplayıcıyı Başlat</span>
+              <span className="material-symbols-outlined text-base transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+            </Link>
+          </div>
+
+          {/* 4. Doğrudan Çağrı Merkezi */}
+          <div className="p-5 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[#15161E] flex items-center justify-between gap-4 shadow-xs relative overflow-hidden">
+            <div className="flex flex-col gap-0.5">
+              <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>7/24 Çağrı Merkezi</span>
+              </div>
+              <a href="tel:+902165504848" className="text-lg font-black text-slate-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-mono tracking-tight">
+                0216 550 48 48
+              </a>
+            </div>
+            <a
+              href="tel:+902165504848"
+              className="w-11 h-11 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-600 dark:text-emerald-400 hover:text-white border border-emerald-500/20 flex items-center justify-center transition-all shadow-2xs hover:scale-105 active:scale-95 shrink-0"
+              aria-label="Telefonla ara"
+              title="Doğrudan Ara: 0216 550 48 48"
+            >
+              <span className="material-symbols-outlined text-xl" aria-hidden="true">call</span>
+            </a>
+          </div>
+        </aside>
       </div>
     </>
   );

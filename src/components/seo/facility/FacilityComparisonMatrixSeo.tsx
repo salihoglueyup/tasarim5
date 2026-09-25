@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -107,7 +107,7 @@ export default function FacilityComparisonMatrixSeo({ className = "" }: { classN
       {/* Başlık */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/60">
         <div>
-          <span className="text-xs font-black text-slate-900 dark:text-slate-200 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
+          <span className="text-xs font-black text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
             Hizmet & Maliyet Karşılaştırması
           </span>
           <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -77,8 +77,8 @@ export default function SectoralRoiCalculatorSeo() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3.5 py-1 bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">trending_up</span>
+            <span className="px-3.5 py-1 bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-slate-900/10 dark:border-white/10 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">trending_up</span>
               3 Yıllık Sektörel ROI & Tasarruf Matrisi
             </span>
           </div>
@@ -96,8 +96,8 @@ export default function SectoralRoiCalculatorSeo() {
             onClick={() => setSelectedSector('rezidans')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
               selectedSector === 'rezidans'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm'
-                : 'text-[var(--color-tertiary)] hover:text-[var(--color-primary)]'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
             Rezidans
@@ -106,8 +106,8 @@ export default function SectoralRoiCalculatorSeo() {
             onClick={() => setSelectedSector('avm')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
               selectedSector === 'avm'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm'
-                : 'text-[var(--color-tertiary)] hover:text-[var(--color-primary)]'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
             AVM
@@ -116,8 +116,8 @@ export default function SectoralRoiCalculatorSeo() {
             onClick={() => setSelectedSector('sanayi')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
               selectedSector === 'sanayi'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm'
-                : 'text-[var(--color-tertiary)] hover:text-[var(--color-primary)]'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
             Sanayi / Depo
@@ -126,8 +126,8 @@ export default function SectoralRoiCalculatorSeo() {
             onClick={() => setSelectedSector('toplukonut')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
               selectedSector === 'toplukonut'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm'
-                : 'text-[var(--color-tertiary)] hover:text-[var(--color-primary)]'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
             Toplu Konut
@@ -143,7 +143,7 @@ export default function SectoralRoiCalculatorSeo() {
           <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 space-y-3">
             <div className="flex items-center justify-between">
               <h4 className="text-lg font-bold text-[var(--color-primary)]">{current.title}</h4>
-              <span className="text-xs text-amber-700 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full font-semibold">
+              <span className="text-xs text-[var(--color-primary)] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full font-semibold">
                 {current.unitLabel}
               </span>
             </div>
@@ -159,25 +159,25 @@ export default function SectoralRoiCalculatorSeo() {
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-4 text-center space-y-1">
               <span className="text-xs text-[var(--color-secondary)] block">Aidat Tahsilat Başarısı</span>
-              <strong className="text-2xl font-black text-emerald-600 dark:text-emerald-400">{current.collectionRate}</strong>
+              <strong className="text-2xl font-black text-[var(--color-primary)]">{current.collectionRate}</strong>
             </div>
 
             <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-4 text-center space-y-1">
               <span className="text-xs text-[var(--color-secondary)] block">Ortak Enerji Tasarrufu</span>
-              <strong className="text-2xl font-black text-blue-600 dark:text-blue-400">{current.energySavingPct}</strong>
+              <strong className="text-2xl font-black text-[var(--color-primary)]">{current.energySavingPct}</strong>
             </div>
           </div>
         </div>
 
         {/* Right Side: 3-Year Saving Calculation */}
-        <div className="lg:col-span-5 bg-[var(--color-surface-variant)] border border-amber-500/30 rounded-3xl p-6 md:p-8 space-y-6">
-          <span className="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase block">
+        <div className="lg:col-span-5 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-3xl p-6 md:p-8 space-y-6">
+          <span className="text-xs font-bold tracking-widest text-[var(--color-primary)] uppercase block">
             3 Yıllık Net Bütçe Tasarrufu
           </span>
 
           <div className="space-y-1">
             <span className="text-xs text-[var(--color-secondary)]">Toplam Geri Kazanılan Kaynak:</span>
-            <div className="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">
+            <div className="text-3xl sm:text-4xl font-black text-[var(--color-primary)] tracking-tight">
               ₺{threeYearSaving.toLocaleString()}
             </div>
             <span className="text-xs text-[var(--color-secondary)] block">
@@ -190,17 +190,17 @@ export default function SectoralRoiCalculatorSeo() {
           <div className="space-y-2 text-xs text-[var(--color-secondary)]">
             <div className="flex justify-between">
               <span>Geleneksel Model Maliyeti:</span>
-              <span className="text-rose-500 font-semibold line-through">₺{(current.traditionalAnnualCost * sizeScale).toLocaleString()} / yıl</span>
+              <span className="text-[var(--color-tertiary)] font-semibold line-through">₺{(current.traditionalAnnualCost * sizeScale).toLocaleString()} / yıl</span>
             </div>
             <div className="flex justify-between">
               <span>Alo Yönetim ile Maliyet:</span>
-              <span className="text-emerald-600 dark:text-emerald-400 font-extrabold">₺{(current.aloAnnualCost * sizeScale).toLocaleString()} / yıl</span>
+              <span className="text-[var(--color-primary)] font-extrabold">₺{(current.aloAnnualCost * sizeScale).toLocaleString()} / yıl</span>
             </div>
           </div>
 
           <Link
             href="/teklif-al"
-            className="w-full py-3.5 px-6 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-102"
+            className="w-full py-3.5 px-6 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-surface)] font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all hover:scale-102"
           >
             <span>{current.title} İçin Resmi Teklif İste</span>
             <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>

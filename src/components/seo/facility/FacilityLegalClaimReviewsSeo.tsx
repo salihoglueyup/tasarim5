@@ -169,7 +169,7 @@ export default function FacilityLegalClaimReviewsSeo() {
               }`}
             >
               <span className={`w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5 ${
-                isSelected ? 'bg-rose-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                isSelected ? 'bg-rose-600 text-white' : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)]'
               }`}>
                 {idx + 1}
               </span>

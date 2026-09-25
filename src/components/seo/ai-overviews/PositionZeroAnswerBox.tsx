@@ -12,7 +12,7 @@ interface PositionZeroAnswerBoxProps {
   /** İkincil alt detay veya madde referansı */
   subText?: string;
   /** Vurgu rengi teması */
-  accentColor?: 'indigo' | 'emerald' | 'blue' | 'cyan' | 'amber' | 'orange';
+  accentColor?: 'indigo' | 'emerald' | 'blue' | 'cyan' | 'amber' | 'orange' | 'slate';
   className?: string;
   id?: string;
   answerId?: string;
@@ -23,7 +23,7 @@ export default function PositionZeroAnswerBox({
   answer,
   standardBadge = 'ISO 41001 & 634 Sayılı KMK',
   subText,
-  accentColor = 'indigo',
+  accentColor = 'slate',
   className = '',
   id,
   answerId,
@@ -48,7 +48,9 @@ export default function PositionZeroAnswerBox({
       ? 'border-amber-500/30'
       : accentColor === 'orange'
       ? 'border-orange-500/30'
-      : 'border-indigo-500/30';
+      : accentColor === 'indigo'
+      ? 'border-indigo-500/30'
+      : 'border-[var(--color-outline)]/80';
 
   const badgeBgClass =
     accentColor === 'emerald'
@@ -61,7 +63,9 @@ export default function PositionZeroAnswerBox({
       ? 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20'
       : accentColor === 'orange'
       ? 'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/20'
-      : 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20';
+      : accentColor === 'indigo'
+      ? 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20'
+      : 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80';
 
   const quoteBorder =
     accentColor === 'emerald'
@@ -74,7 +78,9 @@ export default function PositionZeroAnswerBox({
       ? 'border-amber-600 dark:border-amber-400'
       : accentColor === 'orange'
       ? 'border-orange-600 dark:border-orange-400'
-      : 'border-indigo-600 dark:border-indigo-400';
+      : accentColor === 'indigo'
+      ? 'border-indigo-600 dark:border-indigo-400'
+      : 'border-[var(--color-primary)]';
 
   return (
     <div

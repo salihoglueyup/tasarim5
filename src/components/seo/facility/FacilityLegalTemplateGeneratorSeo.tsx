@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -159,7 +159,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
       {/* Başlık */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/60">
         <div>
-          <span className="text-xs font-black text-slate-900 dark:text-slate-200 bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
+          <span className="text-xs font-black text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
             Hukuki Belge & Şablon Motoru
           </span>
           <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -174,7 +174,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
         <div className="flex items-center gap-3">
           <button
             onClick={handleCopy}
-            className="px-5 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm shrink-0"
+            className="px-5 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm shrink-0"
           >
             <span className="material-symbols-outlined text-sm" aria-hidden="true">{isCopied ? 'check' : 'content_copy'}</span>
             {isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}
@@ -202,12 +202,12 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
             onClick={() => setSelectedTemplate(tab.id as FacilityTemplateType)}
             className={`p-4 rounded-2xl border text-left transition-all cursor-pointer ${
               selectedTemplate === tab.id
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm font-bold'
-                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-primary)] hover:border-slate-400'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] border-[var(--color-primary)] shadow-sm font-bold'
+                : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-primary)] hover:border-[var(--color-outline)]'
             }`}
           >
             <div className="text-sm font-bold">{tab.title}</div>
-            <div className={`text-xs mt-1 ${selectedTemplate === tab.id ? 'text-slate-300 dark:text-slate-700' : 'text-[var(--color-secondary)]'}`}>{tab.desc}</div>
+            <div className={`text-xs mt-1 ${selectedTemplate === tab.id ? 'opacity-85 text-[var(--color-on-primary)]' : 'text-[var(--color-secondary)]'}`}>{tab.desc}</div>
           </button>
         ))}
       </div>

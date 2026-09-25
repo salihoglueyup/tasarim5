@@ -118,18 +118,18 @@ export function FacilityCommercialTiersSeo({
     <section
       id="b2b-tesis-yonetim-paketleri"
       aria-label="Kurumsal Tesis Yönetimi Hizmet Segmentleri ve Kapsam Matrisi"
-      className={`rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-10 shadow-xl ${className}`}
+      className={`rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] p-6 sm:p-10 shadow-sm ${className}`}
     >
       {/* Başlık & Açıklama */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-[var(--color-primary)]" />
           İhtiyaca Özel Kurumsal B2B Hizmet Mimarisi
         </div>
-        <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+        <h2 className="text-2xl sm:text-4xl font-black text-[var(--color-primary)] tracking-tight">
           Tesis Tiplerine Göre Operasyonel Kapsam Matrisi
         </h2>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--color-secondary)] mt-3 leading-relaxed">
           Tüm binalar aynı değildir; butik bir apartmanın ihtiyaçları ile 300 konutluk bir rezidansın 
           ya da AVM&apos;nin operasyonel standartları farklıdır. Tesisinizin ölçeğine uygun resmi kapsamı seçin.
         </p>
@@ -148,12 +148,12 @@ export function FacilityCommercialTiersSeo({
               onClick={() => setSelectedTier(tier.id)}
               className={`p-4 rounded-2xl border text-left transition-all relative cursor-pointer ${
                 isActive
-                  ? 'border-blue-600 bg-blue-50/70 dark:bg-blue-950/50 shadow-md ring-2 ring-blue-500/20'
-                  : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  ? 'border-[var(--color-primary)] bg-[var(--color-surface)] shadow-md ring-2 ring-[var(--color-primary)]/20'
+                  : 'border-[var(--color-outline)]/70 bg-[var(--color-surface-variant)]/60 hover:bg-[var(--color-surface-variant)] text-[var(--color-secondary)]'
               }`}
             >
               {tier.popular && (
-                <span className="absolute -top-2.5 right-4 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-600 text-white shadow-xs">
+                <span className="absolute -top-2.5 right-4 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-xs">
                   {tier.badge}
                 </span>
               )}
@@ -161,17 +161,17 @@ export function FacilityCommercialTiersSeo({
                 <div
                   className={`p-2.5 rounded-xl ${
                     isActive
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                      ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-xs'
+                      : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/50'
                   }`}
                 >
                   <IconComponent className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-tertiary)]">
                     {tier.segment}
                   </div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                  <div className="text-sm font-bold text-[var(--color-primary)] leading-tight">
                     {tier.name}
                   </div>
                 </div>
@@ -182,34 +182,34 @@ export function FacilityCommercialTiersSeo({
       </div>
 
       {/* Seçili Segmentin Detay Kartı (Şeffaf B2B Matris) */}
-      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60 p-6 sm:p-8">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-200 dark:border-slate-800 pb-6 mb-6">
+      <div className="rounded-2xl border border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)]/40 p-6 sm:p-8">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-[var(--color-outline)]/50 pb-6 mb-6">
           <div>
-            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
               {current.segment} Kapsamı
             </span>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1">
+            <h3 className="text-xl sm:text-2xl font-black text-[var(--color-primary)] mt-1">
               {current.name}
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-2xl">
+            <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-2xl">
               {current.summary}
             </p>
           </div>
 
           {/* SLA ve Performans Rozetleri */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-              <Clock className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-2xs">
+              <Clock className="w-4 h-4 text-[var(--color-primary)]" />
               <div>
-                <div className="text-[10px] uppercase font-bold text-slate-400">SLA Taahhüdü</div>
-                <div className="text-xs font-extrabold text-slate-900 dark:text-white">{current.sla}</div>
+                <div className="text-[10px] uppercase font-bold text-[var(--color-tertiary)]">SLA Taahhüdü</div>
+                <div className="text-xs font-extrabold text-[var(--color-primary)]">{current.sla}</div>
               </div>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-              <Percent className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-2xs">
+              <Percent className="w-4 h-4 text-[var(--color-primary)]" />
               <div>
-                <div className="text-[10px] uppercase font-bold text-slate-400">Tahsilat Oranı</div>
-                <div className="text-xs font-extrabold text-slate-900 dark:text-white">{current.collectionRate}</div>
+                <div className="text-[10px] uppercase font-bold text-[var(--color-tertiary)]">Tahsilat Oranı</div>
+                <div className="text-xs font-extrabold text-[var(--color-primary)]">{current.collectionRate}</div>
               </div>
             </div>
           </div>
@@ -217,22 +217,22 @@ export function FacilityCommercialTiersSeo({
 
         {/* 5 Temel Hizmet Maddesi */}
         <div className="mb-6">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-tertiary)] mb-4">
             Bu Pakette Kesintisiz Sunulan Hizmet Kalemleri
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {current.features.map((feat, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs"
+                className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-2xs"
               >
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[var(--color-primary)] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs font-bold text-slate-900 dark:text-white">
+                    <div className="text-xs font-bold text-[var(--color-primary)]">
                       {feat.title}
                     </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
+                    <p className="text-[11px] text-[var(--color-secondary)] mt-1 leading-snug">
                       {feat.desc}
                     </p>
                   </div>
@@ -241,14 +241,14 @@ export function FacilityCommercialTiersSeo({
             ))}
 
             {/* Kadro Künyesi Kartı */}
-            <div className="p-4 rounded-xl bg-blue-50/60 dark:bg-blue-950/40 border border-blue-200/70 dark:border-blue-800/60">
+            <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/80 shadow-2xs">
               <div className="flex items-start gap-2.5">
-                <Users className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                <Users className="w-4 h-4 text-[var(--color-primary)] shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-xs font-bold text-blue-900 dark:text-blue-200">
+                  <div className="text-xs font-bold text-[var(--color-primary)]">
                     Görevlendirilen Uzman Kadro
                   </div>
-                  <p className="text-[11px] text-blue-700 dark:text-blue-300 mt-1 leading-snug">
+                  <p className="text-[11px] text-[var(--color-secondary)] mt-1 leading-snug">
                     {current.personnel}
                   </p>
                 </div>
@@ -258,9 +258,9 @@ export function FacilityCommercialTiersSeo({
         </div>
 
         {/* Aksiyon Alanı: Keşif & Şeffaf Teklif */}
-        <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 text-center sm:text-left">
-            <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
+        <div className="pt-6 border-t border-[var(--color-outline)]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)] text-center sm:text-left">
+            <ShieldCheck className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
             <span>
               Gizli ek ücret yok. 48 saatte yerinde ücretsiz teknik ve mali fizibilite keşfi yapılır.
             </span>
@@ -268,16 +268,16 @@ export function FacilityCommercialTiersSeo({
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               href="/teklif-al"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all shadow-md hover:shadow-lg"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs font-bold transition-all shadow-md hover:shadow-lg"
             >
               <span>{current.ctaText}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <a
               href="tel:+902165504848"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold hover:bg-[var(--color-surface-variant)] transition-colors"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
+              <PhoneCall className="w-3.5 h-3.5 text-[var(--color-primary)]" />
               <span>0216 550 48 48</span>
             </a>
           </div>

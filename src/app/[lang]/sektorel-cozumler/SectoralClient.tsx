@@ -10,10 +10,10 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import SectoralRoiCalculatorSeo from '@/components/seo/facility/SectoralRoiCalculatorSeo';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import { ServiceAuthorityHubSeo, SectorHubAiOverviewSeo } from '@/components/seo';
 
 
-export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) {
+export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutions: any[]; lang?: string }) {
   const { t } = useLanguage();
 
   const baseSectors = [
@@ -178,18 +178,23 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
         {/* ========================================================================= */}
+        {/* GOOGLE AI OVERVIEWS • SEKTÖREL ÇÖZÜMLER HUB OTORİTESİ                     */}
+        {/* ========================================================================= */}
+        <SectorHubAiOverviewSeo lang={lang} />
+
+        {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">domain_add</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-[18px] text-[var(--color-primary)]" aria-hidden="true">domain_add</span>
               <span>Özet Rehber: Sektörel Tesis Yönetimi ve Tipolojiye Özel İşletme Nedir?</span>
             </div>
-            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+            <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
               ISO 41001 & Tesis Yaşam Döngüsü Standardı
             </span>
           </div>
@@ -198,39 +203,39 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Sektörel Tesis Yönetimi</strong>;{' '}
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 büyük toplu konut siteleri
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 iş merkezleri ve kurumsal plazalar
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 sanayi ve fabrika tesisleri
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/avm-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/avm-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 alışveriş merkezlerinin (AVM)
               </Link>{' '}
               kendine özgü operasyonel, teknik, güvenlik ve yasal dinamiklerine göre tasarlanan bütünleşik yönetim modelidir. Standart ve şablonik bina yönetimi yaklaşımları yerine, her mülk tipolojisinin insan sirkülasyonu, enerji tüketim profili, amortisman riskleri ve sakin beklentilerine göre özelleştirilmiş SLA (Hizmet Seviyesi Taahhüdü) süreçleri uygulanır.
             </p>
             <p>
               Sektörel operasyonlarımız;{' '}
-              <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors inline-flex items-center gap-0.5">
                 ISO 41001:2018 Uluslararası Tesis Yönetimi Standardı
                 <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 634 Sayılı Kat Mülkiyeti Kanunu (KMK)
               </Link>
               ,{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Kanunu
                 <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
@@ -238,23 +243,23 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             </p>
             <p>
               Tesis tipolojisine göre özelleştirilen ana hizmet hatlarımız;{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 Entegre Tesis Yönetimi
               </Link>
               ,{' '}
-              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 5188 Özel Güvenlik
               </Link>
               ,{' '}
-              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 Şeffaf Aidat Takibi
               </Link>
               ,{' '}
-              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 Mühendislik & Teknik Bakım
               </Link>
               {' '}ve{' '}
-              <Link href="/hizmetler/temizlik-ve-hijyen" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/temizlik-ve-hijyen" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 Endüstriyel Temizlik
               </Link>{' '}
               olmak üzere dört ana yapısal tipolojide odaklanır:
@@ -264,7 +269,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>🏢</span> Lüks Rezidans & Çok Katlı Yaşam Projeleri
+                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">apartment</span> Lüks Rezidans & Çok Katlı Yaşam Projeleri
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   7/24 konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri, dijital mobil aidat & rezervasyon uygulaması ve üst düzey sakin konforu.
@@ -273,7 +278,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>🏘️</span> Site & Büyük Ölçekli Toplu Konut Yönetimi
+                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">holiday_village</span> Site & Büyük Ölçekli Toplu Konut Yönetimi
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   KMK m.20 şeffaf aidat ve işletme projesi, ilamsız icra takibi, periyodik yeşil etiket asansör bakımı, geniş peyzaj/otomatik sulama ve çevre çit güvenliği.
@@ -282,7 +287,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>💼</span> Plaza, İş Merkezi & Ticari Gayrimenkuller
+                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">domain</span> Plaza, İş Merkezi & Ticari Gayrimenkuller
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   Turnike/kartlı geçiş, BMS yangın & duman otomasyonu, kompanzasyon %0 reaktif ceza yönetimi, B2B teknik şartname ve enerji optimizasyon denetimleri.
@@ -291,7 +296,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>🏭</span> Sanayi, Fabrika & Lojistik Depo Tesisleri
+                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">factory</span> Sanayi, Fabrika & Lojistik Depo Tesisleri
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   6331 İSG denetimleri, ağır vasıta PTS giriş-çıkış kontrolü, trafo/yüksek gerilim ve jeneratör bakımları, endüstriyel atık ve çevre mevzuatı uyumu.
@@ -308,7 +313,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
                 </span>
                 <span>%30 Net Bütçe Tasarrufu</span>
@@ -320,7 +325,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
                 </span>
                 <span>%100 Tipolojiye Özel SLA</span>
@@ -332,7 +337,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">shield_person</span>
                 </span>
                 <span>7/24 Şeffaf Denetim</span>
@@ -353,7 +358,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 onClick={() => setActiveTab(s.id)}
                 className={`flex items-center gap-3 px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeTab === s.id
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold shadow-lg scale-105'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] font-bold shadow-md scale-105'
                     : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
                 }`}
               >
@@ -385,7 +390,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
                 <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">{currentSector.title}</h2>
                 <p 
-                  className="text-base text-[var(--color-secondary)] font-light leading-relaxed prose-a:text-brand-500 prose-a:font-semibold hover:prose-a:text-brand-600 prose-a:underline transition-colors"
+                  className="text-base text-[var(--color-secondary)] font-light leading-relaxed prose-a:text-[var(--color-primary)] prose-a:font-semibold hover:prose-a:opacity-80 prose-a:underline transition-colors"
                   dangerouslySetInnerHTML={{ __html: autoLinkHtml(currentSector.desc) }}
                 />
 
@@ -401,7 +406,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
 
               <div className="lg:col-span-5 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-sm">
                 <div className="inline-flex items-center gap-2 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest w-fit">
-                  <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">stars</span>
+                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">stars</span>
                   {t('sector_specialty_tag')}
                 </div>
 
@@ -425,7 +430,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
         {/* Interactive Sector Personnel & Resource Estimator Widget */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
-            <span className="text-xs font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
+            <span className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-4 py-1.5 rounded-full w-fit uppercase tracking-widest">
               {t('sector_est_tag')}
             </span>
             <h2 className="text-3xl font-bold text-[var(--color-primary)]">{t('sector_est_title')}</h2>
@@ -436,7 +441,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
             <div className="flex flex-col gap-3 pt-4">
               <div className="flex justify-between items-center">
                 <label className="font-semibold text-[var(--color-primary)]">{t('sector_est_label')}</label>
-                <span className="text-xl font-bold text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 px-4 py-1 rounded-full">{unitCount} {t('sector_est_unit')}</span>
+                <span className="text-xl font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-4 py-1 rounded-full">{unitCount} {t('sector_est_unit')}</span>
               </div>
               <input 
                 type="range" 
@@ -445,53 +450,53 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 step={10}
                 value={unitCount}
                 onChange={(e) => setUnitCount(Number(e.target.value))}
-                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-slate-900 dark:accent-white"
+                className="w-full h-3 bg-[var(--color-surface-variant)] rounded-lg appearance-none cursor-pointer accent-[var(--color-primary)] border border-[var(--color-outline)]/40"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-gradient-to-br from-slate-900 to-[#1e293b] text-white p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-xl">
-            <span className="text-xs text-slate-300 font-semibold uppercase tracking-wider">{t('sector_est_rec_title')}</span>
+          <div className="lg:col-span-6 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-sm">
+            <span className="text-xs text-[var(--color-secondary)] font-semibold uppercase tracking-wider">{t('sector_est_rec_title')}</span>
             
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
-                <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-slate-300" aria-hidden="true">shield</span>
+              <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
+                <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">shield</span>
                   {t('sector_est_sec')}
                 </span>
-                <span className="text-2xl font-bold text-slate-300">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
-                <span className="text-[10px] text-gray-400">{t('sector_est_sec_desc')}</span>
+                <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
+                <span className="text-[10px] text-[var(--color-tertiary)]">{t('sector_est_sec_desc')}</span>
               </div>
 
-              <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
-                <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-slate-300" aria-hidden="true">cleaning_services</span>
+              <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
+                <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">cleaning_services</span>
                   {t('sector_est_clean')}
                 </span>
-                <span className="text-2xl font-bold text-slate-300">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
-                <span className="text-[10px] text-gray-400">{t('sector_est_clean_desc')}</span>
+                <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
+                <span className="text-[10px] text-[var(--color-tertiary)]">{t('sector_est_clean_desc')}</span>
               </div>
 
-              <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
-                <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-amber-400" aria-hidden="true">build</span>
+              <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
+                <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">build</span>
                   {t('sector_est_tech')}
                 </span>
-                <span className="text-2xl font-bold text-amber-400">{estimatedTechnical} {t('sector_est_tech_val').replace('Personel', '').trim() || t('sector_est_tech_val')}</span>
-                <span className="text-[10px] text-gray-400">{t('sector_est_tech_desc')}</span>
+                <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedTechnical} {t('sector_est_tech_val').replace('Personel', '').trim() || t('sector_est_tech_val')}</span>
+                <span className="text-[10px] text-[var(--color-tertiary)]">{t('sector_est_tech_desc')}</span>
               </div>
 
-              <div className="bg-white/10 p-5 rounded-2xl border border-white/10 flex flex-col gap-1">
-                <span className="text-xs text-gray-300 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-purple-400" aria-hidden="true">badge</span>
+              <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
+                <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">badge</span>
                   {t('sector_est_mgr')}
                 </span>
-                <span className="text-2xl font-bold text-purple-400">{estimatedManager} {t('sector_est_mgr_val').replace('Müdür', '').trim() || t('sector_est_mgr_val')}</span>
-                <span className="text-[10px] text-gray-400">{t('sector_est_mgr_desc')}</span>
+                <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedManager} {t('sector_est_mgr_val').replace('Müdür', '').trim() || t('sector_est_mgr_val')}</span>
+                <span className="text-[10px] text-[var(--color-tertiary)]">{t('sector_est_mgr_desc')}</span>
               </div>
             </div>
 
-            <Link href="/teklif-al" className="w-full bg-white text-slate-950 font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-105 hover:bg-slate-100 shadow-lg">
+            <Link href="/teklif-al" className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-102 hover:opacity-90 shadow-md">
               {t('sector_est_btn')}
             </Link>
           </div>
@@ -523,7 +528,7 @@ export default function SectoralClient({ dbSolutions }: { dbSolutions: any[] }) 
                 </div>
               </div>
 
-              <Link href="/teklif-al" className="w-fit bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold py-3 px-6 rounded-xl text-xs hover:opacity-95 transition-opacity flex items-center gap-2 shadow-sm">
+              <Link href="/teklif-al" className="w-fit bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3 px-6 rounded-xl text-xs hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
                 {t('sector_get_quote')}
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
               </Link>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -43,18 +43,18 @@ export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQPr
           return (
             <div 
               key={index}
-              className="border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900 transition-shadow hover:shadow-md"
+              className="border border-[var(--color-outline)]/80 rounded-2xl overflow-hidden bg-[var(--color-surface)] transition-all hover:border-[var(--color-outline)] hover:shadow-xs"
             >
               <button
-                className="w-full px-6 py-4 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="w-full px-6 py-4 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
                 onClick={() => setActiveIndex(isActive ? null : index)}
                 aria-expanded={isActive}
                 aria-controls={`faq-answer-${index}`}
               >
-                <span className="font-semibold text-left text-slate-800 dark:text-slate-100">
+                <span className="font-bold text-left text-[var(--color-primary)] text-sm sm:text-base">
                   {faq.question}
                 </span>
-                <span className="ml-4 flex-shrink-0 text-slate-400">
+                <span className="ml-4 flex-shrink-0 text-[var(--color-tertiary)]">
                   <svg
                     width="20"
                     height="20"
@@ -79,7 +79,7 @@ export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQPr
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-5 pt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <div className="px-6 pb-5 pt-1 text-[var(--color-secondary)] leading-relaxed text-xs sm:text-sm">
                       {faq.answer}
                     </div>
                   </motion.div>

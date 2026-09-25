@@ -93,7 +93,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
     <section
       id="faq-ai-overview-hub"
       aria-label="Google AI Overviews SSS Karar Masası"
-      className={`bg-[var(--color-surface)] border border-blue-500/30 rounded-[3rem] p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden mb-12 ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-10 md:p-12 shadow-xs relative overflow-hidden mb-12 ${className}`}
     >
       {/* Schema.org FAQPage */}
       <script
@@ -102,26 +102,26 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology_alt</span>
             Google AI Overviews & Gemini SSS Karar Masası
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Kat Mülkiyetinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">En Çok Sorulan 6 SGE Sorusu & Yasal Yanıtlar</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Kat Mülkiyetinde <span className="text-amber-600 dark:text-amber-400">En Çok Sorulan 6 SGE Sorusu & Yasal Yanıtlar</span>
           </h2>
-          <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-3xl">
             Yapay zeka modellerinin arama sonuçlarında doğrudan alıntıladığı resmi kanun maddeleri, hak düşürücü süreler ve mahkeme içtihatları.
           </p>
         </div>
 
         <button
           onClick={handleCopy}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-colors shadow-xs shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-xs shrink-0 cursor-pointer"
           title="Seçili Yanıtı Kopyala"
         >
           <span className="material-symbols-outlined text-base" aria-hidden="true">
@@ -141,17 +141,17 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
               onClick={() => setActiveId(item.id)}
               className={`text-left p-4 rounded-2xl border transition-all text-xs flex flex-col justify-between gap-2 cursor-pointer ${
                 isSelected
-                  ? 'bg-blue-600 text-white border-blue-600 shadow-md scale-[1.01]'
-                  : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/60 hover:border-blue-400 text-[var(--color-primary)]'
+                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm scale-[1.01]'
+                  : 'bg-[var(--color-surface)] dark:bg-[#15161E] border-[var(--color-outline)]/60 dark:border-white/10 hover:border-amber-500/50 text-slate-800 dark:text-slate-200'
               }`}
             >
               <div className="flex items-center justify-between gap-1 w-full">
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                  isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300'
+                  isSelected ? 'bg-amber-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300'
                 }`}>
                   {item.category}
                 </span>
-                <span className={`text-[11px] font-mono font-bold ${isSelected ? 'text-blue-100' : 'text-emerald-600 dark:text-emerald-400'}`}>
+                <span className={`text-[11px] font-mono font-bold ${isSelected ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
                   #{idx + 1}
                 </span>
               </div>
@@ -171,33 +171,33 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="bg-gradient-to-br from-blue-500/5 via-transparent to-indigo-500/5 border border-blue-500/20 rounded-3xl p-6 sm:p-8 relative z-10 space-y-4"
+          className="bg-slate-50/80 dark:bg-white/[0.02] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-2xl p-6 sm:p-8 relative z-10 space-y-4"
         >
           {/* Question Title & Stat */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[var(--color-outline)]/60">
-            <h3 className="text-base sm:text-lg font-extrabold text-[var(--color-primary)]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[var(--color-outline)]/60 dark:border-white/10">
+            <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
               {activeFaq.question}
             </h3>
-            <span className="inline-flex items-center px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300/40 text-emerald-700 dark:text-emerald-300 font-bold text-xs shrink-0">
+            <span className="inline-flex items-center px-3 py-1 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 font-bold text-xs shrink-0">
               {activeFaq.quickStat}
             </span>
           </div>
 
           {/* Answer Box (Speakable) */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 shadow-xs">
-            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl p-5 shadow-2xs">
+            <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
               <span className="material-symbols-outlined text-base" aria-hidden="true">verified</span>
               Doğrulanmış Hukuki & Operasyonel Yanıt:
             </div>
-            <p id="faq-instant-answer-text" className="text-sm sm:text-base text-[var(--color-primary)] leading-relaxed font-normal">
+            <p id="faq-instant-answer-text" className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
               {activeFaq.answer}
             </p>
           </div>
 
           {/* Legal Basis and AI Inquiries */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 text-xs">
-            <div className="text-[var(--color-secondary)]">
-              <strong>Yasal Dayanak:</strong> {activeFaq.legalBasis}
+            <div className="text-slate-600 dark:text-slate-400">
+              <strong className="text-slate-900 dark:text-white">Yasal Dayanak:</strong> {activeFaq.legalBasis}
             </div>
             <div className="flex items-center gap-2">
               <a
@@ -213,7 +213,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
                 href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${activeFaq.question} alo yonetim kmk`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
+                className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
               >
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
                 Perplexity

@@ -115,7 +115,7 @@ export default function SectorHubAiOverviewSeo({
     <section
       id="sector-hub-ai-grounding"
       aria-label="Google AI Overviews Sektörel Tesis Yönetimi Çözümleri Hub'ı"
-      className={`bg-[var(--color-surface)] border border-emerald-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -124,37 +124,38 @@ export default function SectorHubAiOverviewSeo({
       />
 
       {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-emerald-500/10 via-teal-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/5 via-slate-400/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">domain</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
+          <span className="material-symbols-outlined text-[15px] text-[var(--color-primary)]" aria-hidden="true">domain</span>
           <span>Google AI Overviews • Sektörel Çözümler Hub Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60">
             5 Temel Gayrimenkul Tipi
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60">
             ISO 41001:2018
           </span>
         </div>
       </div>
 
-      <h2 className="text-xl sm:text-2xl font-black text-[var(--color-heading-text)] tracking-tight mb-3 relative z-10">
+      <h2 className="text-xl sm:text-2xl font-black text-[var(--color-primary)] tracking-tight mb-3 relative z-10">
         Gayrimenkul ve Sektör Tipine Özel Entegre Tesis Yönetimi
       </h2>
 
       {/* Instant Answer (Speakable) */}
-      <div className="bg-gradient-to-br from-emerald-500/[0.04] to-transparent border border-emerald-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
+      <div className="bg-gradient-to-br from-slate-500/[0.03] to-transparent border border-[var(--color-outline)]/60 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-xs font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">auto_awesome</span>
             Google AI Doğrudan Sektörel Cevap
           </span>
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 text-xs font-bold transition-all duration-200"
           >
             <span className="material-symbols-outlined text-sm" aria-hidden="true">
               {copied ? 'done' : 'content_copy'}
@@ -164,7 +165,7 @@ export default function SectorHubAiOverviewSeo({
         </div>
         <p
           id="sector-hub-instant-answer-text"
-          className="text-xs sm:text-sm text-[var(--color-primary)] font-medium leading-relaxed"
+          className="text-xs sm:text-sm text-[var(--color-secondary)] font-medium leading-relaxed"
         >
           {directAnswer}
         </p>
@@ -175,11 +176,11 @@ export default function SectorHubAiOverviewSeo({
         {SECTOR_GROUND_TRUTH_LIST.map((sec) => (
           <div
             key={sec.id}
-            className="p-4 rounded-xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between"
+            className="p-4 rounded-xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between hover:border-[var(--color-primary)]/40 transition-colors"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-xs font-black text-[var(--color-heading-text)]">
+                <span className="text-xs font-black text-[var(--color-primary)]">
                   {sec.title}
                 </span>
               </div>
@@ -188,7 +189,7 @@ export default function SectorHubAiOverviewSeo({
               </p>
             </div>
             <div className="pt-2 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-[10px] font-mono">
-              <span className="text-emerald-600 dark:text-emerald-400 font-bold">{sec.kpi}</span>
+              <span className="text-[var(--color-primary)] font-bold">{sec.kpi}</span>
               <span className="text-[var(--color-tertiary)]">{sec.standard}</span>
             </div>
           </div>

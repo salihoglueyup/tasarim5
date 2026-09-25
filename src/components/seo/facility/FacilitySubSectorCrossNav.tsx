@@ -20,19 +20,19 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">hub</span>
             Tesis & Mülk Yönetimi Sektörel Çözüm Ağı
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Uzmanlık Alanlarımız & <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Alt Sektör Hub&apos;ları</span>
+            Uzmanlık Alanlarımız & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">Alt Sektör Hub&apos;ları</span>
           </h3>
         </div>
 
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
           <Link
             href="/hizmetler/site-yonetimi"
-            className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-blue-600/10 hover:bg-blue-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30 flex items-center gap-1.5 transition-all shadow-xs"
+            className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] border border-transparent flex items-center gap-1.5 transition-all shadow-xs"
           >
             <span className="material-symbols-outlined text-[14px]" aria-hidden="true">apartment</span>
             <span>Site Yönetimi Hub&apos;ı</span>
@@ -40,7 +40,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
           </Link>
           <Link
             href="/hizmetler/tesis-yonetimi"
-            className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 hover:bg-slate-900/10 dark:hover:bg-white/15 text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center gap-1.5 transition-all"
+            className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] hover:bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center gap-1.5 transition-all"
           >
             <span className="material-symbols-outlined text-[14px]" aria-hidden="true">domain</span>
             <span>Tesis Yönetimi Hub&apos;ı</span>
@@ -59,15 +59,15 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
               href={`/hizmetler/tesis-yonetimi/${sub.slug}`}
               className={`p-5 rounded-2xl border transition-all flex flex-col justify-between group ${
                 isCurrent
-                  ? 'bg-[var(--color-surface-variant)] border-slate-400 dark:border-slate-500 shadow-sm ring-2 ring-slate-400/20'
-                  : 'bg-[var(--color-surface)] border-[var(--color-outline)]/80 hover:border-slate-400 dark:hover:border-slate-500 hover:shadow-md'
+                  ? 'bg-[var(--color-surface-variant)] border-[var(--color-primary)] shadow-sm ring-2 ring-[var(--color-primary)]/20'
+                  : 'bg-[var(--color-surface)] border-[var(--color-outline)]/80 hover:border-[var(--color-outline)] hover:shadow-md'
               }`}
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-900/5 dark:bg-white/10 text-slate-800 dark:text-slate-200 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                   <span className="material-symbols-outlined text-xl" aria-hidden="true">{sub.icon}</span>
                 </div>
-                <h4 className="text-sm font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-1.5">
+                <h4 className="text-sm font-bold text-[var(--color-primary)] group-hover:opacity-85 transition-opacity line-clamp-2 mb-1.5">
                   {sub.name}
                 </h4>
                 <p className="text-[11px] text-[var(--color-secondary)] line-clamp-2 leading-relaxed">

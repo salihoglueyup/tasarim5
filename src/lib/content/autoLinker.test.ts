@@ -56,4 +56,16 @@ describe('Gelişmiş Otomatik İç Linkleme Motoru (autoLinker.ts)', () => {
     const facilityOutput = autoLinkHtml(facilityInput, '/blog/ornek-post', 2);
     expect(facilityOutput).toContain('<a href="/hizmetler/tesis-yonetimi"');
   });
+
+  it('Ardışık ve bileşik anahtar kelimelerde (ISO 41001 Tesis Yönetimi vb.) asla title özniteliği bozulmaz ve iç içe a etiketi oluşmaz', () => {
+    const input = '<p>6. Kalite ve Yönetim Sertifikaları: ISO 9001 Kalite, ISO 41001 Tesis Yönetimi ve ISO 45001 İSG sertifikasyonlarının tam olması.</p>';
+    const output = autoLinkHtml(input, '/blog/tesis-yonetim-sirketi-nasil-secilir-2026', 8);
+
+    // Asla title içinde <a etiketi açılmamalı
+    expect(output).not.toContain('title="<a');
+    expect(output).not.toContain('title=\'<a');
+    // Asla <a ... <a iç içe olmamalı
+    expect(output).not.toMatch(/<a[^>]*<a/);
+    expect(output).toContain('ISO 41001 Tesis Yönetimi');
+  });
 });

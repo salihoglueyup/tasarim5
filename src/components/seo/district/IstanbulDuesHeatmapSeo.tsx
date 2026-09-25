@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -194,14 +194,14 @@ export default function IstanbulDuesHeatmapSeo() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Başlık */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
             <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">trending_down</span>
             İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            İlçenize Göre <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Site Aidat Raporu</span> & Tasarruf Oranı
+            İlçenize Göre <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">Site Aidat Raporu</span> & Tasarruf Oranı
           </h2>
-          <p className="mt-3 text-[var(--color-secondary)] text-sm sm:text-base font-light">
+          <p className="mt-3 text-[var(--color-secondary)] text-sm sm:text-base font-normal">
             İstanbul genelindeki 12 ilçede piyasa ortalaması aidat maliyetlerini inceleyin, Alo Yönetim&apos;in toplu satın alma ve verimli operasyon gücüyle sitenizde sağlanacak yıllık net kazancı hesaplayın.
           </p>
         </div>
@@ -212,8 +212,8 @@ export default function IstanbulDuesHeatmapSeo() {
             onClick={() => setSelectedSide('all')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedSide === 'all'
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold'
-                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-slate-400'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md font-bold'
+                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-[var(--color-outline)]'
             }`}
           >
             Tüm İstanbul (12 İlçe)
@@ -222,8 +222,8 @@ export default function IstanbulDuesHeatmapSeo() {
             onClick={() => setSelectedSide('anadolu')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedSide === 'anadolu'
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold'
-                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-slate-400'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md font-bold'
+                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-[var(--color-outline)]'
             }`}
           >
             Anadolu Yakası
@@ -232,8 +232,8 @@ export default function IstanbulDuesHeatmapSeo() {
             onClick={() => setSelectedSide('avrupa')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedSide === 'avrupa'
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-md font-bold'
-                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-slate-400'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md font-bold'
+                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/70 hover:border-[var(--color-outline)]'
             }`}
           >
             Avrupa Yakası
@@ -250,8 +250,8 @@ export default function IstanbulDuesHeatmapSeo() {
                 onClick={() => setSelectedDistrict(d)}
                 className={`p-3.5 rounded-2xl border text-left transition-all relative overflow-hidden group cursor-pointer ${
                   isSelected
-                    ? 'bg-[var(--color-surface-variant)] border-slate-900 dark:border-white shadow-md ring-2 ring-slate-900/10 dark:ring-white/20'
-                    : 'bg-[var(--color-surface)] border-[var(--color-outline)]/80 hover:border-slate-400 hover:shadow-xs'
+                    ? 'bg-[var(--color-surface-variant)] border-[var(--color-primary)] shadow-md ring-2 ring-[var(--color-primary)]/20'
+                    : 'bg-[var(--color-surface)] border-[var(--color-outline)]/80 hover:border-[var(--color-outline)] hover:shadow-xs'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">

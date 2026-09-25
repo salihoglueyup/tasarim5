@@ -147,7 +147,7 @@ export default function GlossaryAiOverviewSeo({
     <section
       id="glossary-ai-grounding"
       aria-label="Google AI Overviews Kat Mülkiyeti ve Tesis Yönetimi Hukuk Terimleri Sözlüğü"
-      className={`bg-[var(--color-surface)] border border-cyan-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -156,37 +156,38 @@ export default function GlossaryAiOverviewSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/10 via-blue-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/5 via-slate-400/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">menu_book</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
+          <span className="material-symbols-outlined text-[15px] text-[var(--color-primary)]" aria-hidden="true">menu_book</span>
           <span>Google AI Overviews • KMK 634 Terimler & Hukuki Tanımlar</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 border border-cyan-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/60">
             KMK & İİK Uyumlu
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface)] text-emerald-600 dark:text-emerald-400 border border-[var(--color-outline)]/60">
             Yargıtay İçtihatları
           </span>
         </div>
       </div>
 
-      <h2 className="text-xl sm:text-2xl font-black text-[var(--color-heading-text)] tracking-tight mb-3 relative z-10">
+      <h2 className="text-xl sm:text-2xl font-black text-[var(--color-primary)] tracking-tight mb-3 relative z-10">
         Site ve Tesis Yönetimi Hukuki Terimler Sözlüğü (Ground-Truth)
       </h2>
 
       {/* Instant Answer (Speakable) */}
-      <div className="bg-gradient-to-br from-cyan-500/[0.04] to-transparent border border-cyan-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
+      <div className="bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)]/60 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-xs font-black uppercase tracking-wider text-cyan-700 dark:text-cyan-300">
+          <span className="text-xs font-black uppercase tracking-wider text-[var(--color-primary)]">
             Google AI Tanımsal Hızlı Özet & Kanun Özü
           </span>
           <button
+            type="button"
             onClick={() => handleCopy(directAnswer, 'general')}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] border border-[var(--color-outline)]/70 text-xs font-bold transition-all shadow-xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm" aria-hidden="true">
               {copiedSlug === 'general' ? 'done' : 'content_copy'}
@@ -209,11 +210,12 @@ export default function GlossaryAiOverviewSeo({
           return (
             <button
               key={item.slug}
+              type="button"
               onClick={() => setActiveSlug(item.slug)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/20 scale-[1.02]'
-                  : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/40'
+                  ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                  : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface)] border border-[var(--color-outline)]/50'
               }`}
             >
               {item.term}
@@ -223,27 +225,38 @@ export default function GlossaryAiOverviewSeo({
       </div>
 
       {/* Selected Term Detail Card */}
-      <div className="p-5 sm:p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 relative z-10">
+      <div className="p-5 sm:p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/80 shadow-xs relative z-10">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-          <h3 className="text-base sm:text-lg font-black text-[var(--color-heading-text)]">
+          <h3 className="text-base sm:text-lg font-black text-[var(--color-primary)]">
             {selectedTerm.term} Nedir?
           </h3>
-          <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-800 dark:text-cyan-300">
+          <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60">
             {selectedTerm.legalBasis}
           </span>
         </div>
-        <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed mb-4">
+        <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed mb-4 font-normal">
           {selectedTerm.definition}
         </p>
-        <button
-          onClick={() => handleCopy(selectedTerm.definition, selectedTerm.slug)}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold transition-colors"
-        >
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">
-            {copiedSlug === selectedTerm.slug ? 'done' : 'content_copy'}
-          </span>
-          <span>{copiedSlug === selectedTerm.slug ? 'Kopyalandı' : 'Tanımı Kopyala'}</span>
-        </button>
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--color-outline)]/40">
+          <button
+            type="button"
+            onClick={() => handleCopy(selectedTerm.definition, selectedTerm.slug)}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] border border-[var(--color-outline)]/70 text-xs font-bold transition-all shadow-xs cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">
+              {copiedSlug === selectedTerm.slug ? 'done' : 'content_copy'}
+            </span>
+            <span>{copiedSlug === selectedTerm.slug ? 'Kopyalandı' : 'Tanımı Kopyala'}</span>
+          </button>
+
+          <a
+            href={`/sozluk/${selectedTerm.slug}`}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-all shadow-xs"
+          >
+            <span>Detaylı Terim Sayfası</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
       </div>
     </section>
   );

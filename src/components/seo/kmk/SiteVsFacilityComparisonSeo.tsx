@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -109,19 +109,19 @@ export default function SiteVsFacilityComparisonSeo({
       >
         {/* Üst Başlık & Rozet */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-base text-brand-600 dark:text-brand-400" aria-hidden="true">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
+            <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">
               compare_arrows
             </span>
             <span>Otorite Karşılaştırma Rehberi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
             Site Yönetimi ile Tesis Yönetimi{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600 dark:from-brand-400 dark:via-sky-400 dark:to-indigo-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">
               Arasındaki Fark Nedir?
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[var(--color-secondary)] font-light mt-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--color-secondary)] font-normal mt-3 leading-relaxed">
             Kat malikleri, bina yöneticileri ve kurumsal mülk sahipleri için doğru yönetim modelini belirleme tablosu.
             Gayrimenkulünüzün niteliğine göre mevzuat, teknoloji ve operasyonel ayrışmalar:
           </p>
@@ -138,10 +138,10 @@ export default function SiteVsFacilityComparisonSeo({
                 <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-[var(--color-primary)] uppercase tracking-wider w-1/4">
                   Karşılaştırma Kriteri
                 </th>
-                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-brand-600 dark:text-brand-400 uppercase tracking-wider w-3/8 bg-brand-50/50 dark:bg-brand-950/20">
+                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-[var(--color-primary)] uppercase tracking-wider w-3/8 bg-[var(--color-surface-variant)]">
                   🏢 Profesyonel Site Yönetimi (Konut)
                 </th>
-                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider w-3/8 bg-indigo-50/50 dark:bg-indigo-950/20">
+                <th scope="col" className="p-4 sm:p-5 text-xs sm:text-sm font-extrabold text-[var(--color-primary)] uppercase tracking-wider w-3/8 bg-[var(--color-surface-variant)] border-l border-[var(--color-outline)]/40">
                   🏭 Entegre Tesis Yönetimi (B2B/Ticari)
                 </th>
               </tr>
@@ -153,18 +153,18 @@ export default function SiteVsFacilityComparisonSeo({
                   className="hover:bg-[var(--color-surface-variant)]/40 transition-colors"
                 >
                   <th scope="row" className="p-4 sm:p-5 font-bold text-[var(--color-primary)] flex items-center gap-2 text-left font-sans">
-                    <span className="material-symbols-outlined text-base text-slate-500 dark:text-slate-400" aria-hidden="true">
+                    <span className="material-symbols-outlined text-base text-[var(--color-tertiary)]" aria-hidden="true">
                       {dim.icon}
                     </span>
                     <span>{dim.title}</span>
                   </th>
-                  <td className="p-4 sm:p-5 text-[var(--color-secondary)] leading-relaxed bg-brand-50/20 dark:bg-brand-950/10">
-                    <p className="font-semibold text-slate-800 dark:text-slate-200 mb-1">{dim.siteFeature}</p>
-                    <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-light">{dim.detailExplanation}</p>
+                  <td className="p-4 sm:p-5 text-[var(--color-secondary)] leading-relaxed bg-[var(--color-surface)]/60">
+                    <p className="font-semibold text-[var(--color-primary)] mb-1">{dim.siteFeature}</p>
+                    <p className="text-[11px] sm:text-xs text-[var(--color-secondary)] font-normal">{dim.detailExplanation}</p>
                   </td>
-                  <td className="p-4 sm:p-5 text-[var(--color-secondary)] leading-relaxed bg-indigo-50/20 dark:bg-indigo-950/10">
-                    <p className="font-semibold text-slate-800 dark:text-slate-200 mb-1">{dim.facilityFeature}</p>
-                    <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-light">Endüstriyel KPI & kurumsal garanti güvencesi.</p>
+                  <td className="p-4 sm:p-5 text-[var(--color-secondary)] leading-relaxed bg-[var(--color-surface)]/60 border-l border-[var(--color-outline)]/40">
+                    <p className="font-semibold text-[var(--color-primary)] mb-1">{dim.facilityFeature}</p>
+                    <p className="text-[11px] sm:text-xs text-[var(--color-secondary)] font-normal">Endüstriyel KPI & kurumsal garanti güvencesi.</p>
                   </td>
                 </tr>
               ))}
@@ -173,25 +173,25 @@ export default function SiteVsFacilityComparisonSeo({
         </div>
 
         {/* Hangi Modeli Seçmelisiniz? İnteraktif Yönlendirme Kartı */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white rounded-[2rem] p-6 sm:p-10 shadow-lg relative overflow-hidden">
+        <div className="bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2rem] p-6 sm:p-10 border border-[var(--color-outline)]/80 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
-                <span className="text-xs font-bold tracking-widest text-brand-400 uppercase">
+                <span className="text-xs font-bold tracking-widest text-[var(--color-tertiary)] uppercase">
                   Gayrimenkulünüz İçin Hızlı Karar Verin
                 </span>
-                <h3 className="text-xl sm:text-2xl font-black mt-1">
+                <h3 className="text-xl sm:text-2xl font-black mt-1 text-[var(--color-primary)]">
                   Binanız İçin Hangi Çözüm Doğru?
                 </h3>
               </div>
-              <div className="inline-flex rounded-xl p-1 bg-white/10 backdrop-blur-sm border border-white/10">
+              <div className="inline-flex rounded-xl p-1 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80">
                 <button
                   type="button"
                   onClick={() => setActiveDecision('site')}
-                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     activeDecision === 'site'
-                      ? 'bg-brand-500 text-white shadow-md'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                      : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                   }`}
                 >
                   Konut & Apartman
@@ -199,10 +199,10 @@ export default function SiteVsFacilityComparisonSeo({
                 <button
                   type="button"
                   onClick={() => setActiveDecision('facility')}
-                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     activeDecision === 'facility'
-                      ? 'bg-indigo-500 text-white shadow-md'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                      : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                   }`}
                 >
                   Plaza & İş Merkezi
@@ -213,10 +213,10 @@ export default function SiteVsFacilityComparisonSeo({
             {activeDecision === 'site' ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 <div className="md:col-span-2 flex flex-col gap-2">
-                  <h4 className="text-lg font-bold text-brand-300">
+                  <h4 className="text-lg font-bold text-[var(--color-primary)]">
                     🏢 Konut ve Apartmanlar İçin: Profesyonel Site Yönetimi
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-normal">
                     Kat mülkiyeti kanununa tam uyum, %99.2 aidat tahsilat güvencesi, Apsiyon mobil sakin portalı,
                     5188 lisanslı güvenlik ve 45 dakika acil teknik servis filosu ile komşuluk ilişkilerini zedelemeden
                     sitenizi kurumsal güvenceyle yönetelim.
@@ -225,14 +225,14 @@ export default function SiteVsFacilityComparisonSeo({
                 <div className="flex flex-col sm:flex-row md:flex-col gap-3 justify-end">
                   <Link
                     href="/hizmetler/site-yonetimi"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs sm:text-sm font-bold shadow-md transition-all text-center"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs sm:text-sm font-bold shadow-sm transition-all text-center"
                   >
                     <span>Site Yönetimi Detayları</span>
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                   </Link>
                   <Link
                     href="/teklif-al"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold border border-white/20 transition-all text-center"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs sm:text-sm font-semibold border border-[var(--color-outline)]/80 transition-all text-center"
                   >
                     <span>Ücretsiz Site Keşfi İste</span>
                   </Link>
@@ -241,10 +241,10 @@ export default function SiteVsFacilityComparisonSeo({
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 <div className="md:col-span-2 flex flex-col gap-2">
-                  <h4 className="text-lg font-bold text-indigo-300">
+                  <h4 className="text-lg font-bold text-[var(--color-primary)]">
                     🏭 Ticari Plazalar ve İş Merkezleri İçin: Entegre Tesis Yönetimi
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-normal">
                     ISO 41001 sertifikalı teknik işletme, BMS/HVAC otomasyonu, enerji verimliliği, reaktif güç cezası
                     koruması ve kurumsal SLA taahhüdü ile tesisinizin işletme maliyetlerini %30 düşürüp gayrimenkul değerini artıralım.
                   </p>
@@ -252,14 +252,14 @@ export default function SiteVsFacilityComparisonSeo({
                 <div className="flex flex-col sm:flex-row md:flex-col gap-3 justify-end">
                   <Link
                     href="/hizmetler/tesis-yonetimi"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white text-xs sm:text-sm font-bold shadow-md transition-all text-center"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs sm:text-sm font-bold shadow-sm transition-all text-center"
                   >
                     <span>Tesis Yönetimi Detayları</span>
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                   </Link>
                   <Link
                     href="/teklif-al"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold border border-white/20 transition-all text-center"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs sm:text-sm font-semibold border border-[var(--color-outline)]/80 transition-all text-center"
                   >
                     <span>Kurumsal RFP / Keşif İste</span>
                   </Link>

@@ -62,64 +62,132 @@ export function extractFaqCandidatesFromContent(content: string): {
  * Metin İçerisindeki Topikal Varlık Grafiğini (Wikidata QID'leri ile) Çözer.
  */
 
+function extractCleanContext(plainText: string, matchIndex: number, matchLength: number): string {
+  // 1. Geriye doğru doğal cümle veya liste elemanı başlangıç sınırını ara
+  let start = 0;
+  const searchBackLimit = Math.max(0, matchIndex - 120);
+  const textBefore = plainText.substring(searchBackLimit, matchIndex);
+
+  // Cümle sonları (. ! ? \n) veya liste maddesi belirteçleri (ör: "1. ", "• ")
+  const boundaryRegex = /(?:[\n\r]|(?:\.\s+)|(?:\!\s+)|(?:\?\s+)|(?:;\s+)|(?:\b\d+[\.)]\s+)|(?:^[•\-\*✓]\s+))/g;
+  let lastBoundaryIdx = -1;
+  let bMatch: RegExpExecArray | null;
+  while ((bMatch = boundaryRegex.exec(textBefore)) !== null) {
+    lastBoundaryIdx = searchBackLimit + bMatch.index + bMatch[0].length;
+  }
+
+  if (lastBoundaryIdx !== -1) {
+    start = lastBoundaryIdx;
+  } else {
+    // 120 karakter içinde sınır bulunamazsa kelime sınırına hizalanarak ~60 karakter geriden başla
+    start = Math.max(0, matchIndex - 60);
+    if (start > 0) {
+      const spaceIdx = plainText.indexOf(' ', start);
+      if (spaceIdx !== -1 && spaceIdx <= matchIndex) {
+        start = spaceIdx + 1;
+      }
+    }
+  }
+
+  // 2. İleriye doğru doğal cümle veya madde bitiş sınırını ara
+  let end = plainText.length;
+  const searchForwardLimit = Math.min(plainText.length, matchIndex + matchLength + 130);
+  const textAfter = plainText.substring(matchIndex + matchLength, searchForwardLimit);
+
+  const endBoundaryMatch = textAfter.match(/[.!?\n\r;]/);
+  if (endBoundaryMatch && endBoundaryMatch.index !== undefined) {
+    end = matchIndex + matchLength + endBoundaryMatch.index + 1;
+  } else {
+    // Kelime bölmeden son boşlukta dur
+    end = searchForwardLimit;
+    if (end < plainText.length) {
+      const lastSpace = plainText.lastIndexOf(' ', end);
+      if (lastSpace !== -1 && lastSpace >= matchIndex + matchLength) {
+        end = lastSpace;
+      }
+    }
+  }
+
+  let snippet = plainText.substring(start, end).replace(/\s+/g, ' ').trim();
+
+  // Liste numaralandırma işaretlerini temizle (ör: "1. ", "2) ", "• ", "- "), ancak "5188 Sayılı Kanun" gibi yalın sayıları KORU
+  snippet = snippet.replace(/^\s*(?:\d+[\.)]\s+|[✓•\-\*]\s*)+/, '').trim();
+
+  // Cümle başındaki bağlaç veya kırık ekleri temizle (ör: "ve ", "ile ", "veya ", "ise ", "tam ")
+  snippet = snippet.replace(/^(?:ve|ile|veya|ise|ayrıca|gibi|için|tam)\s+/i, '').trim();
+
+  // Eğer metin cümle sonu noktalama ile bitmiyorsa ve kesildiyse üç nokta ekle
+  if (end < plainText.length && !/[.!?]$/.test(snippet)) {
+    snippet = snippet.replace(/[,;:]+$/, '') + '...';
+  }
+
+  // İlk harfi büyük yap
+  if (snippet.length > 0) {
+    snippet = snippet.charAt(0).toLocaleUpperCase('tr-TR') + snippet.slice(1);
+  }
+
+  return snippet;
+}
+
 export function extractKeyFactsAndKpis(content: string): ExtractedFact[] {
-  const plainText = content.replace(/<[^>]*>?/gm, '');
+  // HTML etiketlerini boşlukla değiştirerek kelimelerin bitişmesini önle
+  const plainText = content.replace(/<[^>]*>?/gm, ' ');
   const facts: ExtractedFact[] = [];
+
+  const addFact = (type: ExtractedFact['type'], raw: string, matchIdx: number) => {
+    const context = extractCleanContext(plainText, matchIdx, raw.length);
+    if (!context || context.length < 15) return;
+
+    // 1. Aynı ham değer ve benzer bağlam kontrolü
+    const sameRawIdx = facts.findIndex(
+      (f) => f.raw.toLowerCase() === raw.toLowerCase() && (f.context === context || f.context.slice(0, 30) === context.slice(0, 30))
+    );
+    if (sameRawIdx !== -1) return;
+
+    // 2. Aynı cümlede birden fazla standart (ISO 9001, ISO 41001, ISO 45001) varsa sadece birini tut (ISO 41001 tercih edilir)
+    if (type === 'standard') {
+      const existingStdIdx = facts.findIndex(
+        (f) => f.type === 'standard' && (f.context === context || f.context.slice(0, 30) === context.slice(0, 30))
+      );
+      if (existingStdIdx !== -1) {
+        if (raw.toLowerCase().includes('41001')) {
+          facts[existingStdIdx].raw = raw;
+        }
+        return;
+      }
+    }
+
+    facts.push({
+      type,
+      raw,
+      context,
+    });
+  };
 
   const percentageRegex = /%\s*\d+(?:[.,]\d+)?(?:\s*-\s*\d+)?/g;
   let match: RegExpExecArray | null;
   while ((match = percentageRegex.exec(plainText)) !== null) {
-    const start = Math.max(0, match.index - 40);
-    const end = Math.min(plainText.length, match.index + match[0].length + 40);
-    facts.push({
-      type: 'percentage',
-      raw: match[0].trim(),
-      context: plainText.substring(start, end).replace(/\s+/g, ' ').trim(),
-    });
+    addFact('percentage', match[0].trim(), match.index);
   }
 
   const legalRegex = /(?:634|5188|6331|2004)\s*sayılı\s*(?:kanun|yasa)?|kmk\s*(?:m\.|madde\s*)\d+|iik\s*(?:m\.|madde\s*)\d+/gi;
   while ((match = legalRegex.exec(plainText)) !== null) {
-    const start = Math.max(0, match.index - 40);
-    const end = Math.min(plainText.length, match.index + match[0].length + 40);
-    facts.push({
-      type: 'legal_code',
-      raw: match[0].trim(),
-      context: plainText.substring(start, end).replace(/\s+/g, ' ').trim(),
-    });
+    addFact('legal_code', match[0].trim(), match.index);
   }
 
   const standardRegex = /iso\s*\d+(?::\d+)?|tse\s*(?:hyb)?\s*\d+/gi;
   while ((match = standardRegex.exec(plainText)) !== null) {
-    const start = Math.max(0, match.index - 40);
-    const end = Math.min(plainText.length, match.index + match[0].length + 40);
-    facts.push({
-      type: 'standard',
-      raw: match[0].trim(),
-      context: plainText.substring(start, end).replace(/\s+/g, ' ').trim(),
-    });
+    addFact('standard', match[0].trim(), match.index);
   }
 
   const timeRegex = /7\/24|\b(?:24|48)\s*saat|\b(?:45|30|20|15)\s*dakika/gi;
   while ((match = timeRegex.exec(plainText)) !== null) {
-    const start = Math.max(0, match.index - 40);
-    const end = Math.min(plainText.length, match.index + match[0].length + 40);
-    facts.push({
-      type: 'timeframe',
-      raw: match[0].trim(),
-      context: plainText.substring(start, end).replace(/\s+/g, ' ').trim(),
-    });
+    addFact('timeframe', match[0].trim(), match.index);
   }
 
-  const metricRegex = /\b\d+\+\s*(?:yıl|proje|referans|tesis|site|bağımsız\s*bölüm|daire|personel)|\b39\s*ilçe/gi;
+  const metricRegex = /\b(?:\d+[-–])?\d+\+\s*(?:yıl|proje|referans|tesis|site|bağımsız\s*bölüm|daire|konut|personel)|\b39\s*ilçe/gi;
   while ((match = metricRegex.exec(plainText)) !== null) {
-    const start = Math.max(0, match.index - 40);
-    const end = Math.min(plainText.length, match.index + match[0].length + 40);
-    facts.push({
-      type: 'general_metric',
-      raw: match[0].trim(),
-      context: plainText.substring(start, end).replace(/\s+/g, ' ').trim(),
-    });
+    addFact('general_metric', match[0].trim(), match.index);
   }
 
   return facts.slice(0, 16);

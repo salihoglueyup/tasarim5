@@ -107,22 +107,28 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
         >
           <Link href="/" className="hover:text-white transition-colors">Anasayfa</Link>
           
-          {finalBreadcrumbs ? (
-            finalBreadcrumbs
-              .filter((crumb, idx) => !(idx === 0 && (crumb.url === '/' || crumb.name.toLowerCase() === 'anasayfa' || crumb.name.toLowerCase() === 'home')))
-              .map((crumb, i) => (
-              <span key={i} className="flex items-center gap-2">
-                <span className="text-slate-500">/</span>
-                {crumb.url ? (
-                  <Link href={crumb.url} className="hover:text-white transition-colors">
-                    {crumb.name}
-                  </Link>
-                ) : (
-                  <span className="text-white font-bold">{crumb.name}</span>
-                )}
-              </span>
-            ))
-          ) : (
+          {finalBreadcrumbs ? (() => {
+            const validCrumbs = finalBreadcrumbs.filter(
+              (crumb, idx) => !(idx === 0 && (crumb.url === '/' || crumb.name.toLowerCase() === 'anasayfa' || crumb.name.toLowerCase() === 'home'))
+            );
+            return validCrumbs.map((crumb, i) => {
+              const isLast = i === validCrumbs.length - 1;
+              return (
+                <span key={i} className="flex items-center gap-2">
+                  <span className="text-slate-500">/</span>
+                  {crumb.url && !isLast ? (
+                    <Link href={crumb.url} className="hover:text-white transition-colors">
+                      {crumb.name}
+                    </Link>
+                  ) : (
+                    <span className="text-white font-bold truncate max-w-[280px] sm:max-w-md inline-block align-bottom" title={crumb.name}>
+                      {crumb.name}
+                    </span>
+                  )}
+                </span>
+              );
+            });
+          })() : (
             <>
               <span className="text-slate-500">/</span>
               <span className="text-white font-bold">{title}</span>

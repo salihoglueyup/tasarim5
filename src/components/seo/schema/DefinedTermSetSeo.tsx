@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -22,13 +22,24 @@ interface CategoryConfig {
 }
 
 const CATEGORIES: CategoryConfig[] = [
-  { id: 'all', label: 'Tüm Konular', icon: 'apps', badgeClass: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20' },
-  { id: 'kmk', label: 'KMK & Hukuk', icon: 'gavel', badgeClass: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20' },
-  { id: 'guvenlik', label: '5188 Güvenlik', icon: 'shield', badgeClass: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20' },
-  { id: 'finans', label: 'Aidat & Finans', icon: 'payments', badgeClass: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20' },
-  { id: 'teknik', label: 'Teknik Bakım', icon: 'engineering', badgeClass: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20' },
-  { id: 'hijyen', label: 'Temizlik & Hijyen', icon: 'cleaning_services', badgeClass: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20' },
-  { id: 'tesis', label: 'Tesis Yönetimi', icon: 'domain', badgeClass: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20' },
+  { id: 'all', label: 'Tüm Konular', icon: 'apps', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+  { id: 'kmk', label: 'KMK & Hukuk', icon: 'gavel', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+  { id: 'guvenlik', label: '5188 Güvenlik', icon: 'shield', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+  { id: 'finans', label: 'Aidat & Finans', icon: 'payments', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+  { id: 'teknik', label: 'Teknik Bakım', icon: 'engineering', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+  { id: 'hijyen', label: 'Temizlik & Hijyen', icon: 'cleaning_services', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+  { id: 'tesis', label: 'Tesis Yönetimi', icon: 'domain', badgeClass: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/60' },
+];
+
+export const POPULAR_QUICK_CHIPS = [
+  { label: 'İşletme Projesi (KMK 37)', query: 'işletme projesi' },
+  { label: 'Gecikme Tazminatı (%5)', query: 'gecikme tazminatı' },
+  { label: 'Demirbaş Fonu', query: 'demirbaş' },
+  { label: 'Yönetim Planı (KMK 28)', query: 'yönetim planı' },
+  { label: '5188 Güvenlik İzni', query: '5188' },
+  { label: 'Mali ve İdari İbra', query: 'ibra' },
+  { label: 'Hazirun Cetveli', query: 'hazirun' },
+  { label: 'Asansör Bakım Yönetmeliği', query: 'asansör' },
 ];
 
 export function getTermCategory(t: TermItem): CategoryConfig {
@@ -210,22 +221,25 @@ export default function DefinedTermSetSeo({
         )}
 
         {/* İnteraktif Arama & Filtreleme Kontrol Paneli */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-5 md:p-7 flex flex-col gap-5 shadow-sm">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-5 md:p-7 flex flex-col gap-5 shadow-xs">
           
           {/* Canlı Arama Girişi */}
           <div className="relative">
-            <span className="material-symbols-outlined absolute left-4.5 top-1/2 -translate-y-1/2 text-slate-400 text-xl pointer-events-none" aria-hidden="true">search</span>
+            <span className="material-symbols-outlined absolute left-4.5 top-1/2 -translate-y-1/2 text-[var(--color-secondary)] text-xl pointer-events-none" aria-hidden="true">search</span>
             <input 
+              id="dictionary-search-input"
+              name="q"
               type="text" 
               placeholder="Sözlükte terim, kanun maddesi veya tanım ara (örn: aidat, işletme projesi, 5188, arsa payı)..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl py-3.5 pl-12 pr-12 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-slate-400 text-sm font-medium"
+              className="w-full bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)]/80 rounded-2xl py-3.5 pl-12 pr-12 text-[var(--color-primary)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 transition-all placeholder:text-[var(--color-secondary)] text-sm font-medium"
             />
             {searchTerm && (
               <button
+                type="button"
                 onClick={() => setSearchTerm('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1.5 text-[var(--color-secondary)] hover:text-[var(--color-primary)] rounded-lg hover:bg-[var(--color-surface-variant)] transition-colors cursor-pointer"
                 title="Aramayı Temizle"
               >
                 <span className="material-symbols-outlined text-base" aria-hidden="true">close</span>
@@ -233,9 +247,31 @@ export default function DefinedTermSetSeo({
             )}
           </div>
 
+          {/* Popüler Terim Hızlı Filtreleri (Quick Chips) */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-1">
+            <span className="text-xs font-bold text-[var(--color-secondary)] mr-1 flex items-center gap-1">
+              <span className="material-symbols-outlined text-[14px]" aria-hidden="true">trending_up</span>
+              <span>Popüler:</span>
+            </span>
+            {POPULAR_QUICK_CHIPS.map((chip) => (
+              <button
+                key={chip.label}
+                type="button"
+                onClick={() => {
+                  setSearchTerm(chip.query);
+                  setActiveLetter('TÜMÜ');
+                  setActiveCategory('all');
+                }}
+                className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface)] border border-[var(--color-outline)]/60 transition-all cursor-pointer shadow-2xs"
+              >
+                {chip.label}
+              </button>
+            ))}
+          </div>
+
           {/* Kategori Filtre Butonları */}
           <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-[var(--color-outline)]/40">
-            <span className="text-xs font-bold text-slate-400 dark:text-slate-500 mr-1 flex items-center gap-1">
+            <span className="text-xs font-bold text-[var(--color-secondary)] mr-1 flex items-center gap-1">
               <span className="material-symbols-outlined text-sm" aria-hidden="true">filter_list</span>
               <span>Kategori:</span>
             </span>
@@ -246,17 +282,18 @@ export default function DefinedTermSetSeo({
               return (
                 <button
                   key={cat.id}
+                  type="button"
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-3 py-1.5 rounded-xl font-bold text-xs transition-all flex items-center gap-1.5 cursor-pointer border ${
                     isActive
-                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm scale-[1.02]'
-                      : 'bg-slate-100/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200/80 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] border-[var(--color-primary)] shadow-sm scale-[1.02]'
+                      : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:text-[var(--color-primary)] hover:bg-[var(--color-surface)]'
                   }`}
                 >
                   <span className="material-symbols-outlined text-[14px]" aria-hidden="true">{cat.icon}</span>
                   <span>{cat.label}</span>
                   <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${
-                    isActive ? 'bg-white/20 dark:bg-black/20' : 'bg-black/5 dark:bg-white/10 text-slate-500 dark:text-slate-400'
+                    isActive ? 'bg-white/20 text-white' : 'bg-black/5 dark:bg-white/10 text-[var(--color-secondary)]'
                   }`}>
                     {count}
                   </span>
@@ -274,17 +311,18 @@ export default function DefinedTermSetSeo({
               return (
                 <button
                   key={letter}
+                  type="button"
                   onClick={() => setActiveLetter(letter)}
                   className={`px-2.5 py-1 rounded-lg font-bold text-xs transition-all flex items-center gap-1 cursor-pointer ${
                     isActive 
-                      ? 'bg-blue-600 text-white shadow-sm' 
-                      : 'bg-slate-100/90 text-slate-600 dark:bg-white/5 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10'
+                      ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm scale-105' 
+                      : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface)] border border-[var(--color-outline)]/40'
                   }`}
                 >
                   <span>{letter}</span>
                   {letter !== 'TÜMÜ' && (
                     <span className={`text-[9px] px-1 py-0.2 rounded ${
-                      isActive ? 'bg-white/25' : 'bg-black/5 dark:bg-white/10 text-slate-400'
+                      isActive ? 'bg-white/25 text-white' : 'bg-black/5 dark:bg-white/10 text-[var(--color-secondary)]'
                     }`}>
                       {count}
                     </span>
@@ -297,14 +335,15 @@ export default function DefinedTermSetSeo({
         </div>
 
         {/* Sonuç Sayacı & Durum Bilgisi */}
-        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2">
+        <div className="flex items-center justify-between text-xs text-[var(--color-secondary)] px-2">
           <span>
-            Toplam <strong>{terms.length}</strong> terimden <strong>{filteredTerms.length}</strong> tanesi listeleniyor.
+            Toplam <strong className="text-[var(--color-primary)]">{terms.length}</strong> terimden <strong className="text-[var(--color-primary)]">{filteredTerms.length}</strong> tanesi listeleniyor.
           </span>
           {(searchTerm || activeLetter !== 'TÜMÜ' || activeCategory !== 'all') && (
             <button
+              type="button"
               onClick={() => { setSearchTerm(''); setActiveLetter('TÜMÜ'); setActiveCategory('all'); }}
-              className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer"
+              className="text-[var(--color-primary)] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
             >
               <span className="material-symbols-outlined text-sm" aria-hidden="true">restart_alt</span>
               <span>Filtreleri Temizle</span>
@@ -332,7 +371,7 @@ export default function DefinedTermSetSeo({
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.18 }}
-                  className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-blue-500/40 transition-all group flex flex-col justify-between gap-4 relative"
+                  className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 shadow-xs hover:shadow-lg hover:border-[var(--color-primary)]/40 transition-all group flex flex-col justify-between gap-4 relative"
                 >
                   <div className="space-y-3">
                     {/* Kategori Rozeti & Kopyala Butonu */}
@@ -343,8 +382,9 @@ export default function DefinedTermSetSeo({
                       </span>
 
                       <button
+                        type="button"
                         onClick={() => handleCopyTerm(t.term, t.definition)}
-                        className="p-1.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-600 transition-colors cursor-pointer"
+                        className="p-1.5 rounded-xl bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-secondary)] transition-colors cursor-pointer"
                         title="Tanımı Kopyala"
                         aria-label={`${t.term} tanımını kopyala`}
                       >
@@ -357,13 +397,13 @@ export default function DefinedTermSetSeo({
                     {/* Terim Başlığı */}
                     <Link 
                       href={`/sozluk/${slug}`}
-                      className="block text-lg font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug"
+                      className="block text-lg font-bold text-[var(--color-primary)] group-hover:underline transition-all leading-snug"
                     >
                       {renderHighlighted(t.term, searchTerm)}
                     </Link>
 
                     {/* Tanım */}
-                    <p className="text-[13.5px] text-[var(--color-secondary)] font-light leading-relaxed">
+                    <p className="text-[13.5px] text-[var(--color-secondary)] font-normal leading-relaxed">
                       {renderHighlighted(t.definition, searchTerm)}
                     </p>
                   </div>
@@ -373,18 +413,18 @@ export default function DefinedTermSetSeo({
                     {t.link ? (
                       <Link 
                         href={t.link.href}
-                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/40 px-2.5 py-1 rounded-lg transition-colors border border-blue-200/50 dark:border-blue-800/40"
+                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-[var(--color-surface)] px-2.5 py-1 rounded-lg transition-colors border border-[var(--color-outline)]/60"
                       >
                         <span>{t.link.label}</span>
                         <span className="material-symbols-outlined text-[12px]" aria-hidden="true">north_east</span>
                       </Link>
                     ) : (
-                      <span className="text-[11px] text-slate-400 font-mono">KMK 634 & Standartlar</span>
+                      <span className="text-[11px] text-[var(--color-secondary)] font-mono">KMK 634 & Standartlar</span>
                     )}
 
                     <Link 
                       href={`/sozluk/${slug}`}
-                      className="font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1 group/link transition-colors text-[11.5px]"
+                      className="font-bold text-[var(--color-primary)] hover:opacity-80 flex items-center gap-1 group/link transition-opacity text-[11.5px]"
                     >
                       <span>İncele</span>
                       <span className="material-symbols-outlined text-[14px] group-hover/link:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>

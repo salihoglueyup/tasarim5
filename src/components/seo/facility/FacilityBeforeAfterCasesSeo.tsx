@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -232,11 +232,11 @@ export default function FacilityBeforeAfterCasesSeo() {
 
             <div className="grid grid-cols-2 gap-3 pt-4 border-t border-rose-200/60 dark:border-rose-900/40 text-center">
               <div className="p-2.5 bg-white/70 dark:bg-black/20 rounded-xl">
-                <span className="text-[10px] text-gray-500 block">Tahsilat Başarısı</span>
+                <span className="text-[10px] text-[var(--color-tertiary)] block">Tahsilat Başarısı</span>
                 <span className="text-sm font-bold text-rose-600 dark:text-rose-400">{activeCase.before.collectionRate}</span>
               </div>
               <div className="p-2.5 bg-white/70 dark:bg-black/20 rounded-xl">
-                <span className="text-[10px] text-gray-500 block">Arıza Müdahale</span>
+                <span className="text-[10px] text-[var(--color-tertiary)] block">Arıza Müdahale</span>
                 <span className="text-sm font-bold text-rose-600 dark:text-rose-400">{activeCase.before.slaTime}</span>
               </div>
             </div>
@@ -266,11 +266,11 @@ export default function FacilityBeforeAfterCasesSeo() {
 
             <div className="grid grid-cols-2 gap-3 pt-4 border-t border-emerald-200/60 dark:border-emerald-900/40 text-center">
               <div className="p-2.5 bg-white/70 dark:bg-black/20 rounded-xl">
-                <span className="text-[10px] text-gray-500 block">Tahsilat Başarısı</span>
+                <span className="text-[10px] text-[var(--color-tertiary)] block">Tahsilat Başarısı</span>
                 <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{activeCase.after.collectionRate}</span>
               </div>
               <div className="p-2.5 bg-white/70 dark:bg-black/20 rounded-xl">
-                <span className="text-[10px] text-gray-500 block">Arıza Müdahale</span>
+                <span className="text-[10px] text-[var(--color-tertiary)] block">Arıza Müdahale</span>
                 <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{activeCase.after.slaTime}</span>
               </div>
             </div>

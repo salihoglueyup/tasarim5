@@ -1,64 +1,63 @@
 "use client";
 
-import PageHeader from '@/components/layout/page/PageHeader';
-import { useLanguage } from '@/context/LanguageContext';
-import { PersonnelDifference, JobPostingSeo } from '@/components';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import React, { useState } from 'react';
+import {
+  CareerHeroSeo,
+  CareerAiOverviewSeo,
+  CareerValuePillarsSeo,
+  CareerDisciplinesGridSeo,
+  CareerOpenPositionsSeo,
+  CareerRecruitmentStepsSeo,
+  CareerLegalGuaranteeDeepDiveSeo,
+  CareerApplicationDualFormSeo,
+  CareerFaqSeo,
+  CareerCtaBannerSeo,
+  ServiceAuthorityHubSeo,
+} from '@/components/seo';
 
-export default function IstihdamKoprusuClient() {
-  const { t } = useLanguage();
+export default function IstihdamKoprusuClient({ lang = 'tr' }: { lang?: string }) {
+  const [selectedRole, setSelectedRole] = useState<string>('5188 Kimlikli Özel Güvenlik');
+
+  const handleSelectJob = (jobTitle: string) => {
+    setSelectedRole(jobTitle);
+  };
 
   return (
-    <>
-      <JobPostingSeo 
-        title="Özel Güvenlik Görevlisi"
-        description="Sitelerde ve tesislerde görevlendirilmek üzere kimlikli özel güvenlik görevlileri aranmaktadır."
-        datePosted="2026-07-01"
-        validThrough="2026-12-31"
-        jobLocation={{
-          addressLocality: "İstanbul",
-          addressRegion: "İstanbul",
-          addressCountry: "TR"
-        }}
-        baseSalary={{
-          currency: "TRY",
-          value: 35000,
-          unitText: "MONTH"
-        }}
-      />
-      
-      <PageHeader 
-        title={t('emp_page_title')} 
-        description={t('emp_page_desc')} 
-      />
+    <div className="flex flex-col min-h-screen bg-[var(--color-surface)]">
+      {/* 1. Hero Section */}
+      <CareerHeroSeo lang={lang} />
 
-      <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-4xl mx-auto">
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-16 rounded-[3rem] shadow-sm flex flex-col gap-8">
-          <h2 className="text-3xl font-bold text-[var(--color-primary)]">{t('emp_sec_title')}</h2>
-          <p className="text-lg text-[var(--color-secondary)] font-light leading-relaxed">
-            {t('emp_sec_desc')}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-            <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-slate-900 dark:text-white mb-1">{t('emp_stat_1_val')}</div>
-              <div className="text-xs text-gray-500 font-medium">{t('emp_stat_1_text')}</div>
-            </div>
-            <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-slate-600 mb-1">{t('emp_stat_2_val')}</div>
-              <div className="text-xs text-gray-500 font-medium">{t('emp_stat_2_text')}</div>
-            </div>
-            <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200/60 dark:border-white/10 text-center">
-              <div className="text-3xl font-extrabold text-purple-600 mb-1">{t('emp_stat_3_val')}</div>
-              <div className="text-xs text-gray-500 font-medium">{t('emp_stat_3_text')}</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 2. Google AI Overviews & Grounding Snippet */}
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] -mt-6 sm:-mt-8 mb-6 relative z-20 w-full">
+        <CareerAiOverviewSeo lang={lang} />
+      </div>
 
-      <PersonnelDifference />
+      {/* 3. Value Pillars (6 Trust Pillars) */}
+      <CareerValuePillarsSeo />
 
-      {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
-      <section className="py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      {/* 3. Core Disciplines Grid */}
+      <CareerDisciplinesGridSeo />
+
+      {/* 4. Active Job Postings with Google Jobs Schema */}
+      <CareerOpenPositionsSeo onSelectJob={handleSelectJob} />
+
+      {/* 5. 5-Step Recruitment & Security Vetting */}
+      <CareerRecruitmentStepsSeo />
+
+      {/* 6. Legal Guarantee & Severance Fund Deep Dive */}
+      <CareerLegalGuaranteeDeepDiveSeo />
+
+      {/* 7. Interactive Dual Application & Staffing Request Form */}
+      <CareerApplicationDualFormSeo selectedRole={selectedRole} />
+
+      {/* 8. Frequently Asked Questions with FAQPage Schema */}
+      <CareerFaqSeo />
+
+      {/* 9. Dual Conversion Bottom CTA */}
+      <CareerCtaBannerSeo />
+
+      {/* 10. E-E-A-T Legislation & Authority Hub */}
+      <section className="py-12 md:py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto w-full">
         <ServiceAuthorityHubSeo
           serviceName="Tesis Yönetimi ve Güvenlik İstihdam Köprüsü"
           serviceCategory="Kariyer & İK Yönetimi"
@@ -109,6 +108,6 @@ export default function IstihdamKoprusuClient() {
           ]}
         />
       </section>
-    </>
+    </div>
   );
 }

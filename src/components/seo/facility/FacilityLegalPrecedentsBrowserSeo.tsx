@@ -65,7 +65,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
             {badge}
           </div>
@@ -74,11 +74,11 @@ export default function FacilityLegalPrecedentsBrowserSeo({
               title
             ) : (
               <>
-                Tesis Yönetimi Hukuk ve <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Yargıtay İçtihatları</span>
+                Tesis Yönetimi Hukuk ve <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">Yargıtay İçtihatları</span>
               </>
             )}
           </h2>
-          <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
+          <p className="text-sm md:text-base text-[var(--color-secondary)] font-normal mt-2 max-w-2xl">
             {subtitle}
           </p>
         </div>
@@ -90,9 +90,9 @@ export default function FacilityLegalPrecedentsBrowserSeo({
             placeholder="Karar veya madde ara... (Örn: Asansör, 20/2)"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full sm:w-64 bg-[var(--color-surface-variant)] border border-[var(--color-outline)] rounded-xl px-4 py-2 pl-9 text-xs text-[var(--color-primary)] placeholder-slate-400 focus:outline-none focus:border-slate-500"
+            className="w-full sm:w-64 bg-[var(--color-surface-variant)] border border-[var(--color-outline)] rounded-xl px-4 py-2 pl-9 text-xs text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none focus:border-[var(--color-primary)]"
           />
-          <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-slate-400" aria-hidden="true">
+          <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-[var(--color-tertiary)]" aria-hidden="true">
             search
           </span>
         </div>
@@ -168,7 +168,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
                 </div>
 
                 {/* Yargıtay Ruling Quote Box */}
-                <div className="bg-[var(--color-surface-variant)] p-4 rounded-2xl border-l-4 border-slate-700 dark:border-slate-300 text-xs italic text-[var(--color-secondary)] leading-relaxed">
+                <div className="bg-[var(--color-surface-variant)] p-4 rounded-2xl border-l-4 border-[var(--color-primary)] text-xs italic text-[var(--color-secondary)] leading-relaxed">
                   {activeItem.bindingPrecedentText}
                 </div>
 

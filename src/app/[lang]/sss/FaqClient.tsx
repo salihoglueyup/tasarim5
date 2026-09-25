@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-
+import { Search, X, Copy, Check, ChevronDown, Sparkles } from 'lucide-react';
 import DOMPurify from 'isomorphic-dompurify';
 import { useLanguage } from '@/context/LanguageContext';
 import { ServiceAuthorityHubSeo } from '@/components/seo';
@@ -65,8 +64,9 @@ export default function FaqClient({
     return item[field];
   };
   const [searchQuery, setSearchQuery] = useState('');
-  const [openIndex, setOpenIndex] = useState<string | null>(null);
+  const [openIndices, setOpenIndices] = useState<Set<string>>(new Set());
   const [visibleCount, setVisibleCount] = useState(20);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const categoryIcons: Record<string, string> = {
     'Tümü': 'apps',
@@ -83,12 +83,21 @@ export default function FaqClient({
     'Haşere Kontrolü': 'bug_report',
   };
 
+  const POPULAR_CHIPS = [
+    { label: 'Aidat İcra', query: 'icra' },
+    { label: 'Yönetici Seçimi', query: 'seçim' },
+    { label: 'Asansör Kırmızı Etiket', query: 'asansör' },
+    { label: 'Balkon Kapatma', query: 'balkon' },
+    { label: 'Yönetim Planı', query: 'yönetim planı' },
+    { label: 'Ortak Giderler', query: 'ortak gider' },
+  ];
+
   const highlightText = (text: string, highlight: string) => {
     if (!highlight.trim()) return text;
     const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
     return parts.map((part) => 
       part.toLowerCase() === highlight.toLowerCase() 
-        ? `<mark class="bg-brand-500/20 text-brand-700 dark:text-brand-300 rounded px-1">${part}</mark>` 
+        ? `<mark class="bg-amber-500/20 text-amber-800 dark:text-amber-300 rounded px-1 font-bold">${part}</mark>` 
         : part
     ).join('');
   };
@@ -98,132 +107,409 @@ export default function FaqClient({
     return translation === `cat_${name}` ? name : translation;
   };
 
+  const toggleAccordion = (id: string) => {
+    setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const handleCopyAnswer = (e: React.MouseEvent, question: string, answerHtml: string, id: string) => {
+    e.stopPropagation();
+    const cleanAnswer = answerHtml.replace(/<[^>]+>/g, '').trim();
+    navigator.clipboard.writeText(`${question}\n\n${cleanAnswer}\n\nKaynak: Alo Yönetim KMK 634 Rehberi (https://aloyonetim.com.tr/sss)`);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2500);
+  };
+
   // Faz 164: 4 Dilde Aranabilir ve Filtrelenebilir SSS Motoru
   const filteredFaqs = filterFaqsByLanguage(faqs, searchQuery, activeCategory, lang);
+  const visibleFaqs = filteredFaqs.slice(0, visibleCount);
+
+  const areAllOpen = visibleFaqs.length > 0 && visibleFaqs.every((f) => openIndices.has(f.id));
+
+  const toggleAll = () => {
+    if (areAllOpen) {
+      setOpenIndices(new Set());
+    } else {
+      setOpenIndices(new Set(visibleFaqs.map((f) => f.id)));
+    }
+  };
 
   return (
-    <>
-      {/* Sticky Header for Search & Filters */}
-      <div className="sticky top-20 z-40 bg-[var(--color-background)]/90 backdrop-blur-xl py-6 -mx-4 px-4 md:mx-0 md:px-0 mb-12 border-b border-[var(--color-outline)]/40 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]">
-        {/* Search Bar */}
-        <div className="relative mb-6 max-w-2xl mx-auto">
-          <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-            <span className="material-symbols-outlined text-[var(--color-secondary)]" aria-hidden="true">search</span>
-          </div>
-          <input 
-            type="text" 
-            placeholder={t('sss_search_placeholder')}
-            value={searchQuery}
-            onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
-            className="w-full pl-14 pr-6 py-4 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all text-[var(--color-primary)] text-lg placeholder:text-[var(--color-secondary)]/70"
-          />
-        </div>
-
-        {/* Category Filter Pills (Horizontal Scroll) */}
-        <div className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-3 pb-2 snap-x max-w-5xl mx-auto">
-          {categories.map((cat) => (
-            <button
-              key={cat.name}
-              onClick={() => { setActiveCategory(cat.name); setOpenIndex(null); setVisibleCount(20); }}
-              className={`snap-center shrink-0 flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 ${
-                activeCategory === cat.name
-                  ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/25 scale-[1.02]'
-                  : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)] hover:border-brand-500/50 hover:text-[var(--color-primary)] hover:bg-brand-500/5'
-              }`}
-            >
-              <span className={`material-symbols-outlined text-lg ${activeCategory === cat.name ? 'text-white' : 'text-[var(--color-secondary)]'}`}>
-                {categoryIcons[cat.name] || 'label'}
-              </span>
-              <span>{getCategoryName(cat.name)}</span>
-              <span className={`ml-1.5 text-[11px] px-2.5 py-0.5 rounded-full font-bold ${
-                activeCategory === cat.name 
-                  ? 'bg-black/20 text-white' 
-                  : 'bg-[var(--color-background)] text-[var(--color-secondary)]'
-              }`}>
-                {cat.count}
-              </span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* FAQ Accordion List */}
-      <div className="flex flex-col gap-4">
-        {filteredFaqs.length === 0 ? (
-          <div className="text-center py-12 text-slate-500">
-            <span className="material-symbols-outlined text-5xl mb-4 opacity-50" aria-hidden="true">search_off</span>
-            <p className="text-lg">{t('sss_not_found')}</p>
-          </div>
-        ) : (
-          <>
-            {filteredFaqs.slice(0, visibleCount).map((faq) => {
-              const isOpen = openIndex === faq.id;
-              return (
-                <div 
-                  key={faq.id}
-                  className={`bg-white dark:bg-slate-900 border rounded-3xl overflow-hidden transition-all duration-300 ${
-                    isOpen ? 'border-brand-500 shadow-lg shadow-brand-500/5' : 'border-slate-200 dark:border-white/10 hover:border-brand-300'
-                  }`}
-                >
-                  <button
-                    id={`faq-button-${faq.id}`}
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : faq.id)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-panel-${faq.id}`}
-                    className="w-full p-6 md:p-8 text-left flex items-start sm:items-center justify-between gap-6 cursor-pointer group"
-                  >
-                    <span 
-                      className={`font-bold text-lg md:text-xl transition-colors ${isOpen ? 'text-brand-600 dark:text-brand-400' : 'text-slate-900 dark:text-white group-hover:text-brand-500'}`}
-                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(highlightText(getLocalized(faq, 'question') || '', searchQuery)) }}
-                    />
-                    
-                    {/* Dynamic Icon */}
-                    <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isOpen ? 'bg-brand-500 text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 group-hover:bg-brand-500/10 group-hover:text-brand-500'
-                    }`}>
-                      <span className="material-symbols-outlined" aria-hidden="true">
-                        {isOpen ? 'remove' : 'add'}
-                      </span>
-                    </div>
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        id={`faq-panel-${faq.id}`}
-                        role="region"
-                        aria-labelledby={`faq-button-${faq.id}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                      >
-                        <div 
-                          className="px-6 md:px-8 pb-8 prose prose-slate prose-lg max-w-none text-slate-700 dark:text-slate-300 prose-a:text-brand-500 prose-p:leading-relaxed border-t border-slate-100 dark:border-white/5 pt-6"
-                          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(getLocalized(faq, 'answer') || '') }}
-                        />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-            
-            {filteredFaqs.length > visibleCount && (
-              <div className="flex justify-center mt-8">
-                <button 
-                  onClick={() => setVisibleCount(prev => prev + 20)}
-                  className="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 hover:border-brand-500 text-slate-700 dark:text-slate-200 rounded-full shadow-sm hover:shadow-md transition-all font-semibold flex items-center gap-2 group"
-                >
-                  <span className="material-symbols-outlined group-hover:translate-y-1 transition-transform" aria-hidden="true">expand_more</span>
-                  {t('sss_load_more')}
-                </button>
-              </div>
+    <div className="space-y-16 md:space-y-20">
+      {/* 2 KOLONLU MODERN BİLGİ BANKASI DÜZENİ */}
+      <div className="relative">
+        
+        {/* MOBİL GÖRÜNÜM: Arama Konsolu & Yatay Kategori Slider (< lg) */}
+        <div className="lg:hidden mb-8 space-y-4">
+          {/* Mobil Arama Çubuğu */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <Search className="w-5 h-5 text-slate-400 dark:text-slate-500" />
+            </div>
+            <input 
+              type="text" 
+              placeholder={t('sss_search_placeholder') || 'Sorunuzu arayın (Örn: Aidat, İcra, Asansör)...'}
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
+              className="w-full pl-12 pr-11 py-3.5 bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900 dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="absolute inset-y-0 right-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white p-1"
+                aria-label="Aramayı Temizle"
+              >
+                <X className="w-5 h-5" />
+              </button>
             )}
-          </>
-        )}
+          </div>
+
+          {/* Mobil Popüler Çipler */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <span className="text-slate-600 dark:text-slate-400 shrink-0 font-semibold flex items-center gap-1 text-[11px]">
+              <Sparkles className="w-3 h-3 text-amber-500" />
+              Popüler:
+            </span>
+            {POPULAR_CHIPS.map((chip) => (
+              <button
+                key={chip.label}
+                type="button"
+                onClick={() => { setSearchQuery(chip.query); setVisibleCount(20); }}
+                className="shrink-0 px-2.5 py-1 rounded-lg bg-[var(--color-surface)] dark:bg-[#15161E] hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 text-slate-600 dark:text-slate-300 transition-colors text-[11px] font-medium border border-[var(--color-outline)]/60 dark:border-white/10 shadow-2xs"
+              >
+                #{chip.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobil Kategori Şeridi (Yumuşak Yatay Kaydırma) */}
+          <div className="relative">
+            <div className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-2 py-1 snap-x">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat.name;
+                return (
+                  <button
+                    key={cat.name}
+                    onClick={() => { setActiveCategory(cat.name); setOpenIndices(new Set()); setVisibleCount(20); }}
+                    className={`snap-center shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      isActive
+                        ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-xs'
+                        : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/50'
+                    }`}
+                  >
+                    <span className={`material-symbols-outlined text-sm ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
+                      {categoryIcons[cat.name] || 'label'}
+                    </span>
+                    <span>{getCategoryName(cat.name)}</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                      isActive ? 'bg-amber-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-500'
+                    }`}>
+                      {cat.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* 12 SÜTUNLU MASAÜSTÜ GRID */}
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
+          
+          {/* SOL KOLON - lg:col-span-4 (Sticky / Sabit Gezinti Paneli) */}
+          <aside className="hidden lg:block lg:col-span-4 space-y-6 sticky top-24">
+            
+            {/* 1. Kategori Gezgini */}
+            <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-5 shadow-xs">
+              <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-[var(--color-outline)]/60 dark:border-white/10">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                  <span className="material-symbols-outlined text-base text-amber-500">category</span>
+                  Konu Başlıkları
+                </span>
+                <span className="text-[11px] font-mono font-bold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+                  {faqs.length} Soru
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-1.5 max-h-[420px] overflow-y-auto pr-1">
+                {categories.map((cat) => {
+                  const isActive = activeCategory === cat.name;
+                  return (
+                    <button
+                      key={cat.name}
+                      onClick={() => { setActiveCategory(cat.name); setOpenIndices(new Set()); setVisibleCount(20); }}
+                      className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                        isActive
+                          ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm font-bold scale-[1.01]'
+                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-amber-600 dark:hover:text-amber-400'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 truncate">
+                        <span className={`material-symbols-outlined text-base shrink-0 ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
+                          {categoryIcons[cat.name] || 'label'}
+                        </span>
+                        <span className="truncate">{getCategoryName(cat.name)}</span>
+                      </div>
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold shrink-0 ${
+                        isActive
+                          ? 'bg-amber-500 text-slate-950'
+                          : 'bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400'
+                      }`}>
+                        {cat.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 2. Trend Hukuki Etiketler */}
+            <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-5 shadow-xs space-y-3">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                Popüler KMK Aramaları
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {POPULAR_CHIPS.map((chip) => (
+                  <button
+                    key={chip.label}
+                    type="button"
+                    onClick={() => { setSearchQuery(chip.query); setVisibleCount(20); }}
+                    className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 text-slate-600 dark:text-slate-300 text-[11px] font-medium border border-[var(--color-outline)]/60 dark:border-white/10 transition-colors cursor-pointer"
+                  >
+                    #{chip.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 3. Hızlı Danışma & Destek Kartı */}
+            <div className="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/20 rounded-3xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+                <span className="material-symbols-outlined text-base">support_agent</span>
+                Hukuki Danışmanlık
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Apartmanınız veya siteniz için özel yönetim planı ve bütçe danışmanlığına mı ihtiyacınız var?
+              </p>
+              <a
+                href={lang === 'tr' ? '/iletisim' : `/${lang}/iletisim`}
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-xs"
+              >
+                <span>Uzmanımıza Danışın</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </aside>
+
+          {/* SAĞ KOLON - lg:col-span-8 (Arama Konsolu + Akordiyon Akışı) */}
+          <main className="lg:col-span-8 space-y-6">
+            
+            {/* Masaüstü Arama Konsolu (Sticky) */}
+            <div className="hidden lg:block sticky top-20 z-20 bg-[var(--color-background)]/90 backdrop-blur-xl py-3 -mx-2 px-2 border-b border-[var(--color-outline)]/40 mb-2">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  <Search className="w-5 h-5 text-slate-400 dark:text-slate-500" />
+                </div>
+                <input 
+                  type="text" 
+                  placeholder={t('sss_search_placeholder') || 'Sorunuzu arayın (Örn: Aidat, İcra, Asansör, Yönetici Seçimi)...'}
+                  value={searchQuery}
+                  onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
+                  className="w-full pl-12 pr-12 py-3.5 bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900 dark:text-white text-sm md:text-base placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="absolute inset-y-0 right-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white p-1 cursor-pointer"
+                    aria-label="Aramayı Temizle"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+
+              {/* Sonuç Sayacı & Tümünü Aç/Kapat Butonları */}
+              <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 pt-3 px-1">
+                <div className="flex items-center gap-2">
+                  <span>
+                    Toplam <strong>{filteredFaqs.length}</strong> soru listeleniyor
+                    {searchQuery && ` ("${searchQuery}" için)`}
+                  </span>
+                  {searchQuery && (
+                    <button 
+                      onClick={() => setSearchQuery('')}
+                      className="text-amber-600 dark:text-amber-400 hover:underline font-semibold ml-1 cursor-pointer"
+                    >
+                      Temizle
+                    </button>
+                  )}
+                </div>
+
+                {visibleFaqs.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={toggleAll}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-sm">
+                      {areAllOpen ? 'unfold_less' : 'unfold_more'}
+                    </span>
+                    <span>{areAllOpen ? 'Tümünü Kapat' : 'Tümünü Aç'}</span>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Soru Listesi (Akordiyon) */}
+            <div className="flex flex-col gap-3.5">
+              {filteredFaqs.length === 0 ? (
+                <div className="text-center py-16 px-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 text-slate-500">
+                  <span className="material-symbols-outlined text-5xl mb-3 text-slate-400 opacity-60" aria-hidden="true">search_off</span>
+                  <p className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('sss_not_found') || 'Aradığınız kriterlere uygun soru bulunamadı.'}</p>
+                  <p className="text-sm text-slate-500 mt-1">Farklı bir anahtar kelime deneyebilir veya doğrudan uzmanımıza danışabilirsiniz.</p>
+                  <button
+                    onClick={() => { setSearchQuery(''); setActiveCategory('Tümü'); }}
+                    className="mt-4 px-5 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-bold cursor-pointer"
+                  >
+                    Tüm Soruları Göster
+                  </button>
+                </div>
+              ) : (
+                <>
+                  {visibleFaqs.map((faq) => {
+                    const isOpen = openIndices.has(faq.id);
+                    const questionText = getLocalized(faq, 'question') || '';
+                    const answerHtml = getLocalized(faq, 'answer') || '';
+                    const isCopied = copiedId === faq.id;
+
+                    return (
+                      <div 
+                        key={faq.id}
+                        className={`bg-[var(--color-surface)] dark:bg-[#15161E] border rounded-2xl md:rounded-3xl overflow-hidden transition-all duration-200 ${
+                          isOpen 
+                            ? 'border-amber-500/60 dark:border-amber-400/60 shadow-sm ring-1 ring-amber-500/15' 
+                            : 'border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40 dark:hover:border-amber-500/40 shadow-2xs hover:shadow-xs'
+                        }`}
+                      >
+                        <button
+                          id={`faq-button-${faq.id}`}
+                          type="button"
+                          onClick={() => toggleAccordion(faq.id)}
+                          aria-expanded={isOpen}
+                          aria-controls={`faq-panel-${faq.id}`}
+                          className="w-full p-5 sm:p-6 text-left flex items-start sm:items-center justify-between gap-4 cursor-pointer group"
+                        >
+                          <div className="flex items-start sm:items-center gap-3.5">
+                            <span className={`w-1.5 h-6 rounded-full transition-colors shrink-0 mt-0.5 sm:mt-0 ${isOpen ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-700 group-hover:bg-amber-500'}`} />
+                            <div className="space-y-1">
+                              {/* Kategori Önizleme Rozeti */}
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20">
+                                  {faq.category || 'Mevzuat'}
+                                </span>
+                              </div>
+                              <h3 
+                                className={`font-bold text-base sm:text-lg transition-colors ${isOpen ? 'text-slate-900 dark:text-white' : 'text-[var(--color-heading-text)] dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400'}`}
+                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(highlightText(questionText, searchQuery)) }}
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* Dinamik Ok İkonu */}
+                          <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+                            isOpen ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 rotate-180' : 'bg-slate-100 dark:bg-white/5 text-slate-500 group-hover:bg-amber-500/10 group-hover:text-amber-600'
+                          }`}>
+                            <ChevronDown className="w-4 h-4 transition-transform duration-200" />
+                          </div>
+                        </button>
+
+                        <AnimatePresence>
+                          {isOpen && (
+                            <motion.div
+                              id={`faq-panel-${faq.id}`}
+                              role="region"
+                              aria-labelledby={`faq-button-${faq.id}`}
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: 'easeInOut' }}
+                              className="overflow-hidden"
+                            >
+                              <div className="px-5 sm:px-6 md:px-8 pb-6 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5 space-y-4">
+                                <div 
+                                  className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base space-y-2 [&_strong]:text-slate-900 dark:[&_strong]:text-white [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1"
+                                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answerHtml) }}
+                                />
+
+                                {/* Soru İçi Bilgi & Kopyalama Barı */}
+                                <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-white/5 text-xs">
+                                  <div className="flex items-center gap-2">
+                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-400 font-semibold text-[11px] border border-amber-500/20">
+                                      {faq.category || 'Mevzuat'}
+                                    </span>
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+                                      <span className="material-symbols-outlined text-xs" aria-hidden="true">verified</span>
+                                      634 Sayılı KMK Doğrulandı
+                                    </span>
+                                  </div>
+
+                                  <button
+                                    type="button"
+                                    onClick={(e) => handleCopyAnswer(e, questionText, answerHtml, faq.id)}
+                                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 text-xs font-medium transition-colors cursor-pointer"
+                                    title="Cevabı panoya kopyala"
+                                  >
+                                    {isCopied ? (
+                                      <>
+                                        <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                                        <span className="text-emerald-700 dark:text-emerald-400 font-bold">Kopyalandı!</span>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <Copy className="w-3.5 h-3.5 text-slate-400" />
+                                        <span>Cevabı Kopyala</span>
+                                      </>
+                                    )}
+                                  </button>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                  
+                  {filteredFaqs.length > visibleCount && (
+                    <div className="flex justify-center mt-6">
+                      <button 
+                        onClick={() => setVisibleCount(prev => prev + 20)}
+                        className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-sm rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer"
+                      >
+                        <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                        <span>{t('sss_load_more') || 'Daha Fazla Soru Yükle'}</span>
+                        <span className="text-xs opacity-75 font-normal">
+                          ({visibleCount} / {filteredFaqs.length})
+                        </span>
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </main>
+
+        </div>
       </div>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
@@ -276,23 +562,6 @@ export default function FaqClient({
           }
         ]}
       />
-
-      {/* CTA Banner */}
-      <div className="mt-20 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-brand-950 dark:to-slate-900 text-white p-10 md:p-14 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left relative overflow-hidden shadow-2xl">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/20 rounded-full blur-[80px] pointer-events-none"></div>
-        <div className="relative z-10">
-          <h3 className="text-2xl md:text-3xl font-bold mb-3">{t('sss_cta_title')}</h3>
-          <p className="text-slate-300 font-light text-lg max-w-xl">
-            {t('sss_cta_desc')}
-          </p>
-        </div>
-        <Link 
-          href={`/${lang}/iletisim`} 
-          className="relative z-10 bg-white text-slate-900 font-bold px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl transition-all shrink-0"
-        >
-          {t('sss_cta_btn')}
-        </Link>
-      </div>
-    </>
+    </div>
   );
 }

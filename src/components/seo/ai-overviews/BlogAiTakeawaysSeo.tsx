@@ -65,7 +65,7 @@ export default function BlogAiTakeawaysSeo({
     <aside
       id="blog-ai-takeaways"
       aria-label="Google AI Önemli Çıkarımlar ve Yasal Hap Bilgiler"
-      className={`bg-gradient-to-br from-indigo-500/[0.04] via-[var(--color-surface)] to-transparent border border-indigo-500/25 rounded-2xl p-5 sm:p-6 my-6 relative overflow-hidden ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 my-6 relative overflow-hidden shadow-xs ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -73,38 +73,38 @@ export default function BlogAiTakeawaysSeo({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Decorative Brand Glow */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 dark:bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-3 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">auto_awesome</span>
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
+          <span className="material-symbols-outlined text-[15px] text-amber-500 dark:text-amber-400" aria-hidden="true">auto_awesome</span>
           <span>Google AI & Gemini • Önemli Çıkarımlar (Key Takeaways)</span>
         </div>
 
         <button
           onClick={handleCopy}
-          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold transition-colors"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white dark:bg-white/10 hover:bg-slate-100 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 text-xs font-bold transition-colors shadow-xs cursor-pointer"
         >
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">
+          <span className="material-symbols-outlined text-sm text-slate-500 dark:text-slate-400" aria-hidden="true">
             {copied ? 'done' : 'content_copy'}
           </span>
           <span>{copied ? 'Kopyalandı' : 'Maddeleri Kopyala'}</span>
         </button>
       </div>
 
-      <h3 className="text-sm sm:text-base font-black text-[var(--color-heading-text)] tracking-tight mb-3 relative z-10">
+      <h3 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 relative z-10">
         Bu Yazıdan Bilmeniz Gereken 4 Temel Hukuki ve Operasyonel Not
       </h3>
 
-      <div id="blog-ai-takeaway-text" className="space-y-2 relative z-10">
+      <div id="blog-ai-takeaway-text" className="space-y-2.5 relative z-10">
         {items.map((item, index) => (
-          <div key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-primary)] font-medium leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">
+          <div key={index} className="flex items-start gap-3.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed bg-slate-50/70 dark:bg-white/[0.02] p-3.5 rounded-2xl border border-slate-200/60 dark:border-white/5 shadow-2xs">
+            <span className="w-5 h-5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5 shadow-xs">
               {index + 1}
             </span>
-            <p>{item}</p>
+            <p className="pt-0.5">{item}</p>
           </div>
         ))}
       </div>

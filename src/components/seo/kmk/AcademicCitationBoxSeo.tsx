@@ -86,7 +86,7 @@ export default function AcademicCitationBoxSeo({
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-600/10 dark:bg-violet-400/10 text-violet-700 dark:text-violet-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
             <span className="material-symbols-outlined text-[15px]" aria-hidden="true">format_quote</span>
             Akademik, Hukuki & AI Atıf Motoru (Citation Index)
           </div>
@@ -104,9 +104,9 @@ export default function AcademicCitationBoxSeo({
             <button
               key={style}
               onClick={() => setActiveStyle(style)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 activeStyle === style
-                  ? 'bg-violet-600 text-white shadow-xs'
+                  ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-xs'
                   : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
               }`}
             >
@@ -124,7 +124,7 @@ export default function AcademicCitationBoxSeo({
 
         <button
           onClick={handleCopy}
-          className="shrink-0 px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
+          className="shrink-0 px-4 py-2 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
           aria-label="Atfı Kopyala"
         >
           <span className="material-symbols-outlined text-sm" aria-hidden="true">

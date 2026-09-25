@@ -413,7 +413,8 @@ export default function PeopleAlsoAskDeepTreeSeo({
 
   return (
     <section
-      className={`relative w-full rounded-3xl border border-indigo-500/20 bg-gradient-to-br from-slate-900/95 via-indigo-950/40 to-slate-900/95 p-6 sm:p-10 backdrop-blur-md shadow-2xl text-slate-100 ${className}`}
+      id="paa-deep-tree-seo"
+      className={`relative w-full rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[#15161E] p-6 sm:p-10 md:p-12 shadow-xs text-slate-900 dark:text-slate-100 overflow-hidden mb-12 ${className}`}
       aria-label="Google AI Overviews ve PAA Derin Soru-Cevap Ağacı"
     >
       <script
@@ -421,22 +422,25 @@ export default function PeopleAlsoAskDeepTreeSeo({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
+      {/* Ambient Glow */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-indigo-500/20 pb-6">
-        <div className="flex items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/20 text-indigo-400 border border-indigo-400/30 font-bold text-2xl shadow-inner">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-outline)]/60 dark:border-white/10 pb-6 relative z-10">
+        <div className="flex items-center gap-3.5">
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 font-bold text-2xl shadow-xs shrink-0">
             <span className="material-symbols-outlined text-3xl">psychology_alt</span>
           </span>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center rounded-md bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-300 border border-indigo-500/30">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 border border-amber-500/20">
                 Google People Also Ask (PAA) Deep Tree
               </span>
-              <span className="inline-flex items-center rounded-md bg-purple-500/10 px-2.5 py-0.5 text-xs font-semibold text-purple-300 border border-purple-500/30">
+              <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
                 40+ Doğrulanmış Soru-Cevap
               </span>
             </div>
-            <h3 className="mt-1 text-xl sm:text-2xl font-bold text-white tracking-tight">
+            <h3 className="mt-1 text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
               Kullanıcılar Bunları da Sordu — Yasal & Teknik PAA Bilgi Bankası
             </h3>
           </div>
@@ -444,14 +448,14 @@ export default function PeopleAlsoAskDeepTreeSeo({
       </div>
 
       {/* Speakable Instant Answer Box */}
-      <div className="mt-5 rounded-2xl border border-indigo-400/20 bg-indigo-950/30 p-4 sm:p-5">
+      <div className="mt-5 rounded-2xl border border-amber-500/20 bg-amber-500/5 dark:bg-amber-400/5 p-4 sm:p-5 relative z-10">
         <div className="flex items-start gap-3">
-          <span className="material-symbols-outlined text-indigo-400 text-xl shrink-0 mt-0.5">
+          <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 text-xl shrink-0 mt-0.5">
             verified
           </span>
           <p
             id="paa-deep-tree-instant-answer-text"
-            className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
+            className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal"
           >
             {directAnswer}
           </p>
@@ -459,16 +463,16 @@ export default function PeopleAlsoAskDeepTreeSeo({
       </div>
 
       {/* Search & Category Filter Controls */}
-      <div className="mt-6 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      <div className="mt-6 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between relative z-10">
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-1.5">
           <button
             type="button"
             onClick={() => setActiveCategory('all')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'all'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400'
-                : 'bg-slate-800/70 text-slate-400 hover:text-white border border-slate-700/60'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
+                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             Tümü (40)
@@ -476,10 +480,10 @@ export default function PeopleAlsoAskDeepTreeSeo({
           <button
             type="button"
             onClick={() => setActiveCategory('kmk-hukuku')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'kmk-hukuku'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400'
-                : 'bg-slate-800/70 text-slate-400 hover:text-white border border-slate-700/60'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
+                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             KMK Hukuku (10)
@@ -487,10 +491,10 @@ export default function PeopleAlsoAskDeepTreeSeo({
           <button
             type="button"
             onClick={() => setActiveCategory('aidat-butce')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'aidat-butce'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400'
-                : 'bg-slate-800/70 text-slate-400 hover:text-white border border-slate-700/60'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
+                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             Aidat & Bütçe (10)
@@ -498,10 +502,10 @@ export default function PeopleAlsoAskDeepTreeSeo({
           <button
             type="button"
             onClick={() => setActiveCategory('guvenlik-kamera')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'guvenlik-kamera'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400'
-                : 'bg-slate-800/70 text-slate-400 hover:text-white border border-slate-700/60'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
+                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             5188 Güvenlik (10)
@@ -509,10 +513,10 @@ export default function PeopleAlsoAskDeepTreeSeo({
           <button
             type="button"
             onClick={() => setActiveCategory('teknik-asansor')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'teknik-asansor'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400'
-                : 'bg-slate-800/70 text-slate-400 hover:text-white border border-slate-700/60'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
+                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             Teknik & Asansör (10)
@@ -526,15 +530,15 @@ export default function PeopleAlsoAskDeepTreeSeo({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Sorularda canlı ara (örn: icra, asansör)..."
-            className="w-full rounded-xl border border-slate-700 bg-slate-950/80 px-3.5 py-1.5 pl-9 text-xs text-slate-100 placeholder-slate-500 focus:border-indigo-400 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+            className="w-full rounded-xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-slate-50 dark:bg-[#0B0C10] px-3.5 py-1.5 pl-9 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors"
           />
-          <span className="material-symbols-outlined absolute left-2.5 top-2 text-sm text-slate-500">
+          <span className="material-symbols-outlined absolute left-2.5 top-2 text-sm text-slate-400">
             search
           </span>
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 top-2 text-xs text-slate-400 hover:text-white"
+              className="absolute right-2.5 top-2 text-xs text-slate-400 hover:text-slate-700 dark:hover:text-white cursor-pointer"
             >
               ✕
             </button>
@@ -543,9 +547,9 @@ export default function PeopleAlsoAskDeepTreeSeo({
       </div>
 
       {/* Accordion Questions List */}
-      <div className="mt-6 flex flex-col gap-2.5 max-h-[620px] overflow-y-auto pr-1">
+      <div className="mt-6 flex flex-col gap-2.5 max-h-[620px] overflow-y-auto pr-1 relative z-10">
         {filteredQuestions.length === 0 ? (
-          <div className="rounded-xl border border-slate-800 bg-slate-950/50 p-6 text-center text-xs text-slate-400">
+          <div className="rounded-2xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-slate-50/50 dark:bg-white/5 p-6 text-center text-xs text-slate-500 dark:text-slate-400">
             Aradığınız kritere uygun soru bulunamadı. Lütfen farklı bir arama terimi deneyin.
           </div>
         ) : (
@@ -554,37 +558,41 @@ export default function PeopleAlsoAskDeepTreeSeo({
             return (
               <div
                 key={q.id}
-                className="rounded-xl border border-slate-800/80 bg-slate-950/50 transition-colors hover:border-slate-700"
+                className={`rounded-2xl border transition-all ${
+                  isOpen
+                    ? 'border-amber-500/50 bg-white dark:bg-[#1A1C24] shadow-xs'
+                    : 'border-[var(--color-outline)]/70 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[#15161E] hover:border-amber-500/30'
+                }`}
               >
                 <button
                   type="button"
                   onClick={() => toggleAccordion(q.id)}
-                  className="flex w-full items-center justify-between gap-3 p-4 text-left transition-all"
+                  className="flex w-full items-center justify-between gap-3 p-4 text-left transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 shrink-0">
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shrink-0">
                       {q.categoryLabel}
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-100">
+                    <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
                       {q.question}
                     </span>
                   </div>
-                  <span className="material-symbols-outlined text-indigo-400 text-lg shrink-0 transition-transform">
+                  <span className={`material-symbols-outlined text-lg shrink-0 transition-transform ${isOpen ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400'}`}>
                     {isOpen ? 'expand_less' : 'expand_more'}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-slate-800/60 p-4 pt-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3 bg-indigo-950/10">
+                  <div className="border-t border-[var(--color-outline)]/50 dark:border-white/10 p-4 pt-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-3 bg-slate-50/50 dark:bg-black/20">
                     <p>{q.answer}</p>
-                    <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/50 text-[11px]">
-                      <span className="font-mono text-indigo-300 font-medium">
+                    <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/10 text-[11px]">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 font-mono text-[11px] font-semibold">
                         ⚖️ Yasal Dayanak: {q.legalAnchor}
                       </span>
                       <button
                         onClick={() => handleCopy(`${q.question}\n${q.answer}\n(Dayanak: ${q.legalAnchor})`, q.id)}
                         type="button"
-                        className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 transition-colors cursor-pointer"
                       >
                         <span className="material-symbols-outlined text-xs">
                           {copiedId === q.id ? 'done' : 'content_copy'}
@@ -600,9 +608,9 @@ export default function PeopleAlsoAskDeepTreeSeo({
         )}
       </div>
 
-      <div className="mt-4 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800 pt-3">
+      <div className="mt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400 border-t border-[var(--color-outline)]/60 dark:border-white/10 pt-4 relative z-10">
         <span>* Tüm sorular 634 KMK, 5188 SK ve Yargıtay içtihatlarıyla birebir doğrulanmıştır.</span>
-        <span className="font-semibold text-indigo-300">İndekslenen: 40 FAQ Sorusunun Tamamı</span>
+        <span className="font-semibold text-amber-600 dark:text-amber-400">İndekslenen: 40 FAQ Sorusunun Tamamı</span>
       </div>
     </section>
   );

@@ -151,11 +151,14 @@ export default function AcademyEnrollmentModal({
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="aca-name" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                       Adınız & Soyadınız *
                     </label>
                     <input
                       type="text"
+                      id="aca-name"
+                      name="fullName"
+                      autoComplete="name"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -166,11 +169,14 @@ export default function AcademyEnrollmentModal({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="aca-phone" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                         Telefon Numaranız *
                       </label>
                       <input
                         type="tel"
+                        id="aca-phone"
+                        name="phone"
+                        autoComplete="tel"
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
@@ -180,11 +186,14 @@ export default function AcademyEnrollmentModal({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="aca-email" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                         E-Posta Adresiniz
                       </label>
                       <input
                         type="email"
+                        id="aca-email"
+                        name="email"
+                        autoComplete="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="ornek@mail.com"
@@ -194,10 +203,12 @@ export default function AcademyEnrollmentModal({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="aca-course" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                       Başvurulan Eğitim Programı *
                     </label>
                     <select
+                      id="aca-course"
+                      name="course"
                       value={selectedCourse}
                       onChange={(e) => setSelectedCourse(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
@@ -211,10 +222,12 @@ export default function AcademyEnrollmentModal({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="aca-notes" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                       Ek Açıklama veya Sorularınız
                     </label>
                     <textarea
+                      id="aca-notes"
+                      name="notes"
                       rows={2}
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
@@ -223,18 +236,20 @@ export default function AcademyEnrollmentModal({
                     />
                   </div>
 
-                  <label className="flex items-start gap-3 cursor-pointer pt-1">
+                  <div className="flex items-start gap-3 pt-1">
                     <input
                       type="checkbox"
+                      id="aca-kvkk"
+                      name="kvkk"
                       required
                       checked={kvkk}
                       onChange={(e) => setKvkk(e.target.checked)}
-                      className="mt-1 w-4 h-4 rounded text-red-600 focus:ring-red-500"
+                      className="mt-1 w-4 h-4 rounded text-red-600 focus:ring-red-500 cursor-pointer"
                     />
-                    <span className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <label htmlFor="aca-kvkk" className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed cursor-pointer">
                       Kişisel verilerimin akademi ön kayıt ve iletişim süreçleri kapsamında işlenmesine dair aydınlatma metnini okudum, kabul ediyorum.
-                    </span>
-                  </label>
+                    </label>
+                  </div>
 
                   <button
                     type="submit"

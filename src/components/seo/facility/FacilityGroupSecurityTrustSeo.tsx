@@ -14,12 +14,12 @@ export default function FacilityGroupSecurityTrustSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
             <span className="material-symbols-outlined text-[16px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified_user</span>
             Entegre Güvenlik & Eğitim Ekosistemimiz
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Grup Şirketlerimiz & <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">5188 Güvenlik Ağı</span>
+            Grup Şirketlerimiz & <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 dark:from-emerald-400 dark:via-teal-300 dark:to-blue-400">5188 Güvenlik Ağı</span>
           </h2>
           <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
             Tesislerinizde görev yapan tüm özel güvenlik personeli, grup şirketlerimiz bünyesinde yetiştirilmekte ve 5188 sayılı yasal lisans ile doğrudan görevlendirilmektedir.

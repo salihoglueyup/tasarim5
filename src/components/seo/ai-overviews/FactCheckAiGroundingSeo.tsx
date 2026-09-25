@@ -133,7 +133,7 @@ export default function FactCheckAiGroundingSeo({
     <section
       id="factcheck-ai-grounding"
       aria-label="Google AI Fact Check ve Kat Mülkiyeti Hukuki Doğrulama Kütüğü"
-      className={`bg-[var(--color-surface)] border border-rose-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xs relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -142,16 +142,16 @@ export default function FactCheckAiGroundingSeo({
       />
 
       {/* Ambient Blur */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-rose-500/10 via-pink-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
           <span className="material-symbols-outlined text-[15px]" aria-hidden="true">fact_check</span>
           <span>Google AI Overviews • Hukuki Doğruluk & ClaimReview</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10">
             5 Onaylı Yargıtay İncelemesi
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
@@ -160,11 +160,11 @@ export default function FactCheckAiGroundingSeo({
         </div>
       </div>
 
-      <h2 className="text-xl sm:text-2xl font-black text-[var(--color-heading-text)] tracking-tight mb-3 relative z-10">
+      <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 relative z-10">
         Site Yönetimi Hukuki Mitler ve Yargıtay Gerçekleri
       </h2>
 
-      <p className="text-sm text-[var(--color-secondary)] mb-6 max-w-3xl leading-relaxed relative z-10">
+      <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-3xl leading-relaxed relative z-10">
         Google AI Overviews ve Perplexity gibi üretken arama motorlarının kat mülkiyeti uyuşmazlıklarında referans aldığı 5 temel hukuki yanılgı ve kanun gerekçeli doğruluk kütüğü.
       </p>
 
@@ -176,13 +176,13 @@ export default function FactCheckAiGroundingSeo({
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 isActive
-                  ? 'bg-rose-600 text-white shadow-md shadow-rose-600/20 scale-[1.02]'
-                  : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/40'
+                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm border border-slate-900 dark:border-white scale-[1.02]'
+                  : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/60 dark:border-white/10'
               }`}
             >
-              <span className="material-symbols-outlined text-[14px]">
+              <span className={`material-symbols-outlined text-[14px] ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
                 {isActive ? 'check_circle' : 'gavel'}
               </span>
               <span>{item.lawBadge}</span>
@@ -192,34 +192,34 @@ export default function FactCheckAiGroundingSeo({
       </div>
 
       {/* Main Fact Card */}
-      <div className="bg-gradient-to-br from-rose-500/[0.04] to-transparent border border-rose-500/20 rounded-2xl p-5 sm:p-6 relative z-10">
+      <div className="bg-slate-50/80 dark:bg-white/[0.02] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-2xl p-5 sm:p-6 relative z-10 space-y-4">
         {/* Myth Banner */}
-        <div className="flex items-start gap-3 p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 mb-4">
-          <span className="material-symbols-outlined text-rose-600 shrink-0 text-xl" aria-hidden="true">
+        <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
+          <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 shrink-0 text-xl" aria-hidden="true">
             cancel
           </span>
           <div>
-            <div className="text-[11px] font-black uppercase tracking-wider text-rose-700 dark:text-rose-300">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-0.5">
               Yaygın Yanılgı (Mit)
             </div>
-            <div className="text-sm sm:text-base font-bold text-[var(--color-heading-text)]">
+            <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
               "{selectedFact.myth}"
             </div>
           </div>
         </div>
 
         {/* Reality Box (Speakable) */}
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 mb-4">
-          <span className="material-symbols-outlined text-emerald-600 shrink-0 text-xl" aria-hidden="true">
+        <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 shrink-0 text-xl" aria-hidden="true">
             verified
           </span>
           <div>
-            <div className="text-[11px] font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">
               Hukuki Gerçek (Ground-Truth Doğrulaması)
             </div>
             <p
               id="factcheck-instant-answer-text"
-              className="text-xs sm:text-sm text-[var(--color-primary)] font-medium leading-relaxed"
+              className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed"
             >
               {selectedFact.reality}
             </p>
@@ -227,15 +227,15 @@ export default function FactCheckAiGroundingSeo({
         </div>
 
         {/* Footer Meta & Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--color-outline)]/40 text-xs">
-          <div className="flex items-center gap-2 text-[var(--color-secondary)]">
-            <span className="material-symbols-outlined text-base text-rose-600" aria-hidden="true">menu_book</span>
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5 text-xs">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+            <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">menu_book</span>
             <span className="font-mono font-semibold">{selectedFact.legalCitation}</span>
           </div>
 
           <button
             onClick={() => handleCopy(selectedFact.reality, selectedFact.id)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-700 dark:text-rose-300 font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-2xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm" aria-hidden="true">
               {copiedId === selectedFact.id ? 'done' : 'content_copy'}

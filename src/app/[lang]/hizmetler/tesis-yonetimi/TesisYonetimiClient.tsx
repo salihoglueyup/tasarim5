@@ -128,7 +128,7 @@ export default function TesisYonetimiClient() {
       />
       
       {/* 1. BÖLÜM: Hero & Değer Önerisi (Titanium & Slate) */}
-      <div className="relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-28 md:pt-36 md:pb-36">
+      <div className="dark relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-28 md:pt-36 md:pb-36 text-white">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt="Profesyonel Tesis Yönetimi - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
@@ -152,7 +152,7 @@ export default function TesisYonetimiClient() {
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
               {t('fac_banner_badge') || 'ENTEGRE VE DİJİTAL TESİS YÖNETİMİ'}
             </span>
-            <h1 id="facility-hero-h1" className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') || 'Profesyonel <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400"> Tesis Yönetimi </span>' }} />
+            <h1 id="facility-hero-h1" className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight drop-shadow-sm" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') || '<span class="text-white block drop-shadow-sm">Entegre ve Profesyonel</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-slate-300 drop-shadow-md block">Tesis Yönetimi</span>' }} />
             
             <AggregateRatingSeo 
               itemReviewed={{ '@type': 'ProfessionalService', name: `Alo Yönetim - ${t('serv_fac_name') || 'Tesis Yönetimi'}` }}
@@ -161,7 +161,7 @@ export default function TesisYonetimiClient() {
               className="mt-2"
             />
 
-            <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
+            <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mt-4">
               {t('fac_banner_desc') || 'Apartman, site, plaza ve tesisler için 7/24 güvenlik, temizlik, teknik bakım, peyzaj ve şeffaf aidat takibi. ISO ve 5188 lisanslı kurumsal güvence.'}
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -175,7 +175,7 @@ export default function TesisYonetimiClient() {
             </div>
 
             {/* Hızlı Güven Rozetleri (Above the Fold Dwell Time Kancası) */}
-            <div className="flex flex-wrap justify-center items-center gap-6 mt-6 text-xs text-slate-300">
+            <div className="flex flex-wrap justify-center items-center gap-6 mt-6 text-xs text-white/80">
               <div className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">bolt</span>
                 <span>15-25 Dk Acil SLA Müdahale</span>
@@ -209,16 +209,16 @@ export default function TesisYonetimiClient() {
           answer="Tesis Yönetimi (Facility Management); konut siteleri, çok katlı rezidanslar, plazalar ve sanayi tesislerinin 5188 lisanslı güvenlik, 7/24 kestirimci teknik bakım, endüstriyel temizlik, şeffaf aidat muhasebesi ve 634 sayılı KMK hukuki danışmanlık operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir."
           standardBadge="ISO 41001:2018 & 634 Sayılı KMK"
           subText="Alo Yönetim, uluslararası ISO 41001 standartlarında entegre tesis yönetimi ile işletme bütçelerinde %20-30 net tasarruf ve kritik arızalara 45 dakika acil teknik müdahale SLA garantisi sunar."
-          accentColor="indigo"
+          accentColor="slate"
         />
 
         {/* Kapsamlı Tesis Yönetimi Standartları & Operasyonel Disiplinler */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-slate-200/40 via-transparent to-transparent dark:from-slate-800/20 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
               <span>Entegre Tesis Yönetimi Metodolojisi</span>
             </div>
@@ -231,35 +231,35 @@ export default function TesisYonetimiClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi (Facility Management - FM)</strong>;{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 konut siteleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 iş merkezleri ve kurumsal plazalar
               </Link>
               , karma yaşam projeleri ve{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 endüstriyel tesislerin
               </Link>{' '}
               fiziki, teknik, idari ve mali tüm operasyonel dinamiklerinin tek bir profesyonel merkezden entegre olarak işletilmesidir. Geleneksel bina yönetiminin getirdiği dar kapsamlı kapıcılık veya münferit temizlik anlayışının çok ötesine geçen bu entegre model; gayrimenkulün tüm yaşam döngüsü (Life-Cycle Costing) boyunca amortisman değerini korumayı, bina kabuğu ile elektromekanik donanımların yıpranmasını önlemeyi, enerji tüketim verimliliğini maksimize etmeyi, operasyonel riskleri proaktif yöntemlerle minimize etmeyi ve sakinler için güvenli, huzurlu, sürdürülebilir ve yüksek prestijli bir yaşam standardı sunmayı hedefler.
             </p>
             <p>
               Profesyonel bir tesisin kesintisiz ve kusursuz işletilmesi; mühendislik, finans, iş hukuku, güvenlik taktikleri ve kat mülkiyeti mevzuatının mükemmel bir senkronizasyonla yürütülmesini gerektirir. Bu doğrultuda tüm operasyonel süreçlerimiz;{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 634 Sayılı Kat Mülkiyeti Kanunu (KMK)
               </Link>
               ,{' '}
-              <a href="https://www.iso.org/standard/63022.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.iso.org/standard/63022.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all inline-flex items-center gap-0.5">
                 ISO 41001:2018 Uluslararası Tesis Yönetimi Standartları
                 <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Kanunu
                 <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
@@ -272,7 +272,7 @@ export default function TesisYonetimiClient() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <Link href="/hizmetler/guvenlik-yonetimi" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/guvenlik-yonetimi" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:opacity-80 transition-opacity">
                   <span>🛡️</span> 5188 Lisanslı Özel Güvenlik & Elektronik Koruma
                 </Link>
                 <p className="text-[var(--color-secondary)]">
@@ -280,7 +280,7 @@ export default function TesisYonetimiClient() {
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <Link href="/hizmetler/temizlik-ve-hijyen" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/temizlik-ve-hijyen" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:opacity-80 transition-opacity">
                   <span>🧹</span> TSE 13811 Onaylı Endüstriyel Temizlik & Hijyen
                 </Link>
                 <p className="text-[var(--color-secondary)]">
@@ -288,7 +288,7 @@ export default function TesisYonetimiClient() {
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <Link href="/hizmetler/teknik-bakim" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/teknik-bakim" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:opacity-80 transition-opacity">
                   <span>⚙️</span> Kestirimci & Önleyici Teknik Mühendislik Servisi
                 </Link>
                 <p className="text-[var(--color-secondary)]">
@@ -296,7 +296,7 @@ export default function TesisYonetimiClient() {
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <Link href="/hizmetler/aidat-takibi" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/aidat-takibi" className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5 hover:opacity-80 transition-opacity">
                   <span>📊</span> Şeffaf Dijital Muhasebe, Bütçe & KMK Hukuk Teftişi
                 </Link>
                 <p className="text-[var(--color-secondary)]">
@@ -313,7 +313,7 @@ export default function TesisYonetimiClient() {
           </div>
 
           {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 relative z-10">
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
@@ -328,7 +328,7 @@ export default function TesisYonetimiClient() {
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">gavel</span>
                 </span>
                 <span>KMK 634 & Sıfır Hukuki Risk</span>
@@ -340,7 +340,7 @@ export default function TesisYonetimiClient() {
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">smartphone</span>
                 </span>
                 <span>7/24 Şeffaf Mobil Yönetim</span>
@@ -378,16 +378,16 @@ export default function TesisYonetimiClient() {
 
       {/* 3. BÖLÜM: Akıllı Tesis Teşhis & İhale Masası */}
       <section id="tesis-araclari" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
           <div className="text-center max-w-3xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">dashboard_customize</span>
               <span>İnteraktif Kumanda Masası</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-              Akıllı Tesis Teşhis, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">Maliyet & İhale Merkezi</span>
+              Akıllı Tesis Teşhis, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">Maliyet & İhale Merkezi</span>
             </h2>
-            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-2 max-w-2xl mx-auto">
               Tesisinizin ihtiyaç duyduğu norm kadroyu hesaplayın, yönetim kurulu ihale şartnamesi oluşturun, ilçe aidatlarını kıyaslayın ve 10 maddelik denetim listesini çalıştırın.
             </p>
 
@@ -398,8 +398,8 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveToolTab('simulator')}
                 className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   activeToolTab === 'simulator'
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
-                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">calculate</span>
@@ -411,8 +411,8 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveToolTab('rfp')}
                 className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   activeToolTab === 'rfp'
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
-                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">description</span>
@@ -424,8 +424,8 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveToolTab('heatmap')}
                 className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   activeToolTab === 'heatmap'
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
-                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">map</span>
@@ -437,8 +437,8 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveToolTab('audit')}
                 className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   activeToolTab === 'audit'
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 scale-[1.02]'
-                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">fact_check</span>
@@ -475,21 +475,21 @@ export default function TesisYonetimiClient() {
         </div>
 
         {/* Karar Verici Rehber & Şartname Banner */}
-        <div className="p-8 rounded-3xl bg-gradient-to-r from-indigo-900/90 via-slate-900/90 to-blue-900/90 dark:from-indigo-950/60 dark:via-slate-900/60 dark:to-blue-950/50 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md text-white">
+        <div className="p-8 rounded-3xl dark bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-slate-700/80 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md text-white">
           <div className="space-y-2">
-            <span className="text-xs font-bold text-indigo-300 dark:text-indigo-400 uppercase tracking-widest bg-indigo-500/20 px-3 py-1 rounded-full border border-indigo-500/30">
+            <span className="text-xs font-bold text-slate-300 uppercase tracking-widest bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
               Yönetim Kurulu Karar Rehberi
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-white">
               Tesis Yönetim Şirketi Nasıl Seçilir? 2026 Kılavuzu
             </h3>
-            <p className="text-xs sm:text-sm text-slate-200 dark:text-slate-300 max-w-2xl font-light">
+            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl font-normal">
               Şirket seçerken yapılan 7 ölümcül hata, 10 maddelik firma denetim skorkartı, 5188 yasal belgeleri ve KMK m.34 devir protokolü rehberimizi inceleyin.
             </p>
           </div>
           <Link
             href="/hizmetler/tesis-yonetimi/rehber"
-            className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm transition-all hover:scale-105 shrink-0 flex items-center gap-2 shadow-lg"
+            className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-white text-slate-950 font-bold text-xs sm:text-sm transition-all hover:scale-105 shrink-0 flex items-center gap-2 shadow-lg"
           >
             <span>Seçim Rehberini İncele</span>
             <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
@@ -529,14 +529,14 @@ export default function TesisYonetimiClient() {
         {/* Sekmeli Hukuk Masası: Emsal Kararlar & Karar Şablonları */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-6 sm:p-12 shadow-sm">
           <div className="text-center max-w-3xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
               634 KMK & Yargıtay Hukuk Kütüphanesi
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
-              Kat Mülkiyeti Hukuku & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Resmi Belge Masası</span>
+              Kat Mülkiyeti Hukuku & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">Resmi Belge Masası</span>
             </h3>
-            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-1">
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-1">
               Yargıtay emsal kararlarını inceleyin veya siteniz için noter onayına uygun genel kurul karar şablonu üretin.
             </p>
 
@@ -546,7 +546,7 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveLegalTab('precedents')}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
                   activeLegalTab === 'precedents'
-                    ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-outline)]/80'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
@@ -559,7 +559,7 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveLegalTab('template')}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
                   activeLegalTab === 'template'
-                    ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-outline)]/80'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
@@ -601,7 +601,7 @@ export default function TesisYonetimiClient() {
         {/* AI Instant Snippet Cards (2x2 Grid) */}
         <div>
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/10 dark:bg-white/10 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/70 text-xs font-bold uppercase tracking-wider mb-2">
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology</span>
               Hukuk & Mevzuat Masası
             </div>
@@ -736,16 +736,16 @@ export default function TesisYonetimiClient() {
         <FacilityAnnualMaintenanceScheduleSeo />
 
         {/* Binalarda Enerji, EV Şarj & Altyapı Sayaç Devir Kılavuzu (Tabbed Hub) */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">bolt</span>
               <span>Enerji & Kurumsal Altyapı Yönetimi</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
               Sürdürülebilir Enerji, EV Şarj & Altyapı Devir Kılavuzu
             </h3>
-            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-1">
+            <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-1">
               Ortak alan elektrikli araç şarj istasyonu kurulumu ile İSKİ, BEDAŞ ve İGDAŞ abonelik devir süreçlerini tek tıkla inceleyin.
             </p>
 
@@ -755,7 +755,7 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveUtilityTab('ev')}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
                   activeUtilityTab === 'ev'
-                    ? 'bg-teal-600 text-white shadow-md'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md'
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
@@ -768,7 +768,7 @@ export default function TesisYonetimiClient() {
                 onClick={() => setActiveUtilityTab('utility')}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
                   activeUtilityTab === 'utility'
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md'
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >

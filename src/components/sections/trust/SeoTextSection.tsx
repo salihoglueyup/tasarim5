@@ -17,7 +17,7 @@ export default function SeoTextSection({
   const { t } = useLanguage();
 
   return (
-    <section id="speakable-content" className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto bg-slate-50 dark:bg-[#0a192b] border-y border-slate-200/50 dark:border-white/5">
+    <section id="speakable-content" className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto bg-[var(--color-surface)] border-y border-[var(--color-outline)]/60">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6 tracking-tight text-center md:text-left">
           {t(titleKey as Parameters<typeof t>[0])}

@@ -201,12 +201,12 @@ export default function GoogleAiOverviewGroundingSeo({
       />
 
       {/* Dekoratif Glow Efekti */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 dark:border-blue-400/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">auto_awesome</span>
             Google AI Overviews (SGE), Gemini & Perplexity Otorite Merkezi
           </div>
@@ -216,7 +216,7 @@ export default function GoogleAiOverviewGroundingSeo({
             ) : (
               <>
                 Yapay Zekaya Sorun:{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">
                   Resmî KMK Hukuk ve Tesis Yönetim Standartları
                 </span>
               </>
@@ -239,9 +239,9 @@ export default function GoogleAiOverviewGroundingSeo({
           <button
             key={p.id}
             onClick={() => setActiveTab(p.id)}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 border ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 border cursor-pointer ${
               activeTab === p.id
-                ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/20'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] border-[var(--color-primary)] shadow-sm'
                 : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
             }`}
           >
@@ -264,7 +264,7 @@ export default function GoogleAiOverviewGroundingSeo({
           {/* Prompt Section */}
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">chat_paste_go</span>
                 Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
               </span>
@@ -276,7 +276,7 @@ export default function GoogleAiOverviewGroundingSeo({
               <span className="geo-prompt-text leading-relaxed font-semibold">&ldquo;{selectedPrompt.prompt}&rdquo;</span>
               <button
                 onClick={() => handleCopy(selectedPrompt.id, selectedPrompt.prompt)}
-                className="shrink-0 px-3.5 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 text-xs font-bold transition-colors flex items-center gap-1 border border-blue-600/20"
+                className="shrink-0 px-3.5 py-1.5 rounded-lg bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] text-xs font-bold transition-colors flex items-center gap-1 border border-[var(--color-outline)]/60 cursor-pointer"
                 title="Promptu Kopyala"
                 aria-label="Promptu kopyala"
               >
@@ -319,7 +319,7 @@ export default function GoogleAiOverviewGroundingSeo({
                 href={`https://chatgpt.com/?q=${encodeURIComponent(selectedPrompt.prompt)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
+                className="px-3.5 py-1.5 rounded-lg bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
               >
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
                 ChatGPT ile Sor
@@ -328,7 +328,7 @@ export default function GoogleAiOverviewGroundingSeo({
                 href={`https://www.perplexity.ai/search?q=${encodeURIComponent(selectedPrompt.prompt)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
+                className="px-3.5 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
               >
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
                 Perplexity ile Ara

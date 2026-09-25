@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -145,19 +145,19 @@ export default function FacilityDistrictPortfolioSeo() {
   };
 
   return (
-    <div className="my-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[3rem] p-6 sm:p-12 shadow-sm relative overflow-hidden">
+    <div className="my-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-6 sm:p-12 shadow-sm relative overflow-hidden">
       <JsonLd data={schemaData} />
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 text-xs font-bold uppercase tracking-wider mb-3">
           <span className="material-symbols-outlined text-sm" aria-hidden="true">location_city</span>
           <span>İstanbul Geneli 400+ Aktif Tesis Referansı</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
-          39 İlçe <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Tesis Yönetimi Portföyü</span>
+          39 İlçe <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">Tesis Yönetimi Portföyü</span>
         </h3>
-        <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2">
+        <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-2">
           Bulunduğunuz ilçedeki aktif referans projelerimizi ve sağladığımız ortalama aidat tasarruf oranlarını inceleyin.
         </p>
 
@@ -168,7 +168,7 @@ export default function FacilityDistrictPortfolioSeo() {
             onClick={() => setSelectedSide('all')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               selectedSide === 'all'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm border border-[var(--color-outline)]/80'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
@@ -179,7 +179,7 @@ export default function FacilityDistrictPortfolioSeo() {
             onClick={() => setSelectedSide('anadolu')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               selectedSide === 'anadolu'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm border border-[var(--color-outline)]/80'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
@@ -190,7 +190,7 @@ export default function FacilityDistrictPortfolioSeo() {
             onClick={() => setSelectedSide('avrupa')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               selectedSide === 'avrupa'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm border border-[var(--color-outline)]/80'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
@@ -204,12 +204,12 @@ export default function FacilityDistrictPortfolioSeo() {
         {filtered.map((item) => (
           <div
             key={item.slug}
-            className="p-5 rounded-3xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between gap-4 hover:border-indigo-500/40 transition-all hover:shadow-md group"
+            className="p-5 rounded-3xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between gap-4 hover:border-[var(--color-primary)]/50 transition-all hover:shadow-md group"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="text-base font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-indigo-500 text-lg" aria-hidden="true">domain</span>
+                  <span className="material-symbols-outlined text-[var(--color-primary)] text-lg" aria-hidden="true">domain</span>
                   {item.name}
                 </h4>
                 <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
@@ -217,16 +217,16 @@ export default function FacilityDistrictPortfolioSeo() {
                 </span>
               </div>
 
-              <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 block">
+              <span className="text-xs font-semibold text-[var(--color-primary)] block">
                 {item.managedCount}+ Aktif Tesis & Site
               </span>
 
               <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Örnek Projeler:</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-tertiary)] block">Örnek Projeler:</span>
                 <ul className="space-y-0.5">
                   {item.sampleProjects.slice(0, 3).map((proj, idx) => (
-                    <li key={idx} className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
-                      <span className="w-1 h-1 rounded-full bg-indigo-500" />
+                    <li key={idx} className="text-xs text-[var(--color-secondary)] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-tertiary)] shrink-0" />
                       <span className="truncate">{proj}</span>
                     </li>
                   ))}
@@ -237,7 +237,7 @@ export default function FacilityDistrictPortfolioSeo() {
             <div className="pt-3 border-t border-[var(--color-outline)]/40">
               <Link
                 href={`/bolgeler/${item.slug}/tesis-yonetimi`}
-                className="w-full py-2 px-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-1 group-hover:border-indigo-500/40"
+                className="w-full py-2.5 px-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-1.5 shadow-2xs group-hover:border-[var(--color-primary)]/50 cursor-pointer"
               >
                 <span>{item.name} Hizmet Detayı</span>
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
@@ -257,14 +257,14 @@ export default function FacilityDistrictPortfolioSeo() {
             <Link
               key={d.slug}
               href={`/bolgeler/${d.slug}/tesis-yonetimi`}
-              className="px-2.5 py-1 rounded-lg text-[11px] bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-indigo-600 dark:hover:text-indigo-400 border border-[var(--color-outline)]/40 hover:border-indigo-500/40 transition-colors"
+              className="px-2.5 py-1 rounded-lg text-[11px] bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]/50 transition-colors"
             >
               {d.name}
             </Link>
           ))}
           <Link
             href="/bolgeler"
-            className="px-2.5 py-1 rounded-lg text-[11px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-500/30"
+            className="px-3 py-1 rounded-lg text-[11px] font-bold text-[var(--color-primary)] bg-[var(--color-surface)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] border border-[var(--color-outline)] transition-all shadow-2xs cursor-pointer"
           >
             + Tüm 39 İlçe Listesi
           </Link>

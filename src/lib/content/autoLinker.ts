@@ -264,6 +264,7 @@ export function autoLinkHtml(
   const usedTerms = new Set<string>();
   const usedUrls = new Set<string>();
   let insertedCount = 0;
+  const linkReplacements: string[] = [];
 
   // HTML'i etiketler (<...>) ve düz metin parçalarına böl
   const tokens = html.split(/(<[^>]+>)/g);
@@ -315,8 +316,12 @@ export function autoLinkHtml(
         textChunk = textChunk.replace(entry.regex, (m) => {
           usedTerms.add(entry.term);
           usedUrls.add(targetHref);
+          const placeholder = `___AUTOLINK_${linkReplacements.length}___`;
+          linkReplacements.push(
+            `<a href="${targetHref}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-amber-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`
+          );
           insertedCount++;
-          return `<a href="${targetHref}" title="${m} hakkında daha fazla bilgi edinin" class="text-brand-600 dark:text-amber-400 font-semibold hover:underline transition-colors tooltip-trigger">${m}</a>`;
+          return placeholder;
         });
       }
     }
@@ -324,7 +329,14 @@ export function autoLinkHtml(
     tokens[i] = textChunk;
   }
 
-  return tokens.join('');
+  let finalHtml = tokens.join('');
+  if (linkReplacements.length > 0) {
+    finalHtml = finalHtml.replace(/___AUTOLINK_(\d+)___/g, (_, index) => {
+      return linkReplacements[Number(index)] || '';
+    });
+  }
+
+  return finalHtml;
 }
 
 /**

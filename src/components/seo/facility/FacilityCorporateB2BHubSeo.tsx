@@ -41,12 +41,12 @@ export default function FacilityCorporateB2BHubSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 border border-emerald-600/20 dark:border-emerald-400/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">corporate_fare</span>
             B2B Kurumsal Gayrimenkul & Tesis Çözümleri
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            ISO 41001 Standartları, <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-300">Kurumsal SLA Kademeleri & RFP Hub</span>
+            ISO 41001 Standartları, <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800 dark:from-white dark:via-slate-200 dark:to-slate-400">Kurumsal SLA Kademeleri & RFP Hub</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Plazalar, sanayi tesisleri, lojistik merkezler ve ticari yapılar için sözleşmeye bağlı SLA garantileri ve teknik şartname altyapısı.
@@ -59,7 +59,7 @@ export default function FacilityCorporateB2BHubSeo() {
             onClick={() => setActiveTab('sla-tiers')}
             className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
               activeTab === 'sla-tiers'
-                ? 'bg-emerald-600 text-white shadow-xs'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-xs'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
@@ -69,7 +69,7 @@ export default function FacilityCorporateB2BHubSeo() {
             onClick={() => setActiveTab('iso-matrix')}
             className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
               activeTab === 'iso-matrix'
-                ? 'bg-emerald-600 text-white shadow-xs'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-xs'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
@@ -79,7 +79,7 @@ export default function FacilityCorporateB2BHubSeo() {
             onClick={() => setActiveTab('rfp-template')}
             className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
               activeTab === 'rfp-template'
-                ? 'bg-emerald-600 text-white shadow-xs'
+                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-xs'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
             }`}
           >
@@ -103,16 +103,16 @@ export default function FacilityCorporateB2BHubSeo() {
                 key={tier.tierId}
                 className={`rounded-3xl p-6 sm:p-7 border flex flex-col justify-between ${
                   tier.tierId === 'platinum'
-                    ? 'bg-gradient-to-b from-emerald-950/30 to-[var(--color-surface-variant)] border-emerald-500 ring-2 ring-emerald-500/20 shadow-md'
+                    ? 'bg-[var(--color-surface)] border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/20 shadow-md'
                     : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                    <span className="text-xs font-black uppercase tracking-wider text-[var(--color-primary)]">
                       {tier.tierName}
                     </span>
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-600/10 text-emerald-700 dark:text-emerald-300">
+                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)] shadow-2xs">
                       {tier.responseTimeMinutes} Dk SLA
                     </span>
                   </div>
@@ -123,25 +123,25 @@ export default function FacilityCorporateB2BHubSeo() {
 
                   <ul className="space-y-2.5 text-xs text-[var(--color-secondary)] pt-3 border-t border-[var(--color-outline)]/60">
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-600 text-sm shrink-0 mt-0.5" aria-hidden="true">timer</span>
+                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">timer</span>
                       <span><strong>Acil Müdahale:</strong> Azami {tier.responseTimeMinutes} dakika içinde yerinde müdahale</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-600 text-sm shrink-0 mt-0.5" aria-hidden="true">sensors</span>
+                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">sensors</span>
                       <span><strong>BMS Telemetri:</strong> {tier.bmsMonitoring}</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-600 text-sm shrink-0 mt-0.5" aria-hidden="true">badge</span>
+                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">badge</span>
                       <span><strong>Yerinde Kadro:</strong> {tier.onSiteStaffing}</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-600 text-sm shrink-0 mt-0.5" aria-hidden="true">savings</span>
+                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">savings</span>
                       <span><strong>Tasarruf Taahhüdü:</strong> {tier.energySavingsGuarantee}</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-[var(--color-outline)]/60 text-[11px] text-amber-700 dark:text-amber-400 font-medium">
+                <div className="mt-6 pt-3 border-t border-[var(--color-outline)]/60 text-[11px] text-[var(--color-tertiary)] font-medium">
                   ⚖️ {tier.penaltyClause}
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function FacilityCorporateB2BHubSeo() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-black text-emerald-600 dark:text-emerald-400">
+                    <span className="text-xs font-black text-[var(--color-primary)]">
                       {iso.standardCode}
                     </span>
                     <span className="text-[10px] font-semibold text-[var(--color-secondary)]">
@@ -178,7 +178,7 @@ export default function FacilityCorporateB2BHubSeo() {
                     {iso.scope}
                   </p>
                 </div>
-                <div className="p-3 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/30 text-xs text-emerald-800 dark:text-emerald-300 font-medium">
+                <div className="p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] text-xs text-[var(--color-primary)] font-medium shadow-2xs">
                   ✓ {iso.benefitToClient}
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default function FacilityCorporateB2BHubSeo() {
               </div>
               <button
                 onClick={handleCopyRfp}
-                className="shrink-0 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
+                className="shrink-0 px-4 py-2 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
               >
                 <span className="material-symbols-outlined text-base" aria-hidden="true">
                   {copied ? 'check' : 'content_copy'}

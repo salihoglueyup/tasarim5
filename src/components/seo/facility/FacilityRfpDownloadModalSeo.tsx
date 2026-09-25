@@ -51,14 +51,14 @@ export default function FacilityRfpDownloadModalSeo() {
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">assignment</span>
             B2B İhale ve Yönetim Şartnamesi
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400">Teknik Şartname (RFP) Taslağı</span>
+            Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">Teknik Şartname (RFP) Taslağı</span>
           </h2>
-          <p className="text-sm md:text-base text-[var(--color-secondary)] font-light leading-relaxed max-w-2xl">
+          <p className="text-sm md:text-base text-[var(--color-secondary)] font-normal leading-relaxed max-w-2xl">
             Siteniz veya plazanız için profesyonel yönetim ihalesi açarken kullanabileceğiniz ISO 41001 ve 634 Sayılı KMK uyumlu resmi teknik şartnameyi saniyeler içinde oluşturun ve ücretsiz indirin.
           </p>
           <div className="flex flex-wrap gap-4 pt-2 text-xs text-[var(--color-secondary)] font-medium">
@@ -71,7 +71,7 @@ export default function FacilityRfpDownloadModalSeo() {
         <div>
           <button
             onClick={() => setIsOpen(true)}
-            className="px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-white font-extrabold text-sm md:text-base shadow-sm hover:scale-105 transition-all duration-300 flex items-center gap-2.5 cursor-pointer whitespace-nowrap"
+            className="px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-extrabold text-sm md:text-base shadow-sm hover:scale-105 transition-all duration-300 flex items-center gap-2.5 cursor-pointer whitespace-nowrap"
           >
             <span className="material-symbols-outlined text-lg" aria-hidden="true">download</span>
             Şartnameyi Oluştur & İndir
@@ -119,7 +119,7 @@ export default function FacilityRfpDownloadModalSeo() {
                       placeholder="Örn: Akasya Konutları"
                       value={facilityName}
                       onChange={(e) => setFacilityName(e.target.value)}
-                      className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-3 py-2 text-xs text-[var(--color-primary)] placeholder-slate-400 focus:outline-none focus:border-slate-500"
+                      className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-3 py-2 text-xs text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none focus:border-[var(--color-primary)]"
                     />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function FacilityRfpDownloadModalSeo() {
                     <select
                       value={districtSlug}
                       onChange={(e) => setDistrictSlug(e.target.value)}
-                      className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-3 py-2 text-xs text-[var(--color-primary)] focus:outline-none focus:border-slate-500"
+                      className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-3 py-2 text-xs text-[var(--color-primary)] focus:outline-none focus:border-[var(--color-primary)]"
                     >
                       {DISTRICT_NAMES.map((d) => (
                         <option key={d.slug} value={d.slug}>{d.name}</option>
@@ -166,8 +166,8 @@ export default function FacilityRfpDownloadModalSeo() {
                         onClick={() => toggleService(s.id)}
                         className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                           selectedServices.includes(s.id)
-                            ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-2xs font-bold'
-                            : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-secondary)] hover:border-slate-400'
+                            ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] border-[var(--color-primary)] shadow-2xs font-bold'
+                            : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/80 text-[var(--color-secondary)] hover:border-[var(--color-outline)]'
                         }`}
                       >
                         {selectedServices.includes(s.id) ? '✓ ' : '+ '}

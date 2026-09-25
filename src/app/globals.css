@@ -141,18 +141,29 @@
   }
 }
 
-/* Global Reset & Base Styles */
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Inter', sans-serif;
-  background-color: var(--color-background);
-  color: var(--color-on-surface);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  body {
+    font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-body-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+    color: var(--color-heading-text);
+  }
+
+  p {
+    color: var(--color-body-text);
+  }
 }
 
 /* Faz 48: Ekran dışındaki bölümleri uyutma ve layout izolasyonu (120 FPS Sıfır-Jank) */
@@ -180,10 +191,6 @@ video:not([autoplay]) {
   content-visibility: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
-  letter-spacing: -0.02em;
-}
 
 /* Hide scrollbar for a cleaner look */
 ::-webkit-scrollbar {

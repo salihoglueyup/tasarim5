@@ -3,7 +3,6 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, courseSchema, webPageSchema } from '@/lib/schemas';
-import { AcademyAiOverviewSeo } from '@/components/seo';
 import GuvenlikAkademisiClient from './GuvenlikAkademisiClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -105,10 +104,7 @@ export default async function GuvenlikAkademisiPage({
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, ...courseLds, aloGuvenlikLd, ucgGuvenlikLd]} />
-      <GuvenlikAkademisiClient />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
-        <AcademyAiOverviewSeo />
-      </div>
+      <GuvenlikAkademisiClient lang={lang} />
     </>
   );
 }

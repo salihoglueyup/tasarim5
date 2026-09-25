@@ -1,7 +1,7 @@
 import type { JsonLdObject } from './constants';
 
 export function faqPageSchema(items: { question?: string; answer?: string; q?: string; a?: string }[]): JsonLdObject | null {
-  const validItems = (items || [])
+  const validItems = (Array.isArray(items) ? items : [])
     .map((i) => ({
       question: (i.question || i.q || '').trim(),
       answer: (i.answer || i.a || '').trim(),

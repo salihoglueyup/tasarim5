@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from 'react';
 import Link from 'next/link';
@@ -121,34 +121,34 @@ export const ECOSYSTEM_SERVICES: EcosystemService[] = [
 
 const ACCENT_STYLES = {
   blue: {
-    badge: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
-    icon: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
-    borderHover: 'hover:border-blue-500/50 hover:shadow-blue-500/10',
+    badge: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80',
+    icon: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)]',
+    borderHover: 'hover:border-[var(--color-primary)]/50 hover:shadow-sm',
   },
   indigo: {
-    badge: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20',
-    icon: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
-    borderHover: 'hover:border-indigo-500/50 hover:shadow-indigo-500/10',
+    badge: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80',
+    icon: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)]',
+    borderHover: 'hover:border-[var(--color-primary)]/50 hover:shadow-sm',
   },
   emerald: {
-    badge: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20',
-    icon: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
-    borderHover: 'hover:border-emerald-500/50 hover:shadow-emerald-500/10',
+    badge: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80',
+    icon: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)]',
+    borderHover: 'hover:border-[var(--color-primary)]/50 hover:shadow-sm',
   },
   amber: {
-    badge: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20',
-    icon: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
-    borderHover: 'hover:border-amber-500/50 hover:shadow-amber-500/10',
+    badge: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80',
+    icon: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)]',
+    borderHover: 'hover:border-[var(--color-primary)]/50 hover:shadow-sm',
   },
   cyan: {
-    badge: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20',
-    icon: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400',
-    borderHover: 'hover:border-cyan-500/50 hover:shadow-cyan-500/10',
+    badge: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80',
+    icon: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)]',
+    borderHover: 'hover:border-[var(--color-primary)]/50 hover:shadow-sm',
   },
   purple: {
-    badge: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
-    icon: 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
-    borderHover: 'hover:border-purple-500/50 hover:shadow-purple-500/10',
+    badge: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80',
+    icon: 'bg-[var(--color-surface-variant)] text-[var(--color-primary)]',
+    borderHover: 'hover:border-[var(--color-primary)]/50 hover:shadow-sm',
   },
 };
 
@@ -192,7 +192,7 @@ export default function FacilityEcosystemMatrixSeo({
       >
         {/* Üst Başlık & Rozet */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
             <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">
               hub
             </span>
@@ -201,13 +201,13 @@ export default function FacilityEcosystemMatrixSeo({
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
             Alo Yönetim{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-indigo-300 dark:to-cyan-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">
               Entegre Tesis Yönetimi
             </span>{' '}
             Disiplinleri
           </h2>
 
-          <p className="text-sm sm:text-base text-[var(--color-secondary)] font-light mt-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--color-secondary)] font-normal mt-3 leading-relaxed">
             Tek çatı altında senkronize edilen 9 temel operasyonel uzmanlık. Dış kaynak karmaşası ve koordinasyon kopukluğu olmadan, ISO 41001 standartlarında kesintisiz tesis işletmesi:
           </p>
         </div>
@@ -241,7 +241,7 @@ export default function FacilityEcosystemMatrixSeo({
                   </span>
 
                   {/* Hizmet Başlığı */}
-                  <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2 leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] group-hover:opacity-85 transition-opacity mb-2 leading-snug">
                     {srv.title}
                   </h3>
 
@@ -253,11 +253,11 @@ export default function FacilityEcosystemMatrixSeo({
 
                 {/* Kart Altı: Metrik ve İncele Linki */}
                 <div className="pt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between gap-2 mt-auto">
-                  <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                  <span className="text-[11px] font-medium text-[var(--color-secondary)]">
                     {srv.metric}
                   </span>
-                  <span className="text-xs font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 inline-flex items-center gap-1 transition-transform group-hover:translate-x-0.5 shrink-0">
-                    <span>Detay</span>
+                  <span className="text-xs font-bold text-[var(--color-primary)] group-hover:opacity-80 inline-flex items-center gap-1 transition-transform group-hover:translate-x-0.5 shrink-0">
+                    <span>Disiplin Kapsamı</span>
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">
                       arrow_forward
                     </span>
@@ -269,7 +269,7 @@ export default function FacilityEcosystemMatrixSeo({
         </div>
 
         {/* Alt Bilgi Bandı: Kurumsal SLA & Entegrasyon */}
-        <div className="mt-10 p-5 rounded-2xl bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
+        <div className="mt-10 p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-lg" aria-hidden="true">
               verified

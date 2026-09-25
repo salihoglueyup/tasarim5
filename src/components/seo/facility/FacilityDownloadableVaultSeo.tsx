@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -115,14 +115,14 @@ export default function FacilityDownloadableVaultSeo() {
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 text-xs font-bold uppercase tracking-wider mb-3">
           <span className="material-symbols-outlined text-sm" aria-hidden="true">folder_open</span>
           <span>Resmi Tesis Doküman & Şablon Kasası</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
-          İndirilebilir <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Yönetim & KMK Şablonları</span>
+          İndirilebilir <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">Yönetim & KMK Şablonları</span>
         </h3>
-        <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2">
+        <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-2">
           Kat Mülkiyeti Kanunu ve ISO 41001 standartlarına tam uyumlu, noter tasdikine hazır resmi belge şablonlarını ücretsiz indirin.
         </p>
       </div>
@@ -140,20 +140,20 @@ export default function FacilityDownloadableVaultSeo() {
         {VAULT_DOCS.map((doc) => (
           <div
             key={doc.id}
-            className="p-6 rounded-3xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between gap-5 hover:border-blue-500/40 transition-all hover:shadow-md group"
+            className="p-6 rounded-3xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col justify-between gap-5 hover:border-[var(--color-primary)]/50 transition-all hover:shadow-md group"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-[var(--color-outline)]/50">
                   {doc.category}
                 </span>
-                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 px-2 py-0.5 rounded">
+                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-[var(--color-primary)] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 px-2 py-0.5 rounded">
                   <span className="material-symbols-outlined text-[13px]" aria-hidden="true">description</span>
                   {doc.format} · {doc.size}
                 </span>
               </div>
 
-              <h4 className="text-sm font-bold text-[var(--color-primary)] leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h4 className="text-sm font-bold text-[var(--color-primary)] leading-snug group-hover:text-[var(--color-secondary)] transition-colors">
                 {doc.title}
               </h4>
 
@@ -163,14 +163,14 @@ export default function FacilityDownloadableVaultSeo() {
             </div>
 
             <div className="space-y-3 pt-3 border-t border-[var(--color-outline)]/40">
-              <span className="text-[10px] font-medium text-slate-500 block">
+              <span className="text-[10px] font-medium text-[var(--color-tertiary)] block">
                 Dayanak: {doc.lawReference}
               </span>
 
               <button
                 type="button"
                 onClick={() => handleDownload(doc)}
-                className="w-full py-2.5 px-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                className="w-full py-2.5 px-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
               >
                 <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
                 <span>Şablonu İndir ({doc.format})</span>

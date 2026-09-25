@@ -72,8 +72,8 @@ export default function FacilityStickySubnav() {
       aria-label="Tesis Yönetimi Hızlı Bölüm Menüsü"
       className={`sticky top-0 sm:top-16 z-30 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-slate-900/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-700/60 shadow-xl'
-          : 'bg-slate-900/60 backdrop-blur-md border-b border-slate-800'
+          ? 'bg-[var(--color-surface)]/95 dark:bg-[var(--color-surface)]/95 backdrop-blur-xl border-b border-[var(--color-outline)]/80 dark:border-white/10 shadow-md'
+          : 'bg-[var(--color-surface)]/80 dark:bg-[var(--color-surface)]/80 backdrop-blur-md border-b border-[var(--color-outline)]/60'
       }`}
     >
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
@@ -86,13 +86,13 @@ export default function FacilityStickySubnav() {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => scrollToSection(e, item.id)}
-                className={`whitespace-nowrap px-3.5 py-2 rounded-xl font-semibold transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
+                className={`whitespace-nowrap px-3.5 py-2 rounded-xl font-semibold transition-all duration-200 flex items-center gap-1.5 shrink-0 cursor-pointer ${
                   isActive
-                    ? 'bg-white text-slate-950 shadow-md font-bold scale-[1.02]'
-                    : 'text-slate-300 hover:text-white hover:bg-white/10'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm font-bold scale-[1.02]'
+                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
-                <span className={`material-symbols-outlined text-[16px] ${isActive ? 'text-blue-600' : 'text-slate-400'}`} aria-hidden="true">
+                <span className={`material-symbols-outlined text-[16px] ${isActive ? 'text-[var(--color-on-primary)]' : 'text-[var(--color-tertiary)]'}`} aria-hidden="true">
                   {item.icon}
                 </span>
                 <span>{item.label}</span>

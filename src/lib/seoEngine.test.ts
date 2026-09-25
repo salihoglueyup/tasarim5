@@ -258,6 +258,23 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
       expect(facts.some((f) => f.type === 'standard')).toBe(true);
       expect(facts.some((f) => f.type === 'timeframe')).toBe(true);
     });
+
+    it('aynı cümledeki mükerrer ISO standartlarını tekilleştirir ve kanun numaralarını bağlamda korur', () => {
+      const content = `
+        2. 5188 Sayılı Kanun ve Güvenlik Lisansı: Şirketin bünyesinde Alo Güvenlik lisansı bulunması.
+        6. Kalite ve Yönetim Sertifikaları: ISO 9001 Kalite, ISO 41001 Tesis Yönetimi ve ISO 45001 İSG sertifikasyonlarının tam olması.
+      `;
+
+      const facts = extractKeyFactsAndKpis(content);
+      const isoFacts = facts.filter((f) => f.type === 'standard');
+      expect(isoFacts.length).toBe(1);
+      expect(isoFacts[0].raw).toContain('41001');
+
+      const legalFact = facts.find((f) => f.type === 'legal_code');
+      expect(legalFact).toBeDefined();
+      expect(legalFact?.context).toContain('5188 Sayılı Kanun');
+      expect(legalFact?.context.startsWith('Sayılı')).toBe(false);
+    });
   });
 
   describe('Hub & Spoke Grafiği (generateHubAndSpokeGraph)', () => {

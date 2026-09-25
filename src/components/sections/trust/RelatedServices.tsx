@@ -41,7 +41,7 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
   }
 
   return (
-    <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto border-t border-slate-100 dark:border-white/5">
+    <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto border-t border-[var(--color-outline)]/60">
       <div className="flex flex-col items-center md:items-start mb-10">
         <h3 className="text-2xl font-bold text-[var(--color-primary)]">{t('related_services_title')}</h3>
         <p className="text-[var(--color-secondary)] font-light mt-2 text-sm">{t('related_services_desc')}</p>
@@ -55,20 +55,20 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
               href={getLocalizedPath(service.path)}
               className={`group flex items-center gap-4 p-6 rounded-2xl transition-all duration-300 relative overflow-hidden ${
                 isSpecial
-                  ? 'bg-[var(--color-surface)] border-2 border-slate-400/50 dark:border-white/20 hover:border-slate-600 dark:hover:border-white/50 shadow-md'
-                  : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/40 hover:shadow-lg'
+                  ? 'bg-[var(--color-surface)] border-2 border-[var(--color-outline)] hover:border-[var(--color-primary)] shadow-md'
+                  : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-[var(--color-outline)] hover:shadow-lg'
               }`}
             >
               {isSpecial && (
-                <span className="absolute top-2.5 right-3 text-[10px] font-extrabold uppercase tracking-wider text-[var(--color-primary)] bg-slate-100 dark:bg-white/10 border border-[var(--color-outline)]/60 px-2 py-0.5 rounded-md">
+                <span className="absolute top-2.5 right-3 text-[10px] font-extrabold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-2 py-0.5 rounded-md">
                   Amiral Gemisi Çözüm
                 </span>
               )}
               <div
                 className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${
                   isSpecial
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm'
-                    : 'bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
+                    : 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/40'
                 }`}
               >
                 <span className="material-symbols-outlined" aria-hidden="true">{service.icon}</span>

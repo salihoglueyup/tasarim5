@@ -5,8 +5,6 @@ import SectoralClient from './SectoralClient';
 import { buildMetadata } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import { SectorHubAiOverviewSeo } from '@/components/seo';
-
 export const revalidate = 3600;
 
 export async function generateMetadata({
@@ -68,8 +66,7 @@ export default async function SektorelCozumlerPage({
   return (
     <>
       <JsonLd data={[breadcrumbLd, pageLd]} />
-      <SectorHubAiOverviewSeo lang={lang} />
-      <SectoralClient dbSolutions={dbSolutions} />
+      <SectoralClient dbSolutions={dbSolutions} lang={lang} />
     </>
   );
 }
