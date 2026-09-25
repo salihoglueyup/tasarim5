@@ -18,7 +18,8 @@ describe('Wave 10 Final: Faz 246 - Faz 250 Docker Girişi, 250-Faz Sertifikası,
   });
 
   it('Faz 247: generateCertificationSummary master plan dosyasını analiz eder ve dalga özetini çıkarır', () => {
-    const masterPlanPath = path.resolve(process.cwd(), '250_PHASE_PERFORMANCE_MASTER_PLAN.md');
+    const nestedPath = path.resolve(process.cwd(), 'docs/reports/master-plans/250_PHASE_PERFORMANCE_MASTER_PLAN.md');
+    const masterPlanPath = fs.existsSync(nestedPath) ? nestedPath : path.resolve(process.cwd(), '250_PHASE_PERFORMANCE_MASTER_PLAN.md');
     const content = fs.readFileSync(masterPlanPath, 'utf-8');
 
     const summary = generateCertificationSummary(content);

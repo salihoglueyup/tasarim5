@@ -3,7 +3,8 @@ import path from 'path';
 
 console.log('--- 250 Fazlık Performans ve Kalite Sertifikasyonu Raporlayıcı (Faz 247) ---');
 
-const masterPlanPath = path.resolve(process.cwd(), '250_PHASE_PERFORMANCE_MASTER_PLAN.md');
+const nestedPath = path.resolve(process.cwd(), 'docs/reports/master-plans/250_PHASE_PERFORMANCE_MASTER_PLAN.md');
+const masterPlanPath = fs.existsSync(nestedPath) ? nestedPath : path.resolve(process.cwd(), '250_PHASE_PERFORMANCE_MASTER_PLAN.md');
 if (!fs.existsSync(masterPlanPath)) {
   console.error('Hata: 250_PHASE_PERFORMANCE_MASTER_PLAN.md bulunamadı!');
   process.exit(1);
