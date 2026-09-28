@@ -1,28 +1,7 @@
-import { Inter, Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "./globals.css";
+import "./fonts.css";
 import MaterialSymbolsFix from "@/components/ui/branding/MaterialSymbolsFix";
 import GlobalNotFound from "@/components/layout/page/GlobalNotFound";
-
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: 'swap',
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
-  display: 'swap',
-});
-
-const cairo = Cairo({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-cairo",
-  display: 'swap',
-});
 
 export const metadata = {
   metadataBase: new URL('https://aloyonetim.com.tr'),
@@ -36,7 +15,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <html lang="tr" className={`${inter.variable} ${plusJakarta.variable} ${cairo.variable}`}>
+    <html lang="tr">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&display=block"

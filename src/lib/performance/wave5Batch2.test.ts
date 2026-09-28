@@ -13,10 +13,20 @@ describe('Wave 5: Faz 111 - Faz 115 Performans & Medya Geliştirmeleri', () => {
   const lazyMapFacadePath = path.resolve(process.cwd(), 'src/components/ui/media/LazyMapFacade.tsx');
   const liteYouTubePath = path.resolve(process.cwd(), 'src/components/ui/media/LiteYouTubeEmbed.tsx');
 
-  it('Faz 111: layout.tsx Cairo fontunu preload: false yapar ve yalnızca RTL rotalarında yükler', () => {
+  it('Faz 111: fontlar Google üzerinden indirilmez; kendi barındırılan @font-face (unicode-range) kullanılır', () => {
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
-    expect(layoutContent).toContain('preload: false');
-    expect(layoutContent).toContain('isRtl ? cairo.variable :');
+    expect(layoutContent).not.toContain('next/font/google');
+    expect(layoutContent).toContain("import \"../fonts.css\"");
+    const fontsCss = fs.readFileSync(path.resolve(process.cwd(), 'src/app/fonts.css'), 'utf-8');
+    for (const family of ['Inter', 'Plus Jakarta Sans', 'Cairo']) {
+      expect(fontsCss).toContain("font-family: '" + family + "'");
+    }
+    expect(fontsCss).toContain('unicode-range');
+    expect(fontsCss).toContain('--font-cairo');
+    // Türkçe (latin-ext), Rusça (kiril) ve Arapça alt kümeleri mevcut olmalı
+    expect(fs.existsSync(path.resolve(process.cwd(), 'public/fonts/inter-latin-ext-wght-normal.woff2'))).toBe(true);
+    expect(fs.existsSync(path.resolve(process.cwd(), 'public/fonts/inter-cyrillic-wght-normal.woff2'))).toBe(true);
+    expect(fs.existsSync(path.resolve(process.cwd(), 'public/fonts/cairo-arabic-wght-normal.woff2'))).toBe(true);
   });
 
   it('Faz 112: manifest.ts optimize public/favicon/ dizinindeki ikonları referans alır', () => {

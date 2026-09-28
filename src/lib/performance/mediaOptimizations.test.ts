@@ -74,8 +74,11 @@ describe('Wave 5: Medya, AVIF, Font & LCP Optimizasyonları (Faz 101 - Faz 110)'
     expect(cssContent).toContain(expectedSubset);
   });
 
-  it('layout.tsx Inter fontunu yalnızca kullanılan 400, 500, 600, 700 ağırlıklarıyla yükler (Faz 110)', () => {
+  it('Inter değişken font dosyası olarak (100-900) kendi barındırılır, ağırlık başına ayrı dosya yüklenmez (Faz 110)', () => {
+    const fontsCss = fs.readFileSync(path.resolve(process.cwd(), 'src/app/fonts.css'), 'utf-8');
+    expect(fontsCss).toContain("font-family: 'Inter'");
+    expect(fontsCss).toContain('font-weight: 100 900');
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
-    expect(layoutContent).toContain('weight: ["400", "500", "600", "700"]');
+    expect(layoutContent).not.toContain('next/font/google');
   });
 });

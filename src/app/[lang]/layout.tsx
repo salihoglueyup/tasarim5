@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "../globals.css";
+import "../fonts.css";
 import { SmoothScroll, NavigationWrapper, WebVitals, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
 import MaterialSymbolsFix from "@/components/ui/branding/MaterialSymbolsFix";
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
@@ -18,35 +18,9 @@ import ConversionTracker from '@/components/analytics/ConversionTracker';
 
 const dictionaries: Record<string, any> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
-// Türkçe glyph'ler (ç, ğ, ş, ı, İ, ö, ü) için latin-ext subset (SEO V4 Faz 185).
-// display:swap ile font kaynaklı CLS önlenir.
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: 'swap',
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
-  display: 'swap',
-  preload: true,
-  adjustFontFallback: true,
-});
-
-// Faz 111: Cairo fontu preload: false yapılır; yalnızca /ar rotasında html class'ına eklenerek TR/EN/RU rotalarına gereksiz font yükü bindirilmez
-const cairo = Cairo({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-cairo",
-  display: 'swap',
-  preload: false,
-  adjustFontFallback: true,
-});
+// Fontlar (Inter, Plus Jakarta Sans, Cairo) build sırasında Google'dan indirilmez; public/fonts altında
+// barındırılır ve src/app/fonts.css içinde unicode-range ile tanımlanır. Tarayıcı yalnızca sayfada
+// kullanılan alt kümeleri (latin, latin-ext, kiril, arapça) indirir.
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aloyonetim.com.tr"),
@@ -182,7 +156,7 @@ export default async function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} className={`${inter.variable} ${plusJakarta.variable} ${isRtl ? cairo.variable : ''}`}>
+    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} >
       <head>
         {/* v9 Hyper-Speed Resource Hints (Preconnect & DNS-Prefetch) */}
         {EXTERNAL_CDN_HINTS.map((hint, i) => (
@@ -322,7 +296,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${plusJakarta.className} min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)]`}>
+      <body className={`min-h-full flex flex-col antialiased text-[var(--color-on-surface)] bg-[var(--color-background)]`}>
 
         {/* Faz 3, 10, 20: TBT/LCP bozmayan asenkron izole analytics */}
         <AnalyticsScripts gaId={gaId} clarityId={clarityId} fbPixelId={fbPixelId} gtmId={gtmId} />
