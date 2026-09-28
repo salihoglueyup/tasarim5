@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CareerDualProtectionSeo() {
   const [activeTab, setActiveTab] = useState<'both' | 'managers' | 'employees'>('both');
 
@@ -65,9 +66,7 @@ export default function CareerDualProtectionSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              balance
-            </span>
+            <Icon name="balance" className="text-sm" />
             <span>Çift Taraflı Koruma Modeli</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -122,9 +121,7 @@ export default function CareerDualProtectionSeo() {
                 <div className="flex items-center justify-between pb-6 mb-6 border-b border-[var(--color-outline)]/60">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                        apartment
-                      </span>
+                      <Icon name="apartment" className="text-2xl" />
                     </div>
                     <div>
                       <span className="text-xs uppercase tracking-wider text-[var(--color-secondary)] font-bold">
@@ -144,9 +141,7 @@ export default function CareerDualProtectionSeo() {
                   {managerBenefits.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="material-symbols-outlined text-lg" aria-hidden="true">
-                          {item.icon}
-                        </span>
+                        <Icon name={item.icon} className="text-lg" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between gap-2 mb-1">
@@ -182,9 +177,7 @@ export default function CareerDualProtectionSeo() {
                 <div className="flex items-center justify-between pb-6 mb-6 border-b border-[var(--color-outline)]/60">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                        badge
-                      </span>
+                      <Icon name="badge" className="text-2xl" />
                     </div>
                     <div>
                       <span className="text-xs uppercase tracking-wider text-[var(--color-secondary)] font-bold">
@@ -204,9 +197,7 @@ export default function CareerDualProtectionSeo() {
                   {employeeBenefits.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="material-symbols-outlined text-lg" aria-hidden="true">
-                          {item.icon}
-                        </span>
+                        <Icon name={item.icon} className="text-lg" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between gap-2 mb-1">

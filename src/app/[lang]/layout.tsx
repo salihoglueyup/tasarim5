@@ -7,7 +7,6 @@ import { WebVitals } from '@/components/layout/telemetry/WebVitals';
 import AnalyticsScripts from '@/components/layout/telemetry/AnalyticsScripts';
 import FramerLazyProvider from '@/components/ui/effects/FramerLazyProvider';
 import ClientWidgets from '@/components/layout/page/ClientWidgets';
-import MaterialSymbolsFix from "@/components/ui/branding/MaterialSymbolsFix";
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
@@ -182,12 +181,6 @@ export default async function RootLayout({
           fetchPriority="high"
         />
 
-        {/* Google Material Symbols Font (Reliable Synchronous Render - Faz 109) */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&display=block"
-        />
-
         {/* Eski ServiceWorker ve PWA önbelleğini temizleme (F5 yenileme tutarlılığı) */}
         <script
           dangerouslySetInnerHTML={{
@@ -308,7 +301,6 @@ export default async function RootLayout({
         <ConversionTracker />
         <DynamicBreadcrumb />
         
-        <MaterialSymbolsFix />
         <WebVitals />
         <LanguageProvider initialLang={lang} initialDictionary={dictionaries[lang] || trDict}>
           <QuoteProvider>

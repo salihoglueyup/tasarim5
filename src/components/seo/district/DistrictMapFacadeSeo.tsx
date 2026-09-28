@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface DistrictMapFacadeProps {
   districtName: string;
   districtSlug: string;
@@ -69,7 +70,7 @@ export default function DistrictMapFacadeSeo({
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">location_on</span>
+              <Icon name="location_on" className="text-sm" />
               {side} Yakası • {districtName}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
@@ -97,7 +98,7 @@ export default function DistrictMapFacadeSeo({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 transition-all shadow-sm"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">directions</span>
+            <Icon name="directions" className="text-sm" />
             <span>Google Harita Rota</span>
           </a>
 
@@ -108,7 +109,7 @@ export default function DistrictMapFacadeSeo({
             className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-slate-300 transition-colors"
           >
             <span>Apple Harita</span>
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>
@@ -126,7 +127,7 @@ export default function DistrictMapFacadeSeo({
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-slate-50 dark:bg-[var(--color-surface-variant)] select-none">
             <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 ring-8 ring-amber-500/5 shadow-inner">
-              <span className="material-symbols-outlined text-3xl animate-bounce" aria-hidden="true">map</span>
+              <Icon name="map" className="text-3xl animate-bounce" />
             </div>
 
             <h4 className="font-bold text-base text-slate-800 dark:text-slate-200 mb-1">
@@ -141,7 +142,7 @@ export default function DistrictMapFacadeSeo({
               onClick={() => setIsLoaded(true)}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition-all shadow-md cursor-pointer active:scale-95"
             >
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">visibility</span>
+              <Icon name="visibility" className="text-sm" />
               <span>Canlı Haritayı Etkinleştir</span>
             </button>
           </div>

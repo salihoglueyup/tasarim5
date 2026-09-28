@@ -10,6 +10,7 @@ import {
   PoolWaterParameter
 } from '@/data/facilityPoolHealthData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityPoolHealthGuideSeoProps {
   className?: string;
   defaultScopeFilter?: 'Tümü' | 'Açık Havuz' | 'Kapalı Havuz';
@@ -90,7 +91,7 @@ export default function FacilityPoolHealthGuideSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-300 mb-3 border border-cyan-300 dark:border-cyan-700">
-          <span className="material-symbols-outlined text-sm">pool</span>
+          <Icon name="pool" className="text-sm" />
           <span>T.C. Sağlık Bakanlığı & TSE 11899 Uyumlu</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -119,7 +120,7 @@ export default function FacilityPoolHealthGuideSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -131,7 +132,7 @@ export default function FacilityPoolHealthGuideSeo({
           {/* Scope Filters */}
           <div className="flex items-center justify-between flex-wrap gap-3 p-4 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border border-slate-200/80 dark:border-slate-800">
             <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-cyan-600">tune</span>
+              <Icon name="tune" className="text-base text-cyan-600" />
               Havuz Tipine Göre Filtrele:
             </span>
             <div className="flex gap-1.5">
@@ -199,9 +200,7 @@ export default function FacilityPoolHealthGuideSeo({
                     className="mt-3 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1"
                   >
                     <span>{isExpanded ? 'Detayları Kapat' : 'Risk & Düzeltici Eylemi Gör'}</span>
-                    <span className="material-symbols-outlined text-sm">
-                      {isExpanded ? 'expand_less' : 'expand_more'}
-                    </span>
+                    <Icon name={isExpanded ? 'expand_less' : 'expand_more'} className="text-sm" />
                   </button>
 
                   {/* Expandable Health Risk & Action */}
@@ -266,7 +265,7 @@ export default function FacilityPoolHealthGuideSeo({
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-cyan-700 dark:text-cyan-300 font-medium flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-cyan-600">verified</span>
+                  <Icon name="verified" className="text-sm text-cyan-600" />
                   <span>{rule.aloYonetimGuarantee}</span>
                 </div>
               </div>
@@ -305,7 +304,7 @@ export default function FacilityPoolHealthGuideSeo({
                 </p>
 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium">
-                  <span className="material-symbols-outlined text-sm text-cyan-600">description</span>
+                  <Icon name="description" className="text-sm text-cyan-600" />
                   <span>Kayıt Belgesi: {step.recordDocument}</span>
                 </div>
               </div>
@@ -318,7 +317,7 @@ export default function FacilityPoolHealthGuideSeo({
       {activeTab === 'chemicals' && (
         <div className="relative z-10 space-y-4">
           <div className="p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 rounded-2xl text-amber-900 dark:text-amber-200 text-xs md:text-sm flex items-start gap-3">
-            <span className="material-symbols-outlined text-amber-600 text-xl shrink-0 mt-0.5">warning</span>
+            <Icon name="warning" className="text-amber-600 text-xl shrink-0 mt-0.5" />
             <div>
               <strong className="font-semibold block mb-1">Hayati İSG Uyarısı (Klor ve Asit Teması):</strong>
               <span>
@@ -372,7 +371,7 @@ export default function FacilityPoolHealthGuideSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">verified_user</span>
+            <Icon name="verified_user" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

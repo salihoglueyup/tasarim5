@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface VaultDocument {
   id: string;
   title: string;
@@ -116,7 +117,7 @@ export default function FacilityDownloadableVaultSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">folder_open</span>
+          <Icon name="folder_open" className="text-sm" />
           <span>Resmi Tesis Doküman & Şablon Kasası</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -130,7 +131,7 @@ export default function FacilityDownloadableVaultSeo() {
       {/* Notification */}
       {downloadedDoc && (
         <div className="mb-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm flex items-center gap-3 animate-fade-in">
-          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-lg" aria-hidden="true">download_done</span>
+          <Icon name="download_done" className="text-emerald-600 dark:text-emerald-400 text-lg" />
           <span><strong>{downloadedDoc}</strong> başarıyla indirildi.</span>
         </div>
       )}
@@ -148,7 +149,7 @@ export default function FacilityDownloadableVaultSeo() {
                   {doc.category}
                 </span>
                 <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-[var(--color-primary)] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 px-2 py-0.5 rounded">
-                  <span className="material-symbols-outlined text-[13px]" aria-hidden="true">description</span>
+                  <Icon name="description" className="text-[13px]" />
                   {doc.format} · {doc.size}
                 </span>
               </div>
@@ -172,7 +173,7 @@ export default function FacilityDownloadableVaultSeo() {
                 onClick={() => handleDownload(doc)}
                 className="w-full py-2.5 px-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
               >
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
+                <Icon name="download" className="text-sm" />
                 <span>Şablonu İndir ({doc.format})</span>
               </button>
             </div>
@@ -183,7 +184,7 @@ export default function FacilityDownloadableVaultSeo() {
       {/* Footer Info */}
       <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <span className="flex items-center gap-1.5">
-          <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-base text-emerald-600 dark:text-emerald-400" />
           Tüm şablonlar hukuk müşavirliğimiz tarafından 2026 güncel mevzuatına göre revize edilmiştir.
         </span>
         <span className="font-mono text-[11px]">Telif & Lisans: Alo Yönetim A.Ş. Açık Kaynak Şablon Kütüphanesi</span>

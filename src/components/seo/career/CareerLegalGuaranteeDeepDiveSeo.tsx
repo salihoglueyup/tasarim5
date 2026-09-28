@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CareerLegalGuaranteeDeepDiveSeo() {
   const pillars = [
     {
@@ -36,9 +37,7 @@ export default function CareerLegalGuaranteeDeepDiveSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              shield_with_heart
-            </span>
+            <Icon name="shield_with_heart" className="text-sm" />
             <span>Hukuki & Mali Teminat Modeli</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -56,7 +55,7 @@ export default function CareerLegalGuaranteeDeepDiveSeo() {
           <div className="p-6 md:p-8 rounded-3xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-rose-700 dark:text-rose-400 font-bold text-sm mb-3">
-                <span className="material-symbols-outlined text-lg">warning</span>
+                <Icon name="warning" className="text-lg" />
                 <span>Geleneksel / Doğrudan Kapıcı & Güvenlik Riskleri</span>
               </div>
               <h3 className="text-lg font-bold text-[var(--color-primary)] mb-3">
@@ -86,7 +85,7 @@ export default function CareerLegalGuaranteeDeepDiveSeo() {
           <div className="p-6 md:p-8 rounded-3xl bg-[var(--color-surface)] border-2 border-[var(--color-primary)]/30 flex flex-col justify-between shadow-xs">
             <div>
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm mb-3">
-                <span className="material-symbols-outlined text-lg">verified_user</span>
+                <Icon name="verified_user" className="text-lg" />
                 <span>Alo Yönetim İstihdam Köprüsü Güvencesi</span>
               </div>
               <h3 className="text-lg font-bold text-[var(--color-primary)] mb-3">
@@ -109,7 +108,7 @@ export default function CareerLegalGuaranteeDeepDiveSeo() {
             </div>
             <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 text-xs font-semibold text-[var(--color-primary)] flex items-center justify-between">
               <span>Sonuç: 0 TL Beklenmedik Borç, %100 Hukuki Güvence</span>
-              <span className="material-symbols-outlined text-base">check_circle</span>
+              <Icon name="check_circle" className="text-base" />
             </div>
           </div>
         </div>
@@ -123,9 +122,7 @@ export default function CareerLegalGuaranteeDeepDiveSeo() {
             >
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] flex items-center justify-center shrink-0 mb-3">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                    {item.icon}
-                  </span>
+                  <Icon name={item.icon} className="text-xl" />
                 </div>
                 <h4 className="text-sm font-bold text-[var(--color-primary)] mb-2">
                   {item.title}

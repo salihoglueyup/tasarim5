@@ -9,6 +9,7 @@ import {
   B2B_RFP_SPECIFICATION_TEMPLATE,
 } from '@/data/facilityCorporateB2BData';
 
+import Icon from '@/components/ui/branding/Icon';
 type ActiveTab = 'iso-matrix' | 'sla-tiers' | 'rfp-template';
 
 export default function FacilityCorporateB2BHubSeo() {
@@ -42,7 +43,7 @@ export default function FacilityCorporateB2BHubSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">corporate_fare</span>
+            <Icon name="corporate_fare" className="text-[16px]" />
             B2B Kurumsal Gayrimenkul & Tesis Çözümleri
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -123,19 +124,19 @@ export default function FacilityCorporateB2BHubSeo() {
 
                   <ul className="space-y-2.5 text-xs text-[var(--color-secondary)] pt-3 border-t border-[var(--color-outline)]/60">
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">timer</span>
+                      <Icon name="timer" className="text-[var(--color-primary)] text-sm shrink-0 mt-0.5" />
                       <span><strong>Acil Müdahale:</strong> Azami {tier.responseTimeMinutes} dakika içinde yerinde müdahale</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">sensors</span>
+                      <Icon name="sensors" className="text-[var(--color-primary)] text-sm shrink-0 mt-0.5" />
                       <span><strong>BMS Telemetri:</strong> {tier.bmsMonitoring}</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">badge</span>
+                      <Icon name="badge" className="text-[var(--color-primary)] text-sm shrink-0 mt-0.5" />
                       <span><strong>Yerinde Kadro:</strong> {tier.onSiteStaffing}</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">savings</span>
+                      <Icon name="savings" className="text-[var(--color-primary)] text-sm shrink-0 mt-0.5" />
                       <span><strong>Tasarruf Taahhüdü:</strong> {tier.energySavingsGuarantee}</span>
                     </li>
                   </ul>
@@ -207,9 +208,7 @@ export default function FacilityCorporateB2BHubSeo() {
                 onClick={handleCopyRfp}
                 className="shrink-0 px-4 py-2 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
               >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">
-                  {copied ? 'check' : 'content_copy'}
-                </span>
+                <Icon name={copied ? 'check' : 'content_copy'} className="text-base" />
                 <span>{copied ? 'Kopyalandı!' : 'Şartnameyi Kopyala'}</span>
               </button>
             </div>

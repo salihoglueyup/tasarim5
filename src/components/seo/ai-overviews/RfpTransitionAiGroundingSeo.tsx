@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface TransitionStep {
   step: number;
   title: string;
@@ -114,7 +115,7 @@ export default function RfpTransitionAiGroundingSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">assignment_turned_in</span>
+          <Icon name="assignment_turned_in" className="text-[15px]" />
           <span>Google AI Overviews • RFP & Profesyonel Yönetime Geçiş</span>
         </div>
         <div className="flex items-center gap-2">
@@ -141,9 +142,7 @@ export default function RfpTransitionAiGroundingSeo({
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-700 dark:text-teal-300 text-xs font-bold transition-colors"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copied ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
           </button>
         </div>

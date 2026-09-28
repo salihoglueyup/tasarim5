@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface NeighborhoodData {
   name: string;
   avgDuesRange: string;
@@ -71,7 +72,7 @@ export default function DistrictNeighborhoodDuesTableSeo({
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">home_work</span>
+              <Icon name="home_work" className="text-sm" />
               Hiper-Yerel Mahalle Endeksi (2026)
             </span>
           </div>
@@ -88,7 +89,7 @@ export default function DistrictNeighborhoodDuesTableSeo({
           className="px-5 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all hover:scale-105 shrink-0 self-start md:self-auto shadow-md"
         >
           <span>{districtName} Aidat Teklifi Al</span>
-          <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-xs" />
         </Link>
       </div>
 
@@ -112,7 +113,7 @@ export default function DistrictNeighborhoodDuesTableSeo({
                 className="hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors group"
               >
                 <td className="py-4 px-4 font-bold text-[var(--color-primary)] flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm text-slate-500" aria-hidden="true">location_on</span>
+                  <Icon name="location_on" className="text-sm text-slate-500" />
                   <span>{row.name} Mah.</span>
                 </td>
                 <td className="py-4 px-4 font-semibold text-rose-500">
@@ -133,7 +134,7 @@ export default function DistrictNeighborhoodDuesTableSeo({
                     className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:underline"
                   >
                     <span>Fiyat Al</span>
-                    <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-xs" />
                   </Link>
                 </td>
               </tr>

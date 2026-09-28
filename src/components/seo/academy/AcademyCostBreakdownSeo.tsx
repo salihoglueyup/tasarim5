@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function AcademyCostBreakdownSeo() {
   return (
     <section id="ucret-ve-rapor-rehberi" className="py-16 md:py-24 border-b border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)]/20">
@@ -9,9 +10,7 @@ export default function AcademyCostBreakdownSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              payments
-            </span>
+            <Icon name="payments" className="text-sm" />
             <span>Şeffaf Maliyet & Resmi Harç Rehberi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -29,7 +28,7 @@ export default function AcademyCostBreakdownSeo() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 border border-rose-500/20">
-                  <span className="material-symbols-outlined text-2xl">local_hospital</span>
+                  <Icon name="local_hospital" className="text-2xl" />
                 </div>
                 <div>
                   <span className="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">
@@ -52,23 +51,23 @@ export default function AcademyCostBreakdownSeo() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--color-secondary)]">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">psychology</span>
+                    <Icon name="psychology" className="text-sm text-[var(--color-primary)]" />
                     <span><strong>Psikiyatri:</strong> Akıl sağlığı yerinde</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">neurology</span>
+                    <Icon name="neurology" className="text-sm text-[var(--color-primary)]" />
                     <span><strong>Nöroloji:</strong> Nörolojik engel yok</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">visibility</span>
+                    <Icon name="visibility" className="text-sm text-[var(--color-primary)]" />
                     <span><strong>Göz:</strong> Görme kusuru sınırda</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">hearing</span>
+                    <Icon name="hearing" className="text-sm text-[var(--color-primary)]" />
                     <span><strong>KBB:</strong> İşitme ve konuşma tam</span>
                   </div>
                   <div className="flex items-center gap-2 sm:col-span-2">
-                    <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">accessibility</span>
+                    <Icon name="accessibility" className="text-sm text-[var(--color-primary)]" />
                     <span><strong>Ortopedi:</strong> Ayakta fiziki göreve mani hal yok</span>
                   </div>
                 </div>
@@ -90,7 +89,7 @@ export default function AcademyCostBreakdownSeo() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
-                  <span className="material-symbols-outlined text-2xl">receipt_long</span>
+                  <Icon name="receipt_long" className="text-2xl" />
                 </div>
                 <div>
                   <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
@@ -112,7 +111,7 @@ export default function AcademyCostBreakdownSeo() {
                     <div className="font-bold text-[var(--color-primary)]">EGM Polis Akademisi Sınav Harcı</div>
                     <div className="text-[var(--color-secondary)]">Halkbank şubeleri veya internet bankacılığından yatırılır.</div>
                   </div>
-                  <span className="material-symbols-outlined text-lg text-emerald-600 dark:text-emerald-400">check_circle</span>
+                  <Icon name="check_circle" className="text-lg text-emerald-600 dark:text-emerald-400" />
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60 flex items-center justify-between text-xs">
@@ -120,7 +119,7 @@ export default function AcademyCostBreakdownSeo() {
                     <div className="font-bold text-[var(--color-primary)]">Özel Güvenlik Ruhsat Harcı (Vergi Dairesi)</div>
                     <div className="text-[var(--color-secondary)]">Sınavı kazandıktan sonra kimlik kartı basımı için 1 defaya mahsus yatırılır.</div>
                   </div>
-                  <span className="material-symbols-outlined text-lg text-emerald-600 dark:text-emerald-400">account_balance</span>
+                  <Icon name="account_balance" className="text-lg text-emerald-600 dark:text-emerald-400" />
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60 flex items-center justify-between text-xs">
@@ -128,7 +127,7 @@ export default function AcademyCostBreakdownSeo() {
                     <div className="font-bold text-[var(--color-primary)]">Poligon Fişek ve Atış Yolu Gideri</div>
                     <div className="text-[var(--color-secondary)]">Silahlı temel ve yenileme adayları için 25 fişek atış maliyeti kurs paketimize dahildir.</div>
                   </div>
-                  <span className="material-symbols-outlined text-lg text-emerald-600 dark:text-emerald-400">price_check</span>
+                  <Icon name="price_check" className="text-lg text-emerald-600 dark:text-emerald-400" />
                 </div>
               </div>
 

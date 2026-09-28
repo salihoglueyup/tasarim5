@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface BreadcrumbItem {
   name: string;
   url: string;
@@ -42,12 +43,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                   >
                     {item.name}
                   </Link>
-                  <span 
-                    aria-hidden="true" 
-                    className="material-symbols-outlined mx-0.5 text-[var(--color-tertiary)] text-[18px] select-none"
-                  >
-                    chevron_right
-                  </span>
+                  <Icon name="chevron_right" className="mx-0.5 text-[var(--color-tertiary)] text-[18px] select-none" />
                 </>
               )}
             </li>

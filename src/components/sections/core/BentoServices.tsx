@@ -4,6 +4,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 import WalletSvgIcon from '@/components/ui/branding/WalletSvgIcon';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function BentoServices() {
   const { t, language } = useLanguage();
 
@@ -17,7 +18,7 @@ export default function BentoServices() {
       
       <div className="text-center mb-16 sm:mb-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4 border border-[var(--color-outline)]/60">
-          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">domain</span>
+          <Icon name="domain" className="text-[16px]" />
           <span>{t('bs_badge')}</span>
         </div>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[var(--color-primary)] mb-6">
@@ -36,7 +37,7 @@ export default function BentoServices() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-colors pointer-events-none" style={{ transform: "translateZ(0)" }} />
           <div>
             <div className="flex items-center justify-between mb-6">
-              <span className="material-symbols-outlined text-5xl text-[var(--color-primary)]" aria-hidden="true">shield_person</span>
+              <Icon name="shield_person" className="text-5xl text-[var(--color-primary)]" />
               <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 px-3 py-1 rounded-full">
                 {t('bs_licensed')}
               </span>
@@ -57,7 +58,7 @@ export default function BentoServices() {
               {[1, 2, 3].map((num) => (
                 <li key={num} className="flex items-center gap-3">
                   <div className="w-7 h-7 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-[16px] text-[var(--color-primary)]" aria-hidden="true">check</span>
+                    <Icon name="check" className="text-[16px] text-[var(--color-primary)]" />
                   </div>
                   <span className="text-[var(--color-secondary)] font-medium text-base">
                     {t(`home_bento_card1_chk${num}` as Parameters<typeof t>[0])}
@@ -73,7 +74,7 @@ export default function BentoServices() {
               className="text-sm font-bold text-[var(--color-primary)] hover:underline flex items-center gap-2 group/link"
             >
               <span>{t('bs_security_link')}</span>
-              <span className="material-symbols-outlined text-base group-hover/link:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-base group-hover/link:translate-x-1 transition-transform" />
             </Link>
 
             <Link
@@ -89,7 +90,7 @@ export default function BentoServices() {
         <div className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">cleaning_services</span>
+              <Icon name="cleaning_services" className="text-4xl text-[var(--color-primary)]" />
               <span className="text-[11px] font-bold text-[var(--color-secondary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 px-2.5 py-0.5 rounded-full">
                 ISO 14001
               </span>
@@ -118,7 +119,7 @@ export default function BentoServices() {
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
             >
               <span>{t('bs_details')}</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
           </div>
         </div>
@@ -145,7 +146,7 @@ export default function BentoServices() {
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
             >
               <span>{t('bs_details')}</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
           </div>
         </div>
@@ -153,7 +154,7 @@ export default function BentoServices() {
         {/* Card 4: Hukuk */}
         <div className="md:col-span-1 bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
-            <span className="material-symbols-outlined text-4xl text-[var(--color-primary)] mb-4" aria-hidden="true">gavel</span>
+            <Icon name="gavel" className="text-4xl text-[var(--color-primary)] mb-4" />
             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card4_title')}</h3>
             <p className="text-[var(--color-secondary)] text-sm leading-relaxed">
               {t('home_bento_card4_desc')}
@@ -172,7 +173,7 @@ export default function BentoServices() {
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
             >
               <span>{t('bs_details')}</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
           </div>
         </div>
@@ -181,7 +182,7 @@ export default function BentoServices() {
         <div className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">engineering</span>
+              <Icon name="engineering" className="text-4xl text-[var(--color-primary)]" />
               <span className="text-[11px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 px-2.5 py-0.5 rounded-full">
                 {t('bs_on_duty')}
               </span>
@@ -210,7 +211,7 @@ export default function BentoServices() {
               className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
               <span>{t('bs_tech_service')}</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
           </div>
         </div>
@@ -219,7 +220,7 @@ export default function BentoServices() {
         <div className="md:col-span-2 bg-[var(--color-surface)] rounded-[2.5rem] p-8 sm:p-10 border border-[var(--color-outline)]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform-gpu group flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">apartment</span>
+              <Icon name="apartment" className="text-4xl text-[var(--color-primary)]" />
               <span className="text-[11px] font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                 Amiral Gemisi
               </span>
@@ -243,7 +244,7 @@ export default function BentoServices() {
                 className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
                 <span>{t('bs_link_mass')}</span>
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-xs" />
               </Link>
               <span className="text-[var(--color-tertiary)]">·</span>
               <Link 
@@ -251,7 +252,7 @@ export default function BentoServices() {
                 className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
                 <span>{t('bs_link_res')}</span>
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-xs" />
               </Link>
             </div>
           </div>
@@ -261,7 +262,7 @@ export default function BentoServices() {
               className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
               <span>{t('bs_link_guide')}</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
 
             <Link

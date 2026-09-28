@@ -48,6 +48,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import FacilityTestimonials from '@/components/sections/testimonials/FacilityTestimonials';
 import Image from 'next/image';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function TesisYonetimiClient() {
   const { t } = useLanguage();
   const [activeLegalTab, setActiveLegalTab] = useState<'precedents' | 'template'>('precedents');
@@ -168,10 +169,10 @@ export default function TesisYonetimiClient() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote') || 'Ücretsiz Keşif & Teklif Al'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                {t('btn_get_quote') || 'Ücretsiz Keşif & Teklif Al'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
               <Link href="/hesaplayici" className="bg-slate-900/80 hover:bg-slate-900 text-white border border-slate-700 hover:border-slate-500 font-bold py-4 px-8 rounded-xl backdrop-blur-md transition-all hover:scale-105 flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">calculate</span>
+                <Icon name="calculate" className="text-sm text-emerald-400" />
                 <span>Tasarruf & Aidat Hesapla</span>
               </Link>
             </div>
@@ -179,17 +180,17 @@ export default function TesisYonetimiClient() {
             {/* Hızlı Güven Rozetleri (Above the Fold Dwell Time Kancası) */}
             <div className="flex flex-wrap justify-center items-center gap-6 mt-6 text-xs text-white/80">
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">bolt</span>
+                <Icon name="bolt" className="text-emerald-400 text-base" />
                 <span>15-25 Dk Acil SLA Müdahale</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">shield</span>
+                <Icon name="shield" className="text-emerald-400 text-base" />
                 <span>5188 Lisanslı Valilik İzinli Güvenlik</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">trending_down</span>
+                <Icon name="trending_down" className="text-emerald-400 text-base" />
                 <span>%20 - %30 Kanıtlanmış İşletme Tasarrufu</span>
               </div>
             </div>
@@ -221,7 +222,7 @@ export default function TesisYonetimiClient() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-[18px] text-emerald-600 dark:text-emerald-400" />
               <span>Entegre Tesis Yönetimi Metodolojisi</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -258,12 +259,12 @@ export default function TesisYonetimiClient() {
               ,{' '}
               <a href="https://www.iso.org/standard/63022.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all inline-flex items-center gap-0.5">
                 ISO 41001:2018 Uluslararası Tesis Yönetimi Standartları
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Kanunu
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <span className="font-semibold text-[var(--color-primary)]">6331 Sayılı İş Sağlığı ve Güvenliği (İSG) Kanunu</span> çerçevesinde yönetilir.
@@ -318,7 +319,7 @@ export default function TesisYonetimiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
+                  <Icon name="trending_down" className="text-lg" />
                 </span>
                 <span>%25 - %35 Bütçe Tasarrufu</span>
               </div>
@@ -330,7 +331,7 @@ export default function TesisYonetimiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">gavel</span>
+                  <Icon name="gavel" className="text-lg" />
                 </span>
                 <span>KMK 634 & Sıfır Hukuki Risk</span>
               </div>
@@ -342,7 +343,7 @@ export default function TesisYonetimiClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">smartphone</span>
+                  <Icon name="smartphone" className="text-lg" />
                 </span>
                 <span>7/24 Şeffaf Mobil Yönetim</span>
               </div>
@@ -382,7 +383,7 @@ export default function TesisYonetimiClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">dashboard_customize</span>
+              <Icon name="dashboard_customize" className="text-[16px]" />
               <span>İnteraktif Kumanda Masası</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -403,7 +404,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">calculate</span>
+                <Icon name="calculate" className="text-lg" />
                 <span>Kadro & Bütçe Simülatörü</span>
               </button>
 
@@ -416,7 +417,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">description</span>
+                <Icon name="description" className="text-lg" />
                 <span>B2B İhale Şartnamesi (RFP)</span>
               </button>
 
@@ -429,7 +430,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">map</span>
+                <Icon name="map" className="text-lg" />
                 <span>39 İlçe Aidat Isı Haritası</span>
               </button>
 
@@ -442,7 +443,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">fact_check</span>
+                <Icon name="fact_check" className="text-lg" />
                 <span>Tesis Denetim Listesi</span>
               </button>
             </div>
@@ -493,7 +494,7 @@ export default function TesisYonetimiClient() {
             className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-white text-slate-950 font-bold text-xs sm:text-sm transition-all hover:scale-105 shrink-0 flex items-center gap-2 shadow-lg"
           >
             <span>Seçim Rehberini İncele</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </Link>
         </div>
 
@@ -531,7 +532,7 @@ export default function TesisYonetimiClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-6 sm:p-12 shadow-sm">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
+              <Icon name="gavel" className="text-[16px]" />
               634 KMK & Yargıtay Hukuk Kütüphanesi
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -551,7 +552,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">policy</span>
+                <Icon name="policy" className="text-lg" />
                 <span>Yargıtay Emsal Kararları</span>
               </button>
 
@@ -564,7 +565,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">edit_document</span>
+                <Icon name="edit_document" className="text-lg" />
                 <span>KMK 634 Karar & Şablon Jeneratörü</span>
               </button>
             </div>
@@ -603,7 +604,7 @@ export default function TesisYonetimiClient() {
         <div>
           <div className="text-center max-w-2xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/70 text-xs font-bold uppercase tracking-wider mb-2">
-              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology</span>
+              <Icon name="psychology" className="text-[16px]" />
               Hukuk & Mevzuat Masası
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -733,7 +734,7 @@ export default function TesisYonetimiClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">bolt</span>
+              <Icon name="bolt" className="text-[16px]" />
               <span>Enerji & Kurumsal Altyapı Yönetimi</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -753,7 +754,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">ev_station</span>
+                <Icon name="ev_station" className="text-lg" />
                 <span>EV Şarj İstasyonu & EKB Rehberi</span>
               </button>
 
@@ -766,7 +767,7 @@ export default function TesisYonetimiClient() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">sync_alt</span>
+                <Icon name="sync_alt" className="text-lg" />
                 <span>39 İlçe İSKİ, BEDAŞ & İGDAŞ Devir Rehberi</span>
               </button>
             </div>

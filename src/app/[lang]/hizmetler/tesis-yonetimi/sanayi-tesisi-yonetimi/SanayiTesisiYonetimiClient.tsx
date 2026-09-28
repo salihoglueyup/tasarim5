@@ -13,6 +13,7 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
+import Icon from '@/components/ui/branding/Icon';
 const OPERATIONAL_PILLARS = [
   {
     icon: 'health_and_safety',
@@ -143,7 +144,7 @@ export default function SanayiTesisiYonetimiClient() {
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <span className="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">{f.icon}</span>
+                      <Icon name={f.icon} className="text-2xl" />
                     </span>
                     <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-300 border border-orange-200/60 dark:border-orange-800/40">
                       {f.badge}
@@ -161,7 +162,7 @@ export default function SanayiTesisiYonetimiClient() {
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 space-y-1.5">
                   {f.highlights.map((h, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-[var(--color-secondary)]">
-                      <span className="material-symbols-outlined text-emerald-500 text-sm shrink-0" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-emerald-500 text-sm shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -183,7 +184,7 @@ export default function SanayiTesisiYonetimiClient() {
         {/* Sanayi ve OSB Bölgeleri Çapraz Bağlantı Vitrini */}
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-            <span className="material-symbols-outlined text-orange-500 text-xl" aria-hidden="true">precision_manufacturing</span>
+            <Icon name="precision_manufacturing" className="text-orange-500 text-xl" />
             <span>Hizmet Sunduğumuz Başlıca Sanayi ve OSB Aksları</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">

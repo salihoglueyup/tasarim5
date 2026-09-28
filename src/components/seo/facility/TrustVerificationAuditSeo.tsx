@@ -5,6 +5,7 @@ import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface CertificateItem {
   code: string;
   name: string;
@@ -114,7 +115,7 @@ export default function TrustVerificationAuditSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-sm" />
               E-E-A-T Güvenilirlik & Akreditasyon Mührü
             </span>
           </div>
@@ -131,7 +132,7 @@ export default function TrustVerificationAuditSeo() {
           className="px-5 py-3 bg-slate-900 text-white dark:bg-white dark:text-slate-950 hover:opacity-90 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all shrink-0 self-start md:self-auto shadow-md hover:scale-105"
         >
           <span>Tüm Belgeleri Gör & İndir</span>
-          <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-xs" />
         </Link>
       </div>
 
@@ -150,11 +151,9 @@ export default function TrustVerificationAuditSeo() {
                 : 'bg-[var(--color-surface)]/70 border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/20 hover:bg-[var(--color-surface)] shadow-2xs'
             }`}
           >
-            <span className={`material-symbols-outlined text-2xl transition-colors ${
+            <Icon name={c.icon} className={`text-2xl transition-colors ${
               selectedCert === idx ? 'text-[var(--color-primary)]' : 'text-[var(--color-tertiary)]'
-            }`}>
-              {c.icon}
-            </span>
+            }`} />
             <span className="text-xs font-bold text-[var(--color-primary)] line-clamp-1">{c.code}</span>
             <span className="text-[10px] text-[var(--color-secondary)] line-clamp-1">{c.name}</span>
           </button>
@@ -191,7 +190,7 @@ export default function TrustVerificationAuditSeo() {
             onClick={() => handleVerify(active.certNumber)}
             className="w-full md:w-auto px-6 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-xl hover:scale-105"
           >
-            <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">qr_code_scanner</span>
+            <Icon name="qr_code_scanner" className="text-sm font-bold" />
             <span>Sertifikayı Canlı Doğrula</span>
           </button>
 
@@ -208,7 +207,7 @@ export default function TrustVerificationAuditSeo() {
                   className="text-[11px] font-bold text-blue-600 dark:text-blue-400 underline flex items-center gap-1 hover:opacity-80"
                 >
                   <span>BELCERT Resmi Doğrulama Portalı</span>
-                  <span className="material-symbols-outlined text-[12px]" aria-hidden="true">open_in_new</span>
+                  <Icon name="open_in_new" className="text-[12px]" />
                 </a>
               )}
             </div>

@@ -10,6 +10,7 @@ import {
   PestSpeciesProtocol
 } from '@/data/facilityBiocidalPestData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityBiocidalPestGuideSeoProps {
   className?: string;
 }
@@ -73,7 +74,7 @@ export default function FacilityBiocidalPestGuideSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 mb-3 border border-emerald-300 dark:border-emerald-700">
-          <span className="material-symbols-outlined text-sm">verified</span>
+          <Icon name="verified" className="text-sm" />
           <span>Sağlık Bakanlığı Ruhsatlı & WHO IPM Standartlarında</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -102,7 +103,7 @@ export default function FacilityBiocidalPestGuideSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -150,9 +151,7 @@ export default function FacilityBiocidalPestGuideSeo({
                     ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300'
                     : 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300'
                 }`}>
-                  <span className="material-symbols-outlined text-sm">
-                    {activePest.evacuationNeeded ? 'door_front' : 'check_circle'}
-                  </span>
+                  <Icon name={activePest.evacuationNeeded ? 'door_front' : 'check_circle'} className="text-sm" />
                   {activePest.evacuationNeeded
                     ? `Tahliye Şart (${activePest.evacuationDurationHours} Saat)`
                     : 'Evden Çıkmaya Gerek Yok (Kokusuz Jel)'}
@@ -182,7 +181,7 @@ export default function FacilityBiocidalPestGuideSeo({
 
             <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs md:text-sm">
               <div className="flex items-center gap-1.5 font-bold text-emerald-900 dark:text-emerald-200 mb-1">
-                <span className="material-symbols-outlined text-emerald-600 text-base">verified</span>
+                <Icon name="verified" className="text-emerald-600 text-base" />
                 <span>Alo Yönetim Kurumsal Uygulama Protokolü & Periyot:</span>
               </div>
               <p className="text-emerald-800 dark:text-emerald-300 leading-relaxed">
@@ -222,7 +221,7 @@ export default function FacilityBiocidalPestGuideSeo({
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-emerald-700 dark:text-emerald-300 font-medium flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-emerald-600">verified</span>
+                  <Icon name="verified" className="text-sm text-emerald-600" />
                   <span>{req.aloYonetimCompliance}</span>
                 </div>
               </div>
@@ -286,7 +285,7 @@ export default function FacilityBiocidalPestGuideSeo({
               >
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="material-symbols-outlined text-emerald-600 text-xl">health_and_safety</span>
+                    <Icon name="health_and_safety" className="text-emerald-600 text-xl" />
                     <h3 className="font-bold text-slate-900 dark:text-white text-base">
                       {item.riskType}
                     </h3>
@@ -314,7 +313,7 @@ export default function FacilityBiocidalPestGuideSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">security</span>
+            <Icon name="security" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

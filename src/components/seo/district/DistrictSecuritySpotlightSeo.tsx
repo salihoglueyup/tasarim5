@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface DistrictSecuritySpotlightSeoProps {
   districtName: string;
   districtSlug: string;
@@ -25,7 +26,7 @@ export default function DistrictSecuritySpotlightSeo({
       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
         <div className="flex flex-col gap-4 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider w-fit">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">security</span>
+            <Icon name="security" className="text-sm" />
             5188 Kanun Uyumu · {districtName} Güvenlik Masası
           </div>
 
@@ -40,15 +41,15 @@ export default function DistrictSecuritySpotlightSeo({
           {/* 3 Temel Güvence Rozeti */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 text-xs">
-              <span className="material-symbols-outlined text-blue-400 text-lg" aria-hidden="true">verified_user</span>
+              <Icon name="verified_user" className="text-blue-400 text-lg" />
               <span className="font-medium text-gray-200">Valilik 5188 İzin Danışmanlığı</span>
             </div>
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 text-xs">
-              <span className="material-symbols-outlined text-emerald-400 text-lg" aria-hidden="true">videocam</span>
+              <Icon name="videocam" className="text-emerald-400 text-lg" />
               <span className="font-medium text-gray-200">AI PTS & Çevre CCTV</span>
             </div>
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 text-xs">
-              <span className="material-symbols-outlined text-cyan-400 text-lg" aria-hidden="true">shield_with_house</span>
+              <Icon name="shield_with_house" className="text-cyan-400 text-lg" />
               <span className="font-medium text-gray-200">Zorunlu Mali Sorumluluk Sigortası</span>
             </div>
           </div>
@@ -61,7 +62,7 @@ export default function DistrictSecuritySpotlightSeo({
             className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm shadow-lg text-center"
           >
             <span>{districtName} Özel Güvenlik Sayfası</span>
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-lg" />
           </Link>
           <Link
             href={`/teklif-al?hizmet=guvenlik&bolge=${encodeURIComponent(districtName)}`}

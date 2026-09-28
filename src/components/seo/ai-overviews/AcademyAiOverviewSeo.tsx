@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function AcademyAiOverviewSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -71,7 +72,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">security</span>
+          <Icon name="security" className="text-[15px]" />
           <span>Google AI Overviews & 5188 Yasal Yetki Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -86,9 +87,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          shield_person
-        </span>
+        <Icon name="shield_person" className="text-blue-600 dark:text-blue-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -104,7 +103,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">check_circle</span>
+            <Icon name="check_circle" className="text-base" />
             <span className="text-xs font-bold">Yasal Yetkiler</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -114,7 +113,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">block</span>
+            <Icon name="block" className="text-base" />
             <span className="text-xs font-bold">Elle Arama Yasağı</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -124,7 +123,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">badge</span>
+            <Icon name="badge" className="text-base" />
             <span className="text-xs font-bold">5188 Kimlik Kartı</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -134,7 +133,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">domain_verification</span>
+            <Icon name="domain_verification" className="text-base" />
             <span className="text-xs font-bold">Valilik ÖGİ İzni</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -146,7 +145,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="material-symbols-outlined text-sm text-blue-500">gavel</span>
+          <Icon name="gavel" className="text-sm text-blue-500" />
           <span>5188 Sayılı Özel Güvenlik Kanunu & EGM Özel Güvenlik Denetleme Standartları</span>
         </div>
 
@@ -156,9 +155,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-primary">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
             <span>{copied ? 'Kopyalandı!' : 'Özeti Kopyala'}</span>
           </button>
 
@@ -169,7 +166,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CareerRecruitmentStepsSeo() {
   const steps = [
     {
@@ -47,9 +48,7 @@ export default function CareerRecruitmentStepsSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              checklist
-            </span>
+            <Icon name="checklist" className="text-sm" />
             <span>Şeffaf & Standart İşe Alım Protokolü</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -74,9 +73,7 @@ export default function CareerRecruitmentStepsSeo() {
                     {item.step}
                   </span>
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                      {item.icon}
-                    </span>
+                    <Icon name={item.icon} className="text-xl" />
                   </div>
                 </div>
 
@@ -95,7 +92,7 @@ export default function CareerRecruitmentStepsSeo() {
 
               <div className="mt-4 pt-3 border-t border-[var(--color-outline)]/40 text-[11px] font-semibold text-[var(--color-primary)] flex items-center justify-between">
                 <span>Aşama {idx + 1} / 5</span>
-                <span className="material-symbols-outlined text-xs">done</span>
+                <Icon name="done" className="text-xs" />
               </div>
             </div>
           ))}

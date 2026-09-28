@@ -10,6 +10,7 @@ import {
   EnforcementDisputeRoute
 } from '@/data/facilityEnforcementDisputeData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityEnforcementDisputeSeoProps {
   className?: string;
   defaultRoute?: 'itirazin_kaldirilmasi' | 'itirazin_iptali';
@@ -77,7 +78,7 @@ export default function FacilityEnforcementDisputeSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 mb-3 border border-amber-300 dark:border-amber-700">
-          <span className="material-symbols-outlined text-sm">gavel</span>
+          <Icon name="gavel" className="text-sm" />
           <span>İİK Madde 67/68 & KMK Madde 20 Kapsamında İcra Rehberi</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -106,7 +107,7 @@ export default function FacilityEnforcementDisputeSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -210,7 +211,7 @@ export default function FacilityEnforcementDisputeSeo({
                 </div>
 
                 <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-amber-600">verified</span>
+                  <Icon name="verified" className="text-sm text-amber-600" />
                   <span>{stage.aloYonetimProtocol}</span>
                 </div>
               </div>
@@ -290,7 +291,7 @@ export default function FacilityEnforcementDisputeSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">account_balance</span>
+            <Icon name="account_balance" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

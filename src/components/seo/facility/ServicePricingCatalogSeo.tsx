@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BASE_URL } from '@/lib/seo';
 import { SERVICE_PRICING_PACKAGES, ServicePricingPackage } from '@/data/servicePricingPackagesData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ServicePricingCatalogSeoProps {
   pageUrl?: string;
   categoryFilter?: 'all' | 'residential' | 'commercial';
@@ -70,7 +71,7 @@ export default function ServicePricingCatalogSeo({
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-sm" />
           <span>Şeffaf Kurumsal Hizmet ve Maliyet Politikası</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -138,7 +139,7 @@ export default function ServicePricingCatalogSeo({
                 <ul className="space-y-2 mb-4">
                   {pkg.deliverables.slice(0, 3).map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-[var(--color-secondary)]">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-[var(--color-primary)] text-sm shrink-0 mt-0.5" />
                       <span className="line-clamp-2">{item}</span>
                     </li>
                   ))}
@@ -194,7 +195,7 @@ export default function ServicePricingCatalogSeo({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
           {activePackage.deliverables.map((item, idx) => (
             <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-lg shrink-0 mt-0.5" aria-hidden="true">task_alt</span>
+              <Icon name="task_alt" className="text-[var(--color-primary)] text-lg shrink-0 mt-0.5" />
               <span className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">{item}</span>
             </div>
           ))}

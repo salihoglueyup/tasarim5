@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import Link from 'next/link';
 import { BASE_URL } from '@/lib/constants';
 
+import Icon from '@/components/ui/branding/Icon';
 interface NeighborhoodDirectorySeoProps {
   districtName: string; // Örn: "Kadıköy"
   districtSlug: string; // Örn: "kadikoy"
@@ -63,7 +64,7 @@ export default function NeighborhoodDirectorySeo({
       >
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-8 h-8 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">location_on</span>
+            <Icon name="location_on" className="text-lg" />
           </div>
           <div>
             <h3 className="text-base md:text-lg font-bold text-[var(--color-primary)]">

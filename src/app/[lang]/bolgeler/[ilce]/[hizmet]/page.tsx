@@ -44,6 +44,7 @@ import { SERVICES, getService, isServiceAlias } from '@/data/services';
 import { LOCALES } from '@/lib/seo';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
+import Icon from '@/components/ui/branding/Icon';
 // ISR (Faz 120): 96 kombinasyon sayfası günlük yeniden doğrulanır.
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -670,7 +671,7 @@ export default async function ServiceDistrictPage({
               key={b}
               className="flex items-start gap-3 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-5"
             >
-              <span className="material-symbols-outlined text-slate-600 shrink-0" aria-hidden="true">check_circle</span>
+              <Icon name="check_circle" className="text-slate-600 shrink-0" />
               <span className="text-sm text-[var(--color-secondary)] font-medium">{b}</span>
             </div>
           ))}

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import { KMK_LEGAL_QA_DISPUTES, KmkLegalQaDispute } from '@/data/kmkLegalQaDisputesData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface KMKLegalDisputesQAPageSeoProps {
   pageUrl?: string;
 }
@@ -61,7 +62,7 @@ export default function KMKLegalDisputesQAPageSeo({
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">gavel</span>
+          <Icon name="gavel" className="text-sm" />
           <span>Google QAPage & Yargıtay İçtihatları</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -110,7 +111,7 @@ export default function KMKLegalDisputesQAPageSeo({
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4"
               >
                 <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-amber-400 text-xl shrink-0 mt-0.5" aria-hidden="true">help</span>
+                  <Icon name="help" className="text-amber-400 text-xl shrink-0 mt-0.5" />
                   <div>
                     <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">
                       {item.category} • {item.statutoryArticle}
@@ -123,12 +124,10 @@ export default function KMKLegalDisputesQAPageSeo({
 
                 <div className="flex items-center gap-3 shrink-0">
                   <span className="hidden sm:flex items-center gap-1 text-xs text-slate-400 font-semibold">
-                    <span className="material-symbols-outlined text-emerald-400 text-sm" aria-hidden="true">thumb_up</span>
+                    <Icon name="thumb_up" className="text-emerald-400 text-sm" />
                     <span>{item.upvoteCount}</span>
                   </span>
-                  <span className={`material-symbols-outlined text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-amber-400' : ''}`} aria-hidden="true">
-                    expand_more
-                  </span>
+                  <Icon name="expand_more" className={`text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-amber-400' : ''}`} />
                 </div>
               </button>
 
@@ -144,7 +143,7 @@ export default function KMKLegalDisputesQAPageSeo({
                   <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-900/40 space-y-2">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-base" aria-hidden="true">verified</span>
+                        <Icon name="verified" className="text-base" />
                         Uzman Hukuki Çözüm & Karar:
                       </span>
                       <span className="text-[11px] text-slate-400 font-medium">

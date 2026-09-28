@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "5188 Özel Güvenlik & PTS": "smt_1",
   "Ortak Alan & Blok Temizliği": "smt_2",
@@ -135,7 +136,7 @@ export default function ServicesMatcherSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-semibold mb-4">
-            <span className="material-symbols-outlined text-sm">tune</span>
+            <Icon name="tune" className="text-sm" />
             {tx('İnteraktif Çözüm Sihirbazı')}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -176,9 +177,7 @@ export default function ServicesMatcherSeo() {
                         : 'bg-[var(--color-surface)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:border-[var(--color-primary)]'
                     }`}
                   >
-                    <span className="material-symbols-outlined text-2xl text-blue-600 dark:text-blue-400">
-                      {item.icon}
-                    </span>
+                    <Icon name={item.icon} className="text-2xl text-blue-600 dark:text-blue-400" />
                     <div>
                       <div className="text-xs sm:text-sm font-bold text-[var(--color-primary)]">{tx(item.label)}</div>
                       <div className="text-[11px] text-[var(--color-secondary)] font-light">{tx(item.sub)}</div>
@@ -211,9 +210,7 @@ export default function ServicesMatcherSeo() {
                           : 'bg-[var(--color-surface)] border-[var(--color-outline)]/50 text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                       }`}
                     >
-                      <span className="material-symbols-outlined text-base text-amber-600 dark:text-amber-400">
-                        {isChecked ? 'check_box' : 'check_box_outline_blank'}
-                      </span>
+                      <Icon name={isChecked ? 'check_box' : 'check_box_outline_blank'} className="text-base text-amber-600 dark:text-amber-400" />
                       <span>{tx(opt.label)}</span>
                     </button>
                   );
@@ -264,7 +261,7 @@ export default function ServicesMatcherSeo() {
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-md transition-all cursor-pointer"
               >
                 {tx('Bu Pakete Özel Ücretsiz Keşif Al')}
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </Link>
               <Link
                 href={lp(rec.slug)}

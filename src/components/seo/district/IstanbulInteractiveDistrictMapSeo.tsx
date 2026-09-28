@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { DISTRICTS, type District } from '@/data/districts';
 
+import Icon from '@/components/ui/branding/Icon';
 interface IstanbulInteractiveDistrictMapProps {
   initialDistrictSlug?: string;
   className?: string;
@@ -49,7 +50,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
-              <span className="material-symbols-outlined text-[15px]" aria-hidden="true">map</span>
+              <Icon name="map" className="text-[15px]" />
               İstanbul 39 İlçe Saha & Harita Ağı
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
@@ -154,7 +155,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
           {/* Bottom GIS Data Pill */}
           <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-sm text-emerald-500" />
               <span>İstanbul geneli {DISTRICTS.length} ilçede 1.200+ aktif bağımsız bölüm</span>
             </span>
             <a
@@ -164,7 +165,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
               className="font-mono text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
             >
               <span>GeoJSON API</span>
-              <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+              <Icon name="open_in_new" className="text-xs" />
             </a>
           </div>
         </div>
@@ -231,7 +232,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
               className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs transition-all shadow-md"
             >
               <span>{activeDistrict.name} Tesis Yönetimi Sayfası</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
 
             <a
@@ -241,7 +242,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white dark:bg-white/10 hover:bg-slate-100 dark:hover:bg-white/15 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10 px-4 py-3 rounded-xl text-xs font-semibold transition-colors"
               title="Google Haritalar'da Saha Merkezine Rota Aç"
             >
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">directions</span>
+              <Icon name="directions" className="text-sm" />
               <span>Harita Rota</span>
             </a>
           </div>

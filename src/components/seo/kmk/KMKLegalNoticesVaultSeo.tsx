@@ -8,6 +8,7 @@ import {
   LegalNoticeTemplateItem,
 } from '@/data/kmkLegalNoticesTemplatesData';
 
+import Icon from '@/components/ui/branding/Icon';
 type NoticeCategory = 'Tümü' | 'Aidat & İcra' | 'Komşuluk & Mimari' | 'Genel Kurul & Vekalet' | 'Yönetim & Devir Teslim';
 
 export default function KMKLegalNoticesVaultSeo() {
@@ -79,7 +80,7 @@ export default function KMKLegalNoticesVaultSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">description</span>
+            <Icon name="description" className="text-sm" />
             <span>Hukuki Belge & Tutanak Havuzu</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -98,9 +99,7 @@ export default function KMKLegalNoticesVaultSeo() {
       {/* Filter and Search */}
       <div className="flex flex-col lg:flex-row gap-4 mb-8">
         <div className="relative flex-1">
-          <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg" aria-hidden="true">
-            search
-          </span>
+          <Icon name="search" className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg" />
           <input
             type="text"
             value={searchQuery}
@@ -155,7 +154,7 @@ export default function KMKLegalNoticesVaultSeo() {
                   onClick={() => setExpandedId(isExpanded ? '' : template.id)}
                 >
                   <span className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm flex-shrink-0 mt-0.5 sm:mt-0">
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">gavel</span>
+                    <Icon name="gavel" className="text-base" />
                   </span>
                   <div>
                     <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -177,9 +176,7 @@ export default function KMKLegalNoticesVaultSeo() {
                     onClick={() => handleCopy(template.id, template.templateContent)}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white transition shadow"
                   >
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                      {isCopied ? 'check' : 'content_copy'}
-                    </span>
+                    <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
                     <span>{isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>
                   </button>
 
@@ -188,14 +185,9 @@ export default function KMKLegalNoticesVaultSeo() {
                     className="p-1.5 text-slate-400 hover:text-white"
                     aria-label={isExpanded ? 'Detayı Kapat' : 'Detayı Aç'}
                   >
-                    <span
-                      className={`material-symbols-outlined transition-transform duration-200 ${
+                    <Icon name="expand_more" className={`transition-transform duration-200 ${
                         isExpanded ? 'rotate-180 text-amber-400' : ''
-                      }`}
-                      aria-hidden="true"
-                    >
-                      expand_more
-                    </span>
+                      }`} />
                   </button>
                 </div>
               </div>
@@ -267,9 +259,7 @@ export default function KMKLegalNoticesVaultSeo() {
                       </div>
 
                       <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-2">
-                        <span className="material-symbols-outlined text-base flex-shrink-0" aria-hidden="true">
-                          verified
-                        </span>
+                        <Icon name="verified" className="text-base flex-shrink-0" />
                         <span>{template.aloYonetimLegalAssurance}</span>
                       </div>
                     </div>
@@ -284,7 +274,7 @@ export default function KMKLegalNoticesVaultSeo() {
       {/* Footer Info */}
       <div className="mt-8 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-amber-400" aria-hidden="true">info</span>
+          <Icon name="info" className="text-amber-400" />
           <span>
             Şablonlardaki köşeli parantezli [Örn: Tarih, İsim, Tutar] alanları kendi sitenizin bilgilerine göre doldurarak kullanabilirsiniz.
           </span>
@@ -294,7 +284,7 @@ export default function KMKLegalNoticesVaultSeo() {
           className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold transition flex-shrink-0"
         >
           <span>Hukuki Destek Talep Edin</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

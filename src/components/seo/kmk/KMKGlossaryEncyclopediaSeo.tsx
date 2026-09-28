@@ -10,6 +10,7 @@ import {
   GlossaryTerm,
 } from '@/data/kmkGlossaryEncyclopediaData';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function KMKGlossaryEncyclopediaSeo() {
   const [selectedCategory, setSelectedCategory] = useState<GlossaryCategory | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -66,7 +67,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-600/10 dark:bg-indigo-400/10 border border-indigo-600/20 dark:border-indigo-400/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">menu_book</span>
+            <Icon name="menu_book" className="text-[16px]" />
             Google Position Zero (0. Sıra) & KMK Hukuk Ansiklopedisi
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -87,9 +88,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
       <div className="space-y-4 mb-8">
         {/* Live Search Input */}
         <div className="relative">
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-secondary)] text-xl" aria-hidden="true">
-            search
-          </span>
+          <Icon name="search" className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-secondary)] text-xl" />
           <input
             type="text"
             value={searchQuery}
@@ -132,7 +131,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                     : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
                 }`}
               >
-                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">{cat.icon}</span>
+                <Icon name={cat.icon} className="text-[15px]" />
                 <span>{cat.name} ({count})</span>
               </button>
             );
@@ -207,9 +206,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                     className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
                   >
                     <span>{isExpanded ? 'Daha Az Göster' : 'Hukuki Detay & Emsal'}</span>
-                    <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
-                      {isExpanded ? 'expand_less' : 'expand_more'}
-                    </span>
+                    <Icon name={isExpanded ? 'expand_less' : 'expand_more'} className="text-[14px]" />
                   </button>
 
                   <div className="flex items-center gap-2">
@@ -221,7 +218,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                         className="text-[11px] font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] flex items-center gap-0.5"
                         title="Wikidata Varlık Bağlantısı"
                       >
-                        <span className="material-symbols-outlined text-[13px]" aria-hidden="true">open_in_new</span>
+                        <Icon name="open_in_new" className="text-[13px]" />
                         <span>Wikidata</span>
                       </a>
                     )}
@@ -230,9 +227,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                       className="px-2.5 py-1 rounded-lg bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-[11px] font-bold transition-colors flex items-center gap-1"
                       aria-label="Tanımı Kopyala"
                     >
-                      <span className="material-symbols-outlined text-[13px]" aria-hidden="true">
-                        {isCopied ? 'check' : 'content_copy'}
-                      </span>
+                      <Icon name={isCopied ? 'check' : 'content_copy'} className="text-[13px]" />
                       <span>{isCopied ? 'Kopyalandı' : 'Kopyala'}</span>
                     </button>
                   </div>
@@ -247,7 +242,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
       <div className="mt-8 p-5 md:p-6 rounded-2xl bg-gradient-to-r from-indigo-900/10 via-slate-900/5 to-indigo-900/10 dark:from-indigo-950/40 dark:via-slate-900/20 dark:to-indigo-950/40 border border-indigo-600/30 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-            <span className="material-symbols-outlined text-xl" aria-hidden="true">apartment</span>
+            <Icon name="apartment" className="text-xl" />
           </div>
           <div>
             <h4 className="text-sm md:text-base font-bold text-[var(--color-primary)]">
@@ -263,7 +258,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
           className="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-all shadow-sm hover:shadow inline-flex items-center gap-1.5"
         >
           <span>Entegre Tesis Yönetimi</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

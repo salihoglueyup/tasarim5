@@ -8,6 +8,7 @@ import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib
 import { CERTIFICATES, getCertificate } from '@/data/certificates';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
+import Icon from '@/components/ui/branding/Icon';
 export const revalidate = 2592000; // 30 gün
 
 export function generateStaticParams() {
@@ -99,7 +100,7 @@ export default async function CertificatePage({
               {/* Akreditasyon rozeti + başlık + açıklama */}
               <div className="flex items-start gap-5">
                 <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-xl shrink-0`}>
-                  <span className="material-symbols-outlined text-white text-4xl" aria-hidden="true">{cert.icon}</span>
+                  <Icon name={cert.icon} className="text-white text-4xl" />
                 </div>
                 <div className="pt-1">
                   <p className={`text-xs font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r ${cert.color} mb-1`}>
@@ -128,7 +129,7 @@ export default async function CertificatePage({
               <div>
                 <h3 className="text-base font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
                   <span className="w-7 h-7 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">star</span>
+                    <Icon name="star" className="text-[15px]" />
                   </span>
                   Bu Sertifikanın Size Sağladığı Faydalar
                 </h3>
@@ -139,7 +140,7 @@ export default async function CertificatePage({
                       className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 flex gap-4 shadow-xs hover:shadow-md transition-shadow"
                     >
                       <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center shrink-0 shadow`}>
-                        <span className="material-symbols-outlined text-white text-xl" aria-hidden="true">{f.icon}</span>
+                        <Icon name={f.icon} className="text-white text-xl" />
                       </div>
                       <div>
                         <p className="text-sm font-bold text-[var(--color-primary)] mb-1">{f.title}</p>
@@ -154,7 +155,7 @@ export default async function CertificatePage({
               <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 md:p-8 space-y-6 shadow-xs">
                 <div className="flex items-center justify-between border-b border-[var(--color-outline)]/40 pb-4">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-emerald-600 dark:text-emerald-400" />
                     <h3 className="text-base font-bold text-[var(--color-primary)]">Resmi Belge Künyesi &amp; Tescil Bilgileri</h3>
                   </div>
                   <span className="text-xs font-mono font-bold px-3 py-1 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 rounded-full">
@@ -213,7 +214,7 @@ export default async function CertificatePage({
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-opacity shadow-sm shrink-0"
                   >
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
+                    <Icon name="open_in_new" className="text-sm" />
                     <span>BELCERT Belge Doğrulama</span>
                   </a>
                 </div>
@@ -223,7 +224,7 @@ export default async function CertificatePage({
               <div>
                 <h3 className="text-base font-bold text-[var(--color-primary)] mb-5 flex items-center gap-2">
                   <span className="w-7 h-7 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">timeline</span>
+                    <Icon name="timeline" className="text-[15px]" />
                   </span>
                   BELCERT / ILAS Yıllık Denetim ve Yenileme Süreci
                 </h3>
@@ -251,7 +252,7 @@ export default async function CertificatePage({
               <div>
                 <h3 className="text-base font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
                   <span className="w-7 h-7 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">gavel</span>
+                    <Icon name="gavel" className="text-[15px]" />
                   </span>
                   İlgili Kanun ve Mevzuat
                 </h3>
@@ -277,7 +278,7 @@ export default async function CertificatePage({
                   href={cert.relatedPath}
                   className={`inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r ${cert.color} text-white font-bold rounded-xl text-sm shadow hover:opacity-90 transition-opacity w-fit`}
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-base" />
                   {cert.relatedLabel ?? 'İlgili hizmetimizi inceleyin'}
                 </Link>
               )}
@@ -290,7 +291,7 @@ export default async function CertificatePage({
               <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl overflow-hidden shadow-md">
                 <div className="bg-slate-50 dark:bg-slate-800 px-5 py-3.5 flex items-center justify-between border-b border-slate-200/60 dark:border-slate-700">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-base text-slate-600 dark:text-slate-400" aria-hidden="true">picture_as_pdf</span>
+                    <Icon name="picture_as_pdf" className="text-base text-slate-600 dark:text-slate-400" />
                     <span className="text-xs font-semibold text-[var(--color-secondary)]">Sertifika Önizlemesi</span>
                   </div>
                   <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">
@@ -314,7 +315,7 @@ export default async function CertificatePage({
                 aria-label={`${cert.name} sertifikasını PDF formatında indir`}
                 className={`flex items-center justify-center gap-3 bg-gradient-to-r ${cert.color} text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:opacity-90 transition-opacity`}
               >
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">download</span>
+                <Icon name="download" className="text-xl" />
                 <span>Resmi Sertifikayı İndir</span>
                 <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-medium ml-1">PDF · 1.8 MB</span>
               </a>
@@ -326,7 +327,7 @@ export default async function CertificatePage({
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[var(--color-primary)] font-semibold py-3 px-6 rounded-2xl hover:shadow-md transition-shadow text-sm"
               >
-                <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-emerald-600 dark:text-emerald-400 text-base" />
                 BELCERT'ten Online Doğrula
               </a>
 
@@ -335,14 +336,14 @@ export default async function CertificatePage({
                 href="/kurumsal/kalite-belgelerimiz"
                 className="flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-800 text-[var(--color-primary)] font-semibold py-3 px-6 rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm"
               >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+                <Icon name="arrow_back" className="text-base" />
                 Tüm Kalite Belgelerimiz
               </Link>
 
               {/* Akreditasyon Bilgi Kutusu */}
               <div className="bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 space-y-2">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-lg" aria-hidden="true">security</span>
+                  <Icon name="security" className="text-blue-600 dark:text-blue-400 text-lg" />
                   <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">Akreditasyon Güvencesi</span>
                 </div>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
@@ -362,7 +363,7 @@ export default async function CertificatePage({
       <section className="py-16 bg-white dark:bg-[#0a0a0f] px-[var(--spacing-gutter)]">
         <div className="max-w-[var(--spacing-container-max)] mx-auto">
           <h2 className="text-xl font-extrabold text-[var(--color-primary)] mb-8 flex items-center gap-2">
-            <span className="material-symbols-outlined text-[var(--color-tertiary)]" aria-hidden="true">workspace_premium</span>
+            <Icon name="workspace_premium" className="text-[var(--color-tertiary)]" />
             Diğer Kalite Belgelerimiz
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -373,7 +374,7 @@ export default async function CertificatePage({
                 className="bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-white/10 rounded-2xl p-5 flex items-center gap-4 hover:shadow-lg transition-all hover:-translate-y-0.5 group"
               >
                 <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${c.color} flex items-center justify-center shrink-0 shadow`}>
-                  <span className="material-symbols-outlined text-white text-xl" aria-hidden="true">{c.icon}</span>
+                  <Icon name={c.icon} className="text-white text-xl" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-[var(--color-tertiary)]">{c.name}</p>

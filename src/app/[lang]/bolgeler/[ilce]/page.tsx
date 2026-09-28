@@ -35,6 +35,7 @@ import { SERVICES } from '@/data/services';
 import { getNeighborDistrictLinks, getCrossSideDistrictLinks } from '@/lib/seo/facility/districtCrossLinker';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 
+import Icon from '@/components/ui/branding/Icon';
 // ISR: yüzlerce yerel sayfa için günlük yeniden doğrulama (Faz 120/126).
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -166,7 +167,7 @@ export default async function DistrictPage({
             <ul className="flex flex-col gap-3 mt-2">
               {district.localNeeds.map((need) => (
                 <li key={need} className="flex items-start gap-3 text-sm text-[var(--color-secondary)]">
-                  <span className="material-symbols-outlined text-slate-600 text-lg shrink-0" aria-hidden="true">check_circle</span>
+                  <Icon name="check_circle" className="text-slate-600 text-lg shrink-0" />
                   {need}
                 </li>
               ))}
@@ -232,7 +233,7 @@ export default async function DistrictPage({
                 href={`/bolgeler/${district.slug}/${s.slug}`}
                 className="group bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-7 flex flex-col gap-3 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
               >
-                <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white" aria-hidden="true">{s.icon}</span>
+                <Icon name={s.icon} className="text-3xl text-slate-900 dark:text-white" />
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">
                   {s.shortName} — {district.name}
                 </h3>
@@ -327,7 +328,7 @@ export default async function DistrictPage({
                 href={`/bolgeler/${district.slug}/mahalleler`}
                 className="text-sm text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1"
               >
-                Tümünü gör <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                Tümünü gör <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -338,7 +339,7 @@ export default async function DistrictPage({
                   className="group flex flex-col gap-1.5 p-4 border border-[var(--color-outline)]/40 rounded-xl hover:border-brand-500/50 hover:bg-brand-50 dark:hover:bg-brand-900/10 transition-colors"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-base" aria-hidden="true">location_on</span>
+                    <Icon name="location_on" className="text-brand-600 dark:text-brand-400 text-base" />
                     <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                       {n.name}
                     </span>
@@ -385,7 +386,7 @@ export default async function DistrictPage({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">gavel</span>
+                  <Icon name="gavel" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">KMK 634 & Hızlı İcra Takibi</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
@@ -395,7 +396,7 @@ export default async function DistrictPage({
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">verified_user</span>
+                  <Icon name="verified_user" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">5188 Valilik İzinli Güvenlik</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
@@ -405,7 +406,7 @@ export default async function DistrictPage({
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">engineering</span>
+                  <Icon name="engineering" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">A Tipi Yeşil Etiket & 45 Dk SLA</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
@@ -491,7 +492,7 @@ export default async function DistrictPage({
         <div className="p-8 rounded-[2.5rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[15px] text-blue-600 dark:text-blue-400" aria-hidden="true">hub</span>
+              <Icon name="hub" className="text-[15px] text-blue-600 dark:text-blue-400" />
               <span>İstanbul Merkezi Tesis Yönetim Hub Standardı</span>
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)]">
@@ -507,12 +508,12 @@ export default async function DistrictPage({
             {district.totalResidentialSitesEstimated && (
               <div className="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">
                 <span className="flex items-center gap-1 font-semibold text-emerald-400">
-                  <span className="material-symbols-outlined text-[16px]" aria-hidden="true">domain</span>
+                  <Icon name="domain" className="text-[16px]" />
                   Tahmini {district.totalResidentialSitesEstimated.toLocaleString('tr-TR')}+ Konut Sitesi & Apartman
                 </span>
                 {district.prominentProjects && district.prominentProjects.length > 0 && (
                   <span className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px] text-blue-400" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-[16px] text-blue-400" />
                     Öne Çıkan Projeler: {district.prominentProjects.slice(0, 4).join(', ')}
                   </span>
                 )}
@@ -529,7 +530,7 @@ export default async function DistrictPage({
             className="shrink-0 px-6 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-2 group cursor-pointer"
           >
             <span>Merkezi Tesis Yönetimi Standartları</span>
-            <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -547,7 +548,7 @@ export default async function DistrictPage({
                   className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/60 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
                 >
                   <span>{neighbor.name}</span>
-                  <span className="material-symbols-outlined text-[14px] text-blue-500" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-[14px] text-blue-500" />
                 </Link>
               ))}
             </div>
@@ -568,7 +569,7 @@ export default async function DistrictPage({
                   className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-blue-200/40 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
                 >
                   <span>{cross.name}</span>
-                  <span className="material-symbols-outlined text-[14px] text-blue-500" aria-hidden="true">explore</span>
+                  <Icon name="explore" className="text-[14px] text-blue-500" />
                 </Link>
               ))}
             </div>

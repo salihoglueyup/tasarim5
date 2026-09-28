@@ -8,6 +8,7 @@ import {
   KmkAuditCheckpoint,
 } from '@/data/kmkAuditProtocolData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface KMKAuditProtocolSeoProps {
   pageUrl?: string;
 }
@@ -58,7 +59,7 @@ export default function KMKAuditProtocolSeo({
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">fact_check</span>
+          <Icon name="fact_check" className="text-sm" />
           <span>KMK Madde 41 Yasal Denetim Standartları</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -96,7 +97,7 @@ export default function KMKAuditProtocolSeo({
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
               }`}
             >
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">{cat.icon}</span>
+              <Icon name={cat.icon} className="text-sm" />
               <span>{cat.title} ({count})</span>
             </button>
           );
@@ -137,9 +138,7 @@ export default function KMKAuditProtocolSeo({
                     </div>
                   </div>
                 </div>
-                <span className={`material-symbols-outlined text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-purple-400' : ''}`} aria-hidden="true">
-                  expand_more
-                </span>
+                <Icon name="expand_more" className={`text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-purple-400' : ''}`} />
               </button>
 
               {isExpanded && (
@@ -154,7 +153,7 @@ export default function KMKAuditProtocolSeo({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="p-3.5 rounded-xl bg-rose-950/20 border border-rose-900/40">
                       <span className="font-bold text-rose-400 flex items-center gap-1.5 mb-1 text-xs">
-                        <span className="material-symbols-outlined text-sm" aria-hidden="true">warning</span>
+                        <Icon name="warning" className="text-sm" />
                         İhmal Halinde Doğacak Yasal Risk:
                       </span>
                       <p className="text-rose-200/90 text-xs leading-relaxed font-normal">
@@ -164,7 +163,7 @@ export default function KMKAuditProtocolSeo({
 
                     <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-900/40">
                       <span className="font-bold text-emerald-400 flex items-center gap-1.5 mb-1 text-xs">
-                        <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                        <Icon name="verified" className="text-sm" />
                         Alo Yönetim Çözüm ve Güvencesi:
                       </span>
                       <p className="text-emerald-200/90 text-xs leading-relaxed font-normal">

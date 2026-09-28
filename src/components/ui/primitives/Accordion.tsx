@@ -2,6 +2,7 @@
 
 import React, { useState, useId } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface AccordionItem {
   title: string;
   content: React.ReactNode;
@@ -45,13 +46,9 @@ export const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) =
               className="w-full flex items-center justify-between p-6 text-left font-bold text-lg text-[var(--color-primary)] cursor-pointer"
             >
               <span>{item.title}</span>
-              <span
-                className={`material-symbols-outlined text-[var(--color-primary)] shrink-0 ml-4 transition-transform duration-300 transform-gpu ${
+              <Icon name="expand_more" className={`text-[var(--color-primary)] shrink-0 ml-4 transition-transform duration-300 transform-gpu ${
                   isOpen ? 'rotate-180' : 'rotate-0'
-                }`}
-              >
-                expand_more
-              </span>
+                }`} />
             </button>
             <div
               id={panelId}

@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import DeleteSectoralButton from './DeleteSectoralButton';
 
+import Icon from '@/components/ui/branding/Icon';
 export default async function AdminSectoralSolutions({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const solutions = await prisma.sectoralSolution.findMany({
@@ -43,7 +44,7 @@ export default async function AdminSectoralSolutions({ params }: { params: Promi
                     </span>
                   </td>
                   <td className="p-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-slate-400" aria-hidden="true">{sol.icon}</span>
+                    <Icon name={sol.icon} className="text-slate-400" />
                     <div className="font-medium text-slate-900 dark:text-gray-200 group-hover:text-[var(--color-primary)] transition-colors">{sol.title}</div>
                   </td>
                   <td className="p-4">

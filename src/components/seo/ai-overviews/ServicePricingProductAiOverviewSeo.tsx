@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface PricingPackageItem {
   id: string;
   title: string;
@@ -140,7 +141,7 @@ export default function ServicePricingProductAiOverviewSeo({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4">
         <div className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 border border-amber-400/30 font-bold text-xl">
-            <span className="material-symbols-outlined text-2xl">payments</span>
+            <Icon name="payments" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
@@ -163,9 +164,7 @@ export default function ServicePricingProductAiOverviewSeo({
           aria-label="Fiyat özetini kopyala"
           className="inline-flex items-center gap-1.5 rounded-lg border border-amber-400/30 bg-amber-500/10 px-3 py-1.5 text-xs font-medium text-amber-200 transition-colors hover:bg-amber-500/20 active:scale-95"
         >
-          <span className="material-symbols-outlined text-sm">
-            {copied ? 'done' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
           {copied ? 'Kopyalandı' : 'Fiyat AI Özetini Kopyala'}
         </button>
       </div>
@@ -173,9 +172,7 @@ export default function ServicePricingProductAiOverviewSeo({
       {/* Instant Answer Box */}
       <div className="mt-4 rounded-xl border border-amber-400/20 bg-amber-950/20 p-4">
         <div className="flex items-start gap-2.5">
-          <span className="material-symbols-outlined text-amber-400 text-lg shrink-0 mt-0.5">
-            verified
-          </span>
+          <Icon name="verified" className="text-amber-400 text-lg shrink-0 mt-0.5" />
           <p
             id="pricing-product-instant-answer-text"
             className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
@@ -231,9 +228,7 @@ export default function ServicePricingProductAiOverviewSeo({
                 <ul className="mt-3 flex flex-col gap-2 text-xs text-slate-300 border-t border-slate-800 pt-3">
                   {pkg.features.map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-amber-400 text-sm shrink-0 mt-0.5">
-                        check_circle
-                      </span>
+                      <Icon name="check_circle" className="text-amber-400 text-sm shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </li>
                   ))}

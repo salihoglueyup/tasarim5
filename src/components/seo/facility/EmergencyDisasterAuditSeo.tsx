@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface AuditItem {
   id: string;
   title: string;
@@ -120,7 +121,7 @@ export default function EmergencyDisasterAuditSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">emergency</span>
+              <Icon name="emergency" className="text-sm" />
               AFAD & Yangın Yönetmeliği Uyum Denetimi
             </span>
           </div>
@@ -169,7 +170,7 @@ export default function EmergencyDisasterAuditSeo() {
                 }`}
               >
                 {isChecked && (
-                  <span className="material-symbols-outlined text-base font-bold" aria-hidden="true">check</span>
+                  <Icon name="check" className="text-base font-bold" />
                 )}
               </div>
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FaqItem {
   q: string;
   a: string;
@@ -57,9 +58,7 @@ export default function GesAuthorityFaqSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">
-              help_center
-            </span>
+            <Icon name="help_center" className="text-sm text-amber-500" />
             <span>Mevzuat, Finans & Mühendislik Cevapları</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -89,13 +88,7 @@ export default function GesAuthorityFaqSeo() {
                   </span>
                   <span className="text-sm sm:text-base font-bold">{faq.q}</span>
                 </div>
-                <span
-                  className="material-symbols-outlined text-amber-500 transition-transform duration-300 shrink-0"
-                  style={{ transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0)' }}
-                  aria-hidden="true"
-                >
-                  expand_more
-                </span>
+                <Icon name="expand_more" className="text-amber-500 transition-transform duration-300 shrink-0" style={{ transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0)' }} />
               </button>
 
               {openIndex === idx && (
@@ -111,7 +104,7 @@ export default function GesAuthorityFaqSeo() {
         <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-3xl">download_for_offline</span>
+              <Icon name="download_for_offline" className="text-3xl" />
             </div>
             <div>
               <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
@@ -132,7 +125,7 @@ export default function GesAuthorityFaqSeo() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg transition-all shrink-0 w-full md:w-auto text-center"
           >
-            <span className="material-symbols-outlined text-lg">description</span>
+            <Icon name="description" className="text-lg" />
             <span>Şablonu Ücretsiz İste</span>
           </a>
         </div>

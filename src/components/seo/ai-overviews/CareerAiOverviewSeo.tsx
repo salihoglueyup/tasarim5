@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { className?: string; lang?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -43,7 +44,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">badge</span>
+          <Icon name="badge" className="text-[15px]" />
           <span>Google AI Overviews & İstihdam ve Personel Güvencesi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -58,9 +59,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          work_history
-        </span>
+        <Icon name="work_history" className="text-[var(--color-primary)] text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -76,7 +75,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
           <div className="flex items-center gap-2 text-[var(--color-primary)] mb-1.5">
-            <span className="material-symbols-outlined text-base">shield</span>
+            <Icon name="shield" className="text-base" />
             <span className="text-xs font-bold">Tazminat Fonu</span>
           </div>
           <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
@@ -86,7 +85,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
 
         <div className="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
           <div className="flex items-center gap-2 text-[var(--color-primary)] mb-1.5">
-            <span className="material-symbols-outlined text-base">receipt_long</span>
+            <Icon name="receipt_long" className="text-base" />
             <span className="text-xs font-bold">Bordro & SGK</span>
           </div>
           <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
@@ -96,7 +95,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
 
         <div className="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
           <div className="flex items-center gap-2 text-[var(--color-primary)] mb-1.5">
-            <span className="material-symbols-outlined text-base">health_and_safety</span>
+            <Icon name="health_and_safety" className="text-base" />
             <span className="text-xs font-bold">6331 İSG Denetimi</span>
           </div>
           <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
@@ -106,7 +105,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
 
         <div className="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
           <div className="flex items-center gap-2 text-[var(--color-primary)] mb-1.5">
-            <span className="material-symbols-outlined text-base">school</span>
+            <Icon name="school" className="text-base" />
             <span className="text-xs font-bold">Sürekli Akademi</span>
           </div>
           <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
@@ -118,7 +117,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)]/60 relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-secondary)]">
-          <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">gavel</span>
+          <Icon name="gavel" className="text-sm text-[var(--color-primary)]" />
           <span>4857 Sayılı İş Kanunu & Yargıtay Hukuk Genel Kurulu İçtihatları Kapsamında</span>
         </div>
 
@@ -128,9 +127,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-[var(--color-primary)]" />
             <span>{copied ? 'Kopyalandı!' : 'Özeti Kopyala'}</span>
           </button>
 
@@ -141,7 +138,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

@@ -15,12 +15,7 @@ export interface ResourceHint {
 }
 
 export const EXTERNAL_CDN_HINTS: ResourceHint[] = [
-  // Google Fonts & Material Symbols CDN (Preconnect — el sıkışmayı hemen başlatır)
-  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-
-  // Unsplash Görsel Sunucuları (DNS Prefetch)
-  { rel: 'dns-prefetch', href: 'https://images.unsplash.com' },
+  // Fontlar ve ikonlar kendi alan adımızdan (public/fonts, public/icons) sunulur; Google Fonts hint'i gerekmez.
 
   // Google Analytics & Tag Manager (DNS Prefetch — DNS çözümlemesini arka planda bitirir)
   { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },

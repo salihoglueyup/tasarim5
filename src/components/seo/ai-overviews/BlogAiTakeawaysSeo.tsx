@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface BlogAiTakeawaysProps {
   title: string;
   takeaways?: string[];
@@ -79,7 +80,7 @@ export default function BlogAiTakeawaysSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
-          <span className="material-symbols-outlined text-[15px] text-amber-500 dark:text-amber-400" aria-hidden="true">auto_awesome</span>
+          <Icon name="auto_awesome" className="text-[15px] text-amber-500 dark:text-amber-400" />
           <span>Google AI & Gemini • Önemli Çıkarımlar (Key Takeaways)</span>
         </div>
 
@@ -87,9 +88,7 @@ export default function BlogAiTakeawaysSeo({
           onClick={handleCopy}
           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white dark:bg-white/10 hover:bg-slate-100 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 text-xs font-bold transition-colors shadow-xs cursor-pointer"
         >
-          <span className="material-symbols-outlined text-sm text-slate-500 dark:text-slate-400" aria-hidden="true">
-            {copied ? 'done' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'done' : 'content_copy'} className="text-sm text-slate-500 dark:text-slate-400" />
           <span>{copied ? 'Kopyalandı' : 'Maddeleri Kopyala'}</span>
         </button>
       </div>

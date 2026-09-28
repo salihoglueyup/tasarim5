@@ -5,6 +5,7 @@ import { BASE_URL } from '@/lib/seo';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CorporateEntityAiOverviewSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -98,7 +99,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       {/* Top Badge Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-[15px]" />
           <span>Google AI Overviews & E-E-A-T Kurumsal Otorite Kartı</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -116,9 +117,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-primary text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          help_center
-        </span>
+        <Icon name="help_center" className="text-primary text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -157,7 +156,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       {/* Action Footnotes & LLM Prompts */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="material-symbols-outlined text-sm text-emerald-500">gavel</span>
+          <Icon name="gavel" className="text-sm text-emerald-500" />
           <span>Resmi Sicil & BELCERT (ILAS) Belgeleri ile Doğrulanmıştır</span>
         </div>
 
@@ -167,9 +166,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-primary">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
             <span>{copied ? 'Kopyalandı!' : 'AI Özetini Kopyala'}</span>
           </button>
 
@@ -180,7 +177,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

@@ -15,6 +15,7 @@ import AiOverviewStepSolverSeo from '@/components/seo/ai-overviews/AiOverviewSte
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
+import Icon from '@/components/ui/branding/Icon';
 const SEVEN_FATAL_MISTAKES = [
   {
     num: '01',
@@ -112,7 +113,7 @@ export default function TesisYonetimiRehberClient() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="#rfp-section" className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg flex items-center gap-2">
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">download</span>
+                <Icon name="download" className="text-lg" />
                 <span>Şartname (RFP) Oluştur & İndir</span>
               </a>
               <Link href="/teklif-al" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
@@ -167,7 +168,7 @@ export default function TesisYonetimiRehberClient() {
 
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 bg-emerald-500/5 dark:bg-emerald-950/20 p-3.5 rounded-2xl border-emerald-500/20">
                   <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1 mb-1">
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-sm" />
                     <span>Alo Yönetim Standart Çözümü:</span>
                   </div>
                   <p className="text-xs text-[var(--color-primary)] leading-relaxed font-medium">

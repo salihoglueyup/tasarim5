@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
 
+import Icon from '@/components/ui/branding/Icon';
 type LoginModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -67,7 +68,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
               className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 rounded-full text-slate-500 dark:text-gray-300 transition-colors z-20 cursor-pointer"
               aria-label="Kapat"
             >
-              <span className="material-symbols-outlined text-lg" aria-hidden="true">close</span>
+              <Icon name="close" className="text-lg" />
             </button>
 
             {/* Header Content */}
@@ -102,7 +103,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     activeTab === 'sakin' ? 'text-[#00A5DF] dark:text-[#00A5DF]' : 'text-slate-600 dark:text-slate-400'
                   }`}
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">person</span>
+                  <Icon name="person" className="text-base" />
                   <span>Sakin Girişi</span>
                 </button>
                 <button 
@@ -112,7 +113,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     activeTab === 'yonetici' ? 'text-[#FF9503] dark:text-[#FF9503]' : 'text-slate-600 dark:text-slate-400'
                   }`}
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">admin_panel_settings</span>
+                  <Icon name="admin_panel_settings" className="text-base" />
                   <span>Yönetici Portalı</span>
                 </button>
               </div>
@@ -137,14 +138,14 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     >
                       <div className="flex items-center gap-3.5">
                         <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
-                          <span className="material-symbols-outlined text-2xl" aria-hidden="true">open_in_browser</span>
+                          <Icon name="open_in_browser" className="text-2xl" />
                         </div>
                         <div className="text-left">
                           <div className="text-sm sm:text-base font-extrabold">Apsiyon Web Portalı Girişi</div>
                           <div className="text-xs text-white/80 font-normal">online.apsiyon.com üzerinden giriş</div>
                         </div>
                       </div>
-                      <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-xl group-hover:translate-x-1 transition-transform" />
                     </a>
 
                     {/* Ayraç */}
@@ -165,7 +166,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-white/10 transition-colors group cursor-pointer text-center"
                       >
-                        <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white mb-1 group-hover:scale-110 transition-transform" aria-hidden="true">phone_iphone</span>
+                        <Icon name="phone_iphone" className="text-2xl text-slate-900 dark:text-white mb-1 group-hover:scale-110 transition-transform" />
                         <span className="text-[11px] font-bold text-slate-800 dark:text-white leading-tight">App Store</span>
                         <span className="text-[9px] text-slate-500 dark:text-slate-400">iOS İndir</span>
                       </a>
@@ -176,7 +177,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-white/10 transition-colors group cursor-pointer text-center"
                       >
-                        <span className="material-symbols-outlined text-2xl text-emerald-600 dark:text-emerald-400 mb-1 group-hover:scale-110 transition-transform" aria-hidden="true">android</span>
+                        <Icon name="android" className="text-2xl text-emerald-600 dark:text-emerald-400 mb-1 group-hover:scale-110 transition-transform" />
                         <span className="text-[11px] font-bold text-slate-800 dark:text-white leading-tight">Google Play</span>
                         <span className="text-[9px] text-slate-500 dark:text-slate-400">Android İndir</span>
                       </a>
@@ -187,7 +188,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-white/10 transition-colors group cursor-pointer text-center"
                       >
-                        <span className="material-symbols-outlined text-2xl text-rose-500 mb-1 group-hover:scale-110 transition-transform" aria-hidden="true">shop</span>
+                        <Icon name="shop" className="text-2xl text-rose-500 mb-1 group-hover:scale-110 transition-transform" />
                         <span className="text-[11px] font-bold text-slate-800 dark:text-white leading-tight">AppGallery</span>
                         <span className="text-[9px] text-slate-500 dark:text-slate-400">Huawei İndir</span>
                       </a>
@@ -195,7 +196,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
                     {/* Bilgilendirme Notu */}
                     <div className="p-3.5 rounded-2xl bg-[#00A5DF]/5 border border-[#00A5DF]/15 text-xs text-slate-600 dark:text-slate-300 leading-relaxed flex items-start gap-2.5 mt-1">
-                      <span className="material-symbols-outlined text-base text-[#00A5DF] shrink-0 mt-0.5" aria-hidden="true">info</span>
+                      <Icon name="info" className="text-base text-[#00A5DF] shrink-0 mt-0.5" />
                       <span>
                         İlk kez giriş yapıyorsanız yönetim sistemimizde kayıtlı cep telefonunuzla SMS kodu alarak anında şifrenizi oluşturabilirsiniz.
                       </span>
@@ -219,14 +220,14 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     >
                       <div className="flex items-center gap-3.5">
                         <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
-                          <span className="material-symbols-outlined text-2xl" aria-hidden="true">dashboard</span>
+                          <Icon name="dashboard" className="text-2xl" />
                         </div>
                         <div className="text-left">
                           <div className="text-sm sm:text-base font-extrabold">Apsiyon Manager Web Paneli</div>
                           <div className="text-xs text-white/80 font-normal">Yönetim & Denetim Kurulu Girişi</div>
                         </div>
                       </div>
-                      <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-xl group-hover:translate-x-1 transition-transform" />
                     </a>
 
                     {/* Ayraç */}
@@ -247,7 +248,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center justify-center p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-white/10 transition-colors group cursor-pointer text-center"
                       >
-                        <span className="material-symbols-outlined text-2xl text-slate-900 dark:text-white mb-1 group-hover:scale-110 transition-transform" aria-hidden="true">phone_iphone</span>
+                        <Icon name="phone_iphone" className="text-2xl text-slate-900 dark:text-white mb-1 group-hover:scale-110 transition-transform" />
                         <span className="text-xs font-bold text-slate-800 dark:text-white leading-tight">Manager iOS</span>
                         <span className="text-[10px] text-slate-500 dark:text-slate-400">App Store</span>
                       </a>
@@ -258,7 +259,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center justify-center p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-white/10 transition-colors group cursor-pointer text-center"
                       >
-                        <span className="material-symbols-outlined text-2xl text-emerald-600 dark:text-emerald-400 mb-1 group-hover:scale-110 transition-transform" aria-hidden="true">android</span>
+                        <Icon name="android" className="text-2xl text-emerald-600 dark:text-emerald-400 mb-1 group-hover:scale-110 transition-transform" />
                         <span className="text-xs font-bold text-slate-800 dark:text-white leading-tight">Manager Android</span>
                         <span className="text-[10px] text-slate-500 dark:text-slate-400">Google Play</span>
                       </a>
@@ -266,7 +267,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
                     {/* Bilgilendirme Notu */}
                     <div className="p-3.5 rounded-2xl bg-[#FF9503]/5 border border-[#FF9503]/15 text-xs text-slate-600 dark:text-slate-300 leading-relaxed flex items-start gap-2.5 mt-1">
-                      <span className="material-symbols-outlined text-base text-[#FF9503] shrink-0 mt-0.5" aria-hidden="true">verified_user</span>
+                      <Icon name="verified_user" className="text-base text-[#FF9503] shrink-0 mt-0.5" />
                       <span>
                         Yetkili yönetim ve denetim kurulu üyeleri Alo Yönetim tarafından tanımlanan kurumsal kimlik bilgileriyle anlık mutabakat ve denetim yapabilir.
                       </span>
@@ -283,7 +284,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A5DF] hover:underline"
                 >
                   <span>Mobil portal özellikleri ve rehberi inceleyin</span>
-                  <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-sm" />
                 </Link>
               </div>
             </div>
@@ -291,7 +292,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             {/* Footer Area */}
             <div className="bg-slate-50 dark:bg-slate-800/50 p-4 text-center text-xs text-slate-500 dark:text-gray-400 font-light border-t border-slate-100 dark:border-white/5">
               <span className="flex items-center justify-center gap-1.5 text-[11px]">
-                <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">shield</span>
+                <Icon name="shield" className="text-sm text-emerald-600 dark:text-emerald-400" />
                 <span>256-Bit SSL ve KVKK güvencesiyle Apsiyon altyapısı</span>
               </span>
             </div>

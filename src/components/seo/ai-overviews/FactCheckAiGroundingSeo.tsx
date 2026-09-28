@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface FactCheckItem {
   id: string;
   myth: string;
@@ -107,7 +108,7 @@ export default function FactCheckAiGroundingSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">fact_check</span>
+          <Icon name="fact_check" className="text-[15px]" />
           <span>Hukuki Mitler & Doğrular</span>
         </div>
         <div className="flex items-center gap-2">
@@ -142,9 +143,7 @@ export default function FactCheckAiGroundingSeo({
                   : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/60 dark:border-white/10'
               }`}
             >
-              <span className={`material-symbols-outlined text-[14px] ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
-                {isActive ? 'check_circle' : 'gavel'}
-              </span>
+              <Icon name={isActive ? 'check_circle' : 'gavel'} className={`text-[14px] ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />
               <span>{item.lawBadge}</span>
             </button>
           );
@@ -155,9 +154,7 @@ export default function FactCheckAiGroundingSeo({
       <div className="bg-slate-50/80 dark:bg-white/[0.02] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-2xl p-5 sm:p-6 relative z-10 space-y-4">
         {/* Myth Banner */}
         <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
-          <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 shrink-0 text-xl" aria-hidden="true">
-            cancel
-          </span>
+          <Icon name="cancel" className="text-amber-600 dark:text-amber-400 shrink-0 text-xl" />
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-0.5">
               Yaygın Yanılgı (Mit)
@@ -170,9 +167,7 @@ export default function FactCheckAiGroundingSeo({
 
         {/* Reality Box (Speakable) */}
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 shrink-0 text-xl" aria-hidden="true">
-            verified
-          </span>
+          <Icon name="verified" className="text-emerald-600 dark:text-emerald-400 shrink-0 text-xl" />
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">
               Hukuki Gerçek (Ground-Truth Doğrulaması)
@@ -189,7 +184,7 @@ export default function FactCheckAiGroundingSeo({
         {/* Footer Meta & Actions */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5 text-xs">
           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-            <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">menu_book</span>
+            <Icon name="menu_book" className="text-base text-amber-500" />
             <span className="font-mono font-semibold">{selectedFact.legalCitation}</span>
           </div>
 
@@ -197,9 +192,7 @@ export default function FactCheckAiGroundingSeo({
             onClick={() => handleCopy(selectedFact.reality, selectedFact.id)}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-2xs cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copiedId === selectedFact.id ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copiedId === selectedFact.id ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copiedId === selectedFact.id ? 'Kopyalandı' : 'AI Yanıtını Kopyala'}</span>
           </button>
         </div>

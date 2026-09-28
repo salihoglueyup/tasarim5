@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface GeoPromptSpec {
   id: string;
   topic: string;
@@ -195,7 +196,7 @@ export default function GoogleAiOverviewGroundingSeo({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">auto_awesome</span>
+            <Icon name="auto_awesome" className="text-[16px]" />
             Google AI Overviews (SGE), Gemini & Perplexity Otorite Merkezi
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -233,7 +234,7 @@ export default function GoogleAiOverviewGroundingSeo({
                 : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
             }`}
           >
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">{p.icon}</span>
+            <Icon name={p.icon} className="text-[16px]" />
             <span>{p.topic}</span>
           </button>
         ))}
@@ -253,7 +254,7 @@ export default function GoogleAiOverviewGroundingSeo({
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">chat_paste_go</span>
+                <Icon name="chat_paste_go" className="text-sm" />
                 Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
               </span>
               <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-[var(--color-outline)]/60">
@@ -268,9 +269,7 @@ export default function GoogleAiOverviewGroundingSeo({
                 title="Promptu Kopyala"
                 aria-label="Promptu kopyala"
               >
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                  {copiedId === selectedPrompt.id ? 'check' : 'content_copy'}
-                </span>
+                <Icon name={copiedId === selectedPrompt.id ? 'check' : 'content_copy'} className="text-sm" />
                 <span>{copiedId === selectedPrompt.id ? 'Kopyalandı!' : 'Kopyala'}</span>
               </button>
             </div>
@@ -280,7 +279,7 @@ export default function GoogleAiOverviewGroundingSeo({
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-sm" />
                 Yapay Zekanın Doğrulanmış Resmî Yanıtı (Ground-Truth Answer)
               </span>
               <div className="flex items-center gap-2 text-xs font-mono text-[var(--color-secondary)]">
@@ -309,7 +308,7 @@ export default function GoogleAiOverviewGroundingSeo({
                 rel="noopener noreferrer"
                 className="px-3.5 py-1.5 rounded-lg bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
               >
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-xs" />
                 ChatGPT ile Sor
               </a>
               <a
@@ -318,7 +317,7 @@ export default function GoogleAiOverviewGroundingSeo({
                 rel="noopener noreferrer"
                 className="px-3.5 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
               >
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
+                <Icon name="travel_explore" className="text-xs" />
                 Perplexity ile Ara
               </a>
             </div>

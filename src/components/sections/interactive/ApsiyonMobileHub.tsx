@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 type PortalRole = 'resident' | 'manager';
 
 interface FaqItem {
@@ -221,7 +222,7 @@ export default function ApsiyonMobileHub() {
                   : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <span className="material-symbols-outlined text-lg" aria-hidden="true">person</span>
+              <Icon name="person" className="text-lg" />
               <span>Site Sakini & Kat Maliki (Apsiyon)</span>
             </button>
 
@@ -234,7 +235,7 @@ export default function ApsiyonMobileHub() {
                   : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <span className="material-symbols-outlined text-lg" aria-hidden="true">admin_panel_settings</span>
+              <Icon name="admin_panel_settings" className="text-lg" />
               <span>Yönetici & Denetçi (Apsiyon Manager)</span>
             </button>
           </div>
@@ -251,7 +252,7 @@ export default function ApsiyonMobileHub() {
                   className="flex items-center gap-3 bg-white hover:bg-slate-50 dark:bg-white/10 dark:hover:bg-white/20 border border-slate-200/90 dark:border-white/20 px-6 py-3 rounded-2xl transition-all duration-300 transform-gpu hover:scale-[1.03] shadow-sm hover:shadow-md group cursor-pointer"
                   aria-label="Apsiyon iOS uygulamasını App Store'dan indirin"
                 >
-                  <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white" aria-hidden="true">phone_iphone</span>
+                  <Icon name="phone_iphone" className="text-3xl text-slate-900 dark:text-white" />
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-[#00A5DF] font-bold uppercase tracking-wider">Download on the</span>
                     <span className="text-base font-bold text-slate-900 dark:text-white leading-tight">App Store</span>
@@ -266,7 +267,7 @@ export default function ApsiyonMobileHub() {
                   className="flex items-center gap-3 bg-white hover:bg-slate-50 dark:bg-white/10 dark:hover:bg-white/20 border border-slate-200/90 dark:border-white/20 px-6 py-3 rounded-2xl transition-all duration-300 transform-gpu hover:scale-[1.03] shadow-sm hover:shadow-md group cursor-pointer"
                   aria-label="Apsiyon Android uygulamasını Google Play'den indirin"
                 >
-                  <span className="material-symbols-outlined text-3xl text-emerald-500" aria-hidden="true">android</span>
+                  <Icon name="android" className="text-3xl text-emerald-500" />
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-emerald-600 dark:text-emerald-300 font-bold uppercase tracking-wider">GET IT ON</span>
                     <span className="text-base font-bold text-slate-900 dark:text-white leading-tight">Google Play</span>
@@ -281,7 +282,7 @@ export default function ApsiyonMobileHub() {
                   className="flex items-center gap-3 bg-white hover:bg-slate-50 dark:bg-white/10 dark:hover:bg-white/20 border border-slate-200/90 dark:border-white/20 px-6 py-3 rounded-2xl transition-all duration-300 transform-gpu hover:scale-[1.03] shadow-sm hover:shadow-md group cursor-pointer"
                   aria-label="Apsiyon uygulamasını Huawei AppGallery'den indirin"
                 >
-                  <span className="material-symbols-outlined text-3xl text-rose-500" aria-hidden="true">storefront</span>
+                  <Icon name="storefront" className="text-3xl text-rose-500" />
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-rose-600 dark:text-rose-300 font-bold uppercase tracking-wider">EXPLORE ON</span>
                     <span className="text-base font-bold text-slate-900 dark:text-white leading-tight">AppGallery</span>
@@ -298,7 +299,7 @@ export default function ApsiyonMobileHub() {
                   className="flex items-center gap-3 bg-white hover:bg-slate-50 dark:bg-white/10 dark:hover:bg-white/20 border border-slate-200/90 dark:border-white/20 px-6 py-3 rounded-2xl transition-all duration-300 transform-gpu hover:scale-[1.03] shadow-sm hover:shadow-md group cursor-pointer"
                   aria-label="Apsiyon Manager iOS uygulamasını App Store'dan indirin"
                 >
-                  <span className="material-symbols-outlined text-3xl text-slate-900 dark:text-white" aria-hidden="true">phone_iphone</span>
+                  <Icon name="phone_iphone" className="text-3xl text-slate-900 dark:text-white" />
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-[#FF9503] font-bold uppercase tracking-wider">Manager iOS</span>
                     <span className="text-base font-bold text-slate-900 dark:text-white leading-tight">App Store</span>
@@ -313,7 +314,7 @@ export default function ApsiyonMobileHub() {
                   className="flex items-center gap-3 bg-white hover:bg-slate-50 dark:bg-white/10 dark:hover:bg-white/20 border border-slate-200/90 dark:border-white/20 px-6 py-3 rounded-2xl transition-all duration-300 transform-gpu hover:scale-[1.03] shadow-sm hover:shadow-md group cursor-pointer"
                   aria-label="Apsiyon Manager Android uygulamasını Google Play'den indirin"
                 >
-                  <span className="material-symbols-outlined text-3xl text-emerald-500" aria-hidden="true">android</span>
+                  <Icon name="android" className="text-3xl text-emerald-500" />
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-emerald-600 dark:text-emerald-300 font-bold uppercase tracking-wider">Manager Android</span>
                     <span className="text-base font-bold text-slate-900 dark:text-white leading-tight">Google Play</span>
@@ -330,7 +331,7 @@ export default function ApsiyonMobileHub() {
               className="flex items-center gap-3 bg-gradient-to-r from-[#00A5DF] to-[#088DC0] hover:from-[#0092C7] hover:to-[#077BA8] px-6 py-3 rounded-2xl transition-all duration-300 transform-gpu hover:scale-[1.03] shadow-md shadow-[#00A5DF]/20 text-white font-bold cursor-pointer"
               aria-label="Apsiyon Web Portalı ile Giriş Yapın"
             >
-              <span className="material-symbols-outlined text-2xl" aria-hidden="true">open_in_new</span>
+              <Icon name="open_in_new" className="text-2xl" />
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-cyan-100 uppercase tracking-wider">Tarayıcıdan Hemen</span>
                 <span className="text-base font-bold leading-tight">Web Girişi</span>
@@ -343,7 +344,7 @@ export default function ApsiyonMobileHub() {
               onClick={() => setShowQr(!showQr)}
               className="flex items-center gap-2 bg-white hover:bg-slate-50 dark:bg-white/5 dark:hover:bg-white/15 border border-slate-200 dark:border-white/15 px-4 py-3 rounded-2xl transition-all duration-300 transform-gpu text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-sm cursor-pointer"
             >
-              <span className="material-symbols-outlined text-xl text-amber-500" aria-hidden="true">qr_code_2</span>
+              <Icon name="qr_code_2" className="text-xl text-amber-500" />
               <span>{showQr ? 'QR Kodu Gizle' : 'Kamerayla Okut (QR)'}</span>
             </button>
           </div>
@@ -381,19 +382,19 @@ export default function ApsiyonMobileHub() {
           {/* Yasal Güvence ve Akreditasyon Rozetleri */}
           <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">gavel</span>
+              <Icon name="gavel" className="text-base text-emerald-600 dark:text-emerald-400" />
               <span>634 KMK Tam Uyumluluk</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-[#00A5DF]" aria-hidden="true">lock</span>
+              <Icon name="lock" className="text-base text-[#00A5DF]" />
               <span>256-Bit SSL Şifreleme</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-purple-600 dark:text-purple-400" aria-hidden="true">shield</span>
+              <Icon name="shield" className="text-base text-purple-600 dark:text-purple-400" />
               <span>KVKK Gizlilik Koruması</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-[#FF9503]" aria-hidden="true">verified_user</span>
+              <Icon name="verified_user" className="text-base text-[#FF9503]" />
               <span>BDDK Lisanslı Sanal POS</span>
             </div>
           </div>
@@ -406,7 +407,7 @@ export default function ApsiyonMobileHub() {
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A5DF]/10 border border-[#00A5DF]/30 text-[#00A5DF] text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">featured_play_list</span>
+            <Icon name="featured_play_list" className="text-sm" />
             <span>{activeRole === 'resident' ? 'Site Sakini Deneyimi' : 'Yönetim Kurulu Gücü'}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-3">
@@ -432,7 +433,7 @@ export default function ApsiyonMobileHub() {
 
               <div className="flex items-center justify-between">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00A5DF]/15 to-[#088DC0]/15 border border-[#00A5DF]/30 flex items-center justify-center text-[#00A5DF] group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{f.icon}</span>
+                  <Icon name={f.icon} className="text-2xl" />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-white/5 px-2.5 py-1 rounded-full border border-slate-200 dark:border-white/10">
                   {f.tag}
@@ -524,14 +525,9 @@ export default function ApsiyonMobileHub() {
                   aria-expanded={isOpen}
                 >
                   <span className="text-sm sm:text-base">{item.q}</span>
-                  <span
-                    className={`material-symbols-outlined text-xl text-slate-400 transition-transform duration-300 ${
+                  <Icon name="expand_more" className={`text-xl text-slate-400 transition-transform duration-300 ${
                       isOpen ? 'rotate-180 text-[#00A5DF]' : ''
-                    }`}
-                    aria-hidden="true"
-                  >
-                    expand_more
-                  </span>
+                    }`} />
                 </button>
                 {isOpen && (
                   <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal leading-relaxed border-t border-slate-100 dark:border-white/5 pt-3">
@@ -552,7 +548,7 @@ export default function ApsiyonMobileHub() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#00A5DF]/10 blur-3xl pointer-events-none" />
           
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#00A5DF]/15 text-[#00A5DF] mb-4">
-            <span className="material-symbols-outlined text-3xl" aria-hidden="true">domain_add</span>
+            <Icon name="domain_add" className="text-3xl" />
           </div>
 
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
@@ -569,14 +565,14 @@ export default function ApsiyonMobileHub() {
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00A5DF] to-[#088DC0] hover:from-[#0092C7] hover:to-[#077BA8] text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-[#00A5DF]/20 hover:scale-105 text-sm cursor-pointer"
             >
               <span>Ücretsiz Hizmet Teklifi Alın</span>
-              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-base" />
             </Link>
 
             <Link
               href="/iletisim"
               className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 dark:bg-white/10 dark:border-white/20 dark:text-white font-bold px-8 py-4 rounded-xl transition-all shadow-sm text-sm cursor-pointer"
             >
-              <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
+              <Icon name="call" className="text-base" />
               <span>Uzmanımızla Görüşün</span>
             </Link>
           </div>

@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GROUP_COMPANIES_ECOSYSTEM } from '@/lib/seo/facility/facilityGroupAndLegalEcosystem';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function FacilityGroupSecurityTrustSeo() {
   return (
     <div className="bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[3rem] p-8 md:p-14 border border-[var(--color-outline)]/80 shadow-sm relative overflow-hidden my-12">
@@ -15,7 +16,7 @@ export default function FacilityGroupSecurityTrustSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 relative z-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="material-symbols-outlined text-[16px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified_user</span>
+            <Icon name="verified_user" className="text-[16px] text-emerald-600 dark:text-emerald-400" />
             Entegre Güvenlik & Eğitim Ekosistemimiz
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -51,9 +52,7 @@ export default function FacilityGroupSecurityTrustSeo() {
                   <span className="text-xs font-bold px-3 py-1 rounded-full bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/70">
                     {company.serviceCategory}
                   </span>
-                  <span className="material-symbols-outlined text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors" aria-hidden="true">
-                    {isAloGuvenlik ? 'school' : 'shield'}
-                  </span>
+                  <Icon name={isAloGuvenlik ? 'school' : 'shield'} className="text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors" />
                 </div>
 
                 <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-2 transition-colors">
@@ -70,7 +69,7 @@ export default function FacilityGroupSecurityTrustSeo() {
               {/* Action Button & Outbound Link */}
               <div className="pt-4 border-t border-[var(--color-outline)]/60 flex items-center justify-between gap-4">
                 <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">check_circle</span>
+                  <Icon name="check_circle" className="text-[14px]" />
                   <span>{company.licenseNumber || '5188 Yasal Faaliyet İzni'}</span>
                 </div>
 
@@ -82,9 +81,7 @@ export default function FacilityGroupSecurityTrustSeo() {
                   title={`${company.name} Resmi Web Sitesi`}
                 >
                   <span>Resmi Siteyi İncele</span>
-                  <span className="material-symbols-outlined text-[14px] group-hover/btn:translate-x-0.5 transition-transform" aria-hidden="true">
-                    open_in_new
-                  </span>
+                  <Icon name="open_in_new" className="text-[14px] group-hover/btn:translate-x-0.5 transition-transform" />
                 </a>
               </div>
             </motion.div>

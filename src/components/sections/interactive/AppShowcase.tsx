@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function AppShowcase() {
   const { t } = useLanguage();
 
@@ -62,7 +63,7 @@ export default function AppShowcase() {
               className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-blue-500 hover:scale-[1.02] transition-all shadow-2xs group"
               aria-label={t('as_ios')}
             >
-              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-blue-500 transition-colors" aria-hidden="true">phone_iphone</span>
+              <Icon name="phone_iphone" className="text-2xl text-[var(--color-primary)] group-hover:text-blue-500 transition-colors" />
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">App Store</span>
@@ -76,7 +77,7 @@ export default function AppShowcase() {
               className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-emerald-500 hover:scale-[1.02] transition-all shadow-2xs group"
               aria-label={t('as_android')}
             >
-              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-emerald-500 transition-colors" aria-hidden="true">android</span>
+              <Icon name="android" className="text-2xl text-[var(--color-primary)] group-hover:text-emerald-500 transition-colors" />
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">Google Play</span>
@@ -90,7 +91,7 @@ export default function AppShowcase() {
               className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-purple-500 hover:scale-[1.02] transition-all shadow-2xs group"
               aria-label={t('as_web_aria')}
             >
-              <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-purple-500 transition-colors" aria-hidden="true">laptop_mac</span>
+              <Icon name="laptop_mac" className="text-2xl text-[var(--color-primary)] group-hover:text-purple-500 transition-colors" />
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('as_web_from')}</span>
                 <span className="text-sm font-bold">{t('as_resident_login')}</span>
@@ -107,7 +108,7 @@ export default function AppShowcase() {
               className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-6 rounded-2xl flex flex-col gap-3 hover:scale-[1.02] transition-all duration-300 shadow-2xs"
             >
               <div className="w-10 h-10 rounded-xl bg-white/80 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center border border-[var(--color-outline)]/40">
-                <span className="material-symbols-outlined" aria-hidden="true">{f.icon}</span>
+                <Icon name={f.icon} />
               </div>
               <h3 className="font-bold text-base text-[var(--color-primary)]">{f.title}</h3>
               <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{f.desc}</p>

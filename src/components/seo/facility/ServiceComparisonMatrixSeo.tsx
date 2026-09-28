@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/constants';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "Hukuki ve Mevzuat Uyumu": "scm_1",
   "Kulaktan dolma bilgiler, KMK 634 ve 5188 sayılı kanun riskleri": "scm_2",
@@ -140,13 +141,13 @@ export default function ServiceComparisonMatrixSeo({
                   </td>
                   <td className="p-4 md:p-5 text-slate-500 dark:text-slate-400 font-light">
                     <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5" aria-hidden="true">close</span>
+                      <Icon name="close" className="text-rose-500 text-base shrink-0 mt-0.5" />
                       <span>{tx(row.traditional)}</span>
                     </div>
                   </td>
                   <td className="p-4 md:p-5 text-slate-800 dark:text-slate-200 font-medium bg-emerald-500/5">
                     <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-emerald-500 text-base shrink-0 mt-0.5" />
                       <span>{tx(row.aloYonetim)}</span>
                     </div>
                   </td>

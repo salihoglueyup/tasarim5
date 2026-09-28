@@ -11,6 +11,7 @@ import PreFooterCta from '@/components/sections/core/PreFooterCta';
 import WhyUsBentoGrid from '@/components/sections/core/WhyUsBentoGrid';
 import CertificateBadgeGrid from '@/components/sections/trust/CertificateBadgeGrid';
 
+import Icon from '@/components/ui/branding/Icon';
 // --- CountUp Animasyon Bileşeni ---
 function Counter({ from, to, duration = 2 }: { from: number; to: number; duration?: number }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
@@ -138,7 +139,7 @@ export default function HakkimizdaClient() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">corporate_fare</span>
+              <Icon name="corporate_fare" className="text-[18px] text-blue-600 dark:text-blue-400" />
               <span>Özet Rehber: Alo Yönetim Kurumsal Kimliği, Vizyonu ve Entegre Tesis Modeli</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -175,12 +176,12 @@ export default function HakkimizdaClient() {
               ,{' '}
               <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 ISO 41001:2018 Uluslararası Tesis Yönetimi Standartları
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Kanunu
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               {' '}ve 6331 Sayılı İş Sağlığı ve Güvenliği Mevzuatı çerçevesinde yürütülmektedir.
             </p>
@@ -257,7 +258,7 @@ export default function HakkimizdaClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">history_edu</span>
+                  <Icon name="history_edu" className="text-lg" />
                 </span>
                 <span>15+ Yıl Tecrübe</span>
               </div>
@@ -269,7 +270,7 @@ export default function HakkimizdaClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
+                  <Icon name="trending_down" className="text-lg" />
                 </span>
                 <span>%30 Net Tasarruf</span>
               </div>
@@ -281,7 +282,7 @@ export default function HakkimizdaClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified_user</span>
+                  <Icon name="verified_user" className="text-lg" />
                 </span>
                 <span>ISO Belgelerimiz</span>
               </div>

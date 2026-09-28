@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
+import Icon from '@/components/ui/branding/Icon';
 const ISTANBUL_DISTRICTS = [
   'Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler',
   'Bakırköy', 'Başakşehir', 'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü',
@@ -115,9 +116,7 @@ export default function CareerApplicationDualFormSeo({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              how_to_reg
-            </span>
+            <Icon name="how_to_reg" className="text-sm" />
             <span>Hızlı İletişim & Başvuru Portalı</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -137,7 +136,7 @@ export default function CareerApplicationDualFormSeo({
                   : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-base">person_search</span>
+              <Icon name="person_search" className="text-base" />
               <span>İş Arayanım (Kariyer Başvurusu)</span>
             </button>
             <button
@@ -148,7 +147,7 @@ export default function CareerApplicationDualFormSeo({
                   : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-base">business_center</span>
+              <Icon name="business_center" className="text-base" />
               <span>Yöneticiyim (Personel Talebi)</span>
             </button>
           </div>
@@ -162,7 +161,7 @@ export default function CareerApplicationDualFormSeo({
               {submittedCandidate ? (
                 <div className="text-center py-10">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
-                    <span className="material-symbols-outlined text-3xl">check_circle</span>
+                    <Icon name="check_circle" className="text-3xl" />
                   </div>
                   <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-2">
                     Kariyer Başvurunuz Başarıyla Alındı!
@@ -198,7 +197,7 @@ export default function CareerApplicationDualFormSeo({
 
                   {errorMessage && (
                     <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-400 text-xs font-medium flex items-center gap-2">
-                      <span className="material-symbols-outlined text-base">error</span>
+                      <Icon name="error" className="text-base" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
@@ -360,7 +359,7 @@ export default function CareerApplicationDualFormSeo({
                       </span>
                     ) : (
                       <>
-                        <span className="material-symbols-outlined text-lg">send</span>
+                        <Icon name="send" className="text-lg" />
                         <span>Kariyer Başvurumu İlet</span>
                       </>
                     )}
@@ -376,7 +375,7 @@ export default function CareerApplicationDualFormSeo({
               {submittedManager ? (
                 <div className="text-center py-10">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
-                    <span className="material-symbols-outlined text-3xl">check_circle</span>
+                    <Icon name="check_circle" className="text-3xl" />
                   </div>
                   <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-2">
                     Personel Talebiniz Alındı!
@@ -413,7 +412,7 @@ export default function CareerApplicationDualFormSeo({
 
                   {errorMessage && (
                     <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-400 text-xs font-medium flex items-center gap-2">
-                      <span className="material-symbols-outlined text-base">error</span>
+                      <Icon name="error" className="text-base" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
@@ -575,7 +574,7 @@ export default function CareerApplicationDualFormSeo({
                       </span>
                     ) : (
                       <>
-                        <span className="material-symbols-outlined text-lg">request_quote</span>
+                        <Icon name="request_quote" className="text-lg" />
                         <span>Personel Teklifi ve Keşif Talep Et</span>
                       </>
                     )}

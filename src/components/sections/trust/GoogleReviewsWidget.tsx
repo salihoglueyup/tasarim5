@@ -1,6 +1,7 @@
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 const reviews = [
   {
     author: "Hakan Yılmaz",
@@ -178,7 +179,7 @@ export default function GoogleReviewsWidget() {
               </div>
 
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-sm" />
                 <span>Doğrulanmış Kat Maliki Değerlendirmesi</span>
               </div>
             </div>
@@ -206,7 +207,7 @@ export default function GoogleReviewsWidget() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-sm shrink-0"
           >
             <span>Google Haritalar&apos;da İnceleyin</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
+            <Icon name="open_in_new" className="text-sm" />
           </a>
         </div>
       </div>

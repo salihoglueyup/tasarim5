@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import { getDistrictEmergencyProfile } from '@/data/districtEmergencyPreparednessData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictEmergencyPreparednessSeoProps {
   districtSlug: string;
   districtName: string;
@@ -58,7 +59,7 @@ export default function DistrictEmergencyPreparednessSeo({
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">emergency</span>
+            <Icon name="emergency" className="text-sm" />
             <span>Afet & Yangın Güvenliği Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -88,7 +89,7 @@ export default function DistrictEmergencyPreparednessSeo({
         <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-800 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-              <span className="material-symbols-outlined text-base" aria-hidden="true">terrain</span>
+              <Icon name="terrain" className="text-base" />
               <span>Zemin & Yapı Dinamiği</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
@@ -105,7 +106,7 @@ export default function DistrictEmergencyPreparednessSeo({
         <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-800 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 text-sky-400 text-xs font-bold uppercase tracking-wider mb-3">
-              <span className="material-symbols-outlined text-base" aria-hidden="true">local_hospital</span>
+              <Icon name="local_hospital" className="text-base" />
               <span>İtfaiye & Sağlık Lojistiği</span>
             </div>
             <div className="space-y-2 text-xs sm:text-sm text-slate-300">
@@ -129,7 +130,7 @@ export default function DistrictEmergencyPreparednessSeo({
         <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-800 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
-              <span className="material-symbols-outlined text-base" aria-hidden="true">groups</span>
+              <Icon name="groups" className="text-base" />
               <span>Ana Toplanma Meydanları</span>
             </div>
             <ul className="space-y-1.5 text-xs text-slate-300">
@@ -150,7 +151,7 @@ export default function DistrictEmergencyPreparednessSeo({
       {/* Alo Yönetim Protocol Box */}
       <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700 mb-8">
         <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
-          <span className="material-symbols-outlined text-base" aria-hidden="true">security</span>
+          <Icon name="security" className="text-base" />
           <span>Alo Yönetim {districtName} Afet & Kriz Eylem Standardı</span>
         </div>
         <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
@@ -165,9 +166,7 @@ export default function DistrictEmergencyPreparednessSeo({
       <div className="bg-slate-800/50 rounded-2xl border border-slate-700/80 p-5">
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-amber-400 text-lg" aria-hidden="true">
-              checklist_rtl
-            </span>
+            <Icon name="checklist_rtl" className="text-amber-400 text-lg" />
             <h3 className="text-sm sm:text-base font-bold text-white">
               {districtName} Siteleri İçin 4 Maddelik Kritik Afet Güvenliği Kontrol Listesi
             </h3>
@@ -191,14 +190,9 @@ export default function DistrictEmergencyPreparednessSeo({
                     : 'bg-slate-800/60 border-slate-700 text-slate-300 hover:border-slate-600'
                 }`}
               >
-                <span
-                  className={`material-symbols-outlined text-lg mt-0.5 flex-shrink-0 ${
+                <Icon name={isChecked ? 'check_box' : 'check_box_outline_blank'} className={`text-lg mt-0.5 flex-shrink-0 ${
                     isChecked ? 'text-emerald-400' : 'text-slate-500'
-                  }`}
-                  aria-hidden="true"
-                >
-                  {isChecked ? 'check_box' : 'check_box_outline_blank'}
-                </span>
+                  }`} />
                 <span className="leading-snug">{item}</span>
               </button>
             );
@@ -209,7 +203,7 @@ export default function DistrictEmergencyPreparednessSeo({
       {/* Bottom Emergency Link */}
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-rose-400" aria-hidden="true">phone_in_talk</span>
+          <Icon name="phone_in_talk" className="text-rose-400" />
           <span>Acil Afet İhbar Hatları: AFAD 122 | İtfaiye 110 | Acil Çağrı 112</span>
         </div>
         <a
@@ -217,7 +211,7 @@ export default function DistrictEmergencyPreparednessSeo({
           className="text-rose-400 hover:text-rose-300 font-medium inline-flex items-center gap-1 transition"
         >
           <span>Sitenize Ücretsiz Yangın ve Afet Risk Raporu Talep Edin</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">chevron_right</span>
+          <Icon name="chevron_right" className="text-sm" />
         </a>
       </div>
     </section>

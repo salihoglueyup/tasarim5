@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface FacilityClaimReviewItem {
   id: string;
   claim: string;
@@ -96,7 +97,7 @@ export default function FacilityLegalClaimReviewsSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/10 dark:bg-rose-400/10 border border-rose-600/20 dark:border-rose-400/20 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">fact_check</span>
+            <Icon name="fact_check" className="text-[16px]" />
             Teknik & Hukuki Doğrulamalar
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -158,7 +159,7 @@ export default function FacilityLegalClaimReviewsSeo() {
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-rose-100 dark:bg-rose-900/40 border border-rose-300 dark:border-rose-800 text-rose-800 dark:text-rose-200 text-xs font-bold">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">cancel</span>
+              <Icon name="cancel" className="text-sm" />
               <span>Değerlendirme: {activeClaim.ratingExplanation}</span>
             </div>
           </div>
@@ -177,7 +178,7 @@ export default function FacilityLegalClaimReviewsSeo() {
             {/* The Verified Truth */}
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 md:p-6 shadow-xs">
               <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
-                <span className="material-symbols-outlined text-base" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-base" />
                 Kanuni & Teknik Gerçek (Hukuki Çözüm):
               </div>
               <p className="text-sm md:text-base text-[var(--color-primary)] leading-relaxed">

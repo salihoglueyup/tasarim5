@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function GesEvChargingHubSeo() {
   return (
     <section
@@ -12,9 +13,7 @@ export default function GesEvChargingHubSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              ev_station
-            </span>
+            <Icon name="ev_station" className="text-sm" />
             <span>Güneş + Elektrikli Araç Şarj Sinerjisi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -32,7 +31,7 @@ export default function GesEvChargingHubSeo() {
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-emerald-500/50 transition-all">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20">
-                <span className="material-symbols-outlined text-2xl">electric_car</span>
+                <Icon name="electric_car" className="text-2xl" />
               </div>
               <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                 Sakinler İçin Avantaj
@@ -54,7 +53,7 @@ export default function GesEvChargingHubSeo() {
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-amber-500/50 transition-all">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6 border border-amber-500/20">
-                <span className="material-symbols-outlined text-2xl">paid</span>
+                <Icon name="paid" className="text-2xl" />
               </div>
               <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
                 Site İçin Finansal Model
@@ -76,7 +75,7 @@ export default function GesEvChargingHubSeo() {
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-blue-500/50 transition-all">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6 border border-blue-500/20">
-                <span className="material-symbols-outlined text-2xl">speed</span>
+                <Icon name="speed" className="text-2xl" />
               </div>
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                 Şebeke & Trafo Güvenliği
@@ -98,7 +97,7 @@ export default function GesEvChargingHubSeo() {
         {/* Technical Callout */}
         <div className="p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-3xl text-emerald-400">verified_user</span>
+            <Icon name="verified_user" className="text-3xl text-emerald-400" />
             <div>
               <div className="text-sm font-bold text-white">
                 Binalarda Enerji Performansı ve Otopark Yönetmeliği Uyumlu

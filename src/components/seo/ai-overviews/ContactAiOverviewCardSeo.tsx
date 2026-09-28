@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import LocationPinSvgIcon from '@/components/ui/branding/LocationPinSvgIcon';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function ContactAiOverviewCardSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -87,7 +88,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">emergency</span>
+          <Icon name="emergency" className="text-[15px]" />
           <span>Google AI Overviews & 7/24 Acil Teknik İntikal Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -102,9 +103,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-rose-600 dark:text-rose-400 text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          headset_mic
-        </span>
+        <Icon name="headset_mic" className="text-rose-600 dark:text-rose-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -120,7 +119,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 relative z-10">
         <div className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-start gap-3">
           <div className="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">call</span>
+            <Icon name="call" className="text-xl" />
           </div>
           <div>
             <div className="text-xs text-[var(--color-text-muted)] font-medium">Genel Merkez Santral</div>
@@ -148,7 +147,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="material-symbols-outlined text-sm text-rose-500">speed</span>
+          <Icon name="speed" className="text-sm text-rose-500" />
           <span>12 Bölge Gezici Mobil Teknik Filosu ile 15-20 Dakika Ortalama İntikal</span>
         </div>
 
@@ -158,9 +157,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-primary">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
             <span>{copied ? 'Kopyalandı!' : 'İletişim Özetini Kopyala'}</span>
           </button>
 
@@ -171,7 +168,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

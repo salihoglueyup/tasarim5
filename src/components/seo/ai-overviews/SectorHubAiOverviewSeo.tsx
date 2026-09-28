@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface SectorItem {
   id: string;
   title: string;
@@ -114,7 +115,7 @@ export default function SectorHubAiOverviewSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px] text-[var(--color-primary)]" aria-hidden="true">domain</span>
+          <Icon name="domain" className="text-[15px] text-[var(--color-primary)]" />
           <span>Google AI Overviews • Sektörel Çözümler Hub Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -135,16 +136,14 @@ export default function SectorHubAiOverviewSeo({
       <div className="bg-gradient-to-br from-slate-500/[0.03] to-transparent border border-[var(--color-outline)]/60 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
           <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">auto_awesome</span>
+            <Icon name="auto_awesome" className="text-sm text-[var(--color-primary)]" />
             Google AI Doğrudan Sektörel Cevap
           </span>
           <button
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 text-xs font-bold transition-all duration-200"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copied ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
           </button>
         </div>

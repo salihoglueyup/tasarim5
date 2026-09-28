@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
+import Icon from '@/components/ui/branding/Icon';
 interface VisionHeroSeoProps {
   lang?: string;
   onOpenQuote?: () => void;
@@ -54,32 +55,17 @@ export default function VisionHeroSeo({
         {/* Authority Badges */}
         <div className="flex flex-wrap items-center gap-2.5 mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-semibold text-slate-200 backdrop-blur-md shadow-xs">
-            <span
-              className="material-symbols-outlined text-sm text-brand-400"
-              aria-hidden="true"
-            >
-              verified
-            </span>
+            <Icon name="verified" className="text-sm text-brand-400" />
             <span>ISO 45001 • ISO 14001 • ISO 10002 — ILAS AKREDİTELİ</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
-            <span
-              className="material-symbols-outlined text-xs text-blue-400"
-              aria-hidden="true"
-            >
-              gavel
-            </span>
+            <Icon name="gavel" className="text-xs text-blue-400" />
             <span>634 Sayılı KMK Hukuk Güvencesi</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-medium">
-            <span
-              className="material-symbols-outlined text-xs text-emerald-400"
-              aria-hidden="true"
-            >
-              shield
-            </span>
+            <Icon name="shield" className="text-xs text-emerald-400" />
             <span>5188 Lisanslı Özel Güvenlik Altyapısı</span>
           </div>
         </div>
@@ -108,12 +94,12 @@ export default function VisionHeroSeo({
               onClick={onOpenQuote}
               className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg shadow-brand-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
             >
-              <span className="material-symbols-outlined text-lg">request_quote</span>
+              <Icon name="request_quote" className="text-lg" />
               <span>Ücretsiz Tesis Fizibilite Teklifi Al</span>
             </button>
           ) : (
             <QuoteCtaButton className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg shadow-brand-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
-              <span className="material-symbols-outlined text-lg">request_quote</span>
+              <Icon name="request_quote" className="text-lg" />
               <span>Ücretsiz Tesis Fizibilite Teklifi Al</span>
             </QuoteCtaButton>
           )}
@@ -123,7 +109,7 @@ export default function VisionHeroSeo({
             onClick={() => scrollToSection('seffaflik-manifestosu')}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700/80 transition-all cursor-pointer"
           >
-            <span className="material-symbols-outlined text-lg text-amber-400">verified_user</span>
+            <Icon name="verified_user" className="text-lg text-amber-400" />
             <span>Kat Malikleri Manifestosu</span>
           </button>
 
@@ -133,7 +119,7 @@ export default function VisionHeroSeo({
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-slate-400 hover:text-white font-medium transition-colors cursor-pointer py-2 px-1"
           >
             <span>Geleneksel vs. Alo Yönetim 2026</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </button>
         </div>
 
@@ -143,7 +129,7 @@ export default function VisionHeroSeo({
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white">45.000+</span>
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
-                <span className="material-symbols-outlined text-xl">apartment</span>
+                <Icon name="apartment" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Bağımsız Bölüm</div>
@@ -154,7 +140,7 @@ export default function VisionHeroSeo({
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white">1.200+</span>
               <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center border border-brand-500/20">
-                <span className="material-symbols-outlined text-xl">badge</span>
+                <Icon name="badge" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Eğitimli Saha Personeli</div>
@@ -165,7 +151,7 @@ export default function VisionHeroSeo({
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white">%99,4</span>
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-                <span className="material-symbols-outlined text-xl">savings</span>
+                <Icon name="savings" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Tahsilat Başarısı</div>
@@ -176,7 +162,7 @@ export default function VisionHeroSeo({
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white">%28</span>
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
-                <span className="material-symbols-outlined text-xl">energy_savings_leaf</span>
+                <Icon name="energy_savings_leaf" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">İşletme & Enerji Tasarrufu</div>

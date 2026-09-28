@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface GlossaryDefinitionItem {
   slug: string;
   term: string;
@@ -146,7 +147,7 @@ export default function GlossaryAiOverviewSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px] text-[var(--color-primary)]" aria-hidden="true">menu_book</span>
+          <Icon name="menu_book" className="text-[15px] text-[var(--color-primary)]" />
           <span>Google AI Overviews • KMK 634 Terimler & Hukuki Tanımlar</span>
         </div>
         <div className="flex items-center gap-2">
@@ -174,9 +175,7 @@ export default function GlossaryAiOverviewSeo({
             onClick={() => handleCopy(directAnswer, 'general')}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] border border-[var(--color-outline)]/70 text-xs font-bold transition-all shadow-xs cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copiedSlug === 'general' ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copiedSlug === 'general' ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copiedSlug === 'general' ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
           </button>
         </div>
@@ -228,9 +227,7 @@ export default function GlossaryAiOverviewSeo({
             onClick={() => handleCopy(selectedTerm.definition, selectedTerm.slug)}
             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] border border-[var(--color-outline)]/70 text-xs font-bold transition-all shadow-xs cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copiedSlug === selectedTerm.slug ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copiedSlug === selectedTerm.slug ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copiedSlug === selectedTerm.slug ? 'Kopyalandı' : 'Tanımı Kopyala'}</span>
           </button>
 
@@ -239,7 +236,7 @@ export default function GlossaryAiOverviewSeo({
             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-all shadow-xs"
           >
             <span>Detaylı Terim Sayfası</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </a>
         </div>
       </div>

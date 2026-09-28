@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface NeighborhoodAiOverviewSnippetSeoProps {
   neighborhoodName: string;
   districtName: string;
@@ -89,7 +90,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
       {/* Başlık ve Rozetler */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 border border-emerald-600/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">auto_awesome</span>
+          <Icon name="auto_awesome" className="text-[15px]" />
           <span>Google AI Overviews & Mahalle Düzeyi Doğrulanmış Yanıt</span>
         </div>
         <div className="flex items-center gap-2">
@@ -133,28 +134,26 @@ export default function NeighborhoodAiOverviewSnippetSeo({
             title="Yanıtı Kopyala"
             aria-label="Doğrudan yanıtı panoya kopyala"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-lg" />
           </button>
         </div>
 
         {/* 4'lü Hap Operasyonel Vurgular */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-3 border-t border-[var(--color-outline)]/60 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Mevzuat:</strong> KMK m.37 Bütçe & İİK 68 İcra Takibi</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Güvenlik:</strong> 5188 Lisanslı Devriye & Kamera</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Yetkili Adliye:</strong> {courthouseName}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Acil Müdahale:</strong> {slaTime} Dk Mobil Teknik Servis</span>
           </div>
         </div>
@@ -172,7 +171,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
           >
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
             ChatGPT
           </a>
           <a
@@ -181,7 +180,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
+            <Icon name="travel_explore" className="text-xs" />
             Perplexity
           </a>
         </div>

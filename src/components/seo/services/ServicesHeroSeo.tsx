@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "Anasayfa": "shr_1",
   "Hizmetlerimiz": "shr_2",
@@ -65,15 +66,15 @@ export default function ServicesHeroSeo({
         {/* Regulatory & Authority Badges */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/30 text-blue-300">
-            <span className="material-symbols-outlined text-sm text-blue-400">verified</span>
+            <Icon name="verified" className="text-sm text-blue-400" />
             ISO 45001 & ISO 14001 (ILAS)
           </span>
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/30 text-amber-300">
-            <span className="material-symbols-outlined text-sm text-amber-400">shield</span>
+            <Icon name="shield" className="text-sm text-amber-400" />
             {tx('5188 Sayılı Özel Güvenlik Lisansı')}
           </span>
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
-            <span className="material-symbols-outlined text-sm text-emerald-400">gavel</span>
+            <Icon name="gavel" className="text-sm text-emerald-400" />
             {tx('634 Sayılı KMK m.34 Güvencesi')}
           </span>
         </div>
@@ -94,9 +95,7 @@ export default function ServicesHeroSeo({
           {/* Search Bar & Quick Filter */}
           <div className="max-w-2xl mx-auto mb-12">
             <div className="relative flex items-center">
-              <span className="material-symbols-outlined absolute left-4 text-slate-400 text-xl pointer-events-none">
-                search
-              </span>
+              <Icon name="search" className="absolute left-4 text-slate-400 text-xl pointer-events-none" />
               <input
                 type="text"
                 value={searchQuery}
@@ -111,7 +110,7 @@ export default function ServicesHeroSeo({
                   className="absolute right-4 text-slate-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
                   aria-label={tx('Aramayı temizle')}
                 >
-                  <span className="material-symbols-outlined text-sm">close</span>
+                  <Icon name="close" className="text-sm" />
                 </button>
               )}
             </div>
@@ -129,14 +128,14 @@ export default function ServicesHeroSeo({
               href={lp('/teklif-al')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm sm:text-base shadow-lg shadow-amber-500/25 transition-all hover:scale-[1.02] cursor-pointer"
             >
-              <span className="material-symbols-outlined text-xl">assignment</span>
+              <Icon name="assignment" className="text-xl" />
               {tx('Ücretsiz Yönetim Keşfi Al')}
             </Link>
             <a
               href="#hizmet-katalogu"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm sm:text-base transition-all cursor-pointer"
             >
-              <span className="material-symbols-outlined text-lg text-slate-300">grid_view</span>
+              <Icon name="grid_view" className="text-lg text-slate-300" />
               {tx('Tüm Hizmetleri İncele')}
             </a>
           </div>

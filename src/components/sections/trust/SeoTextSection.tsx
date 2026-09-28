@@ -3,6 +3,7 @@
 import { useLanguage } from '@/context/LanguageContext';
 import SemanticLinker from '@/components/seo/schema/SemanticLinker';
 
+import Icon from '@/components/ui/branding/Icon';
 interface SeoTextSectionProps {
   titleKey?: string;
   p1Key?: string;
@@ -216,7 +217,7 @@ export default function SeoTextSection({
             {/* Otorite & Akreditasyon Hap Rozeti (Kurumsal Kehribar & Zümrüt Vurgulu) */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 text-xs font-bold text-amber-800 dark:text-amber-300 shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-              <span className="material-symbols-outlined text-sm text-amber-600 dark:text-amber-400" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-sm text-amber-600 dark:text-amber-400" />
               <span className="tracking-tight">{eyebrow}</span>
             </div>
 
@@ -240,7 +241,7 @@ export default function SeoTextSection({
               {checkpoints.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-[var(--color-heading-text)] dark:text-slate-200">
                   <div className="w-4 h-4 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/25">
-                    <span className="material-symbols-outlined text-xs">check</span>
+                    <Icon name="check" className="text-xs" />
                   </div>
                   <span>{item}</span>
                 </div>
@@ -275,7 +276,7 @@ export default function SeoTextSection({
                       <div>
                         <div className="flex items-center justify-between mb-3">
                           <div className={`w-9 h-9 rounded-xl ${iconBoxStyle} border flex items-center justify-center shrink-0 shadow-2xs`}>
-                            <span className="material-symbols-outlined text-lg">{card.icon}</span>
+                            <Icon name={card.icon} className="text-lg" />
                           </div>
                           <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${badgeStyle} border`}>
                             {card.badge}
@@ -299,7 +300,7 @@ export default function SeoTextSection({
               {/* Alt Kurumsal Mühür Bilgisi (Titanium Zemin & Zümrüt/Kehribar Vurgular) */}
               <div className="mt-4 p-3 rounded-xl bg-white dark:bg-[#1E202B] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">lock</span>
+                  <Icon name="lock" className="text-sm text-emerald-600 dark:text-emerald-400" />
                   <span className="font-medium">{t('stx_env_law')}</span>
                 </div>
                 <span className="px-2 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 font-mono font-bold shrink-0 text-[10px]">

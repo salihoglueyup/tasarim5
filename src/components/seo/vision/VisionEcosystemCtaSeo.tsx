@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
+import Icon from '@/components/ui/branding/Icon';
 interface VisionEcosystemCtaSeoProps {
   onOpenQuote?: () => void;
 }
@@ -60,9 +61,7 @@ export default function VisionEcosystemCtaSeo({ onOpenQuote }: VisionEcosystemCt
         {/* Sister Corporate Pages Hub */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-brand-500" aria-hidden="true">
-              hub
-            </span>
+            <Icon name="hub" className="text-sm text-brand-500" />
             <span>Kurumsal Ekosistem & Bağlantılar</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight mb-3">
@@ -84,14 +83,12 @@ export default function VisionEcosystemCtaSeo({ onOpenQuote }: VisionEcosystemCt
               <div
                 className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border ${link.color} group-hover:scale-105 transition-transform`}
               >
-                <span className="material-symbols-outlined text-2xl">{link.icon}</span>
+                <Icon name={link.icon} className="text-2xl" />
               </div>
               <div>
                 <h3 className="text-sm sm:text-base font-bold text-[var(--color-primary)] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors flex items-center gap-1">
                   <span>{link.title}</span>
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                    arrow_forward
-                  </span>
+                  <Icon name="arrow_forward" className="text-xs opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
                 <p className="text-xs text-[var(--color-secondary)] mt-1 font-normal">
                   {link.desc}
@@ -109,7 +106,7 @@ export default function VisionEcosystemCtaSeo({ onOpenQuote }: VisionEcosystemCt
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider mb-4 border border-brand-500/30">
-                <span className="material-symbols-outlined text-xs">rocket_launch</span>
+                <Icon name="rocket_launch" className="text-xs" />
                 <span>2026 Standartlarında Tesis Yönetimi</span>
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
@@ -143,7 +140,7 @@ export default function VisionEcosystemCtaSeo({ onOpenQuote }: VisionEcosystemCt
                 rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/15 transition-all text-center flex items-center justify-center gap-2"
               >
-                <span className="material-symbols-outlined text-lg text-emerald-400">chat</span>
+                <Icon name="chat" className="text-lg text-emerald-400" />
                 <span>WhatsApp ile Danışın</span>
               </a>
             </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface AccessibleVideoPlayerProps {
   src: string;
   title: string;
@@ -57,9 +58,7 @@ export default function AccessibleVideoPlayer({
             aria-controls="video-transcript-content"
             className="text-xs font-bold text-brand-600 dark:text-amber-400 hover:underline inline-flex items-center gap-1 cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              description
-            </span>
+            <Icon name="description" className="text-sm" />
             <span>{showTranscript ? 'Video Deşifresini Gizle' : 'Video Deşifresini / Metnini Oku'}</span>
           </button>
 

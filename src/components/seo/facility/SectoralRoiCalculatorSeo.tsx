@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export type SectorType = 'rezidans' | 'avm' | 'sanayi' | 'toplukonut';
 
 export default function SectoralRoiCalculatorSeo() {
@@ -78,7 +79,7 @@ export default function SectoralRoiCalculatorSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-slate-900/10 dark:border-white/10 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">trending_up</span>
+              <Icon name="trending_up" className="text-sm text-[var(--color-primary)]" />
               3 Yıllık Sektörel ROI & Tasarruf Matrisi
             </span>
           </div>
@@ -203,7 +204,7 @@ export default function SectoralRoiCalculatorSeo() {
             className="w-full py-3.5 px-6 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-surface)] font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all hover:scale-102"
           >
             <span>{current.title} İçin Resmi Teklif İste</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </Link>
         </div>
 

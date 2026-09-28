@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityLegalPrecedentsBrowserSeoProps {
   basePath?: string;
   title?: string;
@@ -66,7 +67,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
+            <Icon name="gavel" className="text-[16px]" />
             {badge}
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -92,9 +93,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full sm:w-64 bg-[var(--color-surface-variant)] border border-[var(--color-outline)] rounded-xl px-4 py-2 pl-9 text-xs text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none focus:border-[var(--color-primary)]"
           />
-          <span className="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-[var(--color-tertiary)]" aria-hidden="true">
-            search
-          </span>
+          <Icon name="search" className="absolute left-2.5 top-2.5 text-[16px] text-[var(--color-tertiary)]" />
         </div>
       </div>
 
@@ -174,9 +173,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
 
                 {/* Alo Yönetim Operational Guarantee */}
                 <div className="p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-950/20 border border-emerald-500/20 flex items-start gap-3">
-                  <span className="material-symbols-outlined text-emerald-500 text-xl shrink-0 mt-0.5" aria-hidden="true">
-                    verified_user
-                  </span>
+                  <Icon name="verified_user" className="text-emerald-500 text-xl shrink-0 mt-0.5" />
                   <div>
                     <div className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
                       Alo Yönetim Operasyonel Güvencesi:
@@ -190,7 +187,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
                 {/* Official Legislation & Outbound Verification Links */}
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-2 text-[var(--color-secondary)]">
-                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-[15px]" />
                     <span>Resmi Mevzuat Dayanağı: <strong>{activeItem.kmkArticle}</strong></span>
                   </div>
 
@@ -203,7 +200,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
                       title="T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi — 634 Sayılı KMK"
                     >
                       <span>Mevzuat.gov.tr</span>
-                      <span className="material-symbols-outlined text-[13px]" aria-hidden="true">open_in_new</span>
+                      <Icon name="open_in_new" className="text-[13px]" />
                     </a>
                     <span className="text-[var(--color-outline)]">•</span>
                     <a
@@ -214,7 +211,7 @@ export default function FacilityLegalPrecedentsBrowserSeo({
                       title="T.C. Yargıtay Başkanlığı Karar Arama Portalı"
                     >
                       <span>Yargıtay İlamı Sorgula</span>
-                      <span className="material-symbols-outlined text-[13px]" aria-hidden="true">open_in_new</span>
+                      <Icon name="open_in_new" className="text-[13px]" />
                     </a>
                   </div>
                 </div>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface VoiceQueryItem {
   id: string;
   userVoiceQuery: string;
@@ -157,7 +158,7 @@ export default function VoiceConversationalAiSnippetSeo({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-violet-500/20 pb-4">
         <div className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400 border border-violet-400/30 font-bold text-xl">
-            <span className="material-symbols-outlined text-2xl">mic</span>
+            <Icon name="mic" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
@@ -181,9 +182,7 @@ export default function VoiceConversationalAiSnippetSeo({
             aria-label="Sesli dinle"
             className="inline-flex items-center gap-1.5 rounded-lg border border-violet-400/40 bg-violet-600/30 px-3 py-1.5 text-xs font-semibold text-violet-200 transition-all hover:bg-violet-600/50 active:scale-95"
           >
-            <span className="material-symbols-outlined text-sm">
-              {isPlaying ? 'stop_circle' : 'volume_up'}
-            </span>
+            <Icon name={isPlaying ? 'stop_circle' : 'volume_up'} className="text-sm" />
             {isPlaying ? 'Durdur' : 'Sesli Dinle'}
           </button>
 
@@ -193,9 +192,7 @@ export default function VoiceConversationalAiSnippetSeo({
             aria-label="AI yanıtını kopyala"
             className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors hover:bg-slate-700 active:scale-95"
           >
-            <span className="material-symbols-outlined text-sm">
-              {copied ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             {copied ? 'Kopyalandı' : 'Kopyala'}
           </button>
         </div>
@@ -224,9 +221,7 @@ export default function VoiceConversationalAiSnippetSeo({
               <span className="text-[10px] uppercase font-bold tracking-wider text-violet-400">
                 {q.category}
               </span>
-              <span className="material-symbols-outlined text-sm text-slate-500">
-                graphic_eq
-              </span>
+              <Icon name="graphic_eq" className="text-sm text-slate-500" />
             </div>
             <span className="text-xs font-semibold text-slate-200 line-clamp-2">
               "{q.userVoiceQuery}"

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface SectorAiOverviewProps {
   sectorName?: string;
   sectorSlug?: string;
@@ -116,7 +117,7 @@ export default function SectorAiOverviewSnippetSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">domain</span>
+          <Icon name="domain" className="text-[15px]" />
           <span>Google AI Overviews & B2B Sektörel Mevzuat Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -131,9 +132,7 @@ export default function SectorAiOverviewSnippetSeo({
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-indigo-600 dark:text-indigo-400 text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          gavel
-        </span>
+        <Icon name="gavel" className="text-indigo-600 dark:text-indigo-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -149,7 +148,7 @@ export default function SectorAiOverviewSnippetSeo({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">apartment</span>
+            <Icon name="apartment" className="text-base" />
             <span className="text-xs font-bold">Rezidans & Toplu Yapı</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -159,7 +158,7 @@ export default function SectorAiOverviewSnippetSeo({
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">storefront</span>
+            <Icon name="storefront" className="text-base" />
             <span className="text-xs font-bold">AVM & Ticaret Merkezi</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -169,7 +168,7 @@ export default function SectorAiOverviewSnippetSeo({
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">warehouse</span>
+            <Icon name="warehouse" className="text-base" />
             <span className="text-xs font-bold">Lojistik & Antrepo</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -179,7 +178,7 @@ export default function SectorAiOverviewSnippetSeo({
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">school</span>
+            <Icon name="school" className="text-base" />
             <span className="text-xs font-bold">Kampüs & Eğitim</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -191,7 +190,7 @@ export default function SectorAiOverviewSnippetSeo({
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="material-symbols-outlined text-sm text-indigo-500">verified_user</span>
+          <Icon name="verified_user" className="text-sm text-indigo-500" />
           <span>B2B Tesis Yöneticileri ve Denetçileri İçin Mevzuat Referansı</span>
         </div>
 
@@ -201,9 +200,7 @@ export default function SectorAiOverviewSnippetSeo({
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-primary">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
             <span>{copied ? 'Kopyalandı!' : 'Mevzuat Özetini Kopyala'}</span>
           </button>
 
@@ -216,7 +213,7 @@ export default function SectorAiOverviewSnippetSeo({
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

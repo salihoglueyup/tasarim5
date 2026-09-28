@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import DeleteLeadButton from './DeleteLeadButton';
 import MarkReadButton from './MarkReadButton';
 import LeadMessageModal from './LeadMessageModal'; // will create this for viewing full message
+import Icon from '@/components/ui/branding/Icon';
 
 export default async function AdminLeads({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -45,8 +46,8 @@ export default async function AdminLeads({ params }: { params: Promise<{ lang: s
                   </td>
                   <td className="p-4">
                     <div className="flex flex-col gap-1 text-xs text-slate-600 dark:text-gray-400">
-                      {lead.phone && <div className="flex items-center gap-1"><span className="material-symbols-outlined text-[14px]" aria-hidden="true">call</span> {lead.phone}</div>}
-                      {lead.email && <div className="flex items-center gap-1"><span className="material-symbols-outlined text-[14px]" aria-hidden="true">mail</span> {lead.email}</div>}
+                      {lead.phone && <div className="flex items-center gap-1"><Icon name="call" className="text-[14px]" /> {lead.phone}</div>}
+                      {lead.email && <div className="flex items-center gap-1"><Icon name="mail" className="text-[14px]" /> {lead.email}</div>}
                       {!lead.phone && !lead.email && <span>Belirtilmemiş</span>}
                     </div>
                   </td>

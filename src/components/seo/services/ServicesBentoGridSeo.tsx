@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "Profesyonel Tesis Yönetimi & İşletmesi": "sbg_1",
   "Tesis Yönetimi": "sbg_2",
@@ -357,7 +358,7 @@ export default function ServicesBentoGridSeo({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-3">
-              <span className="material-symbols-outlined text-sm">hub</span>
+              <Icon name="hub" className="text-sm" />
               {tx('10 Temel Operasyonel Çözüm Alanı')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -387,7 +388,7 @@ export default function ServicesBentoGridSeo({
                   : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-base">{tab.icon}</span>
+              <Icon name={tab.icon} className="text-base" />
               {tx(tab.label)}
             </button>
           ))}
@@ -407,7 +408,7 @@ export default function ServicesBentoGridSeo({
         {flagshipServices.length > 0 && (
           <div className="mb-8">
             <div className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-base">star</span>
+              <Icon name="star" className="text-base" />
               {tx('Amiral Gemisi Çözümlerimiz (Büyük Ölçekli Yönetim)')}
             </div>
 
@@ -420,7 +421,7 @@ export default function ServicesBentoGridSeo({
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between gap-4">
                       <div className="w-14 h-14 rounded-2xl bg-blue-600/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <span className="material-symbols-outlined text-3xl">{service.icon}</span>
+                        <Icon name={service.icon} className="text-3xl" />
                       </div>
                       <span className="text-xs font-extrabold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 px-3.5 py-1.5 rounded-full">
                         {tx(service.badge)}
@@ -440,7 +441,7 @@ export default function ServicesBentoGridSeo({
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-[var(--color-outline)]/40 text-xs text-[var(--color-primary)] font-medium">
                       {service.bulletPoints.map((point, idx) => (
                         <li key={idx} className="flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-sm text-emerald-500">check_circle</span>
+                          <Icon name="check_circle" className="text-sm text-emerald-500" />
                           <span>{tx(point)}</span>
                         </li>
                       ))}
@@ -449,7 +450,7 @@ export default function ServicesBentoGridSeo({
 
                   <div className="pt-6 mt-6 border-t border-[var(--color-outline)]/50 flex items-center justify-between">
                     <span className="text-xs font-semibold text-[var(--color-tertiary)] flex items-center gap-1">
-                      <span className="material-symbols-outlined text-sm text-amber-500">verified</span>
+                      <Icon name="verified" className="text-sm text-amber-500" />
                       {tx(service.stats)}
                     </span>
                     <Link
@@ -457,7 +458,7 @@ export default function ServicesBentoGridSeo({
                       className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
                     >
                       {tx('Hizmet Detayını İncele')}
-                      <span className="material-symbols-outlined text-base">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-base" />
                     </Link>
                   </div>
                 </div>
@@ -471,7 +472,7 @@ export default function ServicesBentoGridSeo({
           <div>
             {flagshipServices.length > 0 && (
               <div className="text-xs font-bold uppercase tracking-wider text-[var(--color-secondary)] mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-base">construction</span>
+                <Icon name="construction" className="text-base" />
                 {tx('Uzmanlık Operasyonları & Hizmet Modülleri')}
               </div>
             )}
@@ -485,7 +486,7 @@ export default function ServicesBentoGridSeo({
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between">
                       <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-slate-800/80 text-[var(--color-primary)] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <span className="material-symbols-outlined text-2xl">{service.icon}</span>
+                        <Icon name={service.icon} className="text-2xl" />
                       </div>
                       <span className="text-[10px] font-bold text-[var(--color-secondary)] bg-[var(--color-surface-variant)] px-2.5 py-1 rounded-full border border-[var(--color-outline)]/40">
                         {tx(service.categoryLabel)}
@@ -501,7 +502,7 @@ export default function ServicesBentoGridSeo({
                     </p>
 
                     <div className="pt-2 text-[11px] font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-1">
-                      <span className="material-symbols-outlined text-xs">verified</span>
+                      <Icon name="verified" className="text-xs" />
                       {tx(service.badge)}
                     </div>
                   </div>
@@ -515,7 +516,7 @@ export default function ServicesBentoGridSeo({
                       className="text-xs font-bold text-[var(--color-primary)] hover:text-amber-500 flex items-center gap-1 transition-colors"
                     >
                       {tx('İncele')}
-                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-sm" />
                     </Link>
                   </div>
                 </div>
@@ -527,7 +528,7 @@ export default function ServicesBentoGridSeo({
         {/* Empty Search State */}
         {filteredServices.length === 0 && (
           <div className="text-center py-16 px-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl">
-            <span className="material-symbols-outlined text-5xl text-slate-400 mb-3">search_off</span>
+            <Icon name="search_off" className="text-5xl text-slate-400 mb-3" />
             <h3 className="text-lg font-bold text-[var(--color-primary)] mb-1">{tx('Aramanıza uygun hizmet bulunamadı')}</h3>
             <p className="text-xs text-[var(--color-secondary)] max-w-md mx-auto mb-6">
               {tx('Aradığınız spesifik bir konu varsa bizimle iletişime geçebilir veya ücretsiz yönetim keşfi talep edebilirsiniz.')}

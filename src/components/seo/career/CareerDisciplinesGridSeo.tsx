@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface Discipline {
   id: string;
   title: string;
@@ -133,9 +134,7 @@ export default function CareerDisciplinesGridSeo({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              category
-            </span>
+            <Icon name="category" className="text-sm" />
             <span>4 Temel İstihdam Kolu</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -158,9 +157,7 @@ export default function CareerDisciplinesGridSeo({
                     : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]/40'
                 }`}
               >
-                <span className="material-symbols-outlined text-base sm:text-lg shrink-0" aria-hidden="true">
-                  {d.icon}
-                </span>
+                <Icon name={d.icon} className="text-base sm:text-lg shrink-0" />
                 <span className="truncate">{d.title.split(' ').slice(0, 2).join(' ')}</span>
               </button>
             ))}
@@ -172,9 +169,7 @@ export default function CareerDisciplinesGridSeo({
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 mb-8 border-b border-[var(--color-outline)]/60">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-3xl" aria-hidden="true">
-                  {activeDiscipline.icon}
-                </span>
+                <Icon name={activeDiscipline.icon} className="text-3xl" />
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -198,7 +193,7 @@ export default function CareerDisciplinesGridSeo({
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] text-xs sm:text-sm font-semibold transition-all shadow-xs"
               >
                 <span>İlgili İlanları Gör</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </a>
               <a
                 href="#basvuru-formu"
@@ -218,7 +213,7 @@ export default function CareerDisciplinesGridSeo({
             {/* Duties */}
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)] font-bold text-sm">
-                <span className="material-symbols-outlined text-base">task_alt</span>
+                <Icon name="task_alt" className="text-base" />
                 <span>Standart Görev Tanımları</span>
               </div>
               <ul className="space-y-2.5">
@@ -234,15 +229,13 @@ export default function CareerDisciplinesGridSeo({
             {/* Certifications */}
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)] font-bold text-sm">
-                <span className="material-symbols-outlined text-base">verified</span>
+                <Icon name="verified" className="text-base" />
                 <span>Zorunlu Sertifika & Belgeler</span>
               </div>
               <ul className="space-y-2.5">
                 {activeDiscipline.certifications.map((cert, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--color-secondary)]">
-                    <span className="material-symbols-outlined text-xs text-[var(--color-primary)] mt-0.5">
-                      check_circle
-                    </span>
+                    <Icon name="check_circle" className="text-xs text-[var(--color-primary)] mt-0.5" />
                     <span>{cert}</span>
                   </li>
                 ))}
@@ -252,15 +245,13 @@ export default function CareerDisciplinesGridSeo({
             {/* Technologies */}
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)] font-bold text-sm">
-                <span className="material-symbols-outlined text-base">devices</span>
+                <Icon name="devices" className="text-base" />
                 <span>Donanım & Saha Teknolojisi</span>
               </div>
               <ul className="space-y-2.5">
                 {activeDiscipline.technologies.map((tech, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--color-secondary)]">
-                    <span className="material-symbols-outlined text-xs text-[var(--color-primary)] mt-0.5">
-                      memory
-                    </span>
+                    <Icon name="memory" className="text-xs text-[var(--color-primary)] mt-0.5" />
                     <span>{tech}</span>
                   </li>
                 ))}

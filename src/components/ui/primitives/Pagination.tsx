@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -48,14 +49,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
           aria-label="Önceki sayfa"
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
+          <Icon name="arrow_back" className="text-lg" />
         </Link>
       ) : (
         <span 
           aria-disabled="true"
           className="w-10 h-10 rounded-full border border-slate-200/50 dark:border-white/5 flex items-center justify-center opacity-40 cursor-not-allowed"
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
+          <Icon name="arrow_back" className="text-lg" />
         </span>
       )}
 
@@ -87,14 +88,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
           aria-label="Sonraki sayfa"
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-lg" />
         </Link>
       ) : (
         <span 
           aria-disabled="true"
           className="w-10 h-10 rounded-full border border-slate-200/50 dark:border-white/5 flex items-center justify-center opacity-40 cursor-not-allowed"
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-lg" />
         </span>
       )}
     </nav>

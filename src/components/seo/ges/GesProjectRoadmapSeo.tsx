@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface Step {
   stepNumber: string;
   title: string;
@@ -87,9 +88,7 @@ export default function GesProjectRoadmapSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">
-              assignment_turned_in
-            </span>
+            <Icon name="assignment_turned_in" className="text-sm text-amber-500" />
             <span>Bürokrasi ve İzin Korkusuna Son</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -135,9 +134,7 @@ export default function GesProjectRoadmapSeo() {
 
               <div className="pt-4 border-t border-[var(--color-outline)]/40 space-y-2 text-xs">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-semibold">
-                  <span className="material-symbols-outlined text-sm text-amber-500 shrink-0">
-                    description
-                  </span>
+                  <Icon name="description" className="text-sm text-amber-500 shrink-0" />
                   <span className="truncate">{step.officialDoc}</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">

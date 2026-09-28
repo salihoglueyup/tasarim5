@@ -16,6 +16,7 @@ import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
 import arDict from '@/i18n/locales/ar/common.json';
 
+import Icon from '@/components/ui/branding/Icon';
 const dictionaries: Record<string, Record<string, string>> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
 export const revalidate = 86400;
@@ -238,7 +239,7 @@ export default async function NeighborhoodPage({
               href="/teklif-al"
               className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
             >
-              <span className="material-symbols-outlined text-base" aria-hidden="true">request_quote</span>
+              <Icon name="request_quote" className="text-base" />
               Ücretsiz Keşif Talep Et
             </Link>
           </div>
@@ -256,9 +257,7 @@ export default async function NeighborhoodPage({
                 href={`/bolgeler/${ilce}/${service.slug}`}
                 className="group flex items-start gap-4 p-6 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl hover:border-brand-500/50 transition-colors"
               >
-                <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5" aria-hidden="true">
-                  {service.icon ?? 'check_circle'}
-                </span>
+                <Icon name={service.icon ?? 'check_circle'} className="text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[var(--color-primary)] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {service.name}
@@ -275,9 +274,7 @@ export default async function NeighborhoodPage({
                 href={`/bolgeler/${ilce}/${service.slug}`}
                 className="group flex items-start gap-4 p-6 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl hover:border-brand-500/50 transition-colors"
               >
-                <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5" aria-hidden="true">
-                  {service.icon ?? 'check_circle'}
-                </span>
+                <Icon name={service.icon ?? 'check_circle'} className="text-brand-600 dark:text-brand-400 text-2xl shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[var(--color-primary)] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {service.name}
@@ -305,7 +302,7 @@ export default async function NeighborhoodPage({
             href={`/bolgeler/${ilce}`}
             className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition-colors"
           >
-            <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+            <Icon name="arrow_back" className="text-base" />
             {district.name} ilçe sayfasına dön
           </Link>
           <span className="text-slate-300">·</span>
@@ -313,7 +310,7 @@ export default async function NeighborhoodPage({
             href={`/bolgeler/${ilce}/mahalleler`}
             className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition-colors"
           >
-            <span className="material-symbols-outlined text-base" aria-hidden="true">location_on</span>
+            <Icon name="location_on" className="text-base" />
             Tüm {district.name} mahalleleri
           </Link>
         </div>

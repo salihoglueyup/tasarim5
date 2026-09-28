@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface KMKCourtDisputeItem {
   id: string;
   suitName: string;
@@ -130,7 +131,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-600/10 dark:bg-indigo-400/10 border border-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">gavel</span>
+            <Icon name="gavel" className="text-[16px]" />
             Google AI Overviews & Yargıtay Hukuk Matrisi
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -142,7 +143,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
         </div>
 
         <div className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 shrink-0">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">policy</span>
+          <Icon name="policy" className="text-sm" />
           <span>7445 SK Zorunlu Arabuluculuk</span>
         </div>
       </div>
@@ -200,7 +201,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
               </p>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold shrink-0">
-              <span className="material-symbols-outlined text-sm text-amber-600" aria-hidden="true">schedule</span>
+              <Icon name="schedule" className="text-sm text-amber-600" />
               <span>Hak Düşürücü Süre: {activeDispute.statuteOfLimitations}</span>
             </div>
           </div>
@@ -208,7 +209,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
           {/* Core Summary (Speakable) */}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 shadow-xs">
             <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <span className="material-symbols-outlined text-base" aria-hidden="true">gavel</span>
+              <Icon name="gavel" className="text-base" />
               Dava Konusu & Hukuki Çerçeve:
             </div>
             <p id="legal-court-matrix-text" className="text-sm sm:text-base text-[var(--color-primary)] leading-relaxed font-normal">

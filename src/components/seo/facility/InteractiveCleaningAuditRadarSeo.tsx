@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface CleaningCriterion {
   id: string;
   category: 'Ortak Alan & Bloklar' | 'Mekanik Zemin & Otopark' | 'İSG & Kimyasal Güvenliği' | 'Personel & Hukuki Sorumluluk';
@@ -165,7 +166,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
       {/* Header */}
       <div className="relative z-10 mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 mb-3">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">cleaning_services</span>
+          <Icon name="cleaning_services" className="text-sm" />
           <span>TSE 13811 & İSG HİJYEN DENETİM MOTORU</span>
         </div>
         <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)]">
@@ -236,7 +237,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs md:text-sm shadow-md hover:shadow-lg transition-all hover:scale-[1.02]"
             >
               <span>Ücretsiz Hijyen Keşfi ve Teklif Al</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
           </div>
         </div>
@@ -276,9 +277,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="flex items-center gap-2">
-                    <span className={`material-symbols-outlined text-lg ${isChecked ? 'text-teal-600 dark:text-teal-400' : 'text-gray-400'}`}>
-                      {crit.icon}
-                    </span>
+                    <Icon name={crit.icon} className={`text-lg ${isChecked ? 'text-teal-600 dark:text-teal-400' : 'text-gray-400'}`} />
                     <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                       {crit.category}
                     </span>

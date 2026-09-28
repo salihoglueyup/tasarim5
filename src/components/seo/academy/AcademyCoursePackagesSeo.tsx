@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface CoursePackage {
   id: string;
   title: string;
@@ -168,9 +169,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              menu_book
-            </span>
+            <Icon name="menu_book" className="text-sm" />
             <span>Resmi 5188 Eğitim Programları</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -226,7 +225,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
                 onClick={() => onSelectCourse && onSelectCourse(currentCourse.title)}
                 className="px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-2"
               >
-                <span className="material-symbols-outlined text-base">edit_document</span>
+                <Icon name="edit_document" className="text-base" />
                 <span>Bu Kursa Ön Kayıt Yap</span>
               </button>
 
@@ -237,7 +236,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
                 className="px-5 py-3.5 rounded-xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)] hover:bg-[var(--color-surface)] text-[var(--color-primary)] text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5"
               >
                 <span>guvenlikkursu.com'da Gör</span>
-                <span className="material-symbols-outlined text-xs">open_in_new</span>
+                <Icon name="open_in_new" className="text-xs" />
               </a>
             </div>
           </div>
@@ -250,9 +249,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
           {/* Key Eligibility & Spec Pills */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60 flex items-start gap-3">
-              <span className="material-symbols-outlined text-xl text-[var(--color-primary)] mt-0.5">
-                cake
-              </span>
+              <Icon name="cake" className="text-xl text-[var(--color-primary)] mt-0.5" />
               <div>
                 <div className="text-xs text-[var(--color-secondary)] font-medium">Yaş Şartı</div>
                 <div className="text-sm font-bold text-[var(--color-primary)]">{currentCourse.ageReq}</div>
@@ -260,9 +257,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60 flex items-start gap-3">
-              <span className="material-symbols-outlined text-xl text-[var(--color-primary)] mt-0.5">
-                school
-              </span>
+              <Icon name="school" className="text-xl text-[var(--color-primary)] mt-0.5" />
               <div>
                 <div className="text-xs text-[var(--color-secondary)] font-medium">Öğrenim Şartı</div>
                 <div className="text-sm font-bold text-[var(--color-primary)]">{currentCourse.eduReq}</div>
@@ -270,9 +265,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60 flex items-start gap-3">
-              <span className="material-symbols-outlined text-xl text-[var(--color-primary)] mt-0.5">
-                target
-              </span>
+              <Icon name="target" className="text-xl text-[var(--color-primary)] mt-0.5" />
               <div>
                 <div className="text-xs text-[var(--color-secondary)] font-medium">Atış Pratiği</div>
                 <div className="text-sm font-bold text-[var(--color-primary)]">{currentCourse.shooting}</div>
@@ -286,7 +279,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
             <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)]/30 border border-[var(--color-outline)]/60 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)] font-bold text-sm">
-                  <span className="material-symbols-outlined text-lg">format_list_bulleted</span>
+                  <Icon name="format_list_bulleted" className="text-lg" />
                   <span>Müfredat Kapsamı</span>
                 </div>
                 <ul className="space-y-2.5 text-xs text-[var(--color-secondary)]">
@@ -307,15 +300,13 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
             <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)]/30 border border-[var(--color-outline)]/60 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)] font-bold text-sm">
-                  <span className="material-symbols-outlined text-lg">folder_shared</span>
+                  <Icon name="folder_shared" className="text-lg" />
                   <span>Kayıt İçin Gerekli Evraklar</span>
                 </div>
                 <ul className="space-y-2.5 text-xs text-[var(--color-secondary)]">
                   {currentCourse.documents.map((doc, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-xs text-emerald-600 dark:text-emerald-400 mt-0.5">
-                        check
-                      </span>
+                      <Icon name="check" className="text-xs text-emerald-600 dark:text-emerald-400 mt-0.5" />
                       <span>{doc}</span>
                     </li>
                   ))}
@@ -330,7 +321,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
             <div className="p-6 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] flex flex-col justify-between shadow-xs">
               <div>
                 <div className="flex items-center gap-2 mb-3 text-red-300 font-bold text-sm">
-                  <span className="material-symbols-outlined text-lg">work</span>
+                  <Icon name="work" className="text-lg" />
                   <span>Alo Yönetim İstihdam Garantisi</span>
                 </div>
                 <h4 className="text-base font-bold text-white mb-3">
@@ -351,7 +342,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
                   className="inline-flex items-center justify-between w-full text-xs font-bold text-white hover:text-red-300 transition-colors"
                 >
                   <span>Açık Güvenlik Pozisyonlarını İncele</span>
-                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-base" />
                 </a>
               </div>
             </div>

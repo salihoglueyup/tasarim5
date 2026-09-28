@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 interface PortalModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -33,17 +34,17 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
               onClick={onClose}
               className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:text-black dark:hover:text-white transition-colors"
             >
-              <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
+              <Icon name="close" className="text-xl" />
             </button>
 
             <div className="flex flex-col gap-6">
               <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center">
-                <span className="material-symbols-outlined text-3xl" aria-hidden="true">domain</span>
+                <Icon name="domain" className="text-3xl" />
               </div>
 
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold mb-3 border border-blue-500/20">
-                  <span className="material-symbols-outlined text-sm" aria-hidden="true">verified_user</span>
+                  <Icon name="verified_user" className="text-sm" />
                   <span>Apsiyon Altyapısı Güvencesiyle</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('portal_title')}</h3>
@@ -60,13 +61,13 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                   rel="noopener noreferrer"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all flex items-center justify-center gap-3 text-center group cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-xl group-hover:translate-x-0.5 transition-transform" aria-hidden="true">open_in_new</span>
+                  <Icon name="open_in_new" className="text-xl group-hover:translate-x-0.5 transition-transform" />
                   <span>Apsiyon Web Sakin Portalı ile Giriş Yap</span>
                 </a>
 
                 <div className="bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 rounded-2xl p-4 text-xs text-slate-600 dark:text-slate-300 space-y-2">
                   <div className="flex items-center gap-2 font-bold text-[var(--color-primary)]">
-                    <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">info</span>
+                    <Icon name="info" className="text-sm text-amber-500" />
                     <span>İlk Giriş & Şifre Yardımı</span>
                   </div>
                   <p className="leading-relaxed text-slate-500 dark:text-slate-400">
@@ -85,7 +86,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs hover:opacity-90 transition-opacity"
                   >
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">phone_iphone</span>
+                    <Icon name="phone_iphone" className="text-base" />
                     <span>App Store</span>
                   </a>
                   <a
@@ -94,7 +95,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs hover:bg-emerald-700 transition-colors"
                   >
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">android</span>
+                    <Icon name="android" className="text-base" />
                     <span>Google Play</span>
                   </a>
                 </div>

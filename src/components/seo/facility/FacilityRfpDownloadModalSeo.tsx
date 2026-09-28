@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { generateFacilityRfpDocument } from '@/data/rfpGeneratorData';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function FacilityRfpDownloadModalSeo() {
   const [isOpen, setIsOpen] = useState(false);
   const [districtSlug, setDistrictSlug] = useState('kadikoy');
@@ -52,7 +53,7 @@ export default function FacilityRfpDownloadModalSeo() {
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">assignment</span>
+            <Icon name="assignment" className="text-[16px]" />
             B2B İhale ve Yönetim Şartnamesi
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -62,9 +63,9 @@ export default function FacilityRfpDownloadModalSeo() {
             Siteniz veya plazanız için profesyonel yönetim ihalesi açarken kullanabileceğiniz ISO 41001 ve 634 Sayılı KMK uyumlu resmi teknik şartnameyi saniyeler içinde oluşturun ve ücretsiz indirin.
           </p>
           <div className="flex flex-wrap gap-4 pt-2 text-xs text-[var(--color-secondary)] font-medium">
-            <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[16px]" aria-hidden="true">check_circle</span> 634 KMK Madde 37 Uyumlu</span>
-            <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[16px]" aria-hidden="true">check_circle</span> 5188 Lisans Maddeleri</span>
-            <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[16px]" aria-hidden="true">check_circle</span> 45 Dk SLA Taahhütleri</span>
+            <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 634 KMK Madde 37 Uyumlu</span>
+            <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 5188 Lisans Maddeleri</span>
+            <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 45 Dk SLA Taahhütleri</span>
           </div>
         </div>
 
@@ -73,7 +74,7 @@ export default function FacilityRfpDownloadModalSeo() {
             onClick={() => setIsOpen(true)}
             className="px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-extrabold text-sm md:text-base shadow-sm hover:scale-105 transition-all duration-300 flex items-center gap-2.5 cursor-pointer whitespace-nowrap"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">download</span>
+            <Icon name="download" className="text-lg" />
             Şartnameyi Oluştur & İndir
           </button>
         </div>
@@ -93,7 +94,7 @@ export default function FacilityRfpDownloadModalSeo() {
               <div className="p-6 border-b border-[var(--color-outline)]/60 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-slate-900/5 dark:bg-white/10 flex items-center justify-center text-[var(--color-primary)]">
-                    <span className="material-symbols-outlined" aria-hidden="true">description</span>
+                    <Icon name="description" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-[var(--color-primary)]">Tesis Yönetimi İhale Şartnamesi (RFP)</h3>
@@ -104,7 +105,7 @@ export default function FacilityRfpDownloadModalSeo() {
                   onClick={() => setIsOpen(false)}
                   className="p-2 rounded-xl text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)] transition-colors cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
+                  <Icon name="close" className="text-xl" />
                 </button>
               </div>
 
@@ -186,7 +187,7 @@ export default function FacilityRfpDownloadModalSeo() {
               {/* Modal Footer */}
               <div className="p-6 border-t border-[var(--color-outline)]/60 flex items-center justify-between bg-[var(--color-surface-variant)]/40">
                 <div className="text-xs text-[var(--color-secondary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[16px]" aria-hidden="true">verified</span>
+                  <Icon name="verified" className="text-emerald-600 dark:text-emerald-400 text-[16px]" />
                   Alo Yönetim Hukuk & Standartlar Masası Onaylı
                 </div>
                 <div className="flex gap-3">
@@ -194,7 +195,7 @@ export default function FacilityRfpDownloadModalSeo() {
                     onClick={handleCopy}
                     className="px-5 py-2.5 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold transition-all flex items-center gap-2 border border-[var(--color-outline)] cursor-pointer"
                   >
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">content_copy</span>
+                    <Icon name="content_copy" className="text-sm" />
                     {copied ? 'Kopyalandı!' : 'Metni Kopyala'}
                   </button>
                   <button
@@ -210,7 +211,7 @@ export default function FacilityRfpDownloadModalSeo() {
                     }}
                     className="px-6 py-2.5 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-white text-xs font-extrabold transition-all shadow-sm flex items-center gap-2 cursor-pointer"
                   >
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
+                    <Icon name="download" className="text-sm" />
                     Dosyayı İndir (.txt)
                   </button>
                 </div>

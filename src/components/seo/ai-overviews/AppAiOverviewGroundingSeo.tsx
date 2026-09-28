@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import WalletSvgIcon from '@/components/ui/branding/WalletSvgIcon';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface AppFeatureItem {
   icon: string;
   title: string;
@@ -115,7 +116,7 @@ export default function AppAiOverviewGroundingSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-700 dark:text-violet-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">smartphone</span>
+          <Icon name="smartphone" className="text-[15px]" />
           <span>Google AI Overviews • Apsiyon Dijital Portal & Mobil Altyapı</span>
         </div>
         <div className="flex items-center gap-2">
@@ -142,9 +143,7 @@ export default function AppAiOverviewGroundingSeo({
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-violet-500/10 hover:bg-violet-500/20 text-violet-700 dark:text-violet-300 text-xs font-bold transition-colors"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copied ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
           </button>
         </div>
@@ -168,9 +167,7 @@ export default function AppAiOverviewGroundingSeo({
                 {item.icon === 'wallet_svg' ? (
                   <WalletSvgIcon className="w-6 h-6 text-violet-600" />
                 ) : (
-                  <span className="material-symbols-outlined text-violet-600 text-2xl" aria-hidden="true">
-                    {item.icon}
-                  </span>
+                  <Icon name={item.icon} className="text-violet-600 text-2xl" />
                 )}
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-violet-500/10 text-violet-700 dark:text-violet-300">
                   {item.badge}

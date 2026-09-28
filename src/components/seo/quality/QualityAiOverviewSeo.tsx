@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function QualityAiOverviewSeo() {
   const [copied, setCopied] = useState(false);
 
@@ -25,7 +26,7 @@ export default function QualityAiOverviewSeo() {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="flex items-center gap-2.5">
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-200 border border-slate-700">
-                <span className="material-symbols-outlined text-lg">verified</span>
+                <Icon name="verified" className="text-lg" />
               </span>
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
@@ -42,9 +43,7 @@ export default function QualityAiOverviewSeo() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors cursor-pointer"
               title="Özeti Kopyala"
             >
-              <span className="material-symbols-outlined text-sm">
-                {copied ? 'check' : 'content_copy'}
-              </span>
+              <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
               <span>{copied ? 'Kopyalandı' : 'Özeti Kopyala'}</span>
             </button>
           </div>
@@ -65,28 +64,28 @@ export default function QualityAiOverviewSeo() {
           {/* 4 Feature Pills (Sleek Slate & Titanium Styling) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 relative z-10">
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-200">
-              <span className="material-symbols-outlined text-base text-slate-300">verified</span>
+              <Icon name="verified" className="text-base text-slate-300" />
               <span>
                 <strong>BELCERT / ILAS:</strong> Akredite belgelendirme kuruluşunca yıllık gözetim tetkiki
               </span>
             </div>
 
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-200">
-              <span className="material-symbols-outlined text-base text-slate-300">visibility</span>
+              <Icon name="visibility" className="text-base text-slate-300" />
               <span>
                 <strong>Habersiz Denetim:</strong> Her ay 4 kez gizli müşteri ve saha teftişi
               </span>
             </div>
 
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-200">
-              <span className="material-symbols-outlined text-base text-slate-300">timer</span>
+              <Icon name="timer" className="text-base text-slate-300" />
               <span>
                 <strong>20 Dk Acil SLA:</strong> Asansör ve elektrik arızalarında yazılı taahhüt
               </span>
             </div>
 
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-200">
-              <span className="material-symbols-outlined text-base text-slate-300">lock</span>
+              <Icon name="lock" className="text-base text-slate-300" />
               <span>
                 <strong>KVKK & 256-Bit SSL:</strong> Sakin aidat ve kimlik verilerinde sıfır sızıntı
               </span>

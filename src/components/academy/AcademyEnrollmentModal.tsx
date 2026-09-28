@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
+import Icon from '@/components/ui/branding/Icon';
 interface AcademyEnrollmentModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -122,7 +123,7 @@ export default function AcademyEnrollmentModal({
               aria-label="Kapat"
               className="absolute top-6 right-6 w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 rounded-full text-slate-500 dark:text-gray-300 transition-colors cursor-pointer z-20"
             >
-              <span className="material-symbols-outlined text-xl" aria-hidden="true">close</span>
+              <Icon name="close" className="text-xl" />
             </button>
 
             {status !== 'success' ? (
@@ -130,7 +131,7 @@ export default function AcademyEnrollmentModal({
                 {/* Header */}
                 <div className="mb-6">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-wider mb-2">
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">school</span>
+                    <Icon name="school" className="text-sm" />
                     <span>Akademi Ön Başvuru</span>
                   </div>
                   <h2 id="academy-modal-title" className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -264,7 +265,7 @@ export default function AcademyEnrollmentModal({
                     ) : (
                       <>
                         <span>Ön Kaydı Tamamla</span>
-                        <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                        <Icon name="arrow_forward" className="text-base" />
                       </>
                     )}
                   </button>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function VisionAiOverviewSeo() {
   const [copied, setCopied] = useState(false);
 
@@ -25,9 +26,7 @@ export default function VisionAiOverviewSeo() {
       {/* Header bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 border-b border-slate-200/60 dark:border-slate-800/60 pb-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 text-xs font-bold tracking-wide uppercase">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">
-            psychology
-          </span>
+          <Icon name="psychology" className="text-sm" />
           <span>Google AI Overviews & 2026 Yönetim Felsefesi</span>
         </div>
 
@@ -43,12 +42,7 @@ export default function VisionAiOverviewSeo() {
 
       {/* Question Heading */}
       <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 flex items-start gap-3">
-        <span
-          className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-2xl sm:text-3xl shrink-0 mt-0.5"
-          aria-hidden="true"
-        >
-          auto_awesome
-        </span>
+        <Icon name="auto_awesome" className="text-brand-600 dark:text-brand-400 text-2xl sm:text-3xl shrink-0 mt-0.5" />
         <span>
           Alo Yönetim&apos;in Modern Tesis ve Site Yönetimindeki Temel Yönetim Felsefesi ve Şeffaflık Modeli Nedir?
         </span>
@@ -65,9 +59,7 @@ export default function VisionAiOverviewSeo() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-6">
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400">
-              account_balance
-            </span>
+            <Icon name="account_balance" className="text-base text-emerald-600 dark:text-emerald-400" />
             <span>%100 Açık Kasa Sistemi</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -77,9 +69,7 @@ export default function VisionAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-blue-600 dark:text-blue-400">
-              lock
-            </span>
+            <Icon name="lock" className="text-base text-blue-600 dark:text-blue-400" />
             <span>Dokunulmaz Kıdem Fonu</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -89,9 +79,7 @@ export default function VisionAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-amber-600 dark:text-amber-400">
-              precision_manufacturing
-            </span>
+            <Icon name="precision_manufacturing" className="text-base text-amber-600 dark:text-amber-400" />
             <span>Yapay Zeka Tesis Otomasyonu</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -101,9 +89,7 @@ export default function VisionAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-purple-600 dark:text-purple-400">
-              shield_with_heart
-            </span>
+            <Icon name="shield_with_heart" className="text-base text-purple-600 dark:text-purple-400" />
             <span>5188 Lisanslı Kadro & Akademi</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -115,7 +101,7 @@ export default function VisionAiOverviewSeo() {
       {/* Footer Citation & Action Controls */}
       <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-base text-blue-500">menu_book</span>
+          <Icon name="menu_book" className="text-base text-blue-500" />
           <span>Kaynak: 634 Sayılı Kat Mülkiyeti Kanunu Madde 35-40, ISO 9001:2015 Kalite Manifestosu</span>
         </div>
 
@@ -125,9 +111,7 @@ export default function VisionAiOverviewSeo() {
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 font-semibold transition-all cursor-pointer shadow-xs"
           >
-            <span className="material-symbols-outlined text-sm">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'Özeti Kopyala'}</span>
           </button>
 
@@ -138,7 +122,7 @@ export default function VisionAiOverviewSeo() {
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

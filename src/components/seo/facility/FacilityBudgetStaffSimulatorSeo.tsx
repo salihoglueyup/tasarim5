@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 export type SimulatorPropertyType = 'site' | 'rezidans' | 'plaza' | 'sanayi';
 
 export default function FacilityBudgetStaffSimulatorSeo() {
@@ -80,7 +81,7 @@ export default function FacilityBudgetStaffSimulatorSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">calculate</span>
+          <Icon name="calculate" className="text-[16px]" />
           <span>İnteraktif Kadro & Bütçe Simülatörü</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -110,7 +111,7 @@ export default function FacilityBudgetStaffSimulatorSeo() {
                     : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/60 hover:border-[var(--color-outline)] hover:text-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">{item.icon}</span>
+                <Icon name={item.icon} className="text-xl" />
                 <span className="text-xs font-bold">{item.label}</span>
               </button>
             );
@@ -123,7 +124,7 @@ export default function FacilityBudgetStaffSimulatorSeo() {
         {/* Left Col: Sliders (6 cols) */}
         <div className="lg:col-span-6 space-y-6 p-6 sm:p-8 rounded-3xl bg-[var(--color-surface-variant)]/50 border border-[var(--color-outline)]/60">
           <h3 className="font-bold text-base text-[var(--color-primary)] flex items-center gap-2">
-            <span className="material-symbols-outlined text-[var(--color-primary)]" aria-hidden="true">tune</span>
+            <Icon name="tune" className="text-[var(--color-primary)]" />
             <span>Tesis Parametreleri</span>
           </h3>
 
@@ -184,15 +185,15 @@ export default function FacilityBudgetStaffSimulatorSeo() {
           {/* Key Advantages Checklist */}
           <div className="pt-4 border-t border-[var(--color-outline)]/40 space-y-2 text-xs text-[var(--color-secondary)]">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-base" aria-hidden="true">check_circle</span>
+              <Icon name="check_circle" className="text-[var(--color-primary)] text-base" />
               <span>Tüm personel kıdem/ihbar tazminatları Alo Yönetim garantisindedir.</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-base" aria-hidden="true">check_circle</span>
+              <Icon name="check_circle" className="text-[var(--color-primary)] text-base" />
               <span>Kompanzasyon takibi ile %0 reaktif elektrik cezası taahhüdü verilir.</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-base" aria-hidden="true">check_circle</span>
+              <Icon name="check_circle" className="text-[var(--color-primary)] text-base" />
               <span>KMK m.37 resmi tebliğli işletme projesi 7 günde kesinleştirilir.</span>
             </div>
           </div>
@@ -213,19 +214,19 @@ export default function FacilityBudgetStaffSimulatorSeo() {
           {/* 3 Staff Blocks */}
           <div className="grid grid-cols-3 gap-3">
             <div className="p-3.5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/70 text-center shadow-2xs">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl block mb-1" aria-hidden="true">shield_person</span>
+              <Icon name="shield_person" className="text-[var(--color-primary)] text-2xl block mb-1" />
               <div className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">{calculations.securityStaff}</div>
               <div className="text-[11px] text-[var(--color-secondary)] mt-0.5">5188 Güvenlik</div>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/70 text-center shadow-2xs">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl block mb-1" aria-hidden="true">cleaning_services</span>
+              <Icon name="cleaning_services" className="text-[var(--color-primary)] text-2xl block mb-1" />
               <div className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">{calculations.cleaningStaff}</div>
               <div className="text-[11px] text-[var(--color-secondary)] mt-0.5">Temizlik Ekibi</div>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/70 text-center shadow-2xs">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl block mb-1" aria-hidden="true">engineering</span>
+              <Icon name="engineering" className="text-[var(--color-primary)] text-2xl block mb-1" />
               <div className="text-xl sm:text-2xl font-black text-[var(--color-primary)]">{calculations.technicalStaff}</div>
               <div className="text-[11px] text-[var(--color-secondary)] mt-0.5">Teknik & Bakım</div>
             </div>
@@ -262,7 +263,7 @@ export default function FacilityBudgetStaffSimulatorSeo() {
             className="w-full py-4 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-bold text-sm text-center transition-all shadow-md flex items-center justify-center gap-2 group cursor-pointer"
           >
             <span>Bu Kadro & Bütçe İçin Resmi Keşif İste</span>
-            <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-base group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

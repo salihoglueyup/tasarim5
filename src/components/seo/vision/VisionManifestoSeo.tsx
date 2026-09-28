@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface Pledge {
   number: string;
   title: string;
@@ -67,9 +68,7 @@ export default function VisionManifestoSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-brand-500" aria-hidden="true">
-              history_edu
-            </span>
+            <Icon name="history_edu" className="text-sm text-brand-500" />
             <span>Kat Maliklerine Hukuki Sözümüzdür</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -106,9 +105,7 @@ export default function VisionManifestoSeo() {
               </p>
 
               <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium bg-[var(--color-surface-variant)]/40 p-2.5 rounded-xl border border-[var(--color-outline)]/50">
-                <span className="material-symbols-outlined text-sm text-brand-500 shrink-0">
-                  verified
-                </span>
+                <Icon name="verified" className="text-sm text-brand-500 shrink-0" />
                 <span><strong>Hukuki Dayanak:</strong> {pledge.legalBasis}</span>
               </div>
             </div>
@@ -119,7 +116,7 @@ export default function VisionManifestoSeo() {
         <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-400 border border-brand-500/30 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-3xl">verified_user</span>
+              <Icon name="verified_user" className="text-3xl" />
             </div>
             <div>
               <div className="text-xs font-bold text-brand-400 uppercase tracking-wider">

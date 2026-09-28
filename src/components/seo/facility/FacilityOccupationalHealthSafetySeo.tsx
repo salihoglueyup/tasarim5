@@ -10,6 +10,7 @@ import {
   OhsHazardClassRule
 } from '@/data/facilityOccupationalHealthSafetyData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityOccupationalHealthSafetySeoProps {
   className?: string;
   defaultHazardClass?: 'Az Tehlikeli' | 'Tehlikeli' | 'Çok Tehlikeli';
@@ -71,7 +72,7 @@ export default function FacilityOccupationalHealthSafetySeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--color-surface-variant)] text-[var(--color-primary)] mb-3 border border-[var(--color-outline)]/80">
-          <span className="material-symbols-outlined text-sm">health_and_safety</span>
+          <Icon name="health_and_safety" className="text-sm" />
           <span>6331 Sayılı İSG Kanunu & T.C. Çalışma Bakanlığı Mevzuatı</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -100,7 +101,7 @@ export default function FacilityOccupationalHealthSafetySeo({
                 : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]/80'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -282,7 +283,7 @@ export default function FacilityOccupationalHealthSafetySeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-[var(--color-outline)]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">security</span>
+            <Icon name="security" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-[var(--color-primary)]">

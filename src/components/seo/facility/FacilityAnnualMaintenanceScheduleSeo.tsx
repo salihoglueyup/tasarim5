@@ -9,6 +9,7 @@ import {
   MaintenanceCategory,
 } from '@/data/facilityAnnualMaintenanceScheduleData';
 
+import Icon from '@/components/ui/branding/Icon';
 type QuarterFilter = 'Tümü' | 'Q1' | 'Q2' | 'Q3' | 'Q4';
 
 export default function FacilityAnnualMaintenanceScheduleSeo() {
@@ -95,7 +96,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">calendar_month</span>
+            <Icon name="calendar_month" className="text-sm" />
             <span>ISO 41001 Entegre Tesis Takvimi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -111,9 +112,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
           onClick={handleCopySchedule}
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs font-semibold shadow-sm transition shrink-0 cursor-pointer"
         >
-          <span className="material-symbols-outlined text-base" aria-hidden="true">
-            {copied ? 'check_circle' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'check_circle' : 'content_copy'} className="text-base" />
           <span>{copied ? 'Takvim Kopyalandı!' : 'Takvim Özetini Kopyala'}</span>
         </button>
       </div>
@@ -237,9 +236,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
               <ul className="mt-3 space-y-1.5 text-xs text-[var(--color-secondary)]">
                 {item.executionSteps.map((step, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="material-symbols-outlined text-[14px] text-[var(--color-primary)] mt-0.5 shrink-0" aria-hidden="true">
-                      check_circle
-                    </span>
+                    <Icon name="check_circle" className="text-[14px] text-[var(--color-primary)] mt-0.5 shrink-0" />
                     <span>{step}</span>
                   </li>
                 ))}
@@ -268,9 +265,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
       {/* Bottom CTA */}
       <div className="mt-8 p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-2xl text-[var(--color-primary)]" aria-hidden="true">
-            assignment_turned_in
-          </span>
+          <Icon name="assignment_turned_in" className="text-2xl text-[var(--color-primary)]" />
           <div>
             <span className="font-bold text-[var(--color-primary)] text-sm block">Tesisiniz İçin Özel Bakım Takvimi ve Maliyet Simülasyonu</span>
             <span>Mevcut tesisatınızın periyodik muayene durumunu uzman mühendislerimize ücretsiz inceletin.</span>
@@ -281,7 +276,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-semibold transition flex-shrink-0 cursor-pointer shadow-sm"
         >
           <span>Ücretsiz Teknik Keşif İste</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

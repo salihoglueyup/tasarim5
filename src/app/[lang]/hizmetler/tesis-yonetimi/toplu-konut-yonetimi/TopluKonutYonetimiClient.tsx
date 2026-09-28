@@ -13,6 +13,7 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
+import Icon from '@/components/ui/branding/Icon';
 const OPERATIONAL_PILLARS = [
   {
     icon: 'gavel',
@@ -96,7 +97,7 @@ export default function TopluKonutYonetimiClient() {
                 Tasarruf Analizi Talep Et
               </Link>
               <Link href="/hizmetler/site-yonetimi" className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold py-3.5 px-8 rounded-xl transition-all flex items-center gap-2">
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">apartment</span>
+                <Icon name="apartment" className="text-lg" />
                 Profesyonel Site Yönetimi
               </Link>
               <Link href="/hizmetler/tesis-yonetimi" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
@@ -156,7 +157,7 @@ export default function TopluKonutYonetimiClient() {
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <span className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">{f.icon}</span>
+                      <Icon name={f.icon} className="text-2xl" />
                     </span>
                     <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40">
                       {f.badge}
@@ -174,7 +175,7 @@ export default function TopluKonutYonetimiClient() {
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 space-y-1.5">
                   {f.highlights.map((h, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-[var(--color-secondary)]">
-                      <span className="material-symbols-outlined text-emerald-500 text-sm shrink-0" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-emerald-500 text-sm shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -196,7 +197,7 @@ export default function TopluKonutYonetimiClient() {
         {/* Yoğun Toplu Konut İlçeleri Çapraz Bağlantı Vitrini */}
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-xl" aria-hidden="true">domain</span>
+            <Icon name="domain" className="text-emerald-500 text-xl" />
             <span>Mega Sitelerin Yoğun Olduğu Hizmet Bölgelerimiz</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">

@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
+import Icon from '@/components/ui/branding/Icon';
 interface GesHeroSeoProps {
   lang?: string;
   onOpenQuote?: () => void;
@@ -45,23 +46,17 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
         {/* Authority Badges */}
         <div className="flex flex-wrap items-center gap-2.5 mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold backdrop-blur-md shadow-xs">
-            <span className="material-symbols-outlined text-sm text-amber-400" aria-hidden="true">
-              solar_power
-            </span>
+            <Icon name="solar_power" className="text-sm text-amber-400" />
             <span>EPDK LİSANSSIZ ÜRETİM (MADDE 5/1-ç) UYUMLU</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
-            <span className="material-symbols-outlined text-xs text-blue-400" aria-hidden="true">
-              gavel
-            </span>
+            <Icon name="gavel" className="text-xs text-blue-400" />
             <span>634 Sayılı KMK m.42 Yasal Karar Güvencesi</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-medium">
-            <span className="material-symbols-outlined text-xs text-emerald-400" aria-hidden="true">
-              verified
-            </span>
+            <Icon name="verified" className="text-xs text-emerald-400" />
             <span>TEDAŞ & Dağıtım Şirketi Bağlantı Onaylı</span>
           </div>
         </div>
@@ -90,12 +85,12 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
               onClick={onOpenQuote}
               className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
             >
-              <span className="material-symbols-outlined text-lg">solar_power</span>
+              <Icon name="solar_power" className="text-lg" />
               <span>Ücretsiz Çatı Fizibilitesi Al</span>
             </button>
           ) : (
             <QuoteCtaButton className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
-              <span className="material-symbols-outlined text-lg">solar_power</span>
+              <Icon name="solar_power" className="text-lg" />
               <span>Ücretsiz Çatı Fizibilitesi Al</span>
             </QuoteCtaButton>
           )}
@@ -105,7 +100,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             onClick={() => scrollToSection('ges-hesaplayici')}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700/80 transition-all cursor-pointer"
           >
-            <span className="material-symbols-outlined text-lg text-amber-400">calculate</span>
+            <Icon name="calculate" className="text-lg text-amber-400" />
             <span>Amortisman & Tasarruf Hesapla</span>
           </button>
 
@@ -115,7 +110,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-slate-400 hover:text-white font-medium transition-colors cursor-pointer py-2 px-1"
           >
             <span>6 Aşamalı İzin Rehberi</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </button>
         </div>
 
@@ -125,7 +120,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-amber-400">%70 - %85</span>
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
-                <span className="material-symbols-outlined text-xl">savings</span>
+                <Icon name="savings" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Ortak Elektrik Tasarrufu</div>
@@ -136,7 +131,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-400">3.2 Yıl</span>
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-                <span className="material-symbols-outlined text-xl">trending_up</span>
+                <Icon name="trending_up" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Amortisman Süresi</div>
@@ -147,7 +142,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-blue-400">25+ Yıl</span>
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
-                <span className="material-symbols-outlined text-xl">verified</span>
+                <Icon name="verified" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Tier-1 Panel Garantisi</div>
@@ -158,7 +153,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-teal-400">14.800 T</span>
               <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center border border-teal-500/20">
-                <span className="material-symbols-outlined text-xl">forest</span>
+                <Icon name="forest" className="text-xl" />
               </div>
             </div>
             <div className="text-xs sm:text-sm font-bold text-slate-200">Engellenen CO₂ Salımı</div>

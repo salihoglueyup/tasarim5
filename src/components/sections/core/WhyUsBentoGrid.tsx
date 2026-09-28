@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function WhyUsBentoGrid() {
   const { t } = useLanguage();
 
@@ -73,7 +74,7 @@ export default function WhyUsBentoGrid() {
           >
             {/* Dekoratif dev ikon (arkaplan) */}
             <div className="absolute -bottom-8 -right-8 text-slate-100 dark:text-white/[0.03] pointer-events-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 z-0">
-              <span className="material-symbols-outlined" style={{ fontSize: '180px' }} aria-hidden="true">{item.icon}</span>
+              <Icon name={item.icon} style={{ fontSize: '180px' }} />
             </div>
 
             <div className="flex items-center justify-between relative z-10">
@@ -81,7 +82,7 @@ export default function WhyUsBentoGrid() {
                 {item.tag}
               </span>
               <div className="w-12 h-12 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{item.icon}</span>
+                <Icon name={item.icon} className="text-2xl" />
               </div>
             </div>
 

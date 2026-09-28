@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface ExamPeriod {
   period: string;
   examDate: string;
@@ -49,9 +50,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              calendar_month
-            </span>
+            <Icon name="calendar_month" className="text-sm" />
             <span>EGM Özel Güvenlik Denetleme Başkanlığı 2026 Takvimi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -99,7 +98,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
                     <div className="p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
                       <div className="text-[11px] text-[var(--color-secondary)] font-medium mb-0.5">Sınav Tarihi & Saati</div>
                       <div className="text-sm font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-base text-red-500">event</span>
+                        <Icon name="event" className="text-base text-red-500" />
                         <span>{exam.examDate}</span>
                       </div>
                     </div>
@@ -125,7 +124,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
                       : 'bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                   }`}
                 >
-                  <span className="material-symbols-outlined text-base">how_to_reg</span>
+                  <Icon name="how_to_reg" className="text-base" />
                   <span>Bu Döneme Kayıt Ol</span>
                 </button>
               </div>
@@ -136,7 +135,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
         {/* Scoring & Rules Summary Box */}
         <div className="bg-[var(--color-surface-variant)]/30 border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8">
           <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm mb-4">
-            <span className="material-symbols-outlined text-lg text-red-500">rule</span>
+            <Icon name="rule" className="text-lg text-red-500" />
             <span>EGM Sınav Puanı Hesaplama & Geçme Kuralları (2026 Mevzuatı)</span>
           </div>
 

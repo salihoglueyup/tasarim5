@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface TechnicalCriterion {
   id: string;
   category: 'Asansör & Taşıma' | 'Elektrik & Enerji' | 'Yangın & Acil Durum' | 'Mekanik & Tesisat';
@@ -163,7 +164,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
         {/* Üst Başlık & Badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">precision_manufacturing</span>
+            <Icon name="precision_manufacturing" className="text-sm" />
             TMMOB & Sanayi Bakanlığı Mevzuat Uyum Radarı
           </div>
           <span className="text-xs text-[var(--color-secondary)] font-mono">
@@ -233,14 +234,14 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 href="/teklif-al?hizmet=teknik-bakim&utm_source=technical_radar"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-md shadow-blue-600/20 hover:scale-[1.02]"
               >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">engineering</span>
+                <Icon name="engineering" className="text-base" />
                 Ücretsiz 48 Saatlik Teknik Keşif İste
               </Link>
               <a
                 href="tel:+902165504848"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-sm font-semibold transition-all border border-[var(--color-outline)]/60"
               >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
+                <Icon name="call" className="text-base" />
                 0216 550 48 48
               </a>
             </div>
@@ -281,7 +282,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 <div className={`mt-0.5 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border transition-all ${
                   isChecked ? 'bg-blue-600 border-blue-500 text-white' : 'border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
                 }`}>
-                  <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">check</span>
+                  <Icon name="check" className="text-sm font-bold" />
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center justify-between gap-2">
@@ -299,7 +300,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                     {c.desc}
                   </p>
                   <span className="text-[11px] text-[var(--color-secondary)] mt-1 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
+                    <Icon name="gavel" className="text-xs" />
                     {c.lawRef}
                   </span>
                 </div>
@@ -311,7 +312,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
         {/* Bilgilendirme Dipnotu */}
         <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--color-secondary)]">
           <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-blue-500" aria-hidden="true">info</span>
+            <Icon name="info" className="text-sm text-blue-500" />
             TMMOB Makina ve Elektrik Mühendisleri Odası denetim prensipleri esas alınmıştır.
           </span>
           <span className="font-mono text-[11px] text-[var(--color-tertiary)]">

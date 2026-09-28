@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BASE_URL } from '@/lib/seo';
 import { TRANSITION_ROADMAP_STAGES, TransitionStageItem } from '@/data/transitionRoadmapData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ManagementTransitionRoadmapSeoProps {
   pageUrl?: string;
 }
@@ -47,7 +48,7 @@ export default function ManagementTransitionRoadmapSeo({
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">sync_alt</span>
+          <Icon name="sync_alt" className="text-sm" />
           <span>48 Saatte Pürüzsüz & Yasal Devir Teslim</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -125,13 +126,13 @@ export default function ManagementTransitionRoadmapSeo({
           {/* Action Items */}
           <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-blue-400 text-base" aria-hidden="true">checklist</span>
+              <Icon name="checklist" className="text-blue-400 text-base" />
               <span>Bu Aşamada Yapılan Kritik İşlemler</span>
             </h4>
             <ul className="space-y-2">
               {currentStage.actionItems.map((action, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed font-normal">
-                  <span className="material-symbols-outlined text-emerald-400 text-sm shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+                  <Icon name="check_circle" className="text-emerald-400 text-sm shrink-0 mt-0.5" />
                   <span>{action}</span>
                 </li>
               ))}
@@ -141,13 +142,13 @@ export default function ManagementTransitionRoadmapSeo({
           {/* Required Documents */}
           <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-amber-400 text-base" aria-hidden="true">description</span>
+              <Icon name="description" className="text-amber-400 text-base" />
               <span>Gerekli Yasal Evraklar ve Belgeler</span>
             </h4>
             <ul className="space-y-2">
               {currentStage.requiredDocuments.map((doc, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed font-normal">
-                  <span className="material-symbols-outlined text-amber-400 text-sm shrink-0 mt-0.5" aria-hidden="true">article</span>
+                  <Icon name="article" className="text-amber-400 text-sm shrink-0 mt-0.5" />
                   <span>{doc}</span>
                 </li>
               ))}
@@ -157,7 +158,7 @@ export default function ManagementTransitionRoadmapSeo({
 
         {/* Alo Yönetim Role Banner */}
         <div className="mt-6 p-4 rounded-xl bg-blue-950/30 border border-blue-900/40 flex items-start gap-3">
-          <span className="material-symbols-outlined text-blue-400 text-xl shrink-0 mt-0.5" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-blue-400 text-xl shrink-0 mt-0.5" />
           <div>
             <span className="text-xs font-bold text-blue-300 block">Alo Yönetim Kurumsal Güvencesi:</span>
             <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">

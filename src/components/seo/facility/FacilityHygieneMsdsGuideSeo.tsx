@@ -10,6 +10,7 @@ import {
   ColorCodedHygieneZone
 } from '@/data/facilityHygieneMsdsData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityHygieneMsdsGuideSeoProps {
   className?: string;
   defaultColorCode?: 'kirmizi' | 'sari' | 'mavi' | 'yesil';
@@ -100,7 +101,7 @@ export default function FacilityHygieneMsdsGuideSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300 mb-3 border border-indigo-300 dark:border-indigo-700">
-          <span className="material-symbols-outlined text-sm">sanitizer</span>
+          <Icon name="sanitizer" className="text-sm" />
           <span>TSE 13811 & 6331 İSG Uyumlu Hastane Standardı Hijyen</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -129,7 +130,7 @@ export default function FacilityHygieneMsdsGuideSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -190,7 +191,7 @@ export default function FacilityHygieneMsdsGuideSeo({
               {/* Assigned Surfaces */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white text-sm">
-                  <span className="material-symbols-outlined text-indigo-600 text-lg">check_box</span>
+                  <Icon name="check_box" className="text-indigo-600 text-lg" />
                   <span>Temizliğe Tahsis Edilen Yüzeyler:</span>
                 </div>
                 <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
@@ -206,7 +207,7 @@ export default function FacilityHygieneMsdsGuideSeo({
               {/* Dedicated Tools */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white text-sm">
-                  <span className="material-symbols-outlined text-indigo-600 text-lg">cleaning_services</span>
+                  <Icon name="cleaning_services" className="text-indigo-600 text-lg" />
                   <span>Zorunlu Renk Kodlu Ekipmanlar:</span>
                 </div>
                 <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
@@ -228,7 +229,7 @@ export default function FacilityHygieneMsdsGuideSeo({
 
               <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 border border-rose-200 dark:border-rose-900">
                 <strong className="font-semibold block mb-0.5 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-rose-600 text-base">dangerous</span>
+                  <Icon name="dangerous" className="text-rose-600 text-base" />
                   Çapraz Bulaşma (Cross-Contamination) İkazı:
                 </strong>
                 <span>{activeZone.crossContaminationWarning}</span>
@@ -242,7 +243,7 @@ export default function FacilityHygieneMsdsGuideSeo({
       {activeTab === 'msds' && (
         <div className="relative z-10 space-y-4">
           <div className="p-4 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 rounded-2xl text-blue-900 dark:text-blue-200 text-xs md:text-sm flex items-start gap-3">
-            <span className="material-symbols-outlined text-blue-600 text-xl shrink-0 mt-0.5">info</span>
+            <Icon name="info" className="text-blue-600 text-xl shrink-0 mt-0.5" />
             <div>
               <strong className="font-semibold block mb-1">6331 Sayılı İSG Kanunu ve KKDİK Zorunluluğu:</strong>
               <span>
@@ -369,7 +370,7 @@ export default function FacilityHygieneMsdsGuideSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">verified</span>
+            <Icon name="verified" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

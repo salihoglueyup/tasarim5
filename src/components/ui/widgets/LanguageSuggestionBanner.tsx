@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
+import Icon from '@/components/ui/branding/Icon';
 interface LanguageSuggestionBannerProps {
   currentLang: string;
 }
@@ -95,7 +96,7 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-blue-400 text-xl" aria-hidden="true">language</span>
+          <Icon name="language" className="text-blue-400 text-xl" />
           <span className="text-xs font-bold uppercase tracking-wider text-blue-300">{msg.langName}</span>
         </div>
         <button
@@ -103,7 +104,7 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
           className="text-slate-400 hover:text-white p-1 rounded-lg transition-colors"
           aria-label="Kapat"
         >
-          <span className="material-symbols-outlined text-base leading-none" aria-hidden="true">close</span>
+          <Icon name="close" className="text-base leading-none" />
         </button>
       </div>
 

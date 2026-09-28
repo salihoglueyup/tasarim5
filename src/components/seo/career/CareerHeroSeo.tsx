@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface CareerHeroSeoProps {
   lang?: string;
   onOpenApply?: (role?: string) => void;
@@ -55,9 +56,7 @@ export default function CareerHeroSeo({ lang = 'tr', onOpenApply }: CareerHeroSe
         {/* Top Trust Badge */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              handshake
-            </span>
+            <Icon name="handshake" className="text-sm" />
             <span>4857 & 5188 MEVZUAT UYUMLU • İSTİHDAM KÖPRÜSÜ MODELİ</span>
           </div>
           <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/5 text-slate-300 border border-white/10 text-xs font-medium">
@@ -86,9 +85,7 @@ export default function CareerHeroSeo({ lang = 'tr', onOpenApply }: CareerHeroSe
             href="#acik-pozisyonlar"
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              work
-            </span>
+            <Icon name="work" className="text-lg" />
             <span>Açık Pozisyonları İncele</span>
           </a>
 
@@ -96,9 +93,7 @@ export default function CareerHeroSeo({ lang = 'tr', onOpenApply }: CareerHeroSe
             href="#basvuru-formu"
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white/10 border border-white/20 hover:bg-white/15 text-white font-semibold text-sm transition-all duration-200 backdrop-blur-md"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              assignment_ind
-            </span>
+            <Icon name="assignment_ind" className="text-lg" />
             <span>Personel Talep Et (Yöneticiler)</span>
           </a>
 
@@ -107,7 +102,7 @@ export default function CareerHeroSeo({ lang = 'tr', onOpenApply }: CareerHeroSe
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-colors py-2 px-1"
           >
             <span>Kıdem Tazminatı Kalkanı Nasıl İşler?</span>
-            <span className="material-symbols-outlined text-base">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-base" />
           </a>
         </div>
 
@@ -123,9 +118,7 @@ export default function CareerHeroSeo({ lang = 'tr', onOpenApply }: CareerHeroSe
                   {stat.value}
                 </span>
                 <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-white flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                    {stat.icon}
-                  </span>
+                  <Icon name={stat.icon} className="text-xl" />
                 </div>
               </div>
               <div>

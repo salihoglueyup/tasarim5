@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BASE_URL } from '@/lib/seo';
 import { KMK_LEGISLATION_ARTICLES, KmkArticleItem } from '@/data/kmkLegislationArticlesData';
 
+import Icon from '@/components/ui/branding/Icon';
 type CategoryFilter = 'Tümü' | 'Mülkiyet & Arsa Payı' | 'Maliye & Aidat' | 'Yönetim Organları' | 'Denetim & Yargı';
 
 export default function KMKLegislationNavigatorSeo() {
@@ -89,7 +90,7 @@ export default function KMKLegislationNavigatorSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">gavel</span>
+            <Icon name="gavel" className="text-sm" />
             <span>Hukuk & Mevzuat Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -120,9 +121,7 @@ export default function KMKLegislationNavigatorSeo() {
       {/* Search & Category Filter */}
       <div className="flex flex-col lg:flex-row gap-4 mb-8">
         <div className="relative flex-1">
-          <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg" aria-hidden="true">
-            search
-          </span>
+          <Icon name="search" className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg" />
           <input
             type="text"
             value={searchQuery}
@@ -171,9 +170,7 @@ export default function KMKLegislationNavigatorSeo() {
       <div className="space-y-4">
         {filteredArticles.length === 0 ? (
           <div className="text-center py-12 bg-slate-800/30 rounded-2xl border border-slate-800">
-            <span className="material-symbols-outlined text-4xl text-slate-500 mb-2" aria-hidden="true">
-              search_off
-            </span>
+            <Icon name="search_off" className="text-4xl text-slate-500 mb-2" />
             <p className="text-slate-400 text-sm">Aradığınız kriterlere uygun KMK maddesi bulunamadı.</p>
             <button
               onClick={() => {
@@ -217,14 +214,9 @@ export default function KMKLegislationNavigatorSeo() {
                     </div>
                   </div>
 
-                  <span
-                    className={`material-symbols-outlined text-slate-400 transition-transform duration-200 ${
+                  <Icon name="expand_more" className={`text-slate-400 transition-transform duration-200 ${
                       isExpanded ? 'rotate-180 text-blue-400' : ''
-                    }`}
-                    aria-hidden="true"
-                  >
-                    expand_more
-                  </span>
+                    }`} />
                 </button>
 
                 {/* Accordion Body */}
@@ -240,7 +232,7 @@ export default function KMKLegislationNavigatorSeo() {
                       {/* Plain Language Summary */}
                       <div className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/20">
                         <div className="flex items-center gap-2 text-blue-300 font-semibold mb-1">
-                          <span className="material-symbols-outlined text-base" aria-hidden="true">lightbulb</span>
+                          <Icon name="lightbulb" className="text-base" />
                           <span>Pratik Açıklama (Ne Anlama Gelir?)</span>
                         </div>
                         <p className="text-slate-200 leading-relaxed">{article.plainLanguageSummary}</p>
@@ -249,7 +241,7 @@ export default function KMKLegislationNavigatorSeo() {
                       {/* Original Statute Snippet */}
                       <div>
                         <div className="flex items-center gap-2 text-slate-400 font-semibold mb-1.5">
-                          <span className="material-symbols-outlined text-base" aria-hidden="true">menu_book</span>
+                          <Icon name="menu_book" className="text-base" />
                           <span>Kanun Metni Özeti</span>
                         </div>
                         <blockquote className="italic text-slate-300 border-l-2 border-slate-600 pl-3 py-1 bg-slate-800/30 rounded-r-lg font-mono text-xs leading-relaxed">
@@ -262,7 +254,7 @@ export default function KMKLegislationNavigatorSeo() {
                         {/* Supreme Court Principle */}
                         <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
                           <div className="flex items-center gap-2 text-purple-300 font-semibold mb-1">
-                            <span className="material-symbols-outlined text-base" aria-hidden="true">balance</span>
+                            <Icon name="balance" className="text-base" />
                             <span>Yargıtay Emsal Karar İlkesi</span>
                           </div>
                           <p className="text-slate-300 leading-relaxed">{article.supremeCourtPrinciple}</p>
@@ -271,7 +263,7 @@ export default function KMKLegislationNavigatorSeo() {
                         {/* Legal Sanction & Risk */}
                         <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20">
                           <div className="flex items-center gap-2 text-rose-300 font-semibold mb-1">
-                            <span className="material-symbols-outlined text-base" aria-hidden="true">warning</span>
+                            <Icon name="warning" className="text-base" />
                             <span>Uymama Halinde Hukuki Yaptırım & Risk</span>
                           </div>
                           <p className="text-slate-300 leading-relaxed">{article.legalSanctionOrRisk}</p>
@@ -281,7 +273,7 @@ export default function KMKLegislationNavigatorSeo() {
                       {/* Alo Yönetim Standard */}
                       <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
                         <div className="flex items-center gap-2 text-emerald-300 font-semibold mb-1">
-                          <span className="material-symbols-outlined text-base" aria-hidden="true">verified</span>
+                          <Icon name="verified" className="text-base" />
                           <span>Alo Yönetim Kurumsal Standart Güvencesi</span>
                         </div>
                         <p className="text-slate-200 leading-relaxed">{article.aloYonetimStandard}</p>
@@ -298,7 +290,7 @@ export default function KMKLegislationNavigatorSeo() {
       {/* Footer Info Box */}
       <div className="mt-8 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-xl text-blue-400" aria-hidden="true">info</span>
+          <Icon name="info" className="text-xl text-blue-400" />
           <span>
             Hukuki uyuşmazlıklarda 7445 sayılı kanun uyarınca dava açılmadan önce Adliye Arabuluculuk Bürosu başvurusu zorunludur.
           </span>
@@ -308,7 +300,7 @@ export default function KMKLegislationNavigatorSeo() {
           className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition flex-shrink-0"
         >
           <span>Hukuk Müşavirliği Randevusu</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

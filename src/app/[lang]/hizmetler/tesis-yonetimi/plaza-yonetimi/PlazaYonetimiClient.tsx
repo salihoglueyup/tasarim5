@@ -13,6 +13,7 @@ import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDo
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
+import Icon from '@/components/ui/branding/Icon';
 const OPERATIONAL_PILLARS = [
   {
     icon: 'local_fire_department',
@@ -143,7 +144,7 @@ export default function PlazaYonetimiClient() {
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <span className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">{f.icon}</span>
+                      <Icon name={f.icon} className="text-2xl" />
                     </span>
                     <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/40">
                       {f.badge}
@@ -161,7 +162,7 @@ export default function PlazaYonetimiClient() {
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 space-y-1.5">
                   {f.highlights.map((h, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-[var(--color-secondary)]">
-                      <span className="material-symbols-outlined text-emerald-500 text-sm shrink-0" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-emerald-500 text-sm shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -183,7 +184,7 @@ export default function PlazaYonetimiClient() {
         {/* Ticari Plaza Merkezleri Çapraz Bağlantı Vitrini */}
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-            <span className="material-symbols-outlined text-blue-500 text-xl" aria-hidden="true">corporate_fare</span>
+            <Icon name="corporate_fare" className="text-blue-500 text-xl" />
             <span>İstanbul Genelinde Hizmet Ağımızın Bulunduğu Plaza & Ticaret Merkezleri</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export type FacilityTemplateType = 'tesis_yonetimi_karar' | 'isletme_projesi_teblig' | 'aidat_gecikme_ihtar' | 'devir_teslim_protokol';
 
 export default function FacilityLegalTemplateGeneratorSeo() {
@@ -176,14 +177,14 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
             onClick={handleCopy}
             className="px-5 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm shrink-0"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">{isCopied ? 'check' : 'content_copy'}</span>
+            <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
             {isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}
           </button>
           <button
             onClick={handleDownload}
             className="px-5 py-3 rounded-xl border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all shrink-0"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
+            <Icon name="download" className="text-sm" />
             TXT İndir
           </button>
         </div>
@@ -292,7 +293,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
           <div className="flex items-center justify-between pb-3 mb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-secondary)]">Canlı Hukuki Metin Önizlemesi</span>
             <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-              <span className="material-symbols-outlined text-[14px]" aria-hidden="true">gavel</span>
+              <Icon name="gavel" className="text-[14px]" />
               634 Sayılı KMK Uyumlu
             </span>
           </div>

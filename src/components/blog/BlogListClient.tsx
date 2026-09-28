@@ -10,6 +10,7 @@ import { parseTags } from '@/lib/jsonSafe';
 import { createBlogSearchIndex, searchInBlogIndex } from '@/lib/blogSearchIndex';
 import Pagination from '@/components/ui/primitives/Pagination';
 
+import Icon from '@/components/ui/branding/Icon';
 const PAGE_SIZE = 6;
 
 function formatDate(iso: string | Date): string {
@@ -66,7 +67,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" style={{ transform: "translateZ(0)" }}></div>
           <div className="relative z-10 flex-1">
             <div className="flex items-center gap-2 text-slate-300 font-bold text-xs uppercase tracking-widest bg-slate-500/10 px-4 py-1.5 rounded-full w-fit mb-4">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">mail</span>
+              <Icon name="mail" className="text-sm" />
               {t('blog_nl_tag') || 'Haber Bülteni'}
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t('blog_nl_title') || 'Gelişmelerden Haberdar Olun'}</h2>
@@ -90,7 +91,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
               }`}
             >
               {subscribed ? (
-                <><span className="material-symbols-outlined" aria-hidden="true">check_circle</span> {t('blog_nl_success') || 'Kayıt Başarılı!'}</>
+                <><Icon name="check_circle" /> {t('blog_nl_success') || 'Kayıt Başarılı!'}</>
               ) : (
                 t('blog_nl_btn') || 'Abone Ol'
               )}
@@ -102,7 +103,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
       <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto min-h-[600px]">
         {/* Search */}
         <div className="max-w-xl mx-auto mb-8 relative">
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true">search</span>
+          <Icon name="search" className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             type="search"
             value={query}
@@ -147,7 +148,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
                     </div>
                     <div className="flex items-center gap-4 mb-3 text-gray-500 font-light text-sm">
                       <span className="flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[16px]" aria-hidden="true">calendar_today</span>
+                        <Icon name="calendar_today" className="text-[16px]" />
                         {formatDate(post.datePublished)}
                       </span>
                     </div>
@@ -164,7 +165,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
 
         {filtered.length === 0 && (
           <div className="text-center py-20 text-gray-500">
-            <span className="material-symbols-outlined text-4xl mb-3" aria-hidden="true">inbox</span>
+            <Icon name="inbox" className="text-4xl mb-3" />
             <p>Aramanıza uygun yazı bulunamadı.</p>
           </div>
         )}

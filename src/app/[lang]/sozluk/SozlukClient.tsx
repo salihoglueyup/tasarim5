@@ -10,6 +10,7 @@ import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 import WalletSvgIcon from '@/components/ui/branding/WalletSvgIcon';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -62,7 +63,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
             
             {/* Rozet */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-200 text-xs font-extrabold tracking-wide shadow-sm">
-              <span className="material-symbols-outlined text-[15px] text-slate-200" aria-hidden="true">menu_book</span>
+              <Icon name="menu_book" className="text-[15px] text-slate-200" />
               <span>RESMİ KMK 634 & 5188 MEVZUAT KÜTÜPHANESİ</span>
             </div>
 
@@ -144,7 +145,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 flex flex-col justify-between shadow-xs hover:border-[var(--color-primary)]/40 hover:shadow-md transition-all">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">gavel</span>
+                  <Icon name="gavel" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">Yönetim Planı Hiyerarşisi</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-normal leading-relaxed">
@@ -153,7 +154,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/hukuk-ve-icra-danismanligi" className="mt-4 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 group">
                 <span>Hukuki Destek</span>
-                <span className="material-symbols-outlined text-[13px] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-[13px] group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
@@ -169,14 +170,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/aidat-takibi" className="mt-4 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 group">
                 <span>Aidat Tahsilatı</span>
-                <span className="material-symbols-outlined text-[13px] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-[13px] group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 flex flex-col justify-between shadow-xs hover:border-[var(--color-primary)]/40 hover:shadow-md transition-all">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">shield</span>
+                  <Icon name="shield" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">5188 Lisanslı Özel Güvenlik</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-normal leading-relaxed">
@@ -185,14 +186,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/guvenlik-yonetimi" className="mt-4 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 group">
                 <span>5188 Güvenlik</span>
-                <span className="material-symbols-outlined text-[13px] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-[13px] group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 flex flex-col justify-between shadow-xs hover:border-[var(--color-primary)]/40 hover:shadow-md transition-all">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">engineering</span>
+                  <Icon name="engineering" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">İşletme vs Demirbaş Ayrımı</h3>
                 <p className="text-xs text-[var(--color-secondary)] font-normal leading-relaxed">
@@ -201,7 +202,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               </div>
               <Link href="/hizmetler/teknik-bakim" className="mt-4 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 group">
                 <span>Teknik Bakım</span>
-                <span className="material-symbols-outlined text-[13px] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-[13px] group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
@@ -282,9 +283,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
                   className="w-full p-5 text-left font-bold text-sm md:text-base text-[var(--color-primary)] flex items-center justify-between gap-4 cursor-pointer"
                 >
                   <span>{item.q}</span>
-                  <span className={`material-symbols-outlined text-lg transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-[var(--color-primary)]' : 'text-[var(--color-secondary)]'}`}>
-                    expand_more
-                  </span>
+                  <Icon name="expand_more" className={`text-lg transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-[var(--color-primary)]' : 'text-[var(--color-secondary)]'}`} />
                 </button>
                 {activeFaq === index && (
                   <div className="px-5 pb-5 text-xs md:text-sm text-[var(--color-secondary)] font-normal leading-relaxed border-t border-[var(--color-outline)]/40 pt-4">
@@ -302,7 +301,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
       <section className="py-16 md:py-24 px-[var(--spacing-gutter)] max-w-5xl mx-auto">
         <div className="bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 text-center flex flex-col items-center gap-6 shadow-xs relative overflow-hidden border border-[var(--color-outline)]/80">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold border border-[var(--color-outline)]/80">
-            <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">verified</span>
+            <Icon name="verified" className="text-sm text-[var(--color-primary)]" />
             <span>SIFIR HUKUKİ RİSK & %100 ŞEFFAFLIK</span>
           </div>
 
@@ -320,14 +319,14 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
               className="bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:opacity-90 font-extrabold text-xs md:text-sm py-3.5 px-7 rounded-2xl shadow-md transition-all active:scale-95 flex items-center gap-2"
             >
               <span>Ücretsiz Keşif & Teklif İsteyin</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
 
             <Link
               href="/hesaplayici"
               className="bg-[var(--color-surface-variant)] hover:bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 font-bold text-xs md:text-sm py-3.5 px-6 rounded-2xl transition-all active:scale-95 flex items-center gap-2"
             >
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">calculate</span>
+              <Icon name="calculate" className="text-sm" />
               <span>Aidat Bütçesi Simüle Et</span>
             </Link>
           </div>

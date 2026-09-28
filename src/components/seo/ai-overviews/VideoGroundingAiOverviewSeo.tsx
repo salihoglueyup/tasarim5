@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface VideoClipItem {
   name: string;
   startOffset: number;
@@ -166,7 +167,7 @@ export default function VideoGroundingAiOverviewSeo({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-blue-500/20 pb-4">
         <div className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400 border border-blue-400/30 font-bold text-xl">
-            <span className="material-symbols-outlined text-2xl">smart_display</span>
+            <Icon name="smart_display" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
@@ -189,9 +190,7 @@ export default function VideoGroundingAiOverviewSeo({
           aria-label="AI özetini kopyala"
           className="inline-flex items-center gap-1.5 rounded-lg border border-blue-400/30 bg-blue-500/10 px-3 py-1.5 text-xs font-medium text-blue-200 transition-colors hover:bg-blue-500/20 active:scale-95"
         >
-          <span className="material-symbols-outlined text-sm">
-            {copied ? 'done' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
           {copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}
         </button>
       </div>
@@ -199,9 +198,7 @@ export default function VideoGroundingAiOverviewSeo({
       {/* Instant Answer Text for Speakable / AI Overviews */}
       <div className="mt-4 rounded-xl border border-blue-400/20 bg-blue-950/30 p-4">
         <div className="flex items-start gap-2.5">
-          <span className="material-symbols-outlined text-blue-400 text-lg shrink-0 mt-0.5">
-            verified
-          </span>
+          <Icon name="verified" className="text-blue-400 text-lg shrink-0 mt-0.5" />
           <p
             id="video-grounding-instant-answer-text"
             className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
@@ -246,7 +243,7 @@ export default function VideoGroundingAiOverviewSeo({
           {/* Central Play Button */}
           <div className="flex flex-col items-center justify-center text-center z-10 py-6">
             <div className="h-16 w-16 rounded-full bg-blue-600/90 hover:bg-blue-500 flex items-center justify-center text-white shadow-xl shadow-blue-500/30 transition-transform transform group-hover:scale-110 cursor-pointer">
-              <span className="material-symbols-outlined text-3xl ml-0.5">play_arrow</span>
+              <Icon name="play_arrow" className="text-3xl ml-0.5" />
             </div>
             <p className="mt-3 text-sm font-semibold text-white max-w-sm drop-shadow">
               {selectedVideo.title}
@@ -271,7 +268,7 @@ export default function VideoGroundingAiOverviewSeo({
         {/* Video Chapters & Timeline */}
         <div className="lg:col-span-5 flex flex-col gap-3">
           <h4 className="text-xs uppercase tracking-wider text-blue-300 font-bold flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm">view_timeline</span>
+            <Icon name="view_timeline" className="text-sm" />
             Video Zaman Damgaları & Google SeekToAction
           </h4>
 

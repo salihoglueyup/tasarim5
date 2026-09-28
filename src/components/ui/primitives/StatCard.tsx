@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface StatCardProps {
   value: string;
   label: string;
@@ -22,7 +23,7 @@ export const StatCard: React.FC<StatCardProps> = ({
       <div className="flex items-center justify-between">
         {icon && (
           <div className="w-12 h-12 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] flex items-center justify-center">
-            <span className="material-symbols-outlined text-2xl" aria-hidden="true">{icon}</span>
+            <Icon name={icon} className="text-2xl" />
           </div>
         )}
         {trend && (

@@ -13,6 +13,7 @@ import { buildMetadata } from '@/lib/seo';
 import TeklifAlClient from './TeklifAlClient';
 import { getDictionary } from '@/lib/i18n';
 
+import Icon from '@/components/ui/branding/Icon';
 export async function generateMetadata({
   params,
 }: {
@@ -128,7 +129,7 @@ export default async function TeklifAl({
               className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 flex flex-col gap-4 shadow-sm"
             >
               <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 flex items-center justify-center shadow-lg">
-                <span className="material-symbols-outlined text-3xl" aria-hidden="true">{s.icon}</span>
+                <Icon name={s.icon} className="text-3xl" />
               </div>
               <h2 className="text-xl font-bold text-[var(--color-primary)]">{s.title}</h2>
               <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">

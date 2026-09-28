@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 interface DistrictSecurityAuditTableSeoProps {
   districtName: string;
   districtSlug: string;
@@ -105,7 +106,7 @@ export default function DistrictSecurityAuditTableSeo({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--color-outline)]/40 pb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">shield</span>
+            <Icon name="shield" className="text-sm" />
             {districtName} 5188 Güvenlik Şirketi Standartları
           </div>
           <h3 className="text-xl md:text-2xl font-black text-[var(--color-primary)]">
@@ -120,7 +121,7 @@ export default function DistrictSecurityAuditTableSeo({
           href={`/teklif-al?hizmet=guvenlik&bolge=${encodeURIComponent(districtName)}`}
           className="inline-flex items-center justify-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold px-5 py-3 rounded-xl hover:opacity-90 transition-opacity text-sm shrink-0 shadow-md"
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">fact_check</span>
+          <Icon name="fact_check" className="text-lg" />
           {districtName} Keşif Raporu İste
         </Link>
       </div>
@@ -136,7 +137,7 @@ export default function DistrictSecurityAuditTableSeo({
               : 'bg-transparent text-[var(--color-secondary)] hover:bg-slate-100 dark:hover:bg-white/5'
           }`}
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">badge</span>
+          <Icon name="badge" className="text-lg" />
           1. Fiziki Güvenlik & Personel
         </button>
         <button
@@ -148,7 +149,7 @@ export default function DistrictSecurityAuditTableSeo({
               : 'bg-transparent text-[var(--color-secondary)] hover:bg-slate-100 dark:hover:bg-white/5'
           }`}
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">videocam</span>
+          <Icon name="videocam" className="text-lg" />
           2. Elektronik Emniyet (PTS & CCTV)
         </button>
         <button
@@ -160,7 +161,7 @@ export default function DistrictSecurityAuditTableSeo({
               : 'bg-transparent text-[var(--color-secondary)] hover:bg-slate-100 dark:hover:bg-white/5'
           }`}
         >
-          <span className="material-symbols-outlined text-lg" aria-hidden="true">gavel</span>
+          <Icon name="gavel" className="text-lg" />
           3. 5188 Valilik İzni & Hukuk
         </button>
       </div>
@@ -190,7 +191,7 @@ export default function DistrictSecurityAuditTableSeo({
                 </td>
                 <td className="py-4 px-4 text-center">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold text-xs">
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">check_circle</span>
+                    <Icon name="check_circle" className="text-sm" />
                     {row.status}
                   </span>
                 </td>
@@ -203,7 +204,7 @@ export default function DistrictSecurityAuditTableSeo({
       {/* Alt Bilgilendirme & Hukuki Çağrı */}
       <div className="bg-slate-100 dark:bg-white/5 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl shrink-0" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-blue-600 dark:text-blue-400 text-xl shrink-0" />
           <span>
             {districtName} sınırları içerisindeki tüm projelerimizde <strong>5188 Sayılı Kanun</strong> ve <strong>T.C. İstanbul Valiliği</strong> onaylı izin prosedürleri eksiksiz yürütülmektedir.
           </span>
@@ -213,7 +214,7 @@ export default function DistrictSecurityAuditTableSeo({
           target="_blank"
           className="inline-flex items-center gap-1.5 font-bold text-slate-900 dark:text-white hover:underline shrink-0"
         >
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">download</span>
+          <Icon name="download" className="text-sm" />
           5188 Karar Defteri Şablonunu Al
         </Link>
       </div>

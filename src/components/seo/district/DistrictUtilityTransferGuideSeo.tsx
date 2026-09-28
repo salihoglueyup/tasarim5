@@ -7,6 +7,7 @@ import {
   UtilityProviderProfile,
 } from '@/data/districtUtilitySubscriptionData';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function DistrictUtilityTransferGuideSeo() {
   const [activeProviderId, setActiveProviderId] = useState<'bedas' | 'ayedas' | 'iski' | 'igdas'>('bedas');
 
@@ -46,7 +47,7 @@ export default function DistrictUtilityTransferGuideSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">bolt</span>
+            <Icon name="bolt" className="text-sm" />
             <span>Kurumsal Altyapı & Abonelik Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -72,13 +73,11 @@ export default function DistrictUtilityTransferGuideSeo() {
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-black/5 dark:hover:bg-white/5'
             }`}
           >
-            <span className="material-symbols-outlined text-base" aria-hidden="true">
-              {p.providerId === 'bedas' || p.providerId === 'ayedas'
+            <Icon name={p.providerId === 'bedas' || p.providerId === 'ayedas'
                 ? 'electric_bolt'
                 : p.providerId === 'iski'
                 ? 'water_drop'
-                : 'local_fire_department'}
-            </span>
+                : 'local_fire_department'} className="text-base" />
             <span>{p.providerName.split(' ')[0]}</span>
             <span className="text-[10px] opacity-80">({p.jurisdictionSide})</span>
           </button>
@@ -115,15 +114,13 @@ export default function DistrictUtilityTransferGuideSeo() {
           <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/70 flex flex-col justify-between shadow-2xs">
             <div>
               <div className="flex items-center gap-2 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
-                <span className="material-symbols-outlined text-base" aria-hidden="true">folder</span>
+                <Icon name="folder" className="text-base" />
                 <span>Zorunlu Başvuru Evrakları</span>
               </div>
               <ul className="space-y-2.5 text-xs text-[var(--color-secondary)]">
                 {activeProvider.requiredDocuments.map((doc, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <span className="material-symbols-outlined text-sm text-[var(--color-primary)] shrink-0 mt-0.5" aria-hidden="true">
-                      check_circle
-                    </span>
+                    <Icon name="check_circle" className="text-sm text-[var(--color-primary)] shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{doc}</span>
                   </li>
                 ))}
@@ -142,7 +139,7 @@ export default function DistrictUtilityTransferGuideSeo() {
           <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/70 flex flex-col justify-between shadow-2xs">
             <div>
               <div className="flex items-center gap-2 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
-                <span className="material-symbols-outlined text-base" aria-hidden="true">alt_route</span>
+                <Icon name="alt_route" className="text-base" />
                 <span>Devir ve Tescil Süreci (4 Adım)</span>
               </div>
               <div className="space-y-3">
@@ -163,9 +160,7 @@ export default function DistrictUtilityTransferGuideSeo() {
             </div>
 
             <div className="mt-5 p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs flex items-center gap-2">
-              <span className="material-symbols-outlined text-base shrink-0 text-[var(--color-primary)]" aria-hidden="true">
-                verified
-              </span>
+              <Icon name="verified" className="text-base shrink-0 text-[var(--color-primary)]" />
               <span>{activeProvider.aloYonetimGuarantee}</span>
             </div>
           </div>
@@ -175,7 +170,7 @@ export default function DistrictUtilityTransferGuideSeo() {
       {/* Footer Link */}
       <div className="mt-8 p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-[var(--color-primary)] text-xl" aria-hidden="true">support_agent</span>
+          <Icon name="support_agent" className="text-[var(--color-primary)] text-xl" />
           <span>
             Yeni kurulan veya müteahhitten teslim alınan sitelerde tüm sayaç devirleri ve şantiyeden meskene geçiş işlemleri ücretsiz yürütülür.
           </span>
@@ -185,7 +180,7 @@ export default function DistrictUtilityTransferGuideSeo() {
           className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] font-semibold transition shrink-0 shadow-xs cursor-pointer"
         >
           <span>Abonelik Devir Desteği</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

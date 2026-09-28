@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface DistrictFacilityAuditTableSeoProps {
   districtName: string;
   districtSlug: string;
@@ -189,7 +190,7 @@ export default function DistrictFacilityAuditTableSeo({
                 </td>
                 <td className="py-4 px-4 text-right">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/40">
-                    <span className="material-symbols-outlined text-[14px]" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-[14px]" />
                     {row.status}
                   </span>
                 </td>
@@ -209,7 +210,7 @@ export default function DistrictFacilityAuditTableSeo({
           className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-md"
         >
           <span>{districtName} İçin Ücretsiz Keşif Alın</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </Link>
       </div>
     </section>

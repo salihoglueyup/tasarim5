@@ -12,6 +12,7 @@ import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
 import arDict from '@/i18n/locales/ar/common.json';
 
+import Icon from '@/components/ui/branding/Icon';
 const dictionaries: Record<string, Record<string, string>> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
 
 export const revalidate = 86400;
@@ -95,9 +96,7 @@ export default async function NeighborhoodsHubPage({
                 className="group flex flex-col gap-3 p-6 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-2xl hover:border-brand-500/50 transition-colors"
               >
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-brand-600 dark:text-brand-400 text-lg" aria-hidden="true">
-                    location_on
-                  </span>
+                  <Icon name="location_on" className="text-brand-600 dark:text-brand-400 text-lg" />
                   <h3 className="font-bold text-[var(--color-primary)] group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {n.name}
                   </h3>
@@ -120,7 +119,7 @@ export default async function NeighborhoodsHubPage({
             href={`/bolgeler/${ilce}`}
             className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 transition-colors"
           >
-            <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+            <Icon name="arrow_back" className="text-base" />
             {district.name} ilçe ana sayfasına dön
           </Link>
         </div>

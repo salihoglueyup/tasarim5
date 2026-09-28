@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface NavItem {
   id: string;
   label: string;
@@ -92,9 +93,7 @@ export default function FacilityStickySubnav() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                 }`}
               >
-                <span className={`material-symbols-outlined text-[16px] ${isActive ? 'text-[var(--color-on-primary)]' : 'text-[var(--color-tertiary)]'}`} aria-hidden="true">
-                  {item.icon}
-                </span>
+                <Icon name={item.icon} className={`text-[16px] ${isActive ? 'text-[var(--color-on-primary)]' : 'text-[var(--color-tertiary)]'}`} />
                 <span>{item.label}</span>
               </a>
             );
@@ -108,9 +107,7 @@ export default function FacilityStickySubnav() {
             className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center gap-1.5 active:scale-95"
           >
             <span>Ücretsiz Keşif Al</span>
-            <span className="material-symbols-outlined text-[15px]" aria-hidden="true">
-              arrow_forward
-            </span>
+            <Icon name="arrow_forward" className="text-[15px]" />
           </Link>
         </div>
       </div>

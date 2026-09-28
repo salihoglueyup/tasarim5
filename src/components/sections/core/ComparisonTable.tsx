@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface ComparisonTableProps {
   dict?: Record<string, string>;
   lang?: string;
@@ -87,13 +88,13 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                   {t('cmpx_5', 'Kurumsal & Dijital & %100 Şeffaf')}
                 </span>
               </div>
-              <span className="material-symbols-outlined text-4xl text-emerald-500" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-4xl text-emerald-500" />
             </div>
 
             <div className="flex flex-col gap-4">
               {DEFAULT_ROWS.map((row, i) => (
                 <div key={i} className="flex items-start gap-3 bg-emerald-50/40 dark:bg-emerald-950/20 p-4 rounded-2xl border border-emerald-200/50 dark:border-emerald-900/30">
-                  <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5 text-lg" aria-hidden="true">check_circle</span>
+                  <Icon name="check_circle" className="text-emerald-500 shrink-0 mt-0.5 text-lg" />
                   <div>
                     <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{t(`cmp_r${i + 1}_title`, row.title)}</h4>
                     <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{t(`cmp_r${i + 1}_alo`, row.alo)}</p>
@@ -123,13 +124,13 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                   {t('cmpx_8', 'Eski Usul & Denetimsiz & Yüksek Risk')}
                 </span>
               </div>
-              <span className="material-symbols-outlined text-4xl text-rose-500" aria-hidden="true">warning</span>
+              <Icon name="warning" className="text-4xl text-rose-500" />
             </div>
 
             <div className="flex flex-col gap-4">
               {DEFAULT_ROWS.map((row, i) => (
                 <div key={i} className="flex items-start gap-3 bg-rose-50/40 dark:bg-rose-950/20 p-4 rounded-2xl border border-rose-200/50 dark:border-rose-900/30">
-                  <span className="material-symbols-outlined text-rose-500 shrink-0 mt-0.5 text-lg" aria-hidden="true">cancel</span>
+                  <Icon name="cancel" className="text-rose-500 shrink-0 mt-0.5 text-lg" />
                   <div>
                     <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{t(`cmp_r${i + 1}_title`, row.title)}</h4>
                     <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{t(`cmp_r${i + 1}_trad`, row.trad)}</p>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CareerCtaBannerSeo() {
   return (
     <section className="py-16 md:py-20 bg-[var(--color-surface)] border-b border-[var(--color-outline)]/60">
@@ -11,7 +12,7 @@ export default function CareerCtaBannerSeo() {
           <div className="relative overflow-hidden rounded-3xl bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)]/80 p-8 sm:p-10 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-                <span className="material-symbols-outlined text-sm">person</span>
+                <Icon name="person" className="text-sm" />
                 <span>Kariyer Arayanlar İçin</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)] mb-3">
@@ -29,11 +30,11 @@ export default function CareerCtaBannerSeo() {
                 className="w-full py-3.5 px-6 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] text-xs sm:text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
                 <span>Açık Pozisyonları İncele</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </a>
 
               <div className="flex items-center justify-center gap-2 text-xs text-[var(--color-secondary)] font-medium">
-                <span className="material-symbols-outlined text-sm text-[var(--color-primary)]">call</span>
+                <Icon name="call" className="text-sm text-[var(--color-primary)]" />
                 <span>İK Destek: 0850 309 67 34</span>
               </div>
             </div>
@@ -43,7 +44,7 @@ export default function CareerCtaBannerSeo() {
           <div className="relative overflow-hidden rounded-3xl bg-[var(--color-primary)] text-[var(--color-on-primary)] p-8 sm:p-10 flex flex-col justify-between shadow-sm">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold uppercase tracking-wider mb-4">
-                <span className="material-symbols-outlined text-sm">apartment</span>
+                <Icon name="apartment" className="text-sm" />
                 <span>Site & Tesis Yönetimleri İçin</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
@@ -61,11 +62,11 @@ export default function CareerCtaBannerSeo() {
                 className="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-slate-100 text-[var(--color-primary)] text-xs sm:text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
                 <span>Tesisime Personel Teklifi Al</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </a>
 
               <div className="flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
-                <span className="material-symbols-outlined text-sm text-white">verified_user</span>
+                <Icon name="verified_user" className="text-sm text-white" />
                 <span>Aylık Bloke Provizyon & Sıfır Dava Garantisi</span>
               </div>
             </div>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { getRelatedPosts } from '@/app/actions/post-actions';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Pillar → cluster iç linki (SEO Master Plan V4 — Faz 152).
  * Bir hizmet (pillar) sayfasına, o pillar'a bağlı blog makalelerinin listesini
@@ -35,7 +36,7 @@ export default function RelatedArticles({ pillar }: { pillar: string }) {
               href={`/blog/${p.slug}`}
               className="group flex items-start gap-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-5 hover:shadow-lg transition-all"
             >
-              <span className="material-symbols-outlined text-[var(--color-primary)] shrink-0" aria-hidden="true">article</span>
+              <Icon name="article" className="text-[var(--color-primary)] shrink-0" />
               <div>
                 <h3 className="font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                   {p.title}

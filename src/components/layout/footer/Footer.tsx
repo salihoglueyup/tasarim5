@@ -10,6 +10,7 @@ import AppBadges from '@/components/ui/branding/AppBadges';
 import { waLink } from '@/lib/cro';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
+import Icon from '@/components/ui/branding/Icon';
 // Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
 const NewsletterForm = dynamic(() => import('./NewsletterForm'), { ssr: false });
 
@@ -92,7 +93,7 @@ export default function Footer() {
                   prefetch={true}
                   className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors flex items-center gap-1.5 group"
                 >
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-primary)]" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-primary)]" />
                   {t(item.nameKey as Parameters<typeof t>[0])}
                 </Link>
               ))}
@@ -124,7 +125,7 @@ export default function Footer() {
                   prefetch={true}
                   className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors flex items-center gap-1.5 group"
                 >
-                  <span className="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-primary)]" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-primary)]" />
                   {t(item.nameKey as Parameters<typeof t>[0])}
                 </Link>
               ))}
@@ -139,13 +140,13 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[var(--color-primary)] w-fit">
               <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
               <span>{t('footer_istanbul_center')} {istanbulTime || '10:42'}</span>
-              <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">partly_cloudy_day</span>
+              <Icon name="partly_cloudy_day" className="text-sm text-amber-500" />
             </div>
 
             {/* Address */}
             <div className="flex items-start gap-3 text-sm">
               <div className="w-8 h-8 rounded-xl bg-[var(--color-surface-variant)] flex items-center justify-center shrink-0 mt-0.5 text-[var(--color-primary)]">
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">location_on</span>
+                <Icon name="location_on" className="text-lg" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-[var(--color-primary)] text-xs">{t('footer_headquarters')}</span>
@@ -156,7 +157,7 @@ export default function Footer() {
             {/* Customer Service Phone */}
             <div className="flex items-center gap-3 text-sm">
               <div className="w-8 h-8 rounded-xl bg-[var(--color-surface-variant)] flex items-center justify-center shrink-0 text-[var(--color-primary)]">
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">call</span>
+                <Icon name="call" className="text-lg" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-[var(--color-primary)] text-xs">{t('footer_customer_service')}</span>
@@ -167,7 +168,7 @@ export default function Footer() {
             {/* Working Hours */}
             <div className="flex items-center gap-3 text-sm">
               <div className="w-8 h-8 rounded-xl bg-[var(--color-surface-variant)] flex items-center justify-center shrink-0 text-[var(--color-primary)]">
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">schedule</span>
+                <Icon name="schedule" className="text-lg" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-[var(--color-primary)] text-xs">{t('footer_working_hours_title')}</span>
@@ -183,7 +184,7 @@ export default function Footer() {
               className="flex items-center gap-3 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors group"
             >
               <div className="w-9 h-9 rounded-xl bg-[var(--color-primary)] text-[var(--color-surface)] flex items-center justify-center shrink-0 shadow-sm">
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">chat</span>
+                <Icon name="chat" className="text-xl" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-bold text-[var(--color-primary)]">{t('footer_whatsapp_title')}</span>
@@ -200,7 +201,7 @@ export default function Footer() {
           {/* ISO Badges */}
           <div className="flex flex-wrap items-center gap-6">
             <div className="flex items-center gap-2 text-xs text-[var(--color-secondary)] font-medium">
-              <span className="material-symbols-outlined text-lg text-[var(--color-primary)]" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-lg text-[var(--color-primary)]" />
               <div>
                 <div className="font-bold text-[var(--color-primary)] leading-none">ISO 10002:2018</div>
                 <div className="text-[10px] text-[var(--color-tertiary)]">{t('footer_badge_quality')}</div>
@@ -208,7 +209,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-[var(--color-secondary)] font-medium">
-              <span className="material-symbols-outlined text-lg text-[var(--color-primary)]" aria-hidden="true">health_and_safety</span>
+              <Icon name="health_and_safety" className="text-lg text-[var(--color-primary)]" />
               <div>
                 <div className="font-bold text-[var(--color-primary)] leading-none">ISO 45001</div>
                 <div className="text-[10px] text-[var(--color-tertiary)]">{t('footer_badge_ohs')}</div>
@@ -216,7 +217,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-[var(--color-secondary)] font-medium">
-              <span className="material-symbols-outlined text-lg text-[var(--color-primary)]" aria-hidden="true">admin_panel_settings</span>
+              <Icon name="admin_panel_settings" className="text-lg text-[var(--color-primary)]" />
               <div>
                 <div className="font-bold text-[var(--color-primary)] leading-none">{t('footer_badge_sec')}</div>
                 <div className="text-[10px] text-[var(--color-tertiary)]">{t('footer_badge_sec_desc')}</div>
@@ -415,7 +416,7 @@ export default function Footer() {
                 title={t('ft_group_alo_title')}
               >
                 <span>{t('ft_group_alo')}</span>
-                <span className="material-symbols-outlined text-[12px] opacity-70 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[12px] opacity-70 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <span>•</span>
               <a
@@ -426,7 +427,7 @@ export default function Footer() {
                 title={t('ft_group_3g_title')}
               >
                 <span>{t('ft_group_3g')}</span>
-                <span className="material-symbols-outlined text-[12px] opacity-70 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[12px] opacity-70 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <span>•</span>
               <span className="text-[var(--color-tertiary)]">{t('ft_group_note')}</span>
@@ -436,7 +437,7 @@ export default function Footer() {
           {/* Resmi Mevzuatlar, Kamu Kurumları ve Akreditasyon Otoriteleri (E-E-A-T Sitewide) */}
           <div className="flex flex-col gap-3 pt-4 border-t border-[var(--color-outline)]/40">
             <h4 className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">account_balance</span>
+              <Icon name="account_balance" className="text-sm text-emerald-600 dark:text-emerald-400" />
               <span>{t('ft_authorities_title')}</span>
             </h4>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
@@ -448,7 +449,7 @@ export default function Footer() {
                 title={t('ft_a_kmk_title')}
               >
                 <span>{t('ft_a_kmk')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -459,7 +460,7 @@ export default function Footer() {
                 title={t('ft_a_5188_title')}
               >
                 <span>{t('ft_a_5188')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -470,7 +471,7 @@ export default function Footer() {
                 title={t('ft_a_iik_title')}
               >
                 <span>{t('ft_a_iik')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -481,7 +482,7 @@ export default function Footer() {
                 title={t('ft_a_egm_title')}
               >
                 <span>{t('ft_a_egm')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -492,7 +493,7 @@ export default function Footer() {
                 title={t('ft_a_tse_title')}
               >
                 <span>{t('ft_a_tse')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -503,7 +504,7 @@ export default function Footer() {
                 title={t('ft_a_tuik_title')}
               >
                 <span>{t('ft_a_tuik')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -514,7 +515,7 @@ export default function Footer() {
                 title={t('ft_a_zw_title')}
               >
                 <span>{t('ft_a_zw')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -525,7 +526,7 @@ export default function Footer() {
                 title={t('ft_a_kvkk_title')}
               >
                 <span>{t('ft_a_kvkk')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
               <span>•</span>
               <a
@@ -536,7 +537,7 @@ export default function Footer() {
                 title={t('ft_a_iskur_title')}
               >
                 <span>{t('ft_a_iskur')}</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[10px] opacity-60" />
               </a>
             </div>
           </div>
@@ -576,7 +577,7 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--color-secondary)]">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">language</span>
+            <Icon name="language" className="text-sm" />
             <span>{t('footer_lang_label')}</span>
           </div>
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface ComparisonItem {
   criterion: string;
   traditional: string;
@@ -80,9 +81,7 @@ export default function VisionComparisonMatrixSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-brand-500" aria-hidden="true">
-              compare_arrows
-            </span>
+            <Icon name="compare_arrows" className="text-sm text-brand-500" />
             <span>2026 Standartları Karşılaştırması</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -153,7 +152,7 @@ export default function VisionComparisonMatrixSeo() {
                 <div className="p-4 sm:p-5 rounded-2xl bg-rose-500/5 border border-rose-500/20 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-xs uppercase tracking-wider mb-2">
-                      <span className="material-symbols-outlined text-base">cancel</span>
+                      <Icon name="cancel" className="text-base" />
                       <span>Geleneksel / Amatör Yönetim</span>
                     </div>
                     <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">
@@ -166,7 +165,7 @@ export default function VisionComparisonMatrixSeo() {
                 <div className="p-4 sm:p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/30 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">
-                      <span className="material-symbols-outlined text-base">verified</span>
+                      <Icon name="verified" className="text-base" />
                       <span>Alo Yönetim 2026 Standartları</span>
                     </div>
                     <p className="text-xs sm:text-sm text-[var(--color-primary)] font-medium leading-relaxed">

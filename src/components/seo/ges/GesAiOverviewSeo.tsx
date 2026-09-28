@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function GesAiOverviewSeo() {
   const [copied, setCopied] = useState(false);
 
@@ -25,9 +26,7 @@ export default function GesAiOverviewSeo() {
       {/* Header Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 border-b border-slate-200/60 dark:border-slate-800/60 pb-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 dark:bg-amber-400/10 text-amber-800 dark:text-amber-300 text-xs font-bold tracking-wide uppercase">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">
-            psychology
-          </span>
+          <Icon name="psychology" className="text-sm" />
           <span>Google AI Overviews & Çatı GES Hukuki Standartları</span>
         </div>
 
@@ -43,12 +42,7 @@ export default function GesAiOverviewSeo() {
 
       {/* Question Heading */}
       <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 flex items-start gap-3">
-        <span
-          className="material-symbols-outlined text-amber-500 dark:text-amber-400 text-2xl sm:text-3xl shrink-0 mt-0.5"
-          aria-hidden="true"
-        >
-          wb_sunny
-        </span>
+        <Icon name="wb_sunny" className="text-amber-500 dark:text-amber-400 text-2xl sm:text-3xl shrink-0 mt-0.5" />
         <span>
           Apartman ve Sitelerde Çatı GES Kurulumu İçin Kat Malikleri Kurulu Kararı Nasıl Alınır ve Mahsuplaşma Nasıl Çalışır?
         </span>
@@ -63,9 +57,7 @@ export default function GesAiOverviewSeo() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-6">
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400">
-              gavel
-            </span>
+            <Icon name="gavel" className="text-base text-emerald-600 dark:text-emerald-400" />
             <span>%100 Yasal Çoğunluk</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -75,9 +67,7 @@ export default function GesAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-amber-600 dark:text-amber-400">
-              sync_alt
-            </span>
+            <Icon name="sync_alt" className="text-base text-amber-600 dark:text-amber-400" />
             <span>Çift Yönlü Mahsuplaşma</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -87,9 +77,7 @@ export default function GesAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-blue-600 dark:text-blue-400">
-              verified
-            </span>
+            <Icon name="verified" className="text-base text-blue-600 dark:text-blue-400" />
             <span>Tier-1 Panel & Sızdırmazlık</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -99,9 +87,7 @@ export default function GesAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <span className="material-symbols-outlined text-base text-purple-600 dark:text-purple-400">
-              ev_station
-            </span>
+            <Icon name="ev_station" className="text-base text-purple-600 dark:text-purple-400" />
             <span>EV Şarj Entegrasyonu</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -113,7 +99,7 @@ export default function GesAiOverviewSeo() {
       {/* Footer Citation & Controls */}
       <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-base text-amber-500">menu_book</span>
+          <Icon name="menu_book" className="text-base text-amber-500" />
           <span>
             Yasal Dayanak: 634 Sayılı Kat Mülkiyeti Kanunu m.42, EPDK Lisanssız Elektrik Üretim Yönetmeliği m.5/1-ç
           </span>
@@ -125,9 +111,7 @@ export default function GesAiOverviewSeo() {
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-amber-600 dark:hover:text-amber-400 font-semibold transition-all cursor-pointer shadow-xs"
           >
-            <span className="material-symbols-outlined text-sm">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'Özeti Kopyala'}</span>
           </button>
 
@@ -138,7 +122,7 @@ export default function GesAiOverviewSeo() {
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

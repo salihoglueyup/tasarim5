@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ComparisonDimension {
   title: string;
   icon: string;
@@ -110,9 +111,7 @@ export default function SiteVsFacilityComparisonSeo({
         {/* Üst Başlık & Rozet */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">
-              compare_arrows
-            </span>
+            <Icon name="compare_arrows" className="text-base text-emerald-600 dark:text-emerald-400" />
             <span>Otorite Karşılaştırma Rehberi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -153,9 +152,7 @@ export default function SiteVsFacilityComparisonSeo({
                   className="hover:bg-[var(--color-surface-variant)]/40 transition-colors"
                 >
                   <th scope="row" className="p-4 sm:p-5 font-bold text-[var(--color-primary)] flex items-center gap-2 text-left font-sans">
-                    <span className="material-symbols-outlined text-base text-[var(--color-tertiary)]" aria-hidden="true">
-                      {dim.icon}
-                    </span>
+                    <Icon name={dim.icon} className="text-base text-[var(--color-tertiary)]" />
                     <span>{dim.title}</span>
                   </th>
                   <td className="p-4 sm:p-5 text-[var(--color-secondary)] leading-relaxed bg-[var(--color-surface)]/60">
@@ -228,7 +225,7 @@ export default function SiteVsFacilityComparisonSeo({
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs sm:text-sm font-bold shadow-sm transition-all text-center"
                   >
                     <span>Site Yönetimi Detayları</span>
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-sm" />
                   </Link>
                   <Link
                     href="/teklif-al"
@@ -255,7 +252,7 @@ export default function SiteVsFacilityComparisonSeo({
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs sm:text-sm font-bold shadow-sm transition-all text-center"
                   >
                     <span>Tesis Yönetimi Detayları</span>
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-sm" />
                   </Link>
                   <Link
                     href="/teklif-al"

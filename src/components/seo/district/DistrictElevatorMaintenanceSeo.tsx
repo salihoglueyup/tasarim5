@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictElevatorMaintenanceSeoProps {
   districtName: string;
   districtSlug: string;
@@ -65,7 +66,7 @@ export default function DistrictElevatorMaintenanceSeo({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <div className="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
           <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
-            <span className="material-symbols-outlined text-[18px]" aria-hidden="true">timer</span>
+            <Icon name="timer" className="text-[18px]" />
             <span>15-25 Dk Acil SLA</span>
           </div>
           <h4 className="text-base font-bold text-white">7/24 Mahsur Kalma Servisi</h4>
@@ -76,7 +77,7 @@ export default function DistrictElevatorMaintenanceSeo({
 
         <div className="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
           <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
-            <span className="material-symbols-outlined text-[18px]" aria-hidden="true">verified</span>
+            <Icon name="verified" className="text-[18px]" />
             <span>%100 Yeşil Etiket</span>
           </div>
           <h4 className="text-base font-bold text-white">Yıllık MMO Muayenesi</h4>
@@ -87,7 +88,7 @@ export default function DistrictElevatorMaintenanceSeo({
 
         <div className="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
           <div className="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-wider">
-            <span className="material-symbols-outlined text-[18px]" aria-hidden="true">engineering</span>
+            <Icon name="engineering" className="text-[18px]" />
             <span>Önleyici Bakım</span>
           </div>
           <h4 className="text-base font-bold text-white">Çift Halat & Fren Emniyeti</h4>
@@ -98,7 +99,7 @@ export default function DistrictElevatorMaintenanceSeo({
 
         <div className="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
           <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
-            <span className="material-symbols-outlined text-[18px]" aria-hidden="true">gavel</span>
+            <Icon name="gavel" className="text-[18px]" />
             <span>Hukuki Koruma</span>
           </div>
           <h4 className="text-base font-bold text-white">Yönetici Sorumluluk Devri</h4>
@@ -137,7 +138,7 @@ export default function DistrictElevatorMaintenanceSeo({
             href="tel:+902165504848"
             className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition-all border border-slate-700 flex items-center gap-1.5"
           >
-            <span className="material-symbols-outlined text-[16px] text-emerald-400" aria-hidden="true">call</span>
+            <Icon name="call" className="text-[16px] text-emerald-400" />
             <span>7/24 Arıza Hattı</span>
           </a>
           <Link
@@ -145,7 +146,7 @@ export default function DistrictElevatorMaintenanceSeo({
             className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-1.5 group"
           >
             <span>Asansör Bakım Teklifi Al</span>
-            <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-[14px] group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
       </div>

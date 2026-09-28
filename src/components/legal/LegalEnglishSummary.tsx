@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface LegalEnglishSummaryProps {
   type: 'kvkk' | 'privacy';
   lang: string;
@@ -17,7 +18,7 @@ export default function LegalEnglishSummary({ type, lang }: LegalEnglishSummaryP
     return (
       <div className="mb-10 p-6 md:p-8 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 text-slate-800 dark:text-slate-200">
         <div className="flex items-center gap-3 mb-4">
-          <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-blue-600 dark:text-blue-400 text-2xl" />
           <h3 className="text-lg font-bold text-blue-950 dark:text-blue-200">
             Executive Summary: Data Protection Notice (Turkish Law No. 6698 - KVKK)
           </h3>
@@ -47,7 +48,7 @@ export default function LegalEnglishSummary({ type, lang }: LegalEnglishSummaryP
   return (
     <div className="mb-10 p-6 md:p-8 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 text-slate-800 dark:text-slate-200">
       <div className="flex items-center gap-3 mb-4">
-        <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl" aria-hidden="true">policy</span>
+        <Icon name="policy" className="text-emerald-600 dark:text-emerald-400 text-2xl" />
         <h3 className="text-lg font-bold text-emerald-950 dark:text-emerald-200">
           Executive Summary: Privacy & Data Confidentiality Policy
         </h3>

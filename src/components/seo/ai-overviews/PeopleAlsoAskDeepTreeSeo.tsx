@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface PaaQuestionItem {
   id: string;
   category: 'kmk-hukuku' | 'aidat-butce' | 'guvenlik-kamera' | 'teknik-asansor';
@@ -429,7 +430,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-outline)]/60 dark:border-white/10 pb-6 relative z-10">
         <div className="flex items-center gap-3.5">
           <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 font-bold text-2xl shadow-xs shrink-0">
-            <span className="material-symbols-outlined text-3xl">psychology_alt</span>
+            <Icon name="psychology_alt" className="text-3xl" />
           </span>
           <div>
             <div className="flex flex-wrap items-center gap-2">
@@ -450,9 +451,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
       {/* Speakable Instant Answer Box */}
       <div className="mt-5 rounded-2xl border border-amber-500/20 bg-amber-500/5 dark:bg-amber-400/5 p-4 sm:p-5 relative z-10">
         <div className="flex items-start gap-3">
-          <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 text-xl shrink-0 mt-0.5">
-            verified
-          </span>
+          <Icon name="verified" className="text-amber-600 dark:text-amber-400 text-xl shrink-0 mt-0.5" />
           <p
             id="paa-deep-tree-instant-answer-text"
             className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal"
@@ -532,9 +531,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
             placeholder="Sorularda canlı ara (örn: icra, asansör)..."
             className="w-full rounded-xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-slate-50 dark:bg-[#0B0C10] px-3.5 py-1.5 pl-9 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors"
           />
-          <span className="material-symbols-outlined absolute left-2.5 top-2 text-sm text-slate-400">
-            search
-          </span>
+          <Icon name="search" className="absolute left-2.5 top-2 text-sm text-slate-400" />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
@@ -577,9 +574,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
                       {q.question}
                     </span>
                   </div>
-                  <span className={`material-symbols-outlined text-lg shrink-0 transition-transform ${isOpen ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400'}`}>
-                    {isOpen ? 'expand_less' : 'expand_more'}
-                  </span>
+                  <Icon name={isOpen ? 'expand_less' : 'expand_more'} className={`text-lg shrink-0 transition-transform ${isOpen ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400'}`} />
                 </button>
 
                 {isOpen && (
@@ -594,9 +589,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
                         type="button"
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 transition-colors cursor-pointer"
                       >
-                        <span className="material-symbols-outlined text-xs">
-                          {copiedId === q.id ? 'done' : 'content_copy'}
-                        </span>
+                        <Icon name={copiedId === q.id ? 'done' : 'content_copy'} className="text-xs" />
                         {copiedId === q.id ? 'Kopyalandı' : 'Yanıtı Kopyala'}
                       </button>
                     </div>

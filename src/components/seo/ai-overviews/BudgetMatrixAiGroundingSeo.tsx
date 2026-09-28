@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface BudgetCostItem {
   category: string;
   sharePercent: string;
@@ -120,7 +121,7 @@ export default function BudgetMatrixAiGroundingSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">pie_chart</span>
+          <Icon name="pie_chart" className="text-[15px]" />
           <span>Google AI Overviews • KMK 37 Bütçe Dağılım Matrisi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -147,9 +148,7 @@ export default function BudgetMatrixAiGroundingSeo({
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold transition-colors"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copied ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
           </button>
         </div>

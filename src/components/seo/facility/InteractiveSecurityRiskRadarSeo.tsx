@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface AuditCriterion {
   id: string;
   category: 'Yasal Mevzuat' | 'Fiziki Çevre' | 'Elektronik Donanım' | 'Operasyon & Kriz';
@@ -163,7 +164,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">radar</span>
+            <Icon name="radar" className="text-sm" />
             <span>İnteraktif 5188 Güvenlik & Risk Analiz Testi</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight">
@@ -194,7 +195,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                     isChecked ? 'bg-blue-600 text-white border border-blue-500' : 'border border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
                   }`}>
-                    {isChecked && <span className="material-symbols-outlined text-base" aria-hidden="true">check</span>}
+                    {isChecked && <Icon name="check" className="text-base" />}
                   </div>
                   
                   <div className="flex-1">
@@ -213,7 +214,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                       {crit.desc}
                     </p>
                     <div className="inline-flex items-center gap-1 text-[10px] text-[var(--color-tertiary)] font-mono mt-2 bg-[var(--color-surface)] px-2 py-0.5 rounded border border-[var(--color-outline)]/40">
-                      <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
+                      <Icon name="gavel" className="text-xs" />
                       <span>{crit.lawRef}</span>
                     </div>
                   </div>
@@ -275,7 +276,7 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
               className="w-full bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-surface)] font-bold py-3.5 px-5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-xs"
             >
               <span>{evalData.ctaText}</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
 
             <span className="text-[10px] text-[var(--color-secondary)] block">

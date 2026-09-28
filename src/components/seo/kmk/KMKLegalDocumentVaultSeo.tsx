@@ -8,6 +8,7 @@ import {
   LegalDocumentTemplate,
 } from '@/data/officialLegalDocumentsData';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function KMKLegalDocumentVaultSeo() {
   const [selectedId, setSelectedId] = useState<string>(OFFICIAL_LEGAL_DOCUMENTS[0].id);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -59,7 +60,7 @@ export default function KMKLegalDocumentVaultSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-600/10 dark:bg-cyan-400/10 border border-cyan-600/20 dark:border-cyan-400/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">description</span>
+            <Icon name="description" className="text-[16px]" />
             Resmi KMK Hukuk ve Karar Şablonları Kütüphanesi
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -157,9 +158,7 @@ export default function KMKLegalDocumentVaultSeo() {
                   className="shrink-0 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
                   aria-label="Şablonu Kopyala"
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">
-                    {copiedId === activeDoc.id ? 'check' : 'content_copy'}
-                  </span>
+                  <Icon name={copiedId === activeDoc.id ? 'check' : 'content_copy'} className="text-base" />
                   <span>{copiedId === activeDoc.id ? 'Metin Kopyalandı!' : 'Şablonu Kopyala'}</span>
                 </button>
               </div>

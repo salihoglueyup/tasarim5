@@ -8,6 +8,7 @@ import FlagIcon from '@/components/ui/branding/FlagIcon';
 import Logo from '@/components/ui/branding/Logo';
 import type { translations } from '@/i18n/translations';
 
+import Icon from '@/components/ui/branding/Icon';
 export type SubItem = {
   nameKey: keyof typeof translations['tr'];
   path: string;
@@ -144,7 +145,7 @@ export default function MobileMenu({
             aria-label="Menüyü Kapat"
             className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 transition-all cursor-pointer active:scale-95"
           >
-            <span className="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
+            <Icon name="close" className="text-2xl" />
           </button>
         </div>
 
@@ -166,9 +167,7 @@ export default function MobileMenu({
                       aria-expanded={expandedMobileMenu === item.nameKey}
                     >
                       <span>{t(item.nameKey)}</span>
-                      <span className={`material-symbols-outlined transition-transform duration-200 transform-gpu text-slate-400 dark:text-slate-500 ${expandedMobileMenu === item.nameKey ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''}`}>
-                        expand_more
-                      </span>
+                      <Icon name="expand_more" className={`transition-transform duration-200 transform-gpu text-slate-400 dark:text-slate-500 ${expandedMobileMenu === item.nameKey ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''}`} />
                     </button>
                     
                     {/* CSS Grid Rows tabanlı akıcı alt menü */}
@@ -186,7 +185,7 @@ export default function MobileMenu({
                               onClick={onClose}
                               className="text-base text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white flex items-center gap-2.5 font-medium transition-colors py-1"
                             >
-                              {sub.icon && <span className="material-symbols-outlined text-[17px] opacity-60" aria-hidden="true">{sub.icon}</span>}
+                              {sub.icon && <Icon name={sub.icon} className="text-[17px] opacity-60" />}
                               <span>{t(sub.nameKey)}</span>
                             </Link>
                           ))}
@@ -215,7 +214,7 @@ export default function MobileMenu({
               className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-base font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/25 active:scale-95 transition-all cursor-pointer"
             >
               <span>{t('btn_get_quote')}</span>
-              <span className="material-symbols-outlined text-[19px]" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-[19px]" />
             </button>
           </div>
 
@@ -254,9 +253,7 @@ export default function MobileMenu({
           {/* Mobil Tema Değiştirici */}
           <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
             <div className="flex items-center gap-2.5">
-              <span className="material-symbols-outlined text-slate-700 dark:text-slate-300 text-[20px]" aria-hidden="true">
-                {isDarkMode ? 'dark_mode' : 'light_mode'}
-              </span>
+              <Icon name={isDarkMode ? 'dark_mode' : 'light_mode'} className="text-slate-700 dark:text-slate-300 text-[20px]" />
               <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
                 {isDarkMode ? 'Koyu Tema (Aktif)' : 'Açık Tema (Aktif)'}
               </span>

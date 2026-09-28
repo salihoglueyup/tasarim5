@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface StepSolverItem {
   id: string;
   title: string;
@@ -199,7 +200,7 @@ export default function AiOverviewStepSolverSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">schema</span>
+            <Icon name="schema" className="text-[16px]" />
             Google AI Overviews Adım Adım Problem Çözücü (HowTo)
           </div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -215,9 +216,7 @@ export default function AiOverviewStepSolverSeo() {
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-colors shadow-xs shrink-0 cursor-pointer"
           title="Tüm Kontrol Listesini Kopyala"
         >
-          <span className="material-symbols-outlined text-base" aria-hidden="true">
-            {copied ? 'done_all' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'done_all' : 'content_copy'} className="text-base" />
           <span>{copied ? 'Kopyalandı!' : 'Protokolü Kopyala'}</span>
         </button>
       </div>
@@ -299,7 +298,7 @@ export default function AiOverviewStepSolverSeo() {
                   </p>
                   {step.criticalNotice && (
                     <div className="mt-2 inline-flex items-center gap-2 p-2 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-semibold">
-                      <span className="material-symbols-outlined text-base text-amber-600" aria-hidden="true">warning</span>
+                      <Icon name="warning" className="text-base text-amber-600" />
                       <span>Kritik Yasal Not: {step.criticalNotice}</span>
                     </div>
                   )}

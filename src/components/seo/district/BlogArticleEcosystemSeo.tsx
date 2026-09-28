@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { resolveBlogArticleCluster } from '@/lib/seo/facility/facilityBlogClusterEngine';
 
+import Icon from '@/components/ui/branding/Icon';
 interface BlogArticleEcosystemSeoProps {
   title: string;
   content: string;
@@ -33,7 +34,7 @@ export default function BlogArticleEcosystemSeo({
       {/* Top Badge */}
       <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--color-outline)]/60 dark:border-white/10 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
-          <span className="material-symbols-outlined text-[15px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
+          <Icon name="verified" className="text-[15px] text-emerald-600 dark:text-emerald-400" />
           <span>Kurumsal Çözüm & Doğrulanmış Mevzuat Ekosistemi</span>
         </div>
         <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium hidden sm:inline-block">
@@ -47,9 +48,7 @@ export default function BlogArticleEcosystemSeo({
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <span className="w-9 h-9 rounded-xl bg-slate-900/5 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                  {recommendedSubSector.icon}
-                </span>
+                <Icon name={recommendedSubSector.icon} className="text-xl" />
               </span>
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Tesis & Mülk Çözümü
@@ -69,9 +68,7 @@ export default function BlogArticleEcosystemSeo({
             title={recommendedSubSector.anchorText}
           >
             <span>{recommendedSubSector.ctaText}</span>
-            <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" aria-hidden="true">
-              arrow_forward
-            </span>
+            <Icon name="arrow_forward" className="text-[16px] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -81,7 +78,7 @@ export default function BlogArticleEcosystemSeo({
           {relevantLegislation.length > 0 && (
             <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/10 flex flex-col gap-2 shadow-2xs">
               <div className="text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">gavel</span>
+                <Icon name="gavel" className="text-[15px]" />
                 <span>Yasal Mevzuat Dayanakları</span>
               </div>
               <div className="flex flex-col gap-1.5">
@@ -95,9 +92,7 @@ export default function BlogArticleEcosystemSeo({
                     title={`${leg.name} — ${leg.sourceAuthority}`}
                   >
                     <span className="line-clamp-1">{leg.name}</span>
-                    <span className="material-symbols-outlined text-[13px] opacity-50 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-                      open_in_new
-                    </span>
+                    <Icon name="open_in_new" className="text-[13px] opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                 ))}
               </div>
@@ -108,7 +103,7 @@ export default function BlogArticleEcosystemSeo({
           {relevantPrecedents && relevantPrecedents.length > 0 && (
             <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/10 flex flex-col gap-2 shadow-2xs">
               <div className="text-[11px] font-bold uppercase tracking-wide text-amber-500 dark:text-amber-400 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">balance</span>
+                <Icon name="balance" className="text-[15px]" />
                 <span>Yargıtay Emsal Karar Referansı</span>
               </div>
               <div className="flex flex-col gap-2">
@@ -127,7 +122,7 @@ export default function BlogArticleEcosystemSeo({
             <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/10 flex items-center justify-between gap-3 shadow-2xs">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-slate-900/5 dark:bg-white/10 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">shield</span>
+                  <Icon name="shield" className="text-lg" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white">
@@ -146,14 +141,14 @@ export default function BlogArticleEcosystemSeo({
                 title={`${groupCompanySynergy.name} Resmi Sitesi`}
               >
                 <span>İncele</span>
-                <span className="material-symbols-outlined text-[12px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[12px]" />
               </a>
             </div>
           ) : (
             <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/10 flex items-center justify-between gap-3 shadow-2xs">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">workspace_premium</span>
+                  <Icon name="workspace_premium" className="text-lg" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white">
@@ -178,7 +173,7 @@ export default function BlogArticleEcosystemSeo({
       {/* Faz 188: Blog Makalelerinden Doğrudan /teklif-al ve /hesaplayici CTA Köprüsü */}
       <div className="mt-6 pt-5 border-t border-[var(--color-outline)]/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
         <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
-          <span className="material-symbols-outlined text-amber-500 text-base" aria-hidden="true">calculate</span>
+          <Icon name="calculate" className="text-amber-500 text-base" />
           <span>Binanız veya tesisiniz için özel maliyet projeksiyonu çıkarın:</span>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto">

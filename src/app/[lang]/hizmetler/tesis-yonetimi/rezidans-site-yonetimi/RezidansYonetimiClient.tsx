@@ -13,6 +13,7 @@ import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDo
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
+import Icon from '@/components/ui/branding/Icon';
 const OPERATIONAL_PILLARS = [
   {
     icon: 'local_taxi',
@@ -96,7 +97,7 @@ export default function RezidansYonetimiClient() {
                 Ücretsiz Rezidans Keşfi İste
               </Link>
               <Link href="/hizmetler/site-yonetimi" className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold py-3.5 px-8 rounded-xl transition-all flex items-center gap-2">
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">apartment</span>
+                <Icon name="apartment" className="text-lg" />
                 Profesyonel Site Yönetimi
               </Link>
               <Link href="/hizmetler/tesis-yonetimi" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
@@ -147,7 +148,7 @@ export default function RezidansYonetimiClient() {
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <span className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">{f.icon}</span>
+                      <Icon name={f.icon} className="text-2xl" />
                     </span>
                     <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/40">
                       {f.badge}
@@ -165,7 +166,7 @@ export default function RezidansYonetimiClient() {
                 <div className="pt-3 border-t border-[var(--color-outline)]/40 space-y-1.5">
                   {f.highlights.map((h, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-[var(--color-secondary)]">
-                      <span className="material-symbols-outlined text-emerald-500 text-sm shrink-0" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-emerald-500 text-sm shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -187,7 +188,7 @@ export default function RezidansYonetimiClient() {
         {/* Prestijli Rezidans İlçeleri Çapraz Bağlantı Vitrini */}
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-            <span className="material-symbols-outlined text-amber-500 text-xl" aria-hidden="true">location_city</span>
+            <Icon name="location_city" className="text-amber-500 text-xl" />
             <span>İstanbul Genelinde Hizmet Verdiğimiz Seçkin Rezidans Bölgeleri</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">

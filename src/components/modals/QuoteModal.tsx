@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
+import Icon from '@/components/ui/branding/Icon';
 interface QuoteModalProps {
   onClose: () => void;
 }
@@ -137,7 +138,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
           aria-label="Kapat"
           className="absolute top-4 right-4 z-50 w-10 h-10 bg-gray-100/80 dark:bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-white/70 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/20 transition-all cursor-pointer"
         >
-          <span className="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+          <Icon name="close" className="text-[20px]" />
         </button>
 
         {/* LEFT SIDE: Visuals & Branding (Hidden on mobile, 40% on Desktop) */}
@@ -165,7 +166,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
             <div className="flex -space-x-3">
               {[1,2,3,4].map(i => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#1f1f2a] bg-slate-600 flex items-center justify-center overflow-hidden">
-                  <span className="material-symbols-outlined text-sm text-white/80" aria-hidden="true">person</span>
+                  <Icon name="person" className="text-sm text-white/80" />
                 </div>
               ))}
             </div>
@@ -309,7 +310,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                                     : 'border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-600 dark:text-gray-400 hover:border-slate-300 dark:hover:border-white/20'
                                 }`}
                               >
-                                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{pt.icon}</span>
+                                <Icon name={pt.icon} className="text-2xl" />
                                 <span className="font-bold text-xs text-center">{pt.label}</span>
                               </button>
                             ))}
@@ -365,13 +366,13 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                                 }`}
                               >
                                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${isSelected ? `bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900` : 'bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-gray-400'}`}>
-                                  <span className="material-symbols-outlined text-[20px]" aria-hidden="true">{srv.icon}</span>
+                                  <Icon name={srv.icon} className="text-[20px]" />
                                 </div>
                                 <span className={`font-bold text-xs ${isSelected ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-gray-300'}`}>
                                   {srv.label}
                                 </span>
                                 {isSelected && (
-                                  <span className="material-symbols-outlined ml-auto text-[18px] text-[var(--color-primary)] dark:text-white" aria-hidden="true">check_circle</span>
+                                  <Icon name="check_circle" className="ml-auto text-[18px] text-[var(--color-primary)] dark:text-white" />
                                 )}
                               </button>
                             );
@@ -380,7 +381,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
 
                         {formData.services.length === 0 && (
                           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-semibold animate-pulse">
-                            <span className="material-symbols-outlined text-lg" aria-hidden="true">info</span>
+                            <Icon name="info" className="text-lg" />
                             <span>İlerlemek için lütfen en az bir hizmet seçiniz.</span>
                           </div>
                         )}
@@ -433,7 +434,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                               onChange={(e) => setFormData({...formData, kvkk: e.target.checked})}
                             />
                             <div className="w-5 h-5 border-2 border-slate-400 dark:border-gray-500 rounded-md peer-checked:bg-[var(--color-primary)] peer-checked:border-[var(--color-primary)] dark:peer-checked:bg-white dark:peer-checked:border-white transition-colors flex items-center justify-center">
-                              <span className="material-symbols-outlined text-white dark:text-slate-900 text-[12px] opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all" aria-hidden="true">check</span>
+                              <Icon name="check" className="text-white dark:text-slate-900 text-[12px] opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all" />
                             </div>
                           </div>
                           <span className="text-xs font-medium text-slate-700 dark:text-gray-300 leading-relaxed">
@@ -452,7 +453,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                     disabled={currentStep === 0}
                     className={`flex items-center gap-2 font-bold text-sm transition-opacity cursor-pointer ${currentStep === 0 ? 'opacity-0 pointer-events-none' : 'text-slate-500 hover:text-[var(--color-primary)] dark:text-gray-400 dark:hover:text-white'}`}
                   >
-                    <span className="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+                    <Icon name="arrow_back" className="text-[18px]" />
                     {t('quote_prev_btn')}
                   </button>
                   
@@ -464,9 +465,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                     {currentStep === 3
                       ? (status === 'loading' ? t('contact_form_sending') : t('quote_submit_btn'))
                       : t('quote_next_btn')}
-                    <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
-                      {currentStep === 3 ? 'send' : 'arrow_forward'}
-                    </span>
+                    <Icon name={currentStep === 3 ? 'send' : 'arrow_forward'} className="text-[18px]" />
                   </button>
                 </div>
 
@@ -483,7 +482,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                 className="w-full max-w-lg mx-auto text-center flex flex-col items-center py-16 transition-all duration-300 transform-gpu animate-in fade-in zoom-in-95"
               >
                 <div className="w-20 h-20 bg-slate-100 dark:bg-white/10 text-[var(--color-primary)] dark:text-white rounded-full flex items-center justify-center mb-6 shadow-xl shadow-slate-200/50 dark:shadow-none">
-                  <span className="material-symbols-outlined text-4xl" aria-hidden="true">task_alt</span>
+                  <Icon name="task_alt" className="text-4xl" />
                 </div>
                 <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
                   {t('quote_success_title')}
@@ -495,7 +494,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                   onClick={onClose}
                   className="bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900 px-8 py-3.5 rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-[18px]" aria-hidden="true">close</span>
+                  <Icon name="close" className="text-[18px]" />
                   {t('quote_home_btn')}
                 </button>
               </div>

@@ -7,6 +7,7 @@ import { BASE_URL } from '@/lib/constants';
 import { Clock, ShieldCheck, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { DISTRICTS } from '@/data/districts';
 
+import Icon from '@/components/ui/branding/Icon';
 interface DistrictHighlightProps {
   districtName: string;
   side: 'Anadolu' | 'Avrupa';
@@ -113,7 +114,7 @@ export default function DistrictLocalHighlightsSeo({
           {/* Mahalleler */}
           <div>
             <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white mb-3">
-              <span className="material-symbols-outlined text-blue-500 text-lg" aria-hidden="true">location_city</span>
+              <Icon name="location_city" className="text-blue-500 text-lg" />
               <span>Hizmet Verilen Önemli Mahalleler</span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -131,7 +132,7 @@ export default function DistrictLocalHighlightsSeo({
           {/* Yerel İhtiyaçlar */}
           <div>
             <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white mb-3">
-              <span className="material-symbols-outlined text-emerald-500 text-lg" aria-hidden="true">task_alt</span>
+              <Icon name="task_alt" className="text-emerald-500 text-lg" />
               <span>{districtName}&apos;e Özel Tesis Öncelikleri</span>
             </div>
             <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300">

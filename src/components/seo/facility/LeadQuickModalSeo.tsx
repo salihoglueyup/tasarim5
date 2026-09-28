@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface QuickQuotePayload {
   service?: string;
   district?: string;
@@ -113,13 +114,13 @@ export default function LeadQuickModalSeo() {
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
             >
-              <span className="material-symbols-outlined text-lg" aria-hidden="true">close</span>
+              <Icon name="close" className="text-lg" />
             </button>
 
             {status === 'success' ? (
               <div className="text-center py-8 space-y-4 animate-fade-in">
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
-                  <span className="material-symbols-outlined text-3xl" aria-hidden="true">check_circle</span>
+                  <Icon name="check_circle" className="text-3xl" />
                 </div>
 
                 <h3 className="text-2xl font-black text-white">Teklif Talebiniz Alındı!</h3>
@@ -134,7 +135,7 @@ export default function LeadQuickModalSeo() {
                     rel="noopener noreferrer"
                     className="w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-all"
                   >
-                    <span className="material-symbols-outlined text-lg" aria-hidden="true">chat</span>
+                    <Icon name="chat" className="text-lg" />
                     <span>WhatsApp ile Hızlı Bağlan</span>
                   </a>
 
@@ -256,7 +257,7 @@ export default function LeadQuickModalSeo() {
                 {/* Error Box */}
                 {status === 'error' && (
                   <div className="p-3 bg-rose-500/20 border border-rose-500/30 rounded-xl text-xs text-rose-300 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">error</span>
+                    <Icon name="error" className="text-sm" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
@@ -269,13 +270,13 @@ export default function LeadQuickModalSeo() {
                 >
                   {status === 'loading' ? (
                     <>
-                      <span className="material-symbols-outlined text-lg animate-spin" aria-hidden="true">progress_activity</span>
+                      <Icon name="progress_activity" className="text-lg animate-spin" />
                       <span>Teklif Hazırlanıyor...</span>
                     </>
                   ) : (
                     <>
                       <span>Ücretsiz Teklif Talebini Gönder</span>
-                      <span className="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-lg" />
                     </>
                   )}
                 </button>

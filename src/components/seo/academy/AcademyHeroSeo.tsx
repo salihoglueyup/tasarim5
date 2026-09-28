@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface AcademyHeroSeoProps {
   lang?: string;
   onOpenEnrollment?: (courseName?: string) => void;
@@ -55,9 +56,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
         {/* Top Trust Badges */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-xs">
-            <span className="material-symbols-outlined text-sm text-red-400" aria-hidden="true">
-              policy
-            </span>
+            <Icon name="policy" className="text-sm text-red-400" />
             <span>5188 SAYILI KANUN UYUMLU • T.C. İÇİŞLERİ BAKANLIĞI EGM ONAYLI</span>
           </div>
 
@@ -69,7 +68,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
           >
             <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
             <span>Resmi Eğitim Kurumu: guvenlikkursu.com</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
 
@@ -95,9 +94,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
             onClick={() => onOpenEnrollment && onOpenEnrollment('5188 Temel Güvenlik Eğitimi (Silahlı / Silahsız)')}
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm transition-all duration-200 shadow-lg shadow-red-600/25 active:scale-95 cursor-pointer"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              edit_document
-            </span>
+            <Icon name="edit_document" className="text-lg" />
             <span>Hızlı Kurs Ön Kayıt</span>
           </button>
 
@@ -105,9 +102,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
             href="#kurs-paketleri"
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white/10 border border-white/20 hover:bg-white/15 text-white font-semibold text-sm transition-all duration-200 backdrop-blur-md cursor-pointer"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              school
-            </span>
+            <Icon name="school" className="text-lg" />
             <span>Kurs Paketlerini İncele</span>
           </a>
 
@@ -115,9 +110,9 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
             href="#uygunluk-sihirbazi"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors py-2 px-1"
           >
-            <span className="material-symbols-outlined text-base text-amber-400">help</span>
+            <Icon name="help" className="text-base text-amber-400" />
             <span>Hangi Eğitime Uygunsunuz? (2 Dakikada Test Edin)</span>
-            <span className="material-symbols-outlined text-base">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-base" />
           </a>
         </div>
 
@@ -133,9 +128,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
                   {stat.value}
                 </span>
                 <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-white flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                    {stat.icon}
-                  </span>
+                  <Icon name={stat.icon} className="text-xl" />
                 </div>
               </div>
               <div>

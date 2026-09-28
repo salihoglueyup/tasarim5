@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface Pillar {
   number: string;
   title: string;
@@ -108,9 +109,7 @@ export default function VisionOperationalPillarsSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-brand-500" aria-hidden="true">
-              foundation
-            </span>
+            <Icon name="foundation" className="text-sm text-brand-500" />
             <span>Uygulamalı Yönetim Mimarisi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -137,9 +136,7 @@ export default function VisionOperationalPillarsSeo() {
                   <div
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center border shadow-xs group-hover:scale-105 transition-transform ${pillar.iconBg}`}
                   >
-                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                      {pillar.icon}
-                    </span>
+                    <Icon name={pillar.icon} className="text-2xl" />
                   </div>
                   <span className="text-2xl font-black text-slate-300 dark:text-slate-700 tracking-tighter">
                     {pillar.number}
@@ -163,9 +160,7 @@ export default function VisionOperationalPillarsSeo() {
                       key={hIdx}
                       className="flex items-start gap-2 text-xs text-[var(--color-primary)] font-medium"
                     >
-                      <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
-                        check
-                      </span>
+                      <Icon name="check" className="text-sm text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -178,7 +173,7 @@ export default function VisionOperationalPillarsSeo() {
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors pt-2 border-t border-[var(--color-outline)]/40"
               >
                 <span>{pillar.linkText}</span>
-                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-xs" />
               </Link>
             </div>
           ))}

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import { CERTIFICATES } from '@/data/certificates';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface BelcertCredentialItem {
   slug: string;
   name: string;
@@ -104,7 +105,7 @@ export default function AccreditedCertificationsTrustSeo({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-emerald-500/20 pb-6">
         <div className="flex items-center gap-3">
           <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-400/30 font-bold text-2xl shadow-inner">
-            <span className="material-symbols-outlined text-3xl">verified_user</span>
+            <Icon name="verified_user" className="text-3xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
@@ -127,9 +128,7 @@ export default function AccreditedCertificationsTrustSeo({
           aria-label="Sertifika özetini kopyala"
           className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-2 text-xs font-semibold text-emerald-200 transition-colors hover:bg-emerald-500/20 active:scale-95"
         >
-          <span className="material-symbols-outlined text-sm">
-            {copied ? 'done' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
           {copied ? 'Kopyalandı' : 'Sertifika AI Özetini Kopyala'}
         </button>
       </div>
@@ -137,9 +136,7 @@ export default function AccreditedCertificationsTrustSeo({
       {/* Speakable Instant Answer Box */}
       <div className="mt-5 rounded-2xl border border-emerald-400/20 bg-emerald-950/30 p-4 sm:p-5">
         <div className="flex items-start gap-3">
-          <span className="material-symbols-outlined text-emerald-400 text-xl shrink-0 mt-0.5">
-            verified
-          </span>
+          <Icon name="verified" className="text-emerald-400 text-xl shrink-0 mt-0.5" />
           <p
             id="accredited-trust-instant-answer-text"
             className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
@@ -196,7 +193,7 @@ export default function AccreditedCertificationsTrustSeo({
                   className="text-emerald-400 hover:text-emerald-300 font-semibold inline-flex items-center gap-1"
                 >
                   <span>Doğrula</span>
-                  <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                  <Icon name="open_in_new" className="text-[13px]" />
                 </a>
                 <span className="text-slate-500 text-[10px]">Tescilli Belge</span>
               </div>
@@ -207,9 +204,7 @@ export default function AccreditedCertificationsTrustSeo({
 
       <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950/80 p-4 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-emerald-400 text-base">
-            policy
-          </span>
+          <Icon name="policy" className="text-emerald-400 text-base" />
           <span>
             Tüm belgeler <strong className="text-slate-200">BELCERT Uluslararası Belgelendirme Şirketi</strong> resmi kayıtlarında yer almaktadır.
           </span>
@@ -221,7 +216,7 @@ export default function AccreditedCertificationsTrustSeo({
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/20 text-emerald-300 hover:bg-emerald-600/30 border border-emerald-500/30 font-semibold text-xs transition-colors"
         >
           <span>belcert.com Doğrulama Ekranı</span>
-          <span className="material-symbols-outlined text-sm">launch</span>
+          <Icon name="launch" className="text-sm" />
         </a>
       </div>
     </section>

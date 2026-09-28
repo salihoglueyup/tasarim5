@@ -8,6 +8,7 @@ import DOMPurify from 'isomorphic-dompurify';
 import { useLanguage } from '@/context/LanguageContext';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 164: 4 Dilde SSS Arama ve Filtreleme Motoru
  */
@@ -206,9 +207,7 @@ export default function FaqClient({
                         : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/50'
                     }`}
                   >
-                    <span className={`material-symbols-outlined text-sm ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
-                      {categoryIcons[cat.name] || 'label'}
-                    </span>
+                    <Icon name={categoryIcons[cat.name] || 'label'} className={`text-sm ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />
                     <span>{getCategoryName(cat.name)}</span>
                     <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
                       isActive ? 'bg-amber-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-500'
@@ -232,7 +231,7 @@ export default function FaqClient({
             <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-5 shadow-xs">
               <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-[var(--color-outline)]/60 dark:border-white/10">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-amber-500">category</span>
+                  <Icon name="category" className="text-base text-amber-500" />
                   Konu Başlıkları
                 </span>
                 <span className="text-[11px] font-mono font-bold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
@@ -254,9 +253,7 @@ export default function FaqClient({
                       }`}
                     >
                       <div className="flex items-center gap-2.5 truncate">
-                        <span className={`material-symbols-outlined text-base shrink-0 ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
-                          {categoryIcons[cat.name] || 'label'}
-                        </span>
+                        <Icon name={categoryIcons[cat.name] || 'label'} className={`text-base shrink-0 ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />
                         <span className="truncate">{getCategoryName(cat.name)}</span>
                       </div>
                       <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold shrink-0 ${
@@ -295,7 +292,7 @@ export default function FaqClient({
             {/* 3. Hızlı Danışma & Destek Kartı */}
             <div className="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/20 rounded-3xl p-5 space-y-3">
               <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
-                <span className="material-symbols-outlined text-base">support_agent</span>
+                <Icon name="support_agent" className="text-base" />
                 Hukuki Danışmanlık
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -306,7 +303,7 @@ export default function FaqClient({
                 className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-xs"
               >
                 <span>Uzmanımıza Danışın</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </a>
             </div>
           </aside>
@@ -362,9 +359,7 @@ export default function FaqClient({
                     onClick={toggleAll}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer"
                   >
-                    <span className="material-symbols-outlined text-sm">
-                      {areAllOpen ? 'unfold_less' : 'unfold_more'}
-                    </span>
+                    <Icon name={areAllOpen ? 'unfold_less' : 'unfold_more'} className="text-sm" />
                     <span>{areAllOpen ? 'Tümünü Kapat' : 'Tümünü Aç'}</span>
                   </button>
                 )}
@@ -375,7 +370,7 @@ export default function FaqClient({
             <div className="flex flex-col gap-3.5">
               {filteredFaqs.length === 0 ? (
                 <div className="text-center py-16 px-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 text-slate-500">
-                  <span className="material-symbols-outlined text-5xl mb-3 text-slate-400 opacity-60" aria-hidden="true">search_off</span>
+                  <Icon name="search_off" className="text-5xl mb-3 text-slate-400 opacity-60" />
                   <p className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('sss_not_found') || 'Aradığınız kriterlere uygun soru bulunamadı.'}</p>
                   <p className="text-sm text-slate-500 mt-1">Farklı bir anahtar kelime deneyebilir veya doğrudan uzmanımıza danışabilirsiniz.</p>
                   <button
@@ -459,7 +454,7 @@ export default function FaqClient({
                                       {faq.category || 'Mevzuat'}
                                     </span>
                                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
-                                      <span className="material-symbols-outlined text-xs" aria-hidden="true">verified</span>
+                                      <Icon name="verified" className="text-xs" />
                                       634 Sayılı KMK Doğrulandı
                                     </span>
                                   </div>

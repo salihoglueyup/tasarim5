@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import { getDistrictOpenDataProfile, DistrictOpenDataProfile } from '@/data/districtOpenDataProfiles';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictOpenDatasetSeoProps {
   districtSlug: string;
 }
@@ -87,7 +88,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 text-xs font-extrabold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">dataset</span>
+            <Icon name="dataset" className="text-sm" />
             Google Dataset Search Açık Veri (2026 Endeksi)
           </div>
           <h3 className="text-lg sm:text-2xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -100,9 +101,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
           className="shrink-0 px-3.5 py-1.5 rounded-xl bg-[var(--color-surface-variant)] hover:bg-slate-200 dark:hover:bg-slate-800 border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold transition-colors flex items-center gap-1.5"
           aria-label="Veri Seti Atfını Kopyala"
         >
-          <span className="material-symbols-outlined text-sm text-blue-600 dark:text-blue-400" aria-hidden="true">
-            {copied ? 'check' : 'format_quote'}
-          </span>
+          <Icon name={copied ? 'check' : 'format_quote'} className="text-sm text-blue-600 dark:text-blue-400" />
           <span>{copied ? 'Atıf Kopyalandı!' : 'Veri Kümesini Alıntıla'}</span>
         </button>
       </div>
@@ -162,7 +161,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[var(--color-outline)]/60 text-xs">
         <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]">
           <div className="flex items-center gap-1.5 font-bold text-[var(--color-primary)] mb-1">
-            <span className="material-symbols-outlined text-amber-600 text-sm" aria-hidden="true">warning</span>
+            <Icon name="warning" className="text-amber-600 text-sm" />
             <span>{profile.name} İçin Kritik KMK Odak Alanı:</span>
           </div>
           <p className="text-[var(--color-secondary)] leading-relaxed">
@@ -172,7 +171,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
 
         <div className="p-4 rounded-2xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/60 dark:border-blue-900/30">
           <div className="flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300 mb-1">
-            <span className="material-symbols-outlined text-blue-600 text-sm" aria-hidden="true">gavel</span>
+            <Icon name="gavel" className="text-blue-600 text-sm" />
             <span>Yetkili Yargı & Emsal İçtihat Notu:</span>
           </div>
           <p className="text-[var(--color-secondary)] leading-relaxed">

@@ -1,6 +1,7 @@
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { caseStudySchema } from '@/lib/schemas';
 
+import Icon from '@/components/ui/branding/Icon';
 const CASES = [
   {
     name: '200 Daireli Rezidans — Kadıköy',
@@ -33,9 +34,7 @@ export default function CaseStudySeo() {
       <JsonLd data={[schema]} />
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl" aria-hidden="true">
-            workspace_premium
-          </span>
+          <Icon name="workspace_premium" className="text-emerald-600 dark:text-emerald-400 text-2xl" />
           <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
             Kanıtlanmış Sonuçlar
           </h2>

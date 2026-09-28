@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const ALL_SERVICES = [
   { nameKey: 'nav_facility_mgmt', path: '/hizmetler/tesis-yonetimi', icon: 'domain', isFlagship: true },
   { nameKey: 'nav_security', path: '/hizmetler/guvenlik-yonetimi', icon: 'shield_person' },
@@ -71,14 +72,14 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
                     : 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/40'
                 }`}
               >
-                <span className="material-symbols-outlined" aria-hidden="true">{service.icon}</span>
+                <Icon name={service.icon} />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold group-hover:opacity-80 transition-opacity text-[var(--color-primary)]">
                   {(t as any)(service.nameKey) || service.nameKey}
                 </span>
                 <span className="text-xs text-[var(--color-secondary)] mt-1 flex items-center gap-1">
-                  {t('related_services_inspect')} <span className="material-symbols-outlined text-[10px]" aria-hidden="true">arrow_forward</span>
+                  {t('related_services_inspect')} <Icon name="arrow_forward" className="text-[10px]" />
                 </span>
               </div>
             </Link>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityCriterion {
   id: string;
   category: 'KMK & Bütçe' | 'Güvenlik & İSG' | 'Teknik İşletme' | 'Hijyen & Peyzaj';
@@ -166,7 +167,7 @@ export default function InteractiveFacilityAuditRadarSeo({
               <div className={`w-6 h-6 rounded-lg mt-0.5 flex items-center justify-center transition-colors ${
                 isChecked ? 'bg-emerald-600 text-white' : 'border border-[var(--color-outline)]'
               }`}>
-                {isChecked && <span className="material-symbols-outlined text-sm font-black" aria-hidden="true">check</span>}
+                {isChecked && <Icon name="check" className="text-sm font-black" />}
               </div>
 
               <div className="flex-1">
@@ -177,7 +178,7 @@ export default function InteractiveFacilityAuditRadarSeo({
                 <h4 className="text-base font-bold text-[var(--color-primary)] mt-1">{c.title}</h4>
                 <p className="text-xs text-[var(--color-secondary)] font-light mt-1 leading-relaxed">{c.desc}</p>
                 <div className="mt-2 text-[11px] font-mono text-[var(--color-tertiary)]">
-                  <span className="material-symbols-outlined text-[12px] align-middle mr-1" aria-hidden="true">gavel</span>
+                  <Icon name="gavel" className="text-[12px] align-middle mr-1" />
                   {c.lawRef}
                 </div>
               </div>
@@ -190,7 +191,7 @@ export default function InteractiveFacilityAuditRadarSeo({
       <div className="pt-6 border-t border-[var(--color-outline)]/60 flex flex-col lg:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-2xl" aria-hidden="true">trending_up</span>
+            <Icon name="trending_up" className="text-2xl" />
           </div>
           <div>
             <div className="text-xs text-[var(--color-secondary)] uppercase tracking-wider font-bold">Tahmini Yıllık Bütçe Tasarrufu</div>
@@ -205,7 +206,7 @@ export default function InteractiveFacilityAuditRadarSeo({
           className="w-full lg:w-auto px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:opacity-90 text-white font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-3 transition-all hover:scale-105 shadow-xl"
         >
           <span>Bu Skora Özel Ücretsiz Keşif Raporu İsteyin</span>
-          <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-base" />
         </Link>
       </div>
     </div>

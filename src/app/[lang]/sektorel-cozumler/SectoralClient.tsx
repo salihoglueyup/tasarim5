@@ -14,6 +14,7 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 
 
+import Icon from '@/components/ui/branding/Icon';
 export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutions: any[]; lang?: string }) {
   const { t } = useLanguage();
 
@@ -192,7 +193,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-[var(--color-primary)]" aria-hidden="true">domain_add</span>
+              <Icon name="domain_add" className="text-[18px] text-[var(--color-primary)]" />
               <span>Özet Rehber: Sektörel Tesis Yönetimi ve Tipolojiye Özel İşletme Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -229,7 +230,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               Sektörel operasyonlarımız;{' '}
               <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors inline-flex items-center gap-0.5">
                 ISO 41001:2018 Uluslararası Tesis Yönetimi Standardı
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
@@ -238,7 +239,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Kanunu
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               {' '}ve 6331 Sayılı İş Sağlığı ve Güvenliği (İSG) mevzuatlarına tam entegre olarak icra edilir.
             </p>
@@ -270,7 +271,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">apartment</span> Lüks Rezidans & Çok Katlı Yaşam Projeleri
+                  <Icon name="apartment" className="text-base text-[var(--color-primary)]" /> Lüks Rezidans & Çok Katlı Yaşam Projeleri
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   7/24 konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri, dijital mobil aidat & rezervasyon uygulaması ve üst düzey sakin konforu.
@@ -279,7 +280,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">holiday_village</span> Site & Büyük Ölçekli Toplu Konut Yönetimi
+                  <Icon name="holiday_village" className="text-base text-[var(--color-primary)]" /> Site & Büyük Ölçekli Toplu Konut Yönetimi
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   KMK m.20 şeffaf aidat ve işletme projesi, ilamsız icra takibi, periyodik yeşil etiket asansör bakımı, geniş peyzaj/otomatik sulama ve çevre çit güvenliği.
@@ -288,7 +289,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">domain</span> Plaza, İş Merkezi & Ticari Gayrimenkuller
+                  <Icon name="domain" className="text-base text-[var(--color-primary)]" /> Plaza, İş Merkezi & Ticari Gayrimenkuller
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   Turnike/kartlı geçiş, BMS yangın & duman otomasyonu, kompanzasyon %0 reaktif ceza yönetimi, B2B teknik şartname ve enerji optimizasyon denetimleri.
@@ -297,7 +298,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">factory</span> Sanayi, Fabrika & Lojistik Depo Tesisleri
+                  <Icon name="factory" className="text-base text-[var(--color-primary)]" /> Sanayi, Fabrika & Lojistik Depo Tesisleri
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   6331 İSG denetimleri, ağır vasıta PTS giriş-çıkış kontrolü, trafo/yüksek gerilim ve jeneratör bakımları, endüstriyel atık ve çevre mevzuatı uyumu.
@@ -315,7 +316,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
+                  <Icon name="trending_down" className="text-lg" />
                 </span>
                 <span>%30 Net Bütçe Tasarrufu</span>
               </div>
@@ -327,7 +328,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
+                  <Icon name="verified" className="text-lg" />
                 </span>
                 <span>%100 Tipolojiye Özel SLA</span>
               </div>
@@ -339,7 +340,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">shield_person</span>
+                  <Icon name="shield_person" className="text-lg" />
                 </span>
                 <span>7/24 Şeffaf Denetim</span>
               </div>
@@ -363,7 +364,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                     : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:border-[var(--color-primary)]'
                 }`}
               >
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">{s.icon}</span>
+                <Icon name={s.icon} className="text-xl" />
                 <span>{s.title}</span>
               </button>
             ))}
@@ -382,7 +383,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               <div className="lg:col-span-7 flex flex-col gap-6">
                 <div className="flex items-center gap-3">
                   <span className="w-12 h-12 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">{currentSector.icon}</span>
+                    <Icon name={currentSector.icon} className="text-2xl" />
                   </span>
                   <span className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-4 py-1.5 rounded-full">
                     {currentSector.kpi}
@@ -398,7 +399,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {currentSector.features.map((feat: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs font-semibold text-[var(--color-primary)]">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] shrink-0" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-[var(--color-primary)] shrink-0" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -407,7 +408,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="lg:col-span-5 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] flex flex-col gap-6 shadow-sm">
                 <div className="inline-flex items-center gap-2 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest w-fit">
-                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">stars</span>
+                  <Icon name="stars" className="text-sm text-[var(--color-primary)]" />
                   {t('sector_specialty_tag')}
                 </div>
 
@@ -421,7 +422,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                   className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-6 rounded-2xl text-center text-sm transition-transform hover:scale-102 shadow-md flex items-center justify-center gap-2 mt-2"
                 >
                   {currentSector.title} {t('sector_quote_for_sector')}
-                  <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-sm" />
                 </Link>
               </div>
             </motion.div>
@@ -462,7 +463,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
                 <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">shield</span>
+                  <Icon name="shield" className="text-sm text-[var(--color-primary)]" />
                   {t('sector_est_sec')}
                 </span>
                 <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedSecurity} {t('sector_est_sec_val').replace('Personel', '').trim() || t('sector_est_sec_val')}</span>
@@ -471,7 +472,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
                 <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">cleaning_services</span>
+                  <Icon name="cleaning_services" className="text-sm text-[var(--color-primary)]" />
                   {t('sector_est_clean')}
                 </span>
                 <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedCleaning} {t('sector_est_clean_val').replace('Personel', '').trim() || t('sector_est_clean_val')}</span>
@@ -480,7 +481,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
                 <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">build</span>
+                  <Icon name="build" className="text-sm text-[var(--color-primary)]" />
                   {t('sector_est_tech')}
                 </span>
                 <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedTechnical} {t('sector_est_tech_val').replace('Personel', '').trim() || t('sector_est_tech_val')}</span>
@@ -489,7 +490,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <div className="bg-[var(--color-surface)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex flex-col gap-1">
                 <span className="text-xs text-[var(--color-secondary)] flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-[var(--color-primary)]" aria-hidden="true">badge</span>
+                  <Icon name="badge" className="text-sm text-[var(--color-primary)]" />
                   {t('sector_est_mgr')}
                 </span>
                 <span className="text-2xl font-bold text-[var(--color-primary)]">{estimatedManager} {t('sector_est_mgr_val').replace('Müdür', '').trim() || t('sector_est_mgr_val')}</span>
@@ -510,7 +511,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div className="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center">
-                    <span className="material-symbols-outlined text-3xl" aria-hidden="true">{s.icon}</span>
+                    <Icon name={s.icon} className="text-3xl" />
                   </div>
                   <span className="text-[10px] font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-3 py-1 rounded-full">
                     {s.kpi}
@@ -522,7 +523,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                 <div className="flex flex-col gap-2 pt-2">
                   {s.features.map((f: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[var(--color-secondary)]">
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-sm" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-[var(--color-primary)] text-sm" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -531,7 +532,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
               <Link href="/teklif-al" className="w-fit bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3 px-6 rounded-xl text-xs hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
                 {t('sector_get_quote')}
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
           ))}
@@ -551,9 +552,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                   className="w-full p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center bg-[var(--color-surface-variant)]/50"
                 >
                   <span>{faq.q}</span>
-                  <span className="material-symbols-outlined text-[var(--color-primary)] transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} aria-hidden="true">
-                    expand_more
-                  </span>
+                  <Icon name="expand_more" className="text-[var(--color-primary)] transition-transform" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} />
                 </button>
                 {openFaq === i && (
                   <div className="p-6 bg-[var(--color-surface)] border-t border-[var(--color-outline)]/40 text-sm text-[var(--color-secondary)] leading-relaxed">

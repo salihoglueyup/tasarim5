@@ -8,6 +8,7 @@ import {
   ModelComparisonDimension,
 } from '@/data/managementModelComparisonData';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function ThreeWayManagementComparisonSeo() {
   const [selectedDimensionId, setSelectedDimensionId] = useState<string | null>(null);
 
@@ -42,7 +43,7 @@ export default function ThreeWayManagementComparisonSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 border border-emerald-600/20 dark:border-emerald-400/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">balance</span>
+            <Icon name="balance" className="text-[16px]" />
             Karar Matrisi: Hangi Yönetim Modeli Güvenli?
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -118,9 +119,7 @@ export default function ThreeWayManagementComparisonSeo() {
                 {/* Criterion Header */}
                 <div className="lg:col-span-3 space-y-1 w-full">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-lg" aria-hidden="true">
-                      {item.dimensionIcon}
-                    </span>
+                    <Icon name={item.dimensionIcon} className="text-emerald-600 dark:text-emerald-400 text-lg" />
                     <span className="text-xs sm:text-sm font-bold text-[var(--color-primary)]">
                       {item.dimensionTitle}
                     </span>
@@ -190,7 +189,7 @@ export default function ThreeWayManagementComparisonSeo() {
                     <span className="font-bold text-emerald-700 dark:text-emerald-400 block mb-1">Alo Yönetim Kurumsal Çözümü:</span>
                     <p className="text-[var(--color-primary)] font-medium leading-relaxed">{item.aloYonetimCorporateModel.detail}</p>
                     <div className="mt-2 text-[11px] font-extrabold text-emerald-700 dark:text-emerald-300 flex items-center gap-1">
-                      <span className="material-symbols-outlined text-sm" aria-hidden="true">check_circle</span>
+                      <Icon name="check_circle" className="text-sm" />
                       {item.aloYonetimCorporateModel.highlightFeature}
                     </div>
                   </div>
@@ -216,7 +215,7 @@ export default function ThreeWayManagementComparisonSeo() {
           className="shrink-0 px-6 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black transition-all shadow-md flex items-center gap-2"
         >
           <span>Ücretsiz Keşif & Teklif Al</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

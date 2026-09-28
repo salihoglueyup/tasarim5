@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface AcademyEligibilityWizardSeoProps {
   onSelectCourse?: (courseName: string) => void;
 }
@@ -77,9 +78,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              psychology_alt
-            </span>
+            <Icon name="psychology_alt" className="text-sm" />
             <span>2 Dakikada 5188 Uygunluk Testi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -96,7 +95,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
             {/* Question 1: Yaş */}
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <label className="block text-xs font-bold text-[var(--color-primary)] mb-3 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-base text-[var(--color-primary)]">cake</span>
+                <Icon name="cake" className="text-base text-[var(--color-primary)]" />
                 <span>1. Yaşınız Kaç?</span>
               </label>
               <div className="space-y-2">
@@ -128,7 +127,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
             {/* Question 2: Mezuniyet */}
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <label className="block text-xs font-bold text-[var(--color-primary)] mb-3 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-base text-[var(--color-primary)]">school</span>
+                <Icon name="school" className="text-base text-[var(--color-primary)]" />
                 <span>2. Öğrenim Durumunuz?</span>
               </label>
               <div className="space-y-2">
@@ -171,7 +170,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
             {/* Question 3: Mevcut Durum */}
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <label className="block text-xs font-bold text-[var(--color-primary)] mb-3 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-base text-[var(--color-primary)]">badge</span>
+                <Icon name="badge" className="text-base text-[var(--color-primary)]" />
                 <span>3. Mevcut Kimlik Kartınız Var mı?</span>
               </label>
               <div className="space-y-2">
@@ -217,7 +216,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-[var(--color-outline)]/60">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-2xl">{recommendation.icon}</span>
+                  <Icon name={recommendation.icon} className="text-2xl" />
                 </div>
                 <div>
                   <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded border ${recommendation.badgeColor}`}>
@@ -234,7 +233,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
                 onClick={() => onSelectCourse && onSelectCourse(recommendation.courseName)}
                 className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center justify-center gap-2 shrink-0"
               >
-                <span className="material-symbols-outlined text-base">how_to_reg</span>
+                <Icon name="how_to_reg" className="text-base" />
                 <span>Bu Eğitime Ön Kayıt Ol</span>
               </button>
             </div>
@@ -245,11 +244,11 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
               <div className="p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] flex items-start gap-2">
-                <span className="material-symbols-outlined text-base text-[var(--color-primary)] mt-0.5">schedule</span>
+                <Icon name="schedule" className="text-base text-[var(--color-primary)] mt-0.5" />
                 <span>{recommendation.details}</span>
               </div>
               <div className="p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] flex items-start gap-2">
-                <span className="material-symbols-outlined text-base text-rose-600 dark:text-rose-400 mt-0.5">local_hospital</span>
+                <Icon name="local_hospital" className="text-base text-rose-600 dark:text-rose-400 mt-0.5" />
                 <span>{recommendation.healthNote}</span>
               </div>
             </div>

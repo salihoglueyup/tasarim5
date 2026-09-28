@@ -20,6 +20,7 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import FacilityWaterTankSanitationSeo from '@/components/seo/facility/FacilityWaterTankSanitationSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function TeknikBakimClient() {
   const { t } = useLanguage();
 
@@ -105,7 +106,7 @@ export default function TeknikBakimClient() {
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote') || 'Teklif Alın'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
           </motion.div>
@@ -139,7 +140,7 @@ export default function TeknikBakimClient() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">engineering</span>
+              <Icon name="engineering" className="text-[18px] text-blue-600 dark:text-blue-400" />
               <span>Özet Rehber: Profesyonel Tesis Teknik Bakım ve Mühendislik Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -172,12 +173,12 @@ export default function TeknikBakimClient() {
               Tüm teknik operasyonlarımız;{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=30740&MevzuatTur=7&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <a href="https://www.mmo.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
                 TMMOB Makina Mühendisleri Odası (MMO) Periyodik Kontrol Standartları
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -250,7 +251,7 @@ export default function TeknikBakimClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">timer</span>
+                  <Icon name="timer" className="text-lg" />
                 </span>
                 <span>45 Dakika SLA Acil Müdahale</span>
               </div>
@@ -262,7 +263,7 @@ export default function TeknikBakimClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
+                  <Icon name="verified" className="text-lg" />
                 </span>
                 <span>%100 Yeşil Etiket Güvencesi</span>
               </div>
@@ -274,7 +275,7 @@ export default function TeknikBakimClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">energy_savings_leaf</span>
+                  <Icon name="energy_savings_leaf" className="text-lg" />
                 </span>
                 <span>%0 Reaktif Elektrik Cezası</span>
               </div>
@@ -323,7 +324,7 @@ export default function TeknikBakimClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-[16px]" />
                 MMO / TSE A Tipi Akredite Muayene Garantisi
               </div>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -368,7 +369,7 @@ export default function TeknikBakimClient() {
               <div key={idx} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-3 relative group hover:border-emerald-500/50 transition-colors">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 tracking-wider">AŞAMA {s.step}</span>
-                  <span className="material-symbols-outlined text-lg text-slate-400 group-hover:text-emerald-500 transition-colors" aria-hidden="true">{s.icon}</span>
+                  <Icon name={s.icon} className="text-lg text-slate-400 group-hover:text-emerald-500 transition-colors" />
                 </div>
                 <h3 className="font-bold text-sm text-[var(--color-primary)]">{s.title}</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed font-light">{s.desc}</p>
@@ -381,7 +382,7 @@ export default function TeknikBakimClient() {
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
-              <span className="material-symbols-outlined text-[16px] text-emerald-500" aria-hidden="true">precision_manufacturing</span>
+              <Icon name="precision_manufacturing" className="text-[16px] text-emerald-500" />
               Planlı Önleyici Bakım (PPM) & Enerji Güvencesi
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
@@ -394,7 +395,7 @@ export default function TeknikBakimClient() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">energy_savings_leaf</span>
+                  <Icon name="energy_savings_leaf" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">%0 Reaktif Elektrik Cezası</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
@@ -404,7 +405,7 @@ export default function TeknikBakimClient() {
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">sync_alt</span>
+                  <Icon name="sync_alt" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">Senkron Jeneratör & Trafo</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
@@ -414,7 +415,7 @@ export default function TeknikBakimClient() {
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">water_drop</span>
+                  <Icon name="water_drop" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">Hidrofor & Yangın Pompaları</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">

@@ -66,12 +66,14 @@ describe('Wave 5: Medya, AVIF, Font & LCP Optimizasyonları (Faz 101 - Faz 110)'
     expect(cssContent).toContain('backdrop-filter: blur(8px) !important');
   });
 
-  it('layout.tsx ve globals.css optimize Material Symbols subset URL kullanır (Faz 109)', () => {
+  it('ikonlar Google Fonts yerine kendi SVG sprite dosyasından yüklenir (Faz 109)', () => {
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
     const cssContent = fs.readFileSync(globalsCssPath, 'utf-8');
-    const expectedSubset = 'Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&display=block';
-    expect(layoutContent).toContain(expectedSubset);
-    expect(cssContent).toContain(expectedSubset);
+    expect(layoutContent).not.toContain('fonts.googleapis.com');
+    expect(cssContent).not.toContain('fonts.googleapis.com');
+    const sprite = fs.readFileSync(path.resolve(process.cwd(), 'public/icons/sprite.svg'), 'utf-8');
+    expect(sprite).toContain('<symbol id="arrow_forward"');
+    expect(cssContent).toContain('.icon {');
   });
 
   it('Inter değişken font dosyası olarak (100-900) kendi barındırılır, ağırlık başına ayrı dosya yüklenmez (Faz 110)', () => {

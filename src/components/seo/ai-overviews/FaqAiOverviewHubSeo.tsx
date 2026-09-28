@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface FaqAiItem {
   id: string;
   category: string;
@@ -108,7 +109,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology_alt</span>
+            <Icon name="psychology_alt" className="text-[16px]" />
             Google AI Overviews & Gemini SSS Karar Masası
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -124,9 +125,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-xs shrink-0 cursor-pointer"
           title="Seçili Yanıtı Kopyala"
         >
-          <span className="material-symbols-outlined text-base" aria-hidden="true">
-            {copied ? 'done_all' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'done_all' : 'content_copy'} className="text-base" />
           <span>{copied ? 'Kopyalandı!' : 'Yanıtı Kopyala'}</span>
         </button>
       </div>
@@ -186,7 +185,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
           {/* Answer Box (Speakable) */}
           <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <span className="material-symbols-outlined text-base" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-base" />
               Doğrulanmış Hukuki & Operasyonel Yanıt:
             </div>
             <p id="faq-instant-answer-text" className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
@@ -206,7 +205,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
                 rel="noopener noreferrer"
                 className="px-3 py-1 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
               >
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-xs" />
                 ChatGPT
               </a>
               <a
@@ -215,7 +214,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
                 rel="noopener noreferrer"
                 className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
               >
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
+                <Icon name="travel_explore" className="text-xs" />
                 Perplexity
               </a>
             </div>

@@ -10,6 +10,7 @@ import {
   BudgetItemDefinition
 } from '@/data/kmkOperatingBudgetData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface KMKOperatingBudgetGuideSeoProps {
   className?: string;
   defaultCategory?: string;
@@ -85,7 +86,7 @@ export default function KMKOperatingBudgetGuideSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 mb-3 border border-blue-300 dark:border-blue-700">
-          <span className="material-symbols-outlined text-sm">balance</span>
+          <Icon name="balance" className="text-sm" />
           <span>KMK Madde 37 & İİK Madde 68 İlam Hükmünde Belge</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -114,7 +115,7 @@ export default function KMKOperatingBudgetGuideSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -126,7 +127,7 @@ export default function KMKOperatingBudgetGuideSeo({
           {/* Category Filter */}
           <div className="flex items-center justify-between flex-wrap gap-2 p-3.5 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border border-slate-200/80 dark:border-slate-800">
             <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-blue-600">filter_alt</span>
+              <Icon name="filter_alt" className="text-base text-blue-600" />
               Kategori Filtresi:
             </span>
             <div className="flex flex-wrap gap-1.5">
@@ -186,7 +187,7 @@ export default function KMKOperatingBudgetGuideSeo({
 
                 <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-xs border border-amber-200 dark:border-amber-900">
                   <strong className="font-semibold block mb-0.5 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-amber-600 text-sm">warning</span>
+                    <Icon name="warning" className="text-amber-600 text-sm" />
                     Sitelerde En Sık Yapılan Hata:
                   </strong>
                   <span>{item.budgetingPitfall}</span>
@@ -270,9 +271,7 @@ export default function KMKOperatingBudgetGuideSeo({
                       onClick={() => copyStepDetails(step)}
                       className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-300 font-medium transition-colors flex items-center gap-1"
                     >
-                      <span className="material-symbols-outlined text-sm">
-                        {copiedTimelineStep === step.stepNo ? 'check' : 'content_copy'}
-                      </span>
+                      <Icon name={copiedTimelineStep === step.stepNo ? 'check' : 'content_copy'} className="text-sm" />
                       <span>{copiedTimelineStep === step.stepNo ? 'Kopyalandı' : 'Kopyala'}</span>
                     </button>
                   </div>
@@ -295,7 +294,7 @@ export default function KMKOperatingBudgetGuideSeo({
                 </div>
 
                 <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-blue-700 dark:text-blue-300 font-medium flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-blue-600">verified</span>
+                  <Icon name="verified" className="text-sm text-blue-600" />
                   <span>{step.aloYonetimStandard}</span>
                 </div>
               </div>
@@ -345,7 +344,7 @@ export default function KMKOperatingBudgetGuideSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">verified_user</span>
+            <Icon name="verified_user" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

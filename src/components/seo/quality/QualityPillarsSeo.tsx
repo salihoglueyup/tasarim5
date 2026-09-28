@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { QUALITY_STANDARDS, type QualityStandardItem } from './qualityData';
+import Icon from '@/components/ui/branding/Icon';
 export { QUALITY_STANDARDS, type QualityStandardItem };
 
 export default function QualityPillarsSeo() {
@@ -11,7 +12,7 @@ export default function QualityPillarsSeo() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-3">
-              <span className="material-symbols-outlined text-sm">workspace_premium</span>
+              <Icon name="workspace_premium" className="text-sm" />
               BELCERT / ILAS Akreditasyonu
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -35,7 +36,7 @@ export default function QualityPillarsSeo() {
                 {/* Header Bar */}
                 <div className="flex items-center justify-between gap-3 mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-[var(--color-primary)] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <span className="material-symbols-outlined text-2xl">{std.icon}</span>
+                    <Icon name={std.icon} className="text-2xl" />
                   </div>
                   <span className={`text-[10px] font-extrabold px-3 py-1.5 rounded-full border ${std.badgeBg}`}>
                     {std.badge}
@@ -65,9 +66,7 @@ export default function QualityPillarsSeo() {
                   <ul className="space-y-2 text-xs text-[var(--color-primary)] font-medium">
                     {std.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-sm text-emerald-500 shrink-0 mt-0.5">
-                          check_circle
-                        </span>
+                        <Icon name="check_circle" className="text-sm text-emerald-500 shrink-0 mt-0.5" />
                         <span className="font-light leading-snug">{item}</span>
                       </li>
                     ))}
@@ -78,7 +77,7 @@ export default function QualityPillarsSeo() {
               {/* Card Footer: Audit Frequency */}
               <div className="pt-4 mt-6 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-[11px] text-[var(--color-secondary)]">
                 <span className="flex items-center gap-1 font-medium">
-                  <span className="material-symbols-outlined text-xs text-amber-500">schedule</span>
+                  <Icon name="schedule" className="text-xs text-amber-500" />
                   {std.auditFrequency}
                 </span>
               </div>
@@ -89,9 +88,7 @@ export default function QualityPillarsSeo() {
         {/* Belge doğrulama notu */}
         <div className="mt-12 p-5 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3 text-[var(--color-secondary)]">
-            <span className="material-symbols-outlined text-cyan-600 dark:text-cyan-400 text-2xl shrink-0">
-              verified_user
-            </span>
+            <Icon name="verified_user" className="text-cyan-600 dark:text-cyan-400 text-2xl shrink-0" />
             <span>
               Tüm kalite belgelerimiz <strong>BELCERT Uluslararası Belgelendirme</strong> tarafından <strong>ILAS akreditasyonu (ILAS-MS-0089)</strong> ile verilmiştir; belge numarası ve karekod ile www.belcert.com üzerinden sorgulanabilir.
             </span>
@@ -101,7 +98,7 @@ export default function QualityPillarsSeo() {
             className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-primary)] text-[var(--color-surface)] font-bold hover:opacity-90 transition-opacity"
           >
             Belgeleri Görüntüle
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </Link>
         </div>
       </div>

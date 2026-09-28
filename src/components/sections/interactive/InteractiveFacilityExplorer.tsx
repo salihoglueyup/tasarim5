@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface Hotspot {
   id: string;
   title: string;
@@ -93,7 +94,7 @@ export default function InteractiveFacilityExplorer() {
         {/* Bölüm Başlığı */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/20 dark:border-white/20 text-slate-900 dark:text-slate-100 text-xs font-black uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">apartment</span>
+            <Icon name="apartment" className="text-sm" />
             İnteraktif Akıllı Tesis Keşfi
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-primary)] tracking-tight">
@@ -112,9 +113,7 @@ export default function InteractiveFacilityExplorer() {
             
             {/* Tesis İllüstrasyon Çerçevesi */}
             <div className="relative w-full max-w-md h-80 sm:h-96 border-2 border-dashed border-[var(--color-outline)] rounded-2xl flex flex-col items-center justify-center p-6 bg-[var(--color-surface-variant)]/60 backdrop-blur-sm">
-              <span className="material-symbols-outlined text-7xl sm:text-8xl text-slate-300 dark:text-slate-600 mb-3 animate-pulse" aria-hidden="true">
-                domain
-              </span>
+              <Icon name="domain" className="text-7xl sm:text-8xl text-slate-300 dark:text-slate-600 mb-3 animate-pulse" />
               <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest text-center">
                 Alo Yönetim Entegre Tesis Modeli (360°)
               </div>
@@ -137,9 +136,7 @@ export default function InteractiveFacilityExplorer() {
                     }`}
                     title={spot.title}
                   >
-                    <span className="material-symbols-outlined text-base sm:text-lg" aria-hidden="true">
-                      {spot.icon}
-                    </span>
+                    <Icon name={spot.icon} className="text-base sm:text-lg" />
                     {/* Yanıp sönen dalga efekti */}
                     {!isActive && (
                       <span className="absolute inset-0 rounded-full bg-slate-400/20 dark:bg-white/20 animate-ping pointer-events-none" />
@@ -172,7 +169,7 @@ export default function InteractiveFacilityExplorer() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="p-3 rounded-2xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{activeHotspot.icon}</span>
+                  <Icon name={activeHotspot.icon} className="text-2xl" />
                 </span>
                 <div>
                   <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
@@ -194,9 +191,7 @@ export default function InteractiveFacilityExplorer() {
 
             {/* SLA Taahhüdü */}
             <div className="p-4 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/60 flex items-center gap-3 shadow-2xs">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl flex-shrink-0" aria-hidden="true">
-                verified_user
-              </span>
+              <Icon name="verified_user" className="text-[var(--color-primary)] text-2xl flex-shrink-0" />
               <div>
                 <div className="text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                   Kurumsal Hizmet Seviyesi Taahhüdü (SLA)
@@ -215,9 +210,7 @@ export default function InteractiveFacilityExplorer() {
               <div className="grid grid-cols-1 gap-2">
                 {activeHotspot.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-xs text-[var(--color-primary)] p-2.5 bg-[var(--color-surface-variant)] rounded-xl border border-[var(--color-outline)]/60 shadow-2xs">
-                    <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm" aria-hidden="true">
-                      check_circle
-                    </span>
+                    <Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-sm" />
                     <span className="font-medium">{feat}</span>
                   </div>
                 ))}
@@ -231,7 +224,7 @@ export default function InteractiveFacilityExplorer() {
                 className="w-full py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs sm:text-sm hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:scale-105"
               >
                 <span>Hizmet Detaylarını İncele</span>
-                <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm font-bold" />
               </a>
             </div>
 

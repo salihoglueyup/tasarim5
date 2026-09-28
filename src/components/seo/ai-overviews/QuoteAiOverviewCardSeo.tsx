@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function QuoteAiOverviewCardSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -60,7 +61,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 border border-emerald-600/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">auto_awesome</span>
+          <Icon name="auto_awesome" className="text-[15px]" />
           <span>Google AI Overviews & Şeffaf Fiyatlandırma Garantisi</span>
         </div>
         <div className="flex items-center gap-2">
@@ -90,28 +91,26 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
             title="Yanıtı Kopyala"
             aria-label="Doğrudan yanıtı panoya kopyala"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-lg" />
           </button>
         </div>
 
         {/* 4 Pillars Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-3 border-t border-[var(--color-outline)]/60 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Yerinde Analiz:</strong> 48 Saatte Mühendis Eşliğinde Ücretsiz Keşif</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Şeffaf Bütçe:</strong> Kalem Kalem Resmi İşletme Projesi Raporu</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Reaktif Güvence:</strong> %0 Kompanzasyon Ceza Taahhüdü</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
             <span><strong>Mobil SLA:</strong> 15-25 Dk Acil Teknik Arıza Servisi</span>
           </div>
         </div>
@@ -129,7 +128,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
           >
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
             ChatGPT
           </a>
           <a
@@ -138,7 +137,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
+            <Icon name="travel_explore" className="text-xs" />
             Perplexity
           </a>
         </div>

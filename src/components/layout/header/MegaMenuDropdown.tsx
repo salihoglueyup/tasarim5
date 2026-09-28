@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import type { MenuItem } from './MobileMenu';
+import Icon from '@/components/ui/branding/Icon';
 
 type MegaMenuDropdownProps = {
   hoveredMenu: string | null;
@@ -222,7 +223,7 @@ export default function MegaMenuDropdown({
                 >
                   {subItem.icon && (
                     <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0">
-                      <span className="material-symbols-outlined text-[18px]" aria-hidden="true">{subItem.icon}</span>
+                      <Icon name={subItem.icon} className="text-[18px]" />
                     </div>
                   )}
                   <div>
@@ -259,7 +260,7 @@ export default function MegaMenuDropdown({
                     className="inline-flex items-center gap-2 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-3 py-1.5 rounded-xl transition-colors mt-2 w-fit shadow-xs"
                   >
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="material-symbols-outlined text-[15px]" aria-hidden="true">call</span>
+                    <Icon name="call" className="text-[15px]" />
                     <span>0216 550 48 48</span>
                   </a>
                 )}
@@ -272,7 +273,7 @@ export default function MegaMenuDropdown({
                 className="relative z-10 mt-4 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center justify-between group/btn transition-all duration-300"
               >
                 <span>{promo.btnText}</span>
-                <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </div>
 

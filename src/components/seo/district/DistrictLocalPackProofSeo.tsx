@@ -4,6 +4,7 @@ import React from 'react';
 import { BASE_URL } from '@/lib/seo';
 import { getDistrictGeo, DistrictGeoInfo } from '@/data/districtGeoCoordinatesData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictLocalPackProofSeoProps {
   districtSlug: string;
 }
@@ -69,14 +70,14 @@ export default function DistrictLocalPackProofSeo({ districtSlug }: DistrictLoca
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1.5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
-            <span className="material-symbols-outlined text-[15px]" aria-hidden="true">pin_drop</span>
+            <Icon name="pin_drop" className="text-[15px]" />
             Google Maps & Local Pack Doğrulanmış Saha Ağı
           </div>
           <h4 className="text-base sm:text-lg font-extrabold text-[var(--color-primary)]">
             {geo.name} Yerel Saha Operasyon Merkezi & 45 Dk Acil Servis
           </h4>
           <p className="text-xs text-[var(--color-secondary)] flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-slate-500" aria-hidden="true">location_on</span>
+            <Icon name="location_on" className="text-sm text-slate-500" />
             <span>{geo.localHubAddress} (Posta Kodu: {geo.postalCode})</span>
           </p>
         </div>
@@ -98,7 +99,7 @@ export default function DistrictLocalPackProofSeo({ districtSlug }: DistrictLoca
             className="px-4 py-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold transition-all hover:opacity-90 flex items-center gap-1.5 shadow-xs"
             aria-label={`${geo.name} harita konumunu aç`}
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">map</span>
+            <Icon name="map" className="text-sm" />
             <span>Haritada Aç</span>
           </a>
         </div>

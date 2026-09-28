@@ -15,6 +15,7 @@ import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCar
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "Şeffaf Fiyatlandırma ve Karşılaştırma": "hzc_1",
   "Hizmet Paketleri ve Çözüm Seçenekleri": "hzc_2",
@@ -74,7 +75,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 text-xs font-semibold mb-4">
-              <span className="material-symbols-outlined text-sm">compare_arrows</span>
+              <Icon name="compare_arrows" className="text-sm" />
               {tx('Şeffaf Fiyatlandırma ve Karşılaştırma')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -103,7 +104,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold mb-4">
-              <span className="material-symbols-outlined text-sm">policy</span>
+              <Icon name="policy" className="text-sm" />
               Hukuki Güvence ve Mevzuat Standartları
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -217,7 +218,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
           <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white rounded-3xl p-8 sm:p-12 md:p-16 border border-blue-500/20 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/30 text-amber-300 mb-4">
-                <span className="material-symbols-outlined text-sm">schedule</span>
+                <Icon name="schedule" className="text-sm" />
                 {tx('24 Saat İçinde Ücretsiz Keşif')}
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
@@ -228,15 +229,15 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
               </p>
               <div className="flex flex-wrap items-center gap-6 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+                  <Icon name="check_circle" className="text-emerald-400 text-sm" />
                   <span>{tx('Gizli Maliyet Yok')}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+                  <Icon name="check_circle" className="text-emerald-400 text-sm" />
                   <span>{tx('KMK m.34 Yasal Sözleşme')}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+                  <Icon name="check_circle" className="text-emerald-400 text-sm" />
                   <span>{tx('Bağlayıcılığı Olmayan Ücretsiz Rapor')}</span>
                 </div>
               </div>

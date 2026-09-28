@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 type Question = {
   id: number;
   badge: string;
@@ -158,7 +159,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
       {/* Header */}
       <div className="relative z-10 max-w-3xl mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-extrabold uppercase tracking-wider mb-4">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">psychology_alt</span>
+          <Icon name="psychology_alt" className="text-sm" />
           <span>5188 İnteraktif Simülatör</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
@@ -220,9 +221,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
                   disabled={hasAnswered}
                   className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex items-start gap-3.5 cursor-pointer ${style}`}
                 >
-                  <span className={`material-symbols-outlined text-xl shrink-0 mt-0.5 ${iconColor}`} aria-hidden="true">
-                    {icon}
-                  </span>
+                  <Icon name={icon} className={`text-xl shrink-0 mt-0.5 ${iconColor}`} />
                   <span className="text-sm sm:text-base font-medium leading-snug">
                     {option.text}
                   </span>
@@ -241,7 +240,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
                 className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/15 mb-6"
               >
                 <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">gavel</span>
+                  <Icon name="gavel" className="text-base" />
                   <span>{currentScenario.lawRef}</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
@@ -258,7 +257,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
               disabled={currentIdx === 0}
               className={`flex items-center gap-1.5 text-xs font-bold transition-colors ${currentIdx === 0 ? 'opacity-0 pointer-events-none' : 'text-slate-400 hover:text-white'}`}
             >
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_back</span>
+              <Icon name="arrow_back" className="text-sm" />
               Önceki Senaryo
             </button>
 
@@ -268,7 +267,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
               className="bg-red-600 hover:bg-red-500 disabled:opacity-40 disabled:hover:bg-red-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all flex items-center gap-2 shadow-lg cursor-pointer disabled:cursor-not-allowed active:scale-95"
             >
               <span>{currentIdx < SCENARIOS.length - 1 ? 'Sonraki Senaryo' : 'Sonucu Gör'}</span>
-              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-base" />
             </button>
           </div>
 
@@ -303,7 +302,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
               onClick={handleRestart}
               className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2"
             >
-              <span className="material-symbols-outlined text-base" aria-hidden="true">refresh</span>
+              <Icon name="refresh" className="text-base" />
               Testi Tekrarla
             </button>
             {onEnrollClick && (
@@ -313,7 +312,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25"
               >
                 <span>Hızlı Kurs Ön Kayıt</span>
-                <span className="material-symbols-outlined text-base" aria-hidden="true">school</span>
+                <Icon name="school" className="text-base" />
               </button>
             )}
             <a
@@ -323,7 +322,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
               className="w-full sm:w-auto px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg"
             >
               <span>guvenlikkursu.com</span>
-              <span className="material-symbols-outlined text-base" aria-hidden="true">open_in_new</span>
+              <Icon name="open_in_new" className="text-base" />
             </a>
           </div>
         </motion.div>

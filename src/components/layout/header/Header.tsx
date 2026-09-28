@@ -11,6 +11,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
 import type { translations } from '@/i18n/translations';
 import SiteNavigationSeo from '@/components/seo/schema/SiteNavigationSeo';
+import Icon from '@/components/ui/branding/Icon';
 
 // Faz 7, 109: LoginModal sadece butona tıklandığında yüklenir, ilk bundle'ı şişirmez.
 const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
@@ -360,11 +361,9 @@ export default function Header() {
                         : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                   }`}>
                     <span>{t(item.nameKey)}</span>
-                    <span aria-hidden="true" className={`material-symbols-outlined text-[15px] transition-transform duration-300 ${
+                    <Icon name="expand_more" className={`text-[15px] transition-transform duration-300 ${
                       isTopAndDarkHero ? 'text-white/80' : 'text-[var(--color-tertiary)]'
-                    } ${hoveredMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)]' : ''}`}>
-                      expand_more
-                    </span>
+                    } ${hoveredMenu === item.nameKey ? 'rotate-180 text-[var(--color-primary)]' : ''}`} />
                   </button>
                 ) : (
                   <Link 
@@ -426,9 +425,7 @@ export default function Header() {
                 >
                   <FlagIcon code={language} size="xs" />
                   <span className="font-mono tracking-wider font-bold">{language.toUpperCase()}</span>
-                  <span className={`material-symbols-outlined text-[13px] transition-transform duration-300 ${hoveredMenu === 'language' ? 'rotate-180' : ''}`} aria-hidden="true">
-                    expand_more
-                  </span>
+                  <Icon name="expand_more" className={`text-[13px] transition-transform duration-300 ${hoveredMenu === 'language' ? 'rotate-180' : ''}`} />
                 </button>
 
                 {hoveredMenu === 'language' && (
@@ -487,14 +484,9 @@ export default function Header() {
                 }`}
                 aria-label={t('hd_theme_aria')}
               >
-                <span 
-                  className={`material-symbols-outlined text-[15px] transition-transform duration-300 transform-gpu ${
+                <Icon name={isDarkMode ? 'light_mode' : 'dark_mode'} className={`text-[15px] transition-transform duration-300 transform-gpu ${
                     isDarkMode ? 'rotate-180 scale-90' : 'rotate-0 scale-100'
-                  }`}
-                  aria-hidden="true"
-                >
-                  {isDarkMode ? 'light_mode' : 'dark_mode'}
-                </span>
+                  }`} />
               </button>
             </div>
 
@@ -509,7 +501,7 @@ export default function Header() {
                 }`}
               >
                 <span className="relative z-10 flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[15px]" aria-hidden="true">lock_open</span>
+                  <Icon name="lock_open" className="text-[15px]" />
                   <span className="max-lg:hidden">{t('btn_login')}</span>
                 </span>
               </button>
@@ -523,7 +515,7 @@ export default function Header() {
               >
                 <span className="relative z-10 flex items-center gap-1.5">
                   {t('nav_get_quote')}
-                  <span className="material-symbols-outlined text-[15px] group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_right_alt</span>
+                  <Icon name="arrow_right_alt" className="text-[15px] group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12"></span>
               </button>
@@ -537,9 +529,7 @@ export default function Header() {
                 isTopAndDarkHero ? 'text-white' : 'text-[var(--color-primary)]'
               }`}
             >
-              <span className="material-symbols-outlined text-[24px]" aria-hidden="true">
-                {isMobileMenuOpen ? 'close' : 'menu'}
-              </span>
+              <Icon name={isMobileMenuOpen ? 'close' : 'menu'} className="text-[24px]" />
             </button>
           </div>
         </div>

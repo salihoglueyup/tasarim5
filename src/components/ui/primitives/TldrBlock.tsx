@@ -1,3 +1,5 @@
+import Icon from '@/components/ui/branding/Icon';
+
 /**
  * TL;DR / özet bloğu (SEO Master Plan V4 — Faz 134).
  *
@@ -8,9 +10,7 @@
 export default function TldrBlock({ children }: { children: React.ReactNode }) {
   return (
     <aside className="tldr flex items-start gap-4 bg-slate-900/5 dark:bg-white/5 border border-slate-900/15 dark:border-white/15 rounded-2xl p-6">
-      <span className="material-symbols-outlined text-slate-900 dark:text-white shrink-0" aria-hidden="true">
-        bolt
-      </span>
+      <Icon name="bolt" className="text-slate-900 dark:text-white shrink-0" />
       <div>
         <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-1">
           Özet

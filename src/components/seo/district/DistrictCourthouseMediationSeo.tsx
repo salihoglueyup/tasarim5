@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BASE_URL } from '@/lib/seo';
 import { getDistrictCourthouseProfile } from '@/data/districtCourthouseMediationData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictCourthouseMediationSeoProps {
   districtSlug: string;
   districtName: string;
@@ -50,7 +51,7 @@ export default function DistrictCourthouseMediationSeo({
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">balance</span>
+            <Icon name="balance" className="text-sm" />
             <span>7445 Sayılı Kanun Zorunlu Arabuluculuk Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -73,7 +74,7 @@ export default function DistrictCourthouseMediationSeo({
         {/* Adliye ve Arabuluculuk Detayı */}
         <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
           <div className="flex items-center gap-2 text-white font-bold text-sm">
-            <span className="material-symbols-outlined text-blue-400 text-lg" aria-hidden="true">account_balance</span>
+            <Icon name="account_balance" className="text-blue-400 text-lg" />
             <span>Adliye ve Büronun Konumu</span>
           </div>
           <div className="text-xs text-slate-300 space-y-1.5 leading-relaxed">
@@ -88,13 +89,13 @@ export default function DistrictCourthouseMediationSeo({
         {/* Arabuluculuk Dosyası İçin Gerekli Evraklar */}
         <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
           <div className="flex items-center gap-2 text-white font-bold text-sm">
-            <span className="material-symbols-outlined text-emerald-400 text-lg" aria-hidden="true">folder</span>
+            <Icon name="folder" className="text-emerald-400 text-lg" />
             <span>Başvuruda Hazır Bulundurulması Gereken Evraklar</span>
           </div>
           <ul className="space-y-2">
             {profile.requiredDocumentsForMediation.map((doc, idx) => (
               <li key={idx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed">
-                <span className="material-symbols-outlined text-emerald-400 text-sm shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+                <Icon name="check_circle" className="text-emerald-400 text-sm shrink-0 mt-0.5" />
                 <span>{doc}</span>
               </li>
             ))}
@@ -105,7 +106,7 @@ export default function DistrictCourthouseMediationSeo({
       {/* Alo Yönetim Hukuk Desteği Banner */}
       <div className="p-4 sm:p-5 rounded-2xl bg-blue-950/30 border border-blue-900/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-          <span className="material-symbols-outlined text-blue-400 text-2xl shrink-0 mt-0.5" aria-hidden="true">gavel</span>
+          <Icon name="gavel" className="text-blue-400 text-2xl shrink-0 mt-0.5" />
           <div>
             <span className="text-xs font-bold text-blue-300 block">Alo Yönetim Bölgesel Hukuk ve Arabuluculuk Masası:</span>
             <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">

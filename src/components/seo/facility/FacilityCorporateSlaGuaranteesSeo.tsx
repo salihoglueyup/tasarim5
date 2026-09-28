@@ -3,6 +3,7 @@
 import React from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface SlaGuaranteeItem {
   id: string;
   icon: string;
@@ -80,7 +81,7 @@ export default function FacilityCorporateSlaGuaranteesSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">verified</span>
+          <Icon name="verified" className="text-sm text-emerald-500" />
           <span>Sözleşmeyle İmza Altına Alınan Resmi Taahhütler</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -101,7 +102,7 @@ export default function FacilityCorporateSlaGuaranteesSeo() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="w-12 h-12 rounded-2xl bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 flex items-center justify-center text-[var(--color-primary)]">
-                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">{g.icon}</span>
+                  <Icon name={g.icon} className="text-2xl" />
                 </span>
                 <span className="text-[11px] font-bold font-mono px-3 py-1 rounded-full bg-white dark:bg-[#15161E] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10">
                   {g.badge}

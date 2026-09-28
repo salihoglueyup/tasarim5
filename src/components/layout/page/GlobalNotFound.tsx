@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function GlobalNotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-[#071322] px-6">
@@ -44,14 +45,14 @@ export default function GlobalNotFound() {
             href="/" 
             className="bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white font-semibold py-3 px-8 rounded-full transition-colors flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">home</span>
+            <Icon name="home" className="text-sm" />
             Anasayfaya Dön
           </Link>
           <Link 
             href="/hizmetler" 
             className="bg-white dark:bg-white/10 text-slate-800 dark:text-white border border-slate-200 dark:border-white/20 hover:bg-slate-50 dark:hover:bg-white/20 font-semibold py-3 px-8 rounded-full transition-colors flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">grid_view</span>
+            <Icon name="grid_view" className="text-sm" />
             Hizmetlerimizi İncele
           </Link>
         </motion.div>

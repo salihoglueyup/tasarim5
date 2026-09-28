@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import JobPostingSeo from '@/components/seo/schema/JobPostingSeo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface JobOpening {
   id: string;
   title: string;
@@ -214,9 +215,7 @@ export default function CareerOpenPositionsSeo({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                work_outline
-              </span>
+              <Icon name="work_outline" className="text-sm" />
               <span>Google Jobs Uyumlu • Güncel İlanlar</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -274,7 +273,7 @@ export default function CareerOpenPositionsSeo({
                   </span>
 
                   <span className="text-xs font-medium text-[var(--color-secondary)] flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm">location_on</span>
+                    <Icon name="location_on" className="text-sm" />
                     {job.district}
                   </span>
                 </div>
@@ -296,7 +295,7 @@ export default function CareerOpenPositionsSeo({
                     {job.salaryText}
                   </div>
                   <div className="text-[11px] text-[var(--color-secondary)] mt-1 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-xs">schedule</span>
+                    <Icon name="schedule" className="text-xs" />
                     {job.workSchedule}
                   </div>
                 </div>
@@ -335,7 +334,7 @@ export default function CareerOpenPositionsSeo({
                 className="w-full py-3 px-4 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
                 <span>Bu Pozisyona Başvur</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </button>
             </div>
           ))}
@@ -344,9 +343,7 @@ export default function CareerOpenPositionsSeo({
         {/* Footer Guarantee notice */}
         <div className="mt-12 p-6 rounded-2xl bg-[var(--color-surface-variant)]/30 border border-[var(--color-outline)]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-xl text-[var(--color-primary)]">
-              verified
-            </span>
+            <Icon name="verified" className="text-xl text-[var(--color-primary)]" />
             <span>
               Tüm açık pozisyonlarımızda 4857 Sayılı İş Kanunu hükümleri geçerlidir. Asgari ücret değil, pozisyona göre belirlenen kurumsal net maaş banka aracılığıyla ödenir.
             </span>

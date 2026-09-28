@@ -10,6 +10,7 @@ import {
   WaterTankTypeStandard
 } from '@/data/facilityWaterTankSanitationData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityWaterTankSanitationSeoProps {
   className?: string;
   defaultTankTypeIndex?: number;
@@ -72,7 +73,7 @@ export default function FacilityWaterTankSanitationSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300 mb-3 border border-sky-300 dark:border-sky-700">
-          <span className="material-symbols-outlined text-sm">water</span>
+          <Icon name="water" className="text-sm" />
           <span>Sağlık Bakanlığı 2007/67 Sayılı Genelgesi & TSE 1258 Uyumlu</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -101,7 +102,7 @@ export default function FacilityWaterTankSanitationSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -162,7 +163,7 @@ export default function FacilityWaterTankSanitationSeo({
 
             <div className="p-4 rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-900 dark:text-sky-200 text-xs md:text-sm border border-sky-200 dark:border-sky-800 space-y-1">
               <strong className="font-semibold block flex items-center gap-1">
-                <span className="material-symbols-outlined text-sky-600 text-base">recommend</span>
+                <Icon name="recommend" className="text-sky-600 text-base" />
                 Mühendislik Revizyon ve İyileştirme Tavsiyesi:
               </strong>
               <p className="leading-relaxed">
@@ -300,7 +301,7 @@ export default function FacilityWaterTankSanitationSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">sanitizer</span>
+            <Icon name="sanitizer" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

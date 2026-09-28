@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { QUALITY_FAQS, type QualityFaqItem } from './qualityData';
+import Icon from '@/components/ui/branding/Icon';
 export { QUALITY_FAQS, type QualityFaqItem };
 
 export default function QualityAuthorityFaqSeo() {
@@ -17,7 +18,7 @@ export default function QualityAuthorityFaqSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-4">
-            <span className="material-symbols-outlined text-sm">help</span>
+            <Icon name="help" className="text-sm" />
             Kalite Güvencesi ve Denetim Rehberi
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -53,13 +54,9 @@ export default function QualityAuthorityFaqSeo() {
                   >
                     {faq.question}
                   </span>
-                  <span
-                    className={`material-symbols-outlined text-cyan-600 dark:text-cyan-400 transition-transform duration-200 shrink-0 ${
+                  <Icon name="expand_more" className={`text-cyan-600 dark:text-cyan-400 transition-transform duration-200 shrink-0 ${
                       isOpen ? 'rotate-180' : ''
-                    }`}
-                  >
-                    expand_more
-                  </span>
+                    }`} />
                 </button>
 
                 {isOpen && (

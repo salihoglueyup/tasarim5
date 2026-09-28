@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { DISTRICTS, District } from '@/data/districts';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function DistrictComparisonMatrixSeo() {
   const [district1Slug, setDistrict1Slug] = useState<string>('kadikoy');
   const [district2Slug, setDistrict2Slug] = useState<string>('atasehir');
@@ -184,7 +185,7 @@ export default function DistrictComparisonMatrixSeo() {
                   className="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
                 >
                   <span>{d1.name} Sayfasına Git</span>
-                  <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-xs" />
                 </Link>
               </td>
               <td className="py-4 px-4 bg-blue-500/5 rounded-b-2xl">
@@ -193,7 +194,7 @@ export default function DistrictComparisonMatrixSeo() {
                   className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
                 >
                   <span>{d2.name} Sayfasına Git</span>
-                  <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-xs" />
                 </Link>
               </td>
             </tr>

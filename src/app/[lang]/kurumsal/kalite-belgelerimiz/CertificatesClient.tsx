@@ -10,6 +10,7 @@ import AccreditationAiOverviewSeo from '@/components/seo/ai-overviews/Accreditat
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import { CERTIFICATES, type Certificate } from '@/data/certificates';
 
+import Icon from '@/components/ui/branding/Icon';
 type Category = 'all' | 'cevre' | 'is-sagligi' | 'risk-sureklillik' | 'musteri' | 'sosyal';
 
 const CATEGORY_LABELS: Record<Category, { label: string; icon: string }> = {
@@ -92,7 +93,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
               className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}
               style={{ transform: "translateZ(30px)" }}
             >
-              <span className="material-symbols-outlined text-white text-2xl" aria-hidden="true">{cert.icon}</span>
+              <Icon name={cert.icon} className="text-white text-2xl" />
             </div>
             
             <div className="flex flex-col items-end gap-1">
@@ -123,7 +124,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
                 className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
               >
                 <span>Detaylı İncele</span>
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </Link>
               <div className="flex items-center gap-2.5">
                 <a
@@ -134,7 +135,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
                   className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                   aria-label={`${cert.name} PDF indir`}
                 >
-                  <span className="material-symbols-outlined text-xs" aria-hidden="true">download</span>
+                  <Icon name="download" className="text-xs" />
                   PDF
                 </a>
                 <span className="text-slate-300 dark:text-slate-700">|</span>
@@ -147,7 +148,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
                   aria-label="BELCERT resmi sorgulama"
                 >
                   <span>Doğrula</span>
-                  <span className="material-symbols-outlined text-[12px]" aria-hidden="true">open_in_new</span>
+                  <Icon name="open_in_new" className="text-[12px]" />
                 </a>
               </div>
             </div>
@@ -212,7 +213,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
           {/* Bölüm Başlığı ve Manifestosu */}
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
-              <span className="material-symbols-outlined text-[16px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified_user</span>
+              <Icon name="verified_user" className="text-[16px] text-emerald-600 dark:text-emerald-400" />
               <span>BELCERT & ILAS Uluslararası Akredite Tescillerimiz</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-6">
@@ -240,7 +241,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                     : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500'
                 }`}
               >
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">{cat.icon}</span>
+                <Icon name={cat.icon} className="text-[14px]" />
                 {cat.label}
                 <span className={`text-[10px] font-mono ml-0.5 px-1.5 py-0.5 rounded-full ${
                   activeCategory === cat.key
@@ -275,7 +276,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
 
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-                <span className="material-symbols-outlined text-[18px] text-blue-600 dark:text-blue-400" aria-hidden="true">menu_book</span>
+                <Icon name="menu_book" className="text-[18px] text-blue-600 dark:text-blue-400" />
                 <span>Kurumsal Rehber: Uluslararası Kalite Çerçevesi ve Hukuki Koruma</span>
               </div>
               <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -353,7 +354,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                   <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-lg" />
                   </span>
                   <span>%100 Akredite Operasyon</span>
                 </div>
@@ -365,7 +366,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                   <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-lg" aria-hidden="true">gavel</span>
+                    <Icon name="gavel" className="text-lg" />
                   </span>
                   <span>Sıfır Hukuki Risk</span>
                 </div>
@@ -377,7 +378,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                   <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-lg" aria-hidden="true">domain</span>
+                    <Icon name="domain" className="text-lg" />
                   </span>
                   <span>Mülk Değer Koruması</span>
                 </div>
@@ -397,7 +398,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-3.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                    <Icon name="verified" className="text-sm" />
                     <span>BELCERT Canlı Doğrulama Konsolu</span>
                   </span>
                 </div>
@@ -416,7 +417,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                 className="px-5 py-3 bg-slate-900 text-white dark:bg-white dark:text-slate-950 hover:opacity-90 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all shrink-0 self-start md:self-auto shadow-md hover:scale-105"
               >
                 <span>belcert.com Doğrulama Ekranı</span>
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-xs" />
               </a>
             </div>
 
@@ -435,11 +436,9 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                       : 'bg-[var(--color-surface)]/70 border-[var(--color-outline)]/60 hover:border-slate-400 dark:hover:border-white/20'
                   }`}
                 >
-                  <span className={`material-symbols-outlined text-xl transition-colors ${
+                  <Icon name={c.icon} className={`text-xl transition-colors ${
                     selectedAuditIndex === idx ? 'text-emerald-600 dark:text-emerald-400' : 'text-[var(--color-tertiary)]'
-                  }`}>
-                    {c.icon}
-                  </span>
+                  }`} />
                   <span className="text-[11px] font-bold text-[var(--color-primary)] line-clamp-1">{c.name}</span>
                   <span className="text-[9px] font-mono text-[var(--color-tertiary)] line-clamp-1">{c.certificateNumber}</span>
                 </button>
@@ -486,7 +485,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                   onClick={() => handleAuditVerify(activeAuditCert.certificateNumber)}
                   className="w-full md:w-auto px-6 py-3 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold rounded-2xl text-xs flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-xl hover:scale-105 cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">qr_code_scanner</span>
+                  <Icon name="qr_code_scanner" className="text-sm font-bold" />
                   <span>Sertifikayı Canlı Sorgula</span>
                 </button>
 
@@ -502,7 +501,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                       className="text-[11px] font-bold text-blue-600 dark:text-blue-400 underline flex items-center gap-1 hover:opacity-80"
                     >
                       <span>BELCERT Doğrulama Sayfasına Git</span>
-                      <span className="material-symbols-outlined text-[12px]" aria-hidden="true">open_in_new</span>
+                      <Icon name="open_in_new" className="text-[12px]" />
                     </a>
                   </div>
                 )}

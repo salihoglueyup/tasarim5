@@ -8,6 +8,7 @@ import { waLink } from '@/lib/cro';
 import { ORG_PHONE } from '@/lib/constants';
 import CallbackForm from '@/components/cro/CallbackForm';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 56: QuickCallWidget FAB butonunun Framer Motion'dan arındırılması,
  * mobilde GPU katmanında sabitlenerek (transform-gpu, will-change-transform)
@@ -82,7 +83,7 @@ export default function QuickCallWidget() {
                 onClick={() => setView('menu')}
                 className="flex items-center gap-1 text-xs font-bold text-[var(--color-tertiary)] hover:text-[var(--color-primary)] transition-colors self-start cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_back</span>
+                <Icon name="arrow_back" className="text-[16px]" />
                 {t('cro_callback_open')}
               </button>
               <CallbackForm variant="inline" meta={{ kaynak: 'hizli-widget' }} />
@@ -107,7 +108,7 @@ export default function QuickCallWidget() {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-slate-900/10 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center">
-                    <span className="material-symbols-outlined text-xl group-hover:scale-110 transition-transform" aria-hidden="true">search</span>
+                    <Icon name="search" className="text-xl group-hover:scale-110 transition-transform" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-[var(--color-primary)] transition-colors">
@@ -134,7 +135,7 @@ export default function QuickCallWidget() {
                 className="flex items-center gap-3 p-3 rounded-2xl bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/30 border border-[var(--color-outline)]/40 transition-colors group"
               >
                 <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white dark:text-slate-950 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">call</span>
+                  <Icon name="call" className="text-lg" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-[var(--color-primary)]">{t('fab_headquarters')}</span>
@@ -155,7 +156,7 @@ export default function QuickCallWidget() {
                 className="flex items-center gap-3 p-3 rounded-2xl bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/30 border border-[var(--color-outline)]/40 transition-colors group"
               >
                 <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">chat</span>
+                  <Icon name="chat" className="text-lg" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-[var(--color-primary)]">{t('contact_direct_wa')}</span>
@@ -169,7 +170,7 @@ export default function QuickCallWidget() {
                 className="flex items-center gap-3 p-3 rounded-2xl bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/30 border border-[var(--color-outline)]/40 transition-colors text-left group cursor-pointer"
               >
                 <div className="w-9 h-9 rounded-xl bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">phone_callback</span>
+                  <Icon name="phone_callback" className="text-lg" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-[var(--color-primary)]">{t('cro_callback_open')}</span>
@@ -188,7 +189,7 @@ export default function QuickCallWidget() {
                 }}
                 className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-extrabold shadow-lg hover:opacity-95 transition-all mt-1 cursor-pointer"
               >
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">request_quote</span>
+                <Icon name="request_quote" className="text-sm" />
                 <span>{t('fab_quick_quote')}</span>
               </button>
             </>
@@ -203,13 +204,9 @@ export default function QuickCallWidget() {
         aria-label={t('fab_quick_actions')}
         title={t('fab_quick_actions')}
       >
-        <span
-          className={`material-symbols-outlined text-2xl font-bold transition-transform duration-200 transform-gpu ${
+        <Icon name={isOpen ? 'add' : 'support_agent'} className={`text-2xl font-bold transition-transform duration-200 transform-gpu ${
             isOpen ? 'rotate-45' : 'rotate-0'
-          }`}
-        >
-          {isOpen ? 'add' : 'support_agent'}
-        </span>
+          }`} />
         {!isOpen && (
           <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-white dark:border-slate-950" />
         )}

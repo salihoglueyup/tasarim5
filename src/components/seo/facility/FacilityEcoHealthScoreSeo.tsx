@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function FacilityEcoHealthScoreSeo() {
   const [roofAreaM2, setRoofAreaM2] = useState<number>(600);
   const [totalUnits, setTotalUnits] = useState<number>(50);
@@ -50,7 +51,7 @@ export default function FacilityEcoHealthScoreSeo() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">solar_power</span>
+              <Icon name="solar_power" className="text-sm" />
               Sıfır Karbon & Yeşil Tesis İnovasyonu
             </span>
           </div>
@@ -67,7 +68,7 @@ export default function FacilityEcoHealthScoreSeo() {
           className="px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl text-xs font-bold text-white flex items-center gap-2 transition-all shrink-0 self-start md:self-auto"
         >
           <span>GES Proje Detayları</span>
-          <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-xs" />
         </Link>
       </div>
 
@@ -129,7 +130,7 @@ export default function FacilityEcoHealthScoreSeo() {
                   : 'bg-white/5 border-white/10 text-slate-400'
               }`}
             >
-              <span className="material-symbols-outlined text-2xl" aria-hidden="true">lightbulb</span>
+              <Icon name="lightbulb" className="text-2xl" />
               <div className="text-xs">
                 <span className="block font-bold">Akıllı LED & Sensör</span>
                 <span className="text-[10px] opacity-80">%65 Aydınlatma Tasarrufu</span>
@@ -144,7 +145,7 @@ export default function FacilityEcoHealthScoreSeo() {
                   : 'bg-white/5 border-white/10 text-slate-400'
               }`}
             >
-              <span className="material-symbols-outlined text-2xl" aria-hidden="true">water_drop</span>
+              <Icon name="water_drop" className="text-2xl" />
               <div className="text-xs">
                 <span className="block font-bold">Yağmur Suyu Depolama</span>
                 <span className="text-[10px] opacity-80">%40 Peyzaj Sulama Tasarrufu</span>
@@ -189,11 +190,11 @@ export default function FacilityEcoHealthScoreSeo() {
           {/* Eco Impact Badges */}
           <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">park</span>
+              <Icon name="park" className="text-emerald-400 text-base" />
               <span><strong>{treesEquivalent}</strong> Ağaç Dikimine Eşdeğer</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-teal-400 text-base" aria-hidden="true">cloud_done</span>
+              <Icon name="cloud_done" className="text-teal-400 text-base" />
               <span><strong>{co2OffsetTonnes}</strong> Ton CO₂ Engellendi</span>
             </div>
           </div>

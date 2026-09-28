@@ -7,6 +7,7 @@ import {
   ENERGY_EFFICIENCY_PILLARS,
 } from '@/data/facilityEnergyEvChargingData';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function FacilityEnergyEvChargingSeo() {
   const [activeTab, setActiveTab] = useState<'ev-charging' | 'energy-efficiency'>('ev-charging');
 
@@ -37,7 +38,7 @@ export default function FacilityEnergyEvChargingSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">ev_station</span>
+            <Icon name="ev_station" className="text-sm" />
             <span>Yeşil Enerji & E-Mobilite Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -182,7 +183,7 @@ export default function FacilityEnergyEvChargingSeo() {
       {/* Footer Info */}
       <div className="mt-8 p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl" aria-hidden="true">energy_savings_leaf</span>
+          <Icon name="energy_savings_leaf" className="text-emerald-600 dark:text-emerald-400 text-xl" />
           <span>
             Sitenizin trafo gücünü ve EKB sınıfını yetkili enerji yöneticilerimizle ücretsiz analiz ettirebilirsiniz.
           </span>
@@ -192,7 +193,7 @@ export default function FacilityEnergyEvChargingSeo() {
           className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:opacity-90 font-semibold transition shrink-0 shadow-xs cursor-pointer"
         >
           <span>Enerji Keşfi Talep Edin</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

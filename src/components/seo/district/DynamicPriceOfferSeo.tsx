@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { BASE_URL } from '@/lib/constants';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "Temel Site Yönetimi": "dpo_1",
   "Teklif Usulü": "dpo_2",
@@ -204,9 +205,7 @@ export default function DynamicPriceOfferSeo({
                 <ul className="space-y-2.5 text-xs">
                   {tier.features.map((f, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2">
-                      <span className={`material-symbols-outlined text-sm shrink-0 ${tier.isPopular ? 'text-brand-400' : 'text-brand-500'}`}>
-                        check_circle
-                      </span>
+                      <Icon name="check_circle" className={`text-sm shrink-0 ${tier.isPopular ? 'text-brand-400' : 'text-brand-500'}`} />
                       <span className={tier.isPopular ? 'text-slate-200 font-light' : 'text-slate-700 dark:text-slate-300 font-light'}>
                         {tx(f)}
                       </span>

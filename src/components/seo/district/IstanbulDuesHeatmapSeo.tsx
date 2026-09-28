@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictDuesData {
   slug: string;
   name: string;
@@ -195,7 +196,7 @@ export default function IstanbulDuesHeatmapSeo() {
         {/* Başlık */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">trending_down</span>
+            <Icon name="trending_down" className="text-sm text-emerald-600 dark:text-emerald-400" />
             İstanbul İlçe Aidat & Bütçe Tasarruf Isı Haritası (2026)
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -315,7 +316,7 @@ export default function IstanbulDuesHeatmapSeo() {
                   className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-primary)] hover:underline group"
                 >
                   <span>{selectedDistrict.name} Bölge Hizmet Detayları</span>
-                  <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-sm group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
@@ -387,7 +388,7 @@ export default function IstanbulDuesHeatmapSeo() {
                   className="px-6 py-3.5 bg-[var(--color-primary)] hover:opacity-90 text-white font-extrabold rounded-2xl text-xs sm:text-sm transition-all flex-shrink-0 flex items-center gap-2 shadow-md hover:scale-105"
                 >
                   <span>Sitenize Özel Fiyat Alın</span>
-                  <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-sm font-bold" />
                 </a>
               </div>
             </div>

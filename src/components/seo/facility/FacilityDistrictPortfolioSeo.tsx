@@ -5,6 +5,7 @@ import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { DISTRICTS } from '@/data/districts';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictPortfolioHighlight {
   slug: string;
   name: string;
@@ -151,7 +152,7 @@ export default function FacilityDistrictPortfolioSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">location_city</span>
+          <Icon name="location_city" className="text-sm" />
           <span>İstanbul Geneli 400+ Aktif Tesis Referansı</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
@@ -209,7 +210,7 @@ export default function FacilityDistrictPortfolioSeo() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="text-base font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[var(--color-primary)] text-lg" aria-hidden="true">domain</span>
+                  <Icon name="domain" className="text-[var(--color-primary)] text-lg" />
                   {item.name}
                 </h4>
                 <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
@@ -240,7 +241,7 @@ export default function FacilityDistrictPortfolioSeo() {
                 className="w-full py-2.5 px-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold text-[var(--color-primary)] transition-all flex items-center justify-center gap-1.5 shadow-2xs group-hover:border-[var(--color-primary)]/50 cursor-pointer"
               >
                 <span>{item.name} Hizmet Detayı</span>
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-xs" />
               </Link>
             </div>
           </div>

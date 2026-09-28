@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function LiveMetricsWidget() {
   const { t } = useLanguage();
   const [pulse, setPulse] = useState(false);
@@ -72,7 +73,7 @@ export default function LiveMetricsWidget() {
               className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-6 md:p-8 rounded-[2rem] flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 transform-gpu shadow-xs"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/80 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center border border-[var(--color-outline)]/40">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{m.icon}</span>
+                <Icon name={m.icon} className="text-2xl" />
               </div>
               <div>
                 <div className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] tracking-tight mb-2">{m.value}</div>

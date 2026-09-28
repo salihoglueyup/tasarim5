@@ -4,6 +4,7 @@ import { useState, useTransition } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function InteractiveProcessSteps() {
   const [activeStep, setActiveStep] = useState(0);
   const [, startTransition] = useTransition();
@@ -115,9 +116,7 @@ export default function InteractiveProcessSteps() {
           </div>
 
           <div className="lg:col-span-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-10 rounded-[2.5rem] flex flex-col items-center justify-center text-center gap-4 shadow-xs">
-            <span className="material-symbols-outlined text-6xl text-[var(--color-primary)]" aria-hidden="true">
-              {steps[activeStep].icon}
-            </span>
+            <Icon name={steps[activeStep].icon} className="text-6xl text-[var(--color-primary)]" />
             <div className="font-bold text-lg text-[var(--color-primary)]">{t('home_process_step_label')} {steps[activeStep].step} / 6</div>
             <div className="text-xs text-[var(--color-secondary)] font-light">{t('home_process_guarantee')}</div>
           </div>

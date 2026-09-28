@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import SectoralForm from './SectoralForm';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 export default async function EditSectoralSolutionPage({ params }: { params: Promise<{ lang: string; id: string }> }) {
   const { lang, id } = await params;
   const isNew = id === 'new';
@@ -20,7 +21,7 @@ export default async function EditSectoralSolutionPage({ params }: { params: Pro
           href={`/${lang}/admin/sectoral-solutions`}
           className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
         >
-          <span className="material-symbols-outlined text-xl" aria-hidden="true">arrow_back</span>
+          <Icon name="arrow_back" className="text-xl" />
         </Link>
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">

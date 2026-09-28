@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BASE_URL } from '@/lib/seo';
 import { getDistrictNeighborhoodCluster } from '@/data/districtNeighborhoodsData';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictMicroNeighborhoodsSeoProps {
   districtSlug: string;
   districtName: string;
@@ -74,7 +75,7 @@ export default function DistrictMicroNeighborhoodsSeo({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">near_me</span>
+            <Icon name="near_me" className="text-sm" />
             <span>{districtName} Mikro-Semt & Mahalle Kapsama Ağı</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -86,7 +87,7 @@ export default function DistrictMicroNeighborhoodsSeo({
         </div>
 
         <div className="shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-800 text-xs text-slate-300">
-          <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">timer</span>
+          <Icon name="timer" className="text-emerald-400 text-base" />
           <span>Acil Müdahale: <strong className="text-emerald-400">{cluster.serviceReachGuaranteeMinutes} Dk SLA</strong></span>
         </div>
       </div>
@@ -101,7 +102,7 @@ export default function DistrictMicroNeighborhoodsSeo({
             <div>
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-blue-400 text-sm" aria-hidden="true">location_on</span>
+                  <Icon name="location_on" className="text-blue-400 text-sm" />
                   <span>{n.name}</span>
                 </h3>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
@@ -124,7 +125,7 @@ export default function DistrictMicroNeighborhoodsSeo({
       {/* Footer CTA & Inter-district Links */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-800 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-emerald-400 text-base" aria-hidden="true">pin_drop</span>
+          <Icon name="pin_drop" className="text-emerald-400 text-base" />
           <span>{districtName} genelinde <strong>{cluster.totalTrackedAreasCount} aktif semt ve mahallede</strong> kesintisiz KMK 634 yönetimi.</span>
         </div>
         <div className="flex items-center gap-3">

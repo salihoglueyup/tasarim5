@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ExternalLawReference {
   title: string;
   sourceName: string;
@@ -66,7 +67,7 @@ export default function ServiceAuthorityHubSeo({
         {/* Üst Başlık */}
         <div className="flex flex-col gap-3 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-slate-200 text-xs font-extrabold w-fit mx-auto border border-[var(--color-outline)]/80 dark:border-white/10">
-            <span className="material-symbols-outlined text-[15px]" aria-hidden="true">verified</span>
+            <Icon name="verified" className="text-[15px]" />
             <span>E-E-A-T MEVZUAT & KURUMSAL OTORİTE AĞI</span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white">
@@ -83,7 +84,7 @@ export default function ServiceAuthorityHubSeo({
           <div className="lg:col-span-7 flex flex-col gap-4">
             <div className="flex items-center justify-between pb-2 border-b border-[var(--color-outline)]/50 dark:border-white/10">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">policy</span>
+                <Icon name="policy" className="text-base text-amber-500" />
                 <span>Resmi Yasal Mevzuatlar & Kamu Kaynakları</span>
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">Dış Otorite (Official Sources)</span>
@@ -111,9 +112,7 @@ export default function ServiceAuthorityHubSeo({
 
                     <span className="text-slate-500 dark:text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1 text-[11px] font-semibold shrink-0">
                       <span>Resmi Metin</span>
-                      <span className="material-symbols-outlined text-[13px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true">
-                        open_in_new
-                      </span>
+                      <Icon name="open_in_new" className="text-[13px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </span>
                   </div>
 
@@ -136,7 +135,7 @@ export default function ServiceAuthorityHubSeo({
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between pb-2 border-b border-[var(--color-outline)]/50 dark:border-white/10">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">menu_book</span>
+                  <Icon name="menu_book" className="text-base text-amber-500" />
                   <span>İlgili Sözlük Terimleri</span>
                 </span>
                 <Link href="/sozluk" className="text-[11px] font-bold text-amber-600 dark:text-amber-400 hover:underline">
@@ -153,7 +152,7 @@ export default function ServiceAuthorityHubSeo({
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[15px] text-amber-500" aria-hidden="true">arrow_right_alt</span>
+                        <Icon name="arrow_right_alt" className="text-[15px] text-amber-500" />
                         <span>{term.term}</span>
                       </span>
                       <span className="text-[11px] font-semibold text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
@@ -171,7 +170,7 @@ export default function ServiceAuthorityHubSeo({
             {/* Akıllı Araçlar & Sertifikalar Hızlı Kutu */}
             <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 rounded-2xl p-5 space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">widgets</span>
+                <Icon name="widgets" className="text-base text-amber-500" />
                 <span>İlgili Akıllı Araçlar & Belgeler</span>
               </span>
 
@@ -180,7 +179,7 @@ export default function ServiceAuthorityHubSeo({
                   href="/hesaplayici"
                   className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
                 >
-                  <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">calculate</span>
+                  <Icon name="calculate" className="text-base text-amber-500" />
                   <span>Aidat Hesaplayıcı</span>
                 </Link>
 
@@ -188,7 +187,7 @@ export default function ServiceAuthorityHubSeo({
                   href="/kurumsal/kalite-belgelerimiz"
                   className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
                 >
-                  <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">workspace_premium</span>
+                  <Icon name="workspace_premium" className="text-base text-emerald-600 dark:text-emerald-400" />
                   <span>ISO & TSE Belgeleri</span>
                 </Link>
 
@@ -196,7 +195,7 @@ export default function ServiceAuthorityHubSeo({
                   href="/kurumsal/surdurulebilirlik"
                   className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
                 >
-                  <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">eco</span>
+                  <Icon name="eco" className="text-base text-emerald-600 dark:text-emerald-400" />
                   <span>Yeşil Tesis & GES</span>
                 </Link>
 
@@ -204,7 +203,7 @@ export default function ServiceAuthorityHubSeo({
                   href="/teklif-al"
                   className="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold flex items-center gap-2 transition-colors shadow-sm"
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">request_quote</span>
+                  <Icon name="request_quote" className="text-base" />
                   <span>Ücretsiz Teklif Al</span>
                 </Link>
               </div>
@@ -218,7 +217,7 @@ export default function ServiceAuthorityHubSeo({
         <div className="pt-8 border-t border-[var(--color-outline)]/50 dark:border-white/10 space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="material-symbols-outlined text-base text-amber-500" aria-hidden="true">location_on</span>
+              <Icon name="location_on" className="text-base text-amber-500" />
               <span>{serviceName} Hizmeti Sunduğumuz Öncelikli İstanbul Bölgeleri</span>
             </span>
             <Link href="/bolgeler" className="text-[11px] font-bold text-amber-600 dark:text-amber-400 hover:underline">
@@ -233,7 +232,7 @@ export default function ServiceAuthorityHubSeo({
                 href={`/bolgeler/${d.slug}`}
                 className="px-3.5 py-1.5 rounded-xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-all flex items-center gap-1.5 shadow-2xs"
               >
-                <span className="material-symbols-outlined text-[13px] text-amber-500" aria-hidden="true">near_me</span>
+                <Icon name="near_me" className="text-[13px] text-amber-500" />
                 <span>{d.name} {serviceName}</span>
               </Link>
             ))}

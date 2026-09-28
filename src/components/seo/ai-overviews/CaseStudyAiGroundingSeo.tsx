@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }: { className?: string; lang?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -98,7 +99,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">analytics</span>
+          <Icon name="analytics" className="text-[15px]" />
           <span>Google AI Overviews & Kanıtlanmış ROI Metrikleri</span>
         </div>
         <div className="flex items-center gap-2">
@@ -116,9 +117,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          trending_up
-        </span>
+        <Icon name="trending_up" className="text-blue-600 dark:text-blue-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -181,7 +180,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="material-symbols-outlined text-sm text-blue-500">verified</span>
+          <Icon name="verified" className="text-sm text-blue-500" />
           <span>Yeminli Mali Müşavir ve Denetçi Raporlarıyla Teyit Edilmiş Sayısal Sonuçlar</span>
         </div>
 
@@ -191,9 +190,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-primary">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
             <span>{copied ? 'Kopyalandı!' : 'Vaka Özetini Kopyala'}</span>
           </button>
 
@@ -204,7 +201,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

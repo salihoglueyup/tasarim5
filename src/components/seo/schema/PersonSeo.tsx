@@ -6,6 +6,7 @@ import { personSchema } from '@/lib/schemas';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface PersonSeoProps {
   name: string;
   jobTitle: string;
@@ -88,7 +89,7 @@ export default function PersonSeo({
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-600 dark:text-white/60 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-colors"
                   >
-                    <span className="material-symbols-outlined text-lg" aria-hidden="true">{icon}</span>
+                    <Icon name={icon} className="text-lg" />
                   </a>
                 );
               })}

@@ -178,7 +178,8 @@ describe('Wave 3: UI Primitifleri & Modal Mimarisi (Faz 51 - Faz 75)', () => {
   it('Breadcrumbs.tsx genişletilmiş min 36px tıklama hedefleri ve A11y chevron içerir (Faz 73)', () => {
     const breadcrumbsContent = fs.readFileSync(getUiPath('Breadcrumbs.tsx'), 'utf-8');
     expect(breadcrumbsContent).toContain('min-h-[36px]');
-    expect(breadcrumbsContent).toContain('aria-hidden="true"');
+    // Chevron artık aria-hidden SVG <Icon /> bileşeniyle çizilir (Icon.tsx aria-hidden="true" basar)
+    expect(breadcrumbsContent).toMatch(/aria-hidden="true"|<Icon /);
   });
 
   it('Pagination.tsx arama motorları için semantik Link ve searchParams uyumludur (Faz 74)', () => {

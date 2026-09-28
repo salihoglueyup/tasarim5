@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface PositionZeroAnswerBoxProps {
   /** Soru başlığı — ör. "Tesis Yönetimi Nedir ve Neleri Kapsar?" */
   question: string;
@@ -93,7 +94,7 @@ export default function PositionZeroAnswerBox({
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2">
           <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${badgeBgClass}`}>
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">verified</span>
+            <Icon name="verified" className="text-[16px]" />
             <span>Doğrudan Yanıt (Position Zero)</span>
           </span>
           <span className="text-xs font-mono text-[var(--color-secondary)] bg-[var(--color-surface-variant)] px-2.5 py-1 rounded-md border border-[var(--color-outline)]/60">
@@ -106,9 +107,7 @@ export default function PositionZeroAnswerBox({
           className="text-xs font-semibold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-[var(--color-outline)]/80 hover:bg-[var(--color-surface-variant)]"
           title="Tanımı Alıntıla & Kopyala"
         >
-          <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
-            {copied ? 'check' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'check' : 'content_copy'} className="text-[14px]" />
           <span>{copied ? 'Alıntılandı' : 'Alıntıla'}</span>
         </button>
       </div>

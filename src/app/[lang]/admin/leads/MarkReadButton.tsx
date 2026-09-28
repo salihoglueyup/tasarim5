@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { markLeadAsRead } from '@/app/actions/lead-actions';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function MarkReadButton({ id, lang, isRead }: { id: string, lang: string, isRead: boolean }) {
   const [loading, setLoading] = useState(false);
 
@@ -25,9 +26,7 @@ export default function MarkReadButton({ id, lang, isRead }: { id: string, lang:
       }`}
       title={isRead ? "Okunmadı Olarak İşaretle" : "Okundu Olarak İşaretle"}
     >
-      <span className="material-symbols-outlined text-sm" aria-hidden="true">
-        {isRead ? 'mark_email_read' : 'mail'}
-      </span>
+      <Icon name={isRead ? 'mark_email_read' : 'mail'} className="text-sm" />
     </button>
   );
 }

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Magnetic from '@/components/ui/effects/Magnetic';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 46: Hero.tsx LCP ve render optimizasyonu:
  * - Mobilde video yüklenmesi kesin olarak engellenir, hafif optimize edilmiş WebP poster görseli sunulur.
@@ -145,7 +146,7 @@ export default function Hero() {
           {/* Status Badge */}
           <div className="mb-4 transition-all duration-700 ease-out transform-gpu">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full font-semibold text-xs text-white shadow-lg tracking-tight">
-              <span className="material-symbols-outlined text-sm text-emerald-400" aria-hidden="true">verified</span>
+              <Icon name="verified" className="text-sm text-emerald-400" />
               <span>{t('hero_badge')}</span>
             </div>
           </div>
@@ -168,7 +169,7 @@ export default function Hero() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-slate-950 font-bold text-xs sm:text-sm tracking-tight shadow-xl hover:bg-slate-100 transition-all group"
               >
                 <span>{t('hero_cta_primary')}</span>
-                <span className="material-symbols-outlined text-sm sm:text-base group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm sm:text-base group-hover:translate-x-1 transition-transform" />
               </Link>
             </Magnetic>
 
@@ -188,9 +189,7 @@ export default function Hero() {
                 aria-label={isMuted ? t('hero_sound_on') : t('hero_sound_off')}
                 className="hidden sm:flex w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all cursor-pointer shadow-lg"
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">
-                  {isMuted ? 'volume_off' : 'volume_up'}
-                </span>
+                <Icon name={isMuted ? 'volume_off' : 'volume_up'} className="text-lg" />
               </button>
             )}
           </div>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { faqPageSchema } from '@/lib/schemas/faq';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CareerFaqSeo() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
@@ -44,9 +45,7 @@ export default function CareerFaqSeo() {
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              quiz
-            </span>
+            <Icon name="quiz" className="text-sm" />
             <span>Mevzuat & Uygulama Detayları</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -79,7 +78,7 @@ export default function CareerFaqSeo() {
                       isOpen ? 'rotate-180' : ''
                     }`}
                   >
-                    <span className="material-symbols-outlined text-lg">expand_more</span>
+                    <Icon name="expand_more" className="text-lg" />
                   </div>
                 </button>
 

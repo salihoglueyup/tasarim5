@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface AcademicCitationBoxSeoProps {
   pageUrl?: string;
   pageTitle: string;
@@ -87,7 +88,7 @@ export default function AcademicCitationBoxSeo({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-            <span className="material-symbols-outlined text-[15px]" aria-hidden="true">format_quote</span>
+            <Icon name="format_quote" className="text-[15px]" />
             Akademik, Hukuki & AI Atıf Motoru (Citation Index)
           </div>
           <h3 className="text-base sm:text-xl font-extrabold text-[var(--color-primary)]">
@@ -127,9 +128,7 @@ export default function AcademicCitationBoxSeo({
           className="shrink-0 px-4 py-2 rounded-xl bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
           aria-label="Atfı Kopyala"
         >
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">
-            {copied ? 'check' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
           <span>{copied ? 'Kopyalandı!' : 'Atfı Kopyala'}</span>
         </button>
       </div>

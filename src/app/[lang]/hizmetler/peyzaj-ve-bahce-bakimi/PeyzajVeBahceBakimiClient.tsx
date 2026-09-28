@@ -18,6 +18,7 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import FacilityLandscapeTreeGuideSeo from '@/components/seo/facility/FacilityLandscapeTreeGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function PeyzajVeBahceBakimiClient() {
   const { t } = useLanguage();
 
@@ -119,7 +120,7 @@ export default function PeyzajVeBahceBakimiClient() {
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote') || 'Teklif Alın'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
           </motion.div>
@@ -149,7 +150,7 @@ export default function PeyzajVeBahceBakimiClient() {
           {landscapePoints.map((p, i) => (
             <Card key={i} variant="glow" className="p-10 flex flex-col gap-4">
               <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-300 flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">{p.icon}</span>
+                <Icon name={p.icon} className="text-2xl" />
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{p.title}</h3>
               <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{p.desc}</p>

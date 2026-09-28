@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FACILITY_SUB_SECTORS } from '@/lib/seo/facility/facilitySiloRankPasser';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug?: string }) {
   const POPULAR_DISTRICTS = [
     { name: 'Kadıköy', slug: 'kadikoy' },
@@ -21,7 +22,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">hub</span>
+            <Icon name="hub" className="text-[16px]" />
             Tesis & Mülk Yönetimi Sektörel Çözüm Ağı
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -34,17 +35,17 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
             href="/hizmetler/site-yonetimi"
             className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-[var(--color-primary)] hover:opacity-90 text-[var(--color-on-primary)] border border-transparent flex items-center gap-1.5 transition-all shadow-xs"
           >
-            <span className="material-symbols-outlined text-[14px]" aria-hidden="true">apartment</span>
+            <Icon name="apartment" className="text-[14px]" />
             <span>Site Yönetimi Hub&apos;ı</span>
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-xs" />
           </Link>
           <Link
             href="/hizmetler/tesis-yonetimi"
             className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] hover:bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center gap-1.5 transition-all"
           >
-            <span className="material-symbols-outlined text-[14px]" aria-hidden="true">domain</span>
+            <Icon name="domain" className="text-[14px]" />
             <span>Tesis Yönetimi Hub&apos;ı</span>
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-xs" />
           </Link>
         </div>
       </div>
@@ -65,7 +66,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
             >
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">{sub.icon}</span>
+                  <Icon name={sub.icon} className="text-xl" />
                 </div>
                 <h4 className="text-sm font-bold text-[var(--color-primary)] group-hover:opacity-85 transition-opacity line-clamp-2 mb-1.5">
                   {sub.name}
@@ -77,7 +78,7 @@ export default function FacilitySubSectorCrossNav({ currentSlug }: { currentSlug
 
               <div className="pt-3 mt-3 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-[11px] font-semibold text-[var(--color-primary)]">
                 <span>{isCurrent ? 'Aktif Sayfa' : 'İncele'}</span>
-                <span className="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-xs group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           );

@@ -3,6 +3,7 @@
 import React from 'react';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
+import Icon from '@/components/ui/branding/Icon';
 interface GesConversionCtaSeoProps {
   onOpenQuote?: () => void;
 }
@@ -19,7 +20,7 @@ export default function GesConversionCtaSeo({ onOpenQuote }: GesConversionCtaSeo
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-500/30">
-                <span className="material-symbols-outlined text-xs">solar_power</span>
+                <Icon name="solar_power" className="text-xs" />
                 <span>24 Saatte Hazır Teknik Rapor</span>
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
@@ -35,15 +36,15 @@ export default function GesConversionCtaSeo({ onOpenQuote }: GesConversionCtaSeo
               {/* 3 Guarantees */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-slate-300">
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-emerald-400">check_circle</span>
+                  <Icon name="check_circle" className="text-sm text-emerald-400" />
                   <span>%100 Ücretsiz Mühendislik Keşfi</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-emerald-400">check_circle</span>
+                  <Icon name="check_circle" className="text-sm text-emerald-400" />
                   <span>Bağlayıcılık veya Taahhüt Yok</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-emerald-400">check_circle</span>
+                  <Icon name="check_circle" className="text-sm text-emerald-400" />
                   <span>Genel Kurul Karar Metni Desteği</span>
                 </span>
               </div>
@@ -70,7 +71,7 @@ export default function GesConversionCtaSeo({ onOpenQuote }: GesConversionCtaSeo
                 rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/15 transition-all text-center flex items-center justify-center gap-2"
               >
-                <span className="material-symbols-outlined text-lg text-emerald-400">chat</span>
+                <Icon name="chat" className="text-lg text-emerald-400" />
                 <span>WhatsApp ile Konum Gönder</span>
               </a>
 
@@ -78,7 +79,7 @@ export default function GesConversionCtaSeo({ onOpenQuote }: GesConversionCtaSeo
                 href="tel:02165504848"
                 className="text-xs text-center text-slate-400 hover:text-white transition-colors flex items-center justify-center gap-1.5"
               >
-                <span className="material-symbols-outlined text-sm">call</span>
+                <Icon name="call" className="text-sm" />
                 <span>0216 550 48 48 Mühendislik Destek</span>
               </a>
             </div>

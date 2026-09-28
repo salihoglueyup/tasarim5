@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface InstantAnswerCardProps {
   question: string;
   shortAnswer: string;
@@ -84,7 +85,7 @@ export default function InstantAnswerCardSeo({
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
         <div className="flex items-center gap-2.5">
           <span className="px-3.5 py-1.5 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">stars</span>
+            <Icon name="stars" className="text-sm text-emerald-600 dark:text-emerald-400" />
             Google 0. Sıra Doğrudan Cevap
           </span>
           <span className="px-3 py-1 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] rounded-full text-xs font-medium">
@@ -97,9 +98,7 @@ export default function InstantAnswerCardSeo({
           className="px-3.5 py-1.5 bg-[var(--color-surface-variant)] hover:border-slate-400 border border-[var(--color-outline)] rounded-xl text-xs font-semibold text-[var(--color-primary)] flex items-center gap-1.5 transition-colors cursor-pointer"
           title="Cevabı ve mevzuat maddesini kopyala"
         >
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">
-            {copied ? 'check' : 'content_copy'}
-          </span>
+          <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
           <span>{copied ? 'Kopyalandı!' : 'Özeti Kopyala'}</span>
         </button>
       </div>
@@ -126,9 +125,7 @@ export default function InstantAnswerCardSeo({
           <ul className="space-y-2">
             {bulletPoints.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm text-[var(--color-secondary)]">
-                <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm mt-0.5 shrink-0" aria-hidden="true">
-                  check_circle
-                </span>
+                <Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-sm mt-0.5 shrink-0" />
                 <span>{item}</span>
               </li>
             ))}
@@ -139,11 +136,11 @@ export default function InstantAnswerCardSeo({
       {/* Trust Footer */}
       <div className="pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--color-secondary)] relative z-10">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400" aria-hidden="true">gavel</span>
+          <Icon name="gavel" className="text-sm text-emerald-600 dark:text-emerald-400" />
           <span>Mevzuat Dayanağı: <strong className="text-[var(--color-primary)]">{lawArticle}</strong></span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-[var(--color-tertiary)]" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-sm text-[var(--color-tertiary)]" />
           <span>Doğrulayan: <span className="text-[var(--color-primary)] font-medium">{verifiedBy}</span> ({lastUpdated})</span>
         </div>
       </div>

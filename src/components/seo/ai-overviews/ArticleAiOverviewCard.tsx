@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ArticleAiOverviewCardProps {
   title: string;
   tldr: string;
@@ -75,7 +76,7 @@ export default function ArticleAiOverviewCard({
       {/* Header Badges */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
-          <span className="material-symbols-outlined text-[15px] text-amber-500 dark:text-amber-400" aria-hidden="true">auto_awesome</span>
+          <Icon name="auto_awesome" className="text-[15px] text-amber-500 dark:text-amber-400" />
           <span>Google AI Overviews & TL;DR Doğrulanmış Özet</span>
         </div>
         <div className="flex items-center gap-2">
@@ -83,7 +84,7 @@ export default function ArticleAiOverviewCard({
             {category}
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 flex items-center gap-1">
-            <span className="material-symbols-outlined text-xs text-emerald-600 dark:text-emerald-400" aria-hidden="true">verified</span>
+            <Icon name="verified" className="text-xs text-emerald-600 dark:text-emerald-400" />
             Doğrulanmış Bilgi
           </span>
         </div>
@@ -106,20 +107,18 @@ export default function ArticleAiOverviewCard({
             title="Özeti Kopyala"
             aria-label="Doğrudan yanıtı panoya kopyala"
           >
-            <span className="material-symbols-outlined text-lg" aria-hidden="true">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-lg" />
           </button>
         </div>
 
         {/* Operational / Legal Pillars */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-slate-200/60 dark:border-white/10 text-xs text-slate-600 dark:text-slate-400">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-base shrink-0" />
             <span><strong>Uzman İncelemesi:</strong> {authorName}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base shrink-0" aria-hidden="true">check_circle</span>
+            <Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-base shrink-0" />
             <span><strong>Mevzuat Dayanağı:</strong> 634 KMK & Yargıtay HGK Emsalleri</span>
           </div>
         </div>
@@ -128,7 +127,7 @@ export default function ArticleAiOverviewCard({
       {/* AI Live Inquiries */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs relative z-10 pt-1">
         <span className="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
-          <span className="material-symbols-outlined text-base text-slate-400" aria-hidden="true">smart_toy</span>
+          <Icon name="smart_toy" className="text-base text-slate-400" />
           <span>Bu konuyu doğrudan yapay zekaya sorun:</span>
         </span>
         <div className="flex items-center gap-2">
@@ -138,7 +137,7 @@ export default function ArticleAiOverviewCard({
             rel="noopener noreferrer"
             className="px-3.5 py-1.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-1.5 shadow-xs"
           >
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
             ChatGPT
           </a>
           <a
@@ -147,7 +146,7 @@ export default function ArticleAiOverviewCard({
             rel="noopener noreferrer"
             className="px-3.5 py-1.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold transition-colors flex items-center gap-1.5 shadow-xs"
           >
-            <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
+            <Icon name="travel_explore" className="text-xs" />
             Perplexity
           </a>
         </div>

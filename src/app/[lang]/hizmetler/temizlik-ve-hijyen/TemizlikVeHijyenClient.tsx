@@ -20,6 +20,7 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import FacilityHygieneMsdsGuideSeo from '@/components/seo/facility/FacilityHygieneMsdsGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function TemizlikVeHijyenClient() {
   const { t } = useLanguage();
 
@@ -162,7 +163,7 @@ export default function TemizlikVeHijyenClient() {
             </p>
             <div className="flex gap-4 mt-8">
               <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
-                {t('btn_get_quote') || 'Teklif Alın'} <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
           </motion.div>
@@ -196,7 +197,7 @@ export default function TemizlikVeHijyenClient() {
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">cleaning_services</span>
+              <Icon name="cleaning_services" className="text-[18px] text-emerald-600 dark:text-emerald-400" />
               <span>Özet Rehber: Profesyonel Tesis Temizliği ve Hijyen Yönetimi Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -229,12 +230,12 @@ export default function TemizlikVeHijyenClient() {
               Temizlik operasyonlarımız;{' '}
               <a href="https://www.tse.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
                 TSE 13811 Hijyen ve Sanitasyon Yönetim Sistemi
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <a href="https://www.saglik.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
                 T.C. Sağlık Bakanlığı Biyosidal Ürün Ruhsat Standartları
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
               <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
@@ -307,7 +308,7 @@ export default function TemizlikVeHijyenClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">eco</span>
+                  <Icon name="eco" className="text-lg" />
                 </span>
                 <span>%100 TSE & Çevre Dostu Kimyasal</span>
               </div>
@@ -319,7 +320,7 @@ export default function TemizlikVeHijyenClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">precision_manufacturing</span>
+                  <Icon name="precision_manufacturing" className="text-lg" />
                 </span>
                 <span>Endüstriyel Makine Parkuru</span>
               </div>
@@ -331,7 +332,7 @@ export default function TemizlikVeHijyenClient() {
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified_user</span>
+                  <Icon name="verified_user" className="text-lg" />
                 </span>
                 <span>Sıfır İş Hukuku Riski</span>
               </div>
@@ -355,7 +356,7 @@ export default function TemizlikVeHijyenClient() {
             >
               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${c.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-bl-full`} />
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${c.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                <span className="material-symbols-outlined text-3xl" aria-hidden="true">{c.icon}</span>
+                <Icon name={c.icon} className="text-3xl" />
               </div>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">{c.title}</h3>
               <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">{c.desc}</p>
@@ -392,9 +393,7 @@ export default function TemizlikVeHijyenClient() {
                       : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                   }`}
                 >
-                  <span className={`material-symbols-outlined text-sm ${activeSeason.id === season.id ? season.color : ''}`}>
-                    {season.icon}
-                  </span>
+                  <Icon name={season.icon} className={`text-sm ${activeSeason.id === season.id ? season.color : ''}`} />
                   {season.season}
                 </button>
               ))}
@@ -413,7 +412,7 @@ export default function TemizlikVeHijyenClient() {
               >
                 <div className="flex items-center gap-3">
                   <span className={`w-12 h-12 rounded-full ${activeSeason.bg} ${activeSeason.color} flex items-center justify-center`}>
-                    <span className="material-symbols-outlined" aria-hidden="true">{activeSeason.icon}</span>
+                    <Icon name={activeSeason.icon} />
                   </span>
                   <h3 className="text-2xl font-bold text-[var(--color-primary)]">{activeSeason.season} {t('clean_matrix_period') || 'Uygulaması'}</h3>
                 </div>

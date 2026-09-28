@@ -8,6 +8,7 @@ import {
   SecurityPermitStep,
 } from '@/data/siteSecurityCommissionPermitData';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function SiteSecurityPermitGuideSeo() {
   const [activeTab, setActiveTab] = useState<'permit-steps' | 'employment-comparison'>('permit-steps');
 
@@ -42,7 +43,7 @@ export default function SiteSecurityPermitGuideSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">security</span>
+            <Icon name="security" className="text-sm" />
             <span>5188 Mevzuat & Valilik İzinleri</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -177,7 +178,7 @@ export default function SiteSecurityPermitGuideSeo() {
       {/* Footer Info */}
       <div className="mt-8 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-indigo-400" aria-hidden="true">verified_user</span>
+          <Icon name="verified_user" className="text-indigo-400" />
           <span>
             Alo Yönetim, Valilik Özel Güvenlik Komisyonu izin dosyasını ve fiziki keşif sürecini siteniz adına A'dan Z'ye ücretsiz yürütür.
           </span>
@@ -187,7 +188,7 @@ export default function SiteSecurityPermitGuideSeo() {
           className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition flex-shrink-0"
         >
           <span>5188 Güvenlik Keşfi İsteyin</span>
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+          <Icon name="arrow_forward" className="text-sm" />
         </a>
       </div>
     </section>

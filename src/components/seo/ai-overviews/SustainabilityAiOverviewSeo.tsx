@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function SustainabilityAiOverviewSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -60,7 +61,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 border border-emerald-600/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">eco</span>
+          <Icon name="eco" className="text-[15px]" />
           <span>Google AI Overviews & Yeşil Tesis Mevzuatı</span>
         </div>
         <div className="flex items-center gap-2">
@@ -75,9 +76,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl mt-0.5 shrink-0" aria-hidden="true">
-          energy_savings_leaf
-        </span>
+        <Icon name="energy_savings_leaf" className="text-emerald-600 dark:text-emerald-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -93,7 +92,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">solar_power</span>
+            <Icon name="solar_power" className="text-base" />
             <span className="text-xs font-bold">Çatı GES Kararı</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -103,7 +102,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">ev_station</span>
+            <Icon name="ev_station" className="text-base" />
             <span className="text-xs font-bold">EV Şarj Güvenliği</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -113,7 +112,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">recycling</span>
+            <Icon name="recycling" className="text-base" />
             <span className="text-xs font-bold">Sıfır Atık Altyapısı</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -123,7 +122,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400 mb-1.5">
-            <span className="material-symbols-outlined text-base">water_drop</span>
+            <Icon name="water_drop" className="text-base" />
             <span className="text-xs font-bold">Gri Su & Yağmur Hasadı</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
@@ -135,7 +134,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="material-symbols-outlined text-sm text-emerald-500">gavel</span>
+          <Icon name="gavel" className="text-sm text-emerald-500" />
           <span>KMK Madde 42 & Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Standartları</span>
         </div>
 
@@ -145,9 +144,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <span className="material-symbols-outlined text-sm text-primary">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
             <span>{copied ? 'Kopyalandı!' : 'Özeti Kopyala'}</span>
           </button>
 
@@ -158,7 +155,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>
       </div>

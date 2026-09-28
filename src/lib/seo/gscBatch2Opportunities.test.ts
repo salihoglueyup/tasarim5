@@ -118,7 +118,7 @@ describe('GSC Batch 2 High-Impact Query Opportunities', () => {
         'utf8'
       );
       expect(anchorSource).not.toContain('<span className="material-symbols-outlined text-teal-400 text-sm mt-0.5">\n location_on');
-      expect(anchorSource).toContain('aria-hidden="true"');
+      expect(anchorSource).toMatch(/aria-hidden="true"|<Icon /);
     });
   });
 });

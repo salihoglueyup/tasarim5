@@ -5,6 +5,7 @@ import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { useLanguage } from '@/context/LanguageContext';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface EcosystemService {
   id: string;
   title: string;
@@ -193,9 +194,7 @@ export default function FacilityEcosystemMatrixSeo({
         {/* Üst Başlık & Rozet */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-base text-emerald-600 dark:text-emerald-400" aria-hidden="true">
-              hub
-            </span>
+            <Icon name="hub" className="text-base text-emerald-600 dark:text-emerald-400" />
             <span>Tam Entegre Çözüm Ekosistemi</span>
           </div>
 
@@ -226,9 +225,7 @@ export default function FacilityEcosystemMatrixSeo({
                   {/* Kart Üst Bilgisi: İkon, Tag & Standart Rozeti */}
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${styles.icon} group-hover:scale-110 transition-transform`}>
-                      <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                        {srv.icon}
-                      </span>
+                      <Icon name={srv.icon} className="text-2xl" />
                     </div>
                     <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border ${styles.badge}`}>
                       {srv.badge}
@@ -258,9 +255,7 @@ export default function FacilityEcosystemMatrixSeo({
                   </span>
                   <span className="text-xs font-bold text-[var(--color-primary)] group-hover:opacity-80 inline-flex items-center gap-1 transition-transform group-hover:translate-x-0.5 shrink-0">
                     <span>Disiplin Kapsamı</span>
-                    <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                      arrow_forward
-                    </span>
+                    <Icon name="arrow_forward" className="text-sm" />
                   </span>
                 </div>
               </Link>
@@ -271,9 +266,7 @@ export default function FacilityEcosystemMatrixSeo({
         {/* Alt Bilgi Bandı: Kurumsal SLA & Entegrasyon */}
         <div className="mt-10 p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-lg" aria-hidden="true">
-              verified
-            </span>
+            <Icon name="verified" className="text-emerald-600 dark:text-emerald-400 text-lg" />
             <span className="font-semibold text-[var(--color-primary)]">
               Tüm hizmetler tek sözleşme, tek fatura ve tek SLA garantisi altında birleştirilir.
             </span>
@@ -283,9 +276,7 @@ export default function FacilityEcosystemMatrixSeo({
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold text-xs transition-all shrink-0"
           >
             <span>Entegre Teklif Al</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              arrow_forward
-            </span>
+            <Icon name="arrow_forward" className="text-sm" />
           </Link>
         </div>
       </section>

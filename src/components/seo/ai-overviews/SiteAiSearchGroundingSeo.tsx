@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface AiPromptSpec {
   id: string;
   topic: string;
@@ -81,7 +82,7 @@ export default function SiteAiSearchGroundingSeo() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 dark:border-blue-400/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">psychology</span>
+            <Icon name="psychology" className="text-[16px]" />
             SearchGPT, Perplexity & Claude Doğrulanmış AI Kaynağı
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -129,7 +130,7 @@ export default function SiteAiSearchGroundingSeo() {
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs font-extrabold uppercase tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">chat_paste_go</span>
+                <Icon name="chat_paste_go" className="text-sm" />
                 Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
               </span>
               <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)]">
@@ -143,9 +144,7 @@ export default function SiteAiSearchGroundingSeo() {
                 className="shrink-0 px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 text-xs font-bold transition-colors flex items-center gap-1"
                 aria-label="Promptu kopyala"
               >
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                  {copiedId === selectedPrompt.id ? 'check' : 'content_copy'}
-                </span>
+                <Icon name={copiedId === selectedPrompt.id ? 'check' : 'content_copy'} className="text-sm" />
                 <span>{copiedId === selectedPrompt.id ? 'Kopyalandı!' : 'Kopyala'}</span>
               </button>
             </div>
@@ -155,7 +154,7 @@ export default function SiteAiSearchGroundingSeo() {
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-sm" />
                 Yapay Zekanın Doğrulanmış Resmî Yanıtı (Ground-Truth Answer)
               </span>
               <span className="text-xs font-mono font-semibold text-[var(--color-secondary)]">
@@ -179,7 +178,7 @@ export default function SiteAiSearchGroundingSeo() {
                 rel="noopener noreferrer"
                 className="px-3.5 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
               >
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-xs" />
                 ChatGPT ile Sor
               </a>
               <a
@@ -188,7 +187,7 @@ export default function SiteAiSearchGroundingSeo() {
                 rel="noopener noreferrer"
                 className="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
               >
-                <span className="material-symbols-outlined text-xs" aria-hidden="true">travel_explore</span>
+                <Icon name="travel_explore" className="text-xs" />
                 Perplexity ile Ara
               </a>
             </div>

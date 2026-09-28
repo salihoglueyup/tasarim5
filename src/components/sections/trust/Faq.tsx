@@ -7,6 +7,7 @@ import { faqPageSchema } from '@/lib/schemas';
 import { Search, X, MessageCircle, HelpCircle, Check, Copy, Sparkles } from 'lucide-react';
 import { waLink } from '@/lib/cro';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface FaqItem {
   question?: string;
   answer?: string;
@@ -282,9 +283,7 @@ export default function Faq({
                         isActive ? 'rotate-45' : ''
                       }`}
                     >
-                      <span className="material-symbols-outlined text-[var(--color-primary)] text-xl" aria-hidden="true">
-                        add
-                      </span>
+                      <Icon name="add" className="text-[var(--color-primary)] text-xl" />
                     </div>
                   </button>
 

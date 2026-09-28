@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 14: Footer Bülten Formu Lazy Load
  * Bülten formu ve bağlı olduğu lead submission/validasyon mantığı
@@ -52,7 +53,7 @@ export default function NewsletterForm() {
           className="absolute right-1 top-1 bottom-1 w-9 h-9 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-60 cursor-pointer"
           aria-label="Kayıt Ol"
         >
-          <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">send</span>
+          <Icon name="send" className="text-sm font-bold" />
         </button>
       </div>
       {isSubscribed && (

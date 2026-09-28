@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import CalculatorLeadForm from './CalculatorLeadForm';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 40: LegalCalculator form elemanlarının ve sonuç gösteriminin sadeleştirilmesi,
  * Framer Motion bağımlılığının kaldırılarak saf donanım hızlandırmalı CSS transition'a geçirilmesi.
@@ -53,7 +54,7 @@ export default function LegalCalculator() {
             </div>
             
             <div className="flex items-center gap-4 bg-slate-50 dark:bg-zinc-900 p-4 rounded-2xl border border-gray-200 dark:border-zinc-800">
-               <span className="material-symbols-outlined text-slate-500 text-3xl" aria-hidden="true">balance</span>
+               <Icon name="balance" className="text-slate-500 text-3xl" />
                <div>
                  <p className="text-xs text-gray-500">{t('calc_legal_cost')}</p>
                  <p className="text-sm font-bold text-slate-800 dark:text-white">{t('calc_legal_zero_cost')}</p>

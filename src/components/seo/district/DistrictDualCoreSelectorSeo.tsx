@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getDistrictDualCore } from '@/lib/seo/facility/districtDualCoreMatrix';
 
+import Icon from '@/components/ui/branding/Icon';
 interface DistrictDualCoreSelectorSeoProps {
   districtSlug: string;
   districtName: string;
@@ -44,7 +45,7 @@ export default function DistrictDualCoreSelectorSeo({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--color-outline)]/60 pb-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">hub</span>
+            <Icon name="hub" className="text-sm" />
             <span>Çift Çekirdekli (Dual-Core) Yönetim Mimarisi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -81,7 +82,7 @@ export default function DistrictDualCoreSelectorSeo({
 
           <div>
             <div className="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-5">
-              <span className="material-symbols-outlined text-2xl" aria-hidden="true">apartment</span>
+              <Icon name="apartment" className="text-2xl" />
             </div>
 
             <h3 className="text-xl sm:text-2xl font-black text-[var(--color-primary)] mb-2">
@@ -121,9 +122,7 @@ export default function DistrictDualCoreSelectorSeo({
                       key={idx}
                       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-[11px] font-medium text-slate-700 dark:text-slate-300"
                     >
-                      <span className="material-symbols-outlined text-[13px] text-brand-500" aria-hidden="true">
-                        check_circle
-                      </span>
+                      <Icon name="check_circle" className="text-[13px] text-brand-500" />
                       {issue}
                     </span>
                   ))}
@@ -139,7 +138,7 @@ export default function DistrictDualCoreSelectorSeo({
               className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-md transition-all text-center"
             >
               <span>Site Yönetimi Hizmet Kapsamı</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
             <Link
               href="/teklif-al"
@@ -158,7 +157,7 @@ export default function DistrictDualCoreSelectorSeo({
 
           <div>
             <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-5">
-              <span className="material-symbols-outlined text-2xl" aria-hidden="true">corporate_fare</span>
+              <Icon name="corporate_fare" className="text-2xl" />
             </div>
 
             <h3 className="text-xl sm:text-2xl font-black text-[var(--color-primary)] mb-2">
@@ -198,9 +197,7 @@ export default function DistrictDualCoreSelectorSeo({
                       key={idx}
                       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-[11px] font-medium text-slate-700 dark:text-slate-300"
                     >
-                      <span className="material-symbols-outlined text-[13px] text-indigo-500" aria-hidden="true">
-                        verified
-                      </span>
+                      <Icon name="verified" className="text-[13px] text-indigo-500" />
                       {srv}
                     </span>
                   ))}
@@ -216,7 +213,7 @@ export default function DistrictDualCoreSelectorSeo({
               className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md transition-all text-center"
             >
               <span>{districtName} Tesis Yönetimi Detayları</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
             <Link
               href="/teklif-al"

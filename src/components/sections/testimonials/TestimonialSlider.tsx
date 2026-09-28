@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function TestimonialSlider({
   dbReferences
 }: {
@@ -150,7 +151,7 @@ export default function TestimonialSlider({
             className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
             aria-label={t('tsl_prev')}
           >
-            <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+            <Icon name="arrow_back" />
           </button>
           <span className="text-sm font-bold text-[var(--color-secondary)] px-2">
             {currentIndex + 1} / {testimonials.length}
@@ -160,7 +161,7 @@ export default function TestimonialSlider({
             className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
             aria-label={t('tsl_next')}
           >
-            <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            <Icon name="arrow_forward" />
           </button>
         </div>
       </div>
@@ -174,7 +175,7 @@ export default function TestimonialSlider({
         <div className="lg:col-span-8 flex flex-col gap-8">
           <div className="flex items-center gap-1 text-amber-500">
             {[...Array(current.rating)].map((_, i) => (
-              <span key={i} className="material-symbols-outlined text-2xl fill-current">star</span>
+              <Icon name="star" className="text-2xl fill-current" key={i} />
             ))}
           </div>
 
@@ -202,7 +203,7 @@ export default function TestimonialSlider({
 
         <div className="lg:col-span-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-8 rounded-[2rem] flex flex-col gap-4 shadow-xs">
           <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
-            <span className="material-symbols-outlined" aria-hidden="true">verified</span>
+            <Icon name="verified" />
             {t('home_testimonial_verified')}
           </div>
           <div className="text-xs text-[var(--color-secondary)] leading-relaxed">

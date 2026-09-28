@@ -7,6 +7,7 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 
+import Icon from '@/components/ui/branding/Icon';
 const CERTIFICATES = [
   {
     icon: 'eco',
@@ -119,7 +120,7 @@ export default function SurdurulebilirlikClient() {
 
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
                 <div className="w-20 h-20 rounded-3xl bg-white/15 flex items-center justify-center shrink-0 shadow-lg">
-                  <span className="material-symbols-outlined text-4xl text-white" aria-hidden="true">solar_power</span>
+                  <Icon name="solar_power" className="text-4xl text-white" />
                 </div>
                 <div className="flex-1">
                   <span className="text-xs font-bold tracking-widest uppercase text-emerald-200 mb-2 block">
@@ -133,7 +134,7 @@ export default function SurdurulebilirlikClient() {
                 <div className="shrink-0">
                   <span className="inline-flex items-center gap-2 bg-white text-emerald-800 font-bold px-6 py-3 rounded-xl text-sm shadow-lg transition-transform group-hover:translate-x-1">
                     {t('sust_hub_ges_btn')}
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-base" />
                   </span>
                 </div>
               </div>
@@ -172,7 +173,7 @@ export default function SurdurulebilirlikClient() {
                 <div
                   className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-md`}
                 >
-                  <span className="material-symbols-outlined text-white text-2xl" aria-hidden="true">{cert.icon}</span>
+                  <Icon name={cert.icon} className="text-white text-2xl" />
                 </div>
                 <div>
                   <p className={`text-[10px] font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r ${cert.color} mb-1`}>
@@ -183,7 +184,7 @@ export default function SurdurulebilirlikClient() {
                   </p>
                 </div>
                 <span className="text-[11px] text-slate-400 flex items-center gap-1 mt-auto">
-                  <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
+                  <Icon name="open_in_new" className="text-sm" />
                   Belgeyi Gör
                 </span>
               </motion.a>
@@ -196,7 +197,7 @@ export default function SurdurulebilirlikClient() {
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
             >
               {t('sust_hub_certs_link')}
-              <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-base" />
             </Link>
           </div>
         </div>

@@ -29,6 +29,7 @@ import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
 import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
 import { redis, CACHE_TTL } from '@/lib/redis';
 
+import Icon from '@/components/ui/branding/Icon';
 export const dynamicParams = true;
 export const revalidate = 86400; // 24 saat ISR (Faz 15)
 
@@ -440,7 +441,7 @@ export default async function BlogDetail({
               <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-3 mb-4 pb-3.5 border-b border-[var(--color-outline)]/60 dark:border-white/10">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                    <span className="material-symbols-outlined text-amber-500 text-base" aria-hidden="true">analytics</span>
+                    <Icon name="analytics" className="text-amber-500 text-base" />
                     <span>Önemli Sayısal & Yasal Metrikler</span>
                   </div>
                   <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium">Google AI Grounding</span>
@@ -512,7 +513,7 @@ export default async function BlogDetail({
 
           {/* Faz 206: Hukuki & Teknik İnceleme Yapan Uzman (Reviewed By) E-E-A-T Künyesi */}
           <div className="flex items-center gap-3.5 p-5 rounded-3xl bg-emerald-500/5 dark:bg-emerald-950/20 border border-emerald-500/20 text-xs text-slate-700 dark:text-slate-300 shadow-2xs">
-            <span className="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl shrink-0" aria-hidden="true">verified_user</span>
+            <Icon name="verified_user" className="text-emerald-600 dark:text-emerald-400 text-xl shrink-0" />
             <div>
               <span className="font-bold text-slate-900 dark:text-white">Mevzuat & Hukuki Uyumluluk Denetimi: </span>
               Bu içerik 634 sayılı Kat Mülkiyeti Kanunu, 5188 sayılı Özel Güvenlik Kanunu ve ISO 41001 Tesis Yönetim Standartları uyarınca <strong>Alo Yönetim Hukuk & Operasyon Denetim Kurulu</strong> tarafından teknik ve hukuki incelemeden geçirilmiştir.
@@ -544,7 +545,7 @@ export default async function BlogDetail({
               {prevPost ? (
                 <Link href={`/blog/${prevPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-start text-left">
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform" aria-hidden="true">arrow_back</span>
+                    <Icon name="arrow_back" className="text-[16px] group-hover:-translate-x-1 transition-transform" />
                     Önceki Yazı
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{prevPost.title}</span>
@@ -555,7 +556,7 @@ export default async function BlogDetail({
                 <Link href={`/blog/${nextPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-end text-right">
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
                     Sonraki Yazı
-                    <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-[16px] group-hover:translate-x-1 transition-transform" />
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{nextPost.title}</span>
                 </Link>
@@ -584,7 +585,7 @@ export default async function BlogDetail({
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="relative z-10 flex flex-col gap-4">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold w-fit">
-                <span className="material-symbols-outlined text-[15px]" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-[15px]" />
                 Hızlı Fiyat & Bütçe
               </span>
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white leading-snug">
@@ -599,7 +600,7 @@ export default async function BlogDetail({
                   className="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-sm text-center shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                 >
                   <span>10 Dakikada Teklif Al</span>
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-base" />
                 </Link>
                 <a
                   href="https://wa.me/902165504848?text=Merhaba%2C%20blog%20yaz%C4%B1n%C4%B1z%20%C3%BCzerinden%20tesis%20y%C3%B6netimi%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
@@ -607,7 +608,7 @@ export default async function BlogDetail({
                   rel="noopener noreferrer"
                   className="w-full py-3 px-5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-500/15 dark:hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 font-semibold text-xs text-center transition-colors flex items-center justify-center gap-2"
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
+                  <Icon name="chat" className="text-base" />
                   <span>WhatsApp Destek Hattı</span>
                 </a>
               </div>
@@ -619,7 +620,7 @@ export default async function BlogDetail({
             <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-11 h-11 rounded-2xl bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0 shadow-2xs">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">calculate</span>
+                <Icon name="calculate" className="text-2xl" />
               </div>
               <div>
                 <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">KMK Aidat Hesaplayıcı</h4>
@@ -631,7 +632,7 @@ export default async function BlogDetail({
               className="relative z-10 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 text-white font-bold text-xs flex items-center justify-between transition-all shadow-xs group-hover:shadow-md"
             >
               <span>Hesaplayıcıyı Başlat</span>
-              <span className="material-symbols-outlined text-base transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-base transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
@@ -652,7 +653,7 @@ export default async function BlogDetail({
               aria-label="Telefonla ara"
               title="Doğrudan Ara: 0216 550 48 48"
             >
-              <span className="material-symbols-outlined text-xl" aria-hidden="true">call</span>
+              <Icon name="call" className="text-xl" />
             </a>
           </div>
         </aside>

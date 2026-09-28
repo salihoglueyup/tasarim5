@@ -3,6 +3,7 @@
 import React from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
+import Icon from '@/components/ui/branding/Icon';
 interface ComparisonRow {
   criteria: string;
   individualWatchman: {
@@ -112,7 +113,7 @@ export default function SecurityComparisonTableSeo() {
         {/* Header Badge & Title */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">balance</span>
+            <Icon name="balance" className="text-sm" />
             <span>Yönetim Kurulu Karar Rehberi</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight">
@@ -149,7 +150,7 @@ export default function SecurityComparisonTableSeo() {
                       {row.criteria}
                     </div>
                     <div className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-1.5 bg-slate-100 dark:bg-white/5 px-2.5 py-0.5 rounded-md">
-                      <span className="material-symbols-outlined text-xs" aria-hidden="true">gavel</span>
+                      <Icon name="gavel" className="text-xs" />
                       <span>{row.lawReference}</span>
                     </div>
                   </td>
@@ -157,9 +158,7 @@ export default function SecurityComparisonTableSeo() {
                   {/* Individual Watchman Column */}
                   <td className="py-5 px-4 md:px-6 align-top bg-rose-500/5">
                     <div className="flex items-start gap-2.5">
-                      <span className="material-symbols-outlined text-rose-500 text-lg shrink-0 mt-0.5" aria-hidden="true">
-                        {row.individualWatchman.status === 'negative' ? 'cancel' : 'error'}
-                      </span>
+                      <Icon name={row.individualWatchman.status === 'negative' ? 'cancel' : 'error'} className="text-rose-500 text-lg shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                         {row.individualWatchman.text}
                       </span>
@@ -169,9 +168,7 @@ export default function SecurityComparisonTableSeo() {
                   {/* 5188 Licensed Company Column */}
                   <td className="py-5 px-4 md:px-6 align-top bg-emerald-500/5">
                     <div className="flex items-start gap-2.5">
-                      <span className="material-symbols-outlined text-emerald-500 text-lg shrink-0 mt-0.5" aria-hidden="true">
-                        check_circle
-                      </span>
+                      <Icon name="check_circle" className="text-emerald-500 text-lg shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
                         {row.licensed5188Company.text}
                       </span>
@@ -187,7 +184,7 @@ export default function SecurityComparisonTableSeo() {
         {/* Summary Footer Note */}
         <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-slate-400 text-base" aria-hidden="true">verified</span>
+            <Icon name="verified" className="text-slate-400 text-base" />
             <span>Tüm güvenlik sözleşmelerimiz T.C. İçişleri Bakanlığı EGM ve Valilik onaylı yasal şablonlara dayanır.</span>
           </div>
           <span className="font-semibold text-[var(--color-primary)]">

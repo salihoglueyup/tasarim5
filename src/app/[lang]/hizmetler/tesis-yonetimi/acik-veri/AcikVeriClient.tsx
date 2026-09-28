@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
 import { BASE_URL } from '@/lib/seo';
 
+import Icon from '@/components/ui/branding/Icon';
 interface ApiEndpointInfo {
   id: string;
   name: string;
@@ -355,7 +356,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           {/* Badges */}
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
-              <span className="material-symbols-outlined text-[15px]" aria-hidden="true">api</span>
+              <Icon name="api" className="text-[15px]" />
               OpenAPI 3.1.0 & GeoJSON
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
@@ -363,7 +364,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
               8 Açık Kamu API & Harita Servisi Canlı
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">
-              <span className="material-symbols-outlined text-[15px]" aria-hidden="true">lock_open</span>
+              <Icon name="lock_open" className="text-[15px]" />
               Sıfır Auth • Açık Lisans (ODC-BY)
             </span>
           </div>
@@ -384,16 +385,16 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-md group"
             >
-              <span className="material-symbols-outlined text-lg" aria-hidden="true">code</span>
+              <Icon name="code" className="text-lg" />
               <span>OpenAPI 3.1.0 Spesifikasyonunu Aç</span>
-              <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform" aria-hidden="true">open_in_new</span>
+              <Icon name="open_in_new" className="text-sm group-hover:translate-x-0.5 transition-transform" />
             </a>
 
             <Link
               href="/hizmetler/tesis-yonetimi/rehber"
               className="inline-flex items-center gap-2 bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 dark:hover:bg-white/15 transition-all border border-slate-200 dark:border-white/10"
             >
-              <span className="material-symbols-outlined text-lg" aria-hidden="true">menu_book</span>
+              <Icon name="menu_book" className="text-lg" />
               <span>Tesis Yönetim Şirketi Seçim Rehberi</span>
             </Link>
           </div>
@@ -408,7 +409,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
             
             <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">visibility</span>
+                <Icon name="visibility" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
                 Şeffaf Yönetim & KMK 41 Denetimi
@@ -420,7 +421,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
 
             <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">smart_toy</span>
+                <Icon name="smart_toy" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
                 Yapay Zeka (AI Agent) & LLM Uyumluluğu
@@ -432,7 +433,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
 
             <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5">
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">verified_user</span>
+                <Icon name="verified_user" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
                 ISO 41001 & Açık Kamu Lisansı
@@ -478,7 +479,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-white/5">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 text-amber-500 flex items-center justify-center shrink-0">
-                        <span className="material-symbols-outlined text-2xl" aria-hidden="true">{endpoint.icon}</span>
+                        <Icon name={endpoint.icon} className="text-2xl" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2.5 mb-1 flex-wrap">
@@ -502,9 +503,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 transition-colors"
                         title="cURL Komutunu Kopyala"
                       >
-                        <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                          {isCopied ? 'check' : 'content_copy'}
-                        </span>
+                        <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
                         <span>{isCopied ? 'Kopyalandı!' : 'cURL Kopyala'}</span>
                       </button>
 
@@ -515,7 +514,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/20 transition-colors"
                       >
                         <span>JSON Aç</span>
-                        <span className="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
+                        <Icon name="open_in_new" className="text-sm" />
                       </a>
                     </div>
                   </div>
@@ -534,7 +533,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                       className="text-slate-400 hover:text-white transition-colors"
                       aria-label="Kopyala"
                     >
-                      <span className="material-symbols-outlined text-sm" aria-hidden="true">content_copy</span>
+                      <Icon name="content_copy" className="text-sm" />
                     </button>
                   </div>
 
@@ -554,9 +553,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                       className="inline-flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-amber-500 transition-colors shrink-0"
                     >
                       <span>{isJsonExpanded ? 'Örneği Gizle' : 'Örnek JSON Göster'}</span>
-                      <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                        {isJsonExpanded ? 'expand_less' : 'expand_more'}
-                      </span>
+                      <Icon name={isJsonExpanded ? 'expand_less' : 'expand_more'} className="text-sm" />
                     </button>
                   </div>
 
@@ -569,7 +566,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                           onClick={() => handleCopy(endpoint.sampleJson, `json-${endpoint.id}`)}
                           className="hover:text-white transition-colors flex items-center gap-1"
                         >
-                          <span className="material-symbols-outlined text-xs" aria-hidden="true">content_copy</span>
+                          <Icon name="content_copy" className="text-xs" />
                           <span>{copiedEndpoint === `json-${endpoint.id}` ? 'Kopyalandı' : 'JSON Kopyala'}</span>
                         </button>
                       </div>
@@ -596,7 +593,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
       <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-950 text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-[var(--spacing-gutter)] text-center relative z-10">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-amber-400 text-xs font-bold uppercase tracking-wider mb-6">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">shield</span>
+            <Icon name="shield" className="text-sm" />
             5188 Lisanslı & ISO 45001 Belgeli Yönetim
           </span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-6">

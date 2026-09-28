@@ -6,6 +6,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { definedTermSetSchema } from '@/lib/schemas';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface TermItem {
   term: string;
   definition: string;
@@ -210,7 +211,7 @@ export default function DefinedTermSetSeo({
         {!hideHeader && (
           <div className="flex flex-col gap-4 text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold w-fit mx-auto border border-blue-500/20">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">menu_book</span>
+              <Icon name="menu_book" className="text-sm" />
               <span>Resmi Kat Mülkiyeti & Tesis Sözlüğü ({terms.length} Terim)</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)]">{name}</h2>
@@ -225,7 +226,7 @@ export default function DefinedTermSetSeo({
           
           {/* Canlı Arama Girişi */}
           <div className="relative">
-            <span className="material-symbols-outlined absolute left-4.5 top-1/2 -translate-y-1/2 text-[var(--color-secondary)] text-xl pointer-events-none" aria-hidden="true">search</span>
+            <Icon name="search" className="absolute left-4.5 top-1/2 -translate-y-1/2 text-[var(--color-secondary)] text-xl pointer-events-none" />
             <input 
               id="dictionary-search-input"
               name="q"
@@ -242,7 +243,7 @@ export default function DefinedTermSetSeo({
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-1.5 text-[var(--color-secondary)] hover:text-[var(--color-primary)] rounded-lg hover:bg-[var(--color-surface-variant)] transition-colors cursor-pointer"
                 title="Aramayı Temizle"
               >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">close</span>
+                <Icon name="close" className="text-base" />
               </button>
             )}
           </div>
@@ -250,7 +251,7 @@ export default function DefinedTermSetSeo({
           {/* Popüler Terim Hızlı Filtreleri (Quick Chips) */}
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
             <span className="text-xs font-bold text-[var(--color-secondary)] mr-1 flex items-center gap-1">
-              <span className="material-symbols-outlined text-[14px]" aria-hidden="true">trending_up</span>
+              <Icon name="trending_up" className="text-[14px]" />
               <span>Popüler:</span>
             </span>
             {POPULAR_QUICK_CHIPS.map((chip) => (
@@ -272,7 +273,7 @@ export default function DefinedTermSetSeo({
           {/* Kategori Filtre Butonları */}
           <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-[var(--color-outline)]/40">
             <span className="text-xs font-bold text-[var(--color-secondary)] mr-1 flex items-center gap-1">
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">filter_list</span>
+              <Icon name="filter_list" className="text-sm" />
               <span>Kategori:</span>
             </span>
             {CATEGORIES.map((cat) => {
@@ -290,7 +291,7 @@ export default function DefinedTermSetSeo({
                       : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:text-[var(--color-primary)] hover:bg-[var(--color-surface)]'
                   }`}
                 >
-                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">{cat.icon}</span>
+                  <Icon name={cat.icon} className="text-[14px]" />
                   <span>{cat.label}</span>
                   <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${
                     isActive ? 'bg-white/20 text-white' : 'bg-black/5 dark:bg-white/10 text-[var(--color-secondary)]'
@@ -345,7 +346,7 @@ export default function DefinedTermSetSeo({
               onClick={() => { setSearchTerm(''); setActiveLetter('TÜMÜ'); setActiveCategory('all'); }}
               className="text-[var(--color-primary)] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
             >
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">restart_alt</span>
+              <Icon name="restart_alt" className="text-sm" />
               <span>Filtreleri Temizle</span>
             </button>
           )}
@@ -377,7 +378,7 @@ export default function DefinedTermSetSeo({
                     {/* Kategori Rozeti & Kopyala Butonu */}
                     <div className="flex items-center justify-between gap-2">
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-extrabold border ${cat.badgeClass}`}>
-                        <span className="material-symbols-outlined text-[13px]" aria-hidden="true">{cat.icon}</span>
+                        <Icon name={cat.icon} className="text-[13px]" />
                         <span>{cat.label}</span>
                       </span>
 
@@ -388,9 +389,7 @@ export default function DefinedTermSetSeo({
                         title="Tanımı Kopyala"
                         aria-label={`${t.term} tanımını kopyala`}
                       >
-                        <span className="material-symbols-outlined text-sm" aria-hidden="true">
-                          {copiedTerm === t.term ? 'check' : 'content_copy'}
-                        </span>
+                        <Icon name={copiedTerm === t.term ? 'check' : 'content_copy'} className="text-sm" />
                       </button>
                     </div>
 
@@ -416,7 +415,7 @@ export default function DefinedTermSetSeo({
                         className="inline-flex items-center gap-1 text-[11px] font-semibold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-[var(--color-surface)] px-2.5 py-1 rounded-lg transition-colors border border-[var(--color-outline)]/60"
                       >
                         <span>{t.link.label}</span>
-                        <span className="material-symbols-outlined text-[12px]" aria-hidden="true">north_east</span>
+                        <Icon name="north_east" className="text-[12px]" />
                       </Link>
                     ) : (
                       <span className="text-[11px] text-[var(--color-secondary)] font-mono">KMK 634 & Standartlar</span>
@@ -427,7 +426,7 @@ export default function DefinedTermSetSeo({
                       className="font-bold text-[var(--color-primary)] hover:opacity-80 flex items-center gap-1 group/link transition-opacity text-[11.5px]"
                     >
                       <span>İncele</span>
-                      <span className="material-symbols-outlined text-[14px] group-hover/link:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-[14px] group-hover/link:translate-x-0.5 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>
@@ -436,7 +435,7 @@ export default function DefinedTermSetSeo({
 
             {filteredTerms.length === 0 && (
               <div className="col-span-full py-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/40 rounded-3xl text-center text-[var(--color-secondary)] font-light space-y-3">
-                <span className="material-symbols-outlined text-4xl text-slate-400" aria-hidden="true">search_off</span>
+                <Icon name="search_off" className="text-4xl text-slate-400" />
                 <p className="text-base font-semibold text-slate-700 dark:text-slate-300">
                   Aradığınız kriterlere uygun terim bulunamadı.
                 </p>

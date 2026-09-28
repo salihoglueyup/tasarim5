@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
+import Icon from '@/components/ui/branding/Icon';
 interface GesRoiCalculatorSeoProps {
   onOpenQuote?: () => void;
 }
@@ -35,9 +36,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              calculate
-            </span>
+            <Icon name="calculate" className="text-sm" />
             <span>2026 Elektrik Tarifeleri ve Güneş Radyasyon Modeli</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -57,7 +56,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex justify-between items-center mb-2">
                 <label className="text-xs font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-amber-500">apartment</span>
+                  <Icon name="apartment" className="text-base text-amber-500" />
                   <span>Sitedeki Toplam Daire Sayısı</span>
                 </label>
                 <span className="text-base font-extrabold text-amber-600 dark:text-amber-400">
@@ -84,7 +83,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex justify-between items-center mb-2">
                 <label className="text-xs font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-amber-500">receipt_long</span>
+                  <Icon name="receipt_long" className="text-base text-amber-500" />
                   <span>Aylık Ortak Elektrik Faturası (Ortalama)</span>
                 </label>
                 <span className="text-base font-extrabold text-amber-600 dark:text-amber-400">
@@ -188,7 +187,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
                   ₺{estimatedSavingsYearly.toLocaleString('tr-TR')}
                 </div>
                 <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
-                  <span className="material-symbols-outlined text-sm">arrow_downward</span>
+                  <Icon name="arrow_downward" className="text-sm" />
                   <span>Daire Başına Aylık ~₺{perUnitMonthlySavings.toLocaleString('tr-TR')} Aidat İndirimi</span>
                 </div>
               </div>

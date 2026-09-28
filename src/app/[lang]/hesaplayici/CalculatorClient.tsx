@@ -13,6 +13,7 @@ import FacilityAuditReportModal from '@/components/modals/FacilityAuditReportMod
 
 import { calculateDuesLocalized, CalcConfig } from '@/lib/hesaplayici';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function CalculatorClient({ initialConfig }: { initialConfig: CalcConfig }) {
   const { t, language } = useLanguage();
   const [units, setUnits] = useState<number>(45);
@@ -57,7 +58,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[18px] text-emerald-600 dark:text-emerald-400" aria-hidden="true">calculate</span>
+              <Icon name="calculate" className="text-[18px] text-emerald-600 dark:text-emerald-400" />
               <span>Özet Rehber: Profesyonel Tesis & Site Aidat Bütçesi Nasıl Hesaplanır?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -98,7 +99,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               ,{' '}
               <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
                 2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
-                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                <Icon name="open_in_new" className="text-[14px]" />
               </a>
               {' '}ve ISO 41001 Entegre Tesis Maliyet Yönetimi standartlarına tam uyumlu olarak yapılandırılmıştır.
             </p>
@@ -175,7 +176,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">trending_down</span>
+                  <Icon name="trending_down" className="text-lg" />
                 </span>
                 <span>%30 Net Bütçe Tasarrufu</span>
               </div>
@@ -187,7 +188,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
+                  <Icon name="verified" className="text-lg" />
                 </span>
                 <span>%100 KMK 37 Uyumlu Bilanço</span>
               </div>
@@ -199,7 +200,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-lg" aria-hidden="true">smartphone</span>
+                  <Icon name="smartphone" className="text-lg" />
                 </span>
                 <span>7/24 Canlı Mobil Takip</span>
               </div>
@@ -216,7 +217,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           <div className="lg:col-span-7 bg-[var(--color-surface)] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/50 shadow-sm flex flex-col gap-10">
             
             <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center gap-3">
-              <span className="material-symbols-outlined text-[var(--color-primary)] text-3xl" aria-hidden="true">tune</span>
+              <Icon name="tune" className="text-[var(--color-primary)] text-3xl" />
               {t('calc_params_title')}
             </h2>
 
@@ -279,7 +280,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               
               <div className="flex items-center justify-between p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-[var(--color-primary)]" aria-hidden="true">shield</span>
+                  <Icon name="shield" className="text-2xl text-[var(--color-primary)]" />
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_sec')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_sec_desc')}</div>
@@ -295,7 +296,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
               <div className="flex items-center justify-between p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-[var(--color-primary)]" aria-hidden="true">pool</span>
+                  <Icon name="pool" className="text-2xl text-[var(--color-primary)]" />
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_pool')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_pool_desc')}</div>
@@ -311,7 +312,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
               <div className="flex items-center justify-between p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-2xl text-[var(--color-primary)]" aria-hidden="true">park</span>
+                  <Icon name="park" className="text-2xl text-[var(--color-primary)]" />
                   <div>
                     <div className="font-semibold text-[var(--color-primary)]">{t('calc_feat_green')}</div>
                     <div className="text-xs text-[var(--color-secondary)]">{t('calc_feat_green_desc')}</div>
@@ -336,7 +337,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] p-8 md:p-12 rounded-[2.5rem] shadow-sm flex flex-col gap-8 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-[var(--color-primary)]">
-                <span className="material-symbols-outlined text-9xl" aria-hidden="true">calculate</span>
+                <Icon name="calculate" className="text-9xl" />
               </div>
 
               <div className="flex items-center gap-3">
@@ -367,7 +368,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               </div>
 
               <div className="bg-[var(--color-surface-variant)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex items-start gap-3">
-                <span className="material-symbols-outlined text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   {t('calc_report_info')}
                 </p>
@@ -379,7 +380,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                   className="flex-1 bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-md text-sm"
                 >
                   {t('calc_btn_quote')}
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                  <Icon name="arrow_forward" className="text-base" />
                 </Link>
 
                 <button 
@@ -387,7 +388,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                   className="bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/40 border border-[var(--color-outline)]/60 text-[var(--color-primary)] font-bold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
                   title="Resmi PDF Tesis Sağlık ve Tasarruf Karnesi Oluştur"
                 >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">assessment</span>
+                  <Icon name="assessment" className="text-base" />
                   <span>PDF Raporu Al</span>
                 </button>
               </div>
@@ -396,7 +397,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                 onClick={() => setIsAuditModalOpen(true)}
                 className="w-full py-3 bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 rounded-2xl text-xs font-extrabold text-[var(--color-primary)] flex items-center justify-center gap-2 transition-all"
               >
-                <span className="material-symbols-outlined text-sm text-blue-600 dark:text-blue-400" aria-hidden="true">verified</span>
+                <Icon name="verified" className="text-sm text-blue-600 dark:text-blue-400" />
                 <span>Yönetim Kurulu İçin Resmi Tasarruf Karnesi Üret</span>
               </button>
 

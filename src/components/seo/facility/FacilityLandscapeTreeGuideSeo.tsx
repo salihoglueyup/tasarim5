@@ -10,6 +10,7 @@ import {
   LandscapeSeasonalTask
 } from '@/data/facilityLandscapeTreeData';
 
+import Icon from '@/components/ui/branding/Icon';
 interface FacilityLandscapeTreeGuideSeoProps {
   className?: string;
   defaultSeason?: 'ilkbahar' | 'yaz' | 'sonbahar' | 'kis';
@@ -95,7 +96,7 @@ export default function FacilityLandscapeTreeGuideSeo({
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-lime-100 text-lime-800 dark:bg-lime-900/40 dark:text-lime-300 mb-3 border border-lime-300 dark:border-lime-700">
-          <span className="material-symbols-outlined text-sm">park</span>
+          <Icon name="park" className="text-sm" />
           <span>6831 Orman Kanunu & Akıllı Yeşil Alan Standartları</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -124,7 +125,7 @@ export default function FacilityLandscapeTreeGuideSeo({
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
-            <span className="material-symbols-outlined text-lg">{tab.icon}</span>
+            <Icon name={tab.icon} className="text-lg" />
             <span>{tab.label}</span>
           </button>
         ))}
@@ -171,7 +172,7 @@ export default function FacilityLandscapeTreeGuideSeo({
               {/* Lawn Care */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white text-sm">
-                  <span className="material-symbols-outlined text-lime-600 text-lg">grass</span>
+                  <Icon name="grass" className="text-lime-600 text-lg" />
                   <span>Çim Alanı & Zemin Operasyonları:</span>
                 </div>
                 <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
@@ -187,7 +188,7 @@ export default function FacilityLandscapeTreeGuideSeo({
               {/* Trees & Shrubs */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white text-sm">
-                  <span className="material-symbols-outlined text-lime-600 text-lg">nature</span>
+                  <Icon name="nature" className="text-lime-600 text-lg" />
                   <span>Ağaç, Çalı & Bitki Sağlığı:</span>
                 </div>
                 <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
@@ -204,7 +205,7 @@ export default function FacilityLandscapeTreeGuideSeo({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               <div className="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200 border border-blue-200 dark:border-blue-900/60">
                 <strong className="font-semibold block mb-0.5 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm">water_drop</span>
+                  <Icon name="water_drop" className="text-sm" />
                   Sulama Programı:
                 </strong>
                 <span>{activeSeason.irrigationSchedule}</span>
@@ -212,7 +213,7 @@ export default function FacilityLandscapeTreeGuideSeo({
 
               <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-900/60">
                 <strong className="font-semibold block mb-0.5 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm">science</span>
+                  <Icon name="science" className="text-sm" />
                   Gübreleme & Zirai Mücadele:
                 </strong>
                 <span>{activeSeason.fertilizationAndPesticide}</span>
@@ -261,7 +262,7 @@ export default function FacilityLandscapeTreeGuideSeo({
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-lime-800 dark:text-lime-300 font-medium flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-sm text-lime-600">verified</span>
+                  <Icon name="verified" className="text-sm text-lime-600" />
                   <span>{rule.aloYonetimProtocol}</span>
                 </div>
               </div>
@@ -351,7 +352,7 @@ export default function FacilityLandscapeTreeGuideSeo({
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-lime-500/10 text-lime-600 dark:text-lime-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">eco</span>
+            <Icon name="eco" className="text-xl" />
           </div>
           <div>
             <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white">

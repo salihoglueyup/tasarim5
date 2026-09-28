@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import Link from 'next/link';
 import { BASE_URL } from '@/lib/constants';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ChecklistItem {
   id: string;
   title: string;
@@ -167,7 +168,7 @@ export default function ChecklistAuditSeo({
                     }`}
                   >
                     {isChecked && (
-                      <span className="material-symbols-outlined text-sm font-bold" aria-hidden="true">check</span>
+                      <Icon name="check" className="text-sm font-bold" />
                     )}
                   </div>
                 </div>

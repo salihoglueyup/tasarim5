@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function QualityComparisonMatrixSeo() {
   const comparisonRows = [
     {
@@ -49,7 +50,7 @@ export default function QualityComparisonMatrixSeo() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-4">
-            <span className="material-symbols-outlined text-sm">compare</span>
+            <Icon name="compare" className="text-sm" />
             Kalite Standartları Karşılaştırması
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -90,17 +91,13 @@ export default function QualityComparisonMatrixSeo() {
                   </td>
                   <td className="py-4 px-5 text-[var(--color-secondary)]">
                     <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-rose-500 text-base shrink-0 mt-0.5">
-                        close
-                      </span>
+                      <Icon name="close" className="text-rose-500 text-base shrink-0 mt-0.5" />
                       <span>{row.amator}</span>
                     </div>
                   </td>
                   <td className="py-4 px-5 text-[var(--color-primary)] font-medium bg-emerald-500/5">
                     <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5">
-                        check_circle
-                      </span>
+                      <Icon name="check_circle" className="text-emerald-500 text-base shrink-0 mt-0.5" />
                       <span>{row.alo}</span>
                     </div>
                   </td>
@@ -121,7 +118,7 @@ export default function QualityComparisonMatrixSeo() {
             className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline flex items-center gap-1"
           >
             Siteniz İçin Kalite Denetimi Başlatın
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-sm" />
           </Link>
         </div>
       </div>

@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import Icon from '@/components/ui/branding/Icon';
 interface QualityHeroSeoProps {
   onOpenQuote?: () => void;
 }
@@ -51,15 +52,15 @@ export default function QualityHeroSeo({ onOpenQuote }: QualityHeroSeoProps) {
         {/* Accreditation Badges (Titanium & Slate Palette) */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6">
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-slate-500/10 border border-slate-500/20 backdrop-blur-md uppercase tracking-wider">
-            <span className="material-symbols-outlined text-sm text-slate-300">verified</span>
+            <Icon name="verified" className="text-sm text-slate-300" />
             BELCERT / ILAS Akrediteli
           </span>
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-slate-500/10 border border-slate-500/20 backdrop-blur-md uppercase tracking-wider">
-            <span className="material-symbols-outlined text-sm text-slate-300">workspace_premium</span>
+            <Icon name="workspace_premium" className="text-sm text-slate-300" />
             ISO 45001 · 14001 · 10002 · 22301 · 31000
           </span>
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-slate-500/10 border border-slate-500/20 backdrop-blur-md uppercase tracking-wider">
-            <span className="material-symbols-outlined text-sm text-slate-300">gavel</span>
+            <Icon name="gavel" className="text-sm text-slate-300" />
             5188 Sayılı Kanun Güvenlik İzni
           </span>
         </div>
@@ -86,13 +87,13 @@ export default function QualityHeroSeo({ onOpenQuote }: QualityHeroSeoProps) {
               className="w-full sm:w-auto bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Ücretsiz Kalite & Güvenlik Keşfi İste</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
             <a
               href="#kalite-sutunlari"
               className="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold py-4 px-8 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <span className="material-symbols-outlined text-lg text-slate-300">verified_user</span>
+              <Icon name="verified_user" className="text-lg text-slate-300" />
               <span>6 Kalite Standardını İncele</span>
             </a>
           </div>

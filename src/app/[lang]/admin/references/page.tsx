@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import DeleteReferenceButton from './DeleteReferenceButton';
 
+import Icon from '@/components/ui/branding/Icon';
 export default async function AdminReferences({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const references = await prisma.reference.findMany({
@@ -70,7 +71,7 @@ export default async function AdminReferences({ params }: { params: Promise<{ la
                   <td className="p-4">
                     {ref.isSuccessStory ? (
                       <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-500/20">
-                        <span className="material-symbols-outlined text-[14px]" aria-hidden="true">star</span>
+                        <Icon name="star" className="text-[14px]" />
                         Başarı Hikayesi
                       </span>
                     ) : (

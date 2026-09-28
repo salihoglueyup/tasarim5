@@ -8,6 +8,7 @@ import { waLink } from '@/lib/cro';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function TeklifAlClient() {
   const { t, language } = useLanguage();
   const { submit, status, errorKey } = useLeadSubmit();
@@ -237,19 +238,19 @@ export default function TeklifAlClient() {
             {/* Faz 211: CRO & E-E-A-T Güven Mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza, 48 Saat Rapor) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 border-t border-slate-200 dark:border-white/10 text-[11px] text-slate-500 dark:text-slate-400 font-medium text-center">
               <div className="flex items-center justify-center gap-1">
-                <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">lock</span>
+                <Icon name="lock" className="text-sm text-emerald-500" />
                 <span>256-Bit SSL</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <span className="material-symbols-outlined text-sm text-blue-500" aria-hidden="true">shield</span>
+                <Icon name="shield" className="text-sm text-blue-500" />
                 <span>{t('tc_seal_licensed')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <span className="material-symbols-outlined text-sm text-purple-500" aria-hidden="true">gavel</span>
+                <Icon name="gavel" className="text-sm text-purple-500" />
                 <span>{t('tc_seal_kvkk')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">schedule</span>
+                <Icon name="schedule" className="text-sm text-amber-500" />
                 <span>48s Rapor</span>
               </div>
             </div>
@@ -263,7 +264,7 @@ export default function TeklifAlClient() {
         {/* Fiyatlandırma Rehberi Kartı */}
         <div className="bg-[var(--color-surface)] text-[var(--color-primary)] p-8 sm:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm flex flex-col gap-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold tracking-wider uppercase w-fit">
-            <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">payments</span>
+            <Icon name="payments" className="text-sm text-emerald-500" />
             <span>{t('tc_pricing_badge')}</span>
           </div>
 
@@ -314,7 +315,7 @@ export default function TeklifAlClient() {
             href={`tel:${CANONICAL_NAP.contact.phoneE164}`}
             className="text-lg font-black text-slate-900 dark:text-white hover:text-blue-600 transition-colors flex items-center gap-2"
           >
-            <span className="material-symbols-outlined text-blue-600" aria-hidden="true">call</span>
+            <Icon name="call" className="text-blue-600" />
             <span>{CANONICAL_NAP.contact.phoneDisplay}</span>
           </a>
 
@@ -324,7 +325,7 @@ export default function TeklifAlClient() {
             rel="noopener noreferrer"
             className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm"
           >
-            <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
+            <Icon name="chat" className="text-base" />
             <span>{t('tc_wa_btn')}</span>
           </a>
         </div>

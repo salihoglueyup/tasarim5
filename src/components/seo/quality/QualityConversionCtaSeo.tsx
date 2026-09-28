@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function QualityConversionCtaSeo() {
   return (
     <section className="py-20 md:py-28 bg-[var(--color-surface)]">
@@ -13,7 +14,7 @@ export default function QualityConversionCtaSeo() {
 
           <div className="max-w-2xl relative z-10">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-800 border border-slate-700 text-slate-300 mb-4">
-              <span className="material-symbols-outlined text-sm text-slate-300">fact_check</span>
+              <Icon name="fact_check" className="text-sm text-slate-300" />
               24 Saat İçinde Ücretsiz Saha Raporu
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
@@ -26,15 +27,15 @@ export default function QualityConversionCtaSeo() {
             </p>
             <div className="flex flex-wrap items-center gap-6 text-xs text-slate-400">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+                <Icon name="check_circle" className="text-emerald-400 text-sm" />
                 <span>Bağlayıcılığı Olmayan Ücretsiz Keşif</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+                <Icon name="check_circle" className="text-emerald-400 text-sm" />
                 <span>Fotoğraflı Teknik & İSG Raporu</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+                <Icon name="check_circle" className="text-emerald-400 text-sm" />
                 <span>KMK 37 Bütçe İyileştirme Planı</span>
               </div>
             </div>
@@ -46,7 +47,7 @@ export default function QualityConversionCtaSeo() {
               className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl bg-slate-200 hover:bg-white text-slate-950 font-bold text-sm shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 text-center cursor-pointer"
             >
               <span>Ücretsiz Kalite Keşfi İste</span>
-              <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-sm" />
             </Link>
             <Link
               href="/hesaplayici"

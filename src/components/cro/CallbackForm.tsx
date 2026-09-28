@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 
+import Icon from '@/components/ui/branding/Icon';
 interface CallbackFormProps {
   /** Lead'e eklenecek bağlam (kaynak, hesaplayıcı çıktısı vb.). */
   meta?: Record<string, string | number | boolean>;
@@ -46,7 +47,7 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
   if (status === 'success') {
     return (
       <div role="status" aria-live="polite" className={`${wrapClass} items-center text-center`}>
-        <span className="material-symbols-outlined text-3xl text-slate-800 dark:text-white" aria-hidden="true">check_circle</span>
+        <Icon name="check_circle" className="text-3xl text-slate-800 dark:text-white" />
         <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('cro_callback_success')}</p>
       </div>
     );
@@ -104,7 +105,7 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
         disabled={status === 'loading'}
         className="w-full bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900 font-bold text-sm py-3 rounded-xl shadow-md hover:opacity-95 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
-        <span className="material-symbols-outlined text-[18px]" aria-hidden="true">call</span>
+        <Icon name="call" className="text-[18px]" />
         {status === 'loading' ? t('cro_callback_sending') : t('cro_callback_btn')}
       </button>
     </form>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Icon from '@/components/ui/branding/Icon';
 export type OperationalPillarId = 'rezidans' | 'plaza' | 'site' | 'sanayi';
 
 interface PillarData {
@@ -334,7 +335,7 @@ export default function FacilityOperationalPillarsSeo() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-          <span className="material-symbols-outlined text-[16px] text-[var(--color-primary)]" aria-hidden="true">tune</span>
+          <Icon name="tune" className="text-[16px] text-[var(--color-primary)]" />
           <span>Sektörel Operasyonel Derinlik & Saha Protokolleri</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -360,7 +361,7 @@ export default function FacilityOperationalPillarsSeo() {
                     : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface)]/60'
                 }`}
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">{tab.icon}</span>
+                <Icon name={tab.icon} className="text-lg" />
                 <span>{tab.tabLabel}</span>
               </button>
             );
@@ -397,7 +398,7 @@ export default function FacilityOperationalPillarsSeo() {
                 className="px-5 py-2.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] text-xs sm:text-sm font-bold text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] hover:border-[var(--color-primary)] transition-all flex items-center gap-1.5 shadow-xs"
               >
                 <span>Detaylı Landing Page</span>
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
           </div>
@@ -431,7 +432,7 @@ export default function FacilityOperationalPillarsSeo() {
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <div className="flex items-center gap-2.5">
                       <span className="w-10 h-10 rounded-xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 flex items-center justify-center shrink-0">
-                        <span className="material-symbols-outlined text-xl" aria-hidden="true">{op.icon}</span>
+                        <Icon name={op.icon} className="text-xl" />
                       </span>
                       <h4 className="text-base font-bold text-[var(--color-primary)]">
                         {op.title}
@@ -446,7 +447,7 @@ export default function FacilityOperationalPillarsSeo() {
                   <div className="space-y-2 pt-2 border-t border-[var(--color-outline)]/40 mb-4">
                     {op.details.map((detail, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-[var(--color-secondary)]">
-                        <span className="material-symbols-outlined text-[var(--color-primary)] text-sm shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+                        <Icon name="check_circle" className="text-[var(--color-primary)] text-sm shrink-0 mt-0.5" />
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -464,7 +465,7 @@ export default function FacilityOperationalPillarsSeo() {
           {/* Bottom Action Strip */}
           <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div className="flex items-center gap-3 text-center sm:text-left">
-              <span className="material-symbols-outlined text-3xl text-[var(--color-primary)] shrink-0 hidden sm:block" aria-hidden="true">verified_user</span>
+              <Icon name="verified_user" className="text-3xl text-[var(--color-primary)] shrink-0 hidden sm:block" />
               <div>
                 <h4 className="font-bold text-sm sm:text-base">{current.tabLabel} Projeniz İçin 48 Saatte Şeffaf Teklif</h4>
                 <p className="text-xs text-[var(--color-secondary)] font-normal mt-0.5">Ücretsiz yerinde keşif, risk analizi ve tasarruf fizibilitesi hazırlıyoruz.</p>

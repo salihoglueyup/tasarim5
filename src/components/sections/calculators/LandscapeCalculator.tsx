@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import CalculatorLeadForm from './CalculatorLeadForm';
 
+import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 39: LandscapeCalculator içindeki Framer Motion bağımlılıklarının kaldırılması
  * ve donanım hızlandırmalı CSS transition yapısına dönüştürülmesi.
@@ -54,7 +55,7 @@ export default function LandscapeCalculator() {
             </div>
             
             <div className="flex items-center gap-4 bg-slate-50 dark:bg-zinc-900 p-4 rounded-2xl border border-gray-200 dark:border-zinc-800">
-               <span className="material-symbols-outlined text-slate-500 text-3xl" aria-hidden="true">nature_people</span>
+               <Icon name="nature_people" className="text-slate-500 text-3xl" />
                <div>
                  <p className="text-xs text-gray-500">{t('calc_land_engineer')}</p>
                  <p className="text-sm font-bold text-slate-800 dark:text-white">{t('calc_included_standard')}</p>

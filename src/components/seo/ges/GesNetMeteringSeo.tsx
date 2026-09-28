@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export default function GesNetMeteringSeo() {
   return (
     <section
@@ -12,9 +13,7 @@ export default function GesNetMeteringSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">
-              sync
-            </span>
+            <Icon name="sync" className="text-sm text-amber-500" />
             <span>EPDK 5/1-ç Aylık Mahsuplaşma Modeli</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -33,7 +32,7 @@ export default function GesNetMeteringSeo() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20">
-                  <span className="material-symbols-outlined text-2xl">wb_sunny</span>
+                  <Icon name="wb_sunny" className="text-2xl" />
                 </div>
                 <div>
                   <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
@@ -52,15 +51,15 @@ export default function GesNetMeteringSeo() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <span className="material-symbols-outlined text-base text-amber-500">elevator</span>
+                  <Icon name="elevator" className="text-base text-amber-500" />
                   <span><strong>Asansörler:</strong> Gün boyu süren asansör trafiği güneşten beslenir.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <span className="material-symbols-outlined text-base text-blue-500">water_drop</span>
+                  <Icon name="water_drop" className="text-base text-blue-500" />
                   <span><strong>Hidrofor & Yangın Pompaları:</strong> Dairelere su basan motorların elektrik tüketimi sıfırlanır.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <span className="material-symbols-outlined text-base text-emerald-500">air</span>
+                  <Icon name="air" className="text-base text-emerald-500" />
                   <span><strong>Otopark Fanları & CCTV:</strong> 7/24 kesintisiz havalandırma ve güvenlik masrafsız çalışır.</span>
                 </div>
               </div>
@@ -77,7 +76,7 @@ export default function GesNetMeteringSeo() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-                  <span className="material-symbols-outlined text-2xl">account_balance</span>
+                  <Icon name="account_balance" className="text-2xl" />
                 </div>
                 <div>
                   <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
@@ -96,15 +95,15 @@ export default function GesNetMeteringSeo() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <span className="material-symbols-outlined text-base text-emerald-500">pin</span>
+                  <Icon name="pin" className="text-base text-emerald-500" />
                   <span><strong>Çift Yönlü Sayaç:</strong> Üretilen ve tüketilen kWh anlık kayıt altına alınır.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <span className="material-symbols-outlined text-base text-purple-500">payments</span>
+                  <Icon name="payments" className="text-base text-purple-500" />
                   <span><strong>Aylık Mahsup:</strong> Gece saatlerinde tüketilen elektrik bu paradan otomatik düşülür.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <span className="material-symbols-outlined text-base text-blue-500">savings</span>
+                  <Icon name="savings" className="text-base text-blue-500" />
                   <span><strong>Site Hesabına Yatış:</strong> Artan bakiye nakit olarak site yönetimi banka hesabına ödenir.</span>
                 </div>
               </div>
@@ -121,7 +120,7 @@ export default function GesNetMeteringSeo() {
         <div className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/80 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
-              <span className="material-symbols-outlined text-2xl">battery_charging_full</span>
+              <Icon name="battery_charging_full" className="text-2xl" />
             </div>
             <div>
               <h4 className="text-base font-bold text-[var(--color-primary)]">

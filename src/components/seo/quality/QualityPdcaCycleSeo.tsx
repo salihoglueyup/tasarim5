@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 interface PdcaStep {
   step: string;
   name: string;
@@ -96,7 +97,7 @@ export default function QualityPdcaCycleSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold mb-4">
-            <span className="material-symbols-outlined text-sm">all_inclusive</span>
+            <Icon name="all_inclusive" className="text-sm" />
             Deming / Kaizen Kalite Modeli
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -125,9 +126,7 @@ export default function QualityPdcaCycleSeo() {
                 <span className={`text-xl sm:text-2xl font-black ${activeStepIndex === idx ? 'text-cyan-400 dark:text-cyan-600' : 'text-[var(--color-primary)]'}`}>
                   {step.step}
                 </span>
-                <span className="material-symbols-outlined text-xl">
-                  {step.icon}
-                </span>
+                <Icon name={step.icon} className="text-xl" />
               </div>
               <div>
                 <div className="text-xs sm:text-sm font-bold">
@@ -149,7 +148,7 @@ export default function QualityPdcaCycleSeo() {
                 Aşama {activeStepIndex + 1} / 4 • {activeStep.turkishName} ({activeStep.name})
               </span>
               <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                <span className="material-symbols-outlined text-sm">verified</span>
+                <Icon name="verified" className="text-sm" />
                 {activeStep.kpi}
               </span>
             </div>
@@ -169,9 +168,7 @@ export default function QualityPdcaCycleSeo() {
               <ul className="space-y-2.5 text-xs sm:text-sm text-[var(--color-primary)]">
                 {activeStep.actions.map((act, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <span className="material-symbols-outlined text-base text-cyan-500 shrink-0 mt-0.5">
-                      task_alt
-                    </span>
+                    <Icon name="task_alt" className="text-base text-cyan-500 shrink-0 mt-0.5" />
                     <span className="leading-snug">{act}</span>
                   </li>
                 ))}
@@ -214,7 +211,7 @@ export default function QualityPdcaCycleSeo() {
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-extrabold text-sm shadow-md transition-all text-center"
               >
                 Siteniz İçin Kalite Raporu İsteyin
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-sm" />
               </a>
             </div>
           </div>

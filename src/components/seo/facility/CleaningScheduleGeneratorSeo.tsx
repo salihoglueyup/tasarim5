@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Link from 'next/link';
 
+import Icon from '@/components/ui/branding/Icon';
 interface CleaningScheduleGeneratorSeoProps {
   districtName?: string;
   className?: string;
@@ -100,7 +101,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
 
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-sm" aria-hidden="true">cleaning_services</span>
+          <Icon name="cleaning_services" className="text-sm" />
           Hijyen Standartları Oluşturucu
         </div>
         <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
@@ -225,7 +226,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         {/* Günlük */}
         <div className="p-5 rounded-2xl bg-teal-500/5 dark:bg-[#1E202B] border border-teal-500/20 dark:border-teal-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-extrabold text-sm">
-            <span className="material-symbols-outlined text-base" aria-hidden="true">today</span>
+            <Icon name="today" className="text-base" />
             <span>GÜNLÜK GÖREVLER (Hergün)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
@@ -241,7 +242,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         {/* Haftalık */}
         <div className="p-5 rounded-2xl bg-sky-500/5 dark:bg-[#1E202B] border border-sky-500/20 dark:border-sky-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-sky-700 dark:text-sky-400 font-extrabold text-sm">
-            <span className="material-symbols-outlined text-base" aria-hidden="true">calendar_view_week</span>
+            <Icon name="calendar_view_week" className="text-base" />
             <span>HAFTALIK GÖREVLER (Haftada 1-2)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
@@ -257,7 +258,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         {/* Aylık */}
         <div className="p-5 rounded-2xl bg-amber-500/5 dark:bg-[#1E202B] border border-amber-500/20 dark:border-amber-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
-            <span className="material-symbols-outlined text-base" aria-hidden="true">pest_control</span>
+            <Icon name="pest_control" className="text-base" />
             <span>AYLIK & BİYOSİDAL İLAÇLAMA</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
@@ -278,9 +279,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             onClick={handleCopy}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 dark:bg-[#1E202B] dark:hover:bg-[#262938] dark:border dark:border-white/10 text-white text-xs font-bold transition-all shadow-sm"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copied ? 'check' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Çizelge Kopyalandı!' : 'Çizelgeyi Kopyala (Yönetim Panosu)'}</span>
           </button>
         </div>
@@ -290,7 +289,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             href={`/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all shadow-md shadow-teal-600/20"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">handshake</span>
+            <Icon name="handshake" className="text-sm" />
             <span>{districtName} İçin Profesyonel Personel & Temizlik Teklifi</span>
           </Link>
         </div>

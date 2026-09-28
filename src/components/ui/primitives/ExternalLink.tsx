@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactNode;
@@ -33,9 +34,7 @@ export default function ExternalLink({
     >
       {children}
       {showExternalIcon && (
-        <span className="material-symbols-outlined text-[14px] inline-block ml-1 opacity-70 align-middle" aria-hidden="true">
-          open_in_new
-        </span>
+        <Icon name="open_in_new" className="text-[14px] inline-block ml-1 opacity-70 align-middle" />
       )}
     </a>
   );

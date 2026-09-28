@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 import { getDistrictDues } from '@/data/districts';
 
+import Icon from '@/components/ui/branding/Icon';
 export interface DistrictServiceAiOverviewProps {
   district: {
     name: string;
@@ -87,7 +88,7 @@ export default function DistrictServiceAiOverviewSnippetSeo({
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-700 dark:text-sky-300 text-xs font-bold uppercase tracking-wider">
-          <span className="material-symbols-outlined text-[15px]" aria-hidden="true">location_on</span>
+          <Icon name="location_on" className="text-[15px]" />
           <span>Google AI Overviews • {district.name} Mikro-Bölge Otoritesi</span>
         </div>
 
@@ -115,9 +116,7 @@ export default function DistrictServiceAiOverviewSnippetSeo({
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-700 dark:text-sky-300 text-xs font-bold transition-colors"
           >
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              {copied ? 'done' : 'content_copy'}
-            </span>
+            <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
           </button>
         </div>
