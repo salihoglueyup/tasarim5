@@ -210,8 +210,8 @@ export default function TesisYonetimiClient() {
           answerId="facility-instant-answer-text"
           question="Tesis Yönetimi Nedir ve Neleri Kapsar?"
           answer="Tesis Yönetimi (Facility Management); konut siteleri, çok katlı rezidanslar, plazalar ve sanayi tesislerinin 5188 lisanslı güvenlik, 7/24 kestirimci teknik bakım, endüstriyel temizlik, şeffaf aidat muhasebesi ve 634 sayılı KMK hukuki danışmanlık operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir."
-          standardBadge="ISO 41001:2018 & 634 Sayılı KMK"
-          subText="Alo Yönetim, uluslararası ISO 41001 standartlarında entegre tesis yönetimi ile işletme bütçelerinde %20-30 net tasarruf ve kritik arızalara 45 dakika acil teknik müdahale SLA garantisi sunar."
+          standardBadge="634 Sayılı KMK"
+          subText="Alo Yönetim, uluslararası entegre tesis yönetimi ile işletme bütçelerinde %20-30 net tasarruf ve kritik arızalara 45 dakika acil teknik müdahale SLA garantisi sunar."
           accentColor="slate"
         />
 
@@ -226,7 +226,7 @@ export default function TesisYonetimiClient() {
               <span>Entegre Tesis Yönetimi Metodolojisi</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
-              ISO 41001 & 634 KMK Standardı
+              634 KMK Standardı
             </span>
           </div>
 
@@ -690,7 +690,7 @@ export default function TesisYonetimiClient() {
               title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
-              badge: "ISO 41001",
+              badge: "KMK 634",
               description: "Tesis yönetiminde operasyonel verimlilik, maliyet optimizasyonu, risk yönetimi ve sakin memnuniyeti standartları."
             }
           ]}
@@ -809,7 +809,7 @@ export default function TesisYonetimiClient() {
         {/* Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
         <GoogleAiOverviewGroundingSeo
           filterIds={['site-vs-tesis', 'plaza-bms-enerji', 'toplu-yapi-kmk66', 'asansor-yesil-etiket', 'kmk37-itiraz', 'ev-sarj-istasyonu']}
-          title="Tesis Yönetiminde Yapay Zekaya Sorun: ISO 41001 & KMK Standartları"
+          title="Tesis Yönetiminde Yapay Zekaya Sorun: KMK Standartları"
           subtitle="Google AI Overviews (SGE), Gemini ve Perplexity için doğrulanmış kurumsal tesis yönetimi, BMS otomasyonu ve enerji optimizasyonu bilgi seti."
         />
       </section>

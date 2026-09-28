@@ -169,7 +169,7 @@ export async function buildSiteRAGCorpus(lang: string = 'tr'): Promise<SiteRAGCo
       title: 'Site Yöneticisinin Yasal Görev ve Sorumlulukları',
       quorumOrRequirement: 'Yöneticinin kanuni yükümlülüğüdür.',
       officialPrinciple: 'İşletme projesi yapmak, aidatları toplamak, ana gayrimenkulün bakım ve onarımını sağlamak, borç ve yükümlülükleri yerine getirmeyenlere karşı icra takibi yapmak.',
-      practicalApplication: 'Alo Yönetim bu görevlerin tamamını ISO 9001 ve ISO 41001 kalite süreçlerinde kurumsal sigorta ve SLA garantisi ile yürütür.',
+      practicalApplication: 'Alo Yönetim bu görevlerin tamamını kurumsal süreçlerde kurumsal sigorta ve SLA garantisi ile yürütür.',
       caseLawCitation: 'Yargıtay Hukuk Genel Kurulu 2019/18-204 E.',
     },
     {
@@ -251,7 +251,7 @@ export async function buildSiteRAGCorpus(lang: string = 'tr'): Promise<SiteRAGCo
     },
     {
       question: 'Site yönetimi ile entegre tesis yönetimi arasındaki temel fark nedir?',
-      answer: 'Site yönetimi konut, rezidans ve toplu konutlarda 634 Sayılı KMK çerçevesinde kat malikleri hakları, aidat tahsilatı ve huzurlu yaşam alanlarına odaklanır. Entegre tesis yönetimi ise plazalar, fabrikalar ve ticari binalarda ISO 41001 standartlarında HVAC otomasyonu, enerji tasarrufu ve kurumsal SLA performansına odaklanır.',
+      answer: 'Site yönetimi konut, rezidans ve toplu konutlarda 634 Sayılı KMK çerçevesinde kat malikleri hakları, aidat tahsilatı ve huzurlu yaşam alanlarına odaklanır. Entegre tesis yönetimi ise plazalar, fabrikalar ve ticari binalarda HVAC otomasyonu, enerji tasarrufu ve kurumsal SLA performansına odaklanır.',
       legalBasis: '634 Sayılı KMK vs ISO 41001:2018 Standardı',
       precedentCitation: 'Uluslararası Tesis Yönetim Derneği (IFMA) Standartları',
       sourceUrl: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi`,

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi & Entegre Tesis İşletmeciliği",
     template: "%s"
   },
-  description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. 400+ tesis referansı ile %30 tasarruf güvencesi.",
+  description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. 400+ tesis referansı ile %30 tasarruf güvencesi.",
   keywords: [
     "tesis yönetimi",
     "profesyonel tesis yönetimi",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "https://aloyonetim.com.tr",
     title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
-    description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
+    description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
     siteName: "Alo Yönetim",
     images: [
       {
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
-    description: "İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
+    description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
     images: ['/images/hero-poster-v5.webp'],
   },
   robots: {

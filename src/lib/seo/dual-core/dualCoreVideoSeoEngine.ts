@@ -220,7 +220,7 @@ ${video.description}
 ${chapterText}
 
 🏢 ALO YÖNETİM HAKKINDA:
-Alo Yönetim; İstanbul genelinde 39 ilçede 28.000'den fazla bağımsız bölüm ve 1.200.000 m² ticari alanda KMK 634 ve ISO 41001 standartlarında profesyonel site, plaza ve tesis yönetimi hizmeti sunmaktadır.
+Alo Yönetim; İstanbul genelinde 39 ilçede 28.000'den fazla bağımsız bölüm ve 1.200.000 m² ticari alanda KMK 634 uyarınca profesyonel site, plaza ve tesis yönetimi hizmeti sunmaktadır.
 
 📞 İLETİŞİM & ÜCRETSİZ TEKLİF ALIN:
 👉 Web Sitemiz: ${BASE_URL}

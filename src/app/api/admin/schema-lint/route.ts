@@ -45,7 +45,7 @@ export async function GET() {
         '@type': 'Service',
         name: 'Profesyonel Tesis Yönetimi',
         serviceType: 'Tesis ve Mülk İşletmeciliği',
-        description: 'ISO 41001 standartlarında 5188 güvenlik ve teknik bakım hizmetleri.',
+        description: '5188 güvenlik ve teknik bakım hizmetleri.',
       },
       {
         '@type': 'ItemList',

@@ -35,7 +35,7 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
     title: 'Alo Yönetim — Profesyonel Site ve Tesis Yönetimi Amiral Gemisi',
     url: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`,
     anchorText: 'İstanbul Profesyonel Site ve Tesis Yönetimi Şirketi',
-    description: '634 sayılı KMK ve ISO 41001 standartlarında 39 ilçede tam kapsamlı site, apartman, rezidans ve tesis yönetimi.',
+    description: '634 sayılı KMK uyarınca 39 ilçede tam kapsamlı site, apartman, rezidans ve tesis yönetimi.',
     category: 'flagship',
   };
 

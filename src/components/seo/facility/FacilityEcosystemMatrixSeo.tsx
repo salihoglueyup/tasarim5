@@ -207,7 +207,7 @@ export default function FacilityEcosystemMatrixSeo({
           </h2>
 
           <p className="text-sm sm:text-base text-[var(--color-secondary)] font-normal mt-3 leading-relaxed">
-            Tek çatı altında senkronize edilen 9 temel operasyonel uzmanlık. Dış kaynak karmaşası ve koordinasyon kopukluğu olmadan, ISO 41001 standartlarında kesintisiz tesis işletmesi:
+            Tek çatı altında senkronize edilen 9 temel operasyonel uzmanlık. Dış kaynak karmaşası ve koordinasyon kopukluğu olmadan, kesintisiz tesis işletmesi:
           </p>
         </div>
 

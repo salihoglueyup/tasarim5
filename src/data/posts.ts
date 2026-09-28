@@ -191,7 +191,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Tesisiniz için ISO 41001 standartlarında profesyonel yönetim teklifi alın.",
+        "text": "Tesisiniz için profesyonel yönetim teklifi alın.",
         "href": "/hizmetler/tesis-yonetimi",
         "label": "Tesis Yönetimi Çözümlerimiz"
       }
@@ -990,7 +990,7 @@ export const POSTS: Post[] = [
   {
     "slug": "ticari-plazalarda-hvac-ve-leed-tesis-enerji-verimliligi",
     "title": "Ticari Plazalarda HVAC Otomasyonu ve BREEAM/LEED Yeşil Bina Enerji Verimliliği",
-    "description": "A sınıfı iş merkezleri ve plazalarda merkezi iklimlendirme otomasyonu, kompanzasyon panosu takibi ve ISO 41001 standartlarında %30 enerji tasarrufu.",
+    "description": "A sınıfı iş merkezleri ve plazalarda merkezi iklimlendirme otomasyonu, kompanzasyon panosu takibi ile %30 enerji tasarrufu.",
     "category": "tesis-yonetimi",
     "tags": [
       "plaza yönetimi",
@@ -1005,7 +1005,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/plaza-yonetimi",
-    "tldr": "Ticari plazalarda merkezi HVAC otomasyonu, kompanzasyon takibi ve ISO 41001 standartları ile ortak alan elektrik ve işletme giderlerinde %30 net tasarruf sağlanır.",
+    "tldr": "Ticari plazalarda merkezi HVAC otomasyonu, kompanzasyon takibi ile ortak alan elektrik ve işletme giderlerinde %30 net tasarruf sağlanır.",
     "content": [
       {
         "type": "p",
@@ -2376,7 +2376,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:10:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Tesis yönetimi; gayrimenkulün tüm teknik bakım, güvenlik, temizlik, peyzaj ve mali operasyonlarını ISO 41001 standartlarında tek çatı altında toplayarak verimliliği maksimize eder.",
+    "tldr": "Tesis yönetimi; gayrimenkulün tüm teknik bakım, güvenlik, temizlik, peyzaj ve mali operasyonlarını tek çatı altında toplayarak verimliliği maksimize eder.",
     "content": [
       {
         "type": "p",

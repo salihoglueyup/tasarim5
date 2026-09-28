@@ -97,7 +97,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
             <Icon name="calendar_month" className="text-sm" />
-            <span>ISO 41001 Entegre Tesis Takvimi</span>
+            <span>Entegre Tesis Takvimi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
             12 Aylık Periyodik Bakım, <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800 dark:from-white dark:via-slate-200 dark:to-slate-400">Muayene ve Yasal Denetim Takvimi</span>
@@ -196,7 +196,7 @@ export default function FacilityAnnualMaintenanceScheduleSeo() {
         <span>
           Listelenen <strong className="text-[var(--color-primary)]">{filteredItems.length}</strong> periyodik bakım & denetim faaliyeti
         </span>
-        <span className="hidden sm:inline">ISO 41001 & TS Standartları Uyumlu</span>
+        <span className="hidden sm:inline">TS Standartları Uyumlu</span>
       </div>
 
       {/* Schedule Items Grid / Cards */}

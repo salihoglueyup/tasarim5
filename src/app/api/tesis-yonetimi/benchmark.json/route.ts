@@ -70,13 +70,13 @@ export async function GET(req: Request) {
     '@type': 'Dataset',
     name: `İstanbul ${selectedDistricts.length} İlçe Tesis Yönetimi Sektör Kıyaslama ve Maliyet Tasarruf Veri Seti (2026)`,
     description:
-      `İstanbul genelindeki ${selectedDistricts.length} ilçede rezidans, plaza, site, AVM ve sanayi tesislerine yönelik ISO 41001 uyumlu tesis yönetimi m² maliyetleri, bütçe tasarruf analizleri ve SLA süreleri.`,
+      `İstanbul genelindeki ${selectedDistricts.length} ilçede rezidans, plaza, site, AVM ve sanayi tesislerine yönelik tesis yönetimi m² maliyetleri, bütçe tasarruf analizleri ve SLA süreleri.`,
     url: `${BASE_URL}/api/tesis-yonetimi/benchmark.json`,
     keywords: [
       'Tesis Yönetimi',
       'Site Yönetimi Maliyetleri',
       'Aidat Tasarrufu',
-      'ISO 41001',
+      'KMK 634',
       'İstanbul İlçe Benchmark',
       'KMK 634 Bütçe Yönetimi',
     ],

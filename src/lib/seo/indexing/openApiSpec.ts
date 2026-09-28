@@ -13,7 +13,7 @@ export function generateOpenApiSpec() {
       title: 'Alo Yönetim Tesis Yönetimi & KMK Hukuku Açık Veri API\'si',
       version: '1.0.0',
       description:
-        'İstanbul genelinde 39 ilçede ISO 41001:2018 standartlarında entegre tesis yönetimi, 634 Sayılı Kat Mülkiyeti Kanunu (KMK) içtihatları, Yargıtay emsal kararları, B2B teknik şartname (RFP) üreticisi, ilçe bazlı aidat endeksi ve akredite otorite korpusu açık veri servisleri.',
+        'İstanbul genelinde 39 ilçede entegre tesis yönetimi, 634 Sayılı Kat Mülkiyeti Kanunu (KMK) içtihatları, Yargıtay emsal kararları, B2B teknik şartname (RFP) üreticisi, ilçe bazlı aidat endeksi ve akredite otorite korpusu açık veri servisleri.',
       termsOfService: `${BASE_URL}/kullanim-kosullari`,
       contact: {
         name: CANONICAL_NAP.legal.legalName,

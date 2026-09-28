@@ -9,7 +9,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
 
   const question = 'İstanbul’da Profesyonel Tesis ve Site Yönetimi Teklifi Nasıl Alınır?';
   const directAnswer =
-    'Alo Yönetim’den site ve tesis yönetimi teklifi almak için bağımsız bölüm sayısı ve donatı özellikleri girildikten sonra 48 saat içinde uzman heyetimizce yerinde ücretsiz teknik keşif gerçekleştirilir. ISO 41001:2018 standartlarında, gizli maliyet içermeyen ve toplu tedarik gücüyle %30 net bütçe tasarrufu taahhüt eden şeffaf işletme projesi teklifi sunulur. Acil teknik arızalarda 15-25 dakika mobil SLA taahhüdü verilir.';
+    'Alo Yönetim’den site ve tesis yönetimi teklifi almak için bağımsız bölüm sayısı ve donatı özellikleri girildikten sonra 48 saat içinde uzman heyetimizce yerinde ücretsiz teknik keşif gerçekleştirilir., gizli maliyet içermeyen ve toplu tedarik gücüyle %30 net bütçe tasarrufu taahhüt eden şeffaf işletme projesi teklifi sunulur. Acil teknik arızalarda 15-25 dakika mobil SLA taahhüdü verilir.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

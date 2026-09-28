@@ -403,7 +403,7 @@ export async function middleware(request: NextRequest) {
 
     response.headers.set(
       'X-Topical-Authority',
-      'Alo Yonetim - Profesyonel Tesis Yonetimi (ISO 41001 & KMK 634)'
+      'Alo Yonetim - Profesyonel Tesis Yonetimi (KMK 634)'
     );
     response.headers.set(
       'X-Dataset-Reference',

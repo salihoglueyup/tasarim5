@@ -160,7 +160,7 @@ export const KMK_LEGISLATION_ARTICLES: KmkArticleItem[] = [
     plainLanguageSummary: 'Yöneticinin görevi: Kurul kararlarını uygulamak, binayı korumak, aidat toplamak, banka hesabını yönetmek, borçlulara icra takibi açmak ve acil bakım tedbirlerini almaktır.',
     supremeCourtPrinciple: 'Yargıtay 18. H.D.: Yönetici, kat maliklerini temsilen aidat borçlularına karşı ayrı bir vekaletnameye gerek olmaksızın doğrudan icra takibi açma yetkisine haizdir.',
     legalSanctionOrRisk: 'Görevini ihmal eden yönetici kat maliklerine karşı oluşan tüm mali ve teknik zararlardan şahsen sorumludur.',
-    aloYonetimStandard: 'KMK Madde 35 kapsamındaki 11 asli görevin tamamı kurumsal SLA ve ISO 41001 kalite standartlarında tek elden ifa edilir.',
+    aloYonetimStandard: 'KMK Madde 35 kapsamındaki 11 asli görevin tamamı kurumsal SLA tek elden ifa edilir.',
   },
   {
     articleNo: 36,

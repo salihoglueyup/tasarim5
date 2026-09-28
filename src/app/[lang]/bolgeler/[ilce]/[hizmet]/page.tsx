@@ -230,7 +230,7 @@ export async function generateMetadata({
     ];
   } else if (isFacility) {
     metaTitle = `${district.name} Site Yönetimi Şirketleri — 7/24 Kesintisiz Hizmet & Ücretsiz Keşif | Alo Yönetim`;
-    metaDesc = `${district.name}'de ISO 41001 standartlarında profesyonel site yönetimi ve entegre tesis işletmesi. 5188 güvenlik, teknik bakım ve aidat tahsilatında garantili çözüm. Hemen keşif alın.`;
+    metaDesc = `${district.name}'de profesyonel site yönetimi ve entegre tesis işletmesi. 5188 güvenlik, teknik bakım ve aidat tahsilatında garantili çözüm. Hemen keşif alın.`;
     serviceKeywords = [
       `${district.name} tesis yönetimi`,
       `${district.name} tesis yönetim şirketi`,
@@ -424,7 +424,7 @@ export default async function ServiceDistrictPage({
     ...serviceLd,
     ...(isFacility
       ? {
-          category: 'ISO 41001 Entegre Tesis Yönetimi',
+          category: 'Entegre Tesis Yönetimi',
           hasCredential: ORG_CREDENTIALS,
         }
       : {
@@ -432,7 +432,7 @@ export default async function ServiceDistrictPage({
             '@type': 'Service',
             name: `${district.name} Tesis Yönetimi`,
             url: `${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi`,
-            category: 'ISO 41001 Entegre Tesis Yönetimi',
+            category: 'Entegre Tesis Yönetimi',
           },
         }),
   };

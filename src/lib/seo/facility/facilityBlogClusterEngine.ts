@@ -131,7 +131,7 @@ export function resolveBlogArticleCluster(
   }).slice(0, 2);
 
   // Topikal Etiketleri Dinamik Zenginleştirme
-  const dynamicTopicalTags = [matchedSubSector.name, 'Tesis ve Mülk Hizmetleri', '634 KMK', 'ISO 41001'];
+  const dynamicTopicalTags = [matchedSubSector.name, 'Tesis ve Mülk Hizmetleri', '634 KMK', 'KMK 634'];
   if (relevantLegislation.some((l) => l.id === 'iso-27001')) dynamicTopicalTags.push('ISO 27001 Bilgi Güvenliği');
   if (relevantLegislation.some((l) => l.id === 'iso-14001')) dynamicTopicalTags.push('ISO 14001 Çevre');
   if (relevantLegislation.some((l) => l.id === 'iso-45001' || l.id === 'isg-6331')) dynamicTopicalTags.push('ISO 45001 İSG');

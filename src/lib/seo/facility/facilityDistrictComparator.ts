@@ -83,15 +83,15 @@ export function compareFacilityDistricts(
       schemaName = `${mapped.map((d) => d.name).join(' vs ')} Facility Management & Dues Comparison 2026`;
       break;
     case 'ru':
-      seoSummary = `Сравнивая индексы управления объектами и взносов для районов ${mapped[0].name} и ${mapped[1].name} в Стамбуле; средний взнос за м² составляет ₺${mapped[0].avgDuesM2} в ${mapped[0].name} и ₺${mapped[1].avgDuesM2} в ${mapped[1].name}. Благодаря модели оптовых закупок и превентивного обслуживания по стандарту ISO 41001 от Alo Yönetim, в районе ${savingsLeader} достигается чистая экономия бюджета в ${maxSavings}%.`;
+      seoSummary = `Сравнивая индексы управления объектами и взносов для районов ${mapped[0].name} и ${mapped[1].name} в Стамбуле; средний взнос за м² составляет ₺${mapped[0].avgDuesM2} в ${mapped[0].name} и ₺${mapped[1].avgDuesM2} в ${mapped[1].name}. Благодаря модели оптовых закупок и превентивного обслуживания от Alo Yönetim, в районе ${savingsLeader} достигается чистая экономия бюджета в ${maxSavings}%.`;
       schemaName = `${mapped.map((d) => d.name).join(' vs ')} Сравнение управления объектами и взносов 2026`;
       break;
     case 'ar':
-      seoSummary = `مقارنة مؤشرات إدارة المرافق والرسوم لمنطقتي ${mapped[0].name} و ${mapped[1].name} في إسطنبول؛ يبلغ متوسط الرسوم لكل م² ₺${mapped[0].avgDuesM2} في ${mapped[0].name} و ₺${mapped[1].avgDuesM2} في ${mapped[1].name}. مع نموذج المشتريات المجمعة والصيانة الوقائية المعتمد وفق ISO 41001 من Alo Yönetim، يتحقق توفير صافٍ في الميزانية بنسبة ${maxSavings}% في منطقة ${savingsLeader}.`;
+      seoSummary = `مقارنة مؤشرات إدارة المرافق والرسوم لمنطقتي ${mapped[0].name} و ${mapped[1].name} في إسطنبول؛ يبلغ متوسط الرسوم لكل م² ₺${mapped[0].avgDuesM2} في ${mapped[0].name} و ₺${mapped[1].avgDuesM2} في ${mapped[1].name}. مع نموذج المشتريات المجمعة والصيانة الوقائية المعتمد من Alo Yönetim، يتحقق توفير صافٍ في الميزانية بنسبة ${maxSavings}% في منطقة ${savingsLeader}.`;
       schemaName = `${mapped.map((d) => d.name).join(' vs ')} مقارنة إدارة المرافق والرسوم 2026`;
       break;
     default:
-      seoSummary = `İstanbul genelinde ${mapped[0].name} ve ${mapped[1].name} ilçeleri tesis yönetimi aidat endeksleri kıyaslandığında; ${mapped[0].name} ilçesinde piyasa ortalama aidat m² ₺${mapped[0].avgDuesM2}, ${mapped[1].name} ilçesinde ise ₺${mapped[1].avgDuesM2} seviyesindedir. Alo Yönetim'in ISO 41001 standartlarındaki toplu tedarik ve önleyici teknik bakım modeli ile ${savingsLeader} bölgesinde %${maxSavings} oranında net bütçe tasarrufu sağlanmaktadır.`;
+      seoSummary = `İstanbul genelinde ${mapped[0].name} ve ${mapped[1].name} ilçeleri tesis yönetimi aidat endeksleri kıyaslandığında; ${mapped[0].name} ilçesinde piyasa ortalama aidat m² ₺${mapped[0].avgDuesM2}, ${mapped[1].name} ilçesinde ise ₺${mapped[1].avgDuesM2} seviyesindedir. Alo Yönetim'inki toplu tedarik ve önleyici teknik bakım modeli ile ${savingsLeader} bölgesinde %${maxSavings} oranında net bütçe tasarrufu sağlanmaktadır.`;
       schemaName = `${mapped.map((d) => d.name).join(' vs ')} Tesis Yönetimi ve Aidat Karşılaştırması 2026`;
       break;
   }

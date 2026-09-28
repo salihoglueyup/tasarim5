@@ -330,7 +330,7 @@ export function auditNeighborhoodSeoPages(): NeighborhoodSeoPatrolReport {
     for (const n of district.neighborhoodData) {
       const path = `/bolgeler/${district.slug}/mahalleler/${n.slug}`;
       const title = `${n.name} Mahallesi Tesis Yönetimi & Site Yönetimi | Alo Yönetim`;
-      const desc = `${district.name} ${n.name} Mahallesi için 634 sayılı KMK ve ISO 41001 standartlarında profesyonel site ve tesis yönetimi, 7/24 mobil teknik SLA ve aidat optimizasyonu.`;
+      const desc = `${district.name} ${n.name} Mahallesi için 634 sayılı KMK uyarınca profesyonel site ve tesis yönetimi, 7/24 mobil teknik SLA ve aidat optimizasyonu.`;
 
       const issues: string[] = [];
       let score = 100;

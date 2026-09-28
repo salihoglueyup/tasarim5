@@ -38,7 +38,7 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         name: 'Tesis Yönetimi',
         short_name: 'Tesis Yönetimi',
-        description: 'ISO 41001 Entegre Tesis ve Site Yönetimi',
+        description: 'Entegre Tesis ve Site Yönetimi',
         url: '/hizmetler/tesis-yonetimi',
         icons: [{ src: '/favicon/favicon-192.png', sizes: '192x192' }],
       },

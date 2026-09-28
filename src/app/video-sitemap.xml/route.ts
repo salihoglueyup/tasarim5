@@ -26,7 +26,7 @@ export async function GET() {
       pageUrl: `${BASE_URL}/`,
       thumbnailLoc: `${BASE_URL}/images/hero-poster-v5.webp`,
       title: 'Alo Yönetim — Profesyonel Tesis ve Site Yönetimi Tanıtım Filmi',
-      description: 'İstanbul Kadıköy merkezli 39 ilçede ISO 41001 standartlarında profesyonel tesis yönetimi, 5188 güvenlik ve teknik bakım hizmetlerimizin tanıtım filmi.',
+      description: 'İstanbul Kadıköy merkezli 39 ilçede profesyonel tesis yönetimi, 5188 güvenlik ve teknik bakım hizmetlerimizin tanıtım filmi.',
       contentLoc: `${BASE_URL}/video/brand-film.mp4`,
       duration: 90, // saniye
       publicationDate: '2026-01-15T08:00:00+03:00',

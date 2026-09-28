@@ -76,7 +76,8 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
       const text = await res.text();
       expect(text).toContain('# Alo Yönetim ve Organizasyon A.Ş.');
       expect(text).toContain('CANONICAL_NAP' in {} || CANONICAL_NAP.legal.mersisNumber);
-      expect(text).toContain('ISO 41001:2018');
+      expect(text).toContain('634 Sayılı Kat Mülkiyeti Kanunu');
+      expect(text).not.toContain('ISO 41001:2018');
       expect(text).toContain('Ground Truth Q&A');
       expect(text).toContain('/api/tesis-yonetimi/geo-feed.xml');
     });

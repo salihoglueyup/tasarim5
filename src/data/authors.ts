@@ -24,9 +24,7 @@ export const AUTHORS: Author[] = [
     title: 'Kurucu & Tesis Yönetim Danışmanı',
     bio: 'Alo Yönetim kurucusu ve baş danışmanı. 15+ yılı aşkın süredir İstanbul genelinde entegre tesis yönetimi, 634 KMK hukuki süreçleri ve dijital mülk operasyonları yönetmektedir.',
     expertise: ['Entegre Tesis Yönetimi', '634 KMK Hukuku', 'Mali Bütçe & Denetim', 'Dijital Bina Yönetimi'],
-    credentials: [
-      'ISO 41001:2018 Entegre Tesis Yönetimi Baş Denetçisi',
-    ],
+    credentials: [],
     sameAs: ['https://www.linkedin.com/company/aloyonetim'],
   },
   {
@@ -34,7 +32,7 @@ export const AUTHORS: Author[] = [
     name: 'Alo Yönetim Araştırma Kurulu',
     title: 'Kurumsal Bilgi & Araştırma Masası',
     bio: 'Alo Yönetim tesis yöneticileri, bina mühendisleri ve hukuk danışmanlarından oluşan uzman ortak araştırma ve rehber yayın kurulu.',
-    expertise: ['Tesis Yönetim Standartları', 'ISO 41001', 'Bina Güvenliği', 'Enerji Verimliliği'],
+    expertise: ['Tesis Yönetim Standartları', 'KMK 634', 'Bina Güvenliği', 'Enerji Verimliliği'],
     credentials: [
       'ISO 45001:2018 İş Sağlığı ve Güvenliği (BELCERT A1808966)',
       'ISO 10002:2018 Müşteri Memnuniyeti (BELCERT A1808961)',

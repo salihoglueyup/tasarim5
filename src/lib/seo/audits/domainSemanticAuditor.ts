@@ -169,8 +169,8 @@ export const FACILITY_LSI_GROUPS: LsiTermGroup[] = [
     maxScore: 15,
     terms: [
       // claims-guard-ignore: semantik konu sözlüğü (bilgilendirici terimler)
-    'iso 41001 sertifikası', 'iso 9001 kalite yönetim', 'iso 14001 çevre yönetim',
-      'iso 45001 iş güvenliği', 'iso 27001 bilgi güvenliği', 'iso 10002 müşteri memnuniyeti',
+    'iso 22301 iş sürekliliği', 'iso 14001 çevre yönetim',
+      'iso 45001 iş güvenliği', 'iso 10002 müşteri memnuniyeti',
       'ohsas 18001', 'breeam sertifikası',
       'leed sertifikası', 'well binası', 'enerji kimlik belgesi', 'epdk lisansı',
       'yetkilendirilmiş servis', 'akredite laboratuvar', 'kalite denetimi',
@@ -348,7 +348,7 @@ export function analyzeDomainSemanticDepth(
   // 4. Hukuk & Standartlar Güven Puanı (Max 20)
   let trustScore = 0;
   if (fullText.includes('kmk') || fullText.includes('634')) trustScore += 7;
-  if (fullText.includes('iso 41001') || fullText.includes('iso')) trustScore += 7;
+  if (fullText.includes('iso')) trustScore += 7;
   if (fullText.includes('5188') || fullText.includes('güvenlik')) trustScore += 6;
 
   const topicalDepthScore = Math.min(100, lsiScore + wordScore + titleScore + trustScore);

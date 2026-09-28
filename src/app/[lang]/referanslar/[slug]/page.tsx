@@ -69,14 +69,14 @@ export async function generateMetadata({
   const staticRef = getReferenceBySlug(slug, lang);
   const units = staticRef?.units ? ` (${staticRef.units})` : '';
 
-  let description = `${location} bölgesindeki ${title}${units} için ISO 41001 entegre tesis yönetimi, 5188 güvenlik ve %30 maliyet tasarrufu sağlayan yönetim başarımız. Detayları inceleyin!`;
+  let description = `${location} bölgesindeki ${title}${units} için entegre tesis yönetimi, 5188 güvenlik ve %30 maliyet tasarrufu sağlayan yönetim başarımız. Detayları inceleyin!`;
 
   if (lang === 'en') {
-    description = `Property management case study for ${title}${units} in ${location}. ISO 41001 integrated facility management and 30% cost savings by Alo Yönetim.`;
+    description = `Property management case study for ${title}${units} in ${location}. integrated facility management and 30% cost savings by Alo Yönetim.`;
   } else if (lang === 'ru') {
-    description = `Управление объектом ${title}${units} в ${location}. Комплексное обслуживание по стандарту ISO 41001 и экономия бюджета 30% от Alo Yönetim.`;
+    description = `Управление объектом ${title}${units} в ${location}. Комплексное обслуживание и экономия бюджета 30% от Alo Yönetim.`;
   } else if (lang === 'ar') {
-    description = `دراسة إدارة المرافق لمشروع ${title}${units} في ${location}. إدارة مرافق متكاملة وفق معايير ISO 41001 وتوفير 30% من Alo Yönetim.`;
+    description = `دراسة إدارة المرافق لمشروع ${title}${units} في ${location}. إدارة مرافق متكاملة وتوفير 30% من Alo Yönetim.`;
   }
 
   return buildMetadata({

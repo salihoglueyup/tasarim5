@@ -22,7 +22,7 @@ interface PositionZeroAnswerBoxProps {
 export default function PositionZeroAnswerBox({
   question,
   answer,
-  standardBadge = 'ISO 41001 & 634 Sayılı KMK',
+  standardBadge = '634 Sayılı KMK',
   subText,
   accentColor = 'slate',
   className = '',

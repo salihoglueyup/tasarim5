@@ -38,7 +38,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
       : 'İstanbul Adliyesi (Çağlayan)';
 
   const question = `${neighborhoodName} Mahallesinde Profesyonel Site ve Apartman Yönetimi Nasıl Yapılır?`;
-  const directAnswer = `${neighborhoodName} (${districtName}) genelinde site ve apartman yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında tahmini işletme projesi tebliği, ${courthouseName} yetki alanında arabuluculuk/icra koordinasyonu, Valilik onaylı 5188 özel güvenlik devriyesi ve ${slaTime} dakika acil mobil teknik müdahale güvencesiyle yürütülür. Alo Yönetim, ${neighborhoodName} bölgesindeki binalarda %30 aidat tasarrufu ve %0 reaktif ceza garantisi sağlar.`;
+  const directAnswer = `${neighborhoodName} (${districtName}) genelinde site ve apartman yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu uyarınca tahmini işletme projesi tebliği, ${courthouseName} yetki alanında arabuluculuk/icra koordinasyonu, Valilik onaylı 5188 özel güvenlik devriyesi ve ${slaTime} dakika acil mobil teknik müdahale güvencesiyle yürütülür. Alo Yönetim, ${neighborhoodName} bölgesindeki binalarda %30 aidat tasarrufu ve %0 reaktif ceza garantisi sağlar.`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

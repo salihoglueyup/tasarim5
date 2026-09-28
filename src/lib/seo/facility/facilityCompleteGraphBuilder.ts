@@ -51,7 +51,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
   const pageTitle = options?.pageTitle || 'Profesyonel Tesis Yönetimi İstanbul | Alo Yönetim';
   const pageDescription =
     options?.pageDescription ||
-    'İstanbul genelinde 39 ilçede ISO 41001 standartlarında entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve aidatlarda %30 tasarruf.';
+    'İstanbul genelinde 39 ilçede entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve aidatlarda %30 tasarruf.';
 
   // 1. Organization Node
   const organizationNode = {
@@ -276,7 +276,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       {
         '@type': 'DefinedTerm',
         name: 'Tesis Yönetimi (Facility Management)',
-        description: 'Binaların idari, hukuki, teknik ve temizlik operasyonlarının ISO 41001:2018 standartlarında tek çatı altında profesyonelce yönetilmesidir.',
+        description: 'Binaların idari, hukuki, teknik ve temizlik operasyonlarının tek çatı altında profesyonelce yönetilmesidir.',
       },
       {
         '@type': 'DefinedTerm',
@@ -492,7 +492,7 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
   const pageTitle = options.pageTitle || `${options.districtName} Tesis Yönetimi | Alo Yönetim İstanbul`;
   const pageDescription =
     options.pageDescription ||
-    `${options.districtName} genelinde apartman, site, plaza ve konut projeleri için ISO 41001 standartlarında 5188 güvenlik ve %30 tasarruflu profesyonel tesis yönetimi.`;
+    `${options.districtName} genelinde apartman, site, plaza ve konut projeleri için 5188 güvenlik ve %30 tasarruflu profesyonel tesis yönetimi.`;
 
   // 1. Organization Node
   const organizationNode = {

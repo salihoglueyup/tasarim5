@@ -309,10 +309,10 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
                 <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                   <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                    <span>🌐</span> ISO 41001:2018 Entegre Tesis Yönetimi
+                    <span>🌐</span> ISO 22301 İş Sürekliliği Yönetimi
                   </span>
                   <p className="text-[var(--color-secondary)]">
-                    Gayrimenkullerin tüm operasyonel yaşam döngüsünü, bakım SLA sürelerini ve bütçe verimliliğini dünya standartlarında işletme güvencesi.
+                    Kritik hizmetlerin kesintiye uğramaması için iş sürekliliği planları, kriz yönetimi ve acil durum müdahale prosedürleri.
                   </p>
                 </div>
 
@@ -336,10 +336,10 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
 
                 <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                   <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                    <span>🎧</span> ISO 10002 & ISO 27001 Müşteri Memnuniyeti & Bilgi Güvenliği
+                    <span>🎧</span> ISO 10002 Müşteri Memnuniyeti & Şikayet Yönetimi
                   </span>
                   <p className="text-[var(--color-secondary)]">
-                    7/24 sakin talep yönetimi, SLA çözüm takibi, KVKK uyumlu kamera kayıt arşivi ve şifreli finansal veri koruması.
+                    7/24 sakin talep yönetimi, SLA çözüm takibi ve şikâyetlerin kayıt altına alınıp ölçülerek raporlanması.
                   </p>
                 </div>
               </div>
@@ -528,7 +528,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                 sourceName: "ISO Global Headquarters",
                 url: "https://www.iso.org",
                 badge: "ISO Standartları",
-                description: "Tesis yönetimi (ISO 41001), bilgi güvenliği (ISO 27001) ve müşteri memnuniyeti (ISO 10002) uluslararası kalite çerçevesi."
+                description: "İş sağlığı ve güvenliği (ISO 45001), çevre yönetimi (ISO 14001) ve müşteri memnuniyeti (ISO 10002) uluslararası kalite çerçevesi."
               }
             ]}
             glossaryTerms={[

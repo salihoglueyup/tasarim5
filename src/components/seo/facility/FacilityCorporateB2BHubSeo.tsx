@@ -27,7 +27,7 @@ export default function FacilityCorporateB2BHubSeo() {
     '@context': 'https://schema.org',
     '@type': 'Table',
     name: 'B2B Entegre Tesis Yönetimi ISO Standartları ve Kurumsal SLA Seviyeleri',
-    description: 'Plazalar, fabrikalar ve ticari binalar için ISO 41001 kalite standartları, Silver/Gold/Platinum SLA paketleri ve B2B teknik şartname şablonu.',
+    description: 'Plazalar, fabrikalar ve ticari binalar için Silver/Gold/Platinum SLA paketleri ve B2B teknik şartname şablonu.',
     url: `${BASE_URL}/hizmetler/tesis-yonetimi#b2b-kurumsal-hub`,
   };
 

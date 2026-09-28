@@ -168,7 +168,7 @@ export default function DistrictLocalHighlightsSeo({
           <div className="flex items-center gap-2 shrink-0">
             <div className="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
               <ShieldCheck className="w-4 h-4" />
-              <span>ISO 41001 & 5188 Güvencesi</span>
+              <span>5188 Lisanslı</span>
             </div>
           </div>
         </div>

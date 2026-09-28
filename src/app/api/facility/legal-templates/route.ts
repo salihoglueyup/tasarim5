@@ -133,7 +133,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
     },
     {
       id: 'iso_41001_tesis_yonetimi_sartnamesi',
-      title: 'ISO 41001 Entegre Tesis Yönetimi ve Kurumsal Hizmet Seviyesi (SLA) Şartnamesi',
+      title: 'Entegre Tesis Yönetimi ve Kurumsal Hizmet Seviyesi (SLA) Şartnamesi',
       lawReference: 'ISO 41001:2018 & 634 Sayılı Kat Mülkiyeti Kanunu',
       authority: 'Site Yönetim Kurulu & Akredite Tesis Yönetim Şirketi',
       description: 'Acil durum müdahale süreleri (SLA), arıza onarım standartları, 5188 güvenlik ve TSE 13811 temizlik kriterlerini belirleyen kurumsal teknik şartname.',

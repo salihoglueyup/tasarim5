@@ -60,7 +60,7 @@ export default function FacilityRfpDownloadModalSeo() {
             Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)] dark:from-white dark:via-slate-200 dark:to-slate-400">Teknik Şartname (RFP) Taslağı</span>
           </h2>
           <p className="text-sm md:text-base text-[var(--color-secondary)] font-normal leading-relaxed max-w-2xl">
-            Siteniz veya plazanız için profesyonel yönetim ihalesi açarken kullanabileceğiniz ISO 41001 ve 634 Sayılı KMK uyumlu resmi teknik şartnameyi saniyeler içinde oluşturun ve ücretsiz indirin.
+            Siteniz veya plazanız için profesyonel yönetim ihalesi açarken kullanabileceğiniz 634 Sayılı KMK uyumlu resmi teknik şartnameyi saniyeler içinde oluşturun ve ücretsiz indirin.
           </p>
           <div className="flex flex-wrap gap-4 pt-2 text-xs text-[var(--color-secondary)] font-medium">
             <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 634 KMK Madde 37 Uyumlu</span>
@@ -98,7 +98,7 @@ export default function FacilityRfpDownloadModalSeo() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-[var(--color-primary)]">Tesis Yönetimi İhale Şartnamesi (RFP)</h3>
-                    <p className="text-xs text-[var(--color-secondary)]">ISO 41001 & KMK Standartlarında Hazır Doküman</p>
+                    <p className="text-xs text-[var(--color-secondary)]">KMK Standartlarında Hazır Doküman</p>
                   </div>
                 </div>
                 <button

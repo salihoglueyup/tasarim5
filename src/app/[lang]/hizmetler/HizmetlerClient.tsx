@@ -168,7 +168,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
                   title: 'ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı',
                   sourceName: 'Türk Standardları Enstitüsü (TSE)',
                   url: 'https://www.tse.org.tr',
-                  badge: 'ISO 41001',
+                  badge: 'KMK 634',
                   description:
                     'Entegre tesis yönetiminde operasyonel verimlilik, risk yönetimi ve sakin memnuniyeti için uluslararası çerçeve standardı.',
                 },

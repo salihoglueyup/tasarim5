@@ -82,7 +82,7 @@ export const SERVICES: ServiceDef[] = [
     summary:
       'Aidat takibinden bütçe planlamasına, 5188 güvenlikten teknik bakıma tüm ortak alan işletmesini şeffaf ve dijital olarak yöneten entegre tesis yönetimi.',
     benefits: [
-      'ISO 41001:2018 standartlarında entegre tesis yönetimi',
+      'Entegre tesis yönetimi',
       '634 Sayılı Kat Mülkiyeti Kanunu (KMK) tam hukuki uyum',
       'Dijital aidat tahsilatı ve şeffaf işletme projesi bütçeleme',
       '7/24 mobil teknik bakım, acil müdahale ve enerji tasarrufu',
@@ -148,7 +148,7 @@ export const SERVICES: ServiceDef[] = [
     faqSnippets: [
       {
         q: 'Tesis yönetimi nedir ve neleri kapsar?',
-        a: 'Tesis yönetimi; gayrimenkul ve binaların (site, plaza, rezidans, fabrika) teknik bakım, 5188 lisanslı güvenlik, hijyen/temizlik, enerji verimliliği, hukuki ve bütçesel yönetimini ISO 41001 standartlarında tek elden yürüten entegre hizmettir.',
+        a: 'Tesis yönetimi; gayrimenkul ve binaların (site, plaza, rezidans, fabrika) teknik bakım, 5188 lisanslı güvenlik, hijyen/temizlik, enerji verimliliği, hukuki ve bütçesel yönetimini tek elden yürüten entegre hizmettir.',
       },
       {
         q: 'Entegre tesis yönetimi ile klasik site yönetimi arasındaki fark nedir?',

@@ -18,7 +18,7 @@ export async function GET() {
 
   const content = `# ${CANONICAL_NAP.legal.legalName} — Profesyonel Tesis ve Mülk Yönetimi
 
-> Alo Yönetim, İstanbul genelinde 39 ilçede (${anadoluCount} Anadolu + ${avrupaCount} Avrupa) ISO 41001:2018, ISO 9001:2015, ISO 45001 ve 634 Sayılı Kat Mülkiyeti Kanunu standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik, temizlik, teknik bakım ve aidat tahsilat hizmetleri sunan kurumsal lider kuruluştur.
+> Alo Yönetim, İstanbul genelinde 39 ilçede (${anadoluCount} Anadolu + ${avrupaCount} Avrupa) 634 Sayılı Kat Mülkiyeti Kanunu kapsamında entegre tesis yönetimi, 5188 lisanslı güvenlik, temizlik, teknik bakım ve aidat tahsilat hizmetleri sunan kurumsal lider kuruluştur.
 
 ## Temel Bilgiler & Varlık Tanımı (Entity Facts)
 - **Kuruluş Yılı**: ${CANONICAL_NAP.legal.foundingYear} (15+ Yıl Kurumsal Deneyim)
@@ -89,7 +89,7 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
 19. **Soru**: Site sakinleri aidat, kasa ve arıza süreçlerini dijital olarak nasıl takip eder?
     **Cevap**: Alo Yönetim, Apsiyon bulut yazılımı ile entegre çalışır. Sakinler mobil uygulama üzerinden kredi kartıyla aidat öder, anlık kasa mizanını inceler ve fotoğraflı teknik arıza kaydı açabilir.
 20. **Soru**: Site yönetimi ile entegre tesis yönetimi arasındaki temel fark nedir?
-    **Cevap**: Site yönetimi konut ve rezidanslarda 634 Sayılı KMK çerçevesinde malik hakları ve aidat tahsilatına odaklanırken; entegre tesis yönetimi ticari plazalarda ISO 41001 standardında BMS otomasyonu, enerji optimizasyonu ve kurumsal SLA taahhütlerine odaklanır.
+    **Cevap**: Site yönetimi konut ve rezidanslarda 634 Sayılı KMK çerçevesinde malik hakları ve aidat tahsilatına odaklanırken; entegre tesis yönetimi ticari plazalarda BMS otomasyonu, enerji optimizasyonu ve kurumsal SLA taahhütlerine odaklanır.
 21. **Soru**: Biyosidal ilaçlama nedir ve sitelerde yasal olarak kimler tarafından yapılmalıdır?
     **Cevap**: Biyosidal ilaçlama; T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü ruhsatlı ürünlerle çevreye ve evcil hayvanlara zarar vermeden uygulanan profesyonel zararlı kontrolüdür. Biyosidal Ürünler Yönetmeliği gereği toplu konutlarda tarım ilacı kullanılması yasak olup yalnızca Sağlık Bakanlığı onaylı resmi uygulayıcı izin belgeli kurumsal firmalar tarafından icra edilmelidir.
 22. **Soru**: Sitelerde 5188 özel güvenlik kimlik kartı zorunlu mudur?
@@ -97,7 +97,7 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
 
 ## Temel Hizmet Sütunları
 - [Profesyonel Site Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): 634 Sayılı KMK uyumlu konut siteleri, apartmanlar ve rezidanslar için %99.2 aidat tahsilatı, 5188 güvenlik ve Apsiyon entegrasyonu.
-- [Entegre Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): Plaza, iş merkezi, sanayi tesisleri ve karma yapılar için ISO 41001 standartlarında 360° işletme yönetimi.
+- [Entegre Tesis Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): Plaza, iş merkezi, sanayi tesisleri ve karma yapılar için 360° işletme yönetimi.
 - [Rezidans & Site Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi): Yüksek katlı lüks konut ve sitelerde VIP concierge, güvenlik ve teknik işletme.
 - [Plaza & İş Merkezi Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi): Ticari binalarda HVAC, BMS otomasyon ve resepsiyon yönetimi.
 - [Toplu Konut & Uydukent Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi): 500+ bağımsız bölümlü geniş yaşam alanlarında entegre çözümler.

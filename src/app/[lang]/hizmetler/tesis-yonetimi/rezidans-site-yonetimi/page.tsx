@@ -52,7 +52,7 @@ export default async function RezidansYonetimiPage({
     subSectorSlug: 'rezidans-site-yonetimi',
     name: 'Rezidans & Lüks Site Yönetimi',
     description:
-      'İstanbul genelinde lüks rezidans ve konut kuleleri için 7/24 concierge, 5188 VIP güvenlik, havuz & spa bakımı ve ISO 41001 standartlarında entegre tesis yönetimi.',
+      'İstanbul genelinde lüks rezidans ve konut kuleleri için 7/24 concierge, 5188 VIP güvenlik, havuz & spa bakımı ile entegre tesis yönetimi.',
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q108846399',

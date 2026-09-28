@@ -142,7 +142,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         ? 'Entegre Tesis ve Plaza Yönetimi İstanbul | Alo Yönetim'
         : 'Profesyonel Site ve Apartman Yönetimi İstanbul | Alo Yönetim',
       desc: isFacility
-        ? 'İstanbul genelinde plazalar, iş merkezleri ve ticari binalar için ISO 41001 standartlarında profesyonel entegre tesis yönetimi.'
+        ? 'İstanbul genelinde plazalar, iş merkezleri ve ticari binalar için profesyonel entegre tesis yönetimi.'
         : 'İstanbul\'da 350+ site ve 28.000 dairede 634 KMK uyumlu şeffaf aidat takibi, 7/24 teknik bakım ve profesyonel yönetim.',
       ogLocale: 'tr_TR',
     },
@@ -169,7 +169,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         ? 'Управление коммерческой недвижимостью в Стамбуле | Alo Management'
         : 'Управляющая компания жилых комплексов в Стамбуле | Alo Management',
       desc: isFacility
-        ? 'Комплексный фасилити менеджмент для бизнес-центров и коммерческих объектов в Стамбуле по стандартам ISO 41001.'
+        ? 'Комплексный фасилити менеджмент для бизнес-центров и коммерческих объектов в Стамбуле.'
         : 'Профессиональное управление жилыми комплексами и апартаментами в Стамбуле, прозрачный учет и круглосуточный сервис.',
       ogLocale: 'ru_RU',
     },

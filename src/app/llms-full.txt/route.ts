@@ -64,7 +64,7 @@ export async function GET() {
   }).join('\n');
 
   const referenceProjectsList = REFERENCES_DATA.filter((r) => r.published).slice(0, 30).map((r) => {
-    return `- **${r.title}** (${r.location}): ${r.category}, ${r.units}. Hizmetler: ${r.services?.join(', ')}. Başarı: ${r.testimonialText || 'ISO 41001 entegre yönetim.'}`;
+    return `- **${r.title}** (${r.location}): ${r.category}, ${r.units}. Hizmetler: ${r.services?.join(', ')}. Başarı: ${r.testimonialText || 'entegre yönetim.'}`;
   }).join('\n');
 
   const content = `# Alo Yönetim — Kapsamlı Tesis Yönetimi & KMK 634 Bilgi Üssü (Full Corpus)
@@ -93,7 +93,7 @@ export async function GET() {
 - **URL**: ${BASE_URL}/hizmetler/site-yonetimi
 
 ### Entegre Tesis Yönetimi (B2B & Kurumsal İşletme Hub)
-- **Açıklama**: Plaza, iş merkezi, fabrika ve karma gayrimenkul projelerinde ISO 41001 uluslararası standartlarında 360° entegre teknik işletme ve tesis yönetimi.
+- **Açıklama**: Plaza, iş merkezi, fabrika ve karma gayrimenkul projelerinde 360° entegre teknik işletme ve tesis yönetimi.
 - **Kapsam**: BMS & HVAC Otomasyonu, Önleyici Bakım, Enerji Verimliliği, Reaktif Ceza Koruması, ISO 45001 İSG Uyumu, Kurumsal SLA.
 - **URL**: ${BASE_URL}/hizmetler/tesis-yonetimi
 

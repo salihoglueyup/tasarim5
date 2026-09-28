@@ -106,7 +106,7 @@ export function getFacilitySerpMeta(
   }
 
   // Ana Hub Sayfası
-  let title = 'Profesyonel Site ve Tesis Yönetimi İstanbul — ISO 41001 & KMK 634 | Alo Yönetim';
+  let title = 'Profesyonel Site ve Tesis Yönetimi İstanbul — KMK 634 | Alo Yönetim';
   let description = 'İstanbul genelinde 39 ilçede 340+ konut sitesi ve rezidans referansı. ILAS akrediteli ISO belgeli profesyonel site ve tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %99.2 aidat tahsilat garantisi!';
   let targetKeyword = pillar === 'site' ? 'site yönetimi' : 'tesis yönetimi';
 
@@ -115,11 +115,11 @@ export function getFacilitySerpMeta(
     description = 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı ve 5188 güvenlik!';
   } else if (pillar === 'facility') {
     title = 'Tesis Yönetimi İstanbul — ILAS Akrediteli ISO Belgeli | Alo Yönetim';
-    description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için ISO 41001 standartlarında entegre tesis yönetimi, 7/24 teknik bakım ve %30 enerji/işletme tasarrufu.';
+    description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için entegre tesis yönetimi, 7/24 teknik bakım ve %30 enerji/işletme tasarrufu.';
   }
 
   if (lang === 'en') {
-    title = 'Professional Property, Site & Facility Management Istanbul — ISO 41001 | Alo Yönetim';
+    title = 'Professional Property, Site & Facility Management Istanbul | Alo Yönetim';
     description = 'Integrated residential site and facility management across 39 Istanbul districts. ILAS-accredited ISO certified property care, licensed security, and 30% budget savings.';
     targetKeyword = pillar === 'site' ? 'site management istanbul' : 'facility management istanbul';
   } else if (lang === 'ru') {
@@ -127,7 +127,7 @@ export function getFacilitySerpMeta(
     description = 'Комплексное управление жилыми комплексами и объектами в 39 районах Стамбула. Лицензированная охрана 5188, техническое обслуживание и экономия бюджета до 30%.';
     targetKeyword = 'управление жилыми комплексами стамбул';
   } else if (lang === 'ar') {
-    title = 'إدارة المجمعات السكنية والمرافق الاحترافية في إسطنبول — معايير ISO 41001 | Alo Yönetim';
+    title = 'إدارة المجمعات السكنية والمرافق الاحترافية في إسطنبول | Alo Yönetim';
     description = 'إدارة مجمعات سكنية وأبراج في 39 منطقة بإسطنبول. أمن مرخص، صيانة فنية وإدارة مستحقات دقيقة بنسبة تحصيل 99.2% وتوفير 30% بالميزانية.';
     targetKeyword = 'إدارة المجمعات السكنية اسطنبول';
   }

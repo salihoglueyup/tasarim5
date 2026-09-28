@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const base = buildMetadata({
     title: t.home_meta_title_base || 'Alo Yönetim — İstanbul Profesyonel Site ve Tesis Yönetimi',
-    description: t.home_meta_desc || 'İstanbul genelinde 39 ilçede ISO 41001 standartlarında profesyonel site ve tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. %30 maliyet tasarrufu ve 7/24 hizmet.',
+    description: t.home_meta_desc || 'İstanbul genelinde 39 ilçede profesyonel site ve tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. %30 maliyet tasarrufu ve 7/24 hizmet.',
     path: '/',
     lang,
     targetKeyword: 'alo yönetim',
@@ -195,7 +195,7 @@ export default async function Home({ params }: Props) {
               title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
-              badge: "ISO 41001",
+              badge: "KMK 634",
               description: "Gayrimenkullerin ve yaşam alanlarının verimli, güvenli, sürdürülebilir ve maliyet tasarruflu işletilmesini belgeleyen dünya standardı."
             }
           ]}

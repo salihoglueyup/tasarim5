@@ -103,7 +103,7 @@ export function calculateFacilityBudget(
         'Toplu tedarik zinciri ile temizlik ve teknik bakım malzemelerinde %35 indirim',
         'Dijital aidat tahsilat otomasyonu ile %98.7 tahsilat oranı ve sıfır gecikme faizi',
         'Kompanzasyon panosu ve LED aydınlatma optimizasyonu ile %20 enerji tasarrufu',
-        'ISO 41001 standartlı koruyucu bakım ile büyük asansör/jeneratör arıza maliyetlerinin engellenmesi',
+        'koruyucu bakım ile büyük asansör/jeneratör arıza maliyetlerinin engellenmesi',
       ],
     },
     kmkCompliance: {

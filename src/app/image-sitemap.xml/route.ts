@@ -147,7 +147,7 @@ export async function GET() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(district.name + ' Tesis Yönetimi')}&amp;type=local</image:loc>\n`;
       xml += `      <image:title>${escapeXml(district.name)} Tesis Yönetimi &amp; Site İşletmeciliği</image:title>\n`;
-      xml += `      <image:caption>${escapeXml(district.name)} genelinde ISO 41001 standartlarında profesyonel tesis ve site yönetimi</image:caption>\n`;
+      xml += `      <image:caption>${escapeXml(district.name)} genelinde profesyonel tesis ve site yönetimi</image:caption>\n`;
       xml += `      <image:geo_location>${escapeXml(district.name)}, İstanbul, Türkiye</image:geo_location>\n`;
       xml += `    </image:image>\n`;
       xml += `  </url>\n`;
@@ -162,7 +162,7 @@ export async function GET() {
         xml += `    <image:image>\n`;
         xml += `      <image:loc>${BASE_URL}/api/og?title=${encodeURIComponent(n.name + ' Tesis Yönetimi')}&amp;type=local</image:loc>\n`;
         xml += `      <image:title>${escapeXml(n.name)} Mahallesi Tesis Yönetimi &amp; Site İşletmesi</image:title>\n`;
-        xml += `      <image:caption>${escapeXml(district.name)} ${escapeXml(n.name)} Mahallesi ISO 41001 standartlarında profesyonel tesis ve site yönetimi</image:caption>\n`;
+        xml += `      <image:caption>${escapeXml(district.name)} ${escapeXml(n.name)} Mahallesi profesyonel tesis ve site yönetimi</image:caption>\n`;
         xml += `      <image:geo_location>${escapeXml(n.name)}, ${escapeXml(district.name)}, İstanbul, Türkiye</image:geo_location>\n`;
         xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
         xml += `    </image:image>\n`;

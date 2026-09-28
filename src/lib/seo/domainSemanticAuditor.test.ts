@@ -36,7 +36,7 @@ describe('Semantik LSI & Topikal Derinlik Analizcisi (domainSemanticAuditor.test
 
       const isoGroup = FACILITY_LSI_GROUPS.find((g) => g.groupName.includes('ISO'));
       expect(isoGroup).toBeDefined();
-      expect(isoGroup?.terms).toContain('iso 41001 sertifikası');
+      expect(isoGroup?.terms).toContain('iso 22301 iş sürekliliği');
 
       const plazaGroup = FACILITY_LSI_GROUPS.find((g) => g.groupName.includes('Plaza'));
       expect(plazaGroup).toBeDefined();
@@ -88,9 +88,9 @@ describe('Semantik LSI & Topikal Derinlik Analizcisi (domainSemanticAuditor.test
       expect(report.lsiCoveragePercent).toBeGreaterThanOrEqual(15);
     });
 
-    it('Tesis yönetimi dikeyinde ISO 41001, plaza ve BMS terimlerini tespit eder', () => {
+    it('Tesis yönetimi dikeyinde ISO 22301, plaza ve BMS terimlerini tespit eder', () => {
       const content = `
-        ISO 41001 sertifikası ile entegre tesis yönetimi ve ISO 9001 kalite standartları.
+        ISO 22301 iş sürekliliği ile entegre tesis yönetimi ve ISO 14001 çevre yönetim standartları.
         Önleyici bakım planı, arıza oranı kpi ve bms entegrasyonu ile enerji verimliliği.
         Tesis yönetim şartnamesi ve sla kpi takibi ile plaza ortak gider optimizasyonu.
         Sanayi tesisi için yükleme boşaltma rampası ve isg uzmanı risk değerlendirme raporu.
@@ -104,7 +104,7 @@ describe('Semantik LSI & Topikal Derinlik Analizcisi (domainSemanticAuditor.test
         wordCount: 300,
       });
 
-      expect(report.detectedLsiTerms).toContain('iso 41001 sertifikası');
+      expect(report.detectedLsiTerms).toContain('iso 22301 iş sürekliliği');
       expect(report.detectedLsiTerms).toContain('önleyici bakım planı');
       expect(report.detectedLsiTerms).toContain('bms entegrasyonu');
       expect(report.topicalDepthScore).toBeGreaterThanOrEqual(70);

@@ -197,7 +197,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       title: 'Plaza & İş Merkezi Entegre Tesis Yönetimi',
       targetPropertyType: 'A+ Plazalar, Finans Merkezleri ve Ticari Kuleler',
       criticalSuccessFactors: ['HVAC ve İklimlendirme Kesintisizliği', 'Turnike ve Biyometrik Ziyaretçi Yönetimi', 'Yangın & Tahliye Simülasyonları'],
-      mandatoryCompliances: ['ISO 41001', 'Binaların Yangından Korunması Hakkında Yönetmelik', '6331 İSG Kanunu'],
+      mandatoryCompliances: ['KMK 634', 'Binaların Yangından Korunması Hakkında Yönetmelik', '6331 İSG Kanunu'],
       canonicalUrl: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/plaza-yonetimi`,
     },
     {

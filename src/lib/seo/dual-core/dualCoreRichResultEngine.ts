@@ -308,7 +308,7 @@ export function buildLocalBusinessSchema(options: LocalBusinessRichOptions = { p
     logo: `${BASE_URL}/images/logo.png`,
     image: `${BASE_URL}/images/og-main.jpg`,
     description: isFacility
-      ? 'İstanbul genelinde plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkuller için ISO 41001 standartlarında entegre tesis yönetimi, 5188 güvenlik, BMS ve teknik bakım.'
+      ? 'İstanbul genelinde plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkuller için entegre tesis yönetimi, 5188 güvenlik, BMS ve teknik bakım.'
       : 'İstanbul genelinde siteler ve apartmanlar için KMK 634 mevzuatına uygun, şeffaf aidat takibi, 7/24 teknik servis ve profesyonel site yöneticiliği.',
     telephone: CANONICAL_NAP.contact.phoneDisplay,
     email: CANONICAL_NAP.contact.email,
@@ -377,7 +377,7 @@ export function buildDistrictLocalBusinessSchema(districtSlug: string, pillar: D
     priceRange: isFacility ? '₺₺₺' : '₺₺',
     description: `${district.name} ilçesinde ${
       isFacility
-        ? 'ticari binalar, iş merkezleri ve plazalar için ISO 41001 entegre tesis yönetimi.'
+        ? 'ticari binalar, iş merkezleri ve plazalar için entegre tesis yönetimi.'
         : 'siteler, toplu konutlar ve rezidanslar için 634 KMK uyumlu profesyonel yönetim.'
     }`,
     address: {
@@ -470,7 +470,7 @@ export const HOWTO_SITE_MANAGEMENT_SETUP: HowToRichOptions = {
 export const HOWTO_FACILITY_CONTRACT: HowToRichOptions = {
   id: 'tesis-yonetim-sozlesmesi-rehberi',
   name: 'Tesis Yönetim Sözleşmesi Nasıl Yapılır? (SLA & Kapsam Rehberi)',
-  description: 'Plaza, iş merkezi ve ticari tesisler için ISO 41001 standartlarında entegre tesis yönetim sözleşmesi (SLA) hazırlama ve ihale adımları.',
+  description: 'Plaza, iş merkezi ve ticari tesisler için entegre tesis yönetim sözleşmesi (SLA) hazırlama ve ihale adımları.',
   pillar: 'facility',
   totalTime: 'P14D',
   supply: ['Teknik Varlık Envanteri', 'Risk Analiz Raporu', 'SLA Hizmet Seviye Protokolü'],
@@ -736,7 +736,7 @@ export const FACILITY_REVIEW_BANK: ReviewItem[] = [
     pillar: 'facility',
     serviceSlug: 'tesis-yonetimi',
     districtSlug: 'sisli',
-    positiveNotes: 'ISO 41001 uyumlu süreçler, CMMS arıza takip yazılımı ve enerji tasarrufu.',
+    positiveNotes: 'süreçler, CMMS arıza takip yazılımı ve enerji tasarrufu.',
     negativeNotes: 'Aylık yönetim raporları çok detaylı olduğundan incelemesi zaman alıyor.',
   },
   {
@@ -829,7 +829,7 @@ export function buildReviewSchema(review: ReviewItem) {
 
 export const JOB_POSTING_FACILITY_MANAGER: JobPostingRichOptions = {
   title: 'Kıdemli Tesis Yöneticisi (Plaza & İş Merkezi)',
-  description: '<p>İstanbul Avrupa ve Anadolu yakasındaki A+ plaza ve iş merkezlerimizin teknik, güvenlik, temizlik ve İSG operasyonlarını ISO 41001 standartlarında yönetecek <strong>Kıdemli Tesis Yöneticisi</strong> arıyoruz.</p><h3>Aranan Nitelikler:</h3><ul><li>Üniversitelerin Mühendislik veya İşletme bölümlerinden mezun,</li><li>En az 5 yıl ticari gayrimenkul veya plaza tesis yönetim tecrübesi olan,</li><li>ISO 41001, BMS ve CMMS otomasyon yazılımlarına hakim,</li><li>6331 sayılı İSG mevzuatını iyi bilen.</li></ul>',
+  description: '<p>İstanbul Avrupa ve Anadolu yakasındaki A+ plaza ve iş merkezlerimizin teknik, güvenlik, temizlik ve İSG operasyonlarını yönetecek <strong>Kıdemli Tesis Yöneticisi</strong> arıyoruz.</p><h3>Aranan Nitelikler:</h3><ul><li>Üniversitelerin Mühendislik veya İşletme bölümlerinden mezun,</li><li>En az 5 yıl ticari gayrimenkul veya plaza tesis yönetim tecrübesi olan,</li><li>ISO 41001, BMS ve CMMS otomasyon yazılımlarına hakim,</li><li>6331 sayılı İSG mevzuatını iyi bilen.</li></ul>',
   datePosted: '2026-02-01',
   validThrough: '2026-12-31',
   employmentType: 'FULL_TIME',
@@ -842,7 +842,7 @@ export const JOB_POSTING_FACILITY_MANAGER: JobPostingRichOptions = {
   baseSalaryMax: 95000,
   salaryCurrency: 'TRY',
   salaryUnitText: 'MONTH',
-  skillsRequired: ['ISO 41001', 'CMMS', 'BMS Otomasyon', 'Bütçe Yönetimi', '6331 İSG', 'SLA Yönetimi'],
+  skillsRequired: ['KMK 634', 'CMMS', 'BMS Otomasyon', 'Bütçe Yönetimi', '6331 İSG', 'SLA Yönetimi'],
   responsibilities: [
     'Plaza teknik ve idari ekiplerinin 7/24 sevk ve idaresi',
     'Yıllık işletme bütçesi ve enerji verimlilik raporlarının hazırlanması',

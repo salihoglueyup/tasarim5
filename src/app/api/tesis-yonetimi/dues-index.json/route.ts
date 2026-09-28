@@ -121,7 +121,7 @@ export async function GET(req: Request) {
     publisher: 'Alo Yönetim ve Organizasyon A.Ş. — Mali Teftiş & Veri Masası',
     license: 'CC BY-SA 4.0 (Açık Kaynak Atıflı Veri)',
     lastUpdated: new Date().toISOString(),
-    methodology: '634 Sayılı KMK m.20 ve ISO 41001 standartlarında 340+ aktif yönetilen proje ve bölge saha analizleri.',
+    methodology: '634 Sayılı KMK m.20 340+ aktif yönetilen proje ve bölge saha analizleri.',
     istanbulSummary: {
       totalDistricts: selectedDistricts.length,
       totalNeighborhoods: totalNeighborhoodsCount,

@@ -104,7 +104,7 @@ export default function QualityHeroSeo({ onOpenQuote }: QualityHeroSeoProps) {
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md">
             <div className="text-2xl sm:text-3xl font-black text-white mb-1">6 Standart</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200">Uluslararası Akreditasyon</div>
-            <p className="text-[11px] text-slate-400 mt-1">ISO 41001, 9001, 27001, 45001, 14001 & TSE</p>
+            <p className="text-[11px] text-slate-400 mt-1">ISO 45001, 14001, 10002, 22301 (BELCERT · ILAS)</p>
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md">

@@ -112,7 +112,7 @@ export default function PlazaYonetimiClient() {
           answerId="plaza-instant-answer-text"
           question="Plaza ve İş Merkezi Yönetimi Nedir ve Neleri Kapsar?"
           answer="Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, 5188 lisanslı turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve %0 reaktif ceza güvencesinin entegre yönetilmesidir."
-          standardBadge="ISO 41001 & Yangın Yönetmeliği"
+          standardBadge="Yangın Yönetmeliği"
           subText="Alo Yönetim, kurumsal plazalarda 45 dakika acil teknik müdahale SLA garantisi, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
           accentColor="blue"
         />
@@ -231,7 +231,7 @@ export default function PlazaYonetimiClient() {
             title: "ISO 41001:2018 Tesis Yönetim Sistemi",
             sourceName: "TSE & Uluslararası Standartlar Teşkilatı",
             url: "https://www.tse.org.tr",
-            badge: "ISO 41001",
+            badge: "KMK 634",
             description: "A+ ofis kuleleri ve plazalarda operasyonel verimlilik, SLA sürekliliği ve kurumsal hizmet kalitesi standartları."
           },
           {

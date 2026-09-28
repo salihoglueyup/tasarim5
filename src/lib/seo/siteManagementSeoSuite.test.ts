@@ -224,7 +224,8 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(res.headers.get('Content-Type')).toContain('text/markdown');
       const text = await res.text();
       expect(text).toContain('# Alo Yönetim — Entegre Tesis Yönetimi');
-      expect(text).toContain('ISO 41001:2018');
+      expect(text).toContain('ISO 45001');
+      expect(text).not.toContain('ISO 41001:2018');
       expect(text).toContain('%0 Reaktif');
     });
   });
@@ -529,7 +530,7 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
 
       const plaza = SERVICE_PRICING_PACKAGES.find(p => p.id === 'plaza-ticari-tesis-yonetimi');
       expect(plaza).toBeDefined();
-      expect(plaza?.highlightText).toContain('ISO 41001');
+      expect(plaza?.highlightText).not.toContain('ISO 41001');
       expect(plaza?.slaResponseTime).toContain('15 Dakika');
     });
   });

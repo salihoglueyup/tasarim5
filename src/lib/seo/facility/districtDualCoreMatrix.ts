@@ -73,8 +73,8 @@ export const EUROPEAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       b2bServices: ['Plaza HVAC & Otomasyon', 'Akıllı Kartlı Geçiş', 'Kurumsal Enerji Tasarrufu'],
       targetKeywords: ['Beşiktaş tesis yönetimi', 'Levent plaza yönetimi', 'Gayrettepe iş merkezi yönetimi'],
       longTailKeywords: ['Levent plaza tesis yönetim şirketi', 'Beşiktaş kurumsal bina işletmesi ISO 41001'],
-      serpTitle: 'Beşiktaş Plaza ve Entegre Tesis Yönetimi — ISO 41001 | Alo Yönetim',
-      serpDescription: 'Levent ve Beşiktaş iş kulelerinde ISO 41001 standartlarında entegre tesis yönetimi, önleyici teknik bakım ve %99.2 SLA.',
+      serpTitle: 'Beşiktaş Plaza ve Entegre Tesis Yönetimi | Alo Yönetim',
+      serpDescription: 'Levent ve Beşiktaş iş kulelerinde entegre tesis yönetimi, önleyici teknik bakım ve %99.2 SLA.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '42+ Site & Plaza' },
@@ -244,7 +244,7 @@ export const EUROPEAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Beylikdüzü tesis yönetimi', 'Haramidere iş merkezi yönetimi', 'Beylikdüzü OSB yönetimi'],
       longTailKeywords: ['Beylikdüzü sanayi ve depo tesis yönetimi', 'Haramidere plaza tesis işletmesi'],
       serpTitle: 'Beylikdüzü & Haramidere Tesis ve Sanayi Yönetimi | Alo Yönetim',
-      serpDescription: 'Beylikdüzü sanayi tesisleri ve plazalarında ISO 41001 standartlarında profesyonel tesis işletmesi.',
+      serpDescription: 'Beylikdüzü sanayi tesisleri ve plazalarında profesyonel tesis işletmesi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '64+ Site' },
@@ -312,7 +312,7 @@ export const EUROPEAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Kâğıthane tesis yönetimi', 'Cendere ofis yönetimi', 'Seyrantepe plaza yönetimi'],
       longTailKeywords: ['Cendere vadisi kurumsal tesis yönetimi', 'Kâğıthane modern iş merkezi işletmesi'],
       serpTitle: 'Kâğıthane & Cendere Plaza Tesis Yönetimi | Alo Yönetim',
-      serpDescription: 'Cendere ofis vadisinde ISO 41001 standartlarında profesyonel kurumsal tesis işletmesi.',
+      serpDescription: 'Cendere ofis vadisinde profesyonel kurumsal tesis işletmesi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '34+ Proje' },
@@ -351,7 +351,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       b2bServices: ['A+ Plaza HVAC & Chiller Bakımı', 'Jeneratör & Trafo Senkronizasyonu', 'Elektronik Güvenlik & X-Ray'],
       targetKeywords: ['Kadıköy tesis yönetimi', 'Kozyatağı plaza yönetimi', 'Merdivenköy iş merkezi yönetimi', 'Fikirtepe ticari tesis yönetimi'],
       longTailKeywords: ['Kozyatağı plaza tesis yönetim firmaları', 'Kadıköy kurumsal bina tesis işletmeciliği ISO 41001'],
-      serpTitle: 'Kadıköy & Kozyatağı Plaza Entegre Tesis Yönetimi — ISO 41001 | Alo Yönetim',
+      serpTitle: 'Kadıköy & Kozyatağı Plaza Entegre Tesis Yönetimi | Alo Yönetim',
       serpDescription: 'Kozyatağı ve Kadıköy genelinde plazalar ve iş merkezleri için ISO 45001 belgeli entegre tesis yönetimi, önleyici teknik bakım ve %30 tasarruf.',
     },
     sharedKpis: [
@@ -386,7 +386,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Ataşehir tesis yönetimi', 'İstanbul Finans Merkezi tesis yönetimi', 'İFM plaza yönetimi', 'Ataşehir iş merkezi yönetimi'],
       longTailKeywords: ['İstanbul Finans Merkezi kurumsal tesis yönetimi', 'Ataşehir A+ plaza teknik işletmesi'],
       serpTitle: 'İstanbul Finans Merkezi (İFM) & Ataşehir Tesis Yönetimi | Alo Yönetim',
-      serpDescription: 'İFM ve Ataşehir finans kulelerinde ISO 41001 standartlarında akıllı bina otomasyonu ve entegre kurumsal tesis işletmesi.',
+      serpDescription: 'İFM ve Ataşehir finans kulelerinde akıllı bina otomasyonu ve entegre kurumsal tesis işletmesi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '54+ Kule & Site' },
@@ -522,7 +522,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Pendik tesis yönetimi', 'Kurtköy Teknopark tesis yönetimi', 'Pendik lojistik tesis yönetimi'],
       longTailKeywords: ['Teknopark İstanbul kurumsal tesis işletmesi', 'Pendik antrepo tesis yönetimi'],
       serpTitle: 'Pendik & Kurtköy Teknopark Tesis Yönetimi | Alo Yönetim',
-      serpDescription: 'Teknopark İstanbul ve Kurtköy lojistik merkezlerinde ISO 41001 standartlarında entegre tesis işletmesi.',
+      serpDescription: 'Teknopark İstanbul ve Kurtköy lojistik merkezlerinde entegre tesis işletmesi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '52+ Site' },
@@ -556,7 +556,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Tuzla tesis yönetimi', 'Tuzla OSB tesis yönetimi', 'Tuzla Kimya Sanayi yönetimi', 'Tuzla tersane tesis yönetimi'],
       longTailKeywords: ['Tuzla organize sanayi bölgesi tesis işletmesi', 'Tuzla kimya fabrikası tesis yönetimi'],
       serpTitle: 'Tuzla OSB & Tersaneler Bölgesi Ağır Sanayi Tesisi Yönetimi | Alo Yönetim',
-      serpDescription: 'Tuzla Kimya OSB, Deri OSB ve Tersaneler Bölgesinde ISO 41001 ve SEVESO uyumlu entegre tesis yönetimi.',
+      serpDescription: 'Tuzla Kimya OSB, Deri OSB ve Tersaneler Bölgesinde SEVESO uyumlu entegre tesis yönetimi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '60+ Tesis & Site' },
@@ -623,7 +623,7 @@ export function getDistrictDualCore(districtSlug: string): DistrictDualCoreEntry
         `${baseDistrict.name} ticari bina yönetimi ISO 41001`,
       ],
       serpTitle: `${baseDistrict.name} Plaza ve Entegre Tesis Yönetimi | Alo Yönetim`,
-      serpDescription: `${baseDistrict.name} ilçesindeki ticari yapılar ve plazalar için ISO 41001 standartlarında entegre tesis yönetimi.`,
+      serpDescription: `${baseDistrict.name} ilçesindeki ticari yapılar ve plazalar için entegre tesis yönetimi.`,
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: `${baseDistrict.managedProjects}+ Proje` },
@@ -660,7 +660,7 @@ export function getDistrictPillarSerp(
   if (!entry) {
     return {
       title: 'İstanbul Profesyonel Site ve Tesis Yönetimi | Alo Yönetim',
-      description: 'İstanbul 39 ilçede KMK 634 ve ISO 41001 uyumlu profesyonel yönetim.',
+      description: 'İstanbul 39 ilçede KMK 634 ve profesyonel yönetim.',
       targetKeywords: ['site yönetimi', 'tesis yönetimi'],
     };
   }
@@ -683,7 +683,7 @@ export function getDistrictPillarSerp(
 
   return {
     title: `${entry.name} Tesis Yönetimi & Site Yönetimi — Profesyonel Yönetim Şirketi | Alo Yönetim`,
-    description: `${entry.name} genelinde apartman, site ve plazalar için KMK 634 ve ISO 41001 uyumlu profesyonel yönetim. 5188 güvenlik, aidat takibi ve %30 tasarruf!`,
+    description: `${entry.name} genelinde apartman, site ve plazalar için KMK 634 ve profesyonel yönetim. 5188 güvenlik, aidat takibi ve %30 tasarruf!`,
     targetKeywords: [...entry.siteCore.targetKeywords.slice(0, 3), ...entry.facilityCore.targetKeywords.slice(0, 3)],
   };
 }

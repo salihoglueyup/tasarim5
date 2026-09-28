@@ -100,7 +100,7 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
   'tesis-yonetimi': {
     question: 'Entegre Tesis Yönetimi Nedir ve ISO 41001 Standartları Neleri Kapsar?',
     answer:
-      'Entegre tesis yönetimi; rezidans, AVM, iş merkezi ve karma yaşam projelerinde uluslararası ISO 41001:2018 standardında teknik bakım, 5188 özel güvenlik, endüstriyel temizlik, enerji otomasyonu (BMS) ve bütçe yönetimini tek çatı altında optimize eden kurumsal disiplindir. Alo Yönetim, 340+ aktif tesiste kurumsal SLA garantileri ve %0 reaktif ceza güvencesiyle 360 derece kesintisiz operasyon yürütmektedir.',
+      'Entegre tesis yönetimi; rezidans, AVM, iş merkezi ve karma yaşam projelerinde uluslararası teknik bakım, 5188 özel güvenlik, endüstriyel temizlik, enerji otomasyonu (BMS) ve bütçe yönetimini tek çatı altında optimize eden kurumsal disiplindir. Alo Yönetim, 340+ aktif tesiste kurumsal SLA garantileri ve %0 reaktif ceza güvencesiyle 360 derece kesintisiz operasyon yürütmektedir.',
     legalBasis: 'ISO 41001:2018 Tesis Yönetimi Çerçeve Standardı & 634 Sayılı KMK',
     badge: 'ISO 45001 Belgeli',
     keyPoints: [

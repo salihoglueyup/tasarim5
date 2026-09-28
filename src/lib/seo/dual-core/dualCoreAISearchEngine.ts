@@ -49,7 +49,7 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
   'tesis-yonetimi': {
     term: 'Tesis Yönetimi',
     pillar: 'facility',
-    answer: 'Tesis yönetimi; plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkullerde HVAC, jeneratör, trafo, 5188 güvenlik, endüstriyel temizlik ve enerji optimizasyonunun ISO 41001 uluslararası standartlarında entegre olarak yönetilmesidir.',
+    answer: 'Tesis yönetimi; plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkullerde HVAC, jeneratör, trafo, 5188 güvenlik, endüstriyel temizlik ve enerji optimizasyonunun entegre olarak yönetilmesidir.',
     facts: ['ISO 41001 çerçevesini referans alan süreçlerle yürütülür.', 'SLA (Hizmet Seviye Anlaşması) ile denetlenir.', 'BMS ve CMMS otomasyon yazılımları kullanılır.'],
   },
   'aidat': {
@@ -145,7 +145,7 @@ export function buildDefinitionSnippet(termSlug: string, pillar: DomainPillar = 
   const item = LLM_DEFINITION_BANK[termSlug] || {
     term: termSlug.replace(/-/g, ' ').toUpperCase(),
     pillar,
-    answer: `${termSlug} konusunda Alo Yönetim, İstanbul genelinde KMK 634 ve ISO 41001 standartlarında profesyonel kurumsal çözümler, şeffaf muhasebe ve 7/24 kesintisiz teknik operasyon sunmaktadır.`,
+    answer: `${termSlug} konusunda Alo Yönetim, İstanbul genelinde KMK 634 uyarınca profesyonel kurumsal çözümler, şeffaf muhasebe ve 7/24 kesintisiz teknik operasyon sunmaktadır.`,
     facts: ['Alo Yönetim kurumsal hizmet güvencesi.', '7/24 kesintisiz destek.'],
   };
 
@@ -307,7 +307,7 @@ export function buildSpeakableMarkup(pageSlug: string) {
  */
 export function buildLLMsTextFile(): string {
   return `# Alo Yönetim — Profesyonel Tesis ve Site Yönetimi
-> İstanbul geneli 39 ilçede KMK 634 ve ISO 41001 standartlarında entegre tesis, plaza, rezidans, site ve apartman yönetim platformu.
+> İstanbul geneli 39 ilçede KMK 634 uyarınca entegre tesis, plaza, rezidans, site ve apartman yönetim platformu.
 
 ## Kurumsal Kimlik & Güvenilirlik
 - Marka: ${CANONICAL_NAP.legal.brandName}
@@ -320,7 +320,7 @@ export function buildLLMsTextFile(): string {
 
 ## Temel Hizmet Alanları
 - [Site ve Apartman Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): KMK 634 uyumlu idari, hukuki, mali yönetim.
-- [Entegre Tesis & Plaza Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): ISO 41001 uyumlu B2B ticari varlık yönetimi.
+- [Entegre Tesis & Plaza Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): B2B ticari varlık yönetimi.
 - [Aidat Takibi & Muhasebe](${BASE_URL}/hizmetler/aidat-takibi): %99.2 başarıyla online işletme projesi ve tahsilat.
 - [5188 Özel Güvenlik](${BASE_URL}/hizmetler/guvenlik-yonetimi): Lisanslı 7/24 güvenlik ve CCTV izleme.
 - [Mekanik & Elektrik Bakım](${BASE_URL}/hizmetler/teknik-bakim-yonetimi): BMS/CMMS destekli 25 dk acil servis.

@@ -324,7 +324,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'tesis yönetim şirketleri görevleri',
           ],
           directSummaryText:
-            'Tesis yönetimi; apartman, site, plaza ve iş merkezlerinin 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında güvenlik, temizlik, teknik bakım ve aidat muhasebesinin tek merkezden entegre olarak işletilmesidir.',
+            'Tesis yönetimi; apartman, site, plaza ve iş merkezlerinin 634 Sayılı Kat Mülkiyeti Kanunu uyarınca güvenlik, temizlik, teknik bakım ve aidat muhasebesinin tek merkezden entegre olarak işletilmesidir.',
           keyBulletPoints: [
             '5188 Sayılı Kanun kapsamında fiziki güvenlik, kamera kontrolü ve plaka tanıma.',
             'Asansör, jeneratör, hidrofor ve kompanzasyon panosu periyodik teknik bakımı.',

@@ -13,7 +13,7 @@ const CASES = [
   {
     name: '15.000 m² Plaza — Şişli',
     description: 'Şişli\'de 45 ofis kiracılı karma kullanımlı plaza için entegre enerji ve teknik bakım yönetimi.',
-    result: 'ISO 41001 uyumlu enerji yönetimi protokolü ile yıllık elektrik tüketiminde %28 tasarruf sağlandı.',
+    result: 'enerji yönetimi protokolü ile yıllık elektrik tüketiminde %28 tasarruf sağlandı.',
     metric: 'Enerji Tasarruf Oranı',
     value: '%28',
   },

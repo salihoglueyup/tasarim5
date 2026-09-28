@@ -31,7 +31,7 @@ export default function ServicePricingCatalogSeo({
     '@type': 'OfferCatalog',
     '@id': `${pageUrl}#pricing-catalog`,
     name: 'Alo Yönetim Kurumsal Profesyonel Site ve Tesis Yönetimi Hizmet Paketleri',
-    description: 'İstanbul genelinde 634 Sayılı KMK ve ISO 41001 standartlarında apartman, site, rezidans ve ticari plazalar için şeffaf yönetim hizmet paketleri ve gösterge fiyatlandırma aralıkları.',
+    description: 'İstanbul genelinde 634 Sayılı KMK uyarınca apartman, site, rezidans ve ticari plazalar için şeffaf yönetim hizmet paketleri ve gösterge fiyatlandırma aralıkları.',
     itemListElement: filteredPackages.map((pkg, idx) => ({
       '@type': 'Offer',
       itemOffered: {

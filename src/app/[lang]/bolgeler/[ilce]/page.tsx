@@ -440,7 +440,7 @@ export default async function DistrictPage({
               title: "ISO 41001:2018 Tesis Yönetim Sistemi Standartları",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
-              badge: "ISO 41001",
+              badge: "KMK 634",
               description: `${district.name} bölgesindeki sitelerin operasyonel gider optimizasyonu, enerji verimliliği ve periyodik teknik bakım kalitesi.`
             }
           ]}
@@ -503,7 +503,7 @@ export default async function DistrictPage({
               <Link href="/hizmetler/tesis-yonetimi" className="text-blue-600 dark:text-blue-400 font-bold underline hover:underline">
                 İstanbul Entegre Tesis Yönetimi
               </Link>{' '}
-              merkezi yönetim protokolü, ISO 41001 kalite standartları, 5188 yasal güvenlik ve 15-25 dk acil mobil arıza SLA ağı ile kesintisiz yönetilmektedir.
+              merkezi yönetim protokolü, 5188 yasal güvenlik ve 15-25 dk acil mobil arıza SLA ağı ile kesintisiz yönetilmektedir.
             </p>
             {district.totalResidentialSitesEstimated && (
               <div className="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">

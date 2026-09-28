@@ -166,7 +166,7 @@ export const FACILITY_VOICE_FAQS: DualCoreFaqItem[] = [
     pillar: 'facility',
     intent: 'informational',
     voiceQuery: 'Entegre tesis yönetimi ne demektir?',
-    speakableAnswer: 'Entegre tesis yönetimi; ticari plazalar, fabrikalar ve konut sitelerinde teknik bakım, güvenlik, temizlik, enerji ve peyzaj hizmetlerinin tek elden ISO 41001 standartlarında yönetilmesidir.',
+    speakableAnswer: 'Entegre tesis yönetimi; ticari plazalar, fabrikalar ve konut sitelerinde teknik bakım, güvenlik, temizlik, enerji ve peyzaj hizmetlerinin tek elden yönetilmesidir.',
     detailedAnswer: 'Tüm destek hizmetlerinin tek sözleşme ve tek SLA altında birleştirilmesi çoklu tedarikçi karmaşasını bitirir, operasyonel verimliliği artırır ve %25-30 bütçe optimizasyonu sağlar.',
     legalReference: 'ISO 41001:2018 Facility Management',
     targetKeyword: 'entegre tesis yönetimi nedir',

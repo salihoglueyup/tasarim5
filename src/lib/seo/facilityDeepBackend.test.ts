@@ -89,7 +89,7 @@ describe('Tesis Yönetimi Derin Backend SEO & Hukuki Otorite Motorları (Faz 7)'
       expect(rfp.districtName).toBe('Kadıköy');
       expect(rfp.units).toBe(120);
       expect(rfp.sections.length).toBe(5);
-      expect(rfp.fullText).toContain('ISO 41001:2018');
+      expect(rfp.fullText).toContain('634 Sayılı Kat Mülkiyeti Kanunu');
       expect(rfp.fullText).toContain('5188 Sayılı');
       expect(rfp.schema['@type']).toBe('DigitalDocument');
     });

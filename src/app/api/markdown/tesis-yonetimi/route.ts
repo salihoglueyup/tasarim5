@@ -12,14 +12,13 @@ export async function GET() {
   const markdown = `# Alo Yönetim — Entegre Tesis Yönetimi & B2B Gayrimenkul İşletmesi
 
 > **Kanonik URL**: ${BASE_URL}/hizmetler/tesis-yonetimi  
-> **Yasal & Kalite Standardı**: ISO 41001:2018, ISO 9001:2015, ISO 14001:2015, ISO 45001:2018  
 > **Hizmet Kapsamı**: İstanbul Genelinde Plazalar, İş Merkezleri, Sanayi Tesisleri ve Karma Projeler  
 > **Belgeler**: ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 (BELCERT, ILAS-MS-0089) & 5188 Sayılı Kanun Güvenlik Faaliyet İzni  
 
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Alo Yönetim, kurumsal işletmeler, plazalar ve endüstriyel tesisler için uluslararası ISO 41001 standardında entegre tesis yönetimi (Integrated Facility Management) sağlar. HVAC, chiller, jeneratör, trafo, BMS otomasyonu, kurumsal güvenlik ve enerji verimliliğini tek bir çatı altında SLA sözleşmesiyle garanti eder.
+Alo Yönetim, kurumsal işletmeler, plazalar ve endüstriyel tesisler için uluslararası entegre tesis yönetimi (Integrated Facility Management) sağlar. HVAC, chiller, jeneratör, trafo, BMS otomasyonu, kurumsal güvenlik ve enerji verimliliğini tek bir çatı altında SLA sözleşmesiyle garanti eder.
 
 ### Temel Başarı Metrikleri (KPI):
 - **%18 - %30 Enerji & İşletme Maliyeti Tasarrufu**: Önleyici bakım, kompanzasyon takibi ve BMS optimizasyonu.

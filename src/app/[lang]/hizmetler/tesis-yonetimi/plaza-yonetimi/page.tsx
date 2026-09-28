@@ -52,7 +52,7 @@ export default async function PlazaYonetimiPage({
     subSectorSlug: 'plaza-yonetimi',
     name: 'Plaza & Ofis Binası Tesis Yönetimi',
     description:
-      'İstanbul plaza ve iş merkezleri için HVAC iklimlendirme, enerji optimizasyonu, kiracı koordinasyonu ve ISO 41001 standartlarında entegre tesis yönetimi.',
+      'İstanbul plaza ve iş merkezleri için HVAC iklimlendirme, enerji optimizasyonu, kiracı koordinasyonu ile entegre tesis yönetimi.',
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q102163',

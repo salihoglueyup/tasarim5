@@ -3086,9 +3086,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       // 1. LSI Grubu Doğrulaması
       const isoGroup = FACILITY_LSI_GROUPS.find((g) => g.groupName.includes('ISO & Sertifikasyon'));
       expect(isoGroup).toBeDefined();
-      expect(isoGroup?.terms.some((t) => t.includes('iso 41001'))).toBe(true);
-      expect(isoGroup?.terms.some((t) => t.includes('iso 9001'))).toBe(true);
-      expect(isoGroup?.terms.some((t) => t.includes('iso 27001'))).toBe(true);
+      // Sahip olunmayan standartlar (41001/9001/27001) semantik gruptan çıkarıldı; sahip olunanlar kalır
+      expect(isoGroup?.terms.some((t) => t.includes('iso 41001'))).toBe(false);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 9001'))).toBe(false);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 27001'))).toBe(false);
+      expect(isoGroup?.terms.some((t) => t.includes('iso 22301'))).toBe(true);
       expect(isoGroup?.terms.some((t) => t.includes('iso 14001'))).toBe(true);
       expect(isoGroup?.terms.some((t) => t.includes('iso 45001'))).toBe(true);
       expect(isoGroup?.terms.some((t) => t.includes('iso 10002'))).toBe(true);
@@ -3096,11 +3098,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 2. SERP Rank Analyzer Tespiti
       const sampleAudit = analyzeFacilitySerpReadiness({
-        title: 'ISO 9001 ve ISO 27001 Akredite Tesis ve Mülk Yönetimi',
+        title: 'ISO 22301 ve ISO 14001 Akredite Tesis ve Mülk Yönetimi',
         metaDescription: 'ISO 14001 ve ISO 45001 belgeli profesyonel site yönetimi ve aidat takibi.',
         h1: 'ILAS Akrediteli ISO Belgeli Profesyonel Tesis Hizmetleri',
         content: `
-          <p>KMK 634 ve ISO 41001 standartlarında tesislerimizde ISO 10002 müşteri memnuniyeti, özel güvenlik ve teknik bakım ile %30 tasarruf sağlıyoruz.</p>
+          <p>KMK 634 kapsamında tesislerimizde ISO 22301 iş sürekliliği ve ISO 10002 müşteri memnuniyeti, özel güvenlik ve teknik bakım ile %30 tasarruf sağlıyoruz.</p>
           <p><a href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi">Rezidans Yönetimi</a></p>
           <p><a href="/hizmetler/tesis-yonetimi/plaza-yonetimi">Plaza Yönetimi</a></p>
           <p><a href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi">Toplu Konut</a></p>
@@ -3113,8 +3115,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(sampleAudit.overallScore).toBeGreaterThanOrEqual(90);
       expect(sampleAudit.grade).toBe('A+');
-      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 9001'))).toBe(true);
-      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 27001'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 22301'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 9001'))).toBe(false);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 27001'))).toBe(false);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 14001'))).toBe(true);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 45001'))).toBe(true);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 10002'))).toBe(true);
@@ -3581,11 +3584,12 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(graph.sameAs.length).toBeGreaterThanOrEqual(3);
 
       // knowsAbout Kontrolü
-      expect(graph.knowsAbout.some((k) => k.includes('ISO 41001'))).toBe(true);
-      expect(graph.knowsAbout.some((k) => k.includes('ISO 9001'))).toBe(true);
+      // Sahip olunmayan standartlar bilgi alanlarında (knowsAbout) yer almaz
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 41001'))).toBe(false);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 9001'))).toBe(false);
       expect(graph.knowsAbout.some((k) => k.includes('ISO 14001'))).toBe(true);
       expect(graph.knowsAbout.some((k) => k.includes('ISO 45001'))).toBe(true);
-      expect(graph.knowsAbout.some((k) => k.includes('ISO 27001'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('ISO 27001'))).toBe(false);
       expect(graph.knowsAbout.some((k) => k.includes('ISO 10002'))).toBe(true);
       expect(graph.knowsAbout.some((k) => k.includes('TSE HYB 12850'))).toBe(false);
       expect(graph.knowsAbout.some((k) => k.includes('5188'))).toBe(true);
@@ -3839,7 +3843,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const path = await import('path');
       const districtPageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'), 'utf8');
       expect(districtPageContent).toContain('href="/hizmetler/tesis-yonetimi"');
-      expect(districtPageContent).toContain('ISO 41001 kalite standartları');
+      expect(districtPageContent).not.toContain('ISO 41001 kalite standartları');
     });
 
     it('KMK 20, 34, 37, 45 maddeleri Sözlük terimlerinde yer alır ve asansör servis bileşeni hazırdır', async () => {
@@ -3889,7 +3893,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const path = await import('path');
       const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/page.tsx'), 'utf8');
       expect(pageContent).toContain('Tesis Yönetimi ve Entegre Tesis Yönetim Firmaları | Alo Yönetim');
-      expect(pageContent).toContain('İstanbul genelinde rezidans, plaza ve siteler için ISO 41001 entegre tesis yönetimi');
+      expect(pageContent).toContain('İstanbul genelinde rezidans, plaza ve siteler için entegre tesis yönetimi');
     });
 
     it('4 alt sektör sayfasının tümü (Rezidans, Plaza, Toplu Konut, Sanayi) operasyonel derinliğe ve yasal standartlara sahiptir', async () => {

@@ -132,7 +132,7 @@ export async function GET(req: Request) {
     '@type': 'DataCatalog',
     name: 'Alo Yönetim — Tesis Yönetimi Yasal Şablonlar ve KMK Belgeleri Kataloğu',
     description:
-      'Apartman, site, plaza ve tesis yöneticileri için 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 uyumlu resmi işletme projesi, sözleşme, karar tutanağı ve ihtarname şablonları.',
+      'Apartman, site, plaza ve tesis yöneticileri için 634 Sayılı Kat Mülkiyeti Kanunu ve resmi işletme projesi, sözleşme, karar tutanağı ve ihtarname şablonları.',
     url: `${BASE_URL}/api/tesis-yonetimi/legal-templates`,
     inLanguage: 'tr-TR',
     provider: {

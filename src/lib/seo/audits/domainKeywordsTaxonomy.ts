@@ -183,7 +183,7 @@ export function getPillarTitleTemplate(pillar: DomainPillar, districtName?: stri
       return 'İstanbul Site Yönetimi Hukuku & KMK 634 İcra Danışmanlığı | Alo Yönetim';
     case 'hybrid':
     default:
-      return 'Site ve Tesis Yönetim Şirketi İstanbul — ISO 41001 & %99.2 Tahsilat | Alo Yönetim';
+      return 'Site ve Tesis Yönetim Şirketi İstanbul — %99.2 Tahsilat | Alo Yönetim';
   }
 }
 
@@ -202,6 +202,6 @@ export function getPillarDescriptionTemplate(pillar: DomainPillar, districtName?
       return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi (KMK m.20), işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık. 48 saat içinde çözüm.`;
     case 'hybrid':
     default:
-      return `${loc} apartman, site ve rezidanslar için ISO 41001 & KMK 634 uyumlu profesyonel tesis yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 maliyet tasarrufu. Ücretsiz keşif randevusu.`;
+      return `${loc} apartman, site ve rezidanslar için KMK 634 uyumlu profesyonel tesis yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 maliyet tasarrufu. Ücretsiz keşif randevusu.`;
   }
 }

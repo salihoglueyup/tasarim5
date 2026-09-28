@@ -30,7 +30,7 @@ export async function generateMetadata({
     : t.serv_fac_meta_title || serpMeta.title;
 
   const description = lang === 'tr'
-    ? "İstanbul genelinde rezidans, plaza ve siteler için ISO 41001 entegre tesis yönetimi, 5188 güvenlik ve teknik bakım. Profesyonel tesis yönetim firmaları arasında lider çözüm."
+    ? "İstanbul genelinde rezidans, plaza ve siteler için entegre tesis yönetimi, 5188 güvenlik ve teknik bakım. Profesyonel tesis yönetim firmaları arasında lider çözüm."
     : t.serv_fac_meta_desc || serpMeta.description;
 
   return buildMetadata({

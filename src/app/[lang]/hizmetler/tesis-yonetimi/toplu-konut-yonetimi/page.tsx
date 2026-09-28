@@ -21,7 +21,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim',
     description:
-      '500+ konutluk siteler ve toplu yapılarda ISO 41001 standartlarında entegre tesis yönetimi, merkezi işletme projesi ve %30 aidat tasarrufu. 48 saatte teklif alın!',
+      '500+ konutluk siteler ve toplu yapılarda entegre tesis yönetimi, merkezi işletme projesi ve %30 aidat tasarrufu. 48 saatte teklif alın!',
     path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
     lang,
     ogImageType: 'service',

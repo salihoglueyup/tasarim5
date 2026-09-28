@@ -20,7 +20,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Sektörel Tesis ve Bina Yönetimi Çözümleri | Alo Yönetim',
     description:
-      'Rezidans, AVM, karma yaşam ve sanayi tesislerine özel ISO 41001 entegre yönetim çözümleri. Sektörünüze özel süreçler ve kanıtlanmış KPI başarıları.',
+      'Rezidans, AVM, karma yaşam ve sanayi tesislerine özel entegre yönetim çözümleri. Sektörünüze özel süreçler ve kanıtlanmış KPI başarıları.',
     path: '/sektorel-cozumler',
     lang,
     targetKeyword: 'sektörel tesis yönetimi',
@@ -62,7 +62,7 @@ export default async function SektorelCozumlerPage({
 
   const pageLd = webPageSchema({
     name: 'Sektörel Tesis ve Bina Yönetimi Çözümleri | Alo Yönetim',
-    description: 'Rezidans, plaza, AVM ve OSB tesislerine özel ISO 41001 entegre yönetim çözümleri.',
+    description: 'Rezidans, plaza, AVM ve OSB tesislerine özel entegre yönetim çözümleri.',
     path: '/sektorel-cozumler',
     speakableSelectors: ['h1', 'p', '#sector-hub-instant-answer-text'],
   });

@@ -253,7 +253,7 @@ export default async function SectoralSolutionDetailPage({
               </div>
 
               <div className="border-t border-[var(--color-outline)]/40 pt-4 flex items-center justify-between text-xs text-[var(--color-secondary)]">
-                <span>ISO 41001 & 5188 Güvencesi</span>
+                <span>5188 Lisanslı</span>
                 <span className="text-emerald-600 dark:text-emerald-400 font-semibold">48 Saatte Yanıt</span>
               </div>
             </div>
@@ -290,7 +290,7 @@ export default async function SectoralSolutionDetailPage({
             <Link href="/hizmetler/tesis-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
               <Icon name="corporate_fare" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Entegre Tesis Yönetimi</span>
-              <span className="text-xs text-[var(--color-secondary)]">ISO 41001 standartlarında 360° operasyonel işletme.</span>
+              <span className="text-xs text-[var(--color-secondary)]">360° operasyonel işletme.</span>
             </Link>
             <Link href="/hizmetler/guvenlik-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
               <Icon name="shield" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />

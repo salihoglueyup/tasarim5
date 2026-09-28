@@ -79,7 +79,7 @@ describe('BÖLÜM F — 🏆 Rich Result & Zengin Snippet Motoru (dualCoreRichRe
     it('buildLocalBusinessSchema Tesis pillar için B2B odaklı başlık ve açıklama üretir', () => {
       const schema = buildLocalBusinessSchema({ pillar: 'facility' });
       expect(schema.name).toContain('Tesis & Plaza Yönetimi');
-      expect(schema.description).toContain('ISO 41001');
+      expect(schema.description).not.toContain('ISO 41001');
       expect(schema.makesOffer).toBeInstanceOf(Array);
       expect((schema.makesOffer as unknown[]).length).toBe(9); // 9 temel hizmet
     });

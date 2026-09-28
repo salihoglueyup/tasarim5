@@ -12,12 +12,12 @@ export const ANADOLU_DISTRICTS: District[] = [
     geo: { lat: 40.9833, lng: 29.0333 },
     neighborhoods: ['Caddebostan', 'Moda', 'Fenerbahçe', 'Göztepe', 'Bostancı', 'Suadiye'],
     intro:
-      "Alo Yönetim Genel Merkezi'ne ev sahipliği yapan Kadıköy; Bağdat Caddesi sahil hattındaki prestijli rezidanslardan Moda'nın tarihi apartmanlarına kadar 48 aktif projemizle amiral gemisi bölgemizdir. Osmanağa merkezimizden Kadıköy genelindeki tüm site, rezidans ve iş merkezlerine 15 dakikada yerinde acil mobil teknik müdahale, 5188 lisanslı güvenlik ve ISO 41001 standartlarında entegre tesis yönetimi sunuyoruz.",
+      "Alo Yönetim Genel Merkezi'ne ev sahipliği yapan Kadıköy; Bağdat Caddesi sahil hattındaki prestijli rezidanslardan Moda'nın tarihi apartmanlarına kadar 48 aktif projemizle amiral gemisi bölgemizdir. Osmanağa merkezimizden Kadıköy genelindeki tüm site, rezidans ve iş merkezlerine 15 dakikada yerinde acil mobil teknik müdahale, 5188 lisanslı güvenlik ile entegre tesis yönetimi sunuyoruz.",
     localNeeds: [
       'Kadıköy merkez ofisimizden 15 dakikada acil mobil teknik arıza müdahalesi (SLA)',
       'Bağdat Caddesi ve sahil şeridi lüks rezidanslarında 7/24 VIP güvenlik ve concierge',
       'Moda ve Göztepe tarihi apartmanlarında değer koruyucu koruyucu mühendislik bakımı',
-      'Büyük ölçekli havuzlu sitelerde ISO 41001 entegre tesis ve şeffaf aidat yönetimi',
+      'Büyük ölçekli havuzlu sitelerde entegre tesis ve şeffaf aidat yönetimi',
     ],
     managedProjects: 48,
     priority: 1,
@@ -73,7 +73,7 @@ export const ANADOLU_DISTRICTS: District[] = [
       'Boğaz yamaçlarındaki eğimli sitelerde hidrofor ve drenaj pompa mühendislik bakımı',
       'Çengelköy ve Kandilli villa sitelerinde 7/24 VIP özel güvenlik ve konsiyerj',
       'Tarihi köşk ve modern karma yapılarda KMK 634 uyumlu koruyucu tesis işletmesi',
-      'Sosyal tesisli ve havuzlu sitelerde ISO 41001 standartlarında entegre yönetim',
+      'Sosyal tesisli ve havuzlu sitelerde entegre yönetim',
     ],
     managedProjects: 33,
     priority: 1,

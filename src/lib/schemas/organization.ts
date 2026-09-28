@@ -121,7 +121,7 @@ export function organizationSchema(): JsonLdObject {
       knowsAbout: [
         'Tesis Yönetimi (Facility Management)',
         '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
-        'ISO 41001 Entegre Tesis Yönetim Standardı',
+        'Entegre Tesis Yönetim Standardı',
         'Toplu Yapı & Site Yönetim Stratejileri',
         'Bina Otomasyonu ve Enerji Verimliliği',
       ],

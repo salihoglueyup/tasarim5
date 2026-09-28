@@ -17,8 +17,7 @@ Acknowledgments: ${BASE_URL}/kurumsal/kalite-belgelerimiz
 Hiring: ${BASE_URL}/istihdam-koprusu
 
 # Güvenlik ve Uyumluluk Sertifikalarımız:
-# ISO/IEC 27001:2022 Bilgi Güvenliği Yönetim Sistemi
-# ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi
+# ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 (BELCERT, ILAS akreditasyonu)
 # 6698 Sayılı KVKK Kişisel Verilerin Korunması Tam Uyum Beyanı
 `;
 

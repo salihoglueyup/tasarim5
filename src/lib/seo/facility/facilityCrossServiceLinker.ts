@@ -474,7 +474,7 @@ export function getPillarCrossLinkCards(
           title: 'Plaza & İş Merkezi Yönetimi',
           url: `${langPrefix}/hizmetler/tesis-yonetimi/plaza-yonetimi`,
           badge: 'Kurumsal B2B',
-          description: 'A+ Plazalar için ISO 41001 standartlarında entegre tesis işletmesi ve BMS.',
+          description: 'A+ Plazalar için entegre tesis işletmesi ve BMS.',
           anchorText: 'Plaza ve İş Merkezi Yönetimi',
           isDoFollow: true,
         },

@@ -262,7 +262,7 @@ export default function TopluKonutYonetimiClient() {
             title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
             sourceName: "TSE & Uluslararası Standardizasyon Örgütü",
             url: "https://www.tse.org.tr",
-            badge: "ISO 41001",
+            badge: "KMK 634",
             description: "Mega sitelerde ölçek ekonomisi, toplu tedarik avantajları ve ortak alan teknik altyapısının sürdürülebilir işletimi."
           },
           {

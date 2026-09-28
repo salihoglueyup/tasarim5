@@ -59,7 +59,7 @@ describe('GSC Batch 2 High-Impact Query Opportunities', () => {
       const meta = getFacilitySerpMeta('tr', 'basaksehir');
       expect(meta.title).toContain('Başakşehir Tesis Yönetimi & Site Yönetimi');
       expect(meta.targetKeyword).toBe('Başakşehir site yönetimi');
-      expect(meta.description).toContain('apartman, site ve rezidanslar için ISO 41001 & KMK 634');
+      expect(meta.description).toContain('apartman, site ve rezidanslar için KMK 634');
     });
 
     it('Başakşehir veri modeli toplu konut, KMK m.66 ve etap yönetim gereksinimlerini taşımalı', () => {

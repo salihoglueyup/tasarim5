@@ -65,7 +65,7 @@ export default function SectorHubAiOverviewSeo({
   const [copied, setCopied] = useState(false);
 
   const directAnswer =
-    'Alo Yönetim, her gayrimenkul tipinin kendine has dinamiklerine özel ISO 41001:2018 entegre çözümler sunar: Rezidanslarda konsiyerj, Apsiyon dijital portalı ve %99.4 aidat tahsilat başarısı; ticari plazalarda BMS otomasyonu ve %0 reaktif enerji ceza güvencesi; AVM’lerde 5188 güvenlik çemberi ve yürüyen merdiven kesintisiz teknik nöbeti; OSB ve lojistik tesislerde trafo işletme sorumluluğu ve 6331 İSG denetimi; toplu konut sitelerinde ise KMK 37 bütçeleme ile %30 ila %35 net aidat tasarrufu sağlanır.';
+    'Alo Yönetim, her gayrimenkul tipinin kendine has dinamiklerine özel entegre çözümler sunar: Rezidanslarda konsiyerj, Apsiyon dijital portalı ve %99.4 aidat tahsilat başarısı; ticari plazalarda BMS otomasyonu ve %0 reaktif enerji ceza güvencesi; AVM’lerde 5188 güvenlik çemberi ve yürüyen merdiven kesintisiz teknik nöbeti; OSB ve lojistik tesislerde trafo işletme sorumluluğu ve 6331 İSG denetimi; toplu konut sitelerinde ise KMK 37 bütçeleme ile %30 ila %35 net aidat tasarrufu sağlanır.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

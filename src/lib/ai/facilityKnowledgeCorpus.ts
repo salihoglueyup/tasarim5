@@ -286,7 +286,7 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
     {
       question: 'Site yönetimi ile tesis yönetimi arasındaki fark nedir?',
       answer:
-        'Site yönetimi, Kat Mülkiyeti Kanunu (KMK 634) kapsamında konut ve yaşam alanlarındaki sakin huzuru, aidat tahsilatı ve genel kurul süreçlerine odaklanır. Tesis yönetimi ise ISO 41001 standartlarında plaza, fabrika ve ticari binaların HVAC/BMS otomasyonu, enerji verimliliği ve teknik işletmesini yürütür.',
+        'Site yönetimi, Kat Mülkiyeti Kanunu (KMK 634) kapsamında konut ve yaşam alanlarındaki sakin huzuru, aidat tahsilatı ve genel kurul süreçlerine odaklanır. Tesis yönetimi ise plaza, fabrika ve ticari binaların HVAC/BMS otomasyonu, enerji verimliliği ve teknik işletmesini yürütür.',
       sourceCitationUrl: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi#karsilastirma`,
       legalBasis: 'KMK 634 vs ISO 41001:2018 Standartları',
     },
@@ -430,7 +430,7 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
       openDataApiUrl: `${BASE_URL}/api/tesis-yonetimi/legal-precedents.json`,
     })),
     rfpSpecificationFramework: {
-      tenderTemplateTitle: 'Alo Yönetim ISO 41001 & KMK 634 Tip Tesis Yönetimi İhale Şartnamesi (RFP)',
+      tenderTemplateTitle: 'Alo Yönetim KMK 634 Tip Tesis Yönetimi İhale Şartnamesi (RFP)',
       standardSectionsCount: 5,
       tenderDownloadUrl: `${BASE_URL}/hizmetler/tesis-yonetimi#rfp`,
     },

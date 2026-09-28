@@ -125,7 +125,7 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
     maxMonthlyFee: 150000,
     unitPriceEstimate: 'm² başına özel SLA fizibilite teklifi',
     billingFrequency: 'Monthly',
-    highlightText: 'ISO 41001 standartlarında bina yaşam döngüsü, BMS/SCADA izleme ve Platinum SLA garantisi.',
+    highlightText: 'Bina yaşam döngüsü, BMS/SCADA izleme ve Platinum SLA garantisi.',
     isPopular: false,
     deliverables: [
       'ISO 45001, ISO 14001 ve ISO 22301 Belgeli Entegre İşletme',

@@ -33,7 +33,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     name: 'Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi',
     serviceType: 'Profesyonel Site ve Entegre Tesis Yönetimi',
     description:
-      'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için ISO 41001 standartlarında 7/24 güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
+      'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için 7/24 güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
     catalogName: 'Alo Yönetim Tesis Yönetimi Paketleri ve Sektörel Çözümleri',
     serviceOutput: '%25-35 Ortak Bütçe Tasarrufu, %99.2 Aidat Tahsilat Başarısı, Sıfır Hukuki Risk ve 7/24 Kesintisiz Güvenlik',
   },
@@ -49,7 +49,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     name: 'Alo Yönetim Профессиональное Управление Недвижимостью и Объектами',
     serviceType: 'Профессиональное Управление Недвижимостью и Объектами',
     description:
-      'Профессиональное управление объектами недвижимости в Стамбуле по стандарту ISO 41001 для жилых комплексов, резиденций и бизнес-центров: круглосуточная охрана, уборка, техническое обслуживание, прозрачный учет взносов и юридический консалтинг.',
+      'Профессиональное управление объектами недвижимости в Стамбуле для жилых комплексов, резиденций и бизнес-центров: круглосуточная охрана, уборка, техническое обслуживание, прозрачный учет взносов и юридический консалтинг.',
     catalogName: 'Пакеты услуг и отраслевые решения по управлению объектами Alo Yönetim',
     serviceOutput: 'Экономия общего бюджета 25-35%, 99.2% успешный сбор взносов, нулевой юридический риск и круглосуточная безопасность',
   },
@@ -57,7 +57,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     name: 'Alo Yönetim إدارة العقارات والمرافق المتكاملة الاحترافية',
     serviceType: 'إدارة العقارات والمرافق المتكاملة الاحترافية',
     description:
-      'إدارة مرافق احترافية معتمدة وفق معايير ISO 41001 في جميع أنحاء إسطنبول للمجمعات السكنية والأبراج التجارية والمنشآت الصناعية تشمل الأمن على مدار الساعة والتنظيف والصيانة الفنية والمحاسبة القانونية الشفافة للرسوم.',
+      'إدارة مرافق احترافية في جميع أنحاء إسطنبول للمجمعات السكنية والأبراج التجارية والمنشآت الصناعية تشمل الأمن على مدار الساعة والتنظيف والصيانة الفنية والمحاسبة القانونية الشفافة للرسوم.',
     catalogName: 'باقات وحلول إدارة المرافق القطاعية من Alo Yönetim',
     serviceOutput: 'توفير 25-35% من الميزانية المشتركة، نجاح تحصيل الرسوم بنسبة 99.2%، صفر مخاطر قانونية وأمن مستمر 24/7',
   },

@@ -57,11 +57,8 @@ export function generateVerifiedAuthorityGraph() {
     knowsAbout: [
       '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
       '5188 Sayılı Özel Güvenlik Kanunu',
-      'ISO 41001:2018 Entegre Tesis Yönetimi',
-      'ISO 9001:2015 Kalite Yönetim Sistemi',
       'ISO 14001:2015 Çevre Yönetim Sistemi ve Sıfır Atık',
       'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-      'ISO 27001:2022 Bilgi Güvenliği ve KVKK',
       'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
       'Site ve Apartman Aidat İcra Takibi',
       'Asansör ve Yangın Tesisatı Teknik İşletmeciliği',

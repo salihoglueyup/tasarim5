@@ -29,7 +29,7 @@ export default function DistrictAiOverviewSnippetSeo({
       : 'İstanbul Adliyesi (Çağlayan)';
 
   const question = `${districtName}'de Profesyonel Site ve Tesis Yönetimi Nasıl Yapılır?`;
-  const directAnswer = `${districtName} genelinde site ve tesis yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında işletme projesi hazırlanması, Valilik izinli 5188 özel güvenlik devriyesi, periyodik asansör/jeneratör teknik bakımı ve ${courthouseName} Sulh Hukuk Mahkemesi ile Arabuluculuk Bürosu koordinasyonunda yürütülür. Alo Yönetim, ${districtName} bölgesinde ${slaTime} dakika acil mobil teknik SLA taahhüdü ve %0 reaktif ceza güvencesi sunar.`;
+  const directAnswer = `${districtName} genelinde site ve tesis yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu uyarınca işletme projesi hazırlanması, Valilik izinli 5188 özel güvenlik devriyesi, periyodik asansör/jeneratör teknik bakımı ve ${courthouseName} Sulh Hukuk Mahkemesi ile Arabuluculuk Bürosu koordinasyonunda yürütülür. Alo Yönetim, ${districtName} bölgesinde ${slaTime} dakika acil mobil teknik SLA taahhüdü ve %0 reaktif ceza güvencesi sunar.`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

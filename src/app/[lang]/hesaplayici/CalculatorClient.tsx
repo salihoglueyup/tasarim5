@@ -101,7 +101,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                 2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
-              {' '}ve ISO 41001 Entegre Tesis Maliyet Yönetimi standartlarına tam uyumlu olarak yapılandırılmıştır.
+              {' '}ve Entegre Tesis Maliyet Yönetimi standartlarına tam uyumlu olarak yapılandırılmıştır.
             </p>
             <p>
               Hesaplanan bütçe;{' '}

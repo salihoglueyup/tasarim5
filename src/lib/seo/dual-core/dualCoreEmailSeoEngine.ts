@@ -69,7 +69,7 @@ export function buildWelcomeEmailSpec(segment: EmailSegment): EmailTemplateSpec 
       ? 'Plaza ve Tesis Yönetiminde Yeni Nesil Standart: Alo Yönetim\'e Hoş Geldiniz'
       : 'Apartman ve Sitenizde Huzurlu Yaşam Başlıyor: Alo Yönetim\'e Hoş Geldiniz',
     preheader: isFacility
-      ? 'ISO 41001 standartlarında entegre tesis yönetimi ve enerji tasarrufu rehberiniz.'
+      ? 'Entegre tesis yönetimi ve enerji tasarrufu rehberiniz.'
       : '634 sayılı KMK rehberi, aidat şeffaflığı ve 7/24 teknik destek avantajlarımız.',
     headline: isFacility
       ? 'Kurumsal Tesis Yönetiminde Güvenilir Çözüm Ortağınız'
@@ -79,7 +79,7 @@ export function buildWelcomeEmailSpec(segment: EmailSegment): EmailTemplateSpec 
 
 Plaza, iş merkezi veya fabrikanızın operasyonel verimliliğini artırmak ve enerji maliyetlerini düşürmek için doğru yerdesiniz.
 
-Alo Yönetim olarak; ISO 41001 kalite standartlarında 5188 güvenlik, endüstriyel temizlik, BMS destekli mekanik bakım ve şeffaf açık defter bütçe yönetimi sunuyoruz.`
+Alo Yönetim olarak; 5188 güvenlik, endüstriyel temizlik, BMS destekli mekanik bakım ve şeffaf açık defter bütçe yönetimi sunuyoruz.`
       : `Değerli Kat Maliki / Site Sakini,
 
 Apartman ve sitelerde yaşanan aidat anlaşmazlıkları, aksayan temizlik ve bulunamayan ustalar artık geride kaldı.

@@ -9,7 +9,7 @@ export interface RfpConfig {
   servicesNeeded?: string[];
 }
 
-export const RFP_DEFAULT_TEMPLATE = `1. İŞİN KONUSU VE KAPSAMI: 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında profesyonel tesis yönetimi hizmetlerinin yürütülmesidir.`;
+export const RFP_DEFAULT_TEMPLATE = `1. İŞİN KONUSU VE KAPSAMI: 634 Sayılı Kat Mülkiyeti Kanunu uyarınca profesyonel tesis yönetimi hizmetlerinin yürütülmesidir.`;
 
 export function generateFacilityRfpDocument(config: RfpConfig) {
   const district = (config.districtSlug ? getDistrict(config.districtSlug) : null) || { name: 'Kadıköy', slug: 'kadikoy' };
@@ -23,7 +23,7 @@ export function generateFacilityRfpDocument(config: RfpConfig) {
   const sections = [
     {
       heading: '1. İŞİN KONUSU VE KAPSAMI',
-      content: `İstanbul ili ${district.name} ilçesinde yer alan, ${blocks} blok ve ${units} bağımsız bölümden oluşan ${facilityName} tesisinin; 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001:2018 standartlarına uygun olarak profesyonel entegre tesis yönetimi hizmetlerinin yürütülmesidir.`,
+      content: `İstanbul ili ${district.name} ilçesinde yer alan, ${blocks} blok ve ${units} bağımsız bölümden oluşan ${facilityName} tesisinin; 634 Sayılı Kat Mülkiyeti Kanunu uyarınca profesyonel entegre tesis yönetimi hizmetlerinin yürütülmesidir.`,
     },
     {
       heading: '2. YÜKLENİCİ FİRMADA ARANAN ASGARİ NİTELİKLER (E-E-A-T ŞARTLARI)',

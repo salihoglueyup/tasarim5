@@ -198,7 +198,7 @@ export default async function TeklifAl({
                 title: "ISO 41001:2018 Entegre Tesis Yönetimi Standartları",
                 sourceName: "Türk Standardları Enstitüsü (TSE)",
                 url: "https://www.tse.org.tr",
-                badge: "ISO 41001",
+                badge: "KMK 634",
                 description: "Teklif edilen tüm hizmet kalemlerinde KPI metrikleri, SLA seviyeleri ve aylık performans denetim kriterleri."
               }
             ]}

@@ -165,7 +165,7 @@ export default function DistrictDualCoreSelectorSeo({
             </h3>
 
             <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light leading-relaxed mb-6">
-              ISO 41001 standartlarında, HVAC/BMS otomasyonu, enerji verimliliği ve reaktif ceza korumasıyla
+             , HVAC/BMS otomasyonu, enerji verimliliği ve reaktif ceza korumasıyla
               ticari gayrimenkul işletme maliyetlerinde %30 tasarruf sağlayan kurumsal tesis yönetimi.
             </p>
 

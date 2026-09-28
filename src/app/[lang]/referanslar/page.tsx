@@ -28,10 +28,10 @@ export async function generateMetadata({
     ar: 'مشاريعنا — إدارة أكثر من 120 مجمعاً وبرجاً في إسطنبول | ألو للإدارة',
   };
   const descs: Record<string, string> = {
-    tr: 'İstanbul genelinde 120+ site, plaza ve rezidans referansımız. ISO 41001 entegre tesis yönetimi, 5188 güvenlik ve %30 aidat tasarrufu. Projelerimizi inceleyin!',
+    tr: 'İstanbul genelinde 120+ site, plaza ve rezidans referansımız. Entegre tesis yönetimi, 5188 güvenlik ve %30 aidat tasarrufu. Projelerimizi inceleyin!',
     en: 'Our property management portfolio covering 120+ residential complexes, towers, and commercial plazas in Istanbul. 30% cost savings & ISO 41001 standards.',
     ru: 'Портфолио управления недвижимостью: более 120 жилых комплексов, башен и бизнес-центров в Стамбуле. Экономия бюджета 30% и стандарты ISO 41001.',
-    ar: 'محفظة إدارة المرافق والممتلكات لأكثر من 120 مجمعاً سكنياً وتجارياً وبرجاً في إسطنبول مع توفير 30% ومعايير ISO 41001.',
+    ar: 'محفظة إدارة المرافق والممتلكات لأكثر من 120 مجمعاً سكنياً وتجارياً وبرجاً في إسطنبول مع توفير 30%.',
   };
 
   return buildMetadata({

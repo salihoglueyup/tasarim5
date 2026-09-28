@@ -148,7 +148,7 @@ export function authorPersonSchema(author: {
     knowsAbout: [
       'Tesis Yönetimi',
       'KMK 634 Kat Mülkiyeti Kanunu',
-      'ISO 41001 Entegre Tesis Yönetimi',
+      'Entegre Tesis Yönetimi',
       'Aidat Yönetimi ve İcra Takibi',
       'Site Güvenliği (5188)',
     ],

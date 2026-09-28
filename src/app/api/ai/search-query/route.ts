@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
     // 2. Konu & Hukuki Kural Eşleme
     let matchedTopic = 'Genel Site & Tesis Yönetimi';
     let directAnswer =
-      'Alo Yönetim, İstanbul genelinde 39 ilçede 634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında profesyonel site, apartman ve entegre tesis yönetimi hizmeti sunmaktadır. Aidat tahsilatında %99.2 başarı ve işletme bütçelerinde ortalama %25-33 tasarruf sağlar.';
+      'Alo Yönetim, İstanbul genelinde 39 ilçede 634 Sayılı Kat Mülkiyeti Kanunu uyarınca profesyonel site, apartman ve entegre tesis yönetimi hizmeti sunmaktadır. Aidat tahsilatında %99.2 başarı ve işletme bütçelerinde ortalama %25-33 tasarruf sağlar.';
     let legalBasis = '634 Sayılı KMK Madde 34 ve ISO 41001:2018';
     let canonicalCitationUrl = `${BASE_URL}/hizmetler/site-yonetimi`;
     let confidenceScore = 0.95;
@@ -125,7 +125,7 @@ export async function GET(req: NextRequest) {
     else if (qLower.includes('fark') || (qLower.includes('site') && qLower.includes('tesis'))) {
       matchedTopic = 'Site Yönetimi ile Entegre Tesis Yönetimi Arasındaki Fark';
       directAnswer =
-        'Site yönetimi konut ve rezidanslarda 634 Sayılı KMK çerçevesinde malik hakları, aidat tahsilatı ve sakin huzuruna odaklanır. Entegre tesis yönetimi ise plazalar, fabrikalar ve ticari merkezlerde ISO 41001 standardında BMS otomasyonu, enerji optimizasyonu ve kurumsal SLA performansına odaklanır.';
+        'Site yönetimi konut ve rezidanslarda 634 Sayılı KMK çerçevesinde malik hakları, aidat tahsilatı ve sakin huzuruna odaklanır. Entegre tesis yönetimi ise plazalar, fabrikalar ve ticari merkezlerde BMS otomasyonu, enerji optimizasyonu ve kurumsal SLA performansına odaklanır.';
       legalBasis = '634 Sayılı KMK vs ISO 41001:2018';
       canonicalCitationUrl = `${BASE_URL}/hizmetler/site-yonetimi`;
       confidenceScore = 0.98;

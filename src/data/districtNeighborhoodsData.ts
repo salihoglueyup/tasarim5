@@ -40,7 +40,7 @@ const NEIGHBORHOOD_TYPOLOGY_MAP: Record<string, MicroNeighborhoodItem[]> = {
     { name: 'Moda (Caferağa)', slug: 'moda', typology: 'residential', typologyLabel: 'Tarihi Doku', focusKeyword: 'Moda apartman yönetimi', notableTraits: 'Eski yapı stoğunda KMK m.42 asansör tadilatı ve çatı bakımı.' },
   ],
   besiktas: [
-    { name: 'Levent', slug: 'levent', typology: 'commercial', typologyLabel: 'A+ Plaza & İş Merkezi', focusKeyword: 'Levent plaza yönetimi', notableTraits: 'BMS otomasyonu, X-ray turnike ve ISO 41001 entegre tesis yönetimi.' },
+    { name: 'Levent', slug: 'levent', typology: 'commercial', typologyLabel: 'A+ Plaza & İş Merkezi', focusKeyword: 'Levent plaza yönetimi', notableTraits: 'BMS otomasyonu, X-ray turnike ve entegre tesis yönetimi.' },
     { name: 'Etiler', slug: 'etiler', typology: 'luxury_coastal', typologyLabel: 'Lüks Konut', focusKeyword: 'Etiler site yönetimi şirketi', notableTraits: 'Özel güvenlik, resepsiyon ve havuzlu butik siteler.' },
     { name: 'Gayrettepe', slug: 'gayrettepe', typology: 'commercial', typologyLabel: 'Karma Plaza/Konut', focusKeyword: 'Gayrettepe bina ve iş merkezi yönetimi', notableTraits: 'Merkezi lokasyonda otopark ve kompanzasyon takibi.' },
     { name: 'Bebek', slug: 'bebek', typology: 'luxury_coastal', typologyLabel: 'Boğaz Hattı', focusKeyword: 'Bebek apartman yönetimi', notableTraits: 'Özel mülkiyet, istinat duvarı ve tarihi bina izin süreçleri.' },

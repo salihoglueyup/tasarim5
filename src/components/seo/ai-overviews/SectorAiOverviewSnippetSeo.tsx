@@ -22,7 +22,7 @@ export default function SectorAiOverviewSnippetSeo({
     : 'B2B Sektörel Tesis Yönetimi Standartları ve Yasal Zorunluluklar Nelerdir?';
 
   const directAnswer = sectorName
-    ? `${sectorName} tesis yönetiminde ISO 41001:2018 uluslararası entegre yönetim sistemi, 5188 Sayılı Özel Güvenlik Kanunu ve Binaların Yangından Korunması Hakkında Yönetmelik (BYKHY) temel emredici standartlardır. Tesisin can ve mal güvenliğini temin etmek üzere; 7/24 teknik izleme, acil durum tahliye senaryoları, periyodik asansör/jeneratör muayeneleri ve hijyenik biyosidal kontroller kurumsal denetim ekiplerince eksiksiz yürütülür.`
+    ? `${sectorName} tesis yönetiminde 5188 Sayılı Özel Güvenlik Kanunu ve Binaların Yangından Korunması Hakkında Yönetmelik (BYKHY) temel emredici standartlardır. Tesisin can ve mal güvenliğini temin etmek üzere; 7/24 teknik izleme, acil durum tahliye senaryoları, periyodik asansör/jeneratör muayeneleri ve hijyenik biyosidal kontroller kurumsal denetim ekiplerince eksiksiz yürütülür.`
     : 'Kurumsal tesis yönetiminde sektöre göre farklılaşan emredici mevzuatlar bulunur: Rezidans ve sitelerde 634 Sayılı Kat Mülkiyeti Kanunu (KMK 66 Toplu Yapı) ve Sağlık Bakanlığı Havuz Hijyeni; AVM ve iş merkezlerinde 5188 Sayılı Kanun fiziki güvenlik, Binaların Yangından Korunması Hakkında Yönetmelik (BYKHY) ve HVAC otomasyonu; Sanayi ve lojistik depolarda NFPA 13 yangın sprinkler, rampa ve zemin periyodik kontrolleri; Eğitim kampüslerinde çocuk güvenliği ve biyosidal ilaçlama standartları esastır. Alo Yönetim her sektör için ISO 45001 ve ISO 22301 belgeli süreçlere dayanan özelleştirilmiş işletim protokolleri uygular.';
 
   const handleCopy = () => {

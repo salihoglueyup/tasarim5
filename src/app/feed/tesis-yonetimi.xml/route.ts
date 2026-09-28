@@ -103,7 +103,7 @@ export async function GET() {
   <channel>
     <title>Alo Yönetim — Profesyonel Tesis Yönetimi &amp; KMK 634 Haber Akışı</title>
     <link>${BASE_URL}/hizmetler/tesis-yonetimi</link>
-    <description>İstanbul genelinde ISO 41001 standartlarında profesyonel tesis yönetimi, aidat tahsilatı, güvenlik ve teknik işletim bülteni.</description>
+    <description>İstanbul genelinde profesyonel tesis yönetimi, aidat tahsilatı, güvenlik ve teknik işletim bülteni.</description>
     <language>tr-TR</language>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${BASE_URL}/feed/tesis-yonetimi.xml" rel="self" type="application/rss+xml"/>

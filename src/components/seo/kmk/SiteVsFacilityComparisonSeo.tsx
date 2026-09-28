@@ -25,7 +25,7 @@ const COMPARISON_DIMENSIONS: ComparisonDimension[] = [
     title: 'Yasal Dayanak & Standartlar',
     icon: 'gavel',
     siteFeature: '634 Sayılı Kat Mülkiyeti Kanunu (KMK), Yönetim Planı ve Sulh Hukuk içtihatları.',
-    facilityFeature: 'ISO 41001 Entegre Tesis Standardı, 6331 İSG, Ticaret Kanunu ve Kurumsal SLA.',
+    facilityFeature: 'Entegre Tesis Standardı, 6331 İSG, Ticaret Kanunu ve Kurumsal SLA.',
     detailExplanation: 'Site yönetiminde bütçe ve kararlar KMK 634 kanun maddelerine göre kesinleşir; kurumsal tesis yönetiminde ise uluslararası ISO 41001 KPI metrikleri bağlayıcıdır.',
   },
   {
@@ -86,7 +86,7 @@ export default function SiteVsFacilityComparisonSeo({
         name: 'Site yönetimi ile tesis yönetimi arasındaki fark nedir?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Site yönetimi, 634 sayılı Kat Mülkiyeti Kanunu kapsamında çok bağımsız bölümlü konutların aidat tahsilatı, 5188 güvenliği, temizlik ve genel kurul süreçlerini yürütür. Tesis yönetimi ise ISO 41001 standartlarında plaza, iş merkezi ve sanayi binalarının HVAC, otomasyon, enerji verimliliği ve teknik işletmesini tek merkezden yönetir.',
+          text: 'Site yönetimi, 634 sayılı Kat Mülkiyeti Kanunu kapsamında çok bağımsız bölümlü konutların aidat tahsilatı, 5188 güvenliği, temizlik ve genel kurul süreçlerini yürütür. Tesis yönetimi ise plaza, iş merkezi ve sanayi binalarının HVAC, otomasyon, enerji verimliliği ve teknik işletmesini tek merkezden yönetir.',
         },
       },
       {

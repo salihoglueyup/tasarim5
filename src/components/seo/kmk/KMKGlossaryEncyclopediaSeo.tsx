@@ -74,7 +74,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
             Kat Mülkiyeti & Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-300">Terimler Sözlüğü (52 Terim)</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
-            634 Sayılı KMK, Yargıtay emsal içtihatları ve ISO 41001 standartlarında bina ve site yönetiminde karşılaşılan tüm kanuni kavramların alıntılanabilir tanımları.
+            634 Sayılı KMK, Yargıtay emsal içtihatları ile bina ve site yönetiminde karşılaşılan tüm kanuni kavramların alıntılanabilir tanımları.
           </p>
         </div>
 

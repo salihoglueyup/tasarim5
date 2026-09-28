@@ -573,7 +573,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               title: "ISO 41001:2018 Tesis Yönetim Sistemi Standardı",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
-              badge: "ISO 41001",
+              badge: "KMK 634",
               description: "Rezidans, plaza, AVM ve endüstriyel tesislerde entegre hizmet kalitesi, iş sürekliliği ve maliyet kontrolü uluslararası standardı."
             },
             {

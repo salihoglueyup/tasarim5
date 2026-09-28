@@ -237,19 +237,19 @@ export const REFERENCES_DATA: ReferenceProject[] = [
     content: `
       <h3>Şişli & Mecidiyeköy Ticaret Aksında A+ Plaza İşletmesi</h3>
       <p>Horizon Plaza, uluslararası kurumsal şirketlere, hukuk bürolarına ve perakende markalarına ev sahipliği yapan 250 bağımsız bölümlü A+ karma ticari merkezdir.</p>
-      <p>Alo Yönetim bünyesinde ISO 41001 Tesis Yönetim Standartlarına uygun olarak; yangın algılama, X-Ray giriş güvenliği, fiber omurga altyapısı ve ortak alan hijyen protokolleri yönetilmektedir.</p>
+      <p>Alo Yönetim bünyesinde Kurumsal tesis yönetimi süreçleriyle; yangın algılama, X-Ray giriş güvenliği, fiber omurga altyapısı ve ortak alan hijyen protokolleri yönetilmektedir.</p>
     `,
     content_en: `
       <h3>A+ Commercial Plaza Operations in Sisli Business Corridor</h3>
-      <p>Horizon Plaza hosts multinational corporations and premium retail outlets across 250 units, managed under ISO 41001 international standards by Alo Management.</p>
+      <p>Horizon Plaza hosts multinational corporations and premium retail outlets across 250 units, managed by Alo Management.</p>
     `,
     content_ru: `
       <h3>Управление бизнес-центром класса А+ в деловом центре Шишли</h3>
-      <p>Horizon Plaza объединяет 250 офисов и торговых площадей международных компаний с комплексным управлением по стандартам ISO 41001.</p>
+      <p>Horizon Plaza объединяет 250 офисов и торговых площадей международных компаний с комплексным управлением.</p>
     `,
     content_ar: `
       <h3>تشغيل مجمع تجاري فئة A+ في ممر الأعمال في شيشلي</h3>
-      <p>يضم هورايزون بلازا 250 مكتباً ومتجراً لشركات عالمية، وتتم إدارته بالكامل وفق معايير ISO 41001 العالمية.</p>
+      <p>يضم هورايزون بلازا 250 مكتباً ومتجراً لشركات عالمية، وتتم إدارته بالكامل.</p>
     `,
     services: [
       'X-Ray & Turnike Turnstile Geçiş Güvenliği',

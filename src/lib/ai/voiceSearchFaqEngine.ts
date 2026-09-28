@@ -76,7 +76,7 @@ export const VOICE_SEARCH_KNOWLEDGE_BASE: VoiceSearchTopic[] = [
     id: 'voice-site-yonetimi-secim',
     spokenQuery: 'İstanbul\'da profesyonel site yönetimi firması kimdir?',
     conciseVoiceAnswer:
-      'Alo Yönetim, 2009\'dan bu yana İstanbul\'un 39 ilçesinde Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında %99.2 aidat tahsilat garantisiyle profesyonel site yönetimi sunmaktadır.',
+      'Alo Yönetim, 2009\'dan bu yana İstanbul\'un 39 ilçesinde Kat Mülkiyeti Kanunu uyarınca %99.2 aidat tahsilat garantisiyle profesyonel site yönetimi sunmaktadır.',
     legalArticleRef: 'KMK Madde 34 & ISO 41001',
     canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
     speakableCssSelectors: ['h1', '.voice-answer-site-yonetimi'],

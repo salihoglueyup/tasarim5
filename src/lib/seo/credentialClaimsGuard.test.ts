@@ -38,6 +38,14 @@ const RULES: { id: string; re: RegExp; allow?: RegExp }[] = [
     allow: /A Tipi Muayene|muayene kuruluş|laboratuvar|analiz|yeşil etiket|MMO\/TÜRKAK/i,
   },
   {
+    // ISO 41001 sahip olunmayan bir standarttır: "ISO 41001 standartlarında/uyumlu/entegre hizmet" gibi UYUM iddiaları
+    // ve rozet/badge olarak kullanımı yasaktır. Standardı anlatan bilgilendirici içerik (rehber, sözlük) serbesttir.
+    id: 'iso41001-compliance-claim',
+    re: /ISO\s?41001(?::2018)?\s(?:uluslararası\s|kalite\s)?(?:standartlarında|standardında|standartlı|uyumlu|entegre\s(?:yönetim|tesis)|compliant|certified|integrated)|(?:standardBadge|badge)\s*[=:]\s*["'`]ISO\s?41001|[Yy]önetim[^\n]{0,20}ISO\s?41001\s?(?:standart|uyum)/,
+    // Standardı tanımlayan bilgilendirici cümleler ("... standardıdır", "is the international ...") serbesttir.
+    allow: /standardıdır|standardı nedir|is the international/,
+  },
+  {
     id: 'unheld-cert-claim',
     re: new RegExp(
       [

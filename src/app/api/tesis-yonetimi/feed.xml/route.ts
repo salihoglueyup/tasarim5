@@ -23,7 +23,7 @@ export async function GET() {
       <link>${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi</link>
       <guid isPermaLink="true">${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi</guid>
       <pubDate>${pubDate}</pubDate>
-      <description><![CDATA[İstanbul ${d.name} ilçesinde ISO 41001 standartlarında entegre tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %${dues.savingsRate} maliyet tasarruflu aidat muhasebesi.${projects}]]></description>
+      <description><![CDATA[İstanbul ${d.name} ilçesinde entegre tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %${dues.savingsRate} maliyet tasarruflu aidat muhasebesi.${projects}]]></description>
       <category>Tesis Yönetimi</category>
       <category>${d.name}</category>
       <enclosure url="${BASE_URL}/images/hero-poster-v5.webp" type="image/webp" length="102400" />

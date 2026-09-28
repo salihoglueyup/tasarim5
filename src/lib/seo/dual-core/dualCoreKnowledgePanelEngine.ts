@@ -100,7 +100,7 @@ export function buildOrganizationSchema(options?: OrganizationEntityOptions) {
       caption: `${brandName} Logo`,
     },
     image: `${BASE_URL}/images/og-main.jpg`,
-    description: 'İstanbul geneli 39 ilçede KMK 634 ve ISO 41001 standartlarında profesyonel site, apartman, rezidans, plaza ve entegre tesis yönetimi hizmetleri.',
+    description: 'İstanbul geneli 39 ilçede KMK 634 uyarınca profesyonel site, apartman, rezidans, plaza ve entegre tesis yönetimi hizmetleri.',
     foundingDate,
     founder: {
       '@type': 'Person',
@@ -212,7 +212,7 @@ export function buildConceptEntitySchema(concept: 'site' | 'facility' | string, 
   const isFacility = concept === 'facility' || pillar === 'facility';
   const name = isFacility ? 'Entegre Tesis Yönetimi (Facility Management)' : 'Profesyonel Site Yönetimi (Property Management)';
   const description = isFacility
-    ? 'Ticari binalar, plazalar, AVM ve endüstriyel tesislerin teknik bakım, güvenlik, temizlik ve enerji verimliliği süreçlerinin ISO 41001 standardında entegre yönetilmesidir.'
+    ? 'Ticari binalar, plazalar, AVM ve endüstriyel tesislerin teknik bakım, güvenlik, temizlik ve enerji verimliliği süreçlerinin entegre yönetilmesidir.'
     : 'Apartman, site ve rezidans gibi çok paydaşlı konut yapılarının 634 sayılı Kat Mülkiyeti Kanunu çerçevesinde idari, hukuki, mali ve teknik süreçlerinin profesyonelce yürütülmesidir.';
 
   return {

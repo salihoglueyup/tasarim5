@@ -38,7 +38,7 @@ const VAULT_DOCS: VaultDocument[] = [
   },
   {
     id: 'doc-iso-sartname',
-    title: 'ISO 41001 Uyumlu Entegre Tesis Yönetimi Tip Şartnamesi (RFP)',
+    title: 'Entegre Tesis Yönetimi Tip Şartnamesi (RFP)',
     category: 'İhale & Satın Alma',
     format: 'PDF',
     size: '420 KB',
@@ -124,7 +124,7 @@ export default function FacilityDownloadableVaultSeo() {
           İndirilebilir <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">Yönetim & KMK Şablonları</span>
         </h3>
         <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-2">
-          Kat Mülkiyeti Kanunu ve ISO 41001 standartlarına tam uyumlu, noter tasdikine hazır resmi belge şablonlarını ücretsiz indirin.
+          Kat Mülkiyeti Kanunu ve tam uyumlu, noter tasdikine hazır resmi belge şablonlarını ücretsiz indirin.
         </p>
       </div>
 

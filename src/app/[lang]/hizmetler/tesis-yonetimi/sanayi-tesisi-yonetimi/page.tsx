@@ -21,7 +21,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim',
     description:
-      'OSB, fabrika ve lojistik depolar için ISO 45001 İSG ve ISO 41001 standartlarında entegre tesis yönetimi, 34.5 kV trafo bakımı ve endüstriyel güvenlik.',
+      'OSB, fabrika ve lojistik depolar için ISO 45001 İSG entegre tesis yönetimi, 34.5 kV trafo bakımı ve endüstriyel güvenlik.',
     path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
     lang,
     ogImageType: 'service',
