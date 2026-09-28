@@ -25,7 +25,9 @@ describe('Wave 9: Faz 221 - Faz 225 Fiyat Erişilebilirliği, Menü Kapatma, Aut
     const subHeader = path.resolve(process.cwd(), 'src/components/layout/header/Header.tsx');
     const headerPath = fs.existsSync(subHeader) ? subHeader : path.resolve(process.cwd(), 'src/components/layout/Header.tsx');
     const headerContent = fs.readFileSync(headerPath, 'utf-8');
-    expect(headerContent).toContain('aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}');
+    expect(headerContent).toContain("aria-label={isMobileMenuOpen ? t('hd_menu_close') : t('hd_menu_open')}");
+    const trDict = fs.readFileSync(path.resolve(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf-8');
+    expect(trDict).toContain('"hd_menu_close": "Menüyü Kapat"');
   });
 
   it('Faz 223: Form alanları autoComplete="name", "tel" ve "email" taşır', () => {

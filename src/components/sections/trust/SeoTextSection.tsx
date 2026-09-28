@@ -300,7 +300,7 @@ export default function SeoTextSection({
               <div className="mt-4 p-3 rounded-xl bg-white dark:bg-[#1E202B] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-sm text-emerald-600 dark:text-emerald-400">lock</span>
-                  <span className="font-medium">T.C. Çevre & Şehircilik Bakanlığı Mevzuatına Tam Uyum</span>
+                  <span className="font-medium">{t('stx_env_law')}</span>
                 </div>
                 <span className="px-2 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 font-mono font-bold shrink-0 text-[10px]">
                   ILAS · ISO 45001

@@ -316,7 +316,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center transition-all duration-300">
           
           <Magnetic strength={0.1}>
-            <Link href={getLocalizedPath('/')} prefetch={true} aria-label="Alo Yönetim Anasayfa" className="flex items-center group relative z-[60] py-0.5" onClick={closeMenus}>
+            <Link href={getLocalizedPath('/')} prefetch={true} aria-label={t('hd_home_aria')} className="flex items-center group relative z-[60] py-0.5" onClick={closeMenus}>
               <Logo variant={isTopAndDarkHero ? 'white' : 'auto'} />
             </Link>
           </Magnetic>
@@ -420,7 +420,7 @@ export default function Header() {
                       ? 'hover:bg-white/20 text-white'
                       : 'hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-primary)]'
                   }`}
-                  aria-label="Dil Seçimi"
+                  aria-label={t('hd_lang_aria')}
                   aria-haspopup="true"
                   aria-expanded={hoveredMenu === 'language'}
                 >
@@ -485,7 +485,7 @@ export default function Header() {
                     ? 'hover:bg-white/20 text-white'
                     : 'hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-primary)]'
                 }`}
-                aria-label="Temayı Değiştir"
+                aria-label={t('hd_theme_aria')}
               >
                 <span 
                   className={`material-symbols-outlined text-[15px] transition-transform duration-300 transform-gpu ${
@@ -501,7 +501,7 @@ export default function Header() {
             <Magnetic strength={0.2}>
               <button 
                 onClick={() => setIsLoginModalOpen(true)}
-                aria-label="Online İşlemler Girişi"
+                aria-label={t('hd_login_aria')}
                 className={`relative overflow-hidden text-xs font-bold px-3 xl:px-4 py-2 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group border cursor-pointer ${
                   isTopAndDarkHero 
                     ? 'bg-white/10 border-white/20 text-white hover:bg-white/20' 
@@ -518,7 +518,7 @@ export default function Header() {
             <Magnetic strength={0.2}>
               <button 
                 onClick={openQuoteModal}
-                aria-label="Hızlı teklif alın"
+                aria-label={t('hd_quote_aria')}
                 className="relative overflow-hidden text-xs font-extrabold bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 px-4 xl:px-5 py-2 rounded-xl transition-all duration-300 active:scale-95 inline-flex max-sm:hidden group shadow-md hover:shadow-xl hover:-translate-y-0.5 border border-white/10 cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-1.5">
@@ -531,7 +531,7 @@ export default function Header() {
             
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
+              aria-label={isMobileMenuOpen ? t('hd_menu_close') : t('hd_menu_open')}
               aria-expanded={isMobileMenuOpen}
               className={`lg:hidden p-2 -mr-2 rounded-lg transition-colors ${
                 isTopAndDarkHero ? 'text-white' : 'text-[var(--color-primary)]'

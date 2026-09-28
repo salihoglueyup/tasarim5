@@ -60,7 +60,7 @@ export default function AppShowcase() {
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-blue-500 hover:scale-[1.02] transition-all shadow-2xs group"
-              aria-label="Apsiyon iOS uygulamasını App Store'dan indirin"
+              aria-label={t('as_ios')}
             >
               <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-blue-500 transition-colors" aria-hidden="true">phone_iphone</span>
               <div className="flex flex-col text-left">
@@ -74,7 +74,7 @@ export default function AppShowcase() {
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-emerald-500 hover:scale-[1.02] transition-all shadow-2xs group"
-              aria-label="Apsiyon Android uygulamasını Google Play'den indirin"
+              aria-label={t('as_android')}
             >
               <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-emerald-500 transition-colors" aria-hidden="true">android</span>
               <div className="flex flex-col text-left">
@@ -88,12 +88,12 @@ export default function AppShowcase() {
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-purple-500 hover:scale-[1.02] transition-all shadow-2xs group"
-              aria-label="Apsiyon Web Sakin Portalı ile Giriş Yapın"
+              aria-label={t('as_web_aria')}
             >
               <span className="material-symbols-outlined text-2xl text-[var(--color-primary)] group-hover:text-purple-500 transition-colors" aria-hidden="true">laptop_mac</span>
               <div className="flex flex-col text-left">
-                <span className="text-[10px] text-[var(--color-secondary)]">Web'den Doğrudan</span>
-                <span className="text-sm font-bold">Sakin Girişi</span>
+                <span className="text-[10px] text-[var(--color-secondary)]">{t('as_web_from')}</span>
+                <span className="text-sm font-bold">{t('as_resident_login')}</span>
               </div>
             </a>
           </div>

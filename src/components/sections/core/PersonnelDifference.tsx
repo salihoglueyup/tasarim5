@@ -32,7 +32,7 @@ Object.freeze(PILLARS);
  */
 export default function PersonnelDifference({ dict, lang = 'tr' }: PersonnelDifferenceProps) {
   const t = (key: string, fallback: string) => dict?.[key] || fallback;
-  const basePath = lang === 'en' ? '/en' : '';
+  const basePath = lang === 'tr' ? '' : `/${lang}`;
 
   return (
     <section className="py-20 px-[var(--spacing-gutter)] max-w-7xl mx-auto">
@@ -43,13 +43,13 @@ export default function PersonnelDifference({ dict, lang = 'tr' }: PersonnelDiff
         <div className="relative z-10 max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 text-[var(--color-primary)] text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            {t('personnel_diff_badge', 'İstihdam Güvencesi & Mevzuat Uyumu')}
+            {t('pdx_1', 'İstihdam Güvencesi & Mevzuat Uyumu')}
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--color-primary)] mb-6 leading-tight">
-            {t('personnel_diff_title', 'Personel İstihdamında Alo Yönetim Farkı')}
+            {t('pdx_2', 'Personel İstihdamında Alo Yönetim Farkı')}
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-secondary)] font-light leading-relaxed">
-            {t('personnel_diff_desc', 'Apartman ve site görevlilerinin iş hukuku, SGK, kıdem tazminatı ve özlük hakları risklerini kurumsal güvenceyle sıfırlıyoruz.')}
+            {t('pdx_3', 'Apartman ve site görevlilerinin iş hukuku, SGK, kıdem tazminatı ve özlük hakları risklerini kurumsal güvenceyle sıfırlıyoruz.')}
           </p>
         </div>
 
@@ -63,8 +63,8 @@ export default function PersonnelDifference({ dict, lang = 'tr' }: PersonnelDiff
                 ✓
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[var(--color-primary)] mb-2">{item.title}</h3>
-                <p className="text-[var(--color-secondary)] text-sm md:text-base leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-[var(--color-primary)] mb-2">{t(`pd_p${idx + 1}_title`, item.title)}</h3>
+                <p className="text-[var(--color-secondary)] text-sm md:text-base leading-relaxed">{t(`pd_p${idx + 1}_desc`, item.desc)}</p>
               </div>
             </div>
           ))}
@@ -72,13 +72,13 @@ export default function PersonnelDifference({ dict, lang = 'tr' }: PersonnelDiff
 
         <div className="relative z-10 pt-6 border-t border-[var(--color-outline)]/60 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-sm text-[var(--color-secondary)]">
-            {t('personnel_diff_footer', 'Kat malikleri kurulunun işveren sıfatından doğan hukuki ve cezai sorumluluklarını bertaraf ediyoruz.')}
+            {t('pdx_4', 'Kat malikleri kurulunun işveren sıfatından doğan hukuki ve cezai sorumluluklarını bertaraf ediyoruz.')}
           </p>
           <Link
             href={`${basePath}/istihdam-koprusu`}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold text-sm tracking-wide transition-all duration-300 shadow-md shrink-0 hover:scale-105"
           >
-            <span>{t('personnel_diff_link', 'İstihdam Güvencesi Modelini İnceleyin')}</span>
+            <span>{t('pdx_5', 'İstihdam Güvencesi Modelini İnceleyin')}</span>
             <span>→</span>
           </Link>
         </div>

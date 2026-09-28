@@ -9,11 +9,15 @@ describe('Wave 9: Faz 201 - Faz 205 WCAG 2.1 AA Erişilebilirlik (A11y) Temeller
     const headerPath = fs.existsSync(subHeader) ? subHeader : path.resolve(process.cwd(), 'src/components/layout/Header.tsx');
     const headerContent = fs.readFileSync(headerPath, 'utf-8');
 
-    expect(headerContent).toContain('aria-label="Dil Seçimi"');
-    expect(headerContent).toContain('aria-label="Temayı Değiştir"');
-    expect(headerContent).toContain('aria-label="Online İşlemler Girişi"');
-    expect(headerContent).toContain('aria-label="Hızlı teklif alın"');
-    expect(headerContent).toContain('aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}');
+    expect(headerContent).toContain("aria-label={t('hd_lang_aria')}");
+    expect(headerContent).toContain("aria-label={t('hd_theme_aria')}");
+    expect(headerContent).toContain("aria-label={t('hd_login_aria')}");
+    expect(headerContent).toContain("aria-label={t('hd_quote_aria')}");
+    expect(headerContent).toContain("aria-label={isMobileMenuOpen ? t('hd_menu_close') : t('hd_menu_open')}");
+    const trDict = fs.readFileSync(path.resolve(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf-8');
+    for (const label of ['Dil Seçimi', 'Temayı Değiştir', 'Online İşlemler Girişi', 'Hızlı teklif alın', 'Menüyü Kapat', 'Menüyü Aç']) {
+      expect(trDict).toContain('"' + label + '"');
+    }
   });
 
   it('Faz 202: NavigationWrapper #main-content atlama bağlantısına (Skip Navigation Link) sahiptir', () => {

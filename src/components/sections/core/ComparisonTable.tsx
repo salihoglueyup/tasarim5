@@ -56,20 +56,20 @@ Object.freeze(DEFAULT_ROWS);
  */
 export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTableProps) {
   const t = (key: string, fallback: string) => dict?.[key] || fallback;
-  const basePath = lang === 'en' ? '/en' : '';
+  const basePath = lang === 'tr' ? '' : `/${lang}`;
 
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
       
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest bg-slate-900/10 dark:bg-white/10 px-4 py-1.5 rounded-full">
-          {t('home_comparison_badge', 'Geleneksel vs Profesyonel Tesis Yönetimi')}
+          {t('cmpx_1', 'Geleneksel vs Profesyonel Tesis Yönetimi')}
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight mt-4">
-          {t('home_comparison_title', 'Neden Alo Yönetim?')}
+          {t('cmpx_2', 'Neden Alo Yönetim?')}
         </h2>
         <p className="text-lg text-[var(--color-secondary)] font-light mt-4">
-          {t('home_comparison_desc', 'Eski usul bina yönetimi ile profesyonel, dijital ve denetlenebilir tesis yönetimi arasındaki farklar.')}
+          {t('cmpx_3', 'Eski usul bina yönetimi ile profesyonel, dijital ve denetlenebilir tesis yönetimi arasındaki farklar.')}
         </p>
       </div>
 
@@ -81,10 +81,10 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
             <div className="flex items-center justify-between border-b border-[var(--color-outline)]/60 pb-6 mb-6">
               <div>
                 <h3 className="text-2xl font-bold text-[var(--color-primary)]">
-                  {t('home_comparison_left_title', 'Alo Yönetim')}
+                  {t('cmpx_4', 'Alo Yönetim')}
                 </h3>
                 <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                  {t('home_comparison_left_sub', 'Kurumsal & Dijital & %100 Şeffaf')}
+                  {t('cmpx_5', 'Kurumsal & Dijital & %100 Şeffaf')}
                 </span>
               </div>
               <span className="material-symbols-outlined text-4xl text-emerald-500" aria-hidden="true">verified</span>
@@ -95,8 +95,8 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                 <div key={i} className="flex items-start gap-3 bg-emerald-50/40 dark:bg-emerald-950/20 p-4 rounded-2xl border border-emerald-200/50 dark:border-emerald-900/30">
                   <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5 text-lg" aria-hidden="true">check_circle</span>
                   <div>
-                    <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{row.title}</h4>
-                    <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{row.alo}</p>
+                    <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{t(`cmp_r${i + 1}_title`, row.title)}</h4>
+                    <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{t(`cmp_r${i + 1}_alo`, row.alo)}</p>
                   </div>
                 </div>
               ))}
@@ -107,7 +107,7 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
             href={`${basePath}/teklif-al`} 
             className="w-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-extrabold py-4 rounded-xl text-center transition-colors shadow-md text-sm mt-4 inline-block"
           >
-            {t('home_comparison_btn', 'Siteniz İçin Profesyonel Teklif Alın →')}
+            {t('cmpx_6', 'Siteniz İçin Profesyonel Teklif Alın →')}
           </Link>
         </div>
 
@@ -117,10 +117,10 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
             <div className="flex items-center justify-between border-b border-[var(--color-outline)]/60 pb-6 mb-6">
               <div>
                 <h3 className="text-2xl font-bold text-[var(--color-primary)]">
-                  {t('home_comparison_right_title', 'Geleneksel Yönetim')}
+                  {t('cmpx_7', 'Geleneksel Yönetim')}
                 </h3>
                 <span className="text-xs text-rose-500 font-medium">
-                  {t('home_comparison_right_sub', 'Eski Usul & Denetimsiz & Yüksek Risk')}
+                  {t('cmpx_8', 'Eski Usul & Denetimsiz & Yüksek Risk')}
                 </span>
               </div>
               <span className="material-symbols-outlined text-4xl text-rose-500" aria-hidden="true">warning</span>
@@ -131,8 +131,8 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                 <div key={i} className="flex items-start gap-3 bg-rose-50/40 dark:bg-rose-950/20 p-4 rounded-2xl border border-rose-200/50 dark:border-rose-900/30">
                   <span className="material-symbols-outlined text-rose-500 shrink-0 mt-0.5 text-lg" aria-hidden="true">cancel</span>
                   <div>
-                    <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{row.title}</h4>
-                    <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{row.trad}</p>
+                    <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{t(`cmp_r${i + 1}_title`, row.title)}</h4>
+                    <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{t(`cmp_r${i + 1}_trad`, row.trad)}</p>
                   </div>
                 </div>
               ))}
@@ -143,7 +143,7 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
             href="tel:+902165504848" 
             className="w-full bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/40 text-[var(--color-primary)] font-bold py-4 rounded-xl text-center transition-colors border border-[var(--color-outline)] text-sm mt-4 inline-block"
           >
-            Danışma Hattı: 0216 550 48 48
+            {t('cmpx_9', 'Danışma Hattı: 0216 550 48 48')}
           </a>
         </div>
 

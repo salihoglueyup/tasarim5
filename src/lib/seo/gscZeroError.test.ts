@@ -4742,8 +4742,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const subFaq = path.join(process.cwd(), 'src/components/sections/trust/Faq.tsx');
       const faqPath = fs.existsSync(subFaq) ? subFaq : path.join(process.cwd(), 'src/components/sections/Faq.tsx');
       const homeFaq = fs.readFileSync(faqPath, 'utf8');
-      expect(homeFaq).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
-      expect(homeFaq).toContain('Biyosidal ilaçlama nedir');
+      // Metinler artık Türkçe sözlükten (hfq_s*) gelir; bileşen yalnızca anahtarları kullanır.
+      const trDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(homeFaq).toContain("t('hfq_s4_q')");
+      expect(trDict).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
+      expect(trDict).toContain('Biyosidal ilaçlama nedir');
     });
   });
 

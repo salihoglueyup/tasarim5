@@ -148,7 +148,7 @@ export default function TestimonialSlider({
           <button 
             onClick={prevTestimonial}
             className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
-            aria-label="Önceki Yorum"
+            aria-label={t('tsl_prev')}
           >
             <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
           </button>
@@ -158,7 +158,7 @@ export default function TestimonialSlider({
           <button 
             onClick={nextTestimonial}
             className="w-12 h-12 rounded-full border border-[var(--color-outline)] flex items-center justify-center text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors cursor-pointer"
-            aria-label="Sonraki Yorum"
+            aria-label={t('tsl_next')}
           >
             <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
           </button>

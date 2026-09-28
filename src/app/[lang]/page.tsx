@@ -155,20 +155,21 @@ export default async function Home({ params }: Props) {
       <Hero />
       <SeoTextSection />
       <div className="lazy-section"><BentoServices /></div>
-      <div className="lazy-section"><IstanbulDuesHeatmapSeo /></div>
+      {lang === 'tr' && <div className="lazy-section"><IstanbulDuesHeatmapSeo /></div>}
       <div className="lazy-section"><WhyUsBentoGrid /></div>
-      <div className="lazy-section"><PersonnelDifference /></div>
-      <div className="lazy-section"><ComparisonTable /></div>
-      <div className="lazy-section"><KMKLawAssistantSeo /></div>
+      <div className="lazy-section"><PersonnelDifference dict={lang === 'tr' ? undefined : t} lang={lang} /></div>
+      <div className="lazy-section"><ComparisonTable dict={lang === 'tr' ? undefined : t} lang={lang} /></div>
+      {lang === 'tr' && <div className="lazy-section"><KMKLawAssistantSeo /></div>}
       <div className="lazy-section"><InteractiveProcessSteps /></div>
       <div className="lazy-section"><AppShowcase /></div>
       <div className="lazy-section"><TestimonialSlider dbReferences={dbReferences} /></div>
       <div className="lazy-section"><CertificateBadgeGrid /></div>
-      <div className="lazy-section px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto"><GoogleAiOverviewGroundingSeo /></div>
+      {lang === 'tr' && <div className="lazy-section px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto"><GoogleAiOverviewGroundingSeo /></div>}
       <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
       
       {/* E-E-A-T Master Mevzuat & İç/Dış Bağlantı Otorite Hub'ı */}
-      <section className="lazy-section py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      {lang === 'tr' && (
+        <section className="lazy-section py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <ServiceAuthorityHubSeo
           serviceName="Alo Yönetim Entegre Tesis ve Mülk Yönetim Ekosistemi"
           serviceCategory="Entegre Tesis Yönetimi"
@@ -219,6 +220,7 @@ export default async function Home({ params }: Props) {
           ]}
         />
       </section>
+      )}
 
       <PreFooterCta />
     </>

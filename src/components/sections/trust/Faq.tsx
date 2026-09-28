@@ -68,33 +68,33 @@ export default function Faq({
         category: 'hukuk',
       },
       {
-        question: 'Site veya apartman aidatı ödenmezse yasal gecikme faizi ne kadardır?',
+        question: t('hfq_s1_q'),
         answer:
-          'Kat Mülkiyeti Kanunu Madde 20 uyarınca ödenmeyen aidat ve avans borçları için aylık %5 yasal gecikme tazminatı uygulanır. Alo Yönetim hukuk departmanı geciken aidatlar için 2. ihtardan sonra doğrudan icra takibi başlatır.',
+          t('hfq_s1_a'),
         category: 'aidat',
       },
       {
-        question: 'Asansör periyodik kontrollerinde yeşil etiket almak zorunlu mudur?',
+        question: t('hfq_s2_q'),
         answer:
-          'Evet, Sanayi ve Teknoloji Bakanlığı Asansör Yönetmeliği gereğince yılda bir kez A tipi akredite muayene kuruluşunca kontrol yapılır. Yeşil etiket can ve mal güvenliğinin tam olduğunu gösterir; kırmızı etiketli asansörler mühürlenir.',
+          t('hfq_s2_a'),
         category: 'teknik',
       },
       {
-        question: 'Sitelerde özel güvenlik kimliği olmadan nöbetçi veya bekçi çalıştırılabilir mi?',
+        question: t('hfq_s3_q'),
         answer:
-          '5188 Sayılı Özel Güvenlik Kanunu kapsamında üniformalı ve yetkili güvenlik hizmeti verilebilmesi için Valilik Özel Güvenlik İzni (ÖGİ) ve sertifikalı personel gereklidir. Aksi takdirde site yönetimi ağır idari para cezalarıyla karşılaşabilir.',
+          t('hfq_s3_a'),
         category: 'guvenlik',
       },
       {
-        question: 'KMK Madde 37 kapsamında işletme projesine itiraz süresi kaç gündür ve icra hükmü nedir?',
+        question: t('hfq_s4_q'),
         answer:
-          'Kat maliklerine tebliğ edilen işletme projesine itiraz süresi kesin 7 gündür. 7 gün içinde itiraz edilmeyen bütçe kesinleşerek İcra ve İflas Kanunu Madde 68 anlamında borç ikrarı belgesi hükmü kazanır ve doğrudan ilamsız icra takibine konulabilir.',
+          t('hfq_s4_a'),
         category: 'hukuk',
       },
       {
-        question: 'Biyosidal ilaçlama nedir ve apartman/sitelerde yaptırılması zorunlu mudur?',
+        question: t('hfq_s5_q'),
         answer:
-          'Biyosidal ilaçlama; T.C. Sağlık Bakanlığı onaylı formülasyonlarla insan ve çevre sağlığına zarar vermeden haşere ve kemirgenlerin yok edilmesidir. Biyosidal Ürünler Yönetmeliği gereğince toplu yaşam alanlarında yalnızca Sağlık Bakanlığı ruhsatlı firmalarca uygulanabilir.',
+          t('hfq_s5_a'),
         category: 'tesis',
       },
     ],
@@ -161,7 +161,7 @@ export default function Faq({
   };
 
   const waHref = waLink(
-    'Merhaba, Alo Yönetim SSS bölümünü inceliyordum. Bir konuda detaylı bilgi almak istiyorum.'
+    t('hfq_wa_msg')
   );
 
   return (
@@ -172,7 +172,7 @@ export default function Faq({
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
-            <span>SIKÇA SORULAN SORULAR</span>
+            <span>{t('hfq_badge')}</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--color-primary)] mb-4">
             {t('home_faq_title')}
@@ -196,7 +196,7 @@ export default function Faq({
                   setSearchQuery(val);
                 });
               }}
-              placeholder="Sorularda veya yanıtlarda anında arama yapın (örn: aidat, asansör, güvenlik)..."
+              placeholder={t('hfq_search_ph')}
               className="w-full bg-transparent text-[var(--color-primary)] placeholder-[var(--color-tertiary)] focus:outline-none text-sm md:text-base font-normal"
             />
             {searchInput && (
@@ -209,7 +209,7 @@ export default function Faq({
                   });
                 }}
                 className="text-[var(--color-tertiary)] hover:text-[var(--color-primary)] p-1 cursor-pointer"
-                aria-label="Aramayı temizle"
+                aria-label={t('hfq_clear')}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -237,7 +237,7 @@ export default function Faq({
                     : 'bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:border-slate-400 dark:hover:border-white/20'
                 }`}
               >
-                {cat.label}
+                {t(`hfq_cat_${cat.id}` as Parameters<typeof t>[0])}
               </button>
             );
           })}
@@ -248,10 +248,10 @@ export default function Faq({
           {filteredFaqs.length === 0 ? (
             <div className="py-12 text-center text-[var(--color-secondary)]">
               <p className="font-semibold text-[var(--color-primary)]">
-                Aradığınız kriterlere uygun soru bulunamadı
+                {t('hfq_none')}
               </p>
               <p className="text-xs mt-1 text-[var(--color-tertiary)]">
-                Farklı bir anahtar kelime deneyebilir veya aşağıdaki butondan doğrudan bize danışabilirsiniz.
+                {t('hfq_none_hint')}
               </p>
             </div>
           ) : (
@@ -308,7 +308,7 @@ export default function Faq({
                               <>
                                 <Check className="w-3.5 h-3.5 text-emerald-500" />
                                 <span className="text-emerald-500 font-medium">
-                                  Bağlantı Kopyalandı
+                                  {t('hfq_copied')}
                                 </span>
                               </>
                             ) : (
@@ -336,11 +336,11 @@ export default function Faq({
             </div>
             <div>
               <h4 className="text-sm font-bold text-[var(--color-primary)] flex items-center gap-1.5 justify-center sm:justify-start">
-                <span>Sorunuza Yanıt Bulamadınız mı?</span>
+                <span>{t('hfq_cta_title')}</span>
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               </h4>
               <p className="text-xs text-[var(--color-secondary)] mt-0.5">
-                Kat Mülkiyeti Kanunu ve tesis yönetimi uzmanlarımıza anında WhatsApp üzerinden danışın.
+                {t('hfq_cta_desc')}
               </p>
             </div>
           </div>
@@ -352,7 +352,7 @@ export default function Faq({
             className="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 active:scale-95 transition-all shrink-0 flex items-center gap-2"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>WhatsApp ile Danışın</span>
+            <span>{t('hfq_cta_btn')}</span>
           </a>
         </div>
       </div>

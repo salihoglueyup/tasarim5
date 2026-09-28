@@ -93,7 +93,7 @@ export default function Hero() {
       
       {/* Subliminal SEO / Ekran Okuyucu Metni */}
       <div className="sr-only">
-        Alo Yönetim, İstanbul Kadıköy merkezli profesyonel site yönetimi, tesis yönetimi, apartman yöneticiliği, aidat tahsilatı, hukuki icra takibi ve bina güvenliği hizmetleri sunan kurumsal bir şirkettir. KMK (Kat Mülkiyeti Kanunu) uzmanlığı ile şeffaf hizmet.
+        {t('hero_seo_p')}
       </div>
 
       {/* 8K Fullscreen Background Visual & Fallback */}
@@ -103,7 +103,7 @@ export default function Hero() {
         {/* Kesin LCP Görseli: HTML ilk dokümanda anında keşfedilir (fetchPriority="high") */}
         <Image
           src="/images/hero-poster-v5.webp"
-          alt="Alo Yönetim Profesyonel Tesis Yönetimi İstanbul"
+          alt={t('hero_alt')}
           fill
           priority={true}
           fetchPriority="high"
@@ -185,7 +185,7 @@ export default function Hero() {
             {showVideo && (
               <button
                 onClick={toggleMute}
-                aria-label={isMuted ? "Sesi Aç" : "Sesi Kapat"}
+                aria-label={isMuted ? t('hero_sound_on') : t('hero_sound_off')}
                 className="hidden sm:flex w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all cursor-pointer shadow-lg"
               >
                 <span className="material-symbols-outlined text-lg" aria-hidden="true">

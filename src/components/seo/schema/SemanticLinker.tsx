@@ -140,7 +140,7 @@ export default function SemanticLinker({ text, maxLinks = 4, className }: Semant
   const language = langContext?.language || 'tr';
 
   const getLocalizedPath = (path: string) => {
-    return language === 'en' ? `/en${path}` : path;
+    return language === 'tr' ? path : `/${language}${path}`;
   };
 
   const renderedContent = useMemo(() => {

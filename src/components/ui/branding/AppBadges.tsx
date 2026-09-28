@@ -1,10 +1,14 @@
+'use client';
+
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 /**
  * Faz 72: UI ikonlarının SVG boyutlarını (width/height), aria-hidden ve viewBox
  * tanımlarını optimize ederek HTML ayrıştırma anında layout shift'i sıfırlama.
  */
 export default function AppBadges() {
+  const { t } = useLanguage();
   const badgeClasses = "flex items-center justify-center gap-3 w-full sm:w-auto bg-gradient-to-b from-[#1a1a1a] to-black border border-gray-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] px-4 py-2 rounded-xl hover:from-[#252525] hover:to-[#0a0a0a] transition-all hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] group cursor-pointer";
 
   return (
@@ -14,8 +18,8 @@ export default function AppBadges() {
         href="https://apps.apple.com/app/apsiyon/id1115852575"
         target="_blank"
         rel="noopener noreferrer"
-        title="Apsiyon iOS Uygulamasını App Store'dan İndirin"
-        aria-label="Apsiyon iOS Uygulamasını App Store'dan İndirin"
+        title={t('ab_ios')}
+        aria-label={t('ab_ios')}
         className={badgeClasses}
       >
         <svg 
@@ -39,8 +43,8 @@ export default function AppBadges() {
         href="https://play.google.com/store/apps/details?id=com.apsiyon.mobile"
         target="_blank"
         rel="noopener noreferrer"
-        title="Apsiyon Android Uygulamasını Google Play'den İndirin"
-        aria-label="Apsiyon Android Uygulamasını Google Play'den İndirin"
+        title={t('ab_android')}
+        aria-label={t('ab_android')}
         className={badgeClasses}
       >
         <svg 
@@ -66,8 +70,8 @@ export default function AppBadges() {
         href="https://appgallery.huawei.com/app/C100486001"
         target="_blank"
         rel="noopener noreferrer"
-        title="Apsiyon Uygulamasını Huawei AppGallery'den İndirin"
-        aria-label="Apsiyon Uygulamasını Huawei AppGallery'den İndirin"
+        title={t('ab_huawei')}
+        aria-label={t('ab_huawei')}
         className={badgeClasses}
       >
         <svg 

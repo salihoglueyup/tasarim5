@@ -25,7 +25,7 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
 
   const getLocalizedPath = (path: string) => {
     if (!path) return '/';
-    return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
+    return language === 'tr' ? path : `/${language}${path === '/' ? '' : path}`;
   };
 
   let related: Array<(typeof ALL_SERVICES)[0]> = [];

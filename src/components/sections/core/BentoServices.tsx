@@ -9,7 +9,7 @@ export default function BentoServices() {
 
   const getLocalizedPath = (path: string) => {
     if (!path) return '/';
-    return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
+    return language === 'tr' ? path : `/${language}${path === '/' ? '' : path}`;
   };
 
   return (
@@ -18,7 +18,7 @@ export default function BentoServices() {
       <div className="text-center mb-16 sm:mb-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4 border border-[var(--color-outline)]/60">
           <span className="material-symbols-outlined text-[16px]" aria-hidden="true">domain</span>
-          <span>ILAS Akrediteli Entegre Tesis ve Mülk Çözümleri</span>
+          <span>{t('bs_badge')}</span>
         </div>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[var(--color-primary)] mb-6">
           {t('home_bento_title')}
@@ -38,7 +38,7 @@ export default function BentoServices() {
             <div className="flex items-center justify-between mb-6">
               <span className="material-symbols-outlined text-5xl text-[var(--color-primary)]" aria-hidden="true">shield_person</span>
               <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 px-3 py-1 rounded-full">
-                5188 Lisanslı
+                {t('bs_licensed')}
               </span>
             </div>
             <h3 className="text-3xl font-bold text-[var(--color-primary)] mb-4">{t('home_bento_card1_title')}</h3>
@@ -46,7 +46,7 @@ export default function BentoServices() {
               {t('home_bento_card1_desc')}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {['Kamera Sistemleri', 'Fiziki Güvenlik', 'Nöbetçi Devriye', 'Plaka Tanıma (PTS)'].map(tag => (
+              {[t('bs_tag_camera'), t('bs_tag_physical'), t('bs_tag_patrol'), t('bs_tag_anpr')].map(tag => (
                 <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
@@ -72,7 +72,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/guvenlik-yonetimi')}
               className="text-sm font-bold text-[var(--color-primary)] hover:underline flex items-center gap-2 group/link"
             >
-              <span>Özel Güvenlik Hizmetini Keşfet</span>
+              <span>{t('bs_security_link')}</span>
               <span className="material-symbols-outlined text-base group-hover/link:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
             </Link>
 
@@ -99,7 +99,7 @@ export default function BentoServices() {
               {t('home_bento_card2_desc')}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['Ortak Alan', 'Kapalı Otopark', 'Çöp Toplama', 'Merdiven & Blok'].map(tag => (
+              {[t('bs_tag_common'), t('bs_tag_parking'), t('bs_tag_waste'), t('bs_tag_stairs')].map(tag => (
                 <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
@@ -117,7 +117,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/temizlik-ve-hijyen')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
             >
-              <span>Detaylı İncele</span>
+              <span>{t('bs_details')}</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
@@ -132,7 +132,7 @@ export default function BentoServices() {
               {t('home_bento_card3_desc')}
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {['Aidat Takibi', 'Şeffaf Bilanço', 'İcra Takibi', 'Mobil Tahsilat'].map(tag => (
+              {[t('bs_tag_dues'), t('bs_tag_balance'), t('bs_tag_enforce'), t('bs_tag_mobile_pay')].map(tag => (
                 <span key={tag} className="px-2.5 py-1 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-[11px] font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
@@ -144,7 +144,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/aidat-takibi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
             >
-              <span>Detaylı İncele</span>
+              <span>{t('bs_details')}</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
@@ -159,7 +159,7 @@ export default function BentoServices() {
               {t('home_bento_card4_desc')}
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {['634 KMK', 'İcra Takibi', 'Genel Kurul', 'Dava Takibi'].map(tag => (
+              {[t('bs_tag_kmk'), t('bs_tag_enforce'), t('bs_tag_assembly'), t('bs_tag_lawsuit')].map(tag => (
                 <span key={tag} className="px-2.5 py-1 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-[11px] font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
@@ -171,7 +171,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/hukuk-ve-icra-danismanligi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
             >
-              <span>Detaylı İncele</span>
+              <span>{t('bs_details')}</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
@@ -183,7 +183,7 @@ export default function BentoServices() {
             <div className="flex items-center justify-between mb-4">
               <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">engineering</span>
               <span className="text-[11px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 px-2.5 py-0.5 rounded-full">
-                7/24 Nöbetçi
+                {t('bs_on_duty')}
               </span>
             </div>
             <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card5_title')}</h3>
@@ -191,7 +191,7 @@ export default function BentoServices() {
               {t('home_bento_card5_desc')}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['Asansör Yeşil Etiket', 'Jeneratör', 'Hidrofor & Yangın', 'Havuz & Kazan'].map(tag => (
+              {[t('bs_tag_lift'), t('bs_tag_gen'), t('bs_tag_hydro'), t('bs_tag_pool')].map(tag => (
                 <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
@@ -203,13 +203,13 @@ export default function BentoServices() {
               href={getLocalizedPath('/hesaplayici')}
               className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
             >
-              Teknik Bakım Keşfi →
+              {t('bs_tech_discover')}
             </Link>
             <Link 
               href={getLocalizedPath('/hizmetler/teknik-bakim')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
-              <span>Teknik Servisi İncele</span>
+              <span>{t('bs_tech_service')}</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
           </div>
@@ -224,12 +224,12 @@ export default function BentoServices() {
                 Amiral Gemisi
               </span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-3">Profesyonel Site ve Tesis Yönetimi</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-3">{t('bs_hub_title')}</h3>
             <p className="text-[var(--color-secondary)] leading-relaxed text-sm sm:text-base">
-              İstanbul&apos;un 39 ilçesinde 340+ konut sitesi ve rezidansta 634 Sayılı KMK ve ISO 41001 standartlarında 5188 lisanslı güvenlik, temizlik, önleyici teknik servis ve %99.2 aidat tahsilat garantisi sunuyoruz.
+              {t('bs_hub_desc')}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['Site Yönetimi', 'Toplu Konut', 'Rezidans', 'KMK 634', '%30 Tasarruf', '15 Dk SLA'].map(tag => (
+              {[t('bs_tag_site'), t('bs_tag_mass'), t('bs_tag_res'), 'KMK 634', t('bs_tag_save'), t('bs_tag_sla')].map(tag => (
                 <span key={tag} className="px-3 py-1.5 bg-[var(--color-surface-variant)] text-[var(--color-secondary)] rounded-full text-xs font-semibold border border-[var(--color-outline)]/60">
                   {tag}
                 </span>
@@ -242,7 +242,7 @@ export default function BentoServices() {
                 href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')}
                 className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
-                <span>Toplu Konut & Site Çözümleri</span>
+                <span>{t('bs_link_mass')}</span>
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
               </Link>
               <span className="text-[var(--color-tertiary)]">·</span>
@@ -250,7 +250,7 @@ export default function BentoServices() {
                 href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')}
                 className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
-                <span>Rezidans & Lüks Site</span>
+                <span>{t('bs_link_res')}</span>
                 <span className="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
               </Link>
             </div>
@@ -260,7 +260,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/tesis-yonetimi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
-              <span>Site & Tesis Yönetimi Rehberi</span>
+              <span>{t('bs_link_guide')}</span>
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </Link>
 
@@ -268,7 +268,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/teklif-al')}
               className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl transition-colors shadow-xs"
             >
-              Siteniz İçin Teklif Alın →
+              {t('bs_quote')}
             </Link>
           </div>
         </div>

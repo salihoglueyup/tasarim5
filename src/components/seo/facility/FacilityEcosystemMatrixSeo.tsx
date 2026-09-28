@@ -163,7 +163,7 @@ export default function FacilityEcosystemMatrixSeo({
 
   const getLocalizedPath = (path: string) => {
     if (!path) return '/';
-    return language === 'en' ? `/en${path === '/' ? '' : path}` : path;
+    return language === 'tr' ? path : `/${language}${path === '/' ? '' : path}`;
   };
 
   const schema = {
