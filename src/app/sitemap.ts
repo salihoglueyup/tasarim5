@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { buildLanguageAlternates, localizedUrl, indexableLocales } from '@/lib/seo';
+import { buildLanguageAlternates, localizedUrl, sitemapLocales } from '@/lib/seo';
 import { MIN_POSTS_FOR_TAG_INDEX, tagToSlug } from '@/lib/seo/indexPolicy';
 import { prisma } from '@/lib/prisma';
 import { DISTRICTS } from '@/data/districts';
@@ -15,7 +15,6 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 saat önbellek
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date().toISOString();
 
   // --- DB verileri ---
   let posts: Array<{ slug: string; dateModified: Date }> = [];
@@ -84,24 +83,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // En son blog güncelleme tarihi
   const latestPostDate = posts.length > 0
     ? posts.reduce((latest, p) => p.dateModified > latest ? p.dateModified : latest, posts[0].dateModified).toISOString()
-    : now;
+    : undefined;
 
   // Her yol için yalnızca indekslenebilir dillerde girdi üretir (bkz. lib/seo/indexPolicy.ts)
   const makeItems = (
     path: string,
     priority: number,
     changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never',
-    lastModified: string = now
+    // Gerçek değişiklik tarihi bilinmiyorsa lastmod gönderilmez: her taramada "bugün" demek
+    // Google'ın bu sitenin lastmod değerlerinin tamamına güvenmemesine yol açar.
+    lastModified?: string
   ): MetadataRoute.Sitemap => {
     const alternates = {
       languages: buildLanguageAlternates(path),
     };
 
-    return indexableLocales(path).map((lang) => {
+    return sitemapLocales(path).map((lang) => {
       const fullUrl = localizedUrl(path, lang);
       return {
         url: fullUrl,
-        lastModified,
+        ...(lastModified ? { lastModified } : {}),
         changeFrequency,
         priority: lang === 'tr' ? priority : Math.max(0.4, Number((priority * 0.9).toFixed(2))),
         alternates,
@@ -112,51 +113,51 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // --- Statik rotalar ("Tesis Yönetimi" Odaklı Öncelikler - Amiral Gemisi) ---
   const staticPaths: { path: string; priority: number; changeFreq: 'daily' | 'weekly' | 'monthly'; lastMod?: string }[] = [
     { path: '/', priority: 1.0, changeFreq: 'daily', lastMod: latestPostDate },
-    { path: '/hizmetler/tesis-yonetimi', priority: 1.0, changeFreq: 'daily', lastMod: now }, // Amiral Gemisi #1 (B2B Tesis)
-    { path: '/hizmetler/site-yonetimi', priority: 1.0, changeFreq: 'daily', lastMod: now }, // Amiral Gemisi #2 (B2C/Konut Site)
-    { path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/tesis-yonetimi/plaza-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/tesis-yonetimi/rehber', priority: 0.9, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler', priority: 0.95, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/teknik-bakim', priority: 0.85, changeFreq: 'daily', lastMod: now },
-    { path: '/hizmetler/aidat-takibi', priority: 0.85, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.85, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly', lastMod: now },
-    { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly', lastMod: now },
-    { path: '/teklif-al', priority: 0.9, changeFreq: 'monthly', lastMod: now },
-    { path: '/iletisim', priority: 0.85, changeFreq: 'monthly', lastMod: now },
-    { path: '/hakkimizda', priority: 0.8, changeFreq: 'monthly', lastMod: now },
-    { path: '/sektorel-cozumler', priority: 0.85, changeFreq: 'weekly', lastMod: now },
-    { path: '/hesaplayici', priority: 0.85, changeFreq: 'monthly', lastMod: now },
-    { path: '/guvenlik-akademisi', priority: 0.85, changeFreq: 'weekly', lastMod: now },
-    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.75, changeFreq: 'monthly', lastMod: now },
-    { path: '/referanslar', priority: 0.75, changeFreq: 'weekly', lastMod: now },
-    { path: '/basari-hikayeleri', priority: 0.75, changeFreq: 'weekly', lastMod: now },
-    { path: '/sss', priority: 0.85, changeFreq: 'weekly', lastMod: now },
-    { path: '/sozluk', priority: 0.85, changeFreq: 'weekly', lastMod: now },
+    { path: '/hizmetler/tesis-yonetimi', priority: 1.0, changeFreq: 'daily' }, // Amiral Gemisi #1 (B2B Tesis)
+    { path: '/hizmetler/site-yonetimi', priority: 1.0, changeFreq: 'daily' }, // Amiral Gemisi #2 (B2C/Konut Site)
+    { path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', priority: 0.9, changeFreq: 'daily' },
+    { path: '/hizmetler/tesis-yonetimi/plaza-yonetimi', priority: 0.9, changeFreq: 'daily' },
+    { path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', priority: 0.9, changeFreq: 'daily' },
+    { path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', priority: 0.9, changeFreq: 'daily' },
+    { path: '/hizmetler/tesis-yonetimi/rehber', priority: 0.9, changeFreq: 'weekly' },
+    { path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly' },
+    { path: '/hizmetler', priority: 0.95, changeFreq: 'weekly' },
+    { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily' },
+    { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily' },
+    { path: '/hizmetler/teknik-bakim', priority: 0.85, changeFreq: 'daily' },
+    { path: '/hizmetler/aidat-takibi', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly' },
+    { path: '/teklif-al', priority: 0.9, changeFreq: 'monthly' },
+    { path: '/iletisim', priority: 0.85, changeFreq: 'monthly' },
+    { path: '/hakkimizda', priority: 0.8, changeFreq: 'monthly' },
+    { path: '/sektorel-cozumler', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/hesaplayici', priority: 0.85, changeFreq: 'monthly' },
+    { path: '/guvenlik-akademisi', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/kurumsal/kalite-belgelerimiz', priority: 0.75, changeFreq: 'monthly' },
+    { path: '/referanslar', priority: 0.75, changeFreq: 'weekly' },
+    { path: '/basari-hikayeleri', priority: 0.75, changeFreq: 'weekly' },
+    { path: '/sss', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/sozluk', priority: 0.85, changeFreq: 'weekly' },
     { path: '/blog', priority: 0.8, changeFreq: 'daily', lastMod: latestPostDate },
-    { path: '/bolgeler', priority: 0.85, changeFreq: 'monthly', lastMod: now },
-    { path: '/kurumsal/vizyon-misyon', priority: 0.6, changeFreq: 'monthly', lastMod: now },
-    { path: '/kurumsal/kalite-politikamiz', priority: 0.6, changeFreq: 'monthly', lastMod: now },
-    { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly', lastMod: now },
-    { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly', lastMod: now },
-    { path: '/istihdam-koprusu', priority: 0.6, changeFreq: 'monthly', lastMod: now },
-    { path: '/app', priority: 0.7, changeFreq: 'monthly', lastMod: now },
-    { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly', lastMod: now },
-    { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly', lastMod: now },
-    { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly', lastMod: now },
-    { path: '/cerez-politikasi', priority: 0.3, changeFreq: 'monthly', lastMod: now },
-    { path: '/kvkk-ve-aydinlatma-metni', priority: 0.3, changeFreq: 'monthly', lastMod: now },
+    { path: '/bolgeler', priority: 0.85, changeFreq: 'monthly' },
+    { path: '/kurumsal/vizyon-misyon', priority: 0.6, changeFreq: 'monthly' },
+    { path: '/kurumsal/kalite-politikamiz', priority: 0.6, changeFreq: 'monthly' },
+    { path: '/kurumsal/surdurulebilirlik', priority: 0.6, changeFreq: 'monthly' },
+    { path: '/surdurulebilirlik/ges-projeleri', priority: 0.5, changeFreq: 'monthly' },
+    { path: '/istihdam-koprusu', priority: 0.6, changeFreq: 'monthly' },
+    { path: '/app', priority: 0.7, changeFreq: 'monthly' },
+    { path: '/site-haritasi', priority: 0.5, changeFreq: 'weekly' },
+    { path: '/kullanim-sartlari', priority: 0.3, changeFreq: 'monthly' },
+    { path: '/gizlilik-politikasi', priority: 0.3, changeFreq: 'monthly' },
+    { path: '/cerez-politikasi', priority: 0.3, changeFreq: 'monthly' },
+    { path: '/kvkk-ve-aydinlatma-metni', priority: 0.3, changeFreq: 'monthly' },
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((p) =>
-    makeItems(p.path, p.priority, p.changeFreq, p.lastMod || now)
+    makeItems(p.path, p.priority, p.changeFreq, p.lastMod)
   );
 
   const districtRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) => {

@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { TRANSLATED_PATHS, isIndexable, isLocaleIndexable, normalizeIndexPath, tagToSlug } from './indexPolicy';
-import { buildLanguageAlternates, buildMetadata, BASE_URL } from '@/lib/seo';
+import { buildLanguageAlternates, buildMetadata, formatBrandTitle, BASE_URL } from '@/lib/seo';
+import sitemap from '@/app/sitemap';
 
 describe('İndeksleme politikası (indexPolicy.ts)', () => {
   it('Türkçe her zaman, çevrilmemiş diller asla indekslenmez', () => {
@@ -21,6 +22,28 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
     const tr = buildMetadata({ title: 'T', description: 'D', path: '/hizmetler', lang: 'tr' });
     expect((en.robots as { index: boolean }).index).toBe(false);
     expect((tr.robots as { index: boolean }).index).toBe(true);
+  });
+
+  it('canonical\'ı başka domainde olan sayfa noindex olmaz ama hreflang ve sitemap dışında kalır', async () => {
+    const meta = buildMetadata({ title: 'T', description: 'D', path: '/guvenlik-akademisi', canonicalUrl: 'https://www.guvenlikkursu.com/' });
+    expect((meta.robots as { index: boolean }).index).toBe(true);
+    expect(buildLanguageAlternates('/guvenlik-akademisi')).toEqual({});
+    const urls = (await sitemap()).map((i) => i.url);
+    expect(urls.some((u) => u.endsWith('/guvenlik-akademisi'))).toBe(false);
+  });
+
+  it('sitemap tarihi bilinmeyen sayfalara sahte lastmod vermez, gerçek tarihi olanlara verir', async () => {
+    const items = await sitemap();
+    const hizmetler = items.find((i) => i.url === `${BASE_URL}/hizmetler`);
+    const post = items.find((i) => i.url.startsWith(`${BASE_URL}/blog/`) && !i.url.includes('/etiket/') && !i.url.includes('/kategori/') && !i.url.includes('/yazar/'));
+    expect(hizmetler?.lastModified).toBeUndefined();
+    expect(post?.lastModified).toBeDefined();
+  });
+
+  it('başlıkta marka tek kez yer alır (Alo Management / Alo Yonetim varyantları dahil)', () => {
+    expect(formatBrandTitle('Sosyal Sorumluluk | Alo Management')).toBe('Sosyal Sorumluluk | Alo Yönetim');
+    expect(formatBrandTitle('Guides | Alo Management Blog')).toBe('Guides | Alo Yönetim');
+    expect(formatBrandTitle('Blog | Alo Yonetim | Alo Yönetim')).toBe('Blog | Alo Yönetim');
   });
 
   describe('bir sayfa çeviri listesine eklendiğinde', () => {

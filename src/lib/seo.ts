@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
  */
 
 import { BASE_URL } from './constants';
-import { isIndexable } from './seo/indexPolicy';
+import { isIndexable, hasExternalCanonical } from './seo/indexPolicy';
 export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
@@ -127,13 +127,18 @@ export function indexableLocales(path: string): Locale[] {
   return LOCALES.filter((l) => isIndexable(path, l));
 }
 
+/** Sitemap'e girecek diller: indekslenebilir ve canonical'ı bu sitede olan URL'ler. */
+export function sitemapLocales(path: string): Locale[] {
+  return hasExternalCanonical(path) ? [] : indexableLocales(path);
+}
+
 /**
  * hreflang matrisi: yalnızca indekslenebilir diller (bkz. seo/indexPolicy.ts) + bölgesel etiketleri + x-default.
  * Noindex bir dile hreflang vermek, Google'a çelişkili sinyal gönderir.
  */
 export function buildLanguageAlternates(path: string): Record<string, string> {
   const locales = indexableLocales(path);
-  if (!locales.includes(DEFAULT_LOCALE)) return {};
+  if (!locales.includes(DEFAULT_LOCALE) || hasExternalCanonical(path)) return {};
   const out: Record<string, string> = {};
   for (const l of locales) {
     out[l] = localizedUrl(path, l);
@@ -262,9 +267,10 @@ export function formatBrandTitle(title: string, brand: string = 'Alo Yönetim'):
   clean = clean.replace(/\s*[-—–|]\s*Alo Yönetim ve Organizasyon A\.Ş\.?/gi, '');
   clean = clean.replace(/\s*[-—–|]\s*Alo Yönetim Tesis Yönetimi/gi, '');
 
-  // 2. Sondaki tek veya çoklu "| Alo Yönetim" / "— Alo Yönetim" eklerini ayıkla
-  while (/\s*[-—–|]\s*Alo Yönetim\s*$/i.test(clean)) {
-    clean = clean.replace(/\s*[-—–|]\s*Alo Yönetim\s*$/i, '').trim();
+  // 2. Sondaki marka eklerini ayıkla (Alo Yönetim / Alo Yonetim / Alo Management, "Blog" ekiyle veya eksiz)
+  const trailingBrand = /\s*[-—–|]\s*Alo (Yönetim|Yonetim|Management)( Blog)?\s*$/i;
+  while (trailingBrand.test(clean)) {
+    clean = clean.replace(trailingBrand, '').trim();
   }
 
   // 3. Başlık zaten doğrudan marka ile başlıyorsa (örn. anasayfa başlıkları)

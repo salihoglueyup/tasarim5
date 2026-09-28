@@ -18,6 +18,18 @@ export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly strin
 /** Türkçe dahil tüm dillerde noindex olacak yol kalıpları (ince/şablon sayfalar). */
 export const NOINDEX_PATH_PATTERNS: readonly RegExp[] = [];
 
+/**
+ * Canonical'ı başka bir domainde olan yollar (ör. /guvenlik-akademisi -> guvenlikkursu.com;
+ * "alo güvenlik" aramasında iki sitenin birbiriyle yarışmasını önler).
+ * Bu yollar noindex YAPILMAZ (başka domaine canonical ile çelişir); yalnızca
+ * sitemap'e ve hreflang'e girmezler, çünkü ikisi de yalnızca canonical URL listelemelidir.
+ */
+export const EXTERNAL_CANONICAL_PATHS: readonly string[] = ['/guvenlik-akademisi'];
+
+export function hasExternalCanonical(path: string): boolean {
+  return EXTERNAL_CANONICAL_PATHS.includes(normalizeIndexPath(path));
+}
+
 /** Bir etiket sayfasının indekslenmesi için gereken en az yazı sayısı. */
 export const MIN_POSTS_FOR_TAG_INDEX = 3;
 

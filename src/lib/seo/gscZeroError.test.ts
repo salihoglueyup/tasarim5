@@ -4399,7 +4399,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         'utf8'
       );
 
-      expect(sitemapTs).toContain("{ path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly', lastMod: now }");
+      expect(sitemapTs).toContain("{ path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly' }");
     });
 
     it('Tesis Açık Veri Portalı (acik-veri/page.tsx) Dataset, WebPage ve Breadcrumbs şemalarını eksiksiz tanımlar', async () => {

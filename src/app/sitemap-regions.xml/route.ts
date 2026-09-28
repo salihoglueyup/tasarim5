@@ -16,7 +16,6 @@ export async function GET() {
   const anadoluDistricts = DISTRICTS.filter((d) => d.side === 'Anadolu');
   const avrupaDistricts = DISTRICTS.filter((d) => d.side === 'Avrupa');
 
-  const now = new Date().toISOString().split('T')[0];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
@@ -31,7 +30,6 @@ export async function GET() {
   for (const hub of regionalHubs) {
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}${hub.path}</loc>\n`;
-    xml += `    <lastmod>${now}</lastmod>\n`;
     xml += `    <changefreq>${hub.changefreq}</changefreq>\n`;
     xml += `    <priority>${hub.priority}</priority>\n`;
     xml += hreflangLinks(hub.path);
@@ -65,7 +63,6 @@ export async function GET() {
     for (const route of districtRoutes.filter((r) => isPathIndexable(r.path))) {
       xml += `  <url>\n`;
       xml += `    <loc>${BASE_URL}${route.path}</loc>\n`;
-      xml += `    <lastmod>${now}</lastmod>\n`;
       xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
       xml += `    <priority>${route.priority}</priority>\n`;
       xml += hreflangLinks(route.path);
