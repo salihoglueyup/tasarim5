@@ -26,7 +26,8 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
   const contextDir = path.resolve(process.cwd(), 'src/context');
   const appLayoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const nextConfigPath = path.resolve(process.cwd(), 'next.config.ts');
-  const loadingPath = path.resolve(process.cwd(), 'src/app/[lang]/loading.tsx');
+  const loadingPath = path.resolve(process.cwd(), 'src/app/[lang]/admin/loading.tsx');
+  const rootLoadingPath = path.resolve(process.cwd(), 'src/app/[lang]/loading.tsx');
   const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/not-found.tsx');
   const errorPath = path.resolve(process.cwd(), 'src/app/[lang]/error.tsx');
   const globalErrorPath = path.resolve(process.cwd(), 'src/app/global-error.tsx');
@@ -72,7 +73,8 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
     expect(nextConfigContent).toContain('static: 180');
   });
 
-  it('loading.tsx sayfa yapısıyla birebir örtüşen Skeleton layout içerir (Faz 83)', () => {
+  it('loading.tsx yalnızca admin altında durur; genel sayfalarda Suspense iskeleti yoktur (içerik DOM sırasında, footer öncesinde gelir)', () => {
+    expect(fs.existsSync(rootLoadingPath)).toBe(false);
     const loadingContent = fs.readFileSync(loadingPath, 'utf-8');
     expect(loadingContent).toContain('Skeleton');
     expect(loadingContent).toContain('variant="rectangular"');
