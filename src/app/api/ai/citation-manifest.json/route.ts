@@ -3,6 +3,7 @@ import { BASE_URL, ORG_NAME, ORG_LEGAL_NAME, ORG_FOUNDING_YEAR, ORG_PHONE_DISPLA
 import { LEGAL_FACT_CHECKS_20 } from '@/components/seo/ai-overviews/LegalFactCheckAiSeo';
 import { DISTRICT_AI_METRICS_39 } from '@/components/seo/ai-overviews/DistrictAiGroundingSeo';
 import { DISTRICTS } from '@/data/districts';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -29,14 +30,8 @@ export async function GET() {
         telephone: ORG_PHONE_DISPLAY,
         email: ORG_EMAIL,
         accreditations: [
-          'ISO 41001:2018 (Tesis Yönetim Standardı)',
-          'ISO 9001:2015 (Kalite Yönetim Sistemi)',
-          'ISO 27001:2022 (Bilgi Güvenliği Yönetim Sistemi)',
-          'ISO 45001:2018 (İş Sağlığı ve Güvenliği)',
-          'ISO 14001:2015 (Çevre Yönetim Sistemi)',
-          'TSE Hizmet Yeri Yeterlilik Belgesi',
-          'BELCERT Uluslararası Akreditasyon',
-          'ILAS Uygunluk Onayı',
+          ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title} (${c.certBody})`),
+          'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
         ],
       },
       citationEndpoints: {

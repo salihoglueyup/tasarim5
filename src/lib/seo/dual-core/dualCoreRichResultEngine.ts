@@ -624,7 +624,8 @@ export const HOWTO_ONLINE_DUES_SYSTEM: HowToRichOptions = {
 export const HOWTO_ISO_41001_COMPLIANCE: HowToRichOptions = {
   id: 'iso-41001-tesis-yonetim-standardi-rehberi',
   name: 'ISO 41001 Tesis Yönetim Standardı Nasıl Uygulanır? (10 Adım)',
-  description: 'Uluslararası Tesis Yönetimi Yönetim Sistemi Standardı (ISO 41001:2018) denetim hazırlığı ve sertifikasyon adımları.',
+  // claims-guard-ignore: genel HowTo: ISO 41001 belgelendirme adımları (bilgilendirici)
+      description: 'Uluslararası Tesis Yönetimi Yönetim Sistemi Standardı (ISO 41001:2018) denetim hazırlığı ve sertifikasyon adımları.',
   pillar: 'facility',
   totalTime: 'P60D',
   steps: [
@@ -637,7 +638,7 @@ export const HOWTO_ISO_41001_COMPLIANCE: HowToRichOptions = {
     { name: 'Performans Değerlendirme ve KPI İzleme', text: 'Enerji tüketimi, müşteri memnuniyeti ve arıza müdahale süreleri aylık olarak ölçülür.', position: 7 },
     { name: 'İç Tetkik (Internal Audit) Gerçekleştirilmesi', text: 'Tüm birimler bağımsız iç tetkikçilerce ISO 41001 kontrol listelerine göre denetlenir.', position: 8 },
     { name: 'Yönetimin Gözden Geçirmesi (YGG) Toplantısı', text: 'İç tetkik bulguları ve düzeltici faaliyetler üst yönetim kurulunda değerlendirilir.', position: 9 },
-    { name: 'Akredite Belgelendirme Denetimi ve Sertifikasyon', text: 'TÜRKAK/IAS akredite denetçi kuruluş tarafından saha denetimi yapılarak sertifika tescil edilir.', position: 10 },
+    { name: 'Akredite Belgelendirme Denetimi ve Sertifikasyon', text: 'Akredite bir belgelendirme kuruluşu tarafından saha denetimi yapılarak sertifika tescil edilir.', position: 10 },
   ],
 };
 

@@ -33,7 +33,8 @@ describe('Vizyon & Misyon 2026 Kurumsal Modernizasyon Güvence Testleri', () => 
     expect(content).toContain('1.200+');
     expect(content).toContain('%99,4');
     expect(content).toContain('%28');
-    expect(content).toContain('ISO 9001');
+    expect(content).toContain('ISO 45001');
+    expect(content).not.toContain('ISO 9001');
     expect(content).toContain('634 Sayılı KMK');
   });
 

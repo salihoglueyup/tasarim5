@@ -6,7 +6,7 @@ export default function QualityAiOverviewSeo() {
   const [copied, setCopied] = useState(false);
 
   const directAnswerText =
-    "Alo Yönetim kalite politikası; TÜRKAK akreditasyonlu ISO 41001:2018 (Tesis Yönetimi), ISO 9001:2015 (Kalite Yönetimi) ve TSE HYB 12850 standartları çerçevesinde 4 temel sütuna dayanır: 1) Kat Mülkiyeti Kanunu m.34 & 37 uyarınca %100 denetlenebilir dijital bütçe ve canlı banka entegrasyonu, 2) Yılda 48 kez bağımsız kalite denetçileri tarafından habersiz çapraz saha ve teknik teftişi, 3) 5188 Sayılı Kanun lisanslı güvenlik personeli ve asansörlerde 20 dakika acil müdahale SLA garantisi, 4) ISO 27001 ve 6698 Sayılı KVKK uyarınca 256-bit şifrelenmiş sakin veri mahremiyeti.";
+    "Alo Yönetim kalite politikası; BELCERT tarafından ILAS akreditasyonuyla verilen ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 belgeleri çerçevesinde 4 temel sütuna dayanır: 1) Kat Mülkiyeti Kanunu m.34 & 37 uyarınca %100 denetlenebilir dijital bütçe ve canlı banka entegrasyonu, 2) Yılda 48 kez bağımsız kalite denetçileri tarafından habersiz çapraz saha ve teknik teftişi, 3) 5188 Sayılı Kanun lisanslı güvenlik personeli ve asansörlerde 20 dakika acil müdahale SLA garantisi, 4) 6698 Sayılı KVKK uyarınca şifrelenmiş sakin veri mahremiyeti.";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswerText);
@@ -32,7 +32,7 @@ export default function QualityAiOverviewSeo() {
                   Google AI Overviews & E-E-A-T Kalite İlkeleri
                 </span>
                 <span className="hidden sm:inline text-xs text-slate-400 ml-2">
-                  • TÜRKAK & IAF Onaylı Referans
+                  • BELCERT / ILAS Belgeli
                 </span>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function QualityAiOverviewSeo() {
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-200">
               <span className="material-symbols-outlined text-base text-slate-300">verified</span>
               <span>
-                <strong>TÜRKAK & IAF:</strong> Uluslararası akreditasyonlu bağımsız yıllık tetkik
+                <strong>BELCERT / ILAS:</strong> Akredite belgelendirme kuruluşunca yıllık gözetim tetkiki
               </span>
             </div>
 

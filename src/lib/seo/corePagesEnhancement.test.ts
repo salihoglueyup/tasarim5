@@ -26,7 +26,7 @@ describe('5 Ana Sayfa Tesis Yönetimi SEO Entegrasyon Testleri (Wave 6)', () => 
   describe('sektorel-cozumler/[slug] ve teklif-al Sayfa Entegrasyonu', () => {
     it('QuoteAction ve CalculateAction yapısını doğrular', () => {
       const authorityGraph = generateVerifiedAuthorityGraph();
-      expect(authorityGraph.hasCredential.some((c: any) => c.name.includes('ISO 41001'))).toBe(true);
+      expect(authorityGraph.hasCredential.some((c: any) => c.name.includes('ISO 45001'))).toBe(true);
     });
   });
 

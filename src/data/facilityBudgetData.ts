@@ -88,7 +88,7 @@ export function calculateFacilityBudget(
     costPerM2,
     breakdown: {
       security: { amount: securityAmount, percentage: 35, description: '5188 Lisanslı Özel Güvenlik, CCTV İzleme ve Devriye Personeli' },
-      cleaning: { amount: cleaningAmount, percentage: 25, description: 'TSE HYB Standartlarında Kat Temizliği, Kimyasal ve Biyosidal İlaçlama' },
+      cleaning: { amount: cleaningAmount, percentage: 25, description: 'Kat Temizliği, Kimyasal ve Biyosidal İlaçlama' },
       technicalMaintenance: { amount: technicalAmount, percentage: 20, description: 'ISO 41001 Periyodik Asansör, Jeneratör, Kompanzasyon ve Yangın Sistemleri' },
       commonEnergyAndUtilities: { amount: energyAmount, percentage: 12, description: 'Ortak Alan Aydınlatma, Hidrofor Enerjisi ve Tesis Ortak Su/Doğalgaz Payı' },
       kmkLegalEmergencyReserve: { amount: reserveAmount, percentage: 8, description: '634 Sayılı KMK Madde 20 Kapsamında Olağanüstü Onarım & Amortisman Fonu' },

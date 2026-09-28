@@ -157,7 +157,7 @@ export default function BlogArticleEcosystemSeo({
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white">
-                    ISO 41001 & TSE HYB
+                    ISO 45001 & 5188 Lisanslı
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400">
                     Uluslararası Tesis Yönetim Standardı

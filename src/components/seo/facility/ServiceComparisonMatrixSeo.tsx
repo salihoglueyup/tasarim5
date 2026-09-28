@@ -46,7 +46,7 @@ const DEFAULT_ROWS: ComparisonRow[] = [
   {
     feature: "Kalite Standartları & Güvence",
     traditional: "Kurumsal akreditasyon veya kalite belgesi yok",
-    aloYonetim: "ISO 9001, 14001, 45001, 27001, 10002 ve TSE Hizmet Yeterlilik Belgeleri"
+    aloYonetim: "ISO 14001, 45001, 10002, 22301, 31000 ve 26000 (BELCERT, ILAS akrediteli)"
   }
 ];
 

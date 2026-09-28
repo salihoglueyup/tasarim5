@@ -20,7 +20,7 @@ export default function QualityConversionCtaSeo() {
               Sitenizin Kalite, Güvenlik ve Teknik Açıklarını Ücretsiz Denetleyelim
             </h2>
             <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed mb-6">
-              TÜRKAK onaylı kalite denetçilerimiz ve mühendislerimiz sitenizi ziyaret etsin; 
+              Kalite denetçilerimiz ve mühendislerimiz sitenizi ziyaret etsin; 
               asansör, yangın otomasyonu, güvenlik kör noktaları ve bütçe açıklarını 
               ücretsiz inceleyip 24 saat içinde fotoğraflı keşif raporu sunalım.
             </p>

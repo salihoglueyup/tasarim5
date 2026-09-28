@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS, getDistrictDues } from '@/data/districts';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -37,15 +38,9 @@ export async function GET(req: Request) {
       targetKeyword: isEnglish ? 'facility management istanbul' : 'tesis yönetimi',
       canonicalUrl: `${BASE_URL}${isEnglish ? '/en' : ''}/hizmetler/tesis-yonetimi`,
       standards: [
-        'ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)',
-        'ISO 9001:2015 (Kalite Yönetim Sistemi)',
         '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
         '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
-        'TSE HYB 12850 Tesis Hizmet Yeri Yeterlilik Belgesi',
-        'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-        'ISO 14001:2015 Çevre Yönetimi',
-        'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
-        'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
+        ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title} (${c.certBody})`),
       ],
       slaCommitment: isEnglish
         ? 'Guaranteed on-site technical emergency intervention within a maximum of 45 minutes.'

@@ -160,9 +160,9 @@ export default async function Image({ params }: { params: Promise<{ lang?: strin
               fontWeight: '500',
             }}
           >
-            <span>ISO 9001:2015</span>
+            <span>ISO 45001 · ISO 14001</span>
             <span>•</span>
-            <span>TSE HYB 12850</span>
+            <span>ILAS Akrediteli</span>
             <span>•</span>
             <span>5188 Lisanslı</span>
           </div>

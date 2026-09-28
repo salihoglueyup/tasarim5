@@ -137,7 +137,6 @@ export function resolveBlogArticleCluster(
   if (relevantLegislation.some((l) => l.id === 'iso-45001' || l.id === 'isg-6331')) dynamicTopicalTags.push('ISO 45001 İSG');
   if (relevantLegislation.some((l) => l.id === 'iso-10002')) dynamicTopicalTags.push('ISO 10002 Memnuniyet');
   if (relevantLegislation.some((l) => l.id === 'iso-9001')) dynamicTopicalTags.push('ISO 9001 Kalite');
-  if (relevantLegislation.some((l) => l.id.startsWith('tse'))) dynamicTopicalTags.push('TSE HYB 12850');
 
   // Tekilleştirilmiş mevzuat listesi (maksimum 3 adet)
   const uniqueLegislation = Array.from(new Map(relevantLegislation.map((l) => [l.id, l])).values()).slice(0, 3);

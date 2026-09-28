@@ -1312,10 +1312,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const securityService = graph.isRelatedTo.find((s: any) => s.url.includes('/guvenlik-yonetimi'));
       expect(securityService.sameAs).toBe('https://www.wikidata.org/wiki/Q11024344');
 
-      // TSE HYB 12850 Belgesi Q12812282
-      const tseCredential = graph.hasCredential.find((c: any) => c.name.includes('TSE HYB 12850'));
-      expect(tseCredential).toBeDefined();
-      expect(tseCredential.sameAs).toBe('https://www.wikidata.org/wiki/Q12812282');
+      // Yalnızca sahip olunan belgeler: TSE HYB yok, 5188 izni var
+      expect(graph.hasCredential.some((c: any) => c.name.includes('TSE HYB'))).toBe(false);
+      expect(graph.hasCredential.some((c: { name: string }) => c.name.includes('5188'))).toBe(true);
     });
   });
 
@@ -1789,7 +1788,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(data.entity).toBe('Alo Yönetim ve Organizasyon A.Ş.');
       expect(data.phone).toBe('+90 216 550 48 48');
       expect(data.coreService.standards.length).toBeGreaterThanOrEqual(5);
-      expect(data.coreService.standards).toContain('ISO 41001:2018 (Uluslararası Tesis Yönetim Standardı)');
+      expect(data.coreService.standards.some((s: string) => s.startsWith('ISO 45001:2018'))).toBe(true);
       expect(data.districtDuesBenchmarks39.length).toBe(39);
       expect(data.linkedApis.aiOverviewsSnippets).toContain('/api/tesis-yonetimi/ai-snippets.json');
     });
@@ -2639,14 +2638,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(Array.isArray(org.hasCredential)).toBe(true);
       expect(org.hasCredential.length).toBeGreaterThanOrEqual(8);
       const credentialNames = org.hasCredential.map((c: any) => c.name);
-      expect(credentialNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
-      expect(credentialNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
       expect(credentialNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
       expect(credentialNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
-      expect(credentialNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 22301'))).toBe(true);
       expect(credentialNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
       expect(credentialNames.some((n: string) => n.includes('5188'))).toBe(true);
-      expect(credentialNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
 
       // Wikidata Varlık Eşleştirmeleri (KMK Q161851, İİK Q6085270, Enerji Q381156, Yangın Q1065908)
       expect(Array.isArray(org.knowsAbout)).toBe(true);
@@ -2684,14 +2683,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const dataCreds = await resCreds.json();
       expect(dataCreds.accreditations.length).toBeGreaterThanOrEqual(8);
       const standardNames = dataCreds.accreditations.map((a: any) => a.standard);
-      expect(standardNames.some((s: string) => s.includes('ISO 41001'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 9001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 45001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 10002'))).toBe(true);
       expect(standardNames.some((s: string) => s.includes('ISO 14001'))).toBe(true);
       expect(standardNames.some((s: string) => s.includes('ISO 45001'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 27001'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 22301'))).toBe(true);
       expect(standardNames.some((s: string) => s.includes('ISO 10002'))).toBe(true);
       expect(standardNames.some((s: string) => s.includes('5188'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('TSE HYB'))).toBe(true);
+      expect(standardNames.some((s: string) => s.includes('ISO 14001'))).toBe(true);
 
       expect(dataCreds.schema.mainEntity.hasCredential.length).toBeGreaterThanOrEqual(8);
 
@@ -2705,8 +2704,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resFacts.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
 
       const dataFacts = await resFacts.json();
-      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 9001'))).toBe(true);
-      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 27001'))).toBe(true);
+      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 10002'))).toBe(true);
+      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 22301'))).toBe(true);
       expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 10002'))).toBe(true);
 
       expect(dataFacts.linkedApis.geoCoverageGeoJson).toBeDefined();
@@ -2785,23 +2784,23 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect((org.hasCredential as any[]).length).toBe(8);
 
       const orgCredNames = (org.hasCredential as any[]).map((c) => c.name);
-      expect(orgCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
-      expect(orgCredNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
       expect(orgCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
       expect(orgCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
-      expect(orgCredNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 22301'))).toBe(true);
       expect(orgCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
       expect(orgCredNames.some((n: string) => n.includes('5188'))).toBe(true);
-      expect(orgCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+      expect(orgCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
 
       // 2. credentialSchema
       const credList = credentialSchema();
       expect(credList['@type']).toBe('ItemList');
       expect((credList.itemListElement as any[]).length).toBe(8);
       const listCredNames = (credList.itemListElement as any[]).map((i) => i.item.name);
-      expect(listCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
-      expect(listCredNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
-      expect(listCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+      expect(listCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(listCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+      expect(listCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
 
       // 3. districtFacilityServiceSchema (39 ilçe için referans kontrol)
       const { districtFacilityServiceSchema } = await import('@/lib/schemas/services');
@@ -2815,10 +2814,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(Array.isArray(providerCreds)).toBe(true);
       expect(providerCreds.length).toBe(8);
       const providerCredNames = providerCreds.map((c: any) => c.name);
-      expect(providerCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
-      expect(providerCredNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+      expect(providerCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(providerCredNames.some((n: string) => n.includes('ISO 22301'))).toBe(true);
       expect(providerCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
-      expect(providerCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+      expect(providerCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
     });
   });
 
@@ -2843,9 +2842,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(aboutBusinesses.length).toBe(2);
       expect(aboutBusinesses[0].parentOrganization.hasCredential.length).toBe(8);
       const compCredNames = aboutBusinesses[0].parentOrganization.hasCredential.map((c: any) => c.name);
-      expect(compCredNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
-      expect(compCredNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
-      expect(compCredNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+      expect(compCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+      expect(compCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+      expect(compCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
     });
   });
 
@@ -2855,7 +2854,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const { renderToStaticMarkup } = await import('react-dom/server');
       const { default: SemanticLinker } = await import('@/components/seo/schema/SemanticLinker');
 
-      const sampleText = 'İstanbul genelinde rezidans yönetimi, plaza yönetimi ve sanayi tesisi yönetimi süreçlerinde ISO 9001 ve TSE HYB kalite standartları uygulanırken, istihdam köprüsü ile personel istihdamı sağlanır.';
+      const sampleText = 'İstanbul genelinde rezidans yönetimi, plaza yönetimi ve sanayi tesisi yönetimi süreçlerinde ISO 45001 ve ISO 14001 kalite standartları uygulanırken, istihdam köprüsü projesiyle yerel iş gücü desteklenir.';
 
       const rendered = renderToStaticMarkup(React.createElement(SemanticLinker, { text: sampleText, maxLinks: 6 }));
 
@@ -2949,10 +2948,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(voiceData.publisher?.hasCredential?.length).toBe(8);
 
       const credNames = voiceData.publisher?.hasCredential?.map((c) => c.name) || [];
-      expect(credNames.some((n) => n.includes('ISO 41001'))).toBe(true);
-      expect(credNames.some((n) => n.includes('ISO 27001'))).toBe(true);
+      expect(credNames.some((n) => n.includes('ISO 45001'))).toBe(true);
+      expect(credNames.some((n) => n.includes('ISO 22301'))).toBe(true);
       expect(credNames.some((n) => n.includes('ISO 10002'))).toBe(true);
-      expect(credNames.some((n) => n.includes('TSE HYB'))).toBe(true);
+      expect(credNames.some((n) => n.includes('ISO 14001'))).toBe(true);
 
       const { ORG_KNOWS_ABOUT } = await import('@/lib/schemas');
       expect(
@@ -2960,7 +2959,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       ).toBe(true);
       expect(
         ORG_KNOWS_ABOUT.some((k: any) => typeof k === 'object' && k.name?.includes('TSE HYB 12850'))
-      ).toBe(true);
+      ).toBe(false);
     });
   });
 
@@ -2970,9 +2969,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         './facilityExternalCitations'
       );
 
-      expect(OFFICIAL_LEGAL_CITATIONS.length).toBeGreaterThanOrEqual(14);
+      expect(OFFICIAL_LEGAL_CITATIONS.length).toBeGreaterThanOrEqual(13);
 
-      const requiredIds = ['kmk-634', 'guvenlik-5188', 'iso-41001', 'iso-9001', 'iso-27001', 'iso-14001', 'iso-45001', 'iso-10002', 'tse-hyb-12850'];
+      const requiredIds = ['kmk-634', 'guvenlik-5188', 'iso-41001', 'iso-9001', 'iso-27001', 'iso-14001', 'iso-45001', 'iso-10002'];
+      expect(OFFICIAL_LEGAL_CITATIONS.some((c) => c.id === 'tse-hyb-12850')).toBe(false);
       for (const reqId of requiredIds) {
         const found = OFFICIAL_LEGAL_CITATIONS.find((c) => c.id === reqId);
         expect(found).toBeDefined();
@@ -3009,7 +3009,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(facilityTerms.some((t) => t.includes('iso 14001'))).toBe(true);
       expect(facilityTerms.some((t) => t.includes('iso 45001'))).toBe(true);
       expect(facilityTerms.some((t) => t.includes('iso 10002'))).toBe(true);
-      expect(facilityTerms.some((t) => t.includes('tse hyb 12850'))).toBe(true);
+      expect(facilityTerms.some((t) => t.includes('tse hyb 12850'))).toBe(false);
 
       const siteTerms = SITE_MANAGEMENT_TAXONOMY.map((t) => t.term);
       expect(siteTerms.some((t) => t.includes('özel güvenlik iş ilanları'))).toBe(true);
@@ -3017,7 +3017,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       const { buildFacilityCompleteLinkGraph } = await import('./facilityLinkGraphBuilder');
       const linkReport = buildFacilityCompleteLinkGraph();
-      expect(linkReport.officialCitationsConnected).toBeGreaterThanOrEqual(14);
+      expect(linkReport.officialCitationsConnected).toBeGreaterThanOrEqual(13);
       expect(linkReport.linkAuthorityScore).toBeGreaterThanOrEqual(85);
     });
   });
@@ -3206,13 +3206,13 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(isoGroup?.terms.some((t) => t.includes('iso 14001'))).toBe(true);
       expect(isoGroup?.terms.some((t) => t.includes('iso 45001'))).toBe(true);
       expect(isoGroup?.terms.some((t) => t.includes('iso 10002'))).toBe(true);
-      expect(isoGroup?.terms.some((t) => t.includes('tse hyb 12850'))).toBe(true);
+      expect(isoGroup?.terms.some((t) => t.includes('tse hyb 12850'))).toBe(false);
 
       // 2. SERP Rank Analyzer Tespiti
       const sampleAudit = analyzeFacilitySerpReadiness({
         title: 'ISO 9001 ve ISO 27001 Akredite Tesis ve Mülk Yönetimi',
         metaDescription: 'ISO 14001 ve ISO 45001 belgeli profesyonel site yönetimi ve aidat takibi.',
-        h1: 'TSE HYB 12850 Standartlarında Profesyonel Tesis Hizmetleri',
+        h1: 'ILAS Akrediteli ISO Belgeli Profesyonel Tesis Hizmetleri',
         content: `
           <p>KMK 634 ve ISO 41001 standartlarında tesislerimizde ISO 10002 müşteri memnuniyeti, özel güvenlik ve teknik bakım ile %30 tasarruf sağlıyoruz.</p>
           <p><a href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi">Rezidans Yönetimi</a></p>
@@ -3232,7 +3232,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 14001'))).toBe(true);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 45001'))).toBe(true);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 10002'))).toBe(true);
-      expect(sampleAudit.detectedKeywords.some((k) => k.includes('tse hyb 12850'))).toBe(true);
+      expect(sampleAudit.detectedKeywords.some((k) => k.includes('tse hyb 12850'))).toBe(false);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('aidat takibi'))).toBe(true);
     });
   });
@@ -3265,14 +3265,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
           expect(business.parentOrganization.hasCredential).toHaveLength(8);
 
           const credNames = business.parentOrganization.hasCredential.map((c: any) => c.name);
-          expect(credNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 9001'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 27001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 22301'))).toBe(true);
           expect(credNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
           expect(credNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
           expect(credNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
           expect(credNames.some((n: string) => n.includes('5188'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('TSE HYB'))).toBe(true);
+          expect(credNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
         }
       }
     });
@@ -3359,7 +3359,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const eeatPillar = report.pillars.find((p) => p.category === 'eeat_citations');
       expect(eeatPillar).toBeDefined();
       expect(eeatPillar?.metrics.allCitationsWhitelisted).toBe(true);
-      expect((eeatPillar?.metrics.totalCitations as number)).toBeGreaterThanOrEqual(14);
+      expect((eeatPillar?.metrics.totalCitations as number)).toBeGreaterThanOrEqual(13);
 
       const voicePillar = report.pillars.find((p) => p.category === 'voice_ai');
       expect(voicePillar).toBeDefined();
@@ -3380,13 +3380,12 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(corpus.entity.accreditations).toHaveLength(8);
       const accCodes = corpus.entity.accreditations.map((a) => a.code);
-      expect(accCodes).toContain('ISO 41001:2018');
-      expect(accCodes).toContain('ISO 9001:2015');
-      expect(accCodes).toContain('ISO 14001:2015');
       expect(accCodes).toContain('ISO 45001:2018');
-      expect(accCodes).toContain('ISO 27001:2022');
       expect(accCodes).toContain('ISO 10002:2018');
-      expect(accCodes).toContain('TSE HYB 12850');
+      expect(accCodes).toContain('ISO 14001:2026');
+      expect(accCodes).toContain('ISO 45001:2018');
+      expect(accCodes).toContain('ISO 22301:2019');
+      expect(accCodes).toContain('ISO 10002:2018');
       expect(accCodes).toContain('5188 / EGM');
 
       // 2. /llms.txt Uç Noktası
@@ -3395,13 +3394,13 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resLlms.status).toBe(200);
       const textLlms = await resLlms.text();
 
-      expect(textLlms).toContain('ISO 41001:2018');
-      expect(textLlms).toContain('ISO 9001:2015');
-      expect(textLlms).toContain('ISO 14001:2015');
       expect(textLlms).toContain('ISO 45001:2018');
-      expect(textLlms).toContain('ISO 27001:2022');
       expect(textLlms).toContain('ISO 10002:2018');
-      expect(textLlms).toContain('TSE HYB 12850');
+      expect(textLlms).toContain('ISO 14001:2026');
+      expect(textLlms).toContain('ISO 45001:2018');
+      expect(textLlms).toContain('ISO 22301:2019');
+      expect(textLlms).toContain('ISO 10002:2018');
+      expect(textLlms).toContain('ISO 14001');
       expect(textLlms).toContain('5188 Sayılı Kanun');
 
       // 3. /llms-full.txt Uç Noktası
@@ -3410,13 +3409,13 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resLlmsFull.status).toBe(200);
       const textLlmsFull = await resLlmsFull.text();
 
-      expect(textLlmsFull).toContain('ISO 41001:2018');
-      expect(textLlmsFull).toContain('ISO 9001:2015');
-      expect(textLlmsFull).toContain('ISO 14001:2015');
       expect(textLlmsFull).toContain('ISO 45001:2018');
-      expect(textLlmsFull).toContain('ISO 27001:2022');
       expect(textLlmsFull).toContain('ISO 10002:2018');
-      expect(textLlmsFull).toContain('TSE HYB 12850');
+      expect(textLlmsFull).toContain('ISO 14001:2026');
+      expect(textLlmsFull).toContain('ISO 45001:2018');
+      expect(textLlmsFull).toContain('ISO 22301:2019');
+      expect(textLlmsFull).toContain('ISO 10002:2018');
+      expect(textLlmsFull).toContain('ISO 14001');
     });
   });
 
@@ -3475,13 +3474,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(corpus.authorityEntity.certifications).toHaveLength(8);
       const certs = corpus.authorityEntity.certifications;
-      expect(certs.some((c) => c.includes('ISO 41001'))).toBe(true);
-      expect(certs.some((c) => c.includes('ISO 9001'))).toBe(true);
-      expect(certs.some((c) => c.includes('ISO 14001'))).toBe(true);
-      expect(certs.some((c) => c.includes('ISO 45001'))).toBe(true);
-      expect(certs.some((c) => c.includes('ISO 27001'))).toBe(true);
-      expect(certs.some((c) => c.includes('ISO 10002'))).toBe(true);
-      expect(certs.some((c) => c.includes('TSE HYB 12850'))).toBe(true);
+      for (const std of ['ISO 14001', 'ISO 45001', 'ISO 10002', 'ISO 22301', 'ISO 31000', 'ISO 26000']) {
+        expect(certs.some((c) => c.includes(std)), std).toBe(true);
+      }
+      expect(certs.some((c) => /41001|9001|27001|TSE HYB/.test(c))).toBe(false);
       expect(certs.some((c) => c.includes('5188'))).toBe(true);
 
       // 2. SERVICES[0] tesis-yonetimi
@@ -3489,15 +3485,15 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const flagship = SERVICES[0];
       expect(flagship.slug).toBe('tesis-yonetimi');
       expect(flagship.standards).toBeDefined();
-      expect(flagship.standards?.length).toBeGreaterThanOrEqual(9);
+      expect(flagship.standards?.length).toBeGreaterThanOrEqual(6);
       const standards = flagship.standards || [];
-      expect(standards.some((s) => s.includes('ISO 41001'))).toBe(true);
-      expect(standards.some((s) => s.includes('ISO 9001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 45001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 10002'))).toBe(true);
       expect(standards.some((s) => s.includes('ISO 14001'))).toBe(true);
       expect(standards.some((s) => s.includes('ISO 45001'))).toBe(true);
-      expect(standards.some((s) => s.includes('ISO 27001'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 22301'))).toBe(true);
       expect(standards.some((s) => s.includes('ISO 10002'))).toBe(true);
-      expect(standards.some((s) => s.includes('TSE HYB 12850'))).toBe(true);
+      expect(standards.some((s) => s.includes('ISO 14001'))).toBe(true);
       expect(standards.some((s) => s.includes('5188'))).toBe(true);
       expect(standards.some((s) => s.includes('634'))).toBe(true);
     });
@@ -3518,13 +3514,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         const accreditationFaq = res.faqs[4];
         expect(accreditationFaq.question).toContain(d.name);
         expect(accreditationFaq.question).toContain('akreditasyon');
-        expect(accreditationFaq.answer).toContain('ISO 41001');
-        expect(accreditationFaq.answer).toContain('ISO 9001');
         expect(accreditationFaq.answer).toContain('ISO 14001');
         expect(accreditationFaq.answer).toContain('ISO 45001');
-        expect(accreditationFaq.answer).toContain('ISO 27001');
         expect(accreditationFaq.answer).toContain('ISO 10002');
-        expect(accreditationFaq.answer).toContain('TSE HYB 12850');
+        expect(accreditationFaq.answer).toContain('ILAS');
+        expect(accreditationFaq.answer).not.toMatch(/41001|9001|27001|TSE HYB/);
         expect(accreditationFaq.answer).toContain('5188');
 
         // FAQPage Şema Doğrulaması
@@ -3599,8 +3593,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         'Türk Standardları Enstitüsü onaylı teknik servis ve kurumsal işletme yeterlilik belgesi.',
         ['tse', 'hyb', 'hizmet yeterlilik', 'ts 12850']
       );
-      expect(clusterTse.relevantLegislation.some((l) => l.id.startsWith('tse'))).toBe(true);
-      expect(clusterTse.topicalTags).toContain('TSE HYB 12850');
+      expect(clusterTse.relevantLegislation.some((l) => l.id === 'tse-hyb-12850')).toBe(false);
+      expect(clusterTse.topicalTags).not.toContain('TSE HYB 12850');
 
       // 7. Yargıtay Hukuk Emsal Kararları
       const clusterYargitay = resolveBlogArticleCluster(
@@ -3677,16 +3671,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(VERIFIED_AUTHORITY_CREDENTIALS).toHaveLength(8);
 
-      const requiredIds = [
-        'iso-41001',
-        'kanun-5188',
-        'iso-9001',
-        'iso-14001',
-        'iso-45001',
-        'iso-27001',
-        'iso-10002',
-        'tse-12850',
-      ];
+      const { CERTIFICATES } = await import('@/data/certificates');
+      const requiredIds = ['kanun-5188', ...CERTIFICATES.map((c) => c.slug)];
 
       for (const reqId of requiredIds) {
         const cred = VERIFIED_AUTHORITY_CREDENTIALS.find((c) => c.id === reqId);
@@ -3715,7 +3701,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(graph.knowsAbout.some((k) => k.includes('ISO 45001'))).toBe(true);
       expect(graph.knowsAbout.some((k) => k.includes('ISO 27001'))).toBe(true);
       expect(graph.knowsAbout.some((k) => k.includes('ISO 10002'))).toBe(true);
-      expect(graph.knowsAbout.some((k) => k.includes('TSE HYB 12850'))).toBe(true);
+      expect(graph.knowsAbout.some((k) => k.includes('TSE HYB 12850'))).toBe(false);
       expect(graph.knowsAbout.some((k) => k.includes('5188'))).toBe(true);
 
       // hasCredential Kontrolü
@@ -3860,9 +3846,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const filePath = path.join(process.cwd(), 'src/app/[lang]/hesaplayici/page.tsx');
       const content = fs.readFileSync(filePath, 'utf8');
 
-      expect(content).toContain('ISO 10002:2018 Müşteri Memnuniyeti');
-      expect(content).toContain('A1808961');
-      expect(content).toContain('ISO 41001:2018 Entegre Tesis Yönetimi');
+      expect(content).toContain('hasCredential: ORG_CREDENTIALS');
+      expect(content).not.toContain('ISO 41001:2018 Entegre Tesis Yönetimi');
       expect(content).toContain('Gecikme Tazminatı (KMK 20/2)');
     });
 

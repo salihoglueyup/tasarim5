@@ -278,7 +278,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                 <span>Kurumsal Rehber: Uluslararası Kalite Çerçevesi ve Hukuki Koruma</span>
               </div>
               <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
-                ISO 41001 & 5188 Güvenlik Mevzuatı
+                ILAS Akrediteli ISO & 5188 Güvenlik İzni
               </span>
             </div>
 
@@ -357,7 +357,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                   <span>%100 Akredite Operasyon</span>
                 </div>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  ILAS ve TÜRKAK uluslararası akreditasyon kuruluşları onaylı kurumsal kalite süreçleri.
+                  BELCERT tarafından ILAS akreditasyonuyla belgelendirilmiş kurumsal kalite süreçleri.
                 </p>
               </div>
 
@@ -388,7 +388,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
           </div>
 
           {/* ========================================================================= */}
-          {/* 5. BELCERT & TÜRKAK CANLI BELGE DOĞRULAMA VE KAREKOD KONSOLU               */}
+          {/* 5. BELCERT CANLI BELGE DOĞRULAMA VE KAREKOD KONSOLU               */}
           {/* ========================================================================= */}
           <div className="bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-[var(--color-outline)]/60 relative overflow-hidden">
             {/* Header */}
@@ -397,7 +397,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-3.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
-                    <span>BELCERT & TÜRKAK Canlı Doğrulama Konsolu</span>
+                    <span>BELCERT Canlı Doğrulama Konsolu</span>
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
@@ -517,18 +517,11 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
             serviceCategory="Kalite & Standartlar"
             lawReferences={[
               {
-                title: "Türk Standardları Enstitüsü (TSE) Resmi Belge Doğrulama Portalı",
-                sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı & TSE",
-                url: "https://basvuru.tse.org.tr",
-                badge: "TSE Doğrulama",
-                description: "Alo Yönetim Hizmet Yeterlilik Belgesi (TSE HYB 12850) ve ISO standartları resmi tescil ve karekodlu doğrulama sistemi."
-              },
-              {
-                title: "TÜRKAK — Türk Akreditasyon Kurumu Resmi Portalı",
-                sourceName: "T.C. Dışişleri Bakanlığı TÜRKAK",
-                url: "https://www.turkak.org.tr",
-                badge: "TÜRKAK Akredite",
-                description: "ISO 9001, ISO 14001, ISO 45001 ve ISO 27001 denetimlerinin uluslararası geçerliliğini sağlayan akreditasyon kurumu."
+                title: "BELCERT Uluslararası Belgelendirme — Belge Doğrulama",
+                sourceName: "BELCERT Uluslararası Belgelendirme Şirketi",
+                url: "https://www.belcert.com",
+                badge: "ILAS Akrediteli",
+                description: "Alo Yönetim'in ISO 14001, ISO 45001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 belgelerinin (ILAS-MS-0089) geçerlilik doğrulaması."
               },
               {
                 title: "ISO — International Organization for Standardization (Cenevre / İsviçre)",

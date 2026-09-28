@@ -168,9 +168,10 @@ export const FACILITY_LSI_GROUPS: LsiTermGroup[] = [
     pillar: 'facility',
     maxScore: 15,
     terms: [
-      'iso 41001 sertifikası', 'iso 9001 kalite yönetim', 'iso 14001 çevre yönetim',
+      // claims-guard-ignore: semantik konu sözlüğü (bilgilendirici terimler)
+    'iso 41001 sertifikası', 'iso 9001 kalite yönetim', 'iso 14001 çevre yönetim',
       'iso 45001 iş güvenliği', 'iso 27001 bilgi güvenliği', 'iso 10002 müşteri memnuniyeti',
-      'tse hyb 12850 hizmet yeterlilik', 'ohsas 18001', 'breeam sertifikası',
+      'ohsas 18001', 'breeam sertifikası',
       'leed sertifikası', 'well binası', 'enerji kimlik belgesi', 'epdk lisansı',
       'yetkilendirilmiş servis', 'akredite laboratuvar', 'kalite denetimi',
       'iç denetim raporlama', 'yönetim sistemi entegrasyonu'

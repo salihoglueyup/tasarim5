@@ -94,7 +94,7 @@ export default async function TesisYonetimiPage({
       />
       <TesisYonetimiClient />
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
-        <ServiceAiOverviewSnippetSeo serviceSlug="tesis-yonetimi" serviceName="ISO 41001 Akredite Entegre Tesis Yönetimi" />
+        <ServiceAiOverviewSnippetSeo serviceSlug="tesis-yonetimi" serviceName="Entegre Tesis Yönetimi" />
       </div>
     </>
   );

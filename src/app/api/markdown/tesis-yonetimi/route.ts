@@ -14,7 +14,7 @@ export async function GET() {
 > **Kanonik URL**: ${BASE_URL}/hizmetler/tesis-yonetimi  
 > **Yasal & Kalite Standardı**: ISO 41001:2018, ISO 9001:2015, ISO 14001:2015, ISO 45001:2018  
 > **Hizmet Kapsamı**: İstanbul Genelinde Plazalar, İş Merkezleri, Sanayi Tesisleri ve Karma Projeler  
-> **Uluslararası Akreditasyon**: TSE HYB 12850 & 5188 Sayılı Kanun Güvenlik Faaliyet İzni  
+> **Belgeler**: ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 (BELCERT, ILAS-MS-0089) & 5188 Sayılı Kanun Güvenlik Faaliyet İzni  
 
 ---
 

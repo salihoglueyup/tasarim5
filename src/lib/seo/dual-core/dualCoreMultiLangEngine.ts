@@ -151,7 +151,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         ? 'Integrated Facility & Plaza Management Istanbul | Alo Management'
         : 'Professional Property & HOA Management Istanbul | Alo Management',
       desc: isFacility
-        ? 'ISO 41001 accredited facility management, BMS maintenance, and 24/7 security for commercial buildings and towers in Istanbul.'
+        ? 'ILAS-accredited ISO certified facility management, BMS maintenance, and 24/7 security for commercial buildings and towers in Istanbul.'
         : 'Leading property management in Istanbul for residential complexes, offering transparent dues tracking and 24/7 technical service.',
       ogLocale: 'en_US',
     },

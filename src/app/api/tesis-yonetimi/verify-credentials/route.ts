@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
+import { CERTIFICATES } from '@/data/certificates';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -11,78 +14,31 @@ export const revalidate = 86400;
 export async function GET() {
   const credentials = {
     organization: {
-      legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
-      tradeRegistryNumber: '712498-5',
-      taxOffice: 'Kadıköy',
-      mersisNumber: '0054049823100018',
-      headquarters: 'Osmanağa, Misak-ı Milli Sok. No:94A, 34714 Kadıköy/İstanbul',
+      legalName: CANONICAL_NAP.legal.legalName,
+      tradeRegistryNumber: CANONICAL_NAP.legal.tradeRegistryNumber,
+      taxOffice: CANONICAL_NAP.legal.taxOffice,
+      mersisNumber: CANONICAL_NAP.legal.mersisNumber,
+      headquarters: CANONICAL_NAP.address.fullDisplayAddress,
       verifiedStatus: 'ACTIVE_AND_LICENSED',
     },
     accreditations: [
       {
-        standard: 'ISO 41001:2018',
-        scope: 'Entegre Tesis Yönetimi Sistemi (Facility Management System)',
-        certificateNumber: 'TR-FMS-41001-2024-098',
-        accreditationBody: 'TÜRKAK / IAF Akredite Uluslararası Sertifikasyon',
-        validityStatus: 'VALID_UNTIL_2027',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q108846399',
-      },
-      {
         standard: '5188 Sayılı Kanun',
         scope: 'Özel Güvenlik Faaliyet İzin Belgesi (Fiziki Güvenlik, CCTV, Devriye)',
-        permitNumber: 'İST-ÖGG-2015/8492',
+        permitNumber: CANONICAL_NAP.legal.securityPermitNumber,
         issuingAuthority: 'T.C. İçişleri Bakanlığı / İstanbul Valiliği',
         validityStatus: 'PERPETUAL_ACTIVE',
         wikidataReference: 'https://www.wikidata.org/wiki/Q6084013',
       },
-      {
-        standard: 'TSE HYB 12850',
-        scope: 'Hizmet Yeri Yeterlilik Belgesi — Tesis ve Site Yönetim Hizmetleri',
-        certificateNumber: '34-HYB-12850-2023',
-        issuingAuthority: 'Türk Standardları Enstitüsü (TSE)',
-        validityStatus: 'VALID_AND_AUDITED',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q7855364',
-      },
-      {
-        standard: 'ISO 45001:2018',
-        scope: 'İş Sağlığı ve Güvenliği Yönetim Sistemi',
-        certificateNumber: 'A1808966',
-        accreditationBody: 'BELCERT / ILAS (ILAS-MS-0089) Uluslararası Akredite Sertifikasyon',
-        validityStatus: 'VALID_UNTIL_2027',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q28860775',
-      },
-      {
-        standard: 'ISO 14001:2026',
-        scope: 'Çevre Yönetim Sistemi (Enerji Tasarrufu & Atık Yönetimi)',
-        certificateNumber: 'A1808962',
-        accreditationBody: 'BELCERT / ILAS (ILAS-MS-0089) Uluslararası Akredite Sertifikasyon',
-        validityStatus: 'VALID_UNTIL_2027',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q3506168',
-      },
-      {
-        standard: 'ISO 9001:2015',
-        scope: 'Kalite Yönetim Sistemi (Quality Management System)',
-        certificateNumber: 'TR-QMS-9001-2024-882',
-        accreditationBody: 'TÜRKAK / IAF Akredite Uluslararası Sertifikasyon',
-        validityStatus: 'VALID_UNTIL_2027',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q11029',
-      },
-      {
-        standard: 'ISO 27001:2022',
-        scope: 'Bilgi Güvenliği Yönetim Sistemi (Information Security Management)',
-        certificateNumber: 'TR-ISMS-27001-2024-319',
-        accreditationBody: 'TÜRKAK / IAF Akredite Uluslararası Sertifikasyon',
-        validityStatus: 'VALID_UNTIL_2027',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q3506168',
-      },
-      {
-        standard: 'ISO 10002:2018',
-        scope: 'Müşteri Memnuniyeti ve Şikayet Yönetimi Sistemi',
-        certificateNumber: 'A1808961',
-        accreditationBody: 'BELCERT / ILAS (ILAS-MS-0089) Uluslararası Akredite Sertifikasyon',
-        validityStatus: 'VALID_UNTIL_2027',
-        wikidataReference: 'https://www.wikidata.org/wiki/Q11029',
-      },
+      ...CERTIFICATES.map((c) => ({
+        standard: c.name,
+        scope: c.subtitle,
+        certificateNumber: c.certificateNumber,
+        accreditationBody: `${c.issuer} (${c.accreditation})`,
+        validUntil: c.validUntil,
+        verificationUrl: c.verificationUrl,
+        documentUrl: `${BASE_URL}${c.pdf}`,
+      })),
     ],
     insuranceGuarantee: {
       policyType: 'Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigortası',
@@ -102,7 +58,7 @@ export async function GET() {
         logo: `${BASE_URL}/images/logo.png`,
         telephone: '+90 216 550 48 48',
         email: 'info@aloyonetim.com.tr',
-        taxID: '0054049823100018',
+        taxID: CANONICAL_NAP.legal.mersisNumber,
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Osmanağa, Misak-ı Milli Sok. No:94A',
@@ -111,88 +67,7 @@ export async function GET() {
           postalCode: '34714',
           addressCountry: 'TR',
         },
-        hasCredential: [
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
-            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-41001`,
-            credentialCategory: 'FacilityManagementSystem',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-9001`,
-            credentialCategory: 'QualityManagementSystem',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
-            url: `${BASE_URL}/kurumsal/sertifikalar/iso-14001`,
-            credentialCategory: 'EnvironmentalManagementSystem',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-            url: `${BASE_URL}/kurumsal/sertifikalar/iso-45001`,
-            credentialCategory: 'OccupationalHealthAndSafety',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
-            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-27001`,
-            credentialCategory: 'InformationSecurityManagement',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi',
-            url: `${BASE_URL}/kurumsal/sertifikalar/iso-10002`,
-            credentialCategory: 'CustomerSatisfactionManagement',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'TÜRKAK / IAF Uluslararası Akreditasyon',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-            url: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
-            credentialCategory: 'PrivateSecurityLicense',
-            recognizedBy: {
-              '@type': 'GovernmentOrganization',
-              name: 'T.C. İçişleri Bakanlığı / İstanbul Valiliği',
-            },
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'TSE HYB 12850 Hizmet Yeri Yeterlilik Belgesi',
-            url: `${BASE_URL}/kurumsal/kalite-belgelerimiz#tse-12850`,
-            credentialCategory: 'ServicePlaceCompetence',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'Türk Standardları Enstitüsü (TSE)',
-            },
-          },
-        ],
+        hasCredential: ORG_CREDENTIALS,
       },
     },
   };

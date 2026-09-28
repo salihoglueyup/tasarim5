@@ -438,7 +438,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                 ISO 41001 & Açık Kamu Lisansı
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                Tesis yönetimi standartlarımız TÜRKAK akreditasyonlu ISO 41001 ve ISO 50001 normlarına dayanır. Open Data Commons Attribution (ODC-By 1.0) ile ücretsizdir.
+                Tesis yönetimi süreçlerimiz BELCERT/ILAS belgeli ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 yönetim sistemlerine dayanır. Open Data Commons Attribution (ODC-By 1.0) ile ücretsizdir.
               </p>
             </div>
 
@@ -597,7 +597,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
         <div className="max-w-4xl mx-auto px-[var(--spacing-gutter)] text-center relative z-10">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-amber-400 text-xs font-bold uppercase tracking-wider mb-6">
             <span className="material-symbols-outlined text-sm" aria-hidden="true">shield</span>
-            5188 Lisanslı & ISO 41001 Belgeli Yönetim
+            5188 Lisanslı & ISO 45001 Belgeli Yönetim
           </span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-6">
             Siteniz veya Tesisiniz İçin Profesyonel Yönetim Teklifi Alın

@@ -172,7 +172,8 @@ export const POSTS: Post[] = [
         "items": [
           "Yetkisiz Bekçi Çalıştırmak: 5188 lisansı olmayan kişilere üniforma giydirip güvenlik hizmeti verdirmek yüz binlerce liralık idari para cezalarına yol açar. Çözüm: Valilik izinli kurumsal güvenlik firmasıyla çalışmaktır.",
           "İşletme Projesini Tebliğ Etmemek: KMK m.37 uyarınca taahhütlü mektupla veya imza karşılığı tebliğ edilmeyen aidat bütçesi hukuken kesinleşmez ve icra takipleri iptal olur.",
-          "Bakımları Belgesiz Münferit Ustalara Yaptırmak: TSE HYB belgesi olmayan ustalara yapılan asansör ve hidrofor bakımları olası can kayıplarında yöneticiye hapis cezası sorumluluğu doğurur.",
+          // claims-guard-ignore: üçüncü taraf (asansör bakım firması) zorunluluğu
+        "Bakımları Belgesiz Münferit Ustalara Yaptırmak: TSE HYB belgesi olmayan ustalara yapılan asansör ve hidrofor bakımları olası can kayıplarında yöneticiye hapis cezası sorumluluğu doğurur.",
           "Gecikme Tazminatını Yanlış Uygulamak: KMK m.20 uyarınca aidat gecikme tazminatı aylık %5 (yıllık %60) olarak hesaplanmalıdır; farklı oranlar mahkemeden döner."
         ]
       },
@@ -1279,9 +1280,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "1. ISO 41001:2018 Entegre Tesis Yönetimi ve ISO 9001 Kalite Belgeleri",
+          "1. Akredite kuruluşça verilmiş güncel ISO yönetim sistemi belgeleri (ör. ISO 45001 İSG, ISO 14001 Çevre)",
           "2. T.C. İçişleri Bakanlığı / Emniyet onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi",
-          "3. TSE HYB 12850 Hizmet Yeterlilik Belgesi",
+          "3. Belgelerin belge numarası ve belgelendirme kuruluşu üzerinden doğrulanabilir olması",
           "4. En az 10 yıl sektörel tecrübe ve aktif yönetilen 200+ bağımsız bölüm referansı",
           "5. Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigorta Poliçesi",
           "6. KMK m.37 uyarınca noter ve teftiş onaylı şeffaf bütçe garantisi",
@@ -9458,7 +9459,7 @@ export const POSTS: Post[] = [
           "3. Kadrolu Teknik Servis ve Mühendislik: Dışarıdan pahalı taşeronlar yerine firmanın kendi bünyesinde elektrik/makine mühendisleri ve 7/24 nöbetçi teknisyen barındırması.",
           "4. Hukuk ve İcra Departmanı Gücü: Aidat alacaklarının gecikmeksizin tahsili için tam zamanlı kat mülkiyeti avukatı kadrosunun bulunması.",
           "5. Referans Proje Büyüklüğü: Benzer ölçekte (500-1000+ konut veya A+ plaza) başarılı yönetim referanslarına sahip olması.",
-          "6. Kalite ve Yönetim Sertifikaları: ISO 9001 Kalite, ISO 41001 Tesis Yönetimi ve ISO 45001 İSG sertifikasyonlarının tam olması.",
+          "6. Kalite ve Yönetim Sertifikaları: Akredite kuruluşlarca verilmiş güncel ISO 45001 İSG ve ISO 14001 Çevre gibi yönetim sistemi belgelerinin bulunması.",
           "7. Bağımsız Denetim Açıklığı: Her 3 ayda bir kat malikleri denetçilerine tüm evrak ve ekstrelerin şeffafça sunulması."
         ]
       },

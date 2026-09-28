@@ -47,7 +47,7 @@ export function generateOpenApiSpec() {
       },
       {
         name: 'Kurumsal Akreditasyon & Bilgi Korpusu',
-        description: 'ISO 41001, ISO 45001, 5188 Özel Güvenlik ve BELCERT akredite otorite verileri.',
+        description: 'ISO 45001, ISO 14001, ISO 10002 (BELCERT, ILAS) ve 5188 Özel Güvenlik belge verileri.',
       },
       {
         name: 'Yapay Zeka & Semantik Grounding (GEO)',

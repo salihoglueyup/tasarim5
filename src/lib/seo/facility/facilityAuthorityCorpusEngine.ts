@@ -1,6 +1,7 @@
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
 import { CANONICAL_NAP } from '../audits/napGuardEngine';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export interface FacilityLegalArticle {
   articleNumber: number;
@@ -249,13 +250,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       name: CANONICAL_NAP.legal.brandName,
       legalName: CANONICAL_NAP.legal.legalName,
       certifications: [
-        'ISO 41001:2018 Tesis Yönetim Sistemi',
-        'ISO 9001:2015 Kalite Yönetim Sistemi',
-        'ISO 14001:2015 Çevre Yönetim Sistemi',
-        'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-        'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-        'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
-        'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
+        ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title} (${c.certBody})`),
         '5188 Sayılı Kanun Lisanslı Güvenlik Partnerliği'
       ],
       officialUrl: BASE_URL,

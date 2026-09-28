@@ -75,7 +75,7 @@ export const LINK_DICTIONARY: DictionaryEntry[] = [
   { regex: makeUnicodeRegex('hidrofor bakımı|hidrofor sistemi'), url: '/sozluk/hidrofor-ve-basinc-dengeleme-sistemi' },
 
   // Kurumsal, Akreditasyon, Araçlar & Sektörel
-  { regex: makeUnicodeRegex('kalite belgeleri(?:miz)?|ISO sertifikaları|ISO 41001|ISO 9001|ISO 14001|ISO 45001|ISO 27001|ISO 10002|TSE HYB(?: 12850)?'), url: '/kurumsal/kalite-belgelerimiz' },
+  { regex: makeUnicodeRegex('kalite belgeleri(?:miz)?|ISO sertifikaları|ISO 14001|ISO 45001|ISO 10002|ISO 22301|ISO 31000|ISO 26000'), url: '/kurumsal/kalite-belgelerimiz' },
   { regex: makeUnicodeRegex('istihdam köprüsü|özel güvenlik iş ilanları|kariyer'), url: '/istihdam-koprusu' },
   { regex: makeUnicodeRegex('başarı hikayeleri|vaka analizleri|örnek projeler'), url: '/basari-hikayeleri' },
   { regex: makeUnicodeRegex('güvenlik akademisi'), url: '/guvenlik-akademisi' },

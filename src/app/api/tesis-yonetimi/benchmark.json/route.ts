@@ -113,7 +113,7 @@ export async function GET(req: Request) {
         averageCostSavings: '%28.4',
         emergencyResponseTime: '45 Dakika',
         clientRetentionRate: '%96.8',
-        qualityStandard: 'ISO 41001:2018 & TSE HYB 12850',
+        qualityStandard: 'ISO 45001:2018 & ISO 10002:2018 (BELCERT, ILAS-MS-0089)',
       },
       appliedFilter: {
         side: sideFilter,

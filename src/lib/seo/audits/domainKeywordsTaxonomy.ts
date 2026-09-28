@@ -88,7 +88,6 @@ export const FACILITY_MANAGEMENT_TAXONOMY: KeywordTaxonomyItem[] = [
   { term: 'iso 14001 çevre yönetimi', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
   { term: 'iso 45001 iş sağlığı', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
   { term: 'iso 10002 müşteri memnuniyeti', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
-  { term: 'tse hyb 12850 standart', pillar: 'facility', intent: 'commercial', priority: 'high', targetSlug: 'kurumsal/kalite-belgelerimiz', monthlySearchVolumeTier: '1K-5K' },
 ];
 
 /**
@@ -179,7 +178,7 @@ export function getPillarTitleTemplate(pillar: DomainPillar, districtName?: stri
     case 'site':
       return 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim';
     case 'facility':
-      return 'Tesis Yönetimi İstanbul — ISO 41001 Belgeli & %30 Tasarruf | Alo Yönetim';
+      return 'Tesis Yönetimi İstanbul — ILAS Akrediteli ISO Belgeli | Alo Yönetim';
     case 'legal':
       return 'İstanbul Site Yönetimi Hukuku & KMK 634 İcra Danışmanlığı | Alo Yönetim';
     case 'hybrid':
@@ -198,7 +197,7 @@ export function getPillarDescriptionTemplate(pillar: DomainPillar, districtName?
     case 'site':
       return `${loc} konut siteleri ve apartmanlar için KMK 634 uyumlu profesyonel site yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 tasarruf ve 7/24 acil müdahale hattı. Ücretsiz keşif.`;
     case 'facility':
-      return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 41001 sertifikalı entegre tesis yönetimi. 150+ aktif proje, önleyici teknik bakım ve %99.2 verimlilik güvencesi. Hemen teklif alın.`;
+      return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 45001 belgeli entegre tesis yönetimi. 150+ aktif proje, önleyici teknik bakım ve %99.2 verimlilik güvencesi. Hemen teklif alın.`;
     case 'legal':
       return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi (KMK m.20), işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık. 48 saat içinde çözüm.`;
     case 'hybrid':

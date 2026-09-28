@@ -27,9 +27,9 @@ export const VOICE_CONVERSATIONAL_QUERIES: VoiceQueryItem[] = [
     id: 'sirket-secimi',
     userVoiceQuery: 'Siri, profesyonel site yönetim şirketi seçerken nelere dikkat edilmeli?',
     conversationalAnswer:
-      'Site yönetim şirketi seçilirken firmanın ISO 41001 Entegre Tesis Yönetim Sistemi belgesine, 5188 Sayılı Valilik onaylı Özel Güvenlik İzin Belgesine, Apsiyon gibi şeffaf bulut yazılımı canlı mizanına ve Kat Malikleri Kurulu’nda en az yüzde 50 artı 1 sayı ve arsa payı çoğunluğu kararına dikkat edilmelidir.',
+      'Site yönetim şirketi seçilirken firmanın akredite bir kuruluşça verilmiş güncel ISO yönetim sistemi belgelerine (ör. ISO 45001 İSG, ISO 14001 Çevre), 5188 Sayılı Valilik onaylı Özel Güvenlik İzin Belgesine, Apsiyon gibi şeffaf bulut yazılımı canlı mizanına ve Kat Malikleri Kurulu’nda en az yüzde 50 artı 1 sayı ve arsa payı çoğunluğu kararına dikkat edilmelidir.',
     shortTtsVoice:
-      'Firmanın ISO 41001 tesis akreditasyonuna, 5188 valilik güvenlik iznine ve genel kurulda salt çoğunluk kararına dikkat edilmelidir.',
+      'Firmanın akredite ISO belgelerine, 5188 valilik güvenlik iznine ve genel kurulda salt çoğunluk kararına dikkat edilmelidir.',
     persona: 'Tesis Denetçisi',
     category: 'KMK 34 Yönetici Seçimi',
   },

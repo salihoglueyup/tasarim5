@@ -60,7 +60,7 @@ ${weeklyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
 [AYLIK & PERİYODİK HİJYEN STANDARDI]
 ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
 
-* TSE HYB Hizmet Yeterlilik Belgesi ve Sağlık Bakanlığı Biyosidal İlaçlama Yönetmeliği Esas Alınmıştır.
+* Sağlık Bakanlığı Biyosidal Ürünler Yönetmeliği ve ISO 14001 Çevre Yönetimi Esas Alınmıştır.
 * Alo Yönetim Kurumsal Tesis & Site Temizlik Hizmetleri: 0216 550 48 48`;
 
   const handleCopy = () => {
@@ -101,7 +101,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-bold uppercase tracking-wider">
           <span className="material-symbols-outlined text-sm" aria-hidden="true">cleaning_services</span>
-          TSE HYB Onaylı Hijyen Standartları Oluşturucu
+          Hijyen Standartları Oluşturucu
         </div>
         <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
           2026 Mevzuat Uyumu

@@ -30,7 +30,7 @@ export const ALL_SERVICES_CATALOG: ServiceDefinition[] = [
     desc: 'Karma yaşam projeleri, plazalar, AVM ve mega sitelerde güvenlik, teknik bakım, hijyen ve idari operasyonların tek merkezden yönetildiği ISO 41001 standartlı entegre tesis işletmesi.',
     icon: 'domain',
     badge: 'Amiral Gemisi • ISO 41001',
-    stats: 'TSE HYB 12850 Belgesi',
+    stats: 'ISO 14001 Belgeli',
     bulletPoints: [
       'Entegre Tesis & Enerji Yönetimi',
       'Merkezi Satın Alma ile %22 Tasarruf',

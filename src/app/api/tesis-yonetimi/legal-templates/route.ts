@@ -45,11 +45,11 @@ export async function GET(req: Request) {
     },
     {
       id: 'tesis-yonetimi-hizmet-sozlesmesi',
-      title: 'ISO 41001 Akredite Profesyonel Entegre Tesis Yönetimi Hizmet Sözleşmesi Şablonu',
+      title: 'Profesyonel Entegre Tesis Yönetimi Hizmet Sözleşmesi Şablonu',
       description:
         'Tesis yönetim şirketi ile Kat Malikleri Kurulu arasındaki görev, yetki, SLA süreleri (45 dk acil müdahale), 5188 güvenlik ve teknik bakım sorumluluklarını belirleyen kurumsal sözleşme.',
       legalBasis: 'Borçlar Kanunu Hizmet & Vekalet Sözleşmesi Hükümleri',
-      standard: 'ISO 41001:2018 & TSE HYB 12850',
+      standard: '634 Sayılı KMK & 6098 Sayılı TBK',
       fileType: 'JSON / Sözleşme Maddeleri',
       schemaType: 'DigitalDocument',
       howToSteps: [

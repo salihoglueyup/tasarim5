@@ -2,6 +2,7 @@ import { BASE_URL, SITE_NAME } from '@/lib/seo';
 import { ORG_PHONE, ORG_EMAIL, ORG_SAME_AS, ORG_ADDRESS, ORG_GEO, ORG_LEGAL_NAME } from '@/lib/schemas';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 /**
  * Makine-okur JSON özet uç noktası (SEO Master Plan V4 — Faz 143 & Extended GEO).
@@ -24,12 +25,7 @@ export function GET() {
     geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
     certifications: [
-      { code: 'ISO 9001:2015', name: 'Kalite Yönetim Sistemi' },
-      { code: 'ISO 14001:2015', name: 'Çevre Yönetim Sistemi' },
-      { code: 'ISO 45001:2018', name: 'İş Sağlığı ve Güvenliği' },
-      { code: 'ISO 27001:2022', name: 'Bilgi Güvenliği Yönetimi' },
-      { code: 'ISO 10002:2018', name: 'Müşteri Memnuniyeti Yönetimi' },
-      { code: 'TSE HYB 12850', name: 'TSE Hizmet Yeterlilik Belgesi' },
+      ...HELD_CERTIFICATIONS.map((c) => ({ code: c.standard, name: c.title, issuer: c.certBody })),
       { code: '5188 Belgesi', name: 'T.C. İçişleri Bakanlığı 5188 Özel Güvenlik Faaliyet İzin Belgesi' },
       { code: 'Valilik Ruhsatı', name: 'T.C. İstanbul Valiliği Özel Güvenlik Ruhsatı' },
     ],

@@ -11,6 +11,7 @@ import {
   ORG_GEO
 } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 saat önbellek
@@ -54,14 +55,9 @@ export async function GET() {
       languages: ['tr', 'en', 'ru', 'ar']
     },
     accreditations: [
-      'ISO 9001:2015 Kalite Yönetim Sistemi',
-      'ISO 14001:2015 Çevre Yönetim Sistemi',
-      'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-      'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-      'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
+      ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title} (${c.certBody})`),
       'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
       'T.C. İstanbul Valiliği Özel Güvenlik Ruhsatı',
-      'TSE HYB 12850 Hizmet Yeterlilik Belgesi'
     ],
     operationalScope: {
       primarySpecialty: 'Entegre Tesis Yönetimi ve Profesyonel Site İşletmesi',
@@ -225,7 +221,7 @@ export async function GET() {
       {
         name: "TSE 13811 Hijyen Temizliği & 4 Mevsim Peyzaj",
         kpis: "Endüstriyel Zemin Otomatları, Sağlık Bakanlığı Biyosidal İlaçlama, Akıllı Otomatik Sulama ile %40 Su Tasarrufu",
-        legalRef: "TSE HYB 12850 & 13811 Standartları"
+        legalRef: "Sağlık Bakanlığı Biyosidal Ürünler Yönetmeliği & ISO 45001 İSG"
       }
     ],
     tazminatGuvenligi: "Tüm kapıcı, temizlik ve güvenlik personellerinin SGK, kıdem tazminatı ve İSG yasal sorumluluğu Alo Yönetim kurumsal güvencesindedir; kat maliklerine hiçbir maddi veya hukuki risk rücu etmez."

@@ -10,6 +10,7 @@ import { autoLinkHtml } from '@/lib/autoLinker';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import { SectorAiOverviewSnippetSeo } from '@/components/seo';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 export const dynamicParams = true;
 export const revalidate = 3600;
@@ -112,14 +113,7 @@ export default async function SectoralSolutionDetailPage({
       priceRange: '₺₺₺',
     }),
     category: 'ISO 41001:2018 Entegre Tesis Yönetimi',
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
-        url: 'https://aloyonetim.com.tr/kurumsal/kalite-belgelerimiz',
-        sameAs: 'https://www.wikidata.org/wiki/Q108846399',
-      },
-    ],
+    hasCredential: ORG_CREDENTIALS,
     isRelatedTo: [
       {
         '@type': 'Service',

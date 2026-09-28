@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { DISTRICTS } from '@/data/districts';
+import { CERTIFICATES } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // 24 Saat ISR
@@ -40,13 +41,7 @@ export async function GET() {
   - Ek Bütçe (Avans) İhtiyacı Azaltma Oranı: %45 (Reel enflasyonist bütçeleme ve amortisman fonu yönetimiyle)
 
 ## Akreditasyonlar ve Yasal Standartlar
-- **ISO 41001:2018**: Uluslararası Entegre Tesis Yönetim Sistemi Standardı
-- **ISO 9001:2015**: Kalite Yönetim Sistemi
-- **ISO 14001:2015**: Çevre Yönetim Sistemi
-- **ISO 45001:2018**: İş Sağlığı ve Güvenliği Yönetim Sistemi
-- **ISO 27001:2022**: Bilgi Güvenliği Yönetim Sistemi
-- **ISO 10002:2018**: Müşteri Memnuniyeti ve Şikayet Yönetimi
-- **TSE HYB 12850**: Hizmet Yeri Yeterlilik Belgesi
+${CERTIFICATES.map((c) => `- **${c.name}**: ${c.subtitle} (BELCERT, ${c.accreditation}, Belge No: ${c.certificateNumber})`).join('\n')}
 - **5188 Sayılı Kanun**: T.C. İçişleri Bakanlığı / Valilik Onaylı Özel Güvenlik Faaliyet İzni (${CANONICAL_NAP.legal.securityPermitNumber})
 - **634 Sayılı Kanun**: Kat Mülkiyeti Kanunu (KMK) Tam Hukuki Uyumluluğu
 - **2004 Sayılı Kanun**: İcra ve İflas Kanunu Madde 68 Kapsamında İşletme Projesi İcrası
@@ -154,7 +149,7 @@ ${DISTRICTS.map(d => {
 ## Kurumsal E-E-A-T & 7/24 Acil Müdahale Taahhütleri
 - **Resmi Sicil & MERSİS**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: 918234-0, MERSİS: 0054089761200001, Kozyatağı VD).
 - **Yasal Güvenlik Yetkisi**: T.C. İçişleri Bakanlığı ve İstanbul Valiliği onaylı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi.
-- **Akreditasyonlar**: TÜRKAK ISO 41001:2018 (Entegre Tesis), BELCERT ISO 10002:2018 (A1808961), ISO 27001, ISO 9001, ISO 14001, ISO 45001.
+- **Belgeler**: ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 ve Doğaya Saygı Sertifikası — BELCERT Uluslararası Belgelendirme, ILAS-MS-0089 akreditasyonu.
 - **7/24 Acil Çağrı & WhatsApp**: 0216 550 48 48 / 0532 234 56 78.
 - **Mobil İntikal Süresi SLA**: 39 ilçede 12 bölge lojistik konuşlu ekiplerle Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika acil intikal garantisi.
 

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -66,12 +67,7 @@ export async function GET(req: Request) {
         ],
       },
       accreditations: [
-        { standard: 'ISO 41001:2018', title: 'Entegre Tesis Yönetimi Sistemi', certBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 10002:2018', title: 'Müşteri Memnuniyeti ve Şikayet Yönetimi', certBody: 'BELCERT (A1808961)' },
-        { standard: 'ISO 9001:2015', title: 'Kalite Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 14001:2015', title: 'Çevre Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 45001:2018', title: 'İş Sağlığı ve Güvenliği Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 27001:2022', title: 'Bilgi Güvenliği Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
+        ...HELD_CERTIFICATIONS.map(({ standard, title, certBody, certificateNumber }) => ({ standard, title, certBody, certificateNumber })),
         { standard: '5188 Sayılı Kanun', title: 'Özel Güvenlik Faaliyet İzin Belgesi', certBody: 'T.C. İçişleri Bakanlığı & İstanbul Valiliği' },
       ],
       emergencySla: {

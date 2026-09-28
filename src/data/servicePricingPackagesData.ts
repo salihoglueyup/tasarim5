@@ -128,7 +128,7 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
     highlightText: 'ISO 41001 standartlarında bina yaşam döngüsü, BMS/SCADA izleme ve Platinum SLA garantisi.',
     isPopular: false,
     deliverables: [
-      'ISO 41001, ISO 9001, ISO 45001 ve ISO 50001 Sertifikalı Entegre İşletme',
+      'ISO 45001, ISO 14001 ve ISO 22301 Belgeli Entegre İşletme',
       'BMS (Bina Otomasyonu) ve SCADA ile 7/24 Kesintisiz Enerji & İklimlendirme Takibi',
       'İş Sağlığı ve Güvenliği (İSG) Yasal Sorumluluk ve Sıfır Kaza Protokolü',
       'Kiracı & Mülk Sahibi İlişkileri, Kira & Aidat Mutabakat Yönetimi',

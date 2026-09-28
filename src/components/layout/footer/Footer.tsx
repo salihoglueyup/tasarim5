@@ -202,7 +202,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 text-xs text-[var(--color-secondary)] font-medium">
               <span className="material-symbols-outlined text-lg text-[var(--color-primary)]" aria-hidden="true">verified</span>
               <div>
-                <div className="font-bold text-[var(--color-primary)] leading-none">ISO 9001:2015</div>
+                <div className="font-bold text-[var(--color-primary)] leading-none">ISO 10002:2018</div>
                 <div className="text-[10px] text-[var(--color-tertiary)]">{t('footer_badge_quality')}</div>
               </div>
             </div>
@@ -489,7 +489,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
-                title="Türk Standardları Enstitüsü — ISO 41001 & TSE HYB 12850"
+                title="Türk Standardları Enstitüsü"
               >
                 <span>TSE Standartları</span>
                 <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
@@ -525,17 +525,6 @@ export default function Footer() {
                 title="Kişisel Verileri Koruma Kurumu (KVKK)"
               >
                 <span>KVKK Kurumu</span>
-                <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
-              </a>
-              <span>•</span>
-              <a
-                href="https://www.turkak.org.tr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
-                title="TÜRKAK — Türk Akreditasyon Kurumu"
-              >
-                <span>TÜRKAK Akreditasyon</span>
                 <span className="material-symbols-outlined text-[10px] opacity-60" aria-hidden="true">open_in_new</span>
               </a>
               <span>•</span>

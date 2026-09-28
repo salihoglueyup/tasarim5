@@ -41,10 +41,10 @@ const DEFAULT_BADGES: TrustBadge[] = [
     icon: "gavel"
   },
   {
-    title: "TSE Hizmet Yeterlilik Belgesi (HYB)",
-    authority: "Türk Standardları Enstitüsü (TSE)",
-    licenseNo: "TSE HYB Standart No: 12850",
-    description: "Tesis yönetimi ve güvenlik hizmetlerinde ulusal hizmet yeterlilik ve kalite uygunluk sertifikasyonu.",
+    title: "ISO 45001:2018 İş Sağlığı ve Güvenliği",
+    authority: "BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)",
+    licenseNo: "Belge No: A1808966",
+    description: "Güvenlik, temizlik ve teknik personelin saha operasyonlarında iş sağlığı ve güvenliği yönetim sistemi belgesi.",
     icon: "award_star"
   }
 ];

@@ -72,7 +72,7 @@ const STEPS = [
 const FAQS = [
   {
     question: 'Tesis yönetim şirketi seçerken en kritik yasal belgeler nelerdir?',
-    answer: 'En kritik belgeler: 1) İçişleri Bakanlığı ve Valilik onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi, 2) ISO 41001 Tesis Yönetimi ve ISO 45001 İSG sertifikaları, 3) Güncel SGK ve Vergi Borcu Yoktur yazıları, 4) Tesis yöneticiliği mesleki sorumluluk sigortası poliçesidir.'
+    answer: 'En kritik belgeler: 1) İçişleri Bakanlığı ve Valilik onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi, 2) Akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgeleri (ör. ISO 45001 İSG, ISO 14001 Çevre), 3) Güncel SGK ve Vergi Borcu Yoktur yazıları, 4) Tesis yöneticiliği mesleki sorumluluk sigortası poliçesidir.'
   },
   {
     question: 'KMK m.34 uyarınca yönetim şirketi seçimi nasıl yapılır?',

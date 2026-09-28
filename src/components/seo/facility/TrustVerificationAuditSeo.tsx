@@ -118,7 +118,7 @@ export default function TrustVerificationAuditSeo() {
             </span>
           </div>
           <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            TÜRKAK Akredite Kalite & 5188 Güvenlik Standartları
+            ILAS Akrediteli ISO Belgeleri & 5188 Güvenlik İzni
           </h3>
           <p className="text-sm text-[var(--color-secondary)] font-light mt-1">
             Alo Yönetim, Türkiye ve uluslararası geçerliliğe sahip 5 ISO belgesi ve Bakanlık ruhsatı ile hizmet verir.

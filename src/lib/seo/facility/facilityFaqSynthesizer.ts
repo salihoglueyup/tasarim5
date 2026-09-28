@@ -77,7 +77,7 @@ export function synthesizeDistrictFacilityFaq(
   // 5. E-E-A-T Akreditasyon & Kalite Standartları
   faqs.push({
     question: `${dName} bölgesinde Alo Yönetim hangi akreditasyon ve kalite standartlarıyla hizmet verir?`,
-    answer: `Alo Yönetim, ${dName} genelinde ISO 41001 Entegre Tesis Yönetimi, ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 10002, TSE HYB 12850 ve 5188 lisanslı güvenlik belgeleriyle akredite hizmet sunmaktadır.`,
+    answer: `Alo Yönetim, ${dName} genelinde BELCERT/ILAS belgeli ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 yönetim sistemleri ve 5188 lisanslı güvenlik izniyle hizmet sunmaktadır.`,
     topic: 'TECHNICAL_SLA',
   });
 
@@ -147,7 +147,7 @@ export function synthesizeNeighborhoodFacilityFaq(
     // 4. E-E-A-T Kalite ve Akreditasyon
     {
       question: `${nName} bölgesinde Alo Yönetim hangi resmi kalite sertifikaları ile hizmet verir?`,
-      answer: `Alo Yönetim, ${dName} ${nName} Mahallesi genelinde ISO 41001 Entegre Tesis Yönetimi, ISO 9001, ISO 14001, ISO 45001, ISO 27001, TSE HYB 12850 ve 5188 lisanslı güvenlik belgeleriyle akredite hizmet sunar.`,
+      answer: `Alo Yönetim, ${dName} ${nName} Mahallesi genelinde BELCERT/ILAS belgeli ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 yönetim sistemleri ve 5188 lisanslı güvenlik izniyle hizmet sunar.`,
       topic: 'TECHNICAL_SLA',
     },
   ];

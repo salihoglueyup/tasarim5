@@ -8,7 +8,7 @@ export default function QualityComparisonMatrixSeo() {
     {
       kriter: 'Uluslararası Akreditasyon & Belgeler',
       amator: 'Belgesiz, kurumsal olmayan kulaktan dolma yöntemler',
-      alo: 'TÜRKAK & IAF Onaylı ISO 41001, 9001, 27001, 45001, 14001 ve TSE HYB',
+      alo: 'BELCERT/ILAS belgeli ISO 45001, 14001, 10002, 22301, 31000 ve 26000',
       isCritical: true,
     },
     {
@@ -32,7 +32,7 @@ export default function QualityComparisonMatrixSeo() {
     {
       kriter: 'Kişisel Veri Mahremiyeti (KVKK)',
       amator: 'WhatsApp gruplarında paylaşılan borç listeleri ve telefon ifşaları',
-      alo: 'ISO 27001 onaylı 256-bit SSL, KVKK uyumlu izole mobil sakin uygulaması',
+      alo: '256-bit SSL, KVKK uyumlu izole mobil sakin uygulaması',
       isCritical: false,
     },
     {
@@ -53,7 +53,7 @@ export default function QualityComparisonMatrixSeo() {
             Kalite Standartları Karşılaştırması
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
-            Amatör Yönetim vs. TÜRKAK Onaylı Alo Yönetim
+            Amatör Yönetim vs. ISO Belgeli Alo Yönetim
           </h2>
           <p className="text-sm sm:text-base text-[var(--color-secondary)] leading-relaxed font-light">
             Standartsız bireysel yönetimlerin yarattığı güvenlik ve hukuki riskleri, 
@@ -73,7 +73,7 @@ export default function QualityComparisonMatrixSeo() {
                   Geleneksel / Bireysel Yönetim
                 </th>
                 <th className="py-4 px-5 font-bold text-emerald-600 dark:text-emerald-400 w-1/3 bg-emerald-500/5">
-                  Alo Yönetim (ISO & TÜRKAK Onaylı)
+                  Alo Yönetim (ILAS Akrediteli ISO)
                 </th>
               </tr>
             </thead>

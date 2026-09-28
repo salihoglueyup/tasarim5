@@ -51,7 +51,7 @@ const NEIGHBORHOOD_TYPOLOGY_MAP: Record<string, MicroNeighborhoodItem[]> = {
     { name: 'Mecidiyeköy', slug: 'mecidiyekoy', typology: 'commercial', typologyLabel: 'Yoğun İş Merkezi', focusKeyword: 'Mecidiyeköy plaza yönetimi', notableTraits: 'Yüksek yaya trafiği, asansör ve jeneratör sürekli revizyonu.' },
     { name: 'Nişantaşı', slug: 'nisantasi', typology: 'luxury_coastal', typologyLabel: 'Prestij Apartman', focusKeyword: 'Nişantaşı bina yönetimi', notableTraits: 'Tarihi mimari, asansör muayeneleri ve ortak gider paylaşımı.' },
     { name: 'Bomonti', slug: 'bomonti', typology: 'commercial', typologyLabel: 'Rezidans Kuleleri', focusKeyword: 'Bomonti rezidans yönetimi', notableTraits: 'Çok katlı kulelerde yangın sprinkler, vale ve kartlı geçiş.' },
-    { name: 'Esentepe', slug: 'esentepe', typology: 'commercial', typologyLabel: 'Kurumsal Plazalar', focusKeyword: 'Esentepe tesis yönetimi', notableTraits: 'B2B teknik şartname ve ISO 41001 sertifikalı işletme.' },
+    { name: 'Esentepe', slug: 'esentepe', typology: 'commercial', typologyLabel: 'Kurumsal Plazalar', focusKeyword: 'Esentepe tesis yönetimi', notableTraits: 'B2B teknik şartname ve kurumsal SLA odaklı işletme.' },
   ],
   sariyer: [
     { name: 'Maslak', slug: 'maslak', typology: 'commercial', typologyLabel: 'Finans & Kule', focusKeyword: 'Maslak plaza tesis yönetimi', notableTraits: 'Bina otomasyon sistemleri (BMS), SCADA ve %0 reaktif ceza güvencesi.' },

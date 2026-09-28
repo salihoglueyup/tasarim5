@@ -281,10 +281,10 @@ export default function HakkimizdaClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-lg" aria-hidden="true">verified_user</span>
                 </span>
-                <span>ISO 41001 Standardı</span>
+                <span>ISO Belgelerimiz</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                TÜRKAK onaylı uluslararası tesis yönetimi ve iş güvenliği akreditasyonları.
+                BELCERT tarafından ILAS akreditasyonuyla verilen ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 belgeleri.
               </p>
             </div>
           </div>

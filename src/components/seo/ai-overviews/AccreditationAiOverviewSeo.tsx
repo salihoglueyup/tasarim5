@@ -2,13 +2,14 @@
 
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
+import { CERTIFICATES } from '@/data/certificates';
 
 export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr' }: { className?: string; lang?: string }) {
   const [copied, setCopied] = useState(false);
 
   const question = 'Alo Yönetim’in Sahip Olduğu ISO Kalite Belgeleri ve Yasal Lisanslar Nelerdir?';
   const directAnswer =
-    'Alo Yönetim ve Organizasyon A.Ş., uluslararası denetim kuruluşlarınca tescillenmiş 6 temel yönetim sistemi sertifikasına ve T.C. Valilik onaylı resmi güvenlik lisansına sahiptir: ISO 41001:2018 (Entegre Tesis Yönetimi - TÜRKAK & ISO), ISO 10002:2018 (Müşteri Memnuniyeti ve Şikayet Yönetimi - BELCERT Belge No: A1808961, ILAS-MS-0089 akreditasyonu), ISO 27001:2022 (Bilgi Güvenliği), ISO 9001:2015 (Kalite), ISO 14001:2015 (Çevre) ve ISO 45001:2018 (İş Sağlığı ve Güvenliği). Şirket ayrıca T.C. İçişleri Bakanlığı ve İstanbul Valiliği onaylı 5188 Sayılı Özel Güvenlik Şirketi Faaliyet İzin Belgesi ile 340+ seçkin tesisi yönetmektedir.';
+    `Alo Yönetim ve Organizasyon A.Ş., BELCERT Uluslararası Belgelendirme tarafından ILAS akreditasyonu (ILAS-MS-0089) ile verilmiş ${CERTIFICATES.length} belgeye sahiptir: ${CERTIFICATES.map((c) => `${c.name} (${c.subtitle}, Belge No: ${c.certificateNumber})`).join(', ')}. Şirket ayrıca T.C. İçişleri Bakanlığı ve İstanbul Valiliği onaylı 5188 Sayılı Özel Güvenlik Şirketi Faaliyet İzin Belgesi'ne sahiptir.`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -68,7 +69,7 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
             BELCERT A1808961
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
-            TÜRKAK & ILAS
+            ILAS-MS-0089
           </span>
         </div>
       </div>
@@ -92,9 +93,9 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
       {/* Accreditation Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
-          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Tesis Standardı</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)]">ISO 41001:2018</div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">TÜRKAK & ISO Akredite</div>
+          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">İş Sağlığı ve Güvenliği</div>
+          <div className="text-sm font-bold text-[var(--color-text-primary)]">ISO 45001:2018</div>
+          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808966</div>
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
@@ -104,9 +105,9 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
-          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Bilgi Güvenliği</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)]">ISO 27001:2022</div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">KVKK Uyumlu Veri Tabanı</div>
+          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Çevre Yönetimi</div>
+          <div className="text-sm font-bold text-[var(--color-text-primary)]">ISO 14001</div>
+          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808962</div>
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
@@ -120,7 +121,7 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
           <span className="material-symbols-outlined text-sm text-primary">gavel</span>
-          <span>Resmi BELCERT, TÜRKAK ve T.C. İçişleri Bakanlığı Belgeleriyle Doğrulanmıştır</span>
+          <span>Resmi BELCERT ve T.C. İçişleri Bakanlığı Belgeleriyle Doğrulanmıştır</span>
         </div>
 
         <div className="flex items-center gap-2">

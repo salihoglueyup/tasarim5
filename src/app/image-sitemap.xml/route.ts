@@ -85,8 +85,8 @@ export async function GET() {
     xml += `    <loc>${BASE_URL}/kurumsal/kalite-belgelerimiz</loc>\n`;
     xml += `    <image:image>\n`;
     xml += `      <image:loc>${BASE_URL}/images/hero-poster-v5.webp</image:loc>\n`;
-    xml += `      <image:title>ISO 41001:2018 Uluslararası Tesis Yönetim Sertifikası — Alo Yönetim</image:title>\n`;
-    xml += `      <image:caption>TÜRKAK ve ISO akreditasyonlu profesyonel tesis yönetimi ve kalite sertifikalarımız</image:caption>\n`;
+    xml += `      <image:title>ILAS Akrediteli ISO Belgelerimiz — Alo Yönetim</image:title>\n`;
+    xml += `      <image:caption>BELCERT tarafından ILAS akreditasyonuyla verilen ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 belgelerimiz</image:caption>\n`;
     xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
     xml += `    </image:image>\n`;
     xml += `  </url>\n`;

@@ -12,7 +12,7 @@ export default function QualityPillarsSeo() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-3">
               <span className="material-symbols-outlined text-sm">workspace_premium</span>
-              TÜRKAK & Uluslararası Akreditasyon
+              BELCERT / ILAS Akreditasyonu
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
               6 Temel Kalite Standardı ve Akreditasyon Sütunumuz
@@ -86,14 +86,14 @@ export default function QualityPillarsSeo() {
           ))}
         </div>
 
-        {/* TÜRKAK Verification Footer Note */}
+        {/* Belge doğrulama notu */}
         <div className="mt-12 p-5 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3 text-[var(--color-secondary)]">
             <span className="material-symbols-outlined text-cyan-600 dark:text-cyan-400 text-2xl shrink-0">
               verified_user
             </span>
             <span>
-              Tüm kalite belgelerimiz <strong>TÜRKAK (Türk Akreditasyon Kurumu)</strong> ve uluslararası <strong>IAF (International Accreditation Forum)</strong> veri tabanları üzerinden karekod ile anlık sorgulanabilir.
+              Tüm kalite belgelerimiz <strong>BELCERT Uluslararası Belgelendirme</strong> tarafından <strong>ILAS akreditasyonu (ILAS-MS-0089)</strong> ile verilmiştir; belge numarası ve karekod ile www.belcert.com üzerinden sorgulanabilir.
             </span>
           </div>
           <Link

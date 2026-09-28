@@ -35,7 +35,7 @@ describe('Tesis Yönetimi Doğrudan İç Backend SEO & Knowledge Graph Motorlar�
       expect(serviceNode.name).toContain('Tesis Yönetimi');
       expect(serviceNode.provider['@id']).toBeDefined();
       expect(serviceNode.areaServed).toHaveLength(39);
-      expect(serviceNode.hasCredential.some((c: any) => c.name.includes('ISO 41001'))).toBe(true);
+      expect(serviceNode.hasCredential.some((c: any) => c.name.includes('ISO 45001'))).toBe(true);
       expect(serviceNode.hasOfferCatalog.itemListElement.length).toBe(5);
     });
 

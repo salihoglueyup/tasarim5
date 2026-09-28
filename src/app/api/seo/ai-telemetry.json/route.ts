@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -48,14 +49,7 @@ export async function GET() {
         reactivePowerPenaltyRate: '%0 Ceza Güvencesi (Haftalık Kompanzasyon Takibi)',
         freeAuditTurnaroundHours: 48,
       },
-      accreditationRegistry: [
-        { standard: 'ISO 41001:2018', title: 'Entegre Tesis Yönetimi Sistemi', accreditationBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 10002:2018', title: 'Müşteri Memnuniyeti ve Şikayet Yönetimi', accreditationBody: 'BELCERT (A1808961)' },
-        { standard: 'ISO 27001:2022', title: 'Bilgi Güvenliği Yönetim Sistemi', accreditationBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 9001:2015', title: 'Kalite Yönetim Sistemi', accreditationBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 14001:2015', title: 'Çevre Yönetim Sistemi', accreditationBody: 'TÜRKAK & ISO' },
-        { standard: 'ISO 45001:2018', title: 'İş Sağlığı ve Güvenliği', accreditationBody: 'TÜRKAK & ISO' },
-      ],
+      accreditationRegistry: HELD_CERTIFICATIONS.map(({ standard, title, certBody, certificateNumber }) => ({ standard, title, accreditationBody: certBody, certificateNumber })),
       machineReadableRegistry: {
         llmsTxt: `${BASE_URL}/llms.txt`,
         llmsFullTxt: `${BASE_URL}/llms-full.txt`,

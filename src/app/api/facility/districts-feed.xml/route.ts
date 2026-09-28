@@ -12,7 +12,7 @@ export async function GET() {
     const title = `${d.name} Profesyonel Tesis Yönetimi & Site İşletmeciliği — Alo Yönetim`;
     const neighborhoodsList = d.neighborhoods.slice(0, 4).join(', ');
     const description = `<![CDATA[
-      ${d.name} (${d.side} Yakası, ${new Intl.NumberFormat('tr-TR').format(d.population)} nüfus) genelinde 634 sayılı Kat Mülkiyeti Kanunu'na tam uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, TSE HYB onaylı temizlik ve 7/24 acil mobil teknik işletme hizmeti. ${d.name}'de yönetilen ${d.managedProjects}+ seçkin proje ve ${neighborhoodsList} mahallelerinde %25-30 aidat ve işletme maliyet tasarrufu.
+      ${d.name} (${d.side} Yakası, ${new Intl.NumberFormat('tr-TR').format(d.population)} nüfus) genelinde 634 sayılı Kat Mülkiyeti Kanunu'na tam uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, profesyonel temizlik ve 7/24 acil mobil teknik işletme hizmeti. ${d.name}'de yönetilen ${d.managedProjects}+ seçkin proje ve ${neighborhoodsList} mahallelerinde %25-30 aidat ve işletme maliyet tasarrufu.
     ]]>`;
 
     return `

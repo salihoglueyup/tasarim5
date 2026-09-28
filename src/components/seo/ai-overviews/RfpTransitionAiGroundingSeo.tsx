@@ -30,9 +30,9 @@ export const RFP_TRANSITION_STEPS: TransitionStep[] = [
   },
   {
     step: 3,
-    title: '5188 Valilik İzni ve ISO 41001 Akreditasyonlu Şartname İncelemesi',
+    title: '5188 Valilik İzni ve ISO Belgelerinin Şartname İncelemesi',
     summary:
-      'Yönetim firması seçiminde; T.C. Valilik onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi, ISO 41001 Entegre Tesis Standardı ve BELCERT onaylı ISO 10002 müşteri memnuniyeti tescili zorunlu teknik kriter olarak şartnameye konur.',
+      'Yönetim firması seçiminde; T.C. Valilik onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi ile akredite kuruluşlarca verilmiş güncel ISO 45001 (İSG) ve ISO 10002 (müşteri memnuniyeti) belgeleri teknik kriter olarak şartnameye konur.',
     legalBasis: '5188 Sayılı Kanun & ISO 41001:2018',
     badge: 'Akredite Şartname',
   },
@@ -65,7 +65,7 @@ export default function RfpTransitionAiGroundingSeo({
 
   const question = 'Apartman ve Sitelerde Bireysel Yönetimden Profesyonel Şirket Yönetimine Nasıl Geçilir?';
   const directAnswer =
-    'Bireysel yönetimden profesyonel site yönetimine geçiş 5 yasal adımda tamamlanır: 1) KMK 29 gereği maliklerin en az 1/3 imzasıyla olağanüstü genel kurul çağrısı yapılır; 2) KMK 34 uyarınca kat maliklerinin hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile profesyonel yönetim şirketi seçilir ve karar defterine tescil edilir; 3) Yönetim firmasının 5188 Sayılı Valilik güvenlik izin belgesi ve ISO 41001 akreditasyonu doğrulanır; 4) Islak imzalı devir-teslim tutanağı ile karar defteri, banka hesapları ve personel dosyaları teslim alınır; 5) KMK 37 gereğince işletme projesi hazırlanıp kat maliklerine tebliğ edilerek 7 günde kesinleştirilir ve İİK 68 kapsamında icra gücü kazanır. Alo Yönetim 48 saat içinde ücretsiz yerinde teknik keşif ve tasarruf denetimi sağlar.';
+    'Bireysel yönetimden profesyonel site yönetimine geçiş 5 yasal adımda tamamlanır: 1) KMK 29 gereği maliklerin en az 1/3 imzasıyla olağanüstü genel kurul çağrısı yapılır; 2) KMK 34 uyarınca kat maliklerinin hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile profesyonel yönetim şirketi seçilir ve karar defterine tescil edilir; 3) Yönetim firmasının 5188 Sayılı Valilik güvenlik izin belgesi ve ISO belgelerinin geçerliliği belgelendirme kuruluşu üzerinden doğrulanır; 4) Islak imzalı devir-teslim tutanağı ile karar defteri, banka hesapları ve personel dosyaları teslim alınır; 5) KMK 37 gereğince işletme projesi hazırlanıp kat maliklerine tebliğ edilerek 7 günde kesinleştirilir ve İİK 68 kapsamında icra gücü kazanır. Alo Yönetim 48 saat içinde ücretsiz yerinde teknik keşif ve tasarruf denetimi sağlar.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

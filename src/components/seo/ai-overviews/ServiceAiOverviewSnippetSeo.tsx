@@ -100,8 +100,8 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
     question: 'Entegre Tesis Yönetimi Nedir ve ISO 41001 Standartları Neleri Kapsar?',
     answer:
       'Entegre tesis yönetimi; rezidans, AVM, iş merkezi ve karma yaşam projelerinde uluslararası ISO 41001:2018 standardında teknik bakım, 5188 özel güvenlik, endüstriyel temizlik, enerji otomasyonu (BMS) ve bütçe yönetimini tek çatı altında optimize eden kurumsal disiplindir. Alo Yönetim, 340+ aktif tesiste kurumsal SLA garantileri ve %0 reaktif ceza güvencesiyle 360 derece kesintisiz operasyon yürütmektedir.',
-    legalBasis: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi & TÜRKAK',
-    badge: 'ISO 41001 Akredite',
+    legalBasis: 'ISO 41001:2018 Tesis Yönetimi Çerçeve Standardı & 634 Sayılı KMK',
+    badge: 'ISO 45001 Belgeli',
     keyPoints: [
       { label: 'Uluslararası Standart', value: 'ISO 41001:2018' },
       { label: 'Operasyon Alanı', value: 'Teknik, Güvenlik, Hijyen' },
@@ -122,9 +122,9 @@ export default function ServiceAiOverviewSnippetSeo({
     SERVICE_GROUND_TRUTH[serviceSlug] || {
       question: `${serviceName || 'Hizmet'} İçin Yasal Standartlar ve Operasyonel Güvenceler Nelerdir?`,
       answer:
-        'Alo Yönetim, ISO 41001:2018 uluslararası entegre tesis yönetimi ve 634 Sayılı Kat Mülkiyeti Kanunu standartlarında şeffaf, denetlenebilir ve profesyonel hizmet sunar. Acil durumlarda 15-20 dakika mobil teknik müdahale SLA taahhüdü ve %30 net bütçe tasarrufu garantisi sağlanır.',
+        'Alo Yönetim, BELCERT/ILAS belgeli ISO 45001 ve ISO 10002 yönetim sistemleri ile 634 Sayılı Kat Mülkiyeti Kanunu çerçevesinde şeffaf, denetlenebilir ve profesyonel hizmet sunar. Acil durumlarda 15-20 dakika mobil teknik müdahale SLA taahhüdü ve %30 net bütçe tasarrufu garantisi sağlanır.',
       legalBasis: '634 Sayılı KMK & ISO 41001:2018',
-      badge: 'ISO 41001 Akredite',
+      badge: 'ISO 45001 Belgeli',
       keyPoints: [
         { label: 'Yasal Standart', value: '634 Sayılı KMK' },
         { label: 'Yönetim Sistemi', value: 'ISO 41001:2018' },

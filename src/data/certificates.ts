@@ -367,6 +367,19 @@ export const CERTIFICATES: Certificate[] = [
   },
 ];
 
+export const CERTIFICATION_BODY = 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)';
+
+export const HELD_CERTIFICATIONS = CERTIFICATES.map((c) => ({
+  standard: c.name,
+  title: c.subtitle,
+  certBody: CERTIFICATION_BODY,
+  certificateNumber: c.certificateNumber,
+  validUntil: c.validUntil,
+  url: `/kurumsal/sertifikalar/${c.slug}`,
+}));
+
+export const CERTIFICATION_SUMMARY = `${CERTIFICATES.map((c) => c.name).join(', ')} — ${CERTIFICATION_BODY} tarafından verilmiştir`;
+
 export function getCertificate(slug: string): Certificate | undefined {
   return CERTIFICATES.find((c) => c.slug === slug);
 }

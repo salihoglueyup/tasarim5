@@ -41,7 +41,7 @@ const VAULT_DOCS: VaultDocument[] = [
     category: 'İhale & Satın Alma',
     format: 'PDF',
     size: '420 KB',
-    lawReference: 'ISO 41001:2018 & TSE HYB 12850',
+    lawReference: '634 Sayılı KMK & ISO 45001:2018',
     description: 'Site ve plazaların profesyonel yönetim firmalarından teklif toplarken kullanacağı resmi hizmet şartnamesi.',
     fileName: 'Alo_Yonetim_ISO41001_Tesis_Yonetim_Sartnamesi.pdf'
   },
@@ -76,7 +76,7 @@ export default function FacilityDownloadableVaultSeo() {
       // Simüle edilen güvenli indirme akışı
       const blob = new Blob(
         [
-          `ALO YÖNETİM & DANIŞMANLIK A.Ş.\nResmi Tesis Yönetimi Dokümanı: ${doc.title}\nYasal Dayanak: ${doc.lawReference}\nStandart: ISO 41001 / TSE HYB 12850\nWeb: https://aloyonetim.com.tr\nÇağrı Merkezi: 0216 550 48 48`
+          `ALO YÖNETİM & DANIŞMANLIK A.Ş.\nResmi Tesis Yönetimi Dokümanı: ${doc.title}\nYasal Dayanak: ${doc.lawReference}\nBelgeler: ISO 45001 / ISO 14001 / ISO 10002 (BELCERT, ILAS-MS-0089)\nWeb: https://aloyonetim.com.tr\nÇağrı Merkezi: 0216 550 48 48`
         ],
         { type: 'text/plain;charset=utf-8' }
       );

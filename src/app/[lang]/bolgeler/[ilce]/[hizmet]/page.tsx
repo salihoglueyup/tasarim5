@@ -43,6 +43,7 @@ import {
 import { DISTRICTS, getDistrict, getDistrictDues } from '@/data/districts';
 import { SERVICES, getService, isServiceAlias } from '@/data/services';
 import { LOCALES } from '@/lib/seo';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 // ISR (Faz 120): 96 kombinasyon sayfası günlük yeniden doğrulanır.
 export const revalidate = 86400;
@@ -205,7 +206,7 @@ export async function generateMetadata({
     ];
   } else if (hizmet === 'apartman-temizligi' || hizmet === 'site-temizligi' || hizmet === 'merdiven-temizligi') {
     metaTitle = `${district.name} Apartman & Site Temizliği Şirketleri — Merdiven ve Ortak Alan Temizliği | Alo Yönetim`;
-    metaDesc = `${district.name}'de TSE HYB standartlarında periyodik merdiven yıkama, apartman ortak alan temizliği ve hijyen personeli temini. Ücretsiz keşif.`;
+    metaDesc = `${district.name}'de periyodik merdiven yıkama, apartman ortak alan temizliği ve hijyen personeli temini. Ücretsiz keşif.`;
     serviceKeywords = [
       `${district.name} apartman temizliği`,
       `${district.name} site temizlik şirketi`,
@@ -259,7 +260,7 @@ export async function generateMetadata({
     ];
   } else if (isCleaning) {
     metaTitle = `${district.name} Site & Apartman Temizliği, Dış Cephe Cam Silimi — Alo Yönetim`;
-    metaDesc = `${district.name}'de TSE HYB standartlarında ortak alan temizliği, dağcı iple erişim dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama. Ücretsiz keşif.`;
+    metaDesc = `${district.name}'de ortak alan temizliği, dağcı iple erişim dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama. Ücretsiz keşif.`;
     serviceKeywords = [
       `${district.name} site temizlik şirketi`,
       `${district.name} apartman temizliği`,
@@ -364,7 +365,7 @@ export default async function ServiceDistrictPage({
     pageHeaderDesc = `${district.name} genelinde Sanayi Bakanlığı ve MMO yeşil etiket uyumlu asansör periyodik bakımı, 7/24 acil kurtarma ve revizyon hizmeti.`;
   } else if (hizmet === 'apartman-temizligi' || hizmet === 'site-temizligi' || hizmet === 'merdiven-temizligi') {
     pageHeaderTitle = `${district.name} Apartman & Site Temizlik Şirketleri`;
-    pageHeaderDesc = `${district.name} apartman ve siteleri için TSE HYB standartlarında periyodik merdiven yıkama, bina içi dezenfeksiyon ve güvenilir temizlik personeli.`;
+    pageHeaderDesc = `${district.name} apartman ve siteleri için periyodik merdiven yıkama, bina içi dezenfeksiyon ve güvenilir temizlik personeli.`;
   } else if (hizmet === 'guvenlik-sirketleri' || hizmet === 'guvenlik-firmalari' || hizmet === 'ozel-guvenlik' || isSecurity) {
     pageHeaderTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik ve Koruma`;
     pageHeaderDesc = `${district.name} genelinde 5188 sayılı kanun standartlarında Valilik ruhsatlı özel güvenlik personeli, 7/24 devriye ve CCTV kamera izleme hizmeti.`;
@@ -376,7 +377,7 @@ export default async function ServiceDistrictPage({
     pageHeaderDesc = `${district.name} genelinde Sanayi Bakanlığı ve MMO yeşil etiket uyumlu asansör periyodik bakımı, jeneratör ve kompanzasyon teknik işletmeciliği.`;
   } else if (isCleaning) {
     pageHeaderTitle = `${district.name} Apartman & Site Temizlik Şirketleri`;
-    pageHeaderDesc = `${district.name} siteleri ve apartmanları için TSE HYB standartlarında blok kat temizliği, dağcı cam silimi ve biyosidal ilaçlama.`;
+    pageHeaderDesc = `${district.name} siteleri ve apartmanları için blok kat temizliği, dağcı cam silimi ve biyosidal ilaçlama.`;
   }
 
   const breadcrumbName = hizmet === 'site-yonetimi'
@@ -424,13 +425,7 @@ export default async function ServiceDistrictPage({
     ...(isFacility
       ? {
           category: 'ISO 41001 Entegre Tesis Yönetimi',
-          hasCredential: [
-            {
-              '@type': 'EducationalOccupationalCredential',
-              name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
-              sameAs: 'https://www.wikidata.org/wiki/Q108846399',
-            },
-          ],
+          hasCredential: ORG_CREDENTIALS,
         }
       : {
           isSubServiceOf: {
@@ -533,7 +528,7 @@ export default async function ServiceDistrictPage({
           ) : isTechnical ? (
             `${district.name}'de bina ve site teknik işletmesi için Alo Yönetim; Sanayi Bakanlığı yetkili asansör bakımı, jeneratör yük testleri, reaktif ceza önleyici kompanzasyon takibi ve hidrofor kontrolü sunar. Sıfır arıza, yüzde 100 yasal muayene garantisi: 0216 550 48 48.`
           ) : isCleaning ? (
-            `${district.name}'de profesyonel site ve bina temizliği için Alo Yönetim; TSE HYB 12849 belgeli kat koridoru paspaslama, asansör dezenfeksiyonu, IRATA sertifikalı dağcı cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama uygular: 0216 550 48 48.`
+            `${district.name}'de profesyonel site ve bina temizliği için Alo Yönetim; kat koridoru paspaslama, asansör dezenfeksiyonu, IRATA sertifikalı dağcı cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama uygular: 0216 550 48 48.`
           ) : (
             `${district.name}'de ${service.name.toLowerCase()} için Alo Yönetim; ${service.benefits[0].toLowerCase()} başta olmak üzere profesyonel ekiple hizmet verir. Ücretsiz keşif sonrası 48 saat içinde şeffaf, gizli gider içermeyen teklif sunulur. İletişim: 0216 550 48 48.`
           )}
@@ -552,7 +547,7 @@ export default async function ServiceDistrictPage({
               : isTechnical
               ? `${district.name} Sitelerinde TMMOB & Sanayi Bakanlığı Uyumlu Asansör ve Teknik Bakım`
               : isCleaning
-              ? `${district.name}'de TSE HYB Onaylı Apartman ve Site Temizlik Hizmetleri`
+              ? `${district.name}'de Apartman ve Site Temizlik Hizmetleri`
               : service.name}
           </h2>
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">

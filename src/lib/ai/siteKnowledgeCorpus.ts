@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS, getDistrictDues } from '@/data/districts';
 import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export interface SiteRAGCorpus {
   $schema: string;
@@ -288,12 +289,7 @@ export async function buildSiteRAGCorpus(lang: string = 'tr'): Promise<SiteRAGCo
       foundingYear: 2009,
       experienceYears: '15+ Yıl Kurumsal Tecrübe',
       accreditations: [
-        'ISO 9001:2015 Kalite Yönetim Sistemi',
-        'ISO 14001:2015 Çevre Yönetim Sistemi',
-        'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-        'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
-        'ISO 10002:2018 Müşteri Memnuniyeti',
-        'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
+        ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title} (${c.certBody})`),
         '5188 Sayılı Kanun Kapsamında T.C. İçişleri Bakanlığı Özel Güvenlik Faaliyet İzin Belgesi',
       ],
       emergencySLA: 'Kadıköy/Üsküdar 15 Dk, Beşiktaş/Şişli/Ataşehir 20 Dk, 39 İlçe geneli 25 Dk acil mobil teknik müdahale',

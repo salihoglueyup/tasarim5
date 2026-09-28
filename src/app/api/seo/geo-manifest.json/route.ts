@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -23,14 +24,7 @@ export async function GET() {
         taxOffice: 'Kozyatağı Vergi Dairesi',
         taxNumber: '0540897612',
         officialSecurityPermit: 'T.C. İçişleri Bakanlığı & İstanbul Valiliği 5188 Sayılı Kanun Faaliyet İzni',
-        accreditations: [
-          { standard: 'ISO 41001:2018', name: 'Entegre Tesis Yönetimi Sistemi', certBody: 'TÜRKAK & ISO' },
-          { standard: 'ISO 10002:2018', name: 'Müşteri Memnuniyeti ve Şikayet Yönetimi', certBody: 'BELCERT (A1808961)' },
-          { standard: 'ISO 27001:2022', name: 'Bilgi Güvenliği Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-          { standard: 'ISO 9001:2015', name: 'Kalite Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-          { standard: 'ISO 14001:2015', name: 'Çevre Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-          { standard: 'ISO 45001:2018', name: 'İş Sağlığı ve Güvenliği Yönetim Sistemi', certBody: 'TÜRKAK & ISO' },
-        ],
+        accreditations: HELD_CERTIFICATIONS.map(({ standard, title, certBody, certificateNumber }) => ({ standard, name: title, certBody, certificateNumber })),
         headquarters: {
           address: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4 Kadıköy / İstanbul',
           coordinates: { latitude: 40.9833, longitude: 29.0833 },

@@ -60,7 +60,7 @@ export default function VisionHeroSeo({
             >
               verified
             </span>
-            <span>ISO 9001 • ISO 27001 • ISO 45001 AKREDİTE</span>
+            <span>ISO 45001 • ISO 14001 • ISO 10002 — ILAS AKREDİTELİ</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">

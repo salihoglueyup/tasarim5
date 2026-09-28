@@ -89,7 +89,7 @@ describe('GSC Batch 2 High-Impact Query Opportunities', () => {
       );
 
       expect(servicePageSource).toContain('pageHeaderTitle = `${district.name} Apartman & Site Temizlik Şirketleri`');
-      expect(servicePageSource).toContain('${district.name}\'de TSE HYB Onaylı Apartman ve Site Temizlik Hizmetleri');
+      expect(servicePageSource).toContain('${district.name}\'de Apartman ve Site Temizlik Hizmetleri');
     });
   });
 

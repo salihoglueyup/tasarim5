@@ -1,5 +1,6 @@
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
 import {
   ORG_ID,
   ORG_NAME,
@@ -15,7 +16,7 @@ import {
  * "Tesis Yönetimi" ISO 41001 & KMK 634 Semantik Topikal Otorite Grafiği (Alo Yönetim).
  * 
  * Google Knowledge Graph, Schema.org ve AI arama motorlarına (Gemini, Perplexity, ChatGPT Search)
- * Alo Yönetim'in "Tesis Yönetimi" alanında Türkiye'nin ISO 41001 ve TSE akredite lider otoritesi
+ * Alo Yönetim'in "Tesis Yönetimi" alanında BELCERT/ILAS belgeli kurumsal otoritesi
  * olduğunu hiyerarşik varlık düğümleriyle (Entity Nodes) kanıtlar.
  */
 
@@ -40,7 +41,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     name: 'Alo Yönetim Professional Property & Integrated Facility Management',
     serviceType: 'Professional Property & Integrated Facility Management',
     description:
-      'ISO 41001 certified professional facility management across Istanbul for apartments, residential complexes, business towers, and industrial estates encompassing 24/7 security, cleaning, technical maintenance, transparent dues accounting, and legal consulting.',
+      'ILAS-accredited ISO certified professional facility management across Istanbul for apartments, residential complexes, business towers, and industrial estates encompassing 24/7 security, cleaning, technical maintenance, transparent dues accounting, and legal consulting.',
     catalogName: 'Alo Yönetim Facility Management Packages and Sectoral Solutions',
     serviceOutput: '25-35% Common Budget Savings, 99.2% Dues Collection Success, Zero Legal Risk, and 24/7 Uninterrupted Security',
   },
@@ -109,71 +110,7 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       name: loc.serviceOutput,
     },
     // ISO ve Yasal Standartlar (Topikal Otorite)
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'International Standard',
-        name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi Standardı',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q108846399',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Quality Management',
-        name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q11029',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Occupational Health and Safety',
-        name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q25053744',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Environmental Management',
-        name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q751997',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Information Security',
-        name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q815962',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Customer Satisfaction',
-        name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q11029',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Government License',
-        name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-        url: `${BASE_URL}${langPrefix}/guvenlik-akademisi`,
-        sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'National Legislation Compliance',
-        name: '634 Sayılı Kat Mülkiyeti Kanunu Mevzuat Uyumu',
-        url: `${BASE_URL}${langPrefix}/hizmetler/hukuk-ve-icra-danismanligi`,
-        sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Technical Service Standard',
-        name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
-        url: `${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz`,
-        sameAs: 'https://www.wikidata.org/wiki/Q12812282',
-      },
-    ],
+    hasCredential: ORG_CREDENTIALS,
     // 8 Alt Uzmanlık Servisi (Spokes) ile Hiyerarşik Bağlantı
     isRelatedTo: [
       {

@@ -118,15 +118,6 @@ export const OFFICIAL_LEGAL_CITATIONS: ExternalCitation[] = [
     category: 'iso_standard',
   },
   {
-    id: 'tse-hyb-12850',
-    name: 'TSE HYB 12850 Hizmet Yeri Yeterlilik Standardı',
-    officialNumber: 'TS 12850',
-    url: 'https://www.tse.org.tr/',
-    sourceAuthority: 'Türk Standardları Enstitüsü (TSE)',
-    description: 'Tesis ve bina yönetiminde Türk Standardları Enstitüsü onaylı Hizmet Yeterlilik Belgesi (HYB).',
-    category: 'iso_standard',
-  },
-  {
     id: 'yargitay-emsal',
     name: 'Yargıtay Kat Mülkiyeti Hukuk Genel Kurulu Emsal Kararları',
     officialNumber: 'Yargıtay Bilgi Bankası',

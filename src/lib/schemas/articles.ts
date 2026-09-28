@@ -131,14 +131,7 @@ export function authorPersonSchema(author: {
   avatar?: string | null;
   credentials?: string[];
 }): JsonLdObject {
-  const credentialsList = (
-    author.credentials && author.credentials.length
-      ? author.credentials
-      : [
-          'ISO 41001:2018 Entegre Tesis Yönetimi Baş Denetçisi',
-          'KMK 634 Tesis Yönetimi ve Kat Mülkiyeti Hukuk Danışmanlığı Belgesi',
-        ]
-  ).map((c) => ({
+  const credentialsList = (author.credentials ?? []).map((c) => ({
     '@type': 'EducationalOccupationalCredential',
     name: c,
     credentialCategory: 'ProfessionalCertification',
@@ -151,7 +144,7 @@ export function authorPersonSchema(author: {
     url: abs(`/blog/yazar/${author.slug}`),
     jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı',
     worksFor: { '@id': ORG_ID },
-    hasCredential: credentialsList,
+    ...(credentialsList.length ? { hasCredential: credentialsList } : {}),
     knowsAbout: [
       'Tesis Yönetimi',
       'KMK 634 Kat Mülkiyeti Kanunu',

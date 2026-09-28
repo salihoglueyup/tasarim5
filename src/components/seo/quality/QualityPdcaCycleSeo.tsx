@@ -41,7 +41,7 @@ const PDCA_STEPS: PdcaStep[] = [
     color: 'from-cyan-500 to-emerald-500 text-cyan-500',
     badgeBg: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20',
     title: 'Standartlaştırılmış Saha Operasyonları ve Dijital Süreçler',
-    desc: 'Yazılı ISO 9001 iş talimatlarına göre eğitilmiş kadrolarla temizlik, güvenlik ve teknik bakım günlük disiplinle icra edilir.',
+    desc: 'Yazılı iş talimatlarına göre eğitilmiş kadrolarla temizlik, güvenlik ve teknik bakım günlük disiplinle icra edilir.',
     actions: [
       '5188 lisanslı güvenlik ile RFID devriye tur kontrolü ve akıllı PTS geçişi',
       'Binicili zemin otomatları ve ekolojik kimyasallarla günlük ortak alan hijyeni',

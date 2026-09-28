@@ -18,7 +18,7 @@ export default function BentoServices() {
       <div className="text-center mb-16 sm:mb-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4 border border-[var(--color-outline)]/60">
           <span className="material-symbols-outlined text-[16px]" aria-hidden="true">domain</span>
-          <span>ISO 41001 Akredite Entegre Tesis ve Mülk Çözümleri</span>
+          <span>ILAS Akrediteli Entegre Tesis ve Mülk Çözümleri</span>
         </div>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[var(--color-primary)] mb-6">
           {t('home_bento_title')}
@@ -91,7 +91,7 @@ export default function BentoServices() {
             <div className="flex items-center justify-between mb-4">
               <span className="material-symbols-outlined text-4xl text-[var(--color-primary)]" aria-hidden="true">cleaning_services</span>
               <span className="text-[11px] font-bold text-[var(--color-secondary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/40 px-2.5 py-0.5 rounded-full">
-                ISO 9001
+                ISO 14001
               </span>
             </div>
             <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">{t('home_bento_card2_title')}</h3>

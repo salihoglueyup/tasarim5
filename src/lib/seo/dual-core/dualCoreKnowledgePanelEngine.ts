@@ -12,6 +12,7 @@ import { BASE_URL } from '@/lib/seo';
 import { DomainPillar } from '../audits/domainKeywordsTaxonomy';
 import { CANONICAL_NAP } from '../audits/napGuardEngine';
 import { DISTRICTS } from '@/data/districts';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 /* =========================================================================
  * H1 — ORGANİZASYON & MARKA VARLIĞI (Faz 106-118)
@@ -50,12 +51,8 @@ export interface AuthorEntityOptions {
 }
 
 export const CORPORATE_CREDENTIALS = [
-  'ISO 41001:2018 Tesis Yönetim Standardı Akreditasyonu',
-  'ISO 9001:2015 Kalite Yönetim Sistemi Sertifikası',
-  'ISO 14001:2015 Çevre Yönetim Sistemi Sertifikası',
-  'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
+  ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title} (${c.certBody})`),
   '5188 Sayılı Özel Güvenlik Hizmet Faaliyet İzin Belgesi',
-  'KMK 634 Lisanslı Profesyonel Tesis & Site Yöneticiliği Belgesi',
 ];
 
 export const CORPORATE_AWARDS = [
@@ -388,7 +385,7 @@ export function buildEEATSignalBundle(pageType: string, pillar: DomainPillar = '
       ];
 
   const expertiseSignals = [
-    { label: 'Uluslararası Tesis Standardı', certification: 'ISO 41001:2018', authorityBody: 'TÜRKAK / IAS Akredite' },
+    { label: 'İş Sağlığı ve Güvenliği', certification: 'ISO 45001:2018', authorityBody: 'BELCERT (ILAS-MS-0089)' },
     { label: 'Yasal Güvenlik Yetkinliği', certification: '5188 Sayılı Kanun Lisansı', authorityBody: 'T.C. İçişleri Bakanlığı EGM' },
     { label: 'Kat Mülkiyeti Hukuk Kadrosu', certification: 'KMK 634 Uzmanlığı', authorityBody: 'Alo Yönetim Hukuk Müşavirliği' },
   ];

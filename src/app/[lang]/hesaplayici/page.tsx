@@ -4,7 +4,7 @@ import CalculatorClient from './CalculatorClient';
 import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { generateBreadcrumbs, webPageSchema, howToSchema } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema, howToSchema, ORG_CREDENTIALS } from '@/lib/schemas';
 import { DefinedTermSetSeo, CalculatorAiOverviewSeo, BudgetMatrixAiGroundingSeo } from '@/components/seo';
 
 export const dynamic = 'force-dynamic';
@@ -93,35 +93,13 @@ export default async function HesaplayiciServer() {
       'KMK 634 standartlarında bütçe simülasyonu',
       '5188 özel güvenlik ve temizlik maliyet hesaplama',
       'Yüzde 30 kanıtlanmış aidat tasarruf projeksiyonu',
-      'ISO 10002 ve ISO 41001 akrediteli şeffaf yönetim güvencesi',
+      'ISO 10002 ve ISO 31000 belgeli şeffaf yönetim güvencesi',
     ],
     provider: {
       '@type': 'Organization',
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       url: BASE_URL,
-      hasCredential: [
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi Sistemi',
-          credentialCategory: 'certificate',
-          identifier: 'A1808961',
-          recognizedBy: {
-            '@type': 'Organization',
-            name: 'BELCERT Uluslararası Belgelendirme (ILAS-MS-0089)',
-          },
-          url: `${BASE_URL}/kurumsal/sertifikalar/iso-10002`,
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
-          credentialCategory: 'certificate',
-          recognizedBy: {
-            '@type': 'Organization',
-            name: 'TÜRKAK & ISO',
-          },
-          url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-        },
-      ],
+      hasCredential: ORG_CREDENTIALS,
     },
     potentialAction: {
       '@type': 'CalculateAction',

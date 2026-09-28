@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Günde bir yenile (ISR)
@@ -53,10 +54,8 @@ export async function GET() {
           routineMaintenanceFrequency: 'Haftalık / Aylık Periyodik',
         },
         accreditations: [
-          'ISO 41001:2018 Uluslararası Entegre Tesis Yönetimi',
-          'ISO 9001:2015 Kalite Yönetim Sistemi',
+          ...HELD_CERTIFICATIONS.map((c) => `${c.standard} ${c.title}`),
           '5188 Sayılı Kanun Valilik Lisanslı Özel Güvenlik',
-          'TSE HYB 12850 Tesis Bakım Hizmet Yeri Yeterlilik',
         ],
         canonicalUrls: {
           facilityManagement: `${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi`,

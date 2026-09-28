@@ -52,15 +52,15 @@ export default function QualityHeroSeo({ onOpenQuote }: QualityHeroSeoProps) {
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6">
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-slate-500/10 border border-slate-500/20 backdrop-blur-md uppercase tracking-wider">
             <span className="material-symbols-outlined text-sm text-slate-300">verified</span>
-            TÜRKAK & IAF Akreditasyonlu
+            BELCERT / ILAS Akrediteli
           </span>
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-slate-500/10 border border-slate-500/20 backdrop-blur-md uppercase tracking-wider">
             <span className="material-symbols-outlined text-sm text-slate-300">workspace_premium</span>
-            ISO 41001 & ISO 9001 Standartları
+            ISO 45001 · 14001 · 10002 · 22301 · 31000
           </span>
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-slate-500/10 border border-slate-500/20 backdrop-blur-md uppercase tracking-wider">
             <span className="material-symbols-outlined text-sm text-slate-300">gavel</span>
-            TSE HYB 12850 & 5188 Sayılı Kanun
+            5188 Sayılı Kanun Güvenlik İzni
           </span>
         </div>
 

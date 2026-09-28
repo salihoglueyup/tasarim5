@@ -316,7 +316,7 @@ const PILLARS_DATA: Record<OperationalPillarId, PillarData> = {
           'Fabrika çevre tel örgüsü boyunca çift doğrulamalı termal hareket sensörü',
           'Şoför bekleme salonu ve yükleme sahası iş güvenliği bariyer çizgileri'
         ],
-        standardOrLaw: 'TSE HYB 12850 & 5188 Sayılı Kanun'
+        standardOrLaw: 'ISO 45001 & 5188 Sayılı Kanun'
       },
     ],
   },

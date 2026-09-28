@@ -1,4 +1,5 @@
 import type { JsonLdObject, OfferItem, RatingInput } from './constants';
+import { ORG_CREDENTIALS } from './organization';
 import {
   ORG_ID,
   LOCALBUSINESS_ID,
@@ -226,18 +227,7 @@ export function districtSecurityServiceSchema({
       legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
-      hasCredential: [
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Şirketi Faaliyet İzin Belgesi',
-          credentialCategory: 'GovernmentPermit'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'T.C. İstanbul Valiliği Özel Güvenlik İzin Ruhsatı',
-          credentialCategory: 'GovernmentPermit'
-        }
-      ]
+      hasCredential: ORG_CREDENTIALS
     },
     areaServed: {
       '@type': 'AdministrativeArea',
@@ -332,18 +322,7 @@ export function districtTechnicalServiceSchema(opts: {
       legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
-      hasCredential: [
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'TMMOB Makina ve Elektrik Mühendisleri Odası Tescilli Teknik Bakım Yeterliliği',
-          credentialCategory: 'ProfessionalLicense'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'Sanayi ve Teknoloji Bakanlığı Asansör Yetkili Servis Sertifikasyonu',
-          credentialCategory: 'GovernmentPermit'
-        }
-      ]
+      hasCredential: ORG_CREDENTIALS
     },
     areaServed: {
       '@type': 'AdministrativeArea',
@@ -427,7 +406,7 @@ export function districtCleaningServiceSchema(opts: {
     '@type': 'HouseCleaningService',
     '@id': `${url}#cleaning-service`,
     name: `${districtName} Profesyonel Site Temizliği, Dış Cephe Cam Silimi & İlaçlama`,
-    description: `${districtName} siteleri ve tesisleri için TSE HYB standartlarında blok kat temizliği, asansör hijyeni, dağcı dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama.`,
+    description: `${districtName} siteleri ve tesisleri için blok kat temizliği, asansör hijyeni, dağcı dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama.`,
     url,
     serviceType: 'Site, Rezidans ve Tesis Profesyonel Temizlik ve Dezenfeksiyon Hizmetleri',
     category: 'HouseCleaningService',
@@ -438,18 +417,7 @@ export function districtCleaningServiceSchema(opts: {
       legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
-      hasCredential: [
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'TSE HYB 12849 Hizmet Yeterlilik Belgesi (Endüstriyel Temizlik)',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'T.C. Sağlık Bakanlığı Biyosidal Ürün Uygulama İzin Belgesi',
-          credentialCategory: 'GovernmentPermit'
-        }
-      ]
+      hasCredential: ORG_CREDENTIALS
     },
     areaServed: {
       '@type': 'AdministrativeArea',
@@ -590,48 +558,7 @@ export function districtFacilityServiceSchema(opts: {
       legalName: ORG_LEGAL_NAME,
       url: BASE_URL,
       telephone: ORG_PHONE,
-      hasCredential: [
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
-          credentialCategory: 'QualityCertification'
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
-          credentialCategory: 'GovernmentPermit'
-        }
-      ]
+      hasCredential: ORG_CREDENTIALS
     },
     areaServed: {
       '@type': 'AdministrativeArea',

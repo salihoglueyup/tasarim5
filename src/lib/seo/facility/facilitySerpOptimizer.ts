@@ -58,7 +58,7 @@ export function getFacilitySerpMeta(
     // Faz 157: EN, RU ve AR için kültürel ve yerel arama niyetine göre optimize edilmiş meta etiketleri
     if (lang === 'en') {
       title = `Professional Property & Facility Management in ${district.name}, Istanbul | Alo Yönetim`;
-      description = `Integrated residential site and facility management across ${district.name}, Istanbul. ISO 41001 accredited services, 24/7 security, and 30% savings.`;
+      description = `Integrated residential site and facility management across ${district.name}, Istanbul. ILAS-accredited ISO certified services, 24/7 security, and 30% savings.`;
       targetKeyword = `${district.name} property management istanbul`;
     } else if (lang === 'ru') {
       title = `Управление Жилыми Комплексами и Объектами в ${district.name}, Стамбул | Alo Yönetim`;
@@ -107,20 +107,20 @@ export function getFacilitySerpMeta(
 
   // Ana Hub Sayfası
   let title = 'Profesyonel Site ve Tesis Yönetimi İstanbul — ISO 41001 & KMK 634 | Alo Yönetim';
-  let description = 'İstanbul genelinde 39 ilçede 340+ konut sitesi ve rezidans referansı. ISO 41001 sertifikalı profesyonel site ve tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %99.2 aidat tahsilat garantisi!';
+  let description = 'İstanbul genelinde 39 ilçede 340+ konut sitesi ve rezidans referansı. ILAS akrediteli ISO belgeli profesyonel site ve tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %99.2 aidat tahsilat garantisi!';
   let targetKeyword = pillar === 'site' ? 'site yönetimi' : 'tesis yönetimi';
 
   if (pillar === 'site') {
     title = 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim';
     description = 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı ve 5188 güvenlik!';
   } else if (pillar === 'facility') {
-    title = 'Tesis Yönetimi İstanbul — ISO 41001 Belgeli & %30 Tasarruf | Alo Yönetim';
+    title = 'Tesis Yönetimi İstanbul — ILAS Akrediteli ISO Belgeli | Alo Yönetim';
     description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için ISO 41001 standartlarında entegre tesis yönetimi, 7/24 teknik bakım ve %30 enerji/işletme tasarrufu.';
   }
 
   if (lang === 'en') {
     title = 'Professional Property, Site & Facility Management Istanbul — ISO 41001 | Alo Yönetim';
-    description = 'Integrated residential site and facility management across 39 Istanbul districts. ISO 41001 accredited property care, licensed security, and 30% budget savings.';
+    description = 'Integrated residential site and facility management across 39 Istanbul districts. ILAS-accredited ISO certified property care, licensed security, and 30% budget savings.';
     targetKeyword = pillar === 'site' ? 'site management istanbul' : 'facility management istanbul';
   } else if (lang === 'ru') {
     title = 'Профессиональное Управление Жилыми Комплексами и Объектами в Стамбуле | Alo Yönetim';

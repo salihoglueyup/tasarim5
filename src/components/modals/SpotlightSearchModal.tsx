@@ -276,11 +276,11 @@ export default function SpotlightSearchModal() {
       },
       {
         id: 'tool-quality-certifications',
-        title: 'TÜRKAK & ISO Kalite Belgelerimiz',
+        title: 'ISO Kalite Belgelerimiz',
         category: 'Kurumsal',
         url: `/${language}/kurumsal/kalite-belgelerimiz`,
-        description: 'ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 10002 ve 5188 faaliyet izin belgeleri.',
-        searchIndex: 'turkak iso kalite belgelerimiz iso 9001 14001 45001 27001 10002 sertifika lisans 5188'.toLowerCase(),
+        description: 'ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000, ISO 26000 ve 5188 faaliyet izin belgeleri.',
+        searchIndex: 'ilas belcert iso kalite belgelerimiz iso 14001 45001 10002 22301 31000 26000 sertifika lisans 5188'.toLowerCase(),
         icon: <ShieldCheck className="w-4 h-4 text-emerald-500" />,
       },
       {

@@ -97,11 +97,11 @@ export default function KvkkClient() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 text-xs">
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                 <Award className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>ISO 27001 Belgeli</span>
+                <span>KVKK Uyumlu</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                 <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>ISO 27701 Gizlilik</span>
+                <span>Açık Rıza Yönetimi</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                 <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />

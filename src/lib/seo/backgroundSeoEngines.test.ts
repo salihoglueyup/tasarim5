@@ -85,11 +85,12 @@ describe('5 Derin Arka Plan (Backend) SEO Motoru Testleri', () => {
   });
 
   describe('E-E-A-T Lisans & Otorite Doğrulama Motoru (eeatAuditor.ts)', () => {
-    it('ISO 41001, 5188 Güvenlik ve ISO 27001 belgelerini doğrular', () => {
+    it('5188 Güvenlik iznini ve gerçek BELCERT belgelerini doğrular', () => {
       expect(VERIFIED_AUTHORITY_CREDENTIALS.length).toBeGreaterThanOrEqual(4);
 
-      const iso41001 = VERIFIED_AUTHORITY_CREDENTIALS.find((c) => c.id === 'iso-41001');
-      expect(iso41001?.credentialNumber).toBe('ISO41001-TR-2024-8841');
+      const iso45001 = VERIFIED_AUTHORITY_CREDENTIALS.find((c) => c.id === 'iso-45001');
+      expect(iso45001?.credentialNumber).toBe('A1808966');
+      expect(VERIFIED_AUTHORITY_CREDENTIALS.some((c) => c.id === 'iso-41001')).toBe(false);
 
       const orgGraph = generateVerifiedAuthorityGraph();
       expect(orgGraph['@type']).toBe('Organization');

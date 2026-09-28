@@ -23,6 +23,30 @@ import {
   abs,
 } from './constants';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
+import { CERTIFICATES } from '@/data/certificates';
+
+const SECURITY_PERMIT_CREDENTIAL: JsonLdObject = {
+  '@type': 'EducationalOccupationalCredential',
+  name: '5188 Sayılı Kanun Özel Güvenlik Faaliyet İzin Belgesi',
+  description: 'T.C. İçişleri Bakanlığı onaylı 5188 sayılı kanun kapsamlı özel güvenlik faaliyet izni.',
+  credentialCategory: 'license',
+  recognizedBy: { '@type': 'GovernmentOrganization', name: 'T.C. İçişleri Bakanlığı', sameAs: 'https://www.wikidata.org/wiki/Q6084013' },
+  about: { '@type': 'Thing', name: '5188 Özel Güvenlik Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q20967015' },
+  url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+};
+
+const CERTIFICATE_CREDENTIALS: JsonLdObject[] = CERTIFICATES.map((c) => ({
+  '@type': 'EducationalOccupationalCredential',
+  name: `${c.name} — ${c.subtitle}`,
+  description: c.description,
+  credentialCategory: 'certificate',
+  identifier: c.certificateNumber,
+  validFor: 'P1Y',
+  recognizedBy: { '@type': 'Organization', name: c.issuer, url: c.issuerUrl },
+  url: `${BASE_URL}/kurumsal/sertifikalar/${c.slug}`,
+}));
+
+export const ORG_CREDENTIALS: JsonLdObject[] = [SECURITY_PERMIT_CREDENTIAL, ...CERTIFICATE_CREDENTIALS];
 
 export function organizationSchema(): JsonLdObject {
   return {
@@ -114,15 +138,6 @@ export function organizationSchema(): JsonLdObject {
         'Bina Otomasyonu ve Enerji Verimliliği',
       ],
     },
-    award: [
-      'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
-      'ISO 9001:2015 Kalite Yönetim Sistemi',
-      'ISO 14001:2015 Çevre Yönetim Sistemi',
-      'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-      'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-      'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
-      'TSE Hizmet Yeterlilik Belgesi',
-    ],
     // Faz 95: Sektörel Dernek ve Meslek Odası Üyelikleri (TRFMA & İTO)
     memberOf: [
       {
@@ -136,64 +151,7 @@ export function organizationSchema(): JsonLdObject {
         url: 'https://www.ito.org.tr',
       },
     ],
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi Sertifikası',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'T.C. İçişleri Bakanlığı 5188 Özel Güvenlik Faaliyet İzin Belgesi',
-        credentialCategory: 'license',
-        recognizedBy: { '@type': 'GovernmentOrganization', name: 'T.C. İçişleri Bakanlığı' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 9001:2015 Kalite Yönetim Sistemi Sertifikası',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 14001:2015 Çevre Yönetim Sistemi Sertifikası',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Sertifikası',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi Sertifikası',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi Sertifikası',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'TSE HYB 12850 Tesis Hizmet Yeterlilik Belgesi',
-        credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'GovernmentOrganization', name: 'Türk Standardları Enstitüsü (TSE)', sameAs: 'https://www.wikidata.org/wiki/Q7855364' },
-        url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      },
-    ],
+    hasCredential: ORG_CREDENTIALS,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Alo Yönetim Entegre Tesis ve Mülk Yönetimi Hizmet Kataloğu',
@@ -205,7 +163,7 @@ export function organizationSchema(): JsonLdObject {
             name: 'Profesyonel Site ve Toplu Konut Yönetimi',
             url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
             serviceType: 'Site Yönetimi',
-            description: '634 Sayılı Kat Mülkiyeti Kanunu ve ISO 41001 standartlarında 5188 güvenlik, aidat tahsilatı ve teknik servis hizmetleri.',
+            description: '634 Sayılı Kat Mülkiyeti Kanunu kapsamında 5188 lisanslı güvenlik, aidat tahsilatı ve teknik servis hizmetleri.',
           },
         },
         {
@@ -425,98 +383,10 @@ export function credentialSchema(): JsonLdObject {
   return {
     '@type': 'ItemList',
     name: 'Alo Yönetim Akreditasyon & Sertifikalar',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 41001:2018 Entegre Tesis Yönetim Sistemi',
-          description: 'ISO 41001:2018 standardına uygun entegre tesis yönetim sistemi belgelendirmesi.',
-          recognizedBy: { '@type': 'Organization', name: 'International Organization for Standardization (ISO)' },
-          credentialCategory: 'certificate',
-          about: { '@type': 'Thing', name: 'Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-          description: 'Kalite güvencesi ve müşteri odaklı süreç yönetimi akreditasyonu.',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & IAF' },
-          credentialCategory: 'certificate',
-          about: { '@type': 'Thing', name: 'Kalite Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q11029' },
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
-          description: 'Yeşil bina, enerji tasarrufu ve atık yönetimi çevre standardı belgesi.',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & IAF' },
-          credentialCategory: 'certificate',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-          description: 'Tesis personeli ve saha operasyonları iş sağlığı ve güvenliği standardı.',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & IAF' },
-          credentialCategory: 'certificate',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 5,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-          description: 'Sakin verileri, aidat muhasebesi ve dijital sistemler bilgi güvenliği sertifikası.',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & IAF' },
-          credentialCategory: 'certificate',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 6,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi',
-          description: 'Site ve bina sakinleri talep/şikayet yönetim sistemi standart belgesi.',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & IAF' },
-          credentialCategory: 'certificate',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 7,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: '5188 Sayılı Kanun Özel Güvenlik Faaliyet İzin Belgesi',
-          description: 'T.C. İçişleri Bakanlığı onaylı 5188 sayılı kanun kapsamlı özel güvenlik faaliyet izni.',
-          recognizedBy: { '@type': 'GovernmentOrganization', name: 'T.C. İçişleri Bakanlığı', sameAs: 'https://www.wikidata.org/wiki/Q6084013' },
-          credentialCategory: 'license',
-          about: { '@type': 'Thing', name: '5188 Özel Güvenlik Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q20967015' },
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 8,
-        item: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'TSE HYB 12850 Tesis Hizmet Yeterlilik Belgesi',
-          description: 'Türk Standardları Enstitüsü onaylı tesis ve site işletim hizmet yeri yeterlilik belgesi.',
-          recognizedBy: { '@type': 'GovernmentOrganization', name: 'Türk Standardları Enstitüsü (TSE)', sameAs: 'https://www.wikidata.org/wiki/Q7855364' },
-          credentialCategory: 'certificate',
-        },
-      },
-    ],
+    itemListElement: ORG_CREDENTIALS.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item,
+    })),
   };
 }

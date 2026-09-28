@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-static';
 export const revalidate = 86400;
@@ -142,12 +143,8 @@ export async function GET() {
       },
     ],
     credentials: [
-      { name: 'ISO 41001:2018 Tesis Yönetim Sistemi', issuer: 'Uluslararası Akreditasyon' },
-      { name: 'ISO 9001 Kalite Yönetim Sistemi', issuer: 'Türk Standartları Enstitüsü' },
-      { name: 'ISO 14001 Çevre Yönetim Sistemi', issuer: 'TSE' },
-      { name: 'ISO 45001 İSG Yönetim Sistemi', issuer: 'TSE' },
+      ...HELD_CERTIFICATIONS.map((c) => ({ name: `${c.standard} ${c.title}`, issuer: c.certBody, certificateNumber: c.certificateNumber })),
       { name: '5188 Özel Güvenlik Faaliyet Belgesi', issuer: 'İçişleri Bakanlığı' },
-      { name: 'TSE HYB Temizlik Hizmet Yeterlilik Belgesi', issuer: 'TSE' },
     ],
     geographicCoverage: {
       '@type': 'City',

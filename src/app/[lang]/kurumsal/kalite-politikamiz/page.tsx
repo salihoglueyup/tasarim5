@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_ID } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_ID, ORG_CREDENTIALS } from '@/lib/schemas';
 import { QUALITY_FAQS } from '@/components/seo/quality';
 import KalitePolitikamizClient from './KalitePolitikamizClient';
 
@@ -21,8 +21,8 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Kalite Politikamız — ISO 41001 & ISO 9001 Standartları | Alo Yönetim';
-  const description = 'TÜRKAK onaylı ISO 41001, ISO 9001, ISO 27001, ISO 45001 ve TSE HYB 12850 akreditasyonlarıyla tavizsiz kalite ve yılda 48 habersiz iç denetim politikamız.';
+  const title = 'Kalite Politikamız — ILAS Akrediteli ISO Belgeleri | Alo Yönetim';
+  const description = 'BELCERT/ILAS belgeli ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 yönetim sistemleriyle tavizsiz kalite ve yılda 48 habersiz iç denetim politikamız.';
 
   return buildMetadata({
     title,
@@ -33,12 +33,11 @@ export async function generateMetadata({
     ogImageType: 'default',
     keywords: [
       'alo yönetim kalite politikası',
-      'iso 9001 tesis yönetimi',
-      'iso 41001 kalite standartları',
+      'iso 45001 site yönetimi',
+      'iso 10002 müşteri memnuniyeti',
       'site yönetimi hizmet kalitesi',
-      'türkak akreditasyonlu site yönetimi',
-      'puko kalite dongusu',
-      'tse hyb 12850 tesis isletmesi'
+      'ilas akrediteli iso belgeleri',
+      'puko kalite dongusu'
     ],
   });
 }
@@ -60,38 +59,7 @@ export default async function KalitePolitikamizPage({
   const credentialLd = {
     '@type': 'Organization',
     '@id': ORG_ID,
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 41001:2018 Entegre Tesis Yönetim Standardı',
-        credentialCategory: 'TÜRKAK & IAF Akreditasyonlu Tesis Standardı',
-        description: 'Toplu yaşam alanlarında maliyet optimizasyonu ve operasyonel verimlilik.'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-        credentialCategory: 'TÜRKAK Akreditasyonlu Kalite Standardı',
-        description: 'Tesis işletmesinde müşteri odaklılık ve sürekli iyileştirme güvencesi.'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi',
-        credentialCategory: 'KVKK & Bilgi Güvenliği Standardı',
-        description: 'Kat malikleri verilerinin 256-bit şifrelenmesi ve veri mahremiyeti.'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği',
-        credentialCategory: 'İSG ve Sıfır Kaza Standardı',
-        description: 'Saha çalışanlarının İSG eğitimleri ve koruyucu donanım takibi.'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
-        credentialCategory: 'T.C. Türk Standardları Enstitüsü Onaylı',
-        description: 'Entegre bina ve tesis yönetimi hizmet yeterlilik uygunluğu.'
-      }
-    ]
+    hasCredential: ORG_CREDENTIALS
   };
 
   const faqLd = faqPageSchema(QUALITY_FAQS);

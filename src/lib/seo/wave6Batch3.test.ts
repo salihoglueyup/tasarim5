@@ -27,7 +27,7 @@ describe('Wave 6: Faz 136 - Faz 140 Otomatik İç Linkleme, E-E-A-T Denetimi, Ya
       authorBio: 'Kıdemli Tesis Yönetimi ve KMK 634 Uzmanı, 15 yıl deneyimli.',
       publishDate: '2026-01-10T00:00:00Z',
       modifiedDate: '2026-02-01T00:00:00Z',
-      text: 'Bu makalede 634 sayılı kat mülkiyeti kanunu ve ISO 41001 standartları incelenmiştir.',
+      text: 'Bu makalede 634 sayılı kat mülkiyeti kanunu ve BELCERT tarafından verilen ISO 45001 belgesi incelenmiştir.',
     });
 
     expect(result.score).toBe(100);

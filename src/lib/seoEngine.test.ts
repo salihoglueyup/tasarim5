@@ -544,7 +544,7 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
       expect(Array.isArray(org.hasCredential)).toBe(true);
 
       const credentialNames = (org.hasCredential as any[]).map((c) => c.name);
-      expect(credentialNames.some((n: string) => n.includes('ISO 41001'))).toBe(true);
+      expect(credentialNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
       expect(credentialNames.some((n: string) => n.includes('5188'))).toBe(true);
 
       // Faz 91: Varlık taksonomisi (additionalType)

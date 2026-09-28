@@ -264,8 +264,7 @@ export default function TesisYonetimiClient() {
                 <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
               </a>
               ,{' '}
-              <span className="font-semibold text-[var(--color-primary)]">6331 Sayılı İş Sağlığı ve Güvenliği (İSG) Kanunu</span> ve{' '}
-              <span className="font-semibold text-[var(--color-primary)]">TSE HYB 12850 Hizmet Yeterlilik Standardı</span> çerçevesinde yönetilir.
+              <span className="font-semibold text-[var(--color-primary)]">6331 Sayılı İş Sağlığı ve Güvenliği (İSG) Kanunu</span> çerçevesinde yönetilir.
             </p>
             <p>
               Tesislerin yönetiminde reaktif (arıza oluştuktan sonra müdahale eden) değil, kestirimci ve planlı önleyici bir yaklaşım benimsenir. Bu sistematik disiplin; beklenmeyen yüksek arıza masraflarını, bütçe açıklarını ve komşuluk ihtilaflarını kökten engellerken, tesisin tüm fiziksel varlıklarını en yüksek performansta tutar. Mülkünüzün her detayını kapsayan operasyonlarımız dört ana uzmanlık disiplini üzerinde yapılandırılır:
@@ -638,9 +637,9 @@ export default function TesisYonetimiClient() {
             />
             <InstantAnswerCardSeo
               question="Tesis Yönetim Şirketi Seçerken Nelere Dikkat Edilmeli ve Hangi Yasal Belgeler İstenmelidir?"
-              shortAnswer="Tesis yönetim şirketi seçerken ISO 41001:2018 Entegre Tesis Yönetimi ve TSE HYB 12850 belgelerinin bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin en az 3 aktif referans projesi, 45 dakikalık acil teknik müdahale SLA taahhüdü ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
+              shortAnswer="Tesis yönetim şirketi seçerken akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgelerinin (ör. ISO 45001 İSG, ISO 14001 Çevre) bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin en az 3 aktif referans projesi, 45 dakikalık acil teknik müdahale SLA taahhüdü ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
               bulletPoints={[
-                'ISO 41001, ISO 9001 ve TSE HYB 12850 resmi akreditasyon belgeleri kontrol edilmelidir.',
+                'ISO belgelerinin akreditasyonu, geçerlilik tarihi ve belgelendirme kuruluşu üzerinden doğrulanmalıdır.',
                 '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi şirket adına tescilli olmalıdır.',
                 'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket garantisinde olduğu sözleşmede yer almalıdır.',
                 'Acil teknik arızalarda maksimum 45 dakika SLA müdahale taahhüdü aranmalıdır.'
@@ -690,13 +689,6 @@ export default function TesisYonetimiClient() {
               url: "https://www.tse.org.tr",
               badge: "ISO 41001",
               description: "Tesis yönetiminde operasyonel verimlilik, maliyet optimizasyonu, risk yönetimi ve sakin memnuniyeti standartları."
-            },
-            {
-              title: "TSE HYB 12850 — İşyerleri: Bina ve Tesis Yönetim Hizmetleri Kuralları",
-              sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı & TSE",
-              url: "https://www.tse.org.tr",
-              badge: "TSE HYB 12850",
-              description: "Profesyonel bina ve tesis yönetimi şirketlerinin sahip olması gereken fiziki, idari ve teknik hizmet yeterlilik kriterleri."
             }
           ]}
           glossaryTerms={[

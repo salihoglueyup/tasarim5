@@ -245,7 +245,7 @@ export default function SiteVsFacilityComparisonSeo({
                     🏭 Ticari Plazalar ve İş Merkezleri İçin: Entegre Tesis Yönetimi
                   </h4>
                   <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-normal">
-                    ISO 41001 sertifikalı teknik işletme, BMS/HVAC otomasyonu, enerji verimliliği, reaktif güç cezası
+                    ISO 45001 belgeli teknik işletme, BMS/HVAC otomasyonu, enerji verimliliği, reaktif güç cezası
                     koruması ve kurumsal SLA taahhüdü ile tesisinizin işletme maliyetlerini %30 düşürüp gayrimenkul değerini artıralım.
                   </p>
                 </div>

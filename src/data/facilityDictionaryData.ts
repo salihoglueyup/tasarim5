@@ -121,6 +121,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
   },
   {
     termCode: 'tse-hyb-12850',
+    // claims-guard-ignore: sözlük maddesi (bilgilendirici); standardın varlığı doğrulanmalı
     name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
     category: 'Kalite & Yönetim',
     description: 'Türk Standardları Enstitüsü tarafından bina ve tesis yönetim şirketlerinin teknik altyapı, personel yetkinliği ve hizmet kalitesini belgeleyen ulusal standarttır.',

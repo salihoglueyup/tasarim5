@@ -100,7 +100,7 @@ export const FACILITY_ANNUAL_MAINTENANCE_SCHEDULE: MaintenanceScheduleItem[] = [
       '6 kg ABC tozlu ve CO2 yangın tüplerinin piktogram, manometre yeşil bölge ve emniyet pimi mühür kontrolü.',
     ],
     legalRiskIfNotDone: 'İtfaiye ve belediye ruhsat denetimlerinde idari para cezası; olası yangında kasko ve yangın sigortası hasar tazminatının reddedilmesi.',
-    aloYonetimGuarantee: 'TSE HYB belgeli yangın güvenlik firmamızca her cihaz barkodla etiketlenir ve dijital yangın envanter sistemimize işlenir.',
+    aloYonetimGuarantee: 'Yetkili yangın güvenlik servis firmamızca her cihaz barkodla etiketlenir ve dijital yangın envanter sistemimize işlenir.',
   },
 
   // --- MART (Month 3 - Q1) ---

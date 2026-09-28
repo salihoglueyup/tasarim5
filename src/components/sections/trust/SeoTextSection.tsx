@@ -149,22 +149,22 @@ const TRUST_METRICS = {
 };
 
 const EYEBROW_TEXT = {
-  tr: 'ISO 41001 & KMK 634 Akredite Kurumsal Yönetim Otoritesi',
-  en: 'ISO 41001 & Law 634 Accredited Enterprise Management Authority',
-  ru: 'Аккредитованный Орган Управления по ISO 41001 и Закону КМК 634',
-  ar: 'إدارة مؤسسية معتمدة وفق ISO 41001 وقانون الملكية العقارية 634',
+  tr: 'ILAS Akrediteli ISO Belgeli & KMK 634 Uyumlu Kurumsal Yönetim',
+  en: 'ILAS-Accredited ISO Certified & Law 634 Compliant Enterprise Management',
+  ru: 'Сертификаты ISO с аккредитацией ILAS и соответствие Закону КМК 634',
+  ar: 'إدارة مؤسسية حاصلة على شهادات ISO المعتمدة من ILAS ومتوافقة مع قانون الملكية العقارية 634',
 };
 
 const TRUST_CHECKPOINTS = {
   tr: [
     '634 Sayılı Kat Mülkiyeti Kanunu (KMK) standartlarına %100 tam uyum',
     'T.C. İçişleri Bakanlığı 5188 Lisanslı Özel Güvenlik ve Valilik izinleri',
-    'ISO 41001 Uluslararası Tesis Yönetimi ve TSE Hizmet Yeterlilik Belgeli altyapı',
+    'BELCERT/ILAS belgeli ISO 45001, ISO 14001 ve ISO 10002 yönetim sistemleri',
   ],
   en: [
     '100% full compliance with Law No. 634 on Condominium Ownership (KMK)',
     'Licensed Private Security and official governorship permits under Law 5188',
-    'ISO 41001 International Facility Management and TSE Certified operations',
+    'ISO 45001, ISO 14001 and ISO 10002 management systems certified by BELCERT (ILAS)',
   ],
   ru: [
     '100% соответствие Закону о кондоминиумах № 634 (KMK)',
@@ -303,7 +303,7 @@ export default function SeoTextSection({
                   <span className="font-medium">T.C. Çevre & Şehircilik Bakanlığı Mevzuatına Tam Uyum</span>
                 </div>
                 <span className="px-2 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 font-mono font-bold shrink-0 text-[10px]">
-                  ISO 41001
+                  ILAS · ISO 45001
                 </span>
               </div>
             </div>

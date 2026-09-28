@@ -215,7 +215,7 @@ const FAQS = [
     group: 'kalite',
     question: 'Alo Yönetim\'in sahip olduğu sertifikalar nelerdir?',
     answer:
-      'ISO 9001 Kalite Yönetim Sistemi, ISO 14001 Çevre Yönetim Sistemi, ISO 45001 İş Sağlığı ve Güvenliği, ISO 22301 İş Sürekliliği, 5188 Özel Güvenlik Faaliyet Belgesi ve TSE HYB Temizlik Yeterlilik Belgesi başlıca sertifikalarımızdır.',
+      'BELCERT tarafından ILAS akreditasyonuyla verilen ISO 14001 Çevre, ISO 45001 İş Sağlığı ve Güvenliği, ISO 10002 Müşteri Memnuniyeti, ISO 22301 İş Sürekliliği, ISO 31000 Risk Yönetimi ve ISO 26000 Sosyal Sorumluluk belgeleri ile 5188 Özel Güvenlik Faaliyet İzin Belgesi başlıca belgelerimizdir.',
   },
   {
     group: 'kalite',

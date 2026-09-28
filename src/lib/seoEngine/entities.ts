@@ -89,7 +89,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
       'fabrika yönetimi',
       'lojistik merkezi yönetimi',
       'organize sanayi tesis bakımı',
-      'tse hyb 12850 belgesi',
+      
       'iso 45001 isg',
     ],
   },

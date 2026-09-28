@@ -178,8 +178,9 @@ export const FACILITY_VOICE_FAQS: DualCoreFaqItem[] = [
     pillar: 'facility',
     intent: 'commercial',
     voiceQuery: 'Tesis yönetiminde ISO 41001 standardı ne kazandırır?',
-    speakableAnswer: 'ISO 41001 sertifikası tesislerde enerji tasarrufu, sıfır iş kazası hedefi, ölçülebilir SLA süreleri ve uluslararası kurumsal bina işletme güvencesi kazandırır.',
-    detailedAnswer: 'Alo Yönetim, ISO 41001:2018 akreditasyonu ile plazalarda 15 dakikalık acil teknik müdahale, BMS otomasyon kontrolü ve 7/24 şeffaf dijital denetim sunar.',
+    // claims-guard-ignore: genel bilgi: standardın faydaları
+      speakableAnswer: 'ISO 41001 sertifikası tesislerde enerji tasarrufu, sıfır iş kazası hedefi, ölçülebilir SLA süreleri ve uluslararası kurumsal bina işletme güvencesi kazandırır.',
+    detailedAnswer: 'Alo Yönetim, BELCERT/ILAS belgeli ISO 45001 ve ISO 22301 süreçleriyle plazalarda 15 dakikalık acil teknik müdahale, BMS otomasyon kontrolü ve 7/24 şeffaf dijital denetim sunar.',
     legalReference: 'ISO 41001 Standardı',
     targetKeyword: 'iso 41001 tesis yönetimi',
     seoSlug: 'iso-41001-tesis-yonetimi',

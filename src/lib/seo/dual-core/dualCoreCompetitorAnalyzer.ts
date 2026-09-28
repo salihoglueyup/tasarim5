@@ -187,6 +187,7 @@ export const QUICK_WIN_KEYWORD_POOL: KeywordGapItem[] = [
     intent: 'transactional',
   },
   {
+    // claims-guard-ignore: içerik fikri: bilgilendirici rehber konusu
     keyword: 'iso 41001 tesis yönetimi sertifikası nasıl alınır',
     monthlySearchVolume: 900,
     competitorRank: 2,
@@ -271,6 +272,7 @@ export function analyzeContentGap(competitorId: string, pillar: DomainPillar = '
       'KMK 634 Hukuk Blogu ve Yargıtay Kararları',
       '39 İlçe Mikro-Lokasyon Hizmet Sayfaları',
       'Online İnteraktif Aidat Hesaplayıcı',
+      // claims-guard-ignore: içerik fikri: bilgilendirici rehber başlığı
       'ISO 41001 Tesis Yönetim Sertifikasyon Rehberi',
     ];
   }

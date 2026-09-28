@@ -5,6 +5,7 @@ import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import { FACILITY_TERMS } from '@/data/facilityDictionaryData';
 import { REFERENCES_DATA } from '@/data/references';
 import { SERVICES } from '@/data/services';
+import { CERTIFICATION_SUMMARY } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -79,7 +80,7 @@ export async function GET() {
 - **Telefon**: +90 216 550 48 48
 - **E-posta**: info@aloyonetim.com.tr
 - **Hizmet Ağı**: İstanbul'un 39 İlçesinin Tamamı
-- **Sertifikalar**: ISO 41001:2018, ISO 9001:2015, ISO 14001:2015, ISO 45001:2018, ISO 27001:2022, ISO 10002:2018, TSE HYB 12850
+- **Sertifikalar**: ${CERTIFICATION_SUMMARY}
 - **Güvenlik Ruhsatı**: 5188 Sayılı Kanun Kapsamında T.C. İçişleri Bakanlığı Faaliyet İzin Belgesi
 
 ---
@@ -92,7 +93,7 @@ export async function GET() {
 
 ### Entegre Tesis Yönetimi (B2B & Kurumsal İşletme Hub)
 - **Açıklama**: Plaza, iş merkezi, fabrika ve karma gayrimenkul projelerinde ISO 41001 uluslararası standartlarında 360° entegre teknik işletme ve tesis yönetimi.
-- **Kapsam**: BMS & HVAC Otomasyonu, Önleyici Bakım, Enerji Verimliliği, Reaktif Ceza Koruması, ISO 41001 Sertifikasyonu, Kurumsal SLA.
+- **Kapsam**: BMS & HVAC Otomasyonu, Önleyici Bakım, Enerji Verimliliği, Reaktif Ceza Koruması, ISO 45001 İSG Uyumu, Kurumsal SLA.
 - **URL**: ${BASE_URL}/hizmetler/tesis-yonetimi
 
 ${servicesList}
@@ -153,7 +154,7 @@ ${dictionaryList}
 ## 10. Kurumsal E-E-A-T, Acil İntikal SLA & Sayısal Vaka Analizleri
 - **Kurumsal Yetki**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: 918234-0, MERSİS: 0054089761200001, Kozyatağı VD).
 - **Yasal Güvenlik İzni**: T.C. İçişleri Bakanlığı & İstanbul Valiliği 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi.
-- **Akreditasyonlar**: TÜRKAK ISO 41001:2018 (Entegre Tesis), BELCERT ISO 10002:2018 (A1808961), ISO 27001, ISO 9001, ISO 14001, ISO 45001.
+- **Belgeler**: ${CERTIFICATION_SUMMARY}.
 - **7/24 Acil İletişim**: Santral: 0216 550 48 48 / Acil WhatsApp: 0532 234 56 78.
 - **Mobil İntikal SLA**: 39 ilçede 12 bölge lojistik konuşlu ekiplerle Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika acil intikal garantisi.
 - **Vaka Analizi 1 (Ataşehir 840 Bölüm)**: Merkezi otomasyon ve toplu satın alma ile aidat bütçesinde %32.4 net tasarruf.

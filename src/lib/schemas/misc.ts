@@ -1,4 +1,5 @@
 import type { JsonLdObject, ReviewInput, WebPageType } from './constants';
+import { ORG_CREDENTIALS } from './organization';
 import {
   ORG_ID,
   WEBSITE_ID,
@@ -308,16 +309,7 @@ export function aiAssistantSchema(): JsonLdObject {
         'Periyodik Asansör ve Kazan Dairesi Teknik Bakımı',
         'Endüstriyel Temizlik ve Dezenfeksiyon'
       ],
-      hasCredential: [
-        { '@type': 'EducationalOccupationalCredential', name: 'T.C. İçişleri Bakanlığı 5188 Özel Güvenlik Faaliyet İzin Belgesi' },
-        { '@type': 'EducationalOccupationalCredential', name: 'T.C. İstanbul Valiliği Özel Güvenlik Ruhsatı' },
-        { '@type': 'EducationalOccupationalCredential', name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi' },
-        { '@type': 'EducationalOccupationalCredential', name: 'ISO 9001:2015 Kalite Yönetim Sistemi' },
-        { '@type': 'EducationalOccupationalCredential', name: 'ISO 14001:2015 Çevre Yönetim Sistemi' },
-        { '@type': 'EducationalOccupationalCredential', name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği' },
-        { '@type': 'EducationalOccupationalCredential', name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi' },
-        { '@type': 'EducationalOccupationalCredential', name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi' }
-      ],
+      hasCredential: ORG_CREDENTIALS,
       sameAs: ORG_SAME_AS
     },
     about: { '@id': ORG_ID },

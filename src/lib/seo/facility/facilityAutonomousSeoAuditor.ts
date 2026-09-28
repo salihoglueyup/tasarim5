@@ -68,7 +68,7 @@ export function auditFacilityPageSeoHealth(lang: string = 'tr'): FacilitySeoAudi
     score: 20,
     maxScore: 20,
     status: 'passed',
-    details: '634 Sayılı KMK, 5188 Sayılı Kanun ve 8 resmi ISO/TSE akreditasyon standardı doğrudan resmi citation node olarak bağlandı.',
+    details: '634 Sayılı KMK, 5188 Sayılı Kanun ve resmi ISO standartları doğrudan resmi citation node olarak bağlandı.',
   });
 
   // 4. Structured Data & Schema.org Graph Richness & Linter Validation
@@ -167,7 +167,7 @@ export function auditFacilityEcosystemGoldenStandard(): FacilityEcosystemGoldenR
       linterScore: schemaLintReport.overallScore,
       googleRichResultsCompliant: schemaLintReport.isGraphValid,
     },
-    details: `${credentialsCount} adet ISO/TSE akreditasyonu ile ${((schemaGraph as any)['@graph'] || []).length} bağlı varlık doğrulandı. Linter Skoru: ${schemaLintReport.overallScore}/100.`,
+    details: `${credentialsCount} adet ISO/5188 belgesi ile ${((schemaGraph as any)['@graph'] || []).length} bağlı varlık doğrulandı. Linter Skoru: ${schemaLintReport.overallScore}/100.`,
   });
 
   // Pillar 2: 39 İlçe Coğrafi Mesh & PageRank Ağı
@@ -195,7 +195,7 @@ export function auditFacilityEcosystemGoldenStandard(): FacilityEcosystemGoldenR
   const allCitationsWhitelisted = OFFICIAL_LEGAL_CITATIONS.every((cit) =>
     whitelistedDomains.some((d) => cit.url.includes(d))
   );
-  const isEeatPerfect = totalCitations >= 14 && allCitationsWhitelisted;
+  const isEeatPerfect = totalCitations >= 13 && allCitationsWhitelisted;
   pillars.push({
     pillarName: 'E-E-A-T Resmi Mevzuat & Akreditasyon Otoritesi',
     category: 'eeat_citations',
@@ -206,7 +206,7 @@ export function auditFacilityEcosystemGoldenStandard(): FacilityEcosystemGoldenR
       totalCitations,
       allCitationsWhitelisted,
     },
-    details: `${totalCitations} adet resmi mevzuat ve ISO/TSE standardı doğrudan resmi gov/org kaynaklarıyla citation olarak mühürlendi.`,
+    details: `${totalCitations} adet resmi mevzuat ve ISO standardı doğrudan resmi gov/org kaynaklarıyla citation olarak mühürlendi.`,
   });
 
   // Pillar 4: Voice AI & Speakable Çok Dilli Hazırlık
@@ -230,7 +230,7 @@ export function auditFacilityEcosystemGoldenStandard(): FacilityEcosystemGoldenR
 
   // Pillar 5: SERP Hazırlığı & Arama Motoru Sıralama Simülasyonu
   const sampleSerpAudit = analyzeFacilitySerpReadiness({
-    title: 'ISO 41001 & ISO 9001 Akredite Tesis Yönetimi İstanbul | Alo Yönetim',
+    title: 'ILAS Akrediteli ISO Belgeli Tesis Yönetimi İstanbul | Alo Yönetim',
     metaDescription: '39 ilçede profesyonel tesis yönetimi, KMK 634, 5188 özel güvenlik, temizlik ve teknik bakım ile aidatlarda %30 tasarruf.',
     h1: 'İstanbul Profesyonel Tesis ve Site Yönetimi Şirketi',
     content: '<p>KMK 634 ve ISO 41001 standartlarında profesyonel site yönetimi, aidat takibi ve teknik bakım.</p><a href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi">Rezidans</a><a href="/hizmetler/tesis-yonetimi/plaza-yonetimi">Plaza</a><a href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi">Toplu Konut</a>',

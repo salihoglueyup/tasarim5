@@ -33,7 +33,7 @@ const PLEDGES: Pledge[] = [
     badge: 'Mali Denetim',
     description:
       'Her ayın ilk haftasında tüm gelir-gider hesapları, banka ekstreleri ve aidat tahsilat durumu bağımsız mali müşavirlerimizce taranır ve rapor tüm kat maliklerinin e-postasına ve sakin mobil uygulamasına PDF formatında otomatik iletilir.',
-    legalBasis: 'ISO 9001:2015 Şeffaf Raporlama ve KMK Denetçi Teftiş Standardı.',
+    legalBasis: 'ISO 10002:2018 Şikayet Yönetimi ve KMK Denetçi Teftiş Standardı.',
   },
   {
     number: '04',

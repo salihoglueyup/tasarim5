@@ -1,5 +1,6 @@
 import { getDistrict, getDistrictDues, DISTRICTS, type District } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 export interface DistrictComparisonResult {
   districts: Array<{
@@ -78,7 +79,7 @@ export function compareFacilityDistricts(
 
   switch (normalizedLang) {
     case 'en':
-      seoSummary = `Comparing facility management and dues indices for ${mapped[0].name} and ${mapped[1].name} across Istanbul; market average dues per m² is ₺${mapped[0].avgDuesM2} in ${mapped[0].name} and ₺${mapped[1].avgDuesM2} in ${mapped[1].name}. With Alo Yönetim's ISO 41001 certified bulk procurement and preventive maintenance model, ${savingsLeader} achieves a net budget savings of ${maxSavings}%.`;
+      seoSummary = `Comparing facility management and dues indices for ${mapped[0].name} and ${mapped[1].name} across Istanbul; market average dues per m² is ₺${mapped[0].avgDuesM2} in ${mapped[0].name} and ₺${mapped[1].avgDuesM2} in ${mapped[1].name}. With Alo Yönetim's bulk procurement and preventive maintenance model, ${savingsLeader} achieves a net budget savings of ${maxSavings}%.`;
       schemaName = `${mapped.map((d) => d.name).join(' vs ')} Facility Management & Dues Comparison 2026`;
       break;
     case 'ru':
@@ -115,16 +116,7 @@ export function compareFacilityDistricts(
         legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
         telephone: '+90 216 550 48 48',
-        hasCredential: [
-          { '@type': 'EducationalOccupationalCredential', name: 'ISO 41001:2018 Entegre Tesis Yönetimi' },
-          { '@type': 'EducationalOccupationalCredential', name: 'ISO 9001:2015 Kalite Yönetim Sistemi' },
-          { '@type': 'EducationalOccupationalCredential', name: 'ISO 14001:2015 Çevre Yönetimi' },
-          { '@type': 'EducationalOccupationalCredential', name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği' },
-          { '@type': 'EducationalOccupationalCredential', name: 'ISO 27001:2022 Bilgi Güvenliği' },
-          { '@type': 'EducationalOccupationalCredential', name: 'ISO 10002:2018 Müşteri Memnuniyeti' },
-          { '@type': 'EducationalOccupationalCredential', name: '5188 Sayılı Özel Güvenlik İzin Belgesi' },
-          { '@type': 'EducationalOccupationalCredential', name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi' },
-        ],
+        hasCredential: ORG_CREDENTIALS,
       },
       ...(d.geo?.lat && d.geo?.lng
         ? {

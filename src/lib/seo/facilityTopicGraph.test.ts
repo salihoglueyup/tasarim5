@@ -22,7 +22,7 @@ describe('Tesis Yönetimi Semantik Otorite Grafiği (facilityTopicGraph.ts)', ()
 
     // ISO Standartları (hasCredential)
     expect(graph.hasCredential).toBeDefined();
-    expect(graph.hasCredential.some((c: any) => c.name.includes('ISO 41001:2018'))).toBe(true);
+    expect(graph.hasCredential.some((c: any) => c.name.includes('ISO 45001:2018'))).toBe(true);
 
     // Sektörel Katalog
     expect(graph.hasOfferCatalog.itemListElement).toHaveLength(5);
@@ -33,7 +33,7 @@ describe('Tesis Yönetimi SERP Optimizer (facilitySerpOptimizer.ts)', () => {
   it('ana sayfa için yüksek CTR meta verisi üretir', () => {
     const meta = getFacilitySerpMeta('tr');
     expect(meta.title).toContain('Tesis Yönetimi');
-    expect(meta.description).toContain('ISO 41001');
+    expect(meta.description).toContain('ILAS');
     expect(meta.targetKeyword).toBe('tesis yönetimi');
     expect(meta.canonicalPath).toBe('/hizmetler/tesis-yonetimi');
   });

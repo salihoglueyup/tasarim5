@@ -29,7 +29,7 @@ export default function DistrictCleaningAuditTableSeo({
     ortak_alan: [
       {
         item: "Günlük Kat Koridoru & Blok Giriş Temizliği",
-        standard: "TSE HYB 12849 Standardı & Çevre Dostu Nötr Kimyasallar",
+        standard: "ISO 14001 Çevre Yönetimi & Çevre Dostu Nötr Kimyasallar",
         districtSpec: `${districtName} sitelerinde her sabah 09:00'a kadar giriş paspasları ve zeminler yıkanır.`,
         frequency: "Hergün"
       },
@@ -95,7 +95,7 @@ export default function DistrictCleaningAuditTableSeo({
     '@context': 'https://schema.org',
     '@type': 'Table',
     name: `${districtName} Site ve Tesis Hijyen, Temizlik & Biyosidal Standartları`,
-    description: `${districtName} ilçesinde siteler için TSE HYB uyumlu kat temizliği, dış cephe cam silimi ve Sağlık Bakanlığı onaylı ilaçlama tablosu.`
+    description: `${districtName} ilçesinde siteler için kat temizliği, dış cephe cam silimi ve Sağlık Bakanlığı onaylı ilaçlama tablosu.`
   };
 
   return (

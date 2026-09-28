@@ -18,7 +18,7 @@ interface KalitePolitikamizClientProps {
 export default function KalitePolitikamizClient({ lang = 'tr' }: KalitePolitikamizClientProps) {
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
-      {/* 1. Hero Section with ISO & TÜRKAK Badges + 4 Live KPIs */}
+      {/* 1. Hero Section with ISO Badges + 4 Live KPIs */}
       <QualityHeroSeo />
 
       {/* 2. Google AI Overviews & Speakable Regulatory Grounding */}
@@ -30,7 +30,7 @@ export default function KalitePolitikamizClient({ lang = 'tr' }: KalitePolitikam
       {/* 4. Interactive PDCA (PUKÖ) Continuous Improvement Kaizen Cycle */}
       <QualityPdcaCycleSeo />
 
-      {/* 5. Traditional Amateur vs TÜRKAK-Accredited Alo Yönetim Quality Matrix */}
+      {/* 5. Traditional Amateur vs Certified Alo Yönetim Quality Matrix */}
       <QualityComparisonMatrixSeo />
 
       {/* 6. Authority FAQ Section with Schema.org FAQPage */}

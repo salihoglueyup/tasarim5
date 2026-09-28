@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { CERTIFICATES } from '@/data/certificates';
 import {
   QUALITY_STANDARDS,
   QUALITY_FAQS,
@@ -17,24 +18,18 @@ describe('Quality Policy & ISO Standards Bridge Tests (/kurumsal/kalite-politika
     expect(QUALITY_STANDARDS.length).toBe(6);
 
     const ids = QUALITY_STANDARDS.map((s) => s.id);
-    expect(ids).toContain('iso-41001');
-    expect(ids).toContain('iso-9001');
-    expect(ids).toContain('iso-27001');
-    expect(ids).toContain('iso-45001');
-    expect(ids).toContain('iso-14001');
-    expect(ids).toContain('tse-hyb');
+    expect(ids).toEqual(['iso-45001', 'iso-14001', 'iso-10002', 'iso-22301', 'iso-31000', 'ozel-guvenlik-5188']);
   });
 
-  it('ISO 41001:2018 ve ISO 9001:2015 standartları doğru kod ve teslimat kriterleriyle yer alır', () => {
-    const iso41001 = QUALITY_STANDARDS.find((s) => s.id === 'iso-41001');
-    expect(iso41001).toBeDefined();
-    expect(iso41001?.code).toBe('ISO 41001:2018');
-    expect(iso41001?.deliverables.length).toBeGreaterThanOrEqual(4);
-
-    const iso9001 = QUALITY_STANDARDS.find((s) => s.id === 'iso-9001');
-    expect(iso9001).toBeDefined();
-    expect(iso9001?.code).toBe('ISO 9001:2015');
-    expect(iso9001?.deliverables.length).toBeGreaterThanOrEqual(4);
+  it('ISO sütunları yalnızca sahip olunan BELCERT belgeleriyle eşleşir ve teslimat kriterleri doludur', () => {
+    const isoPillars = QUALITY_STANDARDS.filter((s) => s.id.startsWith('iso-'));
+    for (const pillar of isoPillars) {
+      const cert = CERTIFICATES.find((c) => c.slug === pillar.id);
+      expect(cert, pillar.id).toBeDefined();
+      expect(pillar.code).toBe(cert?.name);
+      expect(pillar.badge).toContain(cert!.certificateNumber);
+      expect(pillar.deliverables.length).toBeGreaterThanOrEqual(4);
+    }
   });
 
   it('kalite ve denetim SSS listesi en az 5 madde içerir ve doludur', () => {

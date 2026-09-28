@@ -59,7 +59,7 @@ const DEFAULT_TIERS: PricingTier[] = [
     features: [
       "Tam Zamanlı Tesis & Proje Müdürü",
       "7/24 Çağrı ve Operasyon Merkezi",
-      "ISO 9001/14001/45001/27001 Akredite Kalite",
+      "ISO 14001/45001/10002 Belgeli Kalite (ILAS)",
       "İş Sağlığı ve Güvenliği (İSG) Yönetimi",
       "Enerji & GES Sürdürülebilirlik Danışmanlığı"
     ],

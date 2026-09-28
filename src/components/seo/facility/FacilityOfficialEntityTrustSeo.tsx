@@ -39,16 +39,16 @@ export function FacilityOfficialEntityTrustSeo({
 
   const isoCertificates = [
     {
-      code: 'ISO 41001:2018',
-      name: 'Entegre Tesis Yönetimi Sistemi',
-      desc: 'Uluslararası Tesis İşletim ve Hizmet Seviyesi (SLA) Standardı',
-      tag: 'ILAS Akredite',
+      code: 'ISO 10002:2018',
+      name: 'Müşteri Memnuniyeti Yönetimi',
+      desc: 'Sakin Talep ve Şikayetlerinin Ölçülebilir Çözüm Güvencesi',
+      tag: 'BELCERT A1808961',
     },
     {
-      code: 'ISO 9001:2015',
-      name: 'Kalite Yönetim Sistemi',
-      desc: 'Operasyonel Süreç ve Müşteri Memnuniyeti Güvencesi',
-      tag: 'BELCERT Onaylı',
+      code: 'ISO 22301:2019',
+      name: 'İş Sürekliliği Yönetimi',
+      desc: 'Kriz ve Kesinti Durumlarında Kesintisiz Tesis Hizmeti',
+      tag: 'BELCERT A1808963',
     },
     {
       code: 'ISO 45001:2018',
@@ -57,7 +57,7 @@ export function FacilityOfficialEntityTrustSeo({
       tag: 'Sıfır İş Kazası',
     },
     {
-      code: 'ISO 14001:2015',
+      code: 'ISO 14001:2026',
       name: 'Çevre Yönetim Sistemi',
       desc: 'Sıfır Atık, Enerji Verimliliği ve Yeşil Tesis İlkeleri',
       tag: 'Ekolojik Tesis',
@@ -88,7 +88,7 @@ export function FacilityOfficialEntityTrustSeo({
           </h2>
           <p className="text-sm sm:text-base text-[var(--color-secondary)] mt-2 max-w-2xl leading-relaxed">
             Alo Yönetim, paravan veya fason bir yapı değil; İstanbul Valiliği özel güvenlik faaliyet izin belgesine, 
-            İTO ticaret sicil tesciline ve ILAS akreditasyonlu ISO 41001 entegre tesis yönetim standardına sahip 
+            İTO ticaret sicil tesciline ve ILAS akreditasyonlu ISO 45001, ISO 14001 ve ISO 10002 belgelerine sahip 
             resmi kurumsal anonim şirkettir.
           </p>
         </div>

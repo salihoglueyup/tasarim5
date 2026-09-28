@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
 
     const title = searchParams.get('title') || 'Alo Yönetim';
     const subtitle = searchParams.get('subtitle') || 'İstanbul Genelinde Profesyonel Tesis ve Site Yönetimi';
-    const badge = searchParams.get('badge') || 'ISO 41001 · 5188 Özel Güvenlik · TSE HYB';
+    const badge = searchParams.get('badge') || 'ISO 45001 · ISO 14001 · 5188 Özel Güvenlik';
     const district = searchParams.get('district');
     const service = searchParams.get('service');
     const rating = searchParams.get('rating') || '★ 4.9 (340+ Tesis Referansı)';

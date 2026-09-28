@@ -127,9 +127,10 @@ describe('Wave 75: Google AI Overviews (SGE & Gemini GEO) Maximum Expansion Suit
       expect(data.organization).toBeDefined();
       expect(data.organization.name).toBe('Alo Yönetim');
       expect(data.organization.foundingYear).toBe(2009);
-      expect(data.organization.accreditations).toContain('ISO 41001:2018 (Tesis Yönetim Standardı)');
-      expect(data.organization.accreditations).toContain('TSE Hizmet Yeri Yeterlilik Belgesi');
-      expect(data.organization.accreditations).toContain('BELCERT Uluslararası Akreditasyon');
+      const accreditations: string[] = data.organization.accreditations;
+      expect(accreditations.some((a) => a.startsWith('ISO 45001:2018'))).toBe(true);
+      expect(accreditations.some((a) => a.includes('ILAS-MS-0089'))).toBe(true);
+      expect(accreditations.some((a) => /41001|9001|27001|TSE/.test(a))).toBe(false);
     });
 
     it('contains all 20 verified fact checks and citation endpoints', async () => {

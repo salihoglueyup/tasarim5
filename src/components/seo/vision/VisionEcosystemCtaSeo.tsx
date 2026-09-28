@@ -11,7 +11,7 @@ interface VisionEcosystemCtaSeoProps {
 const CORPORATE_LINKS = [
   {
     title: 'Kalite Belgelerimiz',
-    desc: 'ISO 9001, 27001, 45001 akreditasyon sertifikaları',
+    desc: 'ISO 45001, 14001, 10002 ve 22301 belgeleri (BELCERT, ILAS)',
     url: '/kurumsal/kalite-belgelerimiz',
     icon: 'workspace_premium',
     color: 'text-amber-500 bg-amber-500/10 border-amber-500/20',

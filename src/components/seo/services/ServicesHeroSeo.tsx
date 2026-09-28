@@ -33,7 +33,7 @@ export default function ServicesHeroSeo({
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/30 text-blue-300">
             <span className="material-symbols-outlined text-sm text-blue-400">verified</span>
-            ISO 41001:2018 & TSE HYB 12850
+            ISO 45001 & ISO 14001 (ILAS)
           </span>
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/30 text-amber-300">
             <span className="material-symbols-outlined text-sm text-amber-400">shield</span>

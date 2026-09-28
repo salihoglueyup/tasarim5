@@ -4,6 +4,7 @@ import { ORG_NAME, ORG_LEGAL_NAME, ORG_ADDRESS, ORG_PHONE, ORG_EMAIL, ORG_GEO } 
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
 import { prisma } from '@/lib/prisma';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 saat önbellek
@@ -77,16 +78,7 @@ export async function GET() {
       'Bina Teknik Bakımı ve Enerji Verimliliği',
       'TSE 13811 Hijyen ve Ortak Alan Temizliği'
     ],
-    hasCredential: [
-      { '@type': 'EducationalOccupationalCredential', name: 'ISO 9001:2015 Kalite Yönetim Sistemi' },
-      { '@type': 'EducationalOccupationalCredential', name: 'ISO 14001:2015 Çevre Yönetim Sistemi' },
-      { '@type': 'EducationalOccupationalCredential', name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği' },
-      { '@type': 'EducationalOccupationalCredential', name: 'ISO 27001:2022 Bilgi Güvenliği Yönetimi' },
-      { '@type': 'EducationalOccupationalCredential', name: 'ISO 10002:2018 Müşteri Memnuniyeti Yönetimi' },
-      { '@type': 'EducationalOccupationalCredential', name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi' },
-      { '@type': 'EducationalOccupationalCredential', name: 'T.C. İçişleri Bakanlığı 5188 Özel Güvenlik Faaliyet İzin Belgesi' },
-      { '@type': 'EducationalOccupationalCredential', name: 'T.C. İstanbul Valiliği Özel Güvenlik Ruhsatı' }
-    ],
+    hasCredential: ORG_CREDENTIALS,
     sameAs: [
       'https://www.instagram.com/aloyonetim',
       'https://www.linkedin.com/company/aloyonetim',

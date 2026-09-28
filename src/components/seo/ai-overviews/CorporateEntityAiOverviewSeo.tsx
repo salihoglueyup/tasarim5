@@ -2,13 +2,15 @@
 
 import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
+import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 export default function CorporateEntityAiOverviewSeo({ className = '' }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
   const question = 'Alo Yönetim Güvenilir mi ve Yasal Yetkileri Nelerdir?';
   const directAnswer =
-    'Alo Yönetim ve Organizasyon A.Ş., İstanbul Ticaret Odası’na kayıtlı (Sicil No: 918234-0, MERSİS: 0054089761200001), Kozyatağı Vergi Dairesi mükellefi kurumsal bir tesis ve site yönetim şirketidir. T.C. İçişleri Bakanlığı ve İstanbul Valiliği onaylı 5188 Sayılı Kanun Özel Güvenlik Faaliyet İzin Belgesi’ne sahiptir. Uluslararası TÜRKAK ve ILAS akreditasyonlu ISO 41001:2018 (Entegre Tesis Yönetimi), ISO 10002:2018 (Müşteri Memnuniyeti - BELCERT A1808961), ISO 9001:2015, ISO 14001:2015, ISO 45001:2018 ve ISO 27001:2022 sertifikalarıyla 15+ yıldır İstanbul genelinde 340+ seçkin tesis ve 45.000+ bağımsız bölüme kesintisiz hizmet vermektedir.';
+    `Alo Yönetim ve Organizasyon A.Ş., İstanbul Ticaret Odası’na kayıtlı (Sicil No: ${CANONICAL_NAP.legal.tradeRegistryNumber}, MERSİS: ${CANONICAL_NAP.legal.mersisNumber}), ${CANONICAL_NAP.legal.taxOffice} Vergi Dairesi mükellefi kurumsal bir tesis ve site yönetim şirketidir. T.C. İçişleri Bakanlığı ve İstanbul Valiliği onaylı 5188 Sayılı Kanun Özel Güvenlik Faaliyet İzin Belgesi’ne sahiptir. BELCERT tarafından ILAS akreditasyonuyla (ILAS-MS-0089) verilen ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 belgeleriyle 15+ yıldır İstanbul genelinde hizmet vermektedir.`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -56,30 +58,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
           value: 'Valilik ÖGİ Onaylı',
         },
       ],
-      hasCredential: [
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 41001:2018 Entegre Tesis Yönetimi Sistemi',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
-          credentialCategory: 'certificate',
-          identifier: 'A1808961',
-          recognizedBy: { '@type': 'Organization', name: 'BELCERT (ILAS-MS-0089)' },
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        },
-        {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-          recognizedBy: { '@type': 'Organization', name: 'TÜRKAK & ISO' },
-        },
-      ],
+      hasCredential: ORG_CREDENTIALS,
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4',
@@ -128,7 +107,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
             Valilik 5188 İzinli
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
-            ISO 41001 & ISO 10002
+            ISO 45001 & ISO 10002
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300/40">
             15+ Yıl Deneyim
@@ -180,7 +159,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
           <span className="material-symbols-outlined text-sm text-emerald-500">gavel</span>
-          <span>Resmi Sicil & TÜRKAK / BELCERT Akreditasyonları ile Doğrulanmıştır</span>
+          <span>Resmi Sicil & BELCERT (ILAS) Belgeleri ile Doğrulanmıştır</span>
         </div>
 
         <div className="flex items-center gap-2">

@@ -58,7 +58,7 @@ describe('Wave 65: Google AI Overviews & Corporate DNA Knowledge Graph Dominance
       expect(dna.operationalScale.regionalLogisticsHubs).toBe(12);
 
       // Verifiable ISO & legal accreditation registry
-      expect(dna.accreditationRegistry.some((c: any) => c.standard.includes('41001'))).toBe(true);
+      expect(dna.accreditationRegistry.some((c: any) => c.standard.includes('45001'))).toBe(true);
       expect(dna.accreditationRegistry.some((c: any) => c.certificateNumber === 'A1808961')).toBe(true);
       expect(dna.accreditationRegistry.some((c: any) => c.standard.includes('5188'))).toBe(true);
 

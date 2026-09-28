@@ -44,7 +44,7 @@ export const SERVICE_PRICING_PACKAGES: PricingPackageItem[] = [
     features: [
       '5188 Sayılı Kanun Valilik İzinli Özel Güvenlik & RFID Devriye',
       '7/24 Mobil Teknik Bakım & 15-20 Dk Acil SLA Müdahalesi',
-      'Periyodik Kat & Ortak Alan Temizliği (TSE HYB Onaylı)',
+      'Periyodik Kat & Ortak Alan Temizliği',
       'EPDK %0 Reaktif Elektrik Ceza Güvencesi (Otomatik Kompanzasyon)',
       'Mevsimsel Peyzaj ve Otomatik Bahçe Sulama Takibi',
     ],

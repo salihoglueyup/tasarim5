@@ -26,7 +26,6 @@ export const AUTHORS: Author[] = [
     expertise: ['Entegre Tesis Yönetimi', '634 KMK Hukuku', 'Mali Bütçe & Denetim', 'Dijital Bina Yönetimi'],
     credentials: [
       'ISO 41001:2018 Entegre Tesis Yönetimi Baş Denetçisi',
-      'KMK 634 Tesis Yönetim Danışmanlığı ve Kurul Başkanlığı Ruhsatı',
     ],
     sameAs: ['https://www.linkedin.com/company/aloyonetim'],
   },
@@ -37,8 +36,8 @@ export const AUTHORS: Author[] = [
     bio: 'Alo Yönetim tesis yöneticileri, bina mühendisleri ve hukuk danışmanlarından oluşan uzman ortak araştırma ve rehber yayın kurulu.',
     expertise: ['Tesis Yönetim Standartları', 'ISO 41001', 'Bina Güvenliği', 'Enerji Verimliliği'],
     credentials: [
-      'ISO 41001:2018 Kurumsal Akreditasyon Belgesi',
-      'TSE HYB 12850 Hizmet Yeri Yeterlilik Belgesi',
+      'ISO 45001:2018 İş Sağlığı ve Güvenliği (BELCERT A1808966)',
+      'ISO 10002:2018 Müşteri Memnuniyeti (BELCERT A1808961)',
       '5188 Sayılı Kanun Valilik Özel Güvenlik Faaliyet İzin Belgesi',
     ],
     sameAs: ['https://aloyonetim.com.tr'],

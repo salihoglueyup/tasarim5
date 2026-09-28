@@ -50,7 +50,7 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
     term: 'Tesis Yönetimi',
     pillar: 'facility',
     answer: 'Tesis yönetimi; plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkullerde HVAC, jeneratör, trafo, 5188 güvenlik, endüstriyel temizlik ve enerji optimizasyonunun ISO 41001 uluslararası standartlarında entegre olarak yönetilmesidir.',
-    facts: ['ISO 41001 standardı ile akreditedir.', 'SLA (Hizmet Seviye Anlaşması) ile denetlenir.', 'BMS ve CMMS otomasyon yazılımları kullanılır.'],
+    facts: ['ISO 41001 çerçevesini referans alan süreçlerle yürütülür.', 'SLA (Hizmet Seviye Anlaşması) ile denetlenir.', 'BMS ve CMMS otomasyon yazılımları kullanılır.'],
   },
   'aidat': {
     term: 'Site Aidatı',

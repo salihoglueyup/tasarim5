@@ -27,39 +27,39 @@ export interface B2BSlaTier {
 
 export const ISO_COMPLIANCE_STANDARDS: IsoComplianceStandard[] = [
   {
-    standardCode: 'ISO 41001:2018',
-    name: 'Entegre Tesis Yönetimi Uluslararası Standardı',
-    accreditationBody: 'BELCERT & IAF Uluslararası Akreditasyon',
+    standardCode: 'ISO 22301:2019',
+    name: 'İş Sürekliliği Yönetim Sistemi',
+    accreditationBody: 'BELCERT (ILAS-MS-0089) — Belge No: A1808963',
     scope: 'Tesis operasyonları, bina yaşam döngüsü, bakım yönetimi ve kullanıcı konforu.',
     benefitToClient: 'Tesis işletme maliyetlerinde %30 tasarruf ve global kurumsal gayrimenkul standartlarına tam uyum.',
   },
   {
-    standardCode: 'ISO 9001:2015',
-    name: 'Kalite Yönetim Sistemi',
-    accreditationBody: 'TÜRKAK & IAF Onaylı',
+    standardCode: 'ISO 10002:2018',
+    name: 'Müşteri Memnuniyeti Yönetim Sistemi',
+    accreditationBody: 'BELCERT (ILAS-MS-0089) — Belge No: A1808961',
     scope: 'Hizmet kalitesi, müşteri memnuniyeti, süreç denetimi ve sürekli iyileştirme.',
     benefitToClient: 'Hataların minimize edilmesi, standartlaştırılmış operasyon ve şeffaf KPI raporlaması.',
   },
   {
     standardCode: 'ISO 45001:2018',
     name: 'İş Sağlığı ve Güvenliği Yönetim Sistemi',
-    accreditationBody: 'TÜRKAK & Bakanlık Onaylı',
+    accreditationBody: 'BELCERT (ILAS-MS-0089) — Belge No: A1808966',
     scope: 'Tesis teknik personeli, taşeronlar ve ziyaretçiler için sıfır iş kazası hedefi.',
     benefitToClient: 'İş kazası risklerinin önlenmesi ve işverenin yasal sorumluluklarının güvenceye alınması.',
   },
   {
-    standardCode: 'ISO 14001:2015',
+    standardCode: 'ISO 14001:2026',
     name: 'Çevre Yönetim Sistemi',
-    accreditationBody: 'TÜRKAK & Uluslararası Belgelendirme',
+    accreditationBody: 'BELCERT (ILAS-MS-0089) — Belge No: A1808962',
     scope: 'Atık yönetimi, tehlikeli atık bertarafı, sıfır atık belgesi ve karbon ayak izi.',
     benefitToClient: 'Yeşil bina (LEED / BREEAM) sertifikasyonuna uyum ve kurumsal sürdürülebilirlik.',
   },
   {
-    standardCode: 'ISO 50001:2018',
-    name: 'Enerji Yönetim Sistemi',
-    accreditationBody: 'Uluslararası Akreditasyon',
-    scope: 'Kompanzasyon panosu, trafo, chiller, jeneratör ve ortak alan tüketim optimizasyonu.',
-    benefitToClient: 'Sıfır reaktif ceza faturası ve ortak enerji giderlerinde %25-35 net düşüş.',
+    standardCode: 'ISO 31000:2018',
+    name: 'Kurumsal Risk Yönetimi',
+    accreditationBody: 'BELCERT (ILAS-MS-0089) — Belge No: A1808965',
+    scope: 'Teknik, hukuki ve finansal risklerin risk haritaları ve önleyici bakım matrisleriyle önceden tespiti.',
+    benefitToClient: 'Kritik ekipman arızalarının ve reaktif ceza gibi öngörülebilir maliyet risklerinin önlenmesi.',
   },
 ];
 
@@ -104,12 +104,12 @@ export const B2B_RFP_SPECIFICATION_TEMPLATE = `T.C. İSTANBUL
 ENTEGRE TESİS VE BİNA YÖNETİMİ HİZMET ALIMI TEKNİK VE İDARİ ŞARTNAMESİ
 
 1. KONU VE KAPSAM:
-İşbu şartname; [TESİS ADI / ADRESİ] adresinde kain [TOPLAM KAPALI ALAN] m² kullanım alanına sahip tesisin ISO 41001 standartlarında profesyonel entegre tesis yönetimi, 5188 özel güvenlik, temizlik, elektromekanik periyodik bakım (trafo, jeneratör, HVAC, yangın, asansör) ve enerji verimliliği hizmetlerinin yüklenici firma tarafından ifa edilmesine dair teknik ve idari şartları belirler.
+İşbu şartname; [TESİS ADI / ADRESİ] adresinde kain [TOPLAM KAPALI ALAN] m² kullanım alanına sahip tesisin profesyonel entegre tesis yönetimi, 5188 özel güvenlik, temizlik, elektromekanik periyodik bakım (trafo, jeneratör, HVAC, yangın, asansör) ve enerji verimliliği hizmetlerinin yüklenici firma tarafından ifa edilmesine dair teknik ve idari şartları belirler.
 
 2. YÜKLENİCİ FİRMANIN SAHİP OLMASI GEREKEN BELGELER:
-- ISO 41001:2018 Tesis Yönetim Sistemi Akreditasyon Belgesi
-- ISO 9001:2015 Kalite Yönetim Belgesi
-- ISO 45001:2018 İSG Yönetim Belgesi
+- Akredite kuruluşça verilmiş ISO 45001:2018 İSG Yönetim Sistemi Belgesi
+- Akredite kuruluşça verilmiş ISO 14001 Çevre Yönetim Sistemi Belgesi
+- Akredite kuruluşça verilmiş ISO 10002:2018 Müşteri Memnuniyeti Belgesi
 - 5188 Sayılı Kanun Uyarınca İçişleri Bakanlığı Özel Güvenlik Şirketi Faaliyet İzin Belgesi
 - Mesleki Yeterlilik Kurumu (MYK) Sertifikalı Tesis Yöneticisi Kadrosu
 

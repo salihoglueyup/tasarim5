@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -63,43 +64,7 @@ export async function GET() {
           certifyingAuthority: 'T.C. İçişleri Bakanlığı & İstanbul Valiliği Özel Güvenlik Komisyonu',
           scope: 'Fiziki güvenlik, CCTV kamera izleme, X-ray/dedektör arama ve 7/24 devriye kalkanı',
         },
-        {
-          standard: 'ISO 41001:2018',
-          title: 'Uluslararası Entegre Tesis Yönetimi Sistemi',
-          certifyingAuthority: 'TÜRKAK & ISO',
-          scope: 'Rezidans, AVM, plaza ve sitelerde 360 derece entegre operasyon yönetimi',
-        },
-        {
-          standard: 'ISO 10002:2018',
-          title: 'Müşteri Memnuniyeti ve Şikayet Yönetimi Sistemi',
-          certifyingAuthority: 'BELCERT Uluslararası Belgelendirme (Akreditasyon: ILAS-MS-0089)',
-          certificateNumber: 'A1808961',
-          scope: 'Şeffaf sakin iletişimi, 7/24 çağrı merkezi ve kriz çözüm protokolü',
-        },
-        {
-          standard: 'ISO 27001:2022',
-          title: 'Bilgi Güvenliği Yönetim Sistemi',
-          certifyingAuthority: 'TÜRKAK & ISO',
-          scope: 'KVKK uyumlu bulut veri tabanı, sakin kişisel verilerinin korunması ve siber güvenlik',
-        },
-        {
-          standard: 'ISO 9001:2015',
-          title: 'Kalite Yönetim Sistemi',
-          certifyingAuthority: 'TÜRKAK & ISO',
-          scope: 'Süreç yönetimi, iç denetim ve operasyonel kalite standardı',
-        },
-        {
-          standard: 'ISO 14001:2015',
-          title: 'Çevre Yönetim Sistemi',
-          certifyingAuthority: 'TÜRKAK & ISO',
-          scope: 'Sıfır atık, enerji verimliliği ve yeşil tesis işletimi',
-        },
-        {
-          standard: 'ISO 45001:2018',
-          title: 'İş Sağlığı ve Güvenliği Yönetim Sistemi',
-          certifyingAuthority: 'TÜRKAK & ISO',
-          scope: '6331 sayılı İSG Kanunu kapsamında sıfır iş kazası ve personel güvenliği',
-        },
+        ...HELD_CERTIFICATIONS.map(({ standard, title, certBody, certificateNumber }) => ({ standard, title, certifyingAuthority: certBody, certificateNumber })),
       ],
       get accreditationRegistry() {
         return this.accreditationsAndLicenses;

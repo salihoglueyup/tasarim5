@@ -146,12 +146,12 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
                     'Özel güvenlik görevlisi istihdamı, valilik komisyon izinleri, üniforma ve yetki kuralları.',
                 },
                 {
-                  title: 'ISO 41001:2018 & TSE HYB 12850 Tesis Yönetim Standartları',
+                  title: 'ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı',
                   sourceName: 'Türk Standardları Enstitüsü (TSE)',
                   url: 'https://www.tse.org.tr',
-                  badge: 'ISO 41001 & TSE',
+                  badge: 'ISO 41001',
                   description:
-                    'Entegre tesis yönetimi hizmet yeterlilik kuralları, kalite yönetim sistemleri ve operasyonel verimlilik kriterleri.',
+                    'Entegre tesis yönetiminde operasyonel verimlilik, risk yönetimi ve sakin memnuniyeti için uluslararası çerçeve standardı.',
                 },
               ]}
               glossaryTerms={[

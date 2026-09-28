@@ -1,4 +1,6 @@
 import { BASE_URL } from '@/lib/seo';
+import { CERTIFICATES } from '@/data/certificates';
+import { CANONICAL_NAP } from './napGuardEngine';
 
 export interface VerifiedCredential {
   id: string;
@@ -13,85 +15,24 @@ export interface VerifiedCredential {
 
 export const VERIFIED_AUTHORITY_CREDENTIALS: VerifiedCredential[] = [
   {
-    id: 'iso-41001',
-    name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetim Sistemi',
-    issuer: 'Uluslararası Standardizasyon Teşkilatı (ISO) & TÜRKAK Akredite Kuruluş',
-    credentialNumber: 'ISO41001-TR-2024-8841',
-    validUntil: '2027-12-31',
-    scope: 'Toplu Konut, Rezidans, Plaza ve Endüstriyel Tesis İşletmeciliği',
-    wikidataId: 'Q108846399',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-41001`,
-  },
-  {
     id: 'kanun-5188',
     name: '5188 Sayılı Özel Güvenlik Hizmetleri Faaliyet İzin Belgesi',
     issuer: 'T.C. İçişleri Bakanlığı / İstanbul Valiliği',
-    credentialNumber: '34-ÖG-2016/482',
+    credentialNumber: CANONICAL_NAP.legal.securityPermitNumber,
     validUntil: 'Süresiz / Yıllık Denetimli',
     scope: '7/24 Fiziki ve Elektronik Güvenlik, CCTV İzleme ve Devriye Hizmetleri',
     wikidataId: 'Q115792942',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#guvenlik-5188`,
+    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
   },
-  {
-    id: 'iso-9001',
-    name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-    issuer: 'Uluslararası Standardizasyon Teşkilatı (ISO) & TÜRKAK Akredite Kuruluş',
-    credentialNumber: 'ISO9001-TR-2024-4112',
-    validUntil: '2027-12-31',
-    scope: 'Tesis, Site, Rezidans ve Plaza Yönetiminde Kalite Güvencesi ve Operasyonel Mükemmeliyet',
-    wikidataId: 'Q11029',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-9001`,
-  },
-  {
-    id: 'iso-14001',
-    name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
-    issuer: 'Uluslararası Standardizasyon Teşkilatı (ISO) & TÜRKAK Akredite Kuruluş',
-    credentialNumber: 'ISO14001-TR-2024-3882',
-    validUntil: '2027-12-31',
-    scope: 'Sıfır Atık, Yeşil Bina Yönetimi ve Sürdürülebilir Çevre Politikaları',
-    wikidataId: 'Q832444',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-14001`,
-  },
-  {
-    id: 'iso-45001',
-    name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-    issuer: 'Uluslararası Standardizasyon Teşkilatı (ISO) & TÜRKAK Akredite Kuruluş',
-    credentialNumber: 'ISO45001-TR-2024-9104',
-    validUntil: '2027-12-31',
-    scope: 'Tesis Personeli ve Ziyaretçi Güvenliği, Sıfır Kaza ve Risk Yönetimi',
-    wikidataId: 'Q25052309',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-45001`,
-  },
-  {
-    id: 'iso-27001',
-    name: 'ISO/IEC 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-    issuer: 'Uluslararası Akreditasyon Forumu (IAF)',
-    credentialNumber: 'ISO27001-TR-2024-5509',
-    validUntil: '2027-10-15',
-    scope: 'Kat Malikleri Aidat ve Kişisel Veri Güvenliği (KVKK Uyumlu)',
-    wikidataId: 'Q831623',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-27001`,
-  },
-  {
-    id: 'iso-10002',
-    name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi Standardı',
-    issuer: 'Uluslararası Standardizasyon Teşkilatı (ISO) & TÜRKAK Akredite Kuruluş',
-    credentialNumber: 'ISO10002-TR-2024-7721',
-    validUntil: '2027-12-31',
-    scope: 'Kat Malikleri ve Sakin Memnuniyeti, Şikayet Çözüm Mekanizmaları ve 7/24 Destek',
-    wikidataId: 'Q11029',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#iso-10002`,
-  },
-  {
-    id: 'tse-12850',
-    name: 'TSE HYB 12850 Tesis Hizmet Yeri Yeterlilik Belgesi',
-    issuer: 'Türk Standardları Enstitüsü (TSE)',
-    credentialNumber: 'TSE-HYB-34-8891',
-    validUntil: '2026-12-31',
-    scope: 'Profesyonel Bina ve Tesis Yönetimi Standartları',
-    wikidataId: 'Q1391515',
-    verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz#tse-12850`,
-  },
+  ...CERTIFICATES.map((c) => ({
+    id: c.slug,
+    name: `${c.name} ${c.subtitle}`,
+    issuer: `${c.issuer} (${c.accreditation})`,
+    credentialNumber: c.certificateNumber,
+    validUntil: c.validUntil,
+    scope: c.officialScopeTr,
+    verificationUrl: `${BASE_URL}/kurumsal/sertifikalar/${c.slug}`,
+  })),
 ];
 
 /**
@@ -123,7 +64,6 @@ export function generateVerifiedAuthorityGraph() {
       'ISO 45001:2018 İş Sağlığı ve Güvenliği',
       'ISO 27001:2022 Bilgi Güvenliği ve KVKK',
       'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
-      'TSE HYB 12850 Hizmet Yeri Yeterlilik Standardı',
       'Site ve Apartman Aidat İcra Takibi',
       'Asansör ve Yangın Tesisatı Teknik İşletmeciliği',
     ],
@@ -212,16 +152,17 @@ export function auditPageEEAT(input: EEATAuditInput): EEATAuditResult {
 
   // 4. ISO & Kurumsal Akreditasyon Sinyalleri (25 Puan)
   const hasAccreditation =
-    fullText.includes('iso 41001') ||
-    fullText.includes('iso 9001') ||
-    fullText.includes('türkak') ||
-    fullText.includes('tse hyb') ||
+    fullText.includes('belcert') ||
+    fullText.includes('ilas') ||
+    fullText.includes('iso 45001') ||
+    fullText.includes('iso 14001') ||
+    fullText.includes('iso 10002') ||
     fullText.includes('valilik');
 
   if (hasAccreditation) {
     score += 25;
   } else {
-    recommendations.push('Kurumsal güvenilirlik için ISO 41001 veya TÜRKAK akreditasyon rozetlerine atıfta bulunun.');
+    recommendations.push('Kurumsal güvenilirlik için sahip olunan ISO belgelerine (BELCERT/ILAS) veya 5188 Valilik iznine atıfta bulunun.');
   }
 
   let grade: 'A+' | 'A' | 'B' | 'C' | 'FAIL' = 'FAIL';

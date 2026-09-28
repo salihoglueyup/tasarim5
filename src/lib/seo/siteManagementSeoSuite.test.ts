@@ -442,13 +442,11 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       const { ISO_COMPLIANCE_STANDARDS } = await import('@/data/facilityCorporateB2BData');
 
       expect(ISO_COMPLIANCE_STANDARDS.length).toBe(5);
-      const iso41001 = ISO_COMPLIANCE_STANDARDS.find(s => s.standardCode.includes('41001'));
-      expect(iso41001).toBeDefined();
-      expect(iso41001?.name).toContain('Entegre Tesis Yönetimi');
-
-      const iso50001 = ISO_COMPLIANCE_STANDARDS.find(s => s.standardCode.includes('50001'));
-      expect(iso50001).toBeDefined();
-      expect(iso50001?.benefitToClient).toContain('reaktif ceza');
+      for (const std of ISO_COMPLIANCE_STANDARDS) {
+        expect(std.accreditationBody).toContain('ILAS-MS-0089');
+      }
+      const iso31000 = ISO_COMPLIANCE_STANDARDS.find(s => s.standardCode.includes('31000'));
+      expect(iso31000?.benefitToClient).toContain('reaktif ceza');
     });
 
     it('Silver, Gold, Platinum kurumsal SLA kademelerini ve acil sürelerini barındırır', async () => {
@@ -471,7 +469,7 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       const { B2B_RFP_SPECIFICATION_TEMPLATE } = await import('@/data/facilityCorporateB2BData');
 
       expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('ENTEGRE TESİS VE BİNA YÖNETİMİ');
-      expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('ISO 41001:2018');
+      expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('ISO 45001:2018');
       expect(B2B_RFP_SPECIFICATION_TEMPLATE).toContain('Reaktif Enerji Güvencesi');
     });
   });

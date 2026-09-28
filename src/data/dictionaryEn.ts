@@ -14,7 +14,7 @@ export const ENGLISH_TERMS: EnglishTerm[] = [
   {
     term: 'Facility Management (FM)',
     turkishEquivalent: 'Tesis Yönetimi',
-    definition: 'An organizational function which integrates people, place, and process within the built environment with the purpose of improving the quality of life of people and the productivity of the core business, certified under ISO 41001.',
+    definition: 'An organizational function which integrates people, place, and process within the built environment with the purpose of improving the quality of life of people and the productivity of the core business, as defined in ISO 41001.',
     category: 'Facility Management',
     link: { href: '/en/services/facility-management', label: 'Facility Management Services' },
   },

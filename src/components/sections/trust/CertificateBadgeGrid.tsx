@@ -7,13 +7,13 @@ export default function CertificateBadgeGrid() {
 
   const certs = [
     {
-      code: "ISO 9001:2015",
+      code: "ISO 10002",
       title: t('home_cert_1_title'),
       desc: t('home_cert_1_desc'),
       icon: "verified"
     },
     {
-      code: "ISO 27001",
+      code: "ISO 22301",
       title: t('home_cert_2_title'),
       desc: t('home_cert_2_desc'),
       icon: "security"

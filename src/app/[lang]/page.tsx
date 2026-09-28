@@ -191,7 +191,7 @@ export default async function Home({ params }: Props) {
               title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
-              badge: "ISO 41001 & TSE HYB",
+              badge: "ISO 41001",
               description: "Gayrimenkullerin ve yaşam alanlarının verimli, güvenli, sürdürülebilir ve maliyet tasarruflu işletilmesini belgeleyen dünya standardı."
             }
           ]}

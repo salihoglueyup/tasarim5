@@ -11,7 +11,7 @@ describe('Tesis Yönetimi AI / RAG Bilgi Üssü & Blog Entegrasyonu (facilityKno
 
     // 1. Kurumsal Kimlik & ISO Akreditasyonları
     expect(corpus.entity.name).toBe('Alo Yönetim');
-    expect(corpus.entity.accreditations.some((a) => a.code === 'ISO 41001:2018')).toBe(true);
+    expect(corpus.entity.accreditations.some((a) => a.code === 'ISO 45001:2018')).toBe(true);
     expect(corpus.entity.accreditations.some((a) => a.code === '5188 / EGM')).toBe(true);
 
     // 2. KMK 634 Kanun Maddeleri

@@ -27,8 +27,8 @@ describe('Wave 61: Google AI Overviews & Gemini SGE Grounding Güvence Testleri'
       const res = await getAiOverviewsRag(req);
       const data = await res.json();
 
-      expect(data.accreditations).toHaveLength(7);
-      expect(data.accreditations.some((a: any) => a.standard === 'ISO 41001:2018')).toBe(true);
+      expect(data.accreditations).toHaveLength(8);
+      expect(data.accreditations.some((a: any) => a.standard === 'ISO 45001:2018')).toBe(true);
       expect(data.accreditations.some((a: any) => a.standard === 'ISO 10002:2018')).toBe(true);
       expect(data.accreditations.some((a: any) => a.standard === '5188 Sayılı Kanun')).toBe(true);
 

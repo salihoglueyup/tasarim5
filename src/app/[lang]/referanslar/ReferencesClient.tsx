@@ -428,7 +428,7 @@ export default function ReferencesClient({
           <div className="relative z-10 max-w-3xl mb-12">
             <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full mb-4">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              ISO 41001 & TÜRKAK AKREDİTASYONU
+              ILAS AKREDİTELİ ISO BELGELERİ
             </span>
             <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white mb-4">
               {currentDict.statsHeading}

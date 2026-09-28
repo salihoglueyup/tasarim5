@@ -122,7 +122,7 @@ export const SERVICES: ServiceDef[] = [
     longTailKeywords: [
       'istanbul kurumsal tesis yönetim şirketi',
       'entegre tesis yönetimi sözleşmesi ve teknik şartname',
-      'iso 41001 belgeli tesis yönetim şirketleri istanbul',
+      'iso 45001 belgeli tesis yönetim şirketleri istanbul',
       'plaza ve iş merkezi entegre tesis yönetimi firmaları',
       'tesis yönetiminde %30 maliyet tasarrufu nasıl sağlanır',
       'kadıköy profesyonel tesis ve site yönetimi firması',
@@ -160,7 +160,7 @@ export const SERVICES: ServiceDef[] = [
       },
       {
         q: 'Tesis yönetim şirketi seçerken nelere dikkat edilmelidir?',
-        a: 'ISO 41001, ISO 9001 ve TSE HYB 12850 belgeleri, 5188 sayılı özel güvenlik izinleri, en az 100+ referans konut/plaza portföyü, 45 dakikalık acil müdahale SLA taahhüdü ve şeffaf dijital yönetim yazılımı aranmalıdır.',
+        a: 'Akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgeleri (ör. ISO 45001, ISO 14001), 5188 sayılı özel güvenlik izinleri, en az 100+ referans konut/plaza portföyü, 45 dakikalık acil müdahale SLA taahhüdü ve şeffaf dijital yönetim yazılımı aranmalıdır.',
       },
       {
         q: 'Profesyonel site yönetimi şirketi ne iş yapar?',
@@ -171,13 +171,10 @@ export const SERVICES: ServiceDef[] = [
     sameAs: 'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
     wikidata: 'https://www.wikidata.org/wiki/Q1391515',
     standards: [
-      'ISO 41001:2018 Entegre Tesis Yönetim Standardı',
-      'ISO 9001:2015 Kalite Yönetim Sistemi',
-      'ISO 14001:2015 Çevre Yönetim Sistemi',
-      'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-      'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-      'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
-      'TSE HYB 12850 Hizmet Yeri Yeterlilik Belgesi',
+      'ISO 14001:2026 Çevre Yönetim Sistemi (BELCERT A1808962)',
+      'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi (BELCERT A1808966)',
+      'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi (BELCERT A1808961)',
+      'ISO 22301:2019 İş Sürekliliği Yönetimi (BELCERT A1808963)',
       '5188 Sayılı Özel Güvenlik Hizmetleri Kanunu',
       '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
     ],
@@ -306,7 +303,7 @@ export const SERVICES: ServiceDef[] = [
     targetPersonas: ['Site Sakinleri', 'Site Yöneticisi', 'Temizlik Şefi'],
     pillar: '/hizmetler/temizlik-ve-hijyen',
     sameAs: 'https://tr.wikipedia.org/wiki/Temizlik',
-    standards: ['TSE 13811 Hijyen ve Sanitasyon Standardı', 'ISO 9001:2015'],
+    standards: ['TSE 13811 Hijyen ve Sanitasyon Standardı', 'ISO 14001:2026'],
   },
   {
     slug: 'teknik-bakim',

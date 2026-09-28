@@ -34,7 +34,7 @@ export const SECTOR_GROUND_TRUTH_LIST: SectorItem[] = [
     description:
       'Ortak alan yoğun insan trafiği hijyeni, yürüyen merdiven/asansör 7/24 teknik nöbeti, acil tahliye senaryoları ve 5188 silahlı/silahsız güvenlik çemberi.',
     kpi: 'Kesintisiz 7/24 Nöbetçi Teknik',
-    standard: '5188 SK & TSE HYB 12850',
+    standard: '5188 SK & ISO 45001',
   },
   {
     id: 'sanayi',

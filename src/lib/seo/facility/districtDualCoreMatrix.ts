@@ -108,7 +108,7 @@ export const EUROPEAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Sarıyer tesis yönetimi', 'Maslak plaza yönetimi', 'Ayazağa iş merkezi yönetimi'],
       longTailKeywords: ['Maslak A+ plaza yönetim şirketi', 'Maslak kurumsal tesis işletmeciliği'],
       serpTitle: 'Maslak & Sarıyer Plaza Entegre Tesis Yönetimi | Alo Yönetim',
-      serpDescription: 'Maslak ve Ayazağa A+ plazalarında ISO 41001 sertifikalı entegre tesis yönetimi, enerji optimizasyonu ve teknik işletme.',
+      serpDescription: 'Maslak ve Ayazağa A+ plazalarında ISO 45001 belgeli entegre tesis yönetimi, enerji optimizasyonu ve teknik işletme.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '56+ Site & Kule' },
@@ -352,7 +352,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Kadıköy tesis yönetimi', 'Kozyatağı plaza yönetimi', 'Merdivenköy iş merkezi yönetimi', 'Fikirtepe ticari tesis yönetimi'],
       longTailKeywords: ['Kozyatağı plaza tesis yönetim firmaları', 'Kadıköy kurumsal bina tesis işletmeciliği ISO 41001'],
       serpTitle: 'Kadıköy & Kozyatağı Plaza Entegre Tesis Yönetimi — ISO 41001 | Alo Yönetim',
-      serpDescription: 'Kozyatağı ve Kadıköy genelinde plazalar ve iş merkezleri için ISO 41001 sertifikalı entegre tesis yönetimi, önleyici teknik bakım ve %30 tasarruf.',
+      serpDescription: 'Kozyatağı ve Kadıköy genelinde plazalar ve iş merkezleri için ISO 45001 belgeli entegre tesis yönetimi, önleyici teknik bakım ve %30 tasarruf.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '62+ Site & Plaza' },
@@ -420,7 +420,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Üsküdar tesis yönetimi', 'Altunizade plaza yönetimi', 'Kısıklı iş merkezi yönetimi'],
       longTailKeywords: ['Altunizade kurumsal şirket genel merkez tesis işletmesi', 'Üsküdar ofis yönetimi'],
       serpTitle: 'Altunizade & Üsküdar Plaza ve Tesis Yönetimi | Alo Yönetim',
-      serpDescription: 'Altunizade ve Üsküdar genel merkez plazalarında ISO 41001 sertifikalı entegre teknik bakım ve tesis yönetimi.',
+      serpDescription: 'Altunizade ve Üsküdar genel merkez plazalarında ISO 45001 belgeli entegre teknik bakım ve tesis yönetimi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '41+ Proje' },
@@ -454,7 +454,7 @@ export const ANATOLIAN_SIDE_MATRIX: Record<string, DistrictDualCoreEntry> = {
       targetKeywords: ['Maltepe tesis yönetimi', 'Küçükyalı ofis park yönetimi', 'Cevizli plaza yönetimi'],
       longTailKeywords: ['Maltepe kurumsal ofis binası işletmeciliği', 'Küçükyalı E-5 plaza tesis bakımı'],
       serpTitle: 'Maltepe Plaza ve Ticari Tesis Yönetimi | Alo Yönetim',
-      serpDescription: 'Maltepe E-5 hattındaki plazalar ve iş merkezleri için ISO 41001 akreditasyonlu tesis işletmesi.',
+      serpDescription: 'Maltepe E-5 hattındaki plazalar ve iş merkezleri için ISO 45001 belgeli tesis işletmesi.',
     },
     sharedKpis: [
       { label: 'Yönetilen Proje', value: '45+ Site' },

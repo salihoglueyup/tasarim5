@@ -9,6 +9,7 @@ import {
   extractFaqCandidatesFromContent,
   resolveTopicalEntityGraph,
 } from '@/lib/seoEngine';
+import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export interface RAGArticleNode {
   id: string;
@@ -357,48 +358,7 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
         { name: 'Avrupa Yakası Operasyon Merkezi', location: 'Şişli & Başakşehir / İstanbul', coverage: '25 İlçe' },
       ],
       accreditations: [
-        {
-          name: 'ISO 41001:2018 Uluslararası Entegre Tesis Yönetimi Standart Belgesi',
-          code: 'ISO 41001:2018',
-          wikidata: 'https://www.wikidata.org/wiki/Q108846399',
-          verified: true,
-        },
-        {
-          name: 'ISO 9001:2015 Kalite Yönetim Sistemi',
-          code: 'ISO 9001:2015',
-          wikidata: 'https://www.wikidata.org/wiki/Q11029',
-          verified: true,
-        },
-        {
-          name: 'ISO 14001:2015 Çevre Yönetim Sistemi',
-          code: 'ISO 14001:2015',
-          wikidata: 'https://www.wikidata.org/wiki/Q832444',
-          verified: true,
-        },
-        {
-          name: 'ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi',
-          code: 'ISO 45001:2018',
-          wikidata: 'https://www.wikidata.org/wiki/Q25052309',
-          verified: true,
-        },
-        {
-          name: 'ISO 27001:2022 Bilgi Güvenliği Yönetim Sistemi',
-          code: 'ISO 27001:2022',
-          wikidata: 'https://www.wikidata.org/wiki/Q831623',
-          verified: true,
-        },
-        {
-          name: 'ISO 10002:2018 Müşteri Memnuniyeti ve Şikayet Yönetimi',
-          code: 'ISO 10002:2018',
-          wikidata: 'https://www.wikidata.org/wiki/Q11029',
-          verified: true,
-        },
-        {
-          name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
-          code: 'TSE HYB 12850',
-          wikidata: 'https://www.wikidata.org/wiki/Q1391515',
-          verified: true,
-        },
+        ...HELD_CERTIFICATIONS.map((c) => ({ name: `${c.standard} ${c.title}`, code: c.standard, certificateNumber: c.certificateNumber, issuer: c.certBody, verified: true })),
         {
           name: 'T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi',
           code: '5188 / EGM',
@@ -477,7 +437,7 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
     operationalStandards: SERVICES.map((s) => ({
       serviceSlug: s.slug,
       serviceName: s.name,
-      regulatoryStandard: s.slug === 'guvenlik-yonetimi' ? '5188 Sayılı Özel Güvenlik Kanunu' : s.slug === 'teknik-bakim' ? 'TSE HYB 12850 & Sanayi Bakım Yönetmeliği' : 'ISO 41001:2018 & TSE 13811',
+      regulatoryStandard: s.slug === 'guvenlik-yonetimi' ? '5188 Sayılı Özel Güvenlik Kanunu' : s.slug === 'teknik-bakim' ? 'Asansör Periyodik Kontrol Yönetmeliği & ISO 45001' : '634 Sayılı KMK & ISO 45001',
       slaGuarantees: [
         '7/24 Kesintisiz Çağrı ve Acil Durum Hattı',
         '45 Dakika Mobil Saha Müdahale Süresi',
