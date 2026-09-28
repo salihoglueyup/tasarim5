@@ -136,7 +136,7 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
           <a
             href="https://www.perplexity.ai/search?q=Alo+Yonetim+ISO+belgeleri+ve+BELCERT+akreditasyonu"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary hover:opacity-90 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>

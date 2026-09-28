@@ -118,7 +118,7 @@ export default function VisionAiOverviewSeo() {
           <a
             href="https://www.perplexity.ai/search?q=Alo+Y%C3%B6netim+tesis+y%C3%B6netimi+vizyonu+ve+%C5%9Feffafl%C4%B1k+felsefesi"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>

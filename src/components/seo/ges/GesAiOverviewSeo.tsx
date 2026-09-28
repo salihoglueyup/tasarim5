@@ -118,7 +118,7 @@ export default function GesAiOverviewSeo() {
           <a
             href="https://www.perplexity.ai/search?q=Sitelerde+%C3%A7at%C4%B1+GES+kurulumu+kat+m%C3%BClkiyeti+kanunu+maddesi+ve+EPDK+mahsupla%C5%9Fma+%C5%9Fartlar%C4%B1"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>

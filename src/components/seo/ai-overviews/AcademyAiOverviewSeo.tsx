@@ -162,7 +162,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
           <a
             href="https://www.perplexity.ai/search?q=Sitelerde+ozel+guvenlik+gorevlisi+yetkileri+ve+arama+sinirlari+5188"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>

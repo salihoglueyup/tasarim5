@@ -202,7 +202,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
               <a
                 href={`https://chatgpt.com/?q=${encodeURIComponent(`${activeFaq.question} kat mülkiyeti hukuku`)}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="px-3 py-1 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
               >
                 <Icon name="open_in_new" className="text-xs" />
@@ -211,7 +211,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
               <a
                 href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${activeFaq.question} alo yonetim kmk`)}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
               >
                 <Icon name="travel_explore" className="text-xs" />

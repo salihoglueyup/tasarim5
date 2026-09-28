@@ -134,7 +134,7 @@ export default function ArticleAiOverviewCard({
           <a
             href={`https://chatgpt.com/?q=${encodeURIComponent(`${title} hakkında kat mülkiyeti kanunu ne diyor?`)}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="px-3.5 py-1.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-1.5 shadow-xs"
           >
             <Icon name="open_in_new" className="text-xs" />
@@ -143,7 +143,7 @@ export default function ArticleAiOverviewCard({
           <a
             href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${title} alo yonetim kmk hukuku`)}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="px-3.5 py-1.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold transition-colors flex items-center gap-1.5 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />

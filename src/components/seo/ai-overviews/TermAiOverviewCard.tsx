@@ -123,7 +123,7 @@ export default function TermAiOverviewCard({
           <a
             href={`https://chatgpt.com/?q=${encodeURIComponent(`${term} kat mülkiyeti kanununda ne anlama gelir?`)}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
           >
             <Icon name="open_in_new" className="text-xs" />
@@ -132,7 +132,7 @@ export default function TermAiOverviewCard({
           <a
             href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${term} nedir alo yonetim sozluk`)}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />

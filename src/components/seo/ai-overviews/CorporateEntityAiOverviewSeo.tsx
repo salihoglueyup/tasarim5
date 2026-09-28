@@ -173,7 +173,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
           <a
             href="https://www.perplexity.ai/search?q=Alo+Yonetim+guvenilir+mi+ve+yasal+lisanslari+nelerdir"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>

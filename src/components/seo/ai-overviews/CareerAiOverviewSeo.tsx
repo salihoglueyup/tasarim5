@@ -134,7 +134,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
           <a
             href="https://www.perplexity.ai/search?q=Sitelerde+kapici+ve+guvenlik+kidem+tazminati+sorumlulugu+4857"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>

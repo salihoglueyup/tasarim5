@@ -305,7 +305,7 @@ export default function GoogleAiOverviewGroundingSeo({
               <a
                 href={`https://chatgpt.com/?q=${encodeURIComponent(selectedPrompt.prompt)}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="px-3.5 py-1.5 rounded-lg bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
               >
                 <Icon name="open_in_new" className="text-xs" />
@@ -314,7 +314,7 @@ export default function GoogleAiOverviewGroundingSeo({
               <a
                 href={`https://www.perplexity.ai/search?q=${encodeURIComponent(selectedPrompt.prompt)}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="px-3.5 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
               >
                 <Icon name="travel_explore" className="text-xs" />
