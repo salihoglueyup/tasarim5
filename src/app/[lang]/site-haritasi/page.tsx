@@ -3,12 +3,16 @@ import Link from 'next/link';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
 import { SERVICES } from '@/data/services';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 import { POSTS_META } from '@/data/postsMetadata';
 import { CATEGORIES } from '@/data/posts';
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 export const revalidate = 3600;
 

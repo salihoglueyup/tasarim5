@@ -19,8 +19,7 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
           alt="Alo Yönetim Logo"
           width={48}
           height={48}
-          priority={true}
-          fetchPriority="high"
+          loading="eager"
           quality={75}
           className={`object-contain transition-all duration-300 w-12 h-12 ${
             isWhite 

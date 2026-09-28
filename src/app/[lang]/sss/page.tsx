@@ -4,7 +4,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, faqPageSchema, webPageSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import FaqClient from './FaqClient';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import { redis } from '@/lib/redis';
 import FaqAiOverviewHubSeo from '@/components/seo/ai-overviews/FaqAiOverviewHubSeo';
@@ -13,6 +13,10 @@ import PeopleAlsoAskDeepTreeSeo from '@/components/seo/ai-overviews/PeopleAlsoAs
 import Link from 'next/link';
 import { Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
 
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 export const revalidate = 3600;
 

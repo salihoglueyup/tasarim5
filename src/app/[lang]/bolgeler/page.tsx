@@ -8,13 +8,18 @@ import IstanbulInteractiveDistrictMapSeo from '@/components/seo/district/Istanbu
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import LocalBusinessProfileAiAnchorSeo from '@/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo';
 import DistrictAiGroundingSeo from '@/components/seo/ai-overviews/DistrictAiGroundingSeo';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
 
 import Icon from '@/components/ui/branding/Icon';
+export const revalidate = 86400;
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
 export async function generateMetadata({
   params,
 }: {

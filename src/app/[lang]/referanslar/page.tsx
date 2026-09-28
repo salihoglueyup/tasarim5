@@ -5,9 +5,13 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import ReferencesClient from './ReferencesClient';
 import redis from '@/lib/redis';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getReferencesList, PARTNERS_DATA } from '@/data/referencesMetadata';
 import CaseStudyAiGroundingSeo from '@/components/seo/ai-overviews/CaseStudyAiGroundingSeo';
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 export const revalidate = 3600;
 

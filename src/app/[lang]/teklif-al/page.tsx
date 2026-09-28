@@ -9,11 +9,16 @@ import RfpTransitionAiGroundingSeo from '@/components/seo/ai-overviews/RfpTransi
 import ServicePricingProductAiOverviewSeo from '@/components/seo/ai-overviews/ServicePricingProductAiOverviewSeo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import TeklifAlClient from './TeklifAlClient';
 import { getDictionary } from '@/lib/i18n';
 
 import Icon from '@/components/ui/branding/Icon';
+export const revalidate = 86400;
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
 export async function generateMetadata({
   params,
 }: {

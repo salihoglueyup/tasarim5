@@ -4,7 +4,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import Hero from '@/components/sections/core/Hero';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import GoogleReviewsWidget from '@/components/sections/trust/GoogleReviewsWidget';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
 import { prisma } from '@/lib/prisma';
@@ -28,6 +28,10 @@ const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/kmk/KMKLawAssi
 const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/facility/ServiceAuthorityHubSeo'), { ssr: true });
 const GoogleAiOverviewGroundingSeo = dynamic(() => import('@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo'), { ssr: true });
 
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 export const revalidate = 3600;
 

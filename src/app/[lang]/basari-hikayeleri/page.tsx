@@ -2,8 +2,12 @@ import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 import BasariHikayeleriClient from './BasariHikayeleriClient';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import CaseStudyAiGroundingSeo from '@/components/seo/ai-overviews/CaseStudyAiGroundingSeo';
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 export const revalidate = 3600;
 

@@ -2,9 +2,13 @@ import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 import SectoralClient from './SectoralClient';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, LOCALES } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
 export const revalidate = 3600;
 
 export async function generateMetadata({

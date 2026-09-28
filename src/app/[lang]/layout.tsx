@@ -171,6 +171,8 @@ export default async function RootLayout({
             {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
           />
         ))}
+        {/* Ikon sprite'ı: header/CTA ikonlarının ilk boyamada gecikmesini önler */}
+        <link rel="preload" href="/icons/sprite.svg" as="image" type="image/svg+xml" />
         {/* LCP Hero Poster Preload (Zero-latency image fetch) */}
         <link
           rel="preload"
@@ -302,7 +304,8 @@ export default async function RootLayout({
         <DynamicBreadcrumb />
         
         <WebVitals />
-        <LanguageProvider initialLang={lang} initialDictionary={dictionaries[lang] || trDict}>
+        {/* Türkçe sözlük zaten istemci paketinde (translations.ts) bulunur; tekrar RSC payload'ına yazılmaz. */}
+        <LanguageProvider initialLang={lang} initialDictionary={lang === 'tr' ? undefined : dictionaries[lang]}>
           <QuoteProvider>
             <FramerLazyProvider>
               <ClientWidgets />

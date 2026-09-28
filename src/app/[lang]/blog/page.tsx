@@ -7,10 +7,14 @@ import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
 import { notFound } from 'next/navigation';
 import ItemListSeo from '@/components/seo/schema/ItemListSeo';
-import { BASE_URL, buildMetadata } from '@/lib/seo';
+import { BASE_URL, buildMetadata, LOCALES } from '@/lib/seo';
 
 import { POSTS_META, CATEGORIES } from '@/data/posts';
 import { redis, CACHE_TTL } from '@/lib/redis';
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
 export const revalidate = 86400; // 24 saat ISR (Faz 15)
 
