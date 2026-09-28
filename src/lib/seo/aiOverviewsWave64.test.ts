@@ -26,8 +26,8 @@ describe('Wave 64: Google AI Overviews & GEO (Generative Engine Optimization) Ex
       expect(manifest.geoManifestVersion).toBe('1.0.0');
       expect(manifest.authority).toBeDefined();
       expect(manifest.authority.entityName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(manifest.authority.mersisNumber).toBe('0054089761200001');
-      expect(manifest.authority.tradeRegistryNumber).toBe('918234-0');
+      expect(manifest.authority.mersisNumber).toBe('0054049823100018');
+      expect(manifest.authority.tradeRegistryNumber).toBe('712498-5');
 
       expect(manifest.verifiedGroundTruthClaims.length).toBeGreaterThanOrEqual(7);
       expect(manifest.speakableAnchorRegistry).toContain('#service-instant-answer-text');

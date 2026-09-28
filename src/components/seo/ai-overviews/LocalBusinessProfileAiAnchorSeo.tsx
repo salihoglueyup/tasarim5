@@ -27,17 +27,17 @@ export const LOCAL_BUSINESS_HUBS: LocalHubItem[] = [
     id: 'kadikoy-headquarters',
     name: 'Alo Yönetim Genel Merkez & Anadolu Ana Masası',
     role: 'Genel Merkez, Hukuk, Muhasebe ve Yönetim Kurulu',
-    streetAddress: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4',
+    streetAddress: 'Osmanağa Mah. Misak-ı Milli Sok. No:94A',
     district: 'Kadıköy',
     city: 'İstanbul',
-    postalCode: '34734',
-    latitude: 40.9856,
-    longitude: 29.0839,
+    postalCode: CANONICAL_NAP.address.postalCode,
+    latitude: CANONICAL_NAP.geo.latitude,
+    longitude: CANONICAL_NAP.geo.longitude,
     phone: CANONICAL_NAP.contact.phoneDisplay,
     openingHours: 'Pzt-Cmt 08:30 - 18:30 (7/24 Acil Çağrı)',
     areaServed: 'İstanbul Anadolu Yakası (14 İlçe Kapsamı)',
     slaMinutes: 15,
-    mapQueryUrl: 'https://www.google.com/maps/search/?api=1&query=40.9856,29.0839',
+    mapQueryUrl: `https://www.google.com/maps/search/?api=1&query=${CANONICAL_NAP.geo.latitude},${CANONICAL_NAP.geo.longitude}`,
     badge: 'Genel Merkez (HQ)',
   },
   {
@@ -108,7 +108,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
 
   const question = 'Alo Yönetim Genel Merkezi Nerededir ve İstanbul Genelinde Hangi Hub\'larla Hizmet Verir?';
   const directAnswer =
-    'Alo Yönetim kurumsal genel merkezi Kadıköy Sahrayıcedit Mahallesi Atatürk Caddesi No:62/4 adresinde yer almaktadır. İstanbul’un 39 ilçesine 15-25 dakikalık acil mobil teknik müdahale sağlamak amacıyla Kadıköy Genel Merkez haricinde Ataşehir Finans & Rezidans Hub’ı, Beşiktaş/Levent Avrupa Merkez Hub’ı ve Başakşehir/İkitelli OSB Sanayi Masası olmak üzere 4 stratejik lojistik operasyon merkeziyle 7/24 kesintisiz hizmet vermektedir. Çağrı merkezi: 0216 550 48 48.';
+    'Alo Yönetim kurumsal genel merkezi Kadıköy Osmanağa Mahallesi Misak-ı Milli Sokak No:94A adresinde yer almaktadır. İstanbul’un 39 ilçesine 15-25 dakikalık acil mobil teknik müdahale sağlamak amacıyla Kadıköy Genel Merkez haricinde Ataşehir Finans & Rezidans Hub’ı, Beşiktaş/Levent Avrupa Merkez Hub’ı ve Başakşehir/İkitelli OSB Sanayi Masası olmak üzere 4 stratejik lojistik operasyon merkeziyle 7/24 kesintisiz hizmet vermektedir. Çağrı merkezi: 0216 550 48 48.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

@@ -47,9 +47,8 @@ export function generateVerifiedAuthorityGraph() {
     legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
     logo: `${BASE_URL}/images/logo.png`,
     image: `${BASE_URL}/images/og-image.jpg`,
-    taxID: '0680458921',
-    vatID: 'TR0680458921',
-    foundingDate: '2016-04-12',
+    taxID: CANONICAL_NAP.legal.mersisNumber,
+    foundingDate: String(CANONICAL_NAP.legal.foundingYear),
     sameAs: [
       'https://www.linkedin.com/company/aloyonetim',
       'https://twitter.com/aloyonetim',

@@ -162,10 +162,10 @@ export const TERMS: Term[] = [
     link: { href: '/hizmetler/aidat-takibi', label: 'Demirbaş fonu yönetimi' },
   },
   {
-    // claims-guard-ignore: sözlük maddesi (bilgilendirici); standardın varlığı doğrulanmalı
+    // claims-guard-ignore: sözlük maddesi (bilgilendirici, sahiplik iddiası değil)
     term: 'TSE HYB 12850 Belgesi',
     definition:
-      // claims-guard-ignore: sözlük tanımı (bilgilendirici); standardın varlığı doğrulanmalı
+      // claims-guard-ignore: sözlük tanımı (bilgilendirici, sahiplik iddiası değil)
       'Türk Standardları Enstitüsü tarafından verilen, tesis ve bina yönetim firmalarının idari, teknik ve personel yeterliliğe sahip olduğunu kanıtlayan resmi Hizmet Yeterlilik Belgesi\'dir.',
     link: { href: '/kurumsal/kalite-belgelerimiz', label: 'TSE kalite belgelerimiz' },
   },

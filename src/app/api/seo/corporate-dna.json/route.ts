@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
@@ -24,19 +25,17 @@ export async function GET() {
         foundingYear: 2009,
         experienceYears: '15+',
         companyType: 'Anonim Şirket (A.Ş.)',
-        tradeRegistryNumber: '918234-0',
-        mersisNumber: '0054089761200001',
-        taxOffice: 'Kozyatağı Vergi Dairesi',
-        taxNumber: '0540897612',
+        tradeRegistryNumber: CANONICAL_NAP.legal.tradeRegistryNumber,
+        mersisNumber: CANONICAL_NAP.legal.mersisNumber,
+        taxOffice: `${CANONICAL_NAP.legal.taxOffice} Vergi Dairesi`,
         headquarters: {
-          address: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4 Kadıköy / İstanbul',
-          postalCode: '34734',
+          address: CANONICAL_NAP.address.fullDisplayAddress,
+          postalCode: CANONICAL_NAP.address.postalCode,
           country: 'Türkiye',
-          coordinates: { latitude: 40.9833, longitude: 29.0833 },
+          coordinates: { latitude: CANONICAL_NAP.geo.latitude, longitude: CANONICAL_NAP.geo.longitude },
         },
         contact: {
           centralSwitchboard: '+90 216 550 48 48',
-          emergencyWhatsApp: '+90 532 234 56 78',
           officialEmail: 'info@aloyonetim.com.tr',
           canonicalUrl: BASE_URL,
         },

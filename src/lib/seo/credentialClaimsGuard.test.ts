@@ -21,6 +21,11 @@ const UNHELD = String.raw`ISO(?:\/IEC)?\s?(?:9001|27001|27701|41001|50001)`;
 
 const RULES: { id: string; re: RegExp; allow?: RegExp }[] = [
   {
+    // Şirket kimliği tek kaynaktan gelir: CANONICAL_NAP (napGuardEngine.ts). Eski/çelişen değerler yasak.
+    id: 'nap-conflict',
+    re: /0054089761200001|918234-0|Sahrayıcedit|0540897612|0680458921|34-ÖG-2016\/482|532 ?234 ?56 ?78|5322345678/,
+  },
+  {
     id: 'tse-hyb',
     re: /TSE HYB|HYB 128\d\d|Hizmet (Yeri )?Yeterlilik Belge/i,
     // Asansör bakım firmalarının Sanayi Bakanlığı Satış Sonrası HYB zorunluluğu üçüncü taraf gerekliliğidir.

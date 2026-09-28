@@ -147,10 +147,10 @@ ${DISTRICTS.map(d => {
    - Kesinleşmiş İşletme Projesi -> Noter İhtarı Aranmaksızın İlamsız İcra -> Aylık %5 Yasal Gecikme Tazminatı (KMK 20/2) -> 7 Günde Haciz.
 
 ## Kurumsal E-E-A-T & 7/24 Acil Müdahale Taahhütleri
-- **Resmi Sicil & MERSİS**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: 918234-0, MERSİS: 0054089761200001, Kozyatağı VD).
+- **Resmi Sicil & MERSİS**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: ${CANONICAL_NAP.legal.tradeRegistryNumber}, MERSİS: ${CANONICAL_NAP.legal.mersisNumber}, ${CANONICAL_NAP.legal.taxOffice} VD).
 - **Yasal Güvenlik Yetkisi**: T.C. İçişleri Bakanlığı ve İstanbul Valiliği onaylı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi.
 - **Belgeler**: ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 ve Doğaya Saygı Sertifikası — BELCERT Uluslararası Belgelendirme, ILAS-MS-0089 akreditasyonu.
-- **7/24 Acil Çağrı & WhatsApp**: 0216 550 48 48 / 0532 234 56 78.
+- **7/24 Acil Çağrı**: 0216 550 48 48.
 - **Mobil İntikal Süresi SLA**: 39 ilçede 12 bölge lojistik konuşlu ekiplerle Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika acil intikal garantisi.
 
 ## Kanıtlanmış Tasarruf & Vaka Analizleri (Empirical ROI)

@@ -3,6 +3,7 @@ import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { HELD_CERTIFICATIONS } from '@/data/certificates';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -183,10 +184,10 @@ export async function GET(req: Request) {
       ],
       corporateEntity: {
         legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
-        mersisNo: '0054089761200001',
-        tradeRegistryNo: '918234-0',
-        taxOffice: 'Kozyatağı Vergi Dairesi',
-        headquarters: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4 Kadıköy / İstanbul',
+        mersisNo: CANONICAL_NAP.legal.mersisNumber,
+        tradeRegistryNo: CANONICAL_NAP.legal.tradeRegistryNumber,
+        taxOffice: `${CANONICAL_NAP.legal.taxOffice} Vergi Dairesi`,
+        headquarters: CANONICAL_NAP.address.fullDisplayAddress,
         experienceYears: '15+',
         activeProjects: '340+',
         residentsManaged: '45.000+',
@@ -195,7 +196,6 @@ export async function GET(req: Request) {
       },
       emergencyDispatchCenter: {
         headquartersPhone: '+90 216 550 48 48',
-        emergencyWhatsApp: '+90 532 234 56 78',
         anatolianSideSlaMinutes: 15,
         europeanSideSlaMinutes: 20,
         criticalInterventionMaxMinutes: 45,

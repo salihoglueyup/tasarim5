@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { HELD_CERTIFICATIONS } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
@@ -19,17 +20,15 @@ export async function GET() {
       authority: {
         entityName: 'Alo Yönetim ve Organizasyon A.Ş.',
         canonicalUrl: BASE_URL,
-        mersisNumber: '0054089761200001',
-        tradeRegistryNumber: '918234-0',
-        taxOffice: 'Kozyatağı Vergi Dairesi',
-        taxNumber: '0540897612',
+        mersisNumber: CANONICAL_NAP.legal.mersisNumber,
+        tradeRegistryNumber: CANONICAL_NAP.legal.tradeRegistryNumber,
+        taxOffice: `${CANONICAL_NAP.legal.taxOffice} Vergi Dairesi`,
         officialSecurityPermit: 'T.C. İçişleri Bakanlığı & İstanbul Valiliği 5188 Sayılı Kanun Faaliyet İzni',
         accreditations: HELD_CERTIFICATIONS.map(({ standard, title, certBody, certificateNumber }) => ({ standard, name: title, certBody, certificateNumber })),
         headquarters: {
-          address: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4 Kadıköy / İstanbul',
-          coordinates: { latitude: 40.9833, longitude: 29.0833 },
+          address: CANONICAL_NAP.address.fullDisplayAddress,
+          coordinates: { latitude: CANONICAL_NAP.geo.latitude, longitude: CANONICAL_NAP.geo.longitude },
           phone: '+90 216 550 48 48',
-          emergencyWhatsApp: '+90 532 234 56 78',
           email: 'info@aloyonetim.com.tr',
         },
       },

@@ -48,8 +48,8 @@ describe('Wave 65: Google AI Overviews & Corporate DNA Knowledge Graph Dominance
       expect(dna.corporateProfile.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
       expect(dna.corporateProfile.brandName).toBe('Alo Yönetim');
       expect(dna.corporateProfile.foundingYear).toBe(2009);
-      expect(dna.corporateProfile.mersisNumber).toBe('0054089761200001');
-      expect(dna.corporateProfile.tradeRegistryNumber).toBe('918234-0');
+      expect(dna.corporateProfile.mersisNumber).toBe('0054049823100018');
+      expect(dna.corporateProfile.tradeRegistryNumber).toBe('712498-5');
 
       // Operational scale & verifiable metrics
       expect(dna.operationalScale.managedActiveFacilities).toBeGreaterThanOrEqual(340);

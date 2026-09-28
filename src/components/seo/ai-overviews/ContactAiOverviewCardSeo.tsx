@@ -9,7 +9,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
 
   const question = 'Alo Yönetim İletişim Numaraları ve Acil Teknik İntikal Süresi Kaç Dakikadır?';
   const directAnswer =
-    'Alo Yönetim Genel Merkez çağrı merkezi 0216 550 48 48, acil mobil arıza ve kriz ihbar WhatsApp hattı 0532 234 56 78 üzerinden 7 gün 24 saat kesintisiz hizmet vermektedir. İstanbul’un 39 ilçesinde 12 stratejik bölgede konuşlu gezici teknik servis filomuz; asansörde mahsur kalma, ana hat su baskını, yangın alarmı ve jeneratör durması gibi acil arızalarda Anadolu Yakası’nda ortalama 15 dakika, Avrupa Yakası’nda ortalama 20 dakika içinde tesise yerinde fiziki müdahale garantisi (SLA) sunmaktadır.';
+    'Alo Yönetim Genel Merkez çağrı merkezi 0216 550 48 48 üzerinden 7 gün 24 saat kesintisiz hizmet vermektedir. İstanbul’un 39 ilçesinde 12 stratejik bölgede konuşlu gezici teknik servis filomuz; asansörde mahsur kalma, ana hat su baskını, yangın alarmı ve jeneratör durması gibi acil arızalarda Anadolu Yakası’nda ortalama 15 dakika, Avrupa Yakası’nda ortalama 20 dakika içinde tesise yerinde fiziki müdahale garantisi (SLA) sunmaktadır.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -54,13 +54,6 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
               opens: '00:00',
               closes: '23:59',
             },
-          },
-          {
-            '@type': 'ContactPoint',
-            telephone: '+90 532 234 56 78',
-            contactType: 'emergency',
-            areaServed: 'TR',
-            description: '7/24 Mobil Acil Teknik Arıza ve İhbar Hattı',
           },
         ],
       },
@@ -124,7 +117,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       </div>
 
       {/* Contact Channels Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 relative z-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 relative z-10">
         <div className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-start gap-3">
           <div className="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
             <span className="material-symbols-outlined text-xl">call</span>
@@ -139,19 +132,6 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
         </div>
 
         <div className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-start gap-3">
-          <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-xl">chat</span>
-          </div>
-          <div>
-            <div className="text-xs text-[var(--color-text-muted)] font-medium">Acil WhatsApp & İhbar</div>
-            <a href="https://wa.me/905322345678" target="_blank" rel="noopener noreferrer" className="text-base font-bold text-[var(--color-text-primary)] hover:text-emerald-600 transition-colors font-mono">
-              0532 234 56 78
-            </a>
-            <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">Anlık Fotoğraflı Arıza</div>
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-start gap-3">
           <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
             <LocationPinSvgIcon className="w-5 h-5" />
           </div>
@@ -160,7 +140,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
             <div className="text-xs font-bold text-[var(--color-text-primary)] leading-snug">
               Kadıköy / İstanbul
             </div>
-            <div className="text-[11px] text-[var(--color-text-muted)] mt-0.5">Sahrayıcedit Mah. Atatürk Cad. No:62/4</div>
+            <div className="text-[11px] text-[var(--color-text-muted)] mt-0.5">Osmanağa Mah. Misak-ı Milli Sok. No:94A</div>
           </div>
         </div>
       </div>

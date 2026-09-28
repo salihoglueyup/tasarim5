@@ -39,18 +39,17 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
       alternateName: ['Alo Yönetim', 'Alo Tesis Yönetimi', 'Alo Management'],
       url: BASE_URL,
-      taxID: 'Kozyatağı VD / 0540897612',
-      vatID: 'TR0540897612',
+      taxID: CANONICAL_NAP.legal.mersisNumber,
       identifier: [
         {
           '@type': 'PropertyValue',
           name: 'MERSİS Numarası',
-          value: '0054089761200001',
+          value: CANONICAL_NAP.legal.mersisNumber,
         },
         {
           '@type': 'PropertyValue',
           name: 'İstanbul Ticaret Sicil No',
-          value: '918234-0',
+          value: CANONICAL_NAP.legal.tradeRegistryNumber,
         },
         {
           '@type': 'PropertyValue',
@@ -61,10 +60,10 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       hasCredential: ORG_CREDENTIALS,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4',
-        addressLocality: 'Kadıköy',
-        addressRegion: 'İstanbul',
-        postalCode: '34734',
+        streetAddress: CANONICAL_NAP.address.streetAddress,
+        addressLocality: CANONICAL_NAP.address.addressLocality,
+        addressRegion: CANONICAL_NAP.address.addressRegion,
+        postalCode: CANONICAL_NAP.address.postalCode,
         addressCountry: 'TR',
       },
       telephone: '+90 216 550 48 48',
@@ -135,8 +134,8 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
           <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Mersis / Sicil</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)] font-mono">0054089761200001</div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">Sicil: 918234-0</div>
+          <div className="text-sm font-bold text-[var(--color-text-primary)] font-mono">{CANONICAL_NAP.legal.mersisNumber}</div>
+          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">Sicil: {CANONICAL_NAP.legal.tradeRegistryNumber}</div>
         </div>
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
           <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Güvenlik Ruhsatı</div>

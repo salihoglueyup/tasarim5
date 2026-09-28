@@ -56,7 +56,6 @@ export const CORPORATE_CREDENTIALS = [
 ];
 
 export const CORPORATE_AWARDS = [
-  '2025 Yılı En Güvenilir Site & Tesis Yönetim Şirketi Ödülü (Gayrimenkul Zirvesi)',
   '2024 Müşteri Memnuniyeti & Sıfır Şikayet Mükemmellik Belgesi',
   '2023 Akıllı Bina ve Enerji Verimliliği Yönetim Liderliği',
 ];

@@ -30,8 +30,8 @@ describe('Wave 63: Google AI Overviews & LLM Search Grounding Expansion', () => 
       const data = await res.json();
       expect(data.corporateEntity).toBeDefined();
       expect(data.corporateEntity.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.corporateEntity.mersisNo).toBe('0054089761200001');
-      expect(data.corporateEntity.tradeRegistryNo).toBe('918234-0');
+      expect(data.corporateEntity.mersisNo).toBe('0054049823100018');
+      expect(data.corporateEntity.tradeRegistryNo).toBe('712498-5');
       expect(data.corporateEntity.speakableSelector).toBe('#corporate-instant-answer-text');
 
       expect(data.emergencyDispatchCenter).toBeDefined();
@@ -60,7 +60,7 @@ describe('Wave 63: Google AI Overviews & LLM Search Grounding Expansion', () => 
       const text = await res.text();
 
       expect(text).toContain('Kurumsal E-E-A-T & 7/24 Acil Müdahale Taahhütleri');
-      expect(text).toContain('0054089761200001');
+      expect(text).toContain('0054049823100018');
       expect(text).toContain('Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika');
       expect(text).toContain('%32.4 net tasarruf');
       expect(text).toContain('KMK 37 Aidat Hesaplama Formülü');
@@ -73,7 +73,7 @@ describe('Wave 63: Google AI Overviews & LLM Search Grounding Expansion', () => 
       const text = await res.text();
 
       expect(text).toContain('10. Kurumsal E-E-A-T, Acil İntikal SLA & Sayısal Vaka Analizleri');
-      expect(text).toContain('Sicil No: 918234-0');
+      expect(text).toContain('Sicil No: 712498-5');
       expect(text).toContain('2.2 Milyon TL reaktif enerji cezası sıfırlandı');
       expect(text).toContain('Daire Başı Aidat = [(Personel Masrafı ÷ Daire)');
     });

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400;
@@ -18,9 +19,9 @@ export async function GET() {
       generatedAt: '2026-09-17T11:00:00.000Z',
       authority: {
         legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
-        mersisNumber: '0054089761200001',
-        tradeRegistryNumber: '918234-0',
-        headquarters: 'Sahrayıcedit Mah. Atatürk Cad. No:62/4 Kadıköy / İstanbul',
+        mersisNumber: CANONICAL_NAP.legal.mersisNumber,
+        tradeRegistryNumber: CANONICAL_NAP.legal.tradeRegistryNumber,
+        headquarters: CANONICAL_NAP.address.fullDisplayAddress,
         canonicalUrl: BASE_URL,
       },
       verifiedLegalActs: [

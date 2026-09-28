@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 
 export interface CertificateItem {
   code: string;
@@ -69,7 +70,7 @@ export default function TrustVerificationAuditSeo() {
       name: 'Özel Güvenlik Faaliyet İzin Belgesi',
       issuer: 'T.C. İçişleri Bakanlığı & T.C. İstanbul Valiliği',
       scope: '7/24 Silahlı/Silahsız Özel Güvenlik, Devriye ve Giriş-Çıkış Kontrolü',
-      certNumber: '34-ÖG-2016/482',
+      certNumber: CANONICAL_NAP.legal.securityPermitNumber,
       validUntil: 'Süresiz / Yıllık Denetimli',
       icon: 'local_police'
     }

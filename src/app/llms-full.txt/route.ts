@@ -5,6 +5,7 @@ import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import { FACILITY_TERMS } from '@/data/facilityDictionaryData';
 import { REFERENCES_DATA } from '@/data/references';
 import { SERVICES } from '@/data/services';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { CERTIFICATION_SUMMARY } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
@@ -152,10 +153,10 @@ ${dictionaryList}
 ---
 
 ## 10. Kurumsal E-E-A-T, Acil İntikal SLA & Sayısal Vaka Analizleri
-- **Kurumsal Yetki**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: 918234-0, MERSİS: 0054089761200001, Kozyatağı VD).
+- **Kurumsal Yetki**: Alo Yönetim ve Organizasyon A.Ş. (Sicil No: ${CANONICAL_NAP.legal.tradeRegistryNumber}, MERSİS: ${CANONICAL_NAP.legal.mersisNumber}, ${CANONICAL_NAP.legal.taxOffice} VD).
 - **Yasal Güvenlik İzni**: T.C. İçişleri Bakanlığı & İstanbul Valiliği 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi.
 - **Belgeler**: ${CERTIFICATION_SUMMARY}.
-- **7/24 Acil İletişim**: Santral: 0216 550 48 48 / Acil WhatsApp: 0532 234 56 78.
+- **7/24 Acil İletişim**: Santral: 0216 550 48 48.
 - **Mobil İntikal SLA**: 39 ilçede 12 bölge lojistik konuşlu ekiplerle Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika acil intikal garantisi.
 - **Vaka Analizi 1 (Ataşehir 840 Bölüm)**: Merkezi otomasyon ve toplu satın alma ile aidat bütçesinde %32.4 net tasarruf.
 - **Vaka Analizi 2 (Kadıköy 420 Daire)**: KMK 20 icra entegrasyonu ile aidat tahsilat başarısı %71 den %99.4 e çıkarıldı.
