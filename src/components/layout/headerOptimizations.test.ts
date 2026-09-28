@@ -28,7 +28,7 @@ describe('Wave 4: Header, Mega Menü & Router Hızlandırması (Faz 76 - Faz 100
   const nextConfigPath = path.resolve(process.cwd(), 'next.config.ts');
   const loadingPath = path.resolve(process.cwd(), 'src/app/[lang]/admin/loading.tsx');
   const rootLoadingPath = path.resolve(process.cwd(), 'src/app/[lang]/loading.tsx');
-  const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/not-found.tsx');
+  const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/NotFoundClient.tsx');
   const errorPath = path.resolve(process.cwd(), 'src/app/[lang]/error.tsx');
   const globalErrorPath = path.resolve(process.cwd(), 'src/app/global-error.tsx');
   const megaMenuPath = getLayoutPath('MegaMenuDropdown.tsx');

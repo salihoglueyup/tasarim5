@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Column 2: KURUMSAL (2.5 Cols) */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <h3 className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">{t('footer_col_corporate')}</h3>
+            <p className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">{t('footer_col_corporate')}</p>
             <div className="flex flex-col gap-3" role="navigation" aria-label={t('ft_nav_corporate_aria')}>
               {[
                 { nameKey: 'nav_about', path: '/hakkimizda' },
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* Column 3: ÇÖZÜMLERİMİZ (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h3 className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">{t('footer_col_solutions')}</h3>
+            <p className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">{t('footer_col_solutions')}</p>
             <div className="flex flex-col gap-3" role="navigation" aria-label={t('ft_nav_solutions_aria')}>
               {[
                 { nameKey: 'nav_property_mgmt', path: '/hizmetler/tesis-yonetimi' }, // Amiral Gemisi #1
@@ -134,7 +134,7 @@ export default function Footer() {
 
           {/* Column 4: İLETİŞİM BİLGİLERİ (2.5 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h3 className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">{t('footer_col_contact')}</h3>
+            <p className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">{t('footer_col_contact')}</p>
             
             {/* Live Weather & Time Pill */}
             <div className="inline-flex items-center gap-2 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[var(--color-primary)] w-fit">
@@ -260,9 +260,9 @@ export default function Footer() {
         <div className="pt-8 border-t border-[var(--color-outline)]/40 flex flex-col gap-6">
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">
+              <p className="font-extrabold text-sm uppercase tracking-wider text-[var(--color-primary)]">
                 {t('footer_service_areas')}
-              </h3>
+              </p>
               <Link
                 href={getLocalizedPath('/bolgeler')}
                 className="text-xs font-bold text-[var(--color-primary)] hover:underline"
@@ -350,9 +350,9 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)]">
+            <p className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)]">
               {t('ft_facility_solutions')}
-            </h4>
+            </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
               <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi')} className="font-semibold text-[var(--color-primary)] hover:underline inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_facility')}</Link>
               <span>•</span>
@@ -373,9 +373,9 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)]">
+            <p className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)]">
               {t('ft_popular_regional')}
-            </h4>
+            </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
               <Link href={getLocalizedPath('/bolgeler/kadikoy/aidat-takibi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_kadikoy')}</Link>
               <span>•</span>
@@ -404,9 +404,9 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)]">
+            <p className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)]">
               {t('ft_group_title')}
-            </h4>
+            </p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-[var(--color-secondary)]">
               <a
                 href="https://www.guvenlikkursu.com/"
@@ -436,10 +436,10 @@ export default function Footer() {
 
           {/* Resmi Mevzuatlar, Kamu Kurumları ve Akreditasyon Otoriteleri (E-E-A-T Sitewide) */}
           <div className="flex flex-col gap-3 pt-4 border-t border-[var(--color-outline)]/40">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-2">
+            <p className="font-bold text-xs uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-2">
               <Icon name="account_balance" className="text-sm text-emerald-600 dark:text-emerald-400" />
               <span>{t('ft_authorities_title')}</span>
-            </h4>
+            </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
               <a
                 href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5"

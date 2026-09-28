@@ -16,7 +16,7 @@ import arDict from '@/i18n/locales/ar/common.json';
 
 describe('Wave 7: Faz 171 - Faz 175 Arama Önerileri API, Çok Dilli Formlar, 404 Sayfası & i18n Tip Güvenliği', () => {
   const searchSuggestRoutePath = path.resolve(process.cwd(), 'src/app/api/search-suggest/route.ts');
-  const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/not-found.tsx');
+  const notFoundPath = path.resolve(process.cwd(), 'src/app/[lang]/NotFoundClient.tsx');
 
   it('Faz 171: search-suggest route lang parametresini ve yerelleştirilmiş URL üretimini destekler', () => {
     const routeContent = fs.readFileSync(searchSuggestRoutePath, 'utf-8');

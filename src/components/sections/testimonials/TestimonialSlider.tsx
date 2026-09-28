@@ -194,7 +194,7 @@ export default function TestimonialSlider({
               className="w-16 h-16 rounded-full object-cover border-2 border-slate-900 dark:border-white"
             />
             <div>
-              <h3 className="text-xl font-bold text-[var(--color-primary)]">{current.name}</h3>
+              <p className="text-xl font-bold text-[var(--color-primary)]">{current.name}</p>
               <p className="text-sm text-[var(--color-secondary)] font-semibold">{current.title} • {current.site}</p>
               <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{current.location}</span>
             </div>

@@ -4523,7 +4523,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(widgetFile).toContain("new CustomEvent('open-spotlight-search')");
 
       const notFoundFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/not-found.tsx'),
+        path.join(process.cwd(), 'src/app/[lang]/NotFoundClient.tsx'),
         'utf8'
       );
       expect(notFoundFile).toContain('open-spotlight-search');
