@@ -667,7 +667,7 @@ export default function TesisYonetimiClient() {
         {/* Sitelerde 6331 İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi */}
         <FacilityOccupationalHealthSafetySeo />
 
-        {/* Google Fact Check & AI Tesis Doğrulamaları (ClaimReview) */}
+        {/* Teknik ve hukuki doğrulamalar */}
         <FacilityLegalClaimReviewsSeo />
         <LegalFactCheckAiSeo />
 

@@ -1,3 +1,4 @@
+import { INITIAL_VISIBLE_FAQS } from './constants';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, faqPageSchema, webPageSchema } from '@/lib/schemas';
@@ -71,7 +72,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
   ];
 
   const jsonLd = faqPageSchema(
-    faqs.map((f) => ({ question: f.question, answer: f.answer.replace(/<[^>]+>/g, '') }))
+    faqs.slice(0, INITIAL_VISIBLE_FAQS).map((f) => ({ question: f.question, answer: f.answer.replace(/<[^>]+>/g, '') }))
   );
 
   const breadcrumbLd = generateBreadcrumbs([

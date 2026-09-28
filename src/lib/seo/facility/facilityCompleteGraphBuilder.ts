@@ -32,7 +32,7 @@ export const FACILITY_COMPLETE_GRAPH_CREDENTIALS = ORG_CREDENTIALS;
  * Tesis Yönetimi Birleşik Schema.org @graph Knowledge Graph Jeneratörü.
  * 
  * Google Knowledge Graph, Bing ve AI Arama Motorları (Google SGE, Gemini, Perplexity)
- * için sayfadaki tüm varlıkları (Organization, WebSite, Service, WebPage, FAQPage,
+ * için sayfadaki tüm varlıkları (Organization, WebSite, Service, WebPage,
  * ItemList, DigitalDocument, HowTo, DefinedTermSet) tek bir birleşik @graph
  * linked-data ağında birbirine @id referanslarıyla bağlar.
  */
@@ -42,7 +42,6 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
   const canonicalUrl = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
   const pageId = `${canonicalUrl}#webpage`;
   const serviceId = `${canonicalUrl}#service`;
-  const faqId = `${canonicalUrl}#faq`;
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
   const rfpId = `${canonicalUrl}#rfp-document`;
   const howtoId = `${canonicalUrl}#howto-transition`;
@@ -220,71 +219,6 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     inLanguage: lang,
   };
 
-  // 6. FAQPage Node
-  const faqPageNode = {
-    '@type': 'FAQPage',
-    '@id': faqId,
-    isPartOf: { '@id': pageId },
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Profesyonel tesis yönetimi neleri kapsar?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Tesis yönetimi; 5188 sayılı kanuna uygun fiziki güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, aidat takibi, KMK hukuki danışmanlığı, peyzaj ve havuz bakımını tek çatı altında entegre olarak kapsar.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'KMK Madde 37 işletme projesi nedir ve nasıl hazırlanır?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'İşletme projesi; yöneticinin her yıl hazırladığı, 12 aylık tahmini gelir-gider ve her kat malikine düşen avans tutarını gösteren belgedir. Tebliğden 7 gün içinde itiraz edilmezse kesinleşir ve icra takibine dayanak olur.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Acil teknik arızalarda müdahale süresi ne kadar?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'SLA kapsamında kritik arızalar için maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz kesintisiz hizmet vermektedir.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Tesis yönetim şirketi seçerken nelere dikkat edilmeli ve hangi yasal belgeler istenmelidir?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Akredite kuruluşlarca verilmiş ISO yönetim sistemi belgelerinin güncelliği, 5188 Özel Güvenlik Faaliyet İzin Belgesi, en az 3 referans tesis, sözleşmedeki 45 dakikalık SLA süresi ve kıdem tazminatı sorumluluğu kontrol edilmelidir.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Kat Mülkiyeti Kanunu (KMK 34) uyarınca yönetici hangi oy çokluğu ile seçilir?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: '634 sayılı KMK Madde 34/4 gereğince yönetici; kat maliklerinin hem sayı (kişi sayısı) hem de arsa payı bakımından salt çoğunluğu (%50 + 1) tarafından seçilir.',
-        },
-      },
-    ],
-  };
-
   // 7. ItemList Node (39 İlçe Siloları)
   const districtListNode = {
     '@type': 'ItemList',
@@ -377,7 +311,6 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       breadcrumbNode,
       serviceNode,
       webPageNode,
-      faqPageNode,
       districtListNode,
       digitalDocumentNode,
       howToNode,

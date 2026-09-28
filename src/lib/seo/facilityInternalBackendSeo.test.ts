@@ -19,7 +19,6 @@ describe('Tesis Yönetimi Doğrudan İç Backend SEO & Knowledge Graph Motorlar�
       expect(types).toContain('BreadcrumbList');
       expect(types).toContain('Service');
       expect(types).toContain('WebPage');
-      expect(types).toContain('FAQPage');
       expect(types).toContain('ItemList');
       expect(types).toContain('DigitalDocument');
       expect(types).toContain('HowTo');
@@ -39,16 +38,6 @@ describe('Tesis Yönetimi Doğrudan İç Backend SEO & Knowledge Graph Motorlar�
       expect(serviceNode.hasOfferCatalog.itemListElement.length).toBe(5);
     });
 
-    it('FAQPage düğümü 7 adet soru-cevap çiftini ve geçerli Answer metinlerini barındırır', () => {
-      const graph = buildFacilityCompleteGraphSchema({ lang: 'tr' });
-      const nodes = graph['@graph'] as any[];
-      const faqNode = nodes.find((n) => n['@type'] === 'FAQPage');
-
-      expect(faqNode).toBeDefined();
-      expect(faqNode.mainEntity.length).toBe(7);
-      expect(faqNode.mainEntity[0].name).toBeDefined();
-      expect(faqNode.mainEntity[0].acceptedAnswer.text).toBeDefined();
-    });
   });
 
   describe('Topikal Varlık (Entity) Sözlüğü & Sektörel Düğümler (FACILITY_MANAGEMENT_ENTITIES)', () => {

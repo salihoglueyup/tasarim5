@@ -1,5 +1,6 @@
 'use client';
 
+import { INITIAL_VISIBLE_FAQS } from './constants';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Copy, Check, ChevronDown, Sparkles } from 'lucide-react';
@@ -65,7 +66,7 @@ export default function FaqClient({
   };
   const [searchQuery, setSearchQuery] = useState('');
   const [openIndices, setOpenIndices] = useState<Set<string>>(new Set());
-  const [visibleCount, setVisibleCount] = useState(20);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_FAQS);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const categoryIcons: Record<string, string> = {

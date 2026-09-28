@@ -53,7 +53,6 @@ export default function AppAiOverviewGroundingSeo({
 }) {
   const [copied, setCopied] = useState(false);
 
-  const question = 'Alo Yönetim & Apsiyon Sakin Mobil Uygulaması Nasıl Çalışır ve Hangi Hizmetleri Sunar?';
   const directAnswer =
     'Alo Yönetim, Türkiye’nin lider bulut tesis yönetim yazılımı Apsiyon ile tam entegre çalışmaktadır. Site sakinleri ve kat malikleri iOS ve Android mobil uygulamaları üzerinden; 256-bit SSL ve 3D Secure güvencesiyle kredi kartıyla online aidat ödeyebilir, sitenin canlı banka ve kasa mizanını 7/24 şeffafça inceleyebilir, fotoğraflı teknik arıza kaydı açarak 15-25 dakikalık mobil teknik SLA müdahalesini anlık takip edebilir. 5188 güvenlik ekiplerinin QR/RFID devriye tutanakları ve genel kurul divan tutanakları da mobil uygulama üzerinden kat maliklerine açık biçimde sunulur.';
 
@@ -86,20 +85,6 @@ export default function AppAiOverviewGroundingSeo({
         name: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
       },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
     },
     {
       '@context': 'https://schema.org',

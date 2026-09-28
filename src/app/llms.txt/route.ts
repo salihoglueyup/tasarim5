@@ -116,7 +116,7 @@ ${DISTRICTS.map(d => {
   return `- [${d.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi): ${d.name} genelinde ve ${nLen} mahallesinde${projectNote} 634 KMK uyumlu profesyonel tesis ve site işletmeciliği. [Mahalleler](${BASE_URL}/bolgeler/${d.slug}/mahalleler)`;
 }).join('\n')}
 
-## Hukuki ve Teknik Efsaneler & Doğrulamalar (Google Fact Check / ClaimReview Grounding)
+## Hukuki ve Teknik Efsaneler & Doğrular
 1. **İddia**: Kırmızı etiketli asansör arızası giderilene kadar bina sakinlerinin sorumluluğunda kullanılabilir.
    - **Hüküm**: Hukuken ve Cezai Olarak Geçersiz (Suç Teşkil Eder).
    - **Yasal Dayanak**: Asansör İşletme ve Bakım Yönetmeliği m.15 & TCK m.85/89. Yönetici şahsen cezai sorumludur; belediye zabıtası asansörü mühürler.

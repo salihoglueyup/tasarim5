@@ -101,7 +101,6 @@ export default function GlossaryAiOverviewSeo({
     setTimeout(() => setCopiedSlug(null), 2500);
   };
 
-  const question = 'Kat Mülkiyeti Kanunu ve Tesis Yönetiminde Temel Terimlerin Anlamları Nelerdir?';
   const directAnswer =
     '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra gücü kazanan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için 4/5 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
 
@@ -117,20 +116,6 @@ export default function GlossaryAiOverviewSeo({
         description: `${t.definition} (Yasal Dayanak: ${t.legalBasis})`,
         url: `${BASE_URL}/sozluk#${t.slug}`,
       })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
     },
     {
       '@context': 'https://schema.org',

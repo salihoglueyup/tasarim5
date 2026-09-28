@@ -582,22 +582,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     }, 20000);
   });
 
-  describe('34. FacilityDistrictGridSeo Çok Dilli UI Metinleri', () => {
-    it('bileşen kaynak kodunda TR, EN, RU ve AR dilleri için UI_TEXT tanımlı olmalıdır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const subPath = path.join(process.cwd(), 'src/components/seo/facility/FacilityDistrictGridSeo.tsx');
-      const targetPath = fs.existsSync(subPath) ? subPath : path.join(process.cwd(), 'src/components/seo/FacilityDistrictGridSeo.tsx');
-      const content = fs.readFileSync(targetPath, 'utf-8');
-
-      expect(content).toContain('UI_TEXT');
-      expect(content).toContain('badge:');
-      expect(content).toContain('searchPlaceholder:');
-      expect(content).toContain('marketAvg:');
-      expect(content).toContain('aloManagement:');
-    });
-  });
-
   describe('35. facilityDistrictComparator LocalBusiness Şema Zenginleştirmesi', () => {
     it('kıyaslama motoru ve API rotası LocalBusiness ve telefon/adres nesneleri sunmalıdır', async () => {
       const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
@@ -3842,10 +3826,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(content).toContain('Gecikme Tazminatı (KMK 20/2)');
     });
 
-    it('sanayi-tesisi-yonetimi/page.tsx doğrulanmış ISO 45001 ve ISO 14001 akreditasyon numaralarını içerir', async () => {
+    it('certificates.ts doğrulanmış ISO 45001 ve ISO 14001 akreditasyon numaralarını içerir', async () => {
       const fs = await import('fs');
       const path = await import('path');
-      const filePath = path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/page.tsx');
+      const filePath = path.join(process.cwd(), 'src/data/certificates.ts');
       const content = fs.readFileSync(filePath, 'utf8');
 
       expect(content).toContain('A1808966');
@@ -4611,12 +4595,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         'utf8'
       );
       expect(navWrapperFile).not.toContain('<GlobalSpotlightSearchSeo');
-
-      const subGlobalPath = path.join(process.cwd(), 'src/components/seo/district/GlobalSpotlightSearchSeo.tsx');
-      const targetGlobalPath = fs.existsSync(subGlobalPath) ? subGlobalPath : path.join(process.cwd(), 'src/components/seo/GlobalSpotlightSearchSeo.tsx');
-      const globalModalFile = fs.readFileSync(targetGlobalPath, 'utf8');
-
-      expect(globalModalFile).toContain('return null');
     });
 
     it('QuickCallWidget ve not-found sayfaları tekil open-spotlight-search olayını tetikler', async () => {

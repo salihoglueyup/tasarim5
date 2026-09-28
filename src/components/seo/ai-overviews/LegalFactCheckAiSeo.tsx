@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { BASE_URL } from '@/lib/constants';
 
 export interface FactCheckClaimItem {
   id: string;
@@ -254,44 +253,6 @@ export default function LegalFactCheckAiSeo() {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Schema.org ClaimReview JSON-LD for Google AI Overviews & Fact Check Tools
-  const claimReviewSchema = useMemo(() => {
-    return {
-      '@context': 'https://schema.org',
-      '@graph': LEGAL_FACT_CHECKS_20.map((item) => ({
-        '@type': 'ClaimReview',
-        '@id': `${BASE_URL}/hizmetler/tesis-yonetimi#factcheck-${item.id}`,
-        url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
-        claimReviewed: item.claim,
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: item.ratingValue,
-          bestRating: 5,
-          worstRating: 1,
-          alternateName: item.verdict,
-        },
-        itemReviewed: {
-          '@type': 'Claim',
-          author: {
-            '@type': 'Organization',
-            name: 'Yaygın Kat Mülkiyeti Mitleri ve Kamuoyu İddiası',
-          },
-          datePublished: '2026-01-01',
-          appearance: {
-            '@type': 'CreativeWork',
-            url: `${BASE_URL}/hizmetler/tesis-yonetimi`,
-          },
-        },
-        author: {
-          '@type': 'Organization',
-          name: 'Alo Yönetim Hukuk ve Kat Mülkiyeti Kurulu',
-          url: BASE_URL,
-        },
-        reviewBody: item.truth,
-      })),
-    };
-  }, []);
-
   return (
     <section
       id="legal-fact-check-ai-overview"
@@ -300,19 +261,13 @@ export default function LegalFactCheckAiSeo() {
       data-ai-citation="true"
       data-speakable="true"
     >
-      {/* Schema.org ClaimReview Injection */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewSchema) }}
-      />
-
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider border border-[var(--color-outline)]/80 mb-3">
               <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-              Google AI Overviews • 2026 Hukuki Doğruluk & ClaimReview
+              2026 Hukuki Mitler & Doğrular
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] ai-speakable-summary">
               Kat Mülkiyeti Kanunu ve Tesis Yönetimi Doğruluk Tablosu (Fact-Check)
@@ -449,7 +404,7 @@ export default function LegalFactCheckAiSeo() {
         <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/60 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--color-tertiary)]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span>Schema.org ClaimReview 3.1 ile Googlebot & Gemini için tescillidir.</span>
+            <span>Yasal dayanaklar ilgili mevzuat maddeleriyle birlikte verilmiştir.</span>
           </div>
           <div className="text-[var(--color-tertiary)]">
             Kaynak: 634 Sayılı KMK, 5188 Sayılı Kanun & Yargıtay İçtihatları Birleştirme Kararları

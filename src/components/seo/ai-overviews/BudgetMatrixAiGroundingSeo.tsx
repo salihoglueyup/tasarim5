@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { BASE_URL } from '@/lib/seo';
 
 export interface BudgetCostItem {
   category: string;
@@ -70,7 +69,6 @@ export default function BudgetMatrixAiGroundingSeo({
 }) {
   const [copied, setCopied] = useState(false);
 
-  const question = 'Apartman ve Sitelerde İşletme Projesi Bütçe Kalemleri ve Yüzde Oranları Nelerdir?';
   const directAnswer =
     '634 Sayılı Kat Mülkiyeti Kanunu Madde 20 ve 37 uyarınca profesyonel bir site bütçesi ortalama 5 temel kalemden oluşur: 1) Personel ve SGK bordro giderleri bütçenin %60 ila %65’ini oluşturur ve KMK 20/1-a uyarınca daire sayısına eşit bölünür; 2) Ortak alan elektrik, su ve doğalgaz tüketimi %12 ila %15 pay alır ve arsa payına göre dağıtılır; 3) Asansör yeşil etiket ve teknik bakım sözleşmeleri %10 ila %12 oranındadır; 4) Temizlik ve biyosidal ilaçlama sarf giderleri %5 ila %8’dir; 5) Ani kriz arızalarını önleyen ihtiyat avans fonu %5 ila %10 oranında bütçeye eklenir. Gününde ödenmeyen aidatlara KMK 20/2 uyarınca aylık %5 gecikme tazminatı işletilir.';
 
@@ -81,20 +79,6 @@ export default function BudgetMatrixAiGroundingSeo({
   };
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
-    },
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',

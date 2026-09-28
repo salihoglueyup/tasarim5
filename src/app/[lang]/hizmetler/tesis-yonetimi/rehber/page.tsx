@@ -46,34 +46,6 @@ export default async function TesisYonetimiRehberPage({
 }) {
   const { lang } = await params;
 
-  const faqs = [
-    {
-      question: 'Tesis yönetim şirketi seçerken en önemli kriter nedir?',
-      answer:
-        'ISO sertifikaları, 5188 güvenlik lisansı ve TSE belgelerinin güncelliği en kritik kriterdir. Referans sitelerden doğrudan geri bildirim almak ve şeffaf sözleşme şartları da vazgeçilmez unsurlardandır.',
-    },
-    {
-      question: 'Tesis yönetim sözleşmesinde mutlaka olması gereken maddeler nelerdir?',
-      answer:
-        'Hizmet kapsamı, SLA süreleri (örn. 45 dakika acil müdahale), aylık raporlama yükümlülüğü, fesih süresi (90 gün), gizlilik, sorumluluk sınırları ve ceza maddeleri mutlaka yer almalıdır.',
-    },
-    {
-      question: 'Teklif alırken nelere dikkat etmeliyim?',
-      answer:
-        'Sadece toplam fiyata değil, fiyata neyin dahil olduğuna (personel, malzeme, KDV) bakın. Gizli ücretler, ekstra hizmet ücretleri ve sözleşme dışı maliyet kalemlerini netleştirin.',
-    },
-    {
-      question: 'Mevcut yöneticimizi değiştirmek için ne yapmalıyız?',
-      answer:
-        'Olağan veya olağanüstü kat malikleri kurulu toplanır; oy çokluğuyla mevcut yönetici görevden alınır ve yeni firma atanır. Tüm süreç noterle tescil edilir.',
-    },
-    {
-      question: 'Tesis yönetim şirketini ne sıklıkla denetlemeliyim?',
-      answer:
-        'En az ayda bir kez aylık rapor ve hesap özeti talep edin. 6 ayda bir fiili denetim yapın. Yıllık olağan toplantıda bütçe ve hizmet performansını değerlendirin.',
-    },
-  ];
-
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'rehber',
     name: 'Tesis Yönetimi Seçim ve Geçiş Rehberi',
@@ -81,7 +53,6 @@ export default async function TesisYonetimiRehberPage({
       'Profesyonel tesis yönetim şirketi seçerken dikkat edilmesi gereken ISO sertifikaları, 5188 lisansı, sözleşme maddeleri ve değerlendirme kriterleri rehberi.',
     priceRange: '₺₺',
     lang,
-    faqs,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q1391515',
   });
 

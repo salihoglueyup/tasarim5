@@ -167,18 +167,6 @@ export default function GoogleAiOverviewGroundingSeo({
   const schemaData = [
     {
       '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: displayedPrompts.map((p) => ({
-        '@type': 'Question',
-        name: p.prompt,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${p.groundTruthAnswer} (Yasal Dayanak: ${p.legalCitation} | Emsal: ${p.precedentRef || 'Yerleşik İçtihat'})`,
-        },
-      })),
-    },
-    {
-      '@context': 'https://schema.org',
       '@type': 'WebPage',
       name: 'Google AI Overviews & Gemini Ground Truth Otorite Merkezi | Alo Yönetim',
       speakable: {

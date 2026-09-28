@@ -47,34 +47,6 @@ export default async function PlazaYonetimiPage({
 }) {
   const { lang } = await params;
 
-  const faqs = [
-    {
-      question: 'Plaza tesis yönetiminde en kritik hizmetler nelerdir?',
-      answer:
-        'HVAC sistemlerinin merkezi bakımı, enerji optimizasyonu, kiracı geçiş ve çıkış protokolleri, asansör/yürüyen merdiven bakımı ve 7/24 teknik destek plazalarda kritik öneme sahiptir.',
-    },
-    {
-      question: 'Ticari binada enerji tasarrufu nasıl sağlanır?',
-      answer:
-        'Kompanzasyon sistemi ile reaktif güç cezası sıfırlanır; HVAC programlaması ile boş saatlerde enerji tüketimi azaltılır; LED dönüşümü ve akıllı aydınlatma sistemleri uygulanır. Ortalama %15-25 enerji tasarrufu elde edilir.',
-    },
-    {
-      question: 'Kiracı yönetimi nasıl koordine edilir?',
-      answer:
-        'Her kiracı için bağımsız bölüm teslim-iade protokolü, ortak alan kullanım kuralları ve güvenlik kimlik kartı sistemi uygulanır. Kiracı şikayetleri dijital portal üzerinden takip edilir.',
-    },
-    {
-      question: 'Plaza güvenliği nasıl sağlanır?',
-      answer:
-        '5188 lisanslı güvenlik personeli, araç plaka tanıma sistemi (PTS), turnike girişleri, CCTV izleme ve 7/24 güvenlik kontrol merkezi ile kapsamlı güvenlik sağlanır.',
-    },
-    {
-      question: 'Acil teknik arızalarda müdahale süresi ne kadar?',
-      answer:
-        'SLA kapsamında kritik teknik arızalarda (asansör, HVAC, jeneratör) maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz sahada hazır bulunur.',
-    },
-  ];
-
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'plaza-yonetimi',
     name: 'Plaza & Ofis Binası Tesis Yönetimi',
@@ -82,7 +54,6 @@ export default async function PlazaYonetimiPage({
       'İstanbul plaza ve iş merkezleri için HVAC iklimlendirme, enerji optimizasyonu, kiracı koordinasyonu ve ISO 41001 standartlarında entegre tesis yönetimi.',
     priceRange: '₺₺₺',
     lang,
-    faqs,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q102163',
   });
 
@@ -97,9 +68,6 @@ export default async function PlazaYonetimiPage({
         keywords={['plaza yönetimi', 'iş merkezi yönetimi', 'hvac bakımı', 'enerji optimizasyonu']}
       />
       <VoiceSearchSpeakableSeo
-        question="Plaza tesis yönetimi neleri kapsar?"
-        directAnswer="Plaza tesis yönetimi; HVAC iklimlendirme, turnike güvenlik kontrolü, enerji tasarrufu ve kiracı yönetimini kapsar."
-        lang={lang}
       />
       <PlazaYonetimiClient />
     </>

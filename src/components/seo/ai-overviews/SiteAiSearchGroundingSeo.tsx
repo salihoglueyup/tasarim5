@@ -75,28 +75,8 @@ export default function SiteAiSearchGroundingSeo() {
 
   const selectedPrompt = AI_PROMPTS.find((p) => p.id === activeTab) || AI_PROMPTS[0];
 
-  // Schema.org FAQPage for Google AI Overviews & Search Engines
-  const schemaFaq = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: AI_PROMPTS.map((p) => ({
-      '@type': 'Question',
-      name: p.prompt,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: `${p.groundTruthAnswer} (Yasal Dayanak: ${p.legalCitation})`,
-      },
-    })),
-  };
-
   return (
     <section className="my-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFaq) }}
-      />
-
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>

@@ -47,34 +47,6 @@ export default async function RezidansYonetimiPage({
 }) {
   const { lang } = await params;
 
-  const faqs = [
-    {
-      question: 'Rezidans tesis yönetimi normal site yönetiminden nasıl farklıdır?',
-      answer:
-        'Rezidanslarda concierge hizmetleri, valet park, lobi yönetimi, VIP güvenlik protokolleri ve sakin memnuniyet anketleri standart olarak uygulanır. Hizmet kalitesi, mülk değerini doğrudan etkiler.',
-    },
-    {
-      question: 'Lüks rezidanslarda güvenlik nasıl sağlanır?',
-      answer:
-        '5188 lisanslı güvenlik personeli, 24 saat lobi görevlisi, CCTV izleme, araç plaka tanıma (PTS) ve ziyaretçi kayıt sistemleri entegre olarak çalışır.',
-    },
-    {
-      question: 'Havuz ve spa alanları nasıl yönetilir?',
-      answer:
-        'Sağlık Bakanlığı Yüzme Havuzları Yönetmeliği kapsamında günlük klor/pH ölçümü, haftalık temizlik, aylık su analizi ve yıllık filtre bakımı gerçekleştirilir.',
-    },
-    {
-      question: 'Rezidans aidat yönetimi nasıl işler?',
-      answer:
-        'KMK m.37 işletme projesi hazırlanır; SMS ve kredi kartı ile online tahsilat sağlanır. Geciken ödemeler için yasal ihtar ve icra süreci otomatik olarak başlatılır.',
-    },
-    {
-      question: 'Rezidans yönetiminde mülk değerini nasıl korursunuz?',
-      answer:
-        'Önleyici teknik bakım, yüksek standartlı temizlik, peyzaj ve dış cephe bakımı ile düzenli denetim raporları, rezidansın piyasa değerini ve sakin memnuniyetini üst seviyede tutar.',
-    },
-  ];
-
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'rezidans-site-yonetimi',
     name: 'Rezidans & Lüks Site Yönetimi',
@@ -82,7 +54,6 @@ export default async function RezidansYonetimiPage({
       'İstanbul genelinde lüks rezidans ve konut kuleleri için 7/24 concierge, 5188 VIP güvenlik, havuz & spa bakımı ve ISO 41001 standartlarında entegre tesis yönetimi.',
     priceRange: '₺₺₺',
     lang,
-    faqs,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q108846399',
   });
 
@@ -97,9 +68,6 @@ export default async function RezidansYonetimiPage({
         keywords={['rezidans yönetimi', 'lüks site yönetimi', 'concierge', 'vip güvenlik']}
       />
       <VoiceSearchSpeakableSeo
-        question="Rezidans tesis yönetimi neleri kapsar?"
-        directAnswer="Rezidans tesis yönetimi; concierge, VIP güvenlik, lobi karşılama, havuz spa bakımı ve KMK uyumlu şeffaf aidat tahsilatını kapsar."
-        lang={lang}
       />
       <RezidansYonetimiClient />
     </>

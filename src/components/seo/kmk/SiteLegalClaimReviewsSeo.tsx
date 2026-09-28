@@ -68,55 +68,14 @@ export default function SiteLegalClaimReviewsSeo() {
 
   const activeClaim = LEGAL_CLAIMS.find((c) => c.id === activeId) || LEGAL_CLAIMS[0];
 
-  // Schema.org ClaimReview Structured Data for Google Fact Check & AI Overviews
-  const claimReviewSchemas = {
-    '@context': 'https://schema.org',
-    '@graph': LEGAL_CLAIMS.map((item) => ({
-      '@type': 'ClaimReview',
-      url: `${BASE_URL}/hizmetler/site-yonetimi#hukuki-dogrulamalar`,
-      claimReviewed: item.claim,
-      itemReviewed: {
-        '@type': 'Claim',
-        author: {
-          '@type': 'Organization',
-          name: item.claimant,
-        },
-        datePublished: '2026-01-01',
-        appearance: {
-          '@type': 'WebPage',
-          url: `${BASE_URL}/hizmetler/site-yonetimi`,
-        },
-      },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: item.ratingValue,
-        bestRating: 5,
-        worstRating: 1,
-        alternateName: item.ratingExplanation,
-      },
-      author: {
-        '@type': 'Organization',
-        name: 'Alo Yönetim Hukuk ve Kat Mülkiyeti Kurulu',
-        url: BASE_URL,
-      },
-      reviewBody: `${item.truth} (Yasal Dayanak: ${item.legalBasis}, Yerleşik İçtihat: ${item.courtPrecedent})`,
-    })),
-  };
-
   return (
     <section id="hukuki-dogrulamalar" className="my-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-      {/* Schema.org ClaimReview Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewSchemas) }}
-      />
-
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/10 dark:bg-rose-400/10 border border-rose-600/20 dark:border-rose-400/20 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider mb-2">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">fact_check</span>
-            Google Fact Check & AI Hukuki Doğrulama (ClaimReview)
+            Hukuki Doğrulamalar
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
             Site Yönetiminde <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-amber-600 dark:from-rose-400 dark:to-amber-300">Yaygın 4 Hukuki Yanılgı & Kanuni Gerçekler</span>

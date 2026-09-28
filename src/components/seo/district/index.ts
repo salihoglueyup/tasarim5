@@ -1,6 +1,5 @@
 export { default as BlogArticleEcosystemSeo } from './BlogArticleEcosystemSeo';
 export { default as BlogFAQExtractor } from './BlogFAQExtractor';
-export { default as ComparisonTableSeo } from './ComparisonTableSeo';
 export { default as DistrictAiOverviewSnippetSeo } from './DistrictAiOverviewSnippetSeo';
 export { default as DistrictCleaningAuditTableSeo } from './DistrictCleaningAuditTableSeo';
 export { default as DistrictComparisonMatrixSeo } from './DistrictComparisonMatrixSeo';
@@ -22,12 +21,9 @@ export { default as DistrictServiceAiOverviewSnippetSeo } from './DistrictServic
 export { default as DistrictTechnicalAuditTableSeo } from './DistrictTechnicalAuditTableSeo';
 export { default as DistrictUtilityTransferGuideSeo } from './DistrictUtilityTransferGuideSeo';
 export { default as DynamicPriceOfferSeo } from './DynamicPriceOfferSeo';
-export { default as GeoTargetAreaSeo } from './GeoTargetAreaSeo';
-export { default as GlobalSpotlightSearchSeo } from './GlobalSpotlightSearchSeo';
 export { default as IstanbulDuesHeatmapSeo } from './IstanbulDuesHeatmapSeo';
 export { default as IstanbulInteractiveDistrictMapSeo } from './IstanbulInteractiveDistrictMapSeo';
 export { default as KeywordAnalysisSeo } from './KeywordAnalysisSeo';
 export { default as NeighborhoodAiOverviewSnippetSeo } from './NeighborhoodAiOverviewSnippetSeo';
 export { default as NeighborhoodDirectorySeo } from './NeighborhoodDirectorySeo';
-export { default as SemanticTopicClusterSeo } from './SemanticTopicClusterSeo';
 export { default as SiteSecurityPermitGuideSeo } from './SiteSecurityPermitGuideSeo';

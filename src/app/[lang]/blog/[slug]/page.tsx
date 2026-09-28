@@ -317,9 +317,6 @@ export default async function BlogDetail({
       <JsonLd data={[breadcrumbLd, articleLd, pageLd]} />
       <VoiceSearchSpeakableSeo
         pageUrl={path}
-        lang={lang}
-        question={post.title}
-        directAnswer={post.tldr || post.description || post.summary}
       />
       {renderedHtml && <BlogFAQExtractor htmlContent={renderedHtml} />}
       <ReadingProgress />

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { BASE_URL } from '@/lib/seo';
 
 export interface FactCheckItem {
   id: string;
@@ -81,45 +80,6 @@ export default function FactCheckAiGroundingSeo({
   const schemaData = [
     {
       '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: LEGAL_FACT_CHECKS.map((item) => ({
-        '@type': 'Question',
-        name: `Mit mi Gerçek mi: ${item.myth}`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${item.reality} (Yasal Dayanak: ${item.legalCitation})`,
-        },
-      })),
-    },
-    ...LEGAL_FACT_CHECKS.map((item) => ({
-      '@context': 'https://schema.org',
-      '@type': 'ClaimReview',
-      claimReviewed: item.myth,
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '1',
-        bestRating: '5',
-        worstRating: '1',
-        alternateName: item.verdict,
-      },
-      itemReviewed: {
-        '@type': 'Claim',
-        author: {
-          '@type': 'Organization',
-          name: 'Kat Mülkiyeti Yaygın Yanılgıları',
-        },
-        datePublished: '2026-01-01',
-      },
-      author: {
-        '@type': 'Organization',
-        name: 'Alo Yönetim Hukuk ve Mevzuat Masası',
-        url: BASE_URL,
-      },
-      url: `${BASE_URL}/sss#${item.id}`,
-      text: item.reality,
-    })),
-    {
-      '@context': 'https://schema.org',
       '@type': 'WebPage',
       name: 'Site Yönetimi ve Kat Mülkiyeti Hukuki Mitler ve Doğrular | Google AI Fact Check',
       speakable: {
@@ -148,7 +108,7 @@ export default function FactCheckAiGroundingSeo({
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
           <span className="material-symbols-outlined text-[15px]" aria-hidden="true">fact_check</span>
-          <span>Google AI Overviews • Hukuki Doğruluk & ClaimReview</span>
+          <span>Hukuki Mitler & Doğrular</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10">

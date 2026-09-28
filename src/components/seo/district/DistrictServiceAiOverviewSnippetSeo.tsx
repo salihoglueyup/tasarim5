@@ -33,7 +33,6 @@ export default function DistrictServiceAiOverviewSnippetSeo({
   const dues = getDistrictDues(district.slug);
   const slaMinutes = district.side === 'Anadolu' ? 15 : 20;
 
-  const question = `${district.name}’de Profesyonel ${service.name} Hizmeti Nasıl Yürütülür ve Tasarruf Avantajı Nedir?`;
   const directAnswer = `${district.name} ilçesinde (${district.side} Yakası, ${district.population.toLocaleString('tr-TR')} nüfus), Alo Yönetim ISO 41001 ve 634 Sayılı KMK standartlarında profesyonel ${service.name.toLowerCase()} hizmeti sunmaktadır. Bölgede konuşlu acil mobil teknik filomuz ile ${district.name} sınırları içinde ${slaMinutes} dakika acil intikal garantisi sağlanır. Bölge genelinde ortalama ₺${dues.avgDuesM2}/m² olan piyasa aidat işletme maliyeti, toplu satın alma ve otomasyon optimizasyonuyla ₺${dues.aloDuesM2}/m² seviyesine düşürülerek net %${dues.savingsRate} bütçe tasarrufu güvencesi verilir. Sitedeki 5188 lisanslı güvenlik ve teknik işletme süreçleri 7/24 kesintisiz denetlenir.`;
 
   const handleCopy = () => {
@@ -43,20 +42,6 @@ export default function DistrictServiceAiOverviewSnippetSeo({
   };
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
-    },
     {
       '@context': 'https://schema.org',
       '@type': 'Service',

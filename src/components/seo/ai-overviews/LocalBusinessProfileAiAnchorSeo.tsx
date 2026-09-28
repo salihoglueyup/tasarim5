@@ -106,7 +106,6 @@ export default function LocalBusinessProfileAiAnchorSeo({
   const selectedHub =
     LOCAL_BUSINESS_HUBS.find((h) => h.id === activeHubId) || LOCAL_BUSINESS_HUBS[0];
 
-  const question = 'Alo Yönetim Genel Merkezi Nerededir ve İstanbul Genelinde Hangi Hub\'larla Hizmet Verir?';
   const directAnswer =
     'Alo Yönetim kurumsal genel merkezi Kadıköy Osmanağa Mahallesi Misak-ı Milli Sokak No:94A adresinde yer almaktadır. İstanbul’un 39 ilçesine 15-25 dakikalık acil mobil teknik müdahale sağlamak amacıyla Kadıköy Genel Merkez haricinde Ataşehir Finans & Rezidans Hub’ı, Beşiktaş/Levent Avrupa Merkez Hub’ı ve Başakşehir/İkitelli OSB Sanayi Masası olmak üzere 4 stratejik lojistik operasyon merkeziyle 7/24 kesintisiz hizmet vermektedir. Çağrı merkezi: 0216 550 48 48.';
 
@@ -149,20 +148,6 @@ export default function LocalBusinessProfileAiAnchorSeo({
         },
         openingHours: hub.openingHours,
       })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
     },
   ];
 

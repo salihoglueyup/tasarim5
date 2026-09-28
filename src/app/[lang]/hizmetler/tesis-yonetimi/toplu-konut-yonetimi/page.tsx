@@ -48,34 +48,6 @@ export default async function TopluKonutYonetimiPage({
 }) {
   const { lang } = await params;
 
-  const faqs = [
-    {
-      question: 'Toplu konut yönetiminde aidat nasıl optimize edilir?',
-      answer:
-        'Toplu satın alma, hizmet konsolidasyonu ve enerji tasarrufu projeleri aracılığıyla büyük sitelerde daire başına aidatı %25-33 düşürmek mümkündür. Sosyal tesis işletmesinin gelire katkısı da aidatı azaltır.',
-    },
-    {
-      question: '200 daireli bir sitede ne tür hizmetler verilir?',
-      answer:
-        '5188 güvenlik, ortak alan temizliği, asansör ve jeneratör bakımı, havuz & peyzaj yönetimi, aidat takibi, KMK hukuki danışmanlığı ve sosyal tesis (spor salonu, oyun parkı) işletmesi entegre olarak sunulur.',
-    },
-    {
-      question: 'KMK\'ya uyum nasıl sağlanır?',
-      answer:
-        'KMK m.37 işletme projesi yıllık hazırlanır, m.29 kapsamında olağan genel kurul Ocak ayında yapılır, m.20 gereği gider paylaşımı arsa payına göre uygulanır. Tüm yasal süreçler Alo Yönetim tarafından takip edilir.',
-    },
-    {
-      question: 'Sosyal tesisler (spor salonu, yüzme havuzu) nasıl işletilir?',
-      answer:
-        'Sosyal tesisler için ayrı işletme bütçesi oluşturulur; kullanım rezervasyon sistemi kurulur; temizlik ve teknik bakım günlük yapılır. Gelir, site bütçesine katkı olarak aktarılır.',
-    },
-    {
-      question: 'Büyük sitede aidat geciktirenlere nasıl müdahale edilir?',
-      answer:
-        'Otomatik SMS hatırlatma, WhatsApp bildirim, avukat ihtarı ve KMK m.20 kapsamında icra takibi süreçleri aşamalı uygulanır. Tahsilat oranı %98\'in üzerinde tutulur.',
-    },
-  ];
-
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'toplu-konut-yonetimi',
     name: 'Toplu Konut & TOKİ Site Yönetimi',
@@ -83,7 +55,6 @@ export default async function TopluKonutYonetimiPage({
       'İstanbul genelinde büyük ölçekli toplu konut ve sitelerde KMK uyumlu aidat yönetimi, sosyal tesis işletmesi, peyzaj bakımı ve %25-33 işletme tasarrufu sağlayan profesyonel tesis yönetimi.',
     priceRange: '₺₺',
     lang,
-    faqs,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q1391515',
   });
 
@@ -98,9 +69,6 @@ export default async function TopluKonutYonetimiPage({
         keywords={['toplu konut yönetimi', 'site yönetimi', 'toki site yönetimi', 'aidat optimizasyonu']}
       />
       <VoiceSearchSpeakableSeo
-        question="Toplu konut yönetimi nasıl yapılır?"
-        directAnswer="Toplu konut yönetimi; 634 sayılı KMK kapsamında kat malikleri genel kurulu, yıllık işletme projesi, 5188 güvenlik ve şeffaf aidat takibi ile yapılır."
-        lang={lang}
       />
       <TopluKonutYonetimiClient />
     </>

@@ -116,7 +116,6 @@ export default function VideoGroundingAiOverviewSeo({
   const selectedVideo =
     GROUNDING_VIDEO_GUIDES.find((v) => v.id === activeVideoId) || GROUNDING_VIDEO_GUIDES[0];
 
-  const question = 'Profesyonel Tesis ve Site Yönetimi Operasyonel Süreçleri Nasıl Yürütülür?';
   const directAnswer =
     'Alo Yönetim, 634 Sayılı KMK, 5188 Sayılı Özel Güvenlik Kanunu ve Sanayi Bakanlığı Asansör Yönetmeliği uyarınca 4 temel operasyonel videolu rehber sunar: 1) Kat Malikleri Kurulu KMK 34 çoğunluğu ile profesyonel yönetime geçiş ve ıslak imzalı devir-teslim, 2) KMK 37 işletme projesi eşit ve arsa payı bütçe dağılımı (7 günde kesinleşme), 3) A Tipi Muayene Kuruluşu onaylı yıllık asansör yeşil etiket periyodik kontrolü, 4) 5188 lisanslı güvenlik, RFID devriye tur kontrolü ve PTS plaka tanıma otomasyonu.';
 
@@ -150,20 +149,6 @@ export default function VideoGroundingAiOverviewSeo({
           url: clip.url,
         })),
       })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
     },
   ];
 

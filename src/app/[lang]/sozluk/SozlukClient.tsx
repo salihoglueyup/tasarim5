@@ -103,9 +103,6 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
       <section className="pt-10 pb-4">
         <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)]">
           <VoiceSearchSpeakableSeo
-            question="Site ve Tesis Yönetimi Terimleri ve KMK Maddeleri Nelerdir?"
-            directAnswer="634 sayılı Kat Mülkiyeti Kanunu (KMK), 5188 sayılı özel güvenlik kanunu ve ISO 41001 entegre tesis yönetimi standartlarına dair tüm yasal terimler ve tanımlardır."
-            lang={lang}
           />
 
           <GlossaryAiOverviewSeo lang={lang} />

@@ -10,7 +10,7 @@ describe('Wave 62: Google AI Overviews, Gemini SGE & LLM Grounding Güvence Test
       expect(res.headers.get('Content-Type')).toContain('text/plain');
 
       const text = await res.text();
-      expect(text).toContain('Hukuki ve Teknik Efsaneler & Doğrulamalar');
+      expect(text).toContain('Hukuki ve Teknik Efsaneler & Doğrular');
       expect(text).toContain('Kırmızı etiketli asansör');
       expect(text).toContain('Kompanzasyon arızasında elektrik faturasındaki reaktif ceza');
       expect(text).toContain('Binaların Yangından Korunması Hakkında Yönetmelik m.99');
@@ -31,7 +31,7 @@ describe('Wave 62: Google AI Overviews, Gemini SGE & LLM Grounding Güvence Test
       expect(res.status).toBe(200);
 
       const text = await res.text();
-      expect(text).toContain('Hukuki ve Teknik Fact-Check Doğrulamaları (ClaimReview)');
+      expect(text).toContain('Sık Yapılan Hukuki ve Teknik Yanılgılar');
       expect(text).toContain('Adım Adım Uyuşmazlık Çözme Protokolleri (HowTo)');
       expect(text).toContain('/api/seo/ai-overviews-rag.json');
     });

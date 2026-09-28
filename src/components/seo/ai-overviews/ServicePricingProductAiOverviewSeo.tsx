@@ -83,7 +83,6 @@ export default function ServicePricingProductAiOverviewSeo({
   const selectedPackage =
     SERVICE_PRICING_PACKAGES.find((p) => p.id === activePackageId) || SERVICE_PRICING_PACKAGES[1];
 
-  const question = 'Profesyonel Site ve Tesis Yönetimi Aylık Hizmet Fiyatları Ne Kadardır?';
   const directAnswer =
     'Alo Yönetim kurumsal hizmet fiyatları daire sayısı, ortak alan büyüklüğü ve talep edilen güvenlik/teknik personel sayısına göre 3 şeffaf paketle sunulur: 1) Butik siteler için aylık daire başı 350 TL - 550 TL (KMK 37 işletme projesi ve Apsiyon aidat tahsilatı dahil), 2) Orta ve büyük siteler için daire başı 650 TL - 1.100 TL (5188 lisanslı güvenlik devriye, 7/24 teknik bakım ve temizlik dahil), 3) Lüks rezidans ve plazalar için daire başı 1.200 TL - 2.500 TL (7/24 konsiyerj, vale, BMS otomasyonu ve ISO 41001 entegre yönetim). Tüm paketlerde 48 saat içinde ücretsiz yerinde keşif raporu sunulur.';
 
@@ -124,20 +123,6 @@ export default function ServicePricingProductAiOverviewSeo({
           },
         },
       })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
     },
   ];
 

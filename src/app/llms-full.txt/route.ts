@@ -134,7 +134,7 @@ ${dictionaryList}
 
 ---
 
-## 8. Hukuki ve Teknik Fact-Check Doğrulamaları (ClaimReview)
+## 8. Sık Yapılan Hukuki ve Teknik Yanılgılar
 - **Kırmızı Etiketli Asansör**: Sanayi Bakanlığı m.15 & TCK m.85/89 gereği kullanıma derhal kapatılmalıdır. Kırmızı etiketli asansörü çalıştırmaya devam eden bina yöneticisi şahsen cezai sorumludur; belediye mühürler.
 - **Kompanzasyon & Reaktif Enerji**: EPDK mevzuatı & KMK m.35 uyarınca endüktif %20, kapasitif %15 sınırlarını aşan reaktif ceza kat maliklerine yansıtılamaz, yönetici veya bakım şirketinin kusurudur.
 - **Yangın & Hidrofor Testi**: Binaların Yangından Korunması Hakkında Yönetmelik m.99 gereğince haftalık otomatik devreye girme ve aylık basınç testleri işletme defterine işlenmek zorundadır.
