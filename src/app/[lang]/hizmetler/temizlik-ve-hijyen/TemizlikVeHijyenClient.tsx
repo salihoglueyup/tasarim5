@@ -2,16 +2,23 @@
 
 import { useState } from 'react';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
-import { InstantAnswerCardSeo, InteractiveCleaningAuditRadarSeo } from '@/components/seo';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import ServiceSeo from '@/components/seo/schema/ServiceSeo';
+import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
+import InteractiveCleaningAuditRadarSeo from '@/components/seo/facility/InteractiveCleaningAuditRadarSeo';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { RelatedArticles } from '@/components';
+import RelatedArticles from '@/components/blog/RelatedArticles';
 import CleaningCalculator from '@/components/sections/calculators/CleaningCalculator';
 import CleaningTestimonials from '@/components/sections/testimonials/CleaningTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityHygieneMsdsGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import FacilityHygieneMsdsGuideSeo from '@/components/seo/facility/FacilityHygieneMsdsGuideSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 export default function TemizlikVeHijyenClient() {
   const { t } = useLanguage();

@@ -1,8 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import {
-  ServicePricingProductAiOverviewSeo,
-  LocalBusinessProfileAiAnchorSeo,
-} from '@/components/seo';
+import ServicePricingProductAiOverviewSeo from '@/components/seo/ai-overviews/ServicePricingProductAiOverviewSeo';
+import LocalBusinessProfileAiAnchorSeo from '@/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo';
 import { SERVICE_PRICING_PACKAGES } from '@/components/seo/ai-overviews/ServicePricingProductAiOverviewSeo';
 import { LOCAL_BUSINESS_HUBS } from '@/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo';
 import { GET as getLocalAnchors } from '@/app/api/seo/local-anchors.json/route';

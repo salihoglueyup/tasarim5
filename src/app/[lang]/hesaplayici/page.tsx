@@ -5,7 +5,9 @@ import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, howToSchema, ORG_CREDENTIALS } from '@/lib/schemas';
-import { DefinedTermSetSeo, CalculatorAiOverviewSeo, BudgetMatrixAiGroundingSeo } from '@/components/seo';
+import DefinedTermSetSeo from '@/components/seo/schema/DefinedTermSetSeo';
+import CalculatorAiOverviewSeo from '@/components/seo/ai-overviews/CalculatorAiOverviewSeo';
+import BudgetMatrixAiGroundingSeo from '@/components/seo/ai-overviews/BudgetMatrixAiGroundingSeo';
 
 export const dynamic = 'force-dynamic';
 

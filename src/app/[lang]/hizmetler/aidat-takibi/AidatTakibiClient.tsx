@@ -1,18 +1,24 @@
 "use client";
 
 import RelatedServices from '@/components/sections/trust/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
-import { Card } from '@/components';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import ServiceSeo from '@/components/seo/schema/ServiceSeo';
+import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import { Card } from '@/components/ui/primitives/Card';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import GTMDataLayer from '@/components/seo/schema/GTMDataLayer';
-import { RelatedArticles } from '@/components';
+import RelatedArticles from '@/components/blog/RelatedArticles';
 import DuesCalculator from '@/components/sections/calculators/DuesCalculator';
 import DuesTestimonials from '@/components/sections/testimonials/DuesTestimonials';
 import InteractiveCostSimulatorSeo from '@/components/seo/facility/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, KMKOperatingBudgetGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import KMKOperatingBudgetGuideSeo from '@/components/seo/kmk/KMKOperatingBudgetGuideSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 export default function AidatTakibiClient() {
   const { t } = useLanguage();

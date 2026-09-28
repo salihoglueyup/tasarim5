@@ -3,24 +3,23 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { QuoteCtaButton, TldrBlock } from '@/components';
-import {
-  DistrictSecurityAuditTableSeo,
-  InteractiveSecurityRiskRadarSeo,
-  SecurityTrustBadgeGridSeo,
-  SecurityLegalTemplateGeneratorSeo,
-  DistrictTechnicalAuditTableSeo,
-  InteractiveTechnicalAuditRadarSeo,
-  CleaningScheduleGeneratorSeo,
-  DistrictCleaningAuditTableSeo,
-  DistrictFacilityAuditTableSeo,
-  InteractiveFacilityAuditRadarSeo,
-  FacilityLegalTemplateGeneratorSeo,
-  DistrictElevatorMaintenanceSeo,
-  FacilityRfpDownloadModalSeo,
-  FacilitySubSectorCrossNav,
-  DistrictServiceAiOverviewSnippetSeo,
-} from '@/components/seo';
+import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
+import TldrBlock from '@/components/ui/primitives/TldrBlock';
+import DistrictSecurityAuditTableSeo from '@/components/seo/district/DistrictSecurityAuditTableSeo';
+import InteractiveSecurityRiskRadarSeo from '@/components/seo/facility/InteractiveSecurityRiskRadarSeo';
+import SecurityTrustBadgeGridSeo from '@/components/seo/facility/SecurityTrustBadgeGridSeo';
+import SecurityLegalTemplateGeneratorSeo from '@/components/seo/facility/SecurityLegalTemplateGeneratorSeo';
+import DistrictTechnicalAuditTableSeo from '@/components/seo/district/DistrictTechnicalAuditTableSeo';
+import InteractiveTechnicalAuditRadarSeo from '@/components/seo/facility/InteractiveTechnicalAuditRadarSeo';
+import CleaningScheduleGeneratorSeo from '@/components/seo/facility/CleaningScheduleGeneratorSeo';
+import DistrictCleaningAuditTableSeo from '@/components/seo/district/DistrictCleaningAuditTableSeo';
+import DistrictFacilityAuditTableSeo from '@/components/seo/district/DistrictFacilityAuditTableSeo';
+import InteractiveFacilityAuditRadarSeo from '@/components/seo/facility/InteractiveFacilityAuditRadarSeo';
+import FacilityLegalTemplateGeneratorSeo from '@/components/seo/facility/FacilityLegalTemplateGeneratorSeo';
+import DistrictElevatorMaintenanceSeo from '@/components/seo/district/DistrictElevatorMaintenanceSeo';
+import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
+import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
+import DistrictServiceAiOverviewSnippetSeo from '@/components/seo/district/DistrictServiceAiOverviewSnippetSeo';
 import { buildMetadata, BASE_URL, localizedUrl, normalizeLocale } from '@/lib/seo';
 import { synthesizeDistrictFacilityFaq } from '@/lib/seo/facility/facilityFaqSynthesizer';
 import { findNearestFacilityHub } from '@/lib/seo/indexing/edgeGeoResolver';

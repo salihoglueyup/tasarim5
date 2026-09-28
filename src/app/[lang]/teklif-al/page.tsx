@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/page/PageHeader';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { QuoteCtaButton } from '@/components';
-import { ServiceAuthorityHubSeo, QuoteAiOverviewCardSeo, RfpTransitionAiGroundingSeo, ServicePricingProductAiOverviewSeo } from '@/components/seo';
+import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import QuoteAiOverviewCardSeo from '@/components/seo/ai-overviews/QuoteAiOverviewCardSeo';
+import RfpTransitionAiGroundingSeo from '@/components/seo/ai-overviews/RfpTransitionAiGroundingSeo';
+import ServicePricingProductAiOverviewSeo from '@/components/seo/ai-overviews/ServicePricingProductAiOverviewSeo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata } from '@/lib/seo';

@@ -5,7 +5,9 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import IstanbulDuesHeatmapSeo from '@/components/seo/district/IstanbulDuesHeatmapSeo';
 import DistrictComparisonMatrixSeo from '@/components/seo/district/DistrictComparisonMatrixSeo';
 import IstanbulInteractiveDistrictMapSeo from '@/components/seo/district/IstanbulInteractiveDistrictMapSeo';
-import { ServiceAuthorityHubSeo, LocalBusinessProfileAiAnchorSeo, DistrictAiGroundingSeo } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import LocalBusinessProfileAiAnchorSeo from '@/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo';
+import DistrictAiGroundingSeo from '@/components/seo/ai-overviews/DistrictAiGroundingSeo';
 import { buildMetadata } from '@/lib/seo';
 
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';

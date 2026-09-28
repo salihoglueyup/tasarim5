@@ -1,16 +1,22 @@
 "use client";
 
 import RelatedServices from '@/components/sections/trust/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo } from '@/components';
-import { Card } from '@/components';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import ServiceSeo from '@/components/seo/schema/ServiceSeo';
+import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import { Card } from '@/components/ui/primitives/Card';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { RelatedArticles } from '@/components';
+import RelatedArticles from '@/components/blog/RelatedArticles';
 import PestControlCalculator from '@/components/sections/calculators/PestControlCalculator';
 import PestControlTestimonials from '@/components/sections/testimonials/PestControlTestimonials';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityBiocidalPestGuideSeo, PositionZeroAnswerBox } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import FacilityBiocidalPestGuideSeo from '@/components/seo/facility/FacilityBiocidalPestGuideSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 export default function HasereVeDezenfeksiyonClient() {
   const { t } = useLanguage();

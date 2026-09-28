@@ -3,8 +3,14 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { PostBody, ReadingProgress, ShareButtons, ImageWithSeo } from '@/components';
-import { BlogArticleEcosystemSeo, VoiceSearchSpeakableSeo, ArticleAiOverviewCard, BlogAiTakeawaysSeo } from '@/components/seo';
+import PostBody from '@/components/blog/PostBody';
+import ReadingProgress from '@/components/blog/ReadingProgress';
+import ShareButtons from '@/components/blog/ShareButtons';
+import ImageWithSeo from '@/components/seo/schema/ImageWithSeo';
+import BlogArticleEcosystemSeo from '@/components/seo/district/BlogArticleEcosystemSeo';
+import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
+import ArticleAiOverviewCard from '@/components/seo/ai-overviews/ArticleAiOverviewCard';
+import BlogAiTakeawaysSeo from '@/components/seo/ai-overviews/BlogAiTakeawaysSeo';
 import TableOfContents from '@/components/blog/TableOfContents';
 import { prisma } from '@/lib/prisma';
 import {

@@ -1,8 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import {
-  PeopleAlsoAskDeepTreeSeo,
-  AccreditedCertificationsTrustSeo,
-} from '@/components/seo';
+import PeopleAlsoAskDeepTreeSeo from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
+import AccreditedCertificationsTrustSeo from '@/components/seo/ai-overviews/AccreditedCertificationsTrustSeo';
 import { PAA_DEEP_TREE_QUESTIONS } from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
 import { VERIFIED_BELCERT_CREDENTIALS } from '@/components/seo/ai-overviews/AccreditedCertificationsTrustSeo';
 import { GET as getCredentialsJson } from '@/app/api/seo/credentials.json/route';

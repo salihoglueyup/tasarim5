@@ -8,7 +8,7 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
-import { ServiceAiOverviewSnippetSeo } from '@/components/seo';
+import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
 import TemizlikVeHijyenClient from './TemizlikVeHijyenClient';
 
 export const revalidate = 86400; // 24 saat ISR

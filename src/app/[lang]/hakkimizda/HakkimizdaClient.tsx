@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useInView, animate } from 'framer-moti
 import { useRef, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
-import { PersonSeo } from '@/components';
+import PersonSeo from '@/components/seo/schema/PersonSeo';
 import { ShieldCheck, Target, Lightbulb, Leaf, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';

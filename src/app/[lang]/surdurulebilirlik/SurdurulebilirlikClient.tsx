@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import PageHeader from '@/components/layout/page/PageHeader';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 
 const CERTIFICATES = [
   {

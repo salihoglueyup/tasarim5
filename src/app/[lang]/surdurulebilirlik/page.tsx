@@ -3,7 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import { SustainabilityAiOverviewSeo } from '@/components/seo';
+import SustainabilityAiOverviewSeo from '@/components/seo/ai-overviews/SustainabilityAiOverviewSeo';
 import SurdurulebilirlikClient from './SurdurulebilirlikClient';
 
 export const revalidate = 86400; // 24 saat ISR

@@ -2,20 +2,17 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Faq } from '@/components';
+import Faq from '@/components/sections/trust/Faq';
 import ItemListSeo from '@/components/seo/schema/ItemListSeo';
-import {
-  ServicesHeroSeo,
-  ServicesBentoGridSeo,
-  ALL_SERVICES_CATALOG,
-  ServicesMatcherSeo,
-  ServicesVideoHubSeo,
-  DynamicPriceOfferSeo,
-  ServiceComparisonMatrixSeo,
-  MevzuatReferenceSeo,
-  InstantAnswerCardSeo,
-  ServiceAuthorityHubSeo,
-} from '@/components/seo';
+import ServicesHeroSeo from '@/components/seo/services/ServicesHeroSeo';
+import ServicesBentoGridSeo, { ALL_SERVICES_CATALOG } from '@/components/seo/services/ServicesBentoGridSeo';
+import ServicesMatcherSeo from '@/components/seo/services/ServicesMatcherSeo';
+import ServicesVideoHubSeo from '@/components/seo/services/ServicesVideoHubSeo';
+import DynamicPriceOfferSeo from '@/components/seo/district/DynamicPriceOfferSeo';
+import ServiceComparisonMatrixSeo from '@/components/seo/facility/ServiceComparisonMatrixSeo';
+import MevzuatReferenceSeo from '@/components/seo/kmk/MevzuatReferenceSeo';
+import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import { useLanguage } from '@/context/LanguageContext';
 
 const TX_MAP: Record<string, string> = {

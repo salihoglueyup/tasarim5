@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { QuoteCtaButton } from '@/components';
+import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
 interface GesConversionCtaSeoProps {
   onOpenQuote?: () => void;

@@ -2,22 +2,18 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  AcademyHeroSeo,
-  AcademyAiOverviewSeo,
-  AcademyCoursePackagesSeo,
-  AcademyEligibilityWizardSeo,
-  AcademyExamScheduleSeo,
-  AcademyCostBreakdownSeo,
-  ServiceAuthorityHubSeo,
-} from '@/components/seo';
-import {
-  SecurityScenarioQuiz,
-  AcademyEnrollmentModal,
-  SecurityEquipmentShowcase,
-  AcademyFaqAccordion,
-} from '@/components/academy';
-import { QuoteCtaButton } from '@/components';
+import AcademyHeroSeo from '@/components/seo/academy/AcademyHeroSeo';
+import AcademyAiOverviewSeo from '@/components/seo/ai-overviews/AcademyAiOverviewSeo';
+import AcademyCoursePackagesSeo from '@/components/seo/academy/AcademyCoursePackagesSeo';
+import AcademyEligibilityWizardSeo from '@/components/seo/academy/AcademyEligibilityWizardSeo';
+import AcademyExamScheduleSeo from '@/components/seo/academy/AcademyExamScheduleSeo';
+import AcademyCostBreakdownSeo from '@/components/seo/academy/AcademyCostBreakdownSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import SecurityScenarioQuiz from '@/components/academy/SecurityScenarioQuiz';
+import AcademyEnrollmentModal from '@/components/academy/AcademyEnrollmentModal';
+import SecurityEquipmentShowcase from '@/components/academy/SecurityEquipmentShowcase';
+import AcademyFaqAccordion from '@/components/academy/AcademyFaqAccordion';
+import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
 interface GuvenlikAkademisiClientProps {
   lang?: string;

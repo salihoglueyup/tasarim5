@@ -3,7 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, organizationSchema } from '@/lib/schemas';
-import { CorporateEntityAiOverviewSeo } from '@/components/seo';
+import CorporateEntityAiOverviewSeo from '@/components/seo/ai-overviews/CorporateEntityAiOverviewSeo';
 import HakkimizdaClient from './HakkimizdaClient';
 
 export const revalidate = 86400; // 24 saat ISR

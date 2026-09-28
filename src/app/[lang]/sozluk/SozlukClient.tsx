@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { DefinedTermSetSeo } from '@/components';
-import { VoiceSearchSpeakableSeo, GlossaryAiOverviewSeo } from '@/components/seo';
+import DefinedTermSetSeo from '@/components/seo/schema/DefinedTermSetSeo';
+import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
+import GlossaryAiOverviewSeo from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
 import { TERMS } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';

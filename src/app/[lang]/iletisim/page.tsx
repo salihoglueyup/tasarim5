@@ -3,7 +3,8 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, professionalServiceSchema, webPageSchema, ORG_NAME, ORG_PHONE } from '@/lib/schemas';
-import { ContactAiOverviewCardSeo, VoiceConversationalAiSnippetSeo } from '@/components/seo';
+import ContactAiOverviewCardSeo from '@/components/seo/ai-overviews/ContactAiOverviewCardSeo';
+import VoiceConversationalAiSnippetSeo from '@/components/seo/ai-overviews/VoiceConversationalAiSnippetSeo';
 import IletisimClient from './IletisimClient';
 
 export const revalidate = 86400; // 24 saat ISR

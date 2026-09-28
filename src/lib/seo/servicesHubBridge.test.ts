@@ -1,11 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import {
-  ALL_SERVICES_CATALOG,
-  ServicesHeroSeo,
-  ServicesBentoGridSeo,
-  ServicesMatcherSeo,
-  ServicesVideoHubSeo,
-} from '@/components/seo/services';
+import ServicesBentoGridSeo, { ALL_SERVICES_CATALOG } from '@/components/seo/services/ServicesBentoGridSeo';
+import ServicesHeroSeo from '@/components/seo/services/ServicesHeroSeo';
+import ServicesMatcherSeo from '@/components/seo/services/ServicesMatcherSeo';
+import ServicesVideoHubSeo from '@/components/seo/services/ServicesVideoHubSeo';
 
 describe('Services Hub & Catalog Bridge Tests (/hizmetler)', () => {
   it('tüm 10 temel operasyonel hizmet eksiksiz tanımlanmıştır', () => {

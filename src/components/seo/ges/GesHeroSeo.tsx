@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { QuoteCtaButton } from '@/components';
+import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
 interface GesHeroSeoProps {
   lang?: string;

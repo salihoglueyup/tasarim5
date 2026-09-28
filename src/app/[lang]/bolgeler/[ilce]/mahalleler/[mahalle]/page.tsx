@@ -5,7 +5,7 @@ import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import PageHeader from '@/components/layout/page/PageHeader';
-import { DynamicFAQ } from '@/components';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import NeighborhoodAiOverviewSnippetSeo from '@/components/seo/district/NeighborhoodAiOverviewSnippetSeo';
 import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_PHONE, ORG_EMAIL, ORG_LOGO, ORG_ADDRESS, ORG_PRICE_RANGE } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';

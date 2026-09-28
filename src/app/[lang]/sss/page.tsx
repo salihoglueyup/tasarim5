@@ -7,7 +7,9 @@ import FaqClient from './FaqClient';
 import { buildMetadata } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import { redis } from '@/lib/redis';
-import { FaqAiOverviewHubSeo, FactCheckAiGroundingSeo, PeopleAlsoAskDeepTreeSeo } from '@/components/seo';
+import FaqAiOverviewHubSeo from '@/components/seo/ai-overviews/FaqAiOverviewHubSeo';
+import FactCheckAiGroundingSeo from '@/components/seo/ai-overviews/FactCheckAiGroundingSeo';
+import PeopleAlsoAskDeepTreeSeo from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
 import Link from 'next/link';
 import { Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
 

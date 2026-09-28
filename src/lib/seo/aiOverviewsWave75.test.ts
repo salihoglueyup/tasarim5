@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import {
-  LegalFactCheckAiSeo,
-  LEGAL_FACT_CHECKS_20,
-  DistrictAiGroundingSeo,
-  DISTRICT_AI_METRICS_39,
-} from '@/components/seo';
+import LegalFactCheckAiSeo, { LEGAL_FACT_CHECKS_20 } from '@/components/seo/ai-overviews/LegalFactCheckAiSeo';
+import DistrictAiGroundingSeo, { DISTRICT_AI_METRICS_39 } from '@/components/seo/ai-overviews/DistrictAiGroundingSeo';
 import { DISTRICTS } from '@/data/districts';
 import { GET as getCitationManifest } from '@/app/api/ai/citation-manifest.json/route';
 

@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import {
-  GesHeroSeo,
-  GesAiOverviewSeo,
-  GesRoiCalculatorSeo,
-  GesProjectRoadmapSeo,
-  GesEvChargingHubSeo,
-  GesNetMeteringSeo,
-  GesAuthorityFaqSeo,
-  GesConversionCtaSeo,
-} from '@/components/seo';
+import GesHeroSeo from '@/components/seo/ges/GesHeroSeo';
+import GesAiOverviewSeo from '@/components/seo/ges/GesAiOverviewSeo';
+import GesRoiCalculatorSeo from '@/components/seo/ges/GesRoiCalculatorSeo';
+import GesProjectRoadmapSeo from '@/components/seo/ges/GesProjectRoadmapSeo';
+import GesEvChargingHubSeo from '@/components/seo/ges/GesEvChargingHubSeo';
+import GesNetMeteringSeo from '@/components/seo/ges/GesNetMeteringSeo';
+import GesAuthorityFaqSeo from '@/components/seo/ges/GesAuthorityFaqSeo';
+import GesConversionCtaSeo from '@/components/seo/ges/GesConversionCtaSeo';
 
 interface GesProjeleriClientProps {
   lang?: string;

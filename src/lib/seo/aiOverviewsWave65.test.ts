@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import {
-  AccreditationAiOverviewSeo,
-  CareerAiOverviewSeo,
-  ServiceAiOverviewSnippetSeo,
-  CaseStudyAiGroundingSeo,
-} from '@/components/seo';
+import AccreditationAiOverviewSeo from '@/components/seo/ai-overviews/AccreditationAiOverviewSeo';
+import CareerAiOverviewSeo from '@/components/seo/ai-overviews/CareerAiOverviewSeo';
+import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
+import CaseStudyAiGroundingSeo from '@/components/seo/ai-overviews/CaseStudyAiGroundingSeo';
 import { SERVICE_GROUND_TRUTH } from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
 import { GET as getCorporateDna } from '@/app/api/seo/corporate-dna.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';

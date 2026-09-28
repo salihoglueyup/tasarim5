@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
-import { KeywordAnalysisSeo } from "@/components/seo";
+import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 
 export async function generateMetadata({
   params,

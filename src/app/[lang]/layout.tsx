@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "../globals.css";
 import "../fonts.css";
-import { SmoothScroll, NavigationWrapper, WebVitals, AnalyticsScripts, FramerLazyProvider, ClientWidgets } from "@/components";
+import SmoothScroll from '@/components/ui/effects/SmoothScroll';
+import NavigationWrapper from '@/components/layout/header/NavigationWrapper';
+import { WebVitals } from '@/components/layout/telemetry/WebVitals';
+import AnalyticsScripts from '@/components/layout/telemetry/AnalyticsScripts';
+import FramerLazyProvider from '@/components/ui/effects/FramerLazyProvider';
+import ClientWidgets from '@/components/layout/page/ClientWidgets';
 import MaterialSymbolsFix from "@/components/ui/branding/MaterialSymbolsFix";
 import { EXTERNAL_CDN_HINTS } from "@/lib/performance/resourceHints";
 import { LanguageProvider } from "@/context/LanguageContext";

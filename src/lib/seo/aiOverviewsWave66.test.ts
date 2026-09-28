@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import {
-  FactCheckAiGroundingSeo,
-  RfpTransitionAiGroundingSeo,
-  BudgetMatrixAiGroundingSeo,
-  BlogAiTakeawaysSeo,
-} from '@/components/seo';
+import FactCheckAiGroundingSeo from '@/components/seo/ai-overviews/FactCheckAiGroundingSeo';
+import RfpTransitionAiGroundingSeo from '@/components/seo/ai-overviews/RfpTransitionAiGroundingSeo';
+import BudgetMatrixAiGroundingSeo from '@/components/seo/ai-overviews/BudgetMatrixAiGroundingSeo';
+import BlogAiTakeawaysSeo from '@/components/seo/ai-overviews/BlogAiTakeawaysSeo';
 import { LEGAL_FACT_CHECKS } from '@/components/seo/ai-overviews/FactCheckAiGroundingSeo';
 import { RFP_TRANSITION_STEPS } from '@/components/seo/ai-overviews/RfpTransitionAiGroundingSeo';
 import { BUDGET_MATRIX_ITEMS } from '@/components/seo/ai-overviews/BudgetMatrixAiGroundingSeo';

@@ -3,10 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
-import { FacilitySubSectorCrossNav, FacilityRfpDownloadModalSeo, ServiceAuthorityHubSeo, PositionZeroAnswerBox } from '@/components/seo';
+import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
+import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 const OPERATIONAL_PILLARS = [
   {

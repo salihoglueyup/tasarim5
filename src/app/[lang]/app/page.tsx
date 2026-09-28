@@ -4,7 +4,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
-import { AppAiOverviewGroundingSeo } from '@/components/seo';
+import AppAiOverviewGroundingSeo from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
 
 export const revalidate = 86400;
 export const dynamicParams = true;

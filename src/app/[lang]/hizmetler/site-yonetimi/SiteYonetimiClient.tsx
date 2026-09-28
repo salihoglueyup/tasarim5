@@ -6,34 +6,37 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ, HowToSeo, RelatedArticles } from '@/components';
-import {
-  InstantAnswerCardSeo,
-  FacilityComparisonMatrixSeo,
-  FacilityGroupSecurityTrustSeo,
-  IstanbulDuesHeatmapSeo,
-  ChecklistAuditSeo,
-  TrustVerificationAuditSeo,
-  FacilityCorporateSlaGuaranteesSeo,
-  FacilityOperationalPillarsSeo,
-  SiteVsFacilityComparisonSeo,
-  FacilityLegalPrecedentsBrowserSeo,
-  SiteAiSearchGroundingSeo,
-  SiteLegalClaimReviewsSeo,
-  KMKGlossaryEncyclopediaSeo,
-  ThreeWayManagementComparisonSeo,
-  KMKLegalDocumentVaultSeo,
-  VoiceSearchSpeakableSeo,
-  AcademicCitationBoxSeo,
-  ServicePricingCatalogSeo,
-  KMKAuditProtocolSeo,
-  ManagementTransitionRoadmapSeo,
-  KMKLegalDisputesQAPageSeo,
-  KMKLegislationNavigatorSeo,
-  KMKLegalNoticesVaultSeo,
-  PositionZeroAnswerBox,
-  GoogleAiOverviewGroundingSeo,
-} from '@/components/seo';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import ServiceSeo from '@/components/seo/schema/ServiceSeo';
+import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
+import FacilityComparisonMatrixSeo from '@/components/seo/facility/FacilityComparisonMatrixSeo';
+import FacilityGroupSecurityTrustSeo from '@/components/seo/facility/FacilityGroupSecurityTrustSeo';
+import IstanbulDuesHeatmapSeo from '@/components/seo/district/IstanbulDuesHeatmapSeo';
+import ChecklistAuditSeo from '@/components/seo/facility/ChecklistAuditSeo';
+import TrustVerificationAuditSeo from '@/components/seo/facility/TrustVerificationAuditSeo';
+import FacilityCorporateSlaGuaranteesSeo from '@/components/seo/facility/FacilityCorporateSlaGuaranteesSeo';
+import FacilityOperationalPillarsSeo from '@/components/seo/facility/FacilityOperationalPillarsSeo';
+import SiteVsFacilityComparisonSeo from '@/components/seo/kmk/SiteVsFacilityComparisonSeo';
+import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/facility/FacilityLegalPrecedentsBrowserSeo';
+import SiteAiSearchGroundingSeo from '@/components/seo/ai-overviews/SiteAiSearchGroundingSeo';
+import SiteLegalClaimReviewsSeo from '@/components/seo/kmk/SiteLegalClaimReviewsSeo';
+import KMKGlossaryEncyclopediaSeo from '@/components/seo/kmk/KMKGlossaryEncyclopediaSeo';
+import ThreeWayManagementComparisonSeo from '@/components/seo/kmk/ThreeWayManagementComparisonSeo';
+import KMKLegalDocumentVaultSeo from '@/components/seo/kmk/KMKLegalDocumentVaultSeo';
+import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
+import AcademicCitationBoxSeo from '@/components/seo/kmk/AcademicCitationBoxSeo';
+import ServicePricingCatalogSeo from '@/components/seo/facility/ServicePricingCatalogSeo';
+import KMKAuditProtocolSeo from '@/components/seo/kmk/KMKAuditProtocolSeo';
+import ManagementTransitionRoadmapSeo from '@/components/seo/kmk/ManagementTransitionRoadmapSeo';
+import KMKLegalDisputesQAPageSeo from '@/components/seo/kmk/KMKLegalDisputesQAPageSeo';
+import KMKLegislationNavigatorSeo from '@/components/seo/kmk/KMKLegislationNavigatorSeo';
+import KMKLegalNoticesVaultSeo from '@/components/seo/kmk/KMKLegalNoticesVaultSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
 import FacilityTestimonials from '@/components/sections/testimonials/FacilityTestimonials';
 

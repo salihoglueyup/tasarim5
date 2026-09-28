@@ -3,15 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { DynamicFAQ, HowToSeo, SeoTextSection } from '@/components';
-import {
-  FacilityRfpDownloadModalSeo,
-  InteractiveFacilityAuditRadarSeo,
-  FacilityComparisonMatrixSeo,
-  FacilityDownloadableVaultSeo,
-  FacilitySubSectorCrossNav,
-  AiOverviewStepSolverSeo,
-} from '@/components/seo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
+import InteractiveFacilityAuditRadarSeo from '@/components/seo/facility/InteractiveFacilityAuditRadarSeo';
+import FacilityComparisonMatrixSeo from '@/components/seo/facility/FacilityComparisonMatrixSeo';
+import FacilityDownloadableVaultSeo from '@/components/seo/facility/FacilityDownloadableVaultSeo';
+import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
+import AiOverviewStepSolverSeo from '@/components/seo/ai-overviews/AiOverviewStepSolverSeo';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 

@@ -9,7 +9,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { autoLinkHtml } from '@/lib/autoLinker';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
-import { SectorAiOverviewSnippetSeo } from '@/components/seo';
+import SectorAiOverviewSnippetSeo from '@/components/seo/ai-overviews/SectorAiOverviewSnippetSeo';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 export const dynamicParams = true;

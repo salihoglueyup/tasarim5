@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import {
-  VisionHeroSeo,
-  VisionAiOverviewSeo,
-  VisionComparisonMatrixSeo,
-  VisionOperationalPillarsSeo,
-  VisionManifestoSeo,
-  VisionRoadmapSeo,
-  VisionEcosystemCtaSeo,
-} from '@/components/seo';
+import VisionHeroSeo from '@/components/seo/vision/VisionHeroSeo';
+import VisionAiOverviewSeo from '@/components/seo/vision/VisionAiOverviewSeo';
+import VisionComparisonMatrixSeo from '@/components/seo/vision/VisionComparisonMatrixSeo';
+import VisionOperationalPillarsSeo from '@/components/seo/vision/VisionOperationalPillarsSeo';
+import VisionManifestoSeo from '@/components/seo/vision/VisionManifestoSeo';
+import VisionRoadmapSeo from '@/components/seo/vision/VisionRoadmapSeo';
+import VisionEcosystemCtaSeo from '@/components/seo/vision/VisionEcosystemCtaSeo';
 
 interface VizyonMisyonClientProps {
   lang?: string;

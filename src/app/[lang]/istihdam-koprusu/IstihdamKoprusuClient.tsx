@@ -1,19 +1,17 @@
 "use client";
 
 import React, { useState } from 'react';
-import {
-  CareerHeroSeo,
-  CareerAiOverviewSeo,
-  CareerValuePillarsSeo,
-  CareerDisciplinesGridSeo,
-  CareerOpenPositionsSeo,
-  CareerRecruitmentStepsSeo,
-  CareerLegalGuaranteeDeepDiveSeo,
-  CareerApplicationDualFormSeo,
-  CareerFaqSeo,
-  CareerCtaBannerSeo,
-  ServiceAuthorityHubSeo,
-} from '@/components/seo';
+import CareerHeroSeo from '@/components/seo/career/CareerHeroSeo';
+import CareerAiOverviewSeo from '@/components/seo/ai-overviews/CareerAiOverviewSeo';
+import CareerValuePillarsSeo from '@/components/seo/career/CareerDualProtectionSeo';
+import CareerDisciplinesGridSeo from '@/components/seo/career/CareerDisciplinesGridSeo';
+import CareerOpenPositionsSeo from '@/components/seo/career/CareerOpenPositionsSeo';
+import CareerRecruitmentStepsSeo from '@/components/seo/career/CareerRecruitmentStepsSeo';
+import CareerLegalGuaranteeDeepDiveSeo from '@/components/seo/career/CareerLegalGuaranteeDeepDiveSeo';
+import CareerApplicationDualFormSeo from '@/components/seo/career/CareerApplicationDualFormSeo';
+import CareerFaqSeo from '@/components/seo/career/CareerFaqSeo';
+import CareerCtaBannerSeo from '@/components/seo/career/CareerCtaBannerSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 
 export default function IstihdamKoprusuClient({ lang = 'tr' }: { lang?: string }) {
   const [selectedRole, setSelectedRole] = useState<string>('5188 Kimlikli Özel Güvenlik');

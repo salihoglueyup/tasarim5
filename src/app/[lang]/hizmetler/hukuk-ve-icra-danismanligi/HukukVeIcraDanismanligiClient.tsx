@@ -1,12 +1,15 @@
 "use client";
 
 import RelatedServices from '@/components/sections/trust/RelatedServices';
-import { SeoTextSection, ServiceSeo, AggregateRatingSeo, DynamicFAQ } from '@/components';
-import { Card } from '@/components';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import ServiceSeo from '@/components/seo/schema/ServiceSeo';
+import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import { Card } from '@/components/ui/primitives/Card';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { RelatedArticles } from '@/components';
+import RelatedArticles from '@/components/blog/RelatedArticles';
 import LegalCalculator from '@/components/sections/calculators/LegalCalculator';
 import LegalTestimonials from '@/components/sections/testimonials/LegalTestimonials';
 import KMKLawAssistantSeo from '@/components/seo/kmk/KMKLawAssistantSeo';
@@ -14,7 +17,10 @@ import KMKLegalProcessHowToSeo from '@/components/seo/kmk/KMKLegalProcessHowToSe
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/kmk/KMKLegalTemplateGeneratorSeo';
 import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/facility/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
-import { ServiceAuthorityHubSeo, FacilityEnforcementDisputeSeo, PositionZeroAnswerBox, KMKLawCourtDisputeMatrixSeo } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import FacilityEnforcementDisputeSeo from '@/components/seo/facility/FacilityEnforcementDisputeSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import KMKLawCourtDisputeMatrixSeo from '@/components/seo/kmk/KMKLawCourtDisputeMatrixSeo';
 
 export default function HukukVeIcraDanismanligiClient() {
   const { t } = useLanguage();

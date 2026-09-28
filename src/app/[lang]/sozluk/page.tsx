@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, definedTermSetSchema } from '@/lib/schemas';
 import { TERMS, termToSlug } from '@/data/dictionary';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
-import { VoiceSearchSpeakableSeo } from '@/components/seo';
+import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import SozlukClient from './SozlukClient';
 
 export const revalidate = 86400; // 24 saat ISR

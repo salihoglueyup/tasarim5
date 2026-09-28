@@ -1,15 +1,13 @@
 "use client";
 
 import React from 'react';
-import {
-  QualityHeroSeo,
-  QualityAiOverviewSeo,
-  QualityPillarsSeo,
-  QualityPdcaCycleSeo,
-  QualityComparisonMatrixSeo,
-  QualityAuthorityFaqSeo,
-  QualityConversionCtaSeo,
-} from '@/components/seo/quality';
+import QualityHeroSeo from '@/components/seo/quality/QualityHeroSeo';
+import QualityAiOverviewSeo from '@/components/seo/quality/QualityAiOverviewSeo';
+import QualityPillarsSeo from '@/components/seo/quality/QualityPillarsSeo';
+import QualityPdcaCycleSeo from '@/components/seo/quality/QualityPdcaCycleSeo';
+import QualityComparisonMatrixSeo from '@/components/seo/quality/QualityComparisonMatrixSeo';
+import QualityAuthorityFaqSeo from '@/components/seo/quality/QualityAuthorityFaqSeo';
+import QualityConversionCtaSeo from '@/components/seo/quality/QualityConversionCtaSeo';
 
 interface KalitePolitikamizClientProps {
   lang?: string;

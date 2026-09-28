@@ -10,7 +10,8 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import SectoralRoiCalculatorSeo from '@/components/seo/facility/SectoralRoiCalculatorSeo';
-import { ServiceAuthorityHubSeo, SectorHubAiOverviewSeo } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 
 
 export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutions: any[]; lang?: string }) {

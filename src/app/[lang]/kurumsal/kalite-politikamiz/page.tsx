@@ -3,7 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_ID, ORG_CREDENTIALS } from '@/lib/schemas';
-import { QUALITY_FAQS } from '@/components/seo/quality';
+import { QUALITY_FAQS } from '@/components/seo/quality/qualityData';
 import KalitePolitikamizClient from './KalitePolitikamizClient';
 
 export const revalidate = 86400; // 24 saat ISR

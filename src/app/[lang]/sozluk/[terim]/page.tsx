@@ -5,7 +5,7 @@ import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import { TermAiOverviewCard } from '@/components/seo';
+import TermAiOverviewCard from '@/components/seo/ai-overviews/TermAiOverviewCard';
 import { TERMS, termToSlug, slugToTerm, TERM_SLUG_ALIASES } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';

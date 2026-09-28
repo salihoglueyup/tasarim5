@@ -6,7 +6,8 @@ import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/page/PageHeader';
-import { AccreditationAiOverviewSeo, ServiceAuthorityHubSeo } from '@/components/seo';
+import AccreditationAiOverviewSeo from '@/components/seo/ai-overviews/AccreditationAiOverviewSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import { CERTIFICATES, type Certificate } from '@/data/certificates';
 
 type Category = 'all' | 'cevre' | 'is-sagligi' | 'risk-sureklillik' | 'musteri' | 'sosyal';

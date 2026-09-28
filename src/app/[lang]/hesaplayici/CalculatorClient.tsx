@@ -6,7 +6,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import CallbackForm from '@/components/cro/CallbackForm';
-import { ChecklistAuditSeo, QuizAuditScoreSeo, ServiceAuthorityHubSeo } from '@/components/seo';
+import ChecklistAuditSeo from '@/components/seo/facility/ChecklistAuditSeo';
+import QuizAuditScoreSeo from '@/components/seo/facility/QuizAuditScoreSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityAuditReportModal from '@/components/modals/FacilityAuditReportModal';
 
 import { calculateDuesLocalized, CalcConfig } from '@/lib/hesaplayici';

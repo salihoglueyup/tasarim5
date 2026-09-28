@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import {
-  AppAiOverviewGroundingSeo,
-  GlossaryAiOverviewSeo,
-  DistrictServiceAiOverviewSnippetSeo,
-  SectorHubAiOverviewSeo,
-} from '@/components/seo';
+import AppAiOverviewGroundingSeo from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
+import GlossaryAiOverviewSeo from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
+import DistrictServiceAiOverviewSnippetSeo from '@/components/seo/district/DistrictServiceAiOverviewSnippetSeo';
+import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 import { APP_CORE_FEATURES } from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
 import { TOP_GLOSSARY_TERMS } from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
 import { SECTOR_GROUND_TRUTH_LIST } from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';

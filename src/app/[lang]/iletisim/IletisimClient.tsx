@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { ORG_NAME, ORG_ADDRESS, ORG_GEO, ORG_PHONE } from '@/lib/schemas';
 import { ORG_ADDRESS_DISPLAY, ORG_PHONE_DISPLAY, ORG_GOOGLE_BUSINESS_URL } from '@/lib/constants';
-import { LocalBusinessSeo } from '@/components/seo';
+import LocalBusinessSeo from '@/components/seo/schema/LocalBusinessSeo';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

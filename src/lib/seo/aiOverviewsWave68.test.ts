@@ -1,8 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import {
-  VideoGroundingAiOverviewSeo,
-  VoiceConversationalAiSnippetSeo,
-} from '@/components/seo';
+import VideoGroundingAiOverviewSeo from '@/components/seo/ai-overviews/VideoGroundingAiOverviewSeo';
+import VoiceConversationalAiSnippetSeo from '@/components/seo/ai-overviews/VoiceConversationalAiSnippetSeo';
 import { GROUNDING_VIDEO_GUIDES } from '@/components/seo/ai-overviews/VideoGroundingAiOverviewSeo';
 import { VOICE_CONVERSATIONAL_QUERIES } from '@/components/seo/ai-overviews/VoiceConversationalAiSnippetSeo';
 import { detectAiBot, KNOWN_AI_BOTS, getAiBotTelemetryStats } from '@/lib/seo/bots/aiBotDetector';

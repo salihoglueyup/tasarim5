@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { VideoGroundingAiOverviewSeo } from '@/components/seo';
+import VideoGroundingAiOverviewSeo from '@/components/seo/ai-overviews/VideoGroundingAiOverviewSeo';
 
 interface ServicesVideoHubSeoProps {
   lang?: string;

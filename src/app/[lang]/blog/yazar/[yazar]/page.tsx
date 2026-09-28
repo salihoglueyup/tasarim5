@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { PostGrid } from '@/components';
+import PostGrid from '@/components/blog/PostGrid';
 import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject, authorPersonSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';

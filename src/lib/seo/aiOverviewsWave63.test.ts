@@ -1,11 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import {
-  CorporateEntityAiOverviewSeo,
-  ContactAiOverviewCardSeo,
-  CaseStudyAiGroundingSeo,
-  SectorAiOverviewSnippetSeo,
-  CalculatorAiOverviewSeo,
-} from '@/components/seo';
+import CorporateEntityAiOverviewSeo from '@/components/seo/ai-overviews/CorporateEntityAiOverviewSeo';
+import ContactAiOverviewCardSeo from '@/components/seo/ai-overviews/ContactAiOverviewCardSeo';
+import CaseStudyAiGroundingSeo from '@/components/seo/ai-overviews/CaseStudyAiGroundingSeo';
+import SectorAiOverviewSnippetSeo from '@/components/seo/ai-overviews/SectorAiOverviewSnippetSeo';
+import CalculatorAiOverviewSeo from '@/components/seo/ai-overviews/CalculatorAiOverviewSeo';
 import { GET as getRagApi } from '@/app/api/seo/ai-overviews-rag.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';

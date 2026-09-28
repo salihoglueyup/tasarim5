@@ -1,27 +1,28 @@
 "use client";
 
 import RelatedServices from '@/components/sections/trust/RelatedServices';
-import { 
-  SeoTextSection, 
-  ServiceSeo, 
-  AggregateRatingSeo, 
-  DynamicFAQ, 
-  HowToSeo,
-  SecurityTrustBadgeGridSeo,
-  SecurityComparisonTableSeo,
-  SecurityTechMatrixSeo,
-  DistrictSecurityClusterSeo,
-  InteractiveSecurityRiskRadarSeo,
-  InstantAnswerCardSeo,
-  SecurityLegalTemplateGeneratorSeo
-} from '@/components';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
+import ServiceSeo from '@/components/seo/schema/ServiceSeo';
+import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import HowToSeo from '@/components/seo/schema/HowToSeo';
+import SecurityTrustBadgeGridSeo from '@/components/seo/facility/SecurityTrustBadgeGridSeo';
+import SecurityComparisonTableSeo from '@/components/seo/facility/SecurityComparisonTableSeo';
+import SecurityTechMatrixSeo from '@/components/seo/facility/SecurityTechMatrixSeo';
+import DistrictSecurityClusterSeo from '@/components/seo/district/DistrictSecurityClusterSeo';
+import InteractiveSecurityRiskRadarSeo from '@/components/seo/facility/InteractiveSecurityRiskRadarSeo';
+import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
+import SecurityLegalTemplateGeneratorSeo from '@/components/seo/facility/SecurityLegalTemplateGeneratorSeo';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import { RelatedArticles } from '@/components';
+import RelatedArticles from '@/components/blog/RelatedArticles';
 import SecurityCalculator from '@/components/sections/calculators/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/testimonials/SecurityTestimonials';
-import { ServiceAuthorityHubSeo, SiteSecurityPermitGuideSeo, EmergencyDisasterAuditSeo, PositionZeroAnswerBox } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import SiteSecurityPermitGuideSeo from '@/components/seo/district/SiteSecurityPermitGuideSeo';
+import EmergencyDisasterAuditSeo from '@/components/seo/facility/EmergencyDisasterAuditSeo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 export default function GuvenlikYonetimiClient() {
   const { t } = useLanguage();

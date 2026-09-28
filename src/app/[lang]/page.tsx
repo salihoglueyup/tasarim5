@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { Hero, SeoTextSection } from '@/components';
+import Hero from '@/components/sections/core/Hero';
+import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import GoogleReviewsWidget from '@/components/sections/trust/GoogleReviewsWidget';
 import { buildMetadata } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';

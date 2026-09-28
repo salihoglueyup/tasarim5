@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Copy, Check, ChevronDown, Sparkles } from 'lucide-react';
 import DOMPurify from 'isomorphic-dompurify';
 import { useLanguage } from '@/context/LanguageContext';
-import { ServiceAuthorityHubSeo } from '@/components/seo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 
 /**
  * Faz 164: 4 Dilde SSS Arama ve Filtreleme Motoru

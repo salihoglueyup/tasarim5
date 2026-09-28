@@ -3,24 +3,24 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { QuoteCtaButton, TldrBlock, DynamicFAQ } from '@/components';
-import {
-  DistrictLocalHighlightsSeo,
-  EmergencyServiceBadgeSeo,
-  NeighborhoodDirectorySeo,
-  SocialProofTickerSeo,
-  DistrictNeighborhoodDuesTableSeo,
-  DistrictSecuritySpotlightSeo,
-  DistrictMapFacadeSeo,
-  ServiceAuthorityHubSeo,
-  DistrictDualCoreSelectorSeo,
-  DistrictOpenDatasetSeo,
-  DistrictLocalPackProofSeo,
-  DistrictMicroNeighborhoodsSeo,
-  DistrictCourthouseMediationSeo,
-  DistrictEmergencyPreparednessSeo,
-  DistrictAiOverviewSnippetSeo,
-} from '@/components/seo';
+import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
+import TldrBlock from '@/components/ui/primitives/TldrBlock';
+import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
+import DistrictLocalHighlightsSeo from '@/components/seo/district/DistrictLocalHighlightsSeo';
+import EmergencyServiceBadgeSeo from '@/components/seo/facility/EmergencyServiceBadgeSeo';
+import NeighborhoodDirectorySeo from '@/components/seo/district/NeighborhoodDirectorySeo';
+import SocialProofTickerSeo from '@/components/seo/facility/SocialProofTickerSeo';
+import DistrictNeighborhoodDuesTableSeo from '@/components/seo/district/DistrictNeighborhoodDuesTableSeo';
+import DistrictSecuritySpotlightSeo from '@/components/seo/district/DistrictSecuritySpotlightSeo';
+import DistrictMapFacadeSeo from '@/components/seo/district/DistrictMapFacadeSeo';
+import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import DistrictDualCoreSelectorSeo from '@/components/seo/district/DistrictDualCoreSelectorSeo';
+import DistrictOpenDatasetSeo from '@/components/seo/district/DistrictOpenDatasetSeo';
+import DistrictLocalPackProofSeo from '@/components/seo/district/DistrictLocalPackProofSeo';
+import DistrictMicroNeighborhoodsSeo from '@/components/seo/district/DistrictMicroNeighborhoodsSeo';
+import DistrictCourthouseMediationSeo from '@/components/seo/district/DistrictCourthouseMediationSeo';
+import DistrictEmergencyPreparednessSeo from '@/components/seo/district/DistrictEmergencyPreparednessSeo';
+import DistrictAiOverviewSnippetSeo from '@/components/seo/district/DistrictAiOverviewSnippetSeo';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import {

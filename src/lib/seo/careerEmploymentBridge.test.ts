@@ -1,17 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import {
-  CareerHeroSeo,
-  CareerDualProtectionSeo,
-  CareerDisciplinesGridSeo,
-  CareerOpenPositionsSeo,
-  CareerRecruitmentStepsSeo,
-  CareerLegalGuaranteeDeepDiveSeo,
-  CareerApplicationDualFormSeo,
-  CareerFaqSeo,
-  CareerCtaBannerSeo,
-} from '@/components/seo/career';
+import CareerHeroSeo from '@/components/seo/career/CareerHeroSeo';
+import CareerDualProtectionSeo from '@/components/seo/career/CareerDualProtectionSeo';
+import CareerDisciplinesGridSeo from '@/components/seo/career/CareerDisciplinesGridSeo';
+import CareerOpenPositionsSeo from '@/components/seo/career/CareerOpenPositionsSeo';
+import CareerRecruitmentStepsSeo from '@/components/seo/career/CareerRecruitmentStepsSeo';
+import CareerLegalGuaranteeDeepDiveSeo from '@/components/seo/career/CareerLegalGuaranteeDeepDiveSeo';
+import CareerApplicationDualFormSeo from '@/components/seo/career/CareerApplicationDualFormSeo';
+import CareerFaqSeo from '@/components/seo/career/CareerFaqSeo';
+import CareerCtaBannerSeo from '@/components/seo/career/CareerCtaBannerSeo';
 
 describe('Career & İstihdam Köprüsü SEO Component Suite', () => {
   it('tüm 9 adet kariyer bileşeni başarıyla tanımlı ve geçerli birer fonksiyondur', () => {

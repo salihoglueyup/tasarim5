@@ -1,9 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import {
-  ServiceAiOverviewSnippetSeo,
-  SustainabilityAiOverviewSeo,
-  AcademyAiOverviewSeo,
-} from '@/components/seo';
+import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
+import SustainabilityAiOverviewSeo from '@/components/seo/ai-overviews/SustainabilityAiOverviewSeo';
+import AcademyAiOverviewSeo from '@/components/seo/ai-overviews/AcademyAiOverviewSeo';
 import { GET as getGeoManifest } from '@/app/api/seo/geo-manifest.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';
