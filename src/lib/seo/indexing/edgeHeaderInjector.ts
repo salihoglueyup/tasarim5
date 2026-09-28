@@ -1,4 +1,4 @@
-import { BASE_URL, LOCALES, type Locale } from '@/lib/seo';
+import { BASE_URL } from '@/lib/seo';
 import { CANONICAL_NAP } from '../audits/napGuardEngine';
 
 export interface EdgeSeoHeaderOptions {
@@ -10,41 +10,14 @@ export interface EdgeSeoHeaderOptions {
 }
 
 /**
- * RFC 8288 standardında HTTP Link başlığı üretir (Canonical + Hreflangs).
- * Googlebot ve Bingbot henüz HTML DOM'unu parse etmeden önce en üst seviyede
- * kanonik ve çok dilli eşleşmeleri anında okur.
+ * RFC 8288 HTTP Link başlığı (keşif bağlantıları).
+ * Canonical ve hreflang bilinçli olarak burada YOK: yalnızca HTML <head> içinde,
+ * indeksleme politikasına (lib/seo/indexPolicy.ts) uygun biçimde üretilirler.
+ * İki kaynaktan farklı canonical/hreflang göndermek Google'ın ikisini de yok saymasına yol açar.
  */
-export function buildHttpLinkHeader(pathname: string, currentLang: string = 'tr'): string {
-  const cleanPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  
-  // Dili path'ten temizle (örn: /en/hizmetler -> /hizmetler)
-  const segments = cleanPath.split('/').filter(Boolean);
-  const hasLangSegment = LOCALES.includes(segments[0] as Locale);
-  const bareSegments = hasLangSegment ? segments.slice(1) : segments;
-  const barePath = `/${bareSegments.join('/')}`;
-
-  const canonicalUrl = currentLang === 'tr'
-    ? `${BASE_URL}${barePath === '/' ? '' : barePath}`
-    : `${BASE_URL}/${currentLang}${barePath === '/' ? '' : barePath}`;
-
-  const linkElements: string[] = [
-    `<${canonicalUrl}>; rel="canonical"`,
-  ];
-
-  // Alternatif diller için Hreflang Link başlıkları (ISO 639-1 ve BCP 47 bölgesel eşleşmeler)
-  LOCALES.forEach((lang) => {
-    const langUrl = lang === 'tr'
-      ? `${BASE_URL}${barePath === '/' ? '' : barePath}`
-      : `${BASE_URL}/${lang}${barePath === '/' ? '' : barePath}`;
-    
-    linkElements.push(`<${langUrl}>; rel="alternate"; hreflang="${lang}"`);
-    const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
-    linkElements.push(`<${langUrl}>; rel="alternate"; hreflang="${regionalTag}"`);
-  });
-
-  // x-default (Türkçe ana sürüm)
-  const defaultUrl = `${BASE_URL}${barePath === '/' ? '' : barePath}`;
-  linkElements.push(`<${defaultUrl}>; rel="alternate"; hreflang="x-default"`);
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function buildHttpLinkHeader(_pathname: string, _currentLang: string = 'tr'): string {
+  const linkElements: string[] = [];
 
   // AI & LLM Arama Motoru Bağlam Keşfi (GEO - Generative Engine Optimization)
   linkElements.push(`<${BASE_URL}/llms.txt>; rel="describedby"; type="text/plain"`);

@@ -137,17 +137,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('5. HTTP Link Header & Hreflang Paritesi', () => {
-    it('buildHttpLinkHeader hem ISO 639-1 hem BCP 47 bölgesel etiketleri içermelidir', () => {
+    it('buildHttpLinkHeader hreflang/canonical içermez (tek kaynak HTML <head>)', () => {
       const header = buildHttpLinkHeader('/hizmetler', 'tr');
-      expect(header).toContain('hreflang="tr"');
-      expect(header).toContain('hreflang="tr-TR"');
-      expect(header).toContain('hreflang="en"');
-      expect(header).toContain('hreflang="en-US"');
-      expect(header).toContain('hreflang="ru"');
-      expect(header).toContain('hreflang="ru-RU"');
-      expect(header).toContain('hreflang="ar"');
-      expect(header).toContain('hreflang="ar-SA"');
-      expect(header).toContain('hreflang="x-default"');
+      expect(header).not.toContain('hreflang=');
+      expect(header).not.toContain('rel="canonical"');
     });
   });
 
@@ -254,13 +247,11 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(xml).toContain('<loc>https://aloyonetim.com.tr/bolgeler/kadikoy/tesis-yonetimi</loc>');
       expect(xml).toContain('<xhtml:link rel="alternate" hreflang="tr"');
       expect(xml).toContain('<xhtml:link rel="alternate" hreflang="tr-TR"');
-      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="en"');
-      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="en-US"');
-      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ru"');
-      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ru-RU"');
-      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ar"');
-      expect(xml).toContain('<xhtml:link rel="alternate" hreflang="ar-SA"');
       expect(xml).toContain('<xhtml:link rel="alternate" hreflang="x-default"');
+      // Çevrilmemiş diller hreflang'e girmez (bkz. lib/seo/indexPolicy.ts)
+      expect(xml).not.toContain('hreflang="en"');
+      expect(xml).not.toContain('hreflang="ru"');
+      expect(xml).not.toContain('hreflang="ar"');
     });
   });
 

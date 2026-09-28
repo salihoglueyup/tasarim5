@@ -45,13 +45,13 @@ describe('Wave 7: Faz 161 - Faz 165 Çok Dilli Formatlayıcılar, Sitemap Altern
     expect(relative).toContain('önce');
   });
 
-  it('Faz 163: sitemap language alternates 4 dil ve x-default hreflang içerir', () => {
+  it('Faz 163: hreflang yalnızca indekslenebilir dilleri (çevrilmemişse sadece TR) ve x-default içerir', () => {
     const alternates = buildLanguageAlternates('/hizmetler/tesis-yonetimi');
     expect(alternates).toHaveProperty('tr');
-    expect(alternates).toHaveProperty('en');
-    expect(alternates).toHaveProperty('ru');
-    expect(alternates).toHaveProperty('ar');
     expect(alternates).toHaveProperty('x-default');
+    expect(alternates).not.toHaveProperty('en');
+    expect(alternates).not.toHaveProperty('ru');
+    expect(alternates).not.toHaveProperty('ar');
   });
 
   it('Faz 164: filterFaqsByLanguage 4 dilde soru/cevap araması ve kategori filtrelemesi yapar', () => {

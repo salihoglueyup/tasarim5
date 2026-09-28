@@ -10,6 +10,7 @@ import type { Metadata } from 'next';
  */
 
 import { BASE_URL } from './constants';
+import { isIndexable } from './seo/indexPolicy';
 export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
@@ -119,19 +120,27 @@ export function localizedUrl(path: string, lang: Locale): string {
   return sanitizeCanonicalUrl(full);
 }
 
-/** hreflang matrisi: ISO 639-1 saf diller (tr, en, ru, ar) + bölgesel (tr-TR, en-US, ru-RU, ar-SA) + x-default. */
+const REGIONAL_TAG: Record<Locale, string> = { tr: 'tr-TR', en: 'en-US', ru: 'ru-RU', ar: 'ar-SA' };
+
+/** Yalnızca bu yol için indekslenebilir dillerdeki URL'ler. */
+export function indexableLocales(path: string): Locale[] {
+  return LOCALES.filter((l) => isIndexable(path, l));
+}
+
+/**
+ * hreflang matrisi: yalnızca indekslenebilir diller (bkz. seo/indexPolicy.ts) + bölgesel etiketleri + x-default.
+ * Noindex bir dile hreflang vermek, Google'a çelişkili sinyal gönderir.
+ */
 export function buildLanguageAlternates(path: string): Record<string, string> {
-  return {
-    'tr': localizedUrl(path, 'tr'),
-    'en': localizedUrl(path, 'en'),
-    'ru': localizedUrl(path, 'ru'),
-    'ar': localizedUrl(path, 'ar'),
-    'tr-TR': localizedUrl(path, 'tr'),
-    'en-US': localizedUrl(path, 'en'),
-    'ru-RU': localizedUrl(path, 'ru'),
-    'ar-SA': localizedUrl(path, 'ar'),
-    'x-default': localizedUrl(path, 'tr'),
-  };
+  const locales = indexableLocales(path);
+  if (!locales.includes(DEFAULT_LOCALE)) return {};
+  const out: Record<string, string> = {};
+  for (const l of locales) {
+    out[l] = localizedUrl(path, l);
+    out[REGIONAL_TAG[l]] = localizedUrl(path, l);
+  }
+  out['x-default'] = localizedUrl(path, DEFAULT_LOCALE);
+  return out;
 }
 
 /**
@@ -289,6 +298,7 @@ export function buildMetadata({
   const resolvedTitle = formatBrandTitle(title);
   const locale = normalizeLocale(lang);
   const canonical = canonicalUrl || localizedUrl(path, locale);
+  const shouldNoindex = noindex || !isIndexable(path, locale);
 
   const resolvedKeywords = Array.from(
     new Set([
@@ -348,7 +358,7 @@ export function buildMetadata({
       description,
       images: resolvedImages,
     },
-    robots: noindex
+    robots: shouldNoindex
       ? {
           index: false,
           follow: true,

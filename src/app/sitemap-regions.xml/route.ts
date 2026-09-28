@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
-import { BASE_URL, LOCALES } from '@/lib/seo';
+import { BASE_URL, buildLanguageAlternates } from '@/lib/seo';
+import { isPathIndexable } from '@/lib/seo/indexPolicy';
+
+function hreflangLinks(path: string): string {
+  return Object.entries(buildLanguageAlternates(path))
+    .map(([lang, href]) => `    <xhtml:link rel="alternate" hreflang="${lang}" href="${href}"/>\n`)
+    .join('');
+}
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Günde bir yenile (ISR)
@@ -27,13 +34,7 @@ export async function GET() {
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += `    <changefreq>${hub.changefreq}</changefreq>\n`;
     xml += `    <priority>${hub.priority}</priority>\n`;
-    for (const lang of LOCALES) {
-      const altUrl = lang === 'tr' ? `${BASE_URL}${hub.path}` : `${BASE_URL}/${lang}${hub.path}`;
-      xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>\n`;
-      const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
-      xml += `    <xhtml:link rel="alternate" hreflang="${regionalTag}" href="${altUrl}"/>\n`;
-    }
-    xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${hub.path}"/>\n`;
+    xml += hreflangLinks(hub.path);
     xml += `  </url>\n`;
   }
 
@@ -61,19 +62,13 @@ export async function GET() {
       }
     }
 
-    for (const route of districtRoutes) {
+    for (const route of districtRoutes.filter((r) => isPathIndexable(r.path))) {
       xml += `  <url>\n`;
       xml += `    <loc>${BASE_URL}${route.path}</loc>\n`;
       xml += `    <lastmod>${now}</lastmod>\n`;
       xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
       xml += `    <priority>${route.priority}</priority>\n`;
-      for (const lang of LOCALES) {
-        const altUrl = lang === 'tr' ? `${BASE_URL}${route.path}` : `${BASE_URL}/${lang}${route.path}`;
-        xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>\n`;
-        const regionalTag = lang === 'tr' ? 'tr-TR' : lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA';
-        xml += `    <xhtml:link rel="alternate" hreflang="${regionalTag}" href="${altUrl}"/>\n`;
-      }
-      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${route.path}"/>\n`;
+      xml += hreflangLinks(route.path);
       xml += `  </url>\n`;
     }
   }

@@ -5,6 +5,7 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { buildHttpLinkHeader, buildXRobotsTag } from './lib/seo/edgeHeaderInjector';
 import { analyzeCrawlBudget } from './lib/seo/crawlBudgetDefender';
+import { isIndexable } from './lib/seo/indexPolicy';
 import { detectAndLogAiCrawler, checkAiCrawlerRateLimit } from './lib/seo/aiBotTelemetry';
 import { buildFacilityEdgeHeaders, generateFacilityContentHash } from './lib/seo/facilityEdgeOptimizer';
 import { recordBotCrawlEvent } from './lib/seo/facilityBotAuditLog';
@@ -384,9 +385,15 @@ export async function middleware(request: NextRequest) {
     // Tarama Bütçesi Denetimi (?utm_*, ?fbclid=* vb.)
     const crawlBudget = analyzeCrawlBudget(request.nextUrl.searchParams);
 
+    const robotsLocale = currentLocale || defaultLocale;
+    const robotsPath = currentLocale ? pathname.slice(currentLocale.length + 1) || '/' : pathname;
+
     if (crawlBudget.shouldNoindex) {
       response.headers.set('X-Robots-Tag', 'noindex, follow');
       response.headers.set('X-Crawl-Defender', 'Protected-From-Parameter-Bloat');
+    } else if (!isIndexable(robotsPath, robotsLocale)) {
+      // HTML <meta robots> ile aynı politika (lib/seo/indexPolicy.ts)
+      response.headers.set('X-Robots-Tag', 'noindex, follow');
     } else if (!isFacilityRoute) {
       response.headers.set(
         'X-Robots-Tag',

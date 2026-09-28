@@ -64,7 +64,7 @@ describe('Google Search Console 0-Hata (Zero-Error) Kalite Güvence Test Paketi'
   });
 
   describe('3. Ana sitemap.ts İçinde Kurumsal Sertifikalar', () => {
-    it('sitemap() çıktısı tüm 7 sertifika sayfasını 4 dilde (TR, EN, RU, AR) eksiksiz içermeli', async () => {
+    it('sitemap() tüm 7 sertifika sayfasını TR içerir, çevrilmemiş dilleri içermez', async () => {
       const items = await sitemap();
 
       for (const cert of CERTIFICATES) {
@@ -74,9 +74,9 @@ describe('Google Search Console 0-Hata (Zero-Error) Kalite Güvence Test Paketi'
         const arUrl = `https://aloyonetim.com.tr/ar/kurumsal/sertifikalar/${cert.slug}`;
 
         expect(items.some((i) => i.url === trUrl)).toBe(true);
-        expect(items.some((i) => i.url === enUrl)).toBe(true);
-        expect(items.some((i) => i.url === ruUrl)).toBe(true);
-        expect(items.some((i) => i.url === arUrl)).toBe(true);
+        expect(items.some((i) => i.url === enUrl)).toBe(false);
+        expect(items.some((i) => i.url === ruUrl)).toBe(false);
+        expect(items.some((i) => i.url === arUrl)).toBe(false);
       }
     });
   });

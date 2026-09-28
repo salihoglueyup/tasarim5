@@ -6,53 +6,18 @@ import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import { POSTS_META, CATEGORIES } from '@/data/posts';
+import { MIN_POSTS_FOR_TAG_INDEX } from '@/lib/seo/indexPolicy';
+import { cache } from 'react';
 
 export const dynamicParams = true;
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string; etiket: string }>;
-}): Promise<Metadata> {
-  const { lang, etiket } = await params;
-  const decoded = decodeURIComponent(etiket);
-  const label = decoded.replace(/-/g, ' ');
-
-  const title = lang === 'en'
-    ? `${label} Articles & Facility Guides | Alo Management Blog`
-    : lang === 'ru'
-    ? `${label} Статьи и Руководства | Alo Yonetim Blog`
-    : lang === 'ar'
-    ? `مقالات ودليل ${label} | مدونة Alo Management`
-    : `${label} Makaleleri ve Tesis Rehberi | Alo Yönetim Blog`;
-
-  const description = lang === 'en'
-    ? `Latest insights, facility management practices and legal guides about ${label}.`
-    : lang === 'ru'
-    ? `Актуальные статьи, правила управления объектами и полезные руководства по теме ${label}.`
-    : lang === 'ar'
-    ? `أحدث الرؤى والممارسات في إدارة المرافق والأدلة القانونية حول ${label}.`
-    : `${label} konusu hakkında güncel mevzuat, site yönetimi ve pratik rehber makaleleri.`;
-
-  return buildMetadata({
-    title,
-    description,
-    path: `/blog/etiket/${etiket}`,
-    lang,
-  });
-}
-
-export default async function TagArchive({
-  params,
-}: {
-  params: Promise<{ lang: string; etiket: string }>;
-}) {
-  const { lang, etiket } = await params;
+// generateMetadata ve sayfa aynı sorguyu paylaşır (istek başına tek DB çağrısı)
+const getTagPosts = cache(async (etiket: string) => {
   const decoded = decodeURIComponent(etiket);
   const normalizedSpaces = decoded.replace(/-/g, ' ');
 
   let posts = await prisma.post.findMany({
-    where: { 
+    where: {
       published: true,
       OR: [
         { tags: { contains: decoded } },
@@ -99,6 +64,54 @@ export default async function TagArchive({
       published: true,
     })) as any;
   }
+  return posts;
+});
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; etiket: string }>;
+}): Promise<Metadata> {
+  const { lang, etiket } = await params;
+  const decoded = decodeURIComponent(etiket);
+  const label = decoded.replace(/-/g, ' ');
+
+  const title = lang === 'en'
+    ? `${label} Articles & Facility Guides | Alo Management Blog`
+    : lang === 'ru'
+    ? `${label} Статьи и Руководства | Alo Yonetim Blog`
+    : lang === 'ar'
+    ? `مقالات ودليل ${label} | مدونة Alo Management`
+    : `${label} Makaleleri ve Tesis Rehberi | Alo Yönetim Blog`;
+
+  const description = lang === 'en'
+    ? `Latest insights, facility management practices and legal guides about ${label}.`
+    : lang === 'ru'
+    ? `Актуальные статьи, правила управления объектами и полезные руководства по теме ${label}.`
+    : lang === 'ar'
+    ? `أحدث الرؤى والممارسات في إدارة المرافق والأدلة القانونية حول ${label}.`
+    : `${label} konusu hakkında güncel mevzuat, site yönetimi ve pratik rehber makaleleri.`;
+
+  const posts = await getTagPosts(etiket);
+
+  return buildMetadata({
+    title,
+    description,
+    path: `/blog/etiket/${etiket}`,
+    lang,
+    // Az yazılı etiket arşivleri ince içeriktir; kullanıcı için kalır, indekslenmez
+    noindex: posts.length < MIN_POSTS_FOR_TAG_INDEX,
+  });
+}
+
+export default async function TagArchive({
+  params,
+}: {
+  params: Promise<{ lang: string; etiket: string }>;
+}) {
+  const { lang, etiket } = await params;
+  const normalizedSpaces = decodeURIComponent(etiket).replace(/-/g, ' ');
+  const posts = await getTagPosts(etiket);
 
   const path = `/blog/etiket/${etiket}`;
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;

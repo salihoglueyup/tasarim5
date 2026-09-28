@@ -5,15 +5,12 @@ import { classifySearchIntent } from '@/lib/seo/audits/intentClassifier';
 
 describe('5 Derin Backend SEO Motoru Doğrulama Testleri', () => {
   describe('HTTP Link Header & Canonical Enjektörü (edgeHeaderInjector.ts)', () => {
-    it('RFC 8288 standardında canonical ve 4 dilde hreflang Link başlığı üretir', () => {
+    it('Link başlığı keşif bağlantılarını içerir; canonical/hreflang yalnızca HTML\'de üretilir', () => {
       const linkHeader = buildHttpLinkHeader('/hizmetler/tesis-yonetimi', 'tr');
 
-      expect(linkHeader).toContain('<https://aloyonetim.com.tr/hizmetler/tesis-yonetimi>; rel="canonical"');
-      expect(linkHeader).toContain('hreflang="tr"');
-      expect(linkHeader).toContain('hreflang="en"');
-      expect(linkHeader).toContain('hreflang="ru"');
-      expect(linkHeader).toContain('hreflang="ar"');
-      expect(linkHeader).toContain('hreflang="x-default"');
+      expect(linkHeader).toContain('/llms.txt');
+      expect(linkHeader).not.toContain('rel="canonical"');
+      expect(linkHeader).not.toContain('hreflang=');
     });
 
     it('X-Robots-Tag başlığı varsayılan ve noindex durumlarını doğru formatlar', () => {

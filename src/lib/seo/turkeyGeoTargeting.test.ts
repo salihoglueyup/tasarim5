@@ -36,21 +36,21 @@ describe('Türkiye Coğrafi Hedefleme (Geo-Targeting) & SEO Doğrulama Paketi', 
       const alternates = buildLanguageAlternates('/hizmetler');
       expect(alternates['tr-TR']).toBe(`${BASE_URL}/hizmetler`);
       expect(alternates['x-default']).toBe(`${BASE_URL}/hizmetler`);
-      expect(alternates['en-US']).toBe(`${BASE_URL}/en/hizmetler`);
-      expect(alternates['ru-RU']).toBe(`${BASE_URL}/ru/hizmetler`);
-      expect(alternates['ar-SA']).toBe(`${BASE_URL}/ar/hizmetler`);
+      expect(alternates['en-US']).toBeUndefined();
+      expect(alternates['ru-RU']).toBeUndefined();
+      expect(alternates['ar-SA']).toBeUndefined();
     });
   });
 
   describe('3. XML Sitemap /app Sayfası Doğrulaması', () => {
-    it('sitemap() çıktısı /app rotasını 4 dilde (TR, EN, RU, AR) eksiksiz barındırmalı', async () => {
+    it('sitemap() /app rotasını TR olarak barındırır, çevrilmemiş dilleri barındırmaz', async () => {
       const items = await sitemap();
       const urls = items.map((i) => i.url);
 
       expect(urls).toContain(`${BASE_URL}/app`);
-      expect(urls).toContain(`${BASE_URL}/en/app`);
-      expect(urls).toContain(`${BASE_URL}/ru/app`);
-      expect(urls).toContain(`${BASE_URL}/ar/app`);
+      expect(urls).not.toContain(`${BASE_URL}/en/app`);
+      expect(urls).not.toContain(`${BASE_URL}/ru/app`);
+      expect(urls).not.toContain(`${BASE_URL}/ar/app`);
     });
   });
 

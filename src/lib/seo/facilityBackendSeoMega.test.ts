@@ -7,13 +7,11 @@ import { CANONICAL_NAP } from './audits/napGuardEngine';
 
 describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => {
   describe('Edge SEO Response Headers & Bot Denetimi (edgeHeaderInjector.ts)', () => {
-    it('Kanonik link, hreflang, llms.txt ve entity graph linklerini eksiksiz üretir', () => {
+    it('llms.txt ve entity graph linklerini üretir, HTML ile çelişebilecek canonical/hreflang üretmez', () => {
       const linkHeader = buildHttpLinkHeader('/hizmetler/tesis-yonetimi', 'tr');
       
-      expect(linkHeader).toContain('rel="canonical"');
-      expect(linkHeader).toContain('hreflang="tr"');
-      expect(linkHeader).toContain('hreflang="en"');
-      expect(linkHeader).toContain('hreflang="x-default"');
+      expect(linkHeader).not.toContain('rel="canonical"');
+      expect(linkHeader).not.toContain('hreflang=');
       expect(linkHeader).toContain('/llms.txt');
       expect(linkHeader).toContain('/api/tesis-yonetimi/geo-feed.xml');
     });

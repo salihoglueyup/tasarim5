@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { BASE_URL, buildLanguageAlternates, localizedUrl, LOCALES } from '@/lib/seo';
+import { buildLanguageAlternates, localizedUrl, indexableLocales } from '@/lib/seo';
+import { MIN_POSTS_FOR_TAG_INDEX, tagToSlug } from '@/lib/seo/indexPolicy';
 import { prisma } from '@/lib/prisma';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
@@ -22,7 +23,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let authors: Array<{ slug: string; updatedAt: Date }> = [];
   let references: Array<{ slug: string; updatedAt: Date }> = [];
   let sectoralSolutions: Array<{ slug: string; updatedAt: Date }> = [];
-  const tagsSet = new Set<string>();
+  const tagCounts = new Map<string, number>();
+  const countTags = (tags: string[]) => {
+    for (const slug of new Set(tags.map(tagToSlug))) tagCounts.set(slug, (tagCounts.get(slug) ?? 0) + 1);
+  };
 
   try {
     const [dbPosts, dbCategories, dbAuthors, dbReferences, dbSectoral] = await Promise.all([
@@ -42,9 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     references = dbReferences;
     sectoralSolutions = dbSectoral;
 
-    dbPosts.forEach((p) => {
-      parseTags(p.tags).forEach((t: string) => tagsSet.add(t));
-    });
+    dbPosts.forEach((p) => countTags(parseTags(p.tags)));
   } catch (err) {
     console.warn('sitemap.ts: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
   }
@@ -55,9 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       slug: p.slug,
       dateModified: new Date(p.dateModified || p.datePublished),
     }));
-    POSTS_META.forEach((p) => {
-      p.tags.forEach((t) => tagsSet.add(t));
-    });
+    POSTS_META.forEach((p) => countTags(p.tags));
   }
 
   if (categories.length === 0) {
@@ -86,7 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ? posts.reduce((latest, p) => p.dateModified > latest ? p.dateModified : latest, posts[0].dateModified).toISOString()
     : now;
 
-  // Her yol (path) için tüm dillerde (TR, EN, RU, AR) bağımsız ve tam yetkili sitemap girdisi üretir
+  // Her yol için yalnızca indekslenebilir dillerde girdi üretir (bkz. lib/seo/indexPolicy.ts)
   const makeItems = (
     path: string,
     priority: number,
@@ -97,7 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       languages: buildLanguageAlternates(path),
     };
 
-    return LOCALES.map((lang) => {
+    return indexableLocales(path).map((lang) => {
       const fullUrl = localizedUrl(path, lang);
       return {
         url: fullUrl,
@@ -213,9 +213,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     makeItems(`/blog/yazar/${a.slug}`, 0.5, 'monthly', a.updatedAt.toISOString())
   );
 
-  const tagRoutes: MetadataRoute.Sitemap = Array.from(tagsSet).flatMap((t) =>
-    makeItems(`/blog/etiket/${encodeURIComponent(t.toLowerCase().replace(/\s+/g, '-'))}`, 0.4, 'monthly')
-  );
+  // Yalnızca yeterli yazısı olan etiketler (ince etiket sayfaları noindex'tir)
+  const tagRoutes: MetadataRoute.Sitemap = Array.from(tagCounts)
+    .filter(([, count]) => count >= MIN_POSTS_FOR_TAG_INDEX)
+    .flatMap(([slug]) => makeItems(`/blog/etiket/${encodeURIComponent(slug)}`, 0.4, 'monthly'));
 
   const referenceRoutes: MetadataRoute.Sitemap = references.flatMap((r) =>
     makeItems(`/referanslar/${r.slug}`, 0.7, 'monthly', r.updatedAt.toISOString())
