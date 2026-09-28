@@ -39,14 +39,14 @@ export default function HakkimizdaClient() {
   const leaders = [
     {
       name: "Ahmet Yılmaz",
-      title: "Kurucu & Yönetim Kurulu Başkanı",
-      bio: "20 yılı aşkın tesis yönetimi tecrübesiyle sektörde yenilikçi ve şeffaf yönetim anlayışının öncüsü.",
+      title: t('ab_l1_title'),
+      bio: t('ab_l1_bio'),
       avatar: "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=300&auto=format&fit=crop"
     },
     {
       name: "Elif Kaya",
-      title: "Operasyon Direktörü",
-      bio: "Binlerce bağımsız bölümün operasyonel süreçlerini başarıyla yürüten, kriz yönetimi ve saha organizasyonu uzmanı.",
+      title: t('ab_l2_title'),
+      bio: t('ab_l2_bio'),
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop"
     }
   ];
@@ -129,6 +129,8 @@ export default function HakkimizdaClient() {
       {/* ========================================================================= */}
       {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
       {/* ========================================================================= */}
+      {/* Özet rehber: Türk mevzuatı ve doğrulanmamış rakamlar içerdiği için yalnızca Türkçe sayfada gösterilir. */}
+      {language === 'tr' && (
       <section className="pt-16 pb-6 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
@@ -290,6 +292,7 @@ export default function HakkimizdaClient() {
           </div>
         </div>
       </section>
+      )}
 
       {/* 3. Manifesto (Split Layout) */}
       <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
@@ -303,7 +306,7 @@ export default function HakkimizdaClient() {
           >
             <Image 
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" 
-              alt="Alo Yönetim Kurumsal" 
+              alt={t('ab_alt_corp')} 
               fill
               className="object-cover"
             />

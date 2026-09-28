@@ -81,10 +81,12 @@ export default async function IletisimPage({
     <>
       <JsonLd data={[contactPageLd, breadcrumbLd, serviceLd]} />
       <IletisimClient />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16 flex flex-col gap-10">
-        <VoiceConversationalAiSnippetSeo lang={lang} />
-        <ContactAiOverviewCardSeo />
-      </div>
+      {lang === 'tr' && (
+        <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16 flex flex-col gap-10">
+          <VoiceConversationalAiSnippetSeo lang={lang} />
+          <ContactAiOverviewCardSeo />
+        </div>
+      )}
     </>
   );
 }

@@ -81,9 +81,11 @@ export default async function HakkimizdaPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd, orgLd]} />
       <HakkimizdaClient />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
-        <CorporateEntityAiOverviewSeo />
-      </div>
+      {lang === 'tr' && (
+        <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+          <CorporateEntityAiOverviewSeo />
+        </div>
+      )}
     </>
   );
 }

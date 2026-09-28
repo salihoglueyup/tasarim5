@@ -8,6 +8,7 @@ import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata } from '@/lib/seo';
 import TeklifAlClient from './TeklifAlClient';
+import { getDictionary } from '@/lib/i18n';
 
 export async function generateMetadata({
   params,
@@ -15,54 +16,51 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Ücretsiz Tesis ve Site Yönetimi Teklifi Alın | Alo Yönetim',
-    description:
-      'Siteniz, plazanınız veya tesisiniz için 48 saat içinde şeffaf yönetim teklifi ve ücretsiz yerinde keşif hizmeti. %30 maliyet tasarrufuyla teklifinizi alın!',
+    title: t.ta_meta_title,
+    description: t.ta_meta_desc,
     path: '/teklif-al',
     lang,
-    targetKeyword: 'site yönetimi teklif al',
-    keywords: ['tesis yönetimi teklif', 'site yönetimi fiyat', 'ücretsiz tesis keşfi', 'apartman yönetimi teklif', 'site yönetim maliyeti'],
+    targetKeyword: t.ta_target_kw,
+    keywords: String(t.ta_meta_kw).split(',').map((k: string) => k.trim()),
     ogImageType: 'service',
   });
 }
 
-const STEPS = [
-  {
-    icon: 'edit_note',
-    title: '1. Bilgilerinizi Paylaşın',
-    desc: 'Sitenizin daire sayısı, konumu ve ihtiyaç duyduğunuz hizmetleri kısa formda iletin.',
-  },
-  {
-    icon: 'search_insights',
-    title: '2. Ücretsiz Keşif',
-    desc: 'Uzman ekibimiz binanızı yerinde inceleyerek ihtiyaç analizi ve maliyet çıkarır.',
-  },
-  {
-    icon: 'request_quote',
-    title: '3. Şeffaf Teklif',
-    desc: '48 saat içinde kalem kalem, gizli gider içermeyen net yönetim teklifinizi sunarız.',
-  },
+const getSteps = (t: Record<string, string>) => [
+  { icon: 'edit_note', title: t.ta_step1_title, desc: t.ta_step1_desc },
+  { icon: 'search_insights', title: t.ta_step2_title, desc: t.ta_step2_desc },
+  { icon: 'request_quote', title: t.ta_step3_title, desc: t.ta_step3_desc },
 ];
 
-const SERVICES = [
-  { href: '/hizmetler/tesis-yonetimi', label: 'Tesis Yönetimi' },
-  { href: '/hizmetler/guvenlik-yonetimi', label: 'Güvenlik Yönetimi' },
-  { href: '/hizmetler/temizlik-ve-hijyen', label: 'Temizlik ve Hijyen' },
-  { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Hukuk ve İcra' },
+const getServices = (t: Record<string, string>) => [
+  { href: '/hizmetler/tesis-yonetimi', label: t.ta_svc_facility },
+  { href: '/hizmetler/guvenlik-yonetimi', label: t.ta_svc_security },
+  { href: '/hizmetler/temizlik-ve-hijyen', label: t.ta_svc_cleaning },
+  { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: t.ta_svc_legal },
 ];
 
-export default function TeklifAl() {
+export default async function TeklifAl({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+  const lp = (p: string) => (lang === 'tr' ? p : `/${lang}${p === '/' ? '' : p}`);
+  const STEPS = getSteps(t);
+  const SERVICES = getServices(t);
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
-    { name: 'Teklif Al', url: '/teklif-al' },
+    { name: t.breadcrumb_home, url: lp('/') },
+    { name: t.nav_get_quote, url: lp('/teklif-al') },
   ]);
 
   const pageLd = webPageSchema({
-    name: 'Ücretsiz Tesis Yönetimi Teklifi Alın',
-    description:
-      'Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifi. 48 saat içinde net fiyat.',
+    name: t.ta_ld_name,
+    description: t.ta_ld_desc,
     path: '/teklif-al',
+    lang,
     speakableSelectors: [
       '#quote-instant-answer-text',
       '#rfp-transition-instant-answer-text',
@@ -75,8 +73,8 @@ export default function TeklifAl() {
   const quoteActionLd = {
     '@context': 'https://schema.org',
     '@type': 'FinancialProduct',
-    name: 'Alo Yönetim Şeffaf Tesis Yönetimi Teklifi',
-    description: 'ISO 41001 standartlarında 5188 güvenlik ve aidat takibi içeren kurumsal tesis yönetim teklifi.',
+    name: t.ta_quote_name,
+    description: t.ta_quote_desc,
     potentialAction: {
       '@type': 'QuoteAction',
       target: {
@@ -89,7 +87,7 @@ export default function TeklifAl() {
       },
       result: {
         '@type': 'Quote',
-        name: '48 Saatte Şeffaf Tesis Yönetimi Teklifi',
+        name: t.ta_quote_result,
       },
     },
   };
@@ -114,8 +112,8 @@ export default function TeklifAl() {
     <>
       <JsonLd data={[pageLd, breadcrumbLd, quoteActionLd, organizationLd]} />
       <PageHeader
-        title="Ücretsiz Teklif Alın"
-        description="Siteniz veya tesisiniz için ücretsiz keşif ve şeffaf yönetim teklifini 48 saat içinde alın. Gizli gider yok, taahhüt yok."
+        title={t.ta_h1}
+        description={t.ta_h1_desc}
       />
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
@@ -138,13 +136,13 @@ export default function TeklifAl() {
         </div>
 
         {/* Google AI Overviews & Şeffaf Fiyatlandırma / Keşif Garantisi */}
-        <QuoteAiOverviewCardSeo />
+        {lang === 'tr' && <QuoteAiOverviewCardSeo />}
 
         {/* Google AI Overviews & B2B Profesyonel Yönetime Geçiş Şartnamesi (Wave 66) */}
-        <RfpTransitionAiGroundingSeo />
+        {lang === 'tr' && <RfpTransitionAiGroundingSeo />}
 
         {/* Google Merchant & Servis Fiyatlandırma Paketleri (Wave 69) */}
-        <ServicePricingProductAiOverviewSeo />
+        {lang === 'tr' && <ServicePricingProductAiOverviewSeo />}
 
         {/* Gömülü Teklif & Keşif Formu ve Fiyatlandırma Rehberi */}
         <TeklifAlClient />
@@ -152,13 +150,13 @@ export default function TeklifAl() {
         {/* İç linkler */}
         <div className="text-center flex flex-col gap-5">
           <h2 className="text-2xl font-bold text-[var(--color-primary)]">
-            Hangi hizmet için teklif istiyorsunuz?
+            {t.ta_which_service}
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {SERVICES.map((s) => (
               <Link
                 key={s.href}
-                href={s.href}
+                href={lp(s.href)}
                 className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] hover:border-slate-900 dark:hover:border-white transition-colors"
               >
                 {s.label}
@@ -168,55 +166,57 @@ export default function TeklifAl() {
         </div>
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
-        <ServiceAuthorityHubSeo
-          serviceName="Site & Tesis Yönetimi Resmi Teklif ve Keşif Hizmeti"
-          serviceCategory="Teklif & Sözleşme Yönetimi"
-          lawReferences={[
-            {
-              title: "634 Sayılı Kat Mülkiyeti Kanunu — Madde 34 & 35",
-              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
-              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
-              badge: "KMK m.34/35",
-              description: "Yöneticinin kat malikleri kurulu adına üçüncü şahıslarla bakım, güvenlik, temizlik ve işletme sözleşmesi yapma yasal yetkileri."
-            },
-            {
-              title: "4734 Sayılı Kamu İhale Kanunu — Hizmet Alımı Teknik Şartname Standartları",
-              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
-              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4734&MevzuatTur=1&MevzuatTertip=5",
-              badge: "İhale Standartları",
-              description: "Toplu konut ve karma tesislerde şeffaf tedarikçi seçimi, birim fiyat cetvelleri ve teknik şartname şablonları."
-            },
-            {
-              title: "ISO 41001:2018 Entegre Tesis Yönetimi Standartları",
-              sourceName: "Türk Standardları Enstitüsü (TSE)",
-              url: "https://www.tse.org.tr",
-              badge: "ISO 41001",
-              description: "Teklif edilen tüm hizmet kalemlerinde KPI metrikleri, SLA seviyeleri ve aylık performans denetim kriterleri."
-            }
-          ]}
-          glossaryTerms={[
-            {
-              slug: "isletme-projesi",
-              term: "İşletme Projesi & Şeffaf Bütçe",
-              summary: "Sitenin yıllık tahmini bütçesi ve her bağımsız bölüme düşen avans payını gösteren resmi projedir."
-            },
-            {
-              slug: "demirbas",
-              term: "Ortak Alan Demirbaş Yönetimi",
-              summary: "Jeneratör, hidrofor, asansör ve havuz ekipmanlarının amortisman ve yenileme fonu planlamasıdır."
-            },
-            {
-              slug: "arsa-payi",
-              term: "Arsa Payı ve Gider Paylaşımı",
-              summary: "Ortak giderlerin kanuna uygun olarak kat malikleri arasında adil dağıtılmasını sağlayan orandır."
-            },
-            {
-              slug: "kat-mulkiyeti-kanunu-kmk",
-              term: "KMK Yasal Çerçeve",
-              summary: "Yönetim sözleşmelerinin hukuki geçerliliğini ve genel kurul onay mekanizmalarını düzenleyen kanundur."
-            }
-          ]}
-        />
+        {lang === 'tr' && (
+          <ServiceAuthorityHubSeo
+            serviceName="Site & Tesis Yönetimi Resmi Teklif ve Keşif Hizmeti"
+            serviceCategory="Teklif & Sözleşme Yönetimi"
+            lawReferences={[
+              {
+                title: "634 Sayılı Kat Mülkiyeti Kanunu — Madde 34 & 35",
+                sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+                url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
+                badge: "KMK m.34/35",
+                description: "Yöneticinin kat malikleri kurulu adına üçüncü şahıslarla bakım, güvenlik, temizlik ve işletme sözleşmesi yapma yasal yetkileri."
+              },
+              {
+                title: "4734 Sayılı Kamu İhale Kanunu — Hizmet Alımı Teknik Şartname Standartları",
+                sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
+                url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4734&MevzuatTur=1&MevzuatTertip=5",
+                badge: "İhale Standartları",
+                description: "Toplu konut ve karma tesislerde şeffaf tedarikçi seçimi, birim fiyat cetvelleri ve teknik şartname şablonları."
+              },
+              {
+                title: "ISO 41001:2018 Entegre Tesis Yönetimi Standartları",
+                sourceName: "Türk Standardları Enstitüsü (TSE)",
+                url: "https://www.tse.org.tr",
+                badge: "ISO 41001",
+                description: "Teklif edilen tüm hizmet kalemlerinde KPI metrikleri, SLA seviyeleri ve aylık performans denetim kriterleri."
+              }
+            ]}
+            glossaryTerms={[
+              {
+                slug: "isletme-projesi",
+                term: "İşletme Projesi & Şeffaf Bütçe",
+                summary: "Sitenin yıllık tahmini bütçesi ve her bağımsız bölüme düşen avans payını gösteren resmi projedir."
+              },
+              {
+                slug: "demirbas",
+                term: "Ortak Alan Demirbaş Yönetimi",
+                summary: "Jeneratör, hidrofor, asansör ve havuz ekipmanlarının amortisman ve yenileme fonu planlamasıdır."
+              },
+              {
+                slug: "arsa-payi",
+                term: "Arsa Payı ve Gider Paylaşımı",
+                summary: "Ortak giderlerin kanuna uygun olarak kat malikleri arasında adil dağıtılmasını sağlayan orandır."
+              },
+              {
+                slug: "kat-mulkiyeti-kanunu-kmk",
+                term: "KMK Yasal Çerçeve",
+                summary: "Yönetim sözleşmelerinin hukuki geçerliliğini ve genel kurul onay mekanizmalarını düzenleyen kanundur."
+              }
+            ]}
+          />
+        )}
       </section>
     </>
   );

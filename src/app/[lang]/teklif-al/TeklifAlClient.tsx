@@ -25,6 +25,15 @@ export default function TeklifAlClient() {
     'Aidat & İcra Takibi'
   ]);
   const [honeypot, setHoneypot] = useState('');
+  // Form değerleri (admin e-postasına giden) Türkçe kalır; yalnızca görünen etiketler çevrilir.
+  const SERVICE_LABELS: Record<string, string> = {
+    'Entegre Tesis Yönetimi': t('tc_s1'),
+    '5188 Özel Güvenlik': t('tc_s2'),
+    'Temizlik & Hijyen': t('tc_s3'),
+    'Teknik Bakım & Asansör': t('tc_s4'),
+    'Aidat & İcra Takibi': t('tc_s5'),
+    'Peyzaj & Havuz Bakımı': t('tc_s6'),
+  };
 
   const toggleService = (srv: string) => {
     setServices(prev => 
@@ -61,14 +70,14 @@ export default function TeklifAlClient() {
       <div className="lg:col-span-7 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 sm:p-12 shadow-xl relative overflow-hidden">
         <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4 w-fit">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>48 Saatte Şeffaf Teklif & Ücretsiz Keşif</span>
+          <span>{t('tc_badge')}</span>
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mb-3">
-          Siteniz İçin Profesyonel Yönetim Teklifi Alın
+          {t('tc_title')}
         </h2>
         <p className="text-sm text-[var(--color-secondary)] mb-8 font-normal leading-relaxed">
-          Aşağıdaki formu doldurun, uzman tesis yöneticimiz 24 saat içinde binanızı yerinde incelesin ve KMK 634 standartlarında şeffaf bütçe raporunuzu hazırlasın.
+          {t('tc_desc')}
         </p>
 
         {status === 'success' ? (
@@ -81,7 +90,7 @@ export default function TeklifAlClient() {
               ✓
             </div>
             <h3 className="text-2xl font-bold text-emerald-900 dark:text-emerald-200">
-              Teklif Talebiniz Başarıyla Alındı!
+              {t('tc_ok_title')}
             </h3>
             <p className="text-sm text-emerald-800 dark:text-emerald-300 max-w-md">
               Uzman bölge koordinatörümüz <strong>{phone}</strong> numaranız üzerinden sizinle iletişime geçerek ücretsiz keşif randevusu oluşturacaktır.
@@ -103,21 +112,21 @@ export default function TeklifAlClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
-                  Adınız & Soyadınız *
+                  {t('tc_lbl_name')}
                 </label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Örn: Ahmet Yılmaz"
+                  placeholder={t('tc_ph_name')}
                   className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
-                  Telefon Numaranız *
+                  {t('tc_lbl_phone')}
                 </label>
                 <input
                   type="tel"
@@ -133,7 +142,7 @@ export default function TeklifAlClient() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
-                  İlçe (İstanbul)
+                  {t('tc_lbl_district')}
                 </label>
                 <select
                   value={district}
@@ -150,34 +159,34 @@ export default function TeklifAlClient() {
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
-                  Tesis Türü
+                  {t('tc_lbl_type')}
                 </label>
                 <select
                   value={propertyType}
                   onChange={(e) => setPropertyType(e.target.value)}
                   className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="Site / Apartman" className="dark:bg-slate-900">Konut Sitesi / Apartman</option>
-                  <option value="Rezidans & Kule" className="dark:bg-slate-900">Lüks Rezidans / Kule</option>
-                  <option value="Plaza & İş Merkezi" className="dark:bg-slate-900">Plaza & İş Merkezi</option>
-                  <option value="Toplu Konut & TOKİ" className="dark:bg-slate-900">Toplu Konut (500+ Daire)</option>
+                  <option value="Site / Apartman" className="dark:bg-slate-900">{t('tc_type_site')}</option>
+                  <option value="Rezidans & Kule" className="dark:bg-slate-900">{t('tc_type_res')}</option>
+                  <option value={t('tc_type_plaza')} className="dark:bg-slate-900">{t('tc_type_plaza')}</option>
+                  <option value="Toplu Konut & TOKİ" className="dark:bg-slate-900">{t('tc_type_mass')}</option>
                   <option value="Sanayi & Fabrika" className="dark:bg-slate-900">Sanayi & Lojistik Tesis</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
-                  Daire / Birim Sayısı
+                  {t('tc_lbl_units')}
                 </label>
                 <select
                   value={units}
                   onChange={(e) => setUnits(e.target.value)}
                   className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="10-30 Daire" className="dark:bg-slate-900">10 - 30 Bağımsız Bölüm</option>
-                  <option value="31-75 Daire" className="dark:bg-slate-900">31 - 75 Bağımsız Bölüm</option>
-                  <option value="76-150 Daire" className="dark:bg-slate-900">76 - 150 Bağımsız Bölüm</option>
-                  <option value="151-300 Daire" className="dark:bg-slate-900">151 - 300 Bağımsız Bölüm</option>
+                  <option value="10-30 Daire" className="dark:bg-slate-900">{t('tc_u1')}</option>
+                  <option value="31-75 Daire" className="dark:bg-slate-900">{t('tc_u2')}</option>
+                  <option value="76-150 Daire" className="dark:bg-slate-900">{t('tc_u3')}</option>
+                  <option value="151-300 Daire" className="dark:bg-slate-900">{t('tc_u4')}</option>
                   <option value="300+ Daire" className="dark:bg-slate-900">300+ Mega Site</option>
                 </select>
               </div>
@@ -186,7 +195,7 @@ export default function TeklifAlClient() {
             {/* İstenen Hizmetler Çipleri */}
             <div>
               <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-3">
-                İhtiyaç Duyduğunuz Hizmetler
+                {t('tc_lbl_services')}
               </label>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -210,7 +219,7 @@ export default function TeklifAlClient() {
                       }`}
                     >
                       {active ? '✓ ' : '+ '}
-                      {srv}
+                      {SERVICE_LABELS[srv] ?? srv}
                     </button>
                   );
                 })}
@@ -222,7 +231,7 @@ export default function TeklifAlClient() {
               disabled={status === 'loading'}
               className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
             >
-              {status === 'loading' ? 'Teklif Talebi İletiliyor...' : 'Ücretsiz Keşif & Teklif Raporu İste →'}
+              {status === 'loading' ? t('tc_sending') : t('tc_submit')}
             </button>
 
             {/* Faz 211: CRO & E-E-A-T Güven Mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza, 48 Saat Rapor) */}
@@ -233,11 +242,11 @@ export default function TeklifAlClient() {
               </div>
               <div className="flex items-center justify-center gap-1">
                 <span className="material-symbols-outlined text-sm text-blue-500" aria-hidden="true">shield</span>
-                <span>5188 Lisanslı</span>
+                <span>{t('tc_seal_licensed')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
                 <span className="material-symbols-outlined text-sm text-purple-500" aria-hidden="true">gavel</span>
-                <span>KVKK Korumalı</span>
+                <span>{t('tc_seal_kvkk')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
                 <span className="material-symbols-outlined text-sm text-amber-500" aria-hidden="true">schedule</span>
@@ -255,39 +264,39 @@ export default function TeklifAlClient() {
         <div className="bg-[var(--color-surface)] text-[var(--color-primary)] p-8 sm:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm flex flex-col gap-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold tracking-wider uppercase w-fit">
             <span className="material-symbols-outlined text-sm text-emerald-500" aria-hidden="true">payments</span>
-            <span>Şeffaf Fiyatlandırma</span>
+            <span>{t('tc_pricing_badge')}</span>
           </div>
 
           <h3 className="text-xl font-extrabold text-[var(--color-primary)]">
-            Site Yönetimi Fiyatları Nasıl Belirlenir?
+            {t('tc_pricing_title')}
           </h3>
 
           <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-light">
-            Alo Yönetim, gizli hiçbir ek maliyet içermeyen <strong>net kalem bütçeleme</strong> ilkesiyle çalışır. Yönetim maliyeti şu 4 temel kritere göre belirlenir:
+            {t('tc_pricing_intro')}
           </p>
 
           <ul className="text-xs text-[var(--color-secondary)] space-y-2.5 pt-2 border-t border-[var(--color-outline)]/40">
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">1.</span>
-              <span><strong>Bağımsız Bölüm Sayısı:</strong> Projedeki daire ve dükkan adedine göre daire başı yönetim katsayısı optimize edilir.</span>
+              <span><strong>{t('tc_c1')}:</strong> {t('tc_c1d')}</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">2.</span>
-              <span><strong>Güvenlik & Temizlik Vardiyası:</strong> 5188 lisanslı güvenlik personeli ve temizlik görevlisi kadro ihtiyacı.</span>
+              <span><strong>{t('tc_c2')}:</strong> {t('tc_c2d')}</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">3.</span>
-              <span><strong>Teknik Ekipman Kapasitesi:</strong> Asansör adedi, jeneratör, hidrofor, yangın santrali ve havuz sistemi.</span>
+              <span><strong>{t('tc_c3')}:</strong> {t('tc_c3d')}</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">4.</span>
-              <span><strong>%20 - %30 Net Tasarruf Güvencesi:</strong> Toplu alım gücümüzle ortak alan elektrik ve bakım maliyetlerini düşürürüz.</span>
+              <span><strong>{t('tc_c4')}:</strong> {t('tc_c4d')}</span>
             </li>
           </ul>
 
           <div className="pt-3 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-xs text-[var(--color-secondary)]">
-            <span>Sözleşme Süresi: 1 Yıl</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold">48 Saatte Bütçe Teslimi</span>
+            <span>{t('tc_term')}</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold">{t('tc_budget48')}</span>
           </div>
         </div>
 
@@ -296,7 +305,7 @@ export default function TeklifAlClient() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Nöbetçi Tesis Santrali</span>
+              <span>{t('tc_switch')}</span>
             </div>
             <span className="text-[11px] text-slate-500">7/24 Kesintisiz</span>
           </div>
@@ -310,13 +319,13 @@ export default function TeklifAlClient() {
           </a>
 
           <a
-            href={waLink('Merhaba, sitemiz için profesyonel tesis ve site yönetimi teklifi almak istiyoruz.')}
+            href={waLink(t('tc_wa_msg'))}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm"
           >
             <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
-            <span>WhatsApp ile Anında Teklif İsteyin</span>
+            <span>{t('tc_wa_btn')}</span>
           </a>
         </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import { MapPin, Navigation, ExternalLink } from 'lucide-react';
 
 interface LazyMapFacadeProps {
@@ -25,6 +26,7 @@ export default function LazyMapFacade({
   directMapsUrl,
   autoLoadOnIntersection = false,
 }: LazyMapFacadeProps) {
+  const { t } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +77,7 @@ export default function LazyMapFacade({
             {title}
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mb-5">
-            İnteraktif Google Haritasını görüntülemek için tıklayın.
+            {t('map_click')}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -85,7 +87,7 @@ export default function LazyMapFacade({
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-semibold text-xs transition-all shadow-md active:scale-95"
             >
               <Navigation className="w-3.5 h-3.5" />
-              <span>Haritayı Etkinleştir</span>
+              <span>{t('map_activate')}</span>
             </button>
 
             {directMapsUrl && (
@@ -95,7 +97,7 @@ export default function LazyMapFacade({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-medium text-xs transition-all"
               >
-                <span>Uygulamada Aç</span>
+                <span>{t('map_open_app')}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             )}

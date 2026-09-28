@@ -23,7 +23,7 @@ const RULES: { id: string; re: RegExp; allow?: RegExp }[] = [
   {
     // Şirket kimliği tek kaynaktan gelir: CANONICAL_NAP (napGuardEngine.ts). Eski/çelişen değerler yasak.
     id: 'nap-conflict',
-    re: /0054089761200001|918234-0|Sahrayıcedit|0540897612|0680458921|34-ÖG-2016\/482|532 ?234 ?56 ?78|5322345678/,
+    re: /0054089761200001|918234-0|Sahrayıcedit|0540897612|0680458921|34-ÖG-2016\/482|532 ?234 ?56 ?78|5322345678|0068123456789012|984512-5|0681234567|Alo Tesis & Site Yönetimi Hizmetleri/,
   },
   {
     id: 'tse-hyb',

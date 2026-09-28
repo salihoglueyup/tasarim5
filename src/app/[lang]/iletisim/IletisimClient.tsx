@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { waLink } from '@/lib/cro';
+import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import LazyMapFacade from '@/components/ui/media/LazyMapFacade';
 import {
   Phone,
@@ -28,11 +29,11 @@ import {
 } from 'lucide-react';
 
 const contactSchema = z.object({
-  name: z.string().min(3, { message: 'Lütfen geçerli bir ad ve soyad giriniz.' }),
-  phone: z.string().min(10, { message: 'Lütfen en az 10 haneli geçerli bir telefon numarası giriniz.' }),
-  email: z.string().email({ message: 'Lütfen geçerli bir e-posta adresi giriniz.' }),
-  subject: z.string().min(1, { message: 'Lütfen bir konu seçiniz.' }),
-  message: z.string().min(10, { message: 'Mesajınız en az 10 karakter olmalıdır.' }).max(500, { message: 'Mesajınız en fazla 500 karakter olabilir.' }),
+  name: z.string().min(3, { message: 'ic_err_name' }),
+  phone: z.string().min(10, { message: 'ic_err_phone' }),
+  email: z.string().email({ message: 'ic_err_email' }),
+  subject: z.string().min(1, { message: 'ic_err_subject' }),
+  message: z.string().min(10, { message: 'ic_err_msg_min' }).max(500, { message: 'ic_err_msg_max' }),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -140,8 +141,8 @@ export default function IletisimClient() {
         ),
       },
       {
-        q: 'Mevcut site yöneticiliğinden profesyonel yönetime geçiş nasıl yapılır?',
-        a: 'Kat Malikleri Kurulu Genel Kurulunda salt çoğunluk (arsa payı ve sayı çoğunluğu) ile şirketimize yetki verilmesi yeterlidir. Karar sonrasında eski yönetimden tüm evrak, defter ve mali hesap devri uzman hukuk ekibimiz tarafından tutanakla devralınır.',
+        q: t('ic_faq4_q'),
+        a: t('ic_faq4_a'),
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -181,7 +182,7 @@ export default function IletisimClient() {
               <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isOpenNow ? 'bg-emerald-400' : 'bg-rose-500'}`} />
             </span>
             <span className="text-slate-200">
-              {isOpenNow ? 'Genel Merkezimiz Şu Anda Açık (09:00 - 18:00)' : 'Mesai Dışı — 7/24 Acil Çağrı Hattı Aktif'}
+              {isOpenNow ? t('ic_open_now') : t('ic_closed_now')}
             </span>
           </div>
 
@@ -207,13 +208,13 @@ export default function IletisimClient() {
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
                 <Sparkles className="w-4 h-4" />
-                <span>Hızlı Ulaşım Kanalları</span>
+                <span>{t('ic_channels')}</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-primary)] mb-3">
-                7/24 Doğrudan Destek
+                {t('ic_support_title')}
               </h2>
               <p className="text-sm text-[var(--color-secondary)] mb-8 leading-relaxed font-light">
-                Teklif talepleriniz, acil arıza bildirimleri veya yerinde keşif randevusu için bize dilediğiniz kanaldan ulaşabilirsiniz.
+                {t('ic_support_desc')}
               </p>
 
               <div className="space-y-5">
@@ -227,7 +228,7 @@ export default function IletisimClient() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs text-[var(--color-secondary)] font-semibold uppercase tracking-wider">
-                      7/24 Çağrı Merkezi
+                      {t('ic_call_center')}
                     </div>
                     <div className="text-lg font-bold text-[var(--color-primary)] tracking-wide">
                       {ORG_PHONE_DISPLAY}
@@ -260,7 +261,7 @@ export default function IletisimClient() {
                   href={ORG_GOOGLE_BUSINESS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Google Haritalar'da Alo Yönetim konumunu aç"
+                  aria-label={t('ic_maps_aria')}
                   className="flex items-start gap-4 p-3.5 rounded-2xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 hover:border-purple-500/40 transition-all group/addr"
                 >
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 mt-0.5 group-hover/addr:scale-105 transition-transform">
@@ -269,10 +270,10 @@ export default function IletisimClient() {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-xs text-[var(--color-secondary)] font-semibold uppercase tracking-wider">
-                        Genel Merkez & Yönetim Ofisi
+                        {t('ic_hq_office')}
                       </span>
                       <span className="text-[11px] text-purple-600 dark:text-purple-400 font-medium flex items-center gap-0.5 group-hover/addr:underline">
-                        Haritada Gör <ArrowUpRight className="w-3 h-3" />
+                        {t('ic_see_map')} <ArrowUpRight className="w-3 h-3" />
                       </span>
                     </div>
                     <div className="text-xs sm:text-sm font-medium text-[var(--color-primary)] leading-relaxed">
@@ -283,13 +284,13 @@ export default function IletisimClient() {
 
                 {/* WhatsApp Butonu */}
                 <a
-                  href={waLink('Merhaba Alo Yönetim, sitemiz/tesisimiz için hizmetleriniz hakkında bilgi almak istiyorum.')}
+                  href={waLink(t('ic_wa_msg'))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-md active:scale-[0.99]"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp Canlı Danışma Hattı</span>
+                  <span>{t('ic_wa_line')}</span>
                 </a>
               </div>
             </div>
@@ -298,25 +299,20 @@ export default function IletisimClient() {
             <div className="mt-8 pt-6 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-xs text-[var(--color-secondary)]">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                <span>ISO 41001 & 5188 Lisanslı</span>
+                <span>{t('ic_licensed')}</span>
               </span>
-              <span className="font-semibold text-[var(--color-primary)]">45 Dk Mobil Müdahale</span>
+              <span className="font-semibold text-[var(--color-primary)]">{t('ic_response45')}</span>
             </div>
 
             {/* Faz 208: Kurumsal MERSİS, Vergi Dairesi ve Ticaret Sicil Bilgileri (E-E-A-T) */}
             <div className="mt-4 pt-4 border-t border-[var(--color-outline)]/40 text-[11px] text-[var(--color-secondary)] space-y-1">
-              <div><strong className="text-[var(--color-primary)]">Ticaret Unvanı:</strong> Alo Tesis & Site Yönetimi Hizmetleri A.Ş.</div>
+              <div><strong className="text-[var(--color-primary)]">{t('ic_lbl_trade_name')}:</strong> {CANONICAL_NAP.legal.legalName}</div>
               <div className="flex flex-wrap gap-x-3 gap-y-0.5">
-                <span><strong className="text-[var(--color-primary)]">MERSİS:</strong> 0068123456789012</span>
+                <span><strong className="text-[var(--color-primary)]">MERSİS:</strong> {CANONICAL_NAP.legal.mersisNumber}</span>
                 <span>•</span>
-                <span><strong className="text-[var(--color-primary)]">Ticaret Sicil No:</strong> 984512-5</span>
+                <span><strong className="text-[var(--color-primary)]">{t('ic_lbl_reg_no')}:</strong> {CANONICAL_NAP.legal.tradeRegistryNumber}</span>
               </div>
-              <div className="flex flex-wrap gap-x-3 gap-y-0.5">
-                <span><strong className="text-[var(--color-primary)]">Vergi Dairesi:</strong> Kadıköy V.D.</span>
-                <span>•</span>
-                <span><strong className="text-[var(--color-primary)]">VKN:</strong> 0681234567</span>
-              </div>
-              <div><strong className="text-[var(--color-primary)]">Oda Kaydı:</strong> İstanbul Ticaret Odası (İTO)</div>
+              <div><strong className="text-[var(--color-primary)]">{t('ic_lbl_tax_office')}:</strong> {CANONICAL_NAP.legal.taxOffice}</div>
             </div>
           </div>
 
@@ -328,27 +324,27 @@ export default function IletisimClient() {
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100 mb-2">
-                  Mesajınız Başarıyla İletildi!
+                  {t('ic_sent_title')}
                 </h3>
                 <p className="text-sm text-emerald-700 dark:text-emerald-300 max-w-md mb-6 leading-relaxed">
-                  Talebiniz müşteri ilişkileri departmanımıza kaydedildi. Uzmanımız en geç 2 saat içerisinde sizinle iletişime geçecektir.
+                  {t('ic_sent_desc')}
                 </p>
                 <button
                   type="button"
                   onClick={() => reset()}
                   className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors cursor-pointer"
                 >
-                  Yeni Mesaj Gönder
+                  {t('ic_new_msg')}
                 </button>
               </div>
             ) : (
               <div>
                 <div className="mb-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] tracking-tight mb-2">
-                    Bize Mesaj Gönderin
+                    {t('ic_form_title')}
                   </h2>
                   <p className="text-sm text-[var(--color-secondary)] font-light">
-                    Sitenizin veya tesisinizin yönetim, güvenlik ya da teknik ihtiyaçlarını belirtin, size özel çözüm önerisi hazırlayalım.
+                    {t('ic_form_desc')}
                   </p>
                 </div>
 
@@ -374,7 +370,7 @@ export default function IletisimClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="name" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        Adınız Soyadınız <span className="text-amber-500">*</span>
+                        {t('ic_lbl_name')} <span className="text-amber-500">*</span>
                       </label>
                       <input
                         {...register('name')}
@@ -383,23 +379,23 @@ export default function IletisimClient() {
                         autoComplete="name"
                         aria-invalid={Boolean(errors.name)}
                         aria-describedby={errors.name ? 'name-error' : undefined}
-                        placeholder="Örn: Ahmet Yılmaz"
+                        placeholder={t('ic_ph_name')}
                         className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.name
                             ? 'border-red-500 focus:ring-red-500/20'
                             : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.name && <span id="name-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.name.message}</span>}
+                      {errors.name && <span id="name-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.name.message as Parameters<typeof t>[0])}</span>}
                     </div>
 
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="phone" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        Telefon Numaranız <span className="text-amber-500">*</span>
+                        {t('ic_lbl_phone')} <span className="text-amber-500">*</span>
                       </label>
                       <div className="flex gap-2">
                         <select
-                          aria-label="Ülke Telefon Kodu"
+                          aria-label={t('ic_phone_code_aria')}
                           defaultValue="+90"
                           className="px-2.5 py-3 rounded-xl border border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-semibold focus:outline-none focus:border-amber-500 transition-all shrink-0 cursor-pointer"
                         >
@@ -424,7 +420,7 @@ export default function IletisimClient() {
                           }`}
                         />
                       </div>
-                      {errors.phone && <span id="phone-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.phone.message}</span>}
+                      {errors.phone && <span id="phone-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.phone.message as Parameters<typeof t>[0])}</span>}
                     </div>
                   </div>
 
@@ -448,12 +444,12 @@ export default function IletisimClient() {
                             : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.email && <span id="email-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.email.message}</span>}
+                      {errors.email && <span id="email-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.email.message as Parameters<typeof t>[0])}</span>}
                     </div>
 
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="subject" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        İletişim Konusu <span className="text-amber-500">*</span>
+                        {t('ic_lbl_subject')} <span className="text-amber-500">*</span>
                       </label>
                       <div className="relative">
                         <select
@@ -467,17 +463,17 @@ export default function IletisimClient() {
                               : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                           }`}
                         >
-                          <option value="">Konu Seçiniz...</option>
-                          <option value="teklif">Entegre Tesis & Site Yönetimi Teklifi</option>
-                          <option value="guvenlik">5188 Lisanslı Özel Güvenlik Hizmeti</option>
-                          <option value="teknik">Teknik Bakım & Periyodik İşletme</option>
-                          <option value="temizlik">Temizlik & Ortak Alan Hijyen Yönetimi</option>
-                          <option value="hukuk">634 KMK Hukuki Danışmanlık & İcra Takibi</option>
-                          <option value="diger">Diğer / Genel Danışma</option>
+                          <option value="">{t('ic_subj_ph')}</option>
+                          <option value="teklif">{t('ic_subj_quote')}</option>
+                          <option value="guvenlik">{t('ic_subj_security')}</option>
+                          <option value="teknik">{t('ic_subj_tech')}</option>
+                          <option value="temizlik">{t('ic_subj_clean')}</option>
+                          <option value="hukuk">{t('ic_subj_legal')}</option>
+                          <option value="diger">{t('ic_subj_other')}</option>
                         </select>
                         <ChevronDown className="w-4 h-4 text-[var(--color-tertiary)] absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                       </div>
-                      {errors.subject && <span id="subject-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.subject.message}</span>}
+                      {errors.subject && <span id="subject-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.subject.message as Parameters<typeof t>[0])}</span>}
                     </div>
                   </div>
 
@@ -485,7 +481,7 @@ export default function IletisimClient() {
                   <div className="flex flex-col gap-1.5">
                     <div className="flex justify-between items-center">
                       <label htmlFor="message" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        Mesajınız <span className="text-amber-500">*</span>
+                        {t('ic_lbl_message')} <span className="text-amber-500">*</span>
                       </label>
                       <span className={`text-[11px] ${messageVal.length > 500 ? 'text-red-500 font-bold' : 'text-[var(--color-tertiary)]'}`}>
                         {messageVal.length}/500
@@ -497,14 +493,14 @@ export default function IletisimClient() {
                       rows={4}
                       aria-invalid={Boolean(errors.message)}
                       aria-describedby={errors.message ? 'message-error' : undefined}
-                      placeholder="Apartman/Site adı, bağımsız bölüm sayısı ve ihtiyaçlarınızı kısaca özetleyiniz..."
+                      placeholder={t('ic_ph_message')}
                       className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all resize-none ${
                         errors.message
                           ? 'border-red-500 focus:ring-red-500/20'
                           : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                       }`}
                     />
-                    {errors.message && <span id="message-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{errors.message.message}</span>}
+                    {errors.message && <span id="message-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.message.message as Parameters<typeof t>[0])}</span>}
                   </div>
 
                   {/* Gönder Butonu */}
@@ -517,7 +513,7 @@ export default function IletisimClient() {
                       <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                     ) : (
                       <>
-                        <span>Mesajı Gönder</span>
+                        <span>{t('ic_send')}</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}
@@ -537,25 +533,25 @@ export default function IletisimClient() {
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
               <Building2 className="w-3.5 h-3.5 text-amber-500" />
-              <span>Lokasyon & Ulaşım Rehberi</span>
+              <span>{t('ic_location_badge')}</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-              Kadıköy Genel Merkezimize Kolay Ulaşım
+              {t('ic_location_title')}
             </h2>
 
             <p className="text-sm text-slate-600 dark:text-slate-400 font-light leading-relaxed">
-              Ofisimiz Kadıköy Rıhtım, vapur iskeleleri ve Söğütlüçeşme Metrobüs/Marmaray aktarma merkezine yalnızca 5-7 dakika yürüme mesafesindedir.
+              {t('ic_location_desc')}
             </p>
 
             <div className="space-y-3 pt-2 border-t border-slate-100 dark:border-white/5">
               <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
                 <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                <span><strong>Hafta İçi:</strong> 09:00 - 18:00 | <strong>Cumartesi:</strong> 09:00 - 13:00</span>
+                <span><strong>{t('ic_weekdays')}:</strong> 09:00 - 18:00 | <strong>{t('ic_saturday')}:</strong> 09:00 - 13:00</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
                 <Car className="w-4 h-4 text-blue-500 shrink-0" />
-                <span>Misafir kapalı otoparkımız ve vale hizmetimiz mevcuttur.</span>
+                <span>{t('ic_parking')}</span>
               </div>
             </div>
 
@@ -567,7 +563,7 @@ export default function IletisimClient() {
                 className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white dark:hover:text-slate-950 transition-all shadow-md group"
               >
                 <MapPin className="w-4 h-4 text-amber-500 dark:text-amber-600 group-hover:text-white dark:group-hover:text-slate-950 transition-colors" />
-                <span>Google Haritalarda Aç & Yol Tarifi Al</span>
+                <span>{t('ic_open_in_maps')}</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
@@ -577,7 +573,7 @@ export default function IletisimClient() {
           <div className="lg:col-span-7 h-[360px] rounded-2xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-800">
             <LazyMapFacade
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.649622987158!2d29.0289!3d40.9901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8677a28e833%3A0x6b4026bb4e81561!2zS2FkxLFrw7Z5LCDEsHN0YW5idWw!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
-              title="Alo Yönetim Genel Merkez Ofisi Konumu"
+              title={t('ic_map_title')}
               directMapsUrl={ORG_GOOGLE_BUSINESS_URL}
               autoLoadOnIntersection={true}
               className="w-full h-full"
@@ -591,10 +587,10 @@ export default function IletisimClient() {
       <section className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 mb-24">
         <div className="text-center mb-10">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest bg-slate-200/80 dark:bg-white/5 px-3.5 py-1.5 rounded-full inline-block mb-3">
-            Sıkça Sorulan Sorular
+            {t('ic_faq_badge')}
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            İletişim & Süreç Hakkında Merak Edilenler
+            {t('ic_faq_title')}
           </h2>
         </div>
 
