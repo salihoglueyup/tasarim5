@@ -31,18 +31,6 @@ export function reviewsWithRating(opts: {
     // Zorunlu LocalBusiness alanları — node kendi başına geçerli olmalı (Rich Results).
     telephone: ORG_PHONE,
     address: ORG_ADDRESS,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'LocalBusiness',
-        name: ORG_NAME,
-        url: BASE_URL,
-      },
-      ratingValue: opts.ratingValue,
-      reviewCount: opts.reviews.length.toString(),
-      bestRating: '5',
-      worstRating: '1',
-    },
     review: opts.reviews.map((r) => ({
       '@type': 'Review',
       reviewRating: {

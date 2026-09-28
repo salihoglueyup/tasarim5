@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Hero from '@/components/sections/core/Hero';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
-import GoogleReviewsWidget from '@/components/sections/trust/GoogleReviewsWidget';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
@@ -133,7 +132,6 @@ export default async function Home({ params }: Props) {
 
   const businessLd = professionalServiceSchema({
     description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
-    aggregateRating: { ratingValue: '4.9', reviewCount: '340' },
   });
 
   const videoLd = videoObjectSchema({

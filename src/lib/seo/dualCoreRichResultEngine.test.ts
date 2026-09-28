@@ -6,8 +6,6 @@ import {
   buildAllOffers,
   buildHowToSchema,
   buildReviewSchema,
-  buildAggregateRatingSchema,
-  buildServiceReviewPage,
   buildJobPostingSchema,
   buildCourseSchema,
   buildEventSchema,
@@ -192,24 +190,6 @@ describe('BÖLÜM F — 🏆 Rich Result & Zengin Snippet Motoru (dualCoreRichRe
       expect(schema.positiveNotes).toBeDefined();
     });
 
-    it('buildAggregateRatingSchema ortalama puanı ve toplam inceleme sayısını doğru hesaplar', () => {
-      const aggSite = buildAggregateRatingSchema('site');
-      expect(aggSite['@type']).toBe('AggregateRating');
-      expect(aggSite.ratingValue).toBeGreaterThanOrEqual(4.5);
-      expect(aggSite.ratingValue).toBeLessThanOrEqual(5.0);
-      expect(aggSite.reviewCount).toBeGreaterThan(100);
-
-      const aggFacility = buildAggregateRatingSchema('facility');
-      expect(aggFacility.ratingValue).toBeGreaterThanOrEqual(4.5);
-    });
-
-    it('buildServiceReviewPage Product + AggregateRating + Review dizisi üretir', () => {
-      const pageSchema = buildServiceReviewPage('tesis-yonetimi', 'facility');
-      expect(pageSchema['@type']).toBe('Product');
-      expect(pageSchema.aggregateRating).toBeDefined();
-      expect(pageSchema.review).toBeInstanceOf(Array);
-      expect((pageSchema.review as unknown[]).length).toBeGreaterThanOrEqual(3);
-    });
   });
 
   /* =========================================================================

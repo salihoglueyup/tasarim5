@@ -172,13 +172,6 @@ export default async function NeighborhoodPage({
         closes: '23:59',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '48',
-      bestRating: '5',
-      worstRating: '1',
-    },
     serviceType: ['Tesis Yönetimi', 'Site Güvenliği', 'Teknik Bakım', 'Aidat Yönetimi'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

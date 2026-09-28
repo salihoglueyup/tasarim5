@@ -1,4 +1,4 @@
-import type { JsonLdObject, RatingInput } from './constants';
+import type { JsonLdObject } from './constants';
 import {
   ORG_ID,
   WEBSITE_ID,
@@ -102,18 +102,6 @@ export function organizationSchema(): JsonLdObject {
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
     contactPoint: ORG_CONTACT_POINTS,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'Organization',
-        name: ORG_NAME,
-        url: BASE_URL,
-      },
-      ratingValue: '4.9',
-      reviewCount: '340',
-      bestRating: '5',
-      worstRating: '1',
-    },
     subOrganization: GROUP_COMPANIES.map((company) => ({
       '@type': 'Organization',
       name: company.name,
@@ -282,7 +270,6 @@ export function professionalServiceSchema(opts?: {
   description?: string;
   path?: string;
   areaServed?: string | JsonLdObject;
-  aggregateRating?: RatingInput;
   knowsAbout?: any[];
 }): JsonLdObject {
   const path = opts?.path ? (opts.path.startsWith('http') ? opts.path : `${BASE_URL}${opts.path}`) : BASE_URL;
@@ -343,35 +330,6 @@ export function professionalServiceSchema(opts?: {
         description: '7/24 Kesintisiz Acil Mobil Teknik Servis & Güvenlik Operasyon Merkezi',
       },
     ],
-    ...(opts?.aggregateRating
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            itemReviewed: {
-              '@type': 'ProfessionalService',
-              name: opts?.name ?? ORG_NAME,
-              url: path,
-            },
-            ratingValue: opts.aggregateRating.ratingValue,
-            reviewCount: opts.aggregateRating.reviewCount,
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }
-      : {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            itemReviewed: {
-              '@type': 'ProfessionalService',
-              name: opts?.name ?? ORG_NAME,
-              url: path,
-            },
-            ratingValue: '4.9',
-            reviewCount: '150',
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }),
   };
 }
 

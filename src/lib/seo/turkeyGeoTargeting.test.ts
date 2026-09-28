@@ -66,23 +66,6 @@ describe('Türkiye Coğrafi Hedefleme (Geo-Targeting) & SEO Doğrulama Paketi', 
     });
   });
 
-  describe('5. Google Rich Results Test & Sıfır Hata Şema Doğrulaması', () => {
-    it('organizationSchema aggregateRating içinde geçerli itemReviewed nesnesi bulunmalı', () => {
-      const org = organizationSchema() as any;
-      expect(org.aggregateRating).toBeDefined();
-      expect(org.aggregateRating.itemReviewed).toBeDefined();
-      expect(org.aggregateRating.itemReviewed['@type']).toBe('Organization');
-      expect(org.aggregateRating.itemReviewed.name).toBe('Alo Yönetim');
-    });
-
-    it('professionalServiceSchema aggregateRating içinde geçerli itemReviewed nesnesi bulunmalı', () => {
-      const ps = professionalServiceSchema() as any;
-      expect(ps.aggregateRating).toBeDefined();
-      expect(ps.aggregateRating.itemReviewed).toBeDefined();
-      expect(ps.aggregateRating.itemReviewed['@type']).toBe('ProfessionalService');
-    });
-  });
-
   describe('6. Google Featured Snippet (0. Sıra) & KMK Doğrudan Cevap Motoru', () => {
     it('KMK_LAW_INDEX içindeki tüm maddeler doğrudan arama sorusu ve kesin cevap içermeli', async () => {
       const { KMK_LAW_INDEX } = await import('@/data/kmkLawData');

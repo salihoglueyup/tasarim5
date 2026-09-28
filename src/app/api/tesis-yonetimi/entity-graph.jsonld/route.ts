@@ -95,18 +95,6 @@ export async function GET() {
           'https://twitter.com/aloyonetim',
           'https://www.youtube.com/@aloyonetim',
         ],
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: 340,
-          bestRating: '5',
-          worstRating: '1',
-          itemReviewed: {
-            '@type': 'Organization',
-            name: 'Alo Yönetim',
-            telephone: '+90 216 550 48 48',
-          },
-        },
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Misak-ı Milli Sok. No:94A',

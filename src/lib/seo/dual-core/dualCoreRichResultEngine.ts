@@ -38,7 +38,6 @@ export interface LocalBusinessRichOptions {
   districtSlug?: string;
   serviceSlug?: string;
   priceRange?: '₺' | '₺₺' | '₺₺₺';
-  aggregateRating?: { ratingValue: number; reviewCount: number; bestRating?: number; worstRating?: number };
 }
 
 export interface HowToStep {
@@ -298,13 +297,6 @@ export function buildLocalBusinessSchema(options: LocalBusinessRichOptions = { p
     ? `${CANONICAL_NAP.legal.brandName} — Entegre Tesis & Plaza Yönetimi`
     : `${CANONICAL_NAP.legal.brandName} — Profesyonel Site ve Apartman Yönetimi`;
 
-  const aggRating = options.aggregateRating || {
-    ratingValue: 4.9,
-    reviewCount: 248,
-    bestRating: 5,
-    worstRating: 1,
-  };
-
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
@@ -340,18 +332,6 @@ export function buildLocalBusinessSchema(options: LocalBusinessRichOptions = { p
     hasMap: CANONICAL_NAP.geo.googleMapsPlaceUrl,
     openingHoursSpecification: buildOpeningHoursSpecification(),
     sameAs: [...CANONICAL_NAP.sameAs],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'ProfessionalService',
-        name: brandTitle,
-        url: BASE_URL,
-      },
-      ratingValue: aggRating.ratingValue,
-      reviewCount: aggRating.reviewCount,
-      bestRating: aggRating.bestRating || 5,
-      worstRating: aggRating.worstRating || 1,
-    },
     makesOffer: buildAllOffers(options.pillar),
     areaServed: {
       '@type': 'AdministrativeArea',
@@ -425,18 +405,6 @@ export function buildDistrictLocalBusinessSchema(districtSlug: string, pillar: D
       '@type': 'Organization',
       name: CANONICAL_NAP.legal.brandName,
       url: BASE_URL,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'LocalBusiness',
-        name: `${district.name} ${pillar === 'facility' ? 'Tesis Yönetimi' : 'Site Yönetimi'} — ${CANONICAL_NAP.legal.brandName}`,
-        url: `${BASE_URL}/bolgeler/${district.slug}/${pillar === 'facility' ? 'tesis-yonetimi' : 'site-yonetimi'}`,
-      },
-      ratingValue: 4.9,
-      reviewCount: 42,
-      bestRating: 5,
-      worstRating: 1,
     },
     openingHoursSpecification: buildOpeningHoursSpecification(),
   };
@@ -853,74 +821,6 @@ export function buildReviewSchema(review: ReviewItem) {
   }
 
   return schema;
-}
-
-/**
- * AggregateRating Schema.org JSON-LD üretir.
- */
-export function buildAggregateRatingSchema(pillar: DomainPillar = 'site', serviceSlug?: string) {
-  const reviews = pillar === 'facility' ? FACILITY_REVIEW_BANK : SITE_REVIEW_BANK;
-  const filtered = serviceSlug ? reviews.filter((r) => r.serviceSlug === serviceSlug) : reviews;
-  const activeReviews = filtered.length > 0 ? filtered : reviews;
-
-  const totalScore = activeReviews.reduce((sum, r) => sum + r.ratingValue, 0);
-  const avgRating = Number((totalScore / activeReviews.length).toFixed(1));
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'AggregateRating',
-    ratingValue: avgRating,
-    reviewCount: activeReviews.length + (pillar === 'facility' ? 85 : 190), // Gerçek platform toplamı
-    bestRating: 5,
-    worstRating: 1,
-    itemReviewed: {
-      '@type': 'ProfessionalService',
-      name: `${CANONICAL_NAP.legal.brandName} ${pillar === 'facility' ? 'Tesis Yönetimi' : 'Site Yönetimi'}`,
-      url: `${BASE_URL}/${serviceSlug || 'tesis-yonetimi'}`,
-      telephone: CANONICAL_NAP.contact.phoneDisplay,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: CANONICAL_NAP.address.addressLocality,
-        addressRegion: CANONICAL_NAP.address.addressRegion,
-        addressCountry: 'TR',
-      },
-    },
-  };
-}
-
-/**
- * Belirli bir hizmet sayfası için tüm yorum ve değerlendirme şemalarını üretir.
- */
-export function buildServiceReviewPage(serviceSlug: string, pillar: DomainPillar = 'site') {
-  const reviews = pillar === 'facility' ? FACILITY_REVIEW_BANK : SITE_REVIEW_BANK;
-  const matching = reviews.filter((r) => !r.serviceSlug || r.serviceSlug === serviceSlug);
-  const other = reviews.filter((r) => r.serviceSlug && r.serviceSlug !== serviceSlug);
-  const active = matching.length >= 3 ? matching : [...matching, ...other].slice(0, 5);
-
-  const productName = `Alo Yönetim — ${pillar === 'facility' ? 'Kurumsal Tesis Yönetimi' : 'Profesyonel Site Yönetimi'}`;
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: productName,
-    description: 'İstanbul geneli 7/24 teknik, güvenlik, temizlik ve aidat takip yönetim hizmet paketi.',
-    brand: {
-      '@type': 'Brand',
-      name: CANONICAL_NAP.legal.brandName,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'Product',
-        name: productName,
-      },
-      ratingValue: 4.9,
-      reviewCount: active.length + (pillar === 'facility' ? 60 : 180),
-      bestRating: 5,
-      worstRating: 1,
-    },
-    review: active.map(buildReviewSchema),
-  };
 }
 
 /* =========================================================================

@@ -1,4 +1,4 @@
-import type { JsonLdObject, OfferItem, RatingInput } from './constants';
+import type { JsonLdObject, OfferItem } from './constants';
 import { ORG_CREDENTIALS } from './organization';
 import {
   ORG_ID,
@@ -101,7 +101,6 @@ export function localBusinessAreaSchema(opts: {
   geo: { lat: number; lng: number };
   description?: string;
   url: string;
-  aggregateRating?: RatingInput;
 }): JsonLdObject {
   return {
     '@type': ['LocalBusiness', 'ProfessionalService'],
@@ -135,35 +134,6 @@ export function localBusinessAreaSchema(opts: {
         closes: '14:00',
       },
     ],
-    ...(opts.aggregateRating
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            itemReviewed: {
-              '@type': 'LocalBusiness',
-              name: `${ORG_NAME} — ${opts.areaName}`,
-              url: abs(opts.url),
-            },
-            ratingValue: opts.aggregateRating.ratingValue,
-            reviewCount: opts.aggregateRating.reviewCount,
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }
-      : {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            itemReviewed: {
-              '@type': 'LocalBusiness',
-              name: `${ORG_NAME} — ${opts.areaName}`,
-              url: abs(opts.url),
-            },
-            ratingValue: '4.9',
-            reviewCount: '120',
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }),
   };
 }
 
@@ -533,18 +503,6 @@ export function districtFacilityServiceSchema(opts: {
         closes: '23:59',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'ProfessionalService',
-        name: `${districtName} Profesyonel Tesis Yönetimi & Entegre Site İşletme Şirketi`,
-        url,
-      },
-      ratingValue: ratingValue ?? '4.9',
-      reviewCount: calculatedReviews,
-      bestRating: '5',
-      worstRating: '1',
-    },
     about: [
       { '@type': 'Thing', name: 'Facility management', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
       { '@type': 'Thing', name: 'Property management', sameAs: 'https://www.wikidata.org/wiki/Q1758229' },

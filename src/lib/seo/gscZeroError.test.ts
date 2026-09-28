@@ -8,7 +8,6 @@ import {
 import {
   buildLocalBusinessSchema,
   buildDistrictLocalBusinessSchema,
-  buildServiceReviewPage,
 } from './dual-core/dualCoreRichResultEngine';
 import { faqPageSchema } from '../schemas/faq';
 import { blogPostingSchema } from '../schemas/articles';
@@ -18,74 +17,6 @@ import { buildHttpLinkHeader } from './indexing/edgeHeaderInjector';
 import { BASE_URL } from '../seo';
 
 describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
-  describe('1. Schema.org AggregateRating itemReviewed Zorunluluk Kontrolleri', () => {
-    it('facilityTopicGraph: aggregateRating içinde geçerli itemReviewed bulunmalıdır', () => {
-      const graphObj = generateFacilityManagementGraph('tr');
-      const agg = (graphObj as any).aggregateRating;
-      expect(agg).toBeDefined();
-      expect(agg['@type']).toBe('AggregateRating');
-      expect(agg.itemReviewed).toBeDefined();
-      expect(agg.itemReviewed['@type']).toBe('Service');
-      expect(agg.itemReviewed.name).toContain('Alo Yönetim');
-    });
-
-    it('facilityCompleteGraphBuilder primary: aggregateRating içinde itemReviewed bulunmalıdır', () => {
-      const primaryGraph = buildFacilityCompleteGraphSchema({
-        lang: 'tr',
-        pageTitle: 'Tesis Yönetimi',
-        pageDescription: 'Açıklama',
-      });
-      const nodes = (primaryGraph as any)['@graph'];
-      const serviceNode = nodes.find((n: any) => n['@type'] === 'Service' && n.aggregateRating);
-      expect(serviceNode).toBeDefined();
-      expect(serviceNode.aggregateRating.itemReviewed).toBeDefined();
-      expect(serviceNode.aggregateRating.itemReviewed['@type']).toBe('Service');
-    });
-
-    it('facilityCompleteGraphBuilder subsector: aggregateRating içinde itemReviewed bulunmalıdır', () => {
-      const subGraph = buildFacilitySubSectorGraphSchema({
-        lang: 'tr',
-        subSectorSlug: 'rezidans-site-yonetimi',
-        name: 'Rezidans Yönetimi',
-        description: 'Rezidans açıklama',
-      });
-      const nodes = (subGraph as any)['@graph'];
-      const serviceNode = nodes.find((n: any) => n['@type'] === 'Service' && n.aggregateRating);
-      expect(serviceNode).toBeDefined();
-      expect(serviceNode.aggregateRating.itemReviewed).toBeDefined();
-      expect(serviceNode.aggregateRating.itemReviewed['@type']).toBe('Service');
-    });
-
-    it('facilityCompleteGraphBuilder district: aggregateRating içinde itemReviewed bulunmalıdır', () => {
-      const districtGraph = buildDistrictFacilityGraphSchema({
-        lang: 'tr',
-        districtSlug: 'kadikoy',
-        districtName: 'Kadıköy',
-      });
-      const nodes = (districtGraph as any)['@graph'];
-      const serviceNode = nodes.find((n: any) => n['@type'] === 'Service' && n.aggregateRating);
-      expect(serviceNode).toBeDefined();
-      expect(serviceNode.aggregateRating.itemReviewed).toBeDefined();
-      expect(serviceNode.aggregateRating.itemReviewed['@type']).toBe('Service');
-    });
-
-    it('dualCoreRichResultEngine buildLocalBusinessSchema: aggregateRating içinde itemReviewed bulunmalıdır', () => {
-      const schema = buildLocalBusinessSchema({ pillar: 'facility' });
-      const agg = (schema as any).aggregateRating;
-      expect(agg).toBeDefined();
-      expect(agg.itemReviewed).toBeDefined();
-      expect(agg.itemReviewed['@type']).toBe('ProfessionalService');
-    });
-
-    it('dualCoreRichResultEngine buildDistrictLocalBusinessSchema: aggregateRating içinde itemReviewed bulunmalıdır', () => {
-      const districtSchema = buildDistrictLocalBusinessSchema('kadikoy', 'facility');
-      const agg = (districtSchema as any).aggregateRating;
-      expect(agg).toBeDefined();
-      expect(agg.itemReviewed).toBeDefined();
-      expect(agg.itemReviewed['@type']).toBe('LocalBusiness');
-    });
-  });
-
   describe('2. FAQPage mainEntity Boşluk Kalkanı', () => {
     it('boş soru-cevap dizisi verildiğinde null dönmeli ve boş FAQPage basmamalıdır', () => {
       const emptyFaq = faqPageSchema([]);
@@ -163,18 +94,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(first.url).toBe(`${BASE_URL}/`);
       expect(typeof first.name).toBe('string');
       expect(typeof first.url).toBe('string');
-    });
-  });
-
-  describe('7. buildServiceReviewPage Product aggregateRating itemReviewed', () => {
-    it('buildServiceReviewPage aggregateRating içinde geçerli itemReviewed bulunmalıdır', () => {
-      const reviewSchema = buildServiceReviewPage('tesis-yonetimi', 'facility');
-      expect(reviewSchema['@type']).toBe('Product');
-      const agg = (reviewSchema as any).aggregateRating;
-      expect(agg).toBeDefined();
-      expect(agg.itemReviewed).toBeDefined();
-      expect(agg.itemReviewed['@type']).toBe('Product');
-      expect(agg.itemReviewed.name).toBe(reviewSchema.name);
     });
   });
 
@@ -1058,12 +977,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         expect(offer.availability).toBe('https://schema.org/InStock');
       }
 
-      // 6. AggregateRating Standardı (reviewCount & ratingCount)
-      expect(graphTr.aggregateRating).toBeDefined();
-      expect(graphTr.aggregateRating.ratingValue).toBe('4.9');
-      expect(graphTr.aggregateRating.reviewCount).toBe('340');
-      expect(graphTr.aggregateRating.ratingCount).toBe('340');
-      expect(graphEn.aggregateRating.itemReviewed.name).toBe(graphEn.name);
+      // 6. Kendi kendine verilen puan (AggregateRating) yayınlanmaz
+      expect(graphTr.aggregateRating).toBeUndefined();
     });
   });
 
@@ -2636,12 +2551,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(org.sameAs.some((s: string) => s.includes('twitter.com/aloyonetim'))).toBe(true);
       expect(org.sameAs.some((s: string) => s.includes('youtube.com/@aloyonetim'))).toBe(true);
 
-      // aggregateRating Doğrulaması (4.9 rating, 340 yorum)
-      expect(org.aggregateRating).toBeDefined();
-      expect(org.aggregateRating['@type']).toBe('AggregateRating');
-      expect(org.aggregateRating.ratingValue).toBe('4.9');
-      expect(org.aggregateRating.reviewCount).toBe(340);
-      expect(org.aggregateRating.bestRating).toBe('5');
+      // Gerçek yorumlarla desteklenmeyen aggregateRating yayınlanmaz
+      expect(org.aggregateRating).toBeUndefined();
     });
   });
 

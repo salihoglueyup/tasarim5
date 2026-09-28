@@ -85,7 +85,7 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
     expect(hubContent).toContain('FAQPage');
     // Doğrudan Hub içinde MobileApplication Schema.org verisi ve simülatörsüz temiz akış
     expect(hubContent).toContain('MobileApplication');
-    expect(hubContent).toContain('aggregateRating');
+    expect(hubContent).not.toContain('aggregateRating'); // gerçek yorumla desteklenmeyen puan yayınlanmaz
     expect(hubContent).not.toContain('<MobileAppLiveSimulatorSeo');
   });
 

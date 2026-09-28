@@ -137,18 +137,6 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
     ],
     priceRange: '₺₺',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'Service',
-        name: 'Alo Yönetim Profesyonel Entegre Tesis Yönetimi',
-        url: canonicalUrl,
-      },
-      ratingValue: 4.9,
-      reviewCount: 312,
-      bestRating: 5,
-      worstRating: 1,
-    },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'TRY',
@@ -416,18 +404,6 @@ export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGrap
     sameAs: options.sameAsWikidata
       ? [options.sameAsWikidata, 'https://www.wikidata.org/wiki/Q1391515']
       : ['https://www.wikidata.org/wiki/Q1391515'],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'Service',
-        name: `${options.name} | Alo Yönetim`,
-        url: canonicalUrl,
-      },
-      ratingValue: 4.9,
-      reviewCount: 148,
-      bestRating: 5,
-      worstRating: 1,
-    },
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     areaServed: DISTRICTS.map((d) => ({
       '@type': 'AdministrativeArea',
@@ -628,18 +604,6 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
       'https://www.wikidata.org/wiki/Q1391515',
       'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'Service',
-        name: `${options.districtName} Tesis ve Mülk Yönetimi | Alo Yönetim`,
-        url: canonicalUrl,
-      },
-      ratingValue: 4.9,
-      reviewCount: 94,
-      bestRating: 5,
-      worstRating: 1,
-    },
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     areaServed: {
       '@type': 'AdministrativeArea',

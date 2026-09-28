@@ -149,19 +149,6 @@ export default function ApsiyonMobileHub() {
       'https://appgallery.huawei.com/app/C100486001',
       'https://online.apsiyon.com/'
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'MobileApplication',
-        name: 'Apsiyon — Alo Yönetim Sakin & Yönetici Portalı',
-        operatingSystem: 'iOS, Android',
-        applicationCategory: 'BusinessApplication'
-      },
-      ratingValue: '4.9',
-      reviewCount: '450',
-      bestRating: '5',
-      worstRating: '1'
-    },
     offers: {
       '@type': 'Offer',
       price: '0',

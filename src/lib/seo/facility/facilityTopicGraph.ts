@@ -231,23 +231,5 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       ],
     },
     // Değerlendirme Puanı (E-E-A-T & Google Rich Results)
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      itemReviewed: {
-        '@type': 'Service',
-        name: loc.name,
-        url: serviceUrl,
-        provider: {
-          '@type': 'Organization',
-          name: ORG_NAME,
-          url: BASE_URL,
-        },
-      },
-      ratingValue: '4.9',
-      reviewCount: '340',
-      ratingCount: '340',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 }
