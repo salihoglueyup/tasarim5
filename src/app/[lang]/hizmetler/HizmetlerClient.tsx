@@ -16,12 +16,33 @@ import {
   InstantAnswerCardSeo,
   ServiceAuthorityHubSeo,
 } from '@/components/seo';
+import { useLanguage } from '@/context/LanguageContext';
+
+const TX_MAP: Record<string, string> = {
+  "Şeffaf Fiyatlandırma ve Karşılaştırma": "hzc_1",
+  "Hizmet Paketleri ve Çözüm Seçenekleri": "hzc_2",
+  "İhtiyacınıza uygun ölçekteki paketi seçebilir, geleneksel amatör yönetimlerle kurumsal Alo Yönetim modeli arasındaki farkları inceleyebilirsiniz.": "hzc_3",
+  "24 Saat İçinde Ücretsiz Keşif": "hzc_4",
+  "Sitenizin Bütçesini ve Güvenliğini Ücretsiz Analiz Edelim": "hzc_5",
+  "Mühendis ve yönetim uzmanlarımız sitenizi ziyaret etsin; asansör, jeneratör, güvenlik ve aidat tahsilat açıklarını ücretsiz raporlayıp 24 saat içinde sitenize özel teklif sunalım.": "hzc_6",
+  "Gizli Maliyet Yok": "hzc_7",
+  "KMK m.34 Yasal Sözleşme": "hzc_8",
+  "Bağlayıcılığı Olmayan Ücretsiz Rapor": "hzc_9",
+  "Ücretsiz Yönetim Keşfi İste 🚀": "hzc_10",
+  "Aidat Hesapla 📊": "hzc_11",
+};
 
 interface HizmetlerClientProps {
   lang?: string;
 }
 
 export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
+  const { t, language } = useLanguage();
+  const lp = (p: string) => (language === 'tr' ? p : `/${language}${p === '/' ? '' : p}`);
+  const tx = (s: string): string => {
+    const k = TX_MAP[s];
+    return k ? t(k as Parameters<typeof t>[0]) : s;
+  };
   const [searchQuery, setSearchQuery] = useState('');
 
   // Structured schema carousel items covering all 10 services
@@ -49,7 +70,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
       <ServicesMatcherSeo />
 
       {/* 4. Multimodal Operational Video Grounding Hub */}
-      <ServicesVideoHubSeo lang={lang} />
+      {lang === 'tr' && <ServicesVideoHubSeo lang={lang} />}
 
       {/* 5. Package Pricing & Comparison Matrix */}
       <section className="py-20 md:py-28 bg-[var(--color-background)] border-b border-[var(--color-outline)]/60">
@@ -57,14 +78,13 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 text-xs font-semibold mb-4">
               <span className="material-symbols-outlined text-sm">compare_arrows</span>
-              Şeffaf Fiyatlandırma ve Karşılaştırma
+              {tx('Şeffaf Fiyatlandırma ve Karşılaştırma')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
-              Hizmet Paketleri ve Çözüm Seçenekleri
+              {tx('Hizmet Paketleri ve Çözüm Seçenekleri')}
             </h2>
             <p className="text-sm sm:text-base text-[var(--color-secondary)] font-light leading-relaxed">
-              İhtiyacınıza uygun ölçekteki paketi seçebilir, geleneksel amatör yönetimlerle 
-              kurumsal Alo Yönetim modeli arasındaki farkları inceleyebilirsiniz.
+              {tx('İhtiyacınıza uygun ölçekteki paketi seçebilir, geleneksel amatör yönetimlerle kurumsal Alo Yönetim modeli arasındaki farkları inceleyebilirsiniz.')}
             </p>
           </div>
 
@@ -80,7 +100,8 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
         </div>
       </section>
 
-      {/* 6. Regulatory Grounding, Instant Answers & E-E-A-T Authority */}
+      {/* 6. Regulatory Grounding, Instant Answers & E-E-A-T Authority — Türk mevzuatı içeriği yalnızca Türkçe sayfada */}
+      {lang === 'tr' && (
       <section className="py-20 md:py-28 bg-[var(--color-surface)] border-b border-[var(--color-outline)]/60">
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -184,6 +205,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
           </div>
         </div>
       </section>
+      )}
 
       {/* 7. FAQ Section */}
       <section className="py-20 md:py-28 bg-[var(--color-background)] border-b border-[var(--color-outline)]/60">
@@ -199,44 +221,42 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/30 text-amber-300 mb-4">
                 <span className="material-symbols-outlined text-sm">schedule</span>
-                24 Saat İçinde Ücretsiz Keşif
+                {tx('24 Saat İçinde Ücretsiz Keşif')}
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
-                Sitenizin Bütçesini ve Güvenliğini Ücretsiz Analiz Edelim
+                {tx('Sitenizin Bütçesini ve Güvenliğini Ücretsiz Analiz Edelim')}
               </h2>
               <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed mb-6">
-                Mühendis ve yönetim uzmanlarımız sitenizi ziyaret etsin; asansör, jeneratör, 
-                güvenlik ve aidat tahsilat açıklarını ücretsiz raporlayıp 24 saat içinde 
-                sitenize özel teklif sunalım.
+                {tx('Mühendis ve yönetim uzmanlarımız sitenizi ziyaret etsin; asansör, jeneratör, güvenlik ve aidat tahsilat açıklarını ücretsiz raporlayıp 24 saat içinde sitenize özel teklif sunalım.')}
               </p>
               <div className="flex flex-wrap items-center gap-6 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
-                  <span>Gizli Maliyet Yok</span>
+                  <span>{tx('Gizli Maliyet Yok')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
-                  <span>KMK m.34 Yasal Sözleşme</span>
+                  <span>{tx('KMK m.34 Yasal Sözleşme')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
-                  <span>Bağlayıcılığı Olmayan Ücretsiz Rapor</span>
+                  <span>{tx('Bağlayıcılığı Olmayan Ücretsiz Rapor')}</span>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full lg:w-auto">
               <Link
-                href="/teklif-al"
+                href={lp('/teklif-al')}
                 className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/20 transition-all hover:scale-102 text-center"
               >
-                Ücretsiz Yönetim Keşfi İste 🚀
+                {tx('Ücretsiz Yönetim Keşfi İste 🚀')}
               </Link>
               <Link
-                href="/hesaplayici"
+                href={lp('/hesaplayici')}
                 className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition-all text-center"
               >
-                Aidat Hesapla 📊
+                {tx('Aidat Hesapla 📊')}
               </Link>
             </div>
           </div>

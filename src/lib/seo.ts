@@ -11,6 +11,7 @@ import type { Metadata } from 'next';
 
 import { BASE_URL } from './constants';
 import { isIndexable, hasExternalCanonical } from './seo/indexPolicy';
+import { BASE_KEYWORDS, getPageMeta } from '@/i18n/pageMeta';
 export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
@@ -286,8 +287,8 @@ export function formatBrandTitle(title: string, brand: string = 'Alo Yönetim'):
  * Sayfa metadata'sı üretir. Canonical + hreflang + OG + Twitter + Googlebot gelişmiş direktifleri dahil.
  */
 export function buildMetadata({
-  title,
-  description,
+  title: titleArg,
+  description: descriptionArg,
   path,
   lang,
   images,
@@ -301,20 +302,20 @@ export function buildMetadata({
   targetKeyword,
   canonicalUrl,
 }: BuildMetadataArgs): Metadata {
-  const resolvedTitle = formatBrandTitle(title);
   const locale = normalizeLocale(lang);
+  // Türkçe dışındaki dillerde, çevirisi varsa sayfanın verdiği Türkçe başlık/açıklama yerine kullanılır.
+  const translated = getPageMeta(path, locale);
+  const title = translated?.title ?? titleArg;
+  const description = translated?.description ?? descriptionArg;
+  const resolvedTitle = formatBrandTitle(title);
   const canonical = canonicalUrl || localizedUrl(path, locale);
   const shouldNoindex = noindex || !isIndexable(path, locale);
 
-  const resolvedKeywords = Array.from(
-    new Set([
-      ...(targetKeyword ? [targetKeyword] : []),
-      ...keywords,
-      'tesis yönetimi',
-      'site yönetimi',
-      'İstanbul',
-    ])
-  );
+  const baseKeywords =
+    locale === 'en' || locale === 'ru' || locale === 'ar' ? BASE_KEYWORDS[locale] : ['tesis yönetimi', 'site yönetimi', 'İstanbul'];
+  // Çevrilmiş dillerde Türkçe anahtar kelimeler basılmaz.
+  const pageKeywords = translated ? [] : [...(targetKeyword ? [targetKeyword] : []), ...keywords];
+  const resolvedKeywords = Array.from(new Set([...pageKeywords, ...baseKeywords]));
 
   const resolvedOgType: 'default' | 'service' | 'local' | 'article' =
     ogImageType ?? (ogType === 'article' ? 'article' : 'default');

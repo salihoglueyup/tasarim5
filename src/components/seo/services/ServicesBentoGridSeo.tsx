@@ -2,6 +2,121 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
+
+const TX_MAP: Record<string, string> = {
+  "Profesyonel Tesis Yönetimi & İşletmesi": "sbg_1",
+  "Tesis Yönetimi": "sbg_2",
+  "Yönetim & İdari": "sbg_3",
+  "Karma yaşam projeleri, plazalar, AVM ve mega sitelerde güvenlik, teknik bakım, hijyen ve idari operasyonların tek merkezden yönetildiği entegre tesis işletmesi.": "sbg_4",
+  "Amiral Gemisi": "sbg_5",
+  "ISO 14001 Belgeli": "sbg_6",
+  "Entegre Tesis & Enerji Yönetimi": "sbg_7",
+  "Merkezi Satın Alma ile %22 Tasarruf": "sbg_8",
+  "Tek Sözleşme ile Tüm Taşeron Denetimi": "sbg_9",
+  "Tesis Yaşam Döngüsü ve Varlık Planı": "sbg_10",
+  "Profesyonel Site & Rezidans Yönetimi": "sbg_11",
+  "Site Yönetimi": "sbg_12",
+  "634 Sayılı Kat Mülkiyeti Kanunu m.34 güvencesiyle kat malikleri kurulu kararlarının uygulanması, KMK 37 işletme projesi, şeffaf dijital kasa ve huzurlu komşuluk ilişkileri.": "sbg_13",
+  "Amiral Gemisi • KMK m.34": "sbg_14",
+  "39 İlçede 142M+ Bütçe Denetimi": "sbg_15",
+  "KMK 37 Resmi İşletme Projesi Tebliği": "sbg_16",
+  "Hukuka Uygun Genel Kurul & Divan Yönetimi": "sbg_17",
+  "Canlı Gelir-Gider & Banka Entegrasyonu": "sbg_18",
+  "Mobil Sakin Paneli ile Anlık Talep Takibi": "sbg_19",
+  "7/24 AI Destekli Özel Güvenlik Yönetimi": "sbg_20",
+  "Özel Güvenlik": "sbg_21",
+  "Güvenlik": "sbg_22",
+  "T.C. İçişleri Bakanlığı 5188 Sayılı Kanun lisanslı, silahlı/silahsız üniformalı nöbet, RFID devriye tur kontrolü, yapay zeka destekli plaka tanıma (PTS) ve akıllı çevre güvenliği.": "sbg_23",
+  "5188 Sayılı Kanun": "sbg_24",
+  "PTS & RFID Tur Kontrolü": "sbg_25",
+  "İçişleri Bakanlığı Onaylı Güvenlik Planı": "sbg_26",
+  "Akıllı Plaka Tanıma (PTS) & Bariyer Entegrasyonu": "sbg_27",
+  "RFID Noktalarında Anlık Canlı Devriye Takibi": "sbg_28",
+  "Kolluk Kuvvetleri ile Koordineli Güvenlik Komisyonu": "sbg_29",
+  "7/24 Teknik Bakım, Asansör & Jeneratör Onarımı": "sbg_30",
+  "Teknik Bakım": "sbg_31",
+  "Asansör, jeneratör, hidrofor, kazan dairesi ve yangın otomasyon sistemlerinde periyodik bakım, kestirimci arıza tespiti ve 20 dakikada acil mobil teknik müdahale garantisi.": "sbg_32",
+  "20 Dk Acil SLA": "sbg_33",
+  "A Tipi Yeşil Etiket Garantisi": "sbg_34",
+  "Sanayi Bakanlığı Akredite Asansör Periyodik Kontrolü": "sbg_35",
+  "Jeneratör Yük Testleri ve Otomatik Transfer Panosu": "sbg_36",
+  "Hidrofor & Dalgıç Pompa Basınç Dengeleme": "sbg_37",
+  "Yangın Sprinkler & Algılama Otomasyonu Denetimi": "sbg_38",
+  "Endüstriyel Ortak Alan ve Blok Temizliği": "sbg_39",
+  "Temizlik & Hijyen": "sbg_40",
+  "Hijyen & Çevre": "sbg_41",
+  "Blok girişleri, kat koridorları, camlar, asansör kabinleri ve kapalı otopark zeminlerinin binicili zemin yıkama otomatları ve ekolojik deterjanlarla profesyonel sterilizasyonu.": "sbg_42",
+  "Sertifikalı Ekolojik Deterjan": "sbg_43",
+  "Günde 2 Kez Blok Kontrolü": "sbg_44",
+  "Binicili Otomatlarla Otopark Zemin Yıkama": "sbg_45",
+  "Blok Koridoru ve Merdiven Günlük Paspaslama": "sbg_46",
+  "Asansör ve Giriş Kapısı Antiviral Dezenfeksiyon": "sbg_47",
+  "Günde 2 Sefer Katlardan Çöp Toplama Organizasyonu": "sbg_48",
+  "Şeffaf Aidat Tahsilatı, Bütçe & Sakin Portalı": "sbg_49",
+  "Aidat & Muhasebe": "sbg_50",
+  "Sakinler için mobil kredi kartı ile aidat ödeme altyapısı, otomatik SMS/e-posta hatırlatmaları, gecikme tazminatı hesaplaması ve anlık dijital gelir-gider bilançosu.": "sbg_51",
+  "%98.7 Tahsilat Oranı": "sbg_52",
+  "Kredi Kartı & Otomatik POS": "sbg_53",
+  "Kredi Kartı & Sanal POS ile 7/24 Online Ödeme": "sbg_54",
+  "Vadesi Geçen Borçlarda Otomatik SMS / E-posta": "sbg_55",
+  "KMK m.20 Uyarınca Aylık %5 Gecikme Tazminatı": "sbg_56",
+  "Mobil Uygulama Üzerinden Dekont ve Bilanço Görüntüleme": "sbg_57",
+  "KMK Hukuk & İcra Takip Danışmanlığı": "sbg_58",
+  "Hukuk & İcra": "sbg_59",
+  "Ödenmeyen aidat ve avans borçlarında KMK 20 ve İİK 68 uyarınca noter ihtarnamesi, ilamsız icra takibi ve genel kurul kararlarının iptali davalarında hukuki temsil desteği.": "sbg_60",
+  "Uzman KMK Hukukçuları": "sbg_61",
+  "7 Günde İcra & İtiraz Takibi": "sbg_62",
+  "Borçlu Sakinlere Noter Onaylı KMK İhtarnamesi": "sbg_63",
+  "UYAP Entegre Hızlı İlamsız İcra Takibi Açılışı": "sbg_64",
+  "Haksız İtirazların İptali ve %20 İcra İnkar Tazminatı": "sbg_65",
+  "Yönetim Planı Güncelleme ve Hukuki Danışmanlık": "sbg_66",
+  "Peyzaj Mimarisi & Bahçe Bakımı": "sbg_67",
+  "Peyzaj & Bahçe": "sbg_68",
+  "Mevsimlik çiçek ekimi, çim havalandırma ve biçme, ağaç budama, ilaçlama ve su tasarruflu otomatik damlama-yağmurlama sulama sistemleri periyodik mühendislik bakımı.": "sbg_69",
+  "Ziraat Mühendisi Kontrolü": "sbg_70",
+  "Sensörlü Akıllı Sulama": "sbg_71",
+  "Mevsimlik Çiçeklendirme ve Çim Havalandırma": "sbg_72",
+  "Yağmur Sensörlü Otomatik Sulama Bakımı": "sbg_73",
+  "Periyodik Ağaç Budama ve Bitki İlaçlaması": "sbg_74",
+  "Bahçe Atıklarının Düzenli Bertarafı": "sbg_75",
+  "Havuz Bakımı & Sağlık Bakanlığı Onaylı Hijyen": "sbg_76",
+  "Havuz Bakımı": "sbg_77",
+  "Açık ve kapalı yüzme havuzlarında günlük klor ve pH ölçümleri, dip süpürme, filtre ters yıkama, kışlama bakımı ve akredite laboratuvar mikrobiyolojik su analizleri.": "sbg_78",
+  "Halk Sağlığı Standartları": "sbg_79",
+  "Günlük Klor & pH Kaydı": "sbg_80",
+  "Günde 3 Kez Kimyasal Ölçüm ve İşletme Defteri": "sbg_81",
+  "Dip Süpürme, Savak Kanalı ve Filtre Temizliği": "sbg_82",
+  "Sezon Başı Havuz Açılış ve Kış Koruma Bakımı": "sbg_83",
+  "Halk Sağlığı Onaylı Periyodik Mikrobiyolojik Testler": "sbg_84",
+  "Biyosidal İlaçlama & Haşere Mücadelesi": "sbg_85",
+  "Haşere & İlaçlama": "sbg_86",
+  "Bodrum, sığınak, çöp bacaları, otopark ve yeşil alanlarda kemirgen ve haşerelere karşı insan ve evcil hayvan sağlığına zararsız biyosidal jel ve ULV sisleme uygulaması.": "sbg_87",
+  "Sağlık Bakanlığı Ruhsatlı": "sbg_88",
+  "Kokusuz & Kalıcı Koruma": "sbg_89",
+  "Sağlık Bakanlığı Onaylı Biyosidal Ürünler": "sbg_90",
+  "Çöp Odaları ve Bacalarında Kalıcı İlaçlama": "sbg_91",
+  "Bodrum ve Otopark Kemirgen Yem İstasyonları": "sbg_92",
+  "Evcil Hayvan ve Çocuk Sağlığına Zararsız Formül": "sbg_93",
+  "10 Temel Operasyonel Çözüm Alanı": "sbg_94",
+  "Tesis & Site Yönetim Hizmet Kataloğu": "sbg_95",
+  "İhtiyacınıza uygun operasyonel modülü seçebilir veya tüm hizmetleri tek bir çatı altında anahtar teslim Entegre Tesis Yönetimi olarak birleştirebilirsiniz.": "sbg_96",
+  "Tüm Hizmetler (10)": "sbg_97",
+  "Yönetim & İdari (4)": "sbg_98",
+  "Güvenlik (1)": "sbg_99",
+  "Teknik Bakım (1)": "sbg_100",
+  "Hijyen & Çevre (4)": "sbg_101",
+  "araması için": "sbg_102",
+  "hizmet bulundu.": "sbg_103",
+  "Tüm alanlarda arandı": "sbg_104",
+  "Amiral Gemisi Çözümlerimiz (Büyük Ölçekli Yönetim)": "sbg_105",
+  "Hizmet Detayını İncele": "sbg_106",
+  "Uzmanlık Operasyonları & Hizmet Modülleri": "sbg_107",
+  "İncele": "sbg_108",
+  "Aramanıza uygun hizmet bulunamadı": "sbg_109",
+  "Aradığınız spesifik bir konu varsa bizimle iletişime geçebilir veya ücretsiz yönetim keşfi talep edebilirsiniz.": "sbg_110",
+  "Doğrudan Teklif İsteyin": "sbg_111",
+};
 
 export interface ServiceDefinition {
   id: string;
@@ -27,9 +142,9 @@ export const ALL_SERVICES_CATALOG: ServiceDefinition[] = [
     category: 'management',
     categoryLabel: 'Yönetim & İdari',
     isFlagship: true,
-    desc: 'Karma yaşam projeleri, plazalar, AVM ve mega sitelerde güvenlik, teknik bakım, hijyen ve idari operasyonların tek merkezden yönetildiği ISO 41001 standartlı entegre tesis işletmesi.',
+    desc: 'Karma yaşam projeleri, plazalar, AVM ve mega sitelerde güvenlik, teknik bakım, hijyen ve idari operasyonların tek merkezden yönetildiği entegre tesis işletmesi.',
     icon: 'domain',
-    badge: 'Amiral Gemisi • ISO 41001',
+    badge: 'Amiral Gemisi',
     stats: 'ISO 14001 Belgeli',
     bulletPoints: [
       'Entegre Tesis & Enerji Yönetimi',
@@ -212,16 +327,22 @@ export default function ServicesBentoGridSeo({
   searchQuery = '',
   onOpenQuote,
 }: ServicesBentoGridSeoProps) {
+  const { t, language } = useLanguage();
+  const lp = (p: string) => (language === 'tr' ? p : `/${language}${p}`);
+  const tx = (s: string): string => {
+    const k = TX_MAP[s];
+    return k ? t(k as Parameters<typeof t>[0]) : s;
+  };
   const [activeTab, setActiveTab] = useState<'all' | 'management' | 'security' | 'technical' | 'hygiene'>('all');
 
   const filteredServices = ALL_SERVICES_CATALOG.filter((service) => {
     const matchesTab = activeTab === 'all' || service.category === activeTab;
     const matchesSearch =
       searchQuery.trim() === '' ||
-      service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.bulletPoints.some((b) => b.toLowerCase().includes(searchQuery.toLowerCase()));
+      tx(service.title).toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tx(service.desc).toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tx(service.categoryLabel).toLowerCase().includes(searchQuery.toLowerCase()) ||
+      service.bulletPoints.some((b) => tx(b).toLowerCase().includes(searchQuery.toLowerCase()));
 
     return matchesTab && matchesSearch;
   });
@@ -237,15 +358,14 @@ export default function ServicesBentoGridSeo({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-3">
               <span className="material-symbols-outlined text-sm">hub</span>
-              10 Temel Operasyonel Çözüm Alanı
+              {tx('10 Temel Operasyonel Çözüm Alanı')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-              Tesis & Site Yönetim Hizmet Kataloğu
+              {tx('Tesis & Site Yönetim Hizmet Kataloğu')}
             </h2>
           </div>
           <p className="text-sm sm:text-base text-[var(--color-secondary)] max-w-lg font-light leading-relaxed">
-            İhtiyacınıza uygun operasyonel modülü seçebilir veya tüm hizmetleri tek bir çatı altında 
-            anahtar teslim <strong>Entegre Tesis Yönetimi</strong> olarak birleştirebilirsiniz.
+            {tx('İhtiyacınıza uygun operasyonel modülü seçebilir veya tüm hizmetleri tek bir çatı altında anahtar teslim Entegre Tesis Yönetimi olarak birleştirebilirsiniz.')}
           </p>
         </div>
 
@@ -268,7 +388,7 @@ export default function ServicesBentoGridSeo({
               }`}
             >
               <span className="material-symbols-outlined text-base">{tab.icon}</span>
-              {tab.label}
+              {tx(tab.label)}
             </button>
           ))}
         </div>
@@ -277,9 +397,9 @@ export default function ServicesBentoGridSeo({
         {searchQuery.trim() !== '' && (
           <div className="mb-6 p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs sm:text-sm text-blue-800 dark:text-blue-300 flex items-center justify-between">
             <span>
-              <strong>&ldquo;{searchQuery}&rdquo;</strong> araması için <strong>{filteredServices.length}</strong> hizmet bulundu.
+              <strong>&ldquo;{searchQuery}&rdquo;</strong> {tx('araması için')} <strong>{filteredServices.length}</strong> {tx('hizmet bulundu.')}
             </span>
-            <span className="text-xs opacity-75">Tüm alanlarda arandı</span>
+            <span className="text-xs opacity-75">{tx('Tüm alanlarda arandı')}</span>
           </div>
         )}
 
@@ -288,7 +408,7 @@ export default function ServicesBentoGridSeo({
           <div className="mb-8">
             <div className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-4 flex items-center gap-2">
               <span className="material-symbols-outlined text-base">star</span>
-              Amiral Gemisi Çözümlerimiz (Büyük Ölçekli Yönetim)
+              {tx('Amiral Gemisi Çözümlerimiz (Büyük Ölçekli Yönetim)')}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -303,16 +423,16 @@ export default function ServicesBentoGridSeo({
                         <span className="material-symbols-outlined text-3xl">{service.icon}</span>
                       </div>
                       <span className="text-xs font-extrabold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 px-3.5 py-1.5 rounded-full">
-                        {service.badge}
+                        {tx(service.badge)}
                       </span>
                     </div>
 
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)] mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {service.title}
+                        {tx(service.title)}
                       </h3>
                       <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-light">
-                        {service.desc}
+                        {tx(service.desc)}
                       </p>
                     </div>
 
@@ -321,7 +441,7 @@ export default function ServicesBentoGridSeo({
                       {service.bulletPoints.map((point, idx) => (
                         <li key={idx} className="flex items-center gap-1.5">
                           <span className="material-symbols-outlined text-sm text-emerald-500">check_circle</span>
-                          <span>{point}</span>
+                          <span>{tx(point)}</span>
                         </li>
                       ))}
                     </ul>
@@ -330,13 +450,13 @@ export default function ServicesBentoGridSeo({
                   <div className="pt-6 mt-6 border-t border-[var(--color-outline)]/50 flex items-center justify-between">
                     <span className="text-xs font-semibold text-[var(--color-tertiary)] flex items-center gap-1">
                       <span className="material-symbols-outlined text-sm text-amber-500">verified</span>
-                      {service.stats}
+                      {tx(service.stats)}
                     </span>
                     <Link
-                      href={service.slug}
+                      href={lp(service.slug)}
                       className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
                     >
-                      Hizmet Detayını İncele
+                      {tx('Hizmet Detayını İncele')}
                       <span className="material-symbols-outlined text-base">arrow_forward</span>
                     </Link>
                   </div>
@@ -352,7 +472,7 @@ export default function ServicesBentoGridSeo({
             {flagshipServices.length > 0 && (
               <div className="text-xs font-bold uppercase tracking-wider text-[var(--color-secondary)] mb-4 flex items-center gap-2">
                 <span className="material-symbols-outlined text-base">construction</span>
-                Uzmanlık Operasyonları & Hizmet Modülleri
+                {tx('Uzmanlık Operasyonları & Hizmet Modülleri')}
               </div>
             )}
 
@@ -368,33 +488,33 @@ export default function ServicesBentoGridSeo({
                         <span className="material-symbols-outlined text-2xl">{service.icon}</span>
                       </div>
                       <span className="text-[10px] font-bold text-[var(--color-secondary)] bg-[var(--color-surface-variant)] px-2.5 py-1 rounded-full border border-[var(--color-outline)]/40">
-                        {service.categoryLabel}
+                        {tx(service.categoryLabel)}
                       </span>
                     </div>
 
                     <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
-                      {service.title}
+                      {tx(service.title)}
                     </h3>
 
                     <p className="text-xs text-[var(--color-secondary)] leading-relaxed font-light line-clamp-3">
-                      {service.desc}
+                      {tx(service.desc)}
                     </p>
 
                     <div className="pt-2 text-[11px] font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-1">
                       <span className="material-symbols-outlined text-xs">verified</span>
-                      {service.badge}
+                      {tx(service.badge)}
                     </div>
                   </div>
 
                   <div className="pt-4 mt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
                     <span className="text-[10px] text-[var(--color-secondary)] font-medium">
-                      {service.stats}
+                      {tx(service.stats)}
                     </span>
                     <Link
-                      href={service.slug}
+                      href={lp(service.slug)}
                       className="text-xs font-bold text-[var(--color-primary)] hover:text-amber-500 flex items-center gap-1 transition-colors"
                     >
-                      İncele
+                      {tx('İncele')}
                       <span className="material-symbols-outlined text-sm">arrow_forward</span>
                     </Link>
                   </div>
@@ -408,15 +528,15 @@ export default function ServicesBentoGridSeo({
         {filteredServices.length === 0 && (
           <div className="text-center py-16 px-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl">
             <span className="material-symbols-outlined text-5xl text-slate-400 mb-3">search_off</span>
-            <h3 className="text-lg font-bold text-[var(--color-primary)] mb-1">Aramanıza uygun hizmet bulunamadı</h3>
+            <h3 className="text-lg font-bold text-[var(--color-primary)] mb-1">{tx('Aramanıza uygun hizmet bulunamadı')}</h3>
             <p className="text-xs text-[var(--color-secondary)] max-w-md mx-auto mb-6">
-              Aradığınız spesifik bir konu varsa bizimle iletişime geçebilir veya ücretsiz yönetim keşfi talep edebilirsiniz.
+              {tx('Aradığınız spesifik bir konu varsa bizimle iletişime geçebilir veya ücretsiz yönetim keşfi talep edebilirsiniz.')}
             </p>
             <Link
-              href="/teklif-al"
+              href={lp('/teklif-al')}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-[var(--color-surface)] text-xs font-bold"
             >
-              Doğrudan Teklif İsteyin
+              {tx('Doğrudan Teklif İsteyin')}
             </Link>
           </div>
         )}
