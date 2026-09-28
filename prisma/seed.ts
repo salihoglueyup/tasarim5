@@ -6,6 +6,7 @@ import { CATEGORIES, POSTS } from '../src/data/posts';
 import type { Post } from '../src/data/posts';
 import { REFERENCES_DATA, PARTNERS_DATA } from '../src/data/references';
 import bcrypt from 'bcryptjs';
+import { randomBytes } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
@@ -64,7 +65,14 @@ async function main() {
 
   // 1. Admin Kullanıcı
   console.log('1. Admin kullanıcı senkronize ediliyor...');
-  const adminPassword = await bcrypt.hash('admin123', 10);
+  // Şifre ortamdan gelir; yoksa tek seferlik rastgele şifre üretilip yalnızca operatör konsoluna yazılır.
+  // Var olan admin kullanıcısının şifresine dokunulmaz (upsert update: {}).
+  const existingAdmin = await prisma.user.findUnique({ where: { email: 'admin@aloyonetim.com.tr' } });
+  const initialPassword = process.env.INITIAL_ADMIN_PASSWORD || randomBytes(18).toString('base64url');
+  if (!existingAdmin && !process.env.INITIAL_ADMIN_PASSWORD) {
+    console.log(`   🔑 Admin oluşturuldu: admin@aloyonetim.com.tr / ${initialPassword}  (ilk girişte değiştirin)`);
+  }
+  const adminPassword = await bcrypt.hash(initialPassword, 10);
   await prisma.user.upsert({
     where: { email: 'admin@aloyonetim.com.tr' },
     update: {},

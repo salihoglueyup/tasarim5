@@ -44,27 +44,11 @@ export async function POST(request: NextRequest) {
       emailVariants.push(rawEmail.replace(/\.tr$/, ''));
     }
 
-    let user = await prisma.user.findFirst({
+    const user = await prisma.user.findFirst({
       where: {
         email: { in: emailVariants },
       },
     });
-
-    // Self-Healing: Eğer canlı DB'de User tablosu boşsa varsayılan admin kullanıcısını otomatik oluştur
-    if (!user) {
-      const userCount = await prisma.user.count();
-      if (userCount === 0 && (emailVariants.includes('admin@aloyonetim.com.tr') || emailVariants.includes('admin@aloyonetim.com'))) {
-        const hashedPassword = await bcrypt.hash('admin123', 10);
-        user = await prisma.user.create({
-          data: {
-            email: 'admin@aloyonetim.com.tr',
-            name: 'Alo Yönetim Admin',
-            password: hashedPassword,
-            role: 'ADMIN',
-          },
-        });
-      }
-    }
 
     if (!user) {
       return NextResponse.json({ error: 'Geçersiz email veya şifre.' }, { status: 401, headers: standardHeaders });
@@ -85,14 +69,14 @@ export async function POST(request: NextRequest) {
 
     const session = await encrypt(sessionData);
     
-    // Cookie Ayarları: HTTPS tespitine duyarlı ve reverse proxy ile tam uyumlu
-    const proto = request.headers.get('x-forwarded-proto') || request.nextUrl.protocol;
-    const isHttps = proto ? proto.replace(':', '') === 'https' : false;
+    // Secure bayrağı istemcinin gönderebildiği x-forwarded-proto'ya bağlanmaz.
+    // Yerelde HTTP üzerinden production build test etmek için: ALLOW_INSECURE_ADMIN_COOKIE=true
+    const secure = process.env.NODE_ENV === 'production' && process.env.ALLOW_INSECURE_ADMIN_COOKIE !== 'true';
 
     const cookieStore = await cookies();
     cookieStore.set('admin_session', session, {
       httpOnly: true,
-      secure: isHttps,
+      secure,
       sameSite: 'lax',
       path: '/',
       maxAge: 60 * 60 * 24, // 24 hours
