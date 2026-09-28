@@ -11,7 +11,7 @@ import type { Metadata } from 'next';
 
 import { BASE_URL } from './constants';
 import { isIndexable, hasExternalCanonical } from './seo/indexPolicy';
-import { BASE_KEYWORDS, getPageMeta } from '@/i18n/pageMeta';
+import { getPageMeta } from '@/i18n/pageMeta';
 export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
@@ -292,14 +292,12 @@ export function buildMetadata({
   path,
   lang,
   images,
-  keywords = [],
   noindex = false,
   ogType = 'website',
   ogImageType,
   datePublished,
   dateModified,
   authorName,
-  targetKeyword,
   canonicalUrl,
 }: BuildMetadataArgs): Metadata {
   const locale = normalizeLocale(lang);
@@ -311,11 +309,7 @@ export function buildMetadata({
   const canonical = canonicalUrl || localizedUrl(path, locale);
   const shouldNoindex = noindex || !isIndexable(path, locale);
 
-  const baseKeywords =
-    locale === 'en' || locale === 'ru' || locale === 'ar' ? BASE_KEYWORDS[locale] : ['tesis yönetimi', 'site yönetimi', 'İstanbul'];
-  // Çevrilmiş dillerde Türkçe anahtar kelimeler basılmaz.
-  const pageKeywords = translated ? [] : [...(targetKeyword ? [targetKeyword] : []), ...keywords];
-  const resolvedKeywords = Array.from(new Set([...pageKeywords, ...baseKeywords]));
+  // <meta name="keywords"> Google tarafından kullanılmadığı için yayınlanmaz (keywords/targetKeyword yalnızca çağıran API uyumluluğu için kabul edilir).
 
   const resolvedOgType: 'default' | 'service' | 'local' | 'article' =
     ogImageType ?? (ogType === 'article' ? 'article' : 'default');
@@ -337,7 +331,6 @@ export function buildMetadata({
     metadataBase: new URL(BASE_URL),
     title: resolvedTitle,
     description,
-    keywords: resolvedKeywords,
     alternates: {
       canonical,
       languages: buildLanguageAlternates(path),

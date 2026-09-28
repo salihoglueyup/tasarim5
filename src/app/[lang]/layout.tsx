@@ -32,24 +32,7 @@ export const metadata: Metadata = {
     default: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi & Entegre Tesis İşletmeciliği",
     template: "%s"
   },
-  description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. 400+ tesis referansı ile %30 tasarruf güvencesi.",
-  keywords: [
-    "tesis yönetimi",
-    "profesyonel tesis yönetimi",
-    "istanbul tesis yönetimi",
-    "entegre tesis yönetimi",
-    "tesis yönetim şirketleri",
-    "tesis yönetim firmaları",
-    "site ve tesis yönetimi",
-    "bina tesis yönetimi",
-    "plaza tesis yönetimi",
-    "rezidans tesis yönetimi",
-    "iso 41001 tesis yönetimi",
-    "kmk 634 site yönetimi",
-    "5188 özel güvenlik",
-    "apartman yönetimi",
-    "İstanbul"
-  ],
+  description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi.",
   authors: [{ name: "Alo Yönetim" }],
   creator: "Alo Yönetim",
   publisher: "Alo Yönetim",
@@ -71,7 +54,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "https://aloyonetim.com.tr",
     title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
-    description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
+    description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik ve şeffaf aidat takibi.",
     siteName: "Alo Yönetim",
     images: [
       {
@@ -86,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
-    description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 özel güvenlik ve %30 maliyet tasarrufu.",
+    description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik ve şeffaf aidat takibi.",
     images: ['/images/hero-poster-v5.webp'],
   },
   robots: {

@@ -330,7 +330,8 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
 
       expect(meta.title).toBe('Tesis Yönetimi İstanbul | Alo Yönetim');
       expect(meta.alternates?.canonical).toBe('https://aloyonetim.com.tr/hizmetler/tesis-yonetimi');
-      expect(meta.keywords).toContain('tesis yönetimi');
+      // meta keywords yayınlanmaz (Google kullanmıyor)
+      expect(meta.keywords).toBeUndefined();
 
       const robots = meta.robots as any;
       expect(robots.googleBot?.['max-image-preview']).toBe('large');

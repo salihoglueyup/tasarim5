@@ -170,12 +170,6 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
   },
 };
 
-export const BASE_KEYWORDS: Record<MetaLocale, string[]> = {
-  en: ['facility management', 'complex management', 'Istanbul'],
-  ru: ['управление объектами', 'управление комплексами', 'Стамбул'],
-  ar: ['إدارة المرافق', 'إدارة المجمعات', 'إسطنبول'],
-};
-
 export function getPageMeta(path: string, locale: string): LocalizedMeta | undefined {
   if (locale !== 'en' && locale !== 'ru' && locale !== 'ar') return undefined;
   const key = path.split(/[?#]/)[0].replace(/\/+$/, '') || '/';

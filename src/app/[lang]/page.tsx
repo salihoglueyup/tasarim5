@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const base = buildMetadata({
     title: t.home_meta_title_base || 'Alo Yönetim — İstanbul Profesyonel Site ve Tesis Yönetimi',
-    description: t.home_meta_desc || 'İstanbul genelinde 39 ilçede profesyonel site ve tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi. %30 maliyet tasarrufu ve 7/24 hizmet.',
+    description: t.home_meta_desc || 'İstanbul 39 ilçede profesyonel site ve tesis yönetimi: lisanslı güvenlik, teknik bakım, şeffaf aidat takibi ve hukuki destek.',
     path: '/',
     lang,
     targetKeyword: 'alo yönetim',
@@ -61,9 +61,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ],
   });
   
+  const absoluteTitle = t.home_meta_title_absolute || 'Alo Yönetim | İstanbul Profesyonel Site ve Tesis Yönetim Şirketi';
   return {
     ...base,
-    title: { absolute: t.home_meta_title_absolute || 'Alo Yönetim | İstanbul Profesyonel Site ve Tesis Yönetim Şirketi' },
+    title: { absolute: absoluteTitle },
+    // Paylaşım önizlemeleri (og/twitter) sayfa başlığıyla aynı olmalı
+    openGraph: { ...base.openGraph, title: absoluteTitle },
+    twitter: { ...base.twitter, title: absoluteTitle },
   };
 }
 
