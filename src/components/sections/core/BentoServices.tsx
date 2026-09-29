@@ -69,8 +69,9 @@ export default function BentoServices() {
           </div>
           
           <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-            <Link 
+            <Link
               href={getLocalizedPath('/hizmetler/guvenlik-yonetimi')}
+              title={t('bs_security_link')}
               className="text-sm font-bold text-[var(--color-primary)] hover:underline flex items-center gap-2 group/link"
             >
               <span>{t('bs_security_link')}</span>
@@ -79,6 +80,7 @@ export default function BentoServices() {
 
             <Link
               href={getLocalizedPath('/hesaplayici')}
+              title={`${t('home_bento_card1_title')} — Maliyet Hesapla`}
               className="text-xs font-bold text-[var(--color-primary)] bg-slate-100 dark:bg-white/10 px-3 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-white/20 transition-colors"
             >
               Maliyet Hesapla →
@@ -212,8 +214,9 @@ export default function BentoServices() {
             >
               {t('bs_tech_discover')}
             </Link>
-            <Link 
+            <Link
               href={getLocalizedPath('/hizmetler/teknik-bakim')}
+              title={t('bs_tech_service')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
               <span>{t('bs_tech_service')}</span>
@@ -245,16 +248,18 @@ export default function BentoServices() {
 
             {/* Alt Sektörel Hızlı Linkler */}
             <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap gap-3 text-xs">
-              <Link 
+              <Link
                 href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')}
+                title={t('bs_link_mass')}
                 className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
                 <span>{t('bs_link_mass')}</span>
                 <Icon name="arrow_forward" className="text-xs" />
               </Link>
               <span className="text-[var(--color-tertiary)]">·</span>
-              <Link 
+              <Link
                 href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')}
+                title={t('bs_link_res')}
                 className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] underline decoration-slate-300 dark:decoration-slate-600 flex items-center gap-1 font-medium"
               >
                 <span>{t('bs_link_res')}</span>
@@ -263,8 +268,9 @@ export default function BentoServices() {
             </div>
           </div>
           <div className="mt-8 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3">
-            <Link 
+            <Link
               href={getLocalizedPath('/hizmetler/tesis-yonetimi')}
+              title={t('bs_link_guide')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1.5"
             >
               <span>{t('bs_link_guide')}</span>
@@ -273,6 +279,7 @@ export default function BentoServices() {
 
             <Link
               href={getLocalizedPath('/teklif-al')}
+              title={t('bs_quote')}
               className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl transition-colors shadow-xs"
             >
               {t('bs_quote')}

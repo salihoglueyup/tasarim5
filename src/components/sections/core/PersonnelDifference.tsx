@@ -76,6 +76,7 @@ export default function PersonnelDifference({ dict, lang = 'tr' }: PersonnelDiff
           </p>
           <Link
             href={`${basePath}/istihdam-koprusu`}
+            title={t('pdx_5', 'İstihdam Güvencesi Modelini İnceleyin')}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-bold text-sm tracking-wide transition-all duration-300 shadow-md shrink-0 hover:scale-105"
           >
             <span>{t('pdx_5', 'İstihdam Güvencesi Modelini İnceleyin')}</span>

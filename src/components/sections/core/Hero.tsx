@@ -164,8 +164,9 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto transition-all duration-700 ease-out transform-gpu">
             <Magnetic strength={0.15}>
-              <Link 
+              <Link
                 href="/teklif-al"
+                title={t('hero_cta_primary')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-slate-950 font-bold text-xs sm:text-sm tracking-tight shadow-xl hover:bg-slate-100 transition-all group"
               >
                 <span>{t('hero_cta_primary')}</span>
@@ -174,8 +175,9 @@ export default function Hero() {
             </Magnetic>
 
             <Magnetic strength={0.15}>
-              <Link 
+              <Link
                 href="/hizmetler"
+                title={t('hero_cta_secondary')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3.5 sm:py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium text-xs sm:text-sm hover:bg-white/20 transition-all"
               >
                 <span>{t('hero_cta_secondary')}</span>

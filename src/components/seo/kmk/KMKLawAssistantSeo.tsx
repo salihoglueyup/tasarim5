@@ -378,6 +378,7 @@ export default function KMKLawAssistantSeo() {
           </div>
           <a
             href="/hizmetler/hukuk-ve-icra-danismanligi"
+            title="Hukuki Danışmanlık Al"
             className="px-6 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-extrabold rounded-2xl text-xs sm:text-sm hover:opacity-95 transition-all flex-shrink-0 flex items-center gap-2 shadow-md hover:shadow-xl hover:scale-105"
           >
             <span>Hukuki Danışmanlık Al</span>
