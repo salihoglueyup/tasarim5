@@ -173,7 +173,6 @@ export default function KMKLawAssistantSeo() {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': 'https://aloyonetim.com.tr/hizmetler/hukuk-ve-icra-danismanligi#kmk-faq',
-    name: 'Kat Mülkiyeti Kanunu (KMK 634) ve Tesis Yönetimi Yasal SSS Rehberi',
     about: [
       { '@type': 'Thing', name: 'Kat Mülkiyeti Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
       { '@type': 'Thing', name: 'Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },

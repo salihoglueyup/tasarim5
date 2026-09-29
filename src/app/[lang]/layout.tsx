@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { preload } from "react-dom";
 import "../globals.css";
 import "../fonts.css";
 import SmoothScroll from '@/components/ui/effects/SmoothScroll';
@@ -141,6 +142,11 @@ export default async function RootLayout({
   const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
+  // react-dom'un preload() API'si React tarafından otomatik dedupe edilir;
+  // ham <link> JSX etiketi aynı href'i birden fazla yerde/streaming aşamasında
+  // çift basabiliyordu (ikon sprite'ında görülen kopya preload sorunu).
+  preload('/icons/sprite.svg', { as: 'image', type: 'image/svg+xml' });
+
   return (
     <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} >
       <head>
@@ -153,17 +159,10 @@ export default async function RootLayout({
             {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
           />
         ))}
-        {/* Ikon sprite'ı: header/CTA ikonlarının ilk boyamada gecikmesini önler */}
-        <link rel="preload" href="/icons/sprite.svg" as="image" type="image/svg+xml" />
-        {/* LCP Hero Poster Preload (Zero-latency image fetch) */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hero-poster-v5.webp"
-          type="image/webp"
-          // @ts-ignore
-          fetchPriority="high"
-        />
+        {/* Hero poster preload'u artık next/image'in kendi ürettiği responsive
+            (imageSrcSet tabanlı) preload'a bırakıldı — bkz. Hero.tsx (loading="eager"
+            + fetchPriority="high"). Burada elle sabit-boyutlu bir tane daha eklemek
+            aynı görseli çift indiriyordu. */}
 
         {/* Eski ServiceWorker ve PWA önbelleğini temizleme (F5 yenileme tutarlılığı) */}
         <script

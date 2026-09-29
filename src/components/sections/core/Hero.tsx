@@ -106,7 +106,7 @@ export default function Hero() {
           src="/images/hero-poster-v5.webp"
           alt={t('hero_alt')}
           fill
-          priority={true}
+          loading="eager"
           fetchPriority="high"
           decoding="async"
           sizes="100vw"

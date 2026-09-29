@@ -20,11 +20,15 @@ describe('Wave 5: Medya, AVIF, Font & LCP Optimizasyonları (Faz 101 - Faz 110)'
     expect(configContent).toContain("'image/webp'");
   });
 
-  it('Hero.tsx LCP görselinde priority=true ve fetchPriority=high taşır (Faz 102)', () => {
+  it('Hero.tsx LCP görselinde loading=eager ve fetchPriority=high taşır (Faz 102)', () => {
     const heroContent = fs.readFileSync(heroPath, 'utf-8');
-    expect(heroContent).toContain('priority={true}');
+    // Next.js 16: `priority` deprecated oldu, `fetchPriority` ile birlikte kullanımı
+    // otomatik (imageSrcSet tabanlı) ikinci bir preload üretip layout.tsx'teki manuel
+    // preload ile çakışıyordu — bkz. node_modules/next/dist/docs/.../image.md
+    expect(heroContent).toContain('loading="eager"');
     expect(heroContent).toContain('fetchPriority="high"');
     expect(heroContent).toContain('hero-poster-v5.webp');
+    expect(heroContent).not.toContain('priority={true}');
   });
 
   it('Blog listesi ve kart görsellerinde ayrıntılı responsive sizes tanımlıdır (Faz 103)', () => {
