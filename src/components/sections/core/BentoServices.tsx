@@ -118,6 +118,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/temizlik-ve-hijyen')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
               aria-label={`${t('home_bento_card2_title')} — ${t('bs_details')}`}
+              title={`${t('home_bento_card2_title')} — ${t('bs_details')}`}
             >
               <span>{t('bs_details')}</span>
               <Icon name="arrow_forward" className="text-sm" />
@@ -146,6 +147,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/aidat-takibi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
               aria-label={`${t('home_bento_card3_title')} — ${t('bs_details')}`}
+              title={`${t('home_bento_card3_title')} — ${t('bs_details')}`}
             >
               <span>{t('bs_details')}</span>
               <Icon name="arrow_forward" className="text-sm" />
@@ -174,6 +176,7 @@ export default function BentoServices() {
               href={getLocalizedPath('/hizmetler/hukuk-ve-icra-danismanligi')}
               className="text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1.5"
               aria-label={`${t('home_bento_card4_title')} — ${t('bs_details')}`}
+              title={`${t('home_bento_card4_title')} — ${t('bs_details')}`}
             >
               <span>{t('bs_details')}</span>
               <Icon name="arrow_forward" className="text-sm" />

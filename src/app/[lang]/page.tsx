@@ -16,7 +16,6 @@ const WhyUsBentoGrid = dynamic(() => import('@/components/sections/core/WhyUsBen
 const PersonnelDifference = dynamic(() => import('@/components/sections/core/PersonnelDifference'), { ssr: true });
 const ComparisonTable = dynamic(() => import('@/components/sections/core/ComparisonTable'), { ssr: true });
 const InteractiveProcessSteps = dynamic(() => import('@/components/sections/core/InteractiveProcessSteps'), { ssr: true });
-const AppShowcase = dynamic(() => import('@/components/sections/interactive/AppShowcase'), { ssr: true });
 const PreFooterCta = dynamic(() => import('@/components/sections/core/PreFooterCta'), { ssr: true });
 const TestimonialSlider = dynamic(() => import('@/components/sections/testimonials/TestimonialSlider'), { ssr: true });
 const CertificateBadgeGrid = dynamic(() => import('@/components/sections/trust/CertificateBadgeGrid'), { ssr: true });
@@ -162,7 +161,6 @@ export default async function Home({ params }: Props) {
       <div className="lazy-section"><ComparisonTable dict={lang === 'tr' ? undefined : t} lang={lang} /></div>
       {lang === 'tr' && <div className="lazy-section"><KMKLawAssistantSeo /></div>}
       <div className="lazy-section"><InteractiveProcessSteps /></div>
-      <div className="lazy-section"><AppShowcase /></div>
       <div className="lazy-section"><TestimonialSlider dbReferences={dbReferences} /></div>
       <div className="lazy-section"><CertificateBadgeGrid /></div>
       <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
