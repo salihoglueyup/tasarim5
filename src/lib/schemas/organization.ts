@@ -97,7 +97,10 @@ export function organizationSchema(): JsonLdObject {
         name: 'İstanbul',
         sameAs: 'https://tr.wikipedia.org/wiki/%C4%B0stanbul',
       },
-      ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS,
+      // 39 ilçenin tek tek listelenmesi bu şemayı (her sayfada tekrarlanır) gereksiz büyütüyordu;
+      // GeoCircle aynı "İstanbul geneli" kapsamını çok daha az veriyle ifade eder. İlçe bazlı detay
+      // ilgili /bolgeler/[ilce] sayfalarının kendi şemasında zaten var.
+      AREA_SERVED_GEOCIRCLE,
     ],
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
@@ -300,7 +303,7 @@ export function professionalServiceSchema(opts?: {
             sameAs: 'https://tr.wikipedia.org/wiki/T%C3%BCrkiye',
           },
           { '@type': 'AdministrativeArea', name: 'İstanbul' },
-          ...ISTANBUL_39_DISTRICTS_ADMIN_AREAS,
+          // 39 ilçenin tek tek listelenmesi (bkz. organizationSchema) yerine GeoCircle kullanılır.
           AREA_SERVED_GEOCIRCLE,
         ],
     parentOrganization: { '@id': ORG_ID },

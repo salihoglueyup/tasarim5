@@ -82,7 +82,6 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       'Site Yönetim Firmaları',
       'Entegre Tesis Yönetimi',
       'Profesyonel Tesis Yönetimi İstanbul',
-      'ISO 41001 Tesis Yönetim Hizmetleri',
       'Site ve Tesis İşletmeciliği',
       'Facility Management Istanbul',
     ],
