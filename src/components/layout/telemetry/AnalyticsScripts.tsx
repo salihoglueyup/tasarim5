@@ -62,8 +62,10 @@ export default function AnalyticsScripts({ gaId, clarityId, fbPixelId, gtmId }: 
         </Script>
       )}
 
-      {/* Google Analytics 4 (gtag.js) - @next/third-parties/google ile optimize edilmiş resmi entegrasyon */}
-      {gaId && <GoogleAnalytics gaId={gaId} />}
+      {/* Google Analytics 4 (gtag.js) - @next/third-parties/google ile optimize edilmiş resmi entegrasyon.
+          shouldLoad'a bağlı: aksi halde gtag.js sayfa açılır açılmaz preload edilip
+          yavaş bağlantılarda LCP görseliyle bant genişliği için yarışıyordu. */}
+      {shouldLoad && gaId && <GoogleAnalytics gaId={gaId} />}
 
       {/* Microsoft Clarity - Heatmap */}
       {shouldLoad && clarityId && (

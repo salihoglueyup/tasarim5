@@ -37,7 +37,7 @@
   --color-on-primary: #FFFFFF;
   
   --color-secondary: #5A5A6A; /* Secondary: Açık Gri */
-  --color-tertiary: #86869B; /* Daha açık gri vurgu */
+  --color-tertiary: #707086; /* Daha açık gri vurgu — beyaz zeminde WCAG AA (4.5:1) için koyulaştırıldı, eski değer #86869B ~3.6:1 idi */
   
   /* BRAND COLORS: Titanium & Slate Mapping */
   --color-brand-50: #EBEBEF;
