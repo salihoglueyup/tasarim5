@@ -112,6 +112,7 @@ export default function BentoServices() {
           <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
             <Link
               href={getLocalizedPath('/hesaplayici')}
+              title={`${t('home_bento_card2_title')} — Maliyet Hesapla`}
               className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
             >
               Temizlik Maliyeti →
@@ -210,6 +211,7 @@ export default function BentoServices() {
           <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
             <Link
               href={getLocalizedPath('/hesaplayici')}
+              title={t('bs_tech_discover')}
               className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
             >
               {t('bs_tech_discover')}

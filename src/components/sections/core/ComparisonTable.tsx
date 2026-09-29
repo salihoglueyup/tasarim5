@@ -104,8 +104,9 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
             </div>
           </div>
 
-          <Link 
-            href={`${basePath}/teklif-al`} 
+          <Link
+            href={`${basePath}/teklif-al`}
+            title={t('cmpx_6', 'Siteniz İçin Profesyonel Teklif Alın →')}
             className="w-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 font-extrabold py-4 rounded-xl text-center transition-colors shadow-md text-sm mt-4 inline-block"
           >
             {t('cmpx_6', 'Siteniz İçin Profesyonel Teklif Alın →')}
