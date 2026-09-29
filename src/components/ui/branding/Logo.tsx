@@ -31,7 +31,7 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
       
       {/* Brand Text Part: Modern High-Contrast Typography */}
       <div className="flex flex-col justify-center">
-        <span className={`text-[20px] md:text-[22px] font-[var(--font-section-h2)] font-extrabold leading-none tracking-tight mb-1 transition-colors duration-300 ${
+        <span className={`text-[20px] md:text-[22px] font-[var(--font-heading)] font-extrabold leading-none tracking-tight mb-1 transition-colors duration-300 ${
           isWhite 
             ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]' 
             : 'text-slate-900 dark:text-white'
