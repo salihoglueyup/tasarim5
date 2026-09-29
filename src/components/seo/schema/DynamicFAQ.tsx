@@ -46,7 +46,7 @@ export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQPr
               className="border border-[var(--color-outline)]/80 rounded-2xl overflow-hidden bg-[var(--color-surface)] transition-all hover:border-[var(--color-outline)] hover:shadow-xs"
             >
               <button
-                className="w-full px-6 py-4 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
+                className="w-full px-6 py-4 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 cursor-pointer"
                 onClick={() => setActiveIndex(isActive ? null : index)}
                 aria-expanded={isActive}
                 aria-controls={`faq-answer-${index}`}
@@ -59,7 +59,7 @@ export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQPr
                     width="20"
                     height="20"
                     aria-hidden="true"
-                    className={`w-5 h-5 transform transition-transform duration-300 ${isActive ? 'rotate-180 text-blue-500' : ''}`}
+                    className={`w-5 h-5 transform transition-transform duration-300 ${isActive ? 'rotate-180 text-slate-500' : ''}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

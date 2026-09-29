@@ -101,7 +101,7 @@ export default function ServicesMatcherSeo() {
         desc: 'Yüksek sakin ve ziyaretçi sirkülasyonuna sahip projeler için 7/24 yerinde tesis müdürü, vardiyalı 5188 güvenlik, sürekli teknik ve endüstriyel hijyen ekibiyle A-Z yönetim.',
         sla: '20 Dk Acil SLA',
         savings: '%22 Toplu Satın Alma Tasarrufu',
-        badgeColor: 'border-purple-500/30 text-purple-700 dark:text-purple-300 bg-purple-500/10'
+        badgeColor: 'border-slate-500/30 text-slate-700 dark:text-slate-300 bg-slate-500/10'
       };
     }
 
@@ -113,7 +113,7 @@ export default function ServicesMatcherSeo() {
         desc: 'Kat Mülkiyeti Kanunu m.34 uyarınca resmi yöneticilik, şeffaf dijital kasa, mobil aidat tahsilat sistemi, periyodik temizlik ve gezici teknik bakım ağı.',
         sla: '%98.7 Aidat Tahsilat Garantisi',
         savings: 'Gereksiz Site Harcamalarına Son',
-        badgeColor: 'border-blue-500/30 text-blue-700 dark:text-blue-300 bg-blue-500/10'
+        badgeColor: 'border-slate-500/30 text-slate-700 dark:text-slate-300 bg-slate-500/10'
       };
     }
 
@@ -154,7 +154,7 @@ export default function ServicesMatcherSeo() {
             {/* Step 1: Property Type */}
             <div>
               <label className="text-xs font-bold uppercase tracking-wider text-[var(--color-secondary)] mb-3 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-black">
+                <span className="w-5 h-5 rounded-full bg-slate-600 text-white flex items-center justify-center text-[10px] font-black">
                   1
                 </span>
                 {tx('Mülk Türünüzü Seçin:')}
@@ -173,11 +173,11 @@ export default function ServicesMatcherSeo() {
                     onClick={() => setPropertyType(item.id as PropertyType)}
                     className={`flex items-center gap-3.5 p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
                       propertyType === item.id
-                        ? 'bg-blue-500/10 border-blue-500 text-blue-900 dark:text-blue-200 shadow-xs'
+                        ? 'bg-slate-500/10 border-slate-500 text-slate-900 dark:text-slate-200 shadow-xs'
                         : 'bg-[var(--color-surface)] border-[var(--color-outline)]/60 text-[var(--color-secondary)] hover:border-[var(--color-primary)]'
                     }`}
                   >
-                    <Icon name={item.icon} className="text-2xl text-blue-600 dark:text-blue-400" />
+                    <Icon name={item.icon} className="text-2xl text-slate-600 dark:text-slate-400" />
                     <div>
                       <div className="text-xs sm:text-sm font-bold text-[var(--color-primary)]">{tx(item.label)}</div>
                       <div className="text-[11px] text-[var(--color-secondary)] font-light">{tx(item.sub)}</div>

@@ -543,8 +543,8 @@ export default function DistrictAiGroundingSeo() {
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold uppercase tracking-wider border border-cyan-500/20 mb-3">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-400 text-xs font-semibold uppercase tracking-wider border border-slate-500/20 mb-3">
+              <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" />
               Google Gemini GEO • İstanbul 39 İlçe Yerel Zekâ Korpusu
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-100 ai-speakable-summary">
@@ -556,7 +556,7 @@ export default function DistrictAiGroundingSeo() {
           </div>
           <div className="text-right hidden sm:block">
             <span className="text-xs text-slate-400 block">Kapsama</span>
-            <span className="text-sm font-semibold text-cyan-400">39 İlçe %100 Doğrulanmış</span>
+            <span className="text-sm font-semibold text-slate-400">39 İlçe %100 Doğrulanmış</span>
           </div>
         </div>
 
@@ -567,7 +567,7 @@ export default function DistrictAiGroundingSeo() {
             placeholder="İlçe adı ara (örn: Kadıköy, Beşiktaş, Sarıyer, Kartal)..."
             value={searchDistrict}
             onChange={(e) => setSearchDistrict(e.target.value)}
-            className="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
+            className="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-slate-500 transition-colors"
             aria-label="İstanbul ilçelerinde arama yapın"
           />
           <div className="flex gap-2">
@@ -578,7 +578,7 @@ export default function DistrictAiGroundingSeo() {
                 onClick={() => setSelectedSide(side)}
                 className={`px-4 py-2 rounded-xl text-xs font-medium transition-all ${
                   selectedSide === side
-                    ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-600/30'
+                    ? 'bg-slate-600 text-white shadow-lg shadow-slate-600/30'
                     : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
                 }`}
               >
@@ -603,7 +603,7 @@ export default function DistrictAiGroundingSeo() {
                   onClick={() => setActiveSlug(d.slug)}
                   className={`text-left px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     activeSlug === d.slug
-                      ? 'bg-cyan-600 text-white shadow-md'
+                      ? 'bg-slate-600 text-white shadow-md'
                       : 'bg-slate-800/60 text-slate-300 hover:bg-slate-800'
                   }`}
                 >
@@ -618,7 +618,7 @@ export default function DistrictAiGroundingSeo() {
             <div>
               <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                 <div>
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 mr-2 uppercase">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-500/20 text-slate-400 border border-slate-500/30 mr-2 uppercase">
                     {currentMetric.side} Yakası
                   </span>
                   <span className="text-xs text-slate-400">
@@ -630,7 +630,7 @@ export default function DistrictAiGroundingSeo() {
                 </div>
                 <a
                   href={`/bolgeler/${currentMetric.slug}/tesis-yonetimi`}
-                  className="text-xs text-cyan-400 hover:text-cyan-300 underline font-medium"
+                  className="text-xs text-slate-400 hover:text-slate-300 underline font-medium"
                 >
                   İlçe Detay Sayfası →
                 </a>
@@ -646,7 +646,7 @@ export default function DistrictAiGroundingSeo() {
                 </div>
                 <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                   <span className="text-[11px] text-slate-400 block font-medium">Asansör Yeşil Etiket:</span>
-                  <span className="text-lg font-bold text-cyan-400 mt-1 block">
+                  <span className="text-lg font-bold text-slate-400 mt-1 block">
                     {currentMetric.greenLabelElevatorRate}
                   </span>
                 </div>
@@ -661,7 +661,7 @@ export default function DistrictAiGroundingSeo() {
               {/* Qualitative AI Insight */}
               <div className="space-y-3 text-sm">
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                  <span className="text-xs font-bold text-cyan-400 block uppercase mb-1">
+                  <span className="text-xs font-bold text-slate-400 block uppercase mb-1">
                     Yetkili Adli Yargı & Arabuluculuk Merkezi:
                   </span>
                   <p className="text-slate-200">{currentMetric.courthouse}</p>

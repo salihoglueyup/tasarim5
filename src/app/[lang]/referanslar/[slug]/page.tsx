@@ -303,7 +303,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
           <div className="lg:col-span-8 space-y-20">
             
             {localizedContent && (
-              <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-black prose-headings:text-[var(--color-heading-text)] prose-a:text-blue-500 hover:prose-a:text-blue-400 text-[var(--color-body-text)] leading-relaxed bg-[var(--color-surface)] dark:bg-[#15161E] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/60 dark:border-white/10 shadow-sm">
+              <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-black prose-headings:text-[var(--color-heading-text)] prose-a:text-slate-500 hover:prose-a:text-slate-400 text-[var(--color-body-text)] leading-relaxed bg-[var(--color-surface)] dark:bg-[#15161E] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/60 dark:border-white/10 shadow-sm">
                 <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(autoLinkHtml(localizedContent, `/referanslar/${project.slug}`)) }} />
               </div>
             )}
@@ -337,7 +337,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             {localizedTestimonial && (
               <div className="bg-gradient-to-br from-[#1C1D27] via-[#15161E] to-[#0D0E14] border border-slate-700/80 rounded-[3rem] p-10 md:p-14 relative overflow-hidden shadow-2xl mt-12">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-500/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
                 
                 <div className="absolute top-8 right-10 opacity-10 pointer-events-none">
                   <span className="text-[10rem] leading-none font-serif text-white">"</span>

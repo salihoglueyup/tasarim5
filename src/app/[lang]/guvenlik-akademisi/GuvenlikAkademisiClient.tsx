@@ -66,7 +66,7 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
       <section className="py-12 md:py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto w-full">
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 sm:p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
           <div className="flex flex-col gap-4 max-w-2xl text-center md:text-left">
-            <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-widest bg-red-500/10 px-4 py-1.5 rounded-full w-fit mx-auto md:mx-0 border border-red-500/20">
+            <span className="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-500/10 px-4 py-1.5 rounded-full w-fit mx-auto md:mx-0 border border-rose-500/20">
               5188 Lisanslı Güvenlik Kadrosu
             </span>
             <h2 className="text-2xl md:text-3xl font-extrabold leading-tight text-[var(--color-primary)]">

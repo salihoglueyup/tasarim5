@@ -217,10 +217,10 @@ export default function ServiceAuthorityHubSeo({
         <div className="pt-8 border-t border-[var(--color-outline)]/50 dark:border-white/10 space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-              <Icon name="location_on" className="text-base text-amber-500" />
+              <Icon name="location_on" className="text-base text-slate-500 dark:text-slate-400" />
               <span>{serviceName} Hizmeti Sunduğumuz Öncelikli İstanbul Bölgeleri</span>
             </span>
-            <Link href="/bolgeler" className="text-[11px] font-bold text-amber-600 dark:text-amber-400 hover:underline">
+            <Link href="/bolgeler" className="text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:underline">
               Tüm 39 İlçe →
             </Link>
           </div>
@@ -230,9 +230,9 @@ export default function ServiceAuthorityHubSeo({
               <Link
                 key={d.slug}
                 href={`/bolgeler/${d.slug}`}
-                className="px-3.5 py-1.5 rounded-xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-all flex items-center gap-1.5 shadow-2xs"
+                className="px-3.5 py-1.5 rounded-xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5 shadow-2xs"
               >
-                <Icon name="near_me" className="text-[13px] text-amber-500" />
+                <Icon name="near_me" className="text-[13px] text-slate-500 dark:text-slate-400" />
                 <span>{d.name} {serviceName}</span>
               </Link>
             ))}

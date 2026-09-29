@@ -11,49 +11,49 @@ import Icon from '@/components/ui/branding/Icon';
 const CERTIFICATES = [
   {
     icon: 'eco',
-    color: 'from-emerald-500 to-teal-700',
+    color: 'from-emerald-500 to-slate-700',
     titleKey: 'cert_1_title',
     subKey: 'cert_1_sub',
     pdf: '/certificates/dogaya-saygi.pdf',
   },
   {
     icon: 'public',
-    color: 'from-teal-500 to-emerald-700',
+    color: 'from-slate-500 to-emerald-700',
     titleKey: 'cert_6_title',
     subKey: 'cert_6_sub',
     pdf: '/certificates/iso-14001.pdf',
   },
   {
     icon: 'diversity_3',
-    color: 'from-purple-500 to-pink-700',
+    color: 'from-slate-500 to-slate-700',
     titleKey: 'cert_4_title',
     subKey: 'cert_4_sub',
     pdf: '/certificates/iso-26000.pdf',
   },
   {
     icon: 'health_and_safety',
-    color: 'from-amber-500 to-orange-700',
+    color: 'from-amber-500 to-slate-700',
     titleKey: 'cert_3_title',
     subKey: 'cert_3_sub',
     pdf: '/certificates/iso-45001.pdf',
   },
   {
     icon: 'all_inclusive',
-    color: 'from-cyan-500 to-blue-700',
+    color: 'from-slate-500 to-slate-700',
     titleKey: 'cert_5_title',
     subKey: 'cert_5_sub',
     pdf: '/certificates/iso-22301.pdf',
   },
   {
     icon: 'security',
-    color: 'from-blue-600 to-indigo-800',
+    color: 'from-slate-600 to-slate-800',
     titleKey: 'cert_2_title',
     subKey: 'cert_2_sub',
     pdf: '/certificates/iso-31000.pdf',
   },
   {
     icon: 'support_agent',
-    color: 'from-rose-500 to-red-700',
+    color: 'from-rose-500 to-rose-700',
     titleKey: 'cert_7_title',
     subKey: 'cert_7_sub',
     pdf: '/certificates/iso-10002.pdf',
@@ -113,7 +113,7 @@ export default function SurdurulebilirlikClient() {
           transition={{ duration: 0.5 }}
         >
           <Link href="/surdurulebilirlik/ges-projeleri" className="block group">
-            <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-emerald-600 via-teal-700 to-emerald-900 p-10 md:p-16 text-white shadow-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-emerald-900/30">
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-emerald-600 via-slate-700 to-emerald-900 p-10 md:p-16 text-white shadow-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-emerald-900/30">
               {/* Bg blur orbs */}
               <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-400/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />

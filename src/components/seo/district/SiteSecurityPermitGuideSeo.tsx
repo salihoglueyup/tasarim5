@@ -42,12 +42,12 @@ export default function SiteSecurityPermitGuideSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="security" className="text-sm" />
             <span>5188 Mevzuat & Valilik İzinleri</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Sitelerde Özel Güvenlik Kurulumu, <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-sky-400">Valilik İzinleri & Hukuki Sorumluluk</span>
+            Sitelerde Özel Güvenlik Kurulumu, <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-400">Valilik İzinleri & Hukuki Sorumluluk</span>
           </h2>
           <p className="text-slate-300 mt-2 text-xs sm:text-sm font-normal max-w-3xl leading-relaxed">
             İl Özel Güvenlik Komisyonu başvuru prosedürü, 5188 yasal şartları ve yöneticinin şahsi malvarlığını milyonluk kıdem tazminatından koruyan kurumsal hizmet modeli.
@@ -60,7 +60,7 @@ export default function SiteSecurityPermitGuideSeo() {
             onClick={() => setActiveTab('permit-steps')}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
               activeTab === 'permit-steps'
-                ? 'bg-indigo-600 text-white shadow'
+                ? 'bg-slate-600 text-white shadow'
                 : 'text-slate-300 hover:text-white'
             }`}
           >
@@ -70,7 +70,7 @@ export default function SiteSecurityPermitGuideSeo() {
             onClick={() => setActiveTab('employment-comparison')}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
               activeTab === 'employment-comparison'
-                ? 'bg-indigo-600 text-white shadow'
+                ? 'bg-slate-600 text-white shadow'
                 : 'text-slate-300 hover:text-white'
             }`}
           >
@@ -85,11 +85,11 @@ export default function SiteSecurityPermitGuideSeo() {
           {SECURITY_PERMIT_STEPS.map((step) => (
             <div
               key={step.stepNo}
-              className="bg-slate-800/40 border border-slate-800 hover:border-indigo-800/60 rounded-2xl p-5 flex flex-col justify-between transition group"
+              className="bg-slate-800/40 border border-slate-800 hover:border-slate-800/60 rounded-2xl p-5 flex flex-col justify-between transition group"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-300 font-extrabold text-sm flex items-center justify-center">
+                  <span className="w-8 h-8 rounded-lg bg-slate-500/20 text-slate-300 font-extrabold text-sm flex items-center justify-center">
                     {step.stepNo}
                   </span>
                   <span className="text-[11px] font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700/60">
@@ -97,10 +97,10 @@ export default function SiteSecurityPermitGuideSeo() {
                   </span>
                 </div>
 
-                <h3 className="text-sm font-bold text-white group-hover:text-indigo-300 transition mb-1">
+                <h3 className="text-sm font-bold text-white group-hover:text-slate-300 transition mb-1">
                   {step.stepName}
                 </h3>
-                <span className="text-[11px] text-indigo-400 font-semibold block mb-2">
+                <span className="text-[11px] text-slate-400 font-semibold block mb-2">
                   Yetkili Makam: {step.authority}
                 </span>
 
@@ -116,7 +116,7 @@ export default function SiteSecurityPermitGuideSeo() {
                 <ul className="space-y-1 text-slate-400 text-[11px]">
                   {step.requiredDocuments.map((doc, idx) => (
                     <li key={idx} className="flex items-start gap-1.5">
-                      <span className="text-indigo-400">•</span>
+                      <span className="text-slate-400">•</span>
                       <span>{doc}</span>
                     </li>
                   ))}
@@ -130,7 +130,7 @@ export default function SiteSecurityPermitGuideSeo() {
       {/* Tab 2: Employment Comparison */}
       {activeTab === 'employment-comparison' && (
         <div className="space-y-4">
-          <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-800/40 text-xs text-indigo-200">
+          <div className="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/40 text-xs text-slate-200">
             <strong>Hukuki Uyarı:</strong> 4857 Sayılı İş Kanunu uyarınca doğrudan site bünyesinde çalıştırılan güvenlik personeli, sitenin tüm maliklerini müteselsilen işveren konumuna sokar. Personelin ayrılması halinde kıdem tazminatı doğrudan yönetici ve kat maliklerinden tahsil edilir.
           </div>
 
@@ -178,14 +178,14 @@ export default function SiteSecurityPermitGuideSeo() {
       {/* Footer Info */}
       <div className="mt-8 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <Icon name="verified_user" className="text-indigo-400" />
+          <Icon name="verified_user" className="text-slate-400" />
           <span>
             Alo Yönetim, Valilik Özel Güvenlik Komisyonu izin dosyasını ve fiziki keşif sürecini siteniz adına A'dan Z'ye ücretsiz yürütür.
           </span>
         </div>
         <a
           href="/iletisim"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition flex-shrink-0"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-semibold transition flex-shrink-0"
         >
           <span>5188 Güvenlik Keşfi İsteyin</span>
           <Icon name="arrow_forward" className="text-sm" />

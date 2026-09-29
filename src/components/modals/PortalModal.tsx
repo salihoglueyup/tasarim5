@@ -43,7 +43,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
               </div>
 
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold mb-3 border border-blue-500/20">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-bold mb-3 border border-slate-500/20">
                   <Icon name="verified_user" className="text-sm" />
                   <span>Apsiyon Altyapısı Güvencesiyle</span>
                 </div>
@@ -59,7 +59,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                   href="https://online.apsiyon.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all flex items-center justify-center gap-3 text-center group cursor-pointer"
+                  className="w-full bg-gradient-to-r from-slate-600 to-slate-600 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:from-slate-700 hover:to-slate-700 transition-all flex items-center justify-center gap-3 text-center group cursor-pointer"
                 >
                   <Icon name="open_in_new" className="text-xl group-hover:translate-x-0.5 transition-transform" />
                   <span>Apsiyon Web Sakin Portalı ile Giriş Yap</span>

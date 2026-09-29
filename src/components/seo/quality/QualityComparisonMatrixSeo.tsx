@@ -49,7 +49,7 @@ export default function QualityComparisonMatrixSeo() {
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-4">
             <Icon name="compare" className="text-sm" />
             Kalite Standartları Karşılaştırması
           </div>
@@ -84,7 +84,7 @@ export default function QualityComparisonMatrixSeo() {
                   <td className="py-4 px-5 font-semibold text-[var(--color-primary)]">
                     <div className="flex items-center gap-2">
                       {row.isCritical && (
-                        <span className="w-2 h-2 rounded-full bg-cyan-500 shrink-0" title="Kritik Standart" />
+                        <span className="w-2 h-2 rounded-full bg-slate-500 shrink-0" title="Kritik Standart" />
                       )}
                       <span>{row.kriter}</span>
                     </div>
@@ -110,12 +110,12 @@ export default function QualityComparisonMatrixSeo() {
         {/* Footer Note */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-cyan-500" />
+            <span className="w-2 h-2 rounded-full bg-slate-500" />
             <span>Mavi nokta: Kat Mülkiyeti Kanunu ve İş Kanunu kapsamında cezai yaptırımı olan standartlar.</span>
           </div>
           <Link
             href="/teklif-al"
-            className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline flex items-center gap-1"
+            className="text-slate-600 dark:text-slate-400 font-bold hover:underline flex items-center gap-1"
           >
             Siteniz İçin Kalite Denetimi Başlatın
             <Icon name="arrow_forward" className="text-sm" />

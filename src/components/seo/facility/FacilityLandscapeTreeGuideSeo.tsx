@@ -203,7 +203,7 @@ export default function FacilityLandscapeTreeGuideSeo({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-              <div className="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200 border border-blue-200 dark:border-blue-900/60">
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 border border-slate-200 dark:border-slate-900/60">
                 <strong className="font-semibold block mb-0.5 flex items-center gap-1">
                   <Icon name="water_drop" className="text-sm" />
                   Sulama Programı:
@@ -282,7 +282,7 @@ export default function FacilityLandscapeTreeGuideSeo({
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-950/60 text-slate-800 dark:text-slate-300">
                       {system.efficiencyRating}
                     </span>
                     <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400">

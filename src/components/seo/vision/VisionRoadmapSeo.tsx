@@ -17,7 +17,7 @@ const MILESTONES: Milestone[] = [
   {
     period: '2014 — 2019',
     badge: 'Kuruluş & KMK Altyapısı',
-    badgeColor: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Hukuki Güvence ve İlk 50 Prestijli Proje',
     description:
       'Geleneksel kapıcı/yönetici kaosuna son vermek amacıyla 634 Sayılı Kat Mülkiyeti Kanunu uzmanı hukukçular ve mali müşavirler öncülüğünde kurumsal tesis yönetimi altyapısı kuruldu. İstanbul genelinde 50 prestijli sitenin yönetimi başarıyla üstlenildi.',
@@ -30,7 +30,7 @@ const MILESTONES: Milestone[] = [
   {
     period: '2020 — 2023',
     badge: 'Dijitalleşme & Akademi',
-    badgeColor: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Sakin Mobil Portalı & 5188 Güvenlik Akademisi',
     description:
       'Kat maliklerinin aidatlarını kredi kartıyla ödeyebildiği, gelir-gideri kuruşu kuruşuna canlı izlediği mobil uygulama hayata geçirildi. Taşeron güvenlik sorununu kökten çözmek için kendi EGM onaylı güvenlik eğitim kurumumuz (guvenlikkursu.com) faaliyete başladı.',

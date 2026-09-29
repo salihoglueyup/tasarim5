@@ -69,10 +69,10 @@ export function PwaInstallPrompt() {
     <div
       role="banner"
       aria-label="PWA Yükleme Bildirimi"
-      className="fixed bottom-24 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[85] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-blue-200 dark:border-blue-900/50 p-4 sm:p-5 rounded-2xl shadow-2xl transition-all duration-300 ease-out transform-gpu animate-in fade-in slide-in-from-bottom-5"
+      className="fixed bottom-24 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[85] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-900/50 p-4 sm:p-5 rounded-2xl shadow-2xl transition-all duration-300 ease-out transform-gpu animate-in fade-in slide-in-from-bottom-5"
     >
       <div className="flex items-start gap-3.5">
-        <div className="p-3 rounded-xl bg-blue-600/10 text-blue-600 dark:text-blue-400 shrink-0">
+        <div className="p-3 rounded-xl bg-slate-600/10 text-slate-600 dark:text-slate-400 shrink-0">
           <Smartphone className="w-6 h-6" />
         </div>
 
@@ -94,7 +94,7 @@ export function PwaInstallPrompt() {
             <button
               type="button"
               onClick={handleInstallClick}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-md shadow-blue-600/20 active:scale-95 transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-600 hover:bg-slate-700 text-white text-xs font-semibold shadow-md shadow-slate-600/20 active:scale-95 transition-all cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               Uygulamayı Yükle

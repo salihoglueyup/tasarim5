@@ -128,7 +128,7 @@ export default function DistrictComparisonMatrixSeo() {
               <th className="py-4 px-4 text-base font-extrabold text-[var(--color-primary)] bg-amber-500/5 rounded-t-2xl">
                 {d1.name}
               </th>
-              <th className="py-4 px-4 text-base font-extrabold text-[var(--color-primary)] bg-blue-500/5 rounded-t-2xl">
+              <th className="py-4 px-4 text-base font-extrabold text-[var(--color-primary)] bg-slate-500/5 rounded-t-2xl">
                 {d2.name}
               </th>
             </tr>
@@ -137,43 +137,43 @@ export default function DistrictComparisonMatrixSeo() {
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">İstanbul Yakası</td>
               <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-amber-500/5">{d1.side} Yakası</td>
-              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-blue-500/5">{d2.side} Yakası</td>
+              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">{d2.side} Yakası</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">İlçe Nüfusu</td>
               <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-amber-500/5">~{d1.population.toLocaleString()} Kişi</td>
-              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-blue-500/5">~{d2.population.toLocaleString()} Kişi</td>
+              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">~{d2.population.toLocaleString()} Kişi</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Piyasa Ort. Aidat (m²)</td>
               <td className="py-4 px-4 font-bold text-rose-500 bg-amber-500/5">{stat1.avgDuesM2} ₺ / m²</td>
-              <td className="py-4 px-4 font-bold text-rose-500 bg-blue-500/5">{stat2.avgDuesM2} ₺ / m²</td>
+              <td className="py-4 px-4 font-bold text-rose-500 bg-slate-500/5">{stat2.avgDuesM2} ₺ / m²</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Alo Yönetim ile Tasarruflu (m²)</td>
               <td className="py-4 px-4 font-extrabold text-emerald-500 bg-amber-500/5">
                 {stat1.aloDuesM2} ₺ / m² <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">(-%24)</span>
               </td>
-              <td className="py-4 px-4 font-extrabold text-emerald-500 bg-blue-500/5">
+              <td className="py-4 px-4 font-extrabold text-emerald-500 bg-slate-500/5">
                 {stat2.aloDuesM2} ₺ / m² <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">(-%25)</span>
               </td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Güvenlik & Site Profili</td>
               <td className="py-4 px-4 text-xs font-medium text-[var(--color-primary)] bg-amber-500/5">{stat1.securityRate}</td>
-              <td className="py-4 px-4 text-xs font-medium text-[var(--color-primary)] bg-blue-500/5">{stat2.securityRate}</td>
+              <td className="py-4 px-4 text-xs font-medium text-[var(--color-primary)] bg-slate-500/5">{stat2.securityRate}</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Yönetilen Proje Portföyü</td>
               <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-amber-500/5">{d1.managedProjects}</td>
-              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-blue-500/5">{d2.managedProjects}</td>
+              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">{d2.managedProjects}</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Öne Çıkan Mahalleler</td>
               <td className="py-4 px-4 text-xs text-[var(--color-secondary)] bg-amber-500/5">
                 {d1.neighborhoods.slice(0, 4).join(', ')}
               </td>
-              <td className="py-4 px-4 text-xs text-[var(--color-secondary)] bg-blue-500/5">
+              <td className="py-4 px-4 text-xs text-[var(--color-secondary)] bg-slate-500/5">
                 {d2.neighborhoods.slice(0, 4).join(', ')}
               </td>
             </tr>
@@ -188,10 +188,10 @@ export default function DistrictComparisonMatrixSeo() {
                   <Icon name="arrow_forward" className="text-xs" />
                 </Link>
               </td>
-              <td className="py-4 px-4 bg-blue-500/5 rounded-b-2xl">
+              <td className="py-4 px-4 bg-slate-500/5 rounded-b-2xl">
                 <Link
                   href={`/bolgeler/${d2.slug}`}
-                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1"
                 >
                   <span>{d2.name} Sayfasına Git</span>
                   <Icon name="arrow_forward" className="text-xs" />

@@ -85,12 +85,12 @@ export default async function Bolgeler({
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-              <Icon name="map" className="text-[18px] text-blue-600 dark:text-blue-400" />
+              <Icon name="map" className="text-[18px] text-slate-600 dark:text-slate-400" />
               <span>Özet Rehber: İstanbul Geneli Yerel Tesis ve Site Yönetimi Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -102,35 +102,35 @@ export default async function Bolgeler({
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">İstanbul Yerel Tesis ve Site Yönetimi</strong>; Anadolu ve Avrupa yakasındaki 39 ilçede yer alan{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 konut siteleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 iş merkezleri ve plazalar
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 endüstriyel sanayi tesislerinin
               </Link>{' '}
               merkezi kurumsal mühendislik, finans ve hukuk desteği eşliğinde, her ilçeye özel konuşlandırılmış yerel süpervizör amirler ve nöbetçi mobil teknik servis ekipleriyle 7/24 işletilmesidir.
             </p>
             <p>
               Yerel saha operasyonlarımız;{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 634 Sayılı Kat Mülkiyeti Kanunu (KMK)
               </Link>
               ,{' '}
-              <a href="https://istanbul.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://istanbul.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 İstanbul Valiliği 5188 Özel Güvenlik Komisyonu İzinleri
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
-              <a href="https://www.ibb.istanbul" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.ibb.istanbul" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 İBB ve İlçe Belediyeleri Zabıta/Çevre Yönetmelikleri
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
@@ -138,23 +138,23 @@ export default async function Bolgeler({
             </p>
             <p>
               Bölgesel yönetim mimarimiz;{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Entegre Tesis Yönetimi
               </Link>
               ,{' '}
-              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 5188 Lisanslı Özel Güvenlik
               </Link>
               ,{' '}
-              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Şeffaf Aidat Takibi
               </Link>
               ,{' '}
-              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Teknik Bakım Servisi
               </Link>
               {' '}ve{' '}
-              <Link href="/hizmetler/temizlik-ve-hijyen" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/temizlik-ve-hijyen" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Endüstriyel Hijyen
               </Link>{' '}
               disiplinlerini dört ana bölgesel hizmet sütununda birleştirir:
@@ -220,7 +220,7 @@ export default async function Bolgeler({
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="trending_down" className="text-lg" />
                 </span>
                 <span>%30 Yerel Tedarik Avantajı</span>

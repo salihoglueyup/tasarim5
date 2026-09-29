@@ -204,7 +204,7 @@ export default function TrustVerificationAuditSeo() {
                   href="https://www.belcert.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] font-bold text-blue-600 dark:text-blue-400 underline flex items-center gap-1 hover:opacity-80"
+                  className="text-[11px] font-bold text-slate-600 dark:text-slate-400 underline flex items-center gap-1 hover:opacity-80"
                 >
                   <span>BELCERT Resmi Doğrulama Portalı</span>
                   <Icon name="open_in_new" className="text-[12px]" />

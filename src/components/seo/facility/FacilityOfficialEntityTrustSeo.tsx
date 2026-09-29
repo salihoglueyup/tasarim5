@@ -73,7 +73,7 @@ export function FacilityOfficialEntityTrustSeo({
       className={`rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] shadow-sm p-6 sm:p-10 relative overflow-hidden ${className}`}
     >
       {/* Arka Plan Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-slate-500/5 dark:bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Üst Başlık & Rozet */}

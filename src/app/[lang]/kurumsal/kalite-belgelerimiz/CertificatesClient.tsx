@@ -272,11 +272,11 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
           {/* 4. TESİS YÖNETİMİ KALİTE VE AKREDİTASYON STANDARTLARI REHBERİ             */}
           {/* ========================================================================= */}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-                <Icon name="menu_book" className="text-[18px] text-blue-600 dark:text-blue-400" />
+                <Icon name="menu_book" className="text-[18px] text-slate-600 dark:text-slate-400" />
                 <span>Kurumsal Rehber: Uluslararası Kalite Çerçevesi ve Hukuki Koruma</span>
               </div>
               <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
@@ -287,19 +287,19 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
             <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
               <p>
                 <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi Kalite ve Akreditasyon Standartları</strong>;{' '}
-                <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                   konut siteleri
                 </Link>
                 ,{' '}
-                <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                   lüks rezidanslar
                 </Link>
                 ,{' '}
-                <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                   iş merkezleri ve plazalar
                 </Link>
                 {' '}ile{' '}
-                <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                   sanayi tesislerinde
                 </Link>{' '}
                 sunulan tüm hizmetlerin bağımsız denetim, iş güvenliği, çevre duyarlılığı ve sakin memnuniyeti prosedürlerine tam uygun olarak icra edilmesini teminat altına alır.
@@ -353,7 +353,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
               <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                  <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                     <Icon name="verified" className="text-lg" />
                   </span>
                   <span>%100 Akredite Operasyon</span>
@@ -498,7 +498,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                       href="https://www.belcert.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] font-bold text-blue-600 dark:text-blue-400 underline flex items-center gap-1 hover:opacity-80"
+                      className="text-[11px] font-bold text-slate-600 dark:text-slate-400 underline flex items-center gap-1 hover:opacity-80"
                     >
                       <span>BELCERT Doğrulama Sayfasına Git</span>
                       <Icon name="open_in_new" className="text-[12px]" />

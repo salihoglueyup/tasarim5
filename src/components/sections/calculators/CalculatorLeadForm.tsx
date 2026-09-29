@@ -52,8 +52,8 @@ export default function CalculatorLeadForm({ serviceName, calcDetails, buttonTex
 
   if (status === 'success') {
     return (
-      <div className="w-full bg-blue-500/20 text-blue-300 font-bold py-4 px-6 rounded-xl text-center flex flex-col items-center gap-2 border border-blue-500/30">
-        <Icon name="check_circle" className="text-3xl text-blue-400" />
+      <div className="w-full bg-slate-500/20 text-slate-300 font-bold py-4 px-6 rounded-xl text-center flex flex-col items-center gap-2 border border-slate-500/30">
+        <Icon name="check_circle" className="text-3xl text-slate-400" />
         Talebiniz Alındı!
       </div>
     );
@@ -89,7 +89,7 @@ export default function CalculatorLeadForm({ serviceName, calcDetails, buttonTex
       />
 
       {errorKey && (
-        <div className="text-red-400 text-xs text-center">{t(errorKey as any) || 'Bir hata oluştu.'}</div>
+        <div className="text-rose-400 text-xs text-center">{t(errorKey as any) || 'Bir hata oluştu.'}</div>
       )}
 
       <div className="flex gap-2 mt-2">

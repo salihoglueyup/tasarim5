@@ -74,7 +74,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
       <section className="py-20 md:py-28 bg-[var(--color-background)] border-b border-[var(--color-outline)]/60">
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 text-xs font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-4">
               <Icon name="compare_arrows" className="text-sm" />
               {tx('Şeffaf Fiyatlandırma ve Karşılaştırma')}
             </div>
@@ -215,7 +215,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
       {/* 8. Modern Bottom Conversion CTA Banner */}
       <section className="py-20 md:py-28 bg-[var(--color-surface)]">
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white rounded-3xl p-8 sm:p-12 md:p-16 border border-blue-500/20 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-950 text-white rounded-3xl p-8 sm:p-12 md:p-16 border border-slate-500/20 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/30 text-amber-300 mb-4">
                 <Icon name="schedule" className="text-sm" />

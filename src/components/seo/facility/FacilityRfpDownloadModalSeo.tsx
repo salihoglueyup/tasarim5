@@ -48,7 +48,7 @@ export default function FacilityRfpDownloadModalSeo() {
   return (
     <div className="relative bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-8 md:p-12 shadow-sm overflow-hidden text-[var(--color-primary)]">
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1 space-y-4">

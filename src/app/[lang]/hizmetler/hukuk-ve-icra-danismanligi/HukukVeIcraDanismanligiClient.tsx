@@ -146,12 +146,12 @@ export default function HukukVeIcraDanismanligiClient() {
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <Icon name="gavel" className="text-[18px] text-blue-600 dark:text-blue-400" />
+              <Icon name="gavel" className="text-[18px] text-slate-600 dark:text-slate-400" />
               <span>Özet Rehber: Profesyonel KMK Hukuk ve İcra Danışmanlığı Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -163,35 +163,35 @@ export default function HukukVeIcraDanismanligiClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Profesyonel KMK Hukuk ve İcra Danışmanlığı</strong>;{' '}
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 toplu konut siteleri
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 iş merkezleri ve plazalar
               </Link>
               {' '}ile{' '}
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 endüstriyel tesislerin
               </Link>{' '}
               yönetim kurulları ve kat malikleri arasında doğabilecek tüm yasal ihtilafların, ödenmeyen aidat ve demirbaş alacaklarının, genel kurul iptal davalarının ve yönetim planı tadilatlarının 634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde çözülmesini sağlayan kurumsal avukatlık ve danışmanlık disiplinidir.
             </p>
             <p>
               Hukuki süreçlerimiz;{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 634 Sayılı Kat Mülkiyeti Kanunu (KMK)
               </Link>
               ,{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 2004 Sayılı İcra ve İflas Kanunu (İİK)
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
-              <a href="https://karararama.yargitay.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://karararama.yargitay.gov.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 Yargıtay Emsal Karar ve İçtihat Kütüphanesi
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
@@ -199,15 +199,15 @@ export default function HukukVeIcraDanismanligiClient() {
             </p>
             <p>
               Hukuk masamız;{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Entegre Tesis Yönetimi
               </Link>
               ,{' '}
-              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 5188 Lisanslı Özel Güvenlik
               </Link>
               {' '}ve{' '}
-              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Şeffaf Aidat Takibi
               </Link>{' '}
               ile entegre olarak dört ana operasyonel uzmanlık sütununda icra edilir:
@@ -261,7 +261,7 @@ export default function HukukVeIcraDanismanligiClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="balance" className="text-lg" />
                 </span>
                 <span>%100 Yargıtay Emsal Uyumu</span>
@@ -332,7 +332,7 @@ export default function HukukVeIcraDanismanligiClient() {
               Yönetici & Denetçi Yasal Güvencesi
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
-              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600 dark:from-emerald-400 dark:to-cyan-400">Cezai ve Şahsi Sorumluluk Kalkanı</span>
+              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Cezai ve Şahsi Sorumluluk Kalkanı</span>
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
               Amatör site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıyadır. Alo Yönetim hukuk müşavirliği bu riskleri %100 bertaraf eder.
@@ -350,7 +350,7 @@ export default function HukukVeIcraDanismanligiClient() {
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="verified_user" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">TCK m.155 Mali Suç Güvencesi</h3>
@@ -360,7 +360,7 @@ export default function HukukVeIcraDanismanligiClient() {
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="fact_check" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">Kusursuz İbra & Sıfır İptal Riski</h3>

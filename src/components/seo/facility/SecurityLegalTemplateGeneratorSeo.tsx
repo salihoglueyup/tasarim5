@@ -270,7 +270,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
       <div className="relative">
         <div className="flex items-center justify-between bg-slate-900 text-slate-300 px-5 py-3 rounded-t-2xl text-xs font-mono">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
             <span className="ml-2 text-slate-400">5188_resmi_belge_taslagi.txt</span>

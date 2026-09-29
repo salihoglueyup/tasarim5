@@ -159,9 +159,9 @@ export default function DistrictFacilityAuditTableSeo({
           <div className="text-[11px] font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Alo Yönetim Optimize Aidat</div>
           <div className="text-xl font-black text-emerald-600 dark:text-emerald-400 mt-1">₺{aloDuesM2}<span className="text-xs font-normal text-emerald-700/70 dark:text-emerald-300/70"> / m²</span></div>
         </div>
-        <div className="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-800/30">
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-300">Ortalama Bütçe Tasarrufu</div>
-          <div className="text-xl font-black text-blue-600 dark:text-blue-400 mt-1">%{savingsRate}<span className="text-xs font-normal text-blue-700/70 dark:text-blue-300/70"> Net İndirim</span></div>
+        <div className="p-4 rounded-2xl bg-slate-50/60 dark:bg-slate-950/20 border border-slate-200/70 dark:border-slate-800/30">
+          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">Ortalama Bütçe Tasarrufu</div>
+          <div className="text-xl font-black text-slate-600 dark:text-slate-400 mt-1">%{savingsRate}<span className="text-xs font-normal text-slate-700/70 dark:text-slate-300/70"> Net İndirim</span></div>
         </div>
       </div>
 

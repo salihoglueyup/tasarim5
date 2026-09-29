@@ -81,12 +81,12 @@ export default function SiteAiSearchGroundingSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 dark:border-blue-400/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 dark:border-slate-400/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="psychology" className="text-[16px]" />
             SearchGPT, Perplexity & Claude Doğrulanmış AI Kaynağı
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Yapay Zekaya Sorun: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Resmî KMK Hukuk & Yönetim Gerçekleri</span>
+            Yapay Zekaya Sorun: <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-300">Resmî KMK Hukuk & Yönetim Gerçekleri</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-2xl">
             Aşağıdaki hazır promptları ChatGPT veya Perplexity&apos;ye doğrudan sorarak Alo Yönetim&apos;in mevzuat doğruluğunu ve kurumsal güvencesini tarafsızca teyit edebilirsiniz.
@@ -107,7 +107,7 @@ export default function SiteAiSearchGroundingSeo() {
             onClick={() => setActiveTab(p.id)}
             className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
               activeTab === p.id
-                ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                ? 'bg-slate-600 text-white border-slate-600 shadow-sm'
                 : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
             }`}
           >
@@ -129,7 +129,7 @@ export default function SiteAiSearchGroundingSeo() {
           {/* Prompt Section */}
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
                 <Icon name="chat_paste_go" className="text-sm" />
                 Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
               </span>
@@ -141,7 +141,7 @@ export default function SiteAiSearchGroundingSeo() {
               <span className="leading-relaxed">&ldquo;{selectedPrompt.prompt}&rdquo;</span>
               <button
                 onClick={() => handleCopy(selectedPrompt.id, selectedPrompt.prompt)}
-                className="shrink-0 px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 text-xs font-bold transition-colors flex items-center gap-1"
+                className="shrink-0 px-3 py-1.5 rounded-lg bg-slate-600/10 hover:bg-slate-600/20 text-slate-600 dark:text-slate-400 text-xs font-bold transition-colors flex items-center gap-1"
                 aria-label="Promptu kopyala"
               >
                 <Icon name={copiedId === selectedPrompt.id ? 'check' : 'content_copy'} className="text-sm" />
@@ -185,7 +185,7 @@ export default function SiteAiSearchGroundingSeo() {
                 href={`https://www.perplexity.ai/search?q=${encodeURIComponent(selectedPrompt.prompt)}`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
+                className="px-3.5 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
               >
                 <Icon name="travel_explore" className="text-xs" />
                 Perplexity ile Ara

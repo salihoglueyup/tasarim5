@@ -146,7 +146,7 @@ export default function VoiceConversationalAiSnippetSeo({
 
   return (
     <section
-      className={`relative w-full rounded-2xl border border-violet-500/20 bg-gradient-to-br from-slate-900/90 via-violet-950/40 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
+      className={`relative w-full rounded-2xl border border-slate-500/20 bg-gradient-to-br from-slate-900/90 via-slate-950/40 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
       aria-label="Doğal Konuşma Dili ve Sesli Arama AI Asistanı"
     >
       <script
@@ -155,17 +155,17 @@ export default function VoiceConversationalAiSnippetSeo({
       />
 
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-violet-500/20 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-500/20 pb-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400 border border-violet-400/30 font-bold text-xl">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-500/20 text-slate-400 border border-slate-400/30 font-bold text-xl">
             <Icon name="mic" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center rounded-md bg-violet-500/10 px-2 py-0.5 text-xs font-semibold text-violet-300 border border-violet-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 Google Assistant & Siri AI Grounding
               </span>
-              <span className="inline-flex items-center rounded-md bg-pink-500/10 px-2 py-0.5 text-xs font-semibold text-pink-300 border border-pink-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 Speakable Voice Snippets
               </span>
             </div>
@@ -180,7 +180,7 @@ export default function VoiceConversationalAiSnippetSeo({
             onClick={handlePlayVoice}
             type="button"
             aria-label="Sesli dinle"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-violet-400/40 bg-violet-600/30 px-3 py-1.5 text-xs font-semibold text-violet-200 transition-all hover:bg-violet-600/50 active:scale-95"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-400/40 bg-slate-600/30 px-3 py-1.5 text-xs font-semibold text-slate-200 transition-all hover:bg-slate-600/50 active:scale-95"
           >
             <Icon name={isPlaying ? 'stop_circle' : 'volume_up'} className="text-sm" />
             {isPlaying ? 'Durdur' : 'Sesli Dinle'}
@@ -213,12 +213,12 @@ export default function VoiceConversationalAiSnippetSeo({
             }}
             className={`flex flex-col text-left p-3 rounded-xl border transition-all ${
               activeQueryId === q.id
-                ? 'border-violet-400 bg-violet-950/60 shadow-lg shadow-violet-900/30 ring-1 ring-violet-400/50'
+                ? 'border-slate-400 bg-slate-950/60 shadow-lg shadow-slate-900/30 ring-1 ring-slate-400/50'
                 : 'border-slate-800 bg-slate-900/50 hover:bg-slate-850 hover:border-slate-700 text-slate-400'
             }`}
           >
             <div className="flex items-center justify-between gap-1 mb-1">
-              <span className="text-[10px] uppercase font-bold tracking-wider text-violet-400">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
                 {q.category}
               </span>
               <Icon name="graphic_eq" className="text-sm text-slate-500" />
@@ -231,11 +231,11 @@ export default function VoiceConversationalAiSnippetSeo({
       </div>
 
       {/* Active Conversation Detail Card */}
-      <div className="mt-6 rounded-xl border border-violet-500/30 bg-slate-950/70 p-5">
+      <div className="mt-6 rounded-xl border border-slate-500/30 bg-slate-950/70 p-5">
         <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-violet-400 animate-pulse"></span>
-            <span className="text-xs font-semibold text-violet-300">
+            <span className="h-2.5 w-2.5 rounded-full bg-slate-400 animate-pulse"></span>
+            <span className="text-xs font-semibold text-slate-300">
               Kullanıcı Sesli Sorgusu:
             </span>
             <span className="voice-user-query text-xs sm:text-sm font-bold text-white italic">
@@ -249,20 +249,20 @@ export default function VoiceConversationalAiSnippetSeo({
 
         {/* Audio Waveform Simulation Bar */}
         {isPlaying && (
-          <div className="flex items-center gap-1 my-3 py-2 px-3 rounded-lg bg-violet-900/30 border border-violet-500/30">
-            <span className="text-xs text-violet-300 font-mono mr-2">Ses Sentezi Aktif:</span>
+          <div className="flex items-center gap-1 my-3 py-2 px-3 rounded-lg bg-slate-900/30 border border-slate-500/30">
+            <span className="text-xs text-slate-300 font-mono mr-2">Ses Sentezi Aktif:</span>
             <div className="flex items-end gap-0.5 h-4">
-              <div className="w-1 bg-violet-400 h-2 animate-bounce"></div>
-              <div className="w-1 bg-violet-400 h-4 animate-bounce delay-75"></div>
-              <div className="w-1 bg-violet-400 h-3 animate-bounce delay-150"></div>
-              <div className="w-1 bg-violet-400 h-4 animate-bounce delay-100"></div>
-              <div className="w-1 bg-violet-400 h-1 animate-bounce"></div>
+              <div className="w-1 bg-slate-400 h-2 animate-bounce"></div>
+              <div className="w-1 bg-slate-400 h-4 animate-bounce delay-75"></div>
+              <div className="w-1 bg-slate-400 h-3 animate-bounce delay-150"></div>
+              <div className="w-1 bg-slate-400 h-4 animate-bounce delay-100"></div>
+              <div className="w-1 bg-slate-400 h-1 animate-bounce"></div>
             </div>
           </div>
         )}
 
         {/* Direct Answer Box for Speakable */}
-        <div className="rounded-lg bg-violet-950/30 border border-violet-400/20 p-4">
+        <div className="rounded-lg bg-slate-950/30 border border-slate-400/20 p-4">
           <p
             id="voice-conversational-answer-text"
             className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal"
@@ -273,9 +273,9 @@ export default function VoiceConversationalAiSnippetSeo({
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
           <span>
-            Google Assistant & Siri için <code className="text-violet-300">#voice-conversational-answer-text</code> olarak etiketlenmiştir.
+            Google Assistant & Siri için <code className="text-slate-300">#voice-conversational-answer-text</code> olarak etiketlenmiştir.
           </span>
-          <span className="text-violet-300 font-semibold">
+          <span className="text-slate-300 font-semibold">
             TTS Süresi: ~12-15 saniye (Optimal Sesli Yanıt Boyutu)
           </span>
         </div>

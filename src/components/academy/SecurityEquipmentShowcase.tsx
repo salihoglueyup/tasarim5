@@ -171,7 +171,7 @@ export default function SecurityEquipmentShowcase() {
   return (
     <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-96 bg-gradient-to-tr from-amber-500/10 via-blue-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-96 bg-gradient-to-tr from-amber-500/10 via-slate-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -181,7 +181,7 @@ export default function SecurityEquipmentShowcase() {
             <span>Modern Güvenlik Donanımları & Saha Teknolojileri</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Akademide Teoriyle Kalmaz, <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">En Son Teknolojiyi</span> Birebir Kullanırsınız
+            Akademide Teoriyle Kalmaz, <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-slate-600">En Son Teknolojiyi</span> Birebir Kullanırsınız
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
             Alo Güvenlik Eğitim Kurumları müfredatında sadece kanun maddeleri değil, prestijli rezidans ve iş merkezlerinde görev yaparken kullanacağınız fiziki ve dijital donanımların uygulamalı laboratuvar eğitimleri yer alır.
@@ -232,7 +232,7 @@ export default function SecurityEquipmentShowcase() {
             {/* Left Column: Device Identity, Badges, Specs */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20">
                   <Layers className="w-3.5 h-3.5" />
                   {currentItem.category}
                 </span>
@@ -283,9 +283,9 @@ export default function SecurityEquipmentShowcase() {
               </div>
 
               {/* Legal Reference Callout */}
-              <div className="p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 flex items-start gap-3">
-                <Info className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-                <div className="text-xs text-blue-900 dark:text-blue-200">
+              <div className="p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-950/30 border border-slate-200 dark:border-slate-900/50 flex items-start gap-3">
+                <Info className="w-4 h-4 text-slate-600 dark:text-slate-400 shrink-0 mt-0.5" />
+                <div className="text-xs text-slate-900 dark:text-slate-200">
                   <span className="font-bold">Yasal Dayanak & Denetim: </span>
                   {currentItem.complianceLaw}
                 </div>
@@ -316,7 +316,7 @@ export default function SecurityEquipmentShowcase() {
               {/* Field Application Scenarios */}
               <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800">
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-                  <ChevronRight className="w-4 h-4 text-blue-500" />
+                  <ChevronRight className="w-4 h-4 text-slate-500" />
                   Mezuniyet Sonrası Sahada Karşılaşacağınız Noktalar
                 </h4>
                 <div className="space-y-2">
@@ -325,7 +325,7 @@ export default function SecurityEquipmentShowcase() {
                       key={index}
                       className="p-2.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                       <span>{app}</span>
                     </div>
                   ))}

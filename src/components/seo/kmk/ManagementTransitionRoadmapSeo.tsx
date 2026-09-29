@@ -47,7 +47,7 @@ export default function ManagementTransitionRoadmapSeo({
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
           <Icon name="sync_alt" className="text-sm" />
           <span>48 Saatte Pürüzsüz & Yasal Devir Teslim</span>
         </div>
@@ -70,13 +70,13 @@ export default function ManagementTransitionRoadmapSeo({
               onClick={() => setActiveStep(s.stepNumber)}
               className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between gap-1.5 ${
                 isActive
-                  ? 'bg-blue-600/30 border-blue-500 shadow-md ring-1 ring-blue-500/50'
+                  ? 'bg-slate-600/30 border-slate-500 shadow-md ring-1 ring-slate-500/50'
                   : 'bg-slate-950/60 border-slate-800 hover:border-slate-700'
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                  isActive ? 'bg-blue-500 text-white' : 'bg-slate-800 text-slate-400'
+                  isActive ? 'bg-slate-500 text-white' : 'bg-slate-800 text-slate-400'
                 }`}>
                   {s.stepNumber}
                 </span>
@@ -97,7 +97,7 @@ export default function ManagementTransitionRoadmapSeo({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-slate-500/20 text-slate-400 text-xs font-bold">
                 Adım {currentStage.stepNumber} / 6
               </span>
               <span className="text-xs text-slate-400 font-semibold">• {currentStage.timeframe}</span>
@@ -105,14 +105,14 @@ export default function ManagementTransitionRoadmapSeo({
             <h3 className="text-xl sm:text-2xl font-extrabold text-white">
               {currentStage.stageTitle}
             </h3>
-            <span className="text-xs text-blue-400 font-medium mt-1 inline-block">
+            <span className="text-xs text-slate-400 font-medium mt-1 inline-block">
               Yasal Dayanak: {currentStage.legalBasis}
             </span>
           </div>
 
           <Link
             href="/teklif-al"
-            className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors shrink-0 text-center"
+            className="px-4 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-colors shrink-0 text-center"
           >
             Siteniz İçin Süreci Başlatın →
           </Link>
@@ -126,7 +126,7 @@ export default function ManagementTransitionRoadmapSeo({
           {/* Action Items */}
           <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <Icon name="checklist" className="text-blue-400 text-base" />
+              <Icon name="checklist" className="text-slate-400 text-base" />
               <span>Bu Aşamada Yapılan Kritik İşlemler</span>
             </h4>
             <ul className="space-y-2">
@@ -157,10 +157,10 @@ export default function ManagementTransitionRoadmapSeo({
         </div>
 
         {/* Alo Yönetim Role Banner */}
-        <div className="mt-6 p-4 rounded-xl bg-blue-950/30 border border-blue-900/40 flex items-start gap-3">
-          <Icon name="verified_user" className="text-blue-400 text-xl shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 rounded-xl bg-slate-950/30 border border-slate-900/40 flex items-start gap-3">
+          <Icon name="verified_user" className="text-slate-400 text-xl shrink-0 mt-0.5" />
           <div>
-            <span className="text-xs font-bold text-blue-300 block">Alo Yönetim Kurumsal Güvencesi:</span>
+            <span className="text-xs font-bold text-slate-300 block">Alo Yönetim Kurumsal Güvencesi:</span>
             <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">
               {currentStage.aloYonetimRole}
             </p>

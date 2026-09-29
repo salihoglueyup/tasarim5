@@ -29,10 +29,10 @@ export default function AppShowcase() {
               href="https://apps.apple.com/app/apsiyon/id1115852575"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-blue-500 hover:scale-[1.02] transition-all shadow-2xs group"
+              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-slate-500 hover:scale-[1.02] transition-all shadow-2xs group"
               aria-label={t('as_ios')}
             >
-              <Icon name="phone_iphone" className="text-2xl text-[var(--color-primary)] group-hover:text-blue-500 transition-colors" />
+              <Icon name="phone_iphone" className="text-2xl text-[var(--color-primary)] group-hover:text-slate-500 transition-colors" />
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('home_app_download')}</span>
                 <span className="text-sm font-bold">App Store</span>
@@ -57,10 +57,10 @@ export default function AppShowcase() {
               href="https://online.apsiyon.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-purple-500 hover:scale-[1.02] transition-all shadow-2xs group"
+              className="bg-[var(--color-surface-variant)] px-6 py-3 rounded-2xl flex items-center gap-3 border border-[var(--color-outline)]/60 text-[var(--color-primary)] hover:border-slate-500 hover:scale-[1.02] transition-all shadow-2xs group"
               aria-label={t('as_web_aria')}
             >
-              <Icon name="laptop_mac" className="text-2xl text-[var(--color-primary)] group-hover:text-purple-500 transition-colors" />
+              <Icon name="laptop_mac" className="text-2xl text-[var(--color-primary)] group-hover:text-slate-500 transition-colors" />
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-[var(--color-secondary)]">{t('as_web_from')}</span>
                 <span className="text-sm font-bold">{t('as_resident_login')}</span>

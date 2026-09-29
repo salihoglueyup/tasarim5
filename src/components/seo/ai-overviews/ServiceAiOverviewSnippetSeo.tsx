@@ -193,7 +193,7 @@ export default function ServiceAiOverviewSnippetSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-primary/10 via-teal-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-primary/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
@@ -205,7 +205,7 @@ export default function ServiceAiOverviewSnippetSeo({
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
             {truth.badge}
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             ISO 41001
           </span>
         </div>

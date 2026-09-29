@@ -135,12 +135,12 @@ export default function TeknikBakimClient() {
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <Icon name="engineering" className="text-[18px] text-blue-600 dark:text-blue-400" />
+              <Icon name="engineering" className="text-[18px] text-slate-600 dark:text-slate-400" />
               <span>Özet Rehber: Profesyonel Tesis Teknik Bakım ve Mühendislik Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -152,51 +152,51 @@ export default function TeknikBakimClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis Teknik Bakım ve Mühendislik Yönetimi</strong>;{' '}
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 toplu konut siteleri
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 iş merkezleri ve kurumsal plazalar
               </Link>
               {' '}ile{' '}
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 endüstriyel tesis ve fabrikaların
               </Link>{' '}
               elektromekanik, ısıtma, soğutma, yangın ve enerji altyapılarının kesintisiz, güvenli ve ekonomik olarak işletilmesini sağlayan kestirimci mühendislik disiplinidir. Reaktif (arıza oluştuktan sonra tamir eden) anlayışın yerine planlı önleyici bakım modelini koyarak cihazların amortisman ömrünü uzatır, acil arıza maliyetlerini %40 azaltır ve bina sakinlerine kesintisiz konfor sunar.
             </p>
             <p>
               Tüm teknik operasyonlarımız;{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=30740&MevzuatTur=7&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=30740&MevzuatTur=7&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
-              <a href="https://www.mmo.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.mmo.org.tr" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 TMMOB Makina Mühendisleri Odası (MMO) Periyodik Kontrol Standartları
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 634 Sayılı Kat Mülkiyeti Kanunu (KMK)
               </Link>
               {' '}ve Binaların Yangından Korunması Hakkında Yönetmelik mevzuatlarına tam uyumlu olarak yetkili mühendis kadrolarımızca yürütülür.
             </p>
             <p>
               Teknik bakım süreçlerimiz;{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Entegre Tesis Yönetimi
               </Link>
               ,{' '}
-              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 5188 Lisanslı Özel Güvenlik
               </Link>
               {' '}ve{' '}
-              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Şeffaf Aidat Takibi
               </Link>{' '}
               ile entegre olarak dört ana operasyonel uzmanlık sütununda icra edilir:
@@ -262,7 +262,7 @@ export default function TeknikBakimClient() {
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="verified" className="text-lg" />
                 </span>
                 <span>%100 Yeşil Etiket Güvencesi</span>
@@ -328,7 +328,7 @@ export default function TeknikBakimClient() {
                 MMO / TSE A Tipi Akredite Muayene Garantisi
               </div>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-                Asansör İşletme Yönetmeliği <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400">Yeşil Etiket Protokolü</span>
+                Asansör İşletme Yönetmeliği <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Yeşil Etiket Protokolü</span>
               </h2>
               <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
                 Bakanlık mevzuatı uyarınca asansörlerinizin mühürlenmesini, sarı/kırmızı etiket cezalarını ve yönetici cezai sorumluluklarını sıfırlayan mühendislik süreci.
@@ -386,7 +386,7 @@ export default function TeknikBakimClient() {
               Planlı Önleyici Bakım (PPM) & Enerji Güvencesi
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
-              Tesisler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400">365 Günlük Mühendislik Kalkanı</span>
+              Tesisler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">365 Günlük Mühendislik Kalkanı</span>
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
               Arıza oluştuktan sonra tamir etmek yerine, kestirimci ölçümler ve periyodik mühendislik testleri ile arızayı önceden engelliyoruz. Kompanzasyon panolarınızı 7/24 izleyerek elektrik faturalarındaki reaktif güç cezalarını sıfırlıyoruz.
@@ -404,7 +404,7 @@ export default function TeknikBakimClient() {
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="sync_alt" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">Senkron Jeneratör & Trafo</h3>
@@ -414,7 +414,7 @@ export default function TeknikBakimClient() {
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="water_drop" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">Hidrofor & Yangın Pompaları</h3>

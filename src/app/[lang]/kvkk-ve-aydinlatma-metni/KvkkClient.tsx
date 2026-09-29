@@ -104,11 +104,11 @@ export default function KvkkClient() {
                 <span>Açık Rıza Yönetimi</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>VERBİS Kayıtlı</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-                <FileText className="w-4 h-4 text-purple-500 shrink-0" />
+                <FileText className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>Yasal Tebliğ Uyumlu</span>
               </div>
             </div>

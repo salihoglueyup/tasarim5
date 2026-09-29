@@ -70,7 +70,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
                 key={idx}
                 className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 border ${
                   isActive
-                    ? 'bg-[var(--color-surface)] border-red-500 shadow-md ring-1 ring-red-500/20'
+                    ? 'bg-[var(--color-surface)] border-rose-500 shadow-md ring-1 ring-rose-500/20'
                     : 'bg-[var(--color-surface-variant)]/40 border-[var(--color-outline)]/80'
                 }`}
               >
@@ -79,7 +79,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
                     <span
                       className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${
                         isActive
-                          ? 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20 animate-pulse'
+                          ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20 animate-pulse'
                           : 'bg-[var(--color-surface)] text-[var(--color-secondary)] border-[var(--color-outline)]/60'
                       }`}
                     >
@@ -98,7 +98,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
                     <div className="p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60">
                       <div className="text-[11px] text-[var(--color-secondary)] font-medium mb-0.5">Sınav Tarihi & Saati</div>
                       <div className="text-sm font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                        <Icon name="event" className="text-base text-red-500" />
+                        <Icon name="event" className="text-base text-rose-500" />
                         <span>{exam.examDate}</span>
                       </div>
                     </div>
@@ -120,7 +120,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
                   onClick={() => onRegisterClick && onRegisterClick(exam.period)}
                   className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     isActive
-                      ? 'bg-red-600 hover:bg-red-500 text-white shadow-md active:scale-95'
+                      ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-md active:scale-95'
                       : 'bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
                   }`}
                 >
@@ -135,7 +135,7 @@ export default function AcademyExamScheduleSeo({ onRegisterClick }: AcademyExamS
         {/* Scoring & Rules Summary Box */}
         <div className="bg-[var(--color-surface-variant)]/30 border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8">
           <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm mb-4">
-            <Icon name="rule" className="text-lg text-red-500" />
+            <Icon name="rule" className="text-lg text-rose-500" />
             <span>EGM Sınav Puanı Hesaplama & Geçme Kuralları (2026 Mevzuatı)</span>
           </div>
 

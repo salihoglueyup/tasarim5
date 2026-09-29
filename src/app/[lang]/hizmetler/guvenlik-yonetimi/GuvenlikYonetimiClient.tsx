@@ -39,7 +39,7 @@ export default function GuvenlikYonetimiClient() {
       title: t('sec_feat_2_title') || '7/24 CCTV & Kamera İzleme Merkezi',
       desc: t('sec_feat_2_desc') || 'Kör nokta bırakmayan yüksek çözünürlüklü IP kamera sistemleri, yapay zeka destekli hareket ve sınır ihlal alarmları.',
       icon: "center_focus_strong",
-      color: "from-blue-700 to-indigo-900"
+      color: "from-slate-700 to-slate-900"
     },
     {
       title: t('sec_feat_3_title') || 'Plaka Tanıma & Turnike Geçiş Sistemi',
@@ -51,7 +51,7 @@ export default function GuvenlikYonetimiClient() {
       title: t('sec_feat_4_title') || 'Devriye Tur Kontrol ve Raporlama',
       desc: t('sec_feat_4_desc') || 'Karekodlu ve GPS destekli gece/gündüz devriye turları ile ortak alanların, otoparkların ve çevre duvarlarının anlık denetimi.',
       icon: "shield_person",
-      color: "from-emerald-700 to-teal-900"
+      color: "from-emerald-700 to-slate-900"
     },
     {
       title: t('sec_feat_5_title') || 'Yangın & Acil Durum Tahliye Yönetimi',
@@ -63,7 +63,7 @@ export default function GuvenlikYonetimiClient() {
       title: t('sec_feat_6_title') || 'Hızlı Müdahale ve Emniyet Koordinasyonu',
       desc: t('sec_feat_6_desc') || 'Olası asayiş, hırsızlık veya acil sağlık durumlarında polis ve 112 acil çağrı merkezleriyle entegre alarm protokolü.',
       icon: "local_police",
-      color: "from-blue-800 to-slate-900"
+      color: "from-slate-800 to-slate-900"
     }
   ];
 
@@ -184,12 +184,12 @@ export default function GuvenlikYonetimiClient() {
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <Icon name="verified_user" className="text-[18px] text-blue-600 dark:text-blue-400" />
+              <Icon name="verified_user" className="text-[18px] text-slate-600 dark:text-slate-400" />
               <span>Özet Rehber: 5188 Lisanslı Özel Güvenlik Nedir?</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
@@ -201,47 +201,47 @@ export default function GuvenlikYonetimiClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">5188 Lisanslı Özel Güvenlik Hizmeti</strong>;{' '}
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 toplu konut tesisleri ve mega siteler
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 rezidans ve lüks yaşam kuleleri
               </Link>
               ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 plaza ve ticari iş merkezleri
               </Link>
               {' '}ile{' '}
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 sanayi tesisleri ve lojistik depoların
               </Link>{' '}
               can, mal ve bilgi güvenliğini sağlamak amacıyla T.C. İçişleri Bakanlığı ve İl Valilikleri denetiminde yürütülen profesyonel koruma disiplinidir. Geleneksel ve yetkisiz kapıcı/bekçi modelinin aksine 5188 lisanslı güvenlik; kimlik sorgulama, üst/araç detektör araması, suçüstü yakalama, tahliye yönetimi ve genel kolluk (Polis/Jandarma) ile anlık koordinasyon sağlama gibi yasal ve adli yetkilerle donatılmıştır.
             </p>
             <p>
               Güvenlik operasyonlarımız;{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
-              <a href="https://www.egm.gov.tr/ozelguvenlik" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-0.5">
+              <a href="https://www.egm.gov.tr/ozelguvenlik" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
                 Emniyet Genel Müdürlüğü Özel Güvenlik Denetleme Standartları
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 634 Sayılı Kat Mülkiyeti Kanunu (KMK)
               </Link>
               {' '}ve 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kamera kayıt saklama protokolleri çerçevesinde kusursuz bir yasal güvenceyle icra edilir.
             </p>
             <p>
               Alo Yönetim, özel güvenlik operasyonlarını{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Entegre Tesis Yönetimi
               </Link>{' '}
               ve{' '}
-              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Teknik Bakım ve Otomasyon
               </Link>{' '}
               süreçleriyle senkronize ederek dört ana operasyonel sütun üzerinde icra eder:
@@ -288,7 +288,7 @@ export default function GuvenlikYonetimiClient() {
 
             <p>
               Tüm personelimiz,{' '}
-              <Link href="/guvenlik-akademisi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/guvenlik-akademisi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 Alo Güvenlik Akademisi
               </Link>{' '}
               kapsamında 5188 kanun, yakın savunma, etkili iletişim, kriz yönetimi, yangın söndürme ve ilk yardım eğitimlerini başarıyla tamamlamıştır. Sitenizde veya tesisinizde görevlendirilen tüm personelin kıdem/ihbar tazminatları, SGK primleri ve Zorunlu Özel Güvenlik Mali Sorumluluk Sigortaları şirketimizin tüzel kişilik güvencesi altındadır; kat malikleri kurulunun hiçbir şahsi hukuki ve cezai riski bulunmaz.
@@ -299,7 +299,7 @@ export default function GuvenlikYonetimiClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="verified" className="text-lg" />
                 </span>
                 <span>%100 Valilik İzni & Yasal Güvence</span>
@@ -380,15 +380,15 @@ export default function GuvenlikYonetimiClient() {
 
         {/* Güvenlik Akademisi E-E-A-T Spotlight Kartı */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
           <div className="space-y-4 max-w-2xl relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-bold text-blue-600 dark:text-blue-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-500/10 border border-slate-500/20 rounded-full text-xs font-bold text-slate-600 dark:text-slate-400">
               <Icon name="school" className="text-sm" />
               <span>Kendi Akademimizde Yetişen Uzman Kadro</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight leading-tight">
               Alo Güvenlik Akademisi: <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Sürekli Hizmet İçi Eğitim Güvencesi</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-400">Sürekli Hizmet İçi Eğitim Güvencesi</span>
             </h2>
             <p className="text-sm md:text-base text-[var(--color-secondary)] font-light leading-relaxed">
               Tesislerinizde görev alan tüm özel güvenlik personeli; 5188 mevzuat, yangın söndürme, ilk yardım, yakın savunma, şüpheli profil analizi ve etkili iletişim eğitimlerini akademimizde tamamlar.
@@ -468,11 +468,11 @@ export default function GuvenlikYonetimiClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-                <Icon name="policy" className="text-[16px] text-blue-600 dark:text-blue-400" />
+                <Icon name="policy" className="text-[16px] text-slate-600 dark:text-slate-400" />
                 T.C. İçişleri Bakanlığı & Valilik Süreci
               </div>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-                5188 Sayılı Kanun <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Valilik İzin & Komisyon Protokolü</span>
+                5188 Sayılı Kanun <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-400">Valilik İzin & Komisyon Protokolü</span>
               </h2>
               <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
                 Sitenizde yasal olarak özel güvenlik istihdam edilebilmesi için İl Özel Güvenlik Komisyonu nezdinde tamamlanması zorunlu 5 resmi adım.
@@ -516,10 +516,10 @@ export default function GuvenlikYonetimiClient() {
                 icon: "shield_person",
               }
             ].map((s, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-3 relative group hover:border-blue-500/50 transition-colors">
+              <div key={idx} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-3 relative group hover:border-slate-500/50 transition-colors">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-black text-blue-600 dark:text-blue-400 tracking-wider">ADIM {s.step}</span>
-                  <Icon name={s.icon} className="text-lg text-slate-400 group-hover:text-blue-500 transition-colors" />
+                  <span className="text-xs font-black text-slate-600 dark:text-slate-400 tracking-wider">ADIM {s.step}</span>
+                  <Icon name={s.icon} className="text-lg text-slate-400 group-hover:text-slate-500 transition-colors" />
                 </div>
                 <h3 className="font-bold text-sm text-[var(--color-primary)]">{s.title}</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed font-light">{s.desc}</p>
@@ -536,7 +536,7 @@ export default function GuvenlikYonetimiClient() {
               4857 Sayılı İş Kanunu Güvencesi
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
-              Site Yönetimleri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-cyan-400">Kıdem Tazminatı & Sorumluluk Kalkanı</span>
+              Site Yönetimleri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Kıdem Tazminatı & Sorumluluk Kalkanı</span>
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
               Kendi bünyesinde doğrudan güvenlik veya bekçi çalıştıran sitelerde kat malikleri; biriken yüz binlerce liralık kıdem tazminatı, fazla mesai davaları ve iş kazası rücularında şahsi mal varlıklarıyla müteselsilen sorumludur. Alo Yönetim ile bu risklerin tamamı sıfırlanır.
@@ -554,7 +554,7 @@ export default function GuvenlikYonetimiClient() {
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="health_and_safety" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">6331 İSG & İş Kazası Kalkanı</h3>
@@ -564,7 +564,7 @@ export default function GuvenlikYonetimiClient() {
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="verified" className="text-xl" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">Zorunlu Mali Mesuliyet Sigortası</h3>

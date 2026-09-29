@@ -163,11 +163,11 @@ export default function MobileMenu({
                     <button 
                       type="button"
                       onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.nameKey ? null : item.nameKey)}
-                      className="flex items-center justify-between py-3.5 text-lg font-bold text-slate-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="flex items-center justify-between py-3.5 text-lg font-bold text-slate-900 dark:text-white cursor-pointer hover:text-slate-600 dark:hover:text-slate-400 transition-colors"
                       aria-expanded={expandedMobileMenu === item.nameKey}
                     >
                       <span>{t(item.nameKey)}</span>
-                      <Icon name="expand_more" className={`transition-transform duration-200 transform-gpu text-slate-400 dark:text-slate-500 ${expandedMobileMenu === item.nameKey ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''}`} />
+                      <Icon name="expand_more" className={`transition-transform duration-200 transform-gpu text-slate-400 dark:text-slate-500 ${expandedMobileMenu === item.nameKey ? 'rotate-180 text-slate-600 dark:text-slate-400' : ''}`} />
                     </button>
                     
                     {/* CSS Grid Rows tabanlı akıcı alt menü */}
@@ -183,7 +183,7 @@ export default function MobileMenu({
                               key={sub.nameKey} 
                               href={getLocalizedPath(sub.path)} 
                               onClick={onClose}
-                              className="text-base text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white flex items-center gap-2.5 font-medium transition-colors py-1"
+                              className="text-base text-slate-600 dark:text-slate-300 hover:text-slate-600 dark:hover:text-white flex items-center gap-2.5 font-medium transition-colors py-1"
                             >
                               {sub.icon && <Icon name={sub.icon} className="text-[17px] opacity-60" />}
                               <span>{t(sub.nameKey)}</span>
@@ -197,7 +197,7 @@ export default function MobileMenu({
                   <Link 
                     href={getLocalizedPath(item.path!)} 
                     onClick={onClose}
-                    className="block py-3.5 text-lg font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="block py-3.5 text-lg font-bold text-slate-900 dark:text-white hover:text-slate-600 dark:hover:text-slate-400 transition-colors"
                   >
                     {t(item.nameKey)}
                   </Link>
@@ -211,7 +211,7 @@ export default function MobileMenu({
             <button 
               type="button"
               onClick={() => { onClose(); openQuoteModal(); }}
-              className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-base font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/25 active:scale-95 transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 w-full bg-slate-600 hover:bg-slate-700 text-white text-base font-bold py-3.5 rounded-xl shadow-lg shadow-slate-600/25 active:scale-95 transition-all cursor-pointer"
             >
               <span>{t('btn_get_quote')}</span>
               <Icon name="arrow_forward" className="text-[19px]" />
@@ -238,7 +238,7 @@ export default function MobileMenu({
                     onClick={() => handleMobileLanguageChange(l.code as 'tr' | 'en' | 'ru' | 'ar')}
                     className={`py-2.5 px-2 rounded-xl text-xs font-bold flex flex-col items-center gap-1.5 border transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/30'
+                        ? 'bg-slate-600 text-white border-slate-600 shadow-md shadow-slate-600/30'
                         : 'bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/10'
                     }`}
                   >

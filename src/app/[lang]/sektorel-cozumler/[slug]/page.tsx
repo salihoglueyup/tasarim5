@@ -181,11 +181,11 @@ export default async function SectoralSolutionDetailPage({
           <div className="lg:col-span-8 space-y-10">
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 md:p-12 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
-                <span className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                <span className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name={solution.icon || 'domain'} className="text-2xl" />
                 </span>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                     Sektörel Operasyon Modeli
                   </span>
                   <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
@@ -195,7 +195,7 @@ export default async function SectoralSolutionDetailPage({
               </div>
 
               <div 
-                className="text-base text-[var(--color-secondary)] leading-relaxed space-y-4 prose-a:text-[var(--color-primary)] prose-a:font-semibold prose-a:underline hover:prose-a:text-blue-600 transition-colors"
+                className="text-base text-[var(--color-secondary)] leading-relaxed space-y-4 prose-a:text-[var(--color-primary)] prose-a:font-semibold prose-a:underline hover:prose-a:text-slate-600 transition-colors"
                 dangerouslySetInnerHTML={{ __html: processedDescription }}
               />
 
@@ -214,13 +214,13 @@ export default async function SectoralSolutionDetailPage({
             {features.length > 0 && (
               <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-3xl p-8 md:p-12 shadow-sm">
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6 flex items-center gap-2">
-                  <Icon name="task_alt" className="text-blue-600 dark:text-blue-400" />
+                  <Icon name="task_alt" className="text-slate-600 dark:text-slate-400" />
                   Öne Çıkan Standartlarımız ve Hizmet Kapsamı
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60">
-                      <Icon name="check_circle" className="text-blue-600 dark:text-blue-400 text-lg shrink-0 mt-0.5" />
+                      <Icon name="check_circle" className="text-slate-600 dark:text-slate-400 text-lg shrink-0 mt-0.5" />
                       <span className="text-sm text-[var(--color-secondary)] font-medium">{feature}</span>
                     </div>
                   ))}
@@ -232,7 +232,7 @@ export default async function SectoralSolutionDetailPage({
           {/* Sağ Kolon: CTA & İletişim Kartı */}
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 shadow-sm space-y-6">
-              <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider inline-block">
+              <span className="px-3 py-1 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20 text-xs font-bold uppercase tracking-wider inline-block">
                 Ücretsiz Keşif & Analiz
               </span>
               <h3 className="text-2xl font-bold text-[var(--color-primary)]">
@@ -264,7 +264,7 @@ export default async function SectoralSolutionDetailPage({
               </h4>
               <Link
                 href="/sektorel-cozumler"
-                className="text-xs text-blue-600 dark:text-blue-400 font-bold hover:underline flex items-center gap-1"
+                className="text-xs text-slate-600 dark:text-slate-400 font-bold hover:underline flex items-center gap-1"
               >
                 <span>Tüm Sektörel Çözümleri Gör</span>
                 <Icon name="arrow_forward" className="text-sm" />
@@ -287,22 +287,22 @@ export default async function SectoralSolutionDetailPage({
             </h3>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/hizmetler/tesis-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
-              <Icon name="corporate_fare" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+            <Link href="/hizmetler/tesis-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
+              <Icon name="corporate_fare" className="text-2xl text-slate-600 dark:text-slate-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Entegre Tesis Yönetimi</span>
               <span className="text-xs text-[var(--color-secondary)]">360° operasyonel işletme.</span>
             </Link>
-            <Link href="/hizmetler/guvenlik-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
-              <Icon name="shield" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+            <Link href="/hizmetler/guvenlik-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
+              <Icon name="shield" className="text-2xl text-slate-600 dark:text-slate-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">5188 Lisanslı Özel Güvenlik</span>
               <span className="text-xs text-[var(--color-secondary)]">Valilik izinli, PTS/CCTV ve 7/24 devriye kalkanı.</span>
             </Link>
-            <Link href="/hizmetler/aidat-takibi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
+            <Link href="/hizmetler/aidat-takibi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
               <Icon name="payments" className="text-2xl text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Aidat & Finans Takibi</span>
               <span className="text-xs text-[var(--color-secondary)]">KMK m.20 şeffaf bilanço ve ilamsız icra takibi.</span>
             </Link>
-            <Link href="/hizmetler/teknik-bakim" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500 transition-all flex flex-col gap-2 group">
+            <Link href="/hizmetler/teknik-bakim" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
               <Icon name="engineering" className="text-2xl text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Teknik Bakım & Asansör</span>
               <span className="text-xs text-[var(--color-secondary)]">MMO yeşil etiket ve %0 kompanzasyon ceza güvencesi.</span>

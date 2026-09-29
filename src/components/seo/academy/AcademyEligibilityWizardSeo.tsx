@@ -16,7 +16,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
   let recommendation = {
     courseName: 'Silahlı Özel Güvenlik Temel Eğitimi (120 Saat)',
     badge: 'Silahlı Temel Uygun',
-    badgeColor: 'bg-red-500/10 text-red-700 dark:text-red-300 border-red-500/20',
+    badgeColor: 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20',
     icon: 'verified',
     summary: 'Tebrikler! 21 yaşını doldurduğunuz ve en az lise mezunu olduğunuz için Silahlı Özel Güvenlik Temel Eğitimi alabilir, banka ve plazalarda yüksek maaşla çalışabilirsiniz.',
     details: '100 saat temel ders + 20 saat silah eğitimi ve kapalı poligonda 25 mermi gerçek atış eğitimi içerir.',
@@ -40,7 +40,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
       recommendation = {
         courseName: 'Silahsızdan Silahlıya Geçiş (Fark Eğitimi)',
         badge: 'Hızlı Silahlı Terfi (20 Saat)',
-        badgeColor: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
+        badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
         icon: 'upgrade',
         summary: 'Harika fırsat! Silahsız kimliğiniz olduğu için 100 saatlik temel derse yeniden girmeden sadece 20 saatlik Silah Farkı ve 25 atış ile silahlı kimliğe terfi edebilirsiniz.',
         details: 'Kısa sürede tamamlanır, EGM sınavında yalnızca 25 silah sorusu ve 5 atıştan sorumlu olursunuz.',
@@ -50,7 +50,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
       recommendation = {
         courseName: 'Silahsız Özel Güvenlik Yenileme Eğitimi (50 Saat)',
         badge: 'Silahsız Statü Devamı',
-        badgeColor: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
+        badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
         icon: 'info',
         summary: 'Silahlı kimliğe geçebilmek için 21 yaşını doldurmuş ve en az lise mezunu olmanız gerekir. Şartlar oluşana dek silahsız kimliğinizi yenileyerek çalışmaya devam edebilirsiniz.',
         details: '50 saatlik ders katılımı ile silahsız kimliğiniz 5 yıl daha geçerli olur.',
@@ -63,7 +63,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
       recommendation = {
         courseName: 'Silahsız Özel Güvenlik Temel Eğitimi (100 Saat)',
         badge: 'Silahsız Temel Uygun',
-        badgeColor: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
+        badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
         icon: 'check_circle',
         summary: '18 yaşını doldurduğunuz ve en az ortaokul mezunu olduğunuz için Silahsız Özel Güvenlik Temel Eğitimi alabilirsiniz. Rezidans, site ve AVM projelerinde hemen işe başlayabilirsiniz.',
         details: '100 saatlik temel mevzuat, ilk yardım, yangın ve iletişim eğitimlerini içerir; poligon atışı yoktur.',
@@ -215,7 +215,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
           <div className="p-6 md:p-8 rounded-2xl bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)]/80">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-[var(--color-outline)]/60">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm">
                   <Icon name={recommendation.icon} className="text-2xl" />
                 </div>
                 <div>
@@ -231,7 +231,7 @@ export default function AcademyEligibilityWizardSeo({ onSelectCourse }: AcademyE
               <button
                 type="button"
                 onClick={() => onSelectCourse && onSelectCourse(recommendation.courseName)}
-                className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center justify-center gap-2 shrink-0"
+                className="px-6 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center justify-center gap-2 shrink-0"
               >
                 <Icon name="how_to_reg" className="text-base" />
                 <span>Bu Eğitime Ön Kayıt Ol</span>

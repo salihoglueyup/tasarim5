@@ -58,7 +58,7 @@ export default function KMKAuditProtocolSeo({
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
           <Icon name="fact_check" className="text-sm" />
           <span>KMK Madde 41 Yasal Denetim Standartları</span>
         </div>
@@ -77,7 +77,7 @@ export default function KMKAuditProtocolSeo({
           onClick={() => setActiveCategory('all')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
             activeCategory === 'all'
-              ? 'bg-purple-600 text-white shadow-md'
+              ? 'bg-slate-600 text-white shadow-md'
               : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
           }`}
         >
@@ -93,7 +93,7 @@ export default function KMKAuditProtocolSeo({
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
                 isActive
-                  ? 'bg-purple-600 text-white shadow-md'
+                  ? 'bg-slate-600 text-white shadow-md'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
               }`}
             >
@@ -114,7 +114,7 @@ export default function KMKAuditProtocolSeo({
               id={chk.id}
               className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                 isExpanded
-                  ? 'bg-slate-950/80 border-purple-500/50 shadow-lg'
+                  ? 'bg-slate-950/80 border-slate-500/50 shadow-lg'
                   : 'bg-slate-950/40 border-slate-800/80 hover:border-slate-700'
               }`}
             >
@@ -124,7 +124,7 @@ export default function KMKAuditProtocolSeo({
                 className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4"
               >
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <span className="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/30 flex items-center justify-center text-xs font-bold shrink-0">
+                  <span className="w-7 h-7 rounded-lg bg-slate-500/20 text-slate-300 border border-slate-500/30 flex items-center justify-center text-xs font-bold shrink-0">
                     {chk.stepNumber}
                   </span>
                   <div>
@@ -132,13 +132,13 @@ export default function KMKAuditProtocolSeo({
                       {chk.checkpointTitle}
                     </h3>
                     <div className="flex items-center gap-3 mt-1 text-[11px] text-slate-400">
-                      <span className="text-purple-400 font-semibold">{chk.legalBasis}</span>
+                      <span className="text-slate-400 font-semibold">{chk.legalBasis}</span>
                       <span>•</span>
                       <span>Periyot: {chk.auditFrequency}</span>
                     </div>
                   </div>
                 </div>
-                <Icon name="expand_more" className={`text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-purple-400' : ''}`} />
+                <Icon name="expand_more" className={`text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-slate-400' : ''}`} />
               </button>
 
               {isExpanded && (

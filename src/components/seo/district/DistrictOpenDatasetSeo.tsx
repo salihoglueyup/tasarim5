@@ -87,7 +87,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 text-xs font-extrabold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-600/10 dark:bg-slate-400/10 text-slate-700 dark:text-slate-300 text-xs font-extrabold uppercase tracking-wider mb-2">
             <Icon name="dataset" className="text-sm" />
             Google Dataset Search Açık Veri (2026 Endeksi)
           </div>
@@ -101,7 +101,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
           className="shrink-0 px-3.5 py-1.5 rounded-xl bg-[var(--color-surface-variant)] hover:bg-slate-200 dark:hover:bg-slate-800 border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold transition-colors flex items-center gap-1.5"
           aria-label="Veri Seti Atfını Kopyala"
         >
-          <Icon name={copied ? 'check' : 'format_quote'} className="text-sm text-blue-600 dark:text-blue-400" />
+          <Icon name={copied ? 'check' : 'format_quote'} className="text-sm text-slate-600 dark:text-slate-400" />
           <span>{copied ? 'Atıf Kopyalandı!' : 'Veri Kümesini Alıntıla'}</span>
         </button>
       </div>
@@ -144,14 +144,14 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
           </span>
         </div>
 
-        <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30">
-          <span className="text-[11px] font-semibold text-blue-700 dark:text-blue-300 block mb-1">
+        <div className="p-4 rounded-2xl bg-slate-500/10 border border-slate-500/30">
+          <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block mb-1">
             Bütçe Tasarruf Oranı
           </span>
-          <div className="text-xl sm:text-2xl font-black text-blue-600 dark:text-blue-400">
+          <div className="text-xl sm:text-2xl font-black text-slate-600 dark:text-slate-400">
             %{profile.savingsRate}
           </div>
-          <span className="text-[10px] text-blue-700 dark:text-blue-300 font-medium mt-0.5 block">
+          <span className="text-[10px] text-slate-700 dark:text-slate-300 font-medium mt-0.5 block">
             Ortalama Yıllık Tasarruf
           </span>
         </div>
@@ -169,9 +169,9 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
           </p>
         </div>
 
-        <div className="p-4 rounded-2xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/60 dark:border-blue-900/30">
-          <div className="flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300 mb-1">
-            <Icon name="gavel" className="text-blue-600 text-sm" />
+        <div className="p-4 rounded-2xl bg-slate-50/50 dark:bg-slate-950/20 border border-slate-200/60 dark:border-slate-900/30">
+          <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <Icon name="gavel" className="text-slate-600 text-sm" />
             <span>Yetkili Yargı & Emsal İçtihat Notu:</span>
           </div>
           <p className="text-[var(--color-secondary)] leading-relaxed">

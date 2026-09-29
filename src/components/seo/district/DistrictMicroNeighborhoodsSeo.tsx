@@ -74,7 +74,7 @@ export default function DistrictMicroNeighborhoodsSeo({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="near_me" className="text-sm" />
             <span>{districtName} Mikro-Semt & Mahalle Kapsama Ağı</span>
           </div>
@@ -102,7 +102,7 @@ export default function DistrictMicroNeighborhoodsSeo({
             <div>
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  <Icon name="location_on" className="text-blue-400 text-sm" />
+                  <Icon name="location_on" className="text-slate-400 text-sm" />
                   <span>{n.name}</span>
                 </h3>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
@@ -116,7 +116,7 @@ export default function DistrictMicroNeighborhoodsSeo({
 
             <div className="pt-2.5 border-t border-slate-800/60 flex items-center justify-between text-[11px]">
               <span className="text-slate-500">Odak Hizmet:</span>
-              <span className="text-blue-400 font-semibold truncate max-w-[150px]">{n.focusKeyword}</span>
+              <span className="text-slate-400 font-semibold truncate max-w-[150px]">{n.focusKeyword}</span>
             </div>
           </div>
         ))}
@@ -131,7 +131,7 @@ export default function DistrictMicroNeighborhoodsSeo({
         <div className="flex items-center gap-3">
           <Link
             href="/teklif-al"
-            className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-colors"
+            className="px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-bold text-xs transition-colors"
           >
             Mahalleniz İçin Teklif Alın →
           </Link>

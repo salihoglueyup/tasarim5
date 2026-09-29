@@ -103,7 +103,7 @@ export default function SectorAiOverviewSnippetSeo({
     <section
       id="sector-ai-overview"
       aria-label="Google AI Overviews Sektörel Tesis Yönetimi Standartları Özeti"
-      className={`bg-[var(--color-surface)] border border-indigo-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script
@@ -112,19 +112,19 @@ export default function SectorAiOverviewSnippetSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="domain" className="text-[15px]" />
           <span>Google AI Overviews & B2B Sektörel Mevzuat Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             ISO 45001 Belgeli
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             BYKHY & NFPA 13
           </span>
         </div>
@@ -132,7 +132,7 @@ export default function SectorAiOverviewSnippetSeo({
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <Icon name="gavel" className="text-indigo-600 dark:text-indigo-400 text-2xl mt-0.5 shrink-0" />
+        <Icon name="gavel" className="text-slate-600 dark:text-slate-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -147,7 +147,7 @@ export default function SectorAiOverviewSnippetSeo({
       {/* Sector Compliance Pillars */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="apartment" className="text-base" />
             <span className="text-xs font-bold">Rezidans & Toplu Yapı</span>
           </div>
@@ -157,7 +157,7 @@ export default function SectorAiOverviewSnippetSeo({
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="storefront" className="text-base" />
             <span className="text-xs font-bold">AVM & Ticaret Merkezi</span>
           </div>
@@ -167,7 +167,7 @@ export default function SectorAiOverviewSnippetSeo({
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="warehouse" className="text-base" />
             <span className="text-xs font-bold">Lojistik & Antrepo</span>
           </div>
@@ -190,7 +190,7 @@ export default function SectorAiOverviewSnippetSeo({
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <Icon name="verified_user" className="text-sm text-indigo-500" />
+          <Icon name="verified_user" className="text-sm text-slate-500" />
           <span>B2B Tesis Yöneticileri ve Denetçileri İçin Mevzuat Referansı</span>
         </div>
 
@@ -210,7 +210,7 @@ export default function SectorAiOverviewSnippetSeo({
             )}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-all shadow-xs"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-600 hover:bg-slate-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />

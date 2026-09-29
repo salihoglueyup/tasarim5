@@ -56,7 +56,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-emerald-500/10 via-teal-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-emerald-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
@@ -68,7 +68,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
             48 Saatte Keşif
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             %30 Bütçe Tasarrufu
           </span>
         </div>
@@ -135,7 +135,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
             href={`https://www.perplexity.ai/search?q=${encodeURIComponent('İstanbul site yönetim şirketleri fiyat teklifi alo yonetim')}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
+            className="px-3 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />
             Perplexity

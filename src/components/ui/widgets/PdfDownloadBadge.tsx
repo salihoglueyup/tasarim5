@@ -27,10 +27,10 @@ export default function PdfDownloadBadge({
       rel="noopener noreferrer"
       download
       aria-label={`${title} belgesini indir (PDF formatında, dosya boyutu: ${fileSize})`}
-      className={`group inline-flex items-center justify-between gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 hover:border-red-500/50 dark:hover:border-red-500/50 shadow-sm hover:shadow-md transition-all ${className}`}
+      className={`group inline-flex items-center justify-between gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 hover:border-rose-500/50 dark:hover:border-rose-500/50 shadow-sm hover:shadow-md transition-all ${className}`}
     >
       <div className="flex items-center gap-3 min-w-0">
-        <div className="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
           <FileText className="w-5 h-5" />
         </div>
         <div className="min-w-0 text-left">
@@ -38,7 +38,7 @@ export default function PdfDownloadBadge({
             {title}
           </p>
           <div className="flex items-center gap-2 mt-0.5">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-red-100 dark:bg-red-950/60 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800/40">
+            <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800/40">
               PDF
             </span>
             <span className="text-xs text-slate-400 dark:text-slate-500">
@@ -48,7 +48,7 @@ export default function PdfDownloadBadge({
         </div>
       </div>
 
-      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 group-hover:bg-red-500 group-hover:text-white transition-colors">
+      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 group-hover:bg-rose-500 group-hover:text-white transition-colors">
         <Download className="w-4 h-4" />
       </div>
     </a>

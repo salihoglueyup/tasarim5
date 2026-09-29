@@ -95,12 +95,12 @@ export default function FacilityHygieneMsdsGuideSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300 mb-3 border border-indigo-300 dark:border-indigo-700">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 dark:bg-slate-900/40 dark:text-slate-300 mb-3 border border-slate-300 dark:border-slate-700">
           <Icon name="sanitizer" className="text-sm" />
           <span>TSE 13811 & 6331 İSG Uyumlu Hastane Standardı Hijyen</span>
         </div>
@@ -126,7 +126,7 @@ export default function FacilityHygieneMsdsGuideSeo({
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
               activeTab === tab.id
-                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 font-semibold'
+                ? 'bg-slate-600 text-white shadow-md shadow-slate-600/30 font-semibold'
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
@@ -148,7 +148,7 @@ export default function FacilityHygieneMsdsGuideSeo({
                 onClick={() => setSelectedColorKey(zone.colorKey)}
                 className={`p-3.5 rounded-2xl text-left border transition-all ${
                   selectedColorKey === zone.colorKey
-                    ? `${zone.badgeBgClass} ${zone.badgeBorderClass} ring-2 ring-indigo-500/40 font-bold`
+                    ? `${zone.badgeBgClass} ${zone.badgeBorderClass} ring-2 ring-slate-500/40 font-bold`
                     : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                 }`}
               >
@@ -191,13 +191,13 @@ export default function FacilityHygieneMsdsGuideSeo({
               {/* Assigned Surfaces */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white text-sm">
-                  <Icon name="check_box" className="text-indigo-600 text-lg" />
+                  <Icon name="check_box" className="text-slate-600 text-lg" />
                   <span>Temizliğe Tahsis Edilen Yüzeyler:</span>
                 </div>
                 <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
                   {activeZone.assignedSurfaces.map((surface, i) => (
                     <li key={i} className="flex items-start gap-1.5">
-                      <span className="text-indigo-600 font-bold">•</span>
+                      <span className="text-slate-600 font-bold">•</span>
                       <span>{surface}</span>
                     </li>
                   ))}
@@ -207,13 +207,13 @@ export default function FacilityHygieneMsdsGuideSeo({
               {/* Dedicated Tools */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white text-sm">
-                  <Icon name="cleaning_services" className="text-indigo-600 text-lg" />
+                  <Icon name="cleaning_services" className="text-slate-600 text-lg" />
                   <span>Zorunlu Renk Kodlu Ekipmanlar:</span>
                 </div>
                 <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
                   {activeZone.dedicatedTools.map((tool, i) => (
                     <li key={i} className="flex items-start gap-1.5">
-                      <span className="text-indigo-600 font-bold">•</span>
+                      <span className="text-slate-600 font-bold">•</span>
                       <span>{tool}</span>
                     </li>
                   ))}
@@ -242,8 +242,8 @@ export default function FacilityHygieneMsdsGuideSeo({
       {/* Tab 2: 16-Section MSDS / GBF Safety Document */}
       {activeTab === 'msds' && (
         <div className="relative z-10 space-y-4">
-          <div className="p-4 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 rounded-2xl text-blue-900 dark:text-blue-200 text-xs md:text-sm flex items-start gap-3">
-            <Icon name="info" className="text-blue-600 text-xl shrink-0 mt-0.5" />
+          <div className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-900 rounded-2xl text-slate-900 dark:text-slate-200 text-xs md:text-sm flex items-start gap-3">
+            <Icon name="info" className="text-slate-600 text-xl shrink-0 mt-0.5" />
             <div>
               <strong className="font-semibold block mb-1">6331 Sayılı İSG Kanunu ve KKDİK Zorunluluğu:</strong>
               <span>
@@ -260,7 +260,7 @@ export default function FacilityHygieneMsdsGuideSeo({
               >
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-slate-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
                       {section.sectionNo}
                     </span>
                     <h3 className="font-bold text-slate-900 dark:text-white text-sm md:text-base">
@@ -278,7 +278,7 @@ export default function FacilityHygieneMsdsGuideSeo({
                   </div>
                 </div>
 
-                <div className="p-2.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200 text-xs border border-indigo-200 dark:border-indigo-900">
+                <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-900">
                   <strong className="font-semibold block mb-0.5">Tesis Denetimi ve Kaza Önemi:</strong>
                   <span>{section.facilityInspectionSignificance}</span>
                 </div>
@@ -299,14 +299,14 @@ export default function FacilityHygieneMsdsGuideSeo({
               >
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-indigo-600/30">
+                    <div className="w-8 h-8 rounded-full bg-slate-600 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-slate-600/30">
                       {step.stepNo}
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 dark:text-white text-sm md:text-base">
                         {step.stageName}
                       </h3>
-                      <span className="text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+                      <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
                         Periyot: {step.frequency}
                       </span>
                     </div>
@@ -324,7 +324,7 @@ export default function FacilityHygieneMsdsGuideSeo({
                   </div>
                 </div>
 
-                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200 text-xs border border-indigo-200 dark:border-indigo-900">
+                <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-900">
                   <strong className="font-semibold block mb-0.5">Sanitasyon Hedefi:</strong>
                   <span>{step.objective}</span>
                 </div>
@@ -356,7 +356,7 @@ export default function FacilityHygieneMsdsGuideSeo({
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200 text-xs border border-indigo-200 dark:border-indigo-800">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-800">
                   <strong className="font-semibold block mb-1">Alo Yönetim Depolama Standardı:</strong>
                   <span>{rule.aloYonetimStorageProtocol}</span>
                 </div>
@@ -369,7 +369,7 @@ export default function FacilityHygieneMsdsGuideSeo({
       {/* Bottom Alo Yönetim Legal Guarantee Banner */}
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
             <Icon name="verified" className="text-xl" />
           </div>
           <div>
@@ -383,7 +383,7 @@ export default function FacilityHygieneMsdsGuideSeo({
         </div>
         <a
           href="/iletisim"
-          className="shrink-0 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-indigo-600 hover:bg-slate-800 dark:hover:bg-indigo-500 transition-colors shadow-sm"
+          className="shrink-0 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-500 transition-colors shadow-sm"
         >
           Ortak Alan Hijyen Denetimi İste
         </a>

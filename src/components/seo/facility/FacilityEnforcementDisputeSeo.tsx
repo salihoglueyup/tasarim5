@@ -73,7 +73,7 @@ export default function FacilityEnforcementDisputeSeo({
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">

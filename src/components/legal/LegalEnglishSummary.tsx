@@ -16,10 +16,10 @@ export default function LegalEnglishSummary({ type, lang }: LegalEnglishSummaryP
 
   if (type === 'kvkk') {
     return (
-      <div className="mb-10 p-6 md:p-8 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 text-slate-800 dark:text-slate-200">
+      <div className="mb-10 p-6 md:p-8 rounded-2xl bg-slate-50/70 dark:bg-slate-950/30 border border-slate-200 dark:border-slate-900/50 text-slate-800 dark:text-slate-200">
         <div className="flex items-center gap-3 mb-4">
-          <Icon name="verified_user" className="text-blue-600 dark:text-blue-400 text-2xl" />
-          <h3 className="text-lg font-bold text-blue-950 dark:text-blue-200">
+          <Icon name="verified_user" className="text-slate-600 dark:text-slate-400 text-2xl" />
+          <h3 className="text-lg font-bold text-slate-950 dark:text-slate-200">
             Executive Summary: Data Protection Notice (Turkish Law No. 6698 - KVKK)
           </h3>
         </div>
@@ -35,7 +35,7 @@ export default function LegalEnglishSummary({ type, lang }: LegalEnglishSummaryP
           </p>
           <p>
             <strong>Formal Inquiries:</strong> To exercise your statutory rights, please submit written requests to{' '}
-            <a href="mailto:kvkk@aloyonetim.com.tr" className="font-semibold text-blue-600 dark:text-blue-400 underline">
+            <a href="mailto:kvkk@aloyonetim.com.tr" className="font-semibold text-slate-600 dark:text-slate-400 underline">
               kvkk@aloyonetim.com.tr
             </a>{' '}
             accompanied by valid proof of identity.

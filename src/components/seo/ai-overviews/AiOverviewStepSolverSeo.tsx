@@ -186,7 +186,7 @@ export default function AiOverviewStepSolverSeo() {
   };
 
   return (
-    <section id="ai-step-solver" className="my-16 bg-[var(--color-surface)] border border-blue-500/30 rounded-[3rem] p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden">
+    <section id="ai-step-solver" className="my-16 bg-[var(--color-surface)] border border-slate-500/30 rounded-[3rem] p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden">
       {/* Schema.org HowTo Script */}
       <script
         type="application/ld+json"
@@ -194,17 +194,17 @@ export default function AiOverviewStepSolverSeo() {
       />
 
       {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="schema" className="text-[16px]" />
             Google AI Overviews Adım Adım Problem Çözücü (HowTo)
           </div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Kat Mülkiyeti ve Tesis Yönetiminde <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">4 Kritik Hukuki Süreç</span>
+            Kat Mülkiyeti ve Tesis Yönetiminde <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-300">4 Kritik Hukuki Süreç</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Yapay zeka arama motorlarının aradığı yasal süreler, yetkili adli merciler ve adım adım çözülmüş operasyonel protokoller.
@@ -213,7 +213,7 @@ export default function AiOverviewStepSolverSeo() {
 
         <button
           onClick={handleCopyChecklist}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-colors shadow-xs shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-700 text-white font-bold text-xs transition-colors shadow-xs shrink-0 cursor-pointer"
           title="Tüm Kontrol Listesini Kopyala"
         >
           <Icon name={copied ? 'done_all' : 'content_copy'} className="text-base" />
@@ -231,17 +231,17 @@ export default function AiOverviewStepSolverSeo() {
               onClick={() => setActiveId(item.id)}
               className={`text-left p-4 rounded-2xl border transition-all text-xs flex flex-col justify-between gap-2 cursor-pointer ${
                 isSelected
-                  ? 'bg-blue-600 text-white border-blue-600 shadow-md scale-[1.02]'
-                  : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/60 hover:border-blue-400 text-[var(--color-primary)]'
+                  ? 'bg-slate-600 text-white border-slate-600 shadow-md scale-[1.02]'
+                  : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/60 hover:border-slate-400 text-[var(--color-primary)]'
               }`}
             >
               <div className="flex items-center justify-between gap-1 w-full">
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                  isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300'
+                  isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300'
                 }`}>
                   {item.badge}
                 </span>
-                <span className={`text-[11px] font-mono ${isSelected ? 'text-blue-100' : 'text-[var(--color-secondary)]'}`}>
+                <span className={`text-[11px] font-mono ${isSelected ? 'text-slate-100' : 'text-[var(--color-secondary)]'}`}>
                   {item.duration}
                 </span>
               </div>
@@ -261,7 +261,7 @@ export default function AiOverviewStepSolverSeo() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="bg-gradient-to-br from-blue-500/5 via-transparent to-indigo-500/5 border border-blue-500/20 rounded-3xl p-6 sm:p-8 relative z-10 space-y-6"
+          className="bg-gradient-to-br from-slate-500/5 via-transparent to-slate-500/5 border border-slate-500/20 rounded-3xl p-6 sm:p-8 relative z-10 space-y-6"
         >
           {/* Metadata Banner */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-xs">
@@ -271,7 +271,7 @@ export default function AiOverviewStepSolverSeo() {
             </div>
             <div>
               <span className="text-[var(--color-secondary)] block">Yetkili Yargı / Merci:</span>
-              <strong className="text-blue-600 dark:text-blue-400 font-bold">{activeSolver.authority}</strong>
+              <strong className="text-slate-600 dark:text-slate-400 font-bold">{activeSolver.authority}</strong>
             </div>
             <div>
               <span className="text-[var(--color-secondary)] block">Ortalama Çözüm Süresi:</span>
@@ -284,9 +284,9 @@ export default function AiOverviewStepSolverSeo() {
             {activeSolver.steps.map((step) => (
               <div
                 key={step.stepNumber}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/70 hover:border-blue-400/50 transition-colors shadow-xs"
+                className="flex items-start gap-4 p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/70 hover:border-slate-400/50 transition-colors shadow-xs"
               >
-                <div className="w-9 h-9 rounded-xl bg-blue-600 text-white font-extrabold flex items-center justify-center shrink-0 text-sm shadow-xs">
+                <div className="w-9 h-9 rounded-xl bg-slate-600 text-white font-extrabold flex items-center justify-center shrink-0 text-sm shadow-xs">
                   {step.stepNumber}
                 </div>
                 <div className="space-y-1.5 flex-1 text-xs sm:text-sm">

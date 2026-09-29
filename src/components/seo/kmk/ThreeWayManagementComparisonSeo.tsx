@@ -47,7 +47,7 @@ export default function ThreeWayManagementComparisonSeo() {
             Karar Matrisi: Hangi Yönetim Modeli Güvenli?
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Apartman ve Sitelerde <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-300">3-Yönlü Yönetim Modeli Kıyaslaması</span>
+            Apartman ve Sitelerde <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-300">3-Yönlü Yönetim Modeli Kıyaslaması</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Bina içi komşu yöneticiliği, dışarıdan şahıs yöneticiliği ve Alo Yönetim kurumsal yönetim modelini 6 kritik kanuni ve mali boyutta tarafsızca inceleyin.
@@ -83,7 +83,7 @@ export default function ThreeWayManagementComparisonSeo() {
           </h4>
           <span className="text-[11px] text-[var(--color-secondary)]">Bireysel Serbest Yönetici</span>
         </div>
-        <div className="lg:col-span-3 p-4 rounded-2xl bg-gradient-to-br from-emerald-600/15 via-teal-600/10 to-blue-600/10 border-2 border-emerald-500 text-center relative overflow-hidden shadow-xs">
+        <div className="lg:col-span-3 p-4 rounded-2xl bg-gradient-to-br from-emerald-600/15 via-slate-600/10 to-slate-600/10 border-2 border-emerald-500 text-center relative overflow-hidden shadow-xs">
           <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-bl-lg">
             Önerilen
           </div>
@@ -201,7 +201,7 @@ export default function ThreeWayManagementComparisonSeo() {
       </div>
 
       {/* Footer CTA Strip */}
-      <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-indigo-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="space-y-1 text-center sm:text-left">
           <h4 className="text-base font-bold">
             Sitenizi Amatör Risklerden Kurtarıp Kurumsal Güvenceye Taşımak İster misiniz?

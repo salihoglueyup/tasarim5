@@ -60,7 +60,7 @@ export default function NewsletterForm() {
         <span className="text-xs font-bold text-slate-700 dark:text-slate-300 shrink-0">{t('footer_newsletter_success')}</span>
       )}
       {subStatus === 'error' && (
-        <span role="alert" className="text-xs font-bold text-red-500 shrink-0">{t('lead_error_generic')}</span>
+        <span role="alert" className="text-xs font-bold text-rose-500 shrink-0">{t('lead_error_generic')}</span>
       )}
     </form>
   );

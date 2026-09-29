@@ -62,7 +62,7 @@ export default function VisionManifestoSeo() {
     >
       {/* Background seal watermarks */}
       <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-500/5 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-slate-500/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] relative">
         {/* Header */}

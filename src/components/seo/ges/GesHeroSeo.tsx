@@ -50,8 +50,8 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <span>EPDK LİSANSSIZ ÜRETİM (MADDE 5/1-ç) UYUMLU</span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
-            <Icon name="gavel" className="text-xs text-blue-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/30 text-slate-300 text-xs font-medium">
+            <Icon name="gavel" className="text-xs text-slate-400" />
             <span>634 Sayılı KMK m.42 Yasal Karar Güvencesi</span>
           </div>
 
@@ -64,7 +64,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
         {/* H1 Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl leading-[1.15] mb-6">
           Sitelerde Çatı GES ile{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-300 to-emerald-400">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-slate-300 to-emerald-400">
             Ortak Alan Elektrik Faturasını
           </span>{' '}
           Sıfırlayın
@@ -83,13 +83,13 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <button
               type="button"
               onClick={onOpenQuote}
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
             >
               <Icon name="solar_power" className="text-lg" />
               <span>Ücretsiz Çatı Fizibilitesi Al</span>
             </button>
           ) : (
-            <QuoteCtaButton className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
+            <QuoteCtaButton className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
               <Icon name="solar_power" className="text-lg" />
               <span>Ücretsiz Çatı Fizibilitesi Al</span>
             </QuoteCtaButton>
@@ -138,10 +138,10 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <p className="text-xs text-slate-400 mt-1">Yatırım maliyetini 3 yılda karşılar, 22+ yıl bedava elektrik üretir</p>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-blue-500/40 transition-colors">
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-slate-500/40 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-blue-400">25+ Yıl</span>
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-400">25+ Yıl</span>
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
                 <Icon name="verified" className="text-xl" />
               </div>
             </div>
@@ -149,10 +149,10 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <p className="text-xs text-slate-400 mt-1">Avrupa standartlarında monokristal solar hücre ve invertör güvencesi</p>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-teal-500/40 transition-colors">
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-slate-500/40 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-teal-400">14.800 T</span>
-              <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center border border-teal-500/20">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-400">14.800 T</span>
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
                 <Icon name="forest" className="text-xl" />
               </div>
             </div>

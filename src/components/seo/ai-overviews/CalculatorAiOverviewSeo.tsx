@@ -82,7 +82,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-orange-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
@@ -139,7 +139,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
           <div className="text-xs font-bold text-[var(--color-text-primary)] mb-1 flex items-center gap-1.5">
-            <Icon name="pie_chart" className="text-blue-500 text-base" />
+            <Icon name="pie_chart" className="text-slate-500 text-base" />
             <span>Arsa Payı (KMK 20/1-b)</span>
           </div>
           <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">

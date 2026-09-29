@@ -51,7 +51,7 @@ export default function ServicesHeroSeo({
   return (
     <section className="relative w-full bg-slate-950 text-white border-b border-white/10 overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28 px-[var(--spacing-gutter)]">
       {/* Background Solar & Emerald Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-blue-600/15 via-amber-500/10 to-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-slate-600/15 via-amber-500/10 to-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-[var(--spacing-container-max)] mx-auto relative z-10">
         {/* Breadcrumb Navigation */}
@@ -65,8 +65,8 @@ export default function ServicesHeroSeo({
 
         {/* Regulatory & Authority Badges */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/30 text-blue-300">
-            <Icon name="verified" className="text-sm text-blue-400" />
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-500/10 border border-slate-500/30 text-slate-300">
+            <Icon name="verified" className="text-sm text-slate-400" />
             ISO 45001 & ISO 14001 (ILAS)
           </span>
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/30 text-amber-300">
@@ -83,7 +83,7 @@ export default function ServicesHeroSeo({
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-6">
             {tx('Bina, Site ve Tesis Yönetiminde')}{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
               {tx('360° Entegre Çözümler')}
             </span>
           </h1>
@@ -144,7 +144,7 @@ export default function ServicesHeroSeo({
         {/* 4 Trust Metrics Strip */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16 pt-12 border-t border-slate-800/80">
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-2xl sm:text-3xl font-extrabold text-blue-400 mb-1">{tx('39 İlçe')}</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">{tx('39 İlçe')}</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('İstanbul Geneli Hizmet')}</div>
             <p className="text-[11px] text-slate-400 mt-1">{tx('Her iki yakada mobil denetim ve operasyon ağı')}</p>
           </div>
@@ -162,7 +162,7 @@ export default function ServicesHeroSeo({
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-2xl sm:text-3xl font-extrabold text-purple-400 mb-1">%100</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">%100</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Şeffaf Sakin Portalı')}</div>
             <p className="text-[11px] text-slate-400 mt-1">{tx('Kuruşu kuruşuna canlı kasa, fatura ve karar arşivi')}</p>
           </div>

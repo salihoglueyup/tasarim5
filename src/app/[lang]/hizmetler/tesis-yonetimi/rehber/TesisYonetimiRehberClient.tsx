@@ -97,22 +97,22 @@ export default function TesisYonetimiRehberClient() {
   return (
     <>
       {/* Hero */}
-      <div className="relative min-h-[65vh] flex flex-col justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 pt-28 pb-20">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-500 via-transparent to-transparent" />
+      <div className="relative min-h-[65vh] flex flex-col justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950/40 pt-28 pb-20">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-500 via-transparent to-transparent" />
         <div className="relative z-10 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center gap-6">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center gap-6">
-            <span className="text-xs font-bold text-indigo-300 border border-indigo-400/30 bg-indigo-400/10 px-5 py-2 rounded-full tracking-widest uppercase">
+            <span className="text-xs font-bold text-slate-300 border border-slate-400/30 bg-slate-400/10 px-5 py-2 rounded-full tracking-widest uppercase">
               B2B Karar Verici & Yönetim Kurulu Rehberi 2026
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight">
               Tesis Yönetim Şirketi{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-indigo-500">Nasıl Seçilir?</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-500">Nasıl Seçilir?</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl font-light leading-relaxed">
               Sözleşme maddeleri, 5188 güvenlik lisansı, KMK m.34 devir protokolü, teknik şartname hazırlığı (RFP) ve 10 maddelik firma denetim skorkartı ile profesyonel yönetime kusursuz geçiş kılavuzu.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#rfp-section" className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg flex items-center gap-2">
+              <a href="#rfp-section" className="bg-slate-600 hover:bg-slate-500 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg flex items-center gap-2">
                 <Icon name="download" className="text-lg" />
                 <span>Şartname (RFP) Oluştur & İndir</span>
               </a>

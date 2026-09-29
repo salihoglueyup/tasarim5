@@ -55,7 +55,7 @@ export default function GesNetMeteringSeo() {
                   <span><strong>Asansörler:</strong> Gün boyu süren asansör trafiği güneşten beslenir.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <Icon name="water_drop" className="text-base text-blue-500" />
+                  <Icon name="water_drop" className="text-base text-slate-500" />
                   <span><strong>Hidrofor & Yangın Pompaları:</strong> Dairelere su basan motorların elektrik tüketimi sıfırlanır.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
@@ -99,11 +99,11 @@ export default function GesNetMeteringSeo() {
                   <span><strong>Çift Yönlü Sayaç:</strong> Üretilen ve tüketilen kWh anlık kayıt altına alınır.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <Icon name="payments" className="text-base text-purple-500" />
+                  <Icon name="payments" className="text-base text-slate-500" />
                   <span><strong>Aylık Mahsup:</strong> Gece saatlerinde tüketilen elektrik bu paradan otomatik düşülür.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <Icon name="savings" className="text-base text-blue-500" />
+                  <Icon name="savings" className="text-base text-slate-500" />
                   <span><strong>Site Hesabına Yatış:</strong> Artan bakiye nakit olarak site yönetimi banka hesabına ödenir.</span>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function GesNetMeteringSeo() {
         {/* Akü Masrafı Olmayan On-Grid Banner */}
         <div className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/80 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
+            <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 border border-slate-500/20">
               <Icon name="battery_charging_full" className="text-2xl" />
             </div>
             <div>
@@ -132,7 +132,7 @@ export default function GesNetMeteringSeo() {
               </p>
             </div>
           </div>
-          <span className="px-4 py-2 rounded-xl bg-blue-500/10 text-blue-700 dark:text-blue-300 font-bold text-xs shrink-0 border border-blue-500/20">
+          <span className="px-4 py-2 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 font-bold text-xs shrink-0 border border-slate-500/20">
             SIFIR AKÜ YIPRANMA MALİYETİ
           </span>
         </div>

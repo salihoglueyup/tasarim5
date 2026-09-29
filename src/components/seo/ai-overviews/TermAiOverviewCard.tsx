@@ -67,7 +67,7 @@ export default function TermAiOverviewCard({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-orange-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
@@ -133,7 +133,7 @@ export default function TermAiOverviewCard({
             href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${term} nedir alo yonetim sozluk`)}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
+            className="px-3 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />
             Perplexity

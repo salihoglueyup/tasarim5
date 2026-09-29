@@ -78,22 +78,22 @@ export default function SanayiTesisiYonetimiClient() {
   return (
     <>
       {/* Hero */}
-      <div className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-orange-950/30 to-slate-900 pt-28 pb-20">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-400 via-transparent to-transparent" />
+      <div className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-950/30 to-slate-900 pt-28 pb-20">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-400 via-transparent to-transparent" />
         <div className="relative z-10 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center gap-6">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center gap-6">
-            <span className="text-xs font-bold text-orange-300 border border-orange-400/30 bg-orange-400/10 px-5 py-2 rounded-full tracking-widest uppercase">
+            <span className="text-xs font-bold text-slate-300 border border-slate-400/30 bg-slate-400/10 px-5 py-2 rounded-full tracking-widest uppercase">
               Endüstriyel Tesis & Fabrika Yönetimi
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight">
               Sanayi Tesisi &{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-500">Fabrika Tesis Yönetimi</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">Fabrika Tesis Yönetimi</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl font-light leading-relaxed">
               İstanbul sanayi siteleri ve fabrikalar için ISO 45001 İSG uyumu, ATEX patlamadan korunma, 34.5 kV OG trafo bakımı, %0 reaktif ceza güvencesi ve 7/24 kesintisiz üretim desteği.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/teklif-al" className="bg-orange-500 hover:bg-orange-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
+              <Link href="/teklif-al" className="bg-slate-500 hover:bg-slate-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
                 Endüstriyel Keşif Talep Et
               </Link>
               <Link href="/hizmetler/tesis-yonetimi" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
@@ -120,7 +120,7 @@ export default function SanayiTesisiYonetimiClient() {
         {/* 6'lı Operasyonel Standartlar Grid */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider bg-orange-50 dark:bg-orange-950/40 px-3.5 py-1.5 rounded-full border border-orange-200/60 dark:border-orange-800/40">
+            <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-950/40 px-3.5 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/40">
               Üretim Güvenliği & Ağır Teknik Altyapı
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3">
@@ -139,14 +139,14 @@ export default function SanayiTesisiYonetimiClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07 }}
-                className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 rounded-3xl p-7 hover:border-orange-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
+                className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 rounded-3xl p-7 hover:border-slate-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
-                    <span className="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0">
+                    <span className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                       <Icon name={f.icon} className="text-2xl" />
                     </span>
-                    <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-300 border border-orange-200/60 dark:border-orange-800/40">
+                    <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-800/40">
                       {f.badge}
                     </span>
                   </div>
@@ -184,7 +184,7 @@ export default function SanayiTesisiYonetimiClient() {
         {/* Sanayi ve OSB Bölgeleri Çapraz Bağlantı Vitrini */}
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-            <Icon name="precision_manufacturing" className="text-orange-500 text-xl" />
+            <Icon name="precision_manufacturing" className="text-slate-500 text-xl" />
             <span>Hizmet Sunduğumuz Başlıca Sanayi ve OSB Aksları</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">
@@ -202,7 +202,7 @@ export default function SanayiTesisiYonetimiClient() {
               <Link
                 key={d.slug}
                 href={`/bolgeler/${d.slug}/tesis-yonetimi`}
-                className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-400 transition-all text-center shadow-xs"
+                className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 hover:border-slate-400 transition-all text-center shadow-xs"
               >
                 {d.name}
               </Link>
@@ -216,8 +216,8 @@ export default function SanayiTesisiYonetimiClient() {
         </div>
 
         {/* RFP / Şartname Hazırlama CTA & İndirme Modal */}
-        <div className="bg-[var(--color-surface)] border border-orange-500/30 rounded-3xl p-8 sm:p-10 shadow-lg text-center">
-          <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-widest bg-orange-50 dark:bg-orange-950/40 px-3.5 py-1.5 rounded-full border border-orange-200/60 dark:border-orange-800/40">
+        <div className="bg-[var(--color-surface)] border border-slate-500/30 rounded-3xl p-8 sm:p-10 shadow-lg text-center">
+          <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest bg-slate-50 dark:bg-slate-950/40 px-3.5 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/40">
             Endüstriyel İhale & Tesis Şartnamesi
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3 mb-2">

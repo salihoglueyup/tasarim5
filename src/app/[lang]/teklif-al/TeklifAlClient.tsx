@@ -69,7 +69,7 @@ export default function TeklifAlClient() {
       
       {/* Sol Kolon: Gömülü Canlı Teklif & Keşif Formu (7 Kolon) */}
       <div className="lg:col-span-7 bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 sm:p-12 shadow-xl relative overflow-hidden">
-        <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4 w-fit">
+        <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-4 w-fit">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>{t('tc_badge')}</span>
         </div>
@@ -121,7 +121,7 @@ export default function TeklifAlClient() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t('tc_ph_name')}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 />
               </div>
 
@@ -135,7 +135,7 @@ export default function TeklifAlClient() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="05XX XXX XX XX"
-                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 />
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function TeklifAlClient() {
                 <select
                   value={district}
                   onChange={(e) => setDistrict(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 >
                   {DISTRICT_NAMES.map((d) => (
                     <option key={d.slug} value={d.name} className="dark:bg-slate-900">
@@ -165,7 +165,7 @@ export default function TeklifAlClient() {
                 <select
                   value={propertyType}
                   onChange={(e) => setPropertyType(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 >
                   <option value="Site / Apartman" className="dark:bg-slate-900">{t('tc_type_site')}</option>
                   <option value="Rezidans & Kule" className="dark:bg-slate-900">{t('tc_type_res')}</option>
@@ -182,7 +182,7 @@ export default function TeklifAlClient() {
                 <select
                   value={units}
                   onChange={(e) => setUnits(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 >
                   <option value="10-30 Daire" className="dark:bg-slate-900">{t('tc_u1')}</option>
                   <option value="31-75 Daire" className="dark:bg-slate-900">{t('tc_u2')}</option>
@@ -215,7 +215,7 @@ export default function TeklifAlClient() {
                       onClick={() => toggleService(srv)}
                       className={`text-xs font-bold px-3.5 py-2 rounded-xl transition-all border ${
                         active
-                          ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                          ? 'bg-slate-600 text-white border-slate-600 shadow-sm'
                           : 'bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10 hover:border-slate-400'
                       }`}
                     >
@@ -230,7 +230,7 @@ export default function TeklifAlClient() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-2xl bg-slate-600 hover:bg-slate-700 text-white font-extrabold text-base transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
             >
               {status === 'loading' ? t('tc_sending') : t('tc_submit')}
             </button>
@@ -242,11 +242,11 @@ export default function TeklifAlClient() {
                 <span>256-Bit SSL</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <Icon name="shield" className="text-sm text-blue-500" />
+                <Icon name="shield" className="text-sm text-slate-500" />
                 <span>{t('tc_seal_licensed')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <Icon name="gavel" className="text-sm text-purple-500" />
+                <Icon name="gavel" className="text-sm text-slate-500" />
                 <span>{t('tc_seal_kvkk')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
@@ -313,9 +313,9 @@ export default function TeklifAlClient() {
 
           <a
             href={`tel:${CANONICAL_NAP.contact.phoneE164}`}
-            className="text-lg font-black text-slate-900 dark:text-white hover:text-blue-600 transition-colors flex items-center gap-2"
+            className="text-lg font-black text-slate-900 dark:text-white hover:text-slate-600 transition-colors flex items-center gap-2"
           >
-            <Icon name="call" className="text-blue-600" />
+            <Icon name="call" className="text-slate-600" />
             <span>{CANONICAL_NAP.contact.phoneDisplay}</span>
           </a>
 

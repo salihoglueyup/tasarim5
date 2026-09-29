@@ -96,10 +96,10 @@ export default function NotFoundClient() {
         <button
           type="button"
           onClick={handleOpenSearch}
-          className="w-full max-w-lg mb-10 flex items-center justify-between p-3.5 px-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-sm hover:border-blue-500/50 transition-all text-left cursor-pointer group"
+          className="w-full max-w-lg mb-10 flex items-center justify-between p-3.5 px-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-sm hover:border-slate-500/50 transition-all text-left cursor-pointer group"
         >
           <div className="flex items-center gap-3 text-slate-400">
-            <Search className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform rtl-auto-mirror" />
+            <Search className="w-5 h-5 text-slate-500 group-hover:scale-110 transition-transform rtl-auto-mirror" />
             <span className="text-sm font-medium text-[var(--color-secondary)]">
               {ui.searchPlaceholder}
             </span>
@@ -121,14 +121,14 @@ export default function NotFoundClient() {
                 <Link
                   key={s.path}
                   href={getLocalizedPath(s.path)}
-                  className="flex items-start gap-3.5 p-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-blue-500/40 hover:shadow-md transition-all group"
+                  className="flex items-start gap-3.5 p-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500/40 hover:shadow-md transition-all group"
                 >
-                  <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 shrink-0 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
                         {s.name}
                       </span>
                       <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform rtl-auto-mirror" />

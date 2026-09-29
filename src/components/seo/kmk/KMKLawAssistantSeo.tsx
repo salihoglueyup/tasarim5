@@ -269,7 +269,7 @@ export default function KMKLawAssistantSeo() {
                   setSearchQuery('');
                   setActiveCategory('all');
                 }}
-                className="mt-3 text-sm text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                className="mt-3 text-sm text-slate-600 dark:text-slate-400 hover:underline font-semibold"
               >
                 Filtreleri Temizle
               </button>
@@ -307,7 +307,7 @@ export default function KMKLawAssistantSeo() {
                     </div>
                     <span className="p-2 rounded-xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] mt-1 flex-shrink-0">
                       <Icon name="expand_more" className={`transition-transform duration-300 text-sm ${
-                          isExpanded ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''
+                          isExpanded ? 'rotate-180 text-slate-600 dark:text-slate-400' : ''
                         }`} />
                     </span>
                   </button>
@@ -338,7 +338,7 @@ export default function KMKLawAssistantSeo() {
                         </div>
 
                         <div className="p-4 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl space-y-1.5">
-                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
+                          <div className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
                             <Icon name="account_balance" className="text-sm" />
                             Yargıtay Emsal Kararı
                           </div>
@@ -350,7 +350,7 @@ export default function KMKLawAssistantSeo() {
 
                       {/* Alo Yönetim Uzman Çözümü */}
                       <div className="p-4.5 bg-slate-900 text-white dark:bg-white dark:text-slate-950 rounded-2xl flex items-start gap-3 shadow-md">
-                        <Icon name="task_alt" className="text-blue-400 dark:text-blue-600 text-xl mt-0.5 flex-shrink-0" />
+                        <Icon name="task_alt" className="text-slate-400 dark:text-slate-600 text-xl mt-0.5 flex-shrink-0" />
                         <div className="space-y-1">
                           <div className="text-xs font-extrabold uppercase tracking-wider text-slate-300 dark:text-slate-600">
                             Alo Yönetim Hukuki Güvencesi

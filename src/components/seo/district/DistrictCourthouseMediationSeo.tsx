@@ -74,7 +74,7 @@ export default function DistrictCourthouseMediationSeo({
         {/* Adliye ve Arabuluculuk Detayı */}
         <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
           <div className="flex items-center gap-2 text-white font-bold text-sm">
-            <Icon name="account_balance" className="text-blue-400 text-lg" />
+            <Icon name="account_balance" className="text-slate-400 text-lg" />
             <span>Adliye ve Büronun Konumu</span>
           </div>
           <div className="text-xs text-slate-300 space-y-1.5 leading-relaxed">
@@ -104,11 +104,11 @@ export default function DistrictCourthouseMediationSeo({
       </div>
 
       {/* Alo Yönetim Hukuk Desteği Banner */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-blue-950/30 border border-blue-900/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="p-4 sm:p-5 rounded-2xl bg-slate-950/30 border border-slate-900/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-          <Icon name="gavel" className="text-blue-400 text-2xl shrink-0 mt-0.5" />
+          <Icon name="gavel" className="text-slate-400 text-2xl shrink-0 mt-0.5" />
           <div>
-            <span className="text-xs font-bold text-blue-300 block">Alo Yönetim Bölgesel Hukuk ve Arabuluculuk Masası:</span>
+            <span className="text-xs font-bold text-slate-300 block">Alo Yönetim Bölgesel Hukuk ve Arabuluculuk Masası:</span>
             <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">
               {profile.aloYonetimLegalSupport}
             </p>
@@ -117,7 +117,7 @@ export default function DistrictCourthouseMediationSeo({
 
         <Link
           href="/teklif-al"
-          className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shrink-0 transition-colors"
+          className="px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-bold text-xs shrink-0 transition-colors"
         >
           Hukuki Danışmanlık Alın →
         </Link>

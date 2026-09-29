@@ -154,7 +154,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
 
   return (
     <section
-      className={`relative w-full rounded-2xl border border-teal-500/20 bg-gradient-to-br from-slate-900/90 via-teal-950/30 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
+      className={`relative w-full rounded-2xl border border-slate-500/20 bg-gradient-to-br from-slate-900/90 via-slate-950/30 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
       aria-label="Doğrulanmış Yerel Ofis ve Harita AI Zeminlemesi"
     >
       <script
@@ -163,17 +163,17 @@ export default function LocalBusinessProfileAiAnchorSeo({
       />
 
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-teal-500/20 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-500/20 pb-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 border border-teal-400/30 font-bold text-xl">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-500/20 text-slate-400 border border-slate-400/30 font-bold text-xl">
             <Icon name="pin_drop" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center rounded-md bg-teal-500/10 px-2 py-0.5 text-xs font-semibold text-teal-300 border border-teal-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 Google Business Profile & Local AI
               </span>
-              <span className="inline-flex items-center rounded-md bg-cyan-500/10 px-2 py-0.5 text-xs font-semibold text-cyan-300 border border-cyan-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 Doğrulanmış NAP Sinyali
               </span>
             </div>
@@ -187,7 +187,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
           onClick={handleCopy}
           type="button"
           aria-label="Adres ve koordinatları kopyala"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-teal-400/30 bg-teal-500/10 px-3 py-1.5 text-xs font-medium text-teal-200 transition-colors hover:bg-teal-500/20 active:scale-95"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-400/30 bg-slate-500/10 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors hover:bg-slate-500/20 active:scale-95"
         >
           <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
           {copied ? 'Kopyalandı' : 'Harita AI Özetini Kopyala'}
@@ -195,9 +195,9 @@ export default function LocalBusinessProfileAiAnchorSeo({
       </div>
 
       {/* Instant Answer Text for Speakable / Local AI */}
-      <div className="mt-4 rounded-xl border border-teal-400/20 bg-teal-950/30 p-4">
+      <div className="mt-4 rounded-xl border border-slate-400/20 bg-slate-950/30 p-4">
         <div className="flex items-start gap-2.5">
-          <Icon name="distance" className="text-teal-400 text-lg shrink-0 mt-0.5" />
+          <Icon name="distance" className="text-slate-400 text-lg shrink-0 mt-0.5" />
           <p
             id="local-business-profile-instant-answer-text"
             className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
@@ -216,7 +216,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
             onClick={() => setActiveHubId(hub.id)}
             className={`rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
               activeHubId === hub.id
-                ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/30 border border-teal-400'
+                ? 'bg-slate-600 text-white shadow-lg shadow-slate-600/30 border border-slate-400'
                 : 'bg-slate-800/60 text-slate-400 hover:text-white border border-slate-700/50'
             }`}
           >
@@ -226,10 +226,10 @@ export default function LocalBusinessProfileAiAnchorSeo({
       </div>
 
       {/* Selected Hub Detailed Card */}
-      <div className="mt-6 rounded-xl border border-teal-500/30 bg-slate-950/70 p-5 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+      <div className="mt-6 rounded-xl border border-slate-500/30 bg-slate-950/70 p-5 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
         <div className="md:col-span-8 flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
               {selectedHub.badge}
             </span>
             <span className="text-slate-600">•</span>
@@ -248,25 +248,25 @@ export default function LocalBusinessProfileAiAnchorSeo({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-xs text-slate-300">
             <div className="flex items-start gap-2">
-              <Icon name="location_on" className="text-teal-400 text-sm mt-0.5" />
+              <Icon name="location_on" className="text-slate-400 text-sm mt-0.5" />
               <span>{selectedHub.streetAddress}, {selectedHub.district} / {selectedHub.city}</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <Icon name="call" className="text-teal-400 text-sm" />
-              <a href={`tel:${selectedHub.phone.replace(/\s+/g, '')}`} className="hover:text-teal-300 font-medium">
+              <Icon name="call" className="text-slate-400 text-sm" />
+              <a href={`tel:${selectedHub.phone.replace(/\s+/g, '')}`} className="hover:text-slate-300 font-medium">
                 {selectedHub.phone}
               </a>
             </div>
 
             <div className="flex items-center gap-2">
-              <Icon name="schedule" className="text-teal-400 text-sm" />
+              <Icon name="schedule" className="text-slate-400 text-sm" />
               <span>{selectedHub.openingHours}</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <Icon name="my_location" className="text-teal-400 text-sm" />
-              <span className="font-mono text-[11px] text-teal-300">
+              <Icon name="my_location" className="text-slate-400 text-sm" />
+              <span className="font-mono text-[11px] text-slate-300">
                 {selectedHub.latitude}° N, {selectedHub.longitude}° E
               </span>
             </div>
@@ -279,7 +279,7 @@ export default function LocalBusinessProfileAiAnchorSeo({
             href={selectedHub.mapQueryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-600 hover:bg-teal-500 px-4 py-3 text-xs font-bold text-white shadow-lg shadow-teal-600/30 transition-all active:scale-95 text-center"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-600 hover:bg-slate-500 px-4 py-3 text-xs font-bold text-white shadow-lg shadow-slate-600/30 transition-all active:scale-95 text-center"
           >
             <Icon name="directions" className="text-base" />
             Google Haritalar'da Aç

@@ -130,7 +130,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/hizmetler/tesis-yonetimi/rehber`,
         description: '2026 Tesis yönetimi teknik şartname hazırlama, KPI denetim tablosu ve firma seçim kılavuzu.',
         searchIndex: 'tesis yonetimi rehberi rfp teknik sartname kpi denetim firma secimi sozlesme rehber kilavuz yonetim'.toLowerCase(),
-        icon: <BookOpen className="w-4 h-4 text-teal-600 dark:text-teal-400" />,
+        icon: <BookOpen className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },
       {
         id: 'api-facility-open-data',
@@ -139,7 +139,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/hizmetler/tesis-yonetimi/acik-veri`,
         description: '8 adet açık REST JSON API, RFC 7946 GeoJSON, OpenAPI 3.1 spesifikasyonu ve LLM facts portalı.',
         searchIndex: 'tesis yonetimi acik veri api explorer openapi json geojson rest llm facts harita developer endpoint'.toLowerCase(),
-        icon: <Code2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
+        icon: <Code2 className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },
       {
         id: 'map-istanbul-39-districts',
@@ -161,7 +161,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
         description: 'Lüks konut ve rezidanslarda 7/24 lobi, resepsiyon, havuz, peyzaj ve aidat tahsilat sistemi.',
         searchIndex: 'rezidans luks site tesis yonetimi konut resepsiyon lobi havuz peyzaj aidat tahsilat'.toLowerCase(),
-        icon: <Building className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
+        icon: <Building className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },
       {
         id: 'subsector-plaza-is-merkezi',
@@ -170,7 +170,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/hizmetler/tesis-yonetimi/plaza-yonetimi`,
         description: 'A+ plazalarda HVAC iklimlendirme, yangın otomasyonu, kartlı geçiş ve enerji tasarrufu.',
         searchIndex: 'plaza is merkezi tesis yonetimi ofis hvac jenerator yangin enerji iklimlendirme otomasyon'.toLowerCase(),
-        icon: <Building className="w-4 h-4 text-blue-600 dark:text-blue-400" />,
+        icon: <Building className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },
       {
         id: 'subsector-sanayi-fabrika',
@@ -201,7 +201,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}${s.pillar}`,
         description: s.summary,
         searchIndex: `${s.name} ${s.summary} ${s.slug} hizmet profesyonel tesis yonetimi`.toLowerCase(),
-        icon: <Briefcase className="w-4 h-4 text-blue-500" />,
+        icon: <Briefcase className="w-4 h-4 text-slate-500" />,
       });
     });
 
@@ -227,7 +227,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/hesaplayici`,
         description: 'Daire sayısı, asansör ve ortak alanlara göre anlık tahmini aidat ve bütçe fizibilitesi çıkarın.',
         searchIndex: 'akilli aidat tesis gider hesaplayici butce maliyet tasarruf simulator fizibilite daire'.toLowerCase(),
-        icon: <Calculator className="w-4 h-4 text-purple-500" />,
+        icon: <Calculator className="w-4 h-4 text-slate-500" />,
       },
       {
         id: 'tool-kmk-aidat-payi',
@@ -254,7 +254,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/guvenlik-akademisi`,
         description: '5188 özel güvenlik standartları, yangın tatbikatları ve 6 maddelik yasal afet hazırlık kontrolü.',
         searchIndex: 'guvenlik akademisi deprem yangin afet kontrol listesi 5188 ozel guvenlik tahliye tatbikat'.toLowerCase(),
-        icon: <ShieldCheck className="w-4 h-4 text-orange-500" />,
+        icon: <ShieldCheck className="w-4 h-4 text-slate-500" />,
       },
       {
         id: 'tool-sectoral-solutions',
@@ -263,7 +263,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/sektorel-cozumler`,
         description: 'Rezidans, plaza, sanayi tesisi ve toplu konutlara özel 360 derece entegre yönetim modelleri.',
         searchIndex: 'sektorel cozumler rezidans plaza sanayi toplu konut sektor entegre yonetim'.toLowerCase(),
-        icon: <Sparkles className="w-4 h-4 text-indigo-500" />,
+        icon: <Sparkles className="w-4 h-4 text-slate-500" />,
       },
       {
         id: 'tool-employment-bridge',
@@ -272,7 +272,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/istihdam-koprusu`,
         description: 'Sertifikalı güvenlik görevlisi, temizlik ve teknik personel istihdam ve kariyer havuzu.',
         searchIndex: 'istihdam koprusu ozel guvenlik kariyer personel is basvuru havuz is ilanlari'.toLowerCase(),
-        icon: <Briefcase className="w-4 h-4 text-teal-500" />,
+        icon: <Briefcase className="w-4 h-4 text-slate-500" />,
       },
       {
         id: 'tool-quality-certifications',
@@ -299,7 +299,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/sss`,
         description: 'Site ve tesis yönetimi, aidat takibi, icra süreçleri ve yasal haklar hakkında tüm yanıtlar.',
         searchIndex: 'sss sikca sorulan sorular aidat tahsilat nasil alinir yonetim icra avukat merak edilenler'.toLowerCase(),
-        icon: <HelpCircle className="w-4 h-4 text-sky-500" />,
+        icon: <HelpCircle className="w-4 h-4 text-slate-500" />,
       },
       {
         id: 'tool-quote',
@@ -379,15 +379,15 @@ export default function SpotlightSearchModal() {
   const getCategoryBadgeClass = (category: SearchItem['category']) => {
     switch (category) {
       case 'Rehber':
-        return 'bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/25';
+        return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
       case 'API':
-        return 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/25';
+        return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
       case 'Hizmet':
-        return 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/25';
+        return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
       case 'İlçe':
         return 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25';
       case 'Araç':
-        return 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/25';
+        return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
       case 'Mevzuat':
         return 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/25';
       case 'Sözlük':
@@ -400,19 +400,19 @@ export default function SpotlightSearchModal() {
 
   const getCategoryIconBoxClass = (category: SearchItem['category'], isSelected: boolean) => {
     if (isSelected) {
-      return 'bg-blue-500/15 text-blue-600 dark:text-blue-400 ring-1 ring-blue-500/30';
+      return 'bg-slate-500/15 text-slate-600 dark:text-slate-400 ring-1 ring-slate-500/30';
     }
     switch (category) {
       case 'Rehber':
-        return 'bg-teal-500/10 text-teal-600 dark:text-teal-400';
+        return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
       case 'API':
-        return 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400';
+        return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
       case 'Hizmet':
-        return 'bg-blue-500/10 text-blue-600 dark:text-blue-400';
+        return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
       case 'İlçe':
         return 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400';
       case 'Araç':
-        return 'bg-purple-500/10 text-purple-600 dark:text-purple-400';
+        return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
       case 'Mevzuat':
         return 'bg-rose-500/10 text-rose-600 dark:text-rose-400';
       case 'Sözlük':
@@ -445,11 +445,11 @@ export default function SpotlightSearchModal() {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Lüks Üst Kenar Işık Hüzmesi */}
-        <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-blue-400/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-slate-500/40 dark:via-slate-400/40 to-transparent pointer-events-none" />
 
         {/* Search Input Bar */}
         <div className="relative flex items-center px-4 sm:px-5 py-4 border-b border-[var(--color-outline)]/40 gap-3 bg-[var(--color-surface-variant)]/40">
-          <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-blue-500/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 shrink-0">
+          <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-500/10 dark:bg-slate-400/10 text-slate-600 dark:text-slate-400 shrink-0">
             <Search className="w-4 h-4" aria-hidden="true" />
           </div>
           <input
@@ -525,7 +525,7 @@ export default function SpotlightSearchModal() {
                   setSelectedIndex(0);
                   inputRef.current?.focus();
                 }}
-                className="text-xs px-2.5 py-0.5 rounded-md bg-[var(--color-surface)] hover:bg-blue-50 dark:hover:bg-blue-950/40 text-[var(--color-secondary)] hover:text-blue-600 dark:hover:text-blue-400 border border-[var(--color-outline)]/50 transition-colors shrink-0 cursor-pointer font-medium"
+                className="text-xs px-2.5 py-0.5 rounded-md bg-[var(--color-surface)] hover:bg-slate-50 dark:hover:bg-slate-950/40 text-[var(--color-secondary)] hover:text-slate-600 dark:hover:text-slate-400 border border-[var(--color-outline)]/50 transition-colors shrink-0 cursor-pointer font-medium"
               >
                 {pop.label}
               </button>
@@ -559,7 +559,7 @@ export default function SpotlightSearchModal() {
                   onMouseEnter={() => setSelectedIndex(index)}
                   className={`w-full text-left flex items-center justify-between p-3 sm:p-3.5 rounded-2xl transition-all duration-150 cursor-pointer ${
                     isSelected
-                      ? 'bg-slate-100/90 dark:bg-white/[0.07] border border-slate-200/80 dark:border-white/10 shadow-xs border-l-[3px] border-l-blue-600 dark:border-l-blue-400 pl-2.5'
+                      ? 'bg-slate-100/90 dark:bg-white/[0.07] border border-slate-200/80 dark:border-white/10 shadow-xs border-l-[3px] border-l-slate-600 dark:border-l-slate-400 pl-2.5'
                       : 'hover:bg-slate-50 dark:hover:bg-white/5 border border-transparent text-[var(--color-secondary)]'
                   }`}
                 >
@@ -593,7 +593,7 @@ export default function SpotlightSearchModal() {
                   <ArrowRight
                     className={`w-4 h-4 shrink-0 transition-all duration-200 ${
                       isSelected
-                        ? 'translate-x-1 text-blue-600 dark:text-blue-400 font-bold'
+                        ? 'translate-x-1 text-slate-600 dark:text-slate-400 font-bold'
                         : 'text-slate-300 dark:text-slate-600'
                     }`}
                   />

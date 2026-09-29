@@ -14,7 +14,7 @@ export default function ServicesVideoHubSeo({ lang = 'tr' }: ServicesVideoHubSeo
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-4">
             <Icon name="smart_display" className="text-sm" />
             Multimodal Operasyon Standartları & Video Rehberleri
           </div>

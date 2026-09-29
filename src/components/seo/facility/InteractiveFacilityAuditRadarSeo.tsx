@@ -115,7 +115,7 @@ export default function InteractiveFacilityAuditRadarSeo({
 
   const getHealthStatus = (score: number) => {
     if (score >= 85) return { label: 'Kusursuz Entegre Tesis Standardı', color: 'text-emerald-500', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', savings: '%30 - %35' };
-    if (score >= 60) return { label: 'İyi Düzey / Geliştirilebilir Tesisat', color: 'text-blue-500', bg: 'bg-blue-500/10', border: 'border-blue-500/30', savings: '%20 - %25' };
+    if (score >= 60) return { label: 'İyi Düzey / Geliştirilebilir Tesisat', color: 'text-slate-500', bg: 'bg-slate-500/10', border: 'border-slate-500/30', savings: '%20 - %25' };
     if (score >= 40) return { label: 'Orta Düzey / Hukuki & Mali Risk Var', color: 'text-amber-500', bg: 'bg-amber-500/10', border: 'border-amber-500/30', savings: '%15 - %20' };
     return { label: 'Yüksek Risk / Acil Profesyonel Yönetim Gerekli', color: 'text-rose-500', bg: 'bg-rose-500/10', border: 'border-rose-500/30', savings: '%25+' };
   };

@@ -198,7 +198,7 @@ export default function SemanticLinker({ text, maxLinks = 4, className }: Semant
         <Link
           key={`sem-link-${idx}-${match.url}`}
           href={getLocalizedPath(match.url)}
-          className="text-[var(--color-primary)] font-medium hover:underline underline-offset-4 decoration-blue-500/40 hover:decoration-blue-600 transition-all inline"
+          className="text-[var(--color-primary)] font-medium hover:underline underline-offset-4 decoration-slate-500/40 hover:decoration-slate-600 transition-all inline"
           title={`${match.text} — Alo Yönetim`}
         >
           {match.text}

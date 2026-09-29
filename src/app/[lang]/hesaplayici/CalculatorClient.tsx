@@ -187,7 +187,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="verified" className="text-lg" />
                 </span>
                 <span>%100 KMK 37 Uyumlu Bilanço</span>
@@ -368,7 +368,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
               </div>
 
               <div className="bg-[var(--color-surface-variant)] p-5 rounded-2xl border border-[var(--color-outline)]/60 flex items-start gap-3">
-                <Icon name="verified" className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                <Icon name="verified" className="text-slate-600 dark:text-slate-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   {t('calc_report_info')}
                 </p>
@@ -397,7 +397,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                 onClick={() => setIsAuditModalOpen(true)}
                 className="w-full py-3 bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 rounded-2xl text-xs font-extrabold text-[var(--color-primary)] flex items-center justify-center gap-2 transition-all"
               >
-                <Icon name="verified" className="text-sm text-blue-600 dark:text-blue-400" />
+                <Icon name="verified" className="text-sm text-slate-600 dark:text-slate-400" />
                 <span>Yönetim Kurulu İçin Resmi Tasarruf Karnesi Üret</span>
               </button>
 

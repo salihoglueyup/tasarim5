@@ -94,8 +94,8 @@ export default function AcademyFaqAccordion() {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-3">
-            <HelpCircle className="w-4 h-4 text-blue-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-semibold mb-3">
+            <HelpCircle className="w-4 h-4 text-slate-500" />
             <span>Sıkça Sorulan Sorular & Yasal Rehber</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">

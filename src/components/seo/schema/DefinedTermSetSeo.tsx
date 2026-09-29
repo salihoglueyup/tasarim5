@@ -210,7 +210,7 @@ export default function DefinedTermSetSeo({
         {/* Opsiyonel Başlık ve Açıklama (hideHeader false ise) */}
         {!hideHeader && (
           <div className="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold w-fit mx-auto border border-blue-500/20">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-bold w-fit mx-auto border border-slate-500/20">
               <Icon name="menu_book" className="text-sm" />
               <span>Resmi Kat Mülkiyeti & Tesis Sözlüğü ({terms.length} Terim)</span>
             </div>

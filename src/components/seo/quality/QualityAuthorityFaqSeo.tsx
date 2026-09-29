@@ -17,7 +17,7 @@ export default function QualityAuthorityFaqSeo() {
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-4">
             <Icon name="help" className="text-sm" />
             Kalite Güvencesi ve Denetim Rehberi
           </div>
@@ -54,7 +54,7 @@ export default function QualityAuthorityFaqSeo() {
                   >
                     {faq.question}
                   </span>
-                  <Icon name="expand_more" className={`text-cyan-600 dark:text-cyan-400 transition-transform duration-200 shrink-0 ${
+                  <Icon name="expand_more" className={`text-slate-600 dark:text-slate-400 transition-transform duration-200 shrink-0 ${
                       isOpen ? 'rotate-180' : ''
                     }`} />
                 </button>

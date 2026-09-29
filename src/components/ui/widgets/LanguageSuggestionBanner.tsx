@@ -96,8 +96,8 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
-          <Icon name="language" className="text-blue-400 text-xl" />
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-300">{msg.langName}</span>
+          <Icon name="language" className="text-slate-400 text-xl" />
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-300">{msg.langName}</span>
         </div>
         <button
           onClick={handleDismiss}
@@ -119,7 +119,7 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
         </button>
         <button
           onClick={handleSwitch}
-          className="text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-xl transition-all shadow-md shadow-blue-600/30"
+          className="text-xs font-bold bg-slate-600 hover:bg-slate-500 text-white px-4 py-1.5 rounded-xl transition-all shadow-md shadow-slate-600/30"
         >
           {msg.action}
         </button>

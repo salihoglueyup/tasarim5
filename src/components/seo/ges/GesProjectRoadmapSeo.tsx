@@ -28,7 +28,7 @@ const STEPS: Step[] = [
     stepNumber: '02',
     title: 'Kat Malikleri Kurulu (Genel Kurul) Karar Protokolü',
     badge: '634 KMK m.42',
-    badgeColor: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     description:
       'Hukuk müşavirliğimizce hazırlanan kanunen kusursuz karar metni, olağan veya olağanüstü kat malikleri kuruluna sunulur. KMK m.42 gereği sayı ve arsa payı çoğunluğuyla karar defterine tescil edilir.',
     officialDoc: 'Noter Onaylı Kat Malikleri Kurulu Karar Metni Sureti',
@@ -38,7 +38,7 @@ const STEPS: Step[] = [
     stepNumber: '03',
     title: 'Dağıtım Şirketi (BEDAŞ / AYEDAŞ) Çağrı Mektubu',
     badge: 'EPDK 5/1-ç Başvuru',
-    badgeColor: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     description:
       'EPDK Lisanssız Elektrik Üretim Yönetmeliği uyarınca bölgenizdeki dağıtım şirketine (BEDAŞ, AYEDAŞ vb.) resmi bağlantı başvurusu yapılır. Trafo kapasitesi rezerve edilerek çağrı mektubu çıkartılır.',
     officialDoc: 'Resmi Bağlantı Anlaşmasına Çağrı Mektubu (Dağıtım Şirketi)',
@@ -48,7 +48,7 @@ const STEPS: Step[] = [
     stepNumber: '04',
     title: 'TEDAŞ Proje Onayı & Belediye Yazısı',
     badge: 'TEDAŞ Akreditasyonu',
-    badgeColor: 'bg-teal-500/10 text-teal-700 dark:text-teal-300 border-teal-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     description:
       'TEDAŞ standartlarında tek hat şeması, elektriksel koruma röleleri, statik çatı projesi ve itfaiye yangın güvenlik planı hazırlanır. TEDAŞ Bölge Müdürlüğü’nden resmi proje onayı alınır.',
     officialDoc: 'TEDAŞ Onaylı Elektrik & Yangın Güvenlik Projesi',

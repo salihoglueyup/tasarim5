@@ -18,14 +18,14 @@ export default function DistrictSecuritySpotlightSeo({
   className = ""
 }: DistrictSecuritySpotlightSeoProps) {
   return (
-    <div className={`relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white p-8 md:p-12 border border-slate-800 shadow-2xl ${className}`}>
+    <div className={`relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white p-8 md:p-12 border border-slate-800 shadow-2xl ${className}`}>
       {/* Arka plan dekoratif desen */}
-      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-slate-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 -mb-8 -ml-8 w-64 h-64 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
         <div className="flex flex-col gap-4 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider w-fit">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/20 border border-slate-400/30 text-slate-300 text-xs font-bold uppercase tracking-wider w-fit">
             <Icon name="security" className="text-sm" />
             5188 Kanun Uyumu · {districtName} Güvenlik Masası
           </div>
@@ -41,7 +41,7 @@ export default function DistrictSecuritySpotlightSeo({
           {/* 3 Temel Güvence Rozeti */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 text-xs">
-              <Icon name="verified_user" className="text-blue-400 text-lg" />
+              <Icon name="verified_user" className="text-slate-400 text-lg" />
               <span className="font-medium text-gray-200">Valilik 5188 İzin Danışmanlığı</span>
             </div>
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 text-xs">
@@ -49,7 +49,7 @@ export default function DistrictSecuritySpotlightSeo({
               <span className="font-medium text-gray-200">AI PTS & Çevre CCTV</span>
             </div>
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 text-xs">
-              <Icon name="shield_with_house" className="text-cyan-400 text-lg" />
+              <Icon name="shield_with_house" className="text-slate-400 text-lg" />
               <span className="font-medium text-gray-200">Zorunlu Mali Sorumluluk Sigortası</span>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function DistrictSecuritySpotlightSeo({
         <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
           <Link
             href={`/bolgeler/${districtSlug}/guvenlik-yonetimi`}
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm shadow-lg text-center"
+            className="inline-flex items-center justify-center gap-2 bg-slate-600 hover:bg-slate-500 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm shadow-lg text-center"
           >
             <span>{districtName} Özel Güvenlik Sayfası</span>
             <Icon name="arrow_forward" className="text-lg" />

@@ -122,7 +122,7 @@ export default function TopluKonutYonetimiClient() {
         />
 
         {/* Tasarruf Banner */}
-        <div className="bg-gradient-to-r from-emerald-950/50 via-teal-950/40 to-slate-900/60 border border-emerald-500/30 rounded-3xl p-8 sm:p-10 text-center shadow-lg">
+        <div className="bg-gradient-to-r from-emerald-950/50 via-slate-950/40 to-slate-900/60 border border-emerald-500/30 rounded-3xl p-8 sm:p-10 text-center shadow-lg">
           <p className="text-emerald-400 font-bold text-xs sm:text-sm uppercase tracking-widest mb-2">Ortalama Aidat Tasarrufu</p>
           <p className="text-5xl sm:text-6xl font-black text-white mb-2 tracking-tight">%25 - 33</p>
           <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">

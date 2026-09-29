@@ -198,9 +198,9 @@ export default async function TermPage({
                 <Link
                   key={rt.term}
                   href={`/sozluk/${termToSlug(rt.term)}`}
-                  className="flex flex-col gap-1.5 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/50 transition-colors group"
+                  className="flex flex-col gap-1.5 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-slate-500/50 transition-colors group"
                 >
-                  <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{rt.term}</span>
+                  <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">{rt.term}</span>
                   <p className="text-xs text-[var(--color-secondary)] line-clamp-2">{rt.definition}</p>
                 </Link>
               ))}
@@ -213,23 +213,23 @@ export default async function TermPage({
           {prevTerm ? (
             <Link
               href={`/sozluk/${termToSlug(prevTerm.term)}`}
-              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/40 transition-colors flex flex-col gap-1 group"
+              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-slate-500/40 transition-colors flex flex-col gap-1 group"
             >
               <span className="text-xs text-[var(--color-tertiary)] flex items-center gap-1">
                 <Icon name="arrow_back" className="text-sm" /> Önceki
               </span>
-              <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 line-clamp-1">{prevTerm.term}</span>
+              <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-slate-600 line-clamp-1">{prevTerm.term}</span>
             </Link>
           ) : <div className="flex-1" />}
           {nextTerm ? (
             <Link
               href={`/sozluk/${termToSlug(nextTerm.term)}`}
-              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-blue-500/40 transition-colors flex flex-col items-end gap-1 group"
+              className="flex-1 p-4 bg-[var(--color-surface)] border border-[var(--color-outline)]/50 rounded-xl hover:border-slate-500/40 transition-colors flex flex-col items-end gap-1 group"
             >
               <span className="text-xs text-[var(--color-tertiary)] flex items-center gap-1">
                 Sonraki <Icon name="arrow_forward" className="text-sm" />
               </span>
-              <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-blue-600 line-clamp-1">{nextTerm.term}</span>
+              <span className="font-bold text-sm text-[var(--color-primary)] group-hover:text-slate-600 line-clamp-1">{nextTerm.term}</span>
             </Link>
           ) : <div className="flex-1" />}
         </div>
@@ -238,7 +238,7 @@ export default async function TermPage({
         <div className="text-center">
           <Link
             href="/sozluk"
-            className="inline-flex items-center gap-2 text-sm text-[var(--color-tertiary)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-sm text-[var(--color-tertiary)] hover:text-slate-600 dark:hover:text-slate-400 transition-colors font-medium"
           >
             <Icon name="menu_book" className="text-base" />
             Tüm sözlüğe dön

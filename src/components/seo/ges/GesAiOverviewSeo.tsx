@@ -21,7 +21,7 @@ export default function GesAiOverviewSeo() {
       className="rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-50/70 via-white to-emerald-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-amber-500/5 backdrop-blur-xl relative overflow-hidden"
     >
       {/* Decorative gradient flare */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-amber-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 border-b border-slate-200/60 dark:border-slate-800/60 pb-4">
@@ -77,7 +77,7 @@ export default function GesAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <Icon name="verified" className="text-base text-blue-600 dark:text-blue-400" />
+            <Icon name="verified" className="text-base text-slate-600 dark:text-slate-400" />
             <span>Tier-1 Panel & Sızdırmazlık</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -87,7 +87,7 @@ export default function GesAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <Icon name="ev_station" className="text-base text-purple-600 dark:text-purple-400" />
+            <Icon name="ev_station" className="text-base text-slate-600 dark:text-slate-400" />
             <span>EV Şarj Entegrasyonu</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">

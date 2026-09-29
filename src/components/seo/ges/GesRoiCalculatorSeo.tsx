@@ -235,12 +235,12 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
               <button
                 type="button"
                 onClick={onOpenQuote}
-                className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
+                className="w-full bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
               >
                 Siteniz İçin Detaylı Mühendislik Raporu İsteyin
               </button>
             ) : (
-              <QuoteCtaButton className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
+              <QuoteCtaButton className="w-full bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
                 Siteniz İçin Detaylı Mühendislik Raporu İsteyin
               </QuoteCtaButton>
             )}

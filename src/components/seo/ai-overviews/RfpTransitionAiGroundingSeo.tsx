@@ -101,7 +101,7 @@ export default function RfpTransitionAiGroundingSeo({
     <section
       id="rfp-transition-ai-grounding"
       aria-label="Google AI Overviews Profesyonel Site Yönetimine Geçiş ve RFP Protokolü"
-      className={`bg-[var(--color-surface)] border border-teal-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -110,16 +110,16 @@ export default function RfpTransitionAiGroundingSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-teal-500/10 via-emerald-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-emerald-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="assignment_turned_in" className="text-[15px]" />
           <span>Google AI Overviews • RFP & Profesyonel Yönetime Geçiş</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             KMK 34 Salt Çoğunluk (%50+1)
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
@@ -133,14 +133,14 @@ export default function RfpTransitionAiGroundingSeo({
       </h2>
 
       {/* Instant Answer Block (Speakable) */}
-      <div className="bg-gradient-to-br from-teal-500/[0.04] to-transparent border border-teal-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
+      <div className="bg-gradient-to-br from-slate-500/[0.04] to-transparent border border-slate-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-xs font-black uppercase tracking-wider text-teal-700 dark:text-teal-300">
+          <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
             Google AI Doğrudan Yanıt & SLA Taahhüdü
           </span>
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-700 dark:text-teal-300 text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-500/10 hover:bg-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors"
           >
             <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
@@ -163,10 +163,10 @@ export default function RfpTransitionAiGroundingSeo({
           >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-xs">
+                <span className="w-6 h-6 rounded-full bg-slate-600 text-white flex items-center justify-center font-bold text-xs">
                   {s.step}
                 </span>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-teal-500/10 text-teal-700 dark:text-teal-300">
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 dark:text-slate-300">
                   {s.badge}
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function RfpTransitionAiGroundingSeo({
                 {s.summary}
               </p>
             </div>
-            <div className="pt-2 mt-2 border-t border-[var(--color-outline)]/40 text-[10px] font-mono text-teal-700 dark:text-teal-400 font-semibold">
+            <div className="pt-2 mt-2 border-t border-[var(--color-outline)]/40 text-[10px] font-mono text-slate-700 dark:text-slate-400 font-semibold">
               {s.legalBasis}
             </div>
           </div>

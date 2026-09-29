@@ -59,12 +59,12 @@ export default function KMKLegalDocumentVaultSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-600/10 dark:bg-cyan-400/10 border border-cyan-600/20 dark:border-cyan-400/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 dark:border-slate-400/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="description" className="text-[16px]" />
             Resmi KMK Hukuk ve Karar Şablonları Kütüphanesi
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Kat Mülkiyeti <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-300">Resmi Belge, Tutanak & İhtarname Şablonları</span>
+            Kat Mülkiyeti <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-300">Resmi Belge, Tutanak & İhtarname Şablonları</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             634 Sayılı KMK ve İİK 68/1 uyumlu, avukat onaylı yönetici seçim tutanakları, aidat ihtarnameleri ve genel kurul evraklarını ücretsiz kopyalayıp kullanın.
@@ -72,7 +72,7 @@ export default function KMKLegalDocumentVaultSeo() {
         </div>
 
         <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-secondary)]">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+          <span className="inline-block w-2.5 h-2.5 rounded-full bg-slate-500 animate-pulse" />
           <span>8 Resmi Şablon Hazır</span>
         </div>
       </div>
@@ -91,7 +91,7 @@ export default function KMKLegalDocumentVaultSeo() {
             onClick={() => setSelectedCategory(cat.id)}
             className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
               selectedCategory === cat.id
-                ? 'bg-cyan-600 text-white border-cyan-600 shadow-sm'
+                ? 'bg-slate-600 text-white border-slate-600 shadow-sm'
                 : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
             }`}
           >
@@ -112,12 +112,12 @@ export default function KMKLegalDocumentVaultSeo() {
                 onClick={() => setSelectedId(doc.id)}
                 className={`w-full text-left p-4 rounded-2xl border transition-all flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-cyan-50 dark:bg-cyan-950/40 border-cyan-500 ring-2 ring-cyan-500/20 shadow-sm'
-                    : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/80 hover:border-cyan-400'
+                    ? 'bg-slate-50 dark:bg-slate-950/40 border-slate-500 ring-2 ring-slate-500/20 shadow-sm'
+                    : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/80 hover:border-slate-400'
                 }`}
               >
                 <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <span className="text-[11px] font-extrabold text-cyan-600 dark:text-cyan-400">
+                  <span className="text-[11px] font-extrabold text-slate-600 dark:text-slate-400">
                     Şablon #{idx + 1}
                   </span>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-secondary)]">
@@ -146,7 +146,7 @@ export default function KMKLegalDocumentVaultSeo() {
               {/* Document Title & Badges */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[var(--color-outline)]/60">
                 <div>
-                  <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider block mb-1">
                     Yasal Dayanak: {activeDoc.kmkArticleRef}
                   </span>
                   <h3 className="text-base sm:text-xl font-extrabold text-[var(--color-primary)]">
@@ -155,7 +155,7 @@ export default function KMKLegalDocumentVaultSeo() {
                 </div>
                 <button
                   onClick={() => handleCopy(activeDoc.id, activeDoc.templateText)}
-                  className="shrink-0 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
+                  className="shrink-0 px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
                   aria-label="Şablonu Kopyala"
                 >
                   <Icon name={copiedId === activeDoc.id ? 'check' : 'content_copy'} className="text-base" />
@@ -169,8 +169,8 @@ export default function KMKLegalDocumentVaultSeo() {
                   <span className="font-extrabold text-[var(--color-primary)] block mb-1">Belgenin Amacı:</span>
                   <p className="text-[var(--color-secondary)] leading-relaxed">{activeDoc.purpose}</p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-cyan-50/60 dark:bg-cyan-950/20 border border-cyan-200/80 dark:border-cyan-900/40">
-                  <span className="font-extrabold text-cyan-800 dark:text-cyan-300 block mb-1">Kanuni Geçerlilik Şartı:</span>
+                <div className="p-3.5 rounded-xl bg-slate-50/60 dark:bg-slate-950/20 border border-slate-200/80 dark:border-slate-900/40">
+                  <span className="font-extrabold text-slate-800 dark:text-slate-300 block mb-1">Kanuni Geçerlilik Şartı:</span>
                   <p className="text-[var(--color-secondary)] leading-relaxed">{activeDoc.legalValidityCondition}</p>
                 </div>
               </div>

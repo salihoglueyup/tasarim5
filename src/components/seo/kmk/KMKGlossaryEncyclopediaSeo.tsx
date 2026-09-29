@@ -66,12 +66,12 @@ export default function KMKGlossaryEncyclopediaSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-600/10 dark:bg-indigo-400/10 border border-indigo-600/20 dark:border-indigo-400/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 dark:border-slate-400/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="menu_book" className="text-[16px]" />
             Google Position Zero (0. Sıra) & KMK Hukuk Ansiklopedisi
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Kat Mülkiyeti & Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-300">Terimler Sözlüğü (52 Terim)</span>
+            Kat Mülkiyeti & Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-300">Terimler Sözlüğü (52 Terim)</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             634 Sayılı KMK, Yargıtay emsal içtihatları ile bina ve site yönetiminde karşılaşılan tüm kanuni kavramların alıntılanabilir tanımları.
@@ -79,7 +79,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
         </div>
 
         <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-secondary)]">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse" />
+          <span className="inline-block w-2.5 h-2.5 rounded-full bg-slate-500 animate-pulse" />
           <span>DefinedTermSet V1.0 Aktif</span>
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Terim, madde veya anahtar kelime arayın (Örn: Arsa Payı, KMK 20, Çift Çoğunluk, Asansör)..."
-            className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-sm text-[var(--color-primary)] placeholder-[var(--color-secondary)] focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-sm text-[var(--color-primary)] placeholder-[var(--color-secondary)] focus:outline-none focus:ring-2 focus:ring-slate-500 transition-all"
           />
           {searchQuery && (
             <button
@@ -112,7 +112,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
             onClick={() => setSelectedCategory('all')}
             className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
               selectedCategory === 'all'
-                ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
+                ? 'bg-slate-600 text-white border-slate-600 shadow-sm'
                 : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
             }`}
           >
@@ -127,7 +127,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border flex items-center gap-1.5 ${
                   isSelected
-                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
+                    ? 'bg-slate-600 text-white border-slate-600 shadow-sm'
                     : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
                 }`}
               >
@@ -162,7 +162,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                       <h4 className="text-base font-bold text-[var(--color-primary)] tracking-tight">
                         {item.term}
                       </h4>
-                      <span className="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400">
+                      <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">
                         {item.kmkArticleRef}
                       </span>
                     </div>
@@ -172,7 +172,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                   </div>
 
                   {/* Featured Snippet Definition (Google 0. Row Targeted) */}
-                  <blockquote className="bg-[var(--color-surface)] border-l-2 border-indigo-600 dark:border-indigo-400 p-3 rounded-r-xl text-xs text-[var(--color-primary)] leading-relaxed mb-3">
+                  <blockquote className="bg-[var(--color-surface)] border-l-2 border-slate-600 dark:border-slate-400 p-3 rounded-r-xl text-xs text-[var(--color-primary)] leading-relaxed mb-3">
                     {item.snippetDefinition}
                   </blockquote>
 
@@ -203,7 +203,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                 <div className="pt-3 border-t border-[var(--color-outline)]/60 flex items-center justify-between gap-2">
                   <button
                     onClick={() => setExpandedTermId(isExpanded ? null : item.id)}
-                    className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+                    className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1"
                   >
                     <span>{isExpanded ? 'Daha Az Göster' : 'Hukuki Detay & Emsal'}</span>
                     <Icon name={isExpanded ? 'expand_less' : 'expand_more'} className="text-[14px]" />
@@ -224,7 +224,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
                     )}
                     <button
                       onClick={() => handleCopy(item.id, `${item.term}: ${item.snippetDefinition} (Kaynak: Alo Yönetim — ${item.kmkArticleRef})`)}
-                      className="px-2.5 py-1 rounded-lg bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-[11px] font-bold transition-colors flex items-center gap-1"
+                      className="px-2.5 py-1 rounded-lg bg-slate-600/10 hover:bg-slate-600/20 text-slate-700 dark:text-slate-300 text-[11px] font-bold transition-colors flex items-center gap-1"
                       aria-label="Tanımı Kopyala"
                     >
                       <Icon name={isCopied ? 'check' : 'content_copy'} className="text-[13px]" />
@@ -239,9 +239,9 @@ export default function KMKGlossaryEncyclopediaSeo() {
       </div>
 
       {/* Kurumsal Otorite & Tesis Yönetimi Transfer Köprüsü (Internal PageRank Bridge) */}
-      <div className="mt-8 p-5 md:p-6 rounded-2xl bg-gradient-to-r from-indigo-900/10 via-slate-900/5 to-indigo-900/10 dark:from-indigo-950/40 dark:via-slate-900/20 dark:to-indigo-950/40 border border-indigo-600/30 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="mt-8 p-5 md:p-6 rounded-2xl bg-gradient-to-r from-slate-900/10 via-slate-900/5 to-slate-900/10 dark:from-slate-950/40 dark:via-slate-900/20 dark:to-slate-950/40 border border-slate-600/30 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+          <div className="w-10 h-10 rounded-xl bg-slate-600 text-white flex items-center justify-center shrink-0 shadow-sm">
             <Icon name="apartment" className="text-xl" />
           </div>
           <div>
@@ -255,7 +255,7 @@ export default function KMKGlossaryEncyclopediaSeo() {
         </div>
         <a
           href="/hizmetler/tesis-yonetimi"
-          className="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-all shadow-sm hover:shadow inline-flex items-center gap-1.5"
+          className="shrink-0 px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-700 text-white text-xs font-bold transition-all shadow-sm hover:shadow inline-flex items-center gap-1.5"
         >
           <span>Entegre Tesis Yönetimi</span>
           <Icon name="arrow_forward" className="text-sm" />

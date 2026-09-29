@@ -163,7 +163,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
       <div className="relative z-10">
         {/* Üst Başlık & Badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-400/20 text-slate-700 dark:text-slate-300 text-xs font-semibold tracking-wide uppercase">
             <Icon name="precision_manufacturing" className="text-sm" />
             TMMOB & Sanayi Bakanlığı Mevzuat Uyum Radarı
           </div>
@@ -232,7 +232,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/teklif-al?hizmet=teknik-bakim&utm_source=technical_radar"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-md shadow-blue-600/20 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-sm font-semibold transition-all shadow-md shadow-slate-600/20 hover:scale-[1.02]"
               >
                 <Icon name="engineering" className="text-base" />
                 Ücretsiz 48 Saatlik Teknik Keşif İste
@@ -256,7 +256,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
               onClick={() => setSelectedFilter(cat)}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 selectedFilter === cat
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-slate-600 text-white shadow-sm'
                   : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60 hover:bg-[var(--color-surface)]'
               }`}
             >
@@ -275,18 +275,18 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 onClick={() => toggleCriterion(c.id)}
                 className={`flex items-start gap-3 p-4 rounded-2xl border cursor-pointer transition-all ${
                   isChecked
-                    ? 'bg-blue-500/5 dark:bg-[#1E202B] border-blue-500/40 shadow-xs'
+                    ? 'bg-slate-500/5 dark:bg-[#1E202B] border-slate-500/40 shadow-xs'
                     : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 opacity-80 hover:opacity-100 hover:border-slate-300 dark:hover:border-white/20'
                 }`}
               >
                 <div className={`mt-0.5 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border transition-all ${
-                  isChecked ? 'bg-blue-600 border-blue-500 text-white' : 'border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
+                  isChecked ? 'bg-slate-600 border-slate-500 text-white' : 'border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
                 }`}>
                   <Icon name="check" className="text-sm font-bold" />
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                    <span className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                       {c.category}
                     </span>
                     <span className="text-[10px] px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-secondary)] font-mono">
@@ -312,7 +312,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
         {/* Bilgilendirme Dipnotu */}
         <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--color-secondary)]">
           <span className="flex items-center gap-1.5">
-            <Icon name="info" className="text-sm text-blue-500" />
+            <Icon name="info" className="text-sm text-slate-500" />
             TMMOB Makina ve Elektrik Mühendisleri Odası denetim prensipleri esas alınmıştır.
           </span>
           <span className="font-mono text-[11px] text-[var(--color-tertiary)]">

@@ -161,11 +161,11 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
       <JsonLd data={quizSchema} />
 
       {/* Decorative gradient blur */}
-      <div className="absolute -right-20 -top-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -right-20 -top-20 w-80 h-80 bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="relative z-10 mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20 mb-3">
           <Icon name="cleaning_services" className="text-sm" />
           <span>TSE 13811 & İSG HİJYEN DENETİM MOTORU</span>
         </div>
@@ -234,7 +234,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
             </div>
             <Link
               href="/teklif-al"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs md:text-sm shadow-md hover:shadow-lg transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-700 text-white font-bold text-xs md:text-sm shadow-md hover:shadow-lg transition-all hover:scale-[1.02]"
             >
               <span>Ücretsiz Hijyen Keşfi ve Teklif Al</span>
               <Icon name="arrow_forward" className="text-sm" />
@@ -251,7 +251,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
             onClick={() => setSelectedFilter(cat)}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               selectedFilter === cat
-                ? 'bg-teal-600 text-white shadow-md'
+                ? 'bg-slate-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-white/5 text-[var(--color-secondary)] hover:bg-gray-200 dark:hover:bg-white/10'
             }`}
           >
@@ -270,27 +270,27 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
               onClick={() => toggleCriterion(crit.id)}
               className={`p-5 rounded-2xl border transition-all cursor-pointer select-none flex flex-col justify-between ${
                 isChecked
-                  ? 'bg-teal-500/10 border-teal-500/40 shadow-sm'
+                  ? 'bg-slate-500/10 border-slate-500/40 shadow-sm'
                   : 'bg-gray-50 dark:bg-white/5 border-gray-200/60 dark:border-white/10 opacity-75 hover:opacity-100'
               }`}
             >
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="flex items-center gap-2">
-                    <Icon name={crit.icon} className={`text-lg ${isChecked ? 'text-teal-600 dark:text-teal-400' : 'text-gray-400'}`} />
+                    <Icon name={crit.icon} className={`text-lg ${isChecked ? 'text-slate-600 dark:text-slate-400' : 'text-gray-400'}`} />
                     <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-wider">
                       {crit.category}
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-black text-teal-600 dark:text-teal-400">
+                    <span className="text-xs font-black text-slate-600 dark:text-slate-400">
                       +{crit.points} Puan
                     </span>
                     <input
                       type="checkbox"
                       checked={isChecked}
                       onChange={() => {}} // Handled by parent div
-                      className="w-4 h-4 text-teal-600 rounded border-gray-300 focus:ring-teal-500"
+                      className="w-4 h-4 text-slate-600 rounded border-gray-300 focus:ring-slate-500"
                     />
                   </div>
                 </div>

@@ -25,7 +25,7 @@ const COURSES: CoursePackage[] = [
     title: 'Silahsız Özel Güvenlik Temel Eğitimi',
     shortTitle: 'Silahsız Temel',
     badge: 'En Çok Tercih Edilen',
-    badgeColor: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     duration: '100 Ders Saati (Yaklaşık 2 Hafta)',
     ageReq: '18 Yaşını Doldurmuş Olmak',
     eduReq: 'En az Ortaokul (8 Yıl) Mezunu',
@@ -54,7 +54,7 @@ const COURSES: CoursePackage[] = [
     title: 'Silahlı Özel Güvenlik Temel Eğitimi',
     shortTitle: 'Silahlı Temel',
     badge: 'A+ Prestij & Yüksek Ücret',
-    badgeColor: 'bg-red-500/10 text-red-700 dark:text-red-300 border-red-500/20',
+    badgeColor: 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20',
     duration: '120 Ders Saati (100s Temel + 20s Silah)',
     ageReq: '21 Yaşını Doldurmuş Olmak',
     eduReq: 'En az Lise veya Dengi Okul Mezunu',
@@ -132,7 +132,7 @@ const COURSES: CoursePackage[] = [
     title: 'Silahsızdan Silahlıya Geçiş (Fark Eğitimi)',
     shortTitle: 'Silahsızdan Silahlıya Fark',
     badge: 'Kariyer & Maaş Yükseltme',
-    badgeColor: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     duration: '20 Ders Saati (Yaklaşık 3 Gün)',
     ageReq: '21 Yaşını Doldurmuş Olmak',
     eduReq: 'En az Lise Mezunu + Geçerli Silahsız Kimlik',
@@ -223,7 +223,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
               <button
                 type="button"
                 onClick={() => onSelectCourse && onSelectCourse(currentCourse.title)}
-                className="px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-2"
               >
                 <Icon name="edit_document" className="text-base" />
                 <span>Bu Kursa Ön Kayıt Yap</span>
@@ -285,7 +285,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
                 <ul className="space-y-2.5 text-xs text-[var(--color-secondary)]">
                   {currentCourse.scope.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-red-500 font-bold mt-0.5">•</span>
+                      <span className="text-rose-500 font-bold mt-0.5">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -320,7 +320,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
             {/* Job Placement Bridge */}
             <div className="p-6 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] flex flex-col justify-between shadow-xs">
               <div>
-                <div className="flex items-center gap-2 mb-3 text-red-300 font-bold text-sm">
+                <div className="flex items-center gap-2 mb-3 text-rose-300 font-bold text-sm">
                   <Icon name="work" className="text-lg" />
                   <span>Alo Yönetim İstihdam Garantisi</span>
                 </div>
@@ -339,7 +339,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
               <div className="mt-6 pt-4 border-t border-white/20">
                 <a
                   href="/istihdam-koprusu"
-                  className="inline-flex items-center justify-between w-full text-xs font-bold text-white hover:text-red-300 transition-colors"
+                  className="inline-flex items-center justify-between w-full text-xs font-bold text-white hover:text-rose-300 transition-colors"
                 >
                   <span>Açık Güvenlik Pozisyonlarını İncele</span>
                   <Icon name="arrow_forward" className="text-base" />

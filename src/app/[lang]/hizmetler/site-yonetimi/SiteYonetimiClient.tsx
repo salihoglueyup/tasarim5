@@ -133,8 +133,8 @@ export default function SiteYonetimiClient() {
         
         <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Üst Rozet: KMK & Apsiyon Güvencesi */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-500/10 border border-slate-500/30 text-slate-300 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" />
             <span>634 Sayılı KMK Tam Hukuki Güvencesi & Apsiyon Entegre Sakin Portalı</span>
           </div>
 
@@ -142,7 +142,7 @@ export default function SiteYonetimiClient() {
             id="site-management-hero-h1" 
             className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6"
           >
-            İstanbul Profesyonel <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300">Site ve Apartman Yönetimi</span> Şirketi
+            İstanbul Profesyonel <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-300">Site ve Apartman Yönetimi</span> Şirketi
           </h1>
 
           <p 
@@ -156,7 +156,7 @@ export default function SiteYonetimiClient() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <Link 
               href="/teklif-al" 
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-base shadow-xl shadow-blue-900/30 hover:shadow-cyan-900/40 transition-all duration-300 hover:-translate-y-0.5 text-center"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-slate-600 to-slate-600 hover:from-slate-500 hover:to-slate-500 text-white font-bold text-base shadow-xl shadow-slate-900/30 hover:shadow-slate-900/40 transition-all duration-300 hover:-translate-y-0.5 text-center"
             >
               Ücretsiz Site Keşfi & Teklif Al →
             </Link>
@@ -172,7 +172,7 @@ export default function SiteYonetimiClient() {
           {/* 4 Temel Güven Metriği */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-blue-400">150+</div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-400">150+</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">Aktif Yönetilen Site</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
@@ -180,7 +180,7 @@ export default function SiteYonetimiClient() {
               <div className="text-xs sm:text-sm text-slate-400 mt-1">Yıllık Aidat Tahsilatı</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-cyan-400">45 Dk</div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-400">45 Dk</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">Acil Teknik Servis SLA</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">

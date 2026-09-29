@@ -67,7 +67,7 @@ export default function DistrictAiOverviewSnippetSeo({
     <section
       id="district-ai-overview-grounding"
       aria-label={`${districtName} Google AI Overviews ve Yapay Zeka Hızlı Yanıtı`}
-      className={`bg-[var(--color-surface)] border border-blue-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script
@@ -76,11 +76,11 @@ export default function DistrictAiOverviewSnippetSeo({
       />
 
       {/* Dekoratif Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Başlık ve Rozetler */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-600/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="auto_awesome" className="text-[15px]" />
           <span>Google AI Overviews & SGE Doğrulanmış Yerel Yanıt</span>
         </div>
@@ -107,7 +107,7 @@ export default function DistrictAiOverviewSnippetSeo({
           </p>
           <button
             onClick={handleCopy}
-            className="shrink-0 p-2 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 transition-colors border border-blue-600/20"
+            className="shrink-0 p-2 rounded-lg bg-slate-600/10 hover:bg-slate-600/20 text-slate-600 dark:text-slate-400 transition-colors border border-slate-600/20"
             title="Yanıtı Kopyala"
             aria-label="Doğrudan yanıtı panoya kopyala"
           >
@@ -155,7 +155,7 @@ export default function DistrictAiOverviewSnippetSeo({
             href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${districtName} profesyonel site yönetimi şirketleri alo yonetim`)}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
+            className="px-3 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />
             Perplexity

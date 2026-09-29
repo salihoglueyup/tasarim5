@@ -170,9 +170,9 @@ export default function IletisimClient() {
 
       {/* 1. HERO BÖLÜMÜ */}
       <section className="relative pt-36 pb-36 md:pt-44 md:pb-44 overflow-hidden bg-slate-950 text-white border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-950 to-slate-950 -z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/30 via-slate-950 to-slate-950 -z-10" />
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 blur-3xl rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-slate-500/10 blur-3xl rounded-full pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
           {/* Canlı Durum Rozeti */}
@@ -242,7 +242,7 @@ export default function IletisimClient() {
                   href="mailto:info@aloyonetim.com.tr"
                   className="group flex items-center gap-4 p-3.5 rounded-2xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -253,7 +253,7 @@ export default function IletisimClient() {
                       info@aloyonetim.com.tr
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--color-tertiary)] group-hover:text-blue-500 transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-[var(--color-tertiary)] group-hover:text-slate-500 transition-colors" />
                 </a>
 
                 {/* Genel Merkez Adresi (Google İşletme Profili) */}
@@ -262,9 +262,9 @@ export default function IletisimClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={t('ic_maps_aria')}
-                  className="flex items-start gap-4 p-3.5 rounded-2xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 hover:border-purple-500/40 transition-all group/addr"
+                  className="flex items-start gap-4 p-3.5 rounded-2xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 hover:border-slate-500/40 transition-all group/addr"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 mt-0.5 group-hover/addr:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 mt-0.5 group-hover/addr:scale-105 transition-transform">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
@@ -272,7 +272,7 @@ export default function IletisimClient() {
                       <span className="text-xs text-[var(--color-secondary)] font-semibold uppercase tracking-wider">
                         {t('ic_hq_office')}
                       </span>
-                      <span className="text-[11px] text-purple-600 dark:text-purple-400 font-medium flex items-center gap-0.5 group-hover/addr:underline">
+                      <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium flex items-center gap-0.5 group-hover/addr:underline">
                         {t('ic_see_map')} <ArrowUpRight className="w-3 h-3" />
                       </span>
                     </div>
@@ -361,7 +361,7 @@ export default function IletisimClient() {
                   />
 
                   {errorKey && (
-                    <div role="alert" aria-live="assertive" className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-sm text-red-600 dark:text-red-300">
+                    <div role="alert" aria-live="assertive" className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-sm text-rose-600 dark:text-rose-300">
                       {errorKey}
                     </div>
                   )}
@@ -382,11 +382,11 @@ export default function IletisimClient() {
                         placeholder={t('ic_ph_name')}
                         className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.name
-                            ? 'border-red-500 focus:ring-red-500/20'
+                            ? 'border-rose-500 focus:ring-rose-500/20'
                             : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.name && <span id="name-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.name.message as Parameters<typeof t>[0])}</span>}
+                      {errors.name && <span id="name-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.name.message as Parameters<typeof t>[0])}</span>}
                     </div>
 
                     <div className="flex flex-col gap-1.5">
@@ -415,12 +415,12 @@ export default function IletisimClient() {
                           placeholder="5XX XXX XX XX"
                           className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                             errors.phone
-                              ? 'border-red-500 focus:ring-red-500/20'
+                              ? 'border-rose-500 focus:ring-rose-500/20'
                               : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                           }`}
                         />
                       </div>
-                      {errors.phone && <span id="phone-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.phone.message as Parameters<typeof t>[0])}</span>}
+                      {errors.phone && <span id="phone-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.phone.message as Parameters<typeof t>[0])}</span>}
                     </div>
                   </div>
 
@@ -440,11 +440,11 @@ export default function IletisimClient() {
                         placeholder="ahmet@ornek.com"
                         className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.email
-                            ? 'border-red-500 focus:ring-red-500/20'
+                            ? 'border-rose-500 focus:ring-rose-500/20'
                             : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                         }`}
                       />
-                      {errors.email && <span id="email-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.email.message as Parameters<typeof t>[0])}</span>}
+                      {errors.email && <span id="email-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.email.message as Parameters<typeof t>[0])}</span>}
                     </div>
 
                     <div className="flex flex-col gap-1.5">
@@ -459,7 +459,7 @@ export default function IletisimClient() {
                           aria-describedby={errors.subject ? 'subject-error' : undefined}
                           className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-sm focus:outline-none focus:ring-2 transition-all appearance-none cursor-pointer ${
                             errors.subject
-                              ? 'border-red-500 focus:ring-red-500/20'
+                              ? 'border-rose-500 focus:ring-rose-500/20'
                               : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                           }`}
                         >
@@ -473,7 +473,7 @@ export default function IletisimClient() {
                         </select>
                         <ChevronDown className="w-4 h-4 text-[var(--color-tertiary)] absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                       </div>
-                      {errors.subject && <span id="subject-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.subject.message as Parameters<typeof t>[0])}</span>}
+                      {errors.subject && <span id="subject-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.subject.message as Parameters<typeof t>[0])}</span>}
                     </div>
                   </div>
 
@@ -483,7 +483,7 @@ export default function IletisimClient() {
                       <label htmlFor="message" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
                         {t('ic_lbl_message')} <span className="text-amber-500">*</span>
                       </label>
-                      <span className={`text-[11px] ${messageVal.length > 500 ? 'text-red-500 font-bold' : 'text-[var(--color-tertiary)]'}`}>
+                      <span className={`text-[11px] ${messageVal.length > 500 ? 'text-rose-500 font-bold' : 'text-[var(--color-tertiary)]'}`}>
                         {messageVal.length}/500
                       </span>
                     </div>
@@ -496,11 +496,11 @@ export default function IletisimClient() {
                       placeholder={t('ic_ph_message')}
                       className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all resize-none ${
                         errors.message
-                          ? 'border-red-500 focus:ring-red-500/20'
+                          ? 'border-rose-500 focus:ring-rose-500/20'
                           : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
                       }`}
                     />
-                    {errors.message && <span id="message-error" role="alert" aria-live="polite" className="text-xs text-red-500 font-medium">{t(errors.message.message as Parameters<typeof t>[0])}</span>}
+                    {errors.message && <span id="message-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.message.message as Parameters<typeof t>[0])}</span>}
                   </div>
 
                   {/* Gönder Butonu */}
@@ -550,7 +550,7 @@ export default function IletisimClient() {
                 <span><strong>{t('ic_weekdays')}:</strong> 09:00 - 18:00 | <strong>{t('ic_saturday')}:</strong> 09:00 - 13:00</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                <Car className="w-4 h-4 text-blue-500 shrink-0" />
+                <Car className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>{t('ic_parking')}</span>
               </div>
             </div>

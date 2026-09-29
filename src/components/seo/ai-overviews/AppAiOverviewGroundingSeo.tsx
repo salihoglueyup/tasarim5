@@ -102,7 +102,7 @@ export default function AppAiOverviewGroundingSeo({
     <section
       id="app-ai-grounding"
       aria-label="Google AI Overviews Apsiyon Entegre Mobil Sakin Portalı ve Dijital Aidat Yanıtı"
-      className={`bg-[var(--color-surface)] border border-violet-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -111,16 +111,16 @@ export default function AppAiOverviewGroundingSeo({
       />
 
       {/* Ambient Blur */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-violet-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-700 dark:text-violet-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="smartphone" className="text-[15px]" />
           <span>Google AI Overviews • Apsiyon Dijital Portal & Mobil Altyapı</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 border border-violet-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             256-Bit SSL & 3D Secure
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
@@ -134,14 +134,14 @@ export default function AppAiOverviewGroundingSeo({
       </h2>
 
       {/* Instant Answer (Speakable) */}
-      <div className="bg-gradient-to-br from-violet-500/[0.04] to-transparent border border-violet-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
+      <div className="bg-gradient-to-br from-slate-500/[0.04] to-transparent border border-slate-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-xs font-black uppercase tracking-wider text-violet-700 dark:text-violet-300">
+          <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
             Google AI Doğrudan Cevap & Sistem Mimarisi
           </span>
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-violet-500/10 hover:bg-violet-500/20 text-violet-700 dark:text-violet-300 text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-500/10 hover:bg-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors"
           >
             <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
@@ -165,11 +165,11 @@ export default function AppAiOverviewGroundingSeo({
             <div>
               <div className="flex items-center justify-between mb-2">
                 {item.icon === 'wallet_svg' ? (
-                  <WalletSvgIcon className="w-6 h-6 text-violet-600" />
+                  <WalletSvgIcon className="w-6 h-6 text-slate-600" />
                 ) : (
-                  <Icon name={item.icon} className="text-violet-600 text-2xl" />
+                  <Icon name={item.icon} className="text-slate-600 text-2xl" />
                 )}
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-violet-500/10 text-violet-700 dark:text-violet-300">
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 dark:text-slate-300">
                   {item.badge}
                 </span>
               </div>

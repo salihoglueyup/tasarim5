@@ -133,7 +133,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3.5 py-1 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+            <span className="px-3.5 py-1 bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Icon name="gavel" className="text-sm" />
               Resmi KMK 634 Hukuki Şablon Jeneratörü
             </span>
@@ -196,7 +196,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
         
         {/* Input Parameters */}
         <div className="lg:col-span-5 space-y-4 bg-gray-50/60 dark:bg-white/5 p-6 rounded-3xl border border-gray-200 dark:border-white/10">
-          <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block mb-2">
             Şablon Değişkenleri
           </span>
 
@@ -208,7 +208,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
               type="text"
               value={siteName}
               onChange={(e) => setSiteName(e.target.value)}
-              className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-indigo-500 font-medium"
+              className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
             />
           </div>
 
@@ -220,7 +220,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
               type="text"
               value={managerName}
               onChange={(e) => setManagerName(e.target.value)}
-              className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-indigo-500 font-medium"
+              className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
             />
           </div>
 
@@ -234,7 +234,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
                   type="text"
                   value={ownerName}
                   onChange={(e) => setOwnerName(e.target.value)}
-                  className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-indigo-500 font-medium"
+                  className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
                 />
               </div>
 
@@ -246,7 +246,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
                   type="text"
                   value={unitNo}
                   onChange={(e) => setUnitNo(e.target.value)}
-                  className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-indigo-500 font-medium"
+                  className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
                 />
               </div>
             </>
@@ -261,7 +261,7 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
                 type="text"
                 value={debtAmount}
                 onChange={(e) => setDebtAmount(e.target.value)}
-                className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-indigo-500 font-bold text-rose-500"
+                className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/15 rounded-xl py-2.5 px-3.5 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-bold text-rose-500"
               />
             </div>
           )}
@@ -275,14 +275,14 @@ ${siteName || '[SİTE ADI]'} YÖNETİM KURULU`;
         <div className="lg:col-span-7 flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-              <Icon name="description" className="text-sm text-indigo-500" />
+              <Icon name="description" className="text-sm text-slate-500" />
               Canlı Metin Önizlemesi
             </span>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={handleCopy}
-                className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
+                className="px-3.5 py-1.5 bg-slate-600 hover:bg-slate-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
               >
                 <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
                 <span>{isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>

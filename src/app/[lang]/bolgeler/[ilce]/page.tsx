@@ -251,31 +251,31 @@ export default async function DistrictPage({
             </span>
             <Link
               href={`/bolgeler/${district.slug}/site-yonetimi`}
-              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-slate-500 hover:text-slate-600 transition-colors"
             >
               {district.name} Site Yönetimi
             </Link>
             <Link
               href={`/bolgeler/${district.slug}/apartman-yonetimi`}
-              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-slate-500 hover:text-slate-600 transition-colors"
             >
               {district.name} Apartman Yönetimi
             </Link>
             <Link
               href={`/bolgeler/${district.slug}/guvenlik-sirketleri`}
-              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-slate-500 hover:text-slate-600 transition-colors"
             >
               {district.name} Güvenlik Şirketleri
             </Link>
             <Link
               href={`/bolgeler/${district.slug}/asansor-bakimi`}
-              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-slate-500 hover:text-slate-600 transition-colors"
             >
               {district.name} Asansör Bakımı
             </Link>
             <Link
               href={`/bolgeler/${district.slug}/apartman-temizligi`}
-              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60 hover:border-slate-500 hover:text-slate-600 transition-colors"
             >
               {district.name} Apartman Temizliği
             </Link>
@@ -375,7 +375,7 @@ export default async function DistrictPage({
                   {district.name} Bölge Standartları
                 </span>
                 <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mt-2">
-                  {district.name} Genelinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 dark:from-blue-400 dark:via-emerald-400 dark:to-cyan-400">Üçlü Yasal Koruma Kalkanı</span>
+                  {district.name} Genelinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 via-emerald-600 to-slate-600 dark:from-slate-400 dark:via-emerald-400 dark:to-slate-400">Üçlü Yasal Koruma Kalkanı</span>
                 </h2>
               </div>
               <span className="text-xs font-mono text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl shrink-0">
@@ -385,7 +385,7 @@ export default async function DistrictPage({
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="gavel" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">KMK 634 & Hızlı İcra Takibi</h3>
@@ -405,7 +405,7 @@ export default async function DistrictPage({
               </div>
 
               <div className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="engineering" className="text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--color-primary)]">A Tipi Yeşil Etiket & 45 Dk SLA</h3>
@@ -492,7 +492,7 @@ export default async function DistrictPage({
         <div className="p-8 rounded-[2.5rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider">
-              <Icon name="hub" className="text-[15px] text-blue-600 dark:text-blue-400" />
+              <Icon name="hub" className="text-[15px] text-slate-600 dark:text-slate-400" />
               <span>İstanbul Merkezi Tesis Yönetim Hub Standardı</span>
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)]">
@@ -500,7 +500,7 @@ export default async function DistrictPage({
             </h3>
             <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
               {district.name} ilçesindeki tüm konut siteleri, rezidanslar ve ticari tesisler; Alo Yönetim&apos;in{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-blue-600 dark:text-blue-400 font-bold underline hover:underline">
+              <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-bold underline hover:underline">
                 İstanbul Entegre Tesis Yönetimi
               </Link>{' '}
               merkezi yönetim protokolü, 5188 yasal güvenlik ve 15-25 dk acil mobil arıza SLA ağı ile kesintisiz yönetilmektedir.
@@ -513,7 +513,7 @@ export default async function DistrictPage({
                 </span>
                 {district.prominentProjects && district.prominentProjects.length > 0 && (
                   <span className="flex items-center gap-1">
-                    <Icon name="verified" className="text-[16px] text-blue-400" />
+                    <Icon name="verified" className="text-[16px] text-slate-400" />
                     Öne Çıkan Projeler: {district.prominentProjects.slice(0, 4).join(', ')}
                   </span>
                 )}
@@ -527,7 +527,7 @@ export default async function DistrictPage({
           </div>
           <Link
             href="/hizmetler/tesis-yonetimi"
-            className="shrink-0 px-6 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-2 group cursor-pointer"
+            className="shrink-0 px-6 py-3.5 rounded-2xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-2 group cursor-pointer"
           >
             <span>Merkezi Tesis Yönetimi Standartları</span>
             <Icon name="arrow_forward" className="text-sm group-hover:translate-x-1 transition-transform" />
@@ -545,10 +545,10 @@ export default async function DistrictPage({
                 <Link
                   key={neighbor.slug}
                   href={neighbor.href}
-                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/60 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
+                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/60 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 hover:border-slate-500/50 transition-all shadow-xs"
                 >
                   <span>{neighbor.name}</span>
-                  <Icon name="arrow_forward" className="text-[14px] text-blue-500" />
+                  <Icon name="arrow_forward" className="text-[14px] text-slate-500" />
                 </Link>
               ))}
             </div>
@@ -557,7 +557,7 @@ export default async function DistrictPage({
 
         {/* Faz 115: Anadolu ve Avrupa Yakası Çapraz PageRank Dengeleyici Ağ */}
         {crossSideLinks.length > 0 && (
-          <div className="p-6 rounded-2xl bg-blue-50/50 dark:bg-slate-900/30 border border-blue-200/50 dark:border-blue-500/10">
+          <div className="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/30 border border-slate-200/50 dark:border-slate-500/10">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-center sm:text-left">
               İstanbul Genelinde Hizmet Ağımız ({district.side === 'Anadolu' ? 'Avrupa' : 'Anadolu'} Yakası Merkezleri)
             </h3>
@@ -566,10 +566,10 @@ export default async function DistrictPage({
                 <Link
                   key={cross.slug}
                   href={cross.href}
-                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-blue-200/40 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all shadow-xs"
+                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/40 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 hover:border-slate-500/50 transition-all shadow-xs"
                 >
                   <span>{cross.name}</span>
-                  <Icon name="explore" className="text-[14px] text-blue-500" />
+                  <Icon name="explore" className="text-[14px] text-slate-500" />
                 </Link>
               ))}
             </div>

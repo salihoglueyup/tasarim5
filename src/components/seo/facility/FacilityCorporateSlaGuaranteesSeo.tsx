@@ -28,7 +28,7 @@ const GUARANTEES_DATA: SlaGuaranteeItem[] = [
       'SLA süresi aşımı durumunda aylık yönetim işletme bedelinde sözleşmeli indirim.'
     ],
     legalReference: 'ISO 41001 Standardı & Sözleşmeli SLA Protokolü',
-    borderGlow: 'hover:border-blue-500/50 hover:shadow-blue-500/10'
+    borderGlow: 'hover:border-slate-500/50 hover:shadow-slate-500/10'
   },
   {
     id: 'sla-zero-penalty',
@@ -85,7 +85,7 @@ export default function FacilityCorporateSlaGuaranteesSeo() {
           <span>Sözleşmeyle İmza Altına Alınan Resmi Taahhütler</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
-          3 Büyük <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 dark:from-emerald-400 dark:via-teal-300 dark:to-blue-400">Kurumsal SLA ve Hukuki Garanti</span>
+          3 Büyük <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-slate-600 to-slate-600 dark:from-emerald-400 dark:via-slate-300 dark:to-slate-400">Kurumsal SLA ve Hukuki Garanti</span>
         </h3>
         <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2">
           Alo Yönetim ile çalışan hiçbir kat maliki veya yöneticisi beklenmeyen fatura cezası, arıza mağduriyeti veya personel tazminatıyla karşılaşmaz.

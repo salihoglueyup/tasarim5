@@ -159,7 +159,7 @@ export default function FacilityBeforeAfterCasesSeo() {
           <span>Kanıtlanmış Gerçek KPI & Tasarruf Sonuçları</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
-          Öncesi vs. Sonrası: <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-300">Somut Vaka Analizleri</span>
+          Öncesi vs. Sonrası: <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-300">Somut Vaka Analizleri</span>
         </h3>
         <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-light mt-2">
           Alo Yönetim modeliyle işletilen gerçek tesislerde elektrik cezaları, tahsilat gecikmeleri ve teknik riskler nasıl çözüldü?

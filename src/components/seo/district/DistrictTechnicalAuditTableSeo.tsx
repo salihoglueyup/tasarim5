@@ -105,7 +105,7 @@ export default function DistrictTechnicalAuditTableSeo({
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="engineering" className="text-sm" />
             {districtName} Mühendislik & Teknik Standartlar Matrisi
           </div>
@@ -120,8 +120,8 @@ export default function DistrictTechnicalAuditTableSeo({
             onClick={() => setActiveTab('asansor')}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'asansor'
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
+                ? 'bg-slate-600 text-white shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-600'
             }`}
           >
             Asansör & Taşıma
@@ -130,8 +130,8 @@ export default function DistrictTechnicalAuditTableSeo({
             onClick={() => setActiveTab('elektrik')}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'elektrik'
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
+                ? 'bg-slate-600 text-white shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-600'
             }`}
           >
             Elektrik & Jeneratör
@@ -140,8 +140,8 @@ export default function DistrictTechnicalAuditTableSeo({
             onClick={() => setActiveTab('mekanik')}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'mekanik'
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
+                ? 'bg-slate-600 text-white shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-600'
             }`}
           >
             Mekanik & Yangın
@@ -165,7 +165,7 @@ export default function DistrictTechnicalAuditTableSeo({
               <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
                 <td className="py-4 px-4 font-semibold text-[var(--color-primary)]">
                   <div className="flex items-center gap-2">
-                    <Icon name="check_circle" className="text-blue-500 text-base shrink-0" />
+                    <Icon name="check_circle" className="text-slate-500 text-base shrink-0" />
                     <span>{row.item}</span>
                   </div>
                 </td>
@@ -176,7 +176,7 @@ export default function DistrictTechnicalAuditTableSeo({
                   {row.districtSpec}
                 </td>
                 <td className="py-4 px-4 text-right">
-                  <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                  <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20">
                     {row.status}
                   </span>
                 </td>
@@ -193,7 +193,7 @@ export default function DistrictTechnicalAuditTableSeo({
         </p>
         <Link
           href={`/teklif-al?hizmet=teknik-bakim&bolge=${encodeURIComponent(districtName)}`}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-600/20 shrink-0"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all shadow-md shadow-slate-600/20 shrink-0"
         >
           <span>{districtName} İçin Teknik Bakım Teklifi Al</span>
           <Icon name="arrow_forward" className="text-sm" />

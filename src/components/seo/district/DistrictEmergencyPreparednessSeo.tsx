@@ -63,7 +63,7 @@ export default function DistrictEmergencyPreparednessSeo({
             <span>Afet & Yangın Güvenliği Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-            {districtName} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-300 to-orange-400">Deprem, Yangın & Afet Eylem Protokolü</span>
+            {districtName} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-300 to-slate-400">Deprem, Yangın & Afet Eylem Protokolü</span>
           </h2>
           <p className="text-slate-300 mt-2 text-xs sm:text-sm font-normal max-w-2xl leading-relaxed">
             {districtName} bölgesindeki site ve konutların zemin yapısı, AFAD acil toplanma alanları ve Alo Yönetim'in deprem anı otomatik sistem güvenlik standartları.
@@ -105,7 +105,7 @@ export default function DistrictEmergencyPreparednessSeo({
         {/* Card 2: AFAD & İlk Müdahale */}
         <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-800 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-2 text-sky-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
               <Icon name="local_hospital" className="text-base" />
               <span>İtfaiye & Sağlık Lojistiği</span>
             </div>
@@ -122,7 +122,7 @@ export default function DistrictEmergencyPreparednessSeo({
           </div>
           <div className="mt-4 pt-3 border-t border-slate-700/60 text-xs text-slate-400">
             <span>AFAD Toplanma Alanı Sayısı:</span>{' '}
-            <strong className="text-sky-300 font-semibold">{profile.afadAssemblyPointsCount} Nokta</strong>
+            <strong className="text-slate-300 font-semibold">{profile.afadAssemblyPointsCount} Nokta</strong>
           </div>
         </div>
 

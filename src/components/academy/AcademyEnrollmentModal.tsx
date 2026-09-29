@@ -130,7 +130,7 @@ export default function AcademyEnrollmentModal({
               <>
                 {/* Header */}
                 <div className="mb-6">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-wider mb-2">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">
                     <Icon name="school" className="text-sm" />
                     <span>Akademi Ön Başvuru</span>
                   </div>
@@ -164,7 +164,7 @@ export default function AcademyEnrollmentModal({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Örn: Mehmet Öz"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500"
                     />
                   </div>
 
@@ -182,7 +182,7 @@ export default function AcademyEnrollmentModal({
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="05XX XXX XX XX"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500"
                       />
                     </div>
 
@@ -198,7 +198,7 @@ export default function AcademyEnrollmentModal({
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="ornek@mail.com"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500"
                       />
                     </div>
                   </div>
@@ -212,7 +212,7 @@ export default function AcademyEnrollmentModal({
                       name="course"
                       value={selectedCourse}
                       onChange={(e) => setSelectedCourse(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-rose-500 cursor-pointer"
                     >
                       {COURSE_OPTIONS.map((c) => (
                         <option key={c} value={c} className="dark:bg-slate-900 text-slate-900 dark:text-white">
@@ -233,7 +233,7 @@ export default function AcademyEnrollmentModal({
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Mevcut kimlik kartı durumunuz, vardiya tercihiniz vb."
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500 resize-none"
                     />
                   </div>
 
@@ -245,7 +245,7 @@ export default function AcademyEnrollmentModal({
                       required
                       checked={kvkk}
                       onChange={(e) => setKvkk(e.target.checked)}
-                      className="mt-1 w-4 h-4 rounded text-red-600 focus:ring-red-500 cursor-pointer"
+                      className="mt-1 w-4 h-4 rounded text-rose-600 focus:ring-rose-500 cursor-pointer"
                     />
                     <label htmlFor="aca-kvkk" className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed cursor-pointer">
                       Kişisel verilerimin akademi ön kayıt ve iletişim süreçleri kapsamında işlenmesine dair aydınlatma metnini okudum, kabul ediyorum.
@@ -255,7 +255,7 @@ export default function AcademyEnrollmentModal({
                   <button
                     type="submit"
                     disabled={status === 'loading' || !kvkk}
-                    className="w-full mt-3 py-3.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold rounded-xl shadow-lg shadow-red-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:scale-95"
+                    className="w-full mt-3 py-3.5 bg-gradient-to-r from-rose-600 to-rose-600 hover:from-rose-500 hover:to-rose-500 text-white font-bold rounded-xl shadow-lg shadow-rose-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:scale-95"
                   >
                     {status === 'loading' ? (
                       <>

@@ -85,7 +85,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
     <section
       id="case-study-ai-grounding"
       aria-label="Google AI Overviews Başarı Hikayeleri ve Somut Tasarruf Metrikleri"
-      className={`bg-[var(--color-surface)] border border-blue-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script
@@ -94,11 +94,11 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
       />
 
       {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-blue-500/10 via-cyan-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="analytics" className="text-[15px]" />
           <span>Google AI Overviews & Kanıtlanmış ROI Metrikleri</span>
         </div>
@@ -106,10 +106,10 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
             %32.4 Tasarruf
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             %99.4 Tahsilat
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             %0 Ceza
           </span>
         </div>
@@ -117,7 +117,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <Icon name="trending_up" className="text-blue-600 dark:text-blue-400 text-2xl mt-0.5 shrink-0" />
+        <Icon name="trending_up" className="text-slate-600 dark:text-slate-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -131,9 +131,9 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
 
       {/* 3 Real Case Study Highlights */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 relative z-10">
-        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-blue-500/40 transition-all">
+        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-slate-500/40 transition-all">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-blue-700 dark:text-blue-300">
+            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 dark:text-slate-300">
               840 Bağımsız Bölüm
             </span>
             <span className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400 font-mono">
@@ -161,12 +161,12 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
           </p>
         </div>
 
-        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-purple-500/40 transition-all">
+        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-slate-500/40 transition-all">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-700 dark:text-purple-300">
+            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 dark:text-slate-300">
               Lojistik & Sanayi
             </span>
-            <span className="text-sm font-extrabold text-purple-600 dark:text-purple-400 font-mono">
+            <span className="text-sm font-extrabold text-slate-600 dark:text-slate-400 font-mono">
               2.2M TL Tasarruf
             </span>
           </div>
@@ -180,7 +180,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <Icon name="verified" className="text-sm text-blue-500" />
+          <Icon name="verified" className="text-sm text-slate-500" />
           <span>Yeminli Mali Müşavir ve Denetçi Raporlarıyla Teyit Edilmiş Sayısal Sonuçlar</span>
         </div>
 
@@ -198,7 +198,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
             href="https://www.perplexity.ai/search?q=Alo+Yonetim+site+yonetimi+aidat+tasarruf+ornekleri+ve+vaka+analizleri"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-xs"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-600 hover:bg-slate-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />

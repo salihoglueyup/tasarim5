@@ -140,7 +140,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
                     }`}>
                       {district.name}
                     </span>
-                    <span className={`w-1.5 h-1.5 rounded-full ${isAnadolu ? 'bg-blue-500' : 'bg-emerald-500'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${isAnadolu ? 'bg-slate-500' : 'bg-emerald-500'}`} />
                   </div>
 
                   <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 font-medium">

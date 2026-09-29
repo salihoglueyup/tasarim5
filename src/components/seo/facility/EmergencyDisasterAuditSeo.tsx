@@ -94,7 +94,7 @@ export default function EmergencyDisasterAuditSeo() {
   }, 0);
 
   const getStatus = () => {
-    if (totalScore >= 85) return { label: 'Yüksek Hazırlık & Güvenli', color: 'text-blue-400', bg: 'bg-blue-500/20 border-blue-500/30' };
+    if (totalScore >= 85) return { label: 'Yüksek Hazırlık & Güvenli', color: 'text-slate-400', bg: 'bg-slate-500/20 border-slate-500/30' };
     if (totalScore >= 50) return { label: 'Orta Seviye (Eksikler Var)', color: 'text-amber-400', bg: 'bg-amber-500/20 border-amber-500/30' };
     return { label: 'Kritik Risk & Yasal Eksiklik', color: 'text-rose-400', bg: 'bg-rose-500/20 border-rose-500/30' };
   };
@@ -158,14 +158,14 @@ export default function EmergencyDisasterAuditSeo() {
               onClick={() => toggleCheck(q.id)}
               className={`p-5 rounded-2xl border cursor-pointer transition-all flex items-start gap-3.5 ${
                 isChecked
-                  ? 'bg-blue-500/10 border-blue-500/40 text-white'
+                  ? 'bg-slate-500/10 border-slate-500/40 text-white'
                   : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
               }`}
             >
               <div
                 className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                   isChecked
-                    ? 'bg-blue-500 text-white'
+                    ? 'bg-slate-500 text-white'
                     : 'border border-white/30 bg-white/5'
                 }`}
               >
@@ -177,7 +177,7 @@ export default function EmergencyDisasterAuditSeo() {
               <div className="flex-1 space-y-1">
                 <div className="flex items-center justify-between gap-2">
                   <h4 className="text-sm font-bold text-white">{q.title}</h4>
-                  <span className="text-[11px] font-mono text-blue-400 font-bold shrink-0">
+                  <span className="text-[11px] font-mono text-slate-400 font-bold shrink-0">
                     +{q.weight} Puan
                   </span>
                 </div>

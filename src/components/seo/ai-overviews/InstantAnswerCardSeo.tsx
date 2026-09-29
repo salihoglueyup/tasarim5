@@ -79,7 +79,7 @@ export default function InstantAnswerCardSeo({
       <JsonLd data={speakableData} />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-slate-500/5 blur-[100px] pointer-events-none rounded-full" />
 
       {/* Header Badges */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">

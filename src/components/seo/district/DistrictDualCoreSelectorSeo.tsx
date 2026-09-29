@@ -150,13 +150,13 @@ export default function DistrictDualCoreSelectorSeo({
         </div>
 
         {/* SAĞ KART: B2B / Ticari Plaza ve Tesis Yönetimi */}
-        <div className="group relative bg-[var(--color-surface)] border-2 border-indigo-500/20 hover:border-indigo-500/50 rounded-[2.5rem] p-7 sm:p-9 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden">
-          <div className="absolute top-0 right-0 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider">
+        <div className="group relative bg-[var(--color-surface)] border-2 border-slate-500/20 hover:border-slate-500/50 rounded-[2.5rem] p-7 sm:p-9 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden">
+          <div className="absolute top-0 right-0 bg-slate-500/10 text-slate-700 dark:text-slate-300 text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider">
             B2B &bull; Ticari Gayrimenkul
           </div>
 
           <div>
-            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-5">
+            <div className="w-12 h-12 rounded-2xl bg-slate-500/10 flex items-center justify-center text-slate-600 dark:text-slate-400 mb-5">
               <Icon name="corporate_fare" className="text-2xl" />
             </div>
 
@@ -197,7 +197,7 @@ export default function DistrictDualCoreSelectorSeo({
                       key={idx}
                       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-[11px] font-medium text-slate-700 dark:text-slate-300"
                     >
-                      <Icon name="verified" className="text-[13px] text-indigo-500" />
+                      <Icon name="verified" className="text-[13px] text-slate-500" />
                       {srv}
                     </span>
                   ))}
@@ -210,7 +210,7 @@ export default function DistrictDualCoreSelectorSeo({
           <div className="pt-4 border-t border-[var(--color-outline)]/40 flex flex-col sm:flex-row gap-3">
             <Link
               href={`/bolgeler/${districtSlug}/tesis-yonetimi`}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md transition-all text-center"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-600 hover:bg-slate-700 text-white text-xs font-bold shadow-md transition-all text-center"
             >
               <span>{districtName} Tesis Yönetimi Detayları</span>
               <Icon name="arrow_forward" className="text-sm" />

@@ -58,7 +58,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
     <section
       id="academy-ai-overview"
       aria-label="Google AI Overviews 5188 Özel Güvenlik Yetkileri ve Hukuki Sınırlar Özeti"
-      className={`bg-[var(--color-surface)] border border-blue-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script
@@ -67,16 +67,16 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="security" className="text-[15px]" />
           <span>Google AI Overviews & 5188 Yasal Yetki Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             5188 Sayılı Kanun
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-300/40">
@@ -87,7 +87,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <Icon name="shield_person" className="text-blue-600 dark:text-blue-400 text-2xl mt-0.5 shrink-0" />
+        <Icon name="shield_person" className="text-slate-600 dark:text-slate-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -122,7 +122,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="badge" className="text-base" />
             <span className="text-xs font-bold">5188 Kimlik Kartı</span>
           </div>
@@ -132,7 +132,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="domain_verification" className="text-base" />
             <span className="text-xs font-bold">Valilik ÖGİ İzni</span>
           </div>
@@ -145,7 +145,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <Icon name="gavel" className="text-sm text-blue-500" />
+          <Icon name="gavel" className="text-sm text-slate-500" />
           <span>5188 Sayılı Özel Güvenlik Kanunu & EGM Özel Güvenlik Denetleme Standartları</span>
         </div>
 
@@ -163,7 +163,7 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
             href="https://www.perplexity.ai/search?q=Sitelerde+ozel+guvenlik+gorevlisi+yetkileri+ve+arama+sinirlari+5188"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-xs"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-600 hover:bg-slate-700 text-white transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />

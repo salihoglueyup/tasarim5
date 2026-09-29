@@ -343,7 +343,7 @@ export default async function CertificatePage({
               {/* Akreditasyon Bilgi Kutusu */}
               <div className="bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 space-y-2">
                 <div className="flex items-center gap-2 mb-3">
-                  <Icon name="security" className="text-blue-600 dark:text-blue-400 text-lg" />
+                  <Icon name="security" className="text-slate-600 dark:text-slate-400 text-lg" />
                   <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">Akreditasyon Güvencesi</span>
                 </div>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">

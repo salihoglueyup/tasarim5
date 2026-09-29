@@ -26,7 +26,7 @@ export default function VisionHeroSeo({
     <section className="relative w-full bg-slate-950 text-white overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 border-b border-slate-800/80">
       {/* Background glow effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-slate-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
 
       <div className="relative max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
@@ -59,8 +59,8 @@ export default function VisionHeroSeo({
             <span>ISO 45001 • ISO 14001 • ISO 10002 — ILAS AKREDİTELİ</span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
-            <Icon name="gavel" className="text-xs text-blue-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/30 text-slate-300 text-xs font-medium">
+            <Icon name="gavel" className="text-xs text-slate-400" />
             <span>634 Sayılı KMK Hukuk Güvencesi</span>
           </div>
 
@@ -73,7 +73,7 @@ export default function VisionHeroSeo({
         {/* H1 Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl leading-[1.15] mb-6">
           Geleceğin Akıllı ve Şeffaf{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-brand-300 to-amber-300">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-400 via-brand-300 to-amber-300">
             Tesis Yönetimi Standartlarını
           </span>{' '}
           İnşa Ediyoruz
@@ -128,7 +128,7 @@ export default function VisionHeroSeo({
           <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-slate-700 transition-colors">
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white">45.000+</span>
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
                 <Icon name="apartment" className="text-xl" />
               </div>
             </div>

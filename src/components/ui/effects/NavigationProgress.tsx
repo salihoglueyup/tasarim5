@@ -101,7 +101,7 @@ export default function NavigationProgress() {
       aria-hidden="true"
     >
       <div
-        className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 shadow-[0_0_12px_rgba(6,182,212,0.9)] origin-left transition-all duration-200 ease-out"
+        className="h-full bg-gradient-to-r from-slate-400 via-slate-500 to-slate-500 shadow-[0_0_12px_rgba(6,182,212,0.9)] origin-left transition-all duration-200 ease-out"
         style={{
           width: `${progress}%`,
           transform: "translateZ(0)",

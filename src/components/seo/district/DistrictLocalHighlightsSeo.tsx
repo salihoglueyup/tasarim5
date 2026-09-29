@@ -94,7 +94,7 @@ export default function DistrictLocalHighlightsSeo({
 
           <div className="flex items-center gap-6">
             <div className="text-right">
-              <div className="text-2xl md:text-3xl font-black text-blue-600 dark:text-blue-400">
+              <div className="text-2xl md:text-3xl font-black text-slate-600 dark:text-slate-400">
                 {managedProjects}+
               </div>
               <div className="text-xs text-slate-500">Yönetilen Proje</div>
@@ -114,7 +114,7 @@ export default function DistrictLocalHighlightsSeo({
           {/* Mahalleler */}
           <div>
             <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white mb-3">
-              <Icon name="location_city" className="text-blue-500 text-lg" />
+              <Icon name="location_city" className="text-slate-500 text-lg" />
               <span>Hizmet Verilen Önemli Mahalleler</span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -178,12 +178,12 @@ export default function DistrictLocalHighlightsSeo({
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
             <div className="flex items-center justify-between gap-2 mb-3">
               <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+                <Sparkles className="w-3.5 h-3.5 text-slate-500" />
                 <span>{side} Yakasındaki Diğer Hizmet Bölgelerimiz:</span>
               </span>
               <Link
                 href={`/${lang}/bolgeler`}
-                className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1"
               >
                 <span>Tüm 39 İlçe</span>
                 <ArrowRight className="w-3 h-3" />
@@ -194,7 +194,7 @@ export default function DistrictLocalHighlightsSeo({
                 <Link
                   key={d.slug}
                   href={`/${lang}/bolgeler/${d.slug}`}
-                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-colors flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-colors flex items-center gap-1.5"
                 >
                   <MapPin className="w-3 h-3 text-slate-400" />
                   <span>{d.name}</span>

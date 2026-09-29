@@ -56,7 +56,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-emerald-500/10 via-teal-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-emerald-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
@@ -68,7 +68,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
             KMK Madde 42 (%50+1)
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             ISO 14001:2015
           </span>
         </div>
@@ -101,7 +101,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="ev_station" className="text-base" />
             <span className="text-xs font-bold">EV Şarj Güvenliği</span>
           </div>
@@ -121,7 +121,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
         </div>
 
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="water_drop" className="text-base" />
             <span className="text-xs font-bold">Gri Su & Yağmur Hasadı</span>
           </div>

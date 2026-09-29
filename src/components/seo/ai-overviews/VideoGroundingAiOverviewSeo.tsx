@@ -155,7 +155,7 @@ export default function VideoGroundingAiOverviewSeo({
 
   return (
     <section
-      className={`relative w-full rounded-2xl border border-blue-500/20 bg-gradient-to-br from-slate-900/90 via-blue-950/40 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
+      className={`relative w-full rounded-2xl border border-slate-500/20 bg-gradient-to-br from-slate-900/90 via-slate-950/40 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
       aria-label="Multimodal ve Video AI Zeminleme Rehberi"
     >
       <script
@@ -164,14 +164,14 @@ export default function VideoGroundingAiOverviewSeo({
       />
 
       {/* Header & Badges */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-blue-500/20 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-500/20 pb-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400 border border-blue-400/30 font-bold text-xl">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-500/20 text-slate-400 border border-slate-400/30 font-bold text-xl">
             <Icon name="smart_display" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center rounded-md bg-blue-500/10 px-2 py-0.5 text-xs font-semibold text-blue-300 border border-blue-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 Google Lens & Video AI Overviews
               </span>
               <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-300 border border-emerald-500/30">
@@ -188,7 +188,7 @@ export default function VideoGroundingAiOverviewSeo({
           onClick={handleCopy}
           type="button"
           aria-label="AI özetini kopyala"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-blue-400/30 bg-blue-500/10 px-3 py-1.5 text-xs font-medium text-blue-200 transition-colors hover:bg-blue-500/20 active:scale-95"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-400/30 bg-slate-500/10 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors hover:bg-slate-500/20 active:scale-95"
         >
           <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
           {copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}
@@ -196,9 +196,9 @@ export default function VideoGroundingAiOverviewSeo({
       </div>
 
       {/* Instant Answer Text for Speakable / AI Overviews */}
-      <div className="mt-4 rounded-xl border border-blue-400/20 bg-blue-950/30 p-4">
+      <div className="mt-4 rounded-xl border border-slate-400/20 bg-slate-950/30 p-4">
         <div className="flex items-start gap-2.5">
-          <Icon name="verified" className="text-blue-400 text-lg shrink-0 mt-0.5" />
+          <Icon name="verified" className="text-slate-400 text-lg shrink-0 mt-0.5" />
           <p
             id="video-grounding-instant-answer-text"
             className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
@@ -217,7 +217,7 @@ export default function VideoGroundingAiOverviewSeo({
             onClick={() => setActiveVideoId(v.id)}
             className={`rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
               activeVideoId === v.id
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30 border border-blue-400'
+                ? 'bg-slate-600 text-white shadow-lg shadow-slate-600/30 border border-slate-400'
                 : 'bg-slate-800/60 text-slate-400 hover:text-white border border-slate-700/50'
             }`}
           >
@@ -231,8 +231,8 @@ export default function VideoGroundingAiOverviewSeo({
         {/* Video Screen Preview */}
         <div className="lg:col-span-7 rounded-xl overflow-hidden border border-slate-700/60 bg-slate-950 relative group aspect-video flex flex-col justify-between p-5">
           <div className="flex justify-between items-center z-10">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[11px] font-mono text-blue-300 border border-white/10">
-              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[11px] font-mono text-slate-300 border border-white/10">
+              <span className="h-2 w-2 rounded-full bg-rose-500 animate-pulse"></span>
               {selectedVideo.durationFormatted} HD 1080p
             </span>
             <span className="text-[11px] font-mono text-slate-400 bg-black/50 px-2 py-0.5 rounded">
@@ -242,7 +242,7 @@ export default function VideoGroundingAiOverviewSeo({
 
           {/* Central Play Button */}
           <div className="flex flex-col items-center justify-center text-center z-10 py-6">
-            <div className="h-16 w-16 rounded-full bg-blue-600/90 hover:bg-blue-500 flex items-center justify-center text-white shadow-xl shadow-blue-500/30 transition-transform transform group-hover:scale-110 cursor-pointer">
+            <div className="h-16 w-16 rounded-full bg-slate-600/90 hover:bg-slate-500 flex items-center justify-center text-white shadow-xl shadow-slate-500/30 transition-transform transform group-hover:scale-110 cursor-pointer">
               <Icon name="play_arrow" className="text-3xl ml-0.5" />
             </div>
             <p className="mt-3 text-sm font-semibold text-white max-w-sm drop-shadow">
@@ -253,7 +253,7 @@ export default function VideoGroundingAiOverviewSeo({
           {/* Bottom Video Progress Bar */}
           <div className="z-10">
             <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-              <div className="bg-blue-500 h-full w-1/3 rounded-full"></div>
+              <div className="bg-slate-500 h-full w-1/3 rounded-full"></div>
             </div>
             <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1.5">
               <span>01:15 / {selectedVideo.durationFormatted}</span>
@@ -267,7 +267,7 @@ export default function VideoGroundingAiOverviewSeo({
 
         {/* Video Chapters & Timeline */}
         <div className="lg:col-span-5 flex flex-col gap-3">
-          <h4 className="text-xs uppercase tracking-wider text-blue-300 font-bold flex items-center gap-1.5">
+          <h4 className="text-xs uppercase tracking-wider text-slate-300 font-bold flex items-center gap-1.5">
             <Icon name="view_timeline" className="text-sm" />
             Video Zaman Damgaları & Google SeekToAction
           </h4>
@@ -276,9 +276,9 @@ export default function VideoGroundingAiOverviewSeo({
             {selectedVideo.clips.map((clip, index) => (
               <div
                 key={index}
-                className="flex items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 p-3 hover:border-blue-500/40 transition-colors"
+                className="flex items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 p-3 hover:border-slate-500/40 transition-colors"
               >
-                <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 shrink-0">
+                <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-500/10 text-slate-400 border border-slate-500/20 shrink-0">
                   {Math.floor(clip.startOffset / 60)}:
                   {(clip.startOffset % 60).toString().padStart(2, '0')}
                 </span>
@@ -293,7 +293,7 @@ export default function VideoGroundingAiOverviewSeo({
           </div>
 
           <div className="mt-2 text-[11px] text-slate-400 border-t border-slate-800 pt-3">
-            <span className="font-semibold text-slate-300">Googlebot Video İndeksleme:</span> Tüm video klipleri Schema.org <code className="text-blue-300">hasPart: Clip</code> spesifikasyonuna uygundur.
+            <span className="font-semibold text-slate-300">Googlebot Video İndeksleme:</span> Tüm video klipleri Schema.org <code className="text-slate-300">hasPart: Clip</code> spesifikasyonuna uygundur.
           </div>
         </div>
       </div>

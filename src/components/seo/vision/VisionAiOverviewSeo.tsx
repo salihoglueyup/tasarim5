@@ -18,14 +18,14 @@ export default function VisionAiOverviewSeo() {
   return (
     <section
       aria-label="Google AI Overviews ve Kurumsal Yönetim Felsefesi"
-      className="rounded-3xl border border-blue-500/20 bg-gradient-to-br from-blue-50/70 via-white to-amber-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-blue-500/5 backdrop-blur-xl relative overflow-hidden"
+      className="rounded-3xl border border-slate-500/20 bg-gradient-to-br from-slate-50/70 via-white to-amber-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-slate-500/5 backdrop-blur-xl relative overflow-hidden"
     >
       {/* Decorative gradient corner */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500/10 via-brand-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-slate-500/10 via-brand-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 border-b border-slate-200/60 dark:border-slate-800/60 pb-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 text-xs font-bold tracking-wide uppercase">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 dark:bg-slate-400/10 text-slate-700 dark:text-slate-300 text-xs font-bold tracking-wide uppercase">
           <Icon name="psychology" className="text-sm" />
           <span>Google AI Overviews & 2026 Yönetim Felsefesi</span>
         </div>
@@ -69,7 +69,7 @@ export default function VisionAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <Icon name="lock" className="text-base text-blue-600 dark:text-blue-400" />
+            <Icon name="lock" className="text-base text-slate-600 dark:text-slate-400" />
             <span>Dokunulmaz Kıdem Fonu</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -89,7 +89,7 @@ export default function VisionAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <Icon name="shield_with_heart" className="text-base text-purple-600 dark:text-purple-400" />
+            <Icon name="shield_with_heart" className="text-base text-slate-600 dark:text-slate-400" />
             <span>5188 Lisanslı Kadro & Akademi</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -101,7 +101,7 @@ export default function VisionAiOverviewSeo() {
       {/* Footer Citation & Action Controls */}
       <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400">
         <div className="flex items-center gap-2">
-          <Icon name="menu_book" className="text-base text-blue-500" />
+          <Icon name="menu_book" className="text-base text-slate-500" />
           <span>Kaynak: 634 Sayılı Kat Mülkiyeti Kanunu Madde 35-40, ISO 9001:2015 Kalite Manifestosu</span>
         </div>
 
@@ -119,7 +119,7 @@ export default function VisionAiOverviewSeo() {
             href="https://www.perplexity.ai/search?q=Alo+Y%C3%B6netim+tesis+y%C3%B6netimi+vizyonu+ve+%C5%9Feffafl%C4%B1k+felsefesi"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-semibold transition-all shadow-xs"
           >
             <span>Perplexity&apos;de Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />

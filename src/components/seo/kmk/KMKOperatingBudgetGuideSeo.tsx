@@ -80,12 +80,12 @@ export default function KMKOperatingBudgetGuideSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 mb-3 border border-blue-300 dark:border-blue-700">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 dark:bg-slate-900/40 dark:text-slate-300 mb-3 border border-slate-300 dark:border-slate-700">
           <Icon name="balance" className="text-sm" />
           <span>KMK Madde 37 & İİK Madde 68 İlam Hükmünde Belge</span>
         </div>
@@ -111,7 +111,7 @@ export default function KMKOperatingBudgetGuideSeo({
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
               activeTab === tab.id
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 font-semibold'
+                ? 'bg-slate-600 text-white shadow-md shadow-slate-600/30 font-semibold'
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
@@ -127,7 +127,7 @@ export default function KMKOperatingBudgetGuideSeo({
           {/* Category Filter */}
           <div className="flex items-center justify-between flex-wrap gap-2 p-3.5 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border border-slate-200/80 dark:border-slate-800">
             <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-              <Icon name="filter_alt" className="text-base text-blue-600" />
+              <Icon name="filter_alt" className="text-base text-slate-600" />
               Kategori Filtresi:
             </span>
             <div className="flex flex-wrap gap-1.5">
@@ -145,7 +145,7 @@ export default function KMKOperatingBudgetGuideSeo({
                   onClick={() => setSelectedCategory(cat.key)}
                   className={`px-3 py-1 text-xs rounded-lg font-medium transition-colors ${
                     selectedCategory === cat.key
-                      ? 'bg-blue-600 text-white font-semibold'
+                      ? 'bg-slate-600 text-white font-semibold'
                       : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700'
                   }`}
                 >
@@ -164,7 +164,7 @@ export default function KMKOperatingBudgetGuideSeo({
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                    <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-slate-50 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
                       {item.kmkDistributionBasis}
                     </span>
                     <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -209,14 +209,14 @@ export default function KMKOperatingBudgetGuideSeo({
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-300 dark:border-blue-800">
+                    <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-slate-100 dark:bg-slate-950/60 text-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-800">
                       {rule.kmkArticleRef}
                     </span>
                   </div>
                   <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">
                     {rule.title}
                   </h3>
-                  <div className="p-3 rounded-xl bg-blue-50/50 dark:bg-blue-950/30 text-blue-900 dark:text-blue-200 font-mono text-xs font-semibold mb-3 border border-blue-200/50 dark:border-blue-900/40">
+                  <div className="p-3 rounded-xl bg-slate-50/50 dark:bg-slate-950/30 text-slate-900 dark:text-slate-200 font-mono text-xs font-semibold mb-3 border border-slate-200/50 dark:border-slate-900/40">
                     Formül: {rule.distributionMethod}
                   </div>
 
@@ -224,7 +224,7 @@ export default function KMKOperatingBudgetGuideSeo({
                     <strong className="text-slate-900 dark:text-white block mb-1">Bu Maddeye Giren Giderler:</strong>
                     {rule.coveredExpenseTypes.map((type, i) => (
                       <div key={i} className="flex items-start gap-1.5">
-                        <span className="text-blue-600 font-bold">•</span>
+                        <span className="text-slate-600 font-bold">•</span>
                         <span>{type}</span>
                       </div>
                     ))}
@@ -253,14 +253,14 @@ export default function KMKOperatingBudgetGuideSeo({
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-blue-600/30">
+                      <div className="w-8 h-8 rounded-full bg-slate-600 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-slate-600/30">
                         {step.stepNo}
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 dark:text-white text-sm md:text-base">
                           {step.phaseName}
                         </h3>
-                        <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+                        <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
                           {step.timeframe}
                         </span>
                       </div>
@@ -269,7 +269,7 @@ export default function KMKOperatingBudgetGuideSeo({
                     <button
                       type="button"
                       onClick={() => copyStepDetails(step)}
-                      className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-300 font-medium transition-colors flex items-center gap-1"
+                      className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/40 text-slate-600 dark:text-slate-300 font-medium transition-colors flex items-center gap-1"
                     >
                       <Icon name={copiedTimelineStep === step.stepNo ? 'check' : 'content_copy'} className="text-sm" />
                       <span>{copiedTimelineStep === step.stepNo ? 'Kopyalandı' : 'Kopyala'}</span>
@@ -293,8 +293,8 @@ export default function KMKOperatingBudgetGuideSeo({
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-blue-700 dark:text-blue-300 font-medium flex items-center gap-1">
-                  <Icon name="verified" className="text-sm text-blue-600" />
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 font-medium flex items-center gap-1">
+                  <Icon name="verified" className="text-sm text-slate-600" />
                   <span>{step.aloYonetimStandard}</span>
                 </div>
               </div>
@@ -330,7 +330,7 @@ export default function KMKOperatingBudgetGuideSeo({
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200 text-xs border border-blue-200 dark:border-blue-800">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-800">
                   <strong className="font-semibold block mb-0.5">Alo Yönetim Hukuk Zırhı:</strong>
                   <span>{precedent.managementShieldAdvice}</span>
                 </div>
@@ -343,7 +343,7 @@ export default function KMKOperatingBudgetGuideSeo({
       {/* Bottom Alo Yönetim Legal Guarantee Banner */}
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
             <Icon name="verified_user" className="text-xl" />
           </div>
           <div>
@@ -357,7 +357,7 @@ export default function KMKOperatingBudgetGuideSeo({
         </div>
         <a
           href="/iletisim"
-          className="shrink-0 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 transition-colors shadow-sm"
+          className="shrink-0 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-500 transition-colors shadow-sm"
         >
           İşletme Projesi Danışmanlığı İste
         </a>

@@ -29,7 +29,7 @@ export default function TemizlikVeHijyenClient() {
       title: t('clean_feat_1_title') || 'Çevre Dostu & TSE Belgeli Kimyasallar',
       desc: t('clean_feat_1_desc') || 'Yüzeylere ve insan sağlığına zarar vermeyen, Sağlık Bakanlığı ve TSE onaylı sertifikalı temizlik ürünleri.',
       icon: "eco",
-      color: "from-emerald-700 to-teal-900"
+      color: "from-emerald-700 to-slate-900"
     },
     {
       title: t('clean_feat_2_title') || 'Endüstriyel Temizlik Makineleri',
@@ -41,7 +41,7 @@ export default function TemizlikVeHijyenClient() {
       title: t('clean_feat_3_title') || '4 Mevsim Periyodik Temizlik Takvimi',
       desc: t('clean_feat_3_desc') || 'Günlük blok içi temizliği, haftalık otopark ve cam yıkaması, aylık detaylı ortak alan dezenfeksiyon planlaması.',
       icon: "calendar_month",
-      color: "from-blue-700 to-indigo-900"
+      color: "from-slate-700 to-slate-900"
     },
     {
       title: t('clean_feat_4_title') || 'Hijyen & Dezenfeksiyon Standartları',
@@ -73,8 +73,8 @@ export default function TemizlikVeHijyenClient() {
       season: t('clean_matrix_season_3') || 'Sonbahar', 
       task: t('clean_matrix_task_3') || 'Çatı olukları ve yağmur ızgaralarının yapraklardan arındırılması, kapalı otopark drenaj kanallarının yıkanması.',
       icon: "air",
-      color: "text-orange-500",
-      bg: "bg-orange-500/10"
+      color: "text-slate-500",
+      bg: "bg-slate-500/10"
     },
     { 
       id: "kis",
@@ -319,7 +319,7 @@ export default function TemizlikVeHijyenClient() {
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
               <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="precision_manufacturing" className="text-lg" />
                 </span>
                 <span>Endüstriyel Makine Parkuru</span>

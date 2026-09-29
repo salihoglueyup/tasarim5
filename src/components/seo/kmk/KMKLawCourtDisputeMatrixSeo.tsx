@@ -116,7 +116,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
     <section
       id="kmk-court-matrix"
       aria-label="Kat Mülkiyeti Dava Türleri ve Mahkeme AI Matrisi"
-      className={`bg-[var(--color-surface)] border border-indigo-500/30 rounded-[3rem] p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden my-16 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[3rem] p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden my-16 ${className}`}
     >
       {/* Schema.org LegalService */}
       <script
@@ -125,24 +125,24 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-600/10 dark:bg-indigo-400/10 border border-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="gavel" className="text-[16px]" />
             Google AI Overviews & Yargıtay Hukuk Matrisi
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Kat Mülkiyetinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-300">6 Temel Dava Türü & Görevli Mahkemeler</span>
+            Kat Mülkiyetinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-600 dark:from-slate-400 dark:to-slate-300">6 Temel Dava Türü & Görevli Mahkemeler</span>
           </h2>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Sulh Hukuk Mahkemeleri, hak düşürücü yasal süreler, ispat külfeti ve Yargıtay yerleşik içtihatlarıyla uyuşmazlık rehberi.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 shrink-0">
+        <div className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40 shrink-0">
           <Icon name="policy" className="text-sm" />
           <span>7445 SK Zorunlu Arabuluculuk</span>
         </div>
@@ -158,17 +158,17 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
               onClick={() => setActiveId(item.id)}
               className={`text-left p-4 rounded-2xl border transition-all text-xs flex flex-col justify-between gap-2 cursor-pointer ${
                 isSelected
-                  ? 'bg-indigo-600 text-white border-indigo-600 shadow-md scale-[1.01]'
-                  : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/60 hover:border-indigo-400 text-[var(--color-primary)]'
+                  ? 'bg-slate-600 text-white border-slate-600 shadow-md scale-[1.01]'
+                  : 'bg-[var(--color-surface-variant)]/60 border-[var(--color-outline)]/60 hover:border-slate-400 text-[var(--color-primary)]'
               }`}
             >
               <div className="flex items-center justify-between gap-1 w-full">
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                  isSelected ? 'bg-white/20 text-white' : 'bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300'
+                  isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300'
                 }`}>
                   {item.court}
                 </span>
-                <span className={`text-[11px] font-mono ${isSelected ? 'text-indigo-100' : 'text-[var(--color-secondary)]'}`}>
+                <span className={`text-[11px] font-mono ${isSelected ? 'text-slate-100' : 'text-[var(--color-secondary)]'}`}>
                   {item.lawArticle.split(' ')[item.lawArticle.split(' ').length - 1]}
                 </span>
               </div>
@@ -188,7 +188,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="bg-gradient-to-br from-indigo-500/5 via-transparent to-blue-500/5 border border-indigo-500/20 rounded-3xl p-6 sm:p-8 relative z-10 space-y-5"
+          className="bg-gradient-to-br from-slate-500/5 via-transparent to-slate-500/5 border border-slate-500/20 rounded-3xl p-6 sm:p-8 relative z-10 space-y-5"
         >
           {/* Dispute Title & Court */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[var(--color-outline)]/60">
@@ -197,7 +197,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
                 {activeDispute.suitName}
               </h3>
               <p className="text-xs text-[var(--color-secondary)] mt-0.5">
-                Yasal Dayanak: <strong className="text-[var(--color-primary)]">{activeDispute.lawArticle}</strong> · Emsal: <span className="text-blue-600 dark:text-blue-400 font-mono">{activeDispute.precedentNumber}</span>
+                Yasal Dayanak: <strong className="text-[var(--color-primary)]">{activeDispute.lawArticle}</strong> · Emsal: <span className="text-slate-600 dark:text-slate-400 font-mono">{activeDispute.precedentNumber}</span>
               </p>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold shrink-0">
@@ -208,7 +208,7 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
 
           {/* Core Summary (Speakable) */}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 shadow-xs">
-            <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Icon name="gavel" className="text-base" />
               Dava Konusu & Hukuki Çerçeve:
             </div>

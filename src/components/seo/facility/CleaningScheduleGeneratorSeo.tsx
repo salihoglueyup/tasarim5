@@ -100,7 +100,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       <JsonLd data={howToSchema} />
 
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
           <Icon name="cleaning_services" className="text-sm" />
           Hijyen Standartları Oluşturucu
         </div>
@@ -195,25 +195,25 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex flex-wrap gap-1.5">
             <button
               onClick={() => setHasParking(!hasParking)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasParking ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasParking ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Otopark
             </button>
             <button
               onClick={() => setHasElevator(!hasElevator)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasElevator ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasElevator ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Asansör
             </button>
             <button
               onClick={() => setHasGarbageChute(!hasGarbageChute)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasGarbageChute ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasGarbageChute ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Çöp Şaftı
             </button>
             <button
               onClick={() => setHasPoolFitness(!hasPoolFitness)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasPoolFitness ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasPoolFitness ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Havuz/Fitness
             </button>
@@ -224,15 +224,15 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       {/* Görev Kartları (Günlük / Haftalık / Aylık) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Günlük */}
-        <div className="p-5 rounded-2xl bg-teal-500/5 dark:bg-[#1E202B] border border-teal-500/20 dark:border-teal-500/30 flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-extrabold text-sm">
+        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[#1E202B] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 font-extrabold text-sm">
             <Icon name="today" className="text-base" />
             <span>GÜNLÜK GÖREVLER (Hergün)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
             {dailyTasks.map((t, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="text-teal-600 font-bold">•</span>
+                <span className="text-slate-600 font-bold">•</span>
                 <span>{t}</span>
               </li>
             ))}
@@ -240,15 +240,15 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         </div>
 
         {/* Haftalık */}
-        <div className="p-5 rounded-2xl bg-sky-500/5 dark:bg-[#1E202B] border border-sky-500/20 dark:border-sky-500/30 flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-sky-700 dark:text-sky-400 font-extrabold text-sm">
+        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[#1E202B] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 font-extrabold text-sm">
             <Icon name="calendar_view_week" className="text-base" />
             <span>HAFTALIK GÖREVLER (Haftada 1-2)</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
             {weeklyTasks.map((t, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="text-sky-600 font-bold">•</span>
+                <span className="text-slate-600 font-bold">•</span>
                 <span>{t}</span>
               </li>
             ))}
@@ -287,7 +287,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         <div className="flex items-center gap-3">
           <Link
             href={`/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all shadow-md shadow-teal-600/20"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all shadow-md shadow-slate-600/20"
           >
             <Icon name="handshake" className="text-sm" />
             <span>{districtName} İçin Profesyonel Personel & Temizlik Teklifi</span>

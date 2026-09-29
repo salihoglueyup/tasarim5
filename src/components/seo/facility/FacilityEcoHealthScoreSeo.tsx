@@ -194,7 +194,7 @@ export default function FacilityEcoHealthScoreSeo() {
               <span><strong>{treesEquivalent}</strong> Ağaç Dikimine Eşdeğer</span>
             </div>
             <div className="flex items-center gap-2">
-              <Icon name="cloud_done" className="text-teal-400 text-base" />
+              <Icon name="cloud_done" className="text-slate-400 text-base" />
               <span><strong>{co2OffsetTonnes}</strong> Ton CO₂ Engellendi</span>
             </div>
           </div>

@@ -55,12 +55,12 @@ export default function GesConversionCtaSeo({ onOpenQuote }: GesConversionCtaSeo
                 <button
                   type="button"
                   onClick={onOpenQuote}
-                  className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition-all text-center cursor-pointer transform hover:-translate-y-0.5"
+                  className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition-all text-center cursor-pointer transform hover:-translate-y-0.5"
                 >
                   Ücretsiz Çatı Fizibilitesi İste ☀️
                 </button>
               ) : (
-                <QuoteCtaButton className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition-all text-center cursor-pointer transform hover:-translate-y-0.5">
+                <QuoteCtaButton className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition-all text-center cursor-pointer transform hover:-translate-y-0.5">
                   Ücretsiz Çatı Fizibilitesi İste ☀️
                 </QuoteCtaButton>
               )}

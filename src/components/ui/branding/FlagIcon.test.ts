@@ -40,7 +40,7 @@ describe('FlagIcon ve Varsayılan Dil Entegrasyonu Testi', () => {
     const headerContent = fs.readFileSync(headerPath, 'utf-8');
     expect(headerContent).toContain('text-slate-800 dark:text-slate-200');
     expect(headerContent).toContain('bg-white dark:bg-[#181920]');
-    expect(headerContent).toContain('bg-blue-600 text-white font-bold');
+    expect(headerContent).toContain('bg-slate-600 text-white font-bold');
   });
 
   it('middleware.ts ana sayfa ("/") için varsayılan olarak Türkçe sunar ve gereksinimleri karşılar', () => {

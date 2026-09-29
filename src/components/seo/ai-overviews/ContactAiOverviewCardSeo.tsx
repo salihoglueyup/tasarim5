@@ -118,7 +118,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       {/* Contact Channels Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 relative z-10">
         <div className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-start gap-3">
-          <div className="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-lg bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
             <Icon name="call" className="text-xl" />
           </div>
           <div>

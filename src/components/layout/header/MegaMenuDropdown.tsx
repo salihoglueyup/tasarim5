@@ -222,12 +222,12 @@ export default function MegaMenuDropdown({
                   className="p-2.5 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all flex items-start gap-3 group"
                 >
                   {subItem.icon && (
-                    <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:bg-slate-50 dark:group-hover:bg-slate-900/30 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors shrink-0">
                       <Icon name={subItem.icon} className="text-[18px]" />
                     </div>
                   )}
                   <div>
-                    <div className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <div className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
                       {t(subItem.nameKey)}
                     </div>
                     {subItem.descKey && (

@@ -112,7 +112,7 @@ export default function AccreditedCertificationsTrustSeo({
               <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-300 border border-emerald-500/30">
                 BELCERT Uluslararası Belgelendirme
               </span>
-              <span className="inline-flex items-center rounded-md bg-cyan-500/10 px-2.5 py-0.5 text-xs font-semibold text-cyan-300 border border-cyan-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2.5 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 ILAS-MS-0089 Akrediteli
               </span>
             </div>

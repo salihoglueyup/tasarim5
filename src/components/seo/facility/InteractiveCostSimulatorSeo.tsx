@@ -50,7 +50,7 @@ export default function InteractiveCostSimulatorSeo() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="px-3 py-1 bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider">
               KMK Madde 20 Şeffaflık Motoru
             </span>
           </div>
@@ -83,7 +83,7 @@ export default function InteractiveCostSimulatorSeo() {
               <label className="text-sm font-bold text-[var(--color-primary)]">
                 Toplam Bağımsız Bölüm (Daire / Dükkan)
               </label>
-              <span className="px-3 py-1 bg-white dark:bg-zinc-800 rounded-lg text-sm font-extrabold text-blue-600 dark:text-blue-400 shadow-xs">
+              <span className="px-3 py-1 bg-white dark:bg-zinc-800 rounded-lg text-sm font-extrabold text-slate-600 dark:text-slate-400 shadow-xs">
                 {totalUnits} Daire
               </span>
             </div>
@@ -94,7 +94,7 @@ export default function InteractiveCostSimulatorSeo() {
               step={5}
               value={totalUnits}
               onChange={(e) => setTotalUnits(Number(e.target.value))}
-              className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+              className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-slate-600"
             />
           </div>
 
@@ -104,7 +104,7 @@ export default function InteractiveCostSimulatorSeo() {
               <label className="text-sm font-bold text-[var(--color-primary)]">
                 Dairenizin Arsa Payı (Tapuda Yazan Oran)
               </label>
-              <span className="px-3 py-1 bg-white dark:bg-zinc-800 rounded-lg text-sm font-extrabold text-blue-600 dark:text-blue-400 shadow-xs">
+              <span className="px-3 py-1 bg-white dark:bg-zinc-800 rounded-lg text-sm font-extrabold text-slate-600 dark:text-slate-400 shadow-xs">
                 {myArsaPayi} / 1000 Pay (%{(myArsaPayi / 10).toFixed(1)})
               </span>
             </div>
@@ -115,7 +115,7 @@ export default function InteractiveCostSimulatorSeo() {
               step={5}
               value={myArsaPayi}
               onChange={(e) => setMyArsaPayi(Number(e.target.value))}
-              className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+              className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-slate-600"
             />
           </div>
 
@@ -125,7 +125,7 @@ export default function InteractiveCostSimulatorSeo() {
               onClick={() => setHasSecurity(!hasSecurity)}
               className={`p-4 rounded-2xl border text-left flex flex-col gap-1 transition-all ${
                 hasSecurity
-                  ? 'bg-blue-500/10 border-blue-500 text-blue-600 dark:text-blue-400 font-bold'
+                  ? 'bg-slate-500/10 border-slate-500 text-slate-600 dark:text-slate-400 font-bold'
                   : 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-white/10 text-[var(--color-secondary)]'
               }`}
             >
@@ -137,7 +137,7 @@ export default function InteractiveCostSimulatorSeo() {
               onClick={() => setHasElevator(!hasElevator)}
               className={`p-4 rounded-2xl border text-left flex flex-col gap-1 transition-all ${
                 hasElevator
-                  ? 'bg-blue-500/10 border-blue-500 text-blue-600 dark:text-blue-400 font-bold'
+                  ? 'bg-slate-500/10 border-slate-500 text-slate-600 dark:text-slate-400 font-bold'
                   : 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-white/10 text-[var(--color-secondary)]'
               }`}
             >
@@ -149,7 +149,7 @@ export default function InteractiveCostSimulatorSeo() {
               onClick={() => setHasCentralHeating(!hasCentralHeating)}
               className={`p-4 rounded-2xl border text-left flex flex-col gap-1 transition-all ${
                 hasCentralHeating
-                  ? 'bg-blue-500/10 border-blue-500 text-blue-600 dark:text-blue-400 font-bold'
+                  ? 'bg-slate-500/10 border-slate-500 text-slate-600 dark:text-slate-400 font-bold'
                   : 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-white/10 text-[var(--color-secondary)]'
               }`}
             >
@@ -186,7 +186,7 @@ export default function InteractiveCostSimulatorSeo() {
 
             <div className="flex justify-between items-center">
               <span className="text-slate-300 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-blue-400" />
+                <span className="w-2 h-2 rounded-full bg-slate-400" />
                 Arsa Payı Dağıtımı (Asansör & Bakım):
               </span>
               <strong className="text-white">₺{myArsaPayiShare.toLocaleString()}</strong>

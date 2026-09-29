@@ -105,7 +105,7 @@ export default function DistrictCleaningAuditTableSeo({
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="sanitizer" className="text-sm" />
             {districtName} Tesis Hijyen & Temizlik Matrisi
           </div>
@@ -120,8 +120,8 @@ export default function DistrictCleaningAuditTableSeo({
             onClick={() => setActiveCategory('ortak_alan')}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeCategory === 'ortak_alan'
-                ? 'bg-teal-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-300 hover:text-teal-600'
+                ? 'bg-slate-600 text-white shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-600'
             }`}
           >
             Ortak Alan & Katlar
@@ -130,8 +130,8 @@ export default function DistrictCleaningAuditTableSeo({
             onClick={() => setActiveCategory('dis_cephe')}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeCategory === 'dis_cephe'
-                ? 'bg-teal-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-300 hover:text-teal-600'
+                ? 'bg-slate-600 text-white shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-600'
             }`}
           >
             Dış Cephe & Cam
@@ -140,8 +140,8 @@ export default function DistrictCleaningAuditTableSeo({
             onClick={() => setActiveCategory('ilaclama')}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeCategory === 'ilaclama'
-                ? 'bg-teal-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-300 hover:text-teal-600'
+                ? 'bg-slate-600 text-white shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-600'
             }`}
           >
             Biyosidal İlaçlama
@@ -165,7 +165,7 @@ export default function DistrictCleaningAuditTableSeo({
               <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
                 <td className="py-4 px-4 font-semibold text-[var(--color-primary)]">
                   <div className="flex items-center gap-2">
-                    <Icon name="check_circle" className="text-teal-600 text-base shrink-0" />
+                    <Icon name="check_circle" className="text-slate-600 text-base shrink-0" />
                     <span>{row.item}</span>
                   </div>
                 </td>
@@ -176,7 +176,7 @@ export default function DistrictCleaningAuditTableSeo({
                   {row.districtSpec}
                 </td>
                 <td className="py-4 px-4 text-right">
-                  <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-teal-500/10 text-teal-700 dark:text-teal-400 border border-teal-500/20">
+                  <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20">
                     {row.frequency}
                   </span>
                 </td>
@@ -193,7 +193,7 @@ export default function DistrictCleaningAuditTableSeo({
         </p>
         <Link
           href={`/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all shadow-md shadow-teal-600/20 shrink-0"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all shadow-md shadow-slate-600/20 shrink-0"
         >
           <span>{districtName} İçin Temizlik Teklifi Al</span>
           <Icon name="arrow_forward" className="text-sm" />

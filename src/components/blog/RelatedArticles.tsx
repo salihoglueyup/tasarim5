@@ -38,7 +38,7 @@ export default function RelatedArticles({ pillar }: { pillar: string }) {
             >
               <Icon name="article" className="text-[var(--color-primary)] shrink-0" />
               <div>
-                <h3 className="font-bold text-[var(--color-primary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="font-bold text-[var(--color-primary)] group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors leading-snug">
                   {p.title}
                 </h3>
                 <p className="text-xs text-[var(--color-secondary)] font-light mt-1 line-clamp-2">{p.description}</p>

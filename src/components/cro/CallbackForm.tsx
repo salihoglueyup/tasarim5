@@ -95,7 +95,7 @@ export default function CallbackForm({ meta, variant = 'card' }: CallbackFormPro
       />
       <div className="form-error-slot -mt-1">
         {status === 'error' && (
-          <p role="alert" className="text-xs text-red-600 dark:text-red-400 font-medium animate-in fade-in">
+          <p role="alert" className="text-xs text-rose-600 dark:text-rose-400 font-medium animate-in fade-in">
             {t((errorKey || 'lead_error_generic') as Parameters<typeof t>[0])}
           </p>
         )}

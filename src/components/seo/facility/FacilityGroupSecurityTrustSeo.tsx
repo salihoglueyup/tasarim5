@@ -9,7 +9,7 @@ export default function FacilityGroupSecurityTrustSeo() {
   return (
     <div className="bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[3rem] p-8 md:p-14 border border-[var(--color-outline)]/80 shadow-sm relative overflow-hidden my-12">
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
@@ -20,7 +20,7 @@ export default function FacilityGroupSecurityTrustSeo() {
             Entegre Güvenlik & Eğitim Ekosistemimiz
           </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Grup Şirketlerimiz & <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 dark:from-emerald-400 dark:via-teal-300 dark:to-blue-400">5188 Güvenlik Ağı</span>
+            Grup Şirketlerimiz & <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-slate-600 to-slate-600 dark:from-emerald-400 dark:via-slate-300 dark:to-slate-400">5188 Güvenlik Ağı</span>
           </h2>
           <p className="text-sm md:text-base text-[var(--color-secondary)] font-light mt-2 max-w-2xl">
             Tesislerinizde görev yapan tüm özel güvenlik personeli, grup şirketlerimiz bünyesinde yetiştirilmekte ve 5188 sayılı yasal lisans ile doğrudan görevlendirilmektedir.

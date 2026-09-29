@@ -208,7 +208,7 @@ export default function QuickCallWidget() {
             isOpen ? 'rotate-45' : 'rotate-0'
           }`} />
         {!isOpen && (
-          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-white dark:border-slate-950" />
+          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-slate-500 rounded-full border-2 border-white dark:border-slate-950" />
         )}
       </button>
 

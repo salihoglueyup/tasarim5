@@ -38,7 +38,7 @@ const PILLARS: Pillar[] = [
     title: 'Yapay Zeka Destekli Tesis Otomasyonu',
     subtitle: 'IoT Sensörler & Kestirimci Bakım',
     icon: 'memory',
-    iconBg: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
+    iconBg: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20',
     description:
       'Asansör, hidrofor, yangın pompaları ve jeneratör sistemleri IoT sensörlerle 7/24 izlenir. Arıza meydana gelmeden önce titreşim, ısı ve tüketim anomalileri tespit edilerek pahalı acil servis maliyetleri sıfırlanır.',
     highlights: [
@@ -54,7 +54,7 @@ const PILLARS: Pillar[] = [
     title: '5188 Lisanslı Güvenlik Entegrasyonu',
     subtitle: 'Kendi Akademimizden Yetişen Profesyoneller',
     icon: 'local_police',
-    iconBg: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20',
+    iconBg: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20',
     description:
       'Bünyemizdeki resmi eğitim kurumumuz (guvenlikkursu.com) sayesinde taşeron aracı firmalara bağımlı kalmadan, EGM onaylı lisansa ve kriz simülatörü tecrübesine sahip 1.200 kişilik dev güvenlik kadrosuyla sitenizi koruruz.',
     highlights: [
@@ -86,7 +86,7 @@ const PILLARS: Pillar[] = [
     title: 'Yeşil Tesis & Sürdürülebilirlik Vizyonu',
     subtitle: 'Sıfır Atık, Karbon Nötr & EV Şarj İstasyonu',
     icon: 'eco',
-    iconBg: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20',
+    iconBg: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20',
     description:
       'Gelecek nesillere yaşanabilir siteler bırakmak adına çevreye duyarlı operasyon standartları uyguluyoruz. Ortak alanlarda güneş enerjisi (GES), otoparklarda EV elektrikli araç şarj istasyonu kurulumu ve Sıfır Atık ayrıştırması.',
     highlights: [

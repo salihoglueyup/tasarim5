@@ -60,7 +60,7 @@ export default function PersonSeo({
           )}
           
           {/* Süsleme */}
-          <div className="absolute -inset-4 bg-gradient-to-br from-brand-500/20 to-purple-500/20 rounded-full blur-2xl z-0 -z-10" />
+          <div className="absolute -inset-4 bg-gradient-to-br from-brand-500/20 to-slate-500/20 rounded-full blur-2xl z-0 -z-10" />
         </div>
 
         {/* Bilgiler */}

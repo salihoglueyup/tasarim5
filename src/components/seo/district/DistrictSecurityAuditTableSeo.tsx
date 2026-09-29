@@ -105,7 +105,7 @@ export default function DistrictSecurityAuditTableSeo({
       {/* Başlık & Bölge Özeti */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--color-outline)]/40 pb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="shield" className="text-sm" />
             {districtName} 5188 Güvenlik Şirketi Standartları
           </div>
@@ -204,7 +204,7 @@ export default function DistrictSecurityAuditTableSeo({
       {/* Alt Bilgilendirme & Hukuki Çağrı */}
       <div className="bg-slate-100 dark:bg-white/5 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-3">
-          <Icon name="verified_user" className="text-blue-600 dark:text-blue-400 text-xl shrink-0" />
+          <Icon name="verified_user" className="text-slate-600 dark:text-slate-400 text-xl shrink-0" />
           <span>
             {districtName} sınırları içerisindeki tüm projelerimizde <strong>5188 Sayılı Kanun</strong> ve <strong>T.C. İstanbul Valiliği</strong> onaylı izin prosedürleri eksiksiz yürütülmektedir.
           </span>

@@ -194,7 +194,7 @@ export default function FacilityLegalClaimReviewsSeo() {
               </div>
               <div className="bg-[var(--color-surface-variant)]/60 p-4 rounded-xl border border-[var(--color-outline)]/60">
                 <div className="text-[var(--color-secondary)] font-medium mb-1">Emsal Karar / Standart:</div>
-                <div className="font-bold text-blue-600 dark:text-blue-400">{activeClaim.courtPrecedent}</div>
+                <div className="font-bold text-slate-600 dark:text-slate-400">{activeClaim.courtPrecedent}</div>
               </div>
               <div className="bg-rose-50/60 dark:bg-rose-950/30 p-4 rounded-xl border border-rose-200 dark:border-rose-900/60">
                 <div className="text-rose-700 dark:text-rose-300 font-medium mb-1">Uygulanmazsa Doğan Risk:</div>

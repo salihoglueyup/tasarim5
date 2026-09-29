@@ -88,11 +88,11 @@ export default function AcademyCostBreakdownSeo() {
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
+                <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 border border-slate-500/20">
                   <Icon name="receipt_long" className="text-2xl" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                     Devlete Ödenen Kalemler
                   </span>
                   <h3 className="text-xl font-bold text-[var(--color-primary)]">

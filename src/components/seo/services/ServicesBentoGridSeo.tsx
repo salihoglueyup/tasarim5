@@ -357,7 +357,7 @@ export default function ServicesBentoGridSeo({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-3">
               <Icon name="hub" className="text-sm" />
               {tx('10 Temel Operasyonel Çözüm Alanı')}
             </div>
@@ -396,7 +396,7 @@ export default function ServicesBentoGridSeo({
 
         {/* Results Counter if searching */}
         {searchQuery.trim() !== '' && (
-          <div className="mb-6 p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs sm:text-sm text-blue-800 dark:text-blue-300 flex items-center justify-between">
+          <div className="mb-6 p-3 rounded-xl bg-slate-500/10 border border-slate-500/20 text-xs sm:text-sm text-slate-800 dark:text-slate-300 flex items-center justify-between">
             <span>
               <strong>&ldquo;{searchQuery}&rdquo;</strong> {tx('araması için')} <strong>{filteredServices.length}</strong> {tx('hizmet bulundu.')}
             </span>
@@ -416,20 +416,20 @@ export default function ServicesBentoGridSeo({
               {flagshipServices.map((service) => (
                 <div
                   key={service.id}
-                  className="group relative bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-surface-variant)]/40 border-2 border-blue-500/30 hover:border-blue-500/60 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-surface-variant)]/40 border-2 border-slate-500/30 hover:border-slate-500/60 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between gap-4">
-                      <div className="w-14 h-14 rounded-2xl bg-blue-600/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <div className="w-14 h-14 rounded-2xl bg-slate-600/10 dark:bg-slate-400/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                         <Icon name={service.icon} className="text-3xl" />
                       </div>
-                      <span className="text-xs font-extrabold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 px-3.5 py-1.5 rounded-full">
+                      <span className="text-xs font-extrabold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/60 px-3.5 py-1.5 rounded-full">
                         {tx(service.badge)}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)] mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)] mb-2 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
                         {tx(service.title)}
                       </h3>
                       <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed font-light">
@@ -455,7 +455,7 @@ export default function ServicesBentoGridSeo({
                     </span>
                     <Link
                       href={lp(service.slug)}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 group-hover:translate-x-1 transition-all"
                     >
                       {tx('Hizmet Detayını İncele')}
                       <Icon name="arrow_forward" className="text-base" />

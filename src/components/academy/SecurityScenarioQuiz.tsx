@@ -154,11 +154,11 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
     <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-[2.5rem] p-8 md:p-14 border border-white/10 shadow-2xl relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-500/10 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header */}
       <div className="relative z-10 max-w-3xl mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-extrabold uppercase tracking-wider mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-extrabold uppercase tracking-wider mb-4">
           <Icon name="psychology_alt" className="text-sm" />
           <span>5188 İnteraktif Simülatör</span>
         </div>
@@ -175,12 +175,12 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
           
           {/* Progress bar */}
           <div className="flex items-center justify-between text-xs font-bold text-slate-400 mb-4">
-            <span className="text-red-400">{currentScenario.badge}</span>
+            <span className="text-rose-400">{currentScenario.badge}</span>
             <span>Senaryo {currentIdx + 1} / {SCENARIOS.length}</span>
           </div>
           <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-8">
             <div 
-              className="h-full bg-gradient-to-r from-red-500 to-amber-500 rounded-full transition-all duration-500"
+              className="h-full bg-gradient-to-r from-rose-500 to-amber-500 rounded-full transition-all duration-500"
               style={{ width: `${((currentIdx + 1) / SCENARIOS.length) * 100}%` }}
             />
           </div>
@@ -264,7 +264,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
             <button
               onClick={handleNext}
               disabled={selectedOption === null}
-              className="bg-red-600 hover:bg-red-500 disabled:opacity-40 disabled:hover:bg-red-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all flex items-center gap-2 shadow-lg cursor-pointer disabled:cursor-not-allowed active:scale-95"
+              className="bg-rose-600 hover:bg-rose-500 disabled:opacity-40 disabled:hover:bg-rose-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all flex items-center gap-2 shadow-lg cursor-pointer disabled:cursor-not-allowed active:scale-95"
             >
               <span>{currentIdx < SCENARIOS.length - 1 ? 'Sonraki Senaryo' : 'Sonucu Gör'}</span>
               <Icon name="arrow_forward" className="text-base" />
@@ -279,7 +279,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
           animate={{ opacity: 1, scale: 1 }}
           className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto flex flex-col items-center"
         >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-amber-500 flex items-center justify-center text-white shadow-xl shadow-red-500/25 mb-6 text-3xl font-black">
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-rose-500 to-amber-500 flex items-center justify-center text-white shadow-xl shadow-rose-500/25 mb-6 text-3xl font-black">
             {score}/{SCENARIOS.length}
           </div>
 
@@ -319,7 +319,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
               href="https://www.guvenlikkursu.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg"
             >
               <span>guvenlikkursu.com</span>
               <Icon name="open_in_new" className="text-base" />

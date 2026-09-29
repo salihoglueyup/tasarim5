@@ -22,7 +22,7 @@ const CORPORATE_LINKS = [
     desc: 'Sıfır hata ve bağımsız teftiş manifestomuz',
     url: '/kurumsal/kalite-politikamiz',
     icon: 'verified',
-    color: 'text-blue-500 bg-blue-500/10 border-blue-500/20',
+    color: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
   },
   {
     title: 'Sürdürülebilirlik',
@@ -36,14 +36,14 @@ const CORPORATE_LINKS = [
     desc: 'Resmi eğitim kurumumuz guvenlikkursu.com',
     url: '/guvenlik-akademisi',
     icon: 'local_police',
-    color: 'text-purple-500 bg-purple-500/10 border-purple-500/20',
+    color: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
   },
   {
     title: 'İstihdam Köprüsü',
     desc: '1.200 kişilik kadromuz ve açık pozisyonlar',
     url: '/istihdam-koprusu',
     icon: 'diversity_3',
-    color: 'text-teal-500 bg-teal-500/10 border-teal-500/20',
+    color: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
   },
   {
     title: 'KMK Mevzuat Sözlüğü',
@@ -101,7 +101,7 @@ export default function VisionEcosystemCtaSeo({ onOpenQuote }: VisionEcosystemCt
         {/* Big Conversion Banner */}
         <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white p-8 sm:p-10 md:p-14 border border-slate-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
             <div className="max-w-2xl">

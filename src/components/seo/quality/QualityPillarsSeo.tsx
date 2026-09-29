@@ -11,7 +11,7 @@ export default function QualityPillarsSeo() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-3">
               <Icon name="workspace_premium" className="text-sm" />
               BELCERT / ILAS Akreditasyonu
             </div>
@@ -30,7 +30,7 @@ export default function QualityPillarsSeo() {
           {QUALITY_STANDARDS.map((std) => (
             <div
               key={std.id}
-              className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 hover:border-cyan-500/50 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
+              className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 hover:border-slate-500/50 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
             >
               <div>
                 {/* Header Bar */}
@@ -45,10 +45,10 @@ export default function QualityPillarsSeo() {
 
                 {/* Standard Code & Title */}
                 <div className="mb-3">
-                  <span className="text-xs font-black tracking-wider text-cyan-600 dark:text-cyan-400 uppercase">
+                  <span className="text-xs font-black tracking-wider text-slate-600 dark:text-slate-400 uppercase">
                     {std.code}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mt-0.5 leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors mt-0.5 leading-snug">
                     {std.title}
                   </h3>
                 </div>
@@ -86,9 +86,9 @@ export default function QualityPillarsSeo() {
         </div>
 
         {/* Belge doğrulama notu */}
-        <div className="mt-12 p-5 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div className="mt-12 p-5 rounded-2xl bg-slate-500/5 border border-slate-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3 text-[var(--color-secondary)]">
-            <Icon name="verified_user" className="text-cyan-600 dark:text-cyan-400 text-2xl shrink-0" />
+            <Icon name="verified_user" className="text-slate-600 dark:text-slate-400 text-2xl shrink-0" />
             <span>
               Tüm kalite belgelerimiz <strong>BELCERT Uluslararası Belgelendirme</strong> tarafından <strong>ILAS akreditasyonu (ILAS-MS-0089)</strong> ile verilmiştir; belge numarası ve karekod ile www.belcert.com üzerinden sorgulanabilir.
             </span>

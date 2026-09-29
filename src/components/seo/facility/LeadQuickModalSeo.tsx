@@ -152,7 +152,7 @@ export default function LeadQuickModalSeo() {
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span className="px-3 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-[11px] font-bold uppercase tracking-wider">
+                    <span className="px-3 py-0.5 rounded-full bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[11px] font-bold uppercase tracking-wider">
                       48 Saatte Şeffaf Teklif
                     </span>
                   </div>
@@ -184,7 +184,7 @@ export default function LeadQuickModalSeo() {
                     placeholder="Örn: Ahmet Yılmaz"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded-2xl py-3 px-4 text-sm text-white focus:outline-none focus:border-blue-400 transition-colors placeholder:text-slate-500"
+                    className="w-full bg-white/5 border border-white/15 rounded-2xl py-3 px-4 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors placeholder:text-slate-500"
                   />
                 </div>
 
@@ -200,7 +200,7 @@ export default function LeadQuickModalSeo() {
                       placeholder="0532 000 00 00"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-white/5 border border-white/15 rounded-2xl py-3 px-4 text-sm text-white focus:outline-none focus:border-blue-400 transition-colors placeholder:text-slate-500"
+                      className="w-full bg-white/5 border border-white/15 rounded-2xl py-3 px-4 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors placeholder:text-slate-500"
                     />
                   </div>
 
@@ -213,7 +213,7 @@ export default function LeadQuickModalSeo() {
                       placeholder="Örn: Kadıköy / Moda"
                       value={district}
                       onChange={(e) => setDistrict(e.target.value)}
-                      className="w-full bg-white/5 border border-white/15 rounded-2xl py-3 px-4 text-sm text-white focus:outline-none focus:border-blue-400 transition-colors placeholder:text-slate-500"
+                      className="w-full bg-white/5 border border-white/15 rounded-2xl py-3 px-4 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors placeholder:text-slate-500"
                     />
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function LeadQuickModalSeo() {
                     <select
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full bg-slate-800 border border-white/15 rounded-2xl py-3 px-4 text-xs text-white focus:outline-none focus:border-blue-400 transition-colors"
+                      className="w-full bg-slate-800 border border-white/15 rounded-2xl py-3 px-4 text-xs text-white focus:outline-none focus:border-slate-400 transition-colors"
                     >
                       <option value="Entegre Tesis & Site Yönetimi">Entegre Tesis & Site Yönetimi</option>
                       <option value="7/24 Özel Güvenlik Hizmeti">7/24 Özel Güvenlik Hizmeti</option>
@@ -244,7 +244,7 @@ export default function LeadQuickModalSeo() {
                     <select
                       value={units}
                       onChange={(e) => setUnits(e.target.value)}
-                      className="w-full bg-slate-800 border border-white/15 rounded-2xl py-3 px-4 text-xs text-white focus:outline-none focus:border-blue-400 transition-colors"
+                      className="w-full bg-slate-800 border border-white/15 rounded-2xl py-3 px-4 text-xs text-white focus:outline-none focus:border-slate-400 transition-colors"
                     >
                       <option value="10 - 30 Daire (Butik Apartman)">10 - 30 Daire (Butik Apartman)</option>
                       <option value="31 - 80 Daire (Orta Ölçekli Site)">31 - 80 Daire (Orta Ölçekli Site)</option>
@@ -266,7 +266,7 @@ export default function LeadQuickModalSeo() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-sm shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full py-4 rounded-2xl bg-gradient-to-r from-slate-600 to-slate-600 hover:from-slate-500 hover:to-slate-500 text-white font-extrabold text-sm shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {status === 'loading' ? (
                     <>

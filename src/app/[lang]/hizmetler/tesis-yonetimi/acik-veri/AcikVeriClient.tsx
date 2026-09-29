@@ -432,7 +432,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4">
                 <Icon name="verified_user" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">

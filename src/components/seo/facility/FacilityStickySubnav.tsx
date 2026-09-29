@@ -104,7 +104,7 @@ export default function FacilityStickySubnav() {
         <div className="shrink-0 hidden md:flex items-center gap-3">
           <Link
             href="/teklif-al"
-            className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center gap-1.5 active:scale-95"
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-slate-600 to-slate-600 hover:from-slate-500 hover:to-slate-500 text-white font-bold text-xs shadow-md shadow-slate-500/20 transition-all flex items-center gap-1.5 active:scale-95"
           >
             <span>Ücretsiz Keşif Al</span>
             <Icon name="arrow_forward" className="text-[15px]" />

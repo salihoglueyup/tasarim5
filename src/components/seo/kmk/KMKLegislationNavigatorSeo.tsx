@@ -89,12 +89,12 @@ export default function KMKLegislationNavigatorSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="gavel" className="text-sm" />
             <span>Hukuk & Mevzuat Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-            634 Sayılı Kat Mülkiyeti Kanunu <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400">Madde Madde Mevzuat Gezgini</span>
+            634 Sayılı Kat Mülkiyeti Kanunu <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-400">Madde Madde Mevzuat Gezgini</span>
           </h2>
           <p className="text-slate-300 mt-2 text-xs sm:text-sm font-normal max-w-3xl leading-relaxed">
             Apartman ve sitelerde yaşanan anlaşmazlıkların yasal çözümü: Kanunun orijinal metni, sadeleştirilmiş açıklaması, Yargıtay emsal içtihatları ve Alo Yönetim kurumsal uygulama standartları.
@@ -127,7 +127,7 @@ export default function KMKLegislationNavigatorSeo() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Madde no veya anahtar kelime arayın (Örn: Aidat, gecikme tazminatı, asansör, genel kurul, yönetici)..."
-            className="w-full pl-10 pr-10 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+            className="w-full pl-10 pr-10 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-slate-500 focus:ring-1 focus:ring-slate-500 transition"
           />
           {searchQuery && (
             <button
@@ -148,7 +148,7 @@ export default function KMKLegislationNavigatorSeo() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${
                 selectedCategory === cat
-                  ? 'bg-blue-600 text-white shadow'
+                  ? 'bg-slate-600 text-white shadow'
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/60'
               }`}
             >
@@ -177,7 +177,7 @@ export default function KMKLegislationNavigatorSeo() {
                 setSearchQuery('');
                 setSelectedCategory('Tümü');
               }}
-              className="mt-3 text-xs text-blue-400 hover:underline font-medium"
+              className="mt-3 text-xs text-slate-400 hover:underline font-medium"
             >
               Filtreleri Temizle
             </button>
@@ -198,7 +198,7 @@ export default function KMKLegislationNavigatorSeo() {
                   aria-expanded={isExpanded}
                 >
                   <div className="flex items-center gap-3 sm:gap-4 flex-1">
-                    <span className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-sm group-hover:bg-blue-600 group-hover:text-white transition">
+                    <span className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-400 font-bold flex items-center justify-center text-sm group-hover:bg-slate-600 group-hover:text-white transition">
                       m.{article.articleNo}
                     </span>
                     <div>
@@ -208,14 +208,14 @@ export default function KMKLegislationNavigatorSeo() {
                         </span>
                         <span className="text-xs text-slate-400">{article.articleCode}</span>
                       </div>
-                      <h3 className="text-sm sm:text-base font-bold text-white mt-1 group-hover:text-blue-300 transition">
+                      <h3 className="text-sm sm:text-base font-bold text-white mt-1 group-hover:text-slate-300 transition">
                         {article.articleTitle}
                       </h3>
                     </div>
                   </div>
 
                   <Icon name="expand_more" className={`text-slate-400 transition-transform duration-200 ${
-                      isExpanded ? 'rotate-180 text-blue-400' : ''
+                      isExpanded ? 'rotate-180 text-slate-400' : ''
                     }`} />
                 </button>
 
@@ -230,8 +230,8 @@ export default function KMKLegislationNavigatorSeo() {
                       className="border-t border-slate-800/80 px-4 sm:px-6 py-5 bg-slate-900/40 space-y-4 text-xs sm:text-sm"
                     >
                       {/* Plain Language Summary */}
-                      <div className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                        <div className="flex items-center gap-2 text-blue-300 font-semibold mb-1">
+                      <div className="p-3.5 rounded-xl bg-slate-500/10 border border-slate-500/20">
+                        <div className="flex items-center gap-2 text-slate-300 font-semibold mb-1">
                           <Icon name="lightbulb" className="text-base" />
                           <span>Pratik Açıklama (Ne Anlama Gelir?)</span>
                         </div>
@@ -252,8 +252,8 @@ export default function KMKLegislationNavigatorSeo() {
                       {/* Grid for Supreme Court and Legal Sanctions */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
                         {/* Supreme Court Principle */}
-                        <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
-                          <div className="flex items-center gap-2 text-purple-300 font-semibold mb-1">
+                        <div className="p-3 rounded-xl bg-slate-500/10 border border-slate-500/20">
+                          <div className="flex items-center gap-2 text-slate-300 font-semibold mb-1">
                             <Icon name="balance" className="text-base" />
                             <span>Yargıtay Emsal Karar İlkesi</span>
                           </div>
@@ -290,14 +290,14 @@ export default function KMKLegislationNavigatorSeo() {
       {/* Footer Info Box */}
       <div className="mt-8 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <div className="flex items-center gap-3">
-          <Icon name="info" className="text-xl text-blue-400" />
+          <Icon name="info" className="text-xl text-slate-400" />
           <span>
             Hukuki uyuşmazlıklarda 7445 sayılı kanun uyarınca dava açılmadan önce Adliye Arabuluculuk Bürosu başvurusu zorunludur.
           </span>
         </div>
         <a
           href="/iletisim"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition flex-shrink-0"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-semibold transition flex-shrink-0"
         >
           <span>Hukuk Müşavirliği Randevusu</span>
           <Icon name="arrow_forward" className="text-sm" />

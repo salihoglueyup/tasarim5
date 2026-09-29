@@ -553,19 +553,19 @@ export default async function ServiceDistrictPage({
           <p className="text-base text-[var(--color-secondary)] font-light leading-relaxed">
             {isFacility ? (
               <>
-                {district.name} genelindeki sitelerde, rezidanslarda ve plazalarda Kat Mülkiyeti Kanunu&apos;na tam uygun şeffaf bütçe yönetimi, yasal işletme projesi, 5188 lisanslı güvenlik ve mobil teknik işletme hizmeti sunuyoruz. İstanbul geneli kurumsal standartlarımız ve ölçek avantajlarımız için <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">entegre tesis yönetimi</Link> çözümlerimizi inceleyebilirsiniz.
+                {district.name} genelindeki sitelerde, rezidanslarda ve plazalarda Kat Mülkiyeti Kanunu&apos;na tam uygun şeffaf bütçe yönetimi, yasal işletme projesi, 5188 lisanslı güvenlik ve mobil teknik işletme hizmeti sunuyoruz. İstanbul geneli kurumsal standartlarımız ve ölçek avantajlarımız için <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">entegre tesis yönetimi</Link> çözümlerimizi inceleyebilirsiniz.
               </>
             ) : isSecurity ? (
               <>
-                {district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz. {district.name} güvenlik şirketleri arasında 20 yılı aşkın kurumsal tecrübemiz, 7/24 devriye masamız ve adli sicil taramalı uzman personelimizle sitenizi güvenceye alıyoruz. Tüm operasyonlarımızı <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">profesyonel tesis yönetimi</Link> altyapısıyla koordine ediyoruz.
+                {district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz. {district.name} güvenlik şirketleri arasında 20 yılı aşkın kurumsal tecrübemiz, 7/24 devriye masamız ve adli sicil taramalı uzman personelimizle sitenizi güvenceye alıyoruz. Tüm operasyonlarımızı <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">profesyonel tesis yönetimi</Link> altyapısıyla koordine ediyoruz.
               </>
             ) : isTechnical ? (
               <>
-                {district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, MMO yeşil etiket denetimleri, jeneratör ATS kontrolleri ve kompanzasyon cezası engelleme protokolleriyle güvenceye alıyoruz. Teknik altyapı hizmetlerimiz <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">tesis yönetimi firmaları</Link> standartlarında 7/24 kesintisiz 15-25 dk acil mobil ekiplerle yürütülmektedir.
+                {district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, MMO yeşil etiket denetimleri, jeneratör ATS kontrolleri ve kompanzasyon cezası engelleme protokolleriyle güvenceye alıyoruz. Teknik altyapı hizmetlerimiz <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">tesis yönetimi firmaları</Link> standartlarında 7/24 kesintisiz 15-25 dk acil mobil ekiplerle yürütülmektedir.
               </>
             ) : isCleaning ? (
               <>
-                {district.name} apartman ve sitelerinde günlük kat koridoru hijyeninden, endüstriyel dağcı cam silimine ve Sağlık Bakanlığı onaylı biyosidal haşere ilaçlamasına kadar uçtan uca hijyen sağlıyoruz. Temizlik operasyonlarımız kurumsal <Link href="/hizmetler/tesis-yonetimi" className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-800">tesis yönetimi</Link> şeffaflığı ve fotoğraflı doğrulama takvimiyle denetlenir.
+                {district.name} apartman ve sitelerinde günlük kat koridoru hijyeninden, endüstriyel dağcı cam silimine ve Sağlık Bakanlığı onaylı biyosidal haşere ilaçlamasına kadar uçtan uca hijyen sağlıyoruz. Temizlik operasyonlarımız kurumsal <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">tesis yönetimi</Link> şeffaflığı ve fotoğraflı doğrulama takvimiyle denetlenir.
               </>
             ) : (
               service.summary
@@ -757,7 +757,7 @@ export default async function ServiceDistrictPage({
                 <Link
                   key={adj.url}
                   href={adj.url}
-                  className="bg-[var(--color-surface)] border border-blue-500/20 text-blue-600 dark:text-blue-400 rounded-full px-4 py-1.5 text-xs font-semibold hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors"
+                  className="bg-[var(--color-surface)] border border-slate-500/20 text-slate-600 dark:text-slate-400 rounded-full px-4 py-1.5 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-950/30 transition-colors"
                 >
                   {adj.anchorText}
                 </Link>

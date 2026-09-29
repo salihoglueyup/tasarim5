@@ -470,7 +470,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                 </div>
 
                 {status === 'error' && (
-                  <p role="alert" aria-live="assertive" className="text-sm text-red-600 dark:text-red-400 font-medium text-right">
+                  <p role="alert" aria-live="assertive" className="text-sm text-rose-600 dark:text-rose-400 font-medium text-right">
                     {t((errorKey || 'lead_error_generic') as Parameters<typeof t>[0])}
                   </p>
                 )}

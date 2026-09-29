@@ -424,7 +424,7 @@ export default function ReferencesClient({
 
         {/* Executive Management Metrics Panel (E-E-A-T) */}
         <div className="mt-24 bg-gradient-to-br from-[#1C1D27] via-[#15161E] to-[#0D0E14] border border-white/10 rounded-[3rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
           
           <div className="relative z-10 max-w-3xl mb-12">
             <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full mb-4">
@@ -453,7 +453,7 @@ export default function ReferencesClient({
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tahsilat Başarısı</div>
             </div>
             <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="text-3xl md:text-4xl font-black text-sky-400 mb-1">%30</div>
+              <div className="text-3xl md:text-4xl font-black text-slate-400 mb-1">%30</div>
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Bütçe Tasarrufu</div>
             </div>
             <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors col-span-2 md:col-span-1">

@@ -22,8 +22,8 @@ const PDCA_STEPS: PdcaStep[] = [
     name: 'Plan',
     turkishName: 'Planla',
     icon: 'assignment',
-    color: 'from-blue-600 to-cyan-500 text-blue-500',
-    badgeBg: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
+    color: 'from-slate-600 to-slate-500 text-slate-500',
+    badgeBg: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Saha Keşfi, Risk Analizi ve KMK Bütçe Planlaması',
     desc: 'Yönetim devralınmadan önce sitenin tüm mekanik sistemleri, güvenlik açıkları ve finansal yapısı mühendislik disipliniyle haritalandırılır.',
     actions: [
@@ -39,8 +39,8 @@ const PDCA_STEPS: PdcaStep[] = [
     name: 'Do',
     turkishName: 'Uygula',
     icon: 'engineering',
-    color: 'from-cyan-500 to-emerald-500 text-cyan-500',
-    badgeBg: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20',
+    color: 'from-slate-500 to-emerald-500 text-slate-500',
+    badgeBg: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Standartlaştırılmış Saha Operasyonları ve Dijital Süreçler',
     desc: 'Yazılı iş talimatlarına göre eğitilmiş kadrolarla temizlik, güvenlik ve teknik bakım günlük disiplinle icra edilir.',
     actions: [
@@ -56,7 +56,7 @@ const PDCA_STEPS: PdcaStep[] = [
     name: 'Check',
     turkishName: 'Kontrol Et',
     icon: 'fact_check',
-    color: 'from-amber-500 to-orange-500 text-amber-500',
+    color: 'from-amber-500 to-slate-500 text-amber-500',
     badgeBg: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20',
     title: 'Habersiz Çapraz Teftiş ve Bağımsız Denetim',
     desc: 'Hizmet kalitesinin rehavete kapılmaması için bağımsız kalite kontrolörleri tarafından düzenli habersiz denetimler gerçekleştirilir.',
@@ -73,8 +73,8 @@ const PDCA_STEPS: PdcaStep[] = [
     name: 'Act',
     turkishName: 'Önlem Al (Kaizen)',
     icon: 'sync',
-    color: 'from-purple-500 to-indigo-500 text-purple-500',
-    badgeBg: 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
+    color: 'from-slate-500 to-slate-500 text-slate-500',
+    badgeBg: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Sürekli İyileştirme ve Düzeltici / Önleyici Faaliyetler',
     desc: 'Tespit edilen aksaklıklar ertelenmez; Kaizen ilkeleriyle kök neden analizi yapılır ve kalıcı önlemler derhal devreye alınır.',
     actions: [
@@ -123,7 +123,7 @@ export default function QualityPdcaCycleSeo() {
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-xl sm:text-2xl font-black ${activeStepIndex === idx ? 'text-cyan-400 dark:text-cyan-600' : 'text-[var(--color-primary)]'}`}>
+                <span className={`text-xl sm:text-2xl font-black ${activeStepIndex === idx ? 'text-slate-400 dark:text-slate-600' : 'text-[var(--color-primary)]'}`}>
                   {step.step}
                 </span>
                 <Icon name={step.icon} className="text-xl" />
@@ -168,7 +168,7 @@ export default function QualityPdcaCycleSeo() {
               <ul className="space-y-2.5 text-xs sm:text-sm text-[var(--color-primary)]">
                 {activeStep.actions.map((act, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <Icon name="task_alt" className="text-base text-cyan-500 shrink-0 mt-0.5" />
+                    <Icon name="task_alt" className="text-base text-slate-500 shrink-0 mt-0.5" />
                     <span className="leading-snug">{act}</span>
                   </li>
                 ))}
@@ -178,7 +178,7 @@ export default function QualityPdcaCycleSeo() {
 
           <div className="lg:col-span-5 bg-slate-950 text-white p-6 sm:p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col justify-between">
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                 KALİTE TAAHHÜDÜMÜZ
               </div>
               <h4 className="text-xl font-bold text-white mb-4">
@@ -192,7 +192,7 @@ export default function QualityPdcaCycleSeo() {
               <div className="space-y-3 pt-4 border-t border-white/10 text-xs">
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400">Yıllık Habersiz Teftiş:</span>
-                  <span className="font-bold text-cyan-400">48 Denetim</span>
+                  <span className="font-bold text-slate-400">48 Denetim</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400">Şikayet Çözüm Süresi:</span>
@@ -208,7 +208,7 @@ export default function QualityPdcaCycleSeo() {
             <div className="mt-8 pt-6 border-t border-white/10">
               <a
                 href="/teklif-al"
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-extrabold text-sm shadow-md transition-all text-center"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-400 hover:to-slate-500 text-slate-950 font-extrabold text-sm shadow-md transition-all text-center"
               >
                 Siteniz İçin Kalite Raporu İsteyin
                 <Icon name="arrow_forward" className="text-sm" />

@@ -39,7 +39,7 @@ export default function DistrictElevatorMaintenanceSeo({
 
   return (
     <section className="p-8 sm:p-10 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl relative overflow-hidden font-sans">
-      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-slate-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Üst Rozet */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -87,7 +87,7 @@ export default function DistrictElevatorMaintenanceSeo({
         </div>
 
         <div className="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
-          <div className="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-wider">
             <Icon name="engineering" className="text-[18px]" />
             <span>Önleyici Bakım</span>
           </div>
@@ -118,7 +118,7 @@ export default function DistrictElevatorMaintenanceSeo({
           {elevatorFaqs.map((faq, idx) => (
             <div key={idx} className="py-3 space-y-1">
               <h5 className="text-sm font-semibold text-white flex items-center gap-2">
-                <span className="text-blue-400 font-bold">Q:</span> {faq.q}
+                <span className="text-slate-400 font-bold">Q:</span> {faq.q}
               </h5>
               <p className="text-xs text-slate-400 leading-relaxed pl-6">
                 {faq.a}
@@ -143,7 +143,7 @@ export default function DistrictElevatorMaintenanceSeo({
           </a>
           <Link
             href="/teklif-al"
-            className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-1.5 group"
+            className="px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all shadow-lg flex items-center gap-1.5 group"
           >
             <span>Asansör Bakım Teklifi Al</span>
             <Icon name="arrow_forward" className="text-[14px] group-hover:translate-x-0.5 transition-transform" />

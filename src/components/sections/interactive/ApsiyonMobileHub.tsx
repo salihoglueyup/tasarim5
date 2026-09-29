@@ -320,7 +320,7 @@ export default function ApsiyonMobileHub() {
             >
               <Icon name="open_in_new" className="text-2xl" />
               <div className="flex flex-col text-left">
-                <span className="text-[10px] text-cyan-100 uppercase tracking-wider">Tarayıcıdan Hemen</span>
+                <span className="text-[10px] text-slate-100 uppercase tracking-wider">Tarayıcıdan Hemen</span>
                 <span className="text-base font-bold leading-tight">Web Girişi</span>
               </div>
             </a>
@@ -377,7 +377,7 @@ export default function ApsiyonMobileHub() {
               <span>256-Bit SSL Şifreleme</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Icon name="shield" className="text-base text-purple-600 dark:text-purple-400" />
+              <Icon name="shield" className="text-base text-slate-600 dark:text-slate-400" />
               <span>KVKK Gizlilik Koruması</span>
             </div>
             <div className="flex items-center gap-1.5">
