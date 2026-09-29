@@ -101,7 +101,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
       </div>
 
       {/* Question */}
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-primary)] mb-3 relative z-10 flex items-start gap-2.5">
         <Icon name="functions" className="text-amber-600 dark:text-amber-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
@@ -109,7 +109,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
       {/* Direct AI Ground Truth Answer */}
       <div
         id="calc-instant-answer-text"
-        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-text-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] mb-6 relative z-10 font-normal"
+        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-outline)] mb-6 relative z-10 font-normal"
       >
         <p>{directAnswer}</p>
       </div>
@@ -120,47 +120,47 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
           <Icon name="pin" className="text-base" />
           <span>Yasal Aidat Hesaplama Algoritması</span>
         </div>
-        <div className="font-mono text-xs sm:text-sm text-[var(--color-text-primary)] font-semibold p-3 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] overflow-x-auto">
+        <div className="font-mono text-xs sm:text-sm text-[var(--color-primary)] font-semibold p-3 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] overflow-x-auto">
           Daire Başı Aidat = [(Personel Masrafı ÷ Daire Sayısı) + (Teknik Giderler × Arsa Payı)] × 1.10 ÷ 12
         </div>
       </div>
 
       {/* Formula Pillars Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 relative z-10">
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="text-xs font-bold text-[var(--color-text-primary)] mb-1 flex items-center gap-1.5">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
+          <div className="text-xs font-bold text-[var(--color-primary)] mb-1 flex items-center gap-1.5">
             <Icon name="equalizer" className="text-emerald-500 text-base" />
             <span>Eşit Paylaşım (KMK 20/1-a)</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             Kapıcı, temizlik, güvenlik ve bahçıvan giderleri daire metrekaresine bakılmaksızın tüm bölümlere eşit bölünür.
           </p>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="text-xs font-bold text-[var(--color-text-primary)] mb-1 flex items-center gap-1.5">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
+          <div className="text-xs font-bold text-[var(--color-primary)] mb-1 flex items-center gap-1.5">
             <Icon name="pie_chart" className="text-slate-500 text-base" />
             <span>Arsa Payı (KMK 20/1-b)</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             Asansör, havuz, jeneratör ve ortak alan elektrik masrafları kat irtifakındaki arsa payı oranına göre dağıtılır.
           </p>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-          <div className="text-xs font-bold text-[var(--color-text-primary)] mb-1 flex items-center gap-1.5">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
+          <div className="text-xs font-bold text-[var(--color-primary)] mb-1 flex items-center gap-1.5">
             <Icon name="warning" className="text-rose-500 text-base" />
             <span>İcra Gücü (İİK Madde 68)</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             Tebliğden 7 gün sonra kesinleşen işletme projesi ilamsız icra takibi için resmi borç senedi hükmündedir.
           </p>
         </div>
       </div>
 
       {/* Footer / Copy & Verify */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)] relative z-10">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)]">
           <Icon name="gavel" className="text-sm text-amber-500" />
           <span>Yargıtay 18. Hukuk Dairesi Emsal Kararları ve KMK 37 Dayanağı</span>
         </div>
@@ -168,10 +168,10 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
         <div className="flex items-center gap-2">
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı!' : 'Formül Özetini Kopyala'}</span>
           </button>
 

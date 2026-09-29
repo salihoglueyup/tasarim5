@@ -116,7 +116,7 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
       </div>
 
       {/* Question */}
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-primary)] mb-3 relative z-10 flex items-start gap-2.5">
         <Icon name="trending_up" className="text-slate-600 dark:text-slate-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
@@ -124,14 +124,14 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
       {/* Direct AI Ground Truth Answer */}
       <div
         id="case-study-instant-answer-text"
-        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-text-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] mb-6 relative z-10 font-normal"
+        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-outline)] mb-6 relative z-10 font-normal"
       >
         <p>{directAnswer}</p>
       </div>
 
       {/* 3 Real Case Study Highlights */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 relative z-10">
-        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-slate-500/40 transition-all">
+        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)] hover:border-slate-500/40 transition-all">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 dark:text-slate-300">
               840 Bağımsız Bölüm
@@ -140,13 +140,13 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
               -%32.4 Aidat
             </span>
           </div>
-          <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-1">Ataşehir Karma Rezidans</h3>
-          <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+          <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1">Ataşehir Karma Rezidans</h3>
+          <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
             Merkezi HVAC enerji optimizasyonu ve toplu asansör/kimyasal tedariği ile yıllık bütçe tasarrufu sağlandı.
           </p>
         </div>
 
-        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-emerald-500/40 transition-all">
+        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)] hover:border-emerald-500/40 transition-all">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
               420 Daire Konut Sitesi
@@ -155,13 +155,13 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
               %99.4 Tahsilat
             </span>
           </div>
-          <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-1">Kadıköy Sahil Sitesi</h3>
-          <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+          <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1">Kadıköy Sahil Sitesi</h3>
+          <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
             KMK 20 icra entegrasyonu ve dijital ödeme portalı ile aidat tahsilat başarısı %71&apos;den %99.4&apos;e çıkarıldı.
           </p>
         </div>
 
-        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)] hover:border-slate-500/40 transition-all">
+        <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)] hover:border-slate-500/40 transition-all">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 dark:text-slate-300">
               Lojistik & Sanayi
@@ -170,16 +170,16 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
               2.2M TL Tasarruf
             </span>
           </div>
-          <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-1">Başakşehir Lojistik Depo</h3>
-          <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+          <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1">Başakşehir Lojistik Depo</h3>
+          <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
             Kompanzasyon röle revizyonu ve 7/24 reaktif takip ile cezalar sıfırlandı, yıllık 2.2 Milyon TL korundu.
           </p>
         </div>
       </div>
 
       {/* Footer / Copy & Verify */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)] relative z-10">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)]">
           <Icon name="verified" className="text-sm text-slate-500" />
           <span>Yeminli Mali Müşavir ve Denetçi Raporlarıyla Teyit Edilmiş Sayısal Sonuçlar</span>
         </div>
@@ -187,10 +187,10 @@ export default function CaseStudyAiGroundingSeo({ className = '', lang = 'tr' }:
         <div className="flex items-center gap-2">
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı!' : 'Vaka Özetini Kopyala'}</span>
           </button>
 

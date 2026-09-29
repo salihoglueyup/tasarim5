@@ -131,7 +131,7 @@ export default function SectorAiOverviewSnippetSeo({
       </div>
 
       {/* Question */}
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-primary)] mb-3 relative z-10 flex items-start gap-2.5">
         <Icon name="gavel" className="text-slate-600 dark:text-slate-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
@@ -139,57 +139,57 @@ export default function SectorAiOverviewSnippetSeo({
       {/* Direct AI Ground Truth Answer */}
       <div
         id="sector-instant-answer-text"
-        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-text-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] mb-6 relative z-10 font-normal"
+        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-outline)] mb-6 relative z-10 font-normal"
       >
         <p>{directAnswer}</p>
       </div>
 
       {/* Sector Compliance Pillars */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="apartment" className="text-base" />
             <span className="text-xs font-bold">Rezidans & Toplu Yapı</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             KMK 66 Temsilciler Kurulu bütçe işletimi, resepsiyon/konsiyerj ve Sağlık Bakanlığı havuz hijyen kaydı.
           </p>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="storefront" className="text-base" />
             <span className="text-xs font-bold">AVM & Ticaret Merkezi</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             5188 SK X-Ray & turnike giriş güvenliği, BYKHY yangın tahliye otomasyonu ve 7/24 HVAC iklimlendirme.
           </p>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="warehouse" className="text-base" />
             <span className="text-xs font-bold">Lojistik & Antrepo</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             NFPA 13 sprinkler hidrofor debi testi, epoksi zemin koruması ve yük rampası periyodik muayenesi.
           </p>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
           <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-1.5">
             <Icon name="school" className="text-base" />
             <span className="text-xs font-bold">Kampüs & Eğitim</span>
           </div>
-          <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+          <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
             Çocuk koruma ve çevre güvenlik çemberi, Sağlık Bakanlığı onaylı biyosidal haşere ilaçlama protokolü.
           </p>
         </div>
       </div>
 
       {/* Footer / Copy & Verify */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)] relative z-10">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)]">
           <Icon name="verified_user" className="text-sm text-slate-500" />
           <span>B2B Tesis Yöneticileri ve Denetçileri İçin Mevzuat Referansı</span>
         </div>
@@ -197,10 +197,10 @@ export default function SectorAiOverviewSnippetSeo({
         <div className="flex items-center gap-2">
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı!' : 'Mevzuat Özetini Kopyala'}</span>
           </button>
 

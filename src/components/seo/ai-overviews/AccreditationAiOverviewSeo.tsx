@@ -61,7 +61,7 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold uppercase tracking-wider">
           <Icon name="workspace_premium" className="text-[15px]" />
           <span>Google AI Overviews & Akreditasyon Otoritesi</span>
         </div>
@@ -76,60 +76,60 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
       </div>
 
       {/* Question */}
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <Icon name="verified" className="text-primary text-2xl mt-0.5 shrink-0" />
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-primary)] mb-3 relative z-10 flex items-start gap-2.5">
+        <Icon name="verified" className="text-[var(--color-primary)] text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
       {/* Direct AI Ground Truth Answer */}
       <div
         id="accreditation-instant-answer-text"
-        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-text-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] mb-6 relative z-10 font-normal"
+        className="text-[15px] sm:text-base leading-relaxed text-[var(--color-secondary)] bg-[var(--color-background)]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-[var(--color-outline)] mb-6 relative z-10 font-normal"
       >
         <p>{directAnswer}</p>
       </div>
 
       {/* Accreditation Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
-          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">İş Sağlığı ve Güvenliği</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)]">ISO 45001:2018</div>
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">
+          <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">İş Sağlığı ve Güvenliği</div>
+          <div className="text-sm font-bold text-[var(--color-primary)]">ISO 45001:2018</div>
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808966</div>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
-          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Müşteri Memnuniyeti</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)] font-mono">ISO 10002:2018</div>
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">
+          <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">Müşteri Memnuniyeti</div>
+          <div className="text-sm font-bold text-[var(--color-primary)] font-mono">ISO 10002:2018</div>
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808961</div>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
-          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Çevre Yönetimi</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)]">ISO 14001</div>
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">
+          <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">Çevre Yönetimi</div>
+          <div className="text-sm font-bold text-[var(--color-primary)]">ISO 14001</div>
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808962</div>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
-          <div className="text-xs text-[var(--color-text-muted)] font-medium mb-1">Özel Güvenlik İzni</div>
-          <div className="text-sm font-bold text-[var(--color-text-primary)]">5188 Sayılı Kanun</div>
+        <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">
+          <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">Özel Güvenlik İzni</div>
+          <div className="text-sm font-bold text-[var(--color-primary)]">5188 Sayılı Kanun</div>
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">Valilik ÖGİ Kararı</div>
         </div>
       </div>
 
       {/* Footer / Copy & Verify */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-border)] relative z-10">
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <Icon name="gavel" className="text-sm text-primary" />
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)] relative z-10">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)]">
+          <Icon name="gavel" className="text-sm" />
           <span>Resmi BELCERT ve T.C. İçişleri Bakanlığı Belgeleriyle Doğrulanmıştır</span>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] hover:bg-[var(--color-surface-variant)] text-[var(--color-primary)] transition-all cursor-pointer"
             aria-label="Metni panoya kopyala"
           >
-            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm text-primary" />
+            <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı!' : 'Özeti Kopyala'}</span>
           </button>
 

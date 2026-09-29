@@ -52,7 +52,7 @@ export default function FacilityAuditReportModal({
         {/* Modal Başlık Çubuğu */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/50 print:hidden">
           <div className="flex items-center gap-2">
-            <Icon name="assessment" className="text-primary text-xl" />
+            <Icon name="assessment" className="text-[var(--color-primary)] text-xl" />
             <span className="text-sm font-bold text-white uppercase tracking-wider">
               Tesis Sağlık & Tasarruf Karne Raporu
             </span>
@@ -70,7 +70,7 @@ export default function FacilityAuditReportModal({
           <form onSubmit={handleGenerate} className="p-6 sm:p-8 space-y-5">
             <div className="text-center max-w-md mx-auto mb-6">
               <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                Sitenizin <span className="text-primary">Sağlık ve Tasarruf</span> Karnesini Oluşturun
+                Sitenizin <span className="text-[var(--color-primary)]">Sağlık ve Tasarruf</span> Karnesini Oluşturun
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
                 4 basit bilgi girin; KMK ve piyasa endeksine göre sitenizin risk skorunu ve yıllık net tasarruf potansiyelini anında raporlayalım.
@@ -189,7 +189,7 @@ export default function FacilityAuditReportModal({
             {/* Rapor Başlığı */}
             <div className="flex justify-between items-start border-b border-slate-800 pb-4">
               <div>
-                <div className="text-[10px] font-bold text-primary uppercase tracking-widest">
+                <div className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-widest">
                   Resmi Denetim & Bütçe Karnesi
                 </div>
                 <h3 className="text-2xl font-black text-white mt-0.5">
@@ -218,7 +218,7 @@ export default function FacilityAuditReportModal({
 
               <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center">
                 <div className="text-[11px] text-slate-400 font-medium">Aylık Bütçe Tasarrufu</div>
-                <div className="text-2xl font-bold text-primary mt-1">
+                <div className="text-2xl font-bold text-[var(--color-primary)] mt-1">
                   {estimatedMonthlySavings.toLocaleString('tr-TR')} ₺
                 </div>
                 <div className="text-[10px] text-slate-400 mt-0.5">-%{Math.round(estimatedSavingsRate * 100)} Maliyet İndirimi</div>
@@ -260,7 +260,7 @@ export default function FacilityAuditReportModal({
 
             {/* Önerilen Aksiyon Planı */}
             <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
-              <div className="text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
+              <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider flex items-center gap-1.5">
                 <Icon name="lightbulb" className="text-sm" />
                 Alo Yönetim Uzman Önerileri
               </div>

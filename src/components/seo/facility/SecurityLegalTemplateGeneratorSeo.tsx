@@ -194,7 +194,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
               className={`p-4 rounded-2xl text-left transition-all border ${
                 isActive
                   ? 'bg-amber-500 text-white border-amber-500 shadow-md shadow-amber-500/20'
-                  : 'bg-[var(--color-surface-container-low)] border-[var(--color-outline)]/40 hover:border-amber-500/50 text-[var(--color-primary)]'
+                  : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/40 hover:border-amber-500/50 text-[var(--color-primary)]'
               }`}
             >
               <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
@@ -212,7 +212,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
       </div>
 
       {/* Form Fields */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 bg-[var(--color-surface-container-low)] rounded-2xl border border-[var(--color-outline)]/40 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/40 mb-6">
         <div>
           <label className="block text-xs font-semibold text-[var(--color-secondary)] mb-1">
             Site / Apartman Adı
