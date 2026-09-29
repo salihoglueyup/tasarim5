@@ -80,7 +80,7 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
       className="relative w-full bg-slate-950 text-white border-b border-white/10 overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20 px-[var(--spacing-gutter)] flex flex-col items-center justify-center text-center transition-colors duration-300"
     >
       {/* Zarif arkaplan gradyanı ve dokusu */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[#15151C] to-slate-900 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[var(--color-brand-700)] to-slate-900 -z-10" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-800/20 blur-3xl rounded-full translate-x-1/3 -translate-y-1/4 pointer-events-none" />
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
 

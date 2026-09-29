@@ -26,7 +26,7 @@ export default function BlogArticleEcosystemSeo({
   return (
     <section 
       aria-label="Kurumsal Çözüm ve Doğrulanmış Mevzuat Ekosistemi"
-      className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 md:p-8 mt-10 mb-8 shadow-xs relative overflow-hidden"
+      className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 md:p-8 mt-10 mb-8 shadow-xs relative overflow-hidden"
     >
       {/* Brand Ambient Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/5 via-slate-400/5 to-transparent dark:from-amber-400/5 dark:via-white/[0.02] rounded-full blur-3xl pointer-events-none" />

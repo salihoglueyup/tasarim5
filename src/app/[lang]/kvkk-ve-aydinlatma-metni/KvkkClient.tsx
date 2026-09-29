@@ -34,7 +34,7 @@ export default function KvkkClient() {
             <TableOfContents contentSelector="#article-content" className="w-full" />
 
             {/* Veri Sorumlusu Kartı */}
-            <div className="p-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs space-y-4">
+            <div className="p-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs space-y-4">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                 <ShieldCheck className="w-4 h-4 text-amber-500" />
                 <span>Veri Sorumlusu</span>
@@ -78,7 +78,7 @@ export default function KvkkClient() {
           {/* Ana İçerik Kartı */}
           <div 
             id="article-content"
-            className="bg-[var(--color-surface)] dark:bg-[#15161E] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
+            className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
           >
             {/* Kart Üst Bilgi ve Rozet Barı */}
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-[var(--color-outline)]/60 dark:border-white/10">

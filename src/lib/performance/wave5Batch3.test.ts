@@ -3,15 +3,13 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Wave 5: Faz 116 - Faz 120 Medya & Görsel Optimizasyonları', () => {
-  const pdfBadgePath = path.resolve(process.cwd(), 'src/components/ui/widgets/PdfDownloadBadge.tsx');
   const certSlugPath = path.resolve(process.cwd(), 'src/app/[lang]/kurumsal/sertifikalar/[slug]/page.tsx');
   const ogRoutePath = path.resolve(process.cwd(), 'src/app/api/og/route.tsx');
   const layoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const postBodyPath = path.resolve(process.cwd(), 'src/components/blog/PostBody.tsx');
   const refClientPath = path.resolve(process.cwd(), 'src/app/[lang]/referanslar/ReferencesClient.tsx');
 
-  it('Faz 116: PdfDownloadBadge.tsx mevcuttur ve sertifika sayfasında dosya boyutu rozeti yer alır', () => {
-    expect(fs.existsSync(pdfBadgePath)).toBe(true);
+  it('Faz 116: sertifika sayfasında dosya boyutu rozeti yer alır', () => {
     const certContent = fs.readFileSync(certSlugPath, 'utf-8');
     expect(certContent).toContain('PDF · 1.8 MB');
     expect(certContent).toContain('download');

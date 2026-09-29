@@ -83,7 +83,7 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
             </QuoteCtaButton>
             <Link
               href="/istihdam-koprusu"
-              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3 px-6 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors text-center text-sm"
+              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3 px-6 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] transition-colors text-center text-sm"
             >
               İstihdam Köprüsü & Açık İlanlar
             </Link>

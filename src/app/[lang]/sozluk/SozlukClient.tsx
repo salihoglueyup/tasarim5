@@ -54,7 +54,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
       
       {/* 1. Ultra-Lüks Titanium Dark Hero & İstatistikler */}
       <section className="relative pt-36 pb-16 md:pt-44 md:pb-20 overflow-hidden bg-slate-950 text-white border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[#15151C] to-slate-900 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[var(--color-brand-700)] to-slate-900 -z-10" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-800/20 blur-3xl rounded-full translate-x-1/3 -translate-y-1/4 pointer-events-none" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-slate-700/10 blur-[130px] rounded-full pointer-events-none -z-10" />
 

@@ -709,7 +709,7 @@ export default async function ServiceDistrictPage({
             </QuoteCtaButton>
             <a
               href={`tel:${ORG_PHONE}`}
-              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3.5 px-8 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors"
+              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3.5 px-8 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] transition-colors"
             >
               Hemen Ara: 0216 550 48 48
             </a>

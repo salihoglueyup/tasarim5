@@ -89,7 +89,7 @@ export function TableOfContents({
   return (
     <nav
       aria-label="Makale İçindekiler Tablosu"
-      className={`p-5 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-sm ${className}`}
+      className={`p-5 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-sm ${className}`}
     >
       <div
         onClick={() => setIsOpenMobile(!isOpenMobile)}

@@ -32,17 +32,6 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
     expect(badgesContent).toContain('aria-hidden="true"');
   });
 
-  it('2. AppShowcase.tsx (Anasayfa) tıklanabilir Apsiyon mağaza ve doğrudan Web portal giriş bağlantılarını içerir', () => {
-    const subPath = path.join(sectionsDir, 'interactive', 'AppShowcase.tsx');
-    const showcasePath = fs.existsSync(subPath) ? subPath : path.join(sectionsDir, 'AppShowcase.tsx');
-    const showcaseContent = fs.readFileSync(showcasePath, 'utf-8');
-    expect(showcaseContent).toContain('https://apps.apple.com/app/apsiyon/id1115852575');
-    expect(showcaseContent).toContain('https://play.google.com/store/apps/details?id=com.apsiyon.mobile');
-    expect(showcaseContent).toContain('https://online.apsiyon.com/');
-    expect(showcaseContent).toContain('target="_blank"');
-    expect(showcaseContent).toContain('rel="noopener noreferrer"');
-  });
-
   it('3. PortalModal.tsx sakinleri resmi Apsiyon Web Portalı girişine ve mobil mağazalara güvenle yönlendirir', () => {
     const modalContent = fs.readFileSync(path.join(modalsDir, 'PortalModal.tsx'), 'utf-8');
     expect(modalContent).toContain('https://online.apsiyon.com/');

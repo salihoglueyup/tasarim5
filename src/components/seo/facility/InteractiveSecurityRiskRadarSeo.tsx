@@ -188,12 +188,12 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
                   onClick={() => toggleCriterion(crit.id)}
                   className={`p-4 md:p-5 rounded-2xl border transition-all cursor-pointer flex items-start gap-4 ${
                     isChecked
-                      ? 'bg-slate-500/5 dark:bg-[#1E202B] border-slate-500/40 shadow-xs'
+                      ? 'bg-slate-500/5 dark:bg-[var(--color-surface-variant)] border-slate-500/40 shadow-xs'
                       : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 opacity-80 hover:opacity-100 hover:border-slate-300 dark:hover:border-white/20'
                   }`}
                 >
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                    isChecked ? 'bg-slate-600 text-white border border-slate-500' : 'border border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
+                    isChecked ? 'bg-slate-600 text-white border border-slate-500' : 'border border-slate-300 dark:border-white/20 bg-white dark:bg-[var(--color-surface)] text-transparent'
                   }`}>
                     {isChecked && <Icon name="check" className="text-base" />}
                   </div>

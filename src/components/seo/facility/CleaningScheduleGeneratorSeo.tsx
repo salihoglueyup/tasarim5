@@ -126,7 +126,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setBlockCount((p) => Math.max(1, p - 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[var(--color-surface)] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[var(--color-outline)] text-[var(--color-primary)]"
             >
               -
             </button>
@@ -135,7 +135,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             </span>
             <button
               onClick={() => setBlockCount((p) => Math.min(20, p + 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[var(--color-surface)] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[var(--color-outline)] text-[var(--color-primary)]"
             >
               +
             </button>
@@ -149,7 +149,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setFloorCount((p) => Math.max(1, p - 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[var(--color-surface)] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[var(--color-outline)] text-[var(--color-primary)]"
             >
               -
             </button>
@@ -158,7 +158,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             </span>
             <button
               onClick={() => setFloorCount((p) => Math.min(40, p + 1))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[var(--color-surface)] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[var(--color-outline)] text-[var(--color-primary)]"
             >
               +
             </button>
@@ -172,7 +172,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setUnitCount((p) => Math.max(4, p - 10))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[var(--color-surface)] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[var(--color-outline)] text-[var(--color-primary)]"
             >
               -
             </button>
@@ -181,7 +181,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
             </span>
             <button
               onClick={() => setUnitCount((p) => Math.min(500, p + 10))}
-              className="w-8 h-8 rounded-lg bg-white dark:bg-[#15161E] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[#262938] text-[var(--color-primary)]"
+              className="w-8 h-8 rounded-lg bg-white dark:bg-[var(--color-surface)] border border-slate-200 dark:border-white/10 text-sm font-bold flex items-center justify-center hover:bg-slate-100 dark:hover:bg-[var(--color-outline)] text-[var(--color-primary)]"
             >
               +
             </button>
@@ -195,25 +195,25 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
           <div className="flex flex-wrap gap-1.5">
             <button
               onClick={() => setHasParking(!hasParking)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasParking ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasParking ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Otopark
             </button>
             <button
               onClick={() => setHasElevator(!hasElevator)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasElevator ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasElevator ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Asansör
             </button>
             <button
               onClick={() => setHasGarbageChute(!hasGarbageChute)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasGarbageChute ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasGarbageChute ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Çöp Şaftı
             </button>
             <button
               onClick={() => setHasPoolFitness(!hasPoolFitness)}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasPoolFitness ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[#15161E] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
+              className={`px-2 py-1 rounded text-[11px] font-semibold border ${hasPoolFitness ? 'bg-slate-600 text-white border-slate-600' : 'bg-white dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/10'}`}
             >
               Havuz/Fitness
             </button>
@@ -224,7 +224,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
       {/* Görev Kartları (Günlük / Haftalık / Aylık) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Günlük */}
-        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[#1E202B] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
+        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[var(--color-surface-variant)] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 font-extrabold text-sm">
             <Icon name="today" className="text-base" />
             <span>GÜNLÜK GÖREVLER (Hergün)</span>
@@ -240,7 +240,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         </div>
 
         {/* Haftalık */}
-        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[#1E202B] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
+        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[var(--color-surface-variant)] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 font-extrabold text-sm">
             <Icon name="calendar_view_week" className="text-base" />
             <span>HAFTALIK GÖREVLER (Haftada 1-2)</span>
@@ -256,7 +256,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         </div>
 
         {/* Aylık */}
-        <div className="p-5 rounded-2xl bg-amber-500/5 dark:bg-[#1E202B] border border-amber-500/20 dark:border-amber-500/30 flex flex-col gap-3">
+        <div className="p-5 rounded-2xl bg-amber-500/5 dark:bg-[var(--color-surface-variant)] border border-amber-500/20 dark:border-amber-500/30 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
             <Icon name="pest_control" className="text-base" />
             <span>AYLIK & BİYOSİDAL İLAÇLAMA</span>
@@ -277,7 +277,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         <div className="flex items-center gap-3">
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 dark:bg-[#1E202B] dark:hover:bg-[#262938] dark:border dark:border-white/10 text-white text-xs font-bold transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 dark:bg-[var(--color-surface-variant)] dark:hover:bg-[var(--color-outline)] dark:border dark:border-white/10 text-white text-xs font-bold transition-all shadow-sm"
           >
             <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Çizelge Kopyalandı!' : 'Çizelgeyi Kopyala (Yönetim Panosu)'}</span>

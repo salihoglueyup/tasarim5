@@ -97,7 +97,7 @@ export default function ServiceAuthorityHubSeo({
                   href={law.url}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="group bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col gap-2.5"
+                  className="group bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col gap-2.5"
                   title={`${law.title} — ${law.sourceName}`}
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -148,7 +148,7 @@ export default function ServiceAuthorityHubSeo({
                   <Link
                     key={term.slug}
                     href={`/sozluk/${term.slug}`}
-                    className="group bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col gap-1"
+                    className="group bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col gap-1"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
@@ -168,7 +168,7 @@ export default function ServiceAuthorityHubSeo({
             </div>
 
             {/* Akıllı Araçlar & Sertifikalar Hızlı Kutu */}
-            <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 rounded-2xl p-5 space-y-3">
+            <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 rounded-2xl p-5 space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
                 <Icon name="widgets" className="text-base text-amber-500" />
                 <span>İlgili Akıllı Araçlar & Belgeler</span>
@@ -230,7 +230,7 @@ export default function ServiceAuthorityHubSeo({
               <Link
                 key={d.slug}
                 href={`/bolgeler/${d.slug}`}
-                className="px-3.5 py-1.5 rounded-xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5 shadow-2xs"
+                className="px-3.5 py-1.5 rounded-xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5 shadow-2xs"
               >
                 <Icon name="near_me" className="text-[13px] text-slate-500 dark:text-slate-400" />
                 <span>{d.name} {serviceName}</span>

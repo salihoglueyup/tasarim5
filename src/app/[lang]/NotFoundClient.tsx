@@ -104,7 +104,7 @@ export default function NotFoundClient() {
               {ui.searchPlaceholder}
             </span>
           </div>
-          <kbd className="hidden sm:inline-flex px-2 py-0.5 text-xs font-mono bg-slate-100 dark:bg-[#1E202B] rounded border border-slate-200 dark:border-white/10 text-slate-500">
+          <kbd className="hidden sm:inline-flex px-2 py-0.5 text-xs font-mono bg-slate-100 dark:bg-[var(--color-surface-variant)] rounded border border-slate-200 dark:border-white/10 text-slate-500">
             ⌘K
           </kbd>
         </button>

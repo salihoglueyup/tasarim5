@@ -3,7 +3,7 @@
 import React from 'react';
 
 export interface BadgeProps {
-  status?: 'success' | 'warning' | 'error' | 'info' | 'purple' | 'neutral';
+  status?: 'success' | 'warning' | 'error' | 'info' | 'neutral';
   children: React.ReactNode;
   pulse?: boolean;
   className?: string;
@@ -20,7 +20,6 @@ export const Badge: React.FC<BadgeProps> = ({
     warning: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20",
     error: "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20",
     info: "bg-slate-900/10 text-slate-900 dark:text-slate-100 border-slate-800/20 dark:border-white/20",
-    purple: "bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20",
     neutral: "bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20",
   };
 
@@ -29,7 +28,6 @@ export const Badge: React.FC<BadgeProps> = ({
     warning: "bg-amber-500",
     error: "bg-rose-500",
     info: "bg-slate-900 dark:bg-white",
-    purple: "bg-slate-500",
     neutral: "bg-slate-500",
   };
 

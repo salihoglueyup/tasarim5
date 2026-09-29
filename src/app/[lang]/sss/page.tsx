@@ -124,7 +124,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
         </div>
 
         {/* 3. Lüks Çift Butonlu Dönüşüm CTA'sı */}
-        <div className="p-8 sm:p-10 md:p-12 rounded-3xl bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative overflow-hidden">
+        <div className="p-8 sm:p-10 md:p-12 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
             <div className="space-y-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-wider">

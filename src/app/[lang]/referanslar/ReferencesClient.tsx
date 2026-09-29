@@ -71,7 +71,7 @@ const ProjectCard = ({ project, isLarge, lang, router }: { project: Project; isL
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => router.push(targetUrl)}
-      className={`group relative overflow-hidden rounded-[2.5rem] bg-[#15161E] border border-slate-700/60 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-slate-400 transition-all duration-500 cursor-pointer ${
+      className={`group relative overflow-hidden rounded-[2.5rem] bg-[var(--color-surface)] border border-slate-700/60 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-slate-400 transition-all duration-500 cursor-pointer ${
         isLarge ? 'md:col-span-2 md:row-span-2' : ''
       }`}
     >
@@ -423,7 +423,7 @@ export default function ReferencesClient({
         )}
 
         {/* Executive Management Metrics Panel (E-E-A-T) */}
-        <div className="mt-24 bg-gradient-to-br from-[#1C1D27] via-[#15161E] to-[#0D0E14] border border-white/10 rounded-[3rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden">
+        <div className="mt-24 bg-gradient-to-br from-[#1C1D27] via-[var(--color-surface)] to-[#0D0E14] border border-white/10 rounded-[3rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-[100px] pointer-events-none" />
           
           <div className="relative z-10 max-w-3xl mb-12">

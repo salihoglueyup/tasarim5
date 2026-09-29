@@ -303,7 +303,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
           <div className="lg:col-span-8 space-y-20">
             
             {localizedContent && (
-              <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-black prose-headings:text-[var(--color-heading-text)] prose-a:text-slate-500 hover:prose-a:text-slate-400 text-[var(--color-body-text)] leading-relaxed bg-[var(--color-surface)] dark:bg-[#15161E] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/60 dark:border-white/10 shadow-sm">
+              <div className="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-black prose-headings:text-[var(--color-heading-text)] prose-a:text-slate-500 hover:prose-a:text-slate-400 text-[var(--color-body-text)] leading-relaxed bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-8 md:p-12 rounded-[2.5rem] border border-[var(--color-outline)]/60 dark:border-white/10 shadow-sm">
                 <div dangerouslySetInnerHTML={{ __html: (await import('isomorphic-dompurify')).default.sanitize(autoLinkHtml(localizedContent, `/referanslar/${project.slug}`)) }} />
               </div>
             )}
@@ -335,7 +335,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
 
             {/* 6. Müşteri Yorumu */}
             {localizedTestimonial && (
-              <div className="bg-gradient-to-br from-[#1C1D27] via-[#15161E] to-[#0D0E14] border border-slate-700/80 rounded-[3rem] p-10 md:p-14 relative overflow-hidden shadow-2xl mt-12">
+              <div className="bg-gradient-to-br from-[#1C1D27] via-[var(--color-surface)] to-[#0D0E14] border border-slate-700/80 rounded-[3rem] p-10 md:p-14 relative overflow-hidden shadow-2xl mt-12">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-500/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
                 
@@ -369,7 +369,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             
             {/* 2. Stats Bento Box */}
             {stats.length > 0 && (
-              <div className="bg-gradient-to-br from-[#1C1D27] via-[#15161E] to-[#0D0E14] border border-white/10 rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden">
+              <div className="bg-gradient-to-br from-[#1C1D27] via-[var(--color-surface)] to-[#0D0E14] border border-white/10 rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
                 
                 <h3 className="text-xl font-black mb-8 flex items-center gap-3">
@@ -389,14 +389,14 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
 
             {/* 3. Hizmet Kapsamı */}
             {services.length > 0 && (
-              <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-[2.5rem] p-8 shadow-xl">
+              <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-[2.5rem] p-8 shadow-xl">
                 <h3 className="text-xl font-black text-[var(--color-heading-text)] mb-6 flex items-center gap-3">
                   <Icon name="verified" className="text-emerald-500" />
                   {currentDict.servicesTitle}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {services.map((service: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-2.5 bg-slate-50 dark:bg-[#1E202B] text-[var(--color-heading-text)] font-bold px-4 py-3 rounded-2xl border border-slate-200 dark:border-white/10 hover:border-slate-400 transition-all text-sm w-full">
+                    <div key={idx} className="flex items-center gap-2.5 bg-slate-50 dark:bg-[var(--color-surface-variant)] text-[var(--color-heading-text)] font-bold px-4 py-3 rounded-2xl border border-slate-200 dark:border-white/10 hover:border-slate-400 transition-all text-sm w-full">
                       <Icon name="check_circle" className="text-emerald-500 text-[20px]" />
                       {service}
                     </div>
@@ -407,7 +407,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
 
             {/* 5. Haritada Gör */}
             {project.coordinates && (
-              <div className="bg-[#15161E] rounded-[2.5rem] overflow-hidden shadow-2xl aspect-square relative group cursor-pointer border border-white/10">
+              <div className="bg-[var(--color-surface)] rounded-[2.5rem] overflow-hidden shadow-2xl aspect-square relative group cursor-pointer border border-white/10">
                 <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-60 transition-opacity duration-700">
                   <div className="w-48 h-48 rounded-full border border-emerald-500/50 absolute animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]" />
                   <div className="w-32 h-32 rounded-full border border-emerald-500/80 absolute animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />

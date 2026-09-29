@@ -282,7 +282,7 @@ export default function BentoServices() {
             <Link
               href={getLocalizedPath('/teklif-al')}
               title={t('bs_quote')}
-              className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl transition-colors shadow-xs"
+              className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] border border-[var(--color-outline)]/60 px-4 py-2 rounded-xl transition-colors shadow-xs"
             >
               {t('bs_quote')}
             </Link>

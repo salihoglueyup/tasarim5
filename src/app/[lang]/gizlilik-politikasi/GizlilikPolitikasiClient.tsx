@@ -34,7 +34,7 @@ export default function GizlilikPolitikasiClient() {
 
           <div 
             id="article-content"
-            className="bg-[var(--color-surface)] dark:bg-[#15161E] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
+            className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
           >
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-[var(--color-outline)]/60 dark:border-white/10">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 text-xs font-semibold">

@@ -33,7 +33,7 @@ export default function KullanimSartlariClient() {
 
           <div 
             id="article-content"
-            className="bg-[var(--color-surface)] dark:bg-[#15161E] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
+            className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
           >
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-[var(--color-outline)]/60 dark:border-white/10">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold">

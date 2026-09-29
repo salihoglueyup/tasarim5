@@ -66,7 +66,7 @@ export default function BlogAiTakeawaysSeo({
     <aside
       id="blog-ai-takeaways"
       aria-label="Google AI Önemli Çıkarımlar ve Yasal Hap Bilgiler"
-      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 my-6 relative overflow-hidden shadow-xs ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 my-6 relative overflow-hidden shadow-xs ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script

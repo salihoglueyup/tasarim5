@@ -395,7 +395,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
               <button 
                 onClick={() => setIsAuditModalOpen(true)}
-                className="w-full py-3 bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[#262938] border border-[var(--color-outline)]/60 rounded-2xl text-xs font-extrabold text-[var(--color-primary)] flex items-center justify-center gap-2 transition-all"
+                className="w-full py-3 bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] border border-[var(--color-outline)]/60 rounded-2xl text-xs font-extrabold text-[var(--color-primary)] flex items-center justify-center gap-2 transition-all"
               >
                 <Icon name="verified" className="text-sm text-slate-600 dark:text-slate-400" />
                 <span>Yönetim Kurulu İçin Resmi Tasarruf Karnesi Üret</span>

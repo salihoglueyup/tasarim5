@@ -62,7 +62,7 @@ export default function ArticleAiOverviewCard({
     <section
       id="article-ai-overview"
       aria-label={`${title} Makale Hızlı Yapay Zeka Özeti`}
-      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xs relative overflow-hidden my-6 ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-xs relative overflow-hidden my-6 ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script

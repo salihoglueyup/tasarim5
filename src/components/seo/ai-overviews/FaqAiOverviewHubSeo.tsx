@@ -94,7 +94,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
     <section
       id="faq-ai-overview-hub"
       aria-label="Google AI Overviews SSS Karar Masası"
-      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-10 md:p-12 shadow-xs relative overflow-hidden mb-12 ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-10 md:p-12 shadow-xs relative overflow-hidden mb-12 ${className}`}
     >
       {/* Schema.org FAQPage */}
       <script
@@ -141,7 +141,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
               className={`text-left p-4 rounded-2xl border transition-all text-xs flex flex-col justify-between gap-2 cursor-pointer ${
                 isSelected
                   ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm scale-[1.01]'
-                  : 'bg-[var(--color-surface)] dark:bg-[#15161E] border-[var(--color-outline)]/60 dark:border-white/10 hover:border-amber-500/50 text-slate-800 dark:text-slate-200'
+                  : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border-[var(--color-outline)]/60 dark:border-white/10 hover:border-amber-500/50 text-slate-800 dark:text-slate-200'
               }`}
             >
               <div className="flex items-center justify-between gap-1 w-full">
@@ -183,7 +183,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
           </div>
 
           {/* Answer Box (Speakable) */}
-          <div className="bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl p-5 shadow-2xs">
+          <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Icon name="verified" className="text-base" />
               Doğrulanmış Hukuki & Operasyonel Yanıt:

@@ -415,7 +415,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
   return (
     <section
       id="paa-deep-tree-seo"
-      className={`relative w-full rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[#15161E] p-6 sm:p-10 md:p-12 shadow-xs text-slate-900 dark:text-slate-100 overflow-hidden mb-12 ${className}`}
+      className={`relative w-full rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-6 sm:p-10 md:p-12 shadow-xs text-slate-900 dark:text-slate-100 overflow-hidden mb-12 ${className}`}
       aria-label="Google AI Overviews ve PAA Derin Soru-Cevap Ağacı"
     >
       <script
@@ -471,7 +471,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'all'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
-                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
+                : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             Tümü (40)
@@ -482,7 +482,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'kmk-hukuku'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
-                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
+                : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             KMK Hukuku (10)
@@ -493,7 +493,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'aidat-butce'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
-                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
+                : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             Aidat & Bütçe (10)
@@ -504,7 +504,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'guvenlik-kamera'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
-                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
+                : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             5188 Güvenlik (10)
@@ -515,7 +515,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === 'teknik-asansor'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-xs'
-                : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
+                : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40'
             }`}
           >
             Teknik & Asansör (10)
@@ -558,7 +558,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
                 className={`rounded-2xl border transition-all ${
                   isOpen
                     ? 'border-amber-500/50 bg-white dark:bg-[#1A1C24] shadow-xs'
-                    : 'border-[var(--color-outline)]/70 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[#15161E] hover:border-amber-500/30'
+                    : 'border-[var(--color-outline)]/70 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] hover:border-amber-500/30'
                 }`}
               >
                 <button

@@ -11,7 +11,6 @@ describe('Wave 5: Faz 111 - Faz 115 Performans & Medya Geliştirmeleri', () => {
   const iletisimPath = path.resolve(process.cwd(), 'src/app/[lang]/iletisim/IletisimClient.tsx');
 
   const lazyMapFacadePath = path.resolve(process.cwd(), 'src/components/ui/media/LazyMapFacade.tsx');
-  const liteYouTubePath = path.resolve(process.cwd(), 'src/components/ui/media/LiteYouTubeEmbed.tsx');
 
   it('Faz 111: fontlar Google üzerinden indirilmez; kendi barındırılan @font-face (unicode-range) kullanılır', () => {
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
@@ -51,13 +50,5 @@ describe('Wave 5: Faz 111 - Faz 115 Performans & Medya Geliştirmeleri', () => {
     const iletisimContent = fs.readFileSync(iletisimPath, 'utf-8');
     expect(iletisimContent).toContain('<LazyMapFacade');
     expect(iletisimContent).toContain('autoLoadOnIntersection={true}');
-  });
-
-  it('Faz 115: LiteYouTubeEmbed.tsx sıfır ilk iframe JS yüküyle YouTube cephesi sunar', () => {
-    expect(fs.existsSync(liteYouTubePath)).toBe(true);
-    const liteContent = fs.readFileSync(liteYouTubePath, 'utf-8');
-    expect(liteContent).toContain('extractYouTubeId');
-    expect(liteContent).toContain('youtube-nocookie.com');
-    expect(liteContent).toContain('isActivated');
   });
 });

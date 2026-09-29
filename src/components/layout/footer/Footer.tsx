@@ -181,7 +181,7 @@ export default function Footer() {
               href={waLink(t('cro_whatsapp_prefill'))}
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-3 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors group"
+              className="flex items-center gap-3 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] transition-colors group"
             >
               <div className="w-9 h-9 rounded-xl bg-[var(--color-primary)] text-[var(--color-surface)] flex items-center justify-center shrink-0 shadow-sm">
                 <Icon name="chat" className="text-xl" />

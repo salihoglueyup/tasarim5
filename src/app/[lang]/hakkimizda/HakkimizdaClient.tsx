@@ -67,12 +67,12 @@ export default function HakkimizdaClient() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0C0C10] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[var(--color-brand-800)] min-h-screen">
       
       {/* 1. Dinamik Hero Bölümü (Premium Slate) */}
       <section className="relative pt-40 pb-20 overflow-hidden bg-slate-950 text-white">
         {/* Zarif arkaplan gradyanı ve dokusu */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[#15151C] to-slate-900 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[var(--color-brand-700)] to-slate-900 -z-10" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-800/20 blur-3xl rounded-full translate-x-1/3 -translate-y-1/4 pointer-events-none" />
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
         
@@ -96,7 +96,7 @@ export default function HakkimizdaClient() {
       </section>
 
       {/* 2. Sayılarla Alo Yönetim (Key Metrics) */}
-      <section className="py-12 border-b border-slate-200 dark:border-slate-800/50 bg-white dark:bg-[#050507]">
+      <section className="py-12 border-b border-slate-200 dark:border-slate-800/50 bg-white dark:bg-[var(--color-brand-900)]">
         <div className="px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-slate-100 dark:divide-slate-800/50">
             <div className="text-center px-4">
@@ -348,7 +348,7 @@ export default function HakkimizdaClient() {
       <WhyUsBentoGrid />
 
       {/* 4. Değerlerimiz (Premium Bento Grid) */}
-      <section className="py-24 bg-white dark:bg-[#050507] border-y border-slate-200 dark:border-slate-800/50">
+      <section className="py-24 bg-white dark:bg-[var(--color-brand-900)] border-y border-slate-200 dark:border-slate-800/50">
         <div className="px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">
@@ -384,7 +384,7 @@ export default function HakkimizdaClient() {
             </div>
 
             {/* Orta Kart 2 - İnovasyon (Koyu Kart) */}
-            <div className="bg-slate-900 dark:bg-[#15151C] text-white p-10 rounded-[2.5rem] shadow-xl flex flex-col group relative overflow-hidden border border-slate-800">
+            <div className="bg-slate-900 dark:bg-[var(--color-brand-700)] text-white p-10 rounded-[2.5rem] shadow-xl flex flex-col group relative overflow-hidden border border-slate-800">
               <div className="absolute -bottom-10 -right-10 opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
                 <Lightbulb size={160} />
               </div>
@@ -452,7 +452,7 @@ export default function HakkimizdaClient() {
 
       {/* 6. İnteraktif Tarihçe (Dark Slate) */}
       <section className="py-24 bg-slate-950 text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#15151C] to-slate-950 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-700)] to-slate-950 -z-10" />
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
         
         <div className="px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto relative z-10">

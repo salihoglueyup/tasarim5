@@ -481,7 +481,7 @@ export default async function DistrictPage({
             </QuoteCtaButton>
             <a
               href={`tel:${ORG_PHONE}`}
-              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3.5 px-8 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[#262938] transition-colors"
+              className="border border-[var(--color-outline)]/60 text-[var(--color-primary)] bg-[var(--color-surface-variant)] font-bold py-3.5 px-8 rounded-xl hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] transition-colors"
             >
               Hemen Ara: 0216 550 48 48
             </a>
@@ -491,7 +491,7 @@ export default async function DistrictPage({
         {/* Wave 56: ISO 41001 Mega Hub Entegrasyon Bloğu */}
         <div className="p-8 rounded-[2.5rem] bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[var(--color-surface-variant)] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider">
               <Icon name="hub" className="text-[15px] text-slate-600 dark:text-slate-400" />
               <span>İstanbul Merkezi Tesis Yönetim Hub Standardı</span>
             </div>

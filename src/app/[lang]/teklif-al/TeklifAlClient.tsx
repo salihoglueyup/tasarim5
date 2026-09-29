@@ -263,7 +263,7 @@ export default function TeklifAlClient() {
         
         {/* Fiyatlandırma Rehberi Kartı */}
         <div className="bg-[var(--color-surface)] text-[var(--color-primary)] p-8 sm:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm flex flex-col gap-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E202B] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold tracking-wider uppercase w-fit">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-[var(--color-surface-variant)] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 text-xs font-bold tracking-wider uppercase w-fit">
             <Icon name="payments" className="text-sm text-emerald-500" />
             <span>{t('tc_pricing_badge')}</span>
           </div>

@@ -197,7 +197,7 @@ export default function SeoTextSection({
       className="relative z-10 py-6 sm:py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-6 sm:-mt-10 md:-mt-14"
     >
       {/* Apple-Style Yönetici Güven Bento Adası */}
-      <div className="relative bg-[var(--color-surface)] dark:bg-[#15161E]/95 backdrop-blur-2xl border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] md:rounded-[3rem] p-6 sm:p-10 lg:p-14 shadow-xl dark:shadow-2xl overflow-hidden group">
+      <div className="relative bg-[var(--color-surface)] dark:bg-[var(--color-surface)]/95 backdrop-blur-2xl border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] md:rounded-[3rem] p-6 sm:p-10 lg:p-14 shadow-xl dark:shadow-2xl overflow-hidden group">
         
         {/* Ortam Işıması (Ambient Radial Blur) */}
         <div 
@@ -271,7 +271,7 @@ export default function SeoTextSection({
                   return (
                     <div 
                       key={idx}
-                      className={`p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#1E202B] border border-slate-200/90 dark:border-white/10 ${cardHoverBorder} transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 group/card flex flex-col justify-between`}
+                      className={`p-4 sm:p-5 rounded-2xl bg-white dark:bg-[var(--color-surface-variant)] border border-slate-200/90 dark:border-white/10 ${cardHoverBorder} transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 group/card flex flex-col justify-between`}
                     >
                       <div>
                         <div className="flex items-center justify-between mb-3">
@@ -298,7 +298,7 @@ export default function SeoTextSection({
               </div>
 
               {/* Alt Kurumsal Mühür Bilgisi (Titanium Zemin & Zümrüt/Kehribar Vurgular) */}
-              <div className="mt-4 p-3 rounded-xl bg-white dark:bg-[#1E202B] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
+              <div className="mt-4 p-3 rounded-xl bg-white dark:bg-[var(--color-surface-variant)] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-2">
                   <Icon name="lock" className="text-sm text-emerald-600 dark:text-emerald-400" />
                   <span className="font-medium">{t('stx_env_law')}</span>

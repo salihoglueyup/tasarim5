@@ -94,7 +94,7 @@ export default function FactCheckAiGroundingSeo({
     <section
       id="factcheck-ai-grounding"
       aria-label="Google AI Fact Check ve Kat Mülkiyeti Hukuki Doğrulama Kütüğü"
-      className={`bg-[var(--color-surface)] dark:bg-[#15161E] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xs relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xs relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -140,7 +140,7 @@ export default function FactCheckAiGroundingSeo({
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 isActive
                   ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm border border-slate-900 dark:border-white scale-[1.02]'
-                  : 'bg-[var(--color-surface)] dark:bg-[#15161E] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/60 dark:border-white/10'
+                  : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/60 dark:border-white/10'
               }`}
             >
               <Icon name={isActive ? 'check_circle' : 'gavel'} className={`text-[14px] ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />

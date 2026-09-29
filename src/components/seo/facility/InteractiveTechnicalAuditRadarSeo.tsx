@@ -275,12 +275,12 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 onClick={() => toggleCriterion(c.id)}
                 className={`flex items-start gap-3 p-4 rounded-2xl border cursor-pointer transition-all ${
                   isChecked
-                    ? 'bg-slate-500/5 dark:bg-[#1E202B] border-slate-500/40 shadow-xs'
+                    ? 'bg-slate-500/5 dark:bg-[var(--color-surface-variant)] border-slate-500/40 shadow-xs'
                     : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/60 opacity-80 hover:opacity-100 hover:border-slate-300 dark:hover:border-white/20'
                 }`}
               >
                 <div className={`mt-0.5 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border transition-all ${
-                  isChecked ? 'bg-slate-600 border-slate-500 text-white' : 'border-slate-300 dark:border-white/20 bg-white dark:bg-[#15161E] text-transparent'
+                  isChecked ? 'bg-slate-600 border-slate-500 text-white' : 'border-slate-300 dark:border-white/20 bg-white dark:bg-[var(--color-surface)] text-transparent'
                 }`}>
                   <Icon name="check" className="text-sm font-bold" />
                 </div>
