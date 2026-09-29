@@ -4688,7 +4688,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(geoFile).toContain('FAQPage');
     });
 
-    it('Ana sayfa GoogleAiOverviewGroundingSeo bileşenini lazy-section olarak render eder', () => {
+    it('GoogleAiOverviewGroundingSeo ana sayfada değil, site-yonetimi ve tesis-yonetimi hub sayfalarında render edilir (içerik tekrarını azaltma)', () => {
       const fs = require('fs');
       const path = require('path');
 
@@ -4696,8 +4696,13 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         path.join(process.cwd(), 'src/app/[lang]/page.tsx'),
         'utf8'
       );
-      expect(homePage).toContain('GoogleAiOverviewGroundingSeo');
-      expect(homePage).toContain('<GoogleAiOverviewGroundingSeo />');
+      expect(homePage).not.toContain('GoogleAiOverviewGroundingSeo');
+
+      const siteYonetimi = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx'),
+        'utf8'
+      );
+      expect(siteYonetimi).toContain('GoogleAiOverviewGroundingSeo');
     });
 
     it('KMKLawAssistantSeo 10 yasal emsal kararını eksiksiz içerir', () => {

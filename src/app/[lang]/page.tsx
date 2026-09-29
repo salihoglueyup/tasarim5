@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Hero from '@/components/sections/core/Hero';
-import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
@@ -22,10 +21,7 @@ const PreFooterCta = dynamic(() => import('@/components/sections/core/PreFooterC
 const TestimonialSlider = dynamic(() => import('@/components/sections/testimonials/TestimonialSlider'), { ssr: true });
 const CertificateBadgeGrid = dynamic(() => import('@/components/sections/trust/CertificateBadgeGrid'), { ssr: true });
 const Faq = dynamic(() => import('@/components/sections/trust/Faq'), { ssr: true });
-const IstanbulDuesHeatmapSeo = dynamic(() => import('@/components/seo/district/IstanbulDuesHeatmapSeo'), { ssr: true });
 const KMKLawAssistantSeo = dynamic(() => import('@/components/seo/kmk/KMKLawAssistantSeo'), { ssr: true });
-const ServiceAuthorityHubSeo = dynamic(() => import('@/components/seo/facility/ServiceAuthorityHubSeo'), { ssr: true });
-const GoogleAiOverviewGroundingSeo = dynamic(() => import('@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo'), { ssr: true });
 
 
 export function generateStaticParams() {
@@ -160,9 +156,7 @@ export default async function Home({ params }: Props) {
     <>
       <JsonLd data={[pageLd, businessLd, videoLd, facilityGraphLd]} />
       <Hero />
-      <SeoTextSection />
       <div className="lazy-section"><BentoServices /></div>
-      {lang === 'tr' && <div className="lazy-section"><IstanbulDuesHeatmapSeo /></div>}
       <div className="lazy-section"><WhyUsBentoGrid /></div>
       <div className="lazy-section"><PersonnelDifference dict={lang === 'tr' ? undefined : t} lang={lang} /></div>
       <div className="lazy-section"><ComparisonTable dict={lang === 'tr' ? undefined : t} lang={lang} /></div>
@@ -171,63 +165,7 @@ export default async function Home({ params }: Props) {
       <div className="lazy-section"><AppShowcase /></div>
       <div className="lazy-section"><TestimonialSlider dbReferences={dbReferences} /></div>
       <div className="lazy-section"><CertificateBadgeGrid /></div>
-      {lang === 'tr' && <div className="lazy-section px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto"><GoogleAiOverviewGroundingSeo /></div>}
       <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
-      
-      {/* E-E-A-T Master Mevzuat & İç/Dış Bağlantı Otorite Hub'ı */}
-      {lang === 'tr' && (
-        <section className="lazy-section py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-        <ServiceAuthorityHubSeo
-          serviceName="Alo Yönetim Entegre Tesis ve Mülk Yönetim Ekosistemi"
-          serviceCategory="Entegre Tesis Yönetimi"
-          lawReferences={[
-            {
-              title: "634 Sayılı Kat Mülkiyeti Kanunu (KMK) — Resmi Metin",
-              sourceName: "T.C. Cumhurbaşkanlığı Mevzuat Bilgi Sistemi",
-              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5",
-              badge: "KMK 634",
-              description: "Türkiye genelinde tüm bağımsız bölümler, apartmanlar, toplu konut siteleri ve plazalarda ortak alan mülkiyeti, yönetim planı ve işletme bütçesi ana kanunudur."
-            },
-            {
-              title: "5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun",
-              sourceName: "T.C. İçişleri Bakanlığı EGM",
-              url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
-              badge: "5188 Sayılı Kanun",
-              description: "Konut ve ticari tesislerde görev yapan özel güvenlik personelinin eğitim standartları, valilik özel güvenlik izinleri (ÖGİ) ve denetim esasları."
-            },
-            {
-              title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
-              sourceName: "Türk Standardları Enstitüsü (TSE)",
-              url: "https://www.tse.org.tr",
-              badge: "KMK 634",
-              description: "Gayrimenkullerin ve yaşam alanlarının verimli, güvenli, sürdürülebilir ve maliyet tasarruflu işletilmesini belgeleyen dünya standardı."
-            }
-          ]}
-          glossaryTerms={[
-            {
-              slug: "kat-mulkiyeti-kanunu-kmk",
-              term: "Kat Mülkiyeti Kanunu (KMK)",
-              summary: "Toplu yaşam alanlarında malik ve kiracıların haklarını, ortak alan kullanımını düzenleyen ana kanundur."
-            },
-            {
-              slug: "aidat",
-              term: "Site & Apartman Aidat Yönetimi",
-              summary: "Ortak giderlerin şeffaf ve adil biçimde arsa payına göre paylaştırılması ve dijital muhasebe takibidir."
-            },
-            {
-              slug: "5188-sayili-kanun",
-              term: "5188 Lisanslı Özel Güvenlik",
-              summary: "Nizamiye devriye, CCTV kamera analitiği ve plaka tanıma sistemleriyle 7/24 kesintisiz tesis emniyetidir."
-            },
-            {
-              slug: "isletme-projesi",
-              term: "Yıllık Site İşletme Projesi & Bütçe",
-              summary: "Sitenin 1 yıllık tahmini gider bütçesi ve her bağımsız bölümün aylık ödeme planını içeren resmi projedir."
-            }
-          ]}
-        />
-      </section>
-      )}
 
       <PreFooterCta />
     </>

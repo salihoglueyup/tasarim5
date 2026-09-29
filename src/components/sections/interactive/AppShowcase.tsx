@@ -1,50 +1,19 @@
 "use client";
 
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function AppShowcase() {
-  const { t } = useLanguage();
-
-  const appFeatures = [
-    {
-      icon: "credit_card",
-      title: t('home_app_feature_1_title'),
-      desc: t('home_app_feature_1_desc')
-    },
-    {
-      icon: "receipt_long",
-      title: t('home_app_feature_2_title'),
-      desc: t('home_app_feature_2_desc')
-    },
-    {
-      icon: "event_seat",
-      title: t('home_app_feature_3_title'),
-      desc: t('home_app_feature_3_desc')
-    },
-    {
-      icon: "engineering",
-      title: t('home_app_feature_4_title'),
-      desc: t('home_app_feature_4_desc')
-    },
-    {
-      icon: "how_to_vote",
-      title: t('home_app_feature_5_title'),
-      desc: t('home_app_feature_5_desc')
-    },
-    {
-      icon: "sensor_door",
-      title: t('home_app_feature_6_title'),
-      desc: t('home_app_feature_6_desc')
-    }
-  ];
+  const { t, language } = useLanguage();
+  const appPath = language === 'tr' ? '/app' : `/${language}/app`;
 
   return (
     <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-      
+
       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <div className="lg:col-span-6 flex flex-col gap-8">
+
+        <div className="lg:col-span-7 flex flex-col gap-8">
           <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest bg-slate-100 dark:bg-white/10 px-4 py-1.5 rounded-full w-fit border border-slate-200 dark:border-white/10">
             {t('home_app_badge')}
           </span>
@@ -98,22 +67,22 @@ export default function AppShowcase() {
               </div>
             </a>
           </div>
+
+          <Link
+            href={appPath}
+            className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary)] hover:underline w-fit"
+          >
+            <span>{t('as_see_all_features')}</span>
+            <Icon name="arrow_forward" className="text-base" />
+          </Link>
         </div>
 
-        {/* Feature Cards Grid */}
-        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {appFeatures.map((f, i) => (
-            <div 
-              key={i}
-              className="bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 p-6 rounded-2xl flex flex-col gap-3 hover:scale-[1.02] transition-all duration-300 shadow-2xs"
-            >
-              <div className="w-10 h-10 rounded-xl bg-white/80 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center border border-[var(--color-outline)]/40">
-                <Icon name={f.icon} />
-              </div>
-              <h3 className="font-bold text-base text-[var(--color-primary)]">{f.title}</h3>
-              <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
+        {/* Uygulama önizleme görseli: tüm özellik listesi zaten /app sayfasında (ApsiyonMobileHub) var */}
+        <div className="lg:col-span-5 flex items-center justify-center">
+          <div className="w-full aspect-[4/5] max-w-xs rounded-[2rem] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col items-center justify-center gap-4 p-8 text-center">
+            <Icon name="smartphone" className="text-6xl text-[var(--color-primary)]" />
+            <p className="text-sm text-[var(--color-secondary)] font-light">{t('home_app_badge')}</p>
+          </div>
         </div>
 
       </div>
