@@ -1,0 +1,17 @@
+# GÜNLÜK GELİŞTİRME RAPORU — PRODUCTION VERİ/DEPLOY SORUNLARI (2026-09-30)
+
+Önceki rapor: [RAPOR_GUNLUK_RENK_PALETI_2026_09_30.md](RAPOR_GUNLUK_RENK_PALETI_2026_09_30.md).
+Bağlam: Kullanıcı ilk kez production sunucusunda `git pull` + deploy denedi; iki gerçek sorun ortaya çıktı ve ikisi de kod tarafında kalıcı düzeltildi.
+
+## Yapılanlar
+
+1. **SSS sayfası üretimde 0 soru gösteriyordu** (`c0bbb162`): Kök sebep, `scripts/import-faqs.ts` ve `scripts/seed-faqs.ts`'in `__dirname` (yani `scripts/`) üzerinden `prisma/data/*.json` dosyalarını `scripts/prisma/data/...` altında araması — böyle bir dizin hiç var olmadı, script hep "File not found" ile başarısız oluyordu, `Faq` tablosu hiç doldurulamamıştı. Yol `..` eklenerek repo köküne düzeltildi.
+2. **Google arama sonucunda logo koyu zeminle görünüyordu** (`c0bbb162`): `public/apple-touch-icon.png` (hem kökte hem `public/favicon/` altında) koyu lacivert yuvarlak-köşe arka plana sahipti. `favicon-512.png`'deki şeffaf/temiz kartal kaynak alınıp beyaz zemine composite edilerek yeniden üretildi (`sharp` ile).
+3. **Sunucuda `import-faqs.ts` çalıştırılınca "P1000 Authentication failed" hatası** (`103345c2`): Kullanıcının `.env` dosyasında `DATABASE_URL`, Docker Compose'un `environment:` bloklarında çözdüğü `${POSTGRES_PASSWORD}` referansını literal metin olarak içeriyor — bu Compose için doğru bir kalıp, ama `.env` host'ta düz `dotenv` ile okunduğunda (script'ler için) bu referans çözülmeden Postgres'e gönderiliyordu. **Web container'ının kendisi etkilenmiyordu** (orada Compose zaten şifreyi enjekte ediyor) — sorun yalnızca host'ta `tsx` ile çalıştırılan script'lere özgüydü. `src/lib/prisma.ts`'e (hem Next.js runtime'ı hem script'ler tarafından paylaşılan client) zararsız bir `${VAR}` genişletme adımı eklendi; `import-faqs.ts` kendi Pool'unu kurduğu için orada da ayrıca eklendi.
+4. **Doğrulama zinciri gerçek sunucuda tamamlandı**: Path düzeltmesi sonrası kullanıcı sunucuda `npx tsx scripts/import-faqs.ts` çalıştırdı → önce auth hatası aldı → env-genişletme düzeltmesi push edildi → tekrar çalıştırdı → **"Successfully imported 523/523 FAQs"**. Ardından Redis'teki eski (boş) önbellek anahtarı (`sss_faqs_list_v2_tr`) container içinden `redis-cli` ile temizlendi (host shell'indeki `$REDIS_PASSWORD` tanımsız olduğu için `docker exec aloyonetim-redis sh -c 'redis-cli -a "$REDIS_PASSWORD" ...'` kalıbı kullanıldı — container'ın kendi ortam değişkenini okutarak).
+5. **Test durumu**: `tsc --noEmit` temiz, `vitest run` 131 dosya / 1135 test yeşil; genişletme mantığı kullanıcının sunucusundaki tam kalıpla (`${POSTGRES_PASSWORD}`) yerelde simüle edilip doğrulandı.
+
+## Kalanlar
+
+- **Production Redis şifresi**: Kullanıcının sunucusundaki `REDIS_PASSWORD` değeri `alo_redis_local_dev_2026` — ismi açıkça bir yerel-geliştirme placeholder'ı olduğunu gösteriyor, gerçek/rotasyonlu bir production sırrı değil. Kullanıcı bilinçli olarak erteledi: "sonra toplu güvenlik turu yaparız." Aynı şablonun `POSTGRES_PASSWORD`/`JWT_SECRET` için de geçerli olup olmadığı bu turda kontrol edilmedi — güvenlik turunda birlikte gözden geçirilmeli.
+- **Docker rebuild ile veri senkronizasyonu farkı netleştirildi**: Kullanıcıya, veritabanı script'lerinin (`import-faqs.ts`) Docker rebuild gerektirmediği (Postgres'e host'tan doğrudan bağlanıyor) ama statik dosya değişikliklerinin (ikon gibi) rebuild gerektirdiği ayrımı anlatıldı — ileride karışıklığı önlemek için akılda tutulmalı.
