@@ -1313,6 +1313,7 @@
   "tc_lbl_name": "Adınız & Soyadınız *",
   "tc_ph_name": "Örn: Ahmet Yılmaz",
   "tc_lbl_phone": "Telefon Numaranız *",
+  "tc_optional": "İsteğe Bağlı",
   "tc_lbl_district": "İlçe (İstanbul)",
   "tc_lbl_type": "Tesis Türü",
   "tc_type_site": "Konut Sitesi / Apartman",

@@ -7,6 +7,7 @@ import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { waLink } from '@/lib/cro';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
+import { formatTrPhone, isValidTrPhone, isValidEmail } from '@/lib/forms/validation';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function TeklifAlClient() {
@@ -16,6 +17,7 @@ export default function TeklifAlClient() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [touched, setTouched] = useState({ phone: false, email: false });
   const [district, setDistrict] = useState('Kadikoy');
   const [propertyType, setPropertyType] = useState('Site / Apartman');
   const [units, setUnits] = useState('50-100 Daire');
@@ -44,7 +46,8 @@ export default function TeklifAlClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !phone) return;
+    setTouched({ phone: true, email: true });
+    if (!name || !isValidTrPhone(phone) || (email.trim() !== '' && !isValidEmail(email))) return;
 
     await submit({
       type: 'quote',
@@ -133,10 +136,35 @@ export default function TeklifAlClient() {
                   type="tel"
                   required
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="05XX XXX XX XX"
+                  onChange={(e) => setPhone(formatTrPhone(e.target.value))}
+                  onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
+                  placeholder="+90 5XX XXX XX XX"
                   className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 />
+                {touched.phone && phone !== '' && !isValidTrPhone(phone) && (
+                  <p className="text-xs text-rose-600 dark:text-rose-400 font-medium mt-1.5">
+                    {t('quote_step_1_phone_hint')}
+                  </p>
+                )}
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                  {t('quote_step_1_email')} <span className="normal-case font-medium text-slate-400">({t('tc_optional')})</span>
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
+                  placeholder="ornek@sirket.com"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
+                />
+                {touched.email && email !== '' && !isValidEmail(email) && (
+                  <p className="text-xs text-rose-600 dark:text-rose-400 font-medium mt-1.5">
+                    {t('quote_step_1_email_hint')}
+                  </p>
+                )}
               </div>
             </div>
 

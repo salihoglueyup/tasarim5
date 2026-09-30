@@ -1313,6 +1313,7 @@
   "tc_lbl_name": "Full Name *",
   "tc_ph_name": "e.g. John Smith",
   "tc_lbl_phone": "Phone Number *",
+  "tc_optional": "Optional",
   "tc_lbl_district": "District (Istanbul)",
   "tc_lbl_type": "Property Type",
   "tc_type_site": "Housing Complex / Apartment Building",

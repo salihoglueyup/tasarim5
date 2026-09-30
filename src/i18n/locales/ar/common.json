@@ -1311,6 +1311,7 @@
   "tc_lbl_name": "الاسم الكامل *",
   "tc_ph_name": "مثال: أحمد محمد",
   "tc_lbl_phone": "رقم الهاتف *",
+  "tc_optional": "اختياري",
   "tc_lbl_district": "المنطقة (إسطنبول)",
   "tc_lbl_type": "نوع المنشأة",
   "tc_type_site": "مجمع سكني / عمارة",

@@ -4,27 +4,11 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
 import { waLink } from '@/lib/cro/cro';
+import { formatTrPhone, isValidTrPhone, isValidEmail } from '@/lib/forms/validation';
 
 import Icon from '@/components/ui/branding/Icon';
 import Logo from '@/components/ui/branding/Logo';
 
-/** Türkiye telefon numarasını kullanıcı yazarken "+90 5XX XXX XX XX" kalıbına biçimlendirir. */
-function formatTrPhone(raw: string): string {
-  let digits = raw.replace(/\D/g, '');
-  if (digits.startsWith('90')) digits = digits.slice(2);
-  if (digits.startsWith('0')) digits = digits.slice(1);
-  digits = digits.slice(0, 10);
-  const parts = [digits.slice(0, 3), digits.slice(3, 6), digits.slice(6, 8), digits.slice(8, 10)].filter(Boolean);
-  return digits ? `+90 ${parts.join(' ')}`.trimEnd() : '';
-}
-
-function isValidTrPhone(phone: string): boolean {
-  return /^\+90 5\d{2} \d{3} \d{2} \d{2}$/.test(phone);
-}
-
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
 interface QuoteModalProps {
   onClose: () => void;
 }
