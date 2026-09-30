@@ -8,6 +8,22 @@ import { POSTS_META, CATEGORIES } from '@/data/posts';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // Saatte bir tazele
 
+// CDATA bloğu dışında (link/guid/enclosure url gibi düz XML metin veya
+// attribute konumlarında) kullanılan her değer kaçırılmalı; aksi halde
+// ham "&" (ör. Unsplash query string'lerindeki ?q=80&w=1200) geçersiz XML üretir.
+function escapeXmlAttr(unsafe: string) {
+  return (unsafe || '').replace(/[<>&'"]/g, (c) => {
+    switch (c) {
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '&': return '&amp;';
+      case '\'': return '&apos;';
+      case '"': return '&quot;';
+      default: return c;
+    }
+  });
+}
+
 export async function GET() {
   let posts: any[] = [];
   try {
@@ -41,13 +57,13 @@ export async function GET() {
     return `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <link>${BASE_URL}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${BASE_URL}/blog/${post.slug}</guid>
+      <link>${escapeXmlAttr(`${BASE_URL}/blog/${post.slug}`)}</link>
+      <guid isPermaLink="true">${escapeXmlAttr(`${BASE_URL}/blog/${post.slug}`)}</guid>
       <pubDate>${new Date(post.datePublished).toUTCString()}</pubDate>
       <description><![CDATA[${post.description || post.title}]]></description>
       <category><![CDATA[${post.category?.name || 'Tesis Yönetimi'}]]></category>
-      ${post.author?.name ? `<author>${post.author.slug}@aloyonetim.com.tr (${post.author.name})</author>` : ''}
-      <enclosure url="${imageUrl}" type="image/webp" length="102400" />
+      ${post.author?.name ? `<author>${escapeXmlAttr(`${post.author.slug}@aloyonetim.com.tr (${post.author.name})`)}</author>` : ''}
+      <enclosure url="${escapeXmlAttr(imageUrl)}" type="image/webp" length="102400" />
     </item>`;
   };
 
