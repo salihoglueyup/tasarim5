@@ -208,7 +208,7 @@ export default function FacilityWaterTankSanitationSeo({
                       <span>{step.disinfectantOrTool}</span>
                     </div>
 
-                    <div className="p-2 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200/50">
+                    <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-slate-300 border border-slate-200/50">
                       <strong className="block mb-0.5">İSG ve Personel Güvenliği:</strong>
                       <span>{step.safetyPrecautions}</span>
                     </div>

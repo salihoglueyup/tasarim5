@@ -73,7 +73,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
     <section
       id="calc-ai-overview"
       aria-label="Google AI Overviews Aidat Hesaplama Formülü ve KMK Mevzuat Yanıtı"
-      className={`bg-[var(--color-surface)] border border-amber-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script
@@ -82,16 +82,16 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="calculate" className="text-[15px]" />
           <span>Google AI Overviews & KMK 37 Aidat Formülü Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             KMK Madde 20 & 37
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-300/40">
@@ -102,7 +102,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
 
       {/* Question */}
       <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-primary)] mb-3 relative z-10 flex items-start gap-2.5">
-        <Icon name="functions" className="text-amber-600 dark:text-amber-400 text-2xl mt-0.5 shrink-0" />
+        <Icon name="functions" className="text-slate-600 dark:text-slate-400 text-2xl mt-0.5 shrink-0" />
         <span>{question}</span>
       </h2>
 
@@ -115,8 +115,8 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
       </div>
 
       {/* Mathematical Formula Box */}
-      <div className="p-4 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 mb-6 relative z-10">
-        <div className="text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+      <div className="p-4 rounded-2xl bg-slate-50/50 dark:bg-slate-950/20 border border-slate-200 dark:border-slate-800/40 mb-6 relative z-10">
+        <div className="text-xs font-bold text-slate-800 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
           <Icon name="pin" className="text-base" />
           <span>Yasal Aidat Hesaplama Algoritması</span>
         </div>
@@ -161,7 +161,7 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
       {/* Footer / Copy & Verify */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)] relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)]">
-          <Icon name="gavel" className="text-sm text-amber-500" />
+          <Icon name="gavel" className="text-sm text-slate-500" />
           <span>Yargıtay 18. Hukuk Dairesi Emsal Kararları ve KMK 37 Dayanağı</span>
         </div>
 
@@ -176,12 +176,12 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Apartman+ve+site+aidati+nasil+hesaplanir+formulu+KMK+37"
+            href="https://claude.ai/new?q=Apartman+ve+site+aidati+nasil+hesaplanir+formulu+KMK+37"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 hover:bg-amber-700 text-white transition-all shadow-xs"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-600 hover:bg-slate-700 text-white transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

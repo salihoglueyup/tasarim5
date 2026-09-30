@@ -180,7 +180,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
           </div>
           <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-8">
             <div 
-              className="h-full bg-gradient-to-r from-rose-500 to-amber-500 rounded-full transition-all duration-500"
+              className="h-full bg-gradient-to-r from-rose-500 to-slate-500 rounded-full transition-all duration-500"
               style={{ width: `${((currentIdx + 1) / SCENARIOS.length) * 100}%` }}
             />
           </div>
@@ -239,7 +239,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
                 exit={{ opacity: 0, y: -10 }}
                 className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/15 mb-6"
               >
-                <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                   <Icon name="gavel" className="text-base" />
                   <span>{currentScenario.lawRef}</span>
                 </div>
@@ -279,7 +279,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
           animate={{ opacity: 1, scale: 1 }}
           className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto flex flex-col items-center"
         >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-rose-500 to-amber-500 flex items-center justify-center text-white shadow-xl shadow-rose-500/25 mb-6 text-3xl font-black">
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-rose-500 to-slate-500 flex items-center justify-center text-white shadow-xl shadow-rose-500/25 mb-6 text-3xl font-black">
             {score}/{SCENARIOS.length}
           </div>
 
@@ -309,7 +309,7 @@ export default function SecurityScenarioQuiz({ onEnrollClick }: SecurityScenario
               <button
                 type="button"
                 onClick={() => onEnrollClick('5188 Temel Güvenlik Eğitimi')}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-500 hover:bg-slate-600 text-white font-bold text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-slate-500/25"
               >
                 <span>Hızlı Kurs Ön Kayıt</span>
                 <Icon name="school" className="text-base" />

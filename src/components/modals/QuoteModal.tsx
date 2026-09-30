@@ -380,7 +380,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                         </div>
 
                         {formData.services.length === 0 && (
-                          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-semibold animate-pulse">
+                          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-600 dark:text-slate-400 text-xs font-semibold animate-pulse">
                             <Icon name="info" className="text-lg" />
                             <span>İlerlemek için lütfen en az bir hizmet seçiniz.</span>
                           </div>

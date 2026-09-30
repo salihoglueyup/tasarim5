@@ -191,7 +191,7 @@ export default function DefinedTermSetSeo({
       <>
         {parts.map((part, i) =>
           part.toLocaleLowerCase('tr-TR') === query.toLocaleLowerCase('tr-TR') ? (
-            <mark key={i} className="bg-amber-300 dark:bg-amber-500/40 text-slate-950 dark:text-amber-200 px-1 rounded font-semibold">
+            <mark key={i} className="bg-slate-300 dark:bg-slate-500/40 text-slate-950 dark:text-slate-200 px-1 rounded font-semibold">
               {part}
             </mark>
           ) : (

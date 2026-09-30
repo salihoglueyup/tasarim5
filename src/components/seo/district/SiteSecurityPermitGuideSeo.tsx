@@ -161,7 +161,7 @@ export default function SiteSecurityPermitGuideSeo() {
                         className={`px-2.5 py-1 rounded-md text-[10px] font-bold ${
                           row.riskSeverity === 'Kritik Risk'
                             ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
-                            : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                            : 'bg-slate-500/20 text-slate-300 border border-slate-500/30'
                         }`}
                       >
                         {row.riskSeverity}

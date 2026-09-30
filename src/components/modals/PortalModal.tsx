@@ -67,7 +67,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
 
                 <div className="bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 rounded-2xl p-4 text-xs text-slate-600 dark:text-slate-300 space-y-2">
                   <div className="flex items-center gap-2 font-bold text-[var(--color-primary)]">
-                    <Icon name="info" className="text-sm text-amber-500" />
+                    <Icon name="info" className="text-sm text-slate-500" />
                     <span>İlk Giriş & Şifre Yardımı</span>
                   </div>
                   <p className="leading-relaxed text-slate-500 dark:text-slate-400">

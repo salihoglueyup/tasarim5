@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform, useInView, animate } from 'framer-moti
 import { useRef, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
-import PersonSeo from '@/components/seo/schema/PersonSeo';
 import { ShieldCheck, Target, Lightbulb, Leaf, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
@@ -36,21 +35,6 @@ function Counter({ from, to, duration = 2 }: { from: number; to: number; duratio
 
 export default function HakkimizdaClient() {
   const { t, language } = useLanguage();
-
-  const leaders = [
-    {
-      name: "Ahmet Yılmaz",
-      title: t('ab_l1_title'),
-      bio: t('ab_l1_bio'),
-      avatar: "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=300&auto=format&fit=crop"
-    },
-    {
-      name: "Elif Kaya",
-      title: t('ab_l2_title'),
-      bio: t('ab_l2_bio'),
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop"
-    }
-  ];
 
   const timeline = [
     { year: t('about_timeline_1_year'), title: t('about_timeline_1_title'), desc: t('about_timeline_1_desc') },
@@ -385,8 +369,8 @@ export default function HakkimizdaClient() {
 
             {/* Orta Kart 2 - İnovasyon (Koyu Kart) */}
             <div className="bg-slate-900 dark:bg-[var(--color-brand-700)] text-white p-10 rounded-[2.5rem] shadow-xl flex flex-col group relative overflow-hidden border border-slate-800">
-              <div className="absolute -bottom-10 -right-10 opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                <Lightbulb size={160} />
+              <div className="absolute -bottom-6 -right-6 opacity-[0.04] rotate-12 group-hover:rotate-0 transition-transform duration-700 pointer-events-none">
+                <Lightbulb size={96} />
               </div>
               <div className="w-16 h-16 rounded-full bg-slate-800/80 backdrop-blur shadow-md flex items-center justify-center mb-8 relative z-10">
                 <Lightbulb size={28} className="text-slate-300" />
@@ -414,41 +398,6 @@ export default function HakkimizdaClient() {
 
       {/* Ek İçerik: Kalite Sertifikaları */}
       <CertificateBadgeGrid />
-
-      {/* 5. Yönetim Ekibi (Hover Cards - Premium) */}
-      <section className="py-24 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">
-            {t('about_team_badge')}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-            {t('about_team_title')}
-          </h2>
-        </div>
-
-        <div className="flex flex-col gap-8 max-w-4xl mx-auto">
-          {leaders.map((l, i) => (
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              key={i}
-            >
-              <PersonSeo 
-                name={l.name}
-                jobTitle={l.title}
-                description={l.bio}
-                image={l.avatar}
-                sameAs={[
-                  "https://linkedin.com",
-                  "https://twitter.com"
-                ]}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* 6. İnteraktif Tarihçe (Dark Slate) */}
       <section className="py-24 bg-slate-950 text-white overflow-hidden relative">

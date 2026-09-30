@@ -148,7 +148,7 @@ export default function FacilityBiocidalPestGuideSeo({
               <div className="flex items-center gap-2">
                 <span className={`text-xs px-3 py-1 rounded-lg font-semibold flex items-center gap-1 ${
                   activePest.evacuationNeeded
-                    ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300'
+                    ? 'bg-slate-100 dark:bg-slate-950/60 text-slate-800 dark:text-slate-300'
                     : 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300'
                 }`}>
                   <Icon name={activePest.evacuationNeeded ? 'door_front' : 'check_circle'} className="text-sm" />
@@ -263,7 +263,7 @@ export default function FacilityBiocidalPestGuideSeo({
                     <span>{step.technicalEquipment}</span>
                   </div>
                   {step.residentNoticeRequired && (
-                    <div className="p-2 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-medium">
+                    <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-slate-300 font-medium">
                       📢 48 Saat Önceden Kat Maliklerine SMS & Pano Bildirimi Zorunludur.
                     </div>
                   )}

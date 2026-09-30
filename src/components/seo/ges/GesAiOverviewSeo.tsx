@@ -18,14 +18,14 @@ export default function GesAiOverviewSeo() {
   return (
     <section
       aria-label="Google AI Overviews ve GES Mevzuat Otoritesi"
-      className="rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-50/70 via-white to-emerald-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-amber-500/5 backdrop-blur-xl relative overflow-hidden"
+      className="rounded-3xl border border-slate-500/20 bg-gradient-to-br from-slate-50/70 via-white to-emerald-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-slate-500/5 backdrop-blur-xl relative overflow-hidden"
     >
       {/* Decorative gradient flare */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-amber-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 border-b border-slate-200/60 dark:border-slate-800/60 pb-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 dark:bg-amber-400/10 text-amber-800 dark:text-amber-300 text-xs font-bold tracking-wide uppercase">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 dark:bg-slate-400/10 text-slate-800 dark:text-slate-300 text-xs font-bold tracking-wide uppercase">
           <Icon name="psychology" className="text-sm" />
           <span>Google AI Overviews & Çatı GES Hukuki Standartları</span>
         </div>
@@ -34,7 +34,7 @@ export default function GesAiOverviewSeo() {
           <span className="px-2.5 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             634 KMK m.42
           </span>
-          <span className="px-2.5 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-amber-600 dark:text-amber-400">
+          <span className="px-2.5 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
             EPDK 5/1-ç Uyumlu
           </span>
         </div>
@@ -42,7 +42,7 @@ export default function GesAiOverviewSeo() {
 
       {/* Question Heading */}
       <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 flex items-start gap-3">
-        <Icon name="wb_sunny" className="text-amber-500 dark:text-amber-400 text-2xl sm:text-3xl shrink-0 mt-0.5" />
+        <Icon name="wb_sunny" className="text-slate-500 dark:text-slate-400 text-2xl sm:text-3xl shrink-0 mt-0.5" />
         <span>
           Apartman ve Sitelerde Çatı GES Kurulumu İçin Kat Malikleri Kurulu Kararı Nasıl Alınır ve Mahsuplaşma Nasıl Çalışır?
         </span>
@@ -67,7 +67,7 @@ export default function GesAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <Icon name="sync_alt" className="text-base text-amber-600 dark:text-amber-400" />
+            <Icon name="sync_alt" className="text-base text-slate-600 dark:text-slate-400" />
             <span>Çift Yönlü Mahsuplaşma</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -99,7 +99,7 @@ export default function GesAiOverviewSeo() {
       {/* Footer Citation & Controls */}
       <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400">
         <div className="flex items-center gap-2">
-          <Icon name="menu_book" className="text-base text-amber-500" />
+          <Icon name="menu_book" className="text-base text-slate-500" />
           <span>
             Yasal Dayanak: 634 Sayılı Kat Mülkiyeti Kanunu m.42, EPDK Lisanssız Elektrik Üretim Yönetmeliği m.5/1-ç
           </span>
@@ -109,19 +109,19 @@ export default function GesAiOverviewSeo() {
           <button
             type="button"
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-amber-600 dark:hover:text-amber-400 font-semibold transition-all cursor-pointer shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 font-semibold transition-all cursor-pointer shadow-xs"
           >
             <Icon name={copied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'Özeti Kopyala'}</span>
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Sitelerde+%C3%A7at%C4%B1+GES+kurulumu+kat+m%C3%BClkiyeti+kanunu+maddesi+ve+EPDK+mahsupla%C5%9Fma+%C5%9Fartlar%C4%B1"
+            href="https://claude.ai/new?q=Sitelerde+%C3%A7at%C4%B1+GES+kurulumu+kat+m%C3%BClkiyeti+kanunu+maddesi+ve+EPDK+mahsupla%C5%9Fma+%C5%9Fartlar%C4%B1"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-semibold transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

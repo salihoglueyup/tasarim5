@@ -184,7 +184,7 @@ export default function SiteYonetimiClient() {
               <div className="text-xs sm:text-sm text-slate-400 mt-1">Acil Teknik Servis SLA</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-amber-400">4.9 ★</div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-400">4.9 ★</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">Apsiyon Sakin Puanı</div>
             </div>
           </div>

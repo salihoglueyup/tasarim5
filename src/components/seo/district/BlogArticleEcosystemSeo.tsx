@@ -29,7 +29,7 @@ export default function BlogArticleEcosystemSeo({
       className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 md:p-8 mt-10 mb-8 shadow-xs relative overflow-hidden"
     >
       {/* Brand Ambient Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/5 via-slate-400/5 to-transparent dark:from-amber-400/5 dark:via-white/[0.02] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/5 via-slate-400/5 to-transparent dark:from-slate-400/5 dark:via-white/[0.02] rounded-full blur-3xl pointer-events-none" />
 
       {/* Top Badge */}
       <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--color-outline)]/60 dark:border-white/10 relative z-10">
@@ -102,7 +102,7 @@ export default function BlogArticleEcosystemSeo({
           {/* Faz 138: Yargıtay İçtihat ve KMK 634 Emsal Kararları */}
           {relevantPrecedents && relevantPrecedents.length > 0 && (
             <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/10 flex flex-col gap-2 shadow-2xs">
-              <div className="text-[11px] font-bold uppercase tracking-wide text-amber-500 dark:text-amber-400 flex items-center gap-1.5">
+              <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                 <Icon name="balance" className="text-[15px]" />
                 <span>Yargıtay Emsal Karar Referansı</span>
               </div>
@@ -173,7 +173,7 @@ export default function BlogArticleEcosystemSeo({
       {/* Faz 188: Blog Makalelerinden Doğrudan /teklif-al ve /hesaplayici CTA Köprüsü */}
       <div className="mt-6 pt-5 border-t border-[var(--color-outline)]/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
         <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
-          <Icon name="calculate" className="text-amber-500 text-base" />
+          <Icon name="calculate" className="text-slate-500 text-base" />
           <span>Binanız veya tesisiniz için özel maliyet projeksiyonu çıkarın:</span>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto">

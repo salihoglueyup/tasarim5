@@ -31,14 +31,14 @@ const TYPE_ICONS: Record<ToastType, React.ReactNode> = {
   success: <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />,
   error: <AlertCircle className="w-5 h-5 text-rose-500 shrink-0" />,
   info: <Info className="w-5 h-5 text-slate-500 shrink-0" />,
-  warning: <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0" />,
+  warning: <AlertTriangle className="w-5 h-5 text-slate-500 shrink-0" />,
 };
 
 const TYPE_STYLES: Record<ToastType, string> = {
   success: 'border-emerald-200 dark:border-emerald-900/40 bg-emerald-50/95 dark:bg-emerald-950/90 text-emerald-900 dark:text-emerald-100',
   error: 'border-rose-200 dark:border-rose-900/40 bg-rose-50/95 dark:bg-rose-950/90 text-rose-900 dark:text-rose-100',
   info: 'border-slate-200 dark:border-slate-900/40 bg-slate-50/95 dark:bg-slate-950/90 text-slate-900 dark:text-slate-100',
-  warning: 'border-amber-200 dark:border-amber-900/40 bg-amber-50/95 dark:bg-amber-950/90 text-amber-900 dark:text-amber-100',
+  warning: 'border-slate-200 dark:border-slate-900/40 bg-slate-50/95 dark:bg-slate-950/90 text-slate-900 dark:text-slate-100',
 };
 
 /**

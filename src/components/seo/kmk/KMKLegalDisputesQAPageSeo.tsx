@@ -61,7 +61,7 @@ export default function KMKLegalDisputesQAPageSeo({
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
           <Icon name="gavel" className="text-sm" />
           <span>Google QAPage & Yargıtay İçtihatları</span>
         </div>
@@ -82,7 +82,7 @@ export default function KMKLegalDisputesQAPageSeo({
             onClick={() => setSelectedCategory(cat)}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-colors ${
               selectedCategory === cat
-                ? 'bg-amber-500 text-slate-950 shadow-md font-extrabold'
+                ? 'bg-slate-500 text-slate-950 shadow-md font-extrabold'
                 : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
             }`}
           >
@@ -101,7 +101,7 @@ export default function KMKLegalDisputesQAPageSeo({
               id={item.id}
               className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                 isExpanded
-                  ? 'bg-slate-950/90 border-amber-500/50 shadow-lg'
+                  ? 'bg-slate-950/90 border-slate-500/50 shadow-lg'
                   : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
               }`}
             >
@@ -111,9 +111,9 @@ export default function KMKLegalDisputesQAPageSeo({
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4"
               >
                 <div className="flex items-start gap-3">
-                  <Icon name="help" className="text-amber-400 text-xl shrink-0 mt-0.5" />
+                  <Icon name="help" className="text-slate-400 text-xl shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
                       {item.category} • {item.statutoryArticle}
                     </span>
                     <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
@@ -127,7 +127,7 @@ export default function KMKLegalDisputesQAPageSeo({
                     <Icon name="thumb_up" className="text-emerald-400 text-sm" />
                     <span>{item.upvoteCount}</span>
                   </span>
-                  <Icon name="expand_more" className={`text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-amber-400' : ''}`} />
+                  <Icon name="expand_more" className={`text-slate-400 transition-transform ${isExpanded ? 'rotate-180 text-slate-400' : ''}`} />
                 </div>
               </button>
 
@@ -163,7 +163,7 @@ export default function KMKLegalDisputesQAPageSeo({
                     </div>
                     <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800">
                       <span className="font-bold text-slate-400 block mb-1">Yargıtay Emsal Karar Bilgisi:</span>
-                      <span className="text-amber-400 font-semibold">{item.yargitayCaseRef}</span>
+                      <span className="text-slate-400 font-semibold">{item.yargitayCaseRef}</span>
                     </div>
                   </div>
 
@@ -175,7 +175,7 @@ export default function KMKLegalDisputesQAPageSeo({
                     <ul className="space-y-1.5">
                       {item.practicalGuidelines.map((guide, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed font-normal">
-                          <span className="text-amber-400 font-bold">•</span>
+                          <span className="text-slate-400 font-bold">•</span>
                           <span>{guide}</span>
                         </li>
                       ))}

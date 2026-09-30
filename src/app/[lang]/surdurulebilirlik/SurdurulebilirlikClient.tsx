@@ -32,7 +32,7 @@ const CERTIFICATES = [
   },
   {
     icon: 'health_and_safety',
-    color: 'from-amber-500 to-slate-700',
+    color: 'from-slate-500 to-slate-700',
     titleKey: 'cert_3_title',
     subKey: 'cert_3_sub',
     pdf: '/certificates/iso-45001.pdf',

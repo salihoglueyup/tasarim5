@@ -83,19 +83,19 @@ export default async function SiteHaritasiPage({
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Kurumsal</h2>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Anasayfa</Link></li>
-              <li><Link href="/kurumsal/hakkimizda" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Hakkımızda</Link></li>
-              <li><Link href="/kurumsal/vizyon-misyon" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Vizyon & Misyon</Link></li>
-              <li><Link href="/kurumsal/kalite-belgelerimiz" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Kalite Belgelerimiz & Akreditasyonlar</Link></li>
-              <li><Link href="/iletisim" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">İletişim</Link></li>
-              <li><Link href="/sss" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Sıkça Sorulan Sorular</Link></li>
-              <li><Link href="/sozluk" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">KMK & Tesis Sözlüğü</Link></li>
-              <li><Link href="/hizmetler/tesis-yonetimi/rehber" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors font-medium">Tesis Yönetimi Seçim Rehberi</Link></li>
-              <li><Link href="/hizmetler/tesis-yonetimi/acik-veri" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors font-medium">Açık Veri & API Portalı</Link></li>
-              <li><Link href="/hesaplayici" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Akıllı Aidat Hesaplayıcı</Link></li>
-              <li><Link href="/guvenlik-akademisi" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">5188 Güvenlik Akademisi</Link></li>
-              <li><Link href="/referanslar" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Referanslarımız</Link></li>
-              <li><Link href="/app" className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Mobil Uygulamamız</Link></li>
+              <li><Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Anasayfa</Link></li>
+              <li><Link href="/kurumsal/hakkimizda" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Hakkımızda</Link></li>
+              <li><Link href="/kurumsal/vizyon-misyon" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Vizyon & Misyon</Link></li>
+              <li><Link href="/kurumsal/kalite-belgelerimiz" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Kalite Belgelerimiz & Akreditasyonlar</Link></li>
+              <li><Link href="/iletisim" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">İletişim</Link></li>
+              <li><Link href="/sss" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Sıkça Sorulan Sorular</Link></li>
+              <li><Link href="/sozluk" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">KMK & Tesis Sözlüğü</Link></li>
+              <li><Link href="/hizmetler/tesis-yonetimi/rehber" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors font-medium">Tesis Yönetimi Seçim Rehberi</Link></li>
+              <li><Link href="/hizmetler/tesis-yonetimi/acik-veri" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors font-medium">Açık Veri & API Portalı</Link></li>
+              <li><Link href="/hesaplayici" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Akıllı Aidat Hesaplayıcı</Link></li>
+              <li><Link href="/guvenlik-akademisi" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">5188 Güvenlik Akademisi</Link></li>
+              <li><Link href="/referanslar" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Referanslarımız</Link></li>
+              <li><Link href="/app" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Mobil Uygulamamız</Link></li>
               <li><a href="/sitemap-index.xml" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline">XML Sitemap Index (GSC Tek Link) →</a></li>
             </ul>
           </div>
@@ -104,10 +104,10 @@ export default async function SiteHaritasiPage({
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Hizmetlerimiz</h2>
             <ul className="space-y-2">
-              <li><Link href="/hizmetler" className="font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-500 transition-colors">Tüm Hizmetler</Link></li>
+              <li><Link href="/hizmetler" className="font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-500 transition-colors">Tüm Hizmetler</Link></li>
               {SERVICES.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/hizmetler/${s.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                  <Link href={`/hizmetler/${s.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">
                     {s.name}
                   </Link>
                 </li>
@@ -121,7 +121,7 @@ export default async function SiteHaritasiPage({
             <ul className="space-y-2">
               {FACILITY_MANAGEMENT_SOLUTIONS.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                  <Link href={s.href} className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">
                     {s.title}
                   </Link>
                 </li>
@@ -140,7 +140,7 @@ export default async function SiteHaritasiPage({
             <ul className="space-y-2 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700">
               {DISTRICT_NAMES.map((d) => (
                 <li key={d.slug}>
-                  <Link href={`/bolgeler/${d.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                  <Link href={`/bolgeler/${d.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">
                     {d.name} Tesis Yönetimi
                   </Link>
                 </li>
@@ -156,10 +156,10 @@ export default async function SiteHaritasiPage({
               <div>
                 <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">Kategoriler</h3>
                 <ul className="space-y-2">
-                  <li><Link href="/blog" className="font-semibold text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">Tüm Blog Yazıları</Link></li>
+                  <li><Link href="/blog" className="font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Tüm Blog Yazıları</Link></li>
                   {categories.map((c) => (
                     <li key={c.slug}>
-                      <Link href={`/blog/kategori/${c.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors">
+                      <Link href={`/blog/kategori/${c.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">
                         {c.name}
                       </Link>
                     </li>
@@ -172,7 +172,7 @@ export default async function SiteHaritasiPage({
                 <ul className="space-y-2 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700">
                   {posts.slice(0, 20).map((p) => (
                     <li key={p.slug}>
-                      <Link href={`/blog/${p.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors line-clamp-1">
+                      <Link href={`/blog/${p.slug}`} className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors line-clamp-1">
                         {p.title}
                       </Link>
                     </li>

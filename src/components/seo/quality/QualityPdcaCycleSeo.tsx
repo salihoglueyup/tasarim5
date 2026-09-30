@@ -56,8 +56,8 @@ const PDCA_STEPS: PdcaStep[] = [
     name: 'Check',
     turkishName: 'Kontrol Et',
     icon: 'fact_check',
-    color: 'from-amber-500 to-slate-500 text-amber-500',
-    badgeBg: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20',
+    color: 'from-slate-500 to-slate-500 text-slate-500',
+    badgeBg: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Habersiz Çapraz Teftiş ve Bağımsız Denetim',
     desc: 'Hizmet kalitesinin rehavete kapılmaması için bağımsız kalite kontrolörleri tarafından düzenli habersiz denetimler gerçekleştirilir.',
     actions: [
@@ -200,7 +200,7 @@ export default function QualityPdcaCycleSeo() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400">Mali Şeffaflık:</span>
-                  <span className="font-bold text-amber-400">Canlı Kasa / Banka</span>
+                  <span className="font-bold text-slate-400">Canlı Kasa / Banka</span>
                 </div>
               </div>
             </div>

@@ -76,7 +76,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
         <div className="max-w-4xl mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
             5188 Özel Güvenlik Eğitimi &{' '}
-            <span className="bg-gradient-to-r from-rose-400 via-rose-300 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 via-rose-300 to-slate-200 bg-clip-text text-transparent">
               Kariyer Akademisi
             </span>
           </h1>
@@ -110,7 +110,7 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
             href="#uygunluk-sihirbazi"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors py-2 px-1"
           >
-            <Icon name="help" className="text-base text-amber-400" />
+            <Icon name="help" className="text-base text-slate-400" />
             <span>Hangi Eğitime Uygunsunuz? (2 Dakikada Test Edin)</span>
             <Icon name="arrow_forward" className="text-base" />
           </a>

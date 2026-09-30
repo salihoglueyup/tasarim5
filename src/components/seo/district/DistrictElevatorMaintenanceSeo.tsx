@@ -98,7 +98,7 @@ export default function DistrictElevatorMaintenanceSeo({
         </div>
 
         <div className="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
-          <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-wider">
             <Icon name="gavel" className="text-[18px]" />
             <span>Hukuki Koruma</span>
           </div>

@@ -171,17 +171,17 @@ export default function SecurityEquipmentShowcase() {
   return (
     <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-96 bg-gradient-to-tr from-amber-500/10 via-slate-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-96 bg-gradient-to-tr from-slate-500/10 via-slate-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs sm:text-sm font-semibold mb-4">
-            <Cpu className="w-4 h-4 text-amber-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-semibold mb-4">
+            <Cpu className="w-4 h-4 text-slate-500" />
             <span>Modern Güvenlik Donanımları & Saha Teknolojileri</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Akademide Teoriyle Kalmaz, <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-slate-600">En Son Teknolojiyi</span> Birebir Kullanırsınız
+            Akademide Teoriyle Kalmaz, <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-600">En Son Teknolojiyi</span> Birebir Kullanırsınız
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
             Alo Güvenlik Eğitim Kurumları müfredatında sadece kanun maddeleri değil, prestijli rezidans ve iş merkezlerinde görev yaparken kullanacağınız fiziki ve dijital donanımların uygulamalı laboratuvar eğitimleri yer alır.
@@ -201,14 +201,14 @@ export default function SecurityEquipmentShowcase() {
                 type="button"
                 className={`flex flex-col items-center text-center p-4 rounded-2xl transition-all duration-300 border text-left ${
                   isSelected
-                    ? 'bg-gradient-to-b from-amber-500/15 via-amber-500/5 to-transparent border-amber-500/40 shadow-lg shadow-amber-500/10 text-slate-900 dark:text-white -translate-y-1'
+                    ? 'bg-gradient-to-b from-slate-500/15 via-slate-500/5 to-transparent border-slate-500/40 shadow-lg shadow-slate-500/10 text-slate-900 dark:text-white -translate-y-1'
                     : 'bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                 }`}
               >
                 <div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-colors ${
                     isSelected
-                      ? 'bg-amber-500 text-white shadow-md shadow-amber-500/30'
+                      ? 'bg-slate-500 text-white shadow-md shadow-slate-500/30'
                       : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
                   }`}
                 >
@@ -236,7 +236,7 @@ export default function SecurityEquipmentShowcase() {
                   <Layers className="w-3.5 h-3.5" />
                   {currentItem.category}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20">
                   <Zap className="w-3.5 h-3.5" />
                   {currentItem.badge}
                 </span>
@@ -244,14 +244,14 @@ export default function SecurityEquipmentShowcase() {
 
               <div>
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                  <div className="p-2.5 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20">
                     <IconComponent className="w-7 h-7" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
                     {currentItem.name}
                   </h3>
                 </div>
-                <p className="mt-3 text-base text-amber-700 dark:text-amber-300 font-medium leading-relaxed">
+                <p className="mt-3 text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
                   {currentItem.tagline}
                 </p>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -262,7 +262,7 @@ export default function SecurityEquipmentShowcase() {
               {/* Hardware Specifications Grid */}
               <div>
                 <h4 className="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
-                  <Cpu className="w-4 h-4 text-amber-500" />
+                  <Cpu className="w-4 h-4 text-slate-500" />
                   Donanım Teknik Parametreleri
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
@@ -295,9 +295,9 @@ export default function SecurityEquipmentShowcase() {
             {/* Right Column: Training Curriculum & Field Practice */}
             <div className="lg:col-span-6 space-y-6">
               {/* Academy Lab Training */}
-              <div className="p-5 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/70 dark:border-amber-900/40">
+              <div className="p-5 rounded-2xl bg-slate-50/50 dark:bg-slate-950/20 border border-slate-200/70 dark:border-slate-900/40">
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-slate-500 animate-pulse" />
                   Akademi Pratik Eğitim Modülleri
                 </h4>
                 <p className="text-xs text-slate-600 dark:text-slate-300 mb-4">
@@ -336,7 +336,7 @@ export default function SecurityEquipmentShowcase() {
               <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white border border-slate-700/60 shadow-md">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-xs text-amber-400 font-bold uppercase tracking-wider">Alo Güvenlik Ayrıcalığı</div>
+                    <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Alo Güvenlik Ayrıcalığı</div>
                     <div className="text-sm font-bold mt-0.5">Sertifikalı Personel Öncelikli İstihdam</div>
                     <div className="text-xs text-slate-300 mt-1">Eğitimi tamamlayan başarılı kursiyerler Alo Yönetim bünyesindeki 85+ tesiste doğrudan görevlendirilir.</div>
                   </div>

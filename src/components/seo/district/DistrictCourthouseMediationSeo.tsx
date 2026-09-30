@@ -50,7 +50,7 @@ export default function DistrictCourthouseMediationSeo({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="balance" className="text-sm" />
             <span>7445 Sayılı Kanun Zorunlu Arabuluculuk Rehberi</span>
           </div>

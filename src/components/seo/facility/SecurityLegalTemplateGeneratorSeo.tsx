@@ -165,12 +165,12 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
       <JsonLd data={schemaData} />
       
       {/* Background Accent */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[var(--color-outline)]/40">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Icon name="gavel" className="text-sm" />
             5188 Mevzuat & Hukuk Portalı
           </div>
@@ -193,12 +193,12 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
               onClick={() => setSelectedTemplate(tmpl.id)}
               className={`p-4 rounded-2xl text-left transition-all border ${
                 isActive
-                  ? 'bg-amber-500 text-white border-amber-500 shadow-md shadow-amber-500/20'
-                  : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/40 hover:border-amber-500/50 text-[var(--color-primary)]'
+                  ? 'bg-slate-500 text-white border-slate-500 shadow-md shadow-slate-500/20'
+                  : 'bg-[var(--color-surface-variant)] border-[var(--color-outline)]/40 hover:border-slate-500/50 text-[var(--color-primary)]'
               }`}
             >
               <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                isActive ? 'bg-white/20 text-white' : 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
+                isActive ? 'bg-white/20 text-white' : 'bg-slate-500/10 text-slate-600 dark:text-slate-400'
               }`}>
                 {tmpl.badge}
               </span>
@@ -221,7 +221,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
             type="text"
             value={siteName}
             onChange={(e) => setSiteName(e.target.value)}
-            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-amber-500 font-medium"
+            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
             placeholder="Örn: Akasya Konutları"
           />
         </div>
@@ -234,7 +234,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
             type="text"
             value={managerName}
             onChange={(e) => setManagerName(e.target.value)}
-            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-amber-500 font-medium"
+            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
             placeholder="Örn: Ahmet Yılmaz"
           />
         </div>
@@ -247,7 +247,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
             type="text"
             value={guardCount}
             onChange={(e) => setGuardCount(e.target.value)}
-            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-amber-500 font-medium"
+            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
             placeholder="Örn: 4"
           />
         </div>
@@ -260,7 +260,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
             type="text"
             value={cityDistrict}
             onChange={(e) => setCityDistrict(e.target.value)}
-            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-amber-500 font-medium"
+            className="w-full bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-xl px-3 py-2 text-sm text-[var(--color-primary)] focus:outline-none focus:border-slate-500 font-medium"
             placeholder="Örn: Kadıköy / İstanbul"
           />
         </div>
@@ -271,20 +271,20 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
         <div className="flex items-center justify-between bg-slate-900 text-slate-300 px-5 py-3 rounded-t-2xl text-xs font-mono">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-500 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
             <span className="ml-2 text-slate-400">5188_resmi_belge_taslagi.txt</span>
           </div>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white font-sans font-bold px-3 py-1.5 rounded-lg transition-colors shadow-sm"
+            className="flex items-center gap-1.5 bg-slate-500 hover:bg-slate-600 text-white font-sans font-bold px-3 py-1.5 rounded-lg transition-colors shadow-sm"
           >
             <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
             <span>{isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>
           </button>
         </div>
 
-        <pre className="w-full bg-slate-950 text-slate-100 p-6 rounded-b-2xl font-mono text-xs md:text-sm overflow-x-auto leading-relaxed border-x border-b border-slate-800 whitespace-pre-wrap selection:bg-amber-500 selection:text-white">
+        <pre className="w-full bg-slate-950 text-slate-100 p-6 rounded-b-2xl font-mono text-xs md:text-sm overflow-x-auto leading-relaxed border-x border-b border-slate-800 whitespace-pre-wrap selection:bg-slate-500 selection:text-white">
           {generateText()}
         </pre>
       </div>

@@ -19,7 +19,7 @@ export default function ShareButtons({ path, title }: { path: string; title: str
   return (
     <div className="flex flex-wrap items-center gap-3 py-3 border-y border-[var(--color-outline)]/60 dark:border-white/10 my-1">
       <span className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-1.5">
-        <Icon name="share" className="text-sm text-amber-500" />
+        <Icon name="share" className="text-sm text-slate-500" />
         <span>Paylaş:</span>
       </span>
       <div className="flex items-center gap-2">

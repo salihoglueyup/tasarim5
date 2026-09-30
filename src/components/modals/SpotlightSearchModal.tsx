@@ -179,7 +179,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi`,
         description: 'Organize sanayi bölgeleri ve fabrikalarda trafo, kompresör, İSG, arıtma ve periyodik bakım.',
         searchIndex: 'sanayi fabrika tesis yonetimi osb organize sanayi uretim isg trafo aritma kompresor bakim'.toLowerCase(),
-        icon: <Layers className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
+        icon: <Layers className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },
       {
         id: 'subsector-toplu-konut-uydukent',
@@ -290,7 +290,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/sozluk`,
         description: 'Kat mülkiyeti, işletme projesi, arsa payı, yeşil bina ve tesis yönetimi terminolojisi.',
         searchIndex: 'tesis yonetimi kmk 634 terimler sozluk kat mulkiyeti kanun sozluk kavramlar'.toLowerCase(),
-        icon: <BookOpen className="w-4 h-4 text-amber-500" />,
+        icon: <BookOpen className="w-4 h-4 text-slate-500" />,
       },
       {
         id: 'tool-faq',
@@ -321,7 +321,7 @@ export default function SpotlightSearchModal() {
         url: `/${language}/sozluk#${t.termCode}`,
         description: t.description,
         searchIndex: `${t.name} ${t.description} sozluk terim tanim kmk tesis`.toLowerCase(),
-        icon: <BookOpen className="w-4 h-4 text-amber-500" />,
+        icon: <BookOpen className="w-4 h-4 text-slate-500" />,
       });
     });
 
@@ -391,7 +391,7 @@ export default function SpotlightSearchModal() {
       case 'Mevzuat':
         return 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/25';
       case 'Sözlük':
-        return 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/25';
+        return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
       case 'Kurumsal':
       default:
         return 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/25';
@@ -416,7 +416,7 @@ export default function SpotlightSearchModal() {
       case 'Mevzuat':
         return 'bg-rose-500/10 text-rose-600 dark:text-rose-400';
       case 'Sözlük':
-        return 'bg-amber-500/10 text-amber-600 dark:text-amber-400';
+        return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
       case 'Kurumsal':
       default:
         return 'bg-slate-500/10 text-slate-600 dark:text-slate-400';
@@ -513,7 +513,7 @@ export default function SpotlightSearchModal() {
         {!query.trim() && activeCategory === 'all' && (
           <div className="px-4 sm:px-5 py-2 border-b border-[var(--color-outline)]/20 bg-[var(--color-surface-variant)]/20 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
             <span className="text-[11px] font-medium text-[var(--color-tertiary)] flex items-center gap-1 shrink-0 mr-1">
-              <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+              <Sparkles className="w-3 h-3 text-slate-500 shrink-0" />
               Popüler:
             </span>
             {POPULAR_SEARCHES.map((pop) => (

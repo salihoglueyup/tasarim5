@@ -200,8 +200,8 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
                 Yasal Dayanak: <strong className="text-[var(--color-primary)]">{activeDispute.lawArticle}</strong> · Emsal: <span className="text-slate-600 dark:text-slate-400 font-mono">{activeDispute.precedentNumber}</span>
               </p>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold shrink-0">
-              <Icon name="schedule" className="text-sm text-amber-600" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-200 text-xs font-bold shrink-0">
+              <Icon name="schedule" className="text-sm text-slate-600" />
               <span>Hak Düşürücü Süre: {activeDispute.statuteOfLimitations}</span>
             </div>
           </div>

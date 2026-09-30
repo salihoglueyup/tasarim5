@@ -91,7 +91,7 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
       {/* Pillars Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 relative z-10">
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]">
-          <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 mb-1.5">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-1.5">
             <Icon name="solar_power" className="text-base" />
             <span className="text-xs font-bold">Çatı GES Kararı</span>
           </div>
@@ -149,12 +149,12 @@ export default function SustainabilityAiOverviewSeo({ className = '' }: { classN
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Sitelerde+cati+GES+ve+elektrikli+arac+sarj+istasyonu+kurulumu+KMK+42"
+            href="https://claude.ai/new?q=Sitelerde+cati+GES+ve+elektrikli+arac+sarj+istasyonu+kurulumu+KMK+42"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

@@ -164,7 +164,7 @@ export default async function TermPage({
         {/* Definition Card */}
         <div className="term-definition bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 md:p-12 rounded-[2.5rem] shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <Icon name="menu_book" className="text-amber-500 text-2xl" />
+            <Icon name="menu_book" className="text-slate-500 text-2xl" />
             <span className="text-sm font-bold uppercase tracking-wider text-[var(--color-tertiary)]">Resmi Tanım</span>
           </div>
           <p className="text-lg md:text-xl text-[var(--color-secondary)] leading-relaxed">

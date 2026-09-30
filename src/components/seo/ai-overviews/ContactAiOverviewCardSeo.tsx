@@ -162,12 +162,12 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Alo+Yonetim+iletisim+numarasi+ve+acil+servis+intikal+suresi"
+            href="https://claude.ai/new?q=Alo+Yonetim+iletisim+numarasi+ve+acil+servis+intikal+suresi"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

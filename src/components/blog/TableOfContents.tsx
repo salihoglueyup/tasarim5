@@ -96,7 +96,7 @@ export function TableOfContents({
         className="flex items-center justify-between cursor-pointer lg:cursor-default pb-3.5 border-b border-[var(--color-outline)]/60 dark:border-white/10 text-slate-900 dark:text-white font-bold text-sm"
       >
         <div className="flex items-center gap-2">
-          <List className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+          <List className="w-4 h-4 text-slate-500 dark:text-slate-400" />
           <span>İçindekiler</span>
           <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 font-bold text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-2xs">
             {headings.length}
@@ -139,13 +139,13 @@ export function TableOfContents({
                 }}
                 className={`flex items-start gap-1.5 py-1.5 px-2.5 rounded-xl transition-all ${
                   isActive
-                    ? 'bg-amber-500/10 dark:bg-amber-500/15 text-slate-900 dark:text-amber-300 font-bold border-l-2 border-amber-500 dark:border-amber-400 pl-2 rounded-r-xl shadow-2xs'
+                    ? 'bg-slate-500/10 dark:bg-slate-500/15 text-slate-900 dark:text-slate-300 font-bold border-l-2 border-slate-500 dark:border-slate-400 pl-2 rounded-r-xl shadow-2xs'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                 }`}
               >
                 <ChevronRight
                   className={`w-3.5 h-3.5 shrink-0 mt-0.5 transition-transform ${
-                    isActive ? 'rotate-90 text-amber-500 dark:text-amber-400' : 'text-slate-400'
+                    isActive ? 'rotate-90 text-slate-500 dark:text-slate-400' : 'text-slate-400'
                   }`}
                 />
                 <span className="leading-snug">{h.text}</span>

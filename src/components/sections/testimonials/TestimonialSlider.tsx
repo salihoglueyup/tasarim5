@@ -173,7 +173,7 @@ export default function TestimonialSlider({
       >
         
         <div className="lg:col-span-8 flex flex-col gap-8">
-          <div className="flex items-center gap-1 text-amber-500">
+          <div className="flex items-center gap-1 text-slate-500">
             {[...Array(current.rating)].map((_, i) => (
               <Icon name="star" className="text-2xl fill-current" key={i} />
             ))}

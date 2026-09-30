@@ -107,7 +107,7 @@ export default function BudgetMatrixAiGroundingSeo({
     <section
       id="budget-matrix-ai-grounding"
       aria-label="Google AI Overviews İşletme Projesi Bütçe Dağılım Matrisi"
-      className={`bg-[var(--color-surface)] border border-amber-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
       <script
@@ -116,16 +116,16 @@ export default function BudgetMatrixAiGroundingSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-yellow-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-yellow-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="pie_chart" className="text-[15px]" />
           <span>Google AI Overviews • KMK 37 Bütçe Dağılım Matrisi</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             5 Temel Bütçe Kalemi
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
@@ -139,14 +139,14 @@ export default function BudgetMatrixAiGroundingSeo({
       </h2>
 
       {/* Speakable Instant Answer Box */}
-      <div className="bg-gradient-to-br from-amber-500/[0.04] to-transparent border border-amber-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
+      <div className="bg-gradient-to-br from-slate-500/[0.04] to-transparent border border-slate-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-xs font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">
+          <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
             Google AI Doğrudan Cevap & Formül Özeti
           </span>
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-500/10 hover:bg-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors"
           >
             <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
             <span>{copied ? 'Kopyalandı' : 'AI Özetini Kopyala'}</span>
@@ -172,7 +172,7 @@ export default function BudgetMatrixAiGroundingSeo({
                 <span className="font-black text-sm text-[var(--color-heading-text)]">
                   {item.category}
                 </span>
-                <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-800 dark:text-amber-300">
+                <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-500/15 text-slate-800 dark:text-slate-300">
                   {item.sharePercent}
                 </span>
                 <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-slate-200 dark:bg-white/10 text-[var(--color-secondary)]">
@@ -185,12 +185,12 @@ export default function BudgetMatrixAiGroundingSeo({
             </div>
 
             <div className="md:text-right shrink-0">
-              <div className="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-bold">
+              <div className="text-[11px] font-mono text-slate-700 dark:text-slate-400 font-bold">
                 {item.legalBasis}
               </div>
               <div className="w-32 bg-slate-200 dark:bg-white/10 h-2 rounded-full mt-1.5 overflow-hidden">
                 <div
-                  className="bg-amber-500 h-full rounded-full"
+                  className="bg-slate-500 h-full rounded-full"
                   style={{ width: `${item.maxRate}%` }}
                 />
               </div>

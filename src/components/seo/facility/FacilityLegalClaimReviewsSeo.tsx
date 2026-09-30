@@ -101,7 +101,7 @@ export default function FacilityLegalClaimReviewsSeo() {
             Teknik & Hukuki Doğrulamalar
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Tesis ve Bina İşletmesinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-amber-600 dark:from-rose-400 dark:to-amber-300">Yaygın 6 Teknik Yanılgı & Hukuki Gerçekler</span>
+            Tesis ve Bina İşletmesinde <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-slate-600 dark:from-rose-400 dark:to-slate-300">Yaygın 6 Teknik Yanılgı & Hukuki Gerçekler</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Sanayi Bakanlığı, EPDK, BYKHY yangın mevzuatı ve Yargıtay emsal kararları ışığında tesis işletmesinde en sık yapılan ölümcül hatalar ve kanuni sorumluluklar.
@@ -147,7 +147,7 @@ export default function FacilityLegalClaimReviewsSeo() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="bg-gradient-to-br from-rose-500/5 via-transparent to-amber-500/5 border border-rose-500/20 rounded-3xl p-6 md:p-8"
+          className="bg-gradient-to-br from-rose-500/5 via-transparent to-slate-500/5 border border-rose-500/20 rounded-3xl p-6 md:p-8"
         >
           {/* Claim vs Reality Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-[var(--color-outline)]/60">

@@ -121,7 +121,7 @@ export default function AcademyFaqAccordion() {
               type="button"
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                 activeFilter === f.key
-                  ? 'bg-amber-500 text-white shadow-md shadow-amber-500/20 font-semibold'
+                  ? 'bg-slate-500 text-white shadow-md shadow-slate-500/20 font-semibold'
                   : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
               }`}
             >
@@ -141,7 +141,7 @@ export default function AcademyFaqAccordion() {
                 key={item.id}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? 'bg-white dark:bg-slate-900 border-amber-500/40 shadow-lg shadow-amber-500/5'
+                    ? 'bg-white dark:bg-slate-900 border-slate-500/40 shadow-lg shadow-slate-500/5'
                     : 'bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
@@ -156,14 +156,14 @@ export default function AcademyFaqAccordion() {
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                         isOpen
-                          ? 'bg-amber-500 text-white shadow-sm'
+                          ? 'bg-slate-500 text-white shadow-sm'
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                       }`}
                     >
                       <ItemIcon className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider block mb-0.5">
+                      <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider block mb-0.5">
                         {item.categoryLabel}
                       </span>
                       <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
@@ -173,7 +173,7 @@ export default function AcademyFaqAccordion() {
                   </div>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30' : 'text-slate-400'
+                      isOpen ? 'rotate-180 bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/30' : 'text-slate-400'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -188,8 +188,8 @@ export default function AcademyFaqAccordion() {
                     </p>
 
                     {item.importantNote && (
-                      <div className="p-3.5 rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 text-xs sm:text-sm text-amber-900 dark:text-amber-200 mb-3 flex items-start gap-2.5">
-                        <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-950/30 border border-slate-200/80 dark:border-slate-900/40 text-xs sm:text-sm text-slate-900 dark:text-slate-200 mb-3 flex items-start gap-2.5">
+                        <AlertTriangle className="w-4 h-4 text-slate-600 dark:text-slate-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="font-bold">Önemli Hatırlatma: </span>
                           {item.importantNote}

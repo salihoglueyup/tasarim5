@@ -70,7 +70,7 @@ const PILLARS: Pillar[] = [
     title: 'KMK Hukuki Kalkanı & Tahsilat Güvencesi',
     subtitle: '634 Sayılı Kanun Uzmanlığı & %99,4 Tahsilat',
     icon: 'gavel',
-    iconBg: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+    iconBg: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20',
     description:
       'Site yönetim kurullarını yasal risklerden ve iptal davalarından koruyan uzman gayrimenkul hukukçularımız; aidat gecikmelerinde komşuluk ilişkilerini zedelemeden kanuni ihtar ve icra süreçlerini yöneterek %99,4 tahsilat sağlar.',
     highlights: [

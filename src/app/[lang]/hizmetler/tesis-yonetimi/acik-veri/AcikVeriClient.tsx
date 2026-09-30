@@ -350,12 +350,12 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
     <div className="bg-[#f8fafc] dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 border-b border-slate-200 dark:border-slate-800">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-500/5 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] relative z-10">
           
           {/* Badges */}
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-500/10 border border-slate-500/20 text-slate-600 dark:text-slate-400">
               <Icon name="api" className="text-[15px]" />
               OpenAPI 3.1.0 & GeoJSON
             </span>
@@ -370,7 +370,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mb-6">
-            Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Açık Veri Portalı</span> & API Standartları
+            Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-600">Açık Veri Portalı</span> & API Standartları
           </h1>
 
           <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 font-light leading-relaxed max-w-3xl mb-8">
@@ -408,7 +408,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <div className="p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4">
                 <Icon name="visibility" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
@@ -453,7 +453,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block mb-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block mb-1">
                 RESTful Veri Servisleri
               </span>
               <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -473,12 +473,12 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
               return (
                 <div
                   key={endpoint.id}
-                  className="p-6 md:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:border-amber-500/30"
+                  className="p-6 md:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:border-slate-500/30"
                 >
                   {/* Top Header */}
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-white/5">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 text-amber-500 flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 text-slate-500 flex items-center justify-center shrink-0">
                         <Icon name={endpoint.icon} className="text-2xl" />
                       </div>
                       <div>
@@ -511,7 +511,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                         href={endpoint.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/20 transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-500/10 hover:bg-slate-500/20 text-slate-700 dark:text-slate-400 border border-slate-500/20 transition-colors"
                       >
                         <span>JSON Aç</span>
                         <Icon name="open_in_new" className="text-sm" />
@@ -550,7 +550,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
 
                     <button
                       onClick={() => setExpandedJson(isJsonExpanded ? null : endpoint.id)}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-amber-500 transition-colors shrink-0"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-slate-500 transition-colors shrink-0"
                     >
                       <span>{isJsonExpanded ? 'Örneği Gizle' : 'Örnek JSON Göster'}</span>
                       <Icon name={isJsonExpanded ? 'expand_less' : 'expand_more'} className="text-sm" />
@@ -592,7 +592,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
       {/* Final Call to Action */}
       <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-950 text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-[var(--spacing-gutter)] text-center relative z-10">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-amber-400 text-xs font-bold uppercase tracking-wider mb-6">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-slate-400 text-xs font-bold uppercase tracking-wider mb-6">
             <Icon name="shield" className="text-sm" />
             5188 Lisanslı & ISO 45001 Belgeli Yönetim
           </span>
@@ -606,7 +606,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/teklif-al"
-              className="bg-amber-500 hover:bg-amber-600 text-slate-950 px-8 py-4 rounded-xl font-extrabold text-sm transition-all shadow-lg"
+              className="bg-slate-500 hover:bg-slate-600 text-slate-950 px-8 py-4 rounded-xl font-extrabold text-sm transition-all shadow-lg"
             >
               Ücretsiz Keşif & Teklif İste
             </Link>

@@ -107,7 +107,7 @@ const COURSES: CoursePackage[] = [
     title: 'Silahlı Özel Güvenlik Yenileme Eğitimi',
     shortTitle: 'Silahlı Yenileme',
     badge: '5 Yıl Uzatma + Poligon Atışı',
-    badgeColor: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     duration: '60 Ders Saati (50s Teorik + 10s Silah)',
     ageReq: 'Mevcut Silahlı Kimlik Kartı Sahibi',
     eduReq: 'Geçerli Silahlı ÖGG Kartı Olanlar',

@@ -53,7 +53,7 @@ export default function PostBody({
 
   return (
     <div 
-      className="prose prose-slate prose-lg dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 w-full prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-brand-600 dark:prose-a:text-amber-400 prose-a:font-semibold prose-strong:text-slate-900 dark:prose-strong:text-white prose-blockquote:border-amber-500 prose-img:rounded-2xl prose-img:shadow-lg leading-relaxed"
+      className="prose prose-slate prose-lg dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 w-full prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-brand-600 dark:prose-a:text-slate-400 prose-a:font-semibold prose-strong:text-slate-900 dark:prose-strong:text-white prose-blockquote:border-slate-500 prose-img:rounded-2xl prose-img:shadow-lg leading-relaxed"
       dangerouslySetInnerHTML={{ __html: sanitizedHtml }} 
     />
   );

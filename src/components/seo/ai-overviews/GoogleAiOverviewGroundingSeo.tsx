@@ -312,13 +312,13 @@ export default function GoogleAiOverviewGroundingSeo({
                 ChatGPT ile Sor
               </a>
               <a
-                href={`https://www.perplexity.ai/search?q=${encodeURIComponent(selectedPrompt.prompt)}`}
+                href={`https://claude.ai/new?q=${encodeURIComponent(selectedPrompt.prompt)}`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="px-3.5 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
               >
                 <Icon name="travel_explore" className="text-xs" />
-                Perplexity ile Ara
+                Claude ile Ara
               </a>
             </div>
           </div>

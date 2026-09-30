@@ -103,17 +103,17 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 dark:bg-slate-400/10 border border-slate-500/20 text-slate-700 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="psychology_alt" className="text-[16px]" />
             Google AI Overviews & Gemini SSS Karar Masası
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Kat Mülkiyetinde <span className="text-amber-600 dark:text-amber-400">En Çok Sorulan 6 SGE Sorusu & Yasal Yanıtlar</span>
+            Kat Mülkiyetinde <span className="text-slate-600 dark:text-slate-400">En Çok Sorulan 6 SGE Sorusu & Yasal Yanıtlar</span>
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-3xl">
             Yapay zeka modellerinin arama sonuçlarında doğrudan alıntıladığı resmi kanun maddeleri, hak düşürücü süreler ve mahkeme içtihatları.
@@ -141,16 +141,16 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
               className={`text-left p-4 rounded-2xl border transition-all text-xs flex flex-col justify-between gap-2 cursor-pointer ${
                 isSelected
                   ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 border-slate-900 dark:border-white shadow-sm scale-[1.01]'
-                  : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border-[var(--color-outline)]/60 dark:border-white/10 hover:border-amber-500/50 text-slate-800 dark:text-slate-200'
+                  : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border-[var(--color-outline)]/60 dark:border-white/10 hover:border-slate-500/50 text-slate-800 dark:text-slate-200'
               }`}
             >
               <div className="flex items-center justify-between gap-1 w-full">
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                  isSelected ? 'bg-amber-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300'
+                  isSelected ? 'bg-slate-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300'
                 }`}>
                   {item.category}
                 </span>
-                <span className={`text-[11px] font-mono font-bold ${isSelected ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`}>
+                <span className={`text-[11px] font-mono font-bold ${isSelected ? 'text-slate-400 dark:text-slate-600' : 'text-slate-400'}`}>
                   #{idx + 1}
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
             <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
               {activeFaq.question}
             </h3>
-            <span className="inline-flex items-center px-3 py-1 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 font-bold text-xs shrink-0">
+            <span className="inline-flex items-center px-3 py-1 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-400 font-bold text-xs shrink-0">
               {activeFaq.quickStat}
             </span>
           </div>
@@ -209,7 +209,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
                 ChatGPT
               </a>
               <a
-                href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${activeFaq.question} alo yonetim kmk`)}`}
+                href={`https://claude.ai/new?q=${encodeURIComponent(`${activeFaq.question} alo yonetim kmk`)}`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"

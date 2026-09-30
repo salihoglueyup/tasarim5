@@ -129,7 +129,7 @@ export default function ServicePricingProductAiOverviewSeo({
 
   return (
     <section
-      className={`relative w-full rounded-2xl border border-amber-500/20 bg-gradient-to-br from-slate-900/90 via-amber-950/30 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
+      className={`relative w-full rounded-2xl border border-slate-500/20 bg-gradient-to-br from-slate-900/90 via-slate-950/30 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
       aria-label="Şeffaf Tesis Yönetimi Fiyatlandırma ve Paket Kataloğu"
     >
       <script
@@ -138,14 +138,14 @@ export default function ServicePricingProductAiOverviewSeo({
       />
 
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-500/20 pb-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 border border-amber-400/30 font-bold text-xl">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-500/20 text-slate-400 border border-slate-400/30 font-bold text-xl">
             <Icon name="payments" className="text-2xl" />
           </span>
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center rounded-md bg-amber-500/10 px-2 py-0.5 text-xs font-semibold text-amber-300 border border-amber-500/30">
+              <span className="inline-flex items-center rounded-md bg-slate-500/10 px-2 py-0.5 text-xs font-semibold text-slate-300 border border-slate-500/30">
                 Google Merchant & Product Rich Snippets
               </span>
               <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-300 border border-emerald-500/30">
@@ -162,7 +162,7 @@ export default function ServicePricingProductAiOverviewSeo({
           onClick={handleCopy}
           type="button"
           aria-label="Fiyat özetini kopyala"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-amber-400/30 bg-amber-500/10 px-3 py-1.5 text-xs font-medium text-amber-200 transition-colors hover:bg-amber-500/20 active:scale-95"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-400/30 bg-slate-500/10 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors hover:bg-slate-500/20 active:scale-95"
         >
           <Icon name={copied ? 'done' : 'content_copy'} className="text-sm" />
           {copied ? 'Kopyalandı' : 'Fiyat AI Özetini Kopyala'}
@@ -170,9 +170,9 @@ export default function ServicePricingProductAiOverviewSeo({
       </div>
 
       {/* Instant Answer Box */}
-      <div className="mt-4 rounded-xl border border-amber-400/20 bg-amber-950/20 p-4">
+      <div className="mt-4 rounded-xl border border-slate-400/20 bg-slate-950/20 p-4">
         <div className="flex items-start gap-2.5">
-          <Icon name="verified" className="text-amber-400 text-lg shrink-0 mt-0.5" />
+          <Icon name="verified" className="text-slate-400 text-lg shrink-0 mt-0.5" />
           <p
             id="pricing-product-instant-answer-text"
             className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal"
@@ -192,7 +192,7 @@ export default function ServicePricingProductAiOverviewSeo({
               onClick={() => setActivePackageId(pkg.id)}
               className={`cursor-pointer rounded-xl border p-5 transition-all flex flex-col justify-between ${
                 isSelected
-                  ? 'border-amber-400 bg-amber-950/40 shadow-lg shadow-amber-950/50 ring-1 ring-amber-400/60'
+                  ? 'border-slate-400 bg-slate-950/40 shadow-lg shadow-slate-950/50 ring-1 ring-slate-400/60'
                   : 'border-slate-800 bg-slate-900/50 hover:border-slate-700 hover:bg-slate-900/80'
               }`}
             >
@@ -201,8 +201,8 @@ export default function ServicePricingProductAiOverviewSeo({
                   <span
                     className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
                       pkg.isPopular
-                        ? 'bg-amber-500 text-slate-950 font-extrabold'
-                        : 'bg-slate-800 text-amber-300 border border-slate-700'
+                        ? 'bg-slate-500 text-slate-950 font-extrabold'
+                        : 'bg-slate-800 text-slate-300 border border-slate-700'
                     }`}
                   >
                     {pkg.badge}
@@ -217,7 +217,7 @@ export default function ServicePricingProductAiOverviewSeo({
                 </h4>
 
                 <div className="flex items-baseline gap-1 my-3">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-amber-300">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-300">
                     {pkg.lowPrice} - {pkg.highPrice} ₺
                   </span>
                   <span className="text-xs text-slate-400 font-normal">
@@ -228,7 +228,7 @@ export default function ServicePricingProductAiOverviewSeo({
                 <ul className="mt-3 flex flex-col gap-2 text-xs text-slate-300 border-t border-slate-800 pt-3">
                   {pkg.features.map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <Icon name="check_circle" className="text-amber-400 text-sm shrink-0 mt-0.5" />
+                      <Icon name="check_circle" className="text-slate-400 text-sm shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -237,7 +237,7 @@ export default function ServicePricingProductAiOverviewSeo({
 
               <div className="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
                 <span>48 Saatte Keşif</span>
-                <span className="text-amber-300 font-medium">Gizli Maliyet Yok</span>
+                <span className="text-slate-300 font-medium">Gizli Maliyet Yok</span>
               </div>
             </div>
           );

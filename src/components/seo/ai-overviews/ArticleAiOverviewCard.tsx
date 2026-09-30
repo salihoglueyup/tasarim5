@@ -71,12 +71,12 @@ export default function ArticleAiOverviewCard({
       />
 
       {/* Brand Accent Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/5 via-slate-400/5 to-transparent dark:from-amber-400/5 dark:via-white/[0.02] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/5 via-slate-400/5 to-transparent dark:from-slate-400/5 dark:via-white/[0.02] rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badges */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
-          <Icon name="auto_awesome" className="text-[15px] text-amber-500 dark:text-amber-400" />
+          <Icon name="auto_awesome" className="text-[15px] text-slate-500 dark:text-slate-400" />
           <span>Google AI Overviews & TL;DR Doğrulanmış Özet</span>
         </div>
         <div className="flex items-center gap-2">
@@ -141,7 +141,7 @@ export default function ArticleAiOverviewCard({
             ChatGPT
           </a>
           <a
-            href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${title} alo yonetim kmk hukuku`)}`}
+            href={`https://claude.ai/new?q=${encodeURIComponent(`${title} alo yonetim kmk hukuku`)}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="px-3.5 py-1.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold transition-colors flex items-center gap-1.5 shadow-xs"

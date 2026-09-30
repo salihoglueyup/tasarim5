@@ -241,7 +241,7 @@ export default function FacilityPoolHealthGuideSeo({
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+                    <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-slate-100 dark:bg-slate-950/60 text-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-800">
                       {rule.articleRef}
                     </span>
                   </div>
@@ -316,8 +316,8 @@ export default function FacilityPoolHealthGuideSeo({
       {/* Tab 4: Chemicals & Safety Rules */}
       {activeTab === 'chemicals' && (
         <div className="relative z-10 space-y-4">
-          <div className="p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 rounded-2xl text-amber-900 dark:text-amber-200 text-xs md:text-sm flex items-start gap-3">
-            <Icon name="warning" className="text-amber-600 text-xl shrink-0 mt-0.5" />
+          <div className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-300 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-slate-200 text-xs md:text-sm flex items-start gap-3">
+            <Icon name="warning" className="text-slate-600 text-xl shrink-0 mt-0.5" />
             <div>
               <strong className="font-semibold block mb-1">Hayati İSG Uyarısı (Klor ve Asit Teması):</strong>
               <span>

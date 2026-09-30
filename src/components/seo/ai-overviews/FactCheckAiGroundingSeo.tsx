@@ -103,11 +103,11 @@ export default function FactCheckAiGroundingSeo({
       />
 
       {/* Ambient Blur */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
           <Icon name="fact_check" className="text-[15px]" />
           <span>Hukuki Mitler & Doğrular</span>
         </div>
@@ -143,7 +143,7 @@ export default function FactCheckAiGroundingSeo({
                   : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/60 dark:border-white/10'
               }`}
             >
-              <Icon name={isActive ? 'check_circle' : 'gavel'} className={`text-[14px] ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />
+              <Icon name={isActive ? 'check_circle' : 'gavel'} className={`text-[14px] ${isActive ? 'text-slate-400 dark:text-slate-600' : 'text-slate-400'}`} />
               <span>{item.lawBadge}</span>
             </button>
           );
@@ -153,10 +153,10 @@ export default function FactCheckAiGroundingSeo({
       {/* Main Fact Card */}
       <div className="bg-slate-50/80 dark:bg-white/[0.02] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-2xl p-5 sm:p-6 relative z-10 space-y-4">
         {/* Myth Banner */}
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
-          <Icon name="cancel" className="text-amber-600 dark:text-amber-400 shrink-0 text-xl" />
+        <div className="flex items-start gap-3 p-4 rounded-xl bg-slate-500/10 border border-slate-500/20">
+          <Icon name="cancel" className="text-slate-600 dark:text-slate-400 shrink-0 text-xl" />
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-0.5">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-0.5">
               Yaygın Yanılgı (Mit)
             </div>
             <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
@@ -184,7 +184,7 @@ export default function FactCheckAiGroundingSeo({
         {/* Footer Meta & Actions */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5 text-xs">
           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-            <Icon name="menu_book" className="text-base text-amber-500" />
+            <Icon name="menu_book" className="text-base text-slate-500" />
             <span className="font-mono font-semibold">{selectedFact.legalCitation}</span>
           </div>
 

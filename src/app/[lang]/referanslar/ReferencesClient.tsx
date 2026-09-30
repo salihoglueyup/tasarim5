@@ -457,7 +457,7 @@ export default function ReferencesClient({
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Bütçe Tasarrufu</div>
             </div>
             <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors col-span-2 md:col-span-1">
-              <div className="text-3xl md:text-4xl font-black text-amber-400 mb-1">45 Dk</div>
+              <div className="text-3xl md:text-4xl font-black text-slate-400 mb-1">45 Dk</div>
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Acil Müdahale SLA</div>
             </div>
           </div>

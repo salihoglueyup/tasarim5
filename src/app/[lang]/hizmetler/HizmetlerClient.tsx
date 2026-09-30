@@ -217,7 +217,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
           <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-950 text-white rounded-3xl p-8 sm:p-12 md:p-16 border border-slate-500/20 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/30 text-amber-300 mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-500/10 border border-slate-500/30 text-slate-300 mb-4">
                 <Icon name="schedule" className="text-sm" />
                 {tx('24 Saat İçinde Ücretsiz Keşif')}
               </span>
@@ -246,7 +246,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
             <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full lg:w-auto">
               <Link
                 href={lp('/teklif-al')}
-                className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/20 transition-all hover:scale-102 text-center"
+                className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-400 hover:to-slate-500 text-slate-950 font-black text-sm shadow-xl shadow-slate-500/20 transition-all hover:scale-102 text-center"
               >
                 {tx('Ücretsiz Yönetim Keşfi İste 🚀')}
               </Link>

@@ -336,7 +336,7 @@ export default function Faq({
             <div>
               <h3 className="text-sm font-bold text-[var(--color-primary)] flex items-center gap-1.5 justify-center sm:justify-start">
                 <span>{t('hfq_cta_title')}</span>
-                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <Sparkles className="w-3.5 h-3.5 text-slate-500" />
               </h3>
               <p className="text-xs text-[var(--color-secondary)] mt-0.5">
                 {t('hfq_cta_desc')}

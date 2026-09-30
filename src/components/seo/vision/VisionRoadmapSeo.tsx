@@ -57,7 +57,7 @@ const MILESTONES: Milestone[] = [
   {
     period: '2027 — 2030 Hedefi',
     badge: 'Sürdürülebilir Gelecek',
-    badgeColor: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     title: 'Otonom Yeşil Siteler & Karbon Nötr Tesisler',
     description:
       'Tüm projelerimizde Çevre Bakanlığı ve uluslararası ESG standartlarına tam uyumlu Karbon Nötr tesis sertifikasyonu, ortak otoparkların tamamında elektrikli araç (EV) şarj ağı ve ortak alanlarda otonom temizlik robotları ile geleceğin sitelerini inşa ediyoruz.',

@@ -107,7 +107,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
         {/* 2. Yapay Zeka Karar Masası, Hukuki Mitler ve PAA Ağacı */}
         <div className="space-y-10 pt-12 border-t border-[var(--color-outline)]/60 dark:border-white/10">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20 text-xs font-semibold uppercase tracking-wider">
               Yapay Zeka Destekli Karar Masası
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-3">
@@ -127,8 +127,8 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
         <div className="p-8 sm:p-10 md:p-12 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
             <div className="space-y-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20 text-xs font-semibold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-slate-500" />
                 Profesyonel Yönetim & Hukuki Çözüm
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">

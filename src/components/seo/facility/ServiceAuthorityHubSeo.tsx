@@ -84,7 +84,7 @@ export default function ServiceAuthorityHubSeo({
           <div className="lg:col-span-7 flex flex-col gap-4">
             <div className="flex items-center justify-between pb-2 border-b border-[var(--color-outline)]/50 dark:border-white/10">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                <Icon name="policy" className="text-base text-amber-500" />
+                <Icon name="policy" className="text-base text-slate-500" />
                 <span>Resmi Yasal Mevzuatlar & Kamu Kaynakları</span>
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">Dış Otorite (Official Sources)</span>
@@ -97,7 +97,7 @@ export default function ServiceAuthorityHubSeo({
                   href={law.url}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="group bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col gap-2.5"
+                  className="group bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-slate-500/50 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col gap-2.5"
                   title={`${law.title} — ${law.sourceName}`}
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -110,13 +110,13 @@ export default function ServiceAuthorityHubSeo({
                       </span>
                     </div>
 
-                    <span className="text-slate-500 dark:text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1 text-[11px] font-semibold shrink-0">
+                    <span className="text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors flex items-center gap-1 text-[11px] font-semibold shrink-0">
                       <span>Resmi Metin</span>
                       <Icon name="open_in_new" className="text-[13px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </span>
                   </div>
 
-                  <h3 className="text-sm md:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  <h3 className="text-sm md:text-base font-bold text-slate-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
                     {law.title}
                   </h3>
 
@@ -135,10 +135,10 @@ export default function ServiceAuthorityHubSeo({
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between pb-2 border-b border-[var(--color-outline)]/50 dark:border-white/10">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                  <Icon name="menu_book" className="text-base text-amber-500" />
+                  <Icon name="menu_book" className="text-base text-slate-500" />
                   <span>İlgili Sözlük Terimleri</span>
                 </span>
-                <Link href="/sozluk" className="text-[11px] font-bold text-amber-600 dark:text-amber-400 hover:underline">
+                <Link href="/sozluk" className="text-[11px] font-bold text-slate-600 dark:text-slate-400 hover:underline">
                   Tüm Sözlük →
                 </Link>
               </div>
@@ -148,14 +148,14 @@ export default function ServiceAuthorityHubSeo({
                   <Link
                     key={term.slug}
                     href={`/sozluk/${term.slug}`}
-                    className="group bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-amber-500/50 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col gap-1"
+                    className="group bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 hover:border-slate-500/50 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col gap-1"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                        <Icon name="arrow_right_alt" className="text-[15px] text-amber-500" />
+                      <span className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors flex items-center gap-1.5">
+                        <Icon name="arrow_right_alt" className="text-[15px] text-slate-500" />
                         <span>{term.term}</span>
                       </span>
-                      <span className="text-[11px] font-semibold text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                      <span className="text-[11px] font-semibold text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
                         Tanımı Gör
                       </span>
                     </div>
@@ -170,22 +170,22 @@ export default function ServiceAuthorityHubSeo({
             {/* Akıllı Araçlar & Sertifikalar Hızlı Kutu */}
             <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/70 dark:border-white/10 rounded-2xl p-5 space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                <Icon name="widgets" className="text-base text-amber-500" />
+                <Icon name="widgets" className="text-base text-slate-500" />
                 <span>İlgili Akıllı Araçlar & Belgeler</span>
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                 <Link
                   href="/hesaplayici"
-                  className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
+                  className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-slate-500/10 hover:text-slate-700 dark:hover:text-slate-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
                 >
-                  <Icon name="calculate" className="text-base text-amber-500" />
+                  <Icon name="calculate" className="text-base text-slate-500" />
                   <span>Aidat Hesaplayıcı</span>
                 </Link>
 
                 <Link
                   href="/kurumsal/kalite-belgelerimiz"
-                  className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
+                  className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-slate-500/10 hover:text-slate-700 dark:hover:text-slate-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
                 >
                   <Icon name="workspace_premium" className="text-base text-emerald-600 dark:text-emerald-400" />
                   <span>ISO & TSE Belgeleri</span>
@@ -193,7 +193,7 @@ export default function ServiceAuthorityHubSeo({
 
                 <Link
                   href="/kurumsal/surdurulebilirlik"
-                  className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
+                  className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-slate-500/10 hover:text-slate-700 dark:hover:text-slate-400 border border-[var(--color-outline)]/70 dark:border-white/10 text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 transition-colors"
                 >
                   <Icon name="eco" className="text-base text-emerald-600 dark:text-emerald-400" />
                   <span>Yeşil Tesis & GES</span>

@@ -148,7 +148,7 @@ export default async function RootLayout({
   preload('/icons/sprite.svg', { as: 'image', type: 'image/svg+xml' });
 
   return (
-    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} >
+    <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <head>
         {/* v9 Hyper-Speed Resource Hints (Preconnect & DNS-Prefetch) */}
         {EXTERNAL_CDN_HINTS.map((hint, i) => (

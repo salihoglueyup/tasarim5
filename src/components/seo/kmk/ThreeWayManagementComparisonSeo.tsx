@@ -75,7 +75,7 @@ export default function ThreeWayManagementComparisonSeo() {
           <span className="text-[11px] text-[var(--color-secondary)]">Gönüllü Kat Maliki</span>
         </div>
         <div className="lg:col-span-3 p-4 rounded-2xl bg-slate-900/5 dark:bg-white/5 border border-[var(--color-outline)] text-center">
-          <span className="text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 block mb-1">
+          <span className="text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-400 block mb-1">
             Model 2
           </span>
           <h4 className="text-sm font-bold text-[var(--color-primary)]">
@@ -143,10 +143,10 @@ export default function ThreeWayManagementComparisonSeo() {
                 </div>
 
                 {/* Model 2: External Individual */}
-                <div className="lg:col-span-3 w-full p-3 rounded-xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/30">
+                <div className="lg:col-span-3 w-full p-3 rounded-xl bg-slate-50/50 dark:bg-slate-950/20 border border-slate-200/60 dark:border-slate-900/30">
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 lg:hidden">Dışarıdan Şahıs:</span>
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-600/10 text-amber-700 dark:text-amber-300">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 lg:hidden">Dışarıdan Şahıs:</span>
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-600/10 text-slate-700 dark:text-slate-300">
                       {item.individualExternalModel.statusBadge}
                     </span>
                   </div>
@@ -181,8 +181,8 @@ export default function ThreeWayManagementComparisonSeo() {
                     <span className="font-bold text-rose-700 dark:text-rose-400 block mb-1">Amatör Model Risk Detayı:</span>
                     <p className="text-[var(--color-secondary)] leading-relaxed">{item.amateurResidentModel.detail}</p>
                   </div>
-                  <div className="p-3 bg-amber-50/40 dark:bg-amber-950/10 rounded-xl">
-                    <span className="font-bold text-amber-700 dark:text-amber-400 block mb-1">Şahıs Model Kısıt Detayı:</span>
+                  <div className="p-3 bg-slate-50/40 dark:bg-slate-950/10 rounded-xl">
+                    <span className="font-bold text-slate-700 dark:text-slate-400 block mb-1">Şahıs Model Kısıt Detayı:</span>
                     <p className="text-[var(--color-secondary)] leading-relaxed">{item.individualExternalModel.detail}</p>
                   </div>
                   <div className="p-3 bg-emerald-50/60 dark:bg-emerald-950/20 rounded-xl">

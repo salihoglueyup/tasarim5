@@ -57,7 +57,7 @@ export default function DistrictComparisonMatrixSeo() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="px-3 py-1 bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20 rounded-full text-xs font-bold uppercase tracking-wider">
               İlçeler Arası Kıyaslama Motoru
             </span>
           </div>
@@ -75,7 +75,7 @@ export default function DistrictComparisonMatrixSeo() {
           <span className="text-xs font-bold text-slate-900 dark:text-white px-2.5 py-1 bg-white dark:bg-zinc-800 rounded-xl shadow-xs">
             {d1.name}
           </span>
-          <span className="text-xs font-bold text-amber-500">VS</span>
+          <span className="text-xs font-bold text-slate-500">VS</span>
           <span className="text-xs font-bold text-slate-900 dark:text-white px-2.5 py-1 bg-white dark:bg-zinc-800 rounded-xl shadow-xs">
             {d2.name}
           </span>
@@ -91,7 +91,7 @@ export default function DistrictComparisonMatrixSeo() {
           <select
             value={district1Slug}
             onChange={(e) => setDistrict1Slug(e.target.value)}
-            className="w-full p-4 rounded-2xl bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-white/10 font-bold text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="w-full p-4 rounded-2xl bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-white/10 font-bold text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-slate-500"
           >
             {DISTRICTS.map((d) => (
               <option key={d.slug} value={d.slug} disabled={d.slug === district2Slug}>
@@ -108,7 +108,7 @@ export default function DistrictComparisonMatrixSeo() {
           <select
             value={district2Slug}
             onChange={(e) => setDistrict2Slug(e.target.value)}
-            className="w-full p-4 rounded-2xl bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-white/10 font-bold text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="w-full p-4 rounded-2xl bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-white/10 font-bold text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-slate-500"
           >
             {DISTRICTS.map((d) => (
               <option key={d.slug} value={d.slug} disabled={d.slug === district1Slug}>
@@ -125,7 +125,7 @@ export default function DistrictComparisonMatrixSeo() {
           <thead>
             <tr className="border-b border-gray-200 dark:border-white/10">
               <th className="py-4 px-4 text-xs font-extrabold uppercase text-[var(--color-secondary)]">Kriter</th>
-              <th className="py-4 px-4 text-base font-extrabold text-[var(--color-primary)] bg-amber-500/5 rounded-t-2xl">
+              <th className="py-4 px-4 text-base font-extrabold text-[var(--color-primary)] bg-slate-500/5 rounded-t-2xl">
                 {d1.name}
               </th>
               <th className="py-4 px-4 text-base font-extrabold text-[var(--color-primary)] bg-slate-500/5 rounded-t-2xl">
@@ -136,22 +136,22 @@ export default function DistrictComparisonMatrixSeo() {
           <tbody className="divide-y divide-gray-100 dark:divide-white/5 text-sm">
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">İstanbul Yakası</td>
-              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-amber-500/5">{d1.side} Yakası</td>
+              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">{d1.side} Yakası</td>
               <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">{d2.side} Yakası</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">İlçe Nüfusu</td>
-              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-amber-500/5">~{d1.population.toLocaleString()} Kişi</td>
+              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">~{d1.population.toLocaleString()} Kişi</td>
               <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">~{d2.population.toLocaleString()} Kişi</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Piyasa Ort. Aidat (m²)</td>
-              <td className="py-4 px-4 font-bold text-rose-500 bg-amber-500/5">{stat1.avgDuesM2} ₺ / m²</td>
+              <td className="py-4 px-4 font-bold text-rose-500 bg-slate-500/5">{stat1.avgDuesM2} ₺ / m²</td>
               <td className="py-4 px-4 font-bold text-rose-500 bg-slate-500/5">{stat2.avgDuesM2} ₺ / m²</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Alo Yönetim ile Tasarruflu (m²)</td>
-              <td className="py-4 px-4 font-extrabold text-emerald-500 bg-amber-500/5">
+              <td className="py-4 px-4 font-extrabold text-emerald-500 bg-slate-500/5">
                 {stat1.aloDuesM2} ₺ / m² <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">(-%24)</span>
               </td>
               <td className="py-4 px-4 font-extrabold text-emerald-500 bg-slate-500/5">
@@ -160,17 +160,17 @@ export default function DistrictComparisonMatrixSeo() {
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Güvenlik & Site Profili</td>
-              <td className="py-4 px-4 text-xs font-medium text-[var(--color-primary)] bg-amber-500/5">{stat1.securityRate}</td>
+              <td className="py-4 px-4 text-xs font-medium text-[var(--color-primary)] bg-slate-500/5">{stat1.securityRate}</td>
               <td className="py-4 px-4 text-xs font-medium text-[var(--color-primary)] bg-slate-500/5">{stat2.securityRate}</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Yönetilen Proje Portföyü</td>
-              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-amber-500/5">{d1.managedProjects}</td>
+              <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">{d1.managedProjects}</td>
               <td className="py-4 px-4 font-bold text-[var(--color-primary)] bg-slate-500/5">{d2.managedProjects}</td>
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Öne Çıkan Mahalleler</td>
-              <td className="py-4 px-4 text-xs text-[var(--color-secondary)] bg-amber-500/5">
+              <td className="py-4 px-4 text-xs text-[var(--color-secondary)] bg-slate-500/5">
                 {d1.neighborhoods.slice(0, 4).join(', ')}
               </td>
               <td className="py-4 px-4 text-xs text-[var(--color-secondary)] bg-slate-500/5">
@@ -179,10 +179,10 @@ export default function DistrictComparisonMatrixSeo() {
             </tr>
             <tr>
               <td className="py-4 px-4 font-semibold text-[var(--color-secondary)]">Detaylı İlçe Sayfası</td>
-              <td className="py-4 px-4 bg-amber-500/5 rounded-b-2xl">
+              <td className="py-4 px-4 bg-slate-500/5 rounded-b-2xl">
                 <Link
                   href={`/bolgeler/${d1.slug}`}
-                  className="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1"
                 >
                   <span>{d1.name} Sayfasına Git</span>
                   <Icon name="arrow_forward" className="text-xs" />

@@ -109,7 +109,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             ISO 45001 & ISO 10002
           </span>
-          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300/40">
+          <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
             15+ Yıl Deneyim
           </span>
         </div>
@@ -171,12 +171,12 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Alo+Yonetim+guvenilir+mi+ve+yasal+lisanslari+nelerdir"
+            href="https://claude.ai/new?q=Alo+Yonetim+guvenilir+mi+ve+yasal+lisanslari+nelerdir"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

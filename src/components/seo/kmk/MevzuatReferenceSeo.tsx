@@ -61,7 +61,7 @@ export default function MevzuatReferenceSeo({
     <>
       <JsonLd data={schema} />
       <div
-        className={`bg-slate-50/90 dark:bg-zinc-900/90 border border-amber-500/20 dark:border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-sm relative overflow-hidden my-8 ${className}`}
+        className={`bg-slate-50/90 dark:bg-zinc-900/90 border border-slate-500/20 dark:border-slate-500/30 rounded-3xl p-6 md:p-8 shadow-sm relative overflow-hidden my-8 ${className}`}
       >
         {/* Arka Plan Hukuk Terazisi İkonu */}
         <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none z-0">
@@ -72,15 +72,15 @@ export default function MevzuatReferenceSeo({
           {/* Üst Başlık & Etiketler */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-white/10 pb-4 mb-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                 <Icon name="policy" className="text-lg" />
               </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                   Resmi Mevzuat Referansı
                 </span>
                 <h4 className="text-base md:text-lg font-bold text-slate-900 dark:text-white">
-                  {kanunAdi} — <span className="text-amber-600 dark:text-amber-400">{maddeNo}</span>
+                  {kanunAdi} — <span className="text-slate-600 dark:text-slate-400">{maddeNo}</span>
                 </h4>
               </div>
             </div>
@@ -96,9 +96,9 @@ export default function MevzuatReferenceSeo({
           </div>
 
           {/* Orijinal Kanun Metni */}
-          <div className="bg-amber-500/5 border-l-4 border-amber-500 rounded-r-2xl p-4 md:p-5 my-4">
+          <div className="bg-slate-500/5 border-l-4 border-slate-500 rounded-r-2xl p-4 md:p-5 my-4">
             {maddeBasligi && (
-              <div className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300 mb-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 {maddeBasligi}
               </div>
             )}

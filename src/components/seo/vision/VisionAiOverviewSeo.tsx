@@ -18,7 +18,7 @@ export default function VisionAiOverviewSeo() {
   return (
     <section
       aria-label="Google AI Overviews ve Kurumsal Yönetim Felsefesi"
-      className="rounded-3xl border border-slate-500/20 bg-gradient-to-br from-slate-50/70 via-white to-amber-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-slate-500/5 backdrop-blur-xl relative overflow-hidden"
+      className="rounded-3xl border border-slate-500/20 bg-gradient-to-br from-slate-50/70 via-white to-slate-50/40 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-800/80 p-6 sm:p-8 md:p-10 shadow-lg shadow-slate-500/5 backdrop-blur-xl relative overflow-hidden"
     >
       {/* Decorative gradient corner */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-slate-500/10 via-brand-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -79,7 +79,7 @@ export default function VisionAiOverviewSeo() {
 
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 shadow-xs flex flex-col justify-between">
           <div className="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white mb-1.5">
-            <Icon name="precision_manufacturing" className="text-base text-amber-600 dark:text-amber-400" />
+            <Icon name="precision_manufacturing" className="text-base text-slate-600 dark:text-slate-400" />
             <span>Yapay Zeka Tesis Otomasyonu</span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -116,12 +116,12 @@ export default function VisionAiOverviewSeo() {
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Alo+Y%C3%B6netim+tesis+y%C3%B6netimi+vizyonu+ve+%C5%9Feffafl%C4%B1k+felsefesi"
+            href="https://claude.ai/new?q=Alo+Y%C3%B6netim+tesis+y%C3%B6netimi+vizyonu+ve+%C5%9Feffafl%C4%B1k+felsefesi"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-semibold transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

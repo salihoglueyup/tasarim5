@@ -652,7 +652,7 @@ export default function DistrictAiGroundingSeo() {
                 </div>
                 <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                   <span className="text-[11px] text-slate-400 block font-medium">Jeneratör / Sığınak Hazırlık:</span>
-                  <span className="text-lg font-bold text-amber-400 mt-1 block">
+                  <span className="text-lg font-bold text-slate-400 mt-1 block">
                     {currentMetric.generatorReadiness}
                   </span>
                 </div>

@@ -77,7 +77,7 @@ export default function QualityPillarsSeo() {
               {/* Card Footer: Audit Frequency */}
               <div className="pt-4 mt-6 border-t border-[var(--color-outline)]/40 flex items-center justify-between text-[11px] text-[var(--color-secondary)]">
                 <span className="flex items-center gap-1 font-medium">
-                  <Icon name="schedule" className="text-xs text-amber-500" />
+                  <Icon name="schedule" className="text-xs text-slate-500" />
                   {std.auditFrequency}
                 </span>
               </div>

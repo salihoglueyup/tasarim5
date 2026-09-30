@@ -49,7 +49,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-6 border-b border-slate-100 dark:border-white/5">
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-500/10 border border-slate-500/20 text-slate-600 dark:text-slate-400">
               <Icon name="map" className="text-[15px]" />
               İstanbul 39 İlçe Saha & Harita Ağı
             </span>
@@ -63,7 +63,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            İstanbul Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Saha Operasyon Haritası</span>
+            İstanbul Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-600">Saha Operasyon Haritası</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light mt-2 max-w-2xl leading-relaxed">
             İstanbul genelindeki 39 ilçeyi harita üzerinden seçin; yerel saha amirliği koordinatlarını, 45 dakikalık acil müdahale SLA taahhüdümüzü ve sitenize en yakın tesis yönetimi birimini inceleyin.
@@ -130,13 +130,13 @@ export default function IstanbulInteractiveDistrictMapSeo({
                   onClick={() => setSelectedSlug(district.slug)}
                   className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group relative overflow-hidden ${
                     isSelected
-                      ? 'bg-amber-500/10 border-amber-500 dark:border-amber-400 ring-2 ring-amber-500/20 shadow-sm'
+                      ? 'bg-slate-500/10 border-slate-500 dark:border-slate-400 ring-2 ring-slate-500/20 shadow-sm'
                       : 'bg-slate-50 dark:bg-white/[0.02] border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/15'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className={`text-xs font-black truncate ${
-                      isSelected ? 'text-amber-600 dark:text-amber-400' : 'text-slate-800 dark:text-slate-200'
+                      isSelected ? 'text-slate-600 dark:text-slate-400' : 'text-slate-800 dark:text-slate-200'
                     }`}>
                       {district.name}
                     </span>
@@ -229,7 +229,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
           <div className="pt-4 border-t border-slate-200 dark:border-white/5 flex flex-col sm:flex-row items-center gap-3">
             <Link
               href={`/bolgeler/${activeDistrict.slug}/tesis-yonetimi`}
-              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs transition-all shadow-md"
+              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 bg-slate-500 hover:bg-slate-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs transition-all shadow-md"
             >
               <span>{activeDistrict.name} Tesis Yönetimi Sayfası</span>
               <Icon name="arrow_forward" className="text-sm" />

@@ -63,7 +63,7 @@ export default function DistrictEmergencyPreparednessSeo({
             <span>Afet & Yangın Güvenliği Rehberi</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-            {districtName} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-300 to-slate-400">Deprem, Yangın & Afet Eylem Protokolü</span>
+            {districtName} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-slate-300 to-slate-400">Deprem, Yangın & Afet Eylem Protokolü</span>
           </h2>
           <p className="text-slate-300 mt-2 text-xs sm:text-sm font-normal max-w-2xl leading-relaxed">
             {districtName} bölgesindeki site ve konutların zemin yapısı, AFAD acil toplanma alanları ve Alo Yönetim'in deprem anı otomatik sistem güvenlik standartları.
@@ -88,7 +88,7 @@ export default function DistrictEmergencyPreparednessSeo({
         {/* Card 1: Zemin & Yapı Stoku */}
         <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-800 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
               <Icon name="terrain" className="text-base" />
               <span>Zemin & Yapı Dinamiği</span>
             </div>
@@ -98,7 +98,7 @@ export default function DistrictEmergencyPreparednessSeo({
           </div>
           <div className="mt-4 pt-3 border-t border-slate-700/60 text-xs text-slate-400">
             <span className="text-slate-500">2000 Öncesi Yapı Oranı:</span>{' '}
-            <strong className="text-amber-300 font-semibold">{profile.criticalBuildingAgeRatioPre2000}</strong>
+            <strong className="text-slate-300 font-semibold">{profile.criticalBuildingAgeRatioPre2000}</strong>
           </div>
         </div>
 
@@ -166,7 +166,7 @@ export default function DistrictEmergencyPreparednessSeo({
       <div className="bg-slate-800/50 rounded-2xl border border-slate-700/80 p-5">
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-2">
-            <Icon name="checklist_rtl" className="text-amber-400 text-lg" />
+            <Icon name="checklist_rtl" className="text-slate-400 text-lg" />
             <h3 className="text-sm sm:text-base font-bold text-white">
               {districtName} Siteleri İçin 4 Maddelik Kritik Afet Güvenliği Kontrol Listesi
             </h3>

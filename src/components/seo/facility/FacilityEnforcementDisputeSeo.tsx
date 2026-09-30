@@ -72,12 +72,12 @@ export default function FacilityEnforcementDisputeSeo({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
       {/* Header */}
       <div className="relative z-10 max-w-4xl mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 mb-3 border border-amber-300 dark:border-amber-700">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 dark:bg-slate-900/40 dark:text-slate-300 mb-3 border border-slate-300 dark:border-slate-700">
           <Icon name="gavel" className="text-sm" />
           <span>İİK Madde 67/68 & KMK Madde 20 Kapsamında İcra Rehberi</span>
         </div>
@@ -103,7 +103,7 @@ export default function FacilityEnforcementDisputeSeo({
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
               activeTab === tab.id
-                ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30 font-semibold'
+                ? 'bg-slate-600 text-white shadow-md shadow-slate-600/30 font-semibold'
                 : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
             }`}
           >
@@ -125,13 +125,13 @@ export default function FacilityEnforcementDisputeSeo({
                   onClick={() => setSelectedRouteCode(route.routeCode)}
                   className={`p-6 rounded-3xl border cursor-pointer transition-all duration-200 flex flex-col justify-between ${
                     isSelected
-                      ? 'border-amber-500 bg-amber-50/20 dark:bg-amber-950/20 ring-2 ring-amber-500/30 shadow-md'
+                      ? 'border-slate-500 bg-slate-50/20 dark:bg-slate-950/20 ring-2 ring-slate-500/30 shadow-md'
                       : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-slate-300'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
+                      <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-slate-100 dark:bg-slate-950/60 text-slate-800 dark:text-slate-300">
                         {route.competentCourt}
                       </span>
                       <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
@@ -150,7 +150,7 @@ export default function FacilityEnforcementDisputeSeo({
                       </div>
                       <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80">
                         <span className="text-slate-500 dark:text-slate-400 block">İnkar Tazminatı:</span>
-                        <strong className="text-amber-700 dark:text-amber-400 font-bold">{route.executionDenialIndemnityPercentage}</strong>
+                        <strong className="text-slate-700 dark:text-slate-400 font-bold">{route.executionDenialIndemnityPercentage}</strong>
                       </div>
                     </div>
 
@@ -158,14 +158,14 @@ export default function FacilityEnforcementDisputeSeo({
                       <strong className="text-slate-900 dark:text-white block mb-1">Mecburi Delil Belgeleri:</strong>
                       {route.requiredProofDocuments.map((doc, idx) => (
                         <div key={idx} className="flex items-start gap-1.5">
-                          <span className="text-amber-600 font-bold">•</span>
+                          <span className="text-slate-600 font-bold">•</span>
                           <span>{doc}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-xs border border-amber-200 dark:border-amber-900">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-900">
                     <strong className="font-semibold block mb-0.5">Avukat Değerlendirmesi:</strong>
                     <span>{route.advocateEvaluation}</span>
                   </div>
@@ -187,14 +187,14 @@ export default function FacilityEnforcementDisputeSeo({
               >
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-amber-600/30">
+                    <div className="w-8 h-8 rounded-full bg-slate-600 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-slate-600/30">
                       {stage.stageNumber}
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 dark:text-white text-sm md:text-base">
                         {stage.stageTitle}
                       </h3>
-                      <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">
+                      <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
                         {stage.timeframe}
                       </span>
                     </div>
@@ -210,8 +210,8 @@ export default function FacilityEnforcementDisputeSeo({
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1">
-                  <Icon name="verified" className="text-sm text-amber-600" />
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-300 font-medium flex items-center gap-1">
+                  <Icon name="verified" className="text-sm text-slate-600" />
                   <span>{stage.aloYonetimProtocol}</span>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default function FacilityEnforcementDisputeSeo({
                   <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">
                     {penalty.penaltyType}
                   </h3>
-                  <div className="text-lg font-extrabold text-amber-600 dark:text-amber-400 font-mono mb-2">
+                  <div className="text-lg font-extrabold text-slate-600 dark:text-slate-400 font-mono mb-2">
                     {penalty.rateOrAmount}
                   </div>
                   <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
@@ -265,7 +265,7 @@ export default function FacilityEnforcementDisputeSeo({
                 className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 mb-2 inline-block">
+                  <span className="text-xs px-2.5 py-0.5 rounded-md font-bold bg-slate-100 dark:bg-slate-950/60 text-slate-800 dark:text-slate-300 mb-2 inline-block">
                     {rule.kmkArticleRef}
                   </span>
                   <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">
@@ -277,7 +277,7 @@ export default function FacilityEnforcementDisputeSeo({
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-xs border border-amber-200 dark:border-amber-800">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-800">
                   <strong className="font-semibold block mb-1">Koruma & Uygulama Mekanizması:</strong>
                   <span>{rule.protectionMechanism}</span>
                 </div>
@@ -290,7 +290,7 @@ export default function FacilityEnforcementDisputeSeo({
       {/* Bottom Alo Yönetim Legal Guarantee Banner */}
       <div className="relative z-10 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-full bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
             <Icon name="account_balance" className="text-xl" />
           </div>
           <div>
@@ -304,7 +304,7 @@ export default function FacilityEnforcementDisputeSeo({
         </div>
         <a
           href="/iletisim"
-          className="shrink-0 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-amber-600 hover:bg-slate-800 dark:hover:bg-amber-500 transition-colors shadow-sm"
+          className="shrink-0 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-500 transition-colors shadow-sm"
         >
           İcra & Hukuki Takip Başlat
         </a>

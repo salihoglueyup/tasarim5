@@ -407,7 +407,7 @@ export default function ServicesBentoGridSeo({
         {/* Top Bento Row: Flagship Services (Tesis & Site Yönetimi) */}
         {flagshipServices.length > 0 && (
           <div className="mb-8">
-            <div className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-4 flex items-center gap-2">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icon name="star" className="text-base" />
               {tx('Amiral Gemisi Çözümlerimiz (Büyük Ölçekli Yönetim)')}
             </div>
@@ -450,7 +450,7 @@ export default function ServicesBentoGridSeo({
 
                   <div className="pt-6 mt-6 border-t border-[var(--color-outline)]/50 flex items-center justify-between">
                     <span className="text-xs font-semibold text-[var(--color-tertiary)] flex items-center gap-1">
-                      <Icon name="verified" className="text-sm text-amber-500" />
+                      <Icon name="verified" className="text-sm text-slate-500" />
                       {tx(service.stats)}
                     </span>
                     <Link
@@ -481,7 +481,7 @@ export default function ServicesBentoGridSeo({
               {regularServices.map((service) => (
                 <div
                   key={service.id}
-                  className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 hover:border-amber-500/50 rounded-2xl p-6 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 group"
+                  className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 hover:border-slate-500/50 rounded-2xl p-6 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between">
@@ -493,7 +493,7 @@ export default function ServicesBentoGridSeo({
                       </span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
+                    <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors leading-snug">
                       {tx(service.title)}
                     </h3>
 
@@ -501,7 +501,7 @@ export default function ServicesBentoGridSeo({
                       {tx(service.desc)}
                     </p>
 
-                    <div className="pt-2 text-[11px] font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-1">
+                    <div className="pt-2 text-[11px] font-semibold text-slate-700 dark:text-slate-400 flex items-center gap-1">
                       <Icon name="verified" className="text-xs" />
                       {tx(service.badge)}
                     </div>
@@ -513,7 +513,7 @@ export default function ServicesBentoGridSeo({
                     </span>
                     <Link
                       href={lp(service.slug)}
-                      className="text-xs font-bold text-[var(--color-primary)] hover:text-amber-500 flex items-center gap-1 transition-colors"
+                      className="text-xs font-bold text-[var(--color-primary)] hover:text-slate-500 flex items-center gap-1 transition-colors"
                     >
                       {tx('İncele')}
                       <Icon name="arrow_forward" className="text-sm" />

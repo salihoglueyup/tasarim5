@@ -99,7 +99,7 @@ export default function FaqClient({
     const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
     return parts.map((part) => 
       part.toLowerCase() === highlight.toLowerCase() 
-        ? `<mark class="bg-amber-500/20 text-amber-800 dark:text-amber-300 rounded px-1 font-bold">${part}</mark>` 
+        ? `<mark class="bg-slate-500/20 text-slate-800 dark:text-slate-300 rounded px-1 font-bold">${part}</mark>` 
         : part
     ).join('');
   };
@@ -160,7 +160,7 @@ export default function FaqClient({
               placeholder={t('sss_search_placeholder') || 'Sorunuzu arayın (Örn: Aidat, İcra, Asansör)...'}
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
-              className="w-full pl-12 pr-11 py-3.5 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900 dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500"
+              className="w-full pl-12 pr-11 py-3.5 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-slate-500/20 focus:border-slate-500 transition-all text-slate-900 dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500"
             />
             {searchQuery && (
               <button
@@ -177,7 +177,7 @@ export default function FaqClient({
           {/* Mobil Popüler Çipler */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <span className="text-slate-600 dark:text-slate-400 shrink-0 font-semibold flex items-center gap-1 text-[11px]">
-              <Sparkles className="w-3 h-3 text-amber-500" />
+              <Sparkles className="w-3 h-3 text-slate-500" />
               Popüler:
             </span>
             {POPULAR_CHIPS.map((chip) => (
@@ -185,7 +185,7 @@ export default function FaqClient({
                 key={chip.label}
                 type="button"
                 onClick={() => { setSearchQuery(chip.query); setVisibleCount(20); }}
-                className="shrink-0 px-2.5 py-1 rounded-lg bg-[var(--color-surface)] dark:bg-[var(--color-surface)] hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 text-slate-600 dark:text-slate-300 transition-colors text-[11px] font-medium border border-[var(--color-outline)]/60 dark:border-white/10 shadow-2xs"
+                className="shrink-0 px-2.5 py-1 rounded-lg bg-[var(--color-surface)] dark:bg-[var(--color-surface)] hover:bg-slate-500/10 hover:text-slate-700 dark:hover:text-slate-400 text-slate-600 dark:text-slate-300 transition-colors text-[11px] font-medium border border-[var(--color-outline)]/60 dark:border-white/10 shadow-2xs"
               >
                 #{chip.label}
               </button>
@@ -204,13 +204,13 @@ export default function FaqClient({
                     className={`snap-center shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       isActive
                         ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-xs'
-                        : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/50'
+                        : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 border border-[var(--color-outline)]/80 dark:border-white/10 hover:border-slate-500/50'
                     }`}
                   >
-                    <Icon name={categoryIcons[cat.name] || 'label'} className={`text-sm ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />
+                    <Icon name={categoryIcons[cat.name] || 'label'} className={`text-sm ${isActive ? 'text-slate-400 dark:text-slate-600' : 'text-slate-400'}`} />
                     <span>{getCategoryName(cat.name)}</span>
                     <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
-                      isActive ? 'bg-amber-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-500'
+                      isActive ? 'bg-slate-500 text-slate-950' : 'bg-slate-100 dark:bg-white/10 text-slate-500'
                     }`}>
                       {cat.count}
                     </span>
@@ -231,10 +231,10 @@ export default function FaqClient({
             <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-5 shadow-xs">
               <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-[var(--color-outline)]/60 dark:border-white/10">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                  <Icon name="category" className="text-base text-amber-500" />
+                  <Icon name="category" className="text-base text-slate-500" />
                   Konu Başlıkları
                 </span>
-                <span className="text-[11px] font-mono font-bold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+                <span className="text-[11px] font-mono font-bold text-slate-700 dark:text-slate-400 bg-slate-500/10 px-2.5 py-0.5 rounded-full border border-slate-500/20">
                   {faqs.length} Soru
                 </span>
               </div>
@@ -249,16 +249,16 @@ export default function FaqClient({
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                         isActive
                           ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm font-bold scale-[1.01]'
-                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-amber-600 dark:hover:text-amber-400'
+                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-600 dark:hover:text-slate-400'
                       }`}
                     >
                       <div className="flex items-center gap-2.5 truncate">
-                        <Icon name={categoryIcons[cat.name] || 'label'} className={`text-base shrink-0 ${isActive ? 'text-amber-400 dark:text-amber-600' : 'text-slate-400'}`} />
+                        <Icon name={categoryIcons[cat.name] || 'label'} className={`text-base shrink-0 ${isActive ? 'text-slate-400 dark:text-slate-600' : 'text-slate-400'}`} />
                         <span className="truncate">{getCategoryName(cat.name)}</span>
                       </div>
                       <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold shrink-0 ${
                         isActive
-                          ? 'bg-amber-500 text-slate-950'
+                          ? 'bg-slate-500 text-slate-950'
                           : 'bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400'
                       }`}>
                         {cat.count}
@@ -272,7 +272,7 @@ export default function FaqClient({
             {/* 2. Trend Hukuki Etiketler */}
             <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-5 shadow-xs space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <Sparkles className="w-3.5 h-3.5 text-slate-500" />
                 Popüler KMK Aramaları
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -281,7 +281,7 @@ export default function FaqClient({
                     key={chip.label}
                     type="button"
                     onClick={() => { setSearchQuery(chip.query); setVisibleCount(20); }}
-                    className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-white/5 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-400 text-slate-600 dark:text-slate-300 text-[11px] font-medium border border-[var(--color-outline)]/60 dark:border-white/10 transition-colors cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-white/5 hover:bg-slate-500/10 hover:text-slate-700 dark:hover:text-slate-400 text-slate-600 dark:text-slate-300 text-[11px] font-medium border border-[var(--color-outline)]/60 dark:border-white/10 transition-colors cursor-pointer"
                   >
                     #{chip.label}
                   </button>
@@ -290,8 +290,8 @@ export default function FaqClient({
             </div>
 
             {/* 3. Hızlı Danışma & Destek Kartı */}
-            <div className="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/20 rounded-3xl p-5 space-y-3">
-              <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+            <div className="bg-gradient-to-br from-slate-500/10 via-slate-500/5 to-transparent border border-slate-500/20 rounded-3xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
                 <Icon name="support_agent" className="text-base" />
                 Hukuki Danışmanlık
               </div>
@@ -322,7 +322,7 @@ export default function FaqClient({
                   placeholder={t('sss_search_placeholder') || 'Sorunuzu arayın (Örn: Aidat, İcra, Asansör, Yönetici Seçimi)...'}
                   value={searchQuery}
                   onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
-                  className="w-full pl-12 pr-12 py-3.5 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900 dark:text-white text-sm md:text-base placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                  className="w-full pl-12 pr-12 py-3.5 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-slate-500/20 focus:border-slate-500 transition-all text-slate-900 dark:text-white text-sm md:text-base placeholder:text-slate-400 dark:placeholder:text-slate-500"
                 />
                 {searchQuery && (
                   <button
@@ -346,7 +346,7 @@ export default function FaqClient({
                   {searchQuery && (
                     <button 
                       onClick={() => setSearchQuery('')}
-                      className="text-amber-600 dark:text-amber-400 hover:underline font-semibold ml-1 cursor-pointer"
+                      className="text-slate-600 dark:text-slate-400 hover:underline font-semibold ml-1 cursor-pointer"
                     >
                       Temizle
                     </button>
@@ -357,7 +357,7 @@ export default function FaqClient({
                   <button
                     type="button"
                     onClick={toggleAll}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors cursor-pointer"
                   >
                     <Icon name={areAllOpen ? 'unfold_less' : 'unfold_more'} className="text-sm" />
                     <span>{areAllOpen ? 'Tümünü Kapat' : 'Tümünü Aç'}</span>
@@ -393,8 +393,8 @@ export default function FaqClient({
                         key={faq.id}
                         className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border rounded-2xl md:rounded-3xl overflow-hidden transition-all duration-200 ${
                           isOpen 
-                            ? 'border-amber-500/60 dark:border-amber-400/60 shadow-sm ring-1 ring-amber-500/15' 
-                            : 'border-[var(--color-outline)]/80 dark:border-white/10 hover:border-amber-500/40 dark:hover:border-amber-500/40 shadow-2xs hover:shadow-xs'
+                            ? 'border-slate-500/60 dark:border-slate-400/60 shadow-sm ring-1 ring-slate-500/15' 
+                            : 'border-[var(--color-outline)]/80 dark:border-white/10 hover:border-slate-500/40 dark:hover:border-slate-500/40 shadow-2xs hover:shadow-xs'
                         }`}
                       >
                         <button
@@ -406,16 +406,16 @@ export default function FaqClient({
                           className="w-full p-5 sm:p-6 text-left flex items-start sm:items-center justify-between gap-4 cursor-pointer group"
                         >
                           <div className="flex items-start sm:items-center gap-3.5">
-                            <span className={`w-1.5 h-6 rounded-full transition-colors shrink-0 mt-0.5 sm:mt-0 ${isOpen ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-700 group-hover:bg-amber-500'}`} />
+                            <span className={`w-1.5 h-6 rounded-full transition-colors shrink-0 mt-0.5 sm:mt-0 ${isOpen ? 'bg-slate-500' : 'bg-slate-300 dark:bg-slate-700 group-hover:bg-slate-500'}`} />
                             <div className="space-y-1">
                               {/* Kategori Önizleme Rozeti */}
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20">
+                                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20">
                                   {faq.category || 'Mevzuat'}
                                 </span>
                               </div>
                               <h3 
-                                className={`font-bold text-base sm:text-lg transition-colors ${isOpen ? 'text-slate-900 dark:text-white' : 'text-[var(--color-heading-text)] dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400'}`}
+                                className={`font-bold text-base sm:text-lg transition-colors ${isOpen ? 'text-slate-900 dark:text-white' : 'text-[var(--color-heading-text)] dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-400'}`}
                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(highlightText(questionText, searchQuery)) }}
                               />
                             </div>
@@ -423,7 +423,7 @@ export default function FaqClient({
                           
                           {/* Dinamik Ok İkonu */}
                           <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
-                            isOpen ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 rotate-180' : 'bg-slate-100 dark:bg-white/5 text-slate-500 group-hover:bg-amber-500/10 group-hover:text-amber-600'
+                            isOpen ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 rotate-180' : 'bg-slate-100 dark:bg-white/5 text-slate-500 group-hover:bg-slate-500/10 group-hover:text-slate-600'
                           }`}>
                             <ChevronDown className="w-4 h-4 transition-transform duration-200" />
                           </div>
@@ -450,7 +450,7 @@ export default function FaqClient({
                                 {/* Soru İçi Bilgi & Kopyalama Barı */}
                                 <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-white/5 text-xs">
                                   <div className="flex items-center gap-2">
-                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-400 font-semibold text-[11px] border border-amber-500/20">
+                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-slate-500/10 text-slate-700 dark:text-slate-400 font-semibold text-[11px] border border-slate-500/20">
                                       {faq.category || 'Mevzuat'}
                                     </span>
                                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">

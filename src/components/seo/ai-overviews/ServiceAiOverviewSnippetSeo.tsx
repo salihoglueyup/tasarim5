@@ -253,12 +253,12 @@ export default function ServiceAiOverviewSnippetSeo({
           </button>
 
           <a
-            href={`https://www.perplexity.ai/search?q=${encodeURIComponent(truth.question)}`}
+            href={`https://claude.ai/new?q=${encodeURIComponent(truth.question)}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary hover:opacity-90 text-white transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

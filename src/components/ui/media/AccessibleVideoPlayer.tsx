@@ -56,7 +56,7 @@ export default function AccessibleVideoPlayer({
             onClick={() => setShowTranscript(!showTranscript)}
             aria-expanded={showTranscript}
             aria-controls="video-transcript-content"
-            className="text-xs font-bold text-brand-600 dark:text-amber-400 hover:underline inline-flex items-center gap-1 cursor-pointer"
+            className="text-xs font-bold text-brand-600 dark:text-slate-400 hover:underline inline-flex items-center gap-1 cursor-pointer"
           >
             <Icon name="description" className="text-sm" />
             <span>{showTranscript ? 'Video Deşifresini Gizle' : 'Video Deşifresini / Metnini Oku'}</span>

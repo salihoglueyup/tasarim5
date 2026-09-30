@@ -91,7 +91,7 @@ export default function SecurityTrustBadgeGridSeo({
       <JsonLd data={schema} />
       <section className={`my-10 ${className}`}>
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-500/10 text-slate-600 dark:text-slate-400 rounded-full text-xs font-bold mb-2">
             <Icon name="lock" className="text-sm" />
             <span>%100 Yasal Uygunluk & Sıfır Hukuki Risk</span>
           </div>
@@ -110,7 +110,7 @@ export default function SecurityTrustBadgeGridSeo({
               className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-white/10 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-3">
                   <Icon name={badge.icon} className="text-xl" />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block">

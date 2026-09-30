@@ -132,7 +132,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
             ChatGPT
           </a>
           <a
-            href={`https://www.perplexity.ai/search?q=${encodeURIComponent('İstanbul site yönetim şirketleri fiyat teklifi alo yonetim')}`}
+            href={`https://claude.ai/new?q=${encodeURIComponent('İstanbul site yönetim şirketleri fiyat teklifi alo yonetim')}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="px-3 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"

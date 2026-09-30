@@ -42,7 +42,7 @@ const GUARANTEES_DATA: SlaGuaranteeItem[] = [
       'TEDAŞ ve elektrik dağıtım şirketleri nezdinde resmi itiraz ve mahsuplaşma yönetimi.'
     ],
     legalReference: 'EPDK Elektrik Piyasası Tarifeler Yönetmeliği',
-    borderGlow: 'hover:border-amber-500/50 hover:shadow-amber-500/10'
+    borderGlow: 'hover:border-slate-500/50 hover:shadow-slate-500/10'
   },
   {
     id: 'sla-zero-risk',

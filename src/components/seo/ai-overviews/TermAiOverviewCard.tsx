@@ -58,7 +58,7 @@ export default function TermAiOverviewCard({
     <section
       id="term-ai-overview"
       aria-label={`${term} Google AI Overviews Sözlük Tanımı`}
-      className={`bg-[var(--color-surface)] border border-amber-500/30 rounded-[2.5rem] p-6 sm:p-8 shadow-sm relative overflow-hidden my-4 ${className}`}
+      className={`bg-[var(--color-surface)] border border-slate-500/30 rounded-[2.5rem] p-6 sm:p-8 shadow-sm relative overflow-hidden my-4 ${className}`}
     >
       {/* Schema.org Structured Data */}
       <script
@@ -67,11 +67,11 @@ export default function TermAiOverviewCard({
       />
 
       {/* Decorative Glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-600/10 dark:bg-amber-400/10 border border-amber-600/20 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-600/10 dark:bg-slate-400/10 border border-slate-600/20 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="auto_awesome" className="text-[15px]" />
           <span>Google AI Overviews & DefinedTerm Sözlük Otoritesi</span>
         </div>
@@ -93,7 +93,7 @@ export default function TermAiOverviewCard({
           </p>
           <button
             onClick={handleCopy}
-            className="shrink-0 p-2 rounded-lg bg-amber-600/10 hover:bg-amber-600/20 text-amber-700 dark:text-amber-300 transition-colors border border-amber-600/20 cursor-pointer"
+            className="shrink-0 p-2 rounded-lg bg-slate-600/10 hover:bg-slate-600/20 text-slate-700 dark:text-slate-300 transition-colors border border-slate-600/20 cursor-pointer"
             title="Tanımı Kopyala"
             aria-label="Doğrudan yanıtı panoya kopyala"
           >
@@ -130,7 +130,7 @@ export default function TermAiOverviewCard({
             ChatGPT
           </a>
           <a
-            href={`https://www.perplexity.ai/search?q=${encodeURIComponent(`${term} nedir alo yonetim sozluk`)}`}
+            href={`https://claude.ai/new?q=${encodeURIComponent(`${term} nedir alo yonetim sozluk`)}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="px-3 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"

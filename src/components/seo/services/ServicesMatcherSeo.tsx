@@ -135,7 +135,7 @@ export default function ServicesMatcherSeo() {
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-4">
             <Icon name="tune" className="text-sm" />
             {tx('İnteraktif Çözüm Sihirbazı')}
           </div>
@@ -190,7 +190,7 @@ export default function ServicesMatcherSeo() {
             {/* Step 2: Service Needs */}
             <div>
               <label className="text-xs font-bold uppercase tracking-wider text-[var(--color-secondary)] mb-3 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-amber-600 text-white flex items-center justify-center text-[10px] font-black">
+                <span className="w-5 h-5 rounded-full bg-slate-600 text-white flex items-center justify-center text-[10px] font-black">
                   2
                 </span>
                 {tx('Öncelikli Hizmet İhtiyaçlarınızı İşaretleyin:')}
@@ -206,11 +206,11 @@ export default function ServicesMatcherSeo() {
                       onClick={() => toggleNeed(opt.id)}
                       className={`flex items-center gap-2.5 p-3 rounded-xl border text-left transition-all text-xs font-semibold cursor-pointer ${
                         isChecked
-                          ? 'bg-amber-500/10 border-amber-500/80 text-amber-900 dark:text-amber-200'
+                          ? 'bg-slate-500/10 border-slate-500/80 text-slate-900 dark:text-slate-200'
                           : 'bg-[var(--color-surface)] border-[var(--color-outline)]/50 text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
                       }`}
                     >
-                      <Icon name={isChecked ? 'check_box' : 'check_box_outline_blank'} className="text-base text-amber-600 dark:text-amber-400" />
+                      <Icon name={isChecked ? 'check_box' : 'check_box_outline_blank'} className="text-base text-slate-600 dark:text-slate-400" />
                       <span>{tx(opt.label)}</span>
                     </button>
                   );
@@ -223,7 +223,7 @@ export default function ServicesMatcherSeo() {
           <div className="lg:col-span-5 bg-slate-950 text-white p-6 sm:p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                   {tx('ÖNERİLEN ÇÖZÜM MODELİ')}
                 </span>
                 <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full border ${rec.badgeColor}`}>
@@ -246,7 +246,7 @@ export default function ServicesMatcherSeo() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400">{tx('Maliyet Avantajı:')}</span>
-                  <span className="font-bold text-amber-400">{tx(rec.savings)}</span>
+                  <span className="font-bold text-slate-400">{tx(rec.savings)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400">{tx('Seçilen Modül Sayısı:')}</span>
@@ -258,7 +258,7 @@ export default function ServicesMatcherSeo() {
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-3">
               <Link
                 href={lp('/teklif-al')}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-md transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-400 hover:to-slate-500 text-slate-950 font-bold text-sm shadow-md transition-all cursor-pointer"
               >
                 {tx('Bu Pakete Özel Ücretsiz Keşif Al')}
                 <Icon name="arrow_forward" className="text-sm" />

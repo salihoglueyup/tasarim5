@@ -256,15 +256,15 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
         </div>
 
         {/* Aylık */}
-        <div className="p-5 rounded-2xl bg-amber-500/5 dark:bg-[var(--color-surface-variant)] border border-amber-500/20 dark:border-amber-500/30 flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
+        <div className="p-5 rounded-2xl bg-slate-500/5 dark:bg-[var(--color-surface-variant)] border border-slate-500/20 dark:border-slate-500/30 flex flex-col gap-3">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 font-extrabold text-sm">
             <Icon name="pest_control" className="text-base" />
             <span>AYLIK & BİYOSİDAL İLAÇLAMA</span>
           </div>
           <ul className="flex flex-col gap-2 text-xs text-[var(--color-secondary)]">
             {monthlyTasks.map((t, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="text-amber-600 font-bold">•</span>
+                <span className="text-slate-600 font-bold">•</span>
                 <span>{t}</span>
               </li>
             ))}

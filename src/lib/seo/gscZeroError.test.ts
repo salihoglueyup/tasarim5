@@ -4666,7 +4666,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('189. Wave 59: Google AI Overviews (SGE & Gemini GEO) Maksimum Seviye Geliştirme Güvencesi', () => {
-    it('GoogleAiOverviewGroundingSeo bileşeni 8 yasal promptu, ChatGPT/Perplexity köprülerini ve çift şemayı içerir', () => {
+    it('GoogleAiOverviewGroundingSeo bileşeni 8 yasal promptu, ChatGPT/Claude köprülerini ve çift şemayı içerir', () => {
       const fs = require('fs');
       const path = require('path');
 
@@ -4683,7 +4683,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(geoFile).toContain('cam-balkon-onayi');
       expect(geoFile).toContain('site-vs-tesis');
       expect(geoFile).toContain('chatgpt.com/?q=');
-      expect(geoFile).toContain('perplexity.ai/search?q=');
+      expect(geoFile).toContain('claude.ai/new?q=');
       expect(geoFile).toContain('SpeakableSpecification');
       expect(geoFile).toContain('FAQPage');
     });

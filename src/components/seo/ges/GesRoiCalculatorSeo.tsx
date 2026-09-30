@@ -35,7 +35,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
             <Icon name="calculate" className="text-sm" />
             <span>2026 Elektrik Tarifeleri ve Güneş Radyasyon Modeli</span>
           </div>
@@ -56,10 +56,10 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex justify-between items-center mb-2">
                 <label className="text-xs font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <Icon name="apartment" className="text-base text-amber-500" />
+                  <Icon name="apartment" className="text-base text-slate-500" />
                   <span>Sitedeki Toplam Daire Sayısı</span>
                 </label>
-                <span className="text-base font-extrabold text-amber-600 dark:text-amber-400">
+                <span className="text-base font-extrabold text-slate-600 dark:text-slate-400">
                   {units} Daire
                 </span>
               </div>
@@ -70,7 +70,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
                 step={5}
                 value={units}
                 onChange={(e) => setUnits(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-500"
               />
               <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                 <span>20 Daire (Butik Site)</span>
@@ -83,10 +83,10 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
             <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/60">
               <div className="flex justify-between items-center mb-2">
                 <label className="text-xs font-bold text-[var(--color-primary)] flex items-center gap-1.5">
-                  <Icon name="receipt_long" className="text-base text-amber-500" />
+                  <Icon name="receipt_long" className="text-base text-slate-500" />
                   <span>Aylık Ortak Elektrik Faturası (Ortalama)</span>
                 </label>
-                <span className="text-base font-extrabold text-amber-600 dark:text-amber-400">
+                <span className="text-base font-extrabold text-slate-600 dark:text-slate-400">
                   ₺{monthlyBill.toLocaleString('tr-TR')}
                 </span>
               </div>
@@ -97,7 +97,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
                 step={5000}
                 value={monthlyBill}
                 onChange={(e) => setMonthlyBill(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-500"
               />
               <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                 <span>₺15.000</span>
@@ -148,7 +148,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
                     type="button"
                     onClick={() => setIncludeEv(!includeEv)}
                     className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${
-                      includeEv ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-700'
+                      includeEv ? 'bg-slate-500' : 'bg-slate-300 dark:bg-slate-700'
                     }`}
                   >
                     <span
@@ -163,14 +163,14 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
           </div>
 
           {/* Results Display Card (Right) */}
-          <div className="lg:col-span-6 rounded-[2.5rem] bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white p-7 sm:p-9 border border-amber-500/30 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+          <div className="lg:col-span-6 rounded-[2.5rem] bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white p-7 sm:p-9 border border-slate-500/30 shadow-2xl relative overflow-hidden flex flex-col justify-between">
             {/* Ambient solar glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/15 rounded-full blur-3xl pointer-events-none" />
 
             <div>
               {/* Badge */}
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-slate-500/20 px-3 py-1 rounded-full border border-slate-500/30">
                   {includeEv ? '☀️ Çatı GES + EV Şarj Entegre' : '☀️ Çatı GES Standart'}
                 </span>
                 <span className="text-xs text-slate-400 font-mono">
@@ -183,7 +183,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
                 <span className="text-xs text-slate-300 font-semibold uppercase tracking-wider">
                   Yıllık Toplam Sitenize Sağlanan Tasarruf:
                 </span>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-amber-400 tracking-tight mt-1">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-400 tracking-tight mt-1">
                   ₺{estimatedSavingsYearly.toLocaleString('tr-TR')}
                 </div>
                 <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
@@ -214,7 +214,7 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
 
                 <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/60">
                   <div className="text-xs text-slate-400">Amortisman Süresi</div>
-                  <div className="text-lg sm:text-xl font-bold text-amber-400 mt-0.5">
+                  <div className="text-lg sm:text-xl font-bold text-slate-400 mt-0.5">
                     {paybackYears} Yıl
                   </div>
                   <div className="text-[11px] text-slate-400">Kalan 22 yıl bedava</div>
@@ -235,12 +235,12 @@ export default function GesRoiCalculatorSeo({ onOpenQuote }: GesRoiCalculatorSeo
               <button
                 type="button"
                 onClick={onOpenQuote}
-                className="w-full bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
+                className="w-full bg-gradient-to-r from-slate-500 to-slate-500 hover:from-slate-400 hover:to-slate-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-slate-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
               >
                 Siteniz İçin Detaylı Mühendislik Raporu İsteyin
               </button>
             ) : (
-              <QuoteCtaButton className="w-full bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
+              <QuoteCtaButton className="w-full bg-gradient-to-r from-slate-500 to-slate-500 hover:from-slate-400 hover:to-slate-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center text-sm shadow-xl shadow-slate-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
                 Siteniz İçin Detaylı Mühendislik Raporu İsteyin
               </QuoteCtaButton>
             )}

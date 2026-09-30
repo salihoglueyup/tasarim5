@@ -18,7 +18,7 @@ const STEPS: Step[] = [
     stepNumber: '01',
     title: 'Ücretsiz Statik Çatı & Güneşlenme Keşfi',
     badge: 'Mühendislik Keşfi',
-    badgeColor: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20',
+    badgeColor: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20',
     description:
       'Elektrik ve inşaat mühendislerimiz sitenize gelerek çatı taşıma kapasitesini, rüzgar yükünü, baca ve parapet gölgelemelerini 3D simülasyonla inceler. Siteniz için optimum santral gücünü belirler.',
     officialDoc: 'Statik Taşıma Kapasitesi ve Yıllık Üretim Fizibilite Raporu',
@@ -88,7 +88,7 @@ export default function GesProjectRoadmapSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <Icon name="assignment_turned_in" className="text-sm text-amber-500" />
+            <Icon name="assignment_turned_in" className="text-sm text-slate-500" />
             <span>Bürokrasi ve İzin Korkusuna Son</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -108,7 +108,7 @@ export default function GesProjectRoadmapSeo() {
               onClick={() => setActiveStep(idx)}
               className={`bg-[var(--color-surface)] border rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs transition-all cursor-pointer ${
                 activeStep === idx
-                  ? 'border-amber-500/80 ring-2 ring-amber-500/20 shadow-md'
+                  ? 'border-slate-500/80 ring-2 ring-slate-500/20 shadow-md'
                   : 'border-[var(--color-outline)]/80 hover:border-[var(--color-outline)]'
               }`}
             >
@@ -134,7 +134,7 @@ export default function GesProjectRoadmapSeo() {
 
               <div className="pt-4 border-t border-[var(--color-outline)]/40 space-y-2 text-xs">
                 <div className="flex items-center gap-2 text-[var(--color-primary)] font-semibold">
-                  <Icon name="description" className="text-sm text-amber-500 shrink-0" />
+                  <Icon name="description" className="text-sm text-slate-500 shrink-0" />
                   <span className="truncate">{step.officialDoc}</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">

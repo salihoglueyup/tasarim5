@@ -22,7 +22,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
   return (
     <section className="relative w-full bg-slate-950 text-white overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 border-b border-slate-800/80">
       {/* Background Solar & Eco glow effects */}
-      <div className="absolute top-0 right-1/4 w-[32rem] h-[32rem] bg-amber-500/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[32rem] h-[32rem] bg-slate-500/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[28rem] h-[28rem] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
 
@@ -45,8 +45,8 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
 
         {/* Authority Badges */}
         <div className="flex flex-wrap items-center gap-2.5 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold backdrop-blur-md shadow-xs">
-            <Icon name="solar_power" className="text-sm text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/30 text-slate-300 text-xs font-semibold backdrop-blur-md shadow-xs">
+            <Icon name="solar_power" className="text-sm text-slate-400" />
             <span>EPDK LİSANSSIZ ÜRETİM (MADDE 5/1-ç) UYUMLU</span>
           </div>
 
@@ -64,7 +64,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
         {/* H1 Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl leading-[1.15] mb-6">
           Sitelerde Çatı GES ile{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-slate-300 to-emerald-400">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-400 via-slate-300 to-emerald-400">
             Ortak Alan Elektrik Faturasını
           </span>{' '}
           Sıfırlayın
@@ -73,7 +73,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
         {/* Value Proposition Subtext */}
         <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl font-light leading-relaxed mb-8">
           Rezidans, toplu konut ve sitelerde asansör, hidrofor, ortak aydınlatma ve kapalı otopark giderlerinde{' '}
-          <strong className="text-amber-300 font-semibold">%70-85 net tasarruf</strong> sağlayan güneş enerjisi santrali (GES).
+          <strong className="text-slate-300 font-semibold">%70-85 net tasarruf</strong> sağlayan güneş enerjisi santrali (GES).
           634 Sayılı KMK karar şablonları, çift yönlü mahsuplaşma ve TEDAŞ onaylı anahtar teslim mühendislikle aidatları kalıcı olarak düşürün.
         </p>
 
@@ -83,13 +83,13 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             <button
               type="button"
               onClick={onOpenQuote}
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-slate-500 to-slate-500 hover:from-slate-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-lg shadow-slate-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
             >
               <Icon name="solar_power" className="text-lg" />
               <span>Ücretsiz Çatı Fizibilitesi Al</span>
             </button>
           ) : (
-            <QuoteCtaButton className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-slate-500 hover:from-amber-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
+            <QuoteCtaButton className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-slate-500 to-slate-500 hover:from-slate-400 hover:to-slate-400 text-slate-950 font-black text-sm shadow-lg shadow-slate-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5">
               <Icon name="solar_power" className="text-lg" />
               <span>Ücretsiz Çatı Fizibilitesi Al</span>
             </QuoteCtaButton>
@@ -100,7 +100,7 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
             onClick={() => scrollToSection('ges-hesaplayici')}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700/80 transition-all cursor-pointer"
           >
-            <Icon name="calculate" className="text-lg text-amber-400" />
+            <Icon name="calculate" className="text-lg text-slate-400" />
             <span>Amortisman & Tasarruf Hesapla</span>
           </button>
 
@@ -116,10 +116,10 @@ export default function GesHeroSeo({ lang = 'tr', onOpenQuote }: GesHeroSeoProps
 
         {/* 4 Verified Metric Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-amber-500/40 transition-colors">
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-slate-500/40 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-amber-400">%70 - %85</span>
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-400">%70 - %85</span>
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
                 <Icon name="savings" className="text-xl" />
               </div>
             </div>

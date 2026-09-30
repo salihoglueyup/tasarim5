@@ -140,7 +140,7 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[var(--color-primary)] w-fit">
               <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
               <span>{t('footer_istanbul_center')} {istanbulTime || '10:42'}</span>
-              <Icon name="partly_cloudy_day" className="text-sm text-amber-500" />
+              <Icon name="partly_cloudy_day" className="text-sm text-slate-500" />
             </div>
 
             {/* Address */}
@@ -573,7 +573,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={getLocalizedPath('/kullanim-sartlari')} className="hover:underline">{t('footer_terms')}</Link> | <Link href={getLocalizedPath('/gizlilik-politikasi')} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={getLocalizedPath('/cerez-politikasi')} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={getLocalizedPath('/kvkk-ve-aydinlatma-metni')} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={getLocalizedPath('/sozluk')} className="hover:underline">{t('ft_glossary')}</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-amber-600 dark:text-amber-400 font-medium">{t('ft_rss')}</Link> | <Link href={getLocalizedPath('/site-haritasi')} className="hover:underline font-bold text-[var(--color-primary)]">{t('footer_sitemap')}</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={getLocalizedPath('/kullanim-sartlari')} className="hover:underline">{t('footer_terms')}</Link> | <Link href={getLocalizedPath('/gizlilik-politikasi')} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={getLocalizedPath('/cerez-politikasi')} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={getLocalizedPath('/kvkk-ve-aydinlatma-metni')} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={getLocalizedPath('/sozluk')} className="hover:underline">{t('ft_glossary')}</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-slate-600 dark:text-slate-400 font-medium">{t('ft_rss')}</Link> | <Link href={getLocalizedPath('/site-haritasi')} className="hover:underline font-bold text-[var(--color-primary)]">{t('footer_sitemap')}</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--color-secondary)]">

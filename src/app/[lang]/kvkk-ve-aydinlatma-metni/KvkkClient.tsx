@@ -35,8 +35,8 @@ export default function KvkkClient() {
 
             {/* Veri Sorumlusu Kartı */}
             <div className="p-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs space-y-4">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                <ShieldCheck className="w-4 h-4 text-amber-500" />
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+                <ShieldCheck className="w-4 h-4 text-slate-500" />
                 <span>Veri Sorumlusu</span>
               </div>
               
@@ -58,16 +58,16 @@ export default function KvkkClient() {
                 <div className="space-y-2 pt-1 font-medium">
                   <a 
                     href="mailto:kvkk@aloyonetim.com.tr" 
-                    className="flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                    className="flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors"
                   >
-                    <Mail className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                    <Mail className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                     <span>kvkk@aloyonetim.com.tr</span>
                   </a>
                   <a 
                     href="tel:+902165504848" 
-                    className="flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                    className="flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                    <Phone className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                     <span>+90 216 550 48 48</span>
                   </a>
                 </div>
@@ -82,8 +82,8 @@ export default function KvkkClient() {
           >
             {/* Kart Üst Bilgi ve Rozet Barı */}
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-[var(--color-outline)]/60 dark:border-white/10">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20 text-xs font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                 6698 Sayılı KVKK Uyumlu
               </span>
 
@@ -96,7 +96,7 @@ export default function KvkkClient() {
             {/* Güven ve Standart Rozetleri */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 text-xs">
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-                <Award className="w-4 h-4 text-amber-500 shrink-0" />
+                <Award className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>KVKK Uyumlu</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
@@ -136,7 +136,7 @@ export default function KvkkClient() {
                       id={`madde-${i}`} 
                       className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-4 scroll-mt-32 flex items-center gap-2.5"
                     >
-                      <span className="w-1.5 h-5 rounded-full bg-amber-500 shrink-0" aria-hidden="true" />
+                      <span className="w-1.5 h-5 rounded-full bg-slate-500 shrink-0" aria-hidden="true" />
                       <span>{heading}</span>
                     </h2>
                     
@@ -155,8 +155,8 @@ export default function KvkkClient() {
             <div className="mt-12 p-6 md:p-8 rounded-3xl bg-slate-950 dark:bg-white/[0.04] text-white border border-white/10 shadow-md">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="space-y-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400">
-                    <ShieldCheck className="w-4 h-4 text-amber-400" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <ShieldCheck className="w-4 h-4 text-slate-400" />
                     KVKK Madde 11 Kapsamında Başvuru Hakkı
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-white">
@@ -170,7 +170,7 @@ export default function KvkkClient() {
                 <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                   <a
                     href="mailto:kvkk@aloyonetim.com.tr"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs md:text-sm transition-all shadow-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-500 hover:bg-slate-400 text-slate-950 font-bold text-xs md:text-sm transition-all shadow-sm"
                   >
                     <Mail className="w-4 h-4" />
                     Resmi Başvuru Yap

@@ -201,7 +201,7 @@ export default function SeoTextSection({
         
         {/* Ortam Işıması (Ambient Radial Blur) */}
         <div 
-          className="absolute -top-32 -right-32 w-80 h-80 bg-amber-500/10 dark:bg-amber-400/5 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-100" 
+          className="absolute -top-32 -right-32 w-80 h-80 bg-slate-500/10 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-100" 
           aria-hidden="true" 
         />
         <div 
@@ -215,9 +215,9 @@ export default function SeoTextSection({
           <div className="lg:col-span-7 space-y-6">
             
             {/* Otorite & Akreditasyon Hap Rozeti (Kurumsal Kehribar & Zümrüt Vurgulu) */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 text-xs font-bold text-amber-800 dark:text-amber-300 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 dark:bg-slate-500/15 border border-slate-500/25 text-xs font-bold text-slate-800 dark:text-slate-300 shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-              <Icon name="verified" className="text-sm text-amber-600 dark:text-amber-400" />
+              <Icon name="verified" className="text-sm text-slate-600 dark:text-slate-400" />
               <span className="tracking-tight">{eyebrow}</span>
             </div>
 
@@ -228,10 +228,10 @@ export default function SeoTextSection({
             
             {/* Semantik Gövde Metinleri (Kurumsal Gövde Rengi & Kehribar Bağlantılar) */}
             <div className="text-[var(--color-body-text)] dark:text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg font-normal space-y-4">
-              <p className="[&_strong]:text-[var(--color-heading-text)] dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-amber-700 dark:[&_a]:text-amber-400 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-amber-500/40 [&_a]:font-medium hover:[&_a]:text-amber-600 hover:[&_a]:decoration-amber-600">
+              <p className="[&_strong]:text-[var(--color-heading-text)] dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-slate-700 dark:[&_a]:text-slate-400 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-slate-500/40 [&_a]:font-medium hover:[&_a]:text-slate-600 hover:[&_a]:decoration-slate-600">
                 <SemanticLinker text={t(p1Key as Parameters<typeof t>[0]) as string} />
               </p>
-              <p className="[&_strong]:text-[var(--color-heading-text)] dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-amber-700 dark:[&_a]:text-amber-400 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-amber-500/40 [&_a]:font-medium hover:[&_a]:text-amber-600 hover:[&_a]:decoration-amber-600">
+              <p className="[&_strong]:text-[var(--color-heading-text)] dark:[&_strong]:text-white [&_strong]:font-semibold [&_a]:text-slate-700 dark:[&_a]:text-slate-400 [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-slate-500/40 [&_a]:font-medium hover:[&_a]:text-slate-600 hover:[&_a]:decoration-slate-600">
                 <SemanticLinker text={t(p2Key as Parameters<typeof t>[0]) as string} />
               </p>
             </div>
@@ -256,16 +256,16 @@ export default function SeoTextSection({
                 {metrics.map((card, idx) => {
                   const isAmber = card.color === 'amber';
                   const badgeStyle = isAmber
-                    ? 'bg-amber-500/10 dark:bg-amber-400/15 text-amber-800 dark:text-amber-300 border-amber-500/25'
+                    ? 'bg-slate-500/10 dark:bg-slate-400/15 text-slate-800 dark:text-slate-300 border-slate-500/25'
                     : 'bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/25';
                   const iconBoxStyle = isAmber
-                    ? 'bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border-amber-500/25'
+                    ? 'bg-slate-500/10 dark:bg-slate-400/15 text-slate-700 dark:text-slate-300 border-slate-500/25'
                     : 'bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/25';
                   const metricColor = isAmber
-                    ? 'text-amber-600 dark:text-amber-400'
+                    ? 'text-slate-600 dark:text-slate-400'
                     : 'text-emerald-600 dark:text-emerald-400';
                   const cardHoverBorder = isAmber
-                    ? 'hover:border-amber-500/40 dark:hover:border-amber-400/40'
+                    ? 'hover:border-slate-500/40 dark:hover:border-slate-400/40'
                     : 'hover:border-emerald-500/40 dark:hover:border-emerald-400/40';
 
                   return (
@@ -303,7 +303,7 @@ export default function SeoTextSection({
                   <Icon name="lock" className="text-sm text-emerald-600 dark:text-emerald-400" />
                   <span className="font-medium">{t('stx_env_law')}</span>
                 </div>
-                <span className="px-2 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 font-mono font-bold shrink-0 text-[10px]">
+                <span className="px-2 py-0.5 rounded-md bg-slate-500/10 dark:bg-slate-400/15 text-slate-700 dark:text-slate-300 border border-slate-500/25 font-mono font-bold shrink-0 text-[10px]">
                   ILAS · ISO 45001
                 </span>
               </div>

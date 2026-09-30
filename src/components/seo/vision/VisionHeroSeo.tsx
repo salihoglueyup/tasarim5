@@ -73,7 +73,7 @@ export default function VisionHeroSeo({
         {/* H1 Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl leading-[1.15] mb-6">
           Geleceğin Akıllı ve Şeffaf{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-400 via-brand-300 to-amber-300">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-400 via-brand-300 to-slate-300">
             Tesis Yönetimi Standartlarını
           </span>{' '}
           İnşa Ediyoruz
@@ -109,7 +109,7 @@ export default function VisionHeroSeo({
             onClick={() => scrollToSection('seffaflik-manifestosu')}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700/80 transition-all cursor-pointer"
           >
-            <Icon name="verified_user" className="text-lg text-amber-400" />
+            <Icon name="verified_user" className="text-lg text-slate-400" />
             <span>Kat Malikleri Manifestosu</span>
           </button>
 
@@ -161,7 +161,7 @@ export default function VisionHeroSeo({
           <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-sm hover:border-slate-700 transition-colors">
             <div className="flex items-center justify-between mb-2">
               <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white">%28</span>
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+              <div className="w-10 h-10 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
                 <Icon name="energy_savings_leaf" className="text-xl" />
               </div>
             </div>

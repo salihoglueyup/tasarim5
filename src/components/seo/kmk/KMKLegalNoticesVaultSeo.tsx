@@ -79,12 +79,12 @@ export default function KMKLegalNoticesVaultSeo() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
             <Icon name="description" className="text-sm" />
             <span>Hukuki Belge & Tutanak Havuzu</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Kat Malikleri & Yöneticiler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-slate-300 to-yellow-300">KMK İhtarname & Tutanak Kütüphanesi</span>
+            Kat Malikleri & Yöneticiler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-yellow-300">KMK İhtarname & Tutanak Kütüphanesi</span>
           </h2>
           <p className="text-slate-300 mt-2 text-xs sm:text-sm font-normal max-w-3xl leading-relaxed">
             Aidat borcu ihtarnamesinden izinsiz cam balkon uyarısına, genel kurul çağrısından vekaletnameye kadar noter ve mahkeme süreçlerinde yasal geçerliliği olan resmi şablonlar.
@@ -105,7 +105,7 @@ export default function KMKLegalNoticesVaultSeo() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="İhtarname veya tutanak adı arayın (Örn: Aidat, cam balkon, gürültü, vekaletname, devir teslim)..."
-            className="w-full pl-10 pr-10 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition"
+            className="w-full pl-10 pr-10 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-slate-500 focus:ring-1 focus:ring-slate-500 transition"
           />
           {searchQuery && (
             <button
@@ -126,7 +126,7 @@ export default function KMKLegalNoticesVaultSeo() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${
                 selectedCategory === cat
-                  ? 'bg-amber-600 text-white shadow'
+                  ? 'bg-slate-600 text-white shadow'
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/60'
               }`}
             >
@@ -153,19 +153,19 @@ export default function KMKLegalNoticesVaultSeo() {
                   className="flex items-start sm:items-center gap-3 cursor-pointer flex-1"
                   onClick={() => setExpandedId(isExpanded ? '' : template.id)}
                 >
-                  <span className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm flex-shrink-0 mt-0.5 sm:mt-0">
+                  <span className="w-10 h-10 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-400 font-bold flex items-center justify-center text-sm flex-shrink-0 mt-0.5 sm:mt-0">
                     <Icon name="gavel" className="text-base" />
                   </span>
                   <div>
                     <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-700/80 text-amber-300">
+                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-700/80 text-slate-300">
                         {template.category}
                       </span>
                       <span className="text-[11px] font-mono text-slate-400">
                         {template.dispatchMethod}
                       </span>
                     </div>
-                    <h3 className="text-sm sm:text-base font-bold text-white hover:text-amber-300 transition">
+                    <h3 className="text-sm sm:text-base font-bold text-white hover:text-slate-300 transition">
                       {template.title}
                     </h3>
                   </div>
@@ -174,7 +174,7 @@ export default function KMKLegalNoticesVaultSeo() {
                 <div className="flex items-center gap-2 self-end sm:self-center">
                   <button
                     onClick={() => handleCopy(template.id, template.templateContent)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white transition shadow"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-600 hover:bg-slate-500 text-white transition shadow"
                   >
                     <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
                     <span>{isCopied ? 'Kopyalandı!' : 'Metni Kopyala'}</span>
@@ -186,7 +186,7 @@ export default function KMKLegalNoticesVaultSeo() {
                     aria-label={isExpanded ? 'Detayı Kapat' : 'Detayı Aç'}
                   >
                     <Icon name="expand_more" className={`transition-transform duration-200 ${
-                        isExpanded ? 'rotate-180 text-amber-400' : ''
+                        isExpanded ? 'rotate-180 text-slate-400' : ''
                       }`} />
                   </button>
                 </div>
@@ -232,7 +232,7 @@ export default function KMKLegalNoticesVaultSeo() {
                         </span>
                         <button
                           onClick={() => handleCopy(template.id, template.templateContent)}
-                          className="text-xs text-amber-400 hover:underline font-medium"
+                          className="text-xs text-slate-400 hover:underline font-medium"
                         >
                           {isCopied ? 'Kopyalandı' : 'Panoya Kopyala'}
                         </button>
@@ -245,13 +245,13 @@ export default function KMKLegalNoticesVaultSeo() {
                     {/* Practical notes & Alo Guarantee */}
                     <div className="space-y-2">
                       <div className="p-3 rounded-xl bg-slate-800/40 border border-slate-700/60">
-                        <strong className="text-xs text-amber-300 font-bold block mb-1">
+                        <strong className="text-xs text-slate-300 font-bold block mb-1">
                           📌 Uygulama ve Tebligat İpuçları:
                         </strong>
                         <ul className="space-y-1 text-xs text-slate-300">
                           {template.practicalUsageNotes.map((note, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <span className="text-amber-400">•</span>
+                              <span className="text-slate-400">•</span>
                               <span>{note}</span>
                             </li>
                           ))}
@@ -274,14 +274,14 @@ export default function KMKLegalNoticesVaultSeo() {
       {/* Footer Info */}
       <div className="mt-8 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <Icon name="info" className="text-amber-400" />
+          <Icon name="info" className="text-slate-400" />
           <span>
             Şablonlardaki köşeli parantezli [Örn: Tarih, İsim, Tutar] alanları kendi sitenizin bilgilerine göre doldurarak kullanabilirsiniz.
           </span>
         </div>
         <a
           href="/iletisim"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold transition flex-shrink-0"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-semibold transition flex-shrink-0"
         >
           <span>Hukuki Destek Talep Edin</span>
           <Icon name="arrow_forward" className="text-sm" />

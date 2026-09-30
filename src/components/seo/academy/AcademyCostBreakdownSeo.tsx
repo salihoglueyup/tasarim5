@@ -73,7 +73,7 @@ export default function AcademyCostBreakdownSeo() {
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 text-xs font-medium">
+              <div className="p-3.5 rounded-xl bg-slate-500/10 border border-slate-500/20 text-slate-800 dark:text-slate-300 text-xs font-medium">
                 <strong>Karar İbaresi:</strong> Silahlı için <em>&quot;Silahlı Özel Güvenlik Görevlisi Olur&quot;</em>, 
                 silahsız için <em>&quot;Silahsız Özel Güvenlik Görevlisi Olur&quot;</em> ibaresi hekimler kurulunca rapora yazılmalıdır.
               </div>

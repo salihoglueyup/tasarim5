@@ -192,7 +192,7 @@ export default function BentoServices() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <Icon name="engineering" className="text-4xl text-[var(--color-primary)]" />
-              <span className="text-[11px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 px-2.5 py-0.5 rounded-full">
+              <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 px-2.5 py-0.5 rounded-full">
                 {t('bs_on_duty')}
               </span>
             </div>

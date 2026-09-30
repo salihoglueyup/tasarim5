@@ -79,7 +79,7 @@ export default function SiteLegalClaimReviewsSeo() {
             Hukuki Doğrulamalar
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            Site Yönetiminde <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-amber-600 dark:from-rose-400 dark:to-amber-300">Yaygın 4 Hukuki Yanılgı & Kanuni Gerçekler</span>
+            Site Yönetiminde <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-slate-600 dark:from-rose-400 dark:to-slate-300">Yaygın 4 Hukuki Yanılgı & Kanuni Gerçekler</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Kat Mülkiyeti Kanunu (KMK 634) ve Yargıtay emsal kararları ışığında mülk sahiplerinin en çok yanıldığı konuları ve hukuki doğruluk derecelerini inceleyin.
@@ -182,10 +182,10 @@ export default function SiteLegalClaimReviewsSeo() {
           </div>
 
           {/* Risk Warning Box */}
-          <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
-            <Icon name="warning" className="text-amber-600 dark:text-amber-400 text-2xl shrink-0 mt-0.5" />
+          <div className="bg-slate-500/10 border border-slate-500/30 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+            <Icon name="warning" className="text-slate-600 dark:text-slate-400 text-2xl shrink-0 mt-0.5" />
             <div className="space-y-1">
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                 Yanılgıda Israr Edilirse Karşılaşılacak Hukuki Risk
               </h4>
               <p className="text-xs sm:text-sm text-[var(--color-primary)] leading-relaxed">

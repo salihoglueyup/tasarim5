@@ -23,7 +23,7 @@ export default function AccessibleProgressBar({
   label,
   showPercentage = true,
   className = '',
-  barColor = 'bg-amber-500',
+  barColor = 'bg-slate-500',
 }: AccessibleProgressBarProps) {
   const clampedValue = Math.min(Math.max(value, min), max);
   const percentage = Math.round(((clampedValue - min) / (max - min)) * 100);

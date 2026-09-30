@@ -119,8 +119,8 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
     if (score >= 60) {
       return {
         label: 'ORTA DÜZEY HİJYEN / ENDÜSTRİYEL EKİPMAN EKSİKLİĞİ',
-        badgeClass: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30',
-        barColor: '#f59e0b',
+        badgeClass: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/30',
+        barColor: '#64748b',
         desc: 'Temel alanlar temizlenmekte ancak makineleşme, otopark yıkama veya kimyasal MSDS arşivinde eksikler bulunmaktadır.'
       };
     }

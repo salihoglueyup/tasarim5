@@ -171,7 +171,7 @@ export default function IletisimClient() {
       {/* 1. HERO BÖLÜMÜ */}
       <section className="relative pt-36 pb-36 md:pt-44 md:pb-44 overflow-hidden bg-slate-950 text-white border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/30 via-slate-950 to-slate-950 -z-10" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-slate-500/10 blur-3xl rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-slate-500/10 blur-3xl rounded-full pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
@@ -187,7 +187,7 @@ export default function IletisimClient() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.15] max-w-4xl text-white drop-shadow-sm">
-            {safeT('contact_hero_title_1', 'Bizimle')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">{safeT('contact_hero_title_2', 'İletişime Geçin')}</span>
+            {safeT('contact_hero_title_1', 'Bizimle')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-500">{safeT('contact_hero_title_2', 'İletişime Geçin')}</span>
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
@@ -206,7 +206,7 @@ export default function IletisimClient() {
           {/* SOL KOLON: Kurumsal Kanallar & Hızlı Bağlantılar (lg:col-span-5) */}
           <div className="lg:col-span-5 bg-[var(--color-surface-variant)] text-[var(--color-primary)] p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--color-outline)]/60 relative overflow-hidden">
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
                 <Sparkles className="w-4 h-4" />
                 <span>{t('ic_channels')}</span>
               </div>
@@ -223,7 +223,7 @@ export default function IletisimClient() {
                   href={`tel:${ORG_PHONE}`}
                   className="group flex items-center gap-4 p-3.5 rounded-2xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -234,7 +234,7 @@ export default function IletisimClient() {
                       {ORG_PHONE_DISPLAY}
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--color-tertiary)] group-hover:text-amber-500 transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-[var(--color-tertiary)] group-hover:text-slate-500 transition-colors" />
                 </a>
 
                 {/* E-Posta */}
@@ -370,7 +370,7 @@ export default function IletisimClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="name" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        {t('ic_lbl_name')} <span className="text-amber-500">*</span>
+                        {t('ic_lbl_name')} <span className="text-slate-500">*</span>
                       </label>
                       <input
                         {...register('name')}
@@ -383,7 +383,7 @@ export default function IletisimClient() {
                         className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.name
                             ? 'border-rose-500 focus:ring-rose-500/20'
-                            : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
+                            : 'border-[var(--color-outline)]/60 focus:border-slate-500 focus:ring-slate-500/20'
                         }`}
                       />
                       {errors.name && <span id="name-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.name.message as Parameters<typeof t>[0])}</span>}
@@ -391,13 +391,13 @@ export default function IletisimClient() {
 
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="phone" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        {t('ic_lbl_phone')} <span className="text-amber-500">*</span>
+                        {t('ic_lbl_phone')} <span className="text-slate-500">*</span>
                       </label>
                       <div className="flex gap-2">
                         <select
                           aria-label={t('ic_phone_code_aria')}
                           defaultValue="+90"
-                          className="px-2.5 py-3 rounded-xl border border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-semibold focus:outline-none focus:border-amber-500 transition-all shrink-0 cursor-pointer"
+                          className="px-2.5 py-3 rounded-xl border border-[var(--color-outline)]/60 bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-xs font-semibold focus:outline-none focus:border-slate-500 transition-all shrink-0 cursor-pointer"
                         >
                           <option value="+90">🇹🇷 +90</option>
                           <option value="+971">🇦🇪 +971</option>
@@ -416,7 +416,7 @@ export default function IletisimClient() {
                           className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                             errors.phone
                               ? 'border-rose-500 focus:ring-rose-500/20'
-                              : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
+                              : 'border-[var(--color-outline)]/60 focus:border-slate-500 focus:ring-slate-500/20'
                           }`}
                         />
                       </div>
@@ -428,7 +428,7 @@ export default function IletisimClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="email" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        E-Posta Adresiniz <span className="text-amber-500">*</span>
+                        E-Posta Adresiniz <span className="text-slate-500">*</span>
                       </label>
                       <input
                         {...register('email')}
@@ -441,7 +441,7 @@ export default function IletisimClient() {
                         className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.email
                             ? 'border-rose-500 focus:ring-rose-500/20'
-                            : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
+                            : 'border-[var(--color-outline)]/60 focus:border-slate-500 focus:ring-slate-500/20'
                         }`}
                       />
                       {errors.email && <span id="email-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.email.message as Parameters<typeof t>[0])}</span>}
@@ -449,7 +449,7 @@ export default function IletisimClient() {
 
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="subject" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        {t('ic_lbl_subject')} <span className="text-amber-500">*</span>
+                        {t('ic_lbl_subject')} <span className="text-slate-500">*</span>
                       </label>
                       <div className="relative">
                         <select
@@ -460,7 +460,7 @@ export default function IletisimClient() {
                           className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] text-sm focus:outline-none focus:ring-2 transition-all appearance-none cursor-pointer ${
                             errors.subject
                               ? 'border-rose-500 focus:ring-rose-500/20'
-                              : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
+                              : 'border-[var(--color-outline)]/60 focus:border-slate-500 focus:ring-slate-500/20'
                           }`}
                         >
                           <option value="">{t('ic_subj_ph')}</option>
@@ -481,7 +481,7 @@ export default function IletisimClient() {
                   <div className="flex flex-col gap-1.5">
                     <div className="flex justify-between items-center">
                       <label htmlFor="message" className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                        {t('ic_lbl_message')} <span className="text-amber-500">*</span>
+                        {t('ic_lbl_message')} <span className="text-slate-500">*</span>
                       </label>
                       <span className={`text-[11px] ${messageVal.length > 500 ? 'text-rose-500 font-bold' : 'text-[var(--color-tertiary)]'}`}>
                         {messageVal.length}/500
@@ -497,7 +497,7 @@ export default function IletisimClient() {
                       className={`w-full px-4 py-3 rounded-xl border bg-[var(--color-surface-variant)] text-[var(--color-primary)] placeholder-[var(--color-tertiary)] text-sm focus:outline-none focus:ring-2 transition-all resize-none ${
                         errors.message
                           ? 'border-rose-500 focus:ring-rose-500/20'
-                          : 'border-[var(--color-outline)]/60 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-[var(--color-outline)]/60 focus:border-slate-500 focus:ring-slate-500/20'
                       }`}
                     />
                     {errors.message && <span id="message-error" role="alert" aria-live="polite" className="text-xs text-rose-500 font-medium">{t(errors.message.message as Parameters<typeof t>[0])}</span>}
@@ -507,7 +507,7 @@ export default function IletisimClient() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full py-4 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-amber-500 dark:hover:bg-amber-400 text-white dark:text-slate-950 font-bold text-base transition-all shadow-lg hover:shadow-slate-900/20 active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full py-4 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-500 dark:hover:bg-slate-400 text-white dark:text-slate-950 font-bold text-base transition-all shadow-lg hover:shadow-slate-900/20 active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {status === 'loading' ? (
                       <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -532,7 +532,7 @@ export default function IletisimClient() {
           {/* Ulaşım Detayları */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
-              <Building2 className="w-3.5 h-3.5 text-amber-500" />
+              <Building2 className="w-3.5 h-3.5 text-slate-500" />
               <span>{t('ic_location_badge')}</span>
             </div>
 
@@ -546,7 +546,7 @@ export default function IletisimClient() {
 
             <div className="space-y-3 pt-2 border-t border-slate-100 dark:border-white/5">
               <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                <Clock className="w-4 h-4 text-amber-500 shrink-0" />
+                <Clock className="w-4 h-4 text-slate-500 shrink-0" />
                 <span><strong>{t('ic_weekdays')}:</strong> 09:00 - 18:00 | <strong>{t('ic_saturday')}:</strong> 09:00 - 13:00</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
@@ -560,9 +560,9 @@ export default function IletisimClient() {
                 href={ORG_GOOGLE_BUSINESS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white dark:hover:text-slate-950 transition-all shadow-md group"
+                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:bg-slate-600 dark:hover:bg-slate-400 hover:text-white dark:hover:text-slate-950 transition-all shadow-md group"
               >
-                <MapPin className="w-4 h-4 text-amber-500 dark:text-amber-600 group-hover:text-white dark:group-hover:text-slate-950 transition-colors" />
+                <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-600 group-hover:text-white dark:group-hover:text-slate-950 transition-colors" />
                 <span>{t('ic_open_in_maps')}</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
@@ -605,13 +605,13 @@ export default function IletisimClient() {
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : index)}
-                  className="w-full px-6 py-4.5 text-left font-bold text-slate-900 dark:text-slate-100 flex justify-between items-center gap-4 cursor-pointer hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                  className="w-full px-6 py-4.5 text-left font-bold text-slate-900 dark:text-slate-100 flex justify-between items-center gap-4 cursor-pointer hover:text-slate-500 dark:hover:text-slate-400 transition-colors"
                   aria-expanded={isOpen}
                 >
                   <span className="text-base sm:text-lg">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-amber-500' : ''
+                      isOpen ? 'rotate-180 text-slate-500' : ''
                     }`}
                   />
                 </button>

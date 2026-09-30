@@ -36,8 +36,8 @@ export default function CerezPolitikasiClient() {
             className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-6 sm:p-10 md:p-14 lg:p-16 rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative"
           >
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-[var(--color-outline)]/60 dark:border-white/10">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20 text-xs font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                 Çerez ve Takip Teknolojileri Politikası
               </span>
 
@@ -65,7 +65,7 @@ export default function CerezPolitikasiClient() {
                       id={`madde-${i}`} 
                       className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-4 scroll-mt-32 flex items-center gap-2.5"
                     >
-                      <span className="w-1.5 h-5 rounded-full bg-amber-500 shrink-0" aria-hidden="true" />
+                      <span className="w-1.5 h-5 rounded-full bg-slate-500 shrink-0" aria-hidden="true" />
                       <span>{heading}</span>
                     </h2>
                     {paragraph && paragraph !== paragraphKey && (

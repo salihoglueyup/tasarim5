@@ -303,7 +303,7 @@ export default async function SectoralSolutionDetailPage({
               <span className="text-xs text-[var(--color-secondary)]">KMK m.20 şeffaf bilanço ve ilamsız icra takibi.</span>
             </Link>
             <Link href="/hizmetler/teknik-bakim" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
-              <Icon name="engineering" className="text-2xl text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
+              <Icon name="engineering" className="text-2xl text-slate-600 dark:text-slate-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Teknik Bakım & Asansör</span>
               <span className="text-xs text-[var(--color-secondary)]">MMO yeşil etiket ve %0 kompanzasyon ceza güvencesi.</span>
             </Link>

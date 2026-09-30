@@ -81,7 +81,7 @@ export function PwaInstallPrompt() {
             <h4 className="text-sm font-bold text-slate-900 dark:text-white">
               Alo Yönetim Uygulaması
             </h4>
-            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
+            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-50 dark:bg-slate-950/60 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">
               <Sparkles className="w-2.5 h-2.5" />
               Hızlı Erişim
             </span>

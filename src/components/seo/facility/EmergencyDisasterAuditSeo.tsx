@@ -95,7 +95,7 @@ export default function EmergencyDisasterAuditSeo() {
 
   const getStatus = () => {
     if (totalScore >= 85) return { label: 'Yüksek Hazırlık & Güvenli', color: 'text-slate-400', bg: 'bg-slate-500/20 border-slate-500/30' };
-    if (totalScore >= 50) return { label: 'Orta Seviye (Eksikler Var)', color: 'text-amber-400', bg: 'bg-amber-500/20 border-amber-500/30' };
+    if (totalScore >= 50) return { label: 'Orta Seviye (Eksikler Var)', color: 'text-slate-400', bg: 'bg-slate-500/20 border-slate-500/30' };
     return { label: 'Kritik Risk & Yasal Eksiklik', color: 'text-rose-400', bg: 'bg-rose-500/20 border-rose-500/30' };
   };
 

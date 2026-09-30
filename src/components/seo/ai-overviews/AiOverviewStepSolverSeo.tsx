@@ -297,8 +297,8 @@ export default function AiOverviewStepSolverSeo() {
                     {step.description}
                   </p>
                   {step.criticalNotice && (
-                    <div className="mt-2 inline-flex items-center gap-2 p-2 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-semibold">
-                      <Icon name="warning" className="text-base text-amber-600" />
+                    <div className="mt-2 inline-flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-950/40 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-200 text-xs font-semibold">
+                      <Icon name="warning" className="text-base text-slate-600" />
                       <span>Kritik Yasal Not: {step.criticalNotice}</span>
                     </div>
                   )}

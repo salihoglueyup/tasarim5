@@ -157,11 +157,11 @@ export function FacilityOfficialEntityTrustSeo({
         {/* 2. Ticaret Sicil, MERSİS & Vergi Dairesi */}
         <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/70 shadow-2xs hover:shadow-sm transition-shadow">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
+            <div className="p-3 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400">
               <FileCheck2 className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                 İstanbul Ticaret Odası
               </span>
               <h3 className="text-base font-bold text-[var(--color-primary)]">

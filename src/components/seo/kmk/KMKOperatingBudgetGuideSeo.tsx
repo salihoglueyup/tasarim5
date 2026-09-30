@@ -185,9 +185,9 @@ export default function KMKOperatingBudgetGuideSeo({
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-xs border border-amber-200 dark:border-amber-900">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-900">
                   <strong className="font-semibold block mb-0.5 flex items-center gap-1">
-                    <Icon name="warning" className="text-amber-600 text-sm" />
+                    <Icon name="warning" className="text-slate-600 text-sm" />
                     Sitelerde En Sık Yapılan Hata:
                   </strong>
                   <span>{item.budgetingPitfall}</span>

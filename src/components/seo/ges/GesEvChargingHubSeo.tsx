@@ -50,12 +50,12 @@ export default function GesEvChargingHubSeo() {
           </div>
 
           {/* Card 2: Site Bütçesine Gelir */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-amber-500/50 transition-all">
+          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-slate-500/50 transition-all">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6 border border-amber-500/20">
+              <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-6 border border-slate-500/20">
                 <Icon name="paid" className="text-2xl" />
               </div>
-              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                 Site İçin Finansal Model
               </span>
               <h3 className="text-lg font-bold text-[var(--color-primary)] mt-1 mb-3">

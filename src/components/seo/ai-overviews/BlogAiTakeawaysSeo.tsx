@@ -75,12 +75,12 @@ export default function BlogAiTakeawaysSeo({
       />
 
       {/* Decorative Brand Glow */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 dark:bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
-          <Icon name="auto_awesome" className="text-[15px] text-amber-500 dark:text-amber-400" />
+          <Icon name="auto_awesome" className="text-[15px] text-slate-500 dark:text-slate-400" />
           <span>Google AI & Gemini • Önemli Çıkarımlar (Key Takeaways)</span>
         </div>
 

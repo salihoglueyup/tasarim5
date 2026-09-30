@@ -69,7 +69,7 @@ export default function GizlilikPolitikasiClient() {
                       id={`madde-${i}`} 
                       className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-4 scroll-mt-32 flex items-center gap-2.5"
                     >
-                      <span className="w-1.5 h-5 rounded-full bg-amber-500 shrink-0" aria-hidden="true" />
+                      <span className="w-1.5 h-5 rounded-full bg-slate-500 shrink-0" aria-hidden="true" />
                       <span>{heading}</span>
                     </h2>
                     {paragraph && paragraph !== paragraphKey && (

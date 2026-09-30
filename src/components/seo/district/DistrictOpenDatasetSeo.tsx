@@ -161,7 +161,7 @@ export default function DistrictOpenDatasetSeo({ districtSlug }: DistrictOpenDat
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[var(--color-outline)]/60 text-xs">
         <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]">
           <div className="flex items-center gap-1.5 font-bold text-[var(--color-primary)] mb-1">
-            <Icon name="warning" className="text-amber-600 text-sm" />
+            <Icon name="warning" className="text-slate-600 text-sm" />
             <span>{profile.name} İçin Kritik KMK Odak Alanı:</span>
           </div>
           <p className="text-[var(--color-secondary)] leading-relaxed">

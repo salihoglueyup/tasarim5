@@ -110,13 +110,13 @@ export default function FacilityEnergyEvChargingSeo() {
 
                 {/* Fire Safety */}
                 <div className="mb-4">
-                  <strong className="text-[11px] text-amber-600 dark:text-amber-400 font-bold uppercase tracking-wider block mb-1.5">
+                  <strong className="text-[11px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1.5">
                     🔥 Otopark Yangın Emniyet Tedbirleri:
                   </strong>
                   <ul className="space-y-1 text-xs text-[var(--color-secondary)]">
                     {opt.fireSafetyPrecautions.map((precaution, idx) => (
                       <li key={idx} className="flex items-start gap-1.5">
-                        <span className="text-amber-500">•</span>
+                        <span className="text-slate-500">•</span>
                         <span>{precaution}</span>
                       </li>
                     ))}

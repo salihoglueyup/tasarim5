@@ -353,7 +353,7 @@ export default function AidatTakibiClient() {
             </div>
 
             <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-lg bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-xs">
                 3
               </div>
               <h3 className="font-bold text-sm text-[var(--color-primary)]">Aylık %5 Gecikme Faizi</h3>

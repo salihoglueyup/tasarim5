@@ -441,7 +441,7 @@ export default async function BlogDetail({
               <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-3 mb-4 pb-3.5 border-b border-[var(--color-outline)]/60 dark:border-white/10">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                    <Icon name="analytics" className="text-amber-500 text-base" />
+                    <Icon name="analytics" className="text-slate-500 text-base" />
                     <span>Önemli Sayısal & Yasal Metrikler</span>
                   </div>
                   <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium">Google AI Grounding</span>
@@ -502,7 +502,7 @@ export default async function BlogDetail({
                )}
                <div className="flex flex-col gap-2">
                  <h4 className="text-xl font-bold text-slate-900 dark:text-white" itemProp="name">
-                   <Link href={`/blog/yazar/${author.slug}`} className="hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                   <Link href={`/blog/yazar/${author.slug}`} className="hover:text-slate-500 dark:hover:text-slate-400 transition-colors">
                       {author.name}
                    </Link>
                  </h4>
@@ -582,9 +582,9 @@ export default async function BlogDetail({
 
           {/* 2. Kurumsal Bütçe & Keşif Teklifi Kartı */}
           <div className="p-6 md:p-8 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-900 dark:text-white border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="relative z-10 flex flex-col gap-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold w-fit">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-400 text-xs font-bold w-fit">
                 <Icon name="verified" className="text-[15px]" />
                 Hızlı Fiyat & Bütçe
               </span>
@@ -617,9 +617,9 @@ export default async function BlogDetail({
 
           {/* 3. Bütçe ve Aidat Simülatörü Kısayolu */}
           <div className="p-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 flex flex-col gap-4 shadow-xs relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-slate-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center gap-3 relative z-10">
-              <div className="w-11 h-11 rounded-2xl bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-11 h-11 rounded-2xl bg-slate-500/10 text-slate-500 dark:text-slate-400 border border-slate-500/20 flex items-center justify-center shrink-0 shadow-2xs">
                 <Icon name="calculate" className="text-2xl" />
               </div>
               <div>
@@ -643,7 +643,7 @@ export default async function BlogDetail({
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span>7/24 Çağrı Merkezi</span>
               </div>
-              <a href="tel:+902165504848" className="text-lg font-black text-slate-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-mono tracking-tight">
+              <a href="tel:+902165504848" className="text-lg font-black text-slate-900 dark:text-white hover:text-slate-500 dark:hover:text-slate-400 transition-colors font-mono tracking-tight">
                 0216 550 48 48
               </a>
             </div>

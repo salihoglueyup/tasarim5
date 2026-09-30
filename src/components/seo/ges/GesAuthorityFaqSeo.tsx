@@ -58,7 +58,7 @@ export default function GesAuthorityFaqSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <Icon name="help_center" className="text-sm text-amber-500" />
+            <Icon name="help_center" className="text-sm text-slate-500" />
             <span>Mevzuat, Finans & Mühendislik Cevapları</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -83,12 +83,12 @@ export default function GesAuthorityFaqSeo() {
                 className="w-full p-5 sm:p-6 text-left font-bold text-[var(--color-primary)] flex justify-between items-center gap-4 cursor-pointer hover:bg-[var(--color-surface-variant)]/40 transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                  <span className="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20 w-fit">
+                  <span className="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-500/10 text-slate-700 dark:text-slate-300 border border-slate-500/20 w-fit">
                     {faq.badge}
                   </span>
                   <span className="text-sm sm:text-base font-bold">{faq.q}</span>
                 </div>
-                <Icon name="expand_more" className="text-amber-500 transition-transform duration-300 shrink-0" style={{ transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0)' }} />
+                <Icon name="expand_more" className="text-slate-500 transition-transform duration-300 shrink-0" style={{ transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0)' }} />
               </button>
 
               {openIndex === idx && (
@@ -103,11 +103,11 @@ export default function GesAuthorityFaqSeo() {
         {/* Downloadable Decision Template Card */}
         <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-slate-500/20 text-slate-400 border border-slate-500/30 flex items-center justify-center shrink-0">
               <Icon name="download_for_offline" className="text-3xl" />
             </div>
             <div>
-              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                 YÖNETİCİLER İÇİN HAZIR HUKUKİ ŞABLON
               </div>
               <div className="text-base sm:text-lg font-bold text-white">
@@ -123,7 +123,7 @@ export default function GesAuthorityFaqSeo() {
             href="https://wa.me/905325504848?text=Merhaba,%20sitemiz%20için%20KMK%2042%20GES%20karar%20metni%20şablonunu%20talep%20ediyorum."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg transition-all shrink-0 w-full md:w-auto text-center"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-500 hover:bg-slate-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg transition-all shrink-0 w-full md:w-auto text-center"
           >
             <Icon name="description" className="text-lg" />
             <span>Şablonu Ücretsiz İste</span>

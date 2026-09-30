@@ -123,8 +123,8 @@ export default function InteractiveSecurityRiskRadarSeo({ districtName }: { dist
     if (totalScore >= 50) {
       return {
         level: 'Orta Seviye (Kritik Açıklar Mevcut)',
-        badgeColor: 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30',
-        strokeColor: '#f59e0b',
+        badgeColor: 'bg-slate-500/20 text-slate-600 dark:text-slate-400 border-slate-500/30',
+        strokeColor: '#64748b',
         description: 'Sitenizde bazı güvenlik önlemleri var ancak yasal mali sorumluluk, kör nokta veya devriye takip zafiyetleri bulunuyor.',
         ctaText: 'Ücretsiz Güvenlik Açığı Keşif Raporu İsteyin'
       };

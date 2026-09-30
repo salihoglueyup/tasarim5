@@ -211,7 +211,7 @@ export default function FacilityLandscapeTreeGuideSeo({
                 <span>{activeSeason.irrigationSchedule}</span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-900/60">
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 border border-slate-200 dark:border-slate-900/60">
                 <strong className="font-semibold block mb-0.5 flex items-center gap-1">
                   <Icon name="science" className="text-sm" />
                   Gübreleme & Zirai Mücadele:
@@ -306,7 +306,7 @@ export default function FacilityLandscapeTreeGuideSeo({
                   </div>
                 </div>
 
-                <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 text-xs border border-amber-200 dark:border-amber-900">
+                <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-300 text-xs border border-slate-200 dark:border-slate-900">
                   <strong className="font-semibold block mb-0.5">Sitelerde Yapılan Yaygın Hata:</strong>
                   <span>{system.commonMistakeInSites}</span>
                 </div>

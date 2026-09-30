@@ -13,7 +13,7 @@ export default function GesNetMeteringSeo() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <Icon name="sync" className="text-sm text-amber-500" />
+            <Icon name="sync" className="text-sm text-slate-500" />
             <span>EPDK 5/1-ç Aylık Mahsuplaşma Modeli</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
@@ -31,11 +31,11 @@ export default function GesNetMeteringSeo() {
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20">
+                <div className="w-12 h-12 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center border border-slate-500/20">
                   <Icon name="wb_sunny" className="text-2xl" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                     Gündüz Çalışma Modu
                   </span>
                   <h3 className="text-xl font-bold text-[var(--color-primary)]">
@@ -51,7 +51,7 @@ export default function GesNetMeteringSeo() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
-                  <Icon name="elevator" className="text-base text-amber-500" />
+                  <Icon name="elevator" className="text-base text-slate-500" />
                   <span><strong>Asansörler:</strong> Gün boyu süren asansör trafiği güneşten beslenir.</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/50 text-xs">
@@ -65,7 +65,7 @@ export default function GesNetMeteringSeo() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[var(--color-outline)]/40 text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center justify-between">
+            <div className="pt-4 border-t border-[var(--color-outline)]/40 text-xs font-bold text-slate-600 dark:text-slate-400 flex items-center justify-between">
               <span>Şebekeden Çekilen Elektrik:</span>
               <span className="text-sm font-black text-[var(--color-primary)]">0 TL / Gündüz</span>
             </div>

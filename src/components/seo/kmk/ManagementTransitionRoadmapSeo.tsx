@@ -142,13 +142,13 @@ export default function ManagementTransitionRoadmapSeo({
           {/* Required Documents */}
           <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <Icon name="description" className="text-amber-400 text-base" />
+              <Icon name="description" className="text-slate-400 text-base" />
               <span>Gerekli Yasal Evraklar ve Belgeler</span>
             </h4>
             <ul className="space-y-2">
               {currentStage.requiredDocuments.map((doc, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed font-normal">
-                  <Icon name="article" className="text-amber-400 text-sm shrink-0 mt-0.5" />
+                  <Icon name="article" className="text-slate-400 text-sm shrink-0 mt-0.5" />
                   <span>{doc}</span>
                 </li>
               ))}

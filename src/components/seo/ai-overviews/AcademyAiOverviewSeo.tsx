@@ -160,12 +160,12 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
           </button>
 
           <a
-            href="https://www.perplexity.ai/search?q=Sitelerde+ozel+guvenlik+gorevlisi+yetkileri+ve+arama+sinirlari+5188"
+            href="https://claude.ai/new?q=Sitelerde+ozel+guvenlik+gorevlisi+yetkileri+ve+arama+sinirlari+5188"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-600 hover:bg-slate-700 text-white transition-all shadow-xs"
           >
-            <span>Perplexity&apos;de Doğrula</span>
+            <span>Claude'da Doğrula</span>
             <Icon name="open_in_new" className="text-xs" />
           </a>
         </div>

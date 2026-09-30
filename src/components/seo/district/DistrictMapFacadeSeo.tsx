@@ -126,7 +126,7 @@ export default function DistrictMapFacadeSeo({
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-slate-50 dark:bg-[var(--color-surface-variant)] select-none">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 ring-8 ring-amber-500/5 shadow-inner">
+            <div className="w-14 h-14 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4 ring-8 ring-slate-500/5 shadow-inner">
               <Icon name="map" className="text-3xl animate-bounce" />
             </div>
 
@@ -140,7 +140,7 @@ export default function DistrictMapFacadeSeo({
             <button
               type="button"
               onClick={() => setIsLoaded(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition-all shadow-md cursor-pointer active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-500 hover:bg-slate-600 text-slate-950 font-bold text-xs transition-all shadow-md cursor-pointer active:scale-95"
             >
               <Icon name="visibility" className="text-sm" />
               <span>Canlı Haritayı Etkinleştir</span>

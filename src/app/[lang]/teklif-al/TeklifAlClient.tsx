@@ -250,7 +250,7 @@ export default function TeklifAlClient() {
                 <span>{t('tc_seal_kvkk')}</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <Icon name="schedule" className="text-sm text-amber-500" />
+                <Icon name="schedule" className="text-sm text-slate-500" />
                 <span>48s Rapor</span>
               </div>
             </div>

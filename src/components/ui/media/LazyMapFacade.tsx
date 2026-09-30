@@ -69,7 +69,7 @@ export default function LazyMapFacade({
         />
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-950 border border-slate-200 dark:border-white/10 select-none">
-          <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 ring-8 ring-amber-500/5 shadow-inner">
+          <div className="w-14 h-14 rounded-2xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4 ring-8 ring-slate-500/5 shadow-inner">
             <MapPin className="w-7 h-7 animate-bounce" />
           </div>
 

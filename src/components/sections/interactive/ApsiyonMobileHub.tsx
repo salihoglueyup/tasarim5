@@ -331,7 +331,7 @@ export default function ApsiyonMobileHub() {
               onClick={() => setShowQr(!showQr)}
               className="flex items-center gap-2 bg-white hover:bg-slate-50 dark:bg-white/5 dark:hover:bg-white/15 border border-slate-200 dark:border-white/15 px-4 py-3 rounded-2xl transition-all duration-300 transform-gpu text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-sm cursor-pointer"
             >
-              <Icon name="qr_code_2" className="text-xl text-amber-500" />
+              <Icon name="qr_code_2" className="text-xl text-slate-500" />
               <span>{showQr ? 'QR Kodu Gizle' : 'Kamerayla Okut (QR)'}</span>
             </button>
           </div>

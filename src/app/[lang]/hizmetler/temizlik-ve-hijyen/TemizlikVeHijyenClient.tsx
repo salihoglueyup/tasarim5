@@ -65,8 +65,8 @@ export default function TemizlikVeHijyenClient() {
       season: t('clean_matrix_season_2') || 'Yaz', 
       task: t('clean_matrix_task_2') || 'Açık havuz çevresi ve güneşlenme teraslarının günlük hijyeni, çöp konteynerlerinin kokusuzlaştırılması ve sinek/haşere önleyici zemin temizliği.',
       icon: "light_mode",
-      color: "text-amber-500",
-      bg: "bg-amber-500/10"
+      color: "text-slate-500",
+      bg: "bg-slate-500/10"
     },
     { 
       id: "sonbahar",

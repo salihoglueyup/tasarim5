@@ -51,12 +51,12 @@ export default function ServicesHeroSeo({
   return (
     <section className="relative w-full bg-slate-950 text-white border-b border-white/10 overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28 px-[var(--spacing-gutter)]">
       {/* Background Solar & Emerald Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-slate-600/15 via-amber-500/10 to-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-slate-600/15 via-slate-500/10 to-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-[var(--spacing-container-max)] mx-auto relative z-10">
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400 mb-8 justify-center">
-          <Link href={lp('/')} className="hover:text-amber-400 transition-colors">
+          <Link href={lp('/')} className="hover:text-slate-400 transition-colors">
             {tx('Anasayfa')}
           </Link>
           <span className="text-slate-600">/</span>
@@ -69,8 +69,8 @@ export default function ServicesHeroSeo({
             <Icon name="verified" className="text-sm text-slate-400" />
             ISO 45001 & ISO 14001 (ILAS)
           </span>
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/30 text-amber-300">
-            <Icon name="shield" className="text-sm text-amber-400" />
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-500/10 border border-slate-500/30 text-slate-300">
+            <Icon name="shield" className="text-sm text-slate-400" />
             {tx('5188 Sayılı Özel Güvenlik Lisansı')}
           </span>
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
@@ -83,7 +83,7 @@ export default function ServicesHeroSeo({
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-6">
             {tx('Bina, Site ve Tesis Yönetiminde')}{' '}
-            <span className="bg-gradient-to-r from-slate-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-400 via-slate-300 to-emerald-400 bg-clip-text text-transparent">
               {tx('360° Entegre Çözümler')}
             </span>
           </h1>
@@ -101,7 +101,7 @@ export default function ServicesHeroSeo({
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 placeholder={tx('Hizmet arayın: Güvenlik, Asansör, Temizlik, KMK Aidat, Peyzaj...')}
-                className="w-full pl-12 pr-12 py-4 bg-slate-900/90 hover:bg-slate-900 border border-slate-700/80 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-white placeholder-slate-400 text-sm sm:text-base rounded-2xl shadow-xl transition-all outline-none"
+                className="w-full pl-12 pr-12 py-4 bg-slate-900/90 hover:bg-slate-900 border border-slate-700/80 focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20 text-white placeholder-slate-400 text-sm sm:text-base rounded-2xl shadow-xl transition-all outline-none"
               />
               {searchQuery && (
                 <button
@@ -116,7 +116,7 @@ export default function ServicesHeroSeo({
             </div>
             <div className="flex items-center justify-between text-xs text-slate-400 mt-2.5 px-2">
               <span>{tx('💡 10 ana hizmet alanı içerisinde anlık filtreleme')}</span>
-              <a href="#hizmet-secici" className="text-amber-400 hover:underline">
+              <a href="#hizmet-secici" className="text-slate-400 hover:underline">
                 {tx('Sitenize Uygun Paketi Bulun →')}
               </a>
             </div>
@@ -126,7 +126,7 @@ export default function ServicesHeroSeo({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={lp('/teklif-al')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm sm:text-base shadow-lg shadow-amber-500/25 transition-all hover:scale-[1.02] cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-400 hover:to-slate-500 text-slate-950 font-extrabold text-sm sm:text-base shadow-lg shadow-slate-500/25 transition-all hover:scale-[1.02] cursor-pointer"
             >
               <Icon name="assignment" className="text-xl" />
               {tx('Ücretsiz Yönetim Keşfi Al')}
@@ -156,7 +156,7 @@ export default function ServicesHeroSeo({
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 mb-1">{tx('20 Dakika')}</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">{tx('20 Dakika')}</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Acil Teknik Müdahale SLA')}</div>
             <p className="text-[11px] text-slate-400 mt-1">{tx('Asansör, hidrofor ve elektrikte 7/24 nöbetçi teknisyen')}</p>
           </div>

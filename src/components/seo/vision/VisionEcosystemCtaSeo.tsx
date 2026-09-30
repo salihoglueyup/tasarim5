@@ -15,7 +15,7 @@ const CORPORATE_LINKS = [
     desc: 'ISO 45001, 14001, 10002 ve 22301 belgeleri (BELCERT, ILAS)',
     url: '/kurumsal/kalite-belgelerimiz',
     icon: 'workspace_premium',
-    color: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+    color: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
   },
   {
     title: 'Kalite Politikamız',
