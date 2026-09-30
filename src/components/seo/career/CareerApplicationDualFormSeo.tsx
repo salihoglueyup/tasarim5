@@ -26,7 +26,7 @@ export default function CareerApplicationDualFormSeo({
   const [submittedManager, setSubmittedManager] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const { status, errorKey, submit, reset } = useLeadSubmit();
+  const { status, submit, reset } = useLeadSubmit();
   const isSubmitting = status === 'loading';
 
   // Candidate Form Fields
@@ -79,7 +79,7 @@ export default function CareerApplicationDualFormSeo({
     if (ok) {
       setSubmittedCandidate(true);
     } else {
-      setErrorMessage(errorKey || 'Başvuru gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
+      setErrorMessage('Başvuru gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
     }
   };
 
@@ -106,7 +106,7 @@ export default function CareerApplicationDualFormSeo({
     if (ok) {
       setSubmittedManager(true);
     } else {
-      setErrorMessage(errorKey || 'Talep gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
+      setErrorMessage('Talep gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
     }
   };
 

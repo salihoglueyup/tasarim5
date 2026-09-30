@@ -1,13 +1,30 @@
 import { prisma } from '@/lib/prisma';
+import Link from 'next/link';
 import DeleteLeadButton from './DeleteLeadButton';
 import MarkReadButton from './MarkReadButton';
 import LeadMessageModal from './LeadMessageModal'; // will create this for viewing full message
 import Icon from '@/components/ui/branding/Icon';
 
-export default async function AdminLeads({ params }: { params: Promise<{ lang: string }> }) {
+const PAGE_SIZE = 50;
+
+export default async function AdminLeads({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ lang: string }>;
+  searchParams: Promise<{ page?: string }>;
+}) {
   const { lang } = await params;
+  const { page: pageParam } = await searchParams;
+
+  const totalCount = await prisma.lead.count();
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+  const page = Math.min(totalPages, Math.max(1, Number(pageParam) || 1));
+
   const leads = await prisma.lead.findMany({
-    orderBy: { createdAt: 'desc' }
+    orderBy: { createdAt: 'desc' },
+    skip: (page - 1) * PAGE_SIZE,
+    take: PAGE_SIZE,
   });
 
   return (
@@ -15,7 +32,9 @@ export default async function AdminLeads({ params }: { params: Promise<{ lang: s
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Gelen Kutusu</h1>
-          <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">Siteniz üzerinden gönderilen tüm form ve mesajlar burada listelenir.</p>
+          <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
+            Siteniz üzerinden gönderilen tüm form ve mesajlar burada listelenir. Toplam {totalCount} mesaj.
+          </p>
         </div>
       </div>
 
@@ -80,6 +99,36 @@ export default async function AdminLeads({ params }: { params: Promise<{ lang: s
             </div>
           )}
         </div>
+
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between gap-4 p-4 border-t border-slate-200 dark:border-white/10 text-sm text-slate-600 dark:text-gray-400">
+            <span>Sayfa {page} / {totalPages}</span>
+            <div className="flex items-center gap-2">
+              <Link
+                href={`/${lang}/admin/leads?page=${page - 1}`}
+                aria-disabled={page <= 1}
+                className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
+                  page <= 1
+                    ? 'pointer-events-none opacity-40 border-slate-200 dark:border-white/10'
+                    : 'border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5'
+                }`}
+              >
+                ← Önceki
+              </Link>
+              <Link
+                href={`/${lang}/admin/leads?page=${page + 1}`}
+                aria-disabled={page >= totalPages}
+                className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
+                  page >= totalPages
+                    ? 'pointer-events-none opacity-40 border-slate-200 dark:border-white/10'
+                    : 'border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5'
+                }`}
+              >
+                Sonraki →
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

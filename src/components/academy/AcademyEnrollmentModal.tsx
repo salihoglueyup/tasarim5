@@ -26,7 +26,7 @@ export default function AcademyEnrollmentModal({
   onClose,
   defaultCourseName = ""
 }: AcademyEnrollmentModalProps) {
-  const { status, errorKey, submit, reset } = useLeadSubmit();
+  const { status, submit, reset } = useLeadSubmit();
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -145,7 +145,7 @@ export default function AcademyEnrollmentModal({
                 {/* Error Banner */}
                 {status === 'error' && (
                   <div className="p-3.5 mb-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs font-bold text-rose-600 dark:text-rose-400 text-center">
-                    {errorKey || 'Bir hata oluştu. Lütfen tekrar deneyiniz.'}
+                    Bir hata oluştu. Lütfen tekrar deneyiniz veya bizi telefonla arayın.
                   </div>
                 )}
 

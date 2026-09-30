@@ -362,7 +362,7 @@ export default function IletisimClient() {
 
                   {errorKey && (
                     <div role="alert" aria-live="assertive" className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-sm text-rose-600 dark:text-rose-300">
-                      {errorKey}
+                      {t(errorKey as Parameters<typeof t>[0])}
                     </div>
                   )}
 
