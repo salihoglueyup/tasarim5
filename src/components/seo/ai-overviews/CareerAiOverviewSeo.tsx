@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { className?: string; lang?: string }) {
@@ -16,15 +17,32 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Tesis İstihdamı & Kıdem Tazminatı Güvencesi | Google AI Overview',
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['#career-instant-answer-text'],
+  const schemaData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: directAnswer,
+            author: { '@type': 'Organization', name: 'Alo Yönetim' },
+          },
+        },
+      ],
     },
-  };
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Tesis İstihdamı & Kıdem Tazminatı Güvencesi | Google AI Overview',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['#career-instant-answer-text'],
+      },
+    },
+  ];
 
   return (
     <section
@@ -33,10 +51,7 @@ export default function CareerAiOverviewSeo({ className = '', lang = 'tr' }: { c
       className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-400/5 via-slate-300/5 to-transparent rounded-full blur-3xl pointer-events-none" />
