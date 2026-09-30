@@ -124,9 +124,9 @@ ${dictionaryList}
 ## 7. 2026 Asgari Ücret Ek Bütçe ve KMK 42 EV Şarj İstasyonu Standartları
 ### 2026 Ek İşletme Projesi (Ek Bütçe) Süreci
 - **Hukuki Dayanak**: 634 Sayılı KMK Madde 35/f, Madde 37 ve 2004 Sayılı İİK Madde 68.
-- **Kesinleşme Süresi**: Tebliğ tarihinden itibaren 7 gün içinde sulh hukuk mahkemesine itiraz edilmezse kesinleşir.
-- **Gecikme Faizi**: KMK Madde 20/2 uyarınca ödenmeyen her ay için kanuni aylık %5 gecikme tazminatı uygulanır.
-- **İcra Gücü**: Kesinleşen ek bütçe doğrudan ilamsız icra takibine konu edilebilir.
+- **İtiraz Penceresi**: Süre tebliğin fiilen teslim alındığı günden işlemeye başlar (ilan tarihinden değil); 7. günün sonuna kadar sulh hukuk mahkemesine dilekçe ulaşmazsa proje otomatik kesinleşir.
+- **Tavan Faiz Oranı**: KMK m.20/2 aylık %5'i emredici üst sınır olarak belirler — genel kurul dahi bunu artıramaz, aksi karar butlanla sakattır.
+- **İcra Gücü**: Kesinleşen ek bütçe ayrı bir mahkeme kararına gerek kalmadan doğrudan ilamsız icra takibine konu edilebilir.
 
 ### Kapalı Otopark Elektrikli Araç (EV) Şarj İstasyonu Kurulumu
 - **Ortak Alan Kurulumu**: KMK Madde 42 gereğince kat malikleri kurulunun hem sayı hem arsa payı bakımından salt çoğunluğu (%50+1) zorunludur.

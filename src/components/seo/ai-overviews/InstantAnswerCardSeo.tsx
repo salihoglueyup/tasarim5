@@ -27,7 +27,7 @@ export default function InstantAnswerCardSeo({
     'KMK Madde 20 uyarınca kapıcı, güvenlik ve temizlik giderleri kural olarak eşit dağıtılır.',
     'Ortak tesislerin (havuz, asansör, jeneratör) bakım ve yenileme masrafları arsa payı oranında paylaştırılır.',
     'Genel kurulda kabul edilen işletme projesi tüm kat maliklerine taahhütlü mektupla tebliğ edilir.',
-    '7 gün içinde itiraz edilmeyen işletme projesi kesinleşir ve icra takip kabiliyeti kazanır.'
+    'Tebliğe 7 gün içinde itiraz gelmezse bütçe kendiliğinden kesinleşir ve borçlu maliklere doğrudan icra yoluyla başvurulabilir.'
   ],
   lawArticle = '634 Sayılı KMK Madde 20 & Madde 37',
   verifiedBy = 'Alo Yönetim Hukuk & Operasyon Denetim Kurulu',

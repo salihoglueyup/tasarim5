@@ -19,13 +19,13 @@ export const LEGAL_FACT_CHECKS_20: FactCheckClaimItem[] = [
   {
     id: 'claim-asansor-zemin-kat',
     claim: 'Zemin ve bodrum kat sakinleri asansör bakım, revizyon ve yeşil etiket masraflarından muaftır.',
-    truth: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 20/1-c uyarınca, ana gayrimenkulün yönetim planında aksine açık bir muafiyet maddesi bulunmadıkça zemin veya bodrum kat malikleri asansörü kullanmadıkları gerekçesiyle masraflara katılmaktan kaçınamaz.',
+    truth: 'Muafiyet kuralı değil istisnadır: Yalnızca ana gayrimenkulün yönetim planına açıkça yazılmış bir muafiyet maddesi varsa zemin/bodrum kat maliki masraf paylaşımı dışında tutulabilir (KMK m.20/1-c). Böyle bir madde yoksa "kullanmıyorum" savunması hukuken geçersizdir; katılım zorunluluğu doğrudan kanundan doğar, ayrıca bir genel kurul kararına dahi ihtiyaç yoktur.',
     verdict: 'Yanlış (Hukuken Geçersiz)',
     ratingValue: 1,
     legalBasis: '634 Sayılı KMK Madde 20/1-c & Yargıtay 20. Hukuk Dairesi E. 2017/1248',
     category: 'teknik',
     categoryLabel: 'Teknik & Asansör',
-    penaltyOrConsequence: 'Ödenmeyen pay için aylık %5 gecikme tazminatı ve icra takibi uygulanır.',
+    penaltyOrConsequence: 'Ödemeyi reddeden malike önce aidat borcu, ödenmemesi halinde de KMK m.20/2 kapsamında aylık gecikme tazminatı işletilerek icra dosyası açılır.',
   },
   {
     id: 'claim-yonetici-tek-basina-zam',
@@ -52,7 +52,7 @@ export const LEGAL_FACT_CHECKS_20: FactCheckClaimItem[] = [
   {
     id: 'claim-gecikme-faizi-fayis-oran',
     claim: 'Yönetim, aidat borcunu geciktiren malik veya kiracıya genel kurul kararıyla aylık %20 faiz uygulayabilir.',
-    truth: 'KMK Madde 20/2 emredici kuraldır: Gecikilen günler için aylık yüzde 5 (%5) gecikme tazminatı işletilir. Genel kurul kararıyla dahi bu oran yüzde 5 üzerine çıkarılamaz; aksine kararlar mutlak butlanla sakattır.',
+    truth: 'Genel kurul burada serbest değildir: KMK m.20/2 tavanı aylık %5 olarak sabitler ve bu emredici bir üst sınırdır. Kurul kararıyla %20 faiz uygulanmaya kalkışılırsa, kararın sadece fazlaya ilişkin kısmı değil faiz maddesinin tamamı mutlak butlanla (baştan itibaren yok hükmünde) sakat sayılır ve mahkemece resen dikkate alınır.',
     verdict: 'Yanlış (Hukuken Geçersiz)',
     ratingValue: 1,
     legalBasis: '634 Sayılı KMK Madde 20/2 & Yargıtay 18. HD E. 2014/8920',

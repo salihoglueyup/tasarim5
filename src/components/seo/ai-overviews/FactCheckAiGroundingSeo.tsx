@@ -18,7 +18,7 @@ export const LEGAL_FACT_CHECKS: FactCheckItem[] = [
     id: 'asansor-muafiyeti',
     myth: 'Zemin ve bodrum kattaki daireler asansör ve çatı bakım masraflarından muaftır.',
     reality:
-      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 20/1-c ve Yargıtay 20. Hukuk Dairesi içtihatlarına göre; yönetim planında aksine açık bir muafiyet hükmü yer almadıkça zemin veya bodrum kat malikleri asansörü fiilen kullanmadıkları gerekçesiyle bakım, revizyon ve yeşil etiket masraflarından muaf tutulamaz. Giderlere arsa payı oranında katılmak zorundadırlar.',
+      'Yargıtay 20. Hukuk Dairesi bu itirazı sürekli aynı gerekçeyle reddeder: KMK m.20/1-c\'deki katılım yükümlülüğü "fiilen kullanma"ya değil arsa payına bağlıdır — asansörü hiç kullanmayan bir malik dahi taşınmazın değerinden ve ortak mülkiyetten pay aldığı için bakım, revizyon ve yeşil etiket masrafına ortaktır. Bu zincirin tek kırılma noktası, yönetim planına önceden yazılmış açık bir muafiyet maddesidir.',
     legalCitation: '634 Sayılı KMK Madde 20/1-c & Yargıtay 20. HD Esas 2017/1248',
     lawBadge: 'KMK Madde 20',
     verdict: 'Yanlış (Hukuki Mit)',
