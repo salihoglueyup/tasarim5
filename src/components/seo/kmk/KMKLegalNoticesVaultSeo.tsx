@@ -84,7 +84,7 @@ export default function KMKLegalNoticesVaultSeo() {
             <span>Hukuki Belge & Tutanak Havuzu</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Kat Malikleri & Yöneticiler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-yellow-300">KMK İhtarname & Tutanak Kütüphanesi</span>
+            Kat Malikleri & Yöneticiler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-300">KMK İhtarname & Tutanak Kütüphanesi</span>
           </h2>
           <p className="text-slate-300 mt-2 text-xs sm:text-sm font-normal max-w-3xl leading-relaxed">
             Aidat borcu ihtarnamesinden izinsiz cam balkon uyarısına, genel kurul çağrısından vekaletnameye kadar noter ve mahkeme süreçlerinde yasal geçerliliği olan resmi şablonlar.
