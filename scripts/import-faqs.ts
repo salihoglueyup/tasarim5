@@ -5,8 +5,16 @@ import { Pool } from 'pg';
 import * as fs from 'fs';
 import * as path from 'path';
 
+// dotenv, .env içindeki "${POSTGRES_PASSWORD}" gibi shell-tarzı referansları
+// kendiliğinden çözmez (Docker Compose'un aksine) — burada elle genişletiyoruz.
+function expandEnvVar(value: string | undefined): string | undefined {
+  if (!value) return value;
+  return value.replace(/\$\{([A-Z_][A-Z0-9_]*)\}/g, (_, name) => process.env[name] ?? '');
+}
+const databaseUrl = expandEnvVar(process.env.DATABASE_URL);
+
 async function main() {
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 5 });
+  const pool = new Pool({ connectionString: databaseUrl, max: 5 });
   const adapter = new PrismaPg(pool);
   const prisma = new PrismaClient({ adapter });
 
