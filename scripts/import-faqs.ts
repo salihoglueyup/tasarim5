@@ -10,7 +10,7 @@ async function main() {
   const adapter = new PrismaPg(pool);
   const prisma = new PrismaClient({ adapter });
 
-  const jsonPath = path.join(__dirname, 'prisma', 'data', 'all_faqs_export.json');
+  const jsonPath = path.join(__dirname, '..', 'prisma', 'data', 'all_faqs_export.json');
   if (!fs.existsSync(jsonPath)) {
     console.error(`File not found: ${jsonPath}`);
     process.exit(1);
