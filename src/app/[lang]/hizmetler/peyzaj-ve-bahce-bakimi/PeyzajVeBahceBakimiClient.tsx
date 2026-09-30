@@ -17,6 +17,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityLandscapeTreeGuideSeo from '@/components/seo/facility/FacilityLandscapeTreeGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function PeyzajVeBahceBakimiClient() {
@@ -143,6 +144,12 @@ export default function PeyzajVeBahceBakimiClient() {
           standardBadge="Akıllı Sulama & 4 Mevsim PPM"
           subText="Alo Yönetim, ziraat mühendisleri ve peyzaj mimarları denetiminde bitki sağlığı pasaportu, organik gübreleme ve periyodik mevsimlik çiçeklendirme sunar."
           accentColor="emerald"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['agac-budama-kesim-izni']}
+          title="Peyzaj ve Bahçe Bakımında Yapay Zekaya Sorun: Belediye Mevzuatı"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış ağaç kesim/budama izni ve ortak alan peyzaj mevzuatı."
         />
 
         {/* 4 Cards Grid */}

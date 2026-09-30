@@ -19,6 +19,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityWaterTankSanitationSeo from '@/components/seo/facility/FacilityWaterTankSanitationSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function TeknikBakimClient() {
@@ -129,6 +130,12 @@ export default function TeknikBakimClient() {
           standardBadge="Sanayi Bakanlığı & A Tipi Yeşil Etiket"
           subText="Alo Yönetim, TMMOB standartlarında periyodik muayeneler ve 45 dakika SLA acil teknik müdahale garantisi ile binalarınızda sıfır altyapı arızası hedefler."
           accentColor="blue"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['asansor-yesil-etiket', 'plaza-bms-enerji', 'ev-sarj-istasyonu']}
+          title="Teknik Bakımda Yapay Zekaya Sorun: Sanayi Bakanlığı ve EPDK Standartları"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış asansör, kompanzasyon ve EV şarj altyapısı mevzuatı."
         />
 
         {/* ========================================================================= */}

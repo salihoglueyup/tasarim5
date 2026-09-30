@@ -10,6 +10,7 @@ import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSect
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
@@ -115,6 +116,12 @@ export default function SanayiTesisiYonetimiClient() {
           standardBadge="ISO 45001 & ISO 14001 Endüstriyel Standart"
           subText="Alo Yönetim, üretim hatlarında sıfır plansız duruş garantisi, 30 dakika acil mekanik SLA taahhüdü ve 5188 perimetre çevre güvenliği sunar."
           accentColor="orange"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['sanayi-osgb-zorunlulugu', 'plaza-bms-enerji']}
+          title="Sanayi Tesisi Yönetiminde Yapay Zekaya Sorun: 6331 Sayılı İSG Kanunu"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış OSGB zorunluluğu ve endüstriyel enerji verimliliği mevzuatı."
         />
 
         {/* 6'lı Operasyonel Standartlar Grid */}

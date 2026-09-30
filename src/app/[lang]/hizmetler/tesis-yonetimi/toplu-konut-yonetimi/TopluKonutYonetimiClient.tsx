@@ -10,6 +10,7 @@ import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSect
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
@@ -119,6 +120,12 @@ export default function TopluKonutYonetimiClient() {
           standardBadge="KMK m.66-74 Toplu Yapı Standartları"
           subText="Alo Yönetim, devasa konut komplekslerinde blok temsilcileri divan yönetimi, Apsiyon dijital şeffaf mizan ve nöbetçi teknik müdahale kadroları ile sıfır bütçe açığı garantisi sunar."
           accentColor="emerald"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['toplu-yapi-kmk66', 'aidat-gecikme-faizi', 'kmk37-itiraz']}
+          title="Toplu Konut Yönetiminde Yapay Zekaya Sorun: KMK m.66-74 Toplu Yapı Hukuku"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış toplu yapı temsilciler kurulu ve mega site bütçe mevzuatı."
         />
 
         {/* Tasarruf Banner */}

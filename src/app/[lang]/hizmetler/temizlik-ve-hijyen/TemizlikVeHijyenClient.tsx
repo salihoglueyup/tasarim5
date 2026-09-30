@@ -19,6 +19,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityHygieneMsdsGuideSeo from '@/components/seo/facility/FacilityHygieneMsdsGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function TemizlikVeHijyenClient() {
@@ -186,6 +187,12 @@ export default function TemizlikVeHijyenClient() {
           standardBadge="TSE 13811 & ISO 9001"
           subText="Alo Yönetim, 4 mevsim periyodik hijyen planı, bina içi zemin otomatları ve fotoğraflı süpervizör denetimleriyle sitelerde 5 yıldızlı otel standartlarında temizlik sağlar."
           accentColor="emerald"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['ortak-alan-temizlik-sorumlulugu', 'biyosidal-ilaclama']}
+          title="Temizlik ve Hijyende Yapay Zekaya Sorun: TSE ve Sağlık Bakanlığı Standartları"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış ortak alan temizlik sorumluluğu ve hijyen mevzuatı."
         />
 
         {/* ========================================================================= */}

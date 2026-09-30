@@ -19,6 +19,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import KMKOperatingBudgetGuideSeo from '@/components/seo/kmk/KMKOperatingBudgetGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function AidatTakibiClient() {
@@ -146,6 +147,12 @@ export default function AidatTakibiClient() {
           standardBadge="KMK Madde 20 & İİK Madde 68"
           subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla 7/24 online ödeme ve kurumsal hukuk desteğiyle sitelerde %99.2 yıllık tahsilat oranı sağlar."
           accentColor="emerald"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['kmk37-itiraz', 'aidat-gecikme-faizi', 'aidat-icra-haciz-sureci', 'kidem-tazminati']}
+          title="Aidat Takibinde Yapay Zekaya Sorun: 634 Sayılı KMK Hukuku"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış aidat tahsilatı, gecikme tazminatı ve icra takibi mevzuatı."
         />
 
         {/* ========================================================================= */}

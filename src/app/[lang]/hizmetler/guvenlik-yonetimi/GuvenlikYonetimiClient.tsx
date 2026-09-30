@@ -23,6 +23,7 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import SiteSecurityPermitGuideSeo from '@/components/seo/district/SiteSecurityPermitGuideSeo';
 import EmergencyDisasterAuditSeo from '@/components/seo/facility/EmergencyDisasterAuditSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function GuvenlikYonetimiClient() {
@@ -178,6 +179,12 @@ export default function GuvenlikYonetimiClient() {
           standardBadge="5188 Sayılı Kanun & Valilik İzni"
           subText="Alo Yönetim, 5188 lisanslı güvenlik personeli, CCTV analitiği ve plaka tanıma sistemi ile sitenizde %100 yasal güvence ve sıfır kıdem tazminatı riski sağlar."
           accentColor="blue"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['5188-ozel-guvenlik', 'kidem-tazminati']}
+          title="Güvenlik Yönetiminde Yapay Zekaya Sorun: 5188 Sayılı Kanun"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış özel güvenlik mevzuatı ve personel istihdam güvencesi."
         />
 
         {/* ========================================================================= */}

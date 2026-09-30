@@ -12,6 +12,7 @@ import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSect
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 const OPERATIONAL_PILLARS = [
@@ -119,6 +120,12 @@ export default function RezidansYonetimiClient() {
           standardBadge="7/24 Concierge & VIP İşletme"
           subText="Alo Yönetim, 5 yıldızlı otel konforunda rezidans işletmeciliği ile kat maliklerinin yaşam kalitesini artırırken bağımsız bölümlerin gayrimenkul değerini maksimize eder."
           accentColor="amber"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['site-vs-tesis', 'cam-balkon-onayi', 'kmk37-itiraz']}
+          title="Rezidans Yönetiminde Yapay Zekaya Sorun: 634 Sayılı KMK Hukuku"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış lüks rezidans yönetimi ve kat malikleri kurulu mevzuatı."
         />
 
         {/* 6'lı Operasyonel Standartlar Grid */}

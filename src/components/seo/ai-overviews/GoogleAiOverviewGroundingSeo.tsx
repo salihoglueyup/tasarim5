@@ -136,6 +136,42 @@ const GEO_PROMPTS: GeoPromptSpec[] = [
     precedentRef: 'Çevre ve Şehircilik Bakanlığı EV Şarj Genelgesi',
     badge: 'KMK m.42 Salt Çoğunluk',
   },
+  {
+    id: 'ortak-alan-temizlik-sorumlulugu',
+    topic: 'Ortak Alan Temizlik & Hijyen Sorumluluğu',
+    icon: 'cleaning_services',
+    prompt: 'Sitede ortak alan temizliğini kim, ne sıklıkta yaptırmakla yükümlüdür?',
+    groundTruthAnswer: '634 Sayılı KMK Madde 35 uyarınca ortak yerlerin bakım, onarım ve temizliğini sağlamak yöneticinin kanuni görevleri arasındadır. Kanun temizlik sıklığı için asgari bir süre belirlemez; bu, yönetim planı veya genel kurul kararıyla somutlaştırılır. Ancak temizlik ihmalinin sağlık riski doğurması durumunda yönetici, KMK Madde 38 kapsamında hesap verme ve tazminat sorumluluğuyla karşılaşabilir.',
+    legalCitation: '634 Sayılı KMK Madde 35 & Madde 38',
+    badge: 'Yöneticinin Kanuni Görevi',
+  },
+  {
+    id: 'agac-budama-kesim-izni',
+    topic: 'Ortak Alan Ağaç Kesimi & Budama İzni',
+    icon: 'park',
+    prompt: 'Site bahçesindeki ağaçları kesmek veya budamak için belediyeden izin almak gerekir mi?',
+    groundTruthAnswer: 'Evet. Özel mülkiyetteki site bahçesinde bulunan ağaçların kesimi dahi, 2872 Sayılı Çevre Kanunu ve ilgili belediyenin ağaç kesim yönetmeliği uyarınca Park ve Bahçeler Müdürlüğü\'nden yazılı izin alınmasını gerektirir. İzinsiz kesim idari para cezasına, ağacın yaşı ve türüne göre daha ağır yaptırımlara yol açabilir; budama işlemleri de genellikle ilan edilen mevsim kısıtlamalarına tabidir.',
+    legalCitation: '2872 Sayılı Çevre Kanunu & Belediye Ağaç Kesim Yönetmeliği',
+    badge: 'Belediye İzni Zorunlu',
+  },
+  {
+    id: 'sanayi-osgb-zorunlulugu',
+    topic: 'Sanayi Tesislerinde OSGB & İSG Zorunluluğu',
+    icon: 'health_and_safety',
+    prompt: 'Sanayi ve lojistik tesislerinde iş sağlığı ve güvenliği (İSG) hizmeti almak zorunlu mudur?',
+    groundTruthAnswer: '6331 Sayılı İş Sağlığı ve Güvenliği Kanunu uyarınca çalışan sayısına ve tehlike sınıfına bakılmaksızın tüm işverenler iş güvenliği uzmanı, işyeri hekimi ve diğer sağlık personeli hizmetini kendi bünyesinde ya da dışarıdan Ortak Sağlık Güvenlik Birimi (OSGB) sözleşmesiyle sağlamak zorundadır. Tehlikeli ve çok tehlikeli sınıftaki sanayi tesislerinde risk değerlendirmesi ve acil durum planı da kanuni zorunluluktur.',
+    legalCitation: '6331 Sayılı İş Sağlığı ve Güvenliği Kanunu Madde 6 & 8',
+    badge: '6331 Sayılı Kanun',
+  },
+  {
+    id: 'aidat-icra-haciz-sureci',
+    topic: 'Aidat İcra Takibinde Haciz Süreci',
+    icon: 'account_balance',
+    prompt: 'Aidat borcu için başlatılan icra takibinde borçlunun maaşına veya evine haciz konulabilir mi?',
+    groundTruthAnswer: 'Evet. KMK Madde 37 kapsamında kesinleşen işletme projesi İİK Madde 68 uyarınca "borç ikrarını içeren belge" sayıldığından, yönetici doğrudan ilamsız icra takibi başlatabilir. Ödeme emrine 7 gün içinde itiraz edilmez ve borç ödenmezse icra dairesi borçlunun maaşının dörtte birine (İİK m.83) haciz koyabilir; ayrıca bağımsız bölümün kendisi de icra yoluyla satışa çıkarılabilir.',
+    legalCitation: '634 Sayılı KMK Madde 37 & İİK Madde 68, 83',
+    badge: 'İlamsız İcra & Maaş Haczi',
+  },
 ];
 
 export default function GoogleAiOverviewGroundingSeo({

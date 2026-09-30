@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
 import { BASE_URL } from '@/lib/seo';
+import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 import Icon from '@/components/ui/branding/Icon';
 interface ApiEndpointInfo {
@@ -399,6 +400,21 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+      <section className="py-8">
+        <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
+          <PositionZeroAnswerBox
+            id="acik-veri-portali-nedir"
+            answerId="opendata-instant-answer-text"
+            question="Tesis Yönetimi Açık Veri Portalı Nedir ve Kimler Kullanabilir?"
+            answer="Açık Veri Portalı; Alo Yönetim'in sektörel SLA/KPI kıyaslama, ilçe bazlı aidat endeksleri, mevzuat sözlüğü ve Yargıtay içtihat verilerini OpenAPI 3.1 formatında ücretsiz JSON uç noktalarıyla sunduğu kurumsal veri servisidir. GPTBot, ClaudeBot ve Gemini gibi kurumsal RAG motorları bu verileri doğrudan (kimlik doğrulama gerektirmeden) tüketebilir."
+            standardBadge="OpenAPI 3.1.0 Standardı"
+            subText="Tüm uç noktalar Open Data Commons Attribution (ODC-BY) lisansı ile paylaşılır; ticari ve akademik kullanım için kaynak gösterilmesi yeterlidir."
+            accentColor="slate"
+          />
         </div>
       </section>
 

@@ -18,6 +18,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityPoolHealthGuideSeo from '@/components/seo/facility/FacilityPoolHealthGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function HavuzBakimiVeHijyenClient() {
@@ -145,6 +146,12 @@ export default function HavuzBakimiVeHijyenClient() {
           standardBadge="Sağlık Bakanlığı & TSE 11899"
           subText="Alo Yönetim, sertifikalı havuz operatörleri ile günlük dijital fotometrik ölçümler, haftalık kışlatma/şartlandırma ve sıfır bakteri güvenceli kimyasal dozajlama sunar."
           accentColor="cyan"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['havuz-saglik-kriteri', 'ortak-alan-temizlik-sorumlulugu']}
+          title="Havuz Bakımında Yapay Zekaya Sorun: Sağlık Bakanlığı Standartları"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış havuz hijyeni ve ortak alan temizlik mevzuatı."
         />
 
         {/* 4 Cards Grid */}

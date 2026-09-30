@@ -20,6 +20,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityEnforcementDisputeSeo from '@/components/seo/facility/FacilityEnforcementDisputeSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import KMKLawCourtDisputeMatrixSeo from '@/components/seo/kmk/KMKLawCourtDisputeMatrixSeo';
 
 import Icon from '@/components/ui/branding/Icon';
@@ -140,6 +141,12 @@ export default function HukukVeIcraDanismanligiClient() {
           standardBadge="634 KMK & İcra İflas Kanunu"
           subText="Alo Yönetim, uzman gayrimenkul hukukçuları ile Sulh Hukuk Mahkemesi süreçleri, hakimin müdahalesi ve hızlı tahsilat protokollerini yönetir."
           accentColor="indigo"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['kmk37-itiraz', 'aidat-icra-haciz-sureci', 'aidat-gecikme-faizi', 'cam-balkon-onayi', 'toplu-yapi-kmk66']}
+          title="Hukuk ve İcra Danışmanlığında Yapay Zekaya Sorun: KMK & İİK Hukuku"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış aidat icra takibi, itiraz süreleri ve kat mülkiyeti hukuku mevzuatı."
         />
 
         {/* ========================================================================= */}

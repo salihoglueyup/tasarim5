@@ -17,6 +17,7 @@ import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityBiocidalPestGuideSeo from '@/components/seo/facility/FacilityBiocidalPestGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function HasereVeDezenfeksiyonClient() {
@@ -143,6 +144,12 @@ export default function HasereVeDezenfeksiyonClient() {
           standardBadge="Sağlık Bakanlığı Biyosidal Ruhsatı"
           subText="Alo Yönetim, WHO ve Sağlık Bakanlığı onaylı kokusuz biyosidal formülasyonlar, kilitli yem istasyonları ve garantili IPM entegre zararlı yönetimi uygular."
           accentColor="emerald"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['biyosidal-ilaclama', 'ortak-alan-temizlik-sorumlulugu']}
+          title="Haşere ve Dezenfeksiyonda Yapay Zekaya Sorun: Sağlık Bakanlığı Standartları"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış biyosidal ilaçlama ruhsatı ve ortak alan hijyen mevzuatı."
         />
 
         {/* 4 Cards Grid */}

@@ -12,6 +12,7 @@ import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSect
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
+import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 const OPERATIONAL_PILLARS = [
@@ -115,6 +116,12 @@ export default function PlazaYonetimiClient() {
           standardBadge="Yangın Yönetmeliği"
           subText="Alo Yönetim, kurumsal plazalarda 45 dakika acil teknik müdahale SLA garantisi, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
           accentColor="blue"
+        />
+
+        <GoogleAiOverviewGroundingSeo
+          filterIds={['plaza-bms-enerji', 'site-vs-tesis', 'ev-sarj-istasyonu']}
+          title="Plaza Yönetiminde Yapay Zekaya Sorun: BMS ve EPDK Standartları"
+          subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış plaza otomasyonu, enerji verimliliği ve tesis yönetimi mevzuatı."
         />
 
         {/* 6'lı Operasyonel Standartlar Grid */}
