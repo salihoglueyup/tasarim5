@@ -181,7 +181,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
             className="px-3 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />
-            Perplexity
+            Claude
           </a>
         </div>
       </div>

@@ -215,7 +215,7 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
                 className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
               >
                 <Icon name="travel_explore" className="text-xs" />
-                Perplexity
+                Claude
               </a>
             </div>
           </div>

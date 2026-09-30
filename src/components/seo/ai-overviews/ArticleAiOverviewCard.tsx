@@ -144,10 +144,10 @@ export default function ArticleAiOverviewCard({
             href={`https://claude.ai/new?q=${encodeURIComponent(`${title} alo yonetim kmk hukuku`)}`}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="px-3.5 py-1.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold transition-colors flex items-center gap-1.5 shadow-xs"
+            className="px-3.5 py-1.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white font-bold transition-colors flex items-center gap-1.5 shadow-xs"
           >
             <Icon name="travel_explore" className="text-xs" />
-            Perplexity
+            Claude
           </a>
         </div>
       </div>
