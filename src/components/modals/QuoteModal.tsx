@@ -3,8 +3,28 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
+import { waLink } from '@/lib/cro/cro';
 
 import Icon from '@/components/ui/branding/Icon';
+import Logo from '@/components/ui/branding/Logo';
+
+/** Türkiye telefon numarasını kullanıcı yazarken "+90 5XX XXX XX XX" kalıbına biçimlendirir. */
+function formatTrPhone(raw: string): string {
+  let digits = raw.replace(/\D/g, '');
+  if (digits.startsWith('90')) digits = digits.slice(2);
+  if (digits.startsWith('0')) digits = digits.slice(1);
+  digits = digits.slice(0, 10);
+  const parts = [digits.slice(0, 3), digits.slice(3, 6), digits.slice(6, 8), digits.slice(8, 10)].filter(Boolean);
+  return digits ? `+90 ${parts.join(' ')}`.trimEnd() : '';
+}
+
+function isValidTrPhone(phone: string): boolean {
+  return /^\+90 5\d{2} \d{3} \d{2} \d{2}$/.test(phone);
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 interface QuoteModalProps {
   onClose: () => void;
 }
@@ -19,6 +39,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const { status, errorKey, submit } = useLeadSubmit();
   const isCompleted = status === 'success';
+  const [touched, setTouched] = useState({ phone: false, email: false });
 
   // Form State
   const [formData, setFormData] = useState({
@@ -102,7 +123,7 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
   };
 
   const isStepValid = () => {
-    if (currentStep === 0) return formData.name.trim() !== '' && formData.phone.trim() !== '';
+    if (currentStep === 0) return formData.name.trim() !== '' && isValidTrPhone(formData.phone) && (formData.email.trim() === '' || isValidEmail(formData.email));
     if (currentStep === 1) return formData.projectType !== '';
     if (currentStep === 2) return formData.services.length > 0;
     if (currentStep === 3) return formData.kvkk;
@@ -148,7 +169,8 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
           <div className="absolute -top-1/4 -right-1/4 w-[150%] h-[150%] bg-white/5 blur-[120px] rounded-full mix-blend-screen pointer-events-none z-0" />
           
           <div className="relative z-10 flex flex-col gap-6">
-            <div className="mt-8">
+            <Logo variant="white" />
+            <div className="mt-4">
               <h2
                 className="text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight mb-6 transition-all duration-300 transform-gpu"
               >
@@ -232,23 +254,31 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="group">
                             <label className="text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-wider mb-2 block group-focus-within:text-[var(--color-primary)] dark:group-focus-within:text-white transition-colors">{t('quote_step_1_phone')} *</label>
-                            <input 
-                              type="tel" 
+                            <input
+                              type="tel"
                               value={formData.phone}
-                              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                              onChange={(e) => setFormData({...formData, phone: formatTrPhone(e.target.value)})}
+                              onBlur={() => setTouched(prev => ({ ...prev, phone: true }))}
                               className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)] dark:focus:ring-white/50 dark:focus:border-white transition-all font-medium placeholder-slate-400 dark:placeholder-gray-600"
                               placeholder="+90 5XX XXX XX XX"
                             />
+                            {touched.phone && formData.phone !== '' && !isValidTrPhone(formData.phone) && (
+                              <p className="text-xs text-rose-600 dark:text-rose-400 font-medium mt-1.5">{t('quote_step_1_phone_hint')}</p>
+                            )}
                           </div>
                           <div className="group">
                             <label className="text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-wider mb-2 block group-focus-within:text-[var(--color-primary)] dark:group-focus-within:text-white transition-colors">{t('quote_step_1_email')}</label>
-                            <input 
-                              type="email" 
+                            <input
+                              type="email"
                               value={formData.email}
                               onChange={(e) => setFormData({...formData, email: e.target.value})}
+                              onBlur={() => setTouched(prev => ({ ...prev, email: true }))}
                               className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)] dark:focus:ring-white/50 dark:focus:border-white transition-all font-medium placeholder-slate-400 dark:placeholder-gray-600"
                               placeholder="ornek@sirket.com"
                             />
+                            {touched.email && formData.email !== '' && !isValidEmail(formData.email) && (
+                              <p className="text-xs text-rose-600 dark:text-rose-400 font-medium mt-1.5">{t('quote_step_1_email_hint')}</p>
+                            )}
                           </div>
                         </div>
 
@@ -490,13 +520,24 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
                 <p className="text-base text-slate-600 dark:text-gray-400 font-light leading-relaxed mb-10">
                   {t('quote_success_desc')}
                 </p>
-                <button 
-                  onClick={onClose}
-                  className="bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900 px-8 py-3.5 rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <Icon name="close" className="text-[18px]" />
-                  {t('quote_home_btn')}
-                </button>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <a
+                    href={waLink(t('quote_success_whatsapp_prefill').replace('{name}', formData.name))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <Icon name="chat" className="text-[18px]" />
+                    {t('quote_success_whatsapp_btn')}
+                  </a>
+                  <button
+                    onClick={onClose}
+                    className="bg-[var(--color-primary)] dark:bg-white text-white dark:text-slate-900 px-8 py-3.5 rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <Icon name="close" className="text-[18px]" />
+                    {t('quote_home_btn')}
+                  </button>
+                </div>
               </div>
             )}
             
