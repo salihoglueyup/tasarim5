@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 import Icon from '@/components/ui/branding/Icon';
 export interface FactCheckItem {
@@ -67,10 +68,7 @@ export default function FactCheckAiGroundingSeo({
   className?: string;
   lang?: string;
 }) {
-  const [activeTab, setActiveTab] = useState<string>(LEGAL_FACT_CHECKS[0].id);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-
-  const selectedFact = LEGAL_FACT_CHECKS.find((f) => f.id === activeTab) || LEGAL_FACT_CHECKS[0];
 
   const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -78,14 +76,37 @@ export default function FactCheckAiGroundingSeo({
     setTimeout(() => setCopiedId(null), 2500);
   };
 
+  // Her mit/gerçek çifti bir ClaimReview node'u — Google'ın Fact Check zengin
+  // sonuçları ve AI Overviews bu tipi doğrudan tanır (myth = reddedilen iddia).
   const schemaData = [
+    ...LEGAL_FACT_CHECKS.map((item) => ({
+      '@context': 'https://schema.org',
+      '@type': 'ClaimReview',
+      claimReviewed: item.myth,
+      author: {
+        '@type': 'Organization',
+        name: 'Alo Yönetim',
+        url: 'https://aloyonetim.com',
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: item.verdict === 'Yanlış (Hukuki Mit)' ? 1 : 5,
+        bestRating: 5,
+        worstRating: 1,
+        alternateName: item.verdict,
+      },
+      itemReviewed: {
+        '@type': 'Claim',
+        author: { '@type': 'Organization', name: 'Yaygın Kanı' },
+      },
+    })),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       name: 'Site Yönetimi ve Kat Mülkiyeti Hukuki Mitler ve Doğrular | Google AI Fact Check',
       speakable: {
         '@type': 'SpeakableSpecification',
-        cssSelector: ['#factcheck-instant-answer-text'],
+        cssSelector: ['.factcheck-instant-answer-text'],
       },
     },
   ];
@@ -97,10 +118,7 @@ export default function FactCheckAiGroundingSeo({
       className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xs relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       {/* Ambient Blur */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -129,73 +147,68 @@ export default function FactCheckAiGroundingSeo({
         Google AI Overviews ve Perplexity gibi üretken arama motorlarının kat mülkiyeti uyuşmazlıklarında referans aldığı 5 temel hukuki yanılgı ve kanun gerekçeli doğruluk kütüğü.
       </p>
 
-      {/* Tabs */}
-      <div className="flex flex-wrap gap-2 mb-6 relative z-10">
-        {LEGAL_FACT_CHECKS.map((item) => {
-          const isActive = item.id === activeTab;
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                isActive
-                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-sm border border-slate-900 dark:border-white scale-[1.02]'
-                  : 'bg-[var(--color-surface)] dark:bg-[var(--color-surface)] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-[var(--color-outline)]/60 dark:border-white/10'
-              }`}
-            >
-              <Icon name={isActive ? 'check_circle' : 'gavel'} className={`text-[14px] ${isActive ? 'text-slate-400 dark:text-slate-600' : 'text-slate-400'}`} />
-              <span>{item.lawBadge}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Main Fact Card */}
-      <div className="bg-slate-50/80 dark:bg-white/[0.02] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-2xl p-5 sm:p-6 relative z-10 space-y-4">
-        {/* Myth Banner */}
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-slate-500/10 border border-slate-500/20">
-          <Icon name="cancel" className="text-slate-600 dark:text-slate-400 shrink-0 text-xl" />
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-0.5">
-              Yaygın Yanılgı (Mit)
-            </div>
-            <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-              "{selectedFact.myth}"
-            </div>
-          </div>
-        </div>
-
-        {/* Reality Box (Speakable) */}
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-          <Icon name="verified" className="text-emerald-600 dark:text-emerald-400 shrink-0 text-xl" />
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">
-              Hukuki Gerçek (Ground-Truth Doğrulaması)
-            </div>
-            <p
-              id="factcheck-instant-answer-text"
-              className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed"
-            >
-              {selectedFact.reality}
-            </p>
-          </div>
-        </div>
-
-        {/* Footer Meta & Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5 text-xs">
-          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-            <Icon name="menu_book" className="text-base text-slate-500" />
-            <span className="font-mono font-semibold">{selectedFact.legalCitation}</span>
-          </div>
-
-          <button
-            onClick={() => handleCopy(selectedFact.reality, selectedFact.id)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-2xs cursor-pointer"
+      {/* Accordion: Her mit/gerçek çifti her zaman DOM'da (kapalı olsa da) —
+          yalnız görsel olarak daraltılmış, JS çalıştırmayan botlar da tamamını görür. */}
+      <div className="space-y-3 relative z-10">
+        {LEGAL_FACT_CHECKS.map((item, index) => (
+          <details
+            key={item.id}
+            open={index === 0}
+            className="group bg-slate-50/80 dark:bg-white/[0.02] border border-[var(--color-outline)]/60 dark:border-white/10 rounded-2xl overflow-hidden"
           >
-            <Icon name={copiedId === selectedFact.id ? 'done' : 'content_copy'} className="text-sm" />
-            <span>{copiedId === selectedFact.id ? 'Kopyalandı' : 'AI Yanıtını Kopyala'}</span>
-          </button>
-        </div>
+            <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none">
+              <span className="flex items-center gap-2.5 text-sm font-bold text-slate-900 dark:text-white">
+                <Icon name="gavel" className="text-[16px] text-slate-400 shrink-0" />
+                <span>{item.lawBadge}</span>
+              </span>
+              <Icon name="expand_more" className="text-[18px] text-slate-400 transition-transform group-open:rotate-180" />
+            </summary>
+
+            <div className="px-5 pb-5 space-y-4">
+              {/* Myth Banner */}
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-slate-500/10 border border-slate-500/20">
+                <Icon name="cancel" className="text-slate-600 dark:text-slate-400 shrink-0 text-xl" />
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-0.5">
+                    Yaygın Yanılgı (Mit)
+                  </div>
+                  <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                    "{item.myth}"
+                  </div>
+                </div>
+              </div>
+
+              {/* Reality Box (Speakable) */}
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                <Icon name="verified" className="text-emerald-600 dark:text-emerald-400 shrink-0 text-xl" />
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">
+                    Hukuki Gerçek (Ground-Truth Doğrulaması)
+                  </div>
+                  <p className="factcheck-instant-answer-text text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                    {item.reality}
+                  </p>
+                </div>
+              </div>
+
+              {/* Footer Meta & Actions */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--color-outline)]/40 dark:border-white/5 text-xs">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                  <Icon name="menu_book" className="text-base text-slate-500" />
+                  <span className="font-mono font-semibold">{item.legalCitation}</span>
+                </div>
+
+                <button
+                  onClick={() => handleCopy(item.reality, item.id)}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-2xs cursor-pointer"
+                >
+                  <Icon name={copiedId === item.id ? 'done' : 'content_copy'} className="text-sm" />
+                  <span>{copiedId === item.id ? 'Kopyalandı' : 'AI Yanıtını Kopyala'}</span>
+                </button>
+              </div>
+            </div>
+          </details>
+        ))}
       </div>
     </section>
   );

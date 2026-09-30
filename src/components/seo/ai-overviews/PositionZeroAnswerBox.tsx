@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 import Icon from '@/components/ui/branding/Icon';
 interface PositionZeroAnswerBoxProps {
@@ -68,6 +69,35 @@ export default function PositionZeroAnswerBox({
       ? 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20'
       : 'bg-[var(--color-surface-variant)] text-[var(--color-primary)] border-[var(--color-outline)]/80';
 
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: subText ? `${answer} ${subText}` : answer,
+          author: {
+            '@type': 'Organization',
+            name: 'Alo Yönetim',
+          },
+          dateModified: new Date().toISOString(),
+        },
+      },
+    ],
+  };
+
+  const speakableData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.pz-answer-question', '.pz-answer-text'],
+    },
+  };
+
   const quoteBorder =
     accentColor === 'emerald'
       ? 'border-emerald-600 dark:border-emerald-400'
@@ -90,6 +120,9 @@ export default function PositionZeroAnswerBox({
       aria-label={question}
       className={`bg-[var(--color-surface)] border ${borderClass} rounded-[2rem] p-6 sm:p-8 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
+      <JsonLd data={schemaData} />
+      <JsonLd data={speakableData} />
+
       {/* Header: Rozetler & Kopyalama */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2">
@@ -113,13 +146,13 @@ export default function PositionZeroAnswerBox({
       </div>
 
       {/* Soru / Başlık */}
-      <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-primary)] tracking-tight mb-3">
+      <h2 className="pz-answer-question text-xl sm:text-2xl font-extrabold text-[var(--color-primary)] tracking-tight mb-3">
         {question}
       </h2>
 
       {/* 40-50 Kelimelik Featured Snippet Bloğu */}
       <blockquote className={`border-l-4 ${quoteBorder} pl-4 sm:pl-5 py-2 my-3 bg-gradient-to-r from-slate-900/5 dark:from-white/5 to-transparent rounded-r-xl`}>
-        <p id={answerId} className="text-sm sm:text-base text-[var(--color-primary)] leading-relaxed font-normal">
+        <p id={answerId} className="pz-answer-text text-sm sm:text-base text-[var(--color-primary)] leading-relaxed font-normal">
           {answer}
         </p>
       </blockquote>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 import Icon from '@/components/ui/branding/Icon';
 export interface AiPromptSpec {
@@ -66,7 +66,6 @@ const AI_PROMPTS: AiPromptSpec[] = [
 
 export default function SiteAiSearchGroundingSeo() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<string>(AI_PROMPTS[0].id);
 
   const handleCopy = (id: string, text: string) => {
     navigator.clipboard.writeText(text);
@@ -74,10 +73,24 @@ export default function SiteAiSearchGroundingSeo() {
     setTimeout(() => setCopiedId(null), 2500);
   };
 
-  const selectedPrompt = AI_PROMPTS.find((p) => p.id === activeTab) || AI_PROMPTS[0];
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: AI_PROMPTS.map((p) => ({
+      '@type': 'Question',
+      name: p.prompt,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: p.groundTruthAnswer,
+        author: { '@type': 'Organization', name: 'Alo Yönetim' },
+      },
+    })),
+  };
 
   return (
     <section className="my-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
+      <JsonLd data={schemaData} />
+
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
@@ -99,101 +112,90 @@ export default function SiteAiSearchGroundingSeo() {
         </div>
       </div>
 
-      {/* Tabs / Topic Selector */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none">
-        {AI_PROMPTS.map((p) => (
-          <button
+      {/* Accordion: Tüm sorular her zaman DOM'da (kapalı olsa da) */}
+      <div className="space-y-3">
+        {AI_PROMPTS.map((p, index) => (
+          <details
             key={p.id}
-            onClick={() => setActiveTab(p.id)}
-            className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
-              activeTab === p.id
-                ? 'bg-slate-600 text-white border-slate-600 shadow-sm'
-                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
-            }`}
+            open={index === 0}
+            className="group bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)] rounded-2xl overflow-hidden"
           >
-            {p.topic}
-          </button>
+            <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none">
+              <span className="text-sm font-bold text-[var(--color-primary)]">{p.topic}</span>
+              <span className="flex items-center gap-2 shrink-0">
+                <span className="hidden sm:inline text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)]">
+                  {p.badge}
+                </span>
+                <Icon name="expand_more" className="text-[18px] text-[var(--color-secondary)] transition-transform group-open:rotate-180" />
+              </span>
+            </summary>
+
+            <div className="px-5 pb-6 space-y-6">
+              {/* Prompt Section */}
+              <div className="space-y-2">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
+                  <Icon name="chat_paste_go" className="text-sm" />
+                  Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
+                </span>
+                <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-xl p-4 font-mono text-xs sm:text-sm text-[var(--color-primary)] flex items-center justify-between gap-4">
+                  <span className="leading-relaxed">&ldquo;{p.prompt}&rdquo;</span>
+                  <button
+                    onClick={() => handleCopy(p.id, p.prompt)}
+                    className="shrink-0 px-3 py-1.5 rounded-lg bg-slate-600/10 hover:bg-slate-600/20 text-slate-600 dark:text-slate-400 text-xs font-bold transition-colors flex items-center gap-1"
+                    aria-label="Promptu kopyala"
+                  >
+                    <Icon name={copiedId === p.id ? 'check' : 'content_copy'} className="text-sm" />
+                    <span>{copiedId === p.id ? 'Kopyalandı!' : 'Kopyala'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Ground Truth Response Section */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                    <Icon name="verified" className="text-sm" />
+                    Yapay Zekanın Doğrulanmış Resmî Yanıtı (Ground-Truth Answer)
+                  </span>
+                  <span className="text-xs font-mono font-semibold text-[var(--color-secondary)]">
+                    Yasal Dayanak: {p.legalCitation}
+                  </span>
+                </div>
+                <div className="bg-[var(--color-surface)] border border-emerald-500/30 rounded-xl p-4 sm:p-5 text-xs sm:text-sm text-[var(--color-primary)] leading-relaxed">
+                  {p.groundTruthAnswer}
+                </div>
+              </div>
+
+              {/* Quick AI Action Links */}
+              <div className="pt-4 border-t border-[var(--color-outline)]/60 flex flex-wrap items-center justify-between gap-3">
+                <span className="text-xs text-[var(--color-secondary)] font-medium">
+                  💡 Tek tıkla yapay zeka arama motorlarında canlı sorgulayın:
+                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href={`https://chatgpt.com/?q=${encodeURIComponent(p.prompt)}`}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="px-3.5 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
+                  >
+                    <Icon name="open_in_new" className="text-xs" />
+                    ChatGPT ile Sor
+                  </a>
+                  <a
+                    href={`https://claude.ai/new?q=${encodeURIComponent(p.prompt)}`}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="px-3.5 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
+                  >
+                    <Icon name="travel_explore" className="text-xs" />
+                    Claude ile Ara
+                  </a>
+                </div>
+              </div>
+            </div>
+          </details>
         ))}
       </div>
-
-      {/* Active Card Detail */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedPrompt.id}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.2 }}
-          className="bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)] rounded-2xl p-6 sm:p-8 space-y-6"
-        >
-          {/* Prompt Section */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
-                <Icon name="chat_paste_go" className="text-sm" />
-                Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
-              </span>
-              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)]">
-                {selectedPrompt.badge}
-              </span>
-            </div>
-            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-xl p-4 font-mono text-xs sm:text-sm text-[var(--color-primary)] flex items-center justify-between gap-4">
-              <span className="leading-relaxed">&ldquo;{selectedPrompt.prompt}&rdquo;</span>
-              <button
-                onClick={() => handleCopy(selectedPrompt.id, selectedPrompt.prompt)}
-                className="shrink-0 px-3 py-1.5 rounded-lg bg-slate-600/10 hover:bg-slate-600/20 text-slate-600 dark:text-slate-400 text-xs font-bold transition-colors flex items-center gap-1"
-                aria-label="Promptu kopyala"
-              >
-                <Icon name={copiedId === selectedPrompt.id ? 'check' : 'content_copy'} className="text-sm" />
-                <span>{copiedId === selectedPrompt.id ? 'Kopyalandı!' : 'Kopyala'}</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Ground Truth Response Section */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                <Icon name="verified" className="text-sm" />
-                Yapay Zekanın Doğrulanmış Resmî Yanıtı (Ground-Truth Answer)
-              </span>
-              <span className="text-xs font-mono font-semibold text-[var(--color-secondary)]">
-                Yasal Dayanak: {selectedPrompt.legalCitation}
-              </span>
-            </div>
-            <div className="bg-[var(--color-surface)] border border-emerald-500/30 rounded-xl p-4 sm:p-5 text-xs sm:text-sm text-[var(--color-primary)] leading-relaxed">
-              {selectedPrompt.groundTruthAnswer}
-            </div>
-          </div>
-
-          {/* Quick AI Action Links */}
-          <div className="pt-4 border-t border-[var(--color-outline)]/60 flex flex-wrap items-center justify-between gap-3">
-            <span className="text-xs text-[var(--color-secondary)] font-medium">
-              💡 Tek tıkla yapay zeka arama motorlarında canlı sorgulayın:
-            </span>
-            <div className="flex flex-wrap items-center gap-2">
-              <a
-                href={`https://chatgpt.com/?q=${encodeURIComponent(selectedPrompt.prompt)}`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="px-3.5 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
-              >
-                <Icon name="open_in_new" className="text-xs" />
-                ChatGPT ile Sor
-              </a>
-              <a
-                href={`https://claude.ai/new?q=${encodeURIComponent(selectedPrompt.prompt)}`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="px-3.5 py-1.5 rounded-lg bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
-              >
-                <Icon name="travel_explore" className="text-xs" />
-                Claude ile Ara
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
     </section>
   );
 }

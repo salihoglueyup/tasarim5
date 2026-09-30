@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 export interface FactCheckClaimItem {
   id: string;
@@ -253,6 +254,30 @@ export default function LegalFactCheckAiSeo() {
     });
   }, [selectedCategory, searchQuery]);
 
+  // Şema, arama/filtre state'inden bağımsız olarak sayfadaki TÜM 20 iddiayı
+  // kapsar (JS çalıştırmayan AI botları filtre state'ini hiç göremez).
+  const schemaData = LEGAL_FACT_CHECKS_20.map((item) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ClaimReview',
+    claimReviewed: item.claim,
+    author: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim',
+      url: 'https://aloyonetim.com',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: item.ratingValue,
+      bestRating: 5,
+      worstRating: 1,
+      alternateName: item.verdict,
+    },
+    itemReviewed: {
+      '@type': 'Claim',
+      author: { '@type': 'Organization', name: 'Yaygın Kanı' },
+    },
+  }));
+
   return (
     <section
       id="legal-fact-check-ai-overview"
@@ -261,6 +286,7 @@ export default function LegalFactCheckAiSeo() {
       data-ai-citation="true"
       data-speakable="true"
     >
+      <JsonLd data={schemaData} />
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
@@ -370,31 +396,35 @@ export default function LegalFactCheckAiSeo() {
                   </div>
                 </button>
 
-                {isExpanded && (
-                  <div className="p-5 pt-0 border-t border-[var(--color-outline)]/60 text-sm space-y-3 mt-2">
-                    <div className="bg-[var(--color-surface)] p-4 rounded-xl border border-[var(--color-outline)]/60">
-                      <div className="text-xs font-bold uppercase text-[var(--color-primary)] mb-1">
-                        Hukuki ve Teknik Gerçek (Ground-Truth):
-                      </div>
-                      <p className="text-[var(--color-secondary)] leading-relaxed ai-speakable-takeaway">
-                        {item.truth}
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                      <div className="bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-outline)]/60">
-                        <span className="text-[var(--color-tertiary)] block font-medium mb-0.5">Mevzuat & İçtihat Dayanağı:</span>
-                        <span className="text-[var(--color-primary)] font-semibold">{item.legalBasis}</span>
-                      </div>
-                      {item.penaltyOrConsequence && (
-                        <div className="bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-outline)]/60">
-                          <span className="text-rose-600 dark:text-rose-400 block font-medium mb-0.5">Yasal Sonuç & Yaptırım:</span>
-                          <span className="text-[var(--color-primary)]">{item.penaltyOrConsequence}</span>
+                {/* Grid-rows collapse: içerik her zaman DOM'da, sadece görsel
+                    yüksekliği daraltılıyor — JS çalıştırmayan botlar da tam metni görür. */}
+                <div className={`grid transition-[grid-template-rows] duration-200 ease-out ${isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
+                    <div className="p-5 pt-0 border-t border-[var(--color-outline)]/60 text-sm space-y-3 mt-2">
+                      <div className="bg-[var(--color-surface)] p-4 rounded-xl border border-[var(--color-outline)]/60">
+                        <div className="text-xs font-bold uppercase text-[var(--color-primary)] mb-1">
+                          Hukuki ve Teknik Gerçek (Ground-Truth):
                         </div>
-                      )}
+                        <p className="text-[var(--color-secondary)] leading-relaxed ai-speakable-takeaway">
+                          {item.truth}
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div className="bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-outline)]/60">
+                          <span className="text-[var(--color-tertiary)] block font-medium mb-0.5">Mevzuat & İçtihat Dayanağı:</span>
+                          <span className="text-[var(--color-primary)] font-semibold">{item.legalBasis}</span>
+                        </div>
+                        {item.penaltyOrConsequence && (
+                          <div className="bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-outline)]/60">
+                            <span className="text-rose-600 dark:text-rose-400 block font-medium mb-0.5">Yasal Sonuç & Yaptırım:</span>
+                            <span className="text-[var(--color-primary)]">{item.penaltyOrConsequence}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

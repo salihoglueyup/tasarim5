@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 import Icon from '@/components/ui/branding/Icon';
 export interface GeoPromptSpec {
@@ -154,7 +154,6 @@ export default function GoogleAiOverviewGroundingSeo({
     : GEO_PROMPTS;
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<string>(displayedPrompts[0]?.id || GEO_PROMPTS[0].id);
 
   const handleCopy = (id: string, text: string) => {
     navigator.clipboard.writeText(text);
@@ -162,10 +161,22 @@ export default function GoogleAiOverviewGroundingSeo({
     setTimeout(() => setCopiedId(null), 2500);
   };
 
-  const selectedPrompt = displayedPrompts.find((p) => p.id === activeTab) || displayedPrompts[0] || GEO_PROMPTS[0];
-
-  // Çift Motorlu Schema: FAQPage + SpeakableSpecification
+  // FAQPage: Tüm sorular DOM'da (accordion kapalı olsa da) — JS çalıştırmayan
+  // AI botları (GPTBot, ClaudeBot, PerplexityBot vb.) da tam korpusu görür.
   const schemaData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: displayedPrompts.map((p) => ({
+        '@type': 'Question',
+        name: p.prompt,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: p.groundTruthAnswer,
+          author: { '@type': 'Organization', name: 'Alo Yönetim' },
+        },
+      })),
+    },
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
@@ -184,10 +195,7 @@ export default function GoogleAiOverviewGroundingSeo({
       className={`my-16 bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[3rem] p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden ${className}`}
     >
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       {/* Dekoratif Glow Efekti */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -222,108 +230,100 @@ export default function GoogleAiOverviewGroundingSeo({
         </div>
       </div>
 
-      {/* Tabs / Kategori Seçici */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none relative z-10">
-        {displayedPrompts.map((p) => (
-          <button
+      {/* Accordion: Her soru her zaman DOM'da (kapalı olsa da) — yalnız görsel
+          olarak daraltılmış. JS çalıştırmayan AI botları da tam korpusu görür. */}
+      <div className="space-y-3 relative z-10">
+        {displayedPrompts.map((p, index) => (
+          <details
             key={p.id}
-            onClick={() => setActiveTab(p.id)}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 border cursor-pointer ${
-              activeTab === p.id
-                ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] border-[var(--color-primary)] shadow-sm'
-                : 'bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border-[var(--color-outline)]/80 hover:border-slate-400'
-            }`}
+            open={index === 0}
+            className="group bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)] rounded-2xl overflow-hidden"
           >
-            <Icon name={p.icon} className="text-[16px]" />
-            <span>{p.topic}</span>
-          </button>
-        ))}
-      </div>
+            <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none">
+              <span className="flex items-center gap-2.5 text-sm font-bold text-[var(--color-primary)]">
+                <Icon name={p.icon} className="text-[18px] text-[var(--color-secondary)] shrink-0" />
+                <span>{p.topic}</span>
+              </span>
+              <span className="flex items-center gap-2 shrink-0">
+                <span className="hidden sm:inline text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-[var(--color-outline)]/60">
+                  {p.badge}
+                </span>
+                <Icon name="expand_more" className="text-[18px] text-[var(--color-secondary)] transition-transform group-open:rotate-180" />
+              </span>
+            </summary>
 
-      {/* Aktif Kart Gövdesi */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedPrompt.id}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.2 }}
-          className="bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)] rounded-2xl p-6 sm:p-8 space-y-6 relative z-10"
-        >
-          {/* Prompt Section */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
-                <Icon name="chat_paste_go" className="text-sm" />
-                Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
-              </span>
-              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] border border-[var(--color-outline)]/60">
-                {selectedPrompt.badge}
-              </span>
-            </div>
-            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-xl p-4 font-mono text-xs sm:text-sm text-[var(--color-primary)] flex items-center justify-between gap-4">
-              <span className="geo-prompt-text leading-relaxed font-semibold">&ldquo;{selectedPrompt.prompt}&rdquo;</span>
-              <button
-                onClick={() => handleCopy(selectedPrompt.id, selectedPrompt.prompt)}
-                className="shrink-0 px-3.5 py-1.5 rounded-lg bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] text-xs font-bold transition-colors flex items-center gap-1 border border-[var(--color-outline)]/60 cursor-pointer"
-                title="Promptu Kopyala"
-                aria-label="Promptu kopyala"
-              >
-                <Icon name={copiedId === selectedPrompt.id ? 'check' : 'content_copy'} className="text-sm" />
-                <span>{copiedId === selectedPrompt.id ? 'Kopyalandı!' : 'Kopyala'}</span>
-              </button>
-            </div>
-          </div>
+            <div className="px-5 pb-6 space-y-6">
+              {/* Prompt Section */}
+              <div className="space-y-2">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
+                  <Icon name="chat_paste_go" className="text-sm" />
+                  Yapay Zekaya Gönderilecek Hazır Soru (Prompt)
+                </span>
+                <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-xl p-4 font-mono text-xs sm:text-sm text-[var(--color-primary)] flex items-center justify-between gap-4">
+                  <span className="geo-prompt-text leading-relaxed font-semibold">&ldquo;{p.prompt}&rdquo;</span>
+                  <button
+                    onClick={() => handleCopy(p.id, p.prompt)}
+                    className="shrink-0 px-3.5 py-1.5 rounded-lg bg-[var(--color-surface-variant)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-[var(--color-primary)] text-xs font-bold transition-colors flex items-center gap-1 border border-[var(--color-outline)]/60 cursor-pointer"
+                    title="Promptu Kopyala"
+                    aria-label="Promptu kopyala"
+                  >
+                    <Icon name={copiedId === p.id ? 'check' : 'content_copy'} className="text-sm" />
+                    <span>{copiedId === p.id ? 'Kopyalandı!' : 'Kopyala'}</span>
+                  </button>
+                </div>
+              </div>
 
-          {/* Ground Truth Response Section */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between gap-2 flex-wrap">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                <Icon name="verified" className="text-sm" />
-                Yapay Zekanın Doğrulanmış Resmî Yanıtı (Ground-Truth Answer)
-              </span>
-              <div className="flex items-center gap-2 text-xs font-mono text-[var(--color-secondary)]">
-                <span className="font-semibold text-[var(--color-primary)]">{selectedPrompt.legalCitation}</span>
-                {selectedPrompt.precedentRef && (
-                  <span className="hidden sm:inline bg-[var(--color-surface)] px-2 py-0.5 rounded border border-[var(--color-outline)]/60">
-                    {selectedPrompt.precedentRef}
+              {/* Ground Truth Response Section */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                    <Icon name="verified" className="text-sm" />
+                    Yapay Zekanın Doğrulanmış Resmî Yanıtı (Ground-Truth Answer)
                   </span>
-                )}
+                  <div className="flex items-center gap-2 text-xs font-mono text-[var(--color-secondary)]">
+                    <span className="font-semibold text-[var(--color-primary)]">{p.legalCitation}</span>
+                    {p.precedentRef && (
+                      <span className="hidden sm:inline bg-[var(--color-surface)] px-2 py-0.5 rounded border border-[var(--color-outline)]/60">
+                        {p.precedentRef}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="bg-[var(--color-surface)] border border-emerald-500/30 rounded-xl p-4 sm:p-5 text-xs sm:text-sm text-[var(--color-primary)] leading-relaxed shadow-xs">
+                  <p className="geo-ground-truth-text">{p.groundTruthAnswer}</p>
+                </div>
+              </div>
+
+              {/* Quick AI Action Links */}
+              <div className="pt-4 border-t border-[var(--color-outline)]/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <span className="text-xs text-[var(--color-secondary)] font-medium">
+                  💡 Tek tıkla yapay zeka arama motorlarında canlı sorgulayın:
+                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href={`https://chatgpt.com/?q=${encodeURIComponent(p.prompt)}`}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="px-3.5 py-1.5 rounded-lg bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
+                  >
+                    <Icon name="open_in_new" className="text-xs" />
+                    ChatGPT ile Sor
+                  </a>
+                  <a
+                    href={`https://claude.ai/new?q=${encodeURIComponent(p.prompt)}`}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="px-3.5 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
+                  >
+                    <Icon name="travel_explore" className="text-xs" />
+                    Claude ile Ara
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="bg-[var(--color-surface)] border border-emerald-500/30 rounded-xl p-4 sm:p-5 text-xs sm:text-sm text-[var(--color-primary)] leading-relaxed shadow-xs">
-              <p className="geo-ground-truth-text">{selectedPrompt.groundTruthAnswer}</p>
-            </div>
-          </div>
-
-          {/* Quick AI Action Links */}
-          <div className="pt-4 border-t border-[var(--color-outline)]/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <span className="text-xs text-[var(--color-secondary)] font-medium">
-              💡 Tek tıkla yapay zeka arama motorlarında canlı sorgulayın:
-            </span>
-            <div className="flex flex-wrap items-center gap-2">
-              <a
-                href={`https://chatgpt.com/?q=${encodeURIComponent(selectedPrompt.prompt)}`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="px-3.5 py-1.5 rounded-lg bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-xs"
-              >
-                <Icon name="open_in_new" className="text-xs" />
-                ChatGPT ile Sor
-              </a>
-              <a
-                href={`https://claude.ai/new?q=${encodeURIComponent(selectedPrompt.prompt)}`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="px-3.5 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
-              >
-                <Icon name="travel_explore" className="text-xs" />
-                Claude ile Ara
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+          </details>
+        ))}
+      </div>
     </section>
   );
 }
