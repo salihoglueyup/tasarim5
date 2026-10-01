@@ -9,7 +9,9 @@ import { useLanguage } from '@/context/LanguageContext';
 import Icon from '@/components/ui/branding/Icon';
 /**
  * Faz 46: Hero.tsx LCP ve render optimizasyonu:
- * - Mobilde video yüklenmesi kesin olarak engellenir, hafif optimize edilmiş WebP poster görseli sunulur.
+ * - Mobilde video yalnızca bağlantı kesin olarak hızlı (4G) ölçüldüğünde yüklenir;
+ *   aksi halde (yavaş bağlantı, Save-Data veya Network Information API desteklenmiyorsa)
+ *   hafif optimize edilmiş WebP poster görseli sunulur.
  * - Framer Motion kaldırılmış, ilk ekranda ana iş parçacığını (main-thread) bloke etmeyen saf CSS donanım hızlandırmalı animasyonlar uygulanmıştır.
  */
 export default function Hero() {
@@ -21,7 +23,10 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   // LCP & Ağ Optimizasyonu:
-  // - 2.27 MB'lık brand-film.mp4 mobilde (< 1024px) veya Save-Data modunda HİÇ yüklenmez.
+  // - 2.27 MB'lık brand-film.mp4; Save-Data modunda veya yavaş bağlantıda (2G/3G) HİÇ yüklenmez.
+  // - Mobilde (< 1024px) video yalnızca Network Information API bağlantıyı kesin olarak "4g"
+  //   olarak raporluyorsa açılır; API desteklenmiyorsa (ör. iOS Safari) güvenli taraf seçilip
+  //   mobilde video kapalı kalır — masaüstü bu kısıtlamadan etkilenmez.
   // - Masaüstünde sayfa tamamen yüklendikten (requestIdleCallback) sonra arka planda getirilir.
   // - Sayfa aşağı kaydırıldığında IntersectionObserver ile video duraklatılarak GPU serbest bırakılır.
   useEffect(() => {
@@ -30,10 +35,13 @@ export default function Hero() {
     const isMobile = window.innerWidth < 1024;
     const conn = (navigator as any)?.connection;
     const isSaveData = Boolean(conn?.saveData);
-    const isSlowConnection = conn?.effectiveType === '2g' || conn?.effectiveType === 'slow-2g' || conn?.effectiveType === '3g';
-    
-    // Faz 106: Veri Tasarrufu (Data Saver / saveData) ve yavaş bağlantılarda (2G/3G) video iptal edilir
-    if (reduceMotion || isMobile || isSaveData || isSlowConnection) return;
+    const effectiveType = conn?.effectiveType as string | undefined;
+    const isSlowConnection = effectiveType === '2g' || effectiveType === 'slow-2g' || effectiveType === '3g';
+    const isMobileWithoutFastConnection = isMobile && effectiveType !== '4g';
+
+    // Faz 106: Veri Tasarrufu (Data Saver / saveData) ve yavaş bağlantılarda (2G/3G) video iptal edilir.
+    // Faz 240: Mobilde artık tamamen kapalı değil — bağlantı kesin olarak 4G ise mobilde de açılır.
+    if (reduceMotion || isSaveData || isSlowConnection || isMobileWithoutFastConnection) return;
 
     let done = false;
     const attach = () => {
