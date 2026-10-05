@@ -4003,9 +4003,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(clientContent).toContain('<FacilityLegalPrecedentsBrowserSeo');
       expect(clientContent).toContain('Kat Mülkiyeti Hukuku ve Yargıtay Emsal Kararları Masası');
-      expect(clientContent).toContain('KMK m.38 Şahsi Tazminat Kalkanı');
-      expect(clientContent).toContain('TCK m.155 Mali Suç Güvencesi');
-      expect(clientContent).toContain('Kusursuz İbra & Sıfır İptal Riski');
+      expect(clientContent).toContain('KMK m.38 Şahsi Tazminat Sorumluluğu');
+      expect(clientContent).toContain('TCK m.155 Mali Şeffaflık');
+      expect(clientContent).toContain('Usulüne Uygun İbra & Daha Düşük İptal Riski');
 
       expect(pageContent).toContain('KMK 634 Hukuk & Aidat İcra Danışmanlığı — İlamsız Takip & %5 Faiz | Alo Yönetim');
       expect(pageContent).toContain('Örnek No: 7 ilamsız icra takibi');

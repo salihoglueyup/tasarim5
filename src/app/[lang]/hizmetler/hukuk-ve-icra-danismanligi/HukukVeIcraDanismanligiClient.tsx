@@ -53,19 +53,19 @@ export default function HukukVeIcraDanismanligiClient() {
   const faqs = [
     {
       question: 'Aidat borcunu ödemeyen malik veya kiracıya karşı icra süreci nasıl işler?',
-      answer: '634 sayılı Kat Mülkiyeti Kanunu Madde 20 uyarınca, öncelikle noter veya iadeli taahhütlü mektupla yasal ihtarname gönderilir. 7 günlük yasal süre içinde ödeme yapılmazsa İcra Dairesi nezdinde ilamsız icra takibi (Örnek No: 7) başlatılır; borçlu itiraz ederse sulh hukuk mahkemesinde itirazın iptali davası açılır.'
+      answer: '634 sayılı Kat Mülkiyeti Kanunu Madde 20 uyarınca ortak gider ve avans payını zamanında ödemeyen kat malikine aylık %5 gecikme tazminatı işler. Uygulamada önce yazılı ihtar gönderilmesi tavsiye edilir (yasal bir zorunluluk değildir). Kesinleşmiş işletme projesine veya kurul kararına dayanılarak ilamsız icra takibi (Örnek No: 7) başlatılabilir; borçlu ödeme emrine 7 gün içinde itiraz edebilir. İtiraz halinde İİK m.68 kapsamında itirazın kaldırılması ya da yetkili mahkemede itirazın iptali yolları işler.'
     },
     {
       question: 'Genel kurul toplantı çağrısı kaç gün önceden yapılmalıdır?',
-      answer: 'KMK Madde 29 gereğince, olağan toplantı çağrısının toplantı tarihinden en az 15 gün önce tüm kat maliklerine imza karşılığı veya taahhütlü mektupla tebliğ edilmesi şarttır. İlk toplantıda yeter sayı (arsa payı ve sayı çoğunluğu) sağlanamazsa, ikinci toplantı en geç 15 gün içinde yapılır.'
+      answer: 'KMK Madde 29 gereğince, olağan toplantı çağrısının toplantı tarihinden en az 15 gün önce tüm kat maliklerine imza karşılığı veya taahhütlü mektupla tebliğ edilmesi şarttır. İlk toplantıda yeter sayı (arsa payı ve sayı çoğunluğu) sağlanamazsa ikinci toplantı en geç 15 gün içinde yapılır; iki toplantı arasında en az 7 gün bulunmalıdır. İkinci toplantıda olağan kararlar katılanların çoğunluğuyla alınır; nitelikli çoğunluk gerektiren kararlarda bu kural geçerli değildir.'
     },
     {
       question: 'Site yönetim planı nasıl değiştirilir?',
-      answer: '634 sayılı KMK Madde 28 uyarınca, site yönetim planının değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır. Karar noter onaylı karar defterine işlenerek Tapu Müdürlüğü\'ne tescil ettirilir.'
+      answer: 'Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır. Karar noter onaylı karar defterine işlenerek Tapu Müdürlüğü\'ne tescil ettirilir.'
     },
     {
       question: 'Gürültü ve komşuluk hukuku ihlallerinde yönetim ne yapabilir?',
-      answer: 'KMK Madde 18 komşuluk haklarına saygı yükümlülüğü getirir. Yazılı uyarılara rağmen rahatsızlık devam ederse, yönetim kurulu kararıyla Sulh Hukuk Mahkemesi\'nden hâkimin müdahalesi talep edilebilir ve yasal idari para cezası uygulatılabilir.'
+      answer: 'KMK Madde 18, kat maliklerine birbirlerine saygı gösterme ve rahatsızlık vermeme yükümlülüğü getirir. Yazılı uyarılara rağmen rahatsızlık sürerse yönetici veya diğer kat malikleri Sulh Hukuk Mahkemesi\'nden hâkimin müdahalesini isteyebilir; gürültü şikâyetleri ayrıca belediye zabıtasına da iletilebilir.'
     }
   ];
 
@@ -185,7 +185,7 @@ export default function HukukVeIcraDanismanligiClient() {
               <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 endüstriyel tesislerin
               </Link>{' '}
-              yönetim kurulları ve kat malikleri arasında doğabilecek tüm yasal ihtilafların, ödenmeyen aidat ve demirbaş alacaklarının, genel kurul iptal davalarının ve yönetim planı tadilatlarının 634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde çözülmesini sağlayan kurumsal avukatlık ve danışmanlık disiplinidir.
+              yönetim kurulları ve kat malikleri arasında doğabilecek tüm yasal ihtilafların, ödenmeyen aidat ve demirbaş alacaklarının, genel kurul iptal davalarının ve yönetim planı tadilatlarının 634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde çözülmesini sağlayan kurumsal hukuki destek ve danışmanlık disiplinidir.
             </p>
             <p>
               Hukuki süreçlerimiz;{' '}
@@ -245,7 +245,7 @@ export default function HukukVeIcraDanismanligiClient() {
                   <span>📑</span> Yönetim Planı Tadilatı & Tapu Sicil Tescili
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  KMK m.28 uyarınca tüm kat maliklerinin 4/5 oy çokluğuyla site yönetim planının çağdaş ihtiyaçlara göre revize edilmesi, noter onayı ve Tapu Müdürlüğü kütüğüne tescil işlemleri.
+                  KMK m.28/3 ve m.70 uyarınca (genel yapılarda 4/5, toplu yapılarda 2/3 oy çokluğuyla) site yönetim planının güncel ihtiyaçlara göre revize edilmesi, noter onayı ve Tapu Müdürlüğü kütüğüne tescil işlemleri.
                 </p>
               </div>
 
@@ -260,7 +260,7 @@ export default function HukukVeIcraDanismanligiClient() {
             </div>
 
             <p>
-              Alo Yönetim ile çalışan sitelerde; yöneticilerin ve denetçilerin Kat Mülkiyeti Kanunu ve Türk Ceza Kanunu kapsamındaki tüm şahsi hukuki ve cezai sorumlulukları şirketimizin kurumsal güvencesi altına alınır. Hukuk departmanımız tüm sözleşme ve taşeron anlaşmalarını site lehine teminat altına alır.
+              Alo Yönetim ile çalışan sitelerde yönetim süreçleri yazılı, belgeli ve yasal sürelere uygun yürütülür; bu, yöneticilerin ve denetçilerin Kat Mülkiyeti Kanunu ve Türk Ceza Kanunu kapsamındaki sorumluluk risklerini azaltmayı hedefler. Cezai sorumluluk kişiseldir ve hiçbir hizmetle devredilemez. Sözleşme ve taşeron anlaşmaları site yönetiminin menfaati gözetilerek incelenir.
             </p>
           </div>
 
@@ -271,10 +271,10 @@ export default function HukukVeIcraDanismanligiClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="balance" className="text-lg" />
                 </span>
-                <span>%100 Yargıtay Emsal Uyumu</span>
+                <span>Yargıtay İçtihadı Takibi</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Yargıtay 20. Hukuk Dairesi yerleşik içtihatlarına tam uyumlu itiraz edilemez icra ve dava takibi.
+                Yargıtay içtihatları gözetilerek yürütülen icra ve dava takibi.
               </p>
             </div>
 
@@ -286,7 +286,7 @@ export default function HukukVeIcraDanismanligiClient() {
                 <span>%0 Genel Kurul İptal Riski</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Yasal süreler, noter onaylı tebligatlar ve hazirun çoğunluk hesapları ile kusursuz divan yönetimi.
+                Yasal sürelere, noter onaylı tebligatlara ve hazirun çoğunluk hesaplarına özen gösterilen divan yönetimi.
               </p>
             </div>
 
@@ -295,10 +295,10 @@ export default function HukukVeIcraDanismanligiClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
                   <Icon name="shield" className="text-lg" />
                 </span>
-                <span>Yöneticilere Tam Hukuki Kalkan</span>
+                <span>Yöneticiler İçin Hukuki Destek</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Yönetim kurulu üyelerinin şahsi tazminat, icra ve ceza davalarına maruz kalma risklerinin sıfırlanması.
+                Yönetim kurulu üyelerinin şahsi sorumluluk risklerinin usulüne uygun işlemlerle azaltılması.
               </p>
             </div>
           </div>
@@ -336,13 +336,13 @@ export default function HukukVeIcraDanismanligiClient() {
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-4">
               <Icon name="security" className="text-[16px] text-emerald-500" />
-              Yönetici & Denetçi Yasal Güvencesi
+              Yönetici & Denetçi İçin Yasal Çerçeve
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] tracking-tight mb-4">
-              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Cezai ve Şahsi Sorumluluk Kalkanı</span>
+              Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Cezai ve Şahsi Sorumluluğun Yönetimi</span>
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
-              Amatör site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıyadır. Alo Yönetim hukuk müşavirliği bu riskleri %100 bertaraf eder.
+              Amatör site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıya kalabilir. Doğru tebligat, zamanında icra takibi ve belgeli harcama süreçleri bu riskleri azaltır; ancak sorumluluk kişisel olduğundan somut durumunuz için bir avukata danışmanız önerilir.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -350,9 +350,9 @@ export default function HukukVeIcraDanismanligiClient() {
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <Icon name="shield" className="text-xl" />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">KMK m.38 Şahsi Tazminat Kalkanı</h3>
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">KMK m.38 Şahsi Tazminat Sorumluluğu</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  Yöneticinin vekil gibi sorumlu olması ilkesi gereği doğabilecek tüm maddi zarar iddiaları profesyonel sigortamız ve avukatlarımızca karşılanır.
+                  Yöneticinin vekil gibi sorumlu olması ilkesi (KMK m.38) gereği doğabilecek zarar iddialarına karşı kararlar ve harcamalar yazılı ve belgeli yürütülür.
                 </p>
               </div>
 
@@ -360,9 +360,9 @@ export default function HukukVeIcraDanismanligiClient() {
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="verified_user" className="text-xl" />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">TCK m.155 Mali Suç Güvencesi</h3>
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">TCK m.155 Mali Şeffaflık</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  Çift imzalı dijital onay, bağımsız mali müşavir denetimi ve şeffaf banka entegrasyonu ile güveni kötüye kullanma isnatları imkansız kılınır.
+                  Çift imzalı dijital onay, bağımsız mali müşavir denetimi ve şeffaf banka entegrasyonu ile güveni kötüye kullanma risklerinin azaltılması hedeflenir.
                 </p>
               </div>
 
@@ -370,9 +370,9 @@ export default function HukukVeIcraDanismanligiClient() {
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">
                   <Icon name="fact_check" className="text-xl" />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">Kusursuz İbra & Sıfır İptal Riski</h3>
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Usulüne Uygun İbra & Daha Düşük İptal Riski</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  Genel kurul çağrısı, taahhütlü tebligatlar ve hazirun cetveli noter usulünde hazırlanarak Sulh Hukuk Mahkemesi iptal davaları önlenir.
+                  Genel kurul çağrısı, taahhütlü tebligatlar ve hazirun cetveli usulüne uygun hazırlanarak iptal davası riski azaltılır.
                 </p>
               </div>
             </div>
