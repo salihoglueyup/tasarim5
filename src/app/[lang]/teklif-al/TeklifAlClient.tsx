@@ -97,7 +97,9 @@ export default function TeklifAlClient() {
               {t('tc_ok_title')}
             </h3>
             <p className="text-sm text-emerald-800 dark:text-emerald-300 max-w-md">
-              Uzman bölge koordinatörümüz <strong>{phone}</strong> numaranız üzerinden sizinle iletişime geçerek ücretsiz keşif randevusu oluşturacaktır.
+              {t('tc_ok_desc').split('{phone}')[0]}
+              <strong>{phone}</strong>
+              {t('tc_ok_desc').split('{phone}')[1]}
             </p>
           </motion.div>
         ) : (
@@ -157,7 +159,7 @@ export default function TeklifAlClient() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
-                  placeholder="ornek@sirket.com"
+                  placeholder={t('tc_ph_email')}
                   className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-500"
                 />
                 {touched.email && email !== '' && !isValidEmail(email) && (
@@ -199,7 +201,7 @@ export default function TeklifAlClient() {
                   <option value="Rezidans & Kule" className="dark:bg-slate-900">{t('tc_type_res')}</option>
                   <option value={t('tc_type_plaza')} className="dark:bg-slate-900">{t('tc_type_plaza')}</option>
                   <option value="Toplu Konut & TOKİ" className="dark:bg-slate-900">{t('tc_type_mass')}</option>
-                  <option value="Sanayi & Fabrika" className="dark:bg-slate-900">Sanayi & Lojistik Tesis</option>
+                  <option value="Sanayi & Fabrika" className="dark:bg-slate-900">{t('tc_type_industrial')}</option>
                 </select>
               </div>
 
@@ -216,7 +218,7 @@ export default function TeklifAlClient() {
                   <option value="31-75 Daire" className="dark:bg-slate-900">{t('tc_u2')}</option>
                   <option value="76-150 Daire" className="dark:bg-slate-900">{t('tc_u3')}</option>
                   <option value="151-300 Daire" className="dark:bg-slate-900">{t('tc_u4')}</option>
-                  <option value="300+ Daire" className="dark:bg-slate-900">300+ Mega Site</option>
+                  <option value="300+ Daire" className="dark:bg-slate-900">{t('tc_u5')}</option>
                 </select>
               </div>
             </div>
@@ -279,7 +281,7 @@ export default function TeklifAlClient() {
               </div>
               <div className="flex items-center justify-center gap-1">
                 <Icon name="schedule" className="text-sm text-slate-500" />
-                <span>48s Rapor</span>
+                <span>{t('tc_seal_report')}</span>
               </div>
             </div>
           </form>
@@ -336,7 +338,7 @@ export default function TeklifAlClient() {
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>{t('tc_switch')}</span>
             </div>
-            <span className="text-[11px] text-slate-500">7/24 Kesintisiz</span>
+            <span className="text-[11px] text-slate-500">{t('tc_always_on')}</span>
           </div>
 
           <a

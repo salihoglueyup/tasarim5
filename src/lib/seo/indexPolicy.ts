@@ -24,8 +24,8 @@ const CORE_TRANSLATED = [
 
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   en: [...CORE_TRANSLATED],
-  // RU: teklif-al ve sss de tamamen çevrilmiş (EN/AR sürümleri hâlâ kısmen Türkçe).
-  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
+  // RU: teklif-al da çevrili. /sss çıkarıldı: filtre çipleri ve bazı SSS maddeleri hâlâ Türkçe.
+  ru: [...CORE_TRANSLATED, '/teklif-al'],
   ar: [...CORE_TRANSLATED],
 };
 
