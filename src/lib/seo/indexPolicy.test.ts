@@ -77,7 +77,8 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
         (buildMetadata({ title: 'T', description: 'D', path, lang }).robots as { index: boolean }).index;
       for (const l of ['en', 'ru', 'ar']) {
         expect(robots(l, '/hakkimizda')).toBe(true);
-        expect(robots(l, '/hizmetler/teknik-bakim')).toBe(false);
+        expect(robots(l, '/hizmetler/teknik-bakim')).toBe(true);
+        expect(robots(l, '/sozluk')).toBe(false);
       }
     });
 

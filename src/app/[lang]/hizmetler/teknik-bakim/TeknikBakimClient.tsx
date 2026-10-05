@@ -22,8 +22,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function TeknikBakimClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const techIntervals = [
     { equipment: t('tech_grid_1_eq') || 'Asansör Sistemleri', interval: t('tech_grid_1_int') || 'Aylık periyodik bakım & yıllık yeşil etiket muayenesi', status: t('tech_grid_1_status') || 'Yasal Zorunluluk' },
@@ -32,37 +34,21 @@ export default function TeknikBakimClient() {
     { equipment: t('tech_grid_4_eq') || 'Yangın Söndürme & Duman Tahliye', interval: t('tech_grid_4_int') || '3 aylık dedektör testi, yangın pompası & sprinkler basınç kontrolü', status: t('tech_grid_4_status') || 'Acil Güvenlik' }
   ];
 
-  const maintenanceSteps = [
-    { name: '1. Teknik Altyapı ve Ekipman Envanteri Tespiti', text: 'Sitenizdeki tüm asansör, jeneratör, hidrofor, kazan dairesi ve yangın ekipmanları marka, model ve seri numaralarıyla kayıt altına alınır.' },
-    { name: '2. Yıllık Periyodik Bakım Takvimi Planlaması', text: 'TMMOB ve üretici standartlarına göre her cihaz için aylık, 3 aylık ve yıllık kontrol çizelgeleri hazırlanarak yönetime sunulur.' },
-    { name: '3. 7/24 Mobil Acil Müdahale ve Arıza Onarımı', text: 'Asansörde kalma, elektrik kesintisi veya su patlağı gibi acil durumlarda gezici teknik servisimiz en geç 45 dakika içinde sahaya ulaşır.' },
-    { name: '4. Dijital Bakım Karnesi ve Muayene Raporlaması', text: 'Yapılan her işlem karekodlu dijital ekipman karnesine işlenir; yedek parça değişimleri ve garanti süreleri anlık takip edilir.' }
-  ];
+  const maintenanceSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`tech_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`tech_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Asansörlerin aylık bakımı ve yıllık muayenesi nasıl takip edilir?',
-      answer: 'Asansör İşletme ve Bakım Yönetmeliği gereğince aylık periyodik bakımlar yetkili servisimizce yapılır ve tescil defterine işlenir. Yıllık A tipi muayene kuruluşu denetiminde yeşil etiket alınması süreci teknik ekibimizce koordine edilir.'
-    },
-    {
-      question: 'Jeneratör ve hidrofor arızalarında acil müdahale süresi nedir?',
-      answer: '7/24 kesintisiz nöbetçi teknik servisimiz acil durumlarda ortalama 30-45 dakika içinde siteye intikal eder; jeneratör devreye alma ve bypass sistemleri anında işletilir.'
-    },
-    {
-      question: 'Kazan dairesi, ısıtma ve ortak havalandırma bakımları neleri kapsar?',
-      answer: 'Kazan baca gazı emisyon ölçümleri, brülör ayarları, genleşme tankı azot basınç testleri ve sirkülasyon pompalarının mekanik salmastra kontrolleri uzman teknisyenlerimizce periyodik olarak yapılır.'
-    },
-    {
-      question: 'Teknik bakım sözleşmesinde malzeme ve işçilik garantisi var mı?',
-      answer: 'Evet. Yapılan tüm işçilik hizmetleri 1 yıl, değişimi yapılan orijinal yedek parçalar ise 2 yıl üretici ve servis garantisi altındadır.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`tech_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`tech_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <ServiceSeo 
-        serviceType="Teknik Bakım ve Onarım"
-        description="Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti."
+        serviceType={t('tech_svc_type')}
+        description={t('tech_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Bak%C4%B1m_(teknik)"
@@ -106,7 +92,7 @@ export default function TeknikBakimClient() {
               {t('tech_banner_desc') || 'Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -122,6 +108,7 @@ export default function TeknikBakimClient() {
         </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="teknik-bakim-nedir"
           answerId="technical-instant-answer-text"
@@ -131,16 +118,20 @@ export default function TeknikBakimClient() {
           subText="Alo Yönetim, TMMOB standartlarında periyodik muayeneler ve 45 dakika SLA acil teknik müdahale garantisi ile binalarınızda sıfır altyapı arızası hedefler."
           accentColor="blue"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['asansor-yesil-etiket', 'plaza-bms-enerji', 'ev-sarj-istasyonu']}
           title="Teknik Bakımda Yapay Zekaya Sorun: Sanayi Bakanlığı ve EPDK Standartları"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış asansör, kompanzasyon ve EV şarj altyapısı mevzuatı."
         />
+</TrOnly>
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
+<TrOnly>
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -292,6 +283,7 @@ export default function TeknikBakimClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* Maintenance Intervals Table */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
@@ -324,8 +316,11 @@ export default function TeknikBakimClient() {
         </div>
 
         {/* Teknik Bakım Uyumluluk Radarı */}
+<TrOnly>
         <InteractiveTechnicalAuditRadarSeo districtName="İstanbul" />
+</TrOnly>
 
+<TrOnly>
         {/* MMO & TSE A Tipi Asansör Yeşil Etiket Muayene Protokolü */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -384,7 +379,9 @@ export default function TeknikBakimClient() {
             ))}
           </div>
         </div>
+</TrOnly>
 
+<TrOnly>
         {/* 365 Günlük Önleyici Bakım (PPM) & Reaktif Ceza Kalkanı */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
@@ -432,8 +429,10 @@ export default function TeknikBakimClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* AI Overviews & Position Zero Snippet Cards */}
+<TrOnly>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <InstantAnswerCardSeo
             question="Asansör Yeşil Etiket Muayenesi Zorunlu mu ve Alınmazsa Ne Olur?"
@@ -462,18 +461,21 @@ export default function TeknikBakimClient() {
             category="Enerji & Tesisat Yönetimi"
           />
         </div>
+</TrOnly>
 
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="Tesis ve Site Periyodik Teknik Bakım Süreci"
-            description="Site ve binalarda kritik teknik sistemlerin arızasız ve güvenle çalışması için uyguladığımız 4 aşamalı kurumsal bakım protokolümüz."
+            name={t('tech_howto_name')}
+            description={t('tech_howto_desc')}
             steps={maintenanceSteps}
           />
         </div>
 
         {/* Sağlık Bakanlığı 2007/67 Su Deposu Temizliği, Dezenfeksiyon ve Lejyonella Rehberi (Faz 15) */}
+<TrOnly>
         <FacilityWaterTankSanitationSeo />
+</TrOnly>
 
         {/* Maintenance Specific Social Proof */}
         <MaintenanceTestimonials />
@@ -484,14 +486,17 @@ export default function TeknikBakimClient() {
         </div>
       </section>
 
+<TrOnly>
       {/* 39 İlçe İSKİ, BEDAŞ, AYEDAŞ ve İGDAŞ Kurumsal Altyapı ve Sayaç Devir Rehberi */}
       <div className="py-12 bg-slate-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <DistrictUtilityTransferGuideSeo />
         </div>
       </div>
+</TrOnly>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Periyodik Teknik Bakım ve Tesisat İşletmesi"
         serviceCategory="Mühendislik & Teknik Bakım"
@@ -541,6 +546,7 @@ export default function TeknikBakimClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="teknik_seo_title"

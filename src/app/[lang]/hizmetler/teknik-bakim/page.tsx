@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import TrOnly from '@/components/seo/TrOnly';
 import { 
   generateBreadcrumbs, 
   webPageSchema, 
@@ -66,41 +67,23 @@ export default async function TeknikBakimPage({
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Teknik Bakım ve Onarım',
+    serviceType: t.tech_svc_type,
     path: '/hizmetler/teknik-bakim',
-    description: 'Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti.',
+    description: t.tech_svc_desc,
     priceRange: '₺₺',
     sameAs: 'https://tr.wikipedia.org/wiki/Bak%C4%B1m_(teknik)',
   });
 
-  const faqs = [
-    {
-      question: 'Asansörlerin aylık bakımı ve yıllık muayenesi nasıl takip edilir?',
-      answer: 'Asansör İşletme ve Bakım Yönetmeliği gereğince aylık periyodik bakımlar yetkili servisimizce yapılır ve tescil defterine işlenir. Yıllık A tipi muayene kuruluşu denetiminde yeşil etiket alınması süreci teknik ekibimizce koordine edilir.'
-    },
-    {
-      question: 'Jeneratör ve hidrofor arızalarında acil müdahale süresi nedir?',
-      answer: '7/24 kesintisiz nöbetçi teknik servisimiz acil durumlarda ortalama 30-45 dakika içinde siteye intikal eder; jeneratör devreye alma ve bypass sistemleri anında işletilir.'
-    },
-    {
-      question: 'Kazan dairesi, ısıtma ve ortak havalandırma bakımları neleri kapsar?',
-      answer: 'Kazan baca gazı emisyon ölçümleri, brülör ayarları, genleşme tankı azot basınç testleri ve sirkülasyon pompalarının mekanik salmastra kontrolleri uzman teknisyenlerimizce periyodik olarak yapılır.'
-    },
-    {
-      question: 'Teknik bakım sözleşmesinde malzeme ve işçilik garantisi var mı?',
-      answer: 'Evet. Yapılan tüm işçilik hizmetleri 1 yıl, değişimi yapılan orijinal yedek parçalar ise 2 yıl üretici ve servis garantisi altındadır.'
-    },
-    {
-      question: 'Asansör yeşil etiket zorunluluğu ve kompanzasyon panosu reaktif ceza güvencesi nedir?',
-      answer: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği uyarınca yılda 1 kez akredite A Tipi muayene kuruluşunca yeşil etiket alınması can güvenliği için yasal zorunluluktur. Kompanzasyon panolarının haftalık takibi ise EPDK reaktif sınırlarını (endüktif %20, kapasitif %15) koruyarak site ortak elektrik faturasına gelebilecek cezayı %0\'a indirir.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4, 5].map((n) => ({
+    question: t[`tech_faq_${n}_q`],
+    answer: t[`tech_faq_${n}_a`],
+  }));
 
   const faqLd = faqPageSchema(faqs);
 
   const pageLd = webPageSchema({
-    name: 'Bina ve Tesis Teknik Bakım, Onarım ve Mobil Servis | Alo Yönetim',
-    description: 'Asansör, jeneratör ve hidrofor sistemleri için 7/24 mobil teknik servis.',
+    name: t.tech_page_name,
+    description: t.tech_page_desc,
     path: '/hizmetler/teknik-bakim',
     speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
@@ -109,9 +92,11 @@ export default async function TeknikBakimPage({
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <TeknikBakimClient />
+<TrOnly>
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
         <ServiceAiOverviewSnippetSeo serviceSlug="teknik-bakim" serviceName="Teknik Bakım, Onarım ve Asansör İşletimi" />
       </div>
+</TrOnly>
     </>
   );
 }

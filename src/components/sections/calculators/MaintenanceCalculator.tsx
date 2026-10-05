@@ -37,11 +37,11 @@ export default function MaintenanceCalculator() {
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <label htmlFor="maint-calc-elevators" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_maint_elevators')}</label>
-                <span className="text-lg font-black text-slate-700 dark:text-slate-300">{elevators} Ünite</span>
+                <span className="text-lg font-black text-slate-700 dark:text-slate-300">{t('calc_maint_unit_n').replace('{n}', String(elevators))}</span>
               </div>
               <input 
                 id="maint-calc-elevators"
-                aria-label="Asansör Ünite Sayısı"
+                aria-label={t('calc_maint_unit_aria')}
                 type="range" 
                 min="1" max="100" step="1"
                 value={elevators}
@@ -49,8 +49,8 @@ export default function MaintenanceCalculator() {
                 className="w-full h-2 bg-gray-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
               <div className="flex justify-between text-xs text-gray-400 font-medium">
-                <span>1 Ünite</span>
-                <span>100+ Ünite</span>
+                <span>{t('calc_maint_unit_min')}</span>
+                <span>{t('calc_maint_unit_max')}</span>
               </div>
             </div>
 
