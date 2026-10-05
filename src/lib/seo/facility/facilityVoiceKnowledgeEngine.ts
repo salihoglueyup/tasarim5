@@ -125,7 +125,7 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
       queryIntent: 'legal',
       voiceQuery: 'Site ve apartman genel kurulunda çoğunluk şartı nedir?',
       speakableAnswer: 'İlk toplantıda kat maliklerinin sayı ve arsa payı bakımından salt çoğunluğu aranır. Çoğunluk sağlanamazsa ikinci toplantıda katılanların oy çokluğuyla karar alınır.',
-      detailedExplanation: 'KMK Madde 30 gereğince ilk toplantı ile ikinci toplantı arasında en az yedi gün olmalıdır. Yönetim planı değişikliği için 4/5, lüks yenilikler için ise oy birliği gereklidir.',
+      detailedExplanation: 'KMK Madde 30 gereğince ilk toplantı ile ikinci toplantı arasında en az yedi gün olmalıdır. Yönetim planı değişikliği için genel yapılarda 4/5, toplu yapılarda (siteler) 2/3, lüks yenilikler için ise oy birliği gereklidir.',
       legalReference: '634 Sayılı KMK Madde 29 ve 30',
       targetKeyword: 'site genel kurul çoğunluk şartı',
     },

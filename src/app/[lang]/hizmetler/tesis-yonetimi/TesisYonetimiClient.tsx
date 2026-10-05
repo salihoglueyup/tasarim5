@@ -627,7 +627,7 @@ export default function TesisYonetimiClient() {
             />
             <InstantAnswerCardSeo
               question="Site Yönetiminde İşletme Projesi (Bütçe) Nasıl Hazırlanır ve İtiraz Süresi Kaç Gündür?"
-              shortAnswer="KMK Madde 37 uyarınca yönetici, seçildikten sonra bir yıllık tahmini gelir ve giderleri, her kat malikine düşecek avans tutarını gösteren bir işletme projesi hazırlar. Proje tüm kat maliklerine veya bağımsız bölümden fiilen yararlananlara imza karşılığı ya da taahhütlü mektupla tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse kesinleşir ve doğrudan icra takibine dayanak teşkil eder."
+              shortAnswer="KMK Madde 37 uyarınca yönetici, bir yıllık tahmini gelir ve giderleri ile her kat malikine düşecek avans tutarını gösteren işletme projesini hazırlar; proje kat malikleri kurulunda onaylanır, onaylı proje yoksa yönetici gecikmeksizin geçici bir proje yapar ve en geç üç ay içinde kurula onaylatır (7579 sayılı Kanun, 22.05.2026). Proje tüm kat maliklerine veya bağımsız bölümden fiilen yararlananlara imza karşılığı ya da taahhütlü mektupla tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse kesinleşir ve doğrudan icra takibine dayanak teşkil eder."
               bulletPoints={[
                 'Yıllık tahmini elektrik, su, güvenlik, temizlik ve bakım giderleri kalem kalem hesaplanır.',
                 'Giderler KMK m.20 gereği arsa payı veya eşit olarak bağımsız bölümlere paylaştırılır.',

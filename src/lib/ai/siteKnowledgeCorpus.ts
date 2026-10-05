@@ -143,7 +143,7 @@ export async function buildSiteRAGCorpus(lang: string = 'tr'): Promise<SiteRAGCo
     {
       articleNumber: 'KMK Madde 28',
       title: 'Yönetim Planının Bağlayıcılığı ve Değiştirilme Usulü',
-      quorumOrRequirement: 'Bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir.',
+      quorumOrRequirement: 'Genel yapılarda bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir (m.28/3); toplu yapılarda (siteler) 22.05.2026 tarihli 7579 sayılı Kanun ile üçte ikisi (2/3) aranır (m.70).',
       officialPrinciple: 'Yönetim planı yönetim tarzını, kullanma maksat ve şeklini düzenleyen ve bütün kat maliklerini bağlayan bir sözleşme hükmündedir.',
       practicalApplication: 'Yönetim planındaki hükümler kanunun emredici maddelerine aykırı olamaz; tapu kütüğüne tescil edilerek tüm yeni malikleri de bağlar.',
       caseLawCitation: 'Yargıtay 5. Hukuk Dairesi 2021/3194 E., 2021/8920 K.',

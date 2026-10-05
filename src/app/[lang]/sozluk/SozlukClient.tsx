@@ -45,7 +45,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
     },
     {
       q: "Kat Malikleri Kurulu'nda karar yeter sayısı (nisap) nasıl belirlenir?",
-      a: "Olağan veya olağanüstü genel kurullarda kural olarak hem sayı hem arsa payı çoğunluğu aranır. Yönetici seçimi, yönetim planı değişikliği (4/5 rıza) ve önemli tadilatlarda kanunun öngördüğü nitelikli nisap kuralları uygulanır."
+      a: "Olağan veya olağanüstü genel kurullarda kural olarak hem sayı hem arsa payı çoğunluğu aranır. Yönetici seçimi, yönetim planı değişikliği (genel yapılarda 4/5, toplu yapılarda 2/3) ve önemli tadilatlarda kanunun öngördüğü nitelikli nisap kuralları uygulanır."
     }
   ];
 

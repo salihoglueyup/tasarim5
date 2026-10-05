@@ -178,7 +178,7 @@ export const KMK_GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'yonetim-ve-karar-organlari',
     categoryName: 'Yönetim & Karar Organları',
     snippetDefinition: 'Ana gayrimenkulün yönetim tarzını, kullanma maksat ve şeklini, yönetici ve denetçilerin ücretlerini ve ortak gider paylaşımlarını düzenleyen, tüm malikleri bağlayan kurumsal sözleşmedir.',
-    detailedExplanation: 'KMK Madde 28 uyarınca yönetim planı bütün kat maliklerini bağlayan bir sözleşme hükmündedir. Değiştirilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır. Tapu sicilinde tescillidir.',
+    detailedExplanation: 'KMK Madde 28 uyarınca yönetim planı bütün kat maliklerini bağlayan bir sözleşme hükmündedir. Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır. Tapu sicilinde tescillidir.',
     kmkArticleRef: '634 Sayılı KMK Madde 28',
     wikidataUri: 'https://www.wikidata.org/wiki/Q1102521',
     relatedTerms: ['Kat Malikleri Kurulu', 'Arsa Payı'],

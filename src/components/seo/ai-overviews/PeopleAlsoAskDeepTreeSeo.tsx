@@ -37,8 +37,8 @@ export const PAA_DEEP_TREE_QUESTIONS: PaaQuestionItem[] = [
     category: 'kmk-hukuku',
     categoryLabel: 'KMK Hukuku',
     question: 'Site yönetim planı nasıl değiştirilir, hangi çoğunluk gerekir?',
-    answer: 'KMK Madde 28 uyarınca site yönetim planının değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu yasal zorunluluktur. Bu çoğunluk sağlanmadan alınan değişiklik kararları Sulh Hukuk Mahkemesi tarafından iptal edilir.',
-    legalAnchor: 'KMK Madde 28 (4/5 Çoğunluk Kuralı)',
+    answer: 'Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır. Gerekli çoğunluk sağlanmadan alınan değişiklik kararları mahkemece iptal edilebilir.',
+    legalAnchor: 'KMK Madde 28/3 ve Madde 70 (7579 sayılı Kanun)',
   },
   {
     id: 'kmk-4',
@@ -145,7 +145,7 @@ export const PAA_DEEP_TREE_QUESTIONS: PaaQuestionItem[] = [
     category: 'aidat-butce',
     categoryLabel: 'Aidat & Bütçe',
     question: 'İşletme projesinde öngörülen bütçe yetmezse ek bütçe (ek aidat) nasıl istenir?',
-    answer: 'Beklenmeyen enerji zamları veya acil teknik onarımlar durumunda yönetici KMK Madde 37 kapsamında ek işletme projesi hazırlar ve tüm kat maliklerine tebliğ eder. 7 gün içinde itiraz edilmeyen ek bütçe kesinleşir.',
+    answer: 'Beklenmeyen enerji zamları veya acil teknik onarımlar durumunda ek bütçe ihtiyacı yöneticinin tek başına verebileceği bir karar değildir: 22 Mayıs 2026\'dan itibaren 7579 sayılı Kanun\'la değişen KMK Madde 35 ve 37 uyarınca işletme projesi kat malikleri kurulunda onaylanır. Maliklere tebliğ edilen projeye 7 gün içinde itiraz edilmezse proje kesinleşir.',
     legalAnchor: 'KMK Madde 37 (Ek İşletme Projesi)',
   },
   {

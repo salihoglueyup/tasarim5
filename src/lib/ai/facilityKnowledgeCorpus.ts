@@ -389,7 +389,7 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
           articleNumber: 'Madde 28',
           title: 'Yönetim Planı (Anasözleşme)',
           officialPrinciple: 'Yönetim planı yönetim tarzını, kullanma maksat ve şeklini yönetici ve denetçilerin alacakları ücreti ve yönetime ait diğer hususları düzenler. Yönetim planı, bütün kat maliklerini bağlayan bir sözleşme hükmündedir.',
-          practicalApplicationInFacilityManagement: 'Tesis yönetim kuralları, havuz saatleri, otopark tahsisleri ve aidat ödeme günleri yönetim planına dayandırılarak uygulanır. Değiştirilmesi için beşte dört (4/5) oy çoğunluğu şarttır.',
+          practicalApplicationInFacilityManagement: 'Tesis yönetim kuralları, havuz saatleri, otopark tahsisleri ve aidat ödeme günleri yönetim planına dayandırılarak uygulanır. Değiştirilmesi için genel yapılarda beşte dört (4/5), toplu yapılarda (siteler) 22 Mayıs 2026\'dan itibaren üçte iki (2/3) oy çoğunluğu aranır.',
         },
         {
           articleNumber: 'Madde 34',
@@ -639,7 +639,7 @@ export async function buildFacilityRAGCorpus(lang = 'tr'): Promise<FacilityRAGCo
         {
           step: 2,
           name: 'Ek İşletme Projesinin (Ek Bütçe) Tanzimi',
-          description: 'Yönetim kurulu veya yetkili profesyonel yönetim şirketi gider farkını bağımsız bölümlere pay ederek ek avans tablosu hazırlar.',
+          description: 'Yönetim kurulu veya yetkili profesyonel yönetim şirketi gider farkını hesaplayarak ek bütçe taslağını hazırlar ve kat malikleri kurulunun onayına sunar (KMK m.35 ve m.37, 7579 sayılı Kanun).',
           legalArticle: 'KMK Madde 37/1',
         },
         {

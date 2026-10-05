@@ -67,13 +67,13 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
 8. **Soru**: Çatı tipi güneş enerjisi (GES) sitelerde ortak alan giderlerini ne kadar düşürür?
    **Cevap**: Çatı GES kurulumu ile apartman ve sitelerin hidrofor, asansör ve aydınlatma elektrik giderlerinde %70'e varan tasarruf sağlanır.
 9. **Soru**: Asgari ücret ve enflasyon artışında site aidatları nasıl revize edilir?
-   **Cevap**: KMK Madde 35 ve 37 uyarınca mevcut işletme projesinde öngörülmeyen personel maliyet artışları için olağanüstü genel kurul toplanabilir veya yönetim kurulu ek işletme projesi (ek bütçe) hazırlayıp kat maliklerine tebliğ ederek avans toplayabilir.
+   **Cevap**: KMK Madde 35 ve 37 uyarınca (22 Mayıs 2026 tarihli 7579 sayılı Kanun'la değişen hâliyle) işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici geçici bir işletme projesi hazırlar ve en geç üç ay içinde kurula onaylatır. Mevcut projesi olan sitelerde geçici projedeki bedel, bir önceki yılın yeniden değerleme oranından fazla artırılamaz. Öngörülmeyen maliyet artışları için olağanüstü genel kurul toplanabilir.
 10. **Soru**: Sitelerde yangın söndürme ve sığınak denetimi yasal zorunluluğu nedir?
     **Cevap**: Binaların Yangından Korunması Hakkında Yönetmelik gereğince yangın söndürme tüpleri 6 ayda bir kontrol edilmeli, yılda 1 kez hidrostatik testten geçirilmeli; yangın merdiveni, hidrofor ve duman tahliye damperleri 7/24 çalışır durumda tutulmalıdır.
 11. **Soru**: Sitelerde elektrikli araç (EV) şarj istasyonu kurulumu nasıl yapılır?
     **Cevap**: KMK Madde 42 kapsamında ortak alana şarj ünitesi kurulması için kat malikleri kurulunun sayı ve arsa payı çoğunluğu kararı gerekir. Bireysel otopark tahsislerinde ise altyapı yangın ve pano kapasite uygunluk raporu aranır.
 12. **Soru**: Site yönetim planı nasıl değiştirilir ve bağlayıcılığı nedir?
-    **Cevap**: KMK Madde 28 gereği yönetim planı tüm kat maliklerini bağlayan sözleşme hükmündedir; değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu yasal zorunluluktur.
+    **Cevap**: KMK Madde 28 gereği yönetim planı tüm kat maliklerini bağlayan sözleşme hükmündedir; değiştirilmesinde genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026'da yürürlüğe giren 7579 sayılı Kanun'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır.
 13. **Soru**: 2026 Asgari ücret zammı sonrası apartman ve sitelerde ek bütçe (avans) kesinleşme süresi ne kadardır?
     **Cevap**: Süre, kat malikinin ek işletme projesini tebellüğ ettiği (iadeli taahhütlü tebligatı teslim aldığı) tarihte başlar, ilan veya genel kurul tarihinde değil. 7 gün içinde itiraz dilekçesi sulh hukuk mahkemesine ulaşmazsa proje kesinleşir; kesinleşen belge KMK m.37 ile İİK m.68 birlikte okunduğunda doğrudan icraya konulabilir borç senedi niteliği kazanır.
 14. **Soru**: Sitelerde kompanzasyon panosu arızalanırsa ne kadar ceza ödenir?

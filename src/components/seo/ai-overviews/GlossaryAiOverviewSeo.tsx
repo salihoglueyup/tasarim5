@@ -44,7 +44,7 @@ export const TOP_GLOSSARY_TERMS: GlossaryDefinitionItem[] = [
     slug: 'yonetim-plani',
     term: 'Site Yönetim Planı (KMK 28)',
     definition:
-      'Bütün kat maliklerini bağlayan sözleşme hükmündeki ana belgedir. Değiştirilmesi için sitedeki tüm kat maliklerinin beşte dördünün (4/5) oyu yasal zorunluluktur. Tapu sicilinde tescillidir.',
+      'Bütün kat maliklerini bağlayan sözleşme hükmündeki ana belgedir. Değiştirilmesi için genel yapılarda bütün kat maliklerinin 4/5\'i, toplu yapılarda (siteler) ise 22 Mayıs 2026\'dan itibaren 2/3\'ü gerekir (KMK m.28/3 ve m.70). Tapu sicilinde tescillidir.',
     legalBasis: '634 Sayılı KMK Madde 28',
   },
   {
@@ -103,7 +103,7 @@ export default function GlossaryAiOverviewSeo({
   };
 
   const directAnswer =
-    '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra gücü kazanan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için 4/5 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
+    '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra gücü kazanan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için genel yapılarda 4/5, toplu yapılarda 2/3 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
 
   const schemaData = [
     {

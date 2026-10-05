@@ -838,11 +838,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "2. Yönetim Planı Değişikliği İçin 4/5 Oy Şartı"
+        "text": "2. Yönetim Planı Değişikliği İçin Oy Şartı (4/5 ve 2/3)"
       },
       {
         "type": "p",
-        "text": "KMK m.28 uyarınca yönetim planının değiştirilebilmesi için bütün kat maliklerinin beşte dördünün (4/5) olumlu oyu şarttır. Bu nisap toplantıya katılanların değil, tapudaki tüm maliklerin 4/5'idir. Bu nedenle yönetim planı ilk hazırlanırken profesyonel gayrimenkul hukukçuları tarafından kusursuz tanzim edilmelidir."
+        "text": "Yönetim planının değiştirilebilmesi için genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) olumlu oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026'da yürürlüğe giren 7579 sayılı Kanun'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır. Bu nisap toplantıya katılanların değil, tapudaki tüm maliklerin oranıdır. Bu nedenle yönetim planı hazırlanırken bir hukukçunun görüşü alınmalıdır."
       },
       {
         "type": "h2",
@@ -3282,7 +3282,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -3890,7 +3890,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -4498,7 +4498,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -5106,7 +5106,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -5714,7 +5714,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -6091,7 +6091,7 @@ export const POSTS: Post[] = [
           "İcra ve Tahsilat Takibi: Vadesi geçen aidat ve demirbaş alacaklarının UYAP üzerinden ilamsız veya ilamlı icra takipleriyle tahsili.",
           "Genel Kurul Divan ve Hukuki Süreç Yönetimi: Çağrı mektupları, vekaletnameler, hazirun cetveli ve karar defterinin KMK m.29-32'ye tam uyumlu tanzimi.",
           "İş Hukuku ve Personel Sözleşmeleri: Kapıcı, temizlik ve teknik personelin iş sözleşmeleri, fazla mesai, yıllık izin ve kıdem tazminatı ihtilaflarının çözümü.",
-          "Yönetim Planı Tadilatı ve Tapu Tescili: KMK m.28 uyarınca 4/5 oy çokluğu ile yönetim planının güncel mevzuata göre revize edilmesi."
+          "Yönetim Planı Tadilatı ve Tapu Tescili: KMK m.28 ve m.70 uyarınca (genel yapılarda 4/5, toplu yapılarda 2/3 oy çokluğu ile) yönetim planının güncel mevzuata göre revize edilmesi."
         ]
       },
       {
@@ -6472,7 +6472,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -7080,7 +7080,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -7777,7 +7777,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -8385,7 +8385,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -8993,7 +8993,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -9763,7 +9763,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
@@ -10371,7 +10371,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
           "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
-          "Yönetim Planı Güncellemesi: KMK m.28 uyarınca sitenin güncel ihtiyaçlarına göre 4/5 çoğunlukla tescili.",
+          "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },

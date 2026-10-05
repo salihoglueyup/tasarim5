@@ -98,11 +98,11 @@ export const KMK_LAW_INDEX: KmkArticleItem[] = [
     articleNumber: 28,
     title: 'Yönetim Planı ve Değiştirilme Şartları',
     category: 'GENEL_KURUL',
-    summary: 'Yönetim planı bütün kat maliklerini bağlayan bir sözleşme hükmündedir. Değiştirilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır.',
+    summary: 'Yönetim planı bütün kat maliklerini bağlayan bir sözleşme hükmündedir. Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır.',
     practicalApplication: 'Site yönetim planı revizyon taslakları ve tapu tescil süreçleri hukuk müşavirliğimiz koordinasyonunda yönetilir.',
     legalAnchor: `${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi#kmk-madde-28`,
     featuredSnippetQuestion: 'Site yönetim planı nasıl değiştirilir ve kaç oy gerekir?',
-    directSnippetAnswer: 'KMK Madde 28 gereğince site yönetim planı bütün kat maliklerini bağlayan ana sözleşmedir. Yönetim planının değiştirilebilmesi için ana gayrimenkuldeki tüm bağımsız bölüm maliklerinin beşte dördünün (4/5) yazılı oyu zorunludur.',
+    directSnippetAnswer: 'KMK Madde 28 gereğince site yönetim planı bütün kat maliklerini bağlayan ana sözleşmedir. Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır.',
   },
   {
     articleNumber: 38,

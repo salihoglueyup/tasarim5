@@ -455,7 +455,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     longTailKeywords: [
       'kat malikleri kurulu kararlarının iptali davası açma süresi',
-      'site yönetim planı 4/5 çoğunlukla nasıl değiştirilir',
+      'site yönetim planı değişikliği 2/3 çoğunluk 2026',
       'kat mülkiyeti kanunu zemin kat asansör muafiyeti yargıtay kararı',
     ],
     kmkArticles: [
