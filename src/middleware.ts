@@ -261,8 +261,14 @@ export async function middleware(request: NextRequest) {
   }
 
   // 2. AUTHENTICATION (Yönetim Paneli)
-  const isProtectedRoute = protectedRoutes.some((route) => pathname.includes(route) && !pathname.includes('/admin/login'));
-  const isPublicRoute = publicRoutes.some((route) => pathname.includes(route));
+  // Yol, (varsa dil önekinden sonra) bir rota ile BAŞLAMALI; includes() "/author/admin" gibi eski WP
+  // URL'lerini veya "/admin" içeren herhangi bir segmenti yanlışlıkla panel sayıyordu.
+  const matchesRoute = (route: string) =>
+    locales.some((l) => pathname === `/${l}${route}` || pathname.startsWith(`/${l}${route}/`)) ||
+    pathname === route ||
+    pathname.startsWith(`${route}/`);
+  const isProtectedRoute = protectedRoutes.some((route) => matchesRoute(route)) && !matchesRoute('/admin/login');
+  const isPublicRoute = publicRoutes.some((route) => matchesRoute(route));
 
   if (isProtectedRoute || isPublicRoute) {
     const cookie = request.cookies.get('admin_session')?.value;
