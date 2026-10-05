@@ -4631,19 +4631,21 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const fs = require('fs');
       const path = require('path');
 
+      // Sorular çeviri anahtarlarına taşındıkça metin sayfa kaynağında değil Türkçe sözlükte durur.
+      const trDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
       const guvenlikPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/page.tsx'), 'utf8');
-      expect(guvenlikPage).toContain('5188 özel güvenlik kimlik kartı nedir');
+      expect(guvenlikPage + trDict).toContain('5188 özel güvenlik kimlik kartı nedir');
 
       const teknikPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/page.tsx'), 'utf8');
-      expect(teknikPage).toContain('Asansör yeşil etiket zorunluluğu');
-      expect(teknikPage).toContain('kompanzasyon panosu reaktif ceza');
+      expect(teknikPage + trDict).toContain('Asansör yeşil etiket zorunluluğu');
+      expect(teknikPage + trDict).toContain('kompanzasyon panosu reaktif ceza');
 
       const aidatPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/aidat-takibi/page.tsx'), 'utf8');
-      expect(aidatPage).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
-      expect(aidatPage).toContain('İİK 68');
+      expect(aidatPage + trDict).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
+      expect(aidatPage + trDict).toContain('İİK 68');
 
       const haserePage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/hasere-ve-dezenfeksiyon/page.tsx'), 'utf8');
-      expect(haserePage).toContain('Biyosidal ilaçlama nedir');
+      expect(haserePage + trDict).toContain('Biyosidal ilaçlama nedir');
     });
 
     it('llms.txt protokolü ve anasayfa Faq bileşeni 2026 yasal standartlarını eksiksiz sunar', async () => {
