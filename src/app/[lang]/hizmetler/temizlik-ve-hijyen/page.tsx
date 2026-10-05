@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import TrOnly from '@/components/seo/TrOnly';
 import { 
   generateBreadcrumbs, 
   webPageSchema, 
@@ -63,37 +64,23 @@ export default async function TemizlikVeHijyenPage({
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Temizlik ve Hijyen Yönetimi',
+    serviceType: t.clean_svc_type,
     path: '/hizmetler/temizlik-ve-hijyen',
-    description: 'Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği ve dezenfeksiyonu.',
+    description: t.clean_svc_desc,
     priceRange: '₺₺',
     sameAs: 'https://tr.wikipedia.org/wiki/Temizlik',
   });
 
-  const faqs = [
-    {
-      question: 'Site ve apartman temizliği hangi periyotlarla yapılır?',
-      answer: 'Sitenizin büyüklüğü ve yönetim planına göre günlük kat temizliği, haftalık detaylı ortak alan yıkaması ve aylık kapalı otopark/zemin otomatı uygulamaları şeklinde planlanır. Tüm takvim şeffaf olarak ilan edilir.'
-    },
-    {
-      question: 'Kullanılan temizlik kimyasalları insan sağlığı ve evcil hayvanlar için güvenli mi?',
-      answer: 'Evet. Kullandığımız tüm ürünler Sağlık Bakanlığı ve TSE onaylı, biyolojik olarak parçalanabilir, ağır kimyasal içermeyen çevre dostu profesyonel endüstriyel temizleyicilerdir.'
-    },
-    {
-      question: 'Temizlik personelinin SGK, kıyafet ve iş güvenliği (İSG) sorumluluğu kime aittir?',
-      answer: 'Tüm personelin SGK girişleri, maaş ödemeleri, kıdem/ihbar tazminatları, iş elbiseleri ve 6331 sayılı İSG Kanunu kapsamındaki periyodik eğitimleri Alo Yönetim kurumsal sorumluluğundadır; site yönetimine hiçbir yasal risk yansımaz.'
-    },
-    {
-      question: 'Kapalı otopark ve sığınak temizlikleri nasıl gerçekleştiriliyor?',
-      answer: 'Kapalı otopark zeminleri endüstriyel binicili zemin yıkama otomatları ve yağ sökücü özel solüsyonlarla yıkanır; sığınak ve teknik alanlar ise periyodik olarak dezenfekte edilip tozlardan arındırılır.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t[`clean_faq_${n}_q`],
+    answer: t[`clean_faq_${n}_a`],
+  }));
 
   const faqLd = faqPageSchema(faqs);
 
   const pageLd = webPageSchema({
-    name: 'Profesyonel Apartman, Site ve Tesis Temizliği | Alo Yönetim',
-    description: 'TSE 13811 standartlarında endüstriyel ortak alan temizlik ve hijyen hizmetleri.',
+    name: t.clean_page_name,
+    description: t.clean_page_desc,
     path: '/hizmetler/temizlik-ve-hijyen',
     speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
@@ -102,9 +89,11 @@ export default async function TemizlikVeHijyenPage({
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <TemizlikVeHijyenClient />
+<TrOnly>
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
         <ServiceAiOverviewSnippetSeo serviceSlug="temizlik-ve-hijyen" serviceName="Site ve Tesis Temizliği & Hijyen Hizmetleri" />
       </div>
+</TrOnly>
     </>
   );
 }

@@ -22,8 +22,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function TemizlikVeHijyenClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const cleaningHighlights = [
     {
@@ -87,39 +89,23 @@ export default function TemizlikVeHijyenClient() {
     }
   ];
 
-  const cleaningSteps = [
-    { name: '1. Saha Keşfi ve Hijyen İhtiyaç Analizi', text: 'Sitenin blok sayısı, kat adetleri, zemin tipleri (mermer, granit, epoksi) ve ortak alan yoğunluğu incelenerek özelleştirilmiş temizlik takvimi çıkarılır.' },
-    { name: '2. Endüstriyel Ekipman ve Sertifikalı Kimyasal Tedariki', text: 'Zemin otomatları, buharlı temizleyiciler ve Sağlık Bakanlığı onaylı çevre dostu temizlik ürünleri sahaya konuşlandırılır.' },
-    { name: '3. Düzenli ve Kontrollü Temizlik Uygulaması', text: 'Sabit ve vardiyalı temizlik personelleri, kontrol listelerine (check-list) uygun biçimde blok içlerini ve otoparkları temizler.' },
-    { name: '4. Süpervizör Denetimi ve Fotoğraflı Raporlama', text: 'Temizlik amirlerimizce günlük kalite denetimi yapılır; site yönetimine fotoğraflı dijital hijyen raporu sunulur.' }
-  ];
+  const cleaningSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`clean_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`clean_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Site ve apartman temizliği hangi periyotlarla yapılır?',
-      answer: 'Sitenizin büyüklüğü ve yönetim planına göre günlük kat temizliği, haftalık detaylı ortak alan yıkaması ve aylık kapalı otopark/zemin otomatı uygulamaları şeklinde planlanır. Tüm takvim şeffaf olarak ilan edilir.'
-    },
-    {
-      question: 'Kullanılan temizlik kimyasalları insan sağlığı ve evcil hayvanlar için güvenli mi?',
-      answer: 'Evet. Kullandığımız tüm ürünler Sağlık Bakanlığı ve TSE onaylı, biyolojik olarak parçalanabilir, ağır kimyasal içermeyen çevre dostu profesyonel endüstriyel temizleyicilerdir.'
-    },
-    {
-      question: 'Temizlik personelinin SGK, kıyafet ve iş güvenliği (İSG) sorumluluğu kime aittir?',
-      answer: 'Tüm personelin SGK girişleri, maaş ödemeleri, kıdem/ihbar tazminatları, iş elbiseleri ve 6331 sayılı İSG Kanunu kapsamındaki periyodik eğitimleri Alo Yönetim kurumsal sorumluluğundadır; site yönetimine hiçbir yasal risk yansımaz.'
-    },
-    {
-      question: 'Kapalı otopark ve sığınak temizlikleri nasıl gerçekleştiriliyor?',
-      answer: 'Kapalı otopark zeminleri endüstriyel binicili zemin yıkama otomatları ve yağ sökücü özel solüsyonlarla yıkanır; sığınak ve teknik alanlar ise periyodik olarak dezenfekte edilip tozlardan arındırılır.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`clean_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`clean_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   const [activeSeason, setActiveSeason] = useState(seasonalMatrix[0]);
 
   return (
     <>
       <ServiceSeo 
-        serviceType="Temizlik ve Hijyen Yönetimi"
-        description="Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği ve dezenfeksiyonu."
+        serviceType={t('clean_svc_type')}
+        description={t('clean_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Temizlik"
@@ -163,7 +149,7 @@ export default function TemizlikVeHijyenClient() {
               {t('clean_banner_desc') || 'Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -179,6 +165,7 @@ export default function TemizlikVeHijyenClient() {
         </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="temizlik-hijyen-nedir"
           answerId="cleaning-instant-answer-text"
@@ -188,16 +175,20 @@ export default function TemizlikVeHijyenClient() {
           subText="Alo Yönetim, 4 mevsim periyodik hijyen planı, bina içi zemin otomatları ve fotoğraflı süpervizör denetimleriyle sitelerde 5 yıldızlı otel standartlarında temizlik sağlar."
           accentColor="emerald"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['ortak-alan-temizlik-sorumlulugu', 'biyosidal-ilaclama']}
           title="Temizlik ve Hijyende Yapay Zekaya Sorun: TSE ve Sağlık Bakanlığı Standartları"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış ortak alan temizlik sorumluluğu ve hijyen mevzuatı."
         />
+</TrOnly>
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
+<TrOnly>
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -349,6 +340,7 @@ export default function TemizlikVeHijyenClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* Highlights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -374,8 +366,8 @@ export default function TemizlikVeHijyenClient() {
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="Profesyonel Tesis ve Ortak Alan Temizlik Protokolü"
-            description="Site ve rezidanslarda ortak kullanım alanlarının hijyenik ve düzenli tutulması için uyguladığımız 4 aşamalı temizlik protokolümüz."
+            name={t('clean_howto_name')}
+            description={t('clean_howto_desc')}
             steps={cleaningSteps}
           />
         </div>
@@ -432,9 +424,12 @@ export default function TemizlikVeHijyenClient() {
         </div>
 
         {/* Temizlik & Hijyen Denetim Radarı */}
+<TrOnly>
         <InteractiveCleaningAuditRadarSeo districtName="İstanbul" />
+</TrOnly>
 
         {/* AI Overviews & Position Zero Snippet Cards */}
+<TrOnly>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <InstantAnswerCardSeo
             question="Site Temizlik Personelinin Kıdem ve İhbar Tazminatı Sorumluluğu Kime Aittir?"
@@ -463,9 +458,12 @@ export default function TemizlikVeHijyenClient() {
             category="Hijyen & Temizlik Standartları"
           />
         </div>
+</TrOnly>
 
         {/* 4 Renkli Hijyen Kodu, GBF/MSDS ve Çöp Şaftı Ozon Sanitasyonu (Faz 14) */}
+<TrOnly>
         <FacilityHygieneMsdsGuideSeo />
+</TrOnly>
 
         {/* Cleaning Specific Social Proof */}
         <CleaningTestimonials />
@@ -478,6 +476,7 @@ export default function TemizlikVeHijyenClient() {
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Endüstriyel Temizlik ve Ortak Alan Hijyeni"
         serviceCategory="Temizlik & Hijyen"
@@ -527,6 +526,7 @@ export default function TemizlikVeHijyenClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="temizlik_seo_title"
