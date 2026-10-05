@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import CalculatorLeadForm from './CalculatorLeadForm';
+import { lateCompensation } from '@/lib/legal/lateCompensation';
 
 import Icon from '@/components/ui/branding/Icon';
 /**
@@ -12,10 +13,11 @@ import Icon from '@/components/ui/branding/Icon';
 export default function LegalCalculator() {
   const { t } = useLanguage();
   const [debtAmount, setDebtAmount] = useState(50000);
+  const [delayMonths, setDelayMonths] = useState(6);
 
-  // KMK ve İcra: Tahsilat süreci borçludan karşılanır, yönetime maliyet 0 TL
-  const costToManagement = 0;
-  const recoveredAmount = debtAmount * 1.09; // %9 yasal faiz ve gecikme tazminatı
+  // KMK m.20/2: gecikilen süre için aylık %5 gecikme tazminatı (basit hesap; masraf, faiz ve tahsil süresi hariç).
+  const calc = lateCompensation(debtAmount, delayMonths) ?? { compensation: 0, total: debtAmount };
+  const estimatedTotal = calc.total;
 
   return (
     <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
@@ -40,7 +42,7 @@ export default function LegalCalculator() {
               </div>
               <input 
                 id="legal-calc-debt"
-                aria-label="Toplam İcralık Aidat Alacağı"
+                aria-label={t('calc_legal_aria_debt')}
                 type="range" 
                 min="10000" max="1000000" step="10000"
                 value={debtAmount}
@@ -53,6 +55,22 @@ export default function LegalCalculator() {
               </div>
             </div>
             
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <label htmlFor="legal-calc-months" className="text-sm font-bold text-[var(--color-primary)]">{t('calc_legal_months')}</label>
+                <span className="text-lg font-black text-slate-700 dark:text-slate-300">{t('calc_legal_months_n').replace('{n}', String(delayMonths))}</span>
+              </div>
+              <input
+                id="legal-calc-months"
+                aria-label={t('calc_legal_aria_months')}
+                type="range"
+                min="1" max="24" step="1"
+                value={delayMonths}
+                onChange={(e) => setDelayMonths(parseInt(e.target.value))}
+                className="w-full h-2 bg-gray-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              />
+            </div>
+
             <div className="flex items-center gap-4 bg-slate-50 dark:bg-zinc-900 p-4 rounded-2xl border border-gray-200 dark:border-zinc-800">
                <Icon name="balance" className="text-slate-500 text-3xl" />
                <div>
@@ -71,14 +89,14 @@ export default function LegalCalculator() {
           
           {/* Faz 40: Sıfır-Jank Donanımsal Sayı Gösterimi */}
           <div className="text-4xl md:text-5xl font-black text-white mb-2 transition-all duration-200 transform-gpu">
-            ₺{Math.round(recoveredAmount).toLocaleString('tr-TR')}
+            ₺{Math.round(estimatedTotal).toLocaleString('tr-TR')}
           </div>
           
           <span className="text-xs text-slate-400 mb-8 font-medium">{t('calc_legal_included')}</span>
           
           <CalculatorLeadForm 
             serviceName="Hukuk ve İcra" 
-            calcDetails={{ debtAmount, costToManagement, recoveredAmount }}
+            calcDetails={{ debtAmount, delayMonths, lateCompensation: calc.compensation, estimatedTotal }}
           />
         </div>
 

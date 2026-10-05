@@ -31,7 +31,7 @@ export default function HukukVeIcraDanismanligiClient() {
   const legalPoints = [
     {
       title: t('legal_feat_1_title') || 'KMK 634 Sayılı Kanun Danışmanlığı',
-      desc: t('legal_feat_1_desc') || 'Kat mülkiyeti ve kat irtifakı uyuşmazlıklarında uzman gayrimenkul avukatlarımızla tam kapsamlı mevzuat danışmanlığı.',
+      desc: t('legal_feat_1_desc') || 'Kat mülkiyeti ve kat irtifakı uyuşmazlıklarında dahili hukuk birimimizle mevzuat danışmanlığı.',
       icon: "gavel"
     },
     {
@@ -148,7 +148,7 @@ export default function HukukVeIcraDanismanligiClient() {
           question="Kat Mülkiyeti Hukuku ve Aidat İcra Danışmanlığı Nedir?"
           answer="KMK hukuk ve icra danışmanlığı; 634 sayılı Kat Mülkiyeti Kanunu ve İcra İflas Kanunu çerçevesinde aidat alacaklarının tahsili, 7 günlük itiraz süresi sonrası ilamsız icra takibi (Örnek No: 7), genel kurul divan yönetimi ve yönetim planı tadilatını yürüten kurumsal hukuk disiplinidir."
           standardBadge="634 KMK & İcra İflas Kanunu"
-          subText="Alo Yönetim, uzman gayrimenkul hukukçuları ile Sulh Hukuk Mahkemesi süreçleri, hakimin müdahalesi ve hızlı tahsilat protokollerini yönetir."
+          subText="Alo Yönetim, dahili hukuk birimiyle Sulh Hukuk Mahkemesi süreçlerini, hâkimin müdahalesi taleplerini ve yasal tahsilat adımlarını yönetir."
           accentColor="indigo"
         />
 
@@ -211,7 +211,7 @@ export default function HukukVeIcraDanismanligiClient() {
                 Yargıtay Emsal Karar ve İçtihat Kütüphanesi
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
-              {' '}ve 6100 Sayılı Hukuk Muhakemeleri Kanunu (HMK) hükümleri çerçevesinde uzman gayrimenkul hukukçularımızca yönetilir.
+              {' '}ve 6100 Sayılı Hukuk Muhakemeleri Kanunu (HMK) hükümleri çerçevesinde dahili hukuk birimimizce yönetilir.
             </p>
             <p>
               Hukuk masamız;{' '}
@@ -351,7 +351,7 @@ export default function HukukVeIcraDanismanligiClient() {
               Site Yöneticileri İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Cezai ve Şahsi Sorumluluğun Yönetimi</span>
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
-              Amatör site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıya kalabilir. Doğru tebligat, zamanında icra takibi ve belgeli harcama süreçleri bu riskleri azaltır; ancak sorumluluk kişisel olduğundan somut durumunuz için bir avukata danışmanız önerilir.
+              Gönüllü site yöneticileri; yanlış tebligatlar, zamanında açılmayan icra takipleri ve usulsüz harcamalar nedeniyle Türk Ceza Kanunu (TCK m.155) ve Kat Mülkiyeti Kanunu (KMK m.38) gereğince şahsi mal varlıklarıyla tazminat ödeme ve hapis cezası alma riskiyle karşı karşıya kalabilir. Doğru tebligat, zamanında icra takibi ve belgeli harcama süreçleri bu riskleri azaltır; ancak sorumluluk kişisel olduğundan somut durumunuz için bir avukata danışmanız önerilir.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
