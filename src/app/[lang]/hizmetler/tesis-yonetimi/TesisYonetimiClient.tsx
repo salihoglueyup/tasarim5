@@ -234,19 +234,19 @@ export default function TesisYonetimiClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi (Facility Management - FM)</strong>;{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 konut siteleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 iş merkezleri ve kurumsal plazalar
               </Link>
               , karma yaşam projeleri ve{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all">
                 endüstriyel tesislerin
               </Link>{' '}
               fiziki, teknik, idari ve mali tüm operasyonel dinamiklerinin tek bir profesyonel merkezden entegre olarak işletilmesidir. Geleneksel bina yönetiminin getirdiği dar kapsamlı kapıcılık veya münferit temizlik anlayışının çok ötesine geçen bu entegre model; gayrimenkulün tüm yaşam döngüsü (Life-Cycle Costing) boyunca amortisman değerini korumayı, bina kabuğu ile elektromekanik donanımların yıpranmasını önlemeyi, enerji tüketim verimliliğini maksimize etmeyi, operasyonel riskleri proaktif yöntemlerle minimize etmeyi ve sakinler için güvenli, huzurlu, sürdürülebilir ve yüksek prestijli bir yaşam standardı sunmayı hedefler.
@@ -706,7 +706,7 @@ export default function TesisYonetimiClient() {
               summary: "Sitenin 1 yıllık tahmini gelir-gider bütçesi ve bağımsız bölümlere düşen avans payını gösteren belgedir."
             },
             {
-              slug: "toplu-yapi-yonetimi",
+              slug: "toplu-yapi-yonetimi-kmk-ek-madde-69",
               term: "Toplu Yapı Yönetimi (KMK m.66-74)",
               summary: "Birden çok parsel ve bloktan oluşan büyük sitelerde ortak alanların merkezi temsilciler kuruluyla yönetilmesidir."
             },

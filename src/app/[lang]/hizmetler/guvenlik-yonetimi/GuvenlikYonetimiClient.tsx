@@ -644,7 +644,7 @@ export default function GuvenlikYonetimiClient() {
             summary: "Site giriş-çıkışlarında araç plakalarını optik karakter tanıma ile okuyup bariyerleri otomatik yöneten sistemdir."
           },
           {
-            slug: "cctv-ve-kamera-guvenlik-sistemi",
+            slug: "cctv-kamera-guvenlik-sistemi",
             term: "CCTV & Yapay Zeka Kamera Sistemi",
             summary: "Ortak alanların 7/24 yüksek çözünürlüklü ve hareket analizli kameralarla izlenmesini ve kayıt altına alınmasını sağlayan altyapıdır."
           }

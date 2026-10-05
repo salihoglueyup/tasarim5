@@ -446,7 +446,7 @@ export default async function DistrictPage({
           ]}
           glossaryTerms={[
             {
-              slug: "toplu-yapi-yonetimi",
+              slug: "toplu-yapi-yonetimi-kmk-ek-madde-69",
               term: `${district.name} Toplu Yapı Yönetimi`,
               summary: `${district.name} ilçesindeki çok bloklu ve parselli karma konut projelerinde ortak alanların profesyonel yönetimidir.`
             },

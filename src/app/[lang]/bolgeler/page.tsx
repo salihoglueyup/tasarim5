@@ -102,19 +102,19 @@ export default async function Bolgeler({
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">İstanbul Yerel Tesis ve Site Yönetimi</strong>; Anadolu ve Avrupa yakasındaki 39 ilçede yer alan{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 konut siteleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 iş merkezleri ve plazalar
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 endüstriyel sanayi tesislerinin
               </Link>{' '}
               merkezi kurumsal mühendislik, finans ve hukuk desteği eşliğinde, her ilçeye özel konuşlandırılmış yerel süpervizör amirler ve nöbetçi mobil teknik servis ekipleriyle 7/24 işletilmesidir.
@@ -312,7 +312,7 @@ export default async function Bolgeler({
           ]}
           glossaryTerms={[
             {
-              slug: "toplu-yapi-yonetimi",
+              slug: "toplu-yapi-yonetimi-kmk-ek-madde-69",
               term: "Toplu Yapı & Çok Bloklu Siteler",
               summary: "İstanbul'un hızla gelişen ilçelerinde çok parselli sitelerin merkezi yönetim planıyla idare edilmesidir."
             },

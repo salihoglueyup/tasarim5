@@ -282,17 +282,17 @@ export default function TopluKonutYonetimiClient() {
         ]}
         glossaryTerms={[
           {
-            slug: "toplu-yapi-cift-cogunluk-kmk",
+            slug: "toplu-yapi-yonetimi-kmk-66-74",
             term: "Toplu Yapı Çift Çoğunluk Kuralı",
             summary: "KMK m.34 uyarınca 200+ konutlu sitelerde yönetici seçiminde aranan hem kat maliki sayısı hem de arsa payı çoğunluğudur."
           },
           {
-            slug: "isletme-projesi-ve-gecikme-tazminati",
+            slug: "isletme-projesi",
             term: "KMK m.37 İşletme Projesi & %5 Faiz",
             summary: "Site bütçesinin kesinleşmesi sonrası ödenmeyen aidatlara aylık %5 yasal gecikme tazminatı uygulanmasıdır."
           },
           {
-            slug: "frekans-konvertorlu-hidrofor-otomasyonu",
+            slug: "hidrofor-ve-basinc-dengeleme-sistemi",
             term: "Merkezi Hidrofor & Dalgıç Pompa",
             summary: "Geniş peyzaj ve yüksek katlara kesintisiz basınçlı su sağlayan enerji tasarruflu hidrofor ve kuyu otomasyonudur."
           }

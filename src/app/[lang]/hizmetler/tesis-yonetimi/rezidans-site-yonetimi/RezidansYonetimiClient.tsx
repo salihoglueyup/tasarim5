@@ -262,17 +262,17 @@ export default function RezidansYonetimiClient() {
         ]}
         glossaryTerms={[
           {
-            slug: "rezidans-concierge-hizmeti",
+            slug: "rezidans-luks-site-yonetimi-standartlari",
             term: "7/24 Rezidans Concierge & Vale",
             summary: "Rezidans sakinlerine özel kurye emaneti, misafir karşılama ve garantili vale otopark koordinasyonudur."
           },
           {
-            slug: "kapali-devre-cctv-pts-guvenlik",
+            slug: "plaka-tanima-sistemi-pts",
             term: "Akıllı PTS & Plaka Tanıma",
             summary: "Site ve kule otopark girişlerinde misafir ve abone araçların otomatik bariyer açılışı ve güvenliğidir."
           },
           {
-            slug: "rezidans-ortak-gider-yonetimi",
+            slug: "ilamsiz-icra-takibi-aidat-borcu",
             term: "Rezidans Aidat & İcra Takibi",
             summary: "Online tahsilat, otomatik SMS hatırlatma ve geciken aidatlar için KMK m.20 yasal gecikme tazminatı işletimidir."
           }

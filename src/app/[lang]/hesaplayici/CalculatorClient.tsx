@@ -70,19 +70,19 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis ve Site Aidat Bütçesi Hesaplama</strong>;{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 konut siteleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 iş merkezleri ve plazalar
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 sanayi tesislerinde
               </Link>{' '}
               634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde bağımsız bölüm sayısı, asansör adedi, güvenlik ve temizlik personeli ihtiyacı ile enerji tüketim parametreleri analiz edilerek yıllık tahmini işletme projesinin (KMK m.37) hazırlanması sürecidir.

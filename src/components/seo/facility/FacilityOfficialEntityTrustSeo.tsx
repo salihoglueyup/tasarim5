@@ -295,7 +295,7 @@ export function FacilityOfficialEntityTrustSeo({
             </h4>
           </div>
           <Link
-            href="/kalite-belgelerimiz"
+            href="/kurumsal/kalite-belgelerimiz"
             className="shrink-0 text-xs font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1 transition-colors"
           >
             <span>Tüm Sertifikaları Doğrula</span>

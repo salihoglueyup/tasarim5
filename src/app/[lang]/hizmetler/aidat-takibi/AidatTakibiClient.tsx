@@ -176,15 +176,15 @@ export default function AidatTakibiClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Profesyonel Aidat ve Finans Yönetimi</strong>;{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 konut siteleri ve toplu yapılar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 iş merkezleri ve kurumsal plazaların
               </Link>{' '}
               ortak alan elektrik, su, doğalgaz, personel maaşları, asansör bakımı ve güvenlik gibi tüm cari giderlerinin karşılanması amacıyla yürütülen dijital bütçe ve tahsilat disiplinidir. Amatör bina yönetimlerinde sıkça yaşanan bakiye kayıpları, tahsilat tıkanıklıkları ve komşuluk ihtilaflarını tamamen ortadan kaldıran bu kurumsal model; %99 tahsilat oranı, sıfır bakiye hatası ve anlık denetlenebilir şeffaf muhasebe altyapısı sunar.

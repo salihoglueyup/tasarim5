@@ -43,7 +43,7 @@ export default function VisionHeroSeo({
           </Link>
           <span>/</span>
           <Link
-            href="/kurumsal"
+            href="/hakkimizda"
             className="hover:text-white transition-colors"
           >
             Kurumsal

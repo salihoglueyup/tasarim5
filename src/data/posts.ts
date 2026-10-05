@@ -728,7 +728,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-02-23T16:30:00.000Z",
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop",
-    "pillar": "/hizmetler/yonetim-danismanligi",
+    "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "Tesis yönetim şirketi; KMK m.35 kapsamındaki tüm yasal yöneticilik görevlerini, işletme bütçesini, personel SGK/İSG süreçlerini ve ortak alan bakımını hukuki güvenceyle yürütür.",
     "content": [
       {
@@ -793,7 +793,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Yasal süreçler ve yönetim danışmanlığı hakkında bilgi alın.",
-        "href": "/hizmetler/yonetim-danismanligi",
+        "href": "/hizmetler/tesis-yonetimi",
         "label": "Yönetim Danışmanlığı Hizmetimiz"
       }
     ]
@@ -1744,7 +1744,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-01-15T08:00:00+03:00",
     "dateModified": "2026-02-24T20:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2070&auto=format&fit=crop",
-    "pillar": "/hizmetler/yonetim-danismanligi",
+    "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "Site aidat artışları kanunen sabit bir orana bağlı olmayıp; sitenin yıllık işletme bütçesindeki personel (SGK/asgari ücret), enerji, bakım ve demirbaş maliyet artışlarının KMK m.20 uyarınca kat maliklerine paylaştırılmasıyla belirlenir.",
     "content": [
       {
@@ -1934,7 +1934,7 @@ export const POSTS: Post[] = [
     "author": "av-mehmet-kaya",
     "datePublished": "2026-03-28T10:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?q=80&w=2070",
-    "pillar": "/hizmetler/yonetim-danismanligi",
+    "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "6306 sayılı Kanun ile kentsel dönüşümde karar çoğunluğu salt çoğunluğa (yarıdan bir fazla) indirilmiştir. Riskli yapı tespiti, bakanlık lisanslı kuruluşlarca yapılır ve kesinleştiğinde 60+30 günlük tahliye süreci başlar.",
     "content": [
       {
@@ -2184,7 +2184,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Sitenizin yüzme havuzu kimyasalları ve profesyonel işletme hizmeti için teklif alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Havuz Kimyasalları Teklifi Al"
       }
     ],
@@ -2207,7 +2207,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-04-12T08:00:00+03:00",
     "dateModified": "2026-02-24T20:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop",
-    "pillar": "/hizmetler/yonetim-danismanligi",
+    "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "İskan alan yeni projelerde müteahhidin atadığı geçici yönetim en geç bağımsız bölümlerin üçte ikisinin fiilen tesliminden itibaren 1 yıl içinde ilk Kat Malikleri Genel Kurulunu toplayarak yönetimi devretmek zorundadır.",
     "content": [
       {
@@ -2269,7 +2269,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Yeni siteniz için sorunsuz devir teslim ve profesyonel yönetim danışmanlığı alın.",
-        "href": "/hizmetler/yonetim-danismanligi",
+        "href": "/hizmetler/tesis-yonetimi",
         "label": "Devir Teslim Danışmanlığı İsteyin"
       }
     ]
@@ -2761,7 +2761,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Sitenizin havuz bakımı için sertifikalı operatör ve hijyen danışmanlığı alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Havuz Bakım Hizmetlerimiz"
       }
     ],
@@ -3192,7 +3192,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Ataşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -3243,7 +3243,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Ataşehir'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Ataşehir Havuz Bakım Teklifi"
       }
     ],
@@ -3800,7 +3800,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Bakırköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -3851,7 +3851,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Bakırköy'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Bakırköy Havuz Bakım Teklifi"
       }
     ],
@@ -4408,7 +4408,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Başakşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -4459,7 +4459,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Başakşehir'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Başakşehir Havuz Bakım Teklifi"
       }
     ],
@@ -5016,7 +5016,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Beşiktaş bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -5067,7 +5067,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Beşiktaş'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Beşiktaş Havuz Bakım Teklifi"
       }
     ],
@@ -5624,7 +5624,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Beylikdüzü bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -5675,7 +5675,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Beylikdüzü'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Beylikdüzü Havuz Bakım Teklifi"
       }
     ],
@@ -6147,7 +6147,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-07T09:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070",
-    "pillar": "/hizmetler/yonetim-danismanligi",
+    "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "İşletme projesi; ana gayrimenkulün 1 yıllık tahmini gelir ve giderlerini gösteren ve KMK m.37 uyarınca her kat malikine tebliğ edilerek kesinleşen yasal bütçe belgesidir.",
     "content": [
       {
@@ -6203,7 +6203,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Siteniz için hatasız işletme projesi hazırlama ve bütçe yönetimi hizmeti alın.",
-        "href": "/hizmetler/yonetim-danismanligi",
+        "href": "/hizmetler/tesis-yonetimi",
         "label": "Bütçe Danışmanlığı Al"
       }
     ],
@@ -6382,7 +6382,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Kadıköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -6433,7 +6433,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Kadıköy'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Kadıköy Havuz Bakım Teklifi"
       }
     ],
@@ -6990,7 +6990,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Kartal bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -7041,7 +7041,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Kartal'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Kartal Havuz Bakım Teklifi"
       }
     ],
@@ -7441,7 +7441,7 @@ export const POSTS: Post[] = [
     "author": "av-mehmet-kaya",
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070",
-    "pillar": "/hizmetler/yonetim-danismanligi",
+    "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "KMK m.34-40 uyarınca yönetici, kat malikleri kurulunun vekili hükmündedir. KMK m.40 uyarınca yönetim planında aksi kararlaştırılmadıkça yönetici uygun bir ücret talep etme hakkına sahiptir.",
     "content": [
       {
@@ -7687,7 +7687,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Maltepe bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -7738,7 +7738,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Maltepe'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Maltepe Havuz Bakım Teklifi"
       }
     ],
@@ -8295,7 +8295,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Sarıyer bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -8346,7 +8346,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Sarıyer'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Sarıyer Havuz Bakım Teklifi"
       }
     ],
@@ -8903,7 +8903,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Şişli bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -8954,7 +8954,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Şişli'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Şişli Havuz Bakım Teklifi"
       }
     ],
@@ -9673,7 +9673,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Ümraniye bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -9724,7 +9724,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Ümraniye'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Ümraniye Havuz Bakım Teklifi"
       }
     ],
@@ -10281,7 +10281,7 @@ export const POSTS: Post[] = [
     "author": "alo-yonetim-editor",
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    "pillar": "/hizmetler/havuz-bakimi",
+    "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
     "tldr": "Üsküdar bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
     "content": [
       {
@@ -10332,7 +10332,7 @@ export const POSTS: Post[] = [
       {
         "type": "cta",
         "text": "Üsküdar'deki siteniz için profesyonel yüzme havuzu bakım teklifi alın.",
-        "href": "/hizmetler/havuz-bakimi",
+        "href": "/hizmetler/havuz-bakimi-ve-hijyen",
         "label": "Üsküdar Havuz Bakım Teklifi"
       }
     ],

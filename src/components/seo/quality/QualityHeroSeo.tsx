@@ -42,7 +42,7 @@ export default function QualityHeroSeo({ onOpenQuote }: QualityHeroSeoProps) {
             Anasayfa
           </Link>
           <span className="text-slate-600">/</span>
-          <Link href="/kurumsal" className="hover:text-white transition-colors">
+          <Link href="/hakkimizda" className="hover:text-white transition-colors">
             Kurumsal
           </Link>
           <span className="text-slate-600">/</span>

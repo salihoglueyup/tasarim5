@@ -216,19 +216,19 @@ export default function TemizlikVeHijyenClient() {
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
             <p>
               <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis Temizlik ve Hijyen Yönetimi</strong>;{' '}
-              <Link href="/sektorel-cozumler/site-ve-toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 konut siteleri
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/rezidans-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 çok katlı lüks rezidanslar
               </Link>
               ,{' '}
-              <Link href="/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 iş merkezleri ve plazalar
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 endüstriyel tesislerin
               </Link>{' '}
               tüm ortak kullanım alanlarının, blok içi hollerinin, asansör kabinlerinin ve otopark zeminlerinin uluslararası sanitasyon standartlarında temiz tutulmasını sağlayan kurumsal operasyon disiplinidir. Geleneksel bina kapıcılığı yerine endüstriyel zemin yıkama makineleri, mikrofiber teknolojisi ve Sağlık Bakanlığı onaylı çevre dostu kimyasallarla çalışılarak mülkünüzün prestiji ve sakin sağlığı en üst düzeyde korunur.

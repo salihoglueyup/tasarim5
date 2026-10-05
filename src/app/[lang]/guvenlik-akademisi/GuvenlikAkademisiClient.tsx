@@ -134,7 +134,7 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
               summary: "Site ve tesislerin bünyesinde güvenlik personeli bulundurabilmesi için Valilik Komisyonu'ndan alınan resmi onaydır."
             },
             {
-              slug: "cctv-ve-kamera-guvenlik-sistemi",
+              slug: "cctv-kamera-guvenlik-sistemi",
               term: "CCTV & Kamera İzleme Protokolü",
               summary: "Ortak alanların 7/24 analitik kameralar ve hareket sensörleriyle kesintisiz izlenmesi standartlarıdır."
             },

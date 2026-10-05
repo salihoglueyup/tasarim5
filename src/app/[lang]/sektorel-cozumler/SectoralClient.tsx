@@ -221,7 +221,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                 sanayi ve fabrika tesisleri
               </Link>
               {' '}ile{' '}
-              <Link href="/sektorel-cozumler/avm-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
+              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
                 alışveriş merkezlerinin (AVM)
               </Link>{' '}
               kendine özgü operasyonel, teknik, güvenlik ve yasal dinamiklerine göre tasarlanan bütünleşik yönetim modelidir. Standart ve şablonik bina yönetimi yaklaşımları yerine, her mülk tipolojisinin insan sirkülasyonu, enerji tüketim profili, amortisman riskleri ve sakin beklentilerine göre özelleştirilmiş SLA (Hizmet Seviyesi Taahhüdü) süreçleri uygulanır.
@@ -593,7 +593,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
           ]}
           glossaryTerms={[
             {
-              slug: "toplu-yapi-yonetimi",
+              slug: "toplu-yapi-yonetimi-kmk-ek-madde-69",
               term: "Toplu Yapı Yönetimi Nedir?",
               summary: "Birden çok parsel ve bloktan oluşan karma projelerde ortak sosyal tesis ve güvenliğin merkezi kurulla yönetilmesidir."
             },

@@ -51,8 +51,14 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
     if (!pathname || pathname === '/') return null;
     
     const paths = pathname.split('/').filter(p => p);
+    // Dil öneki bir "sayfa" değildir: crumb olarak gösterilmez, yalnızca varsayılan dil dışında URL'lere eklenir.
+    const lang = ['tr', 'en', 'ru', 'ar'].includes(paths[0]) ? paths.shift() : undefined;
+    const urlPrefix = lang && lang !== 'tr' ? `/${lang}` : '';
+    // Kendi sayfası olmayan ara segmentler link olmaz; yönlendirmeli olanlar doğrudan hedefe gider.
+    const NON_NAVIGABLE = new Set(['/blog/etiket', '/blog/kategori', '/blog/yazar']);
+    const URL_REMAP: Record<string, string> = { '/kurumsal': '/hakkimizda', '/kurumsal/sertifikalar': '/kurumsal/kalite-belgelerimiz' };
     const autoBreadcrumbs = [];
-    
+
     let currentUrl = '';
     for (let i = 0; i < paths.length; i++) {
       currentUrl += `/${paths[i]}`;
@@ -62,7 +68,11 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
         let name = paths[i].charAt(0).toUpperCase() + paths[i].slice(1).replace(/-/g, ' ');
         if (paths[i] === 'hizmetler') name = 'Hizmetlerimiz';
         else if (paths[i] === 'kurumsal') name = 'Kurumsal';
-        autoBreadcrumbs.push({ name, url: currentUrl });
+        autoBreadcrumbs.push(
+          NON_NAVIGABLE.has(currentUrl)
+            ? { name }
+            : { name, url: `${urlPrefix}${URL_REMAP[currentUrl] ?? currentUrl}` }
+        );
       }
     }
     return autoBreadcrumbs;
@@ -120,10 +130,12 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
                     <Link href={crumb.url} className="hover:text-white transition-colors">
                       {crumb.name}
                     </Link>
-                  ) : (
+                  ) : isLast ? (
                     <span className="text-white font-bold truncate max-w-[280px] sm:max-w-md inline-block align-bottom" title={crumb.name}>
                       {crumb.name}
                     </span>
+                  ) : (
+                    <span className="text-slate-300">{crumb.name}</span>
                   )}
                 </span>
               );

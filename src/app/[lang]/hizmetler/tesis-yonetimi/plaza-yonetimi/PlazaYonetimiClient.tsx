@@ -258,17 +258,17 @@ export default function PlazaYonetimiClient() {
         ]}
         glossaryTerms={[
           {
-            slug: "plaza-hvac-otomasyonu",
+            slug: "bina-otomasyon-sistemi-bms",
             term: "Plaza HVAC & BMS Otomasyonu",
             summary: "Chiller, soğutma kuleleri ve fancoil ünitelerinin merkezi bina yönetim yazılımı üzerinden 7/24 izlenmesidir."
           },
           {
-            slug: "senkron-jenerator-isletmesi",
+            slug: "jenerator-periyodik-bakimi-ve-yuk-testi",
             term: "Senkron Jeneratör Yük Paylaşımı",
             summary: "Şebeke kesintisinde 8-12 saniye içinde paralel devreye giren jeneratörlerle plazada kesintisiz enerji sağlanmasıdır."
           },
           {
-            slug: "ortak-gider-kalorimetre-paylasimi",
+            slug: "merkezi-isi-pay-olcer",
             term: "Isıtma/Soğutma Kalorimetre Paylaşımı",
             summary: "Merkezi sistem enerji tüketiminin M-Bus alt sayaçlar üzerinden kiracılara adil ve yasal faturalandırılmasıdır."
           }

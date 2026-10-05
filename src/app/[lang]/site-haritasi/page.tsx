@@ -84,7 +84,7 @@ export default async function SiteHaritasiPage({
             <h2 className="text-2xl font-bold text-slate-800 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Kurumsal</h2>
             <ul className="space-y-2">
               <li><Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Anasayfa</Link></li>
-              <li><Link href="/kurumsal/hakkimizda" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Hakkımızda</Link></li>
+              <li><Link href="/hakkimizda" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Hakkımızda</Link></li>
               <li><Link href="/kurumsal/vizyon-misyon" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Vizyon & Misyon</Link></li>
               <li><Link href="/kurumsal/kalite-belgelerimiz" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Kalite Belgelerimiz & Akreditasyonlar</Link></li>
               <li><Link href="/iletisim" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">İletişim</Link></li>

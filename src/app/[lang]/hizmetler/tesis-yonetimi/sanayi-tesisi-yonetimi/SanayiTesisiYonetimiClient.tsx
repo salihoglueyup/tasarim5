@@ -269,17 +269,17 @@ export default function SanayiTesisiYonetimiClient() {
         ]}
         glossaryTerms={[
           {
-            slug: "atex-patlamadan-korunma-dokumani",
+            slug: "endustriyel-tesis-osb-yonetimi",
             term: "ATEX Patlamadan Korunma Dokümanı",
             summary: "Sanayi tesislerinde parlayıcı gaz, buhar ve toz patlamalarını önlemek için hazırlanan yasal teknik rapordur."
           },
           {
-            slug: "orta-gerilim-trafo-kompanzasyon",
+            slug: "kompanzasyon-reaktif-guc",
             term: "34.5 kV OG Trafo & Kompanzasyon",
             summary: "Fabrikalarda reaktif enerji cezasını %0'a indiren ve trafo bakımını üstlenen yüksek gerilim mühendislik hizmetidir."
           },
           {
-            slug: "motat-tehlikeli-atik-yonetimi",
+            slug: "atik-yonetimi-ve-sifir-atik-belgesi",
             term: "MOTAT & Sıfır Atık Yönetimi",
             summary: "Bakanlık onaylı Mobil Atık Takip Sistemi ile endüstriyel tehlikeli atıkların bertaraf ve geri dönüşüm sürecidir."
           }

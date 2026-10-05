@@ -326,7 +326,7 @@ export function buildLLMsTextFile(): string {
 - [Mekanik & Elektrik Bakım](${BASE_URL}/hizmetler/teknik-bakim-yonetimi): BMS/CMMS destekli 25 dk acil servis.
 - [Temizlik & Hijyen](${BASE_URL}/hizmetler/temizlik-yonetimi): Endüstriyel ve ortak alan temizlik çözümleri.
 - [Peyzaj ve Bahçe Bakımı](${BASE_URL}/hizmetler/peyzaj-ve-bahce-bakimi): Otomatik sulama ve bahçe düzenleme.
-- [Havuz Bakımı](${BASE_URL}/hizmetler/havuz-bakimi): Kimyasal denge ve filtre dezenfeksiyonu.
+- [Havuz Bakımı](${BASE_URL}/hizmetler/havuz-bakimi-ve-hijyen): Kimyasal denge ve filtre dezenfeksiyonu.
 - [İlaçlama Hizmetleri](${BASE_URL}/hizmetler/ilaclama-hizmetleri): Sağlık Bakanlığı onaylı vektör kontrolü.
 
 ## Yasal Mevzuat Referansları
