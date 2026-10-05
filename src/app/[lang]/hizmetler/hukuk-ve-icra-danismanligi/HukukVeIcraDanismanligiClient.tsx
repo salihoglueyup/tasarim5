@@ -24,8 +24,9 @@ import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAi
 import KMKLawCourtDisputeMatrixSeo from '@/components/seo/kmk/KMKLawCourtDisputeMatrixSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import { localePath } from '@/lib/i18n/localePath';
 export default function HukukVeIcraDanismanligiClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const legalPoints = [
     {
@@ -127,6 +128,14 @@ export default function HukukVeIcraDanismanligiClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
+        {/* 7579 sayılı Kanun rehberine bağlantı */}
+        <Link
+          href={localePath('/kmk-2026-degisiklikleri', language)}
+          className="block rounded-2xl border border-slate-500/20 bg-slate-500/5 px-5 py-4 text-sm md:text-base text-[var(--color-primary)] hover:bg-slate-500/10 transition-colors"
+        >
+          <strong>Güncel mevzuat:</strong> 22 Mayıs 2026 tarihli 7579 sayılı Kanun KMK m.35, 37 ve 70&apos;i değiştirdi. Aidat artış sınırı, geçici işletme projesi ve toplu yapılarda 2/3 çoğunluk için rehberi okuyun →
+        </Link>
+
         {/* Legal Calculator */}
         <div className="-mt-20 md:-mt-32 relative z-30">
           <LegalCalculator />

@@ -5,7 +5,7 @@ import path from 'path';
 /**
  * 7579 sayılı Kanun (RG 22.05.2026, 33261): KMK m.70'te yönetim planı değişikliği nisabı toplu yapılar için
  * 4/5'ten 2/3'e indi (genel yapılarda m.28/3'teki 4/5 değişmedi). Bir cümlede yönetim planı değişikliği için
- * yalnızca 4/5 söyleniyorsa içerik eskimiş demektir; toplu yapı/2/3 ayrımı da cümlede yer almalıdır.
+ * yalnızca 4/5 söyleniyorsa içerik eskimiş demektir; toplu yapı/genel yapı ayrımı (veya 2/3) da cümlede yer almalıdır.
  */
 const ROOT = path.join(process.cwd(), 'src');
 const SCAN_DIRS = ['app', 'components', 'data', 'lib'];
@@ -32,7 +32,7 @@ describe('7579 sayılı Kanun: yönetim planı değişikliği nisabı', () => {
         for (const part of text.split(/(?<=[.!?])\s+|\n/)) {
           if (!/yönetim plan/i.test(part)) continue;
           if (!/(4\/5|beşte dört)/i.test(part)) continue;
-          if (/(2\/3|üçte iki|toplu yap)/i.test(part)) continue;
+          if (/(2\/3|üçte iki|toplu yap|genel yap)/i.test(part)) continue;
           offenders.push(`${path.relative(ROOT, file)}: ${part.trim().slice(0, 140)}`);
         }
       }

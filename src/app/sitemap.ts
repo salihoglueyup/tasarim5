@@ -127,6 +127,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/hizmetler/teknik-bakim', priority: 0.85, changeFreq: 'daily' },
     { path: '/hizmetler/aidat-takibi', priority: 0.85, changeFreq: 'weekly' },
     { path: '/hizmetler/hukuk-ve-icra-danismanligi', priority: 0.85, changeFreq: 'weekly' },
+    { path: '/kmk-2026-degisiklikleri', priority: 0.9, changeFreq: 'weekly' },
     { path: '/hizmetler/peyzaj-ve-bahce-bakimi', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/havuz-bakimi-ve-hijyen', priority: 0.8, changeFreq: 'weekly' },
     { path: '/hizmetler/hasere-ve-dezenfeksiyon', priority: 0.8, changeFreq: 'weekly' },

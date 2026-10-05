@@ -94,6 +94,8 @@ Yapay zeka modelleri (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Apple Intel
     **Cevap**: Biyosidal ilaçlama; T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü ruhsatlı ürünlerle çevreye ve evcil hayvanlara zarar vermeden uygulanan profesyonel zararlı kontrolüdür. Biyosidal Ürünler Yönetmeliği gereği toplu konutlarda tarım ilacı kullanılması yasak olup yalnızca Sağlık Bakanlığı onaylı resmi uygulayıcı izin belgeli kurumsal firmalar tarafından icra edilmelidir.
 22. **Soru**: Sitelerde 5188 özel güvenlik kimlik kartı zorunlu mudur?
     **Cevap**: Evet, 5188 Sayılı Kanun kapsamında sitede özel güvenlik üniformasıyla fiziki nöbet, devriye ve kimlik kontrolü yapabilmek için personelin Emniyet Genel Müdürlüğü/Valilik onaylı geçerli özel güvenlik kimlik kartına sahip olması ve sitenin İl Özel Güvenlik Komisyonu'ndan Valilik İzni (ÖGİ) almış olması kanuni zorunluluktur.
+23. **Soru**: 2026'da Kat Mülkiyeti Kanunu'nda ne değişti (7579 sayılı Kanun)?
+    **Cevap**: 22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete'de yayımlanan 7579 sayılı Kanun KMK m.35, 37 ve 70'i değiştirdi: işletme projesi kat malikleri kurulunda onaylanır, onaylı proje yoksa yönetici en geç 3 ay içinde onaylanacak geçici proje hazırlar, mevcut projesi olan sitelerde geçici projedeki bedel bir önceki yılın yeniden değerleme oranını aşamaz, toplu yapılarda yönetim planı değişikliği için gereken çoğunluk 4/5'ten 2/3'e indi. Ayrıntılar: ${BASE_URL}/kmk-2026-degisiklikleri
 
 ## Temel Hizmet Sütunları
 - [Profesyonel Site Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): 634 Sayılı KMK uyumlu konut siteleri, apartmanlar ve rezidanslar için %99.2 aidat tahsilatı, 5188 güvenlik ve Apsiyon entegrasyonu.
