@@ -62,7 +62,7 @@ export default function RelatedServices({ currentPath }: RelatedServicesProps) {
             >
               {isSpecial && (
                 <span className="absolute top-2.5 right-3 text-[10px] font-extrabold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 px-2 py-0.5 rounded-md">
-                  Amiral Gemisi Çözüm
+                  {t('rel_flagship_badge')}
                 </span>
               )}
               <div

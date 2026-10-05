@@ -22,12 +22,15 @@ const CORE_TRANSLATED = [
   '/cerez-politikasi',
 ] as const;
 
+// Hizmet sayfaları: çekirdek içerik çevrildi, yalnızca Türkçe olan SEO blokları en/ru/ar'da gizli (TrOnly).
+const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi'] as const;
+
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   // teklif-al: form etiketleri ve metinler çeviri anahtarlarına bağlı (en/ru/ar doğrulandı).
   // /sss: arayüz metinleri çeviri anahtarlarında, SSS maddeleri DB'deki _en/_ru/_ar alanlarından gelir.
-  en: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
-  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
-  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
+  en: [...CORE_TRANSLATED, '/teklif-al', '/sss', ...SERVICE_TRANSLATED],
+  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss', ...SERVICE_TRANSLATED],
+  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss', ...SERVICE_TRANSLATED],
 };
 
 /** Türkçe dahil tüm dillerde noindex olacak yol kalıpları (ince/şablon sayfalar). */

@@ -62,37 +62,23 @@ export default async function PeyzajVeBahceBakimiPage({
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Peyzaj ve Bahçe Bakımı',
+    serviceType: t.peyz_svc_type,
     path: '/hizmetler/peyzaj-ve-bahce-bakimi',
-    description: 'Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.',
+    description: t.peyz_svc_desc,
     priceRange: '₺₺',
     sameAs: 'https://tr.wikipedia.org/wiki/Peyzaj_mimarl%C4%B1%C4%9F%C4%B1',
   });
 
-  const faqs = [
-    {
-      question: 'Site ve sitelerin bahçe bakımında hangi periyotlar uygulanır?',
-      answer: 'İlkbahar ve yaz aylarında haftalık çim biçme ve günlük sulama kontrolü; sonbaharda yaprak toplama, budama ve dip gübreleme; kışın ise don koruma ve ağaç bakımı şeklinde 12 aylık periyodik takvim uygulanır.'
-    },
-    {
-      question: 'Otomatik sulama sistemi arızalarında ve su tasarrufunda ne yapıyorsunuz?',
-      answer: 'Teknik ekibimiz patlak boru, tıkalı nozul ve vana arızalarına aynı gün müdahale eder. Akıllı yağmur sensörleri takılarak gereksiz sulama engellenir ve ortak alan su faturası %30-40 oranında düşürülür.'
-    },
-    {
-      question: 'Ağaç budama işlemleri için belediyeden izin almak gerekir mi?',
-      answer: 'Büyük gövdeli ve tescilli anıt ağaçların derin budaması veya kesimi için ilgili İlçe Belediyesi Park ve Bahçeler Müdürlüğü\'nden izin alınması şarttır. Bu yasal izin süreçlerini ziraat mühendisimiz site adına yürütür.'
-    },
-    {
-      question: 'Çimlerin sararması ve kurumasını önlemek için hangi yöntemler kullanılıyor?',
-      answer: 'Toprak sıkışması vertiküt (havalandırma) makinesiyle giderilir, kök bölgesine uygun NPK gübresi verilir, mantar enfeksiyonlarına karşı koruyucu ilaçlama yapılır ve gölgeye dayanıklı tohumlarla ara ekim yapılır.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t[`peyz_faq_${n}_q`],
+    answer: t[`peyz_faq_${n}_a`],
+  }));
 
   const faqLd = faqPageSchema(faqs);
 
   const pageLd = webPageSchema({
-    name: 'Peyzaj Tasarımı ve Bahçe Bakım Yönetimi | Alo Yönetim',
-    description: 'Site ve tesisler için 4 mevsim profesyonel bahçe ve peyzaj bakımı.',
+    name: t.peyz_page_name,
+    description: t.peyz_page_desc,
     path: '/hizmetler/peyzaj-ve-bahce-bakimi',
     speakableSelectors: ['h1', 'p'],
   });

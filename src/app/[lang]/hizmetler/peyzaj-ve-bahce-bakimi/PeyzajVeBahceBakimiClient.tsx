@@ -20,8 +20,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function PeyzajVeBahceBakimiClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const landscapePoints = [
     {
@@ -46,37 +48,21 @@ export default function PeyzajVeBahceBakimiClient() {
     }
   ];
 
-  const landscapeSteps = [
-    { name: '1. Toprak Analizi ve Bitki Envanteri Keşfi', text: 'Sitenin peyzaj alanı, toprak pH değeri, mevcut ağaç ve çim türleri ziraat mühendislerimizce incelenerek ihtiyaç raporu hazırlanır.' },
-    { name: '2. Otomatik Sulama ve Altyapı Revizyonu', text: 'Damla sulama, spring başlıkları ve su sayaçları kontrol edilir; kuraklık veya su israfını önleyen akıllı kontrol üniteleri devreye alınır.' },
-    { name: '3. 4 Mevsim Periyodik Bakım ve Budama', text: 'Mevsimine göre çim havalandırma, ara ekim, form budaması ve organik gübreleme işlemleri planlı takvimle yürütülür.' },
-    { name: '4. Bitki Koruma ve Düzenli Raporlama', text: 'Zararlılara karşı biyolojik ve kimyasal ilaçlama yapılır; site yönetimine fotoğraflı yeşil alan gelişim raporu sunulur.' }
-  ];
+  const landscapeSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`peyz_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`peyz_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Site ve sitelerin bahçe bakımında hangi periyotlar uygulanır?',
-      answer: 'İlkbahar ve yaz aylarında haftalık çim biçme ve günlük sulama kontrolü; sonbaharda yaprak toplama, budama ve dip gübreleme; kışın ise don koruma ve ağaç bakımı şeklinde 12 aylık periyodik takvim uygulanır.'
-    },
-    {
-      question: 'Otomatik sulama sistemi arızalarında ve su tasarrufunda ne yapıyorsunuz?',
-      answer: 'Teknik ekibimiz patlak boru, tıkalı nozul ve vana arızalarına aynı gün müdahale eder. Akıllı yağmur sensörleri takılarak gereksiz sulama engellenir ve ortak alan su faturası %30-40 oranında düşürülür.'
-    },
-    {
-      question: 'Ağaç budama işlemleri için belediyeden izin almak gerekir mi?',
-      answer: 'Büyük gövdeli ve tescilli anıt ağaçların derin budaması veya kesimi için ilgili İlçe Belediyesi Park ve Bahçeler Müdürlüğü\'nden izin alınması şarttır. Bu yasal izin süreçlerini ziraat mühendisimiz site adına yürütür.'
-    },
-    {
-      question: 'Çimlerin sararması ve kurumasını önlemek için hangi yöntemler kullanılıyor?',
-      answer: 'Toprak sıkışması vertiküt (havalandırma) makinesiyle giderilir, kök bölgesine uygun NPK gübresi verilir, mantar enfeksiyonlarına karşı koruyucu ilaçlama yapılır ve gölgeye dayanıklı tohumlarla ara ekim yapılır.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`peyz_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`peyz_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <ServiceSeo 
-        serviceType="Peyzaj ve Bahçe Bakımı"
-        description="Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı."
+        serviceType={t('peyz_svc_type')}
+        description={t('peyz_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Peyzaj_mimarl%C4%B1%C4%9F%C4%B1"
@@ -120,7 +106,7 @@ export default function PeyzajVeBahceBakimiClient() {
               {t('land_banner_desc') || 'Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -136,6 +122,7 @@ export default function PeyzajVeBahceBakimiClient() {
         </div>
 
         {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="peyzaj-bakimi-standartlari"
           answerId="landscape-instant-answer-text"
@@ -145,12 +132,15 @@ export default function PeyzajVeBahceBakimiClient() {
           subText="Alo Yönetim, ziraat mühendisleri ve peyzaj mimarları denetiminde bitki sağlığı pasaportu, organik gübreleme ve periyodik mevsimlik çiçeklendirme sunar."
           accentColor="emerald"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['agac-budama-kesim-izni']}
           title="Peyzaj ve Bahçe Bakımında Yapay Zekaya Sorun: Belediye Mevzuatı"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış ağaç kesim/budama izni ve ortak alan peyzaj mevzuatı."
         />
+</TrOnly>
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -168,14 +158,16 @@ export default function PeyzajVeBahceBakimiClient() {
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="Site ve Tesis 4 Mevsim Peyzaj Bakım Protokolü"
-            description="Site bahçelerinin her mevsim canlı, estetik ve bakımlı kalması için uyguladığımız 4 aşamalı peyzaj yönetim protokolümüz."
+            name={t('peyz_howto_name')}
+            description={t('peyz_howto_desc')}
             steps={landscapeSteps}
           />
         </div>
 
         {/* Sitelerde Peyzaj Bakımı, Otomatik Sulama ve Ağaç Koruma Rehberi (Faz 14) */}
+<TrOnly>
         <FacilityLandscapeTreeGuideSeo />
+</TrOnly>
 
         {/* Landscape Specific Social Proof */}
         <LandscapeTestimonials />
@@ -188,6 +180,7 @@ export default function PeyzajVeBahceBakimiClient() {
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Peyzaj Tasarımı ve Bahçe Bakımı"
         serviceCategory="Peyzaj & Yeşil Alan"
@@ -232,6 +225,7 @@ export default function PeyzajVeBahceBakimiClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="peyzaj_seo_title"
