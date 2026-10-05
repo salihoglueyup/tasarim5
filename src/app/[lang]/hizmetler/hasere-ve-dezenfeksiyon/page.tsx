@@ -64,41 +64,23 @@ export default async function HasereVeDezenfeksiyonPage({
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Haşere İlaçlama ve Dezenfeksiyon',
+    serviceType: t.hase_svc_type,
     path: '/hizmetler/hasere-ve-dezenfeksiyon',
-    description: 'Sağlık Bakanlığı onaylı biyosidal ürünlerle kalıcı böcek, kemirgen ilaçlama ve periyodik dezenfeksiyon hizmetleri.',
+    description: t.hase_svc_desc,
     priceRange: '₺₺',
     sameAs: 'https://tr.wikipedia.org/wiki/Biyosidal_%C3%BCr%C3%BCnler',
   });
 
-  const faqs = [
-    {
-      question: 'İlaçlama sırasında ve sonrasında evden ya da binadan çıkmak gerekir mi?',
-      answer: 'Kullandığımız kokusuz jel ve mikroenkapsüle solüsyonlar yaşam alanlarını terk etmeyi gerektirmez. Yalnızca kapalı otopark veya sığınak gibi alanlarda yapılan ULV soğuk sisleme uygulamalarında 2 saat havalandırma önerilir.'
-    },
-    {
-      question: 'Kullanılan ilaçlar kedi, köpek ve evcil hayvanlar için güvenli mi?',
-      answer: 'Evet. İlaçlarımız sadece hedef zararlının sinir ve sindirim sistemine etki eden, memeli hayvanlar ve insanlar üzerinde toksik etkisi bulunmayan Sağlık Bakanlığı ruhsatlı biyosidal ürünlerdir. Kemirgen yemleri ise sadece anahtarla açılan kilitli emniyetli kutularda muhafaza edilir.'
-    },
-    {
-      question: 'Site ve apartmanlarda ilaçlama hangi sıklıkla yapılmalıdır?',
-      answer: 'Halk sağlığı standartlarına göre ortak alanlar, rögarlar ve çöp odaları yılda en az 2-4 kez (mevsim geçişlerinde) periyodik olarak ilaçlanmalıdır.'
-    },
-    {
-      question: 'İlaçlama sonrası haşereler ne kadar sürede tamamen yok olur?',
-      answer: 'Jel uygulamaları hamamböceklerinde domino etkisiyle 3-5 gün içinde yuvanın tamamını kurutur. Sıvı rezidüel ilaçlar ise temas anından itibaren 24 saat içinde sonuç verir ve 3 aya kadar koruyucu bariyer sağlar.'
-    },
-    {
-      question: 'Biyosidal ilaçlama nedir ve apartman/sitelerde uygulanması yasal olarak zorunlu mudur?',
-      answer: 'Biyosidal ilaçlama; T.C. Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü tarafından ruhsatlandırılmış aktif maddelerle haşere, kemirgen ve patojenlerin yok edilmesidir. Biyosidal Ürünler Yönetmeliği uyarınca toplu yaşam alanlarında yetkisiz şahıslarca tarım ilacı kullanılması yasak olup yalnızca Sağlık Bakanlığı onaylı uygulayıcı izin belgeli firmalarca yapılması yasal zorunluluktur.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4, 5].map((n) => ({
+    question: t[`hase_faq_${n}_q`],
+    answer: t[`hase_faq_${n}_a`],
+  }));
 
   const faqLd = faqPageSchema(faqs);
 
   const pageLd = webPageSchema({
-    name: 'Haşere İlaçlama ve Dezenfeksiyon | Alo Yönetim',
-    description: 'Sağlık Bakanlığı onaylı biyosidal ürünlerle kalıcı böcek, kemirgen ilaçlama ve periyodik dezenfeksiyon hizmetleri.',
+    name: t.hase_page_name,
+    description: t.hase_svc_desc,
     path: '/hizmetler/hasere-ve-dezenfeksiyon',
     speakableSelectors: ['h1', 'p'],
   });

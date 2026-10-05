@@ -23,7 +23,7 @@ const CORE_TRANSLATED = [
 ] as const;
 
 // Hizmet sayfaları: çekirdek içerik çevrildi, yalnızca Türkçe olan SEO blokları en/ru/ar'da gizli (TrOnly).
-const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi'] as const;
+const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi', '/hizmetler/hasere-ve-dezenfeksiyon'] as const;
 
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   // teklif-al: form etiketleri ve metinler çeviri anahtarlarına bağlı (en/ru/ar doğrulandı).

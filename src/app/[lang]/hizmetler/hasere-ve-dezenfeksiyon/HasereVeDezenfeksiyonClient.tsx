@@ -20,8 +20,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function HasereVeDezenfeksiyonClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const pestPoints = [
     {
@@ -46,37 +48,21 @@ export default function HasereVeDezenfeksiyonClient() {
     }
   ];
 
-  const pestSteps = [
-    { name: '1. Haşere Türü ve Yuvalanma Noktaları Keşfi', text: 'Biyolog ve ziraat mühendislerimizce sitenin rögarları, çöp odaları, sığınaklar ve tesisat şaftları taranarak haşere kaynağı tespit edilir.' },
-    { name: '2. Entegre Zararlı Yönetimi (IPM) Planı', text: 'Haşere türüne göre kokusuz jel, kalıcı rezidüel sıvı püskürtme veya ULV soğuk sisleme yöntemlerinden en etkili kombinasyon belirlenir.' },
-    { name: '3. Güvenli Uygulama ve Kilitli Kemirgen İstasyonları', text: 'Çocukların ve evcil hayvanların ulaşamayacağı kilitli istasyonlar yerleştirilir; ortak alanlar sertifikalı teknisyenlerimizce ilaçlanır.' },
-    { name: '4. Resmi İlaçlama Tutanağı ve Garanti', text: 'Sağlık Bakanlığı onaylı uygulama belgesi yönetime teslim edilir; 21 gün içinde ücretsiz kontrol ve gerekirse revizyon yapılır.' }
-  ];
+  const pestSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`hase_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`hase_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'İlaçlama sırasında ve sonrasında evden ya da binadan çıkmak gerekir mi?',
-      answer: 'Kullandığımız kokusuz jel ve mikroenkapsüle solüsyonlar yaşam alanlarını terk etmeyi gerektirmez. Yalnızca kapalı otopark veya sığınak gibi alanlarda yapılan ULV soğuk sisleme uygulamalarında 2 saat havalandırma önerilir.'
-    },
-    {
-      question: 'Kullanılan ilaçlar kedi, köpek ve evcil hayvanlar için güvenli mi?',
-      answer: 'Evet. İlaçlarımız sadece hedef zararlının sinir ve sindirim sistemine etki eden, memeli hayvanlar ve insanlar üzerinde toksik etkisi bulunmayan Sağlık Bakanlığı ruhsatlı biyosidal ürünlerdir. Kemirgen yemleri ise sadece anahtarla açılan kilitli emniyetli kutularda muhafaza edilir.'
-    },
-    {
-      question: 'Site ve apartmanlarda ilaçlama hangi sıklıkla yapılmalıdır?',
-      answer: 'Halk sağlığı standartlarına göre ortak alanlar, rögarlar ve çöp odaları yılda en az 2-4 kez (mevsim geçişlerinde) periyodik olarak ilaçlanmalıdır.'
-    },
-    {
-      question: 'İlaçlama sonrası haşereler ne kadar sürede tamamen yok olur?',
-      answer: 'Jel uygulamaları hamamböceklerinde domino etkisiyle 3-5 gün içinde yuvanın tamamını kurutur. Sıvı rezidüel ilaçlar ise temas anından itibaren 24 saat içinde sonuç verir ve 3 aya kadar koruyucu bariyer sağlar.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`hase_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`hase_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <ServiceSeo 
-        serviceType="Haşere İlaçlama ve Dezenfeksiyon"
-        description="Sağlık Bakanlığı onaylı biyosidal ürünlerle kalıcı böcek, kemirgen ilaçlama ve periyodik dezenfeksiyon hizmetleri."
+        serviceType={t('hase_svc_type')}
+        description={t('hase_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Biyosidal_%C3%BCr%C3%BCnler"
@@ -120,7 +106,7 @@ export default function HasereVeDezenfeksiyonClient() {
               {t('pest_banner_desc') || 'Sağlık Bakanlığı onaylı biyosidal ürünlerle kalıcı böcek, kemirgen ilaçlama ve periyodik dezenfeksiyon hizmetleri.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -136,6 +122,7 @@ export default function HasereVeDezenfeksiyonClient() {
         </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="biyosidal-ilaclama-nedir"
           answerId="pest-instant-answer-text"
@@ -145,12 +132,15 @@ export default function HasereVeDezenfeksiyonClient() {
           subText="Alo Yönetim, WHO ve Sağlık Bakanlığı onaylı kokusuz biyosidal formülasyonlar, kilitli yem istasyonları ve garantili IPM entegre zararlı yönetimi uygular."
           accentColor="emerald"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['biyosidal-ilaclama', 'ortak-alan-temizlik-sorumlulugu']}
           title="Haşere ve Dezenfeksiyonda Yapay Zekaya Sorun: Sağlık Bakanlığı Standartları"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış biyosidal ilaçlama ruhsatı ve ortak alan hijyen mevzuatı."
         />
+</TrOnly>
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -168,14 +158,16 @@ export default function HasereVeDezenfeksiyonClient() {
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="Biyosidal Ruhsatlı Haşere İlaçlama ve Dezenfeksiyon Protokolü"
-            description="Site ve tesislerde insan sağlığına zarar vermeyen, çevre dostu ve %100 garantili haşere kontrolü için 4 aşamalı kurumsal protokolümüz."
+            name={t('hase_howto_name')}
+            description={t('hase_howto_desc')}
             steps={pestSteps}
           />
         </div>
 
         {/* Sağlık Bakanlığı Ruhsatlı Biyosidal Haşere İlaçlama ve IPM Rehberi (Faz 14) */}
+<TrOnly>
         <FacilityBiocidalPestGuideSeo />
+</TrOnly>
 
         {/* Pest Control Specific Social Proof */}
         <PestControlTestimonials />
@@ -188,6 +180,7 @@ export default function HasereVeDezenfeksiyonClient() {
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Biyosidal Haşere İlaçlama ve Dezenfeksiyon"
         serviceCategory="İlaçlama & Çevre Sağlığı"
@@ -232,6 +225,7 @@ export default function HasereVeDezenfeksiyonClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="hasere_seo_title"
