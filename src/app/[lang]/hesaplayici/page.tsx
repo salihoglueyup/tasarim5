@@ -134,6 +134,7 @@ export default async function HesaplayiciServer() {
           name="Tesis Yönetimi ve Aidat Bütçe Terimleri"
           description="KMK 634 Madde 20, İşletme Projesi ve Arsa Payı Bütçe Dağılımı Tanımları"
           path="/hesaplayici"
+          detailLinks={false}
           terms={[
             {
               term: 'Tahmini İşletme Projesi (KMK 37)',

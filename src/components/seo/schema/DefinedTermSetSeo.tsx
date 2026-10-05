@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { definedTermSetSchema } from '@/lib/schemas';
+import { termToSlug } from '@/lib/content/termSlug';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Icon from '@/components/ui/branding/Icon';
@@ -93,6 +94,8 @@ interface DefinedTermSetSeoProps {
   terms: TermItem[];
   className?: string;
   hideHeader?: boolean;
+  /** false ise terim kartları /sozluk/<slug> detay sayfasına link vermez (özel terim listelerinin detay sayfası yoktur). */
+  detailLinks?: boolean;
 }
 
 export default function DefinedTermSetSeo({
@@ -102,6 +105,7 @@ export default function DefinedTermSetSeo({
   terms,
   className = "",
   hideHeader = false,
+  detailLinks = true,
 }: DefinedTermSetSeoProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeLetter, setActiveLetter] = useState<string>("TÜMÜ");
@@ -356,11 +360,7 @@ export default function DefinedTermSetSeo({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <AnimatePresence>
             {filteredTerms.map((t) => {
-              const slug = t.term.toLowerCase()
-                .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-                .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '');
+              const slug = termToSlug(t.term);
 
               const cat = getTermCategory(t);
 
@@ -394,12 +394,18 @@ export default function DefinedTermSetSeo({
                     </div>
 
                     {/* Terim Başlığı */}
-                    <Link 
-                      href={`/sozluk/${slug}`}
-                      className="block text-lg font-bold text-[var(--color-primary)] group-hover:underline transition-all leading-snug"
-                    >
-                      {renderHighlighted(t.term, searchTerm)}
-                    </Link>
+                    {detailLinks ? (
+                      <Link
+                        href={`/sozluk/${slug}`}
+                        className="block text-lg font-bold text-[var(--color-primary)] group-hover:underline transition-all leading-snug"
+                      >
+                        {renderHighlighted(t.term, searchTerm)}
+                      </Link>
+                    ) : (
+                      <span className="block text-lg font-bold text-[var(--color-primary)] leading-snug">
+                        {renderHighlighted(t.term, searchTerm)}
+                      </span>
+                    )}
 
                     {/* Tanım */}
                     <p className="text-[13.5px] text-[var(--color-secondary)] font-normal leading-relaxed">
@@ -421,13 +427,15 @@ export default function DefinedTermSetSeo({
                       <span className="text-[11px] text-[var(--color-secondary)] font-mono">KMK 634 & Standartlar</span>
                     )}
 
-                    <Link 
-                      href={`/sozluk/${slug}`}
-                      className="font-bold text-[var(--color-primary)] hover:opacity-80 flex items-center gap-1 group/link transition-opacity text-[11.5px]"
-                    >
-                      <span>İncele</span>
-                      <Icon name="arrow_forward" className="text-[14px] group-hover/link:translate-x-0.5 transition-transform" />
-                    </Link>
+                    {detailLinks && (
+                      <Link
+                        href={`/sozluk/${slug}`}
+                        className="font-bold text-[var(--color-primary)] hover:opacity-80 flex items-center gap-1 group/link transition-opacity text-[11.5px]"
+                      >
+                        <span>İncele</span>
+                        <Icon name="arrow_forward" className="text-[14px] group-hover/link:translate-x-0.5 transition-transform" />
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
               );

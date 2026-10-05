@@ -319,11 +319,6 @@ export const TERMS: Term[] = [
     link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Genel kurul organizasyonu' },
   },
   {
-    term: 'Hazirun Cetveli',
-    definition:
-      'Kat Malikleri Kurulu toplantısına bizzat katılan veya vekaletname ile temsil edilen maliklerin ad-soyad, daire no, arsa payı ve imzalarını içeren resmi yoklama tutanağıdır.',
-  },
-  {
     term: 'Toplu Yapı Yönetimi (KMK Ek Madde 69)',
     definition:
       'Birden çok parsel ve bloktan oluşan sitelerde blok kat malikleri kurulları ile tüm siteyi kapsayan Toplu Yapı Temsilciler Kurulu\'nun oluşturulduğu entegre yönetim modelidir.',
@@ -447,16 +442,8 @@ import { KMK_LAW_INDEX, type KmkArticleItem } from './kmkLawData';
 export { FACILITY_TERMS, type FacilityDictionaryTerm } from './facilityDictionaryData';
 export { KMK_LAW_INDEX, type KmkArticleItem } from './kmkLawData';
 
-export function termToSlug(term: string): string {
-  return term
-    .toLowerCase()
-    .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-    .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-}
+import { termToSlug } from '@/lib/content/termSlug';
+export { termToSlug };
 
 /** Kısa ve popüler arama sorguları için doğrudan slug yönlendirme eşlemeleri */
 export const TERM_SLUG_ALIASES: Record<string, string> = {
