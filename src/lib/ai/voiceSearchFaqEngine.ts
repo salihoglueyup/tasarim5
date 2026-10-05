@@ -145,7 +145,9 @@ export function generateSpeakableJsonLd(options?: {
   cssSelectors?: string[];
   xpaths?: string[];
 }) {
-  const url = options?.pageUrl || BASE_URL;
+  const rawUrl = options?.pageUrl || BASE_URL;
+  // @id ve url mutlak olmalı; göreli yol ("/blog/x") JSON-LD'de geçersiz/çakışan bir varlık üretir.
+  const url = /^https?:\/\//.test(rawUrl) ? rawUrl : `${BASE_URL}${rawUrl.startsWith('/') ? '' : '/'}${rawUrl}`;
   const selectors = options?.cssSelectors || ['h1', 'h2', '.tldr', '.voice-answer'];
 
   return {
