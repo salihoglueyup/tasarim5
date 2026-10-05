@@ -20,6 +20,26 @@ export type PostMeta = {
 
 export const POSTS_META: PostMeta[] = [
   {
+    "slug": "kat-mulkiyeti-kanunu-2026-degisikligi-7579-sayili-kanun-aidat-artis-siniri",
+    "title": "Kat Mülkiyeti Kanunu 2026 Değişikliği: 7579 Sayılı Kanun ve Site Aidatı Artış Sınırı",
+    "description": "22 Mayıs 2026'da yürürlüğe giren 7579 sayılı Kanun KMK m.35, 37 ve 70'i değiştirdi: aidat artışı yeniden değerleme oranıyla sınırlandı, geçici işletme projesi ve toplu yapılarda 2/3 yönetim planı çoğunluğu geldi.",
+    "category": "hukuk",
+    "tags": [
+      "kmk 2026 değişikliği",
+      "7579 sayılı kanun",
+      "aidat artış sınırı",
+      "geçici işletme projesi",
+      "yönetim planı 2/3",
+      "yeniden değerleme oranı"
+    ],
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-05T09:00:00.000Z",
+    "dateModified": "2026-10-05T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
+    "tldr": "22 Mayıs 2026 tarihli 7579 sayılı Kanun, KMK m.35, 37 ve 70'i değiştirdi: işletme projesi kat malikleri kurulunda onaylanır, onaylı proje yoksa yönetici en geç 3 ay içinde onaylanacak geçici proje hazırlar, mevcut projesi olan sitelerde geçici projedeki bedel bir önceki yılın yeniden değerleme oranını aşamaz ve toplu yapılarda yönetim planı değişikliği için gereken çoğunluk 4/5'ten 2/3'e indi."
+  },
+  {
     "slug": "tesis-yonetimi-nedir-kapsami-ve-iso-41001-standartlari",
     "title": "Tesis Yönetimi Nedir? Kapsamı, ISO 41001 Standartları ve Binalar İçin Önemi (2026 Rehberi)",
     "description": "Tesis yönetimi (Facility Management) tanımı, uluslararası ISO 41001 standartları, geleneksel apartman yöneticiliğinden farkı ve binalara sağladığı operasyonel verimlilik.",

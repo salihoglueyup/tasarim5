@@ -30,6 +30,27 @@ export const TERMS: Term[] = [
     sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
   },
   {
+    term: 'Geçici İşletme Projesi (KMK m.37)',
+    definition:
+      'Kat malikleri kurulunca kabul edilmiş bir işletme projesi bulunmadığında yöneticinin gecikmeksizin hazırladığı projedir. 7579 sayılı Kanun\'la getirilen düzenlemeye göre en geç 3 ay içinde kat malikleri kurulunda aynen veya değiştirilerek onaylanmalıdır. Mevcut proje varsa geçici projedeki bedel, bir önceki yıla ilişkin yeniden değerleme oranından fazla olamaz.',
+    link: { href: '/kmk-2026-degisiklikleri', label: 'KMK 2026 değişiklikleri rehberi' },
+    sameAs: 'https://www.resmigazete.gov.tr/eskiler/2026/05/20260522-1.htm',
+  },
+  {
+    term: 'Yeniden Değerleme Oranı (Aidat Artış Sınırı)',
+    definition:
+      '213 sayılı Vergi Usul Kanunu mükerrer 298. madde uyarınca her yıl Hazine ve Maliye Bakanlığı\'nca belirlenip ilan edilen orandır. 7579 sayılı Kanun\'la KMK m.37\'de, mevcut işletme projesi olan sitelerde geçici projedeki bedelin bir önceki yıla ilişkin bu orandan fazla artırılamayacağı hükme bağlanmıştır.',
+    link: { href: '/kmk-2026-degisiklikleri', label: 'KMK 2026 değişiklikleri rehberi' },
+    sameAs: 'https://www.resmigazete.gov.tr/eskiler/2026/05/20260522-1.htm',
+  },
+  {
+    term: 'Toplu Yapı (KMK m.66-70)',
+    definition:
+      'Birden fazla yapıdan oluşan ve ortak yönetim planına bağlı konut siteleri gibi yapılardır. 7579 sayılı Kanun\'la KMK m.70\'te toplu yapılarda yönetim planı değişikliği için gereken çoğunluk beşte dörtten üçte ikiye indirilmiş, planların bu orana aykırı hükümlerinin uygulanmayacağı belirtilmiştir.',
+    link: { href: '/kmk-2026-degisiklikleri', label: 'KMK 2026 değişiklikleri rehberi' },
+    sameAs: 'https://www.resmigazete.gov.tr/eskiler/2026/05/20260522-1.htm',
+  },
+  {
     term: 'KMK Madde 34 (Site Yöneticisinin Atanması & Seçimi)',
     definition:
       '634 sayılı KMK Madde 34; sekiz ve daha fazla bağımsız bölümü olan taşınmazlarda yönetici atanmasının kanunen zorunlu olduğunu hükme bağlar. Yönetici, kat malikleri kurulu tarafından hem sayı hem de arsa payı çoğunluğuyla seçilir. Anlaşma sağlanamazsa Sulh Hukuk Mahkemesi tarafından re\'sen yönetici atanabilir.',
@@ -39,7 +60,7 @@ export const TERMS: Term[] = [
   {
     term: 'KMK Madde 37 (İşletme Projesi & İtiraz Süresi)',
     definition:
-      '634 sayılı KMK Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
+      '634 sayılı KMK Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
     link: { href: '/hizmetler/aidat-takibi', label: 'İşletme projesi ve aidat takibi' },
     sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
   },
@@ -79,7 +100,7 @@ export const TERMS: Term[] = [
   {
     term: 'Yönetim Planı',
     definition:
-      'Sitenin nasıl yönetileceğini belirleyen, tüm kat maliklerini bağlayan sözleşme niteliğindeki belgedir. Tapuya şerh edilir ve değiştirilmesi için nitelikli çoğunluk gerekir.',
+      'Sitenin nasıl yönetileceğini belirleyen, tüm kat maliklerini bağlayan sözleşme niteliğindeki belgedir. Tapuya şerh edilir ve değiştirilmesi için nitelikli çoğunluk gerekir: genel yapılarda 4/5 (KMK m.28/3), toplu yapılarda 22 Mayıs 2026\'dan itibaren 2/3 (KMK m.70).',
     sameAs: 'https://tr.wikipedia.org/wiki/Kat_m%C3%BClkiyeti',
   },
   {

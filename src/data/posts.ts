@@ -72,6 +72,132 @@ export { POSTS_META, type PostMeta } from './postsMetadata';
 
 export const POSTS: Post[] = [
   {
+    "slug": "kat-mulkiyeti-kanunu-2026-degisikligi-7579-sayili-kanun-aidat-artis-siniri",
+    "title": "Kat Mülkiyeti Kanunu 2026 Değişikliği: 7579 Sayılı Kanun ve Site Aidatı Artış Sınırı",
+    "description": "22 Mayıs 2026'da yürürlüğe giren 7579 sayılı Kanun KMK m.35, 37 ve 70'i değiştirdi: aidat artışı yeniden değerleme oranıyla sınırlandı, geçici işletme projesi ve toplu yapılarda 2/3 yönetim planı çoğunluğu geldi.",
+    "category": "hukuk",
+    "tags": [
+      "kmk 2026 değişikliği",
+      "7579 sayılı kanun",
+      "aidat artış sınırı",
+      "geçici işletme projesi",
+      "yönetim planı 2/3",
+      "yeniden değerleme oranı"
+    ],
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-05T09:00:00.000Z",
+    "dateModified": "2026-10-05T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
+    "tldr": "22 Mayıs 2026 tarihli 7579 sayılı Kanun, KMK m.35, 37 ve 70'i değiştirdi: işletme projesi kat malikleri kurulunda onaylanır, onaylı proje yoksa yönetici en geç 3 ay içinde onaylanacak geçici proje hazırlar, mevcut projesi olan sitelerde geçici projedeki bedel bir önceki yılın yeniden değerleme oranını aşamaz ve toplu yapılarda yönetim planı değişikliği için gereken çoğunluk 4/5'ten 2/3'e indi.",
+    "content": [
+      {
+        "type": "p",
+        "text": "7 Mayıs 2026'da TBMM'de kabul edilen ve 22 Mayıs 2026 tarihli, 33261 sayılı Resmî Gazete'de yayımlanan 7579 sayılı Kanun, 634 sayılı Kat Mülkiyeti Kanunu'nun (KMK) üç maddesini değiştirdi. Değişiklikler yayım tarihinde yürürlüğe girdi. Bu yazı yöneticiler, kat malikleri ve kiracılar için ne anlama geldiğini özetler; hukuki danışmanlık değildir."
+      },
+      {
+        "type": "h2",
+        "text": "1. Hangi maddeler değişti?"
+      },
+      {
+        "type": "table",
+        "caption": "7579 sayılı Kanun ile değişen KMK maddeleri",
+        "headers": [
+          "Madde",
+          "Önceki düzen",
+          "Yeni düzen"
+        ],
+        "rows": [
+          [
+            "KMK m.35 (avans)",
+            "Yönetici avans toplayabilir, avans bittiğinde geri kalan işler için tekrar avans toplayabilirdi.",
+            "Avans, işletme projesi onaylanıncaya kadar toplanabilir."
+          ],
+          [
+            "KMK m.37 (işletme projesi)",
+            "İşletme projesi yönetici tarafından hazırlanıp kat maliklerine tebliğ edilirdi.",
+            "İşletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici geçici proje yapar ve en geç 3 ay içinde kurula onaylatır."
+          ],
+          [
+            "KMK m.70 (toplu yapılar)",
+            "Toplu yapılarda yönetim planı değişikliği için 4/5 çoğunluk.",
+            "2/3 çoğunluk; planların bu orana aykırı hükümleri uygulanmaz."
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "2. Aidat artışına yasal sınır"
+      },
+      {
+        "type": "p",
+        "text": "Mevcut bir işletme projesi varsa geçici işletme projesindeki bedel, bir önceki yıla ilişkin yeniden değerleme oranından fazla olmamak kaydıyla belirlenir. Kaynaklarda bu oran %25,49 olarak geçmektedir; güncel oranı resmî duyurudan teyit edin. Örneğin aylık 1.000 TL olan bir aidat için geçici projede çıkılabilecek üst sınır yaklaşık 1.254,90 TL'dir. Kat malikleri kurulunca onaylanan projelerde tavanın nasıl uygulanacağı konusunda uygulama ve içtihat henüz oturmaktadır."
+      },
+      {
+        "type": "h2",
+        "text": "3. Geçici işletme projesi ve 3 aylık süre"
+      },
+      {
+        "type": "p",
+        "text": "Kat malikleri kurulunca kabul edilmiş bir işletme projesi yoksa yönetici gecikmeksizin geçici bir proje hazırlar. Bu proje maliklere bildirilir ve en geç 3 ay içinde kat malikleri kurulunda aynen veya değiştirilerek kabul edilmelidir. Bu süre, yöneticilerin yıllık toplantı takvimini ve tebligat kayıtlarını daha dikkatli yönetmesini gerektirir."
+      },
+      {
+        "type": "h2",
+        "text": "4. Toplu yapılarda yönetim planı için 2/3"
+      },
+      {
+        "type": "p",
+        "text": "Birden fazla yapıdan oluşan toplu yapılarda (siteler) yönetim planı değişikliği için gereken çoğunluk beşte dörtten üçte ikiye indi. Genel yapılarda KMK m.28/3'teki beşte dört kuralı değişmedi. Bu nedenle sitenizin toplu yapı olup olmadığı, hangi çoğunlukla karar alınacağını belirler."
+      },
+      {
+        "type": "h2",
+        "text": "5. Neler değişmedi?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ortak gider ve avansı geciktiren kat malikine aylık %5 gecikme tazminatı işler (KMK m.20).",
+          "Kesinleşen işletme projesi, ilamsız icra takibinde İİK m.68/1 kapsamında dayanak olabilir.",
+          "İşletme projesine itiraz için 7 günlük süre, değişiklik metninde yer almamaktadır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sıkça Sorulan Sorular (SSS)"
+      },
+      {
+        "type": "h3",
+        "text": "Aidat artışına sınır getirildi mi?"
+      },
+      {
+        "type": "p",
+        "text": "Evet. Mevcut işletme projesi olan sitelerde geçici projedeki bedel, bir önceki yıla ilişkin yeniden değerleme oranını aşamaz (KMK m.37)."
+      },
+      {
+        "type": "h3",
+        "text": "Yönetim planını değiştirmek için hangi çoğunluk gerekir?"
+      },
+      {
+        "type": "p",
+        "text": "Genel yapılarda bütün kat maliklerinin 4/5'i (KMK m.28/3), toplu yapılarda ise 2/3'ü (KMK m.70) gerekir."
+      },
+      {
+        "type": "h3",
+        "text": "Sitemiz bu değişikliğe uyum için ne yapmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Önce onaylı bir işletme projesi olup olmadığını kontrol edin. Yoksa geçici proje hazırlayıp 3 ay içinde kurula sunun; yönetim planınızda 2/3 nisabına aykırı hüküm varsa bunun uygulanmayacağını göz önünde bulundurun ve bir avukata danışın."
+      },
+      {
+        "type": "cta",
+        "text": "Aidat artış sınırını kendi sitenizin rakamlarıyla hesaplayın ve güncel mevzuat rehberini inceleyin.",
+        "href": "/kmk-2026-degisiklikleri",
+        "label": "KMK 2026 Değişiklikleri Rehberi"
+      }
+    ]
+  },
+  {
     "slug": "tesis-yonetimi-nedir-kapsami-ve-iso-41001-standartlari",
     "title": "Tesis Yönetimi Nedir? Kapsamı, ISO 41001 Standartları ve Binalar İçin Önemi (2026 Rehberi)",
     "description": "Tesis yönetimi (Facility Management) tanımı, uluslararası ISO 41001 standartları, geleneksel apartman yöneticiliğinden farkı ve binalara sağladığı operasyonel verimlilik.",
