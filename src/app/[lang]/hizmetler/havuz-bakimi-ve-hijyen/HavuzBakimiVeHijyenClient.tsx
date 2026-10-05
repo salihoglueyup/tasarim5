@@ -21,8 +21,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function HavuzBakimiVeHijyenClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const poolPoints = [
     {
@@ -47,38 +49,22 @@ export default function HavuzBakimiVeHijyenClient() {
     }
   ];
 
-  const poolSteps = [
-    { name: '1. Günlük Su Numunesi ve Fotometrik Kimyasal Analiz', text: 'Sabah ve akşam havuz suyundan numune alınarak serbest klor, pH ve alkalinite değerleri dijital fotometre ile ölçülür.' },
-    { name: '2. Otomatik Dozajlama ve Kimyasal Şartlandırma', text: 'Ölçüm sonuçlarına göre Sağlık Bakanlığı onaylı sıvı klor, pH düşürücü, çöktürücü ve yosun önleyici otomatik dozlanır.' },
-    { name: '3. Filtrasyon Ters Yıkama ve Dip Süpürme', text: 'Kum filtrelerinin ters yıkaması yapılır; havuz tabanı vakumlanarak berrak ve tortusuz su kalitesi sağlanır.' },
-    { name: '4. Resmi Havuz Defteri Kayıt ve İlanı', text: 'Tüm ölçüm değerleri yasal havuz işletme defterine işlenir ve pano üzerinden site sakinlerinin bilgisine sunulur.' }
-  ];
+  const poolSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`pool_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`pool_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Havuz suyu ölçümleri hangi sıklıkla yapılır ve nasıl ilan edilir?',
-      answer: 'Sağlık Bakanlığı standartları uyarınca açık ve kapalı yüzme havuzlarında serbest klor, bağlı klor ve pH ölçümleri günde en az 3 defa yapılır. Sonuçlar dijital panoya ve mobil uygulamamıza anlık işlenir.'
-    },
-    {
-      question: 'Havuz operatörleriniz sertifikalı mı?',
-      answer: 'Evet. Tüm havuz teknik sorumlularımız MEB ve TSSF onaylı "Havuz Suyu Operatörlüğü" belgesine ve periyodik hijyen eğitimlerine sahiptir.'
-    },
-    {
-      question: 'Açık havuzların kışa hazırlık (kışlama) bakımı nasıl yapılır?',
-      answer: 'Sezon kapanışında havuz suyu boşaltılmaz; kışlama kimyasalları (kış koruyucu yosun önleyici ve don önleyici) eklenerek filtrasyon rölantiye alınır ve havuz emniyet brandası ile örtülür.'
-    },
-    {
-      question: 'Akredite laboratuvar su analizleri yapılıyor mu?',
-      answer: 'Evet. Ayda bir kez İl Sağlık Müdürlüğü yetkili akredite halk sağlığı laboratuvarları tarafından mikrobiyolojik (E.coli, Pseudomonas, vb.) ve kimyasal su analizleri yapılarak resmi uygunluk raporu alınır.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`pool_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`pool_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <GTMDataLayer event="view_service" data={{ service_name: "Havuz Bakımı ve Hijyen", category: "Hizmet" }} />
       <ServiceSeo 
-        serviceType="Havuz Bakımı ve Hijyen"
-        description="Uzman havuz operatörlerimizle sezonluk ve yıllık periyodik havuz bakımı, su analizi ve kimyasal şartlandırma."
+        serviceType={t('pool_svc_type')}
+        description={t('pool_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Y%C3%BCzme_havuzu"
@@ -122,7 +108,7 @@ export default function HavuzBakimiVeHijyenClient() {
               {t('pool_banner_desc') || 'Uzman havuz operatörlerimizle sezonluk ve yıllık periyodik havuz bakımı, su analizi ve kimyasal şartlandırma.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -138,6 +124,7 @@ export default function HavuzBakimiVeHijyenClient() {
         </div>
 
         {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="havuz-bakimi-standartlari"
           answerId="pool-instant-answer-text"
@@ -147,12 +134,15 @@ export default function HavuzBakimiVeHijyenClient() {
           subText="Alo Yönetim, sertifikalı havuz operatörleri ile günlük dijital fotometrik ölçümler, haftalık kışlatma/şartlandırma ve sıfır bakteri güvenceli kimyasal dozajlama sunar."
           accentColor="cyan"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['havuz-saglik-kriteri', 'ortak-alan-temizlik-sorumlulugu']}
           title="Havuz Bakımında Yapay Zekaya Sorun: Sağlık Bakanlığı Standartları"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış havuz hijyeni ve ortak alan temizlik mevzuatı."
         />
+</TrOnly>
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -170,14 +160,16 @@ export default function HavuzBakimiVeHijyenClient() {
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="Sağlık Bakanlığı Standartlarında Havuz Bakım ve Dezenfeksiyon Protokolü"
-            description="Açık ve kapalı yüzme havuzlarının mikrobiyolojik açıdan güvenli ve kristal berraklığında tutulması için uyguladığımız 4 aşamalı kurumsal protokolümüz."
+            name={t('pool_howto_name')}
+            description={t('pool_howto_desc')}
             steps={poolSteps}
           />
         </div>
 
         {/* Sağlık Bakanlığı ve TSE 11899 Havuz Sağlık ve Kimyasal Rehberi (Faz 14) */}
+<TrOnly>
         <FacilityPoolHealthGuideSeo />
+</TrOnly>
 
         {/* Pool Specific Social Proof */}
         <PoolTestimonials />
@@ -190,6 +182,7 @@ export default function HavuzBakimiVeHijyenClient() {
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Yüzme Havuzu Bakımı ve Kimyasal Hijyen"
         serviceCategory="Havuz & Sanitasyon"
@@ -234,6 +227,7 @@ export default function HavuzBakimiVeHijyenClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="havuz_seo_title"
