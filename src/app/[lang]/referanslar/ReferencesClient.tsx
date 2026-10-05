@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import { localePath } from '@/lib/i18n/localePath';
 
 import Icon from '@/components/ui/branding/Icon';
 type Project = {
@@ -270,7 +271,7 @@ export default function ReferencesClient({
       position: idx + 1,
       name: p.title,
       description: `${p.category} — ${p.units} — ${p.location}`,
-      url: `https://aloyonetim.com.tr/${lang}/referanslar/${p.slug}`
+      url: `https://aloyonetim.com.tr${localePath(`/referanslar/${p.slug}`, lang)}`
     }))
   };
 

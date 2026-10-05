@@ -4,7 +4,6 @@ import React from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import TableOfContents from '@/components/blog/TableOfContents';
-import LegalPageSeo from '@/components/seo/schema/LegalPageSeo';
 import LegalEnglishSummary from '@/components/legal/LegalEnglishSummary';
 
 export default function GizlilikPolitikasiClient() {
@@ -14,12 +13,6 @@ export default function GizlilikPolitikasiClient() {
 
   return (
     <>
-      <LegalPageSeo 
-        title={t('gizlilik_title')}
-        description={t('gizlilik_desc')}
-        path={`/${language}/gizlilik-politikasi`}
-      />
-
       <PageHeader 
         title={t('gizlilik_title')} 
         description={t('gizlilik_desc')} 

@@ -6,6 +6,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/constants';
 import { Clock, ShieldCheck, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { DISTRICTS } from '@/data/districts';
+import { localePath } from '@/lib/i18n/localePath';
 
 import Icon from '@/components/ui/branding/Icon';
 interface DistrictHighlightProps {
@@ -45,12 +46,16 @@ export default function DistrictLocalHighlightsSeo({
     (d) => d.name.toLowerCase() !== districtName.toLowerCase() && d.side === side
   ).slice(0, 5);
 
-  const currentSlug = districtName
-    .toLowerCase()
-    .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-    .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  // Slug'ı veriden al: isimden türetmek "Kâğıthane" -> "k-githane" gibi bozuk URL'ler üretiyordu.
+  const currentSlug =
+    DISTRICTS.find((d) => d.name === districtName)?.slug ??
+    districtName
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+      .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
 
   const schema: any = {
     '@context': 'https://schema.org',
@@ -63,7 +68,7 @@ export default function DistrictLocalHighlightsSeo({
       addressCountry: 'TR',
     },
     description: `${districtName} ilçesinde ${managedProjects}+ aktif site, plaza ve tesis projesinde profesyonel mülk yönetimi, 5188 güvenlik ve teknik bakım hizmetleri. Ortalama acil müdahale süresi: ${slaMinutes} dakika.`,
-    url: `${BASE_URL}/bolgeler/${currentSlug}`,
+    url: `${BASE_URL}${localePath(`/bolgeler/${currentSlug}`, lang)}`,
   };
 
   if (geo) {
@@ -182,7 +187,7 @@ export default function DistrictLocalHighlightsSeo({
                 <span>{side} Yakasındaki Diğer Hizmet Bölgelerimiz:</span>
               </span>
               <Link
-                href={`/${lang}/bolgeler`}
+                href={localePath('/bolgeler', lang)}
                 className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1"
               >
                 <span>Tüm 39 İlçe</span>
@@ -193,7 +198,7 @@ export default function DistrictLocalHighlightsSeo({
               {adjacentDistricts.map((d) => (
                 <Link
                   key={d.slug}
-                  href={`/${lang}/bolgeler/${d.slug}`}
+                  href={localePath(`/bolgeler/${d.slug}`, lang)}
                   className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-colors flex items-center gap-1.5"
                 >
                   <MapPin className="w-3 h-3 text-slate-400" />

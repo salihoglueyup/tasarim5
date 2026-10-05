@@ -4,7 +4,6 @@ import React from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import TableOfContents from '@/components/blog/TableOfContents';
-import LegalPageSeo from '@/components/seo/schema/LegalPageSeo';
 
 export default function KullanimSartlariClient() {
   const { t, language } = useLanguage();
@@ -13,12 +12,6 @@ export default function KullanimSartlariClient() {
 
   return (
     <>
-      <LegalPageSeo 
-        title={t('kullanim_title')}
-        description={t('kullanim_desc')}
-        path={`/${language}/kullanim-sartlari`}
-      />
-
       <PageHeader 
         title={t('kullanim_title')} 
         description={t('kullanim_desc')} 

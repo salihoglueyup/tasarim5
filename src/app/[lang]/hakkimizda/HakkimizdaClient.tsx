@@ -9,6 +9,7 @@ import Link from 'next/link';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 import WhyUsBentoGrid from '@/components/sections/core/WhyUsBentoGrid';
 import CertificateBadgeGrid from '@/components/sections/trust/CertificateBadgeGrid';
+import { localePath } from '@/lib/i18n/localePath';
 
 import Icon from '@/components/ui/branding/Icon';
 // --- CountUp Animasyon Bileşeni ---
@@ -320,7 +321,7 @@ export default function HakkimizdaClient() {
               {t('about_manifest_desc')}
             </p>
             <div className="mt-8 flex gap-4">
-              <Link href={`/${language}/iletisim`} className="bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-lg cursor-pointer">
+              <Link href={localePath('/iletisim', language)} className="bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-lg cursor-pointer">
                 {t('btn_contact_us')} <ChevronRight size={18} />
               </Link>
             </div>

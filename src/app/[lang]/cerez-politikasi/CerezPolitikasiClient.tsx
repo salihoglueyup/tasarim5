@@ -4,7 +4,6 @@ import React from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import TableOfContents from '@/components/blog/TableOfContents';
-import LegalPageSeo from '@/components/seo/schema/LegalPageSeo';
 
 export default function CerezPolitikasiClient() {
   const { t, language } = useLanguage();
@@ -13,12 +12,6 @@ export default function CerezPolitikasiClient() {
 
   return (
     <>
-      <LegalPageSeo 
-        title={t('cerez_title')}
-        description={t('cerez_desc')}
-        path={`/${language}/cerez-politikasi`}
-      />
-
       <PageHeader 
         title={t('cerez_title')} 
         description={t('cerez_desc')} 

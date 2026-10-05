@@ -4,7 +4,6 @@ import React from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import TableOfContents from '@/components/blog/TableOfContents';
-import LegalPageSeo from '@/components/seo/schema/LegalPageSeo';
 import LegalEnglishSummary from '@/components/legal/LegalEnglishSummary';
 import { ShieldCheck, Mail, Phone, MapPin, Clock, Award, FileText, CheckCircle2 } from 'lucide-react';
 
@@ -15,12 +14,6 @@ export default function KvkkClient() {
 
   return (
     <>
-      <LegalPageSeo 
-        title={t('kvkk_page_title')}
-        description={t('kvkk_page_desc')}
-        path={`/${language}/kvkk-ve-aydinlatma-metni`}
-      />
-
       <PageHeader 
         title={t('kvkk_page_title')} 
         description={t('kvkk_page_desc')} 

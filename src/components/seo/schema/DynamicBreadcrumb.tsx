@@ -84,7 +84,8 @@ export default function DynamicBreadcrumb() {
   
   // İlk segment dil ise atla
   const hasLang = ['tr', 'en', 'ru', 'ar'].includes(segments[0]);
-  const langPrefix = hasLang ? `/${segments[0]}` : '';
+  // usePathname() middleware rewrite'ından sonraki iç yolu döndürür ("/tr/..."); TR'nin canonical'ı önek'sizdir.
+  const langPrefix = hasLang && segments[0] !== 'tr' ? `/${segments[0]}` : '';
   const breadcrumbSegments = hasLang ? segments.slice(1) : segments;
 
   if (breadcrumbSegments.length === 0) return null;
@@ -113,12 +114,17 @@ export default function DynamicBreadcrumb() {
     { name: homeName, url: `${langPrefix}` || '/' }
   ];
 
-  let currentPath = langPrefix;
+  // Kendi sayfası olmayan/yönlendirilen ara segmentler doğrudan hedef URL'ye eşlenir.
+  const URL_REMAP: Record<string, string> = {
+    '/kurumsal': '/hakkimizda',
+    '/kurumsal/sertifikalar': '/kurumsal/kalite-belgelerimiz',
+  };
+  let barePath = '';
   breadcrumbSegments.forEach((segment) => {
-    currentPath += `/${segment}`;
+    barePath += `/${segment}`;
     items.push({
       name: formatName(segment),
-      url: currentPath,
+      url: `${langPrefix}${URL_REMAP[barePath] ?? barePath}`,
     });
   });
 
