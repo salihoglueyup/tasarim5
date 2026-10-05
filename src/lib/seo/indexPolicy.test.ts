@@ -5,9 +5,9 @@ import sitemap from '@/app/sitemap';
 
 describe('İndeksleme politikası (indexPolicy.ts)', () => {
   it('Türkçe her zaman, çevrilmemiş diller asla indekslenmez', () => {
-    expect(isLocaleIndexable('/hizmetler', 'tr')).toBe(true);
-    expect(isLocaleIndexable('/hizmetler', 'en')).toBe(false);
-    expect(isLocaleIndexable('/hizmetler', 'xx')).toBe(false);
+    expect(isLocaleIndexable('/sozluk', 'tr')).toBe(true);
+    expect(isLocaleIndexable('/sozluk', 'en')).toBe(false);
+    expect(isLocaleIndexable('/sozluk', 'xx')).toBe(false);
   });
 
   it('yolları normalize eder', () => {
@@ -18,8 +18,8 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
   });
 
   it('çevrilmemiş dildeki sayfa noindex olur, TR sürümü indekslenir', () => {
-    const en = buildMetadata({ title: 'T', description: 'D', path: '/hizmetler', lang: 'en' });
-    const tr = buildMetadata({ title: 'T', description: 'D', path: '/hizmetler', lang: 'tr' });
+    const en = buildMetadata({ title: 'T', description: 'D', path: '/sozluk', lang: 'en' });
+    const tr = buildMetadata({ title: 'T', description: 'D', path: '/sozluk', lang: 'tr' });
     expect((en.robots as { index: boolean }).index).toBe(false);
     expect((tr.robots as { index: boolean }).index).toBe(true);
   });
@@ -48,15 +48,46 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
 
   describe('bir sayfa çeviri listesine eklendiğinde', () => {
     const list = TRANSLATED_PATHS.en as string[];
-    beforeEach(() => list.push('/hakkimizda'));
-    afterEach(() => list.splice(list.indexOf('/hakkimizda'), 1));
+    beforeEach(() => list.push('/sozluk'));
+    afterEach(() => list.splice(list.indexOf('/sozluk'), 1));
 
     it('o dilde indekslenir ve hreflang\'e girer', () => {
-      expect(isIndexable('/hakkimizda/', 'en')).toBe(true);
-      const alt = buildLanguageAlternates('/hakkimizda');
-      expect(alt.en).toBe(`${BASE_URL}/en/hakkimizda`);
-      expect(alt['en-US']).toBe(`${BASE_URL}/en/hakkimizda`);
+      expect(isIndexable('/sozluk/', 'en')).toBe(true);
+      const alt = buildLanguageAlternates('/sozluk');
+      expect(alt.en).toBe(`${BASE_URL}/en/sozluk`);
+      expect(alt['en-US']).toBe(`${BASE_URL}/en/sozluk`);
       expect(alt.ru).toBeUndefined();
+    });
+  });
+
+  describe('çevirisi doğrulanmış çekirdek sayfalar', () => {
+    const core = ['/', '/hizmetler', '/iletisim', '/hakkimizda', '/kullanim-sartlari', '/gizlilik-politikasi', '/kvkk-ve-aydinlatma-metni', '/cerez-politikasi'];
+
+    it('en/ru/ar dillerinde indekslenir ve hreflang matrisinde üç dil + x-default yer alır', () => {
+      for (const p of core) {
+        for (const l of ['en', 'ru', 'ar']) expect(isIndexable(p, l)).toBe(true);
+        const alt = buildLanguageAlternates(p);
+        for (const l of ['tr', 'en', 'ru', 'ar']) expect(alt[l]).toBeDefined();
+        expect(alt['x-default']).toBe(alt.tr);
+      }
+    });
+
+    it('robots meta\'sı en/ru/ar sürümlerinde index, çevrilmemiş sayfada noindex', () => {
+      const robots = (lang: string, path: string) =>
+        (buildMetadata({ title: 'T', description: 'D', path, lang }).robots as { index: boolean }).index;
+      for (const l of ['en', 'ru', 'ar']) {
+        expect(robots(l, '/hakkimizda')).toBe(true);
+        expect(robots(l, '/hizmetler/teknik-bakim')).toBe(false);
+      }
+    });
+
+    it('sitemap çevrilmiş dil URL\'lerini içerir, çevrilmemişleri içermez', async () => {
+      const urls = (await sitemap()).map((i) => i.url);
+      expect(urls).toContain(`${BASE_URL}/en/hakkimizda`);
+      expect(urls).toContain(`${BASE_URL}/ar/iletisim`);
+      expect(urls).toContain(`${BASE_URL}/ru/teklif-al`);
+      expect(urls).not.toContain(`${BASE_URL}/en/teklif-al`);
+      expect(urls.some((u) => /\/(en|ru|ar)\/(blog|bolgeler|sozluk)\//.test(u))).toBe(false);
     });
   });
 });

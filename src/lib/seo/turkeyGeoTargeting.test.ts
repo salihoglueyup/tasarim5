@@ -32,13 +32,22 @@ describe('Türkiye Coğrafi Hedefleme (Geo-Targeting) & SEO Doğrulama Paketi', 
   });
 
   describe('2. Hreflang Dil ve Bölge Eşleştirmesi', () => {
-    it('buildLanguageAlternates tr-TR ve x-default kanonik değerlerini üretmeli', () => {
-      const alternates = buildLanguageAlternates('/hizmetler');
-      expect(alternates['tr-TR']).toBe(`${BASE_URL}/hizmetler`);
-      expect(alternates['x-default']).toBe(`${BASE_URL}/hizmetler`);
+    it('çevrilmemiş sayfada yalnızca tr-TR ve x-default kanonik değerlerini üretmeli', () => {
+      const alternates = buildLanguageAlternates('/sozluk');
+      expect(alternates['tr-TR']).toBe(`${BASE_URL}/sozluk`);
+      expect(alternates['x-default']).toBe(`${BASE_URL}/sozluk`);
       expect(alternates['en-US']).toBeUndefined();
       expect(alternates['ru-RU']).toBeUndefined();
       expect(alternates['ar-SA']).toBeUndefined();
+    });
+
+    it('çevirisi doğrulanmış sayfada en-US/ru-RU/ar-SA alternatifleri de üretilmeli', () => {
+      const alternates = buildLanguageAlternates('/hizmetler');
+      expect(alternates['tr-TR']).toBe(`${BASE_URL}/hizmetler`);
+      expect(alternates['en-US']).toBe(`${BASE_URL}/en/hizmetler`);
+      expect(alternates['ru-RU']).toBe(`${BASE_URL}/ru/hizmetler`);
+      expect(alternates['ar-SA']).toBe(`${BASE_URL}/ar/hizmetler`);
+      expect(alternates['x-default']).toBe(`${BASE_URL}/hizmetler`);
     });
   });
 

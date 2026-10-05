@@ -9,10 +9,24 @@ export type IndexLocale = 'tr' | 'en' | 'ru' | 'ar';
  * Buraya eklenmeyen en/ru/ar sayfaları noindex olur, hreflang'den ve sitemap'ten çıkar
  * (içerikleri Türkçe olduğu için Türkçe sayfanın kopyası sayılırlar).
  */
+// Doğrulama: <main> içeriği yerel build üzerinde ölçüldü (scripts/audit-translation.mjs): metin gerçekten
+// hedef dilde, <title>/description çevrili. Yeni bir sayfa eklemeden önce aynı denetimden geçmeli.
+const CORE_TRANSLATED = [
+  '/',
+  '/hizmetler',
+  '/iletisim',
+  '/hakkimizda',
+  '/kullanim-sartlari',
+  '/gizlilik-politikasi',
+  '/kvkk-ve-aydinlatma-metni',
+  '/cerez-politikasi',
+] as const;
+
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
-  en: [],
-  ru: [],
-  ar: [],
+  en: [...CORE_TRANSLATED],
+  // RU: teklif-al ve sss de tamamen çevrilmiş (EN/AR sürümleri hâlâ kısmen Türkçe).
+  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
+  ar: [...CORE_TRANSLATED],
 };
 
 /** Türkçe dahil tüm dillerde noindex olacak yol kalıpları (ince/şablon sayfalar). */
