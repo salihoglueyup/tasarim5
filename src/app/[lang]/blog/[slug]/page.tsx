@@ -8,7 +8,6 @@ import ReadingProgress from '@/components/blog/ReadingProgress';
 import ShareButtons from '@/components/blog/ShareButtons';
 import ImageWithSeo from '@/components/seo/schema/ImageWithSeo';
 import BlogArticleEcosystemSeo from '@/components/seo/district/BlogArticleEcosystemSeo';
-import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import ArticleAiOverviewCard from '@/components/seo/ai-overviews/ArticleAiOverviewCard';
 import BlogAiTakeawaysSeo from '@/components/seo/ai-overviews/BlogAiTakeawaysSeo';
 import TableOfContents from '@/components/blog/TableOfContents';
@@ -26,6 +25,7 @@ import type { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n';
 
 import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
+import { getAuthor, resolveAuthorSlug } from '@/data/authors';
 import { renderPostBlocksToHtml } from '@/lib/blogBlockParser';
 import { redis, CACHE_TTL } from '@/lib/redis';
 
@@ -165,15 +165,18 @@ export default async function BlogDetail({
         dateModified: new Date(staticP.dateModified || staticP.datePublished),
         createdAt: new Date(staticP.datePublished),
         updatedAt: new Date(staticP.dateModified || staticP.datePublished),
-        author: {
-          id: staticP.author,
-          slug: staticP.author,
-          name: 'Alo Yönetim Hukuk & Tesis Kurulu',
-          avatar: '/images/eyup-salihoglu.webp',
-          bio: 'Tesis Yönetimi ve Kat Mülkiyeti Kanunu Uzmanı',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
+        author: (() => {
+          const resolved = getAuthor(resolveAuthorSlug(staticP.author))!;
+          return {
+            id: resolved.slug,
+            slug: resolved.slug,
+            name: resolved.name,
+            avatar: resolved.image ?? '/images/eyup-salihoglu.webp',
+            bio: resolved.bio,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+          };
+        })(),
         category: cat ? {
           id: cat.slug,
           slug: cat.slug,
@@ -322,9 +325,6 @@ export default async function BlogDetail({
   return (
     <>
       <JsonLd data={[breadcrumbLd, articleLd, pageLd]} />
-      <VoiceSearchSpeakableSeo
-        pageUrl={path}
-      />
       {renderedHtml && <BlogFAQExtractor htmlContent={renderedHtml} />}
       <ReadingProgress />
       <PageHeader title={post.title} description={post.description} breadcrumbs={breadcrumbs} />

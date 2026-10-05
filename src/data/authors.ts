@@ -96,6 +96,22 @@ export function getAuthor(slug: string): Author | undefined {
 }
 
 /**
+ * Eski içerik verilerinde geçen ama yazar kaydı olmayan slug'ların karşılığı. Bunlar için
+ * /blog/yazar/<slug> sayfası yoktu (404); tüm yazı sayfaları bu kırık linke işaret ediyordu.
+ */
+const AUTHOR_ALIASES: Record<string, string> = {
+  'alo-yonetim-editor': 'alo-yonetim',
+  'av-mehmet-kaya': 'alo-yonetim',
+};
+
+/** Verideki yazar slug'ını gerçek bir yazar kaydına çözer; bilinmeyen slug kurumsal yazara düşer. */
+export function resolveAuthorSlug(slug: string | undefined | null): string {
+  if (slug && AUTHORS_BY_SLUG.has(slug)) return slug;
+  if (slug && AUTHOR_ALIASES[slug]) return AUTHOR_ALIASES[slug];
+  return 'alo-yonetim';
+}
+
+/**
  * Yazar slug'ının geçerli olup olmadığını doğrular.
  */
 export function isValidAuthor(slug: string): boolean {

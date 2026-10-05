@@ -310,6 +310,44 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/author/:author*',
+        destination: '/blog',
+        permanent: true,
+      },
+      // Yazar kaydı olmayan eski slug'lar (yazı verisinden): kurumsal yazar arşivine
+      {
+        source: '/blog/yazar/:slug(alo-yonetim-editor|av-mehmet-kaya)',
+        destination: '/blog/yazar/alo-yonetim',
+        permanent: true,
+      },
+      {
+        source: '/:lang(en|ru|ar)/blog/yazar/:slug(alo-yonetim-editor|av-mehmet-kaya)',
+        destination: '/:lang/blog/yazar/alo-yonetim',
+        permanent: true,
+      },
+      // Eski sektörel çözüm slug'ları -> zengin tesis yönetimi alt sayfaları (DB seed slug'larına dokunulmaz:
+      // avm/sanayi/rezidans/toplukonut seed edildiğinde sitemap'e girer, yönlendirilmemeli)
+      {
+        source: '/sektorel-cozumler/site-ve-toplu-konut-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/rezidans-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/:slug(plaza-ve-is-merkezi-yonetimi|avm-yonetimi)',
+        destination: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi',
+        destination: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
+        permanent: true,
+      },
+      {
         source: '/feed',
         destination: '/feed.xml',
         permanent: true,
