@@ -22,8 +22,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function AidatTakibiClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const duesPoints = [
     {
@@ -48,38 +50,22 @@ export default function AidatTakibiClient() {
     }
   ];
 
-  const duesSteps = [
-    { name: '1. İşletme Projesi ve Aidat Dağıtımı', text: 'Genel kurulda onaylanan bütçe, Kat Mülkiyeti Kanunu m.20 gereğince bağımsız bölüm arsa paylarına göre hatasız paylaştırılır ve maliklere tebliğ edilir.' },
-    { name: '2. Mobil Uygulama ve Online Ödeme', text: 'Kat malikleri ve kiracılar mobil uygulama veya web panelinden anlık borç sorgulaması yapar; kredi kartı, otomatik talimat veya banka transferi ile öder.' },
-    { name: '3. Anlık Muhasebe ve Şeffaf Raporlama', text: 'Tahsilatlar sisteme saniyeler içinde yansır; gelir-gider tabloları, kasa ve banka bakiyeleri tüm sakinlerin denetimine açık olarak sunulur.' },
-    { name: '4. Gecikme Yönetimi ve Yasal Tahsilat', text: 'Vadesi geçen ödemelerde otomatik hatırlatmalar devreye girer; çözülemeyen gecikmelerde hukuk departmanımız icra takibini başlatır.' }
-  ];
+  const duesSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`dues_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`dues_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Aidat ödemeleri hangi yöntemlerle yapılabilir?',
-      answer: 'Alo Yönetim mobil uygulaması ve web portalı üzerinden kredi kartı, banka kartı (tek çekim veya taksitli), otomatik ödeme talimatı ve anlaşmalı banka IBAN hesaplarına havale/EFT ile 7/24 güvenle ödeme yapabilirsiniz.'
-    },
-    {
-      question: 'Geciken aidatlara yasal gecikme faizi nasıl uygulanır?',
-      answer: '634 Sayılı Kat Mülkiyeti Kanunu Madde 20/2 uyarınca, gününde ödenmeyen aidat ve ortak avans borçları için aylık %5 yasal gecikme tazminatı tahakkuk ettirilir. Sistemimiz bu hesabı kuruşu kuruşuna otomatik işletir.'
-    },
-    {
-      question: 'Kiracı olarak aidat ödemekten kim sorumludur?',
-      answer: 'Kat Mülkiyeti Kanunu uyarınca, kiracı bağımsız bölümün olağan işletme ve kullanım giderleri (kapıcı, güvenlik, temizlik, ortak elektrik vb.) aidatından sorumludur. Demirbaş, çatı onarımı veya asansör yenileme gibi ana gayrimenkul değerini artıran harcamalardan ise mülk sahibi (kat maliki) sorumludur.'
-    },
-    {
-      question: 'Aidat borcum ve geçmiş ödemelerim için resmi döküm alabilir miyim?',
-      answer: 'Evet. Mobil uygulamamız veya web panelinizden dilediğiniz tarih aralığına ait ıslak imzalı/karekodlu ekstre ve tahsilat makbuzlarını PDF formatında tek tıkla indirebilirsiniz.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`dues_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`dues_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <GTMDataLayer event="view_service" data={{ service_name: "Aidat Takibi", category: "Hizmet" }} />
       <ServiceSeo 
-        serviceType="Online Aidat Takibi ve Finansal Yönetim"
-        description="Site ve apartmanlar için %99 tahsilat oranlı dijital aidat takip programı, online kredi kartı ile ödeme, otomatik banka entegrasyonu ve şeffaf muhasebe yönetimi."
+        serviceType={t('dues_svc_type')}
+        description={t('dues_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Aidat"
@@ -123,7 +109,7 @@ export default function AidatTakibiClient() {
               {t('dues_banner_desc') || '%99 tahsilat oranı, anında online kartla ödeme ve sıfır bakiye hatası ile sitenizin tüm mali süreçlerini güvence altına alın.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Teklif Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -139,6 +125,7 @@ export default function AidatTakibiClient() {
         </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="aidat-takibi-nedir"
           answerId="dues-instant-answer-text"
@@ -148,16 +135,20 @@ export default function AidatTakibiClient() {
           subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla 7/24 online ödeme ve kurumsal hukuk desteğiyle sitelerde %99.2 yıllık tahsilat oranı sağlar."
           accentColor="emerald"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['kmk37-itiraz', 'aidat-gecikme-faizi', 'aidat-icra-haciz-sureci', 'kidem-tazminati']}
           title="Aidat Takibinde Yapay Zekaya Sorun: 634 Sayılı KMK Hukuku"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış aidat tahsilatı, gecikme tazminatı ve icra takibi mevzuatı."
         />
+</TrOnly>
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
+<TrOnly>
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -309,6 +300,7 @@ export default function AidatTakibiClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -324,6 +316,7 @@ export default function AidatTakibiClient() {
         </div>
 
         {/* Site Aidat Yönetimi ve Yasal İcra Takibi Rehberi (Hedef: "site aidat takibi", "apartman aidat yönetimi", "aidat icra takibi") */}
+<TrOnly>
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm flex flex-col gap-8">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
@@ -380,21 +373,26 @@ export default function AidatTakibiClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="Online Aidat Tahsilat ve Borç Takip Süreci"
-            description="Site ve apartmanlarda aidatların düzenli toplanması, muhasebeleştirilmesi ve yasal takibi için 4 aşamalı kurumsal sürecimiz."
+            name={t('dues_howto_name')}
+            description={t('dues_howto_desc')}
             steps={duesSteps}
           />
         </div>
 
         {/* KMK Arsa Payı & İşletme Projesi Masraf Simülatörü */}
+<TrOnly>
         <InteractiveCostSimulatorSeo />
+</TrOnly>
 
         {/* KMK Madde 37 İşletme Projesi, Gider Dağıtımı ve Tebliğ Rehberi (Faz 15) */}
+<TrOnly>
         <KMKOperatingBudgetGuideSeo />
+</TrOnly>
 
         {/* Dues Specific Social Proof */}
         <DuesTestimonials />
@@ -407,6 +405,7 @@ export default function AidatTakibiClient() {
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Aidat Takibi ve Finansal Yönetim"
         serviceCategory="Finans & Yönetim"
@@ -456,6 +455,7 @@ export default function AidatTakibiClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="dues_seo_title"

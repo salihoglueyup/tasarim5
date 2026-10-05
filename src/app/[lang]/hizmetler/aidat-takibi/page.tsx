@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import TrOnly from '@/components/seo/TrOnly';
 import { 
   generateBreadcrumbs, 
   webPageSchema, 
@@ -65,41 +66,23 @@ export default async function AidatTakibiPage({
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Online Aidat Takibi ve Finansal Yönetim',
+    serviceType: t.dues_svc_type,
     path: '/hizmetler/aidat-takibi',
-    description: 'Site ve apartmanlar için %99 tahsilat oranlı dijital aidat takip programı, online kredi kartı ile ödeme, otomatik banka entegrasyonu ve şeffaf muhasebe yönetimi.',
+    description: t.dues_svc_desc,
     priceRange: '₺₺',
     sameAs: 'https://tr.wikipedia.org/wiki/Aidat',
   });
 
-  const faqs = [
-    {
-      question: 'Aidat ödemeleri hangi yöntemlerle yapılabilir?',
-      answer: 'Alo Yönetim mobil uygulaması ve web portalı üzerinden kredi kartı, banka kartı (tek çekim veya taksitli), otomatik ödeme talimatı ve anlaşmalı banka IBAN hesaplarına havale/EFT ile 7/24 güvenle ödeme yapabilirsiniz.'
-    },
-    {
-      question: 'Geciken aidatlara yasal gecikme faizi nasıl uygulanır?',
-      answer: '634 Sayılı Kat Mülkiyeti Kanunu Madde 20/2 uyarınca, gününde ödenmeyen aidat ve ortak avans borçları için aylık %5 yasal gecikme tazminatı tahakkuk ettirilir. Sistemimiz bu hesabı kuruşu kuruşuna otomatik işletir.'
-    },
-    {
-      question: 'Kiracı olarak aidat ödemekten kim sorumludur?',
-      answer: 'Kat Mülkiyeti Kanunu uyarınca, kiracı bağımsız bölümün olağan işletme ve kullanım giderleri (kapıcı, güvenlik, temizlik, ortak elektrik vb.) aidatından sorumludur. Demirbaş, çatı onarımı veya asansör yenileme gibi ana gayrimenkul değerini artıran harcamalardan ise mülk sahibi (kat maliki) sorumludur.'
-    },
-    {
-      question: 'Aidat borcum ve geçmiş ödemelerim için resmi döküm alabilir miyim?',
-      answer: 'Evet. Mobil uygulamamız veya web panelinizden dilediğiniz tarih aralığına ait ıslak imzalı/karekodlu ekstre ve tahsilat makbuzlarını PDF formatında tek tıkla indirebilirsiniz.'
-    },
-    {
-      question: 'KMK Madde 37 kapsamında işletme projesine itiraz süresi kaç gündür ve İİK 68 icra dayanağı nedir?',
-      answer: 'Kat maliklerine usulüne uygun tebliğ edilen işletme projesine veya ek bütçeye itiraz süresi kesin 7 gündür. 7 gün içinde itiraz edilmeyen işletme projesi kesinleşerek İcra ve İflas Kanunu Madde 68/1 anlamında borç ikrarını havi resmi belge niteliği kazanır ve mahkeme kararsız doğrudan icraya konulabilir.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4, 5].map((n) => ({
+    question: t[`dues_faq_${n}_q`],
+    answer: t[`dues_faq_${n}_a`],
+  }));
 
   const faqLd = faqPageSchema(faqs);
 
   const pageLd = webPageSchema({
-    name: 'Online Aidat Takibi ve Finansal Yönetim | Alo Yönetim',
-    description: 'Site ve apartmanlar için %99 tahsilat oranlı dijital aidat takip programı.',
+    name: t.dues_page_name,
+    description: t.dues_page_desc,
     path: '/hizmetler/aidat-takibi',
     speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
@@ -108,9 +91,11 @@ export default async function AidatTakibiPage({
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <AidatTakibiClient />
+<TrOnly>
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
         <ServiceAiOverviewSnippetSeo serviceSlug="aidat-takibi" serviceName="Profesyonel Aidat Takibi ve Yasal Tahsilat" />
       </div>
+</TrOnly>
     </>
   );
 }
