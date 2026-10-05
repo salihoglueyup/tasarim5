@@ -66,6 +66,11 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
     }
   }
 
+  // Türkçe dışındaki dillerde çevirisi olmayan maddeler listeden çıkarılır (Türkçe metin sızmasın).
+  if (lang !== 'tr') {
+    faqs = faqs.filter((f) => f[`question_${lang}`] && f[`answer_${lang}`]);
+  }
+
   // Benzersiz kategorileri bul ve sayılarını hesapla
   const uniqueCategories = Array.from(new Set(faqs.map(f => f.category)));
   
@@ -78,7 +83,11 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
   ];
 
   const jsonLd = faqPageSchema(
-    faqs.slice(0, INITIAL_VISIBLE_FAQS).map((f) => ({ question: f.question, answer: f.answer.replace(/<[^>]+>/g, '') }))
+    faqs.slice(0, INITIAL_VISIBLE_FAQS).map((f) => {
+      const loc = (field: 'question' | 'answer'): string =>
+        (lang !== 'tr' && f[`${field}_${lang}`]) || f[field];
+      return { question: loc('question'), answer: loc('answer').replace(/<[^>]+>/g, '') };
+    })
   );
 
   const breadcrumbLd = generateBreadcrumbs([
@@ -105,10 +114,11 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
         <FaqClient faqs={faqs} categories={categories} lang={lang} />
 
         {/* 2. Yapay Zeka Karar Masası, Hukuki Mitler ve PAA Ağacı */}
+        {lang === 'tr' && (
         <div className="space-y-10 pt-12 border-t border-[var(--color-outline)]/60 dark:border-white/10">
           <div className="text-center max-w-2xl mx-auto">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20 text-xs font-semibold uppercase tracking-wider">
-              Yapay Zeka Destekli Karar Masası
+              {dict.sss_ai_badge}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-3">
               Kat Mülkiyetinde Hukuki Standartlar & Yargıtay Gerçekleri
@@ -122,6 +132,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
           <FactCheckAiGroundingSeo lang={lang} />
           <PeopleAlsoAskDeepTreeSeo lang={lang} />
         </div>
+        )}
 
         {/* 3. Lüks Çift Butonlu Dönüşüm CTA'sı */}
         <div className="p-8 sm:p-10 md:p-12 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-xs relative overflow-hidden">
@@ -129,7 +140,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
             <div className="space-y-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20 text-xs font-semibold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-slate-500" />
-                Profesyonel Yönetim & Hukuki Çözüm
+                {dict.sss_cta_badge}
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 {dict.sss_cta_title || 'Aradığınız Sorunun Cevabını Bulamadınız mı?'}
@@ -153,7 +164,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-500/15 dark:hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 font-semibold text-sm transition-all cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Uzmanımıza Danışın</span>
+                <span>{dict.sss_consult_btn}</span>
               </Link>
             </div>
           </div>

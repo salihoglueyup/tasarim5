@@ -24,10 +24,10 @@ const CORE_TRANSLATED = [
 
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   // teklif-al: form etiketleri ve metinler çeviri anahtarlarına bağlı (en/ru/ar doğrulandı).
-  // /sss çıkarıldı: filtre çipleri ve bazı SSS maddeleri hâlâ Türkçe.
-  en: [...CORE_TRANSLATED, '/teklif-al'],
-  ru: [...CORE_TRANSLATED, '/teklif-al'],
-  ar: [...CORE_TRANSLATED, '/teklif-al'],
+  // /sss: arayüz metinleri çeviri anahtarlarında, SSS maddeleri DB'deki _en/_ru/_ar alanlarından gelir.
+  en: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
+  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
+  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss'],
 };
 
 /** Türkçe dahil tüm dillerde noindex olacak yol kalıpları (ince/şablon sayfalar). */

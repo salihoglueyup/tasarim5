@@ -85,14 +85,10 @@ export default function FaqClient({
     'Haşere Kontrolü': 'bug_report',
   };
 
-  const POPULAR_CHIPS = [
-    { label: 'Aidat İcra', query: 'icra' },
-    { label: 'Yönetici Seçimi', query: 'seçim' },
-    { label: 'Asansör Kırmızı Etiket', query: 'asansör' },
-    { label: 'Balkon Kapatma', query: 'balkon' },
-    { label: 'Yönetim Planı', query: 'yönetim planı' },
-    { label: 'Ortak Giderler', query: 'ortak gider' },
-  ];
+  const POPULAR_CHIPS = [1, 2, 3, 4, 5, 6].map((n) => ({
+    label: t(`sss_chip_${n}` as Parameters<typeof t>[0]),
+    query: t(`sss_chip_${n}_q` as Parameters<typeof t>[0]),
+  }));
 
   const highlightText = (text: string, highlight: string) => {
     if (!highlight.trim()) return text;
@@ -124,7 +120,7 @@ export default function FaqClient({
   const handleCopyAnswer = (e: React.MouseEvent, question: string, answerHtml: string, id: string) => {
     e.stopPropagation();
     const cleanAnswer = answerHtml.replace(/<[^>]+>/g, '').trim();
-    navigator.clipboard.writeText(`${question}\n\n${cleanAnswer}\n\nKaynak: Alo Yönetim KMK 634 Rehberi (https://aloyonetim.com.tr/sss)`);
+    navigator.clipboard.writeText(`${question}\n\n${cleanAnswer}\n\n${t('sss_copy_source')} (https://aloyonetim.com.tr${lang === 'tr' ? '' : `/${lang}`}/sss)`);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2500);
   };
@@ -157,7 +153,7 @@ export default function FaqClient({
             </div>
             <input 
               type="text" 
-              placeholder={t('sss_search_placeholder') || 'Sorunuzu arayın (Örn: Aidat, İcra, Asansör)...'}
+              placeholder={t('sss_search_placeholder')}
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
               className="w-full pl-12 pr-11 py-3.5 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-slate-500/20 focus:border-slate-500 transition-all text-slate-900 dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500"
@@ -167,7 +163,7 @@ export default function FaqClient({
                 type="button"
                 onClick={() => setSearchQuery('')}
                 className="absolute inset-y-0 right-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white p-1"
-                aria-label="Aramayı Temizle"
+                aria-label={t('sss_clear_search')}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -178,7 +174,7 @@ export default function FaqClient({
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <span className="text-slate-600 dark:text-slate-400 shrink-0 font-semibold flex items-center gap-1 text-[11px]">
               <Sparkles className="w-3 h-3 text-slate-500" />
-              Popüler:
+              {t('sss_popular')}
             </span>
             {POPULAR_CHIPS.map((chip) => (
               <button
@@ -232,10 +228,10 @@ export default function FaqClient({
               <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-[var(--color-outline)]/60 dark:border-white/10">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
                   <Icon name="category" className="text-base text-slate-500" />
-                  Konu Başlıkları
+                  {t('sss_topics')}
                 </span>
                 <span className="text-[11px] font-mono font-bold text-slate-700 dark:text-slate-400 bg-slate-500/10 px-2.5 py-0.5 rounded-full border border-slate-500/20">
-                  {faqs.length} Soru
+                  {t('sss_n_questions').replace('{n}', String(faqs.length))}
                 </span>
               </div>
 
@@ -273,7 +269,7 @@ export default function FaqClient({
             <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-5 shadow-xs space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-slate-500" />
-                Popüler KMK Aramaları
+                {t('sss_popular_searches')}
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {POPULAR_CHIPS.map((chip) => (
@@ -293,16 +289,16 @@ export default function FaqClient({
             <div className="bg-gradient-to-br from-slate-500/10 via-slate-500/5 to-transparent border border-slate-500/20 rounded-3xl p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
                 <Icon name="support_agent" className="text-base" />
-                Hukuki Danışmanlık
+                {t('sss_consult_title')}
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                Apartmanınız veya siteniz için özel yönetim planı ve bütçe danışmanlığına mı ihtiyacınız var?
+                {t('sss_consult_desc')}
               </p>
               <a
                 href={lang === 'tr' ? '/iletisim' : `/${lang}/iletisim`}
                 className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-xs"
               >
-                <span>Uzmanımıza Danışın</span>
+                <span>{t('sss_consult_btn')}</span>
                 <Icon name="arrow_forward" className="text-sm" />
               </a>
             </div>
@@ -319,7 +315,7 @@ export default function FaqClient({
                 </div>
                 <input 
                   type="text" 
-                  placeholder={t('sss_search_placeholder') || 'Sorunuzu arayın (Örn: Aidat, İcra, Asansör, Yönetici Seçimi)...'}
+                  placeholder={t('sss_search_placeholder')}
                   value={searchQuery}
                   onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(20); }}
                   className="w-full pl-12 pr-12 py-3.5 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-slate-500/20 focus:border-slate-500 transition-all text-slate-900 dark:text-white text-sm md:text-base placeholder:text-slate-400 dark:placeholder:text-slate-500"
@@ -329,7 +325,7 @@ export default function FaqClient({
                     type="button"
                     onClick={() => setSearchQuery('')}
                     className="absolute inset-y-0 right-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white p-1 cursor-pointer"
-                    aria-label="Aramayı Temizle"
+                    aria-label={t('sss_clear_search')}
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -340,15 +336,15 @@ export default function FaqClient({
               <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 pt-3 px-1">
                 <div className="flex items-center gap-2">
                   <span>
-                    Toplam <strong>{filteredFaqs.length}</strong> soru listeleniyor
-                    {searchQuery && ` ("${searchQuery}" için)`}
+                    {t('sss_total_listed').replace('{n}', String(filteredFaqs.length))}
+                    {searchQuery && ` ${t('sss_for_query').replace('{q}', searchQuery)}`}
                   </span>
                   {searchQuery && (
                     <button 
                       onClick={() => setSearchQuery('')}
                       className="text-slate-600 dark:text-slate-400 hover:underline font-semibold ml-1 cursor-pointer"
                     >
-                      Temizle
+                      {t('sss_clear')}
                     </button>
                   )}
                 </div>
@@ -360,7 +356,7 @@ export default function FaqClient({
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors cursor-pointer"
                   >
                     <Icon name={areAllOpen ? 'unfold_less' : 'unfold_more'} className="text-sm" />
-                    <span>{areAllOpen ? 'Tümünü Kapat' : 'Tümünü Aç'}</span>
+                    <span>{areAllOpen ? t('sss_collapse_all') : t('sss_expand_all')}</span>
                   </button>
                 )}
               </div>
@@ -371,13 +367,13 @@ export default function FaqClient({
               {filteredFaqs.length === 0 ? (
                 <div className="text-center py-16 px-6 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 text-slate-500">
                   <Icon name="search_off" className="text-5xl mb-3 text-slate-400 opacity-60" />
-                  <p className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('sss_not_found') || 'Aradığınız kriterlere uygun soru bulunamadı.'}</p>
-                  <p className="text-sm text-slate-500 mt-1">Farklı bir anahtar kelime deneyebilir veya doğrudan uzmanımıza danışabilirsiniz.</p>
+                  <p className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('sss_not_found')}</p>
+                  <p className="text-sm text-slate-500 mt-1">{t('sss_try_other')}</p>
                   <button
                     onClick={() => { setSearchQuery(''); setActiveCategory('Tümü'); }}
                     className="mt-4 px-5 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-950 text-xs font-bold cursor-pointer"
                   >
-                    Tüm Soruları Göster
+                    {t('sss_show_all')}
                   </button>
                 </div>
               ) : (
@@ -411,7 +407,7 @@ export default function FaqClient({
                               {/* Kategori Önizleme Rozeti */}
                               <div className="flex items-center gap-2">
                                 <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-slate-500/10 text-slate-700 dark:text-slate-400 border border-slate-500/20">
-                                  {faq.category || 'Mevzuat'}
+                                  {getCategoryName(faq.category || 'Mevzuat')}
                                 </span>
                               </div>
                               <h3 
@@ -451,11 +447,11 @@ export default function FaqClient({
                                 <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-white/5 text-xs">
                                   <div className="flex items-center gap-2">
                                     <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-slate-500/10 text-slate-700 dark:text-slate-400 font-semibold text-[11px] border border-slate-500/20">
-                                      {faq.category || 'Mevzuat'}
+                                      {getCategoryName(faq.category || 'Mevzuat')}
                                     </span>
                                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
                                       <Icon name="verified" className="text-xs" />
-                                      634 Sayılı KMK Doğrulandı
+                                      {t('sss_verified')}
                                     </span>
                                   </div>
 
@@ -463,17 +459,17 @@ export default function FaqClient({
                                     type="button"
                                     onClick={(e) => handleCopyAnswer(e, questionText, answerHtml, faq.id)}
                                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 text-xs font-medium transition-colors cursor-pointer"
-                                    title="Cevabı panoya kopyala"
+                                    title={t('sss_copy_title')}
                                   >
                                     {isCopied ? (
                                       <>
                                         <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                                        <span className="text-emerald-700 dark:text-emerald-400 font-bold">Kopyalandı!</span>
+                                        <span className="text-emerald-700 dark:text-emerald-400 font-bold">{t('sss_copied')}</span>
                                       </>
                                     ) : (
                                       <>
                                         <Copy className="w-3.5 h-3.5 text-slate-400" />
-                                        <span>Cevabı Kopyala</span>
+                                        <span>{t('sss_copy_answer')}</span>
                                       </>
                                     )}
                                   </button>
@@ -493,7 +489,7 @@ export default function FaqClient({
                         className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-sm rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer"
                       >
                         <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-                        <span>{t('sss_load_more') || 'Daha Fazla Soru Yükle'}</span>
+                        <span>{t('sss_load_more')}</span>
                         <span className="text-xs opacity-75 font-normal">
                           ({visibleCount} / {filteredFaqs.length})
                         </span>
@@ -509,6 +505,7 @@ export default function FaqClient({
       </div>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+      {lang === 'tr' && (
       <ServiceAuthorityHubSeo
         serviceName="Tesis ve Site Yönetimi Soru & Cevap Bankası"
         serviceCategory="Mevzuat & Bilgi Bankası"
@@ -558,6 +555,7 @@ export default function FaqClient({
           }
         ]}
       />
+      )}
     </div>
   );
 }
