@@ -4,6 +4,7 @@ import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
+import TrOnly from '@/components/seo/TrOnly';
 import { buildFacilityCompleteGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 import SiteYonetimiClient from './SiteYonetimiClient';
@@ -63,8 +64,8 @@ export default async function SiteYonetimiPage({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const pageTitle = 'Site Yönetimi';
-  const pageDesc = 'İstanbul genelinde apartmanlar, toplu konut siteleri ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı, 5188 lisanslı güvenlik ve Apsiyon entegrasyonu.';
+  const pageTitle = t.sy_page_title;
+  const pageDesc = t.sy_page_desc;
 
   const completeGraphLd = buildFacilityCompleteGraphSchema({
     lang,
@@ -92,9 +93,11 @@ export default async function SiteYonetimiPage({
         ]}
       />
       <SiteYonetimiClient />
+      <TrOnly>
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
         <ServiceAiOverviewSnippetSeo serviceSlug="site-yonetimi" serviceName="634 KMK Uyumlu Profesyonel Site Yönetimi" />
       </div>
+      </TrOnly>
     </>
   );
 }

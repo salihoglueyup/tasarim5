@@ -38,70 +38,28 @@ import KMKLegalNoticesVaultSeo from '@/components/seo/kmk/KMKLegalNoticesVaultSe
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 import FacilityTestimonials from '@/components/sections/testimonials/FacilityTestimonials';
 
 export default function SiteYonetimiClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  const legalSteps = [
-    {
-      name: '1. Ücretsiz Site Keşfi ve Mali Durum Analizi',
-      text: 'Sitenizin fiziki, teknik altyapı, güvenlik, mevcut aidat borçluluk ve personel durumunu yerinde inceler, kat malikleri için kapsamlı durum raporu hazırlarız.'
-    },
-    {
-      name: '2. KMK Madde 37 Uyumlu Şeffaf İşletme Projesi',
-      text: '634 Sayılı KMK m.37 uyarınca yıllık tahmini gelir-gider bütçesini hazırlar, toplu satın alma gücümüzle aidatlarda %20-30 tasarruf hedefini netleştiririz.'
-    },
-    {
-      name: '3. Genel Kurul Kararı ve Resmi Devir Teslim',
-      text: 'Kat Malikleri Genel Kurulu veya Temsilciler Kurulu yetkilendirmesiyle noter onaylı devir teslim protokolünü işletir, eski borç-alacak mutabakatını sağlarız.'
-    },
-    {
-      name: '4. Apsiyon Entegrasyonu ve 7/24 Kesintisiz Yönetim',
-      text: 'Tüm sakinlere Apsiyon mobil erişim şifrelerini iletir; 5188 güvenlik, ortak alan temizliği ve 45 dk acil teknik müdahale operasyonunu tek elden başlatırız.'
-    }
-  ];
+  const legalSteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`sy_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`sy_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Site yönetimi şirketi ne iş yapar ve neleri kapsar?',
-      answer: 'Profesyonel site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde aidat tahsilatı, bütçe işletme projesi hazırlama, 5188 lisanslı güvenlik personeli istihdamı, asansör ve jeneratör periyodik teknik bakımı, ortak alan temizliği, peyzaj bakımı ve genel kurul toplantı organizasyonunu tek elden yürütür.'
-    },
-    {
-      question: 'Site yönetim şirketine geçmek aidatları düşürür mü?',
-      answer: 'Evet. Alo Yönetim ile çalışan konut sitelerinde toplu malzeme alımı, asansör ve teknik servis sözleşmelerindeki kurumsal indirimler ve reaktif ceza önleyici enerji takibi sayesinde aidat işletme bütçelerinde %20 ile %30 arasında net tasarruf sağlanır.'
-    },
-    {
-      question: 'Aidatını ödemeyen komşulara karşı yasal süreç nasıl işletilir?',
-      answer: 'KMK Madde 20 uyarınca geciken aidatlara aylık yasal %5 gecikme tazminatı uygulanır. SMS ve WhatsApp hatırlatmalarına rağmen ödenmeyen borçlar için avukatlarımız aracılığıyla mahkeme kararı beklenmeksizin doğrudan ilamsız icra takibi (İİK m.68) başlatılır.'
-    },
-    {
-      question: 'Amatör yönetimden profesyonel site yönetimine nasıl geçilir?',
-      answer: 'Kat Malikleri Olağan veya Olağanüstü Genel Kurulu’nda toplantıya katılanların oy çokluğu veya yönetim planında belirtilen oranla profesyonel bir yönetim firmasıyla sözleşme imzalanması yönünde karar alınır. Devir teslim süreci Alo Yönetim uzmanlarınca 48 saatte tamamlanır.'
-    },
-    {
-      question: 'KMK Madde 37 İşletme Projesi zorunlu mudur?',
-      answer: 'Evet. Yöneticinin her takvim yılı için tahmini gelir ve giderleri, her kat malikinin arsa payına göre ödeyeceği aylık avans tutarını gösteren işletme projesini hazırlayıp tebliğ etmesi kanuni zorunluluktur. İtiraz edilmeyen proje icra takibine kesin delil teşkil eder.'
-    },
-    {
-      question: 'Site sakinleri gelir-gider ve banka hesaplarını nasıl denetler?',
-      answer: 'Alo Yönetim, Apsiyon altyapısı ile tam şeffaflık sunar. Her kat maliki ve kiracı Apsiyon mobil uygulaması üzerinden sitenin anlık banka bakiyesini, harcama faturalarını, ödenen aidatları ve denetim raporlarını 7/24 canlı olarak inceleyebilir.'
-    },
-    {
-      question: 'Acil teknik arızalarda (asansör, hidrofor, su basması) müdahale süresi nedir?',
-      answer: 'SLA taahhüdümüz kapsamında 7/24 hazır bekleyen mobil teknik acil servis ekiplerimiz en geç 45 dakika içinde arızaya yerinde müdahale eder.'
-    },
-    {
-      question: '5188 sayılı güvenlik personeli yasal olarak nasıl temin edilir?',
-      answer: 'Alo Yönetim, İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Hizmetleri Kanunu uyarınca valilik onaylı güvenlik izin belgesine ve kimlik kartına sahip resmi sertifikalı güvenlik görevlilerini yasal sorumlulukları üstlenerek görevlendirir.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({
+    question: t(`sy_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`sy_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <ServiceSeo 
-        serviceType="Site Yönetimi"
-        description="İstanbul genelinde 634 Sayılı KMK uyumlu profesyonel site ve apartman yönetimi, Apsiyon mobil entegrasyonu, şeffaf aidat tahsilatı ve 5188 güvenlik hizmetleri."
+        serviceType={t('sy_svc_type')}
+        description={t('sy_svc_desc')}
         areaServed={[
           "İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", 
           "Bakırköy", "Sarıyer", "Başakşehir", "Beylikdüzü", "Kartal", "Pendik", "Çekmeköy"
@@ -124,7 +82,7 @@ export default function SiteYonetimiClient() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
           <Image 
             src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop" 
-            alt="Profesyonel Site ve Apartman Yönetimi - Alo Yönetim" 
+            alt={t('sy_hero_alt')} 
             fill 
             className="object-cover object-center opacity-25" 
             priority 
@@ -135,37 +93,37 @@ export default function SiteYonetimiClient() {
           {/* Üst Rozet: KMK & Apsiyon Güvencesi */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-500/10 border border-slate-500/30 text-slate-300 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" />
-            <span>634 Sayılı KMK Tam Hukuki Güvencesi & Apsiyon Entegre Sakin Portalı</span>
+            <span>{t('sy_hero_badge')}</span>
           </div>
 
           <h1 
             id="site-management-hero-h1" 
             className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6"
           >
-            İstanbul Profesyonel <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-300">Site ve Apartman Yönetimi</span> Şirketi
+            {t('sy_hero_h1_pre')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-slate-300 to-slate-300">{t('sy_hero_h1_hl')}</span>{t('sy_hero_h1_post')}
           </h1>
 
           <p 
             id="site-management-kmk-summary" 
             className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-normal"
           >
-            150+ Konut Sitesi ve 34.000+ Bağımsız Bölümde sıfır aidat kaosu, %99.2 tahsilat başarısı, 5188 lisanslı güvenlik, 45 dakika acil teknik servis ve %30 somut bütçe tasarrufu.
+            {t('sy_hero_p')}
           </p>
 
           {/* CTA Buton Grubu */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <Link 
-              href="/teklif-al" 
+              href={localePath('/teklif-al', language)} 
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-slate-600 to-slate-600 hover:from-slate-500 hover:to-slate-500 text-white font-bold text-base shadow-xl shadow-slate-900/30 hover:shadow-slate-900/40 transition-all duration-300 hover:-translate-y-0.5 text-center"
             >
-              Ücretsiz Site Keşfi & Teklif Al →
+              {t('sy_cta_quote')}
             </Link>
             <Link 
-              href="/app" 
+              href={localePath('/app', language)} 
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-base backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3 text-center"
             >
               <ApsiyonLogo width={90} height={20} className="text-white" />
-              <span>Mobil Portalı İncele</span>
+              <span>{t('sy_cta_portal')}</span>
             </Link>
           </div>
 
@@ -173,24 +131,25 @@ export default function SiteYonetimiClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
               <div className="text-2xl sm:text-3xl font-black text-slate-400">150+</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">Aktif Yönetilen Site</div>
+              <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_1')}</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
               <div className="text-2xl sm:text-3xl font-black text-emerald-400">%99.2</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">Yıllık Aidat Tahsilatı</div>
+              <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_2')}</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
               <div className="text-2xl sm:text-3xl font-black text-slate-400">45 Dk</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">Acil Teknik Servis SLA</div>
+              <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_3')}</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
               <div className="text-2xl sm:text-3xl font-black text-slate-400">4.9 ★</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">Apsiyon Sakin Puanı</div>
+              <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_4')}</div>
             </div>
           </div>
         </div>
       </div>
 
+<TrOnly>
       {/* 2. BÖLÜM: Google Sıfırıncı Sıra (Featured Snippet) & Hızlı Yanıt Kartı */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-30">
         <PositionZeroAnswerBox
@@ -217,27 +176,29 @@ export default function SiteYonetimiClient() {
           />
         </div>
       </div>
+</TrOnly>
 
       {/* 3. BÖLÜM: 4 Adımlı Profesyonel Site Yönetimine Geçiş Süreci (HowToSeo) */}
       <div className="py-20 bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Amatör Yönetimden Profesyonel Yönetime 4 Adımda Pürüzsüz Geçiş
+              {t('sy_steps_title')}
             </h2>
             <p className="text-slate-400 mt-4 text-base sm:text-lg">
-              Kat malikleri kurulunuzun aldığı karar sonrasında mevcut düzeniniz bozulmadan, hiçbir hizmette kesinti yaşanmadan 48 saatte devir teslim tamamlanır.
+              {t('sy_steps_desc')}
             </p>
           </div>
 
           <HowToSeo
-            name="Profesyonel Site Yönetimine Geçiş Süreci"
-            description="Kat Mülkiyeti Kanunu standartlarında amatör apartman yöneticiliğinden Alo Yönetim kurumsal hizmetine geçiş rehberi."
+            name={t('sy_howto_name')}
+            description={t('sy_howto_desc')}
             steps={legalSteps}
           />
         </div>
       </div>
 
+<TrOnly>
       {/* 4. BÖLÜM: İstanbul 39 İlçe Aidat ve Yönetim Maliyeti Isı Haritası */}
       <div className="py-20 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -401,22 +362,24 @@ export default function SiteYonetimiClient() {
           <KMKLegalNoticesVaultSeo />
         </div>
       </div>
+</TrOnly>
 
       {/* 12. BÖLÜM: Sıkça Sorulan Sorular (DynamicFAQ & Schema.org FAQPage) */}
       <div className="py-20 bg-slate-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Site ve Apartman Yönetimi Sıkça Sorulan Sorular
+              {t('sy_faq_title')}
             </h2>
             <p className="text-slate-400 mt-3 text-base">
-              Kat Mülkiyeti Kanunu, aidat tahsilat süreçleri ve yönetim devrine dair merak ettiğiniz tüm yasal ve operasyonel cevaplar.
+              {t('sy_faq_desc')}
             </p>
           </div>
           <DynamicFAQ faqs={faqs} />
         </div>
       </div>
 
+<TrOnly>
       {/* 12.5. BÖLÜM: Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
       <div className="py-8 px-4 max-w-6xl mx-auto">
         <GoogleAiOverviewGroundingSeo
@@ -425,6 +388,7 @@ export default function SiteYonetimiClient() {
           subtitle="Google AI Overviews (SGE), Gemini ve Perplexity için doğrulanmış apartman/site yönetimi, aidat takibi ve kat malikleri kurulu yasal mevzuatı."
         />
       </div>
+</TrOnly>
 
       {/* 13. BÖLÜM: Müşteri Referansları ve Yorumları */}
       <FacilityTestimonials />
