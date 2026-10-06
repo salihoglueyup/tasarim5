@@ -26,8 +26,10 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function GuvenlikYonetimiClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const securityFeatures = [
     {
@@ -68,31 +70,15 @@ export default function GuvenlikYonetimiClient() {
     }
   ];
 
-  const securitySteps = [
-    { name: '1. Güvenlik ve Risk Analizi Keşfi', text: 'Sitenizin çevre duvarları, kapı girişleri, otopark ve kör noktaları yerinde incelenir; detaylı güvenlik açığı raporu çıkarılır.' },
-    { name: '2. 5188 Sayılı Kanun İzin & Valilik Süreci', text: 'Özel güvenlik komisyonu onayları, valilik izin belgeleri ve güvenlik noktası planlaması yasal mevzuata tam uyumlu hazırlanır.' },
-    { name: '3. Lisanslı ve Üniformalı Personel Görevlendirmesi', text: 'Sabıka kaydı temiz, fiziki ve psikolojik testlerden geçmiş, yangın ve ilk yardım sertifikalı profesyonel güvenlik ekibi atanır.' },
-    { name: '4. 7/24 Dijital Devriye ve Denetim', text: 'GPS destekli tur kontrol kalemi, plaka tanıma sistemi ve nöbetçi amir teftişleri ile sıfır güvenlik zafiyeti sağlanır.' }
-  ];
+  const securitySteps = [1, 2, 3, 4].map((n) => ({
+    name: t(`sec_step_${n}_name` as Parameters<typeof t>[0]),
+    text: t(`sec_step_${n}_text` as Parameters<typeof t>[0]),
+  }));
 
-  const faqs = [
-    {
-      question: 'Sitemizde özel güvenlik görevlendirmek için yasal prosedür nedir?',
-      answer: '5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun uyarınca, sitede özel güvenlik istihdam edilebilmesi için İl Özel Güvenlik Komisyonu\'na başvuru yapılarak Valilik izni alınmalıdır. Alo Yönetim olarak tüm başvuru, izin ve onay süreçlerini site adına anahtar teslim yürütüyoruz.'
-    },
-    {
-      question: 'Güvenlik görevlilerinin yetki ve sorumlulukları nelerdir?',
-      answer: 'Güvenlik görevlileri 5188 sayılı kanun kapsamında; siteye giriş yapan ziyaretçilerin kimlik kontrolünü yapma, eşyaları X-ray/dedektörden geçirme, suçüstü durumunda yakalama ve genel kolluk kuvvetlerine teslim etme yetkisine sahiptir.'
-    },
-    {
-      question: 'Gece devriyeleri ve nöbet denetimleri nasıl yapılıyor?',
-      answer: 'Güvenlik personeli belirlenen kritik noktalardaki RFID/QR devriye istasyonlarını saat başı okutur. Turlar dijital yönetim panelimize anlık aktarılır; nöbet uykusu veya tur aksaması yaşanmaması için merkez denetim ekiplerimizce habersiz gece teftişleri yapılır.'
-    },
-    {
-      question: 'Güvenlik kameraları ve kayıt saklama süresi nedir?',
-      answer: 'Site ortak alan güvenlik kameraları 7/24 kesintisiz kayıt altına alınır. KVKK (Kişisel Verilerin Korunması Kanunu) Aydınlatma Metni çerçevesinde görüntüler şifreli NVR sunucularında en az 30 gün yasal saklama süresiyle muhafaza edilir.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`sec_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`sec_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -110,8 +96,8 @@ export default function GuvenlikYonetimiClient() {
   return (
     <>
       <ServiceSeo 
-        serviceType="Profesyonel Güvenlik Yönetimi"
-        description="5188 sayılı Özel Güvenlik Kanunu uyumlu, 7/24 CCTV kamera takibi, plaka tanıma ve lisanslı güvenlik personeli ile profesyonel site güvenlik yönetimi."
+        serviceType={t('sec_svc_type')}
+        description={t('sec_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi"
@@ -155,7 +141,7 @@ export default function GuvenlikYonetimiClient() {
               {t('sec_banner_desc') || 'Sertifikalı güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('sec_banner_box_btn') || 'Ücretsiz Güvenlik Keşfi'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -171,6 +157,7 @@ export default function GuvenlikYonetimiClient() {
         </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="guvenlik-yonetimi-nedir"
           answerId="security-instant-answer-text"
@@ -180,16 +167,20 @@ export default function GuvenlikYonetimiClient() {
           subText="Alo Yönetim, 5188 lisanslı güvenlik personeli, CCTV analitiği ve plaka tanıma sistemi ile sitenizde %100 yasal güvence ve sıfır kıdem tazminatı riski sağlar."
           accentColor="blue"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['5188-ozel-guvenlik', 'kidem-tazminati']}
           title="Güvenlik Yönetiminde Yapay Zekaya Sorun: 5188 Sayılı Kanun"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış özel güvenlik mevzuatı ve personel istihdam güvencesi."
         />
+</TrOnly>
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
+<TrOnly>
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -341,9 +332,12 @@ export default function GuvenlikYonetimiClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* 5188 Yasal Ruhsatlar & Akreditasyon Şeması */}
+<TrOnly>
         <SecurityTrustBadgeGridSeo />
+</TrOnly>
 
         {/* 6 Bento Grid Cards with Staggered Animation */}
         <div className="space-y-6">
@@ -377,14 +371,21 @@ export default function GuvenlikYonetimiClient() {
         </div>
 
         {/* İnteraktif 5188 Güvenlik & Risk Analiz Testi */}
+<TrOnly>
         <InteractiveSecurityRiskRadarSeo />
+</TrOnly>
 
         {/* Karar Matrisi: Bireysel Bekçi vs 5188 Lisanslı Özel Güvenlik */}
+<TrOnly>
         <SecurityComparisonTableSeo />
+</TrOnly>
 
         {/* Yapay Zeka & Donanım Teknolojileri Ekosistemi */}
+<TrOnly>
         <SecurityTechMatrixSeo />
+</TrOnly>
 
+<TrOnly>
         {/* Güvenlik Akademisi E-E-A-T Spotlight Kartı */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
@@ -417,23 +418,29 @@ export default function GuvenlikYonetimiClient() {
             </Link>
           </div>
         </div>
+</TrOnly>
 
         {/* 4-Step HowTo Process */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
-            name="5188 Sayılı Kanun Uyumlu Site Güvenlik Kurulum Süreci"
-            description="Site ve tesislerde özel güvenlik hizmetine geçiş ve operasyonel entegrasyon için 4 adımlı standart sürecimiz."
+            name={t('sec_howto_name')}
+            description={t('sec_howto_desc')}
             steps={securitySteps}
           />
         </div>
 
         {/* Afet, Yangın & Sığınak Güvenliği Denetim Motoru */}
+<TrOnly>
         <EmergencyDisasterAuditSeo />
+</TrOnly>
 
         {/* İstanbul İlçelerine Göre Güvenlik Kümeleri */}
+<TrOnly>
         <DistrictSecurityClusterSeo />
+</TrOnly>
 
         {/* Google AI Overviews & Doğrudan Yanıt Kartları (Featured Snippet) */}
+<TrOnly>
         <div className="space-y-8">
           <InstantAnswerCardSeo 
             question="Site ve Apartmanlara Özel Güvenlik Nasıl Tutulur?"
@@ -466,10 +473,14 @@ export default function GuvenlikYonetimiClient() {
             category="Yasal Yetki ve Sorumluluklar"
           />
         </div>
+</TrOnly>
 
         {/* 5188 Yasal Dilekçe & Karar Defteri Şablonu Oluşturucu */}
+<TrOnly>
         <SecurityLegalTemplateGeneratorSeo />
+</TrOnly>
 
+<TrOnly>
         {/* Valilik 5188 Özel Güvenlik Komisyonu İzin Protokolü */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -534,7 +545,9 @@ export default function GuvenlikYonetimiClient() {
             ))}
           </div>
         </div>
+</TrOnly>
 
+<TrOnly>
         {/* Yönetim Kurulu Kıdem Tazminatı & İş Hukuku Sorumluluk Kalkanı */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
@@ -582,6 +595,7 @@ export default function GuvenlikYonetimiClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* Security Specific Social Proof */}
         <SecurityTestimonials />
@@ -593,14 +607,17 @@ export default function GuvenlikYonetimiClient() {
 
       </section>
 
+<TrOnly>
       {/* 5188 Sayılı Kanun Sitelerde Özel Güvenlik Kurulum & Valilik İzinleri Rehberi */}
       <div className="py-12 bg-slate-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SiteSecurityPermitGuideSeo />
         </div>
       </div>
+</TrOnly>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="5188 Lisanslı Özel Güvenlik Yönetimi"
         serviceCategory="Güvenlik & Asayiş"
@@ -650,6 +667,7 @@ export default function GuvenlikYonetimiClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="guvenlik_seo_title"
