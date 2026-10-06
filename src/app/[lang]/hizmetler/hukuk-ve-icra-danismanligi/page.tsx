@@ -63,43 +63,29 @@ export default async function HukukVeIcraDanismanligiPage({
   ]);
 
   const serviceLd = serviceSchema({
-    serviceType: 'Hukuk ve İcra Danışmanlığı',
+    serviceType: t.legal_svc_type,
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
-    description: 'Kat Mülkiyeti Kanunu (KMK 634) kapsamında aidat alacakları icra takibi, genel kurul yönetimi ve hukuki danışmanlık hizmetleri.',
+    description: t.legal_svc_desc,
     priceRange: '₺₺',
     sameAs: 'https://tr.wikipedia.org/wiki/Hukuk',
   });
 
   const legalLd = legalServiceSchema({
-    name: 'Alo Yönetim Kat Mülkiyeti Hukuku ve İcra Danışmanlığı',
-    description: '634 Sayılı Kat Mülkiyeti Kanunu kapsamında aidat icra takipleri, genel kurul yönetimi ve hukuki danışmanlık.',
+    name: t.legal_ld_name,
+    description: t.legal_ld_desc,
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
   });
 
-  const faqs = [
-    {
-      question: 'Aidat borcunu ödemeyen malik veya kiracıya karşı icra süreci nasıl işler?',
-      answer: '634 sayılı Kat Mülkiyeti Kanunu Madde 20 uyarınca ortak gider ve avans payını zamanında ödemeyen kat malikine aylık %5 gecikme tazminatı işler. Uygulamada önce yazılı ihtar gönderilmesi tavsiye edilir (yasal bir zorunluluk değildir). Kesinleşmiş işletme projesine veya kurul kararına dayanılarak ilamsız icra takibi (Örnek No: 7) başlatılabilir; borçlu ödeme emrine 7 gün içinde itiraz edebilir. İtiraz halinde İİK m.68 kapsamında itirazın kaldırılması ya da yetkili mahkemede itirazın iptali yolları işler.'
-    },
-    {
-      question: 'Genel kurul toplantı çağrısı kaç gün önceden yapılmalıdır?',
-      answer: 'KMK Madde 29 gereğince, olağan toplantı çağrısının toplantı tarihinden en az 15 gün önce tüm kat maliklerine imza karşılığı veya taahhütlü mektupla tebliğ edilmesi şarttır. İlk toplantıda yeter sayı (arsa payı ve sayı çoğunluğu) sağlanamazsa ikinci toplantı en geç 15 gün içinde yapılır; iki toplantı arasında en az 7 gün bulunmalıdır. İkinci toplantıda olağan kararlar katılanların çoğunluğuyla alınır; nitelikli çoğunluk gerektiren kararlarda bu kural geçerli değildir.'
-    },
-    {
-      question: 'Site yönetim planı nasıl değiştirilir?',
-      answer: 'Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır. Karar noter onaylı karar defterine işlenerek Tapu Müdürlüğü\'ne tescil ettirilir.'
-    },
-    {
-      question: 'Gürültü ve komşuluk hukuku ihlallerinde yönetim ne yapabilir?',
-      answer: 'KMK Madde 18, kat maliklerine birbirlerine saygı gösterme ve rahatsızlık vermeme yükümlülüğü getirir. Yazılı uyarılara rağmen rahatsızlık sürerse yönetici veya diğer kat malikleri Sulh Hukuk Mahkemesi\'nden hâkimin müdahalesini isteyebilir; gürültü şikâyetleri ayrıca belediye zabıtasına da iletilebilir.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t[`legal_faq_${n}_q`],
+    answer: t[`legal_faq_${n}_a`],
+  }));
 
   const faqLd = faqPageSchema(faqs);
 
   const pageLd = webPageSchema({
-    name: 'KMK 634 Hukuk ve Aidat İcra Danışmanlığı | Alo Yönetim',
-    description: 'Kat Mülkiyeti Kanunu kapsamında profesyonel icra ve yönetim danışmanlığı.',
+    name: t.legal_page_name,
+    description: t.legal_page_desc,
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
     speakableSelectors: ['h1', 'p'],
   });

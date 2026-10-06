@@ -24,6 +24,7 @@ import KMKLawCourtDisputeMatrixSeo from '@/components/seo/kmk/KMKLawCourtDispute
 
 import Icon from '@/components/ui/branding/Icon';
 import { localePath } from '@/lib/i18n/localePath';
+import TrOnly from '@/components/seo/TrOnly';
 export default function HukukVeIcraDanismanligiClient() {
   const { t, language } = useLanguage();
 
@@ -50,30 +51,16 @@ export default function HukukVeIcraDanismanligiClient() {
     }
   ];
 
-  const faqs = [
-    {
-      question: 'Aidat borcunu ödemeyen malik veya kiracıya karşı icra süreci nasıl işler?',
-      answer: '634 sayılı Kat Mülkiyeti Kanunu Madde 20 uyarınca ortak gider ve avans payını zamanında ödemeyen kat malikine aylık %5 gecikme tazminatı işler. Uygulamada önce yazılı ihtar gönderilmesi tavsiye edilir (yasal bir zorunluluk değildir). Kesinleşmiş işletme projesine veya kurul kararına dayanılarak ilamsız icra takibi (Örnek No: 7) başlatılabilir; borçlu ödeme emrine 7 gün içinde itiraz edebilir. İtiraz halinde İİK m.68 kapsamında itirazın kaldırılması ya da yetkili mahkemede itirazın iptali yolları işler.'
-    },
-    {
-      question: 'Genel kurul toplantı çağrısı kaç gün önceden yapılmalıdır?',
-      answer: 'KMK Madde 29 gereğince, olağan toplantı çağrısının toplantı tarihinden en az 15 gün önce tüm kat maliklerine imza karşılığı veya taahhütlü mektupla tebliğ edilmesi şarttır. İlk toplantıda yeter sayı (arsa payı ve sayı çoğunluğu) sağlanamazsa ikinci toplantı en geç 15 gün içinde yapılır; iki toplantı arasında en az 7 gün bulunmalıdır. İkinci toplantıda olağan kararlar katılanların çoğunluğuyla alınır; nitelikli çoğunluk gerektiren kararlarda bu kural geçerli değildir.'
-    },
-    {
-      question: 'Site yönetim planı nasıl değiştirilir?',
-      answer: 'Genel yapılarda KMK m.28/3 uyarınca bütün kat maliklerinin beşte dördünün (4/5) oyu gerekir; birden fazla yapıdan oluşan toplu yapılarda (siteler) ise 22 Mayıs 2026\'da yürürlüğe giren 7579 sayılı Kanun\'la değişen KMK m.70 uyarınca üçte ikinin (2/3) oyu aranır. Karar noter onaylı karar defterine işlenerek Tapu Müdürlüğü\'ne tescil ettirilir.'
-    },
-    {
-      question: 'Gürültü ve komşuluk hukuku ihlallerinde yönetim ne yapabilir?',
-      answer: 'KMK Madde 18, kat maliklerine birbirlerine saygı gösterme ve rahatsızlık vermeme yükümlülüğü getirir. Yazılı uyarılara rağmen rahatsızlık sürerse yönetici veya diğer kat malikleri Sulh Hukuk Mahkemesi\'nden hâkimin müdahalesini isteyebilir; gürültü şikâyetleri ayrıca belediye zabıtasına da iletilebilir.'
-    }
-  ];
+  const faqs = [1, 2, 3, 4].map((n) => ({
+    question: t(`legal_faq_${n}_q` as Parameters<typeof t>[0]),
+    answer: t(`legal_faq_${n}_a` as Parameters<typeof t>[0]),
+  }));
 
   return (
     <>
       <ServiceSeo 
-        serviceType="Hukuk ve İcra Danışmanlığı"
-        description="Kat Mülkiyeti Kanunu (KMK 634) kapsamında aidat alacakları icra takibi, genel kurul yönetimi ve hukuki danışmanlık hizmetleri."
+        serviceType={t('legal_svc_type')}
+        description={t('legal_svc_desc')}
         areaServed={["İstanbul", "Kadıköy", "Ataşehir", "Üsküdar", "Maltepe", "Beşiktaş", "Şişli", "Başakşehir", "Bakırköy"]}
         priceRange="₺₺"
         sameAs="https://tr.wikipedia.org/wiki/Hukuk"
@@ -117,7 +104,7 @@ export default function HukukVeIcraDanismanligiClient() {
               {t('legal_banner_desc') || 'Aidat borçlarının hukuki yollarla tahsili, sözleşme hazırlıkları ve genel kurul yasal süreç yönetimleri.'}
             </p>
             <div className="flex gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Hukuki Danışmanlık Alın'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
             </div>
@@ -132,7 +119,7 @@ export default function HukukVeIcraDanismanligiClient() {
           href={localePath('/kmk-2026-degisiklikleri', language)}
           className="block rounded-2xl border border-slate-500/20 bg-slate-500/5 px-5 py-4 text-sm md:text-base text-[var(--color-primary)] hover:bg-slate-500/10 transition-colors"
         >
-          <strong>Güncel mevzuat:</strong> 22 Mayıs 2026 tarihli 7579 sayılı Kanun KMK m.35, 37 ve 70&apos;i değiştirdi. Aidat artış sınırı, geçici işletme projesi ve toplu yapılarda 2/3 çoğunluk için rehberi okuyun →
+          <strong>{t('legal_guide_strong')}</strong> {t('legal_guide_text')}
         </Link>
 
         {/* Legal Calculator */}
@@ -141,6 +128,7 @@ export default function HukukVeIcraDanismanligiClient() {
         </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="hukuk-danismanligi-nedir"
           answerId="legal-instant-answer-text"
@@ -150,16 +138,20 @@ export default function HukukVeIcraDanismanligiClient() {
           subText="Alo Yönetim, dahili hukuk birimiyle Sulh Hukuk Mahkemesi süreçlerini, hâkimin müdahalesi taleplerini ve yasal tahsilat adımlarını yönetir."
           accentColor="indigo"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['kmk37-itiraz', 'aidat-icra-haciz-sureci', 'aidat-gecikme-faizi', 'cam-balkon-onayi', 'toplu-yapi-kmk66']}
           title="Hukuk ve İcra Danışmanlığında Yapay Zekaya Sorun: KMK & İİK Hukuku"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış aidat icra takibi, itiraz süreleri ve kat mülkiyeti hukuku mevzuatı."
         />
+</TrOnly>
 
         {/* ========================================================================= */}
         {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
         {/* ========================================================================= */}
+<TrOnly>
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -311,6 +303,7 @@ export default function HukukVeIcraDanismanligiClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -326,19 +319,26 @@ export default function HukukVeIcraDanismanligiClient() {
         </div>
 
         {/* KMK & Yasal Mevzuat Akıllı Danışmanı */}
+<TrOnly>
         <KMKLawAssistantSeo />
+</TrOnly>
 
         {/* KMK Yasal Süreç & İcra HowTo Yol Haritası */}
+<TrOnly>
         <KMKLegalProcessHowToSeo />
+</TrOnly>
 
         {/* Yargıtay Emsal Kararları & KMK İçtihat Masası */}
+<TrOnly>
         <FacilityLegalPrecedentsBrowserSeo
           basePath="/hizmetler/hukuk-ve-icra-danismanligi"
           badge="634 KMK & Yargıtay Hukuk Genel Kurulu Emsalleri"
           title="Kat Mülkiyeti Hukuku ve Yargıtay Emsal Kararları Masası"
           subtitle="Aidat borcu ilamsız icra takibi, asansör ortak gider muafiyet iddiaları, yönetici şahsi sorumluluğu ve genel kurul iptal davalarında bağlayıcı Yargıtay kararları."
         />
+</TrOnly>
 
+<TrOnly>
         {/* Yönetim Kurulu Cezai ve Şahsi Sorumluluk Kalkanı (KMK m.38 & TCK) */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 md:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
@@ -386,15 +386,22 @@ export default function HukukVeIcraDanismanligiClient() {
             </div>
           </div>
         </div>
+</TrOnly>
 
         {/* KMK 634 Karar & İhtarname Şablonu Jeneratörü */}
+<TrOnly>
         <KMKLegalTemplateGeneratorSeo />
+</TrOnly>
 
         {/* İcra İtirazının İptali ve %20 İcra İnkar Tazminatı Rehberi (Faz 15) */}
+<TrOnly>
         <FacilityEnforcementDisputeSeo />
+</TrOnly>
 
         {/* Google AI Overviews & Kat Mülkiyeti 6 Temel Dava Türü & Mahkeme Matrisi */}
+<TrOnly>
         <KMKLawCourtDisputeMatrixSeo />
+</TrOnly>
 
         {/* Dynamic FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
@@ -404,6 +411,7 @@ export default function HukukVeIcraDanismanligiClient() {
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Kat Mülkiyeti Hukuku ve İcra Danışmanlığı"
         serviceCategory="Hukuk & Mevzuat"
@@ -453,6 +461,7 @@ export default function HukukVeIcraDanismanligiClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection
         titleKey="hukuk_seo_title"
