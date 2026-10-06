@@ -11,7 +11,6 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import LegalCalculator from '@/components/sections/calculators/LegalCalculator';
-import LegalTestimonials from '@/components/sections/testimonials/LegalTestimonials';
 import KMKLawAssistantSeo from '@/components/seo/kmk/KMKLawAssistantSeo';
 import KMKLegalProcessHowToSeo from '@/components/seo/kmk/KMKLegalProcessHowToSeo';
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/kmk/KMKLegalTemplateGeneratorSeo';
@@ -396,9 +395,6 @@ export default function HukukVeIcraDanismanligiClient() {
 
         {/* Google AI Overviews & Kat Mülkiyeti 6 Temel Dava Türü & Mahkeme Matrisi */}
         <KMKLawCourtDisputeMatrixSeo />
-
-        {/* Legal Specific Social Proof */}
-        <LegalTestimonials />
 
         {/* Dynamic FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
