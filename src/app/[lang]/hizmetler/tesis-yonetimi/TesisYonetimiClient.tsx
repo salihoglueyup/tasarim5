@@ -49,8 +49,10 @@ import FacilityTestimonials from '@/components/sections/testimonials/FacilityTes
 import Image from 'next/image';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
 export default function TesisYonetimiClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeLegalTab, setActiveLegalTab] = useState<'precedents' | 'template'>('precedents');
   const [activeToolTab, setActiveToolTab] = useState<'simulator' | 'rfp' | 'heatmap' | 'audit'>('simulator');
   const [activeUtilityTab, setActiveUtilityTab] = useState<'ev' | 'utility'>('ev');
@@ -75,42 +77,10 @@ export default function TesisYonetimiClient() {
       question: t('fac_faq_3_q') || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?',
       answer: t('fac_faq_3_a') || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.'
     },
-    {
-      question: 'Tesis yönetimi hizmetinin aylık maliyeti nedir?',
-      answer: 'Maliyet; bina tipi, daire sayısı ve hizmet kapsamına göre değişir. Rezidanslarda daire başına aylık ₺850-1.600, toplu konutlarda ₺550-1.100 aralığında değişmektedir. Kesin fiyat için ücretsiz keşif talep ediniz.',
-    },
-    {
-      question: 'KMK Madde 37 işletme projesi nedir?',
-      answer: 'İşletme projesi; yöneticinin her yıl hazırladığı, 12 aylık tahmini gelir-gider ve her kat malikine düşen avans tutarını gösteren belgedir. Tebliğden 7 gün içinde itiraz edilmezse kesinleşir ve icra takibine dayanak olur.',
-    },
-    {
-      question: 'Asansör yeşil etiket zorunluluğu nedir?',
-      answer: 'Asansör Yönetmeliği kapsamında her asansörün yılda en az bir kez periyodik kontrolü ve yeşil etiket onayı zorunludur. Alo Yönetim yetkili A tipi muayene kuruluşlarıyla bu süreci takip eder.',
-    },
-    {
-      question: 'Tesis yönetiminde acil arızalara müdahale süresi ne kadar?',
-      answer: 'SLA kapsamında kritik arızalar (su baskını, asansör sıkışması, güvenlik ihlali) için maksimum 45 dakika müdahale süresi taahhüt edilir. 7/24 acil teknik ekibimiz kesintisiz hizmet vermektedir.',
-    },
-    {
-      question: 'Aidatları geciktiren sakinlere nasıl müdahale edilir?',
-      answer: 'Otomatik SMS hatırlatma, WhatsApp bildirim ve avukat ihtarının ardından KMK m.20 kapsamında mahkeme kararı beklenmeksizin icra takibi başlatılır. Tahsilat oranı %98\'in üzerinde tutulur.',
-    },
-    {
-      question: 'Tesis yönetim şirketi nasıl seçilir?',
-      answer: 'ISO sertifikaları ve 5188 lisansının güncelliğini, en az 3 referans siteyi, sözleşmedeki SLA sürelerini ve aylık raporlama yükümlülüklerini kontrol edin. Detaylı rehberimize göz atın.',
-    },
-    {
-      question: 'Tesis yönetiminde KMK 37 işletme projesi itiraz süresi kaç gündür?',
-      answer: '634 Sayılı Kat Mülkiyeti Kanunu Madde 37 uyarınca işletme projesine itiraz süresi, projenin kat malikine imza karşılığı veya taahhütlü mektupla tebliğinden itibaren kesin olarak 7 gündür. 7 gün içinde itiraz edilmeyen proje kesinleşir ve İcra ve İflas Kanunu (İİK m.68/1) kapsamında kesin borç belgesi hükmünü kazanır.',
-    },
-    {
-      question: 'Geciken aidatlara ne kadar yasal gecikme tazminatı işletilir?',
-      answer: 'KMK Madde 20/c uyarınca gününde ödenmeyen ortak gider ve aidat borçlarına aylık yasal %5 gecikme tazminatı uygulanır. Alo Yönetim hukuk servisi, gecikmeye giren borçlar için mahkeme kararı beklemeksizin doğrudan ilamsız icra takibi başlatır.',
-    },
-    {
-      question: 'Plaza ve rezidans yönetiminde enerji tasarrufu nasıl sağlanır?',
-      answer: 'Kompanzasyon panosu ve reaktif güç rölelerinin 7/24 takibiyle %0 reaktif ceza garantisi verilir. Ayrıca HVAC zamanlama optimizasyonu ve LED aydınlatma dönüşümüyle toplam elektrik tüketiminde ortalama %20 ile %35 arasında net bütçe tasarrufu sağlanır.',
-    },
+    ...[4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+      question: t(`fy_faq_${n}_q` as Parameters<typeof t>[0]),
+      answer: t(`fy_faq_${n}_a` as Parameters<typeof t>[0]),
+    })),
   ];
 
   return (
@@ -134,7 +104,7 @@ export default function TesisYonetimiClient() {
       <div className="dark relative w-full min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-slate-950 pt-28 pb-28 md:pt-36 md:pb-36 text-white">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950 z-10" />
-          <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt="Profesyonel Tesis Yönetimi - Alo Yönetim" fill className="object-cover object-center opacity-30" priority />
+          <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt={t('fy_hero_alt')} fill className="object-cover object-center opacity-30" priority />
         </div>
         
         {/* Abstract Minimal Animation */}
@@ -168,12 +138,12 @@ export default function TesisYonetimiClient() {
               {t('fac_banner_desc') || 'Apartman, site, plaza ve tesisler için 7/24 güvenlik, temizlik, teknik bakım, peyzaj ve şeffaf aidat takibi. ISO ve 5188 lisanslı kurumsal güvence.'}
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <Link href="/teklif-al" className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
                 {t('btn_get_quote') || 'Ücretsiz Keşif & Teklif Al'} <Icon name="arrow_forward" className="text-sm" />
               </Link>
-              <Link href="/hesaplayici" className="bg-slate-900/80 hover:bg-slate-900 text-white border border-slate-700 hover:border-slate-500 font-bold py-4 px-8 rounded-xl backdrop-blur-md transition-all hover:scale-105 flex items-center gap-2">
+              <Link href={localePath('/hesaplayici', language)} className="bg-slate-900/80 hover:bg-slate-900 text-white border border-slate-700 hover:border-slate-500 font-bold py-4 px-8 rounded-xl backdrop-blur-md transition-all hover:scale-105 flex items-center gap-2">
                 <Icon name="calculate" className="text-sm text-emerald-400" />
-                <span>Tasarruf & Aidat Hesapla</span>
+                <span>{t('fy_cta_calc')}</span>
               </Link>
             </div>
 
@@ -181,17 +151,17 @@ export default function TesisYonetimiClient() {
             <div className="flex flex-wrap justify-center items-center gap-6 mt-6 text-xs text-white/80">
               <div className="flex items-center gap-1.5">
                 <Icon name="bolt" className="text-emerald-400 text-base" />
-                <span>15-25 Dk Acil SLA Müdahale</span>
+                <span>{t('fy_badge_1')}</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
               <div className="flex items-center gap-1.5">
                 <Icon name="shield" className="text-emerald-400 text-base" />
-                <span>5188 Lisanslı Valilik İzinli Güvenlik</span>
+                <span>{t('fy_badge_2')}</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
               <div className="flex items-center gap-1.5">
                 <Icon name="trending_down" className="text-emerald-400 text-base" />
-                <span>%20 - %30 Kanıtlanmış İşletme Tasarrufu</span>
+                <span>{t('fy_badge_3')}</span>
               </div>
             </div>
           </motion.div>
@@ -199,8 +169,11 @@ export default function TesisYonetimiClient() {
       </div>
 
       {/* Sabit Hızlı Alt Navigasyon (Sticky Subnav Anchor Bar) */}
+<TrOnly>
       <FacilityStickySubnav />
+</TrOnly>
 
+<TrOnly>
       {/* 1. BÖLÜM: Genel Bakış & ISO Metodolojisi */}
       <section id="genel-bakis" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         
@@ -354,7 +327,9 @@ export default function TesisYonetimiClient() {
           </div>
         </div>
       </section>
+</TrOnly>
 
+<TrOnly>
       {/* 2. BÖLÜM: 9 Disiplin & Hizmet Kapsamı */}
       <section id="hizmet-kapsami" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         <FacilityEcosystemMatrixSeo />
@@ -377,7 +352,9 @@ export default function TesisYonetimiClient() {
         {/* ISO 41001 & B2B Kurumsal Tesis Yönetimi Hub'ı */}
         <FacilityCorporateB2BHubSeo />
       </section>
+</TrOnly>
 
+<TrOnly>
       {/* 3. BÖLÜM: Akıllı Tesis Teşhis & İhale Masası */}
       <section id="tesis-araclari" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-10 shadow-xl relative overflow-hidden">
@@ -513,21 +490,25 @@ export default function TesisYonetimiClient() {
           <FacilityTestimonials />
         </div>
       </section>
+</TrOnly>
 
       {/* 4. BÖLÜM: KMK Hukuk, İSG & Mevzuat Güvencesi */}
       <section id="hukuk-ve-guvenlik" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         {/* İndirilebilir Resmi Doküman & Şablon Kasası */}
+<TrOnly>
         <FacilityDownloadableVaultSeo />
+</TrOnly>
 
         {/* 4 Adımda Geçiş Rehberi */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo 
             name={t('fac_steps_title') || 'Tesis Yönetimine Profesyonel Geçiş Rehberi'}
-            description="Tesis yönetimine profesyonel geçiş sürecimiz dört temel adımdan oluşmaktadır."
+            description={t('fy_howto_desc')}
             steps={legalSteps}
           />
         </div>
 
+<TrOnly>
         {/* Sekmeli Hukuk Masası: Emsal Kararlar & Karar Şablonları */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-6 sm:p-12 shadow-sm">
           <div className="text-center max-w-3xl mx-auto mb-8">
@@ -722,9 +703,11 @@ export default function TesisYonetimiClient() {
         <AcademicCitationBoxSeo
           pageUrl="/hizmetler/tesis-yonetimi"
           pageTitle="Entegre Tesis Yönetimi, ISO 41001 Standartları ve Kurumsal SLA Kılavuzu"
-        />
+        /></TrOnly>
+
       </section>
 
+<TrOnly>
       {/* 5. BÖLÜM: Yıllık Periyodik Bakım, Enerji & Altyapı Yönetimi */}
       <section id="bakim-ve-enerji" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         {/* ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi */}
@@ -789,17 +772,22 @@ export default function TesisYonetimiClient() {
           </div>
         </div>
       </section>
+</TrOnly>
 
       {/* 6. BÖLÜM: Fiyatlandırma, 39 İlçe Portföyü & Sıkça Sorulan Sorular */}
       <section id="fiyat-ve-sss" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         {/* Kurumsal Plaza & Tesis Yönetimi Fiyatlandırma Kataloğu */}
+<TrOnly>
         <ServicePricingCatalogSeo
           pageUrl="/hizmetler/tesis-yonetimi"
           categoryFilter="commercial"
         />
+</TrOnly>
 
         {/* 39 İlçe Hub & Spoke Tesis Yönetimi Portföy Ağı */}
+<TrOnly>
         <FacilityDistrictPortfolioSeo />
+</TrOnly>
 
         {/* Sıkça Sorulan Sorular */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
@@ -807,11 +795,13 @@ export default function TesisYonetimiClient() {
         </div>
 
         {/* Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['site-vs-tesis', 'plaza-bms-enerji', 'toplu-yapi-kmk66', 'asansor-yesil-etiket', 'kmk37-itiraz', 'ev-sarj-istasyonu']}
           title="Tesis Yönetiminde Yapay Zekaya Sorun: KMK Standartları"
           subtitle="Google AI Overviews (SGE), Gemini ve Perplexity için doğrulanmış kurumsal tesis yönetimi, BMS otomasyonu ve enerji optimizasyonu bilgi seti."
         />
+</TrOnly>
       </section>
 
       {/* 7. BÖLÜM: Footer Öncesi SEO, İlgili Hizmetler & Makaleler */}

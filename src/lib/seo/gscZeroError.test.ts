@@ -167,10 +167,13 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(xml).toContain('<xhtml:link rel="alternate" hreflang="tr"');
       expect(xml).toContain('<xhtml:link rel="alternate" hreflang="tr-TR"');
       expect(xml).toContain('<xhtml:link rel="alternate" hreflang="x-default"');
-      // Çevrilmemiş diller hreflang'e girmez (bkz. lib/seo/indexPolicy.ts)
-      expect(xml).not.toContain('hreflang="en"');
-      expect(xml).not.toContain('hreflang="ru"');
-      expect(xml).not.toContain('hreflang="ar"');
+      // Çevrilmemiş diller hreflang'e girmez (bkz. lib/seo/indexPolicy.ts): ilçe sayfaları yalnızca Türkçe'dir.
+      const urlBlocks = xml.split('<url>');
+      const districtBlock = urlBlocks.find((b) => b.includes('<loc>https://aloyonetim.com.tr/bolgeler/kadikoy</loc>')) ?? '';
+      expect(districtBlock).not.toBe('');
+      expect(districtBlock).not.toContain('hreflang="en"');
+      expect(districtBlock).not.toContain('hreflang="ru"');
+      expect(districtBlock).not.toContain('hreflang="ar"');
     });
   });
 
@@ -4583,9 +4586,12 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(clientFile).toContain('<FacilityDistrictPortfolioSeo />');
 
       // AI-Overview / Gemini GEO Soru-Cevap seti
-      expect(clientFile).toContain('Tesis yönetiminde KMK 37 işletme projesi itiraz süresi kaç gündür?');
-      expect(clientFile).toContain('Geciken aidatlara ne kadar yasal gecikme tazminatı işletilir?');
-      expect(clientFile).toContain('Plaza ve rezidans yönetiminde enerji tasarrufu nasıl sağlanır?');
+      // SSS metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
+      const trDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(clientFile).toContain('fy_faq_${n}_q');
+      expect(trDict).toContain('Tesis yönetiminde KMK 37 işletme projesi itiraz süresi kaç gündür?');
+      expect(trDict).toContain('Geciken aidatlara ne kadar yasal gecikme tazminatı işletilir?');
+      expect(trDict).toContain('Plaza ve rezidans yönetiminde enerji tasarrufu nasıl sağlanır?');
     });
 
     it('Plaza ve Rezidans Yönetimi sayfaları GSC arama niyetiyle tam uyumlu meta üretir', async () => {

@@ -4,6 +4,7 @@ import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
+import TrOnly from '@/components/seo/TrOnly';
 import { buildFacilityCompleteGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 import TesisYonetimiClient from './TesisYonetimiClient';
@@ -94,9 +95,11 @@ export default async function TesisYonetimiPage({
         ]}
       />
       <TesisYonetimiClient />
+      <TrOnly>
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
         <ServiceAiOverviewSnippetSeo serviceSlug="tesis-yonetimi" serviceName="Entegre Tesis Yönetimi" />
       </div>
+      </TrOnly>
     </>
   );
 }
