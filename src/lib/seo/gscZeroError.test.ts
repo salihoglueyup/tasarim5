@@ -3930,11 +3930,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 3. Toplu Konut
       const topluKonutContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx'), 'utf8');
-      expect(topluKonutContent).toContain('KMK m.34 Yönetici Seçimi & Çift Çoğunluk');
-      expect(topluKonutContent).toContain('KMK m.20 İcra Takibi & Aylık %5 Gecikme Faizi');
-      expect(topluKonutContent).toContain('5188 Lisanslı 3 Vardiya 7/24 Devriye Güvenliği');
-      expect(topluKonutContent).toContain('Merkezi Sulama, Hidrofor & Dalgıç Pompa');
-      expect(topluKonutContent).toContain('%25-33 Aidat Tasarrufu');
+      // Toplu konut metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
+      const topluKonutDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(topluKonutContent).toContain('tkn_p${n}_title');
+      expect(topluKonutDict).toContain('KMK m.34 Yönetici Seçimi & Çift Çoğunluk');
+      expect(topluKonutDict).toContain('KMK m.20 İcra Takibi & Aylık %5 Gecikme Faizi');
+      expect(topluKonutDict).toContain('5188 Lisanslı 3 Vardiya 7/24 Devriye Güvenliği');
+      expect(topluKonutDict).toContain('Merkezi Sulama, Hidrofor & Dalgıç Pompa');
+      expect(topluKonutDict).toContain('%25-33 Aidat Tasarrufu');
 
       // 4. Sanayi Tesisi
       const sanayiContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx'), 'utf8');
@@ -4087,7 +4090,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi');
       expect(rezidansPage).toContain('rez_meta_title');
       expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti');
-      expect(topluKonutPage).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim');
+      expect(topluKonutPage).toContain('tkn_meta_title');
+      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf');
       expect(sanayiPage).toContain('san_meta_title');
       expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi');
     });

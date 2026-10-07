@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
@@ -18,10 +19,10 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim',
-    description:
-      '500+ konutluk siteler ve toplu yapılarda entegre tesis yönetimi, merkezi işletme projesi ve %30 aidat tasarrufu. 48 saatte teklif alın!',
+    title: t.tkn_meta_title,
+    description: t.tkn_meta_desc,
     path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
     lang,
     ogImageType: 'service',
@@ -48,12 +49,12 @@ export default async function TopluKonutYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'toplu-konut-yonetimi',
-    name: 'Toplu Konut & TOKİ Site Yönetimi',
-    description:
-      'İstanbul genelinde büyük ölçekli toplu konut ve sitelerde KMK uyumlu aidat yönetimi, sosyal tesis işletmesi, peyzaj bakımı ve %25-33 işletme tasarrufu sağlayan profesyonel tesis yönetimi.',
+    name: t.tkn_graph_name,
+    description: t.tkn_graph_desc,
     priceRange: '₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q1391515',
@@ -63,8 +64,8 @@ export default async function TopluKonutYonetimiPage({
     <>
       <JsonLd data={subSectorGraphLd} />
       <KeywordAnalysisSeo
-        title="Toplu Konut & TOKİ Site Yönetimi"
-        description="İstanbul büyük ölçekli siteler ve toplu konutlar için profesyonel KMK yönetimi."
+        title={t.tkn_graph_name}
+        description={t.tkn_kw_desc}
         path="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi"
         targetKeyword="toplu konut yönetimi"
         keywords={['toplu konut yönetimi', 'site yönetimi', 'toki site yönetimi', 'aidat optimizasyonu']}
