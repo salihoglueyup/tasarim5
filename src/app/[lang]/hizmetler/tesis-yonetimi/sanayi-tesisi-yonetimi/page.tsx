@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
@@ -18,10 +19,10 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim',
-    description:
-      'OSB, fabrika ve lojistik depolar için ISO 45001 İSG entegre tesis yönetimi, 34.5 kV trafo bakımı ve endüstriyel güvenlik.',
+    title: t.san_meta_title,
+    description: t.san_meta_desc,
     path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
     lang,
     ogImageType: 'service',
@@ -47,12 +48,12 @@ export default async function SanayiTesisiYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'sanayi-tesisi-yonetimi',
-    name: 'Sanayi Tesisi & Fabrika Yönetimi',
-    description:
-      'İstanbul sanayi ve fabrika tesislerinde ISO 45001 iş güvenliği denetimi, ağır teknik bakım, yangın sistemi, perimetre güvenliği ve endüstriyel hijyen hizmetleri.',
+    name: t.san_graph_name,
+    description: t.san_graph_desc,
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q83405',
@@ -62,8 +63,8 @@ export default async function SanayiTesisiYonetimiPage({
     <>
       <JsonLd data={subSectorGraphLd} />
       <KeywordAnalysisSeo
-        title="Sanayi Tesisi & Fabrika Tesis Yönetimi"
-        description="İstanbul sanayi tesisleri ve fabrikalar için ağır teknik bakım ve ISO 45001 tesis işletmesi."
+        title={t.san_graph_name}
+        description={t.san_kw_desc}
         path="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi"
         targetKeyword="sanayi tesis yönetimi"
         keywords={['sanayi tesis yönetimi', 'fabrika yönetimi', 'endüstriyel bakım', 'perimetre güvenliği']}

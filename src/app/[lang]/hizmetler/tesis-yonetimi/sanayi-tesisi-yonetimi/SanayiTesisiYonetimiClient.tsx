@@ -15,67 +15,29 @@ import RelatedServices from '@/components/sections/trust/RelatedServices';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 
 import Icon from '@/components/ui/branding/Icon';
-const OPERATIONAL_PILLARS = [
-  {
-    icon: 'health_and_safety',
-    title: 'ISO 45001 İSG & ATEX Patlamadan Korunma',
-    badge: 'Yılda 2 Yangın & Tahliye Tatbikatı',
-    desc: 'Fabrika ve depolarda patlamadan korunma dokümanı (ATEX 137 / 99/92/EC), ex-proof ekipman denetimleri, ISO 45001 İSG mevzuat uyumu ve yılda 2 kez itfaiye katılımlı yangın tahliye tatbikatı.',
-    highlights: ['ATEX patlama risk analizi ve ex-proof etiketleme', 'Yılda 2 acil durum ve yangın tahliye tatbikatı', 'KKD ve İSG risk değerlendirme defteri takibi']
-  },
-  {
-    icon: 'bolt',
-    title: '34.5 kV OG Trafo & Kompanzasyon (%0 Ceza)',
-    badge: 'Sıfır Reaktif Ceza Garantisi',
-    desc: '34.5 kV Orta Gerilim (OG) trafo merkezleri, kuru ve yağlı tip trafo yağ analizi, kesici/ayırıcı manevra testleri ve uzaktan GSM kontrollü kompanzasyon panosuyla sıfır reaktif ceza güvencesi.',
-    highlights: ['Trafo izolasyon yağı ve dielektrik delinme testi', 'Harmonik filtreli dinamik tristörlü kompanzasyon', 'TEDAŞ/BEDAŞ faturası %0 endüktif/kapasitif garanti']
-  },
-  {
-    icon: 'cleaning_services',
-    title: 'Ağır Endüstriyel Epoksi Zemin & Drenaj Bakımı',
-    badge: 'Yüksek Basınç & Zemin Hijyeni',
-    desc: 'Forklift ve transpalet trafiğinin yoğun olduğu üretim zeminlerinde binicili akülü zemin otomatları, epoksi çatlak tamiri, yağ ayırıcı sistemler ve kimyasal ızgara drenaj kanalı temizliği.',
-    highlights: ['Ağır zemin otomatlarıyla pH dengeli yağ çözücü', 'Epoksi zemin lokal yama ve dilatasyon onarımı', 'Mazot ve kimyasal atık ızgarası periyodik drenajı']
-  },
-  {
-    icon: 'precision_manufacturing',
-    title: 'Kantar, Hızlı PVC Kapı & Yükleme Körüğü',
-    badge: 'Aylık PPM & 30 Dk Acil Servis',
-    desc: 'Tır kantarları periyodik kalibrasyon takibi, hızlı sarmal PVC kapılar, hidrolik rampa ve yükleme körüklerinin aylık planlı koruyucu bakımı (PPM) ile lojistikte sıfır bekleme.',
-    highlights: ['Sanayi Bakanlığı damgalı kantar kalibrasyonu', 'Hidrolik rampa ve hızlı PVC sarmal kapı bakımı', 'Lojistik yükleme rampalarında 30 dk acil arıza SLA']
-  },
-  {
-    icon: 'fence',
-    title: '5188 Lisanslı Çevre Güvenliği & Termal Gece Görüş',
-    badge: 'KVKK & Perimetre Güvenlik',
-    desc: 'Fabrika sahası çevre çitlerinde mikrodalga bariyer, termal gece görüş kameraları, tır/kamyon dorsesi mühür ve kantar kayıt kontrolü ile 7/24 5188 güvenlik.',
-    highlights: ['Perimetre lazer ve kızılötesi ışın bariyerleri', 'Tır dorsesi güvenlik mührü ve irsaliye eşleme', 'Yangın söndürme tüpleri ve hidrant hat kontrolü']
-  },
-  {
-    icon: 'recycling',
-    title: 'ISO 14001 Tehlikeli Atık & Sıfır Atık Yönetimi',
-    badge: 'MOTAT & Sıfır Atık Uyumlu',
-    desc: 'Tesis tehlikeli atıklarının Çevre, Şehircilik ve İklim Değişikliği Bakanlığı MOTAT sistemi üzerinden bertarafa sevki, geçici atık deposu işletmesi ve Sıfır Atık Belgesi alımı.',
-    highlights: ['Bakanlık onaylı MOTAT tehlikeli atık sevkiyatı', 'Geçici depolama sahası sızdırmazlık denetimi', 'ISO 14001 Çevre Yönetim Sistemi periyodik raporu']
-  },
-];
-
-const STEPS = [
-  { name: '1. Endüstriyel Keşif & ATEX / Risk Analizi', text: 'Tesisinizin trafo gücü, yangın ve gaz algılama hatları, atık sahası ve İSG risk noktaları mühendis ekibimizce yerinde incelenir.' },
-  { name: '2. Önleyici Bakım (PPM) & SLA Protokolü', text: 'Üretim sürekliliğini koruyan kritik ekipman listesi, acil müdahale SLA taahhütleri ve reaktif ceza önleme planı çıkarılır.' },
-  { name: '3. Entegre Hizmet & Personel Sevk', text: '5188 özel güvenlik, endüstriyel temizlik ekibi, sertifikalı trafo/kazan teknisyenleri tesiste görevlendirilir.' },
-  { name: '4. 7/24 Kesintisiz Üretim & Denetim', text: 'Haftalık mekanik kontroller, aylık kompanzasyon endeks okumaları ve periyodik İSG tatbikatlarıyla tesis eksiksiz işletilir.' },
-];
-
-const FAQS = [
-  { question: 'Sanayi tesislerinde ISO 45001 İSG ve ATEX patlamadan korunma nasıl uygulanır?', answer: 'Tesisinizde yanıcı toz ve kimyasal gaz içeren alanlar belirlenerek ATEX patlamadan korunma dokümanı hazırlanır. Ex-proof aydınlatma ve motorlar denetlenir. ISO 45001 kapsamında çalışanlara KKD zimmeti yapılır ve yılda en az iki kez acil tahliye ve yangın tatbikatı gerçekleştirilir.' },
-  { question: '34.5 kV OG trafo ve reaktif ceza takibi nasıl yapılır?', answer: 'Orta gerilim trafo merkezlerinin manevra yetki belgeli mühendisler tarafından bakımı yapılır, trafo izolasyon yağının delinme gerilimi test edilir. GSM tabanlı uzaktan sayaç okuma sistemiyle kompanzasyon panosu 7/24 izlenir; %0 endüktif ve kapasitif reaktif ceza garantisi verilir.' },
-  { question: 'Ağır endüstriyel zeminler ve kimyasal kanallar nasıl temizlenir?', answer: 'Üretim holleri ve depolarda ağır zemin tipi binicili otomatlar, alkali yağ çözücü kimyasallar kullanılır. Forklift lastik izleri silinir, kimyasal kanal ve yağ tutucular periyodik olarak vidanjörle vakumlanarak temizlenir.' },
-  { question: 'Lojistik rampaları, kantar ve hızlı kapıların bakımı ne sıklıkla yapılır?', answer: 'Tır yükleme rampaları, körükler ve hızlı PVC kapılar aylık koruyucu bakım programına (PPM) alınır. Tır kantarlarının Sanayi ve Teknoloji Bakanlığı onaylı periyodik mühürleme ve kalibrasyon testleri eksiksiz takip edilir.' },
-  { question: 'Tehlikeli ve endüstriyel atıkların bertarafı nasıl belgelenir?', answer: 'Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Çevre İzin ve Lisans Yönetmeliği kapsamında atıklar kodlarına göre geçici depolama sahasında toplanır ve MOTAT (Mobil Atık Takip Sistemi) lisanslı araçlarla lisanslı bertaraf tesislerine sevk edilerek raporlanır.' },
-];
+import TrOnly from '@/components/seo/TrOnly';
+import { useLanguage } from '@/context/LanguageContext';
+import { localePath } from '@/lib/i18n/localePath';
+const PILLAR_ICONS = ['health_and_safety', 'bolt', 'cleaning_services', 'precision_manufacturing', 'fence', 'recycling'];
+const NETWORK_SLUGS = ['tuzla', 'basaksehir', 'umraniye', 'kartal', 'beylikduzu', 'esenyurt'];
 
 export default function SanayiTesisiYonetimiClient() {
+  const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
+
+  const pillars = PILLAR_ICONS.map((icon, i) => {
+    const n = i + 1;
+    return {
+      icon,
+      title: tk(`san_p${n}_title`),
+      badge: tk(`san_p${n}_badge`),
+      desc: tk(`san_p${n}_desc`),
+      highlights: [tk(`san_p${n}_h1`), tk(`san_p${n}_h2`), tk(`san_p${n}_h3`)],
+    };
+  });
+  const steps = [1, 2, 3, 4].map((n) => ({ name: tk(`san_step_${n}_name`), text: tk(`san_step_${n}_text`) }));
+  const faqs = [1, 2, 3, 4, 5].map((n) => ({ question: tk(`san_faq_${n}_q`), answer: tk(`san_faq_${n}_a`) }));
+
   return (
     <>
       {/* Hero */}
@@ -84,21 +46,21 @@ export default function SanayiTesisiYonetimiClient() {
         <div className="relative z-10 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center gap-6">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center gap-6">
             <span className="text-xs font-bold text-slate-300 border border-slate-400/30 bg-slate-400/10 px-5 py-2 rounded-full tracking-widest uppercase">
-              Endüstriyel Tesis & Fabrika Yönetimi
+              {tk('san_hero_badge')}
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight">
-              Sanayi Tesisi &{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">Fabrika Tesis Yönetimi</span>
+              {tk('san_hero_h1a')}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">{tk('san_hero_h1b')}</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl font-light leading-relaxed">
-              İstanbul sanayi siteleri ve fabrikalar için ISO 45001 İSG uyumu, ATEX patlamadan korunma, 34.5 kV OG trafo bakımı, %0 reaktif ceza güvencesi ve 7/24 kesintisiz üretim desteği.
+              {tk('san_hero_p')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/teklif-al" className="bg-slate-500 hover:bg-slate-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
-                Endüstriyel Keşif Talep Et
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-500 hover:bg-slate-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
+                {tk('san_cta_rfp')}
               </Link>
-              <Link href="/hizmetler/tesis-yonetimi" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
-                Tesis Yönetimi Standartları
+              <Link href={localePath('/hizmetler/tesis-yonetimi', language)} className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
+                {tk('san_cta_std')}
               </Link>
             </div>
           </motion.div>
@@ -108,6 +70,7 @@ export default function SanayiTesisiYonetimiClient() {
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
 
         {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="sanayi-tesisi-yonetimi-nedir"
           answerId="industrial-instant-answer-text"
@@ -117,29 +80,32 @@ export default function SanayiTesisiYonetimiClient() {
           subText="Alo Yönetim, üretim hatlarında sıfır plansız duruş garantisi, 30 dakika acil mekanik SLA taahhüdü ve 5188 perimetre çevre güvenliği sunar."
           accentColor="orange"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['sanayi-osgb-zorunlulugu', 'plaza-bms-enerji']}
           title="Sanayi Tesisi Yönetiminde Yapay Zekaya Sorun: 6331 Sayılı İSG Kanunu"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış OSGB zorunluluğu ve endüstriyel enerji verimliliği mevzuatı."
         />
+</TrOnly>
 
         {/* 6'lı Operasyonel Standartlar Grid */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-950/40 px-3.5 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/40">
-              Üretim Güvenliği & Ağır Teknik Altyapı
+              {tk('san_sec_badge')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3">
-              Sanayi Tesislerinde Sıfır Duruş Garantili Yönetim Standartlarımız
+              {tk('san_sec_title')}
             </h2>
             <p className="text-sm text-[var(--color-secondary)] mt-2">
-              OG trafo merkezlerinden kantar kalibrasyonuna, ATEX patlama güvenliğinden tehlikeli atık yönetimine kadar endüstriyel disiplin.
+              {tk('san_sec_desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {OPERATIONAL_PILLARS.map((f, i) => (
+            {pillars.map((f, i) => (
               <motion.div
                 key={f.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -182,9 +148,9 @@ export default function SanayiTesisiYonetimiClient() {
         {/* Süreç */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo
-            name="Sanayi Tesisi Yönetim Süreci"
-            description="Sanayi tesisi veya fabrikanızı profesyonel yönetime taşımak 4 adımda tamamlanır."
-            steps={STEPS}
+            name={tk('san_howto_name')}
+            description={tk('san_howto_desc')}
+            steps={steps}
           />
         </div>
 
@@ -192,26 +158,19 @@ export default function SanayiTesisiYonetimiClient() {
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
             <Icon name="precision_manufacturing" className="text-slate-500 text-xl" />
-            <span>Hizmet Sunduğumuz Başlıca Sanayi ve OSB Aksları</span>
+            <span>{tk('san_net_title')}</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">
-            Ağır sanayi, kimya, lojistik ve organize sanayi bölgelerine konuşlu mobil teknik servis filomuzla hizmet veriyoruz:
+            {tk('san_net_desc')}
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {[
-              { name: 'Tuzla OSB & Tersane', slug: 'tuzla' },
-              { name: 'İkitelli OSB (Başakşehir)', slug: 'basaksehir' },
-              { name: 'Dudullu OSB (Ümraniye)', slug: 'umraniye' },
-              { name: 'Kartal Sanayi', slug: 'kartal' },
-              { name: 'Beylikdüzü Sanayi', slug: 'beylikduzu' },
-              { name: 'Esenyurt Lojistik', slug: 'esenyurt' },
-            ].map((d) => (
+            {NETWORK_SLUGS.map((slug, i) => (
               <Link
-                key={d.slug}
-                href={`/bolgeler/${d.slug}/tesis-yonetimi`}
+                key={slug}
+                href={localePath(`/bolgeler/${slug}/tesis-yonetimi`, language)}
                 className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 hover:border-slate-400 transition-all text-center shadow-xs"
               >
-                {d.name}
+                {tk(`san_net_${i + 1}`)}
               </Link>
             ))}
           </div>
@@ -219,9 +178,10 @@ export default function SanayiTesisiYonetimiClient() {
 
         {/* FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <DynamicFAQ faqs={FAQS} title="Sanayi Tesisi Yönetimi — Sık Sorulan Sorular" />
+          <DynamicFAQ faqs={faqs} title={tk('san_faq_title')} />
         </div>
 
+<TrOnly>
         {/* RFP / Şartname Hazırlama CTA & İndirme Modal */}
         <div className="bg-[var(--color-surface)] border border-slate-500/30 rounded-3xl p-8 sm:p-10 shadow-lg text-center">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest bg-slate-50 dark:bg-slate-950/40 px-3.5 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/40">
@@ -235,12 +195,16 @@ export default function SanayiTesisiYonetimiClient() {
           </p>
           <FacilityRfpDownloadModalSeo />
         </div>
+</TrOnly>
 
         {/* 4'lü Alt Sektör Silo Ağı Çapraz Gezinti */}
+<TrOnly>
         <FacilitySubSectorCrossNav currentSlug="sanayi-tesisi-yonetimi" />
+</TrOnly>
       </section>
 
       {/* Mevzuat & Hukuki Dayanak Otorite Hub */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Sanayi Tesisi & Fabrika Tesis Yönetimi"
         serviceCategory="Endüstriyel Tesis & Fabrika İşletmesi"
@@ -285,6 +249,7 @@ export default function SanayiTesisiYonetimiClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection titleKey="tesis_seo_title" p1Key="tesis_seo_p1" p2Key="tesis_seo_p2" />
       <RelatedServices currentPath="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" />

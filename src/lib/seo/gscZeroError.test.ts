@@ -3938,11 +3938,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 4. Sanayi Tesisi
       const sanayiContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx'), 'utf8');
-      expect(sanayiContent).toContain('ISO 45001 İSG & ATEX Patlamadan Korunma');
-      expect(sanayiContent).toContain('34.5 kV OG Trafo & Kompanzasyon (%0 Ceza)');
-      expect(sanayiContent).toContain('Ağır Endüstriyel Epoksi Zemin & Drenaj Bakımı');
-      expect(sanayiContent).toContain('Kantar, Hızlı PVC Kapı & Yükleme Körüğü');
-      expect(sanayiContent).toContain('ISO 14001 Tehlikeli Atık & Sıfır Atık Yönetimi');
+      // Sanayi metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
+      const sanayiDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(sanayiContent).toContain('san_p${n}_title');
+      expect(sanayiDict).toContain('ISO 45001 İSG & ATEX Patlamadan Korunma');
+      expect(sanayiDict).toContain('34.5 kV OG Trafo & Kompanzasyon');
+      expect(sanayiDict).toContain('Ağır Endüstriyel Epoksi Zemin & Drenaj Bakımı');
+      expect(sanayiDict).toContain('Kantar, Hızlı PVC Kapı & Yükleme Körüğü');
+      expect(sanayiDict).toContain('ISO 14001 Tehlikeli Atık & Sıfır Atık Yönetimi');
     });
 
     it('FacilityDistrictPortfolioSeo bileşeni Kartal korozyon, Başakşehir mega site, Maltepe ve Tuzla OSB referanslarını barındırır', async () => {
@@ -4085,7 +4088,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(rezidansPage).toContain('rez_meta_title');
       expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti');
       expect(topluKonutPage).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim');
-      expect(sanayiPage).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim');
+      expect(sanayiPage).toContain('san_meta_title');
+      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi');
     });
 
     it('Tüm alt sektör istemcileri FacilityRfpDownloadModalSeo ve FacilitySubSectorCrossNav bileşenlerini entegre etmiştir', async () => {
