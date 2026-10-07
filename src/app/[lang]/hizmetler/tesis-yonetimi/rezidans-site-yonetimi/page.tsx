@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
@@ -18,10 +19,10 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti | Alo Yönetim',
-    description:
-      'İstanbul genelinde rezidans kuleleri ve lüks siteler için 7/24 konsiyerj, 5188 lisanslı güvenlik, teknik işletme ve şeffaf aidat takibi sunan profesyonel rezidans yönetimi.',
+    title: t.rez_meta_title,
+    description: t.rez_meta_desc,
     path: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
     lang,
     targetKeyword: 'rezidans yönetimi',
@@ -47,12 +48,12 @@ export default async function RezidansYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'rezidans-site-yonetimi',
-    name: 'Rezidans & Lüks Site Yönetimi',
-    description:
-      'İstanbul genelinde lüks rezidans ve konut kuleleri için 7/24 concierge, 5188 VIP güvenlik, havuz & spa bakımı ile entegre tesis yönetimi.',
+    name: t.rez_graph_name,
+    description: t.rez_graph_desc,
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q108846399',
@@ -62,8 +63,8 @@ export default async function RezidansYonetimiPage({
     <>
       <JsonLd data={subSectorGraphLd} />
       <KeywordAnalysisSeo
-        title="Rezidans & Lüks Site Yönetimi"
-        description="İstanbul rezidans ve lüks siteler için VIP tesis yönetimi."
+        title={t.rez_graph_name}
+        description={t.rez_kw_desc}
         path="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi"
         targetKeyword="rezidans tesis yönetimi"
         keywords={['rezidans yönetimi', 'lüks site yönetimi', 'concierge', 'vip güvenlik']}

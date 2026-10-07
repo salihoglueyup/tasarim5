@@ -3908,11 +3908,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 1. Rezidans
       const rezidansContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/RezidansYonetimiClient.tsx'), 'utf8');
-      expect(rezidansContent).toContain('Vale & VIP Kapalı Otopark Yönetimi');
-      expect(rezidansContent).toContain('7/24 Concierge & Lobi Karşılama');
-      expect(rezidansContent).toContain('UHF RFID Plaka Tanıma & Turnike Geçişi');
-      expect(rezidansContent).toContain('Sağlık Bakanlığı Su Hijyeni');
-      expect(rezidansContent).toContain('%99.2 Aidat Tahsilat Garantisi');
+      // Rezidans metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
+      const rezidansDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(rezidansContent).toContain('rez_p${n}_title');
+      expect(rezidansDict).toContain('Vale & VIP Kapalı Otopark Yönetimi');
+      expect(rezidansDict).toContain('7/24 Concierge & Lobi Karşılama');
+      expect(rezidansDict).toContain('UHF RFID Plaka Tanıma & Turnike Geçişi');
+      expect(rezidansDict).toContain('Sağlık Bakanlığı Su Hijyeni');
+      expect(rezidansDict).toContain('%99.2 Aidat Tahsilat Oranı');
 
       // 2. Plaza
       const plazaContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx'), 'utf8');
@@ -4079,7 +4082,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(plazaPage).toContain('plz_meta_title');
       expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi');
-      expect(rezidansPage).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti | Alo Yönetim');
+      expect(rezidansPage).toContain('rez_meta_title');
+      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti');
       expect(topluKonutPage).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim');
       expect(sanayiPage).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim');
     });
