@@ -5,339 +5,125 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
 import { BASE_URL } from '@/lib/seo';
+import TrOnly from '@/components/seo/TrOnly';
+import { useLanguage } from '@/context/LanguageContext';
+import { localePath } from '@/lib/i18n/localePath';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 
 import Icon from '@/components/ui/branding/Icon';
 interface ApiEndpointInfo {
   id: string;
-  name: string;
-  category: string;
   path: string;
-  description: string;
-  updateFrequency: string;
   icon: string;
-  sampleCurl: string;
-  fields: { name: string; type: string; desc: string }[];
-  sampleJson: string;
+  accept: string;
+  fields: { name: string; type: string }[];
 }
 
 const API_ENDPOINTS: ApiEndpointInfo[] = [
   {
-    id: 'kpi-benchmarks',
-    name: 'Sektörel SLA & KPI Karşılaştırma Verileri',
-    category: 'Sektörel Kıyaslama',
-    path: '/api/tesis-yonetimi/kpi-benchmarks.json',
-    description: 'Plaza, rezidans, toplu konut ve sanayi tesisleri için ortalama acil müdahale süreleri (SLA), işletme bütçesi sapma toleransları, aidat tahsilat başarı oranları ve sakin memnuniyet endeksleri.',
-    updateFrequency: 'Aylık Güncellenir',
-    icon: 'analytics',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/kpi-benchmarks.json" -H "Accept: application/json"`,
+    id: "dues-index",
+    path: "/api/tesis-yonetimi/dues-index.json",
+    icon: "payments",
+    accept: "application/json",
     fields: [
-      { name: 'sector', type: 'string', desc: 'Tesis tipi (plaza, rezidans, toplu-konut, sanayi)' },
-      { name: 'averageSlaMinutes', type: 'number', desc: 'Teknik arıza müdahale taahhüt süresi (dakika)' },
-      { name: 'collectionRatePercent', type: 'number', desc: 'Ortalama aidat tahsilat başarı yüzdesi (%)' },
-      { name: 'budgetVarianceTolerance', type: 'number', desc: 'İşletme bütçesi sapma payı toleransı (%)' },
-      { name: 'residentSatisfactionScore', type: 'number', desc: '100 üzerinden periyodik memnuniyet skoru' },
+      { name: "districts", type: "array" },
+      { name: "marketAverageM2Dues", type: "number" },
+      { name: "aloYonetimOptimizedM2Dues", type: "number" },
+      { name: "istanbulSummary", type: "object" },
+      { name: "license", type: "string" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        schemaVersion: "2026.1",
-        updatedAt: "2026-09-01T00:00:00Z",
-        sectors: [
-          {
-            slug: "plaza-yonetimi",
-            title: "A+ Plaza & İş Merkezi",
-            averageSlaMinutes: 30,
-            collectionRatePercent: 98.4,
-            budgetVarianceTolerance: 2.1,
-            residentSatisfactionScore: 94.8
-          },
-          {
-            slug: "rezidans-site-yonetimi",
-            title: "Rezidans & Lüks Konut",
-            averageSlaMinutes: 45,
-            collectionRatePercent: 96.2,
-            budgetVarianceTolerance: 3.5,
-            residentSatisfactionScore: 92.4
-          }
-        ]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'legal-precedents',
-    name: 'Yargıtay Emsal Kararları & KMK 634 İçtihat Arşivi',
-    category: 'Hukuk & Mevzuat',
-    path: '/api/tesis-yonetimi/legal-precedents.json',
-    description: '634 Sayılı Kat Mülkiyeti Kanunu ve 2004 Sayılı İİK çerçevesinde aidat borçları (KMK m.20), işletme projesine itiraz süreleri (KMK m.37), yönetici seçimi (KMK m.34) ve oybirliği gerektiren işlemler (KMK m.45) için Yargıtay Hukuk Daireleri emsal ilamları.',
-    updateFrequency: 'Haftalık Kontrol',
-    icon: 'gavel',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/legal-precedents.json" -H "Accept: application/json"`,
+    id: "benchmark",
+    path: "/api/tesis-yonetimi/benchmark.json",
+    icon: "analytics",
+    accept: "application/json",
     fields: [
-      { name: 'articleCode', type: 'string', desc: 'İlgili kanun maddesi (KMK-20, KMK-37, vb.)' },
-      { name: 'rulingCourt', type: 'string', desc: 'Kararı veren mahkeme veya Yargıtay Dairesi' },
-      { name: 'caseNumber', type: 'string', desc: 'Esas ve Karar Numarası' },
-      { name: 'precedentSummary', type: 'string', desc: 'Tesis yönetimini bağlayan bağlayıcı hukuki ilke' },
+      { name: "data.districts", type: "array" },
+      { name: "data.propertyTypes", type: "array" },
+      { name: "data.industryBenchmarks", type: "array" },
+      { name: "license", type: "string" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        legalDomain: "634 Sayılı Kat Mülkiyeti Kanunu",
-        totalPrecedents: 12,
-        precedents: [
-          {
-            articleCode: "KMK-20",
-            rulingCourt: "Yargıtay 18. Hukuk Dairesi",
-            caseNumber: "E. 2014/15234, K. 2014/18902",
-            precedentSummary: "Kat maliki ortak yer ve tesislerden yararlanmadığını öne sürerek aidat ödemekten kaçınamaz. %5 gecikme tazminatı kanunen re'sen uygulanır."
-          },
-          {
-            articleCode: "KMK-37",
-            rulingCourt: "Yargıtay 5. Hukuk Dairesi",
-            caseNumber: "E. 2021/8412, K. 2021/11045",
-            precedentSummary: "7 günlük tebliğ ve itiraz süresi içinde itiraz edilmeyen işletme projesi kesinleşerek İİK m.68 kapsamında borç ikrarı içeren resmi senet niteliği kazanır."
-          }
-        ]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'energy-benchmarks',
-    name: 'ISO 50001 Enerji & Yeşil Tesis Tüketim Standartları',
-    category: 'Yeşil Tesis & Mühendislik',
-    path: '/api/tesis-yonetimi/energy-benchmarks.json',
-    description: 'Ortak alan aydınlatma, merkezi iklimlendirme (HVAC), kompanzasyon reaktif ceza sınırları ve çatı GES tasarruf hedefleri için doğrulanmış enerji kıyaslama standartları.',
-    updateFrequency: 'Çeyreklik Güncellenir',
-    icon: 'energy_savings_leaf',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/energy-benchmarks.json" -H "Accept: application/json"`,
+    id: "kmk-law-index",
+    path: "/api/tesis-yonetimi/kmk-law-index.json",
+    icon: "menu_book",
+    accept: "application/json",
     fields: [
-      { name: 'facilityType', type: 'string', desc: 'Bina tipi ve metrekare ölçeği' },
-      { name: 'kwhPerSquareMeterAnnual', type: 'number', desc: 'Yıllık hedef ortak alan elektrik tüketimi (kWh/m²)' },
-      { name: 'maxReactivePenaltyRatio', type: 'number', desc: 'İzin verilen maksimum reaktif oran (<%14)' },
-      { name: 'solarRoiYears', type: 'number', desc: 'Güneş santrali ortalama amortisman süresi (yıl)' },
+      { name: "articles", type: "array" },
+      { name: "articleNumber", type: "number" },
+      { name: "summary", type: "string" },
+      { name: "practicalApplication", type: "string" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        standard: "ISO 50001:2018 Enerji Yönetim Sistemi",
-        benchmarks: [
-          {
-            facilityType: "A+ İş Merkezi & Plaza",
-            kwhPerSquareMeterAnnual: 110.5,
-            maxReactivePenaltyRatio: 0.12,
-            solarRoiYears: 3.4
-          },
-          {
-            facilityType: "Toplu Konut & Site Ortak Alan",
-            kwhPerSquareMeterAnnual: 42.0,
-            maxReactivePenaltyRatio: 0.14,
-            solarRoiYears: 3.8
-          }
-        ]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'budget-distribution',
-    name: 'İşletme Bütçesi Kalem Dağılım İstatistikleri',
-    category: 'Mali Yönetim',
-    path: '/api/tesis-yonetimi/budget-distribution.json',
-    description: 'KMK Madde 37 kapsamında hazırlanan site işletme bütçelerinde harcama kalemlerinin (Güvenlik, Temizlik, Teknik Bakım, Enerji, Hukuk) ideal yüzdesel dağılım normları.',
-    updateFrequency: 'Altı Aylık',
-    icon: 'payments',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/budget-distribution.json" -H "Accept: application/json"`,
+    id: "legal-precedents",
+    path: "/api/tesis-yonetimi/legal-precedents.json",
+    icon: "gavel",
+    accept: "application/json",
     fields: [
-      { name: 'category', type: 'string', desc: 'Bütçe harcama kalemi' },
-      { name: 'minSharePercent', type: 'number', desc: 'Asgari bütçe payı (%)' },
-      { name: 'maxSharePercent', type: 'number', desc: 'Azami bütçe payı (%)' },
-      { name: 'recommendedAllocation', type: 'number', desc: 'Optimum önerilen bütçe payı (%)' },
+      { name: "precedents", type: "array" },
+      { name: "court", type: "string" },
+      { name: "docketNumber", type: "string" },
+      { name: "kmkArticle", type: "string" },
+      { name: "rulingSummary", type: "string" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        budgetDistributionBenchmark: [
-          { category: "5188 Lisanslı Özel Güvenlik", minSharePercent: 35, maxSharePercent: 44, recommendedAllocation: 39 },
-          { category: "Endüstriyel Temizlik & Hijyen", minSharePercent: 18, maxSharePercent: 25, recommendedAllocation: 21 },
-          { category: "Periyodik Teknik Bakım & Asansör", minSharePercent: 14, maxSharePercent: 20, recommendedAllocation: 17 },
-          { category: "Ortak Alan Enerji & Su Tüketimi", minSharePercent: 12, maxSharePercent: 18, recommendedAllocation: 15 },
-          { category: "Hukuk Müşavirliği & İcra Takibi", minSharePercent: 4, maxSharePercent: 8, recommendedAllocation: 5 },
-          { category: "Demirbaş & Olağanüstü Yedek Fon", minSharePercent: 3, maxSharePercent: 6, recommendedAllocation: 3 }
-        ]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'maintenance-frequencies',
-    name: 'Teknik Bakım & İş Güvenliği Periyodik Kontrol Takvimi',
-    category: 'Mühendislik & İSG',
-    path: '/api/tesis-yonetimi/maintenance-frequencies.json',
-    description: 'Binalarda ve sitelerde can ve mal emniyeti açısından yasal olarak zorunlu periyodik teknik bakım ve muayene aralıkları (Asansör, Trafo, Jeneratör, Yangın, Hidrofor).',
-    updateFrequency: 'Yıllık',
-    icon: 'construction',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/maintenance-frequencies.json" -H "Accept: application/json"`,
+    id: "dictionary",
+    path: "/api/tesis-yonetimi/dictionary.json",
+    icon: "translate",
+    accept: "application/json",
     fields: [
-      { name: 'equipment', type: 'string', desc: 'Ekipman veya teknik donanım türü' },
-      { name: 'statutoryPeriod', type: 'string', desc: 'Mevzuata göre zorunlu kontrol periyodu' },
-      { name: 'regulatoryAuthority', type: 'string', desc: 'Denetim dayanağı olan mevzuat/kurum' },
-      { name: 'certificationType', type: 'string', desc: 'Verilen resmi rapor ve etiket türü' },
+      { name: "terms", type: "array" },
+      { name: "termCode", type: "string" },
+      { name: "legalBasis", type: "string" },
+      { name: "wikidataUri", type: "string" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        maintenanceCalendar: [
-          {
-            equipment: "İnsan & Yük Asansörleri",
-            statutoryPeriod: "Ayda 1 Bakım / Yılda 1 A-Tipi Muayene",
-            regulatoryAuthority: "Sanayi ve Teknoloji Bakanlığı Asansör Yönetmeliği",
-            certificationType: "Yeşil Etiket Uygunluk Belgesi"
-          },
-          {
-            equipment: "Orta Gerilim Trafoları & YG Tesisleri",
-            statutoryPeriod: "Yılda 1 Kez Periyodik Test & Muayene",
-            regulatoryAuthority: "Elektrik Kuvvetli Akım Tesisleri Yönetmeliği (EMO)",
-            certificationType: "YG İşletme Sorumluluğu Raporu"
-          },
-          {
-            equipment: "Otomatik Yangın Algılama & Sprinkler",
-            statutoryPeriod: "3 Ayda 1 Fonksiyon Testi / Yılda 1 Genel Bakım",
-            regulatoryAuthority: "Binaların Yangından Korunması Hakkında Yönetmelik",
-            certificationType: "Yangın Sistemi Uygunluk Belgesi"
-          }
-        ]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'staff-ratios',
-    name: 'Tesis Tipolojilerine Göre Personel Norm Kadro Oranları',
-    category: 'İnsan Kaynakları',
-    path: '/api/tesis-yonetimi/staff-ratios.json',
-    description: 'Bağımsız bölüm sayısı, blok adedi, çevre güvenlik sınırı ve otopark kat adedine göre hesaplanan ideal 5188 özel güvenlik, temizlik ve teknik teknisyen norm kadro matrisi.',
-    updateFrequency: 'Yıllık',
-    icon: 'badge',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/staff-ratios.json" -H "Accept: application/json"`,
+    id: "faq",
+    path: "/api/tesis-yonetimi/faq.json",
+    icon: "quiz",
+    accept: "application/json",
     fields: [
-      { name: 'facilityScale', type: 'string', desc: 'Bağımsız bölüm ölçeği (Örn. 100-250 Daire)' },
-      { name: 'securityStaffPerPost', type: 'string', desc: 'Nokta başına güvenlik kadro katsayısı' },
-      { name: 'cleaningStaffRatio', type: 'string', desc: 'Bağımsız bölüm / temizlik personeli oranı' },
-      { name: 'technicalStaffRatio', type: 'string', desc: 'Teknik şef / teknisyen dağılımı' },
+      { name: "faqs", type: "array" },
+      { name: "group", type: "string" },
+      { name: "question", type: "string" },
+      { name: "answer", type: "string" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        staffingStandards: [
-          {
-            scale: "100 - 300 Bağımsız Bölüm",
-            securityStaff: "1 Ana Nizamiye (7/24 4 Personel Vardiya)",
-            cleaningStaff: "2 - 3 Kat & Ortak Alan Görevlisi",
-            technicalStaff: "1 Mobil Gezici Tekniker (Yarı Zamanlı veya Nöbetçi)"
-          },
-          {
-            scale: "500 - 1500 Bağımsız Bölüm (Toplu Yapı)",
-            securityStaff: "2 Giriş Kapısı + 1 Gece Devriyesi (8 - 12 Personel)",
-            cleaningStaff: "6 - 10 Personel + 1 Temizlik Süpervizörü",
-            technicalStaff: "2 Tam Zamanlı Elektrik & Mekanik Teknisyeni"
-          }
-        ]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'openapi-spec',
-    name: 'OpenAPI 3.1.0 Makine Taranabilir Spesifikasyonu',
-    category: 'API & Standartlar',
-    path: '/openapi.json',
-    description: 'Tüm tesis yönetimi açık veri API uç noktalarını, parametre şemalarını ve veri modellerini uluslararası OpenAPI 3.1.0 standartlarında tanımlayan JSON şartname dosyası.',
-    updateFrequency: 'Sürekli Güncel',
-    icon: 'integration_instructions',
-    sampleCurl: `curl -X GET "${BASE_URL}/openapi.json" -H "Accept: application/json"`,
+    id: "districts-geojson",
+    path: "/api/tesis-yonetimi/istanbul-districts.geojson",
+    icon: "map",
+    accept: "application/geo+json",
     fields: [
-      { name: 'openapi', type: 'string', desc: 'OpenAPI versiyonu (3.1.0)' },
-      { name: 'info', type: 'object', desc: 'API künyesi, lisans ve iletişim verileri' },
-      { name: 'paths', type: 'object', desc: 'Tanımlı tüm API rotaları ve metodları' },
-      { name: 'components', type: 'object', desc: 'Yeniden kullanılabilir veri şemaları' },
+      { name: "features", type: "array" },
+      { name: "geometry.coordinates", type: "[lng, lat]" },
+      { name: "properties.districtName", type: "string" },
+      { name: "properties.population", type: "number" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        openapi: "3.1.0",
-        info: {
-          title: "Alo Yönetim Tesis Yönetimi Açık Veri API Spesifikasyonu",
-          version: "2026.1.0",
-          license: { name: "Open Data Commons Attribution License (ODC-By 1.0)" }
-        },
-        servers: [{ url: BASE_URL, description: "Canlı Üretim Sunucusu" }]
-      },
-      null,
-      2
-    ),
   },
   {
-    id: 'istanbul-districts-geojson',
-    name: 'İstanbul 39 İlçe Tesis Yönetimi Saha Ağı (RFC 7946 GeoJSON)',
-    category: 'Coğrafi Harita & Yerel Saha Ağı',
-    path: '/api/tesis-yonetimi/istanbul-districts.geojson',
-    description: 'İstanbul genelinde 39 ilçenin GPS merkez koordinatları, SLA acil müdahale süreleri (30-45 dk), aktif yönetilen proje sayıları ve doğrudan ilçe tesis yönetimi bağlantıları.',
-    updateFrequency: 'Haftalık Güncellenir',
-    icon: 'map',
-    sampleCurl: `curl -X GET "${BASE_URL}/api/tesis-yonetimi/istanbul-districts.geojson" -H "Accept: application/geo+json"`,
+    id: "openapi-spec",
+    path: "/openapi.json",
+    icon: "integration_instructions",
+    accept: "application/json",
     fields: [
-      { name: 'type', type: 'string', desc: 'GeoJSON tipi (FeatureCollection)' },
-      { name: 'features', type: 'array', desc: '39 ilçenin Point geometrileri ve operasyonel özellikleri' },
-      { name: 'coordinates', type: '[lng, lat]', desc: 'RFC 7946 standardında GPS koordinatları' },
-      { name: 'slaMinutes', type: 'number', desc: 'İlçeye özel ortalama SLA müdahale süresi (dakika)' },
+      { name: "openapi", type: "string" },
+      { name: "info", type: "object" },
+      { name: "paths", type: "object" },
+      { name: "components", type: "object" },
     ],
-    sampleJson: JSON.stringify(
-      {
-        type: "FeatureCollection",
-        metadata: {
-          title: "Alo Yönetim İstanbul 39 İlçe Tesis Yönetimi Saha Ağı",
-          license: "https://opendatacommons.org/licenses/by/1-0/",
-          totalFeatures: 39
-        },
-        features: [
-          {
-            type: "Feature",
-            id: "kadikoy",
-            geometry: { type: "Point", coordinates: [29.0333, 40.9833] },
-            properties: {
-              districtName: "Kadıköy",
-              side: "Anadolu",
-              managedProjects: 48,
-              slaMinutes: 30,
-              emergencyResponseTime: "30 Dakika",
-              facilityManagementUrl: `${BASE_URL}/bolgeler/kadikoy/tesis-yonetimi`
-            }
-          },
-          {
-            type: "Feature",
-            id: "besiktas",
-            geometry: { type: "Point", coordinates: [29.0067, 41.0422] },
-            properties: {
-              districtName: "Beşiktaş",
-              side: "Avrupa",
-              managedProjects: 39,
-              slaMinutes: 30,
-              emergencyResponseTime: "30 Dakika",
-              facilityManagementUrl: `${BASE_URL}/bolgeler/besiktas/tesis-yonetimi`
-            }
-          }
-        ]
-      },
-      null,
-      2
-    ),
   },
 ];
 
 export default function AcikVeriClient({ lang }: { lang: string }) {
+  const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
   const [copiedEndpoint, setCopiedEndpoint] = useState<string | null>(null);
-  const [expandedJson, setExpandedJson] = useState<string | null>(null);
 
   const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -358,25 +144,24 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-500/10 border border-slate-500/20 text-slate-600 dark:text-slate-400">
               <Icon name="api" className="text-[15px]" />
-              OpenAPI 3.1.0 & GeoJSON
+              {tk('acv_hero_badge1')}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              8 Açık Kamu API & Harita Servisi Canlı
+              {tk('acv_hero_badge2')}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">
               <Icon name="lock_open" className="text-[15px]" />
-              Sıfır Auth • Açık Lisans (ODC-BY)
+              {tk('acv_hero_badge3')}
             </span>
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mb-6">
-            Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-600">Açık Veri Portalı</span> & API Standartları
+            {tk('acv_hero_h1a')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-600">{tk('acv_hero_h1b')}</span>
           </h1>
 
           <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 font-light leading-relaxed max-w-3xl mb-8">
-            Türkiye entegre tesis yönetimi sektörünün ilk makine taranabilir kurumsal açık veri (Open Data) omurgası. 
-            Site yönetim kurulları, ihale denetçileri, kat malikleri, araştırmacılar ve yapay zeka ajanları için doğrulanmış sektörel KPI kıyaslamaları, KMK Yargıtay emsalleri ve ISO 50001 enerji standartları.
+            {tk('acv_hero_p')}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -387,16 +172,16 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
               className="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-md group"
             >
               <Icon name="code" className="text-lg" />
-              <span>OpenAPI 3.1.0 Spesifikasyonunu Aç</span>
+              <span>{tk('acv_cta_spec')}</span>
               <Icon name="open_in_new" className="text-sm group-hover:translate-x-0.5 transition-transform" />
             </a>
 
             <Link
-              href="/hizmetler/tesis-yonetimi/rehber"
+              href={localePath('/hizmetler/tesis-yonetimi/rehber', language)}
               className="inline-flex items-center gap-2 bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 dark:hover:bg-white/15 transition-all border border-slate-200 dark:border-white/10"
             >
               <Icon name="menu_book" className="text-lg" />
-              <span>Tesis Yönetim Şirketi Seçim Rehberi</span>
+              <span>{tk('acv_cta_guide')}</span>
             </Link>
           </div>
 
@@ -406,15 +191,17 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
       {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
       <section className="py-8">
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
+          <TrOnly>
           <PositionZeroAnswerBox
             id="acik-veri-portali-nedir"
             answerId="opendata-instant-answer-text"
             question="Tesis Yönetimi Açık Veri Portalı Nedir ve Kimler Kullanabilir?"
-            answer="Açık Veri Portalı; Alo Yönetim'in sektörel SLA/KPI kıyaslama, ilçe bazlı aidat endeksleri, mevzuat sözlüğü ve Yargıtay içtihat verilerini OpenAPI 3.1 formatında ücretsiz JSON uç noktalarıyla sunduğu kurumsal veri servisidir. GPTBot, ClaudeBot ve Gemini gibi kurumsal RAG motorları bu verileri doğrudan (kimlik doğrulama gerektirmeden) tüketebilir."
-            standardBadge="OpenAPI 3.1.0 Standardı"
-            subText="Tüm uç noktalar Open Data Commons Attribution (ODC-BY) lisansı ile paylaşılır; ticari ve akademik kullanım için kaynak gösterilmesi yeterlidir."
+            answer="Açık Veri Portalı; Alo Yönetim'in İstanbul ilçe aidat endeksi, KMK madde dizini, Yargıtay emsal özetleri, sözlük ve SSS verilerini kimlik doğrulama gerektirmeden JSON olarak sunduğu uç noktalardır. OpenAPI açıklaması /openapi.json adresindedir."
+            standardBadge="Açık JSON Uç Noktaları"
+            subText="Her uç noktanın lisansı yanıtın içindeki license alanında belirtilir; kullanımdan önce ilgili alanı kontrol edin."
             accentColor="slate"
           />
+          </TrOnly>
         </div>
       </section>
 
@@ -428,10 +215,10 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                 <Icon name="visibility" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
-                Şeffaf Yönetim & KMK 41 Denetimi
+                {tk('acv_info1_title')}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                Kat Mülkiyeti Kanunu m.41 uyarınca denetçiler ve kat malikleri, sitelerinin bütçe ve personel verilerini açık API standartlarımız ile objektif kıyaslayabilir.
+                {tk('acv_info1_desc')}
               </p>
             </div>
 
@@ -440,10 +227,10 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                 <Icon name="smart_toy" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
-                Yapay Zeka (AI Agent) & LLM Uyumluluğu
+                {tk('acv_info2_title')}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                Tüm verilerimiz OpenAPI 3.1.0 formatında yapılandırılmıştır. GPTBot, ClaudeBot, Gemini ve Perplexity gibi kurumsal RAG motorları verileri doğrudan tüketebilir.
+                {tk('acv_info2_desc')}
               </p>
             </div>
 
@@ -452,10 +239,10 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                 <Icon name="verified_user" className="text-2xl" />
               </div>
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-2">
-                ISO 41001 & Açık Kamu Lisansı
+                {tk('acv_info3_title')}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                Tesis yönetimi süreçlerimiz BELCERT/ILAS belgeli ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 yönetim sistemlerine dayanır. Open Data Commons Attribution (ODC-By 1.0) ile ücretsizdir.
+                {tk('acv_info3_desc')}
               </p>
             </div>
 
@@ -470,10 +257,10 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block mb-1">
-                RESTful Veri Servisleri
+                {tk('acv_sec_badge')}
               </span>
               <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                8 Temel Tesis Yönetimi & Harita API Uç Noktası
+                {tk('acv_sec_title')}
               </h2>
             </div>
             <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
@@ -483,7 +270,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
 
           <div className="space-y-6">
             {API_ENDPOINTS.map((endpoint) => {
-              const isJsonExpanded = expandedJson === endpoint.id;
+              const curl = `curl -X GET "${BASE_URL}${endpoint.path}" -H "Accept: ${endpoint.accept}"`;
               const isCopied = copiedEndpoint === endpoint.id;
 
               return (
@@ -503,24 +290,23 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                             GET
                           </span>
                           <span className="text-xs font-semibold text-slate-400">
-                            {endpoint.category}
+                            {tk(`acv_e_${endpoint.id}_cat`)}
                           </span>
-                          <span className="text-[11px] text-slate-400">• {endpoint.updateFrequency}</span>
                         </div>
                         <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
-                          {endpoint.name}
+                          {tk(`acv_e_${endpoint.id}_name`)}
                         </h3>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0">
                       <button
-                        onClick={() => handleCopy(endpoint.sampleCurl, endpoint.id)}
+                        onClick={() => handleCopy(curl, endpoint.id)}
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 transition-colors"
-                        title="cURL Komutunu Kopyala"
+                        title={tk('acv_copy_title')}
                       >
                         <Icon name={isCopied ? 'check' : 'content_copy'} className="text-sm" />
-                        <span>{isCopied ? 'Kopyalandı!' : 'cURL Kopyala'}</span>
+                        <span>{isCopied ? tk('acv_copied') : tk('acv_copy_curl')}</span>
                       </button>
 
                       <a
@@ -529,7 +315,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-500/10 hover:bg-slate-500/20 text-slate-700 dark:text-slate-400 border border-slate-500/20 transition-colors"
                       >
-                        <span>JSON Aç</span>
+                        <span>{tk('acv_open')}</span>
                         <Icon name="open_in_new" className="text-sm" />
                       </a>
                     </div>
@@ -537,26 +323,26 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
 
                   {/* Description */}
                   <p className="text-sm text-slate-600 dark:text-slate-300 my-5 font-light leading-relaxed">
-                    {endpoint.description}
+                    {tk(`acv_e_${endpoint.id}_desc`)}
                   </p>
 
                   {/* cURL Snippet Box */}
                   <div className="mb-5 p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto flex items-center justify-between gap-4">
                     <span className="text-emerald-400">$</span>
-                    <span className="truncate flex-1">{endpoint.sampleCurl}</span>
+                    <span className="truncate flex-1">{curl}</span>
                     <button
-                      onClick={() => handleCopy(endpoint.sampleCurl, endpoint.id)}
+                      onClick={() => handleCopy(curl, endpoint.id)}
                       className="text-slate-400 hover:text-white transition-colors"
-                      aria-label="Kopyala"
+                      aria-label={tk('acv_copy_aria')}
                     >
                       <Icon name="content_copy" className="text-sm" />
                     </button>
                   </div>
 
-                  {/* Schema Fields & Toggle Preview */}
+                  {/* Schema Fields */}
                   <div className="pt-4 border-t border-slate-100 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">Anahtar Parametreler:</span>
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">{tk('acv_fields')}</span>
                       {endpoint.fields.map((f) => (
                         <span key={f.name} className="px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 font-mono text-[11px]">
                           {f.name} ({f.type})
@@ -564,31 +350,7 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
                       ))}
                     </div>
 
-                    <button
-                      onClick={() => setExpandedJson(isJsonExpanded ? null : endpoint.id)}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-slate-500 transition-colors shrink-0"
-                    >
-                      <span>{isJsonExpanded ? 'Örneği Gizle' : 'Örnek JSON Göster'}</span>
-                      <Icon name={isJsonExpanded ? 'expand_less' : 'expand_more'} className="text-sm" />
-                    </button>
                   </div>
-
-                  {/* Expanded JSON Box */}
-                  {isJsonExpanded && (
-                    <div className="mt-4 p-4 rounded-2xl bg-slate-950 border border-slate-800 text-slate-200 font-mono text-xs overflow-x-auto">
-                      <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] text-slate-400">
-                        <span>Response Preview (HTTP 200 OK)</span>
-                        <button
-                          onClick={() => handleCopy(endpoint.sampleJson, `json-${endpoint.id}`)}
-                          className="hover:text-white transition-colors flex items-center gap-1"
-                        >
-                          <Icon name="content_copy" className="text-xs" />
-                          <span>{copiedEndpoint === `json-${endpoint.id}` ? 'Kopyalandı' : 'JSON Kopyala'}</span>
-                        </button>
-                      </div>
-                      <pre className="text-emerald-400 whitespace-pre-wrap">{endpoint.sampleJson}</pre>
-                    </div>
-                  )}
 
                 </div>
               );
@@ -601,7 +363,9 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
       {/* Sub-Sector Cross Navigation */}
       <section className="py-8">
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
-          <FacilitySubSectorCrossNav currentSlug="acik-veri" />
+          <TrOnly>
+            <FacilitySubSectorCrossNav currentSlug="acik-veri" />
+          </TrOnly>
         </div>
       </section>
 
@@ -610,27 +374,26 @@ export default function AcikVeriClient({ lang }: { lang: string }) {
         <div className="max-w-4xl mx-auto px-[var(--spacing-gutter)] text-center relative z-10">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-slate-400 text-xs font-bold uppercase tracking-wider mb-6">
             <Icon name="shield" className="text-sm" />
-            5188 Lisanslı & ISO 45001 Belgeli Yönetim
+            {tk('acv_final_badge')}
           </span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-6">
-            Siteniz veya Tesisiniz İçin Profesyonel Yönetim Teklifi Alın
+            {tk('acv_final_h2')}
           </h2>
           <p className="text-base md:text-lg text-slate-300 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            Açık veri standartlarımız ve şeffaf işletme projemizle bütçenizi denetim altına alın. 
-            48 saat içinde tesisinize özel teknik keşif ve tasarruf raporu hazırlıyoruz.
+            {tk('acv_final_p')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/teklif-al"
+              href={localePath('/teklif-al', language)}
               className="bg-slate-500 hover:bg-slate-600 text-slate-950 px-8 py-4 rounded-xl font-extrabold text-sm transition-all shadow-lg"
             >
-              Ücretsiz Keşif & Teklif İste
+              {tk('acv_final_cta1')}
             </Link>
             <Link
-              href="/hizmetler/tesis-yonetimi/rehber"
+              href={localePath('/hizmetler/tesis-yonetimi/rehber', language)}
               className="bg-white/10 hover:bg-white/15 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm transition-all"
             >
-              Şartname Rehberini İncele
+              {tk('acv_final_cta2')}
             </Link>
           </div>
         </div>

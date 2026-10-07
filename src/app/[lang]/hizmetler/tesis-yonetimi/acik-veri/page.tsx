@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import AcikVeriClient from './AcikVeriClient';
@@ -16,25 +17,14 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Tesis Yönetimi Açık Veri & API Portalı — OpenAPI 3.1 Standartları | Alo Yönetim',
-    description:
-      'Türkiye tesis yönetimi sektörü kurumsal açık veri merkezi: 7 adet açık JSON API, OpenAPI 3.1 şartnamesi, Yargıtay KMK emsal kararları, ISO 50001 enerji tüketim kıyaslamaları ve bütçe norm kadro standartları.',
+    title: t.acv_meta_title,
+    description: t.acv_meta_desc,
     path: '/hizmetler/tesis-yonetimi/acik-veri',
     lang,
     ogImageType: 'service',
-    keywords: [
-      'tesis yönetimi açık veri',
-      'tesis yönetimi api',
-      'openapi 3.1 tesis yönetimi',
-      'site yönetimi açık veri',
-      'kmk yargıtay emsal kararları api',
-      'tesis yönetimi kpi benchmark',
-      'apartman bütçe standartları api',
-      'tesis teknik bakım takvimi api',
-      'iso 50001 enerji benchmark api',
-      'istanbul tesis yönetimi verileri',
-    ],
+    keywords: t.acv_meta_keywords.split('|'),
   });
 }
 
@@ -44,17 +34,18 @@ export default async function AcikVeriPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const breadcrumbs = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
     { name: 'Hizmetler', url: '/hizmetler' },
     { name: 'Tesis Yönetimi', url: '/hizmetler/tesis-yonetimi' },
-    { name: 'Açık Veri & API', url: '/hizmetler/tesis-yonetimi/acik-veri' },
+    { name: t.acv_breadcrumb, url: '/hizmetler/tesis-yonetimi/acik-veri' },
   ]);
 
   const pageSchema = webPageSchema({
-    name: 'Tesis Yönetimi Açık Veri ve API Portalı',
-    description: 'Türkiye entegre tesis yönetimi sektörünün ilk makine taranabilir kurumsal açık veri ve OpenAPI 3.1 şartnamesi.',
+    name: t.acv_graph_name,
+    description: t.acv_graph_desc,
     path: '/hizmetler/tesis-yonetimi/acik-veri',
     speakableSelectors: ['h1', 'p'],
   });
@@ -62,56 +53,25 @@ export default async function AcikVeriPage({
   const datasetSchema = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
-    name: 'Alo Yönetim Tesis Yönetimi Açık Veri & Kıyaslama Korpusu',
-    description: 'Türkiye genelinde plaza, rezidans, toplu konut ve sanayi tesisleri için sektörel SLA, bütçe dağılımı, norm kadro, enerji tüketimi ve Yargıtay KMK içtihat verileri.',
+    name: t.acv_dataset_name,
+    description: t.acv_dataset_desc,
     url: `${BASE_URL}/hizmetler/tesis-yonetimi/acik-veri`,
-    license: 'https://opendatacommons.org/licenses/by/1-0/',
     isAccessibleForFree: true,
-    keywords: [
-      'tesis yönetimi',
-      'açık veri',
-      'open data',
-      'openapi 3.1',
-      'kmk içtihatları',
-      'iso 50001 enerji',
-      'sla kpi'
-    ],
+    keywords: t.acv_meta_keywords.split('|'),
     creator: {
       '@type': 'Organization',
       name: 'Alo Yönetim Grubu A.Ş.',
       url: BASE_URL,
     },
     distribution: [
-      {
-        '@type': 'DataDownload',
-        name: 'OpenAPI 3.1.0 Spesifikasyonu',
-        encodingFormat: 'application/json',
-        contentUrl: `${BASE_URL}/openapi.json`,
-      },
-      {
-        '@type': 'DataDownload',
-        name: 'Sektörel KPI & SLA Kıyaslama API',
-        encodingFormat: 'application/json',
-        contentUrl: `${BASE_URL}/api/tesis-yonetimi/kpi-benchmarks.json`,
-      },
-      {
-        '@type': 'DataDownload',
-        name: 'KMK Yargıtay Emsal Kararları API',
-        encodingFormat: 'application/json',
-        contentUrl: `${BASE_URL}/api/tesis-yonetimi/legal-precedents.json`,
-      },
-      {
-        '@type': 'DataDownload',
-        name: 'ISO 50001 Enerji Standartları API',
-        encodingFormat: 'application/json',
-        contentUrl: `${BASE_URL}/api/tesis-yonetimi/energy-benchmarks.json`,
-      },
-      {
-        '@type': 'DataDownload',
-        name: 'İstanbul 39 İlçe Tesis Yönetimi Saha Ağı (RFC 7946 GeoJSON)',
-        encodingFormat: 'application/geo+json',
-        contentUrl: `${BASE_URL}/api/tesis-yonetimi/istanbul-districts.geojson`,
-      },
+      { '@type': 'DataDownload', name: 'OpenAPI', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/openapi.json` },
+      { '@type': 'DataDownload', name: 'dues-index', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/dues-index.json` },
+      { '@type': 'DataDownload', name: 'benchmark', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/benchmark.json` },
+      { '@type': 'DataDownload', name: 'kmk-law-index', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json` },
+      { '@type': 'DataDownload', name: 'legal-precedents', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/legal-precedents.json` },
+      { '@type': 'DataDownload', name: 'dictionary', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/dictionary.json` },
+      { '@type': 'DataDownload', name: 'faq', encodingFormat: 'application/json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/faq.json` },
+      { '@type': 'DataDownload', name: 'istanbul-districts', encodingFormat: 'application/geo+json', contentUrl: `${BASE_URL}/api/tesis-yonetimi/istanbul-districts.geojson` },
     ],
   };
 

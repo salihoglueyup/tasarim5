@@ -147,6 +147,17 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(text).toBe('google-site-verification: google1234567890abcdef.html');
     });
 
+    it('middleware kök .json uç noktalarını (openapi.json, ai-plugin.json) dil önekine yönlendirmez', async () => {
+      process.env.JWT_SECRET = 'test_jwt_secret_key_for_vitest_runner_2026';
+      const { middleware } = await import('@/middleware');
+      const { NextRequest } = await import('next/server');
+      for (const p of ['/openapi.json', '/.well-known/ai-plugin.json']) {
+        const res = await middleware(new NextRequest('https://aloyonetim.com.tr' + p));
+        expect(res.headers.get('x-middleware-rewrite')).toBeNull();
+        expect(res.headers.get('x-middleware-next')).toBe('1');
+      }
+    });
+
     it('middleware Link header içinde sitemap-index.xml bulunmalıdır', async () => {
       process.env.JWT_SECRET = 'test_jwt_secret_key_for_vitest_runner_2026';
       const { middleware } = await import('@/middleware');
@@ -4337,10 +4348,24 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       );
 
       expect(acikVeriPage).toContain("'@type': 'Dataset'");
-      expect(acikVeriPage).toContain('/api/tesis-yonetimi/kpi-benchmarks.json');
+      expect(acikVeriPage).toContain('/api/tesis-yonetimi/dues-index.json');
       expect(acikVeriPage).toContain('/api/tesis-yonetimi/legal-precedents.json');
-      expect(acikVeriPage).toContain('/api/tesis-yonetimi/energy-benchmarks.json');
+      expect(acikVeriPage).toContain('/api/tesis-yonetimi/kmk-law-index.json');
       expect(acikVeriPage).toContain('/openapi.json');
+    });
+
+    it('Açık veri sayfasında listelenen her uç nokta gerçekten bir route dosyasına karşılık gelir', async () => {
+      const fs = await import('fs');
+      const path = await import('path');
+      const client = fs.readFileSync(
+        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/acik-veri/AcikVeriClient.tsx'),
+        'utf8'
+      );
+      const paths = [...client.matchAll(/path: "([^"]+)"/g)].map((m) => m[1]);
+      expect(paths.length).toBeGreaterThanOrEqual(8);
+      for (const p of paths) {
+        expect(fs.existsSync(path.join(process.cwd(), 'src/app', p.replace(/^\//, ''), 'route.ts')), p).toBe(true);
+      }
     });
 
     it('Sözlük terimleri (dictionary.ts) tesis yönetimi alt sektörlerine ve açık veri portalına bağlamsal linkler içerir', async () => {

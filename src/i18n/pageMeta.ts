@@ -89,9 +89,9 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'كيف تختارون شركة إدارة المرافق؟ دليل الاختيار ودفتر الشروط 2026', description: 'ما يجب مراعاته عند اختيار شركة إدارة مجمع أو منشأة: إعداد دفتر الشروط الفنية B2B (RFP) وترخيص القانون رقم 5188 وبروتوكول التسليم وفق المادة 34 من قانون ملكية الطوابق وتدقيق الميزانية وبطاقة تقييم من 10 بنود.' },
   },
   '/hizmetler/tesis-yonetimi/acik-veri': {
-    en: { title: 'Facility Management Open Data & API Portal — OpenAPI 3.1', description: 'A corporate open data hub for the Turkish facility management sector: open JSON APIs, an OpenAPI 3.1 specification, energy consumption benchmarks and budget staffing standards.' },
-    ru: { title: 'Портал открытых данных и API по управлению объектами — OpenAPI 3.1', description: 'Корпоративный центр открытых данных отрасли управления объектами в Турции: открытые JSON API, спецификация OpenAPI 3.1, ориентиры по энергопотреблению и нормативы штатной численности.' },
-    ar: { title: 'بوابة البيانات المفتوحة وواجهات API لإدارة المرافق — OpenAPI 3.1', description: 'مركز بيانات مفتوحة مؤسسي لقطاع إدارة المرافق في تركيا: واجهات JSON مفتوحة ومواصفات OpenAPI 3.1 ومؤشرات مقارنة لاستهلاك الطاقة ومعايير ملاك الميزانية.' },
+    en: { title: 'Facility Management Open Data & API Endpoints | Alo Yönetim', description: 'Alo Yönetim\'s open JSON endpoints that need no authentication: Istanbul district dues index, Condominium Law article index, Court of Cassation precedent summaries, glossary, FAQ and a GeoJSON district map.' },
+    ru: { title: 'Открытые данные и API по управлению объектами | Alo Yönetim', description: 'Открытые JSON-эндпоинты Alo Yönetim без аутентификации: индекс взносов по районам Стамбула, указатель статей закона о кондоминиумах, краткие выжимки решений Кассационного суда, глоссарий, FAQ и GeoJSON-карта районов.' },
+    ar: { title: 'البيانات المفتوحة وواجهات API لإدارة المرافق | Alo Yönetim', description: 'نقاط JSON المفتوحة من Alo Yönetim دون حاجة إلى مصادقة: مؤشر اشتراكات أحياء إسطنبول، فهرس مواد قانون ملكية الطوابق، ملخصات سوابق محكمة النقض، المسرد، الأسئلة الشائعة وخريطة GeoJSON للأحياء.' },
   },
   '/hesaplayici': {
     en: { title: 'Online Dues & Operating Budget Calculator', description: 'Calculate your complex\'s estimated operating budget and dues savings online in 60 seconds. Start a free budget simulation.' },

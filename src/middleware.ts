@@ -228,6 +228,8 @@ export async function middleware(request: NextRequest) {
     pathname.endsWith('.pdf') ||
     pathname.endsWith('.xml') ||
     pathname.endsWith('.txt') ||
+    pathname.endsWith('.json') ||
+    pathname.endsWith('.jsonld') ||
     pathname.endsWith('.webmanifest') ||
     pathname.endsWith('.ico')
   ) {
