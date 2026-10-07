@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
@@ -18,10 +19,10 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi | Alo Yönetim',
-    description:
-      'İstanbul genelinde A+ plazalar, iş kuleleri ve ticari merkezler için 5188 lisanslı güvenlik, HVAC/BMS otomasyonu, kesintisiz jeneratör ve %30 enerji tasarruflu plaza yönetimi.',
+    title: t.plz_meta_title,
+    description: t.plz_meta_desc,
     path: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
     lang,
     targetKeyword: 'plaza yönetimi',
@@ -47,12 +48,12 @@ export default async function PlazaYonetimiPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
 
   const subSectorGraphLd = buildFacilitySubSectorGraphSchema({
     subSectorSlug: 'plaza-yonetimi',
-    name: 'Plaza & Ofis Binası Tesis Yönetimi',
-    description:
-      'İstanbul plaza ve iş merkezleri için HVAC iklimlendirme, enerji optimizasyonu, kiracı koordinasyonu ile entegre tesis yönetimi.',
+    name: t.plz_graph_name,
+    description: t.plz_graph_desc,
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q102163',
@@ -62,8 +63,8 @@ export default async function PlazaYonetimiPage({
     <>
       <JsonLd data={subSectorGraphLd} />
       <KeywordAnalysisSeo
-        title="Plaza & Ofis Binası Tesis Yönetimi"
-        description="İstanbul plaza ve iş merkezleri için kurumsal HVAC ve tesis işletmesi."
+        title={t.plz_graph_name}
+        description={t.plz_kw_desc}
         path="/hizmetler/tesis-yonetimi/plaza-yonetimi"
         targetKeyword="plaza tesis yönetimi"
         keywords={['plaza yönetimi', 'iş merkezi yönetimi', 'hvac bakımı', 'enerji optimizasyonu']}

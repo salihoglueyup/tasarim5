@@ -15,67 +15,29 @@ import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAns
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
 import Icon from '@/components/ui/branding/Icon';
-const OPERATIONAL_PILLARS = [
-  {
-    icon: 'local_fire_department',
-    title: 'Adresli Yangın Otomasyonu & Duman Tahliyesi',
-    badge: 'Yangın Yönetmeliği Uyumlu',
-    desc: 'BMS entegreli akıllı yangın santrali, sprinkler zon vanaları, duman tahliye damperleri ve haftalık yangın hidroforu otomatik test çalıştırmaları.',
-    highlights: ['Haftalık dizel yangın hidroforu testleri', 'Duman algılamada asansör otomatik tahliye katı', 'İtfaiye onaylı yıllık yangın ve tahliye tatbikatı']
-  },
-  {
-    icon: 'bolt',
-    title: '3x Senkron Jeneratör & Kesintisiz Güç',
-    badge: '8-12 Sn Sıfır Kesinti',
-    desc: 'Paralel çalışan senkron jeneratör grupları ile şebeke kesintisinde yük paylaşımı (load-sharing), 24 saatlik yedek motorin stoku ve UPS akü odası izleme.',
-    highlights: ['Dinamik kademeli devreye alma ve senkronizasyon', 'Haftalık boşta, aylık %75 yükte test çalıştırma', 'UPS odası 22°C hassas iklimlendirme ve voltaj takibi']
-  },
-  {
-    icon: 'mode_fan',
-    title: 'HVAC Merkezi İklimlendirme & Chiller Bakımı',
-    badge: '3 Ayda Bir Periyodik',
-    desc: 'Chiller soğutma grupları, açık kulelerde biyosit dozajı ile lejyonella engelleme, fancoil kimyasal filtre yıkama ve CO2 sensörlü taze hava optimizasyonu.',
-    highlights: ['3 ayda bir fancoil filtre yıkama ve antibakteriyel sprey', 'Açık kulelerde Lejyoner hastalığı önleme rejimi', 'BMS üzerinden dinamik mevsimlik konfor sıcaklık rejimi']
-  },
-  {
-    icon: 'calculate',
-    title: 'Ortak Alan Enerji Dağıtımı & Alt Sayaç Okuma',
-    badge: '%0 Reaktif Ceza',
-    desc: 'Merkezi ısıtma/soğutma giderlerinin M-Bus kalorimetre ve alt sayaçlarla yasal yönetmeliğe tam uygun paylaştırılması, kompanzasyon ile sıfır reaktif ceza.',
-    highlights: ['Her ayın 1\'inde dijital uzaktan sayaç okuma', 'Kompanzasyon kondansatör kademe denetimi ile %0 ceza', 'Fit-out kiracı teknik teslim-iade ve gürültü izin protokolü']
-  },
-  {
-    icon: 'badge',
-    title: 'Turnike Geçiş, Ziyaretçi QR & Güvenlik',
-    badge: '5188 Lisanslı Özel Güvenlik',
-    desc: 'Lobi turnike hızlı kartlı/QR geçiş, araç plaka tanıma sistemi (PTS), 7/24 CCTV izleme merkezi ve yük asansörü rezervasyonlu kiracı koordinasyonu.',
-    highlights: ['Ziyaretçi ön kayıt ve dijital davet sistemi', 'Yük asansörü tahsisli mesai dışı taşınma izni', 'Valilik izinli 5188 üniformalı güvenlik kadrosu']
-  },
-  {
-    icon: 'cleaning_services',
-    title: 'TSE 13811 Kurumsal Temizlik & Otopark Yıkama',
-    badge: 'TSE 13811 Sertifikalı',
-    desc: 'Plaza dış cephe cam silimi (dağcı/platform), ortak kat holleri, panoramik asansör kabinleri ve binicili zemin otomatlarıyla epoksi otopark yıkama.',
-    highlights: ['Dış cephe dağcı ekibiyle periyodik cam temizliği', 'Çevre dostu sertifikalı dezenfektan ve kimyasallar', 'Atık ayrıştırma lojistiği ve sıfır atık belgelendirmesi']
-  },
-];
-
-const STEPS = [
-  { name: '1. Kapsamlı Teknik & Enerji Keşfi', text: 'Plazanızın HVAC, jeneratör senkronizasyonu, trafo kompanzasyonu ve yangın otomasyon sistemlerini yerinde inceliyor, eksikleri raporluyoruz.' },
-  { name: '2. Şeffaf İşletme Şartnamesi (RFP)', text: 'Kiracı profili, m² ve çalışma saatlerine uygun detaylı teknik bakım takvimi ve şeffaf işletme bütçesini 48 saatte sunuyoruz.' },
-  { name: '3. Hukuki Sözleşme & SLA Garantisi', text: '45 dakika acil teknik müdahale SLA taahhüdü, %0 reaktif ceza garantisi ve noter onaylı devir protokolü imzalanır.' },
-  { name: '4. Kesintisiz Kurumsal İşletme', text: 'Mevcut kiracıların iş akışında hiçbir kesinti yaşanmadan tüm sistemler Alo Yönetim merkezi yönetim paneline entegre edilir.' },
-];
-
-const FAQS = [
-  { question: 'Plaza tesis yönetiminde yangın otomasyonu ve hidrofor testleri nasıl yapılır?', answer: 'Yangın algılama santrali, sprinkler zon vanaları ve duman tahliye damperleri BMS üzerinden 7/24 izlenir. Her hafta dizel ve elektrikli yangın hidroforları otomatik test modunda çalıştırılarak basınç testleri resmi kayıt defterine işlenir.' },
-  { question: 'Jeneratör senkronizasyonu plazada neden hayati öneme sahiptir?', answer: 'A+ plazalarda paralel çalışan senkron jeneratörler, şebeke kesildiğinde 8-12 saniyede devreye girerek yük paylaşımı yapar. Tek bir jeneratörün arızalanması halinde diğerleri kritik yükleri beslemeye devam eder, böylece veri merkezleri ve asansörlerde kesinti yaşanmaz.' },
-  { question: 'Merkezi HVAC iklimlendirme ve fancoil bakımları hangi periyotlarla yapılır?', answer: 'Chiller soğutma grupları ve açık soğutma kuleleri her mevsim geçişinde A\'dan Z\'ye bakımdan geçirilir; soğutma kulelerinde Lejyonella bakterisine karşı biyosit dozajı uygulanır. Kat fancoil filtreleri ise 3 ayda bir yıkanarak antibakteriyel spreylenir.' },
-  { question: 'Kiracılar arasında ortak alan enerji giderleri nasıl paylaştırılır?', answer: 'Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Gider Paylaşım Yönetmeliği gereğince; bağımsız bölümlerin kalorimetre, ultrasonik sayaç ve elektrik alt sayaçları her ay başında dijital okunur. Kompanzasyon takibiyle elektrik faturasındaki reaktif güç cezası %0\'da tutulur.' },
-  { question: 'Acil teknik arızalarda müdahale SLA süreniz ne kadardır?', answer: 'Sözleşmeli SLA taahhüdümüz kapsamında kritik teknik arızalara (asansör durması, jeneratör transfer hatası, su basması) maksimum 45 dakika içinde yerinde müdahale edilir.' },
-];
+import TrOnly from '@/components/seo/TrOnly';
+import { useLanguage } from '@/context/LanguageContext';
+import { localePath } from '@/lib/i18n/localePath';
+const PILLAR_ICONS = ['local_fire_department', 'bolt', 'mode_fan', 'calculate', 'badge', 'cleaning_services'];
+const NETWORK_SLUGS = ['sisli', 'besiktas', 'atasehir', 'umraniye', 'kadikoy', 'bakirkoy'];
 
 export default function PlazaYonetimiClient() {
+  const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
+
+  const pillars = PILLAR_ICONS.map((icon, i) => {
+    const n = i + 1;
+    return {
+      icon,
+      title: tk(`plz_p${n}_title`),
+      badge: tk(`plz_p${n}_badge`),
+      desc: tk(`plz_p${n}_desc`),
+      highlights: [tk(`plz_p${n}_h1`), tk(`plz_p${n}_h2`), tk(`plz_p${n}_h3`)],
+    };
+  });
+  const steps = [1, 2, 3, 4].map((n) => ({ name: tk(`plz_step_${n}_name`), text: tk(`plz_step_${n}_text`) }));
+  const faqs = [1, 2, 3, 4, 5].map((n) => ({ question: tk(`plz_faq_${n}_q`), answer: tk(`plz_faq_${n}_a`) }));
+
   return (
     <>
       {/* Hero */}
@@ -84,21 +46,21 @@ export default function PlazaYonetimiClient() {
         <div className="relative z-10 px-[var(--spacing-gutter)] max-w-5xl mx-auto w-full text-center flex flex-col items-center gap-6">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center gap-6">
             <span className="text-xs font-bold text-slate-300 border border-slate-400/30 bg-slate-400/10 px-5 py-2 rounded-full tracking-widest uppercase">
-              A+ Plaza & Ticari İş Merkezi Tesis Yönetimi
+              {tk('plz_hero_badge')}
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight">
-              Plaza & Ofis Binası{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">Tesis Yönetimi</span>
+              {tk('plz_hero_h1a')}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">{tk('plz_hero_h1b')}</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl font-light leading-relaxed">
-              İstanbul plazaları için adresli yangın otomasyonu, 3x senkron jeneratör yük paylaşımı, HVAC chiller periyodik bakımı, kalorimetre ortak gider paylaşımı ve %0 reaktif ceza güvencesi.
+              {tk('plz_hero_p')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/teklif-al" className="bg-slate-500 hover:bg-slate-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
-                Ücretsiz Teknik Keşif Talep Et
+              <Link href={localePath('/teklif-al', language)} className="bg-slate-500 hover:bg-slate-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 shadow-lg">
+                {tk('plz_cta_rfp')}
               </Link>
-              <Link href="/hizmetler/tesis-yonetimi" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
-                Tesis Yönetimi Standartları
+              <Link href={localePath('/hizmetler/tesis-yonetimi', language)} className="border border-white/20 text-white hover:bg-white/10 font-semibold py-3.5 px-8 rounded-xl transition-all">
+                {tk('plz_cta_std')}
               </Link>
             </div>
           </motion.div>
@@ -108,6 +70,7 @@ export default function PlazaYonetimiClient() {
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
 
         {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
+<TrOnly>
         <PositionZeroAnswerBox
           id="plaza-yonetimi-nedir"
           answerId="plaza-instant-answer-text"
@@ -117,29 +80,32 @@ export default function PlazaYonetimiClient() {
           subText="Alo Yönetim, kurumsal plazalarda 45 dakika acil teknik müdahale SLA garantisi, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
           accentColor="blue"
         />
+</TrOnly>
 
+<TrOnly>
         <GoogleAiOverviewGroundingSeo
           filterIds={['plaza-bms-enerji', 'site-vs-tesis', 'ev-sarj-istasyonu']}
           title="Plaza Yönetiminde Yapay Zekaya Sorun: BMS ve EPDK Standartları"
           subtitle="Google AI Overviews, Gemini ve Claude için doğrulanmış plaza otomasyonu, enerji verimliliği ve tesis yönetimi mevzuatı."
         />
+</TrOnly>
 
         {/* 6'lı Operasyonel Standartlar Grid */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-950/40 px-3.5 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/40">
-              Operasyonel Mühendislik & Teknik Disiplin
+              {tk('plz_sec_badge')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] mt-3">
-              Plaza ve İş Merkezlerinde Kesintisiz İşletme Standartlarımız
+              {tk('plz_sec_title')}
             </h2>
             <p className="text-sm text-[var(--color-secondary)] mt-2">
-              Elektromekanik donanımların yıpranmasını önlüyor, enerji tüketimini optimize ediyor ve kiracı memnuniyetini en üst düzeyde tutuyoruz.
+              {tk('plz_sec_desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {OPERATIONAL_PILLARS.map((f, i) => (
+            {pillars.map((f, i) => (
               <motion.div
                 key={f.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -182,9 +148,9 @@ export default function PlazaYonetimiClient() {
         {/* Süreç */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
           <HowToSeo
-            name="Plaza Yönetimine Geçiş Süreci"
-            description="Plazanızı profesyonel yönetime taşımak 4 adımda tamamlanır."
-            steps={STEPS}
+            name={tk('plz_howto_name')}
+            description={tk('plz_howto_desc')}
+            steps={steps}
           />
         </div>
 
@@ -192,44 +158,42 @@ export default function PlazaYonetimiClient() {
         <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
             <Icon name="corporate_fare" className="text-slate-500 text-xl" />
-            <span>İstanbul Genelinde Hizmet Ağımızın Bulunduğu Plaza & Ticaret Merkezleri</span>
+            <span>{tk('plz_net_title')}</span>
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">
-            Büyük iş merkezlerinin yoğunlaştığı iş koridorlarında kesintisiz nöbetçi saha ekiplerimizle hizmet veriyoruz:
+            {tk('plz_net_desc')}
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {[
-              { name: 'Şişli Plazaları', slug: 'sisli' },
-              { name: 'Beşiktaş (Levent)', slug: 'besiktas' },
-              { name: 'Ataşehir Finans', slug: 'atasehir' },
-              { name: 'Ümraniye İş Vadisi', slug: 'umraniye' },
-              { name: 'Kadıköy İş Merkezleri', slug: 'kadikoy' },
-              { name: 'Bakırköy Ticaret', slug: 'bakirkoy' },
-            ].map((d) => (
+            {NETWORK_SLUGS.map((slug, i) => (
               <Link
-                key={d.slug}
-                href={`/bolgeler/${d.slug}/tesis-yonetimi`}
+                key={slug}
+                href={localePath(`/bolgeler/${slug}/tesis-yonetimi`, language)}
                 className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 hover:border-slate-400 transition-all text-center shadow-xs"
               >
-                {d.name}
+                {tk(`plz_net_${i + 1}`)}
               </Link>
             ))}
           </div>
         </div>
 
         {/* B2B Şartname (RFP) İndirici */}
+<TrOnly>
         <FacilityRfpDownloadModalSeo />
+</TrOnly>
 
         {/* FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <DynamicFAQ faqs={FAQS} title="Plaza Tesis Yönetimi — Sık Sorulan Sorular" />
+          <DynamicFAQ faqs={faqs} title={tk('plz_faq_title')} />
         </div>
 
         {/* Tesis Yönetimi Alt Sektör Silo Ağı */}
+<TrOnly>
         <FacilitySubSectorCrossNav currentSlug="plaza-yonetimi" />
+</TrOnly>
       </section>
 
       {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
       <ServiceAuthorityHubSeo
         serviceName="Plaza ve İş Merkezi Tesis Yönetimi"
         serviceCategory="Ticari Gayrimenkul İşletmesi"
@@ -274,6 +238,7 @@ export default function PlazaYonetimiClient() {
           }
         ]}
       />
+</TrOnly>
 
       <SeoTextSection titleKey="tesis_seo_title" p1Key="tesis_seo_p1" p2Key="tesis_seo_p2" />
       <RelatedServices currentPath="/hizmetler/tesis-yonetimi/plaza-yonetimi" />

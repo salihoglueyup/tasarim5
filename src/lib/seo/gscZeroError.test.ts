@@ -1,4 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Sayfaların generateMetadata'sı sunucuya özel sözlük yükleyicisini içe aktarır; testte etkisiz bırakılır.
+vi.mock('server-only', () => ({}));
 import { generateFacilityManagementGraph } from './facility/facilityTopicGraph';
 import {
   buildFacilityCompleteGraphSchema,
@@ -3913,11 +3916,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       // 2. Plaza
       const plazaContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx'), 'utf8');
-      expect(plazaContent).toContain('Adresli Yangın Otomasyonu & Duman Tahliyesi');
-      expect(plazaContent).toContain('3x Senkron Jeneratör & Kesintisiz Güç');
-      expect(plazaContent).toContain('HVAC Merkezi İklimlendirme & Chiller Bakımı');
-      expect(plazaContent).toContain('Ortak Alan Enerji Dağıtımı & Alt Sayaç Okuma');
-      expect(plazaContent).toContain('%0 Reaktif Ceza');
+      // Plaza metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
+      const plazaDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(plazaContent).toContain('plz_p${n}_title');
+      expect(plazaDict).toContain('Adresli Yangın Otomasyonu & Duman Tahliyesi');
+      expect(plazaDict).toContain('3x Senkron Jeneratör & Kesintisiz Güç');
+      expect(plazaDict).toContain('HVAC Merkezi İklimlendirme & Chiller Bakımı');
+      expect(plazaDict).toContain('Ortak Alan Enerji Dağıtımı & Alt Sayaç Okuma');
+      expect(plazaDict).toContain('Reaktif Ceza Önleme');
 
       // 3. Toplu Konut
       const topluKonutContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx'), 'utf8');
@@ -4071,7 +4077,8 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const topluKonutPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/page.tsx'), 'utf8');
       const sanayiPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/page.tsx'), 'utf8');
 
-      expect(plazaPage).toContain('Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi | Alo Yönetim');
+      expect(plazaPage).toContain('plz_meta_title');
+      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi');
       expect(rezidansPage).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti | Alo Yönetim');
       expect(topluKonutPage).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf | Alo Yönetim');
       expect(sanayiPage).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi | Alo Yönetim');
