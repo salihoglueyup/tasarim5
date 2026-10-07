@@ -46,7 +46,7 @@ describe('Wave 7: Faz 161 - Faz 165 Çok Dilli Formatlayıcılar, Sitemap Altern
   });
 
   it('Faz 163: hreflang yalnızca indekslenebilir dilleri (çevrilmemişse sadece TR) ve x-default içerir', () => {
-    const alternates = buildLanguageAlternates('/sozluk');
+    const alternates = buildLanguageAlternates('/referanslar');
     expect(alternates).toHaveProperty('tr');
     expect(alternates).toHaveProperty('x-default');
     expect(alternates).not.toHaveProperty('en');

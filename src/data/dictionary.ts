@@ -80,7 +80,7 @@ export const TERMS: Term[] = [
   {
     term: 'İşletme Projesi',
     definition:
-      'Bir yıllık tahmini gelir ve giderleri, aidat tutarlarını ve avans miktarlarını gösteren bütçe planıdır. Yönetici tarafından hazırlanır ve kat malikleri kuruluna sunulur.',
+      'Bir yıllık tahmini gelir ve giderleri, aidat tutarlarını ve avans miktarlarını gösteren bütçe planıdır. Yönetici tarafından hazırlanır ve kat malikleri kuruluna sunulur; 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la kurulda onaylanma esası getirilmiştir.',
     link: { href: '/hizmetler/tesis-yonetimi', label: 'Tesis yönetimi' },
     sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
   },
@@ -161,7 +161,7 @@ export const TERMS: Term[] = [
   {
     term: 'Hizmet Seviyesi Taahhüdü (SLA)',
     definition:
-      'Tesis yönetim şirketi ile site yönetimi arasında imzalanan, arıza müdahale süresi (örn. 45 dk), temizlik frekansı ve güvenlik devriye sayılarını yasal güvenceye bağlayan resmi performans sözleşmesidir.',
+      'Tesis yönetim şirketi ile site yönetimi arasında imzalanan, arıza müdahale süreleri, temizlik sıklığı ve güvenlik devriye sayıları gibi hizmet seviyelerini belirleyen ve sözleşmeyle güvence altına alan performans sözleşmesidir.',
     link: { href: '/hizmetler/tesis-yonetimi', label: 'Kurumsal SLA taahhütleri' },
   },
   {

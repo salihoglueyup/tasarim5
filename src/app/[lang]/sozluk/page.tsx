@@ -7,6 +7,8 @@ import { TERMS, termToSlug } from '@/data/dictionary';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import SozlukClient from './SozlukClient';
+import SozlukTranslatedClient from './SozlukTranslatedClient';
+import { TRANSLATED_TERMS } from '@/data/dictionaryTranslated';
 
 export const revalidate = 86400; // 24 saat ISR
 export const dynamicParams = true;
@@ -22,6 +24,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const t = await getDictionary(lang);
+
+  if (lang === 'en' || lang === 'ru' || lang === 'ar') {
+    return buildMetadata({
+      title: t.sozx_meta_title,
+      description: t.sozx_meta_desc,
+      path: '/sozluk',
+      lang,
+      keywords: t.sozx_meta_keywords.split('|'),
+    });
+  }
 
   return buildMetadata({
     title: 'Site ve Tesis Yönetimi Sözlüğü — KMK Terimleri | Alo Yönetim',
@@ -52,6 +64,31 @@ export default async function SozlukPage({
 }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
+
+  if (lang === 'en' || lang === 'ru' || lang === 'ar') {
+    const translatedSetLd = definedTermSetSchema({
+      name: t.sozx_h1,
+      description: t.sozx_meta_desc,
+      path: '/sozluk',
+      terms: TRANSLATED_TERMS.map((item) => ({
+        term: item[lang].term,
+        definition: item[lang].definition,
+        url: `/sozluk/${item.slug}`,
+      })),
+    });
+    const translatedPageLd = webPageSchema({
+      name: t.sozx_meta_title,
+      description: t.sozx_meta_desc,
+      path: '/sozluk',
+      speakableSelectors: ['h1', '#glossary-instant-answer-text'],
+    });
+    return (
+      <>
+        <JsonLd data={[generateBreadcrumbs([{ name: t.nav_home, url: '/' }, { name: t.sozx_crumb, url: '/sozluk' }]), translatedPageLd, translatedSetLd]} />
+        <SozlukTranslatedClient lang={lang} />
+      </>
+    );
+  }
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: t.nav_home || 'Anasayfa', url: '/' },

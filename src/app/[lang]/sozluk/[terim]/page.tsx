@@ -9,6 +9,8 @@ import TermAiOverviewCard from '@/components/seo/ai-overviews/TermAiOverviewCard
 import { TERMS, termToSlug, slugToTerm, TERM_SLUG_ALIASES } from '@/data/dictionary';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';
+import { getTranslatedTerm } from '@/data/dictionaryTranslated';
+import TranslatedTermView from './TranslatedTermView';
 
 import Icon from '@/components/ui/branding/Icon';
 export const revalidate = 86400;
@@ -29,6 +31,17 @@ export async function generateMetadata({
   params: Promise<{ lang: string; terim: string }>;
 }): Promise<Metadata> {
   const { lang, terim } = await params;
+  const translated = getTranslatedTerm(terim, lang);
+  if (translated) {
+    const tdict = await getDictionary(lang);
+    return buildMetadata({
+      title: tdict.sozx_term_title.replace('{term}', translated.term),
+      description: translated.definition.length > 158 ? `${translated.definition.slice(0, 155)}...` : translated.definition,
+      path: `/sozluk/${terim}`,
+      lang,
+      keywords: [translated.term],
+    });
+  }
   const term = slugToTerm(terim);
   if (!term) {
     return buildMetadata({ title: 'Terim Bulunamadı', description: '', path: '/sozluk', lang, noindex: true });
@@ -98,6 +111,9 @@ export default async function TermPage({
   const { lang, terim } = await params;
   const dict = await getDictionary(lang);
   const t = (key: string) => dict[key] ?? key;
+  if (getTranslatedTerm(terim, lang)) {
+    return <TranslatedTermView slug={terim} lang={lang as 'en' | 'ru' | 'ar'} dict={dict as Record<string, string>} />;
+  }
   const term = slugToTerm(terim);
   if (!term) notFound();
 
