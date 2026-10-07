@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis';
 import SectoralClient from './SectoralClient';
 import { buildMetadata, LOCALES } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 export function generateStaticParams() {
@@ -17,14 +18,14 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Sektörel Tesis ve Bina Yönetimi Çözümleri | Alo Yönetim',
-    description:
-      'Rezidans, AVM, karma yaşam ve sanayi tesislerine özel entegre yönetim çözümleri. Sektörünüze özel süreçler ve kanıtlanmış KPI başarıları.',
+    title: t.sek_meta_title,
+    description: t.sek_meta_desc,
     path: '/sektorel-cozumler',
     lang,
     targetKeyword: 'sektörel tesis yönetimi',
-    keywords: ['rezidans yönetimi', 'avm tesis yönetimi', 'sanayi tesis yönetimi', 'sektörel tesis çözümleri', 'osb tesis yönetimi'],
+    keywords: t.sek_meta_keywords.split('|'),
   });
 }
 
@@ -34,6 +35,7 @@ export default async function SektorelCozumlerPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   let dbSolutions: any[] = [];
   const cacheKeySolutions = 'sectoral_solutions_list_v2';
 
@@ -56,13 +58,13 @@ export default async function SektorelCozumlerPage({
   }
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: lang === 'en' ? 'Home' : 'Anasayfa', url: '/' },
-    { name: lang === 'en' ? 'Sectoral Solutions' : 'Sektörel Çözümler', url: '/sektorel-cozumler' },
+    { name: t.sek_home, url: '/' },
+    { name: t.sector_page_title, url: '/sektorel-cozumler' },
   ]);
 
   const pageLd = webPageSchema({
-    name: 'Sektörel Tesis ve Bina Yönetimi Çözümleri | Alo Yönetim',
-    description: 'Rezidans, plaza, AVM ve OSB tesislerine özel entegre yönetim çözümleri.',
+    name: t.sek_meta_title,
+    description: t.sek_page_ld_desc,
     path: '/sektorel-cozumler',
     speakableSelectors: ['h1', 'p', '#sector-hub-instant-answer-text'],
   });

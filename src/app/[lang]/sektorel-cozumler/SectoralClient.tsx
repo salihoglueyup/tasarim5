@@ -15,8 +15,29 @@ import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOve
 
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
+
+const GUIDE_LINKS = [
+  '/hizmetler/tesis-yonetimi',
+  '/hizmetler/guvenlik-yonetimi',
+  '/hizmetler/aidat-takibi',
+  '/hizmetler/teknik-bakim',
+  '/hizmetler/temizlik-ve-hijyen',
+];
+const CARD_ICONS = ['apartment', 'holiday_village', 'domain', 'factory'];
+const MICRO_ICONS = ['trending_down', 'verified', 'shield_person'];
+// Veritabanındaki satırların rakamlı KPI etiketleri yerine nitelik odaklı etiketler gösterilir.
+const SLUG_KPI_KEYS: Record<string, string> = {
+  rezidans: 'sector_residence_kpi',
+  avm: 'sector_mall_kpi',
+  sanayi: 'sector_industrial_kpi',
+  toplukonut: 'sector_housing_kpi',
+  'guvenlik-rezidans-plaza': 'sek_s5_kpi',
+};
 export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutions: any[]; lang?: string }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
 
   const baseSectors = [
     {
@@ -73,20 +94,16 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
     },
     {
       id: "guvenlik-rezidans-plaza",
-      title: "5188 Özel Güvenlik & Plaza Emniyet Çözümleri",
-      desc: "Rezidans, plaza ve büyük toplu konut sitelerinde 5188 sayılı kanuna uygun sertifikalı özel güvenlik, AI plaka tanıma (PTS), kartlı turnike ve 7/24 kesintisiz devriye kalkanı.",
+      title: tk('sek_s5_title'),
+      desc: tk('sek_s5_desc'),
       icon: "security",
-      kpi: "%100 Sıfır Zafiyet & 5188 Valilik İzin Güvencesi",
-      features: [
-        "5188 Lisanslı ve Sabıka Kaydı Temiz Özel Güvenlik Personeli",
-        "Yapay Zeka Destekli Otomatik Plaka Tanıma (PTS) & Turnike Kontrolü",
-        "Kör Noktasız 4K Gece Görüşlü IP CCTV Ağı & 30 Günlük Şifreli Kayıt",
-        "GPS & RFID Zaman Damgalı Saatlik Devriye ve Mobil Amir Teftişi"
-      ]
+      kpi: tk('sek_s5_kpi'),
+      features: [tk('sek_s5_f1'), tk('sek_s5_f2'), tk('sek_s5_f3'), tk('sek_s5_f4')]
     }
   ];
 
-  const sectors = dbSolutions && dbSolutions.length > 0 ? dbSolutions.map(ds => {
+  // Veritabanı içeriği yalnızca Türkçedir; diğer dillerde çevrilmiş sabit içerik gösterilir.
+  const sectors = language === 'tr' && dbSolutions && dbSolutions.length > 0 ? dbSolutions.map(ds => {
     let featuresList = [];
     try {
       featuresList = ds.features ? JSON.parse(ds.features) : [];
@@ -97,7 +114,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
       title: ds.title,
       desc: ds.description || '',
       icon: ds.icon || 'apartment',
-      kpi: ds.kpiTag || t('sector_residence_kpi'),
+      kpi: SLUG_KPI_KEYS[ds.slug] ? tk(SLUG_KPI_KEYS[ds.slug]) : ds.kpiTag || t('sector_residence_kpi'),
       features: featuresList.length > 0 ? featuresList : [
         t('sector_residence_feat_1'),
         t('sector_residence_feat_2')
@@ -133,7 +150,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
   const currentSector = sectors.find(s => s.id === activeTab) || sectors[0];
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: 'Anasayfa', url: '/' },
+    { name: tk('sek_home'), url: '/' },
     { name: t('sector_page_title'), url: '/sektorel-cozumler' }
   ]);
 
@@ -150,21 +167,13 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
   // Sektörel paketler: Product + AggregateOffer (Faz 64).
   const productLd = {
     '@type': 'Product',
-    name: 'Sektörel Tesis Yönetim Çözümleri',
-    description:
-      'Rezidans, AVM, Sanayi ve Toplu Konut projeleri için özelleştirilmiş entegre tesis yönetimi hizmetleri.',
+    name: tk('sek_product_name'),
+    description: tk('sek_product_desc'),
     brand: { '@type': 'Brand', name: 'Alo Yönetim' },
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'TRY',
-      lowPrice: '5000',
-      highPrice: '50000',
-      offerCount: '4',
-    },
   };
 
   const breadcrumbs = [
-    { name: 'Anasayfa', url: '/' },
+    { name: tk('sek_home'), url: '/' },
     { name: t('sector_page_title'), url: '/sektorel-cozumler' }
   ];
   
@@ -182,172 +191,62 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
         {/* ========================================================================= */}
         {/* GOOGLE AI OVERVIEWS • SEKTÖREL ÇÖZÜMLER HUB OTORİTESİ                     */}
         {/* ========================================================================= */}
-        <SectorHubAiOverviewSeo lang={lang} />
+        <TrOnly>
+          <SectorHubAiOverviewSeo lang={lang} />
+        </TrOnly>
 
-        {/* ========================================================================= */}
-        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
-        {/* ========================================================================= */}
+        {/* Özet rehber */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <Icon name="domain_add" className="text-[18px] text-[var(--color-primary)]" />
-              <span>Özet Rehber: Sektörel Tesis Yönetimi ve Tipolojiye Özel İşletme Nedir?</span>
+              <span>{tk('sek_guide_badge')}</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
-              ISO 41001 & Tesis Yaşam Döngüsü Standardı
+              {tk('sek_guide_tag')}
             </span>
           </div>
 
-          {/* Genişletilmiş ve Detaylandırılmış Metin */}
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
-            <p>
-              <strong className="text-[var(--color-primary)] font-bold">Sektörel Tesis Yönetimi</strong>;{' '}
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                lüks rezidanslar
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                büyük toplu konut siteleri
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                iş merkezleri ve kurumsal plazalar
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                sanayi ve fabrika tesisleri
-              </Link>
-              {' '}ile{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                alışveriş merkezlerinin (AVM)
-              </Link>{' '}
-              kendine özgü operasyonel, teknik, güvenlik ve yasal dinamiklerine göre tasarlanan bütünleşik yönetim modelidir. Standart ve şablonik bina yönetimi yaklaşımları yerine, her mülk tipolojisinin insan sirkülasyonu, enerji tüketim profili, amortisman riskleri ve sakin beklentilerine göre özelleştirilmiş SLA (Hizmet Seviyesi Taahhüdü) süreçleri uygulanır.
+            <p>{tk('sek_guide_p1')}</p>
+            <p>{tk('sek_guide_p2')}</p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+              {GUIDE_LINKS.map((href, i) => (
+                <Link key={href} href={localePath(href, language)} className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:opacity-80 transition-colors">
+                  {tk(`sek_link_${i + 1}`)}
+                </Link>
+              ))}
             </p>
-            <p>
-              Sektörel operasyonlarımız;{' '}
-              <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors inline-flex items-center gap-0.5">
-                ISO 41001:2018 Uluslararası Tesis Yönetimi Standardı
-                <Icon name="open_in_new" className="text-[14px]" />
-              </a>
-              ,{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                634 Sayılı Kat Mülkiyeti Kanunu (KMK)
-              </Link>
-              ,{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors inline-flex items-center gap-0.5">
-                5188 Sayılı Özel Güvenlik Kanunu
-                <Icon name="open_in_new" className="text-[14px]" />
-              </a>
-              {' '}ve 6331 Sayılı İş Sağlığı ve Güvenliği (İSG) mevzuatlarına tam entegre olarak icra edilir.
-            </p>
-            <p>
-              Tesis tipolojisine göre özelleştirilen ana hizmet hatlarımız;{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                Entegre Tesis Yönetimi
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                5188 Özel Güvenlik
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                Şeffaf Aidat Takibi
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                Mühendislik & Teknik Bakım
-              </Link>
-              {' '}ve{' '}
-              <Link href="/hizmetler/temizlik-ve-hijyen" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-colors">
-                Endüstriyel Temizlik
-              </Link>{' '}
-              olmak üzere dört ana yapısal tipolojide odaklanır:
-            </p>
+            <p>{tk('sek_guide_p3')}</p>
 
-            {/* 4 Ana Sektörel Tipoloji Kartı */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <Icon name="apartment" className="text-base text-[var(--color-primary)]" /> Lüks Rezidans & Çok Katlı Yaşam Projeleri
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  7/24 konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri, dijital mobil aidat & rezervasyon uygulaması ve üst düzey sakin konforu.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <Icon name="holiday_village" className="text-base text-[var(--color-primary)]" /> Site & Büyük Ölçekli Toplu Konut Yönetimi
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  KMK m.20 şeffaf aidat ve işletme projesi, ilamsız icra takibi, periyodik yeşil etiket asansör bakımı, geniş peyzaj/otomatik sulama ve çevre çit güvenliği.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <Icon name="domain" className="text-base text-[var(--color-primary)]" /> Plaza, İş Merkezi & Ticari Gayrimenkuller
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  Turnike/kartlı geçiş, BMS yangın & duman otomasyonu, kompanzasyon %0 reaktif ceza yönetimi, B2B teknik şartname ve enerji optimizasyon denetimleri.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <Icon name="factory" className="text-base text-[var(--color-primary)]" /> Sanayi, Fabrika & Lojistik Depo Tesisleri
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  6331 İSG denetimleri, ağır vasıta PTS giriş-çıkış kontrolü, trafo/yüksek gerilim ve jeneratör bakımları, endüstriyel atık ve çevre mevzuatı uyumu.
-                </p>
-              </div>
+              {CARD_ICONS.map((icon, i) => (
+                <div key={icon} className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                  <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                    <Icon name={icon} className="text-base text-[var(--color-primary)]" /> {tk(`sek_card_${i + 1}_title`)}
+                  </span>
+                  <p className="text-[var(--color-secondary)]">{tk(`sek_card_${i + 1}_desc`)}</p>
+                </div>
+              ))}
             </div>
 
-            <p>
-              Alo Yönetim ölçek ekonomisi sayesinde; her tesis tipolojisinde satın alma maliyetlerinde %30'a varan doğrudan tasarruf sağlanır, yönetim kurullarının hukuki riskleri sıfırlanır ve gayrimenkulün piyasa değeri korunur.
-            </p>
+            <p>{tk('sek_guide_close')}</p>
           </div>
 
-          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
-            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                  <Icon name="trending_down" className="text-lg" />
-                </span>
-                <span>%30 Net Bütçe Tasarrufu</span>
+            {MICRO_ICONS.map((icon, i) => (
+              <div key={icon} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                  <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
+                    <Icon name={icon} className="text-lg" />
+                  </span>
+                  <span>{tk(`sek_micro_${i + 1}_title`)}</span>
+                </div>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">{tk(`sek_micro_${i + 1}_desc`)}</p>
               </div>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Toplu satın alma gücü ve ölçek ekonomisiyle enerji, temizlik kimyasalı ve teknik bakım maliyetlerinde indirim.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                  <Icon name="verified" className="text-lg" />
-                </span>
-                <span>%100 Tipolojiye Özel SLA</span>
-              </div>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Rezidans, toplu konut, plaza ve sanayi projelerine özel tanımlı yanıt süreleri ve hizmet kalite standartları.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-slate-900/5 dark:bg-white/10 text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                  <Icon name="shield_person" className="text-lg" />
-                </span>
-                <span>7/24 Şeffaf Denetim</span>
-              </div>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Canlı dijital aidat muhasebesi, süpervizör gece devriyeleri ve bağımsız denetçi teftiş raporları.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -418,7 +317,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                 </p>
 
                 <Link 
-                  href="/teklif-al" 
+                  href={localePath('/teklif-al', language)} 
                   className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-6 rounded-2xl text-center text-sm transition-transform hover:scale-102 shadow-md flex items-center justify-center gap-2 mt-2"
                 >
                   {currentSector.title} {t('sector_quote_for_sector')}
@@ -498,7 +397,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               </div>
             </div>
 
-            <Link href="/teklif-al" className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-102 hover:opacity-90 shadow-md">
+            <Link href={localePath('/teklif-al', language)} className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3.5 px-6 rounded-xl text-center text-sm transition-transform hover:scale-102 hover:opacity-90 shadow-md">
               {t('sector_est_btn')}
             </Link>
           </div>
@@ -530,7 +429,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
                 </div>
               </div>
 
-              <Link href="/teklif-al" className="w-fit bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3 px-6 rounded-xl text-xs hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
+              <Link href={localePath('/teklif-al', language)} className="w-fit bg-[var(--color-primary)] text-[var(--color-surface)] font-bold py-3 px-6 rounded-xl text-xs hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
                 {t('sector_get_quote')}
                 <Icon name="arrow_forward" className="text-sm" />
               </Link>
@@ -539,7 +438,9 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
         </div>
 
         {/* 3 Yıllık Sektörel ROI & Tasarruf Matrisi */}
-        <SectoralRoiCalculatorSeo />
+        <TrOnly>
+          <SectoralRoiCalculatorSeo />
+        </TrOnly>
 
         {/* FAQ Accordion */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
@@ -565,6 +466,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
         </div>
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
         <ServiceAuthorityHubSeo
           serviceName="Sektörel Tesis ve Gayrimenkul Yönetim Çözümleri"
           serviceCategory="Sektörel Çözümler"
@@ -614,6 +516,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
             }
           ]}
         />
+</TrOnly>
 
         {/* Bottom Call To Action Banner */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
@@ -623,7 +526,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
               {t('sector_cta_desc')}
             </p>
           </div>
-          <Link href="/teklif-al" className="bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm transition-transform hover:scale-102 shadow-md">
+          <Link href={localePath('/teklif-al', language)} className="bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-8 rounded-2xl shrink-0 text-sm transition-transform hover:scale-102 shadow-md">
             {t('sector_cta_btn')}
           </Link>
         </div>

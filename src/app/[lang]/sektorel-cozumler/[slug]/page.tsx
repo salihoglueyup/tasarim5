@@ -13,6 +13,15 @@ import SectorAiOverviewSnippetSeo from '@/components/seo/ai-overviews/SectorAiOv
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 import Icon from '@/components/ui/branding/Icon';
+// Veritabanındaki rakamlı KPI etiketleri yerine nitelik odaklı ifadeler gösterilir.
+const SLUG_KPI: Record<string, string> = {
+  rezidans: 'Sakin memnuniyeti odaklı hizmet',
+  avm: 'Kesintisiz iklimlendirme odağı',
+  sanayi: 'İSG ve işletme sürekliliği odağı',
+  toplukonut: 'Şeffaf aidat ve tasarruf odağı',
+  'guvenlik-rezidans-plaza': 'Mevzuata uygun güvenlik odağı',
+};
+
 export const dynamicParams = true;
 export const revalidate = 3600;
 
@@ -67,7 +76,6 @@ export async function generateMetadata({
       `${solution.title.toLowerCase()} tesis yönetimi`,
       'profesyonel tesis yönetimi',
       'sektörel tesis çözümleri',
-      'iso 41001',
       '5188 güvenlik',
     ],
   });
@@ -97,6 +105,7 @@ export default async function SectoralSolutionDetailPage({
   }
 
   const path = `/sektorel-cozumler/${solution.slug}`;
+  const kpiText = SLUG_KPI[solution.slug] ?? '';
 
   const breadcrumbs = [
     { name: 'Anasayfa', url: '/' },
@@ -113,7 +122,7 @@ export default async function SectoralSolutionDetailPage({
       path,
       priceRange: '₺₺₺',
     }),
-    category: 'ISO 41001:2018 Entegre Tesis Yönetimi',
+    category: 'Entegre Tesis Yönetimi',
     hasCredential: ORG_CREDENTIALS,
     isRelatedTo: [
       {
@@ -149,7 +158,7 @@ export default async function SectoralSolutionDetailPage({
       },
       result: {
         '@type': 'FinancialProduct',
-        name: `${solution.title} Yıllık İşletme Projesi ve %30 Tasarruf Raporu`,
+        name: `${solution.title} Yıllık İşletme Projesi ve Tasarruf Raporu`,
       },
     },
   };
@@ -159,7 +168,7 @@ export default async function SectoralSolutionDetailPage({
     '@type': 'DigitalDocument',
     name: `${solution.title} Tesis Yönetimi B2B Teknik İhale Şartnamesi`,
     url: 'https://aloyonetim.com.tr/api/tesis-yonetimi/rfp-generator',
-    description: `ISO 41001 ve 5188 standartlarında ${solution.title.toLowerCase()} teknik şartname şablonu.`,
+    description: `${solution.title.toLowerCase()} için teknik şartname şablonu.`,
   };
 
   // Otomatik linkleme
@@ -171,7 +180,7 @@ export default async function SectoralSolutionDetailPage({
 
       <PageHeader
         title={solution.title}
-        description={solution.kpiTag ? `Hedeflenen KPI: ${solution.kpiTag}` : 'Sektörünüze özel entegre tesis yönetimi çözümleri.'}
+        description={kpiText ? `Odak: ${kpiText}` : 'Sektörünüze özel entegre tesis yönetimi çözümleri.'}
         breadcrumbs={breadcrumbs}
       />
 
@@ -199,12 +208,12 @@ export default async function SectoralSolutionDetailPage({
                 dangerouslySetInnerHTML={{ __html: processedDescription }}
               />
 
-              {solution.kpiTag && (
+              {kpiText && (
                 <div className="mt-8 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center gap-3">
                   <Icon name="trending_up" className="text-emerald-600 dark:text-emerald-400 text-2xl" />
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">Kanıtlanmış Sektörel KPI</span>
-                    <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-200">{solution.kpiTag}</p>
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">Sektörel Odak</span>
+                    <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-200">{kpiText}</p>
                   </div>
                 </div>
               )}
@@ -295,17 +304,17 @@ export default async function SectoralSolutionDetailPage({
             <Link href="/hizmetler/guvenlik-yonetimi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
               <Icon name="shield" className="text-2xl text-slate-600 dark:text-slate-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">5188 Lisanslı Özel Güvenlik</span>
-              <span className="text-xs text-[var(--color-secondary)]">Valilik izinli, PTS/CCTV ve 7/24 devriye kalkanı.</span>
+              <span className="text-xs text-[var(--color-secondary)]">5188 kapsamında özel güvenlik, PTS/CCTV ve devriye.</span>
             </Link>
             <Link href="/hizmetler/aidat-takibi" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
               <Icon name="payments" className="text-2xl text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Aidat & Finans Takibi</span>
-              <span className="text-xs text-[var(--color-secondary)]">KMK m.20 şeffaf bilanço ve ilamsız icra takibi.</span>
+              <span className="text-xs text-[var(--color-secondary)]">KMK m.20 kapsamında şeffaf bilanço ve icra takibi.</span>
             </Link>
             <Link href="/hizmetler/teknik-bakim" className="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 hover:border-slate-500 transition-all flex flex-col gap-2 group">
               <Icon name="engineering" className="text-2xl text-slate-600 dark:text-slate-400 group-hover:scale-110 transition-transform" />
               <span className="font-bold text-sm text-[var(--color-primary)]">Teknik Bakım & Asansör</span>
-              <span className="text-xs text-[var(--color-secondary)]">MMO yeşil etiket ve %0 kompanzasyon ceza güvencesi.</span>
+              <span className="text-xs text-[var(--color-secondary)]">Periyodik asansör bakımı ve reaktif enerji takibi.</span>
             </Link>
           </div>
         </div>

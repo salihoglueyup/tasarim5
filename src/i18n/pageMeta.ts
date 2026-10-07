@@ -104,9 +104,9 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'الأسئلة الشائعة ودليل قانون ملكية الطوابق', description: 'أكثر الأسئلة شيوعًا وإجابات الخبراء حول إدارة المجمعات وتحصيل الاشتراكات والأمن الخاص وقانون ملكية الطوابق رقم 634. اطّلعوا على الدليل القانوني.' },
   },
   '/sektorel-cozumler': {
-    en: { title: 'Sector-Specific Facility & Building Management Solutions', description: 'Integrated management solutions for residences, shopping malls, mixed-use and industrial facilities, with sector-specific processes and proven KPIs.' },
-    ru: { title: 'Отраслевые решения по управлению объектами и зданиями', description: 'Комплексные решения для резиденций, торговых центров, многофункциональных и промышленных объектов: отраслевые процессы и проверенные KPI.' },
-    ar: { title: 'حلول إدارة المرافق والمباني القطاعية', description: 'حلول إدارة متكاملة للإقامات ومراكز التسوق والمشاريع المختلطة والمنشآت الصناعية مع عمليات مخصصة لكل قطاع ومؤشرات أداء مثبتة.' },
+    en: { title: 'Sector-Specific Facility and Building Management Solutions | Alo Yönetim', description: 'Integrated management solutions for residences, shopping malls, office towers, housing estates and industrial facilities, with processes and service levels tailored to each property type.' },
+    ru: { title: 'Отраслевые решения по управлению объектами и зданиями | Alo Yönetim', description: 'Комплексные решения по управлению резиденциями, торговыми центрами, офисными башнями, жилыми комплексами и промышленными объектами с процессами и уровнями сервиса под каждый тип недвижимости.' },
+    ar: { title: 'حلول إدارة المرافق والمباني حسب القطاع | Alo Yönetim', description: 'حلول إدارة متكاملة للريزيدنس ومراكز التسوق والأبراج المكتبية والمجمعات السكنية والمنشآت الصناعية، بعمليات ومستويات خدمة مصممة لكل نوع من العقارات.' },
   },
   '/kurumsal/kalite-belgelerimiz': {
     en: { title: 'Our Quality Certificates & ISO Accreditations', description: 'Our ISO 10002, ISO 14001, ISO 22301, ISO 26000, ISO 31000, ISO 45001 and Respect for Nature certificates, issued by BELCERT under ILAS accreditation.' },
