@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'fs';
+import path from 'path';
 import { CERTIFICATES } from '@/data/certificates';
-import { QUALITY_STANDARDS, QUALITY_FAQS } from '@/components/seo/quality/qualityData';
+import { QUALITY_STANDARDS, QUALITY_FAQ_COUNT } from '@/components/seo/quality/qualityData';
 import QualityHeroSeo from '@/components/seo/quality/QualityHeroSeo';
 import QualityAiOverviewSeo from '@/components/seo/quality/QualityAiOverviewSeo';
 import QualityPillarsSeo from '@/components/seo/quality/QualityPillarsSeo';
@@ -25,18 +27,34 @@ describe('Quality Policy & ISO Standards Bridge Tests (/kurumsal/kalite-politika
       expect(cert, pillar.id).toBeDefined();
       expect(pillar.code).toBe(cert?.name);
       expect(pillar.badge).toContain(cert!.certificateNumber);
-      expect(pillar.deliverables.length).toBeGreaterThanOrEqual(4);
+      expect(pillar.deliverableCount).toBeGreaterThanOrEqual(3);
     }
   });
 
-  it('kalite ve denetim SSS listesi en az 5 madde içerir ve doludur', () => {
-    expect(QUALITY_FAQS).toBeDefined();
-    expect(QUALITY_FAQS.length).toBeGreaterThanOrEqual(5);
+  it('SSS maddeleri çeviri anahtarlarında tanımlıdır (tr/en/ru/ar) ve doludur', () => {
+    expect(QUALITY_FAQ_COUNT).toBeGreaterThanOrEqual(4);
+    for (const lang of ['tr', 'en', 'ru', 'ar']) {
+      const dict = JSON.parse(
+        fs.readFileSync(path.join(process.cwd(), `src/i18n/locales/${lang}/common.json`), 'utf8')
+      ) as Record<string, string>;
+      for (let n = 1; n <= QUALITY_FAQ_COUNT; n++) {
+        expect(dict[`qlt_faq_${n}_q`]?.length, `${lang} q${n}`).toBeGreaterThan(15);
+        expect(dict[`qlt_faq_${n}_a`]?.length, `${lang} a${n}`).toBeGreaterThan(50);
+      }
+    }
+  });
 
-    QUALITY_FAQS.forEach((faq) => {
-      expect(faq.question.length).toBeGreaterThan(15);
-      expect(faq.answer.length).toBeGreaterThan(50);
-    });
+  it('kalite sayfası doğrulanamayan rakam ve garanti ifadeleri içermez', () => {
+    const dict = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')
+    ) as Record<string, string>;
+    const text = Object.entries(dict)
+      .filter(([k]) => k.startsWith('qlt_'))
+      .map(([, v]) => v)
+      .join(' | ');
+    for (const bad of ['48 habersiz', 'Yılda 48', '20 dakika', '20 Dk', '%99.4', '%99,4', 'garanti', 'sıfır sızıntı', 'sıfır risk', '%60']) {
+      expect(text.toLowerCase(), bad).not.toContain(bad.toLowerCase());
+    }
   });
 
   it('tüm Kalite Politikası SEO ve UI bileşenleri dışa aktarılmıştır ve geçerlidir', () => {

@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import { QUALITY_FAQS, type QualityFaqItem } from './qualityData';
+import { useLanguage } from '@/context/LanguageContext';
+import { QUALITY_FAQ_COUNT } from './qualityData';
 import Icon from '@/components/ui/branding/Icon';
-export { QUALITY_FAQS, type QualityFaqItem };
 
 export default function QualityAuthorityFaqSeo() {
+  const { t } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
@@ -15,28 +17,25 @@ export default function QualityAuthorityFaqSeo() {
   return (
     <section id="kalite-sss" className="py-20 md:py-28 bg-[var(--color-surface)] border-b border-[var(--color-outline)]/60">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-4">
             <Icon name="help" className="text-sm" />
-            Kalite Güvencesi ve Denetim Rehberi
+            {tk('qlt_faq_badge')}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
-            Kalite Politikamız Hakkında Sıkça Sorulan Sorular
+            {tk('qlt_faq_title')}
           </h2>
           <p className="text-sm sm:text-base text-[var(--color-secondary)] leading-relaxed font-light">
-            Kat malikleri, yönetim kurulları ve denetçilerin kalite akreditasyonlarımız, 
-            habersiz denetimler ve SLA taahhütlerimiz hakkında en çok merak ettiği konular.
+            {tk('qlt_faq_desc')}
           </p>
         </div>
 
-        {/* FAQ Accordion List */}
         <div className="max-w-3xl mx-auto space-y-4">
-          {QUALITY_FAQS.map((faq, idx) => {
+          {Array.from({ length: QUALITY_FAQ_COUNT }, (_, i) => i + 1).map((n, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
-                key={idx}
+                key={n}
                 itemScope
                 itemProp="mainEntity"
                 itemType="https://schema.org/Question"
@@ -52,7 +51,7 @@ export default function QualityAuthorityFaqSeo() {
                     itemProp="name"
                     className="text-sm sm:text-base font-bold text-[var(--color-primary)] leading-snug"
                   >
-                    {faq.question}
+                    {tk(`qlt_faq_${n}_q`)}
                   </span>
                   <Icon name="expand_more" className={`text-slate-600 dark:text-slate-400 transition-transform duration-200 shrink-0 ${
                       isOpen ? 'rotate-180' : ''
@@ -66,7 +65,7 @@ export default function QualityAuthorityFaqSeo() {
                     itemType="https://schema.org/Answer"
                     className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[var(--color-secondary)] font-light leading-relaxed border-t border-[var(--color-outline)]/40"
                   >
-                    <p itemProp="text">{faq.answer}</p>
+                    <p itemProp="text">{tk(`qlt_faq_${n}_a`)}</p>
                   </div>
                 )}
               </div>

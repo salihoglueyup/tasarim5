@@ -77,7 +77,7 @@ export default function VisionComparisonMatrixSeo() {
                   <div className="p-4 sm:p-5 rounded-2xl bg-slate-500/5 border border-slate-500/20 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 font-bold text-xs uppercase tracking-wider mb-2">
-                        <Icon name="remove_circle" className="text-base" />
+                        <Icon name="cancel" className="text-base" />
                         <span>{tk('viz_cmp_col_trad')}</span>
                       </div>
                       <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">

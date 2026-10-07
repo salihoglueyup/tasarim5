@@ -7,5 +7,5 @@ export { default as QualityAuthorityFaqSeo } from './QualityAuthorityFaqSeo';
 export { default as QualityConversionCtaSeo } from './QualityConversionCtaSeo';
 
 // Pure data exports (safe for Server Components)
-export { QUALITY_STANDARDS, QUALITY_FAQS } from './qualityData';
-export type { QualityStandardItem, QualityFaqItem } from './qualityData';
+export { QUALITY_STANDARDS, QUALITY_FAQ_COUNT } from './qualityData';
+export type { QualityStandardItem } from './qualityData';

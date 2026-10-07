@@ -3,7 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_ID, ORG_CREDENTIALS } from '@/lib/schemas';
-import { QUALITY_FAQS } from '@/components/seo/quality/qualityData';
+import { QUALITY_FAQ_COUNT } from '@/components/seo/quality/qualityData';
 import KalitePolitikamizClient from './KalitePolitikamizClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -21,24 +21,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Kalite Politikamız — ILAS Akrediteli ISO Belgeleri | Alo Yönetim';
-  const description = 'BELCERT/ILAS belgeli ISO 45001, ISO 14001, ISO 10002, ISO 22301, ISO 31000 ve ISO 26000 yönetim sistemleriyle tavizsiz kalite ve yılda 48 habersiz iç denetim politikamız.';
-
   return buildMetadata({
-    title,
-    description,
+    title: t.qlt_meta_title,
+    description: t.qlt_meta_desc,
     path: '/kurumsal/kalite-politikamiz',
     lang,
     targetKeyword: 'site yönetimi kalite politikası',
     ogImageType: 'default',
-    keywords: [
-      'alo yönetim kalite politikası',
-      'iso 45001 site yönetimi',
-      'iso 10002 müşteri memnuniyeti',
-      'site yönetimi hizmet kalitesi',
-      'ilas akrediteli iso belgeleri',
-      'puko kalite dongusu'
-    ],
+    keywords: t.qlt_meta_keywords.split('|'),
   });
 }
 
@@ -51,9 +41,9 @@ export default async function KalitePolitikamizPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
-    { name: t.quality_title || 'Kalite Politikamız', url: '/kurumsal/kalite-politikamiz' }
+    { name: t.nav_home, url: '/' },
+    { name: t.nav_corporate, url: '/kurumsal' },
+    { name: t.quality_title, url: '/kurumsal/kalite-politikamiz' }
   ]);
 
   const credentialLd = {
@@ -62,11 +52,16 @@ export default async function KalitePolitikamizPage({
     hasCredential: ORG_CREDENTIALS
   };
 
-  const faqLd = faqPageSchema(QUALITY_FAQS);
+  const faqLd = faqPageSchema(
+    Array.from({ length: QUALITY_FAQ_COUNT }, (_, i) => ({
+      question: t[`qlt_faq_${i + 1}_q` as keyof typeof t] as string,
+      answer: t[`qlt_faq_${i + 1}_a` as keyof typeof t] as string,
+    }))
+  );
 
   const pageLd = webPageSchema({
-    name: t.quality_title || 'Kalite Politikamız',
-    description: t.quality_desc || 'Alo Yönetim kurumsal kalite ve hizmet yeterlilik politikası.',
+    name: t.quality_title,
+    description: t.quality_desc,
     path: '/kurumsal/kalite-politikamiz',
     speakableSelectors: ['h1', '#quality-instant-answer-text'],
   });
