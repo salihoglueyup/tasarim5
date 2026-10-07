@@ -32,9 +32,6 @@ export * from './academy';
 // 8. Vizyon, Misyon & Kurumsal Şeffaflık Standartları
 export * from './vision';
 
-// 9. Çatı GES, Güneş Enerjisi & Sürdürülebilirlik
-export * from './ges';
-
 // 10. Hizmetler Merkezi, Bento Grid & Çözüm Kataloğu
 export * from './services';
 

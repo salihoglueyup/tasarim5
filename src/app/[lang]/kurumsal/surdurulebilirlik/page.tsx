@@ -20,24 +20,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Sürdürülebilirlik ve Yeşil Tesis Yönetimi | Alo Yönetim';
-  const description = 'Sitelerde sıfır atık, gri su geri kazanımı, GES çatı güneş enerjisi ve ISO 14001 çevre yönetim standartlarımız. Yeşil bina çözümlerimizi inceleyin!';
-
   return buildMetadata({
-    title,
-    description,
+    title: t.sust_corp_meta_title,
+    description: t.sust_corp_meta_desc,
     path: '/kurumsal/surdurulebilirlik',
     lang,
     targetKeyword: 'yeşil bina tesis yönetimi',
     ogImageType: 'default',
-    keywords: [
-      'kurumsal sürdürülebilirlik',
-      'yeşil bina tesis yönetimi',
-      'çevre politikası site yönetimi',
-      'yeşil bina prensipleri',
-      'alo yönetim esg',
-      'iso 14001 çevre yönetimi'
-    ],
+    keywords: t.sust_corp_meta_keywords.split('|'),
   });
 }
 
@@ -50,15 +40,15 @@ export default async function KurumsalSurdurulebilirlikPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
-    { name: t.sustainability_title || 'Sürdürülebilirlik', url: '/kurumsal/surdurulebilirlik' }
+    { name: t.nav_home, url: '/' },
+    { name: t.nav_corporate, url: '/kurumsal' },
+    { name: t.sustainability_title, url: '/kurumsal/surdurulebilirlik' }
   ]);
 
   const pageLd = webPageSchema({
     type: 'AboutPage',
-    name: t.sustainability_title || 'Kurumsal Sürdürülebilirlik',
-    description: t.sustainability_desc || 'Alo Yönetim kurumsal sürdürülebilirlik ve çevre ilkeleri.',
+    name: t.sustainability_title,
+    description: t.sustainability_desc,
     path: '/kurumsal/surdurulebilirlik',
     speakableSelectors: ['h1', 'p'],
   });

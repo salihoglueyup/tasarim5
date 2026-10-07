@@ -2,7 +2,6 @@
 
 import PageHeader from '@/components/layout/page/PageHeader';
 import { useLanguage } from '@/context/LanguageContext';
-import FacilityEcoHealthScoreSeo from '@/components/seo/facility/FacilityEcoHealthScoreSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function KurumsalSurdurulebilirlikClient() {
@@ -46,9 +45,6 @@ export default function KurumsalSurdurulebilirlikClient() {
             </div>
           ))}
         </div>
-
-        {/* Yeşil Tesis & Çatı GES Karbon Tasarruf Simülatörü */}
-        <FacilityEcoHealthScoreSeo />
       </section>
     </>
   );

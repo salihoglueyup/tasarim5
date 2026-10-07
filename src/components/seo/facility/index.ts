@@ -8,7 +8,6 @@ export { default as FacilityCorporateB2BHubSeo } from './FacilityCorporateB2BHub
 export { default as FacilityCorporateSlaGuaranteesSeo } from './FacilityCorporateSlaGuaranteesSeo';
 export { default as FacilityDistrictPortfolioSeo } from './FacilityDistrictPortfolioSeo';
 export { default as FacilityDownloadableVaultSeo } from './FacilityDownloadableVaultSeo';
-export { default as FacilityEcoHealthScoreSeo } from './FacilityEcoHealthScoreSeo';
 export { default as FacilityEcosystemMatrixSeo } from './FacilityEcosystemMatrixSeo';
 export { default as FacilityEnergyEvChargingSeo } from './FacilityEnergyEvChargingSeo';
 export { default as FacilityEnforcementDisputeSeo } from './FacilityEnforcementDisputeSeo';

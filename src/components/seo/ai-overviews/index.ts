@@ -18,7 +18,6 @@ export { default as AppAiOverviewGroundingSeo } from './AppAiOverviewGroundingSe
 export { default as GlossaryAiOverviewSeo } from './GlossaryAiOverviewSeo';
 export { default as SectorAiOverviewSnippetSeo } from './SectorAiOverviewSnippetSeo';
 export { default as SectorHubAiOverviewSeo } from './SectorHubAiOverviewSeo';
-export { default as SustainabilityAiOverviewSeo } from './SustainabilityAiOverviewSeo';
 export { default as AcademyAiOverviewSeo } from './AcademyAiOverviewSeo';
 export { default as AccreditationAiOverviewSeo } from './AccreditationAiOverviewSeo';
 export { default as CareerAiOverviewSeo } from './CareerAiOverviewSeo';

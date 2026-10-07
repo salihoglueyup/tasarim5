@@ -3,7 +3,6 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
-import SustainabilityAiOverviewSeo from '@/components/seo/ai-overviews/SustainabilityAiOverviewSeo';
 import SurdurulebilirlikClient from './SurdurulebilirlikClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -21,23 +20,13 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.sust_hub_meta_title || 'Sürdürülebilirlik & Yeşil Tesis Yönetimi | Alo Yönetim';
-  const description = t.sust_hub_meta_desc || 'ISO 14001 çevre yönetimi, Sıfır Atık belgelendirmesi, çatı GES güneş enerjisi ve enerji verimliliği odaklı modern tesis işletmesi.';
-
   return buildMetadata({
-    title,
-    description,
+    title: t.sust_hub_meta_title,
+    description: t.sust_hub_meta_desc,
     path: '/surdurulebilirlik',
     lang,
     ogImageType: 'default',
-    keywords: [
-      'sürdürülebilir tesis yönetimi',
-      'yeşil bina yönetimi',
-      'sıfır atık belgesi site',
-      'iso 14001 çevre yönetimi',
-      'çatı ges güneş enerjisi',
-      'enerji verimliliği bina'
-    ],
+    keywords: t.sust_hub_meta_keywords.split('|'),
   });
 }
 
@@ -50,24 +39,21 @@ export default async function SurdurulebilirlikPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.sust_hub_title || 'Sürdürülebilirlik', url: '/surdurulebilirlik' },
+    { name: t.nav_home, url: '/' },
+    { name: t.sust_hub_title, url: '/surdurulebilirlik' },
   ]);
 
   const pageLd = webPageSchema({
-    name: t.sust_hub_title || 'Sürdürülebilirlik ve Yeşil Tesis Yönetimi',
-    description: t.sust_hub_desc || 'Alo Yönetim çevreye duyarlı yeşil tesis yönetimi ve ESG politikaları.',
+    name: t.sust_hub_title,
+    description: t.sust_hub_desc,
     path: '/surdurulebilirlik',
-    speakableSelectors: ['h1', '#speakable-content', '#sustainability-instant-answer-text'],
+    speakableSelectors: ['h1', '#speakable-content'],
   });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd]} />
       <SurdurulebilirlikClient />
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
-        <SustainabilityAiOverviewSeo />
-      </div>
     </>
   );
 }

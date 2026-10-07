@@ -7,6 +7,7 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 
+import TrOnly from '@/components/seo/TrOnly';
 import Icon from '@/components/ui/branding/Icon';
 const CERTIFICATES = [
   {
@@ -185,7 +186,7 @@ export default function SurdurulebilirlikClient() {
                 </div>
                 <span className="text-[11px] text-slate-400 flex items-center gap-1 mt-auto">
                   <Icon name="open_in_new" className="text-sm" />
-                  Belgeyi Gör
+                  {t('sust_hub_cert_view' as any)}
                 </span>
               </motion.a>
             ))}
@@ -203,6 +204,7 @@ export default function SurdurulebilirlikClient() {
         </div>
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+        <TrOnly>
         <ServiceAuthorityHubSeo
           serviceName="Yeşil Tesis ve Sürdürülebilir Enerji Yönetimi"
           serviceCategory="Sürdürülebilirlik & GES"
@@ -238,7 +240,7 @@ export default function SurdurulebilirlikClient() {
             {
               slug: "kompanzasyon-reaktif-guc",
               term: "Kompanzasyon & Enerji Tasarrufu",
-              summary: "Elektrik trafolarında reaktif enerji kayıplarını engelleyerek faturalarda %20-30 tasarruf sağlayan sistemdir."
+              summary: "Elektrik trafolarında reaktif enerji kayıplarını engelleyerek faturalarda tasarruf sağlamaya yardımcı olan sistemdir."
             },
             {
               slug: "bina-otomasyon-sistemi-bms",
@@ -248,10 +250,11 @@ export default function SurdurulebilirlikClient() {
             {
               slug: "su-deposu-dezenfeksiyonu-ve-analizi",
               term: "Su Yönetimi & Gri Su Geri Kazanımı",
-              summary: "Yağmur suyu hasadı ve arıtma sistemleriyle bahçe sulamasında şebeke suyu tüketiminin sıfırlanmasıdır."
+              summary: "Yağmur suyu hasadı ve arıtma sistemleriyle bahçe sulamasında şebeke suyu tüketiminin azaltılmasıdır."
             }
           ]}
         />
+        </TrOnly>
       </section>
 
       <PreFooterCta />
