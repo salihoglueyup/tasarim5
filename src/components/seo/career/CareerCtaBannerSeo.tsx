@@ -1,58 +1,53 @@
 "use client";
 
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 import Icon from '@/components/ui/branding/Icon';
 export default function CareerCtaBannerSeo() {
+  const { t } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
+
   return (
     <section className="py-16 md:py-20 bg-[var(--color-surface)] border-b border-[var(--color-outline)]/60">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          {/* Candidate Card */}
           <div className="relative overflow-hidden rounded-3xl bg-[var(--color-surface-variant)]/60 border border-[var(--color-outline)]/80 p-8 sm:p-10 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
                 <Icon name="person" className="text-sm" />
-                <span>Kariyer Arayanlar İçin</span>
+                <span>{tk('ist_cta_c_badge')}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)] mb-3">
-                Maaşınız Gününde, Haklarınız Kanun Güvencesinde
+                {tk('ist_cta_c_title')}
               </h3>
               <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed mb-6">
-                5188 özel güvenlik, endüstriyel temizlik, bina teknisyenliği ve resepsiyon kadrolarımızda
-                çalışmak üzere hemen başvurunuzu iletin.
+                {tk('ist_cta_c_desc')}
               </p>
             </div>
 
             <div className="space-y-4 pt-4 border-t border-[var(--color-outline)]/60">
               <a
-                href="#acik-pozisyonlar"
+                href="#basvuru-formu"
                 className="w-full py-3.5 px-6 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-[var(--color-on-primary)] text-xs sm:text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
-                <span>Açık Pozisyonları İncele</span>
+                <span>{tk('ist_cta_c_btn')}</span>
                 <Icon name="arrow_forward" className="text-sm" />
               </a>
-
-              <div className="flex items-center justify-center gap-2 text-xs text-[var(--color-secondary)] font-medium">
-                <Icon name="call" className="text-sm text-[var(--color-primary)]" />
-                <span>İK Destek: 0850 309 67 34</span>
-              </div>
             </div>
           </div>
 
-          {/* Property Manager Card */}
           <div className="relative overflow-hidden rounded-3xl bg-[var(--color-primary)] text-[var(--color-on-primary)] p-8 sm:p-10 flex flex-col justify-between shadow-sm">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold uppercase tracking-wider mb-4">
                 <Icon name="apartment" className="text-sm" />
-                <span>Site & Tesis Yönetimleri İçin</span>
+                <span>{tk('ist_cta_m_badge')}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                Kıdem Tazminatı Riskini Sıfırlayın, Profesyonel Kadro Kurun
+                {tk('ist_cta_m_title')}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                Yıllar sonra kat maliklerinin önüne gelen yüz binlerce liralık sürpriz tazminat faturalarına son verin.
-                İstihdam Köprüsü ile 24 saatte teklif alın.
+                {tk('ist_cta_m_desc')}
               </p>
             </div>
 
@@ -61,13 +56,13 @@ export default function CareerCtaBannerSeo() {
                 href="#basvuru-formu"
                 className="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-slate-100 text-[var(--color-primary)] text-xs sm:text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
-                <span>Tesisime Personel Teklifi Al</span>
+                <span>{tk('ist_cta_m_btn')}</span>
                 <Icon name="arrow_forward" className="text-sm" />
               </a>
 
               <div className="flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
                 <Icon name="verified_user" className="text-sm text-white" />
-                <span>Aylık Bloke Provizyon & Sıfır Dava Garantisi</span>
+                <span>{tk('ist_cta_m_note')}</span>
               </div>
             </div>
           </div>

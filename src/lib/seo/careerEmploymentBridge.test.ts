@@ -1,91 +1,70 @@
 import { describe, it, expect } from 'vitest';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
+import fs from 'fs';
+import path from 'path';
 import CareerHeroSeo from '@/components/seo/career/CareerHeroSeo';
 import CareerDualProtectionSeo from '@/components/seo/career/CareerDualProtectionSeo';
 import CareerDisciplinesGridSeo from '@/components/seo/career/CareerDisciplinesGridSeo';
-import CareerOpenPositionsSeo from '@/components/seo/career/CareerOpenPositionsSeo';
 import CareerRecruitmentStepsSeo from '@/components/seo/career/CareerRecruitmentStepsSeo';
 import CareerLegalGuaranteeDeepDiveSeo from '@/components/seo/career/CareerLegalGuaranteeDeepDiveSeo';
 import CareerApplicationDualFormSeo from '@/components/seo/career/CareerApplicationDualFormSeo';
 import CareerFaqSeo from '@/components/seo/career/CareerFaqSeo';
 import CareerCtaBannerSeo from '@/components/seo/career/CareerCtaBannerSeo';
 
+const root = process.cwd();
+const dict = (lang: string) =>
+  JSON.parse(fs.readFileSync(path.join(root, `src/i18n/locales/${lang}/common.json`), 'utf8')) as Record<string, string>;
+const istText = (lang: string) =>
+  Object.entries(dict(lang))
+    .filter(([k]) => k.startsWith('ist_'))
+    .map(([, v]) => v)
+    .join(' | ');
+
 describe('Career & İstihdam Köprüsü SEO Component Suite', () => {
-  it('tüm 9 adet kariyer bileşeni başarıyla tanımlı ve geçerli birer fonksiyondur', () => {
-    expect(typeof CareerHeroSeo).toBe('function');
-    expect(typeof CareerDualProtectionSeo).toBe('function');
-    expect(typeof CareerDisciplinesGridSeo).toBe('function');
-    expect(typeof CareerOpenPositionsSeo).toBe('function');
-    expect(typeof CareerRecruitmentStepsSeo).toBe('function');
-    expect(typeof CareerLegalGuaranteeDeepDiveSeo).toBe('function');
-    expect(typeof CareerApplicationDualFormSeo).toBe('function');
-    expect(typeof CareerFaqSeo).toBe('function');
-    expect(typeof CareerCtaBannerSeo).toBe('function');
+  it('8 kariyer bileşeni tanımlı birer fonksiyondur', () => {
+    for (const c of [
+      CareerHeroSeo,
+      CareerDualProtectionSeo,
+      CareerDisciplinesGridSeo,
+      CareerRecruitmentStepsSeo,
+      CareerLegalGuaranteeDeepDiveSeo,
+      CareerApplicationDualFormSeo,
+      CareerFaqSeo,
+      CareerCtaBannerSeo,
+    ]) {
+      expect(typeof c).toBe('function');
+    }
   });
 
-  it('CareerHeroSeo sunucu tarafında hatasız render edilir ve temel metinleri içerir', () => {
-    const html = renderToString(React.createElement(CareerHeroSeo));
-    expect(html).toContain('İstihdam Köprüsü');
-    expect(html).toContain('5188');
-    expect(html).toContain('Kıdem Tazminatı');
+  it('uydurma iş ilanları ve JobPosting şeması sayfada yer almaz', () => {
+    expect(fs.existsSync(path.join(root, 'src/components/seo/career/CareerOpenPositionsSeo.tsx'))).toBe(false);
+    const client = fs.readFileSync(path.join(root, 'src/app/[lang]/istihdam-koprusu/IstihdamKoprusuClient.tsx'), 'utf8');
+    expect(client).not.toContain('CareerOpenPositionsSeo');
+    expect(client).not.toContain('JobPosting');
   });
 
-  it('CareerDualProtectionSeo çift taraflı koruma maddelerini barındırır', () => {
-    const html = renderToString(React.createElement(CareerDualProtectionSeo));
-    expect(html).toContain('Tazminatı');
-    expect(html).toContain('Kurumsal İşveren');
-    expect(html).toContain('Maaş');
+  it('ist_ çeviri anahtarları dört dilde de aynı kümeyi içerir', () => {
+    const keys = (l: string) => Object.keys(dict(l)).filter((k) => k.startsWith('ist_')).sort();
+    const tr = keys('tr');
+    expect(tr.length).toBeGreaterThan(150);
+    for (const l of ['en', 'ru', 'ar']) expect(keys(l)).toEqual(tr);
   });
 
-  it('CareerDisciplinesGridSeo 4 temel branşı listeler', () => {
-    const html = renderToString(React.createElement(CareerDisciplinesGridSeo));
-    expect(html).toContain('5188 Sayılı Lisanslı Özel Güvenlik');
-    expect(html).toContain('Endüstriyel Temizlik');
-    expect(html).toContain('Elektromekanik');
-    expect(html).toContain('Lobi');
+  it('doğrulanamayan kadro rakamları ve abartılı garanti ifadeleri kaldırılmıştır', () => {
+    const text = istText('tr');
+    for (const bad of ['1.200', '650+', '380+', '140+', '12 lojistik', '0850', 'Sıfır Dava', 'Sıfır Risk', '%100 Vergiden', 'Referans No']) {
+      expect(text, bad).not.toContain(bad);
+    }
   });
 
-  it('CareerOpenPositionsSeo iş ilanlarını ve JobPosting Schema.org yapısal verisini basar', () => {
-    const html = renderToString(React.createElement(CareerOpenPositionsSeo));
-    expect(html).toContain('JobPosting');
-    expect(html).toContain('5188 Kimlikli Özel Güvenlik');
-    expect(html).toContain('36.500 ₺');
+  it('maaş ödeme günü (ayın 10’u) tüm dillerde tutarlıdır; ayın 1’i denmez', () => {
+    expect(istText('tr')).toContain("10'u");
+    expect(istText('tr')).not.toContain("ayın 1'i");
+    expect(istText('en')).toContain('10th');
   });
 
-  it('CareerRecruitmentStepsSeo 5 aşamalı işe alım ve güvenlik tahkikatını açıklar', () => {
-    const html = renderToString(React.createElement(CareerRecruitmentStepsSeo));
-    expect(html).toContain('5188 Güvenlik');
-    expect(html).toContain('Adli Sicil');
-    expect(html).toContain('Hizmet Akademisi');
-  });
-
-  it('CareerLegalGuaranteeDeepDiveSeo kıdem tazminatı kalkanı detaylarını içerir', () => {
-    const html = renderToString(React.createElement(CareerLegalGuaranteeDeepDiveSeo));
-    expect(html).toContain('Aylık Bloke Provizyon Havuzu');
-    expect(html).toContain('Yargıtay Emsal Kararlarıyla Uyumlu Sözleşme');
-    expect(html).toContain('Kıdem Tazminatı Kalkanı');
-  });
-
-  it('CareerApplicationDualFormSeo aday ve yönetici başvuru alanlarını barındırır', () => {
-    const html = renderToString(React.createElement(CareerApplicationDualFormSeo));
-    expect(html).toContain('Aday Bilgileri');
-    expect(html).toContain('Başvuru Detayı');
-    expect(html).toContain('İş Arayanım');
-    expect(html).toContain('Yöneticiyim');
-  });
-
-  it('CareerFaqSeo FAQPage Schema.org nesnesi üretir ve soruları listeler', () => {
-    const html = renderToString(React.createElement(CareerFaqSeo));
-    expect(html).toContain('FAQPage');
-    expect(html).toContain('Sıkça Sorulan Sorular');
-    expect(html).toContain('kıdem tazminatından site yönetimi sorumlu mudur');
-  });
-
-  it('CareerCtaBannerSeo alt dönüşüm butonlarını ve çağrı merkezini barındırır', () => {
-    const html = renderToString(React.createElement(CareerCtaBannerSeo));
-    expect(html).toContain('Açık Pozisyonları İncele');
-    expect(html).toContain('Tesisime Personel Teklifi Al');
-    expect(html).toContain('0850 309 67 34');
+  it('başvuru formu çeviri anahtarlarını kullanır ve sahte referans numarası üretmez', () => {
+    const form = fs.readFileSync(path.join(root, 'src/components/seo/career/CareerApplicationDualFormSeo.tsx'), 'utf8');
+    expect(form).toContain("tk('ist_f_c_submit')");
+    expect(form).not.toContain('Math.random');
   });
 });

@@ -20,22 +20,13 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = t.emp_meta_title || 'İstihdam Köprüsü — Tesis & Güvenlik Kariyeri | Alo Yönetim';
-  const description = t.emp_meta_desc || 'İstanbul genelinde 5188 kimlikli özel güvenlik, temizlik personeli ve teknik bakım uzmanı açık iş pozisyonları ve kariyer başvurusu.';
-
   return buildMetadata({
-    title,
-    description,
+    title: t.ist_meta_title,
+    description: t.ist_meta_desc,
     path: '/istihdam-koprusu',
     lang,
     ogImageType: 'default',
-    keywords: [
-      'özel güvenlik iş ilanları istanbul',
-      'site yönetimi iş başvurusu',
-      'tesis temizlik personeli arayanlar',
-      'teknik bakım iş ilanları',
-      'alo yönetim kariyer'
-    ],
+    keywords: t.ist_meta_keywords.split('|'),
   });
 }
 
@@ -48,13 +39,13 @@ export default async function IstihdamKoprusuPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.emp_page_title || 'İstihdam Köprüsü', url: '/istihdam-koprusu' }
+    { name: t.nav_home, url: '/' },
+    { name: t.ist_hero_crumb, url: '/istihdam-koprusu' }
   ]);
 
   const pageLd = webPageSchema({
-    name: t.emp_page_title || 'İstihdam Köprüsü',
-    description: t.emp_page_desc || 'Tesis yönetimi ve özel güvenlik sektöründe kariyer ve açık iş ilanları.',
+    name: t.ist_hero_crumb,
+    description: t.ist_page_ld_desc,
     path: '/istihdam-koprusu',
     speakableSelectors: ['h1', 'p', '#career-instant-answer-text'],
   });

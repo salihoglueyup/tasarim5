@@ -2,8 +2,38 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLeadSubmit } from '@/hooks/useLeadSubmit';
+import { useLanguage } from '@/context/LanguageContext';
 
 import Icon from '@/components/ui/branding/Icon';
+const POSITIONS = [
+  { value: '5188 Kimlikli Özel Güvenlik', key: 'ist_f_pos_1' },
+  { value: 'Güvenlik Vardiya Amiri / Şefi', key: 'ist_f_pos_2' },
+  { value: 'Elektromekanik Tesis Bakım Teknisyeni', key: 'ist_f_pos_3' },
+  { value: 'Kat ve Ortak Alan Hijyen Görevlisi', key: 'ist_f_pos_4' },
+  { value: 'Lobi Resepsiyon & Misafir Karşılama Uzmanı', key: 'ist_f_pos_5' },
+  { value: 'Havuz Operatörü & Mekanik Teknisyen', key: 'ist_f_pos_6' },
+  { value: 'Genel Başvuru', key: 'ist_f_pos_7' },
+];
+const ID_STATUSES = [
+  { value: 'Silahlı Kimliğim Var (Geçerli)', key: 'ist_f_id_1' },
+  { value: 'Silahsız Kimliğim Var (Geçerli)', key: 'ist_f_id_2' },
+  { value: 'Yenileme Eğitimi Aşamasındayım', key: 'ist_f_id_3' },
+  { value: 'Kimliğim Yok / Kurs Almak İstiyorum', key: 'ist_f_id_4' },
+  { value: 'Güvenlik Değil / İlgisiz', key: 'ist_f_id_5' },
+];
+const SERVICES = [
+  { value: '5188 Lisanslı Özel Güvenlik', key: 'ist_f_svc_1' },
+  { value: 'Endüstriyel Temizlik & Hijyen', key: 'ist_f_svc_2' },
+  { value: 'Elektromekanik Teknik Bakım', key: 'ist_f_svc_3' },
+  { value: 'Lobi Resepsiyon & Concierge', key: 'ist_f_svc_4' },
+  { value: 'Entegre Çoklu Kadro (Güvenlik + Temizlik + Teknik)', key: 'ist_f_svc_5' },
+];
+const HEADCOUNTS = [
+  { value: '1-2 Kişi', key: 'ist_f_hc_1' },
+  { value: '3-5 Kişi', key: 'ist_f_hc_2' },
+  { value: '6-10 Kişi', key: 'ist_f_hc_3' },
+  { value: '10+ Kişi (Geniş Proje)', key: 'ist_f_hc_4' },
+];
 const ISTANBUL_DISTRICTS = [
   'Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler',
   'Bakırköy', 'Başakşehir', 'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü',
@@ -27,6 +57,8 @@ export default function CareerApplicationDualFormSeo({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const { status, submit, reset } = useLeadSubmit();
+  const { t } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
   const isSubmitting = status === 'loading';
 
   // Candidate Form Fields
@@ -79,7 +111,7 @@ export default function CareerApplicationDualFormSeo({
     if (ok) {
       setSubmittedCandidate(true);
     } else {
-      setErrorMessage('Başvuru gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
+      setErrorMessage(tk('ist_f_c_err'));
     }
   };
 
@@ -106,7 +138,7 @@ export default function CareerApplicationDualFormSeo({
     if (ok) {
       setSubmittedManager(true);
     } else {
-      setErrorMessage('Talep gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
+      setErrorMessage(tk('ist_f_m_err'));
     }
   };
 
@@ -117,13 +149,13 @@ export default function CareerApplicationDualFormSeo({
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
             <Icon name="how_to_reg" className="text-sm" />
-            <span>Hızlı İletişim & Başvuru Portalı</span>
+            <span>{tk('ist_f_badge')}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight mb-4">
-            Aday mısınız, Yoksa Tesisinize Personel mi Arıyorsunuz?
+            {tk('ist_form_title')}
           </h2>
           <p className="text-sm sm:text-base text-[var(--color-secondary)] leading-relaxed">
-            Aşağıdaki sekmeden ihtiyacınıza uygun formu seçin; uzman İK veya Saha Operasyon ekibimiz en geç 24 saat içinde sizinle iletişime geçsin.
+            {tk('ist_form_desc')}
           </p>
 
           {/* Form Tabs Switcher */}
@@ -137,7 +169,7 @@ export default function CareerApplicationDualFormSeo({
               }`}
             >
               <Icon name="person_search" className="text-base" />
-              <span>İş Arayanım (Kariyer Başvurusu)</span>
+              <span>{tk('ist_f_tab_c')}</span>
             </button>
             <button
               onClick={() => setActiveTab('manager')}
@@ -148,7 +180,7 @@ export default function CareerApplicationDualFormSeo({
               }`}
             >
               <Icon name="business_center" className="text-base" />
-              <span>Yöneticiyim (Personel Talebi)</span>
+              <span>{tk('ist_f_tab_m')}</span>
             </button>
           </div>
         </div>
@@ -164,15 +196,11 @@ export default function CareerApplicationDualFormSeo({
                     <Icon name="check_circle" className="text-3xl" />
                   </div>
                   <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-2">
-                    Kariyer Başvurunuz Başarıyla Alındı!
+                    {tk('ist_f_c_ok_title')}
                   </h3>
                   <p className="text-sm text-[var(--color-secondary)] max-w-md mx-auto mb-6 leading-relaxed">
-                    Sayın <strong>{cName}</strong>, <strong>{cPosition}</strong> pozisyonu için başvurunuz İK veri tabanımıza kaydedildi.
-                    En geç 24 saat içinde SMS veya telefon ile ön görüşme daveti iletilecektir.
+                    {tk('ist_f_dear')} <strong>{cName}</strong>, <strong>{POSITIONS.find((p) => p.value === cPosition) ? tk(POSITIONS.find((p) => p.value === cPosition)!.key) : cPosition}</strong> {tk('ist_f_c_ok_rest')}
                   </p>
-                  <div className="p-4 rounded-xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs text-[var(--color-secondary)] max-w-sm mx-auto mb-6">
-                    Referans No: <strong>ALO-IK-{Math.floor(100000 + Math.random() * 900000)}</strong>
-                  </div>
                   <button
                     onClick={() => {
                       setSubmittedCandidate(false);
@@ -181,17 +209,17 @@ export default function CareerApplicationDualFormSeo({
                     }}
                     className="text-xs font-semibold text-[var(--color-primary)] hover:underline cursor-pointer"
                   >
-                    Yeni Bir Başvuru Doldur
+                    {tk('ist_f_c_new')}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleCandidateSubmit} className="space-y-6">
                   <div className="border-b border-[var(--color-outline)]/60 pb-4 mb-6">
                     <h3 className="text-lg font-bold text-[var(--color-primary)] mb-1">
-                      Aday Bilgileri & Başvuru Detayı
+                      {tk('ist_f_c_head')}
                     </h3>
                     <p className="text-xs text-[var(--color-secondary)]">
-                      Lütfen iletişim ve kimlik bilgilerinizi eksiksiz doldurun.
+                      {tk('ist_f_c_sub')}
                     </p>
                   </div>
 
@@ -205,7 +233,7 @@ export default function CareerApplicationDualFormSeo({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="c-name" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Adınız ve Soyadınız *
+                        {tk('ist_f_name')}
                       </label>
                       <input
                         type="text"
@@ -215,14 +243,14 @@ export default function CareerApplicationDualFormSeo({
                         required
                         value={cName}
                         onChange={(e) => setCName(e.target.value)}
-                        placeholder="Örn: Mehmet Yılmaz"
+                        placeholder={tk('ist_f_name_ph')}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="c-phone" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Telefon Numaranız *
+                        {tk('ist_f_phone')}
                       </label>
                       <input
                         type="tel"
@@ -241,7 +269,7 @@ export default function CareerApplicationDualFormSeo({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="c-email" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        E-Posta Adresiniz (Opsiyonel)
+                        {tk('ist_f_email')}
                       </label>
                       <input
                         type="email"
@@ -257,7 +285,7 @@ export default function CareerApplicationDualFormSeo({
 
                     <div>
                       <label htmlFor="c-district" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        İkamet Ettiğiniz İlçe (İstanbul) *
+                        {tk('ist_f_district_c')}
                       </label>
                       <select
                         id="c-district"
@@ -278,7 +306,7 @@ export default function CareerApplicationDualFormSeo({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="c-position" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Başvurulan Pozisyon *
+                        {tk('ist_f_position')}
                       </label>
                       <select
                         id="c-position"
@@ -287,19 +315,17 @@ export default function CareerApplicationDualFormSeo({
                         onChange={(e) => setCPosition(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       >
-                        <option value="5188 Kimlikli Özel Güvenlik">5188 Özel Güvenlik Görevlisi</option>
-                        <option value="Güvenlik Vardiya Amiri / Şefi">Güvenlik Vardiya Amiri / Şefi</option>
-                        <option value="Elektromekanik Tesis Bakım Teknisyeni">Elektromekanik Bakım Teknisyeni</option>
-                        <option value="Kat ve Ortak Alan Hijyen Görevlisi">Temizlik & Hijyen Görevlisi</option>
-                        <option value="Lobi Resepsiyon & Misafir Karşılama Uzmanı">Lobi / Danışma / Concierge</option>
-                        <option value="Havuz Operatörü & Mekanik Teknisyen">Havuz Operatörü & Tesisatçı</option>
-                        <option value="Genel Başvuru">Genel Başvuru (Havuz)</option>
+                        {POSITIONS.map((p) => (
+                          <option key={p.value} value={p.value}>
+                            {tk(p.key)}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
                     <div>
                       <label htmlFor="c-id-card-status" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        5188 ÖGG Kimlik Kartı Durumu *
+                        {tk('ist_f_idcard')}
                       </label>
                       <select
                         id="c-id-card-status"
@@ -308,18 +334,18 @@ export default function CareerApplicationDualFormSeo({
                         onChange={(e) => setCIdCardStatus(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       >
-                        <option value="Silahlı Kimliğim Var (Geçerli)">Silahlı Kimliğim Var (Geçerli)</option>
-                        <option value="Silahsız Kimliğim Var (Geçerli)">Silahsız Kimliğim Var (Geçerli)</option>
-                        <option value="Yenileme Eğitimi Aşamasındayım">Yenileme Eğitimi Aşamasındayım</option>
-                        <option value="Kimliğim Yok / Kurs Almak İstiyorum">Kimliğim Yok / Kurs Almak İstiyorum</option>
-                        <option value="Güvenlik Değil / İlgisiz">Güvenlik Dışı Branş (Temizlik / Teknik)</option>
+                        {ID_STATUSES.map((p) => (
+                          <option key={p.value} value={p.value}>
+                            {tk(p.key)}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="c-experience" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                      Kısa Deneyiminiz & Notunuz (Opsiyonel)
+                      {tk('ist_f_exp')}
                     </label>
                     <textarea
                       id="c-experience"
@@ -327,7 +353,7 @@ export default function CareerApplicationDualFormSeo({
                       rows={3}
                       value={cExperience}
                       onChange={(e) => setCExperience(e.target.value)}
-                      placeholder="Daha önce çalıştığınız projeler, tecrübe süreniz veya belirtmek istediğiniz hususlar..."
+                      placeholder={tk('ist_f_exp_ph')}
                       className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                     />
                   </div>
@@ -343,7 +369,7 @@ export default function CareerApplicationDualFormSeo({
                       className="mt-1 h-4 w-4 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--color-primary)] cursor-pointer"
                     />
                     <label htmlFor="c-kvkk" className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                      Kişisel verilerimin 6698 sayılı KVKK kapsamında işe alım ve istihdam değerlendirmesi amacıyla işlenmesini ve tarafımla iletişime geçilmesini kabul ediyorum.
+                      {tk('ist_f_kvkk_c')}
                     </label>
                   </div>
 
@@ -355,12 +381,12 @@ export default function CareerApplicationDualFormSeo({
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
                         <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Başvuru İletiliyor...</span>
+                        <span>{tk('ist_f_c_sending')}</span>
                       </span>
                     ) : (
                       <>
                         <Icon name="send" className="text-lg" />
-                        <span>Kariyer Başvurumu İlet</span>
+                        <span>{tk('ist_f_c_submit')}</span>
                       </>
                     )}
                   </button>
@@ -378,15 +404,11 @@ export default function CareerApplicationDualFormSeo({
                     <Icon name="check_circle" className="text-3xl" />
                   </div>
                   <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-2">
-                    Personel Talebiniz Alındı!
+                    {tk('ist_f_m_ok_title')}
                   </h3>
                   <p className="text-sm text-[var(--color-secondary)] max-w-md mx-auto mb-6 leading-relaxed">
-                    Sayın <strong>{mName}</strong>, <strong>{mFacilityName}</strong> tesisi için personel ihtiyacınız kurumsal operasyon birimimize iletildi.
-                    Uzman bölge müdürümüz 24 saat içinde fizibilite ve resmi teklif ile tarafınıza ulaşacaktır.
+                    {tk('ist_f_dear')} <strong>{mName}</strong>, <strong>{mFacilityName}</strong> {tk('ist_f_m_ok_rest')}
                   </p>
-                  <div className="p-4 rounded-xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs text-[var(--color-secondary)] max-w-sm mx-auto mb-6">
-                    Talep No: <strong>ALO-TALEP-{Math.floor(100000 + Math.random() * 900000)}</strong>
-                  </div>
                   <button
                     onClick={() => {
                       setSubmittedManager(false);
@@ -396,17 +418,17 @@ export default function CareerApplicationDualFormSeo({
                     }}
                     className="text-xs font-semibold text-[var(--color-primary)] hover:underline cursor-pointer"
                   >
-                    Yeni Bir Personel Talebi İlet
+                    {tk('ist_f_m_new')}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleManagerSubmit} className="space-y-6">
                   <div className="border-b border-[var(--color-outline)]/60 pb-4 mb-6">
                     <h3 className="text-lg font-bold text-[var(--color-primary)] mb-1">
-                      Tesis / Site Bilgileri ve İhtiyaç Kapsamı
+                      {tk('ist_f_m_head')}
                     </h3>
                     <p className="text-xs text-[var(--color-secondary)]">
-                      Sıfır kıdem tazminatı riskiyle tesisinizi güvenceye alacak kurumsal teklifi hazırlayalım.
+                      {tk('ist_f_m_sub')}
                     </p>
                   </div>
 
@@ -420,7 +442,7 @@ export default function CareerApplicationDualFormSeo({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="m-facility-name" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Site / Tesis / Plaza Adı *
+                        {tk('ist_f_facility')}
                       </label>
                       <input
                         type="text"
@@ -430,14 +452,14 @@ export default function CareerApplicationDualFormSeo({
                         required
                         value={mFacilityName}
                         onChange={(e) => setMFacilityName(e.target.value)}
-                        placeholder="Örn: Göksu Rezidans / Ataşehir"
+                        placeholder={tk('ist_f_facility_ph')}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="m-district" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Tesisin Bulunduğu İlçe *
+                        {tk('ist_f_district_m')}
                       </label>
                       <select
                         id="m-district"
@@ -458,7 +480,7 @@ export default function CareerApplicationDualFormSeo({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="m-name" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Yetkili Adı Soyadı & Unvanı *
+                        {tk('ist_f_contact')}
                       </label>
                       <input
                         type="text"
@@ -468,14 +490,14 @@ export default function CareerApplicationDualFormSeo({
                         required
                         value={mName}
                         onChange={(e) => setMName(e.target.value)}
-                        placeholder="Örn: Ahmet Bey (Yönetim Kurulu Bşk.)"
+                        placeholder={tk('ist_f_contact_ph')}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="m-phone" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        İletişim Telefon Numarası *
+                        {tk('ist_f_contact_phone')}
                       </label>
                       <input
                         type="tel"
@@ -494,7 +516,7 @@ export default function CareerApplicationDualFormSeo({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="m-service-type" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Talep Edilen Hizmet Branşı *
+                        {tk('ist_f_service')}
                       </label>
                       <select
                         id="m-service-type"
@@ -503,19 +525,17 @@ export default function CareerApplicationDualFormSeo({
                         onChange={(e) => setMServiceType(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       >
-                        <option value="5188 Lisanslı Özel Güvenlik">5188 Lisanslı Özel Güvenlik</option>
-                        <option value="Endüstriyel Temizlik & Hijyen">Endüstriyel Temizlik & Hijyen</option>
-                        <option value="Elektromekanik Teknik Bakım">Elektromekanik Teknik Bakım</option>
-                        <option value="Lobi Resepsiyon & Concierge">Lobi Resepsiyon & Concierge</option>
-                        <option value="Entegre Çoklu Kadro (Güvenlik + Temizlik + Teknik)">
-                          Entegre Çoklu Kadro (Tüm Hizmetler)
-                        </option>
+                        {SERVICES.map((p) => (
+                          <option key={p.value} value={p.value}>
+                            {tk(p.key)}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
                     <div>
                       <label htmlFor="m-headcount" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                        Tahmini Personel İhtiyacı *
+                        {tk('ist_f_headcount')}
                       </label>
                       <select
                         id="m-headcount"
@@ -524,17 +544,18 @@ export default function CareerApplicationDualFormSeo({
                         onChange={(e) => setMHeadcount(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                       >
-                        <option value="1-2 Kişi">1 - 2 Kişi</option>
-                        <option value="3-5 Kişi">3 - 5 Kişi</option>
-                        <option value="6-10 Kişi">6 - 10 Kişi</option>
-                        <option value="10+ Kişi (Geniş Proje)">10+ Kişi (Geniş Proje)</option>
+                        {HEADCOUNTS.map((p) => (
+                          <option key={p.value} value={p.value}>
+                            {tk(p.key)}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="m-notes" className="block text-xs font-bold text-[var(--color-primary)] mb-1.5">
-                      Özel Talepleriniz & Vardiya İhtiyacı (Opsiyonel)
+                      {tk('ist_f_notes')}
                     </label>
                     <textarea
                       id="m-notes"
@@ -542,7 +563,7 @@ export default function CareerApplicationDualFormSeo({
                       rows={3}
                       value={mNotes}
                       onChange={(e) => setMNotes(e.target.value)}
-                      placeholder="Mevcut personellerin devri, silahlı güvenlik ihtiyacı, vardiya düzeni veya özel şartlarınız..."
+                      placeholder={tk('ist_f_notes_ph')}
                       className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface-variant)]/40 border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                     />
                   </div>
@@ -558,7 +579,7 @@ export default function CareerApplicationDualFormSeo({
                       className="mt-1 h-4 w-4 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--color-primary)] cursor-pointer"
                     />
                     <label htmlFor="m-kvkk" className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                      Tesisimiz adına personel fizibilite ve kurumsal teklif hazırlanması amacıyla iletişim kurulmasını onaylıyorum.
+                      {tk('ist_f_kvkk_m')}
                     </label>
                   </div>
 
@@ -570,12 +591,12 @@ export default function CareerApplicationDualFormSeo({
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
                         <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Teklif Hazırlanıyor...</span>
+                        <span>{tk('ist_f_m_sending')}</span>
                       </span>
                     ) : (
                       <>
                         <Icon name="request_quote" className="text-lg" />
-                        <span>Personel Teklifi ve Keşif Talep Et</span>
+                        <span>{tk('ist_f_m_submit')}</span>
                       </>
                     )}
                   </button>

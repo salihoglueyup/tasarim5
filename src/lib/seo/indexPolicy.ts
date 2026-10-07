@@ -28,9 +28,9 @@ const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi', '/hizmetler/has
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   // teklif-al: form etiketleri ve metinler çeviri anahtarlarına bağlı (en/ru/ar doğrulandı).
   // /sss: arayüz metinleri çeviri anahtarlarında, SSS maddeleri DB'deki _en/_ru/_ar alanlarından gelir.
-  en: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', ...SERVICE_TRANSLATED],
-  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', ...SERVICE_TRANSLATED],
-  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', ...SERVICE_TRANSLATED],
+  en: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', ...SERVICE_TRANSLATED],
+  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', ...SERVICE_TRANSLATED],
+  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', ...SERVICE_TRANSLATED],
 };
 
 /** Türkçe dahil tüm dillerde noindex olacak yol kalıpları (ince/şablon sayfalar). */
