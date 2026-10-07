@@ -205,7 +205,7 @@ export const TERMS: Term[] = [
   {
     term: 'Site İşletme Bütçesi',
     definition:
-      'KMK m.37 uyarınca sitenin 1 yıllık güvenlik, temizlik, personel, enerji ve teknik bakım giderlerini hesaplayan ve aidat tutarlarını belirleyen yasal mali projeksiyon belgesidir.',
+      'KMK m.37 uyarınca sitenin 1 yıllık güvenlik, temizlik, personel, enerji ve teknik bakım giderlerini hesaplayan ve aidat tutarlarını belirleyen yasal mali projeksiyon belgesidir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirilmiştir.',
     link: { href: '/hizmetler/tesis-yonetimi', label: 'İşletme bütçesi hazırlama' },
   },
   {
@@ -223,7 +223,7 @@ export const TERMS: Term[] = [
   {
     term: 'Kat Mülkiyeti Kanunu Madde 37 (İşletme Projesi)',
     definition:
-      'KMK 37. maddesi uyarınca yöneticinin 1 yıllık tahmini gelir-gider bütçesini ve daire başı aidat avanslarını belirleyerek kat maliklerine resmi tebliğ etmesini zorunlu kılan yasal hükümdür.',
+      'KMK 37. maddesi, sitenin 1 yıllık tahmini gelir-gider bütçesini ve daire başı aidat avanslarını gösteren işletme projesini düzenler. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır.',
     link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'İşletme projesi hukuku' },
   },
   {
@@ -434,7 +434,7 @@ export const TERMS: Term[] = [
   {
     term: 'KMK 37 (İşletme Projesi & Bütçe İtiraz Süresi)',
     definition:
-      '634 sayılı Kat Mülkiyeti Kanunu Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
+      '634 sayılı Kat Mülkiyeti Kanunu Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
     link: { href: '/hizmetler/aidat-takibi', label: 'İşletme projesi ve aidat takibi' },
     sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
   },

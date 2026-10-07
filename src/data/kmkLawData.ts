@@ -82,7 +82,7 @@ export const KMK_LAW_INDEX: KmkArticleItem[] = [
     practicalApplication: 'Yıllık şeffaf işletme projesi hazırlanarak tüm maliklere noter/iadeli veya dijital tebliğ edilir.',
     legalAnchor: `${BASE_URL}/hizmetler/tesis-yonetimi#kmk-madde-37`,
     featuredSnippetQuestion: 'İşletme projesi nedir ve kaç günde kesinleşir?',
-    directSnippetAnswer: 'İşletme projesi, sitenin yıllık tahmini gelir ve gider bütçesidir. KMK Madde 37 uyarınca yönetici tarafından hazırlanıp maliklere tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İcra İflas Kanunu 68. madde anlamında resmi belge sayılır.',
+    directSnippetAnswer: 'İşletme projesi, sitenin yıllık tahmini gelir ve gider bütçesidir. KMK Madde 37 uyarınca hazırlanır ve maliklere tebliğ edilir; 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirilmiştir (onaylı proje yoksa yönetici geçici proje hazırlar, en geç 3 ay içinde kurula onaylatır). Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İcra İflas Kanunu 68. madde anlamında resmi belge sayılır.',
   },
   {
     articleNumber: 18,

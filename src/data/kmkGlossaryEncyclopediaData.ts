@@ -251,7 +251,7 @@ export const KMK_GLOSSARY_TERMS: GlossaryTerm[] = [
     category: 'maliye-ve-butce',
     categoryName: 'Maliye, Bütçe & Aidat',
     snippetDefinition: 'Ana gayrimenkulün 1 yıllık tahmini gelir ve giderlerini, her kat malikinin arsa payı veya bağımsız bölüm başına düşen aylık aidat avansını gösteren resmi bütçe belgesidir.',
-    detailedExplanation: 'Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektupla veya imza karşılığı tebliğ edilir. 7 gün içinde itiraz edilmezse kesinleşir ve İİK Madde 68/1 uyarınca ilamsız icra takibine doğrudan delil olur.',
+    detailedExplanation: 'Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektupla veya imza karşılığı tebliğ edilir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. 7 gün içinde itiraz edilmezse kesinleşir ve İİK Madde 68/1 uyarınca ilamsız icra takibine doğrudan delil olur.',
     kmkArticleRef: '634 Sayılı KMK Madde 37',
     wikidataUri: 'https://www.wikidata.org/wiki/Q1102521',
     relatedTerms: ['Aidat', 'Gecikme Tazminatı', 'İlamsız İcra'],

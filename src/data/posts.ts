@@ -1868,14 +1868,14 @@ export const POSTS: Post[] = [
     ],
     "author": "elif-demir",
     "datePublished": "2026-01-15T08:00:00+03:00",
-    "dateModified": "2026-02-24T20:00:00.000Z",
+    "dateModified": "2026-10-07T09:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Site aidat artışları kanunen sabit bir orana bağlı olmayıp; sitenin yıllık işletme bütçesindeki personel (SGK/asgari ücret), enerji, bakım ve demirbaş maliyet artışlarının KMK m.20 uyarınca kat maliklerine paylaştırılmasıyla belirlenir.",
+    "tldr": "Site aidat artışları genel olarak sabit bir orana bağlı değildir; ancak 22 Mayıs 2026 tarihli 7579 sayılı Kanun'la, mevcut işletme projesi olan sitelerde geçici proje bedeli bir önceki yıla ilişkin yeniden değerleme oranından fazla artırılamaz (KMK m.37). Aidat, yıllık işletme bütçesindeki personel (SGK/asgari ücret), enerji, bakım ve demirbaş giderlerinin KMK m.20 uyarınca kat maliklerine paylaştırılmasıyla belirlenir.",
     "content": [
       {
         "type": "p",
-        "text": "Toplu konutlarda, sitelerde ve rezidanslarda her yılın başında en çok tartışılan konuların başında aidat artış oranları gelir. Kira artışlarında uygulanan yasal tavan sınırlamalarının aksine, Kat Mülkiyeti Kanunu (KMK) aidat artışları için sabit bir yüzde veya TÜFE tavanı belirlemez. Aidat tutarı, binanın fiili giderlerini karşılamak üzere hazırlanan İşletme Projesi bütçesi ile şekillenir."
+        "text": "Toplu konutlarda, sitelerde ve rezidanslarda her yılın başında en çok tartışılan konuların başında aidat artış oranları gelir. Kira artışlarındaki TÜFE tavanından farklı olarak Kat Mülkiyeti Kanunu (KMK) aidat artışları için genel bir yüzde belirlemez; ancak 22 Mayıs 2026 tarihli 7579 sayılı Kanun'la, mevcut işletme projesi olan sitelerde geçici projedeki bedelin bir önceki yıla ilişkin yeniden değerleme oranından fazla artırılamayacağı hükme bağlanmıştır (KMK m.37). Kesin uygulama için hukuk danışmanınıza başvurun. Aidat tutarı, binanın fiili giderlerini karşılamak üzere hazırlanan İşletme Projesi bütçesi ile şekillenir."
       },
       {
         "type": "h2",
