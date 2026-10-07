@@ -23,7 +23,7 @@ const CORE_TRANSLATED = [
 ] as const;
 
 // Hizmet sayfaları: çekirdek içerik çevrildi, yalnızca Türkçe olan SEO blokları en/ru/ar'da gizli (TrOnly).
-const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi', '/hizmetler/hasere-ve-dezenfeksiyon', '/hizmetler/havuz-bakimi-ve-hijyen', '/hizmetler/temizlik-ve-hijyen', '/hizmetler/aidat-takibi', '/hizmetler/teknik-bakim', '/hizmetler/hukuk-ve-icra-danismanligi', '/hizmetler/guvenlik-yonetimi', '/hizmetler/site-yonetimi', '/hizmetler/tesis-yonetimi', '/hizmetler/tesis-yonetimi/plaza-yonetimi', '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi'] as const;
+const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi', '/hizmetler/hasere-ve-dezenfeksiyon', '/hizmetler/havuz-bakimi-ve-hijyen', '/hizmetler/temizlik-ve-hijyen', '/hizmetler/aidat-takibi', '/hizmetler/teknik-bakim', '/hizmetler/hukuk-ve-icra-danismanligi', '/hizmetler/guvenlik-yonetimi', '/hizmetler/site-yonetimi', '/hizmetler/tesis-yonetimi', '/hizmetler/tesis-yonetimi/plaza-yonetimi', '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', '/hizmetler/tesis-yonetimi/rehber'] as const;
 
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   // teklif-al: form etiketleri ve metinler çeviri anahtarlarına bağlı (en/ru/ar doğrulandı).

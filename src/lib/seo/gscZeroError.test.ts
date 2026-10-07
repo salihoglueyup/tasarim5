@@ -3985,11 +3985,14 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const path = await import('path');
       const rehberContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/TesisYonetimiRehberClient.tsx'), 'utf8');
 
-      expect(rehberContent).toContain('Sadece En Düşük Fiyata Bakmak & 5188 Lisansını Sorgulamamak');
-      expect(rehberContent).toContain('Sözleşmede 45 Dk SLA ve %0 Reaktif Ceza Garantisi Aramamak');
-      expect(rehberContent).toContain('Personel Kıdem Tazminatı ve SGK Rücu Riskini Netleştirmemek');
-      expect(rehberContent).toContain('KMK m.37 İşletme Projesinin Tebliğ Edilmeyip Kesinleşmemesi');
-      expect(rehberContent).toContain('Asansör Yeşil Etiket ve Yangın Otomasyonunu Denetimsiz Bırakmak');
+      // Rehber metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
+      const rehberDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(rehberContent).toContain('rhb_m${n}_title');
+      expect(rehberDict).toContain('Sadece En Düşük Fiyata Bakmak & 5188 Lisansını Sorgulamamak');
+      expect(rehberDict).toContain('Sözleşmede 45 Dk SLA ve Reaktif Ceza Önleme Taahhüdü Aramamak');
+      expect(rehberDict).toContain('Personel Kıdem Tazminatı ve SGK Rücu Riskini Netleştirmemek');
+      expect(rehberDict).toContain('KMK m.37 İşletme Projesinin Onaylanmaması ve Usulüne Uygun Tebliğ Edilmemesi');
+      expect(rehberDict).toContain('Asansör Yeşil Etiket ve Yangın Otomasyonunu Denetimsiz Bırakmak');
     });
 
     it('rehber/page.tsx başlığı yüksek CTR ve B2B niyetine uygun olarak güncellenmiştir', async () => {
@@ -3997,8 +4000,10 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const path = await import('path');
       const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/page.tsx'), 'utf8');
 
-      expect(pageContent).toContain('Tesis Yönetim Şirketi Nasıl Seçilir? 2026 Seçim & Şartname Rehberi | Alo Yönetim');
-      expect(pageContent).toContain('B2B teknik şartname hazırlığı (RFP), 5188 lisansı, KMK m.34 devir protokolü');
+      const rehberTr = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(pageContent).toContain('rhb_meta_title');
+      expect(rehberTr).toContain('Tesis Yönetim Şirketi Nasıl Seçilir? 2026 Seçim & Şartname Rehberi');
+      expect(rehberTr).toContain('B2B teknik şartname hazırlığı (RFP), 5188 lisansı, KMK m.34 devir protokolü');
     });
 
     it('TesisYonetimiClient.tsx içinde FacilityRfpDownloadModalSeo entegre edilmiştir ve yinelenen hesaplayıcı kaldırılmıştır', async () => {
