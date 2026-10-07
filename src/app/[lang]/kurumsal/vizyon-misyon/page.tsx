@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
@@ -20,27 +20,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Vizyon ve Misyonumuz — Şeffaf Tesis Yönetimi | Alo Yönetim';
-  const description =
-    '45.000+ bağımsız bölüm, %100 açık kasa şeffaflığı, dokunulmaz kıdem tazminatı bloke fonu ve yapay zeka destekli akıllı tesis otomasyonu ile 2026 kurumsal yönetim vizyonumuz.';
-
   return buildMetadata({
-    title,
-    description,
+    title: t.viz_meta_title,
+    description: t.viz_meta_desc,
     path: '/kurumsal/vizyon-misyon',
     lang,
     targetKeyword: 'alo yönetim vizyon ve misyon',
     ogImageType: 'default',
-    keywords: [
-      'alo yönetim vizyon',
-      'alo yönetim misyon',
-      'site yönetimi vizyonu',
-      'şeffaf apartman yönetimi',
-      'akıllı tesis yönetimi',
-      'site açık kasa sistemi',
-      'dokunulmaz kıdem tazminatı fonu',
-      '634 kmk yönetim felsefesi',
-    ],
+    keywords: t.viz_meta_keywords.split('|'),
   });
 }
 
@@ -53,16 +40,15 @@ export default async function VizyonMisyonPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
-    { name: t.vision_title || 'Vizyon & Misyon', url: '/kurumsal/vizyon-misyon' },
+    { name: t.nav_home, url: '/' },
+    { name: t.nav_corporate, url: '/kurumsal' },
+    { name: t.vision_title, url: '/kurumsal/vizyon-misyon' },
   ]);
 
   const pageLd = webPageSchema({
     type: 'AboutPage',
-    name: 'Vizyon ve Misyonumuz — Şeffaf Tesis Yönetimi | Alo Yönetim',
-    description:
-      '45.000+ bağımsız bölüm, %100 açık kasa şeffaflığı, dokunulmaz kıdem tazminatı bloke fonu ve yapay zeka destekli akıllı tesis otomasyonu ile 2026 kurumsal yönetim vizyonumuz.',
+    name: t.viz_meta_title,
+    description: t.viz_meta_desc,
     path: '/kurumsal/vizyon-misyon',
     speakableSelectors: ['h1', 'h2', 'p'],
   });
@@ -71,21 +57,18 @@ export default async function VizyonMisyonPage({
     '@context': 'https://schema.org',
     '@type': 'Corporation',
     name: 'Alo Yönetim Mülk & Entegre Tesis Yönetimi',
-    url: 'https://aloyonetim.com',
-    logo: 'https://aloyonetim.com/logo.png',
-    description:
-      'Türkiye genelinde 45.000+ bağımsız bölümü 634 sayılı KMK ve ISO standartlarında şeffaf, güvenilir ve yapay zeka destekli yöneten tesis yönetimi şirketi.',
+    url: BASE_URL,
+    logo: `${BASE_URL}/images/logo.png`,
+    foundingDate: '2009',
+    description: t.viz_org_desc,
     knowsAbout: [
       '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
       '5188 Sayılı Özel Güvenlik Hizmetleri Kanunu',
       'Açık Kasa Şeffaf Bütçe ve Aidat Yönetimi',
       'Entegre Tesis ve Rezidans İşletmeciliği',
-      'Yapay Zeka Destekli IoT Kestirimci Bakım',
     ],
-    sameAs: [
-      'https://www.guvenlikkursu.com/',
-      'https://www.linkedin.com/company/aloyonetim',
-    ],
+    // guvenlikkursu.com: Alo Yönetim'in EGM onaylı eğitim kurumu
+    sameAs: ['https://www.guvenlikkursu.com/'],
   };
 
   return (

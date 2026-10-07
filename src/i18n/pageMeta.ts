@@ -154,9 +154,9 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'أكاديمية الأمن — تدريب الأمن الخاص (القانون رقم 5188)', description: 'التدريب الأساسي للأمن الخاص المسلح/غير المسلح وفق القانون رقم 5188 وبرامج التجديد ومراقبة الكاميرات وشهادات أمن المنشآت.' },
   },
   '/kurumsal/vizyon-misyon': {
-    en: { title: 'Our Vision & Mission — Transparent Facility Management', description: 'Our 2026 corporate management vision: open-book cash transparency, a protected severance fund and AI-assisted smart facility automation.' },
-    ru: { title: 'Наши видение и миссия — прозрачное управление объектами', description: 'Наше корпоративное видение управления на 2026 год: прозрачная открытая касса, защищённый фонд выходных пособий и «умная» автоматизация объектов с поддержкой ИИ.' },
-    ar: { title: 'رؤيتنا ورسالتنا — إدارة مرافق شفافة', description: 'رؤيتنا للإدارة المؤسسية لعام 2026: شفافية كاملة للصندوق وصندوق محمي لتعويضات نهاية الخدمة وأتمتة ذكية للمرافق بدعم الذكاء الاصطناعي.' },
+    en: { title: 'Our Vision & Mission — Transparent Facility Management | Alo Yönetim', description: 'Open-book transparency, a monthly independent financial audit report, severance provisions held in a blocked account in the complex\'s name and technology-assisted facility management: Alo Yönetim\'s management vision.' },
+    ru: { title: 'Наши видение и миссия — прозрачное управление объектами | Alo Yönetim', description: 'Прозрачная открытая касса, ежемесячный независимый финансовый отчёт, резерв выходных пособий на блокированном счёте на имя комплекса и технологичное управление объектами: управленческое видение Alo Yönetim.' },
+    ar: { title: 'رؤيتنا ورسالتنا — إدارة مرافق شفافة | Alo Yönetim', description: 'شفافية الصندوق المفتوح وتقرير تدقيق مالي مستقل شهري واحتجاز مخصصات نهاية الخدمة في حساب مجمّد باسم المجمع وإدارة مرافق مدعومة بالتكنولوجيا: رؤية Alo Yönetim الإدارية.' },
   },
   '/site-haritasi': {
     en: { title: 'Sitemap — All Services and Regional Pages', description: 'A quick-access map to all Alo Yönetim services, corporate information pages, calculators and the facility management pages of Istanbul\'s 39 districts.' },

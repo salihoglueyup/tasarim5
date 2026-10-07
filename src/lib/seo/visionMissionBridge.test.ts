@@ -22,65 +22,62 @@ describe('Vizyon & Misyon 2026 Kurumsal Modernizasyon Güvence Testleri', () => 
     expect(content).toContain('guvenlikkursu.com');
   });
 
-  it('VisionHeroSeo güncel doğrulanmış kurumsal metrikleri ve resmi akreditasyonları barındırır', () => {
-    const heroPath = path.join(
-      rootDir,
-      'src/components/seo/vision/VisionHeroSeo.tsx'
-    );
-    const content = fs.readFileSync(heroPath, 'utf8');
+  // Yalnızca vizyon sayfasına ait (viz_) çeviri satırları; sözlüğün geri kalanındaki başka sayfalar etkilenmez.
+  const dictRaw = () => {
+    const all = JSON.parse(fs.readFileSync(path.join(rootDir, 'src/i18n/locales/tr/common.json'), 'utf8')) as Record<string, string>;
+    return Object.entries(all)
+      .filter(([k]) => k.startsWith('viz_'))
+      .map(([k, v]) => `"${k}": "${v}"`)
+      .join(' | ');
+  };
+  const read = (rel: string) => fs.readFileSync(path.join(rootDir, rel), 'utf8');
 
-    expect(content).toContain('45.000+');
-    expect(content).toContain('1.200+');
-    expect(content).toContain('%99,4');
-    expect(content).toContain('%28');
-    expect(content).toContain('ISO 45001');
-    expect(content).not.toContain('ISO 9001');
-    expect(content).toContain('634 Sayılı KMK');
+  it('VisionHeroSeo çeviri anahtarlarını kullanır ve doğrulanamayan rakamlar içermez', () => {
+    const content = read('src/components/seo/vision/VisionHeroSeo.tsx');
+    const dict = dictRaw();
+
+    expect(content).toContain("viz_hero_b1");
+    expect(content).toContain("viz_card_${i + 1}_value");
+    for (const bad of ['45.000', '1.200', '%99,4', '%28', 'ISO 9001']) {
+      expect(content).not.toContain(bad);
+    }
+    expect(dict).toContain('ISO 45001 • ISO 14001 • ISO 10002');
+    expect(dict).not.toContain('ISO 9001');
   });
 
-  it('VisionComparisonMatrixSeo 6 somut yönetim kriterini ve tasarruf faydalarını karşılaştırır', () => {
-    const matrixPath = path.join(
-      rootDir,
-      'src/components/seo/vision/VisionComparisonMatrixSeo.tsx'
-    );
-    const content = fs.readFileSync(matrixPath, 'utf8');
+  it('VisionComparisonMatrixSeo 6 kriteri çeviri anahtarlarından okur ve rakamsız ifadeler kullanır', () => {
+    const content = read('src/components/seo/vision/VisionComparisonMatrixSeo.tsx');
+    const dict = dictRaw();
 
-    expect(content).toContain('Finansal Şeffaflık & Kasa Denetimi');
-    expect(content).toContain('Personel Kıdem Tazminatı Güvencesi');
-    expect(content).toContain('Güvenlik Kadrosu & Lisans Denetimi');
-    expect(content).toContain('Teknik Arıza & Kestirimci Bakım');
-    expect(content).toContain('Aidat Tahsilatı & Hukuki Takip');
-    expect(content).toContain('Satın Alma & Tedarik Maliyetleri');
-    expect(content).toContain('Geleneksel / Amatör Yönetim');
-    expect(content).toContain('Alo Yönetim 2026 Standartları');
+    expect(content).toContain('ROW_COUNT = 6');
+    expect(content).toContain('viz_cmp_${n}_crit');
+    expect(dict).toContain('Finansal Şeffaflık & Kasa Denetimi');
+    expect(dict).toContain('Satın Alma & Tedarik Maliyetleri');
+    expect(dict).not.toContain('%99,4 Zamanında Tahsilat');
+    expect(dict).not.toContain('%28 Doğrudan');
   });
 
-  it('VisionManifestoSeo kat maliklerine 5 hukuki ve şeffaf taahhüt sunar', () => {
-    const manifestoPath = path.join(
-      rootDir,
-      'src/components/seo/vision/VisionManifestoSeo.tsx'
-    );
-    const content = fs.readFileSync(manifestoPath, 'utf8');
+  it('VisionManifestoSeo 5 taahhüdü çeviri anahtarlarından okur; yanlış kanun atıfları ve garanti dili yoktur', () => {
+    const content = read('src/components/seo/vision/VisionManifestoSeo.tsx');
+    const dict = dictRaw();
 
-    expect(content).toContain('Asla Gizli Komisyon veya Şişirilmiş Fatura Yok');
-    expect(content).toContain('Dokunulmaz ve Blokeli Kıdem Tazminatı Fonu');
-    expect(content).toContain('Her Ay Bağımsız Denetim Raporu E-Postanızda');
-    expect(content).toContain('7/24 Kesintisiz Çağrı & 15 Dakikada Acil Müdahale');
-    expect(content).toContain('Yıllık İşletme Projesinde Minimum %20 Tasarruf');
+    expect(content).toContain('PLEDGE_COUNT = 5');
+    expect(content).toContain('viz_man_${n}_title');
+    expect(dict).toContain('Site Adına Bloke Kıdem Tazminatı Karşılığı');
+    expect(dict).not.toContain('Minimum %20 Tasarruf');
+    expect(dict).not.toContain('KMK m.38');
+    expect(dict).not.toContain('SÖZLEŞME GARANTİLİ');
   });
 
-  it('VisionRoadmapSeo 2014-2030 kilometre taşlarını ve liderlik dönemini sunar', () => {
-    const roadmapPath = path.join(
-      rootDir,
-      'src/components/seo/vision/VisionRoadmapSeo.tsx'
-    );
-    const content = fs.readFileSync(roadmapPath, 'utf8');
+  it('VisionRoadmapSeo yalnızca doğrulanmış kuruluş yılını (2009) tarih olarak kullanır', () => {
+    const content = read('src/components/seo/vision/VisionRoadmapSeo.tsx');
+    const dict = dictRaw();
 
-    expect(content).toContain('2014 — 2019');
-    expect(content).toContain('2020 — 2023');
-    expect(content).toContain('2024 — 2026 (Bugün)');
-    expect(content).toContain('2027 — 2030 Hedefi');
-    expect(content).toContain('Otonom Yeşil Siteler & Karbon Nötr Tesisler');
+    expect(content).toContain('viz_road_${n}_period');
+    expect(dict).toContain('"viz_road_1_period": "2009"');
+    for (const bad of ['2014 — 2019', '2020 — 2023', '45.000+', '1.200+', 'ISO 9001']) {
+      expect(dict).not.toContain(bad);
+    }
   });
 
   it('Vizyon ve Misyon page.tsx dosyasında zengin AboutPage ve Corporation JSON-LD şemaları bulunur', () => {
