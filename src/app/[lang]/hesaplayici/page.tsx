@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import CalculatorClient from './CalculatorClient';
 import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n';
+import TrOnly from '@/components/seo/TrOnly';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, howToSchema, ORG_CREDENTIALS } from '@/lib/schemas';
 import DefinedTermSetSeo from '@/components/seo/schema/DefinedTermSetSeo';
@@ -17,25 +19,24 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const t = await getDictionary(lang);
   return buildMetadata({
-    title: 'Online Aidat ve İşletme Bütçesi Hesaplayıcı | Alo Yönetim',
-    description:
-      'Sitenizin tahmini işletme bütçesini ve aidat tasarrufunu 60 saniyede KMK 634 standartlarında online hesaplayın. Ücretsiz bütçe simülasyonu başlatın!',
+    title: t.calx_meta_title,
+    description: t.calx_meta_desc,
     path: '/hesaplayici',
     lang,
     targetKeyword: 'aidat hesaplama',
-    keywords: [
-      'aidat hesaplama',
-      'tesis yönetim maliyeti',
-      'site aidat hesaplayıcı',
-      'işletme projesi bütçesi',
-      'kmk 634 aidat tasarrufu',
-      'apartman aidatı ne kadar',
-    ],
+    keywords: t.calx_meta_keywords.split('|'),
   });
 }
 
-export default async function HesaplayiciServer() {
+export default async function HesaplayiciServer({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const t = await getDictionary(lang);
   let configRecord = null;
   try {
     configRecord = await prisma.calculatorConfig.findFirst();
@@ -56,32 +57,22 @@ export default async function HesaplayiciServer() {
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
-    { name: 'Aidat & Bütçe Hesaplayıcı', url: '/hesaplayici' },
+    { name: t.calx_breadcrumb, url: '/hesaplayici' },
   ]);
 
   const howToLd = howToSchema({
-    name: 'Site Aidatı ve Tesis Bütçesi Nasıl Hesaplanır?',
-    description: '634 Sayılı Kat Mülkiyeti Kanunu ve işletme projesi standartlarına göre daire başı aidat ve tasarruf hesaplama adımları.',
-    steps: [
-      {
-        name: 'Bağımsız Bölüm Sayısını Belirleyin',
-        text: 'Sitenizdeki toplam konut, daire veya dükkan sayısını girerek temel işletme hacmini oluşturun.',
-      },
-      {
-        name: 'Tesis Özelliklerini ve Donatıları Seçin',
-        text: '5188 özel güvenlik, yüzme havuzu, asansör sayısı ve peyzaj yeşil alan büyüklüğü gibi ek operasyonel hizmetleri işaretleyin.',
-      },
-      {
-        name: 'KMK 634 Bütçe Simülasyonunu İnceleyin',
-        text: 'Tahmini aylık toplam bütçeyi, daire başı aidatı ve Alo Yönetim ile %30 tasarruf projeksiyonunu anında görüntüleyin.',
-      },
-    ],
+    name: t.calx_howto_name,
+    description: t.calx_howto_desc,
+    steps: [1, 2, 3].map((n) => ({
+      name: t[`calx_step_${n}_name` as keyof typeof t] as string,
+      text: t[`calx_step_${n}_text` as keyof typeof t] as string,
+    })),
   });
 
   const webAppLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Alo Yönetim Tesis & Aidat Bütçe Hesaplama Simülatörü',
+    name: t.calx_app_name,
     url: `${BASE_URL}/hesaplayici`,
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'All',
@@ -91,12 +82,7 @@ export default async function HesaplayiciServer() {
       price: '0',
       priceCurrency: 'TRY',
     },
-    featureList: [
-      'KMK 634 standartlarında bütçe simülasyonu',
-      '5188 özel güvenlik ve temizlik maliyet hesaplama',
-      'Yüzde 30 kanıtlanmış aidat tasarruf projeksiyonu',
-      'ISO 10002 ve ISO 31000 belgeli şeffaf yönetim güvencesi',
-    ],
+    featureList: [t.calx_app_f1, t.calx_app_f2, t.calx_app_f3],
     provider: {
       '@type': 'Organization',
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
@@ -111,14 +97,14 @@ export default async function HesaplayiciServer() {
       },
       result: {
         '@type': 'FinancialProduct',
-        name: 'Tahmini Tesis İşletme Bütçesi ve %30 Tasarruf Raporu',
+        name: t.calx_app_result,
       },
     },
   };
 
   const pageLd = webPageSchema({
-    name: 'Aidat & Tesis Yönetim Maliyeti Hesaplayıcı',
-    description: 'Siteniz için tahmini aidat ve yönetim bütçesini hesaplayın.',
+    name: t.calx_page_ld_name,
+    description: t.calx_page_ld_desc,
     path: '/hesaplayici',
     speakableSelectors: ['h1', 'h2', 'p', '#calc-instant-answer-text', '#budget-matrix-instant-answer-text'],
   });
@@ -128,28 +114,22 @@ export default async function HesaplayiciServer() {
       <JsonLd data={[breadcrumbLd, webAppLd, howToLd, pageLd]} />
       <CalculatorClient initialConfig={config} />
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20 space-y-8">
-        <CalculatorAiOverviewSeo />
-        <BudgetMatrixAiGroundingSeo />
+        <TrOnly>
+          <CalculatorAiOverviewSeo />
+          <BudgetMatrixAiGroundingSeo />
+        </TrOnly>
+        <TrOnly>
         <DefinedTermSetSeo
-          name="Tesis Yönetimi ve Aidat Bütçe Terimleri"
-          description="KMK 634 Madde 20, İşletme Projesi ve Arsa Payı Bütçe Dağılımı Tanımları"
+          name={t.calx_dts_name}
+          description={t.calx_dts_desc}
           path="/hesaplayici"
           detailLinks={false}
-          terms={[
-            {
-              term: 'Tahmini İşletme Projesi (KMK 37)',
-              definition: 'Anagayrimenkulün bir yıllık tahmini giderlerini ve her kat malikine düşen aylık avans tutarını gösteren yasal bütçedir.',
-            },
-            {
-              term: '%30 Tesis Yönetimi Tasarruf Modeli',
-              definition: 'Toplu satın alma gücü, önleyici bakım ve dijital enerji otomasyonu ile işletme masraflarından sağlanan somut tasarruf oranıdır.',
-            },
-            {
-              term: 'Gecikme Tazminatı (KMK 20/2)',
-              definition: 'Gününde ödenmeyen aidat ve ortak avans borcuna yasal faizden bağımsız olarak aylık yüzde 5 oranında işletilen emredici yasal tazminattır (Yargıtay 18. HD).',
-            },
-          ]}
+          terms={[1, 2, 3].map((n) => ({
+            term: t[`calx_term_${n}` as keyof typeof t] as string,
+            definition: t[`calx_term_${n}_def` as keyof typeof t] as string,
+          }))}
         />
+        </TrOnly>
       </div>
     </>
   );

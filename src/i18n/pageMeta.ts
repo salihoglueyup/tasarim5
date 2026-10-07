@@ -94,9 +94,9 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'البيانات المفتوحة وواجهات API لإدارة المرافق | Alo Yönetim', description: 'نقاط JSON المفتوحة من Alo Yönetim دون حاجة إلى مصادقة: مؤشر اشتراكات أحياء إسطنبول، فهرس مواد قانون ملكية الطوابق، ملخصات سوابق محكمة النقض، المسرد، الأسئلة الشائعة وخريطة GeoJSON للأحياء.' },
   },
   '/hesaplayici': {
-    en: { title: 'Online Dues & Operating Budget Calculator', description: 'Calculate your complex\'s estimated operating budget and dues savings online in 60 seconds. Start a free budget simulation.' },
-    ru: { title: 'Онлайн-калькулятор взносов и эксплуатационного бюджета', description: 'Рассчитайте ориентировочный эксплуатационный бюджет вашего комплекса и экономию на взносах онлайн за 60 секунд. Запустите бесплатное моделирование бюджета.' },
-    ar: { title: 'حاسبة الاشتراكات وميزانية التشغيل عبر الإنترنت', description: 'احسبوا ميزانية التشغيل التقديرية لمجمعكم ووفورات الاشتراكات إلكترونيًا خلال 60 ثانية. ابدؤوا محاكاة ميزانية مجانية.' },
+    en: { title: 'Online Dues & Operating Budget Calculator | Alo Yönetim', description: 'Calculate your complex\'s estimated operating budget and dues savings online. Results are estimates; start a free budget simulation.' },
+    ru: { title: 'Онлайн-калькулятор взносов и эксплуатационного бюджета | Alo Yönetim', description: 'Рассчитайте ориентировочный эксплуатационный бюджет вашего комплекса и экономию на взносах онлайн. Результаты оценочные; запустите бесплатную симуляцию бюджета.' },
+    ar: { title: 'حاسبة الاشتراكات وميزانية التشغيل عبر الإنترنت | Alo Yönetim', description: 'احسبوا ميزانية التشغيل التقديرية لمجمعكم ووفورات الاشتراكات عبر الإنترنت. النتائج تقديرية؛ ابدؤوا محاكاة الميزانية المجانية.' },
   },
   '/sss': {
     en: { title: 'Frequently Asked Questions & Condominium Law Guide', description: 'The most common questions and expert answers on complex management, dues enforcement, private security and Condominium Law No. 634. Explore the legal guide.' },

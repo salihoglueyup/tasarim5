@@ -14,8 +14,26 @@ import FacilityAuditReportModal from '@/components/modals/FacilityAuditReportMod
 import { calculateDuesLocalized, CalcConfig } from '@/lib/hesaplayici';
 
 import Icon from '@/components/ui/branding/Icon';
+import TrOnly from '@/components/seo/TrOnly';
+import { localePath } from '@/lib/i18n/localePath';
+
+const GUIDE_LINKS = [
+  { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi' },
+  { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi' },
+  { href: '/hizmetler/tesis-yonetimi/plaza-yonetimi' },
+  { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi' },
+  { href: '/hizmetler/aidat-takibi' },
+  { href: '/hizmetler/teknik-bakim' },
+];
+const PILLAR_EMOJI = ['🛡️', '🧹', '⚡', '📑'];
+const MICRO_ICONS = [
+  { icon: 'trending_down', tone: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
+  { icon: 'verified', tone: 'bg-slate-500/10 text-slate-600 dark:text-slate-400' },
+  { icon: 'smartphone', tone: 'bg-slate-500/10 text-slate-700 dark:text-slate-300' },
+];
 export default function CalculatorClient({ initialConfig }: { initialConfig: CalcConfig }) {
   const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
   const [units, setUnits] = useState<number>(45);
   const [blocks, setBlocks] = useState<number>(3);
   const [elevators, setElevators] = useState<number>(6);
@@ -49,165 +67,58 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
       <section className="py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         
-        {/* ========================================================================= */}
-        {/* GOOGLE POSITION ZERO — STRATEJİK MASTER ÖZET REHBER & MEVZUAT OTORİTESİ   */}
-        {/* ========================================================================= */}
+        {/* Özet rehber */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[3rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Başlık & Rozetler */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
               <Icon name="calculate" className="text-[18px] text-emerald-600 dark:text-emerald-400" />
-              <span>Özet Rehber: Profesyonel Tesis & Site Aidat Bütçesi Nasıl Hesaplanır?</span>
+              <span>{tk('calx_guide_badge')}</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-[var(--color-surface-variant)] px-3 py-1 rounded-lg border border-[var(--color-outline)]/60">
-              KMK m.20 & m.37 Yasal Bütçe Standardı
+              {tk('calx_guide_tag')}
             </span>
           </div>
 
-          {/* Genişletilmiş ve Detaylandırılmış Metin */}
           <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
-            <p>
-              <strong className="text-[var(--color-primary)] font-bold">Profesyonel Tesis ve Site Aidat Bütçesi Hesaplama</strong>;{' '}
-              <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                konut siteleri
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                lüks rezidanslar
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                iş merkezleri ve plazalar
-              </Link>
-              {' '}ile{' '}
-              <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                sanayi tesislerinde
-              </Link>{' '}
-              634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde bağımsız bölüm sayısı, asansör adedi, güvenlik ve temizlik personeli ihtiyacı ile enerji tüketim parametreleri analiz edilerek yıllık tahmini işletme projesinin (KMK m.37) hazırlanması sürecidir.
+            <p>{tk('calx_guide_p1')}</p>
+            <p>{tk('calx_guide_p2')}</p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+              {GUIDE_LINKS.map((l, i) => (
+                <Link key={l.href} href={localePath(l.href, language)} className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                  {tk(`calx_link_${i + 1}`)}
+                </Link>
+              ))}
             </p>
-            <p>
-              Bütçeleme algoritmamız;{' '}
-              <Link href="/sozluk/kat-mulkiyeti-kanunu-kmk" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                634 Sayılı KMK Madde 20 (Ortak Giderlere Katılma)
-              </Link>
-              ,{' '}
-              <Link href="/sozluk/aidat" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                KMK Madde 37 (İşletme Projesi Hazırlama Usulü)
-              </Link>
-              ,{' '}
-              <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=3" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5">
-                2004 Sayılı İcra ve İflas Kanunu (İİK m.68)
-                <Icon name="open_in_new" className="text-[14px]" />
-              </a>
-              {' '}ve Entegre Tesis Maliyet Yönetimi standartlarına tam uyumlu olarak yapılandırılmıştır.
-            </p>
-            <p>
-              Hesaplanan bütçe;{' '}
-              <Link href="/hizmetler/tesis-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                Entegre Tesis Yönetimi
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/guvenlik-yonetimi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                5188 Lisanslı Özel Güvenlik
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/aidat-takibi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                Şeffaf Aidat Takibi
-              </Link>
-              ,{' '}
-              <Link href="/hizmetler/teknik-bakim" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                Teknik Bakım Servisi
-              </Link>
-              {' '}ve{' '}
-              <Link href="/hizmetler/hukuk-ve-icra-danismanligi" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                KMK Hukuk Danışmanlığı
-              </Link>{' '}
-              ile entegre olarak dört ana maliyet kaleminde optimize edilir:
-            </p>
+            <p>{tk('calx_guide_p3')}</p>
 
-            {/* 4 Ana Bütçe Sütunu */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>🛡️</span> 5188 Özel Güvenlik & Resepsiyon Bütçesi
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  7/24 vardiyalı özel güvenlik görevlileri, SGK primleri, yemek, yol, kıyafet, teçhizat ve Valilik izin harçları kalemleri.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>🧹</span> Endüstriyel Temizlik, Hijyen & Peyzaj Giderleri
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  Ortak alan kat personelleri, zemin yıkama otomatı amortismanı, TSE onaylı kimyasal sarfiyatı ve otomatik bahçe sulama bakımları.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>⚡</span> Asansör, Jeneratör & Elektromekanik Bakım
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  A Tipi Muayene Kuruluşu MMO yeşil etiket harçları, jeneratör yakıt/filtreleri, kompanzasyon %0 reaktif ceza ve hidrofor periyodik bakımları.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>📑</span> İdari Yazılım, Muhasebe & KMK Hukuk Masası
-                </span>
-                <p className="text-[var(--color-secondary)]">
-                  Canlı mobil aidat yazılımı lisansı, SMS bildirimleri, noter onaylı tebligatlar, genel kurul divan yönetimi ve ilamsız icra takibi.
-                </p>
-              </div>
+              {PILLAR_EMOJI.map((emoji, i) => (
+                <div key={i} className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
+                  <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
+                    <span>{emoji}</span> {tk(`calx_pillar_${i + 1}_title`)}
+                  </span>
+                  <p className="text-[var(--color-secondary)]">{tk(`calx_pillar_${i + 1}_desc`)}</p>
+                </div>
+              ))}
             </div>
 
-            <p>
-              Alo Yönetim ölçek ekonomisi ve kurumsal satın alma gücü sayesinde sitelerin bütçelerinde %30'a varan net tasarruf sağlanır, yönetim kurullarının hukuki sorumlulukları sıfırlanır ve tüm sakinlere şeffaf hesap dökümü sunulur.
-            </p>
+            <p>{tk('calx_guide_close')}</p>
           </div>
 
-          {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
-            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <Icon name="trending_down" className="text-lg" />
-                </span>
-                <span>%30 Net Bütçe Tasarrufu</span>
+            {MICRO_ICONS.map((m, i) => (
+              <div key={i} className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
+                  <span className={`w-8 h-8 rounded-xl ${m.tone} flex items-center justify-center shrink-0`}>
+                    <Icon name={m.icon} className="text-lg" />
+                  </span>
+                  <span>{tk(`calx_micro_${i + 1}_title`)}</span>
+                </div>
+                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">{tk(`calx_micro_${i + 1}_desc`)}</p>
               </div>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Toplu satın alma gücüyle asansör, güvenlik, temizlik ve elektrik maliyetlerinde doğrudan tasarruf.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
-                  <Icon name="verified" className="text-lg" />
-                </span>
-                <span>%100 KMK 37 Uyumlu Bilanço</span>
-              </div>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Genel kurullarda itiraz edilemez, mahkemede kesin delil teşkil eden şeffaf işletme projesi.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                  <Icon name="smartphone" className="text-lg" />
-                </span>
-                <span>7/24 Canlı Mobil Takip</span>
-              </div>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Her kat malikinin aidat, harcama makbuzu ve banka ekstresini anlık izleyebildiği dijital şeffaflık.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -376,13 +287,14 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <Link 
-                  href="/teklif-al"
+                  href={localePath('/teklif-al', language)}
                   className="flex-1 bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95 shadow-md text-sm"
                 >
                   {t('calc_btn_quote')}
                   <Icon name="arrow_forward" className="text-base" />
                 </Link>
 
+<TrOnly>
                 <button 
                   onClick={() => setIsAuditModalOpen(true)}
                   className="bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/40 border border-[var(--color-outline)]/60 text-[var(--color-primary)] font-bold py-4 px-5 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm"
@@ -391,8 +303,10 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                   <Icon name="assessment" className="text-base" />
                   <span>PDF Raporu Al</span>
                 </button>
+</TrOnly>
               </div>
 
+<TrOnly>
               <button 
                 onClick={() => setIsAuditModalOpen(true)}
                 className="w-full py-3 bg-[var(--color-surface-variant)] hover:bg-slate-200/60 dark:hover:bg-[var(--color-outline)] border border-[var(--color-outline)]/60 rounded-2xl text-xs font-extrabold text-[var(--color-primary)] flex items-center justify-center gap-2 transition-all"
@@ -400,6 +314,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
                 <Icon name="verified" className="text-sm text-slate-600 dark:text-slate-400" />
                 <span>Yönetim Kurulu İçin Resmi Tasarruf Karnesi Üret</span>
               </button>
+</TrOnly>
 
             </motion.div>
 
@@ -430,11 +345,14 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
 
         {/* İnteraktif Risk Skoru & Yasal Denetim Kontrol Listesi */}
         <div className="mt-16 space-y-12">
+<TrOnly>
           <QuizAuditScoreSeo />
           <ChecklistAuditSeo />
+</TrOnly>
         </div>
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
+<TrOnly>
         <ServiceAuthorityHubSeo
           serviceName="Site ve Apartman Aidat Bütçe Simülatörü"
           serviceCategory="Finans & Bütçe Yönetimi"
@@ -484,6 +402,7 @@ export default function CalculatorClient({ initialConfig }: { initialConfig: Cal
             }
           ]}
         />
+</TrOnly>
       </section>
 
       {/* Resmi PDF Tesis Sağlık & Tasarruf Karne Modalı */}

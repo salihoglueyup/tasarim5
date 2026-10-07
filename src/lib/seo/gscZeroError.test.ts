@@ -3755,7 +3755,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(content).toContain('hasCredential: ORG_CREDENTIALS');
       expect(content).not.toContain('ISO 41001:2018 Entegre Tesis Yönetimi');
-      expect(content).toContain('Gecikme Tazminatı (KMK 20/2)');
+      expect(content).toContain('calx_term_${n}');
+      const dict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
+      expect(dict).toContain('Gecikme Tazminatı (KMK m.20)');
     });
 
     it('certificates.ts doğrulanmış ISO 45001 ve ISO 14001 akreditasyon numaralarını içerir', async () => {
