@@ -8,22 +8,37 @@ import Link from 'next/link';
 import PageHeader from '@/components/layout/page/PageHeader';
 import AccreditationAiOverviewSeo from '@/components/seo/ai-overviews/AccreditationAiOverviewSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import TrOnly from '@/components/seo/TrOnly';
 import { CERTIFICATES, type Certificate } from '@/data/certificates';
 
 import Icon from '@/components/ui/branding/Icon';
 type Category = 'all' | 'cevre' | 'is-sagligi' | 'risk-sureklillik' | 'musteri' | 'sosyal';
 
-const CATEGORY_LABELS: Record<Category, { label: string; icon: string }> = {
-  all:                { label: 'Tümü', icon: 'workspace_premium' },
-  cevre:              { label: 'Çevre & Sürdürülebilirlik', icon: 'eco' },
-  'is-sagligi':       { label: 'İş Sağlığı & Güvenlik', icon: 'health_and_safety' },
-  'risk-sureklillik': { label: 'Risk & Süreklilik', icon: 'security' },
-  musteri:            { label: 'Müşteri Memnuniyeti', icon: 'support_agent' },
-  sosyal:             { label: 'Sosyal Sorumluluk', icon: 'diversity_3' },
+const CATEGORY_LABELS: Record<Category, { labelKey: string; icon: string }> = {
+  all:                { labelKey: 'crt_cat_all', icon: 'workspace_premium' },
+  cevre:              { labelKey: 'crt_cat_cevre', icon: 'eco' },
+  'is-sagligi':       { labelKey: 'crt_cat_is', icon: 'health_and_safety' },
+  'risk-sureklillik': { labelKey: 'crt_cat_risk', icon: 'security' },
+  musteri:            { labelKey: 'crt_cat_musteri', icon: 'support_agent' },
+  sosyal:             { labelKey: 'crt_cat_sosyal', icon: 'diversity_3' },
+};
+
+// Başlık alt metinleri için mevcut cert_N_sub çeviri anahtarları
+const SUB_KEYS: Record<string, string> = {
+  'dogaya-saygi': 'cert_1_sub',
+  'iso-31000': 'cert_2_sub',
+  'iso-45001': 'cert_3_sub',
+  'iso-26000': 'cert_4_sub',
+  'iso-22301': 'cert_5_sub',
+  'iso-14001': 'cert_6_sub',
+  'iso-10002': 'cert_7_sub',
 };
 
 function CertificateCard({ cert }: { cert: Certificate }) {
   const router = useRouter();
+  const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
+  const isTr = language === 'tr';
   const ref = useRef<HTMLDivElement>(null);
   
   // Mouse position values
@@ -64,7 +79,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
   return (
     <motion.div
       ref={ref}
-      onClick={() => router.push(`/kurumsal/sertifikalar/${cert.slug}`)}
+      onClick={() => (isTr ? router.push(`/kurumsal/sertifikalar/${cert.slug}`) : window.open(cert.pdf, '_blank', 'noopener,noreferrer'))}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 25 }}
@@ -98,34 +113,38 @@ function CertificateCard({ cert }: { cert: Certificate }) {
             
             <div className="flex flex-col items-end gap-1">
               <span className="inline-block text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40">
-                No: {cert.certificateNumber}
+                {tk('crt_card_no')} {cert.certificateNumber}
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                Mühür: {cert.sealNumber}
+                {tk('crt_card_seal')} {cert.sealNumber}
               </span>
             </div>
           </div>
 
           <div className="flex-grow flex flex-col justify-end w-full mt-4" style={{ transform: "translateZ(20px)" }}>
             <span className="inline-block self-start text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 mb-2">
-              {cert.name}
+              {cert.slug === 'dogaya-saygi' ? tk('crt_name_dogaya-saygi') : cert.name}
             </span>
             <h3 className="text-lg md:text-xl font-extrabold text-slate-900 dark:text-white leading-tight mb-2">
-              {cert.subtitle}
+              {isTr ? cert.subtitle : tk(SUB_KEYS[cert.slug] ?? 'crt_card_details')}
             </h3>
             <p className="text-xs md:text-sm font-light text-slate-600 dark:text-slate-300 line-clamp-3 mb-4 leading-relaxed">
-              {cert.description}
+              {tk(`crt_desc_${cert.slug}`)}
             </p>
 
             <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between w-full">
+              {isTr ? (
               <Link
                 href={`/kurumsal/sertifikalar/${cert.slug}`}
                 onClick={(e) => e.stopPropagation()}
                 className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
               >
-                <span>Detaylı İncele</span>
+                <span>{tk('crt_card_details')}</span>
                 <Icon name="arrow_forward" className="text-sm" />
               </Link>
+              ) : (
+                <span />
+              )}
               <div className="flex items-center gap-2.5">
                 <a
                   href={cert.pdf}
@@ -133,7 +152,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
-                  aria-label={`${cert.name} PDF indir`}
+                  aria-label={`${cert.slug === 'dogaya-saygi' ? tk('crt_name_dogaya-saygi') : cert.name} PDF indir`}
                 >
                   <Icon name="download" className="text-xs" />
                   PDF
@@ -147,7 +166,7 @@ function CertificateCard({ cert }: { cert: Certificate }) {
                   className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5 hover:underline"
                   aria-label="BELCERT resmi sorgulama"
                 >
-                  <span>Doğrula</span>
+                  <span>{tk('crt_card_verify')}</span>
                   <Icon name="open_in_new" className="text-[12px]" />
                 </a>
               </div>
@@ -160,10 +179,11 @@ function CertificateCard({ cert }: { cert: Certificate }) {
 }
 
 export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const tk = (key: string) => t(key as Parameters<typeof t>[0]);
+  const isTr = language === 'tr';
   const [activeCategory, setActiveCategory] = useState<Category>('all');
   const [selectedAuditIndex, setSelectedAuditIndex] = useState<number>(0);
-  const [auditVerifiedStatus, setAuditVerifiedStatus] = useState<string | null>(null);
 
   const filteredCerts = activeCategory === 'all'
     ? CERTIFICATES
@@ -171,18 +191,13 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
 
   const categories = (Object.keys(CATEGORY_LABELS) as Category[]).map((key) => ({
     key,
-    ...CATEGORY_LABELS[key],
+    icon: CATEGORY_LABELS[key].icon,
+    label: tk(CATEGORY_LABELS[key].labelKey),
     count: key === 'all' ? CERTIFICATES.length : CERTIFICATES.filter((c) => c.category === key).length,
   }));
 
   const activeAuditCert = CERTIFICATES[selectedAuditIndex] || CERTIFICATES[0];
 
-  const handleAuditVerify = (certNum: string) => {
-    setAuditVerifiedStatus('Sorgulanıyor...');
-    setTimeout(() => {
-      setAuditVerifiedStatus(`✓ ${certNum} numaralı sertifika BELCERT resmi kütüğünde AKTİF ve GEÇERLİDİR.`);
-    }, 500);
-  };
 
   return (
     <>
@@ -198,7 +213,9 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
       {/* 2. GOOGLE AI OVERVIEWS & AKREDİTASYON OTORİTESİ (INSTANT ANSWER)          */}
       {/* ========================================================================= */}
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pt-6 pb-2">
-        <AccreditationAiOverviewSeo lang={lang} />
+        <TrOnly>
+          <AccreditationAiOverviewSeo lang={lang} />
+        </TrOnly>
       </div>
 
       {/* ========================================================================= */}
@@ -214,7 +231,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-4">
               <Icon name="verified_user" className="text-[16px] text-emerald-600 dark:text-emerald-400" />
-              <span>BELCERT & ILAS Uluslararası Akredite Tescillerimiz</span>
+              <span>{tk('crt_manifest_badge')}</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-6">
               {t('certificates_manifest_title_1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-100 dark:to-slate-400">{t('certificates_manifest_title_2')}</span>
@@ -268,126 +285,6 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
             ))}
           </motion.div>
 
-          {/* ========================================================================= */}
-          {/* 4. TESİS YÖNETİMİ KALİTE VE AKREDİTASYON STANDARTLARI REHBERİ             */}
-          {/* ========================================================================= */}
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-200 text-xs font-bold uppercase tracking-wider">
-                <Icon name="menu_book" className="text-[18px] text-slate-600 dark:text-slate-400" />
-                <span>Kurumsal Rehber: Uluslararası Kalite Çerçevesi ve Hukuki Koruma</span>
-              </div>
-              <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
-                ILAS Akrediteli ISO & 5188 Güvenlik İzni
-              </span>
-            </div>
-
-            <div className="space-y-4 text-sm md:text-base text-[var(--color-secondary)] leading-relaxed font-normal relative z-10">
-              <p>
-                <strong className="text-[var(--color-primary)] font-bold">Tesis Yönetimi Kalite ve Akreditasyon Standartları</strong>;{' '}
-                <Link href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
-                  konut siteleri
-                </Link>
-                ,{' '}
-                <Link href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
-                  lüks rezidanslar
-                </Link>
-                ,{' '}
-                <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
-                  iş merkezleri ve plazalar
-                </Link>
-                {' '}ile{' '}
-                <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
-                  sanayi tesislerinde
-                </Link>{' '}
-                sunulan tüm hizmetlerin bağımsız denetim, iş güvenliği, çevre duyarlılığı ve sakin memnuniyeti prosedürlerine tam uygun olarak icra edilmesini teminat altına alır.
-              </p>
-
-              {/* 4 Ana Kalite Disiplini Sütunları */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
-                <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                  <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                    <span>🌐</span> ISO 22301 İş Sürekliliği Yönetimi
-                  </span>
-                  <p className="text-[var(--color-secondary)]">
-                    Kritik hizmetlerin kesintiye uğramaması için iş sürekliliği planları, kriz yönetimi ve acil durum müdahale prosedürleri.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                  <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                    <span>🛡️</span> ISO 45001 & 6331 İSG İş Sağlığı ve Güvenliği
-                  </span>
-                  <p className="text-[var(--color-secondary)]">
-                    Tesis sakinleri ve personeli için sıfır iş kazası hedefi, periyodik acil durum tatbikatları ve yangın güvenlik protokolleri.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                  <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                    <span>🌿</span> ISO 14001:2026 Çevre & Sıfır Atık Yönetimi
-                  </span>
-                  <p className="text-[var(--color-secondary)]">
-                    Sürdürülebilir tesis yönetimi, yağmur suyu geri kazanımı, LED aydınlatma otomasyonu ve tehlikeli atık ayrıştırma sertifikasyonu.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
-                  <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                    <span>🎧</span> ISO 10002 Müşteri Memnuniyeti & Şikayet Yönetimi
-                  </span>
-                  <p className="text-[var(--color-secondary)]">
-                    7/24 sakin talep yönetimi, SLA çözüm takibi ve şikâyetlerin kayıt altına alınıp ölçülerek raporlanması.
-                  </p>
-                </div>
-              </div>
-
-              <p className="pt-1">
-                Tüm yetki belgelerimiz bağımsız uluslararası akreditasyon kuruluşlarınca periyodik gözetim denetimlerine tabi tutulmakta olup, kat malikleri kurullarına sıfır hukuki risk ve yüksek prestij sunmaktadır.
-              </p>
-            </div>
-
-            {/* 3'lü Mikro Çıktı / Değer Sütunları Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[var(--color-outline)]/40 dark:border-white/10 relative z-10">
-              <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                  <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
-                    <Icon name="verified" className="text-lg" />
-                  </span>
-                  <span>%100 Akredite Operasyon</span>
-                </div>
-                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  BELCERT tarafından ILAS akreditasyonuyla belgelendirilmiş kurumsal kalite süreçleri.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                  <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                    <Icon name="gavel" className="text-lg" />
-                  </span>
-                  <span>Sıfır Hukuki Risk</span>
-                </div>
-                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  İş hukuku, İSG ve Kat Mülkiyeti Kanunu kapsamında yönetim kurullarına tam yasal güvence.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm">
-                  <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
-                    <Icon name="domain" className="text-lg" />
-                  </span>
-                  <span>Mülk Değer Koruması</span>
-                </div>
-                <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  Sertifikalı tesis yönetim modeliyle gayrimenkullerin piyasa değerini ve kiralanabilirlik oranını artırma.
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* ========================================================================= */}
           {/* 5. BELCERT CANLI BELGE DOĞRULAMA VE KAREKOD KONSOLU               */}
@@ -399,14 +296,14 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-3.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
                     <Icon name="verified" className="text-sm" />
-                    <span>BELCERT Canlı Doğrulama Konsolu</span>
+                    <span>{tk('crt_con_badge')}</span>
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-                  Tescilli Sertifikaları Sorgulayın & Doğrulayın
+                  {tk('crt_con_title')}
                 </h3>
                 <p className="text-sm text-[var(--color-secondary)] font-light mt-1">
-                  Alo Yönetim&apos;in sahip olduğu 7 resmi yönetim sistemi belgesinin tescil ve geçerlilik durumunu anlık kontrol edin.
+                  {tk('crt_con_desc')}
                 </p>
               </div>
 
@@ -416,7 +313,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                 rel="noopener noreferrer"
                 className="px-5 py-3 bg-slate-900 text-white dark:bg-white dark:text-slate-950 hover:opacity-90 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all shrink-0 self-start md:self-auto shadow-md hover:scale-105"
               >
-                <span>belcert.com Doğrulama Ekranı</span>
+                <span>{tk('crt_con_link')}</span>
                 <Icon name="open_in_new" className="text-xs" />
               </a>
             </div>
@@ -428,7 +325,6 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                   key={c.slug}
                   onClick={() => {
                     setSelectedAuditIndex(idx);
-                    setAuditVerifiedStatus(null);
                   }}
                   className={`p-3 rounded-2xl flex flex-col items-center text-center gap-1.5 transition-all border cursor-pointer ${
                     selectedAuditIndex === idx
@@ -439,7 +335,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
                   <Icon name={c.icon} className={`text-xl transition-colors ${
                     selectedAuditIndex === idx ? 'text-emerald-600 dark:text-emerald-400' : 'text-[var(--color-tertiary)]'
                   }`} />
-                  <span className="text-[11px] font-bold text-[var(--color-primary)] line-clamp-1">{c.name}</span>
+                  <span className="text-[11px] font-bold text-[var(--color-primary)] line-clamp-1">{c.slug === 'dogaya-saygi' ? tk('crt_name_dogaya-saygi') : c.name}</span>
                   <span className="text-[9px] font-mono text-[var(--color-tertiary)] line-clamp-1">{c.certificateNumber}</span>
                 </button>
               ))}
@@ -450,30 +346,30 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               <div className="space-y-3 flex-1">
                 <div className="flex flex-wrap items-center gap-2.5">
                   <span className="px-3 py-1 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold rounded-lg text-xs tracking-wider">
-                    {activeAuditCert.name}
+                    {activeAuditCert.slug === 'dogaya-saygi' ? tk('crt_name_dogaya-saygi') : activeAuditCert.name}
                   </span>
                   <span className="text-sm font-bold text-[var(--color-primary)]">
-                    {activeAuditCert.subtitle}
+                    {isTr ? activeAuditCert.subtitle : tk(SUB_KEYS[activeAuditCert.slug] ?? 'crt_card_details')}
                   </span>
                 </div>
                 
                 <p className="text-xs md:text-sm text-[var(--color-secondary)] leading-relaxed font-light">
-                  <strong className="font-semibold text-[var(--color-primary)]">Resmi Tescil Kapsamı:</strong> {activeAuditCert.officialScopeTr}
+                  <strong className="font-semibold text-[var(--color-primary)]">{tk('crt_con_scope')}</strong> {isTr ? activeAuditCert.officialScopeTr : activeAuditCert.officialScopeEn}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-2 border-t border-[var(--color-outline)]/30">
                   <div>
-                    <span className="block text-[var(--color-tertiary)] text-[11px]">Belgelendiren Kurum:</span>
+                    <span className="block text-[var(--color-tertiary)] text-[11px]">{tk('crt_con_issuer')}</span>
                     <strong className="text-[var(--color-primary)]">{activeAuditCert.issuer}</strong>
                   </div>
                   <div>
-                    <span className="block text-[var(--color-tertiary)] text-[11px]">Akreditasyon Kodu:</span>
+                    <span className="block text-[var(--color-tertiary)] text-[11px]">{tk('crt_con_accr')}</span>
                     <strong className="text-[var(--color-primary)]">{activeAuditCert.accreditation}</strong>
                   </div>
                   <div>
-                    <span className="block text-[var(--color-tertiary)] text-[11px]">Belge / Mühür No:</span>
+                    <span className="block text-[var(--color-tertiary)] text-[11px]">{tk('crt_con_no')}</span>
                     <strong className="text-emerald-700 dark:text-emerald-400 font-mono font-bold">
-                      {activeAuditCert.certificateNumber} (Mühür: {activeAuditCert.sealNumber})
+                      {activeAuditCert.certificateNumber} ({tk('crt_card_seal')} {activeAuditCert.sealNumber})
                     </strong>
                   </div>
                 </div>
@@ -481,30 +377,15 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
 
               {/* Doğrulama Aksiyonu */}
               <div className="flex flex-col items-center md:items-end gap-3 shrink-0 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-[var(--color-outline)]/30">
-                <button
-                  onClick={() => handleAuditVerify(activeAuditCert.certificateNumber)}
+                <a
+                  href="https://www.belcert.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full md:w-auto px-6 py-3 bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold rounded-2xl text-xs flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-xl hover:scale-105 cursor-pointer"
                 >
-                  <Icon name="qr_code_scanner" className="text-sm font-bold" />
-                  <span>Sertifikayı Canlı Sorgula</span>
-                </button>
-
-                {auditVerifiedStatus && (
-                  <div className="flex flex-col items-center md:items-end gap-1 animate-fade-in text-center md:text-right">
-                    <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-500/40">
-                      {auditVerifiedStatus}
-                    </span>
-                    <a
-                      href="https://www.belcert.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] font-bold text-slate-600 dark:text-slate-400 underline flex items-center gap-1 hover:opacity-80"
-                    >
-                      <span>BELCERT Doğrulama Sayfasına Git</span>
-                      <Icon name="open_in_new" className="text-[12px]" />
-                    </a>
-                  </div>
-                )}
+                  <Icon name="open_in_new" className="text-sm font-bold" />
+                  <span>{tk('crt_con_btn')}</span>
+                </a>
               </div>
             </div>
           </div>
@@ -512,6 +393,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
           {/* ========================================================================= */}
           {/* 6. MEVZUAT OTORİTE VE İÇ/DIŞ BAĞLANTI HUB'I (E-E-A-T)                     */}
           {/* ========================================================================= */}
+          <TrOnly>
           <ServiceAuthorityHubSeo
             serviceName="Uluslararası Kalite Standartları ve Akreditasyon Belgelerimiz"
             serviceCategory="Kalite & Standartlar"
@@ -535,17 +417,17 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               {
                 slug: "kat-mulkiyeti-kanunu-kmk",
                 term: "KMK Hukuki Uyumluluk Standartları",
-                summary: "Kat Mülkiyeti Kanunu ve Türk Ticaret Kanunu mevzuatına %100 tam uyumlu şeffaf yönetim güvencesidir."
+                summary: "Kat Mülkiyeti Kanunu çerçevesinde şeffaf yönetim yaklaşımıdır; güncel mevzuat için hukuk danışmanına başvurun."
               },
               {
                 slug: "bina-otomasyon-sistemi-bms",
-                term: "ISO 50001 Enerji Yönetimi Standartları",
-                summary: "Bina otomasyonu ve enerji tasarrufu uygulamalarıyla karbon ayak izinin minimize edilmesi kriterleridir."
+                term: "Bina Otomasyonu & Enerji İzleme",
+                summary: "Ortak alan enerji kullanımının izlenmesi ve verimliliğin artırılmasına yönelik uygulamalardır."
               },
               {
                 slug: "atik-yonetimi-ve-sifir-atik-belgesi",
-                term: "ISO 14001 Çevre & Sıfır Atık",
-                summary: "Tesislerde kaynağında ayrıştırma ve çevre dostu kimyasallarla sürdürülebilir yaşam standartlarıdır."
+                term: "ISO 14001 Çevre Yönetimi",
+                summary: "Kuruluşların çevresel etkilerini yönetmesine yönelik uluslararası çevre yönetim sistemi standardıdır."
               },
               {
                 slug: "5188-sayili-kanun",
@@ -554,6 +436,7 @@ export default function CertificatesClient({ lang = 'tr' }: { lang?: string }) {
               }
             ]}
           />
+          </TrOnly>
 
         </div>
       </section>

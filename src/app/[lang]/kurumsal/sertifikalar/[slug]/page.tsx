@@ -107,16 +107,6 @@ export default async function CertificatePage({
                     {cert.accreditation}
                   </p>
                   <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)] leading-tight">{cert.subtitle}</h2>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {cert.departments.map((dep) => (
-                      <span
-                        key={dep}
-                        className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200/70 dark:border-slate-700/60"
-                      >
-                        {dep}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
 
@@ -124,32 +114,6 @@ export default async function CertificatePage({
               <p className="cert-description text-base md:text-lg text-[var(--color-secondary)] font-light leading-relaxed">
                 {cert.longDescription}
               </p>
-
-              {/* ──────────────────────────────── Somut Faydalar ──────────────────────────────── */}
-              <div>
-                <h3 className="text-base font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center shrink-0">
-                    <Icon name="star" className="text-[15px]" />
-                  </span>
-                  Bu Sertifikanın Size Sağladığı Faydalar
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {cert.faydalar.map((f) => (
-                    <div
-                      key={f.title}
-                      className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 flex gap-4 shadow-xs hover:shadow-md transition-shadow"
-                    >
-                      <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center shrink-0 shadow`}>
-                        <Icon name={f.icon} className="text-white text-xl" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold text-[var(--color-primary)] mb-1">{f.title}</p>
-                        <p className="text-xs text-[var(--color-secondary)] leading-relaxed">{f.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               {/* ──────────────────────────────── Resmi Belge Künyesi ──────────────────────────────── */}
               <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 md:p-8 space-y-6 shadow-xs">

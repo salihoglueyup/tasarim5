@@ -22,24 +22,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Kalite Belgelerimiz ve ISO Akreditasyonları | Alo Yönetim';
-  const description = 'ISO 10002, ISO 14001, ISO 22301, ISO 26000, ISO 31000, ISO 45001 ve Doğaya Saygı sertifikalarımız. BELCERT ve ILAS akreditasyonlu kurumsal kalite belgelerimizi inceleyin.';
 
   return buildMetadata({
-    title,
-    description,
+    title: t.crt_meta_title,
+    description: t.crt_meta_desc,
     path: '/kurumsal/kalite-belgelerimiz',
     lang,
     ogImageType: 'default',
-    keywords: [
-      'kalite belgelerimiz',
-      'iso sertifikaları site yönetimi',
-      'belcert akredite belgeler',
-      'ilas akredite iso belgeleri',
-      'iso 14001 çevre belgesi',
-      'iso 45001 isg belgesi',
-      'doğaya saygı sertifikası'
-    ],
+    keywords: t.crt_meta_keywords.split('|'),
   });
 }
 
@@ -52,15 +42,15 @@ export default async function CertificatesPage({
   const t = await getDictionary(lang);
 
   const breadcrumbLd = generateBreadcrumbs([
-    { name: t.nav_home || 'Anasayfa', url: '/' },
-    { name: t.nav_corporate || 'Kurumsal', url: '/kurumsal' },
-    { name: t.nav_certificates || 'Kalite Belgelerimiz', url: '/kurumsal/kalite-belgelerimiz' }
+    { name: t.nav_home, url: '/' },
+    { name: t.nav_corporate, url: '/kurumsal' },
+    { name: t.nav_certificates, url: '/kurumsal/kalite-belgelerimiz' }
   ]);
 
   const pageLd = webPageSchema({
     type: 'AboutPage',
-    name: t.certificates_title || 'Kalite Belgelerimiz & ISO Akreditasyonlarımız',
-    description: t.certificates_desc || 'Alo Yönetim kurumsal kalite, BELCERT ve ILAS uluslararası akreditasyon sertifikaları.',
+    name: t.certificates_title,
+    description: t.certificates_desc,
     path: '/kurumsal/kalite-belgelerimiz',
     speakableSelectors: ['h1', 'p', '#accreditation-instant-answer-text'],
   });
@@ -70,7 +60,7 @@ export default async function CertificatesPage({
   const certSchemas = CERTIFICATES.map((c) =>
     digitalDocumentSchema({
       name: `${c.name} — No: ${c.certificateNumber}`,
-      description: `${c.description} Belgelendiren: ${c.issuer} (${c.accreditation}).`,
+      description: `${t[`crt_desc_${c.slug}` as keyof typeof t] as string} ${c.issuer} (${c.accreditation}).`,
       url: c.pdf,
       datePublished: c.datePublished,
       issuerName: c.issuer,
